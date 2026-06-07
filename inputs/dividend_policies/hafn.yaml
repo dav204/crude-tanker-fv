@@ -1,0 +1,22 @@
+# Hafnia Limited (HAFN) dividend policy — METHODOLOGY §4.3, §11.5
+# Source: Hafnia Q1 2026 6-K + earnings call transcript.
+#
+# Explicit formula per Hafnia mgmt: "Minimum 50% of net profit, with current
+# target of 80% of net profit." 17th consecutive quarterly dividend at Q1 2026.
+# VIE Coverage Universe "80% EPS" tag confirmed.
+#
+# Q1 2026: $0.2877/sh declared; total distribution $143.8M; ~14% annualised
+# yield at then-current price. Q4 2025 → Q1 2026 trajectory: $0.1762 → $0.2877
+# (+63% QoQ on net profit rebound from $110M to $179.7M).
+#
+# No fixed base, no floor — the 80%-of-NPAT target is the entire mechanism.
+# Currency: USD declared and paid (Oslo holders convert at prevailing rates).
+#
+# Methodologically similar to ASC's "2/3 of Adjusted Earnings" — both are
+# pure-variable percent-of-earnings policies. Higher payout than TRMD's
+# smoothed ~75% (Hafnia explicit 80% target vs TRMD Board-discretion).
+ticker: HAFN
+policy_type: variable
+payout_ratio: 0.80              # explicit 80% of net profit target (current; minimum 50%)
+base_dividend_per_share: 0.0    # no fixed base
+floor: 0.0                      # no EPS breakeven threshold deducted before payout

@@ -1,0 +1,28 @@
+# Secondhand vessel sale prints — METHODOLOGY.md sections 3.1, 9.9
+# Used by the transaction-anchored curve fit (transactions.py) to recalibrate
+# the MID-AGE (5yr, 10yr) anchors of a class's value curve from observed S&P
+# transactions. Newbuild (age 0) and old-age (15yr+) legs are NOT touched here
+# — newbuilds are publicly priced; old-age is disposal-validated separately.
+#
+# Sources: published quarterly filings (Q1/Q4 disclosures), broker S&P columns
+# (TradeWinds, Splash247, Hellenic Shipping News), VesselsValue "Recent S&P".
+# Pull 5-7 prints per class, mixed ages — at least 2 5-year-old, 3 10-year-old,
+# 1-2 15-year-old transactions (the solver weights by age proximity to anchor).
+#
+# Fields per print:
+#   date                — ISO sale-completion date (YYYY-MM-DD)
+#   vessel_age_at_sale  — years (compute as sale-year − built-year)
+#   sale_price_usd_m    — headline price ($M)
+#   source              — short citation (issuer + report, or trade press)
+#   quality_flag        — one of:
+#     standard            arm's-length S&P at clean market (no uplift)
+#     financing           sale-leaseback / financing structure (+5% uplift —
+#                         typically clears 5-10% below clean market because the
+#                         lessee gets capex relief, the lessor a yield premium)
+#     distressed          forced sale (yard default, insolvency) (+10% uplift)
+#     newbuild_resale     sister-vessel newbuild slot resale (treat as age 0,
+#                         no uplift — already a clean-market print)
+#   notes               — anything relevant (yard, scrubber/eco, charter attached)
+class: Aframax
+as_of: 2026-05-29
+prints: []

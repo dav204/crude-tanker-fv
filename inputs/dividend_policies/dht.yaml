@@ -1,0 +1,12 @@
+# DHT Holdings dividend policy — METHODOLOGY.md section 4.3
+# Source: DHT Q1 2026 results — "capital allocation policy to pay out 100% of
+# ordinary net income" (Q1 declared $0.64/sh = 100% of ordinary NI). 65th
+# consecutive quarterly dividend.
+# policy_type "variable" => DPS = max(base_dividend_per_share, payout_ratio * max(0, EPS - floor)).
+# So base acts as a MINIMUM FLOOR under the dividend (not added on top). For DHT
+# with 100% payout the dividend equals EPS whenever EPS > $0.025/qtr.
+ticker: DHT
+policy_type: variable
+payout_ratio: 1.00              # 100% of (ordinary) net income
+base_dividend_per_share: 0.025  # nominal $0.025/qtr minimum floor under DPS
+floor: 0.0                      # no EPS breakeven threshold deducted before payout

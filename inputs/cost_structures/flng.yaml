@@ -1,0 +1,19 @@
+# Flex LNG cost structure — METHODOLOGY.md section 4.4
+# Source: FLNG Q1 2026 6-K income statement. USD.
+ticker: FLNG
+
+# Q1 2026 vessel opex $18,665k / 13 vessels / 91.25 days = $15,725/day blended.
+# LNG carrier opex runs notably above tanker opex (gas-handling, more crew,
+# more complex maintenance, BOG-fuel logistics).
+opex_per_day:
+  LNGC: 15700
+
+# Q1 2026 administrative expenses $2,553k -> ~$10.2M/yr annual run-rate.
+annual_G_and_A: 10200000
+
+# Q1 2026 interest expense $20,112k -> ~$80.5M/yr on the ~$1.82B debt book
+# (~4.4% all-in cost of debt — TC-backed LNG facilities at competitive rates).
+annual_interest_expense: 80500000
+
+# Bermuda-domiciled; minimal cash tax.
+effective_tax_rate: 0.02

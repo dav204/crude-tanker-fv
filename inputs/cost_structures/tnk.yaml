@@ -1,0 +1,23 @@
+# Teekay Tankers cost structure — METHODOLOGY.md section 4.4
+# Source: TNK Q1 2026 ER (Tankers segment, Appendix B). USD.
+ticker: TNK
+
+# Tanker-segment vessel operating expenses were $31.0M in Q1 2026 (the other
+# ~$30M of total vessel opex is the Marine Services / Australia business). Split
+# by class (~$8.5k/day blended; reported all-in runs a touch higher with overhead).
+opex_per_day:
+  Suezmax: 8800
+  Aframax: 8200
+  VLCC: 9500
+
+# Corporate G&A: Q1 2026 $10.4M -> ~$41M/yr.
+annual_G_and_A: 41000000
+
+# Interest & finance: Q1 2026 interest EXPENSE only $0.5M (~$2M/yr) — TNK is
+# effectively debt-free. NOTE: the ~$8.0M/qtr interest INCOME on the ~$1.0B cash
+# pile is NOT credited in the dividend strip (conservative; the cash is already in
+# NAV at face, so its return is largely the discount-rate unwind).
+annual_interest_expense: 2000000
+
+# Bermuda-domiciled; minimal cash tax (Q1 effective ~2.5%).
+effective_tax_rate: 0.025

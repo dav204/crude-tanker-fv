@@ -1,0 +1,40 @@
+# Hafnia Limited (HAFN) cost structure — METHODOLOGY §4.4, §11.5
+# Derived from Hafnia Q1 2026 6-K + earnings call transcript (USD).
+ticker: HAFN
+
+opex_per_day:
+  # Q1 2026 disclosed daily vessel opex per calendar day (Hafnia 6-K):
+  #   LR2:   $8,663/day
+  #   LR1:   $8,454/day
+  #   MR:    $8,319/day
+  #   Handy: $7,805/day (off-curve sleeve; not consumed by curve engine —
+  #          Handy fleet values are in working_capital_net per §11.5 gap)
+  # Compares to peers: ASC $7,921 (MR), STNG $8,832 (LR2) / $8,190 (MR),
+  # TRMD $8,321 (LR2) / $7,743 (LR1) / $7,963 (MR). Hafnia sits near the
+  # high end on MR (older mix + larger pool admin overhead) but normal on
+  # LR2 vs the STNG/TRMD spread.
+  LR2: 8663
+  LR1: 8454
+  MR: 8319
+
+# G&A: Q1 2026 admin expenses ~$18M [ESTIMATE — derived; not explicitly
+# broken out in press release]; annualised ~$73M. Smaller than TRMD's $92M
+# despite Hafnia's larger fleet count (118 vs 95) — reflects Hafnia's
+# pool-management revenue offsetting some G&A on a net basis, plus
+# Singapore/Bermuda tonnage-tax-regime cost discipline. Could equally be
+# $70-75M depending on the gross-vs-net pool admin treatment in the
+# 6-K detail (refresh when pulled).
+annual_G_and_A: 73000000
+
+# Interest expense: Q1 2026 financial expenses $12.33M → annualised ~$49M.
+# Reflects ~$943M gross debt at ~5.2% blended (RCF SOFR + ~150 bps; legacy
+# leases at lower fixed rates). Net LTV 20.2% — well below peers (STNG
+# near zero; TRMD 25.1%; ASC pre-net-debt-zero).
+annual_interest_expense: 49000000
+
+# Effective tax rate: Bermuda-incorporated + Singapore-headquartered tonnage
+# tax regime. Q1 2026 tax expense $0.79M on $179.7M PBT = ~0.4% effective.
+# Modelled at 0.5% (vs framework's generic 2%). Singapore Pillar 2 GMT
+# introduced 2025 but tonnage-tax election should shelter shipping income;
+# minor exposure on non-shipping income (incl. TORM dividend) not material.
+effective_tax_rate: 0.005

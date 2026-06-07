@@ -1,0 +1,38 @@
+# Okeanis Eco Tankers fleet manifest — METHODOLOGY.md section 4.1
+# Source: OET Q1 2026 results (fleet as of 2026-03-31: 16 vessels = 8 VLCC +
+# 8 Suezmax, avg age 5.8y) + fleet page. ALL eco-design, all scrubber-fitted,
+# all-Korean-built (Hyundai / Daehan -> no yard discount). Predominantly ALL-SPOT
+# (only Nissos Nikouria on a 1-yr TC at $91,140/day, Feb 2026).
+#
+# Two Suezmax newbuilds (Nissos Tigani, Nissos Vous; Daehan; bought Jan'26 at
+# $99.3M each) deliver Q2-Q3 2026 -> in the manifest at delivered MARKET value
+# (METHODOLOGY 9.6), with the remaining commitment on the balance sheet. Note:
+# unlike FRO's Hemen VLCCs, these were bought AT market, so embedded gain is small.
+ticker: ECO
+report_date: 2026-Q1
+vessels:
+  # ---- VLCC (8 on-water, all Hyundai HI, eco, scrubber) ----
+  - {id: VLCC_2019, class: VLCC, dwt: 300000, age: 7, scrubber: true, eco: true, yard: Hyundai, count: 5}
+  - {id: VLCC_2020, class: VLCC, dwt: 300000, age: 6, scrubber: true, eco: true, yard: Hyundai, count: 1}
+  - {id: VLCC_2022_spot, class: VLCC, dwt: 300000, age: 4, scrubber: true, eco: true, yard: Hyundai, count: 1}
+  - {id: VLCC_2022_tc, class: VLCC, dwt: 300000, age: 4, scrubber: true, eco: true, yard: Hyundai,
+     charter_status: time_charter, charter_rate: 91140, count: 1}   # Nissos Nikouria
+  # ---- Suezmax (8 on-water + 2 newbuilds at age 0; eco, scrubber) ----
+  - {id: SMX_2016, class: Suezmax, dwt: 157000, age: 10, scrubber: true, eco: true, yard: Hyundai, count: 1}
+  - {id: SMX_2017, class: Suezmax, dwt: 157000, age: 9,  scrubber: true, eco: true, yard: Hyundai, count: 1}
+  - {id: SMX_2018, class: Suezmax, dwt: 157000, age: 8,  scrubber: true, eco: true, yard: Hyundai, count: 2}
+  - {id: SMX_2020, class: Suezmax, dwt: 157000, age: 6,  scrubber: true, eco: true, yard: Hyundai Samho, count: 2}
+  - {id: SMX_2026_jan, class: Suezmax, dwt: 157000, age: 0, scrubber: true, eco: true, yard: Daehan, count: 2}  # Piperi, Serifopoula
+  - {id: SMX_nb, class: Suezmax, dwt: 157000, age: 0, scrubber: true, eco: true, yard: Daehan, count: 2}        # Tigani, Vous (NB)
+spot_coverage_pct:
+  VLCC: 0.88      # all-spot except Nissos Nikouria (1 of 8 VLCCs on TC)
+  Suezmax: 1.00   # fully spot
+# 2 Suezmax newbuilds (Tigani May'26, Vous Jul'26) earn from Q3'26 -> Suezmax 8->10.
+fleet_schedule:
+  VLCC:    [8, 8, 8, 8, 8, 8, 8, 8]
+  Suezmax: [10, 10, 10, 10, 10, 10, 10, 10]
+fleet_summary:
+  VLCC_count: 8
+  Suezmax_count: 8           # on-water at 2026-03-31 (excl. 2 newbuilds)
+  suezmax_newbuilds: 2       # Tigani, Vous; $99.3M each
+  avg_age: 5.8

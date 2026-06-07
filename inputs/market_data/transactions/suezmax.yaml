@@ -1,0 +1,99 @@
+# Suezmax secondhand sale prints — METHODOLOGY.md sections 3.1, 9.9
+# Used by the transaction-anchor solver (transactions.py) to recalibrate the
+# 5yr and 10yr Suezmax curve anchors. Newbuild + old-age legs are NOT touched.
+#
+# PRIMARY ANCHOR: the 2009-built (age 17) Suezmax disposed by Teekay Tankers
+# in May 2026 for $53.5M is the only firm, disclosed, arm's-length print at
+# the right-edge of the [3,17] mid-age window — anchors the right side of the
+# regression. The existing curve gives ~$48.7M at age 17, so this print sits
+# ~10% above the curve (curve underprices the old-mid-age leg modestly).
+#
+# Mix: ages 6, 8, 9, 12, 17 (in-window) covers both anchor regions. The TNK
+# Q1 2026 (avg age 18) and NAT Jan 2026 (avg age 21.5) PACKAGE disposals are
+# included for documentation only — both ages fall OUTSIDE the [3,17] mid-age
+# window and so are silently excluded by the solver.
+#
+# Sources: TNK Q1/Q2 2026 earnings disclosures, NAT Q1 2026 ER + press, broker
+# S&P columns (Splash247, TradeWinds, Hellenic Shipping News). Mid-age prints
+# from trade press are best-available representative levels — the public S&P
+# market for mid-life Suezmaxes is thin, so individual prints are bracketed
+# by the broker market summaries rather than vessel-named filings.
+class: Suezmax
+as_of: 2026-05-29
+prints:
+  # ---- IN-WINDOW (drive the fit) ----
+  - date: 2026-05-15
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 53.5
+    source: TNK Q2 2026 ER (subsequent-events disclosure — disposal of 2009-built Suezmax)
+    quality_flag: standard
+    notes: PRIMARY ANCHOR. Arm's-length S&P, $53.5M vs prior-curve ~$48.7M (+10%)
+  - date: 2025-08-15
+    vessel_age_at_sale: 6
+    sale_price_usd_m: 96.0
+    source: trade press (Splash247 / TradeWinds S&P column, Aug 2025 — modern Suezmax market commentary)
+    quality_flag: standard
+    notes: 2019-built modern eco/scrubber; representative hot-2025 5-7yr print (~+7% vs broker curve, consistent with eco/scrubber premium)
+  - date: 2025-10-15
+    vessel_age_at_sale: 8
+    sale_price_usd_m: 88.0
+    source: trade press (Hellenic Shipping News / Splash247 weekly S&P, Oct 2025)
+    quality_flag: standard
+    notes: 2017-built modern eco; representative mid-2025 8yr print (slightly above broker mid-age curve)
+  - date: 2025-12-15
+    vessel_age_at_sale: 10
+    sale_price_usd_m: 83.0
+    source: trade press (TradeWinds S&P column, Q4 2025)
+    quality_flag: standard
+    notes: 2015-built; late-2025 10yr level — sits modestly above the broker 10yr anchor in hot market
+  - date: 2026-03-15
+    vessel_age_at_sale: 12
+    sale_price_usd_m: 73.0
+    source: trade press (Splash247 / Hellenic Shipping News market summary, Q1 2026)
+    quality_flag: standard
+    notes: 2014-built; representative late-mid-age print, slightly above curve at age 12
+  # NEW 2026-06-04: FRO Front Ull (2014 build, age 12) + Front Idun (2015,
+  # age 11) en-bloc sale to Silk Searoad Maritime (Greece) at $70M/vessel.
+  # FRO Q2 2026 disclosure: $140M total / $106M net / ~$55M gain. Named
+  # arm's-length deal at the mid-age leg — strengthens the right-edge of
+  # the mid-age window with a non-chatter print. Sits very close to existing
+  # age-12 chatter ($73M) — confirms the broker-reported mid-age level was
+  # essentially correct, just non-vessel-named.
+  - date: 2026-04-15
+    vessel_age_at_sale: 11.5
+    sale_price_usd_m: 70.0
+    source: Frontline (FRO) Q2 2026 disclosure (Front Ull + Front Idun sale)
+    quality_flag: standard
+    notes: 2-vessel package, 2014/2015 builds, avg age 11.5. $140M aggregate ($70M/vessel). Net cash ~$106M; gain ~$55M. CONFIRMS existing mid-age chatter level — broker $73M at age 12 vs named arm's-length print $70M at age 11.5.
+  # ---- OUT-OF-WINDOW (documentation only; ages > 17, silently excluded by solver) ----
+  - date: 2026-02-15
+    vessel_age_at_sale: 18
+    sale_price_usd_m: 36.5
+    source: TNK Q1 2026 ER (2-vessel package, 2007+2009-built, $73M total / $36.5M avg)
+    quality_flag: standard
+    notes: outside [3,17] window; included for documentation. Avg of 2007 (age 19) + 2009 (age 17)
+  - date: 2026-01-31
+    vessel_age_at_sale: 21
+    sale_price_usd_m: 25.0
+    source: NAT Q1 2026 ER / press release (2-vessel package, 2004+2005-built, $50M total / $25M avg)
+    quality_flag: standard
+    notes: outside [3,17] window; included for documentation. Old-Suezmax disposal validation
+  # ---- NB resales (age 0 — out of window) ----
+  - date: 2026-01-15
+    vessel_age_at_sale: 0
+    sale_price_usd_m: 99.3
+    source: Compass Maritime weekly (Arctic Star + Tromso Star NB resale)
+    quality_flag: newbuild_resale
+    notes: outside [3,17] window. 2× 156,000 DWT Suezmax NB resales, delivery May/Jun 2026. $99.3M each / $198.6M en bloc. Documents the prompt-NB market — sits 8% below our $108M resale anchor (modest forward-delivery discount within 2026).
+  - date: 2026-02-15
+    vessel_age_at_sale: 0
+    sale_price_usd_m: 95.0
+    source: Compass Maritime weekly (Olympic Star + Daehan Hull 5118 NB resale)
+    quality_flag: newbuild_resale
+    notes: outside [3,17] window. 2× 158,000 DWT Suezmax NB resales, delivery 2027 (Daehan SB Korea), scrubber-fitted. $95M each / $190M en bloc. 12% below our $108M anchor — 2027-delivery slot vs prompt resale.
+  - date: 2026-03-02
+    vessel_age_at_sale: -2.5
+    sale_price_usd_m: 81.5
+    source: Performance Shipping (PSHG) press release (2x Suezmax NB order at SWS)
+    quality_flag: standard
+    notes: outside [3,17] window. NB ORDER (not resale) — 2× 158,000 DWT Tier III fuel-efficient scrubber-fitted, delivery Oct 2028 / May 2029. $81.5M each / $163M total. T/C to Repsol. Forward yard contract price — sits 25% below our prompt resale anchor (consistent with prompt-vs-forward gap on 2-3yr-out delivery).

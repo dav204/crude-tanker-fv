@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Generated PDFs (regenerate via scripts/build_methodology_pdf.sh)
+*.pdf
+
+# Pipeline snapshot state (machine-local; durable history lives in decisions/)
+# Note: state/.gitignore also exists for belt-and-braces.
+state/last_run.json
+
+# OS / editor noise
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Claude Code per-machine settings — slash commands at .claude/commands/
+# ARE tracked (shared institutional knowledge); settings.local.json holds
+# user-specific permission allowances and stays local.
+.claude/settings.local.json
+
+# Logs / scratch
+*.log
+scratch/

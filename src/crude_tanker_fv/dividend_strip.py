@@ -1,0 +1,211 @@
+"""Forward dividend strip (METHODOLOGY.md section 3.2).
+
+    DivStrip_implied_price = Sum_{q=1..8} DPS_q / (1 + r)^(q/4)
+                           + TerminalValue_{q=9} / (1 + r)^(9/4)
+
+with, per quarter q:
+
+    EPS_q = (NetTCE_revenue_q - OPEX_q - G&A_q - interest_q - tax_q) / shares
+    NetTCE_revenue_q = Sum_class vessels_class * days * TCE_class_q * (1 - offhire)
+    TCE_class_q = spot_pct * FFA_class_q + (1 - spot_pct) * disclosed_charter_rate
+
+DPS depends on the policy type (METHODOLOGY.md 4.3):
+
+- ``variable`` (DHT, FRO, ECO) -- the base is a *minimum floor under* the payout:
+      DPS_q = max(base_dividend, payout_ratio * max(0, EPS_q - floor))
+  e.g. DHT pays 100% of EPS but never less than its $0.025 nominal base.
+- ``base_plus_variable`` (INSW) -- the base is paid *in addition to* the variable:
+      DPS_q = base_dividend + payout_ratio * max(0, EPS_q - floor)
+
+(The literal METHODOLOGY.md 3.2 formula is the base_plus_variable form; it
+over-pays a floor-type policy by the base every quarter, so we dispatch on type.)
+
+- Discount rate r defaults to 11% (sensitivity +/-2%, METHODOLOGY 3.2 / 9.5).
+- OPEX accrues on all operating days (offhire reduces revenue, not opex).
+- disclosed_charter_rate is the count-average of disclosed (non-null) charter
+  rates among time-chartered vessels of the class in the fleet manifest.
+- TerminalValue at q=9 = 1.0x NAV with the fleet aged forward 9 quarters
+  (2.25 yrs) on the depreciation curve, balance sheet held constant
+  (simplification; open decisions 9.2, 9.6).
+
+Strip horizon = 8 quarters (FFA liquidity drops sharply beyond ~18 months).
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass, field, replace
+
+from .cycle import twelve_month_ffa
+from .nav import compute_nav
+from .schemas import CompanyInputs, DividendPolicy
+
+DEFAULT_DISCOUNT_RATE = 0.11
+STRIP_HORIZON_QUARTERS = 8
+TERMINAL_NAV_MULTIPLE = 1.0   # q=9 terminal value as a multiple of NAV (open decision 9.2)
+DEFAULT_OFFHIRE_RATE = 0.02   # ~drydock + unscheduled offhire
+DAYS_PER_QUARTER = 365.0 / 4.0
+
+
+@dataclass
+class DividendStripResult:
+    """Dividend-strip breakdown for the per-company report (section 7)."""
+
+    dps_by_quarter: list[float] = field(default_factory=list)        # 8 quarters
+    eps_by_quarter: list[float] = field(default_factory=list)
+    net_tce_revenue_by_quarter: list[float] = field(default_factory=list)
+    blended_tce_by_quarter: dict[str, list[float]] = field(default_factory=dict)  # by class
+    ffa_spot_by_quarter: dict[str, list[float]] = field(default_factory=dict)     # by class (spot)
+    ffa_12m_by_class: dict[str, float] = field(default_factory=dict)              # front-4 mean
+    discounted_dps: list[float] = field(default_factory=list)
+    terminal_value: float = 0.0               # per share, undiscounted (aged NAV/share)
+    discounted_terminal_value: float = 0.0
+    implied_price: float = 0.0
+    discount_rate: float = DEFAULT_DISCOUNT_RATE
+
+
+def quarterly_dps(policy: DividendPolicy, eps: float) -> float:
+    """DPS for one quarter, dispatched on policy type (METHODOLOGY.md 4.3).
+
+    ``floor`` is the EPS threshold deducted before the payout; ``base`` is either
+    a minimum floor under the dividend (``variable``) or an always-paid base on
+    top of the variable part (``base_plus_variable``).
+    """
+    variable = policy.payout_ratio * max(0.0, eps - policy.floor)
+    if policy.policy_type == "base_plus_variable":
+        return policy.base_dividend_per_share + variable
+    return max(policy.base_dividend_per_share, variable)
+
+
+def _disclosed_charter_rates(inputs: CompanyInputs) -> dict[str, float]:
+    """Per-class average of disclosed charter rates among time-chartered vessels."""
+    sums: dict[str, float] = {}
+    counts: dict[str, float] = {}
+    for v in inputs.fleet.vessels:
+        if v.charter_status == "time_charter" and v.charter_rate is not None:
+            sums[v.cls] = sums.get(v.cls, 0.0) + float(v.charter_rate) * v.count
+            counts[v.cls] = counts.get(v.cls, 0.0) + v.count
+    return {cls: sums[cls] / counts[cls] for cls in sums}
+
+
+def _class_counts(inputs: CompanyInputs) -> dict[str, float]:
+    """Static earning-fleet counts per class (sums sister-vessel counts)."""
+    counts: dict[str, float] = {}
+    for v in inputs.fleet.vessels:
+        counts[v.cls] = counts.get(v.cls, 0.0) + v.count
+    return counts
+
+
+def _quarter_count(inputs: CompanyInputs, cls: str, q: int, static: float) -> float:
+    """Earning-fleet count for class in strip quarter q (0-indexed).
+
+    Uses the manifest's ``fleet_schedule`` if provided (to capture newbuild
+    deliveries / sales over the horizon), else the static count.
+    """
+    schedule = inputs.fleet.fleet_schedule.get(cls)
+    if schedule and q < len(schedule):
+        return schedule[q]
+    return static
+
+
+def _blended_tce_by_class(inputs: CompanyInputs, q: int) -> dict[str, float]:
+    """TCE_class for strip quarter q (0-indexed): spot/FFA + charter blend."""
+    md = inputs.market_data
+    charter_rates = _disclosed_charter_rates(inputs)
+    out: dict[str, float] = {}
+    for cls in _class_counts(inputs):
+        ffa = md.ffa_forward_curve.get(cls)
+        if not ffa:
+            raise ValueError(f"no FFA forward curve for class {cls!r}")
+        ffa_q = ffa[q]
+        spot_pct = inputs.fleet.spot_coverage_pct.get(cls, 1.0)
+        charter_rate = charter_rates.get(cls, ffa_q)  # fall back to FFA if none disclosed
+        out[cls] = spot_pct * ffa_q + (1.0 - spot_pct) * charter_rate
+    return out
+
+
+def _terminal_nav_per_share(inputs: CompanyInputs, quarters_forward: int) -> float:
+    """NAV/share with the fleet aged forward, balance sheet held constant."""
+    years = quarters_forward / 4.0
+    aged_vessels = [replace(v, age=v.age + years) for v in inputs.fleet.vessels]
+    aged = replace(inputs, fleet=replace(inputs.fleet, vessels=aged_vessels))
+    return compute_nav(aged).nav_per_share
+
+
+def compute_dividend_strip(
+    inputs: CompanyInputs,
+    nav_per_share: float,
+    discount_rate: float = DEFAULT_DISCOUNT_RATE,
+    offhire_rate: float = DEFAULT_OFFHIRE_RATE,
+) -> DividendStripResult:
+    """Project 8 quarters of DPS, discount, and add the NAV-based terminal value.
+
+    ``nav_per_share`` is the current NAV (for reference); the terminal value is
+    recomputed from the aged fleet rather than depreciating this figure.
+    """
+    pol = inputs.dividend_policy
+    cost = inputs.cost_structure
+    md = inputs.market_data
+    shares = inputs.balance_sheet.diluted_shares_outstanding
+    counts = _class_counts(inputs)
+
+    quarterly_gna = cost.annual_G_and_A / 4.0
+    quarterly_interest = cost.annual_interest_expense / 4.0
+
+    dps_by_q: list[float] = []
+    eps_by_q: list[float] = []
+    netrev_by_q: list[float] = []
+    tce_by_class: dict[str, list[float]] = {cls: [] for cls in counts}
+    ffa_spot_by_class: dict[str, list[float]] = {cls: [] for cls in counts}
+
+    for q in range(STRIP_HORIZON_QUARTERS):
+        tce = _blended_tce_by_class(inputs, q)
+        net_tce_revenue = 0.0
+        opex = 0.0
+        for cls, static_n in counts.items():
+            n = _quarter_count(inputs, cls, q, static_n)
+            vessel_days = n * DAYS_PER_QUARTER
+            net_tce_revenue += vessel_days * tce[cls] * (1.0 - offhire_rate)
+            opex += vessel_days * cost.opex_per_day.get(cls, 0.0)
+            tce_by_class[cls].append(tce[cls])
+            ffa_spot_by_class[cls].append(md.ffa_forward_curve[cls][q])
+
+        pretax = net_tce_revenue - opex - quarterly_gna - quarterly_interest
+        tax = cost.effective_tax_rate * max(0.0, pretax)
+        eps = (pretax - tax) / shares
+        dps = quarterly_dps(pol, eps)
+
+        netrev_by_q.append(net_tce_revenue)
+        eps_by_q.append(eps)
+        dps_by_q.append(dps)
+
+    ffa_12m_by_class = {cls: twelve_month_ffa(md.ffa_forward_curve[cls]) for cls in counts}
+
+    discounted_dps = [
+        dps / (1.0 + discount_rate) ** ((q + 1) / 4.0) for q, dps in enumerate(dps_by_q)
+    ]
+
+    terminal = TERMINAL_NAV_MULTIPLE * _terminal_nav_per_share(
+        inputs, STRIP_HORIZON_QUARTERS + 1
+    )
+    # Governance / value-trap haircut (METHODOLOGY §15): the strip terminal
+    # is a NAV realisation and carries the same discount as the blended NAV
+    # term. Interim DPS are NOT haircut (already realised cash). Defaults
+    # to 0 (no haircut) for the 12 standard watchlist names.
+    terminal *= (1.0 - inputs.balance_sheet.governance_discount_pct)
+    discounted_terminal = terminal / (1.0 + discount_rate) ** (
+        (STRIP_HORIZON_QUARTERS + 1) / 4.0
+    )
+
+    return DividendStripResult(
+        dps_by_quarter=dps_by_q,
+        eps_by_quarter=eps_by_q,
+        net_tce_revenue_by_quarter=netrev_by_q,
+        blended_tce_by_quarter=tce_by_class,
+        ffa_spot_by_quarter=ffa_spot_by_class,
+        ffa_12m_by_class=ffa_12m_by_class,
+        discounted_dps=discounted_dps,
+        terminal_value=terminal,
+        discounted_terminal_value=discounted_terminal,
+        implied_price=sum(discounted_dps) + discounted_terminal,
+        discount_rate=discount_rate,
+    )

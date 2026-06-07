@@ -1,0 +1,79 @@
+# VLCC (~300,000 DWT crude tanker) secondhand sale prints — METHODOLOGY 3.1, 9.9
+# Used by the transaction-anchor solver (transactions.py) to recalibrate the
+# 5yr and 10yr VLCC curve anchors. Newbuild + old-age legs are NOT touched.
+#
+# CALIBRATION CHECK (existing curve at relevant ages):
+#   age 4 curve  ≈ $145.4M  vs $125.0M chatter  (Hyundai Samho 2× 2022)
+#   age 5 curve  =  $138.0M vs $112.0M (CSSC Liaoning, incl T/C strip)
+#   age 10 curve =  $111.0M vs $103.9M (FRO 8-VLCC en bloc 2015-16 avg)
+#   age 13 curve =   $93.2M vs  $84.5M (Teekay Singapore Spirit)
+#   age 14 curve =   $87.3M vs  $89.0M (CMB.TECH Ingrid + Ilma, 2012)
+# Pattern: curve runs HIGH at the 5yr leg (-15-20% vs prints) and modestly
+# high at the 10-14yr leg (-3-10%). Implies the broker resale level we use
+# for the existing curve sits above 2026 transaction reality at the modern
+# end — consistent with the cooler VLCC market vs the hotter Suezmax/Aframax
+# market reflected in the existing prints (Sinokor's VLCC buying campaign
+# absorbed a glut of mid-age tonnage at +10-15% over broker market, but most
+# named arm's-length deals settled BELOW the curve).
+#
+# SOURCES: Frontline (FRO) Q1 2026 ER (8-VLCC disposal); Teekay (TNK) Q1
+# 2026 ER (VLCC-sector exit); CMB.TECH press release; Compass Maritime
+# weekly reports; Splash247 / Hellenic Shipping News S&P columns;
+# Marine Log. Raw worksheet at inputs/market_data/transactions/raw/
+# product_tanker_transactions_2026.xlsx (Crude Tanker Deals sheet).
+#
+# OUT-OF-FIT REFERENCE — the Sinokor 2026 VLCC buying campaign (~35 of 45
+# sector S&P volume in early 2026, ~$2.5bn+ aggregate, mostly 2010-2016
+# builds, avg ~12yo, reported at +10-15% over market) sits in-window in
+# principle but is intentionally EXCLUDED from the fit: a 35-vessel
+# aggregate carried at a single weighted regression point would dominate
+# the in-window sample and overstate the opportunistic Sinokor campaign
+# premium as a universal market level. Documented with notes-only entry
+# below for transparency.
+class: VLCC
+as_of: 2026-05-29
+prints:
+  # ---- IN-WINDOW (drive the fit) ----
+  - date: 2026-01-15
+    vessel_age_at_sale: 4
+    sale_price_usd_m: 125.0
+    source: trade press (Splash247 — two 4-yr-old VLCCs sold to European buyer)
+    quality_flag: standard
+    notes: 2× Hyundai Samho-built 2022 VLCCs; ~$125M each within Europe. Sales chatter (buyer/seller undisclosed) — broker-reported, not company-confirmed.
+  - date: 2026-01-31
+    vessel_age_at_sale: 5
+    sale_price_usd_m: 112.0
+    source: Splash247 (CSSC Liaoning sale to Greek interests)
+    quality_flag: standard
+    notes: Dalian-built ~2021 5yo VLCC; price includes residual ~$41k/day T/C through May 2026 — pure-asset value marginally above $112M after stripping below-market T/C income.
+  - date: 2026-03-15
+    vessel_age_at_sale: 10.5
+    sale_price_usd_m: 103.9
+    source: Frontline (FRO) Q1 2026 ER (8-VLCC en bloc disposal)
+    quality_flag: standard
+    notes: 8 first-gen ECO VLCCs (2015-2016 build, avg age ~10.5) sold en bloc to undisclosed 3rd party for $831.5M total. Net cash ~$486M; gain ~$217-227M. Per-vessel ~$103.9M.
+  - date: 2026-02-15
+    vessel_age_at_sale: 13
+    sale_price_usd_m: 84.5
+    source: Teekay Tankers (TNK) Q1 2026 ER / Splash247 (VLCC-sector exit)
+    quality_flag: standard
+    notes: Singapore Spirit (ex-Hong Kong Spirit), 2013-built 318,700 DWT. Marks TNK's exit from the VLCC sector — strategic disposal not distressed.
+  - date: 2026-02-28
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 89.0
+    source: CMB.TECH press release / Splash247 (Ingrid + Ilma sale to Sinokor)
+    quality_flag: standard
+    notes: 2-vessel package, 2012-built 314,000 DWT. $178M en bloc / $89M each. CMB.TECH fleet-renewal disposal; Sinokor as part of its 2026 VLCC buying campaign.
+  # ---- OUT-OF-FIT / DOCUMENTATION (excluded from regression) ----
+  - date: 2026-03-31
+    vessel_age_at_sale: 12
+    sale_price_usd_m: 71.0
+    source: Veson / IndexBox (Sinokor 2026 VLCC buying campaign Q1 summary)
+    quality_flag: standard
+    notes: AGGREGATE — Sinokor bought ~35 of 45 sector S&P vessels in early 2026 (~78% of volume) for ~$2.5bn+ total at +10-15% over prevailing market. Avg vintage ~2010-2016 (avg age ~12). Per-vessel implied $71M average. DOCUMENTATION ONLY — not used in fit (single aggregate point would dominate the in-window weighting; opportunistic +10-15% premium does not reflect arm's-length market level).
+  - date: 2026-01-08
+    vessel_age_at_sale: 0
+    sale_price_usd_m: 136.0
+    source: Frontline (FRO) press release / Splash247 (9 latest-gen ECO VLCC NBs from Fredriksen affiliate)
+    quality_flag: newbuild_resale
+    notes: outside [3,17] window. Related-party purchase from Hemen Holding affiliate (Fredriksen). 9 latest-gen ECO VLCC newbuilds (6 Hengli + 3 Dalian China), $1,224M aggregate / $136M each, deliveries from Q3 2026 through Q2 2027. Documents the prompt-NB market level; sits below our $175M resale anchor reflecting forward-delivery + Chinese-yard discount vs Korean prompt resale.

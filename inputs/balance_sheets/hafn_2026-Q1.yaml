@@ -1,0 +1,74 @@
+# Hafnia Limited (HAFN) balance sheet snapshot — METHODOLOGY §4.2, §11.5
+# Source: Hafnia Q1 2026 6-K (filed 2026-05-27); balance sheet as of 2026-03-31. USD.
+# Reporting standard: IFRS (first IFRS-reporting name on watchlist alongside Oslo
+# TRMD A). Reconciled to avoid double-counting against the NAV formula.
+ticker: HAFN
+quarter: 2026-Q1
+
+cash_and_equivalents: 146500000          # "Cash and cash equivalents" per Q1 release
+                                          # Liquidity also includes $550M undrawn RCF capacity
+                                          # (total $715M facility signed July 2025) — not in NAV
+
+# working_capital_net composition (§11.5 — three off-curve adjustments):
+#
+#   1. OPERATING working capital (non-cash, non-debt, non-HFS): not separately
+#      itemised in the Q1 press-release summary. [ESTIMATE ~$80M based on
+#      typical ratios for a $300M+/quarter revenue shipping company.] Refresh
+#      from Q1 6-K balance sheet detail when pulled.
+#
+#   2. PENDING VESSEL SALES (4 LR1 + 2 MR + 4 Handy = 10 hulls, broker prints
+#      indicate >$200M aggregate; Hafnia included these vessels at on-curve
+#      values in the fleet manifest, so to avoid double-counting we DO NOT
+#      add HFS-at-sale-price here — they'll show up in next quarter's NAV
+#      via the actual cash proceeds. Net working capital adjustment: $0.
+#
+#   3. Handysize sleeve — 22 owned hulls. NOW ON-CURVE as of 2026-06-05
+#      (Handysize class added to vessel_value_curves.yaml). These hulls moved
+#      INTO fleet_manifests/hafn.yaml (age-18 cohort, ~$14.5M/vessel via the
+#      Handysize curve ≈ $320M) and OUT of working_capital_net. The prior
+#      off-curve estimate ($330M nominal less 10% wind-down haircut = $300M)
+#      is retired; the small (~$20M / ~$0.04/sh) uplift from dropping the
+#      wind-down liquidity haircut is documented in §6/§11.5 (the framework has
+#      no on-curve liquidity-discount mechanism).
+#      → working_capital_net Handy line REMOVED (was +300,000 $k).
+#
+#   4. TORM equity investment ($395M Q1 mgmt-disclosed value; Hafnia owns a
+#      meaningful TRMD position generating $9.9M Q1 dividend income).
+#      Schema decision (§11.5 + §6 HAFN footnote): no dedicated
+#      `marketable_equity_investments` line in current YAML schema; rolled
+#      into working_capital_net at full disclosed value per Hafnia mgmt
+#      NAV calculation. (Alternative: add a new schema line — deferred as
+#      a follow-up methodology decision; impact bounded at $395M / 500M
+#      shares ≈ $0.79/sh of NAV.)
+#      → adds +395,000 ($k).
+#
+#   Total: 80,000 + 395,000 = 475,000 ($k).  (was 775,000 before Handysize
+#   moved on-curve 2026-06-05.)
+working_capital_net: 475000000
+
+# Total debt: net debt $797M + cash $146.5M = gross ~$943M interest-bearing.
+# Includes IFRS 16 vessel finance lease obligations (the $35.9M chartered-in
+# lease liability is separately broken out below). Hafnia historically had
+# material ICBC / Japanese KS sale-leaseback structures peak ~2022; those
+# have largely amortised or been refinanced into the $715M RCF.
+total_debt: 943500000
+
+# Operating lease liability for 12 chartered-in vessels (4 LR1: 2 BB + 2 TC;
+# 7 MR TC; 1 Handy BB). Small ($35.9M) — Hafnia is NOT currently sale-leaseback-
+# heavy unlike 2022-peak TORM. Treated as separate-line per schema convention.
+lease_liabilities: 35900000
+
+# Newbuild lines: 8 firm MR newbuilds at Hyundai Heavy Industries.
+# Source-disclosed total: $405M firm for 8 firm vessels (~$50.6M each — at
+# the high end of MR NB contracting reflecting late-2025 ordering window).
+# Plus 2 option vessels at ~$50.6M each = $101M option value (not committed).
+# Deliveries Q3 2028 - Q2 2029 — past the 8-quarter dividend strip horizon
+# (no Q-by-Q earnings impact in scenarios; valued newbuild-at-market per §3.1).
+newbuild_capex_commitments: 405000000       # 8 firm × ~$50.6M; options excluded
+newbuild_advances_paid: 40000000             # [ESTIMATE] typical 10% deposit on contract value
+
+# Diluted shares outstanding: implied from Q1 DPS $0.2877 + total distribution
+# $143.8M = ~500M shares. BW Group owns 44.18% (controlling-but-not-majority);
+# free float ~55%. Dual-listed NYSE (HAFN) + Oslo (HAFNI via Norwegian deposit
+# receipts). [ESTIMATE — refresh from Q1 6-K when share count line pulled.]
+diluted_shares_outstanding: 500000000

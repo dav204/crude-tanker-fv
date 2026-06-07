@@ -1,0 +1,29 @@
+# Flex LNG (FLNG) balance sheet — METHODOLOGY.md section 4.2
+# Source: FLNG Q1 2026 6-K filing, Summary Consolidated Balance Sheet at 2026-03-31.
+# USD. FLNG is heavily levered to fund the 13-vessel modern LNGC fleet ($1.82B
+# total debt) but has 54-81 years of TC backlog supporting the cash flows.
+ticker: FLNG
+quarter: 2026-Q1
+
+# Cash & equivalents: $389,068k. Restricted cash: $0.
+cash_and_equivalents: 389068000
+
+# Working capital constructed: accounts receivable + other current assets ($73,477k)
+# - accounts payable ($7,503k) - other current liabilities (assumed small, ~$10M).
+# Modest net positive working capital for a TC-heavy LNG operator.
+working_capital_net: 56000000
+
+# Total interest-bearing debt: current portion $110,195k + long-term $1,710,760k
+# = $1,820,955k. Most of this is bank facilities and the FLNG bond.
+total_debt: 1820955000
+
+# Operating leases not separately disclosed in the Q1 release; FLNG has minimal
+# operating-lease exposure (head office only). Set to nominal.
+lease_liabilities: 0
+
+# No newbuild orders on the books as of Mar 31 2026 (none announced or signed).
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+# Diluted shares 54,092,376 at Mar 31 2026.
+diluted_shares_outstanding: 54092376

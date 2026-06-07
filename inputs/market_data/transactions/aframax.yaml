@@ -1,0 +1,66 @@
+# Aframax secondhand sale prints — METHODOLOGY.md sections 3.1, 9.9
+# 6 publicly-disclosed transactions, May 2025 - Apr 2026, used by the
+# transaction-anchor solver (transactions.py) to recalibrate the 5yr and 10yr
+# Aframax curve anchors. Newbuild + old-age legs are NOT touched.
+#
+# Mix: ages 7, 8, 10 (×3), 14, 16, 17 — covers both 5yr and 10yr anchor regions
+# (solver weights by age proximity + recency, ~15mo half-life). LR2 print flagged
+# (clean coatings carry a modest premium over crude Aframax; left at face for v1).
+#
+# Sources: SEC 6-K filings (Performance Shipping PSHG), Q1 2026 earnings release
+# (Teekay Tankers TNK), trade-press summaries (Riviera, Splash247, TradeWinds).
+class: Aframax
+as_of: 2026-05-29
+prints:
+  - date: 2026-01-15
+    vessel_age_at_sale: 10
+    sale_price_usd_m: 47.2
+    source: TNK Q1 2026 ER (3-vessel 2016-built package, $141.5M total)
+    quality_flag: financing
+    notes: 3 sister vessels, sale-leaseback to seller; bareboat redelivery Q2/Q3 2026
+  - date: 2026-03-15
+    vessel_age_at_sale: 8
+    sale_price_usd_m: 71.0
+    source: trade press (Splash247 / TradeWinds market commentary, Mar 2026)
+    quality_flag: standard
+    notes: 2018-built modern Aframax; reported as representative mid-March print
+  - date: 2025-08-01
+    vessel_age_at_sale: 7
+    sale_price_usd_m: 73.5
+    source: trade press summary (LR2-spec, $73-74M)
+    quality_flag: standard
+    notes: 2019-built LR2/Aframax — clean coatings carry a modest premium vs crude Aframax
+  - date: 2026-04-16
+    vessel_age_at_sale: 16
+    sale_price_usd_m: 42.65
+    source: Performance Shipping (PSHG) Form 6-K — sale of M/T P. Aliki to Trafigura
+    quality_flag: standard
+    notes: 2010-built; PSHG had acquired in late 2022 at $36.5M
+  - date: 2026-02-01
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 35.65
+    source: Performance Shipping (PSHG) press release — sale of M/T P. Sophia
+    quality_flag: standard
+    notes: 2009-built, 105,071 DWT (smaller LR2/Aframax)
+  - date: 2025-04-01
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 39.0
+    source: Performance Shipping (PSHG) press release — sale of M/T P. Yanbu
+    quality_flag: standard
+    notes: 2011-built; sold to undisclosed buyer in PSHG fleet-renewal programme
+  # NEW 2026-06-04: STI Condotti (Nov 2014 build, age 11 in Feb 2026) sold by
+  # Scorpio (STI) for excess of $70M per Compass Maritime weekly. Reported as
+  # "Aframax / LR2" — i.e., a Hyundai Samho eco scrubber LR2-class hull
+  # whose current-cycle pricing is being marked as Aframax (consistent with
+  # §14.6.1 LR2 cargo-switching: when LR2s defect to dirty Aframax trade
+  # they value to the Aframax curve, not the clean-LR2 curve). Compare to
+  # STI Goal/Gallantry in lr2.yaml — both 2014-2016 builds, both eco scrubber,
+  # but STI Goal/Gallantry sold at $52.3M (LR2-clean-mode) vs STI Condotti
+  # $70M (Aframax/dirty-mode) — the empirical bifurcation between trading
+  # modes within the LR2 class.
+  - date: 2026-02-15
+    vessel_age_at_sale: 11
+    sale_price_usd_m: 70.0
+    source: Compass Maritime weekly report — sale of STI Condotti
+    quality_flag: standard
+    notes: Hyundai Samho-built Nov 2014; 109,999 DWT; eco design + scrubber-fitted. Reported by Scorpio as Aframax/LR2 — flagged here as Aframax-trading-mode LR2. Sits modestly above existing 10yr Aframax anchor at age 11 — confirms the Aframax-trading-mode LR2 prices to the Aframax curve, not the clean-LR2 curve.

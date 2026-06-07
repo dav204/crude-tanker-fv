@@ -1,0 +1,37 @@
+# International Seaways balance sheet snapshot — METHODOLOGY.md sections 4.2, 6
+# Source: INSW Q1 2026 results, condensed consolidated balance sheet at 2026-03-31. USD.
+ticker: INSW
+quarter: 2026-Q1
+
+# Cash $141.847M + short-term investments $235.0M (liquid treasuries/MM) = $376.847M.
+cash_and_equivalents: 376847000
+
+# working_capital_net = non-cash current assets - non-debt/non-lease current liabilities:
+#   (voyage receivables 242,467 + other receivables 25,719 + inventories 5,407
+#    + prepaid/other 15,729 + current derivative 317) = 289,639
+#   - accounts payable/accrued/other 60,388
+#   = 229,251 (in $000). High voyage-receivable balance reflects 67 ships at peak Q1 TCE.
+working_capital_net: 229251000
+
+# Total interest-bearing debt: current installments 28,161 + long-term 573,900 = 602,061.
+total_debt: 602061000
+
+# Operating lease liabilities (chartered-in tonnage / office): current 2,240 + LT 5,800.
+lease_liabilities: 8040000
+
+# PRODUCT-sleeve newbuild program (6 scrubber/dual-fuel-ready LR1, ~$359M total;
+# $122M remaining at 2026-03-31, ~$116M from the ECA facility). The 3 undelivered
+# LR1 newbuilds and this commitment are EXCLUDED from the crude carve-out (the crude
+# sleeve bears no product newbuild capex). Left at 0 here so the carve-out's pro-rata
+# allocation does not push product newbuild capex onto crude.
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 49700000
+
+# Vessel-secured debt allocated DIRECTLY to a sleeve (METHODOLOGY 6). INSW drew $43M
+# on the LR1 ECA facility in Q1 2026 -> product-secured; removed from the corporate
+# pool before pro-rating so the crude sleeve does not bear it. The remaining
+# ~$559M is corporate/cross-collateralized and pro-rates by crude vessel-value share.
+crude_specific_debt: 0
+product_specific_debt: 43000000

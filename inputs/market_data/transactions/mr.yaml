@@ -1,0 +1,77 @@
+# MR (50,000 DWT product tanker) secondhand sale prints — METHODOLOGY 3.1, 9.9, 11.5
+# Used by the transaction-anchor solver (transactions.py) to recalibrate the
+# 5yr and 10yr MR curve anchors. Newbuild + old-age legs are NOT touched.
+#
+# SCOPE — 2 in-window prints (mid-age window [3,17]):
+#   - 4× STNG MR scrubber 2014 (age 12) — $32.0M, closing Q1 2026
+#   - 2× STNG MR scrubber 2015 (age 11) — $35.0M, closing Q2 2026
+# Both are arm's-length STNG fleet-renewal disposals announced Nov 2025 / Q1
+# 2026, reported in STNG press releases and 6-Ks (6 vessels, $198M aggregate).
+# Tight age clustering (11-12) → the regression slope is informative for level
+# at the right edge of mid-age but the extrapolation to age 5 is wide; the
+# solver's clamp band [scrap×1.5, NB×0.95] = [$8.7M, $47.0M] catches any
+# overshoot from the implied slope.
+#
+# CALIBRATION CHECK (existing curve at relevant ages):
+#   age 11 curve = $32.6M (existing) vs $35.0M print → curve −7%
+#   age 12 curve = $30.7M (existing) vs $32.0M print → curve −4%
+# Curve runs slightly conservative at the 10-12yr leg. Expected fit impact:
+# modest UPWARD recalibration of both mid-age anchors (~5-10%), clamped.
+#
+# OUT-OF-WINDOW PRINTS (documentation only — silently excluded by solver):
+#   - 2× CS Fujairah/Rotterdam (age 0) — $49.5M (incl. 12-15mo T/C strip)
+#   - 4× STNG MR NB resale (age 0, deliver 2026-27) — $45.0M scrubber-fitted
+#   - 2× d'Amico MR2 NB (Jan 2026 contract, deliver 2029) — $45.4M
+#   - 2× d'Amico MR1 NB (40k DWT subclass, deliver 2029) — $43.2M
+# The CS Fujairah/Rotterdam print lands EXACTLY on our NB anchor ($49.5M);
+# documents the age-0 leg is correctly calibrated. The two d'Amico NB
+# contracts price 8-13% below our prompt-NB anchor — expected, since 2029
+# delivery contracts discount vs prompt resale (cf. VLCC newbuild gap).
+# The MR1 (40k DWT) row is a subclass we do not separately model; included
+# for completeness in case the framework grows an MR1 vessel class later.
+#
+# SOURCES: Scorpio Tankers PR/6-K (Nov 2025, Dec 2025, Q1 2026 ER),
+# d'Amico/Splash247, Compass Maritime weekly (Feb 2026), TOP Ships PR.
+# Raw worksheet archived at inputs/market_data/transactions/raw/
+# product_tanker_transactions_2026.xlsx.
+class: MR
+as_of: 2026-05-29
+prints:
+  # ---- IN-WINDOW (drive the fit) ----
+  - date: 2026-03-31
+    vessel_age_at_sale: 12
+    sale_price_usd_m: 32.0
+    source: Scorpio Tankers (STNG) press release Nov 2025; closing Q1 2026
+    quality_flag: standard
+    notes: 4-vessel package — STI Battery / Venere / Milwaukee / Yorkville (2014-built MR, scrubber-fitted). $128M aggregate ($32M/vessel).
+  - date: 2026-06-30
+    vessel_age_at_sale: 11
+    sale_price_usd_m: 35.0
+    source: Scorpio Tankers (STNG) 6-K — closing Q2 2026
+    quality_flag: standard
+    notes: 2-vessel package — STI Brooklyn / Black Hawk (2015-built MR, scrubber-fitted). $70M aggregate ($35M/vessel).
+  # ---- OUT-OF-WINDOW (documentation only; ages outside [3,17], silently excluded by solver) ----
+  - date: 2026-02-15
+    vessel_age_at_sale: 0
+    sale_price_usd_m: 49.5
+    source: Compass Maritime weekly report (Feb 2026)
+    quality_flag: standard
+    notes: outside [3,17] window. CS Fujairah / CS Rotterdam — built Jan/Mar 2026 Chengxi Shipyard (no scrubber). Price includes balance of 12-15mo T/C; pure-vessel price is marginally below if T/C strip premium backed out. LANDS ON our NB anchor exactly — validates age-0 calibration.
+  - date: 2025-11-15
+    vessel_age_at_sale: 0
+    sale_price_usd_m: 45.0
+    source: Scorpio Tankers (STNG) press release Nov 2025
+    quality_flag: newbuild_resale
+    notes: outside [3,17] window. 4× MR newbuild RESALES (Jingjiang Nanyang Shipbuilding, 2026-27 delivery, scrubber-fitted). $180M aggregate. Sits 9% below our prompt NB ($49.5M) — consistent with NB-resale-slot vs prompt-resale-on-water discount.
+  - date: 2026-01-23
+    vessel_age_at_sale: -3
+    sale_price_usd_m: 45.4
+    source: d'Amico (DIS) press release / Splash247
+    quality_flag: standard
+    notes: outside [3,17] window. 2× MR2 newbuilding ORDERS at Jiangsu New Yangzi (YZJ); delivery Mar/Jun 2029 — 3yr forward slot. Eco methanol-ready biofuel-certified. 8% below our prompt NB anchor — consistent with forward-delivery discount.
+  - date: 2025-12-15
+    vessel_age_at_sale: -3
+    sale_price_usd_m: 43.2
+    source: d'Amico (DIS) press release / Marine Link
+    quality_flag: standard
+    notes: outside [3,17] window AND subclass (40k DWT MR1, not standard 50k MR2). 2× MR1 newbuilding ORDERS at Guangzhou Shipyard Int'l (GSI); delivery Apr/Jul 2029. Eco methanol-ready. Included for completeness; framework does not separately curve MR1.

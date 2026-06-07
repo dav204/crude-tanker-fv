@@ -1,0 +1,1051 @@
+# =============================================================================
+# scenario_inputs.yaml
+# Sector-layered scenario framework (METHODOLOGY.md §11).
+# Build date: 2026-05-29 (LNG sector split out 2026-06-01)
+# Source: tanker_tce_grid_v4 (Pareto + VIE + Windward + Baltic Wk17 + Breakwave)
+# =============================================================================
+# Top-level shape:
+#
+#   sectors:
+#     crude:                  # three-phase MoU framework (TCE/USD/day)
+#       scenarios:  {escalation, pre_mou_baseline, mou_base, mou_bear}
+#       cycle_anchors:  per-class 10yr means
+#     lng:                    # LNG carrier cycle (TCE/USD/day, 174k cbm modern)
+#       scenarios:  {tight_resurgence, moderate_tightening, glut_base,
+#                    glut_intensifies}
+#       cycle_anchors:  {lng}
+#
+# Each scenario carries a probability `weight` and a per-class 8-quarter forward
+# curve as `[low, base, high]` cells in $/day TCE-equivalent. Quarters are
+# calendar quarters; the first quarter (Q3 2026) is the forward strip's front
+# quarter as of the 2026-05-29 build.
+#
+# Pipeline resolves a ticker's sector from inputs/watchlist.yaml (default
+# `crude` if absent) and calls load_scenarios(sector=...) to get that sector's
+# {scenarios, cycle_anchors} sub-doc.
+# =============================================================================
+
+metadata:
+  build_date: 2026-05-29
+  framework_version: v5
+  framework_description: >
+    Sector-layered scenarios. Crude: three-phase MoU rate path (Phase 1 backlog
+    clearance, Phase 2 normalization, Phase 3 structural). LNG: glut-cycle (174k
+    cbm modern LNGC) — orderbook deliveries 2026-2028 pressure rates;
+    seasonality dominates in the base case; tight-resurgence/structural-reset
+    are the tail scenarios. The v1 limitation (LNG curves carried under crude
+    scenario names) is removed — see METHODOLOGY §11.
+  rate_units: USD_per_day_TCE
+  primary_sources:
+    crude:
+      - Pareto Securities Shipping Daily (2026-05-29)
+      - Value Investor's Edge Shipping Rate Tracker (2026-05-29)
+      - Windward Maritime Intelligence (2026-03-30/31; floating storage 158.6mb)
+      - Baltic Exchange weekly tanker roundups (Wk 4, 6, 7, 11, 17 of 2026)
+      - Breakwave Advisors "Big Picture" (2026-01-20; pre-war Cal-26/Cal-27 FFA)
+      - Frontline Q1 2026 earnings call (forward bookings, breakevens)
+    lng:
+      - Flex LNG Q1 2026 earnings & 12-month TC commentary
+      - Affinity LNG / Fearnleys weekly LNG carrier rate reports
+      - Clarksons modern 174k cbm LNGC 10yr mean (2016-2025, incl. 2022-23 spike)
+
+# =============================================================================
+# SECTORS
+# =============================================================================
+
+sectors:
+
+  # ===========================================================================
+  # CRUDE TANKER SECTOR
+  # Three-phase MoU framework — applies to VLCC / Suezmax / Aframax / LR2.
+  # ===========================================================================
+  crude:
+
+    # -----------------------------------------------------------------------
+    # Per-class route conventions used as primary anchor for each forward curve.
+    # Other routes (TD22, TD23, TC5, TC15, etc.) inform but don't define the curve.
+    # -----------------------------------------------------------------------
+    class_routes:
+      vlcc:
+        primary_route: TD3C
+        description: MEG → China, 270kt cargo
+        basin_exposure: MEG-loading (Phase 1 spike sensitive)
+      suezmax:
+        primary_route: TD20
+        description: WAF → UKC, 130kt cargo
+        basin_exposure: Atlantic (already discounted in May correction)
+      aframax_dirty:
+        primary_route: TD7
+        description: Cross-UKC, 80kt cargo
+        basin_exposure: Atlantic
+      lr2_clean:
+        primary_route: TC1
+        description: MEG → Japan, 75kt cargo
+        basin_exposure: MEG-loading (Phase 1 spike sensitive)
+
+    # -----------------------------------------------------------------------
+    # Confidence levels per class & tenor — used by FV engine to widen the
+    # sensitivity grid where data is thin.
+    # -----------------------------------------------------------------------
+    confidence:
+      vlcc:
+        front_4q: high       # direct Baltic prints + Pareto + VIE
+        cal_2027: medium     # Braemar mean-of-range + structural derivation
+        cal_2028: very_low   # no liquid quote
+      suezmax:
+        front_4q: high
+        cal_2027: medium
+        cal_2028: very_low
+      aframax_dirty:
+        front_4q: medium     # derived; cross-route prints sparse
+        cal_2027: low
+        cal_2028: very_low
+      lr2_clean:
+        front_4q: medium     # MEG-loading inferred; TC1/TC15 anchors
+        cal_2027: low
+        cal_2028: very_low
+
+    scenarios:
+
+      # ---------------------------------------------------------------------
+      # Scenario 0: ESCALATION (war intensifies beyond current; the genuine upside tail)
+      # Added 2026-05-29 (see framework_breakers). MEG-loading routes (TD3C, TC1)
+      # sustain $400k+; Cal-26 blended $200k+. The "true tail" the prior set lacked.
+      # ---------------------------------------------------------------------
+      escalation:
+        weight: 0.10
+        description: >
+          Conflict escalates beyond current intensity (third-party strike, wider
+          MEG closure, no MoU). MEG-loading VLCC/LR2 sustain $400k+ near-term;
+          Atlantic (Suezmax/Aframax) firms on rerouting. Cal-26 blended $200k+,
+          Cal-27 well above mid-cycle.
+        vlcc:
+          q3_2026: [350000, 420000, 500000]
+          q4_2026: [320000, 380000, 450000]
+          q1_2027: [250000, 300000, 360000]
+          q2_2027: [205000, 250000, 300000]
+          q3_2027: [190000, 230000, 278000]
+          q4_2027: [198000, 240000, 290000]
+          q1_2028: [172000, 210000, 252000]
+          q2_2028: [152000, 185000, 222000]
+        suezmax:
+          q3_2026: [140000, 170000, 205000]
+          q4_2026: [132000, 160000, 192000]
+          q1_2027: [115000, 140000, 168000]
+          q2_2027: [103000, 125000, 150000]
+          q3_2027: [99000, 120000, 144000]
+          q4_2027: [107000, 130000, 156000]
+          q1_2028: [95000, 115000, 138000]
+          q2_2028: [87000, 105000, 126000]
+        aframax_dirty:
+          q3_2026: [95000, 115000, 138000]
+          q4_2026: [91000, 110000, 132000]
+          q1_2027: [81000, 98000, 118000]
+          q2_2027: [73000, 88000, 106000]
+          q3_2027: [70000, 85000, 102000]
+          q4_2027: [76000, 92000, 110000]
+          q1_2028: [66000, 80000, 96000]
+          q2_2028: [61000, 74000, 89000]
+        lr2_clean:
+          q3_2026: [190000, 230000, 276000]
+          q4_2026: [174000, 210000, 252000]
+          q1_2027: [145000, 175000, 210000]
+          q2_2027: [124000, 150000, 180000]
+          q3_2027: [120000, 145000, 174000]
+          q4_2027: [128000, 155000, 186000]
+          q1_2028: [112000, 135000, 162000]
+          q2_2028: [99000, 120000, 144000]
+        # MR forwards moved to sectors.product.scenarios.refinery_squeeze.mr
+        # (2026-06-01). Product is now its own sector; the v2 INSW shortcut
+        # under sectors.crude is formally retired. See METHODOLOGY §11.5.
+
+      # ---------------------------------------------------------------------
+      # Scenario A: PRE-MOU BASELINE (war continues at CURRENT intensity; no MoU)
+      # Revised 2026-05-29: the prior curve ($83k 12M VLCC) sat BELOW YTD ($152k),
+      # so it was a "war freezes and normalizes" case mislabeled as the bull. Now a
+      # genuine war-continues path: VLCC sustained ~$155-200k, normalizing gradually.
+      # ---------------------------------------------------------------------
+      pre_mou_baseline:
+        weight: 0.15
+        description: >
+          War continues at current intensity (MoU fails to sign / Iran reneges /
+          implementation collapses). The Strait-of-Hormuz disruption persists, so
+          MEG-loading routes stay elevated near the current forward (~$155-200k VLCC)
+          and normalize only gradually. NOT a collapse.
+        triggers_into_this_scenario:
+          - Trump refuses to sign within 14 days of MoU announcement
+          - Iran continues SoH harassment despite MoU
+          - Israeli or third-party strike resets the conflict
+        vlcc:
+          q3_2026: [170000, 200000, 235000]
+          q4_2026: [160000, 190000, 225000]
+          q1_2027: [148000, 175000, 205000]
+          q2_2027: [135000, 160000, 188000]
+          q3_2027: [130000, 155000, 182000]
+          q4_2027: [140000, 165000, 195000]
+          q1_2028: [125000, 150000, 178000]
+          q2_2028: [118000, 140000, 165000]
+        suezmax:
+          q3_2026: [92000, 110000, 130000]
+          q4_2026: [88000, 105000, 124000]
+          q1_2027: [82000, 98000, 116000]
+          q2_2027: [75000, 90000, 106000]
+          q3_2027: [74000, 88000, 104000]
+          q4_2027: [80000, 95000, 112000]
+          q1_2028: [71000, 85000, 100000]
+          q2_2028: [67000, 80000, 94000]
+        aframax_dirty:
+          q3_2026: [63000, 75000, 88000]
+          q4_2026: [60000, 72000, 85000]
+          q1_2027: [57000, 68000, 80000]
+          q2_2027: [53000, 63000, 74000]
+          q3_2027: [52000, 62000, 73000]
+          q4_2027: [57000, 68000, 80000]
+          q1_2028: [50000, 60000, 71000]
+          q2_2028: [47000, 56000, 66000]
+        lr2_clean:
+          q3_2026: [100000, 120000, 142000]
+          q4_2026: [96000, 115000, 136000]
+          q1_2027: [88000, 105000, 124000]
+          q2_2027: [80000, 95000, 112000]
+          q3_2027: [77000, 92000, 108000]
+          q4_2027: [84000, 100000, 118000]
+          q1_2028: [75000, 90000, 106000]
+          q2_2028: [69000, 82000, 97000]
+        # MR forwards moved to sectors.product.scenarios.moderate_correction.mr
+        # (2026-06-01). See METHODOLOGY §11.5.
+
+      # ---------------------------------------------------------------------
+      # Scenario B: MOU BASE CASE (signs and three-phase plays out as modeled)
+      # Phase 1 backlog spike → Phase 2 normalization → Phase 3 structural
+      # ---------------------------------------------------------------------
+      mou_base:
+        weight: 0.50
+        description: >
+          MoU signs, three-phase path materializes: ~30 days of Phase 1 backlog
+          clearance (MEG-loading routes spike on fixture scramble) followed by
+          Phase 2 normalization (-30 to -45% MEG, -10 to -20% Atlantic) then
+          Phase 3 structural (-15 to -25% on Cal-27 strip).
+        phase_tags:
+          q3_2026: P1_P2_blend     # ~30d P1 + ~60d P2 within quarter
+          q4_2026: P2_dominant     # normalization, with winter seasonal
+          q1_2027: P3_structural
+          q2_2027: P3_structural
+          q3_2027: P3_structural
+          q4_2027: P3_structural   # Q4 seasonal lift
+          q1_2028: P3_structural
+          q2_2028: P3_structural
+        vlcc:
+          q3_2026: [120000, 175000, 220000]  # P1 spike risk; base above midpoint
+          q4_2026: [48000, 60000, 72000]     # P2 -30 to -45% MEG haircut
+          q1_2027: [45000, 56500, 68000]     # P3 -25% structural
+          q2_2027: [38000, 48000, 58000]
+          q3_2027: [40000, 49000, 58000]
+          q4_2027: [48000, 58000, 68000]     # winter seasonal
+          q1_2028: [44000, 54000, 64000]     # extrapolated; continued orderbook
+          q2_2028: [36000, 45000, 54000]     # extrapolated
+        suezmax:
+          q3_2026: [55000, 67500, 80000]     # P1 neutral; already discounted
+          q4_2026: [42000, 52000, 62000]     # P2 -10 to -20% Atlantic haircut
+          q1_2027: [32000, 40000, 48000]     # P3 structural
+          q2_2027: [26000, 32000, 38000]
+          q3_2027: [28000, 34000, 40000]
+          q4_2027: [32000, 40000, 48000]     # winter seasonal
+          q1_2028: [30000, 37000, 44000]     # extrapolated
+          q2_2028: [24000, 30000, 36000]     # extrapolated
+        aframax_dirty:
+          q3_2026: [42000, 52000, 62000]     # minor P2 drift
+          q4_2026: [34000, 41000, 48000]     # P2 normalization
+          q1_2027: [26000, 33000, 40000]     # P3 structural
+          q2_2027: [22000, 28000, 34000]
+          q3_2027: [22000, 28000, 34000]
+          q4_2027: [26000, 33000, 40000]
+          q1_2028: [24000, 31000, 38000]     # extrapolated
+          q2_2028: [20000, 26000, 32000]     # extrapolated
+        lr2_clean:
+          q3_2026: [65000, 95000, 120000]    # MEG-loading P1 spike, like VLCC
+          q4_2026: [28000, 35000, 42000]     # P2 -30% MEG haircut
+          q1_2027: [26000, 34000, 42000]     # P3 structural
+          q2_2027: [22000, 29000, 36000]
+          q3_2027: [22000, 29000, 36000]
+          q4_2027: [26000, 33000, 40000]
+          q1_2028: [24000, 31000, 38000]     # extrapolated
+          q2_2028: [20000, 26000, 32000]     # extrapolated
+        # MR forwards moved to sectors.product.scenarios.glut_base.mr
+        # (2026-06-01). See METHODOLOGY §11.5.
+
+      # ---------------------------------------------------------------------
+      # Scenario C: MOU BEAR (signs, but Iran fails to ramp; no Phase 1 spike)
+      # Phase 2 onset immediate. May 29 equity sell-off was correct.
+      # ---------------------------------------------------------------------
+      mou_bear:
+        weight: 0.25
+        description: >
+          MoU signs but Iran fails to ramp exports (sanctions infrastructure too
+          degraded, buyers reluctant, or political pushback). No Phase 1 backlog
+          spike. Phase 2 onset immediate. Phase 3 slightly worse due to more
+          aggressive enforcement of sanctioned-fleet retirement.
+        triggers_into_this_scenario:
+          - Iran exports remain <1 mb/d in first 2 weeks post-MoU sign
+          - MR Product Avg continues falling below $20k floor
+          - Floating storage clears via discount sales rather than fixture surge
+        phase_tags:
+          q3_2026: P2_dominant     # P1 collapses; P2 begins immediately
+          q4_2026: P2_dominant
+          q1_2027: P3_structural
+          q2_2027: P3_structural
+          q3_2027: P3_structural
+          q4_2027: P3_structural
+          q1_2028: P3_structural
+          q2_2028: P3_structural
+        vlcc:
+          q3_2026: [60000, 80000, 100000]   # no P1 spike; immediate P2 onset
+          q4_2026: [42000, 53000, 64000]    # deeper P2 haircut
+          q1_2027: [38000, 48000, 58000]    # deeper P3 structural
+          q2_2027: [32000, 41000, 50000]
+          q3_2027: [34000, 43000, 52000]
+          q4_2027: [42000, 51000, 60000]
+          q1_2028: [38000, 47000, 56000]    # extrapolated
+          q2_2028: [30000, 39000, 48000]    # extrapolated
+        suezmax:
+          q3_2026: [45000, 55000, 65000]    # below pre-MoU; immediate drift down
+          q4_2026: [38000, 46000, 54000]
+          q1_2027: [28000, 35000, 42000]
+          q2_2027: [22000, 28000, 34000]
+          q3_2027: [24000, 30000, 36000]
+          q4_2027: [28000, 35000, 42000]
+          q1_2028: [26000, 32000, 38000]    # extrapolated
+          q2_2028: [22000, 27000, 32000]    # extrapolated
+        aframax_dirty:
+          q3_2026: [36000, 44000, 52000]    # below pre-MoU
+          q4_2026: [30000, 36000, 42000]
+          q1_2027: [22000, 28000, 34000]
+          q2_2027: [20000, 25000, 30000]
+          q3_2027: [20000, 25000, 30000]
+          q4_2027: [22000, 28000, 34000]
+          q1_2028: [22000, 27000, 32000]    # extrapolated
+          q2_2028: [18000, 23000, 28000]    # extrapolated
+        lr2_clean:
+          q3_2026: [38000, 48000, 58000]    # no MEG-loading P1 spike
+          q4_2026: [24000, 30000, 36000]
+          q1_2027: [22000, 28000, 34000]
+          q2_2027: [20000, 25000, 30000]
+          q3_2027: [20000, 25000, 30000]
+          q4_2027: [22000, 28000, 34000]
+          q1_2028: [20000, 26000, 32000]    # extrapolated
+          q2_2028: [18000, 22000, 26000]    # extrapolated
+        # MR forwards moved to sectors.product.scenarios.demand_softening.mr
+        # (2026-06-01). See METHODOLOGY §11.5.
+
+    # =======================================================================
+    # CRUDE — CYCLE WEIGHTING ANCHORS
+    # 10-year historical TCE means by class, used to compute cycle position
+    # ratio = (forward 12M base) / (10yr mean). Threshold bands per
+    # METHODOLOGY.md section 2.3.
+    # =======================================================================
+    cycle_anchors:
+      vlcc:
+        ten_year_mean: 40000
+        source: Baltic TD3C historical 2016-2025
+      suezmax:
+        ten_year_mean: 27747
+        source: Baltic TD20 historical
+      aframax_dirty:
+        ten_year_mean: 36483
+        source: Baltic TD25 historical (Wk40 2025 reference)
+      lr2_clean:
+        ten_year_mean: 27000
+        source: Baltic TC1 historical, approximate
+      # MR cycle anchor moved to sectors.product.cycle_anchors.mr (2026-06-01).
+      # The crude sector no longer routes any product-class scenarios; clean-trade
+      # MR / LR1 / LR2 live entirely under sectors.product. See METHODOLOGY §11.5.
+
+  # ===========================================================================
+  # LNG CARRIER SECTOR
+  # Glut-cycle scenarios for modern 174k cbm LNGCs. Driven by the 2024-2028
+  # newbuild orderbook (~330+ vessels delivering) running into a flat-to-soft
+  # LNG demand profile, with Asian winter / EU storage seasonality dominating
+  # the base case. Tight-resurgence is the upside tail; structural_reset is the
+  # secular-decline tail (defined but inactive, weight 0.0 — see below).
+  #
+  # v2 LNG weights LOCKED 2026-06-01 — Set B (METHODOLOGY §11.3):
+  #   tight_resurgence    0.10
+  #   moderate_tightening 0.15
+  #   glut_base           0.55   (lifted from crude-inherited 0.50)
+  #   glut_intensifies    0.20   (trimmed from 0.25 — LNG cyclical bear is
+  #                                historically shallower than the crude MoU-bear)
+  #   structural_reset    0.00   (defined and curated; weight 0 because the
+  #                                energy-transition tail's timing/magnitude is
+  #                                too judgmental for parametric weighting —
+  #                                applied as a qualitative overlay on FV outputs
+  #                                per METHODOLOGY §11.3 and §12)
+  # ===========================================================================
+  lng:
+
+    framework_description: >
+      LNG carrier cycle scenarios. Modern 174k cbm two-stroke LNGC is the
+      reference vessel (FLNG fleet, Cool Co fleet, Awilco etc.). Rates expressed
+      in $/day TCE-equivalent for a 12-month TC. The four scenarios trace the
+      orderbook-vs-demand tension: tight resurgence (winter cold + ME LNG
+      disruption pulls rates into a near-term spike), moderate tightening
+      (modest winter strength), glut base (orderbook deliveries through 2027
+      keep rates flat; seasonal winter lifts), glut intensifies (more NB orders
+      pulled forward + warm winters + Chinese import slowdown).
+
+    scenarios:
+
+      # ---------------------------------------------------------------------
+      # tight_resurgence — the LNG upside tail.
+      # ME LNG disruption (Qatar/UAE incident, Hormuz spillover) + cold Asian
+      # winter + EU storage refill scramble. Modern 174k LNGC TC into the
+      # $150-220k zone near-term, normalising to $90-130k by 2027-28.
+      # Weight 0.15 (Set B-revised v3 lock, METHODOLOGY §11.3 v3): raised
+      # from the Set B 0.10 to reflect the Ras Laffan + winter setup —
+      # Trains 4 & 6 offline 12.8 mtpa partially offsets the 2026 ramp.
+      # ---------------------------------------------------------------------
+      tight_resurgence:
+        weight: 0.15
+        description: >
+          ME LNG disruption + cold winter + EU storage refill scramble pulls
+          174k modern LNGC TC into the $150-220k zone near-term; normalises to
+          $90-130k by 2027-28. The genuine LNG upside tail; orderbook drag is
+          temporarily overwhelmed.
+        lng:
+          q3_2026: [70000, 90000, 115000]
+          q4_2026: [170000, 210000, 260000]
+          q1_2027: [150000, 185000, 225000]
+          q2_2027: [85000, 105000, 130000]
+          q3_2027: [90000, 110000, 135000]
+          q4_2027: [150000, 180000, 215000]
+          q1_2028: [140000, 170000, 205000]
+          q2_2028: [78000, 95000, 115000]
+        # MGC tight_resurgence: LPG export tightness + NH3 fuel-demand surge +
+        # multi-gas trade pull. Less peak than LNG (MGCs are smaller, less
+        # ME-supply-sensitive). 12M base ~$45k vs current ~$28k 12M TC.
+        mgc:
+          q3_2026: [30000, 38000, 47000]
+          q4_2026: [40000, 52000, 65000]
+          q1_2027: [38000, 48000, 60000]
+          q2_2027: [30000, 38000, 47000]
+          q3_2027: [32000, 40000, 50000]
+          q4_2027: [40000, 52000, 65000]
+          q1_2028: [38000, 48000, 60000]
+          q2_2028: [30000, 38000, 47000]
+
+      # ---------------------------------------------------------------------
+      # moderate_tightening — modest winter strength + some ME tightening,
+      # no spike. Modern 174k LNGC TC $55-110k seasonally.
+      # Weight 0.25 (Set B-revised v3 lock, METHODOLOGY §11.3 v3): raised
+      # from Set B 0.15 to reflect the 2026 supply environment where the
+      # Cheniere Stage 3 ramp is partially absorbed by Ras Laffan damage;
+      # current spot $67.5k (+391% YoY) is empirically tight-pricing.
+      # ---------------------------------------------------------------------
+      moderate_tightening:
+        weight: 0.25
+        description: >
+          Modest winter strength + some ME tightening, no spike. Modern 174k
+          LNGC TC $55-110k seasonally. The LNG analogue of the crude pre-MoU
+          baseline: today's mildly constructive environment persists.
+        lng:
+          q3_2026: [42000, 55000, 70000]
+          q4_2026: [85000, 100000, 120000]
+          q1_2027: [80000, 95000, 115000]
+          q2_2027: [54000, 65000, 80000]
+          q3_2027: [58000, 70000, 85000]
+          q4_2027: [85000, 100000, 120000]
+          q1_2028: [80000, 95000, 115000]
+          q2_2028: [54000, 65000, 80000]
+        # MGC moderate_tightening: modest winter LPG demand + LCO2 trade traction
+        # but no spike. 12M base ~$32k.
+        mgc:
+          q3_2026: [25000, 30000, 37000]
+          q4_2026: [32000, 38000, 46000]
+          q1_2027: [30000, 36000, 43000]
+          q2_2027: [25000, 30000, 36000]
+          q3_2027: [25000, 30000, 36000]
+          q4_2027: [32000, 38000, 46000]
+          q1_2028: [30000, 36000, 43000]
+          q2_2028: [25000, 30000, 36000]
+
+      # ---------------------------------------------------------------------
+      # glut_base — orderbook deliveries through 2027 keep rates flat;
+      # moderate winter spikes. Modern 174k LNGC TC $40-75k seasonally.
+      # Weight 0.45 (Set B-revised v3 lock, METHODOLOGY §11.3 v3): trimmed
+      # from Set B 0.55. Glut consensus still arrives but timing shifts to
+      # 2027 once Ras Laffan restarts and US Gulf Coast Stage 3 finishes
+      # ramping; 2026 is mid-tight, not glut.
+      # ---------------------------------------------------------------------
+      glut_base:
+        weight: 0.45
+        description: >
+          Orderbook deliveries 2026-2028 keep pressure on rates; moderate
+          winter spikes. Modern 174k LNGC TC $40-75k seasonally. The
+          weighted-median LNG view at 55% probability (Set B v2 lock).
+        lng:
+          q3_2026: [35000, 42000, 52000]
+          q4_2026: [62000, 75000, 90000]
+          q1_2027: [58000, 70000, 84000]
+          q2_2027: [37000, 45000, 55000]
+          q3_2027: [40000, 48000, 58000]
+          q4_2027: [62000, 75000, 90000]
+          q1_2028: [58000, 70000, 84000]
+          q2_2028: [37000, 45000, 55000]
+        # MGC glut_base: steady LPG/ammonia trade absorbs orderbook; modest
+        # winter lift. 12M base ~$25-27k — the MGC central view at 55%.
+        mgc:
+          q3_2026: [20000, 24000, 29000]
+          q4_2026: [25000, 30000, 36000]
+          q1_2027: [24000, 28000, 34000]
+          q2_2027: [20000, 24000, 29000]
+          q3_2027: [21000, 25000, 30000]
+          q4_2027: [25000, 30000, 36000]
+          q1_2028: [24000, 28000, 34000]
+          q2_2028: [20000, 24000, 29000]
+
+      # ---------------------------------------------------------------------
+      # glut_intensifies — more NB ordering pulled forward + warm northern
+      # winters + Chinese import slowdown. Modern 174k LNGC TC $30-55k.
+      # The LNG analogue of the crude MoU-bear: orderbook drag dominates.
+      # NOTE: this is the CYCLICAL bear (2026-2028 orderbook + warm winters).
+      # The STRUCTURAL bear (energy-transition tail, multi-year demand decline)
+      # is the separate structural_reset scenario below — different mechanism,
+      # different time horizon.
+      # Weight 0.15 (Set B-revised v3 lock, METHODOLOGY §11.3 v3): trimmed
+      # from Set B 0.20. 2026 supply environment (Ras Laffan offline, current
+      # spot at multi-year highs) doesn't justify extreme cyclical-bear
+      # weight; the 5pp moved into the constructive band (tight + moderate).
+      # ---------------------------------------------------------------------
+      glut_intensifies:
+        weight: 0.15
+        description: >
+          More newbuild ordering pulled forward + warm northern winters +
+          Chinese import slowdown. Modern 174k LNGC TC $30-55k. Orderbook
+          drag dominates; winter seasonality muted.
+        lng:
+          q3_2026: [25000, 32000, 40000]
+          q4_2026: [45000, 55000, 68000]
+          q1_2027: [42000, 52000, 65000]
+          q2_2027: [27000, 34000, 42000]
+          q3_2027: [29000, 36000, 45000]
+          q4_2027: [45000, 55000, 68000]
+          q1_2028: [40000, 50000, 62000]
+          q2_2028: [26000, 33000, 41000]
+        # MGC glut_intensifies: LPG export oversupply + dual-fuel orderbook
+        # delivery wave. 12M base ~$21k.
+        mgc:
+          q3_2026: [16000, 19000, 23000]
+          q4_2026: [20000, 24000, 29000]
+          q1_2027: [19000, 22000, 27000]
+          q2_2027: [16000, 19000, 23000]
+          q3_2027: [17000, 20000, 24000]
+          q4_2027: [20000, 24000, 29000]
+          q1_2028: [19000, 22000, 27000]
+          q2_2028: [15000, 18000, 22000]
+
+      # ---------------------------------------------------------------------
+      # structural_reset — the LNG energy-transition TAIL (added 2026-06-01).
+      #
+      # Rationale: distinct mechanism from glut_intensifies. Glut is CYCLICAL
+      # (2026-2028 orderbook + warm-winter / Chinese-slowdown shocks; the cycle
+      # eventually clears as old tonnage retires and demand resumes growth).
+      # Structural reset is a SECULAR demand-decline narrative: energy transition
+      # accelerates, LNG demand peaks before 2030, oversupply persists STRUCTURALLY
+      # beyond the cyclical glut, fleet faces accelerated retirement pressure,
+      # terminal carrier values reset lower because the residual operating /
+      # FSRU-conversion runway is shorter than the curve assumes.
+      #
+      # Forward shape: front quarters resemble glut_intensifies (near-term
+      # cyclical weakness — energy transition does not bite immediately) but the
+      # back half is structurally worse (no late-cycle relief because demand
+      # itself is declining). 12M base ~$45k/day vs current ~$98.5k 12M TC
+      # (~46% of current TC level; user spec ~60-65% but constructed slightly
+      # lower in back-half to reflect the secular shape).
+      #
+      # vessel_scale_multiplier: 0.90 = additional -10% applied AFTER the standard
+      # elasticity flex (scenarios.py reads this optional field). Captures
+      # shortened economic life under accelerated retirement — the structural
+      # carrier-value reset that the rate curve alone doesn't price.
+      #
+      # Initial weight 0.0 = scenario defined but inactive (Set A baseline is
+      # preserved). The locked-in weight depends on the user's adoption decision
+      # — see METHODOLOGY §11.3 (LNG v1 → v2 weight transition).
+      # ---------------------------------------------------------------------
+      structural_reset:
+        weight: 0.0
+        vessel_scale_multiplier: 0.90
+        description: >
+          Energy transition accelerates. LNG demand peaks before 2030, oversupply
+          persists structurally, fleet faces accelerated retirement pressure,
+          terminal carrier values reset lower. 12M base TCE ~$45k/day. Distinct
+          from glut_intensifies (cyclical) — this is the SECULAR tail.
+        lng:
+          q3_2026: [31000, 40000, 49000]
+          q4_2026: [41000, 53000, 65000]
+          q1_2027: [38000, 49000, 60000]
+          q2_2027: [27000, 35000, 43000]
+          q3_2027: [29000, 37000, 45000]
+          q4_2027: [34000, 44000, 54000]
+          q1_2028: [31000, 40000, 49000]
+          q2_2028: [26000, 33000, 40000]
+        # MGC structural_reset: energy-transition tail. Dual-fuel MGCs are
+        # ammonia / LCO2-capable, which COULD make them transition winners, but
+        # the trade-flow narrative could equally fail to materialise. Conservative:
+        # MGC structural_reset is bearish, similar shape to glut_intensifies but
+        # lower back-half. The vessel_scale_multiplier 0.90 inherits from the
+        # scenario (applies to all classes equally — MGCs aren't differentiated
+        # from LNGCs on the structural haircut at v1; revisit if LCO2 trade
+        # matures materially).
+        mgc:
+          q3_2026: [13000, 16000, 20000]
+          q4_2026: [16000, 19000, 23000]
+          q1_2027: [15000, 18000, 22000]
+          q2_2027: [13000, 16000, 20000]
+          q3_2027: [13000, 16000, 20000]
+          q4_2027: [16000, 19000, 23000]
+          q1_2028: [15000, 18000, 22000]
+          q2_2028: [12000, 14000, 17000]
+
+    # =======================================================================
+    # LNG — CYCLE WEIGHTING ANCHORS
+    # =======================================================================
+    cycle_anchors:
+      lng:
+        ten_year_mean: 85000
+        source: 174k cbm modern LNGC 10yr mean (2016-2025, includes 2022-23 spike)
+      # MGC (Medium Gas Carrier 22-45k cbm dual-fuel multi-gas / LCO2) — added
+      # 2026-06-01 alongside the gas-carrier sub-class build for CCEC.
+      mgc:
+        ten_year_mean: 20000
+        source: Braemar / Riviera MGC 10yr historical (LPG/ammonia trade; LCO2 too new)
+
+  # ===========================================================================
+  # PRODUCT TANKER SECTOR (added 2026-06-01)
+  # Clean-trade product fleet (MR + LR1 + LR2 clean). Values STNG / TORM /
+  # Hafnia / Ardmore directly when they have `sector: product`, and serves as
+  # the product-sleeve scenario set for the hybrid INSW carve-out (METHODOLOGY
+  # §6, §11.5). Formalises the MR / LR1_clean / LR2_clean machinery that
+  # previously lived under sectors.crude as a v2 INSW shortcut.
+  #
+  # v1 SIMPLIFICATION — the initial PRODUCT scenario weights mirror the crude
+  # v1 baseline {0.10/0.15/0.50/0.25} (same set INSW's product sleeve was
+  # already using via the v2 shortcut), with a curated `structural_decline`
+  # 5th tail at weight 0.00 (EV gasoline / refining-capacity rationalisation
+  # / jet-fuel demand peak — applied as qualitative overlay until enough data
+  # supports a parametric weight, mirroring the LNG `structural_reset` pattern).
+  # Locking PRODUCT-specific weights is a future work block analogous to the
+  # LNG v1 → v2 Set B lock (METHODOLOGY §11.3 / §11.5).
+  #
+  # Forward CURVES for v1 are copied from the v2 INSW shortcut values that were
+  # under sectors.crude.scenarios.<scenario>.mr and .lr2_clean, so INSW's
+  # whole-company FV is preserved exactly through this refactor. LR1_clean
+  # uses the same forwards as LR2_clean (v1 proxy — LR1 is a smaller LR2,
+  # economics similar). A future product-specific LR1_clean recalibration is
+  # tracked under data_gaps.product.
+  # ===========================================================================
+  product:
+
+    framework_description: >
+      Clean product tanker scenarios. Modern MR (eco / scrubber-fit / IMO-2 /
+      45-55k DWT) and clean LR1 / LR2 are the reference vessels. Rates expressed
+      in $/day TCE-equivalent. The four cyclical scenarios trace the product-
+      cycle tension: refinery capacity vs newbuild orderbook vs demand
+      (refinery_squeeze tight tail / moderate_correction / glut_base /
+      demand_softening cyclical bear). The 5th scenario (structural_decline)
+      captures the secular tail (EV gasoline + jet-fuel demand peak + refinery
+      rationalisation) and is curated but inactive (weight 0).
+
+    scenarios:
+
+      # ---------------------------------------------------------------------
+      # refinery_squeeze — the product upside tail.
+      # Refinery outages (planned or accidental) + jet-fuel / marine-bunker
+      # demand surge + ME tightening. MR into the $35k-50k zone near-term.
+      # Weight 0.15 (Product Set B v2 lock, METHODOLOGY §11.5 v2, 2026-06-03):
+      # raised from Set A 0.10 to reflect the Iran-crisis rate spike + cargo-
+      # mile demand gains (LR2 +6.62% YTD, MR2 +3.17% YTD per VV; clean product
+      # tanker earnings >2× historic average per Catlin VIE).
+      # ---------------------------------------------------------------------
+      refinery_squeeze:
+        weight: 0.15
+        description: >
+          Refinery capacity outages (unplanned shutdowns, post-MoU disruption
+          to ME refining) plus demand surge (cold winter jet-fuel, marine
+          bunker tightness) lifts product rates well above mid-cycle. MR
+          $35-50k near-term, LR2 $200k+ on MEG-loading routes.
+        mr:
+          q3_2026: [30000, 38000, 47000]
+          q4_2026: [33000, 42000, 52000]
+          q1_2027: [28000, 35000, 43000]
+          q2_2027: [22000, 28000, 35000]
+          q3_2027: [20000, 25000, 31000]
+          q4_2027: [22000, 28000, 35000]
+          q1_2028: [21000, 26000, 32000]
+          q2_2028: [18000, 22000, 28000]
+        lr1_clean:
+          q3_2026: [190000, 230000, 276000]
+          q4_2026: [174000, 210000, 252000]
+          q1_2027: [145000, 175000, 210000]
+          q2_2027: [124000, 150000, 180000]
+          q3_2027: [120000, 145000, 174000]
+          q4_2027: [128000, 155000, 186000]
+          q1_2028: [112000, 135000, 162000]
+          q2_2028: [99000, 120000, 144000]
+        lr2_clean:
+          q3_2026: [190000, 230000, 276000]
+          q4_2026: [174000, 210000, 252000]
+          q1_2027: [145000, 175000, 210000]
+          q2_2027: [124000, 150000, 180000]
+          q3_2027: [120000, 145000, 174000]
+          q4_2027: [128000, 155000, 186000]
+          q1_2028: [112000, 135000, 162000]
+          q2_2028: [99000, 120000, 144000]
+
+      # ---------------------------------------------------------------------
+      # moderate_correction — the current product correction stabilises +
+      # modest recovery. Crisis-driven product strength gradually normalises.
+      # Weight 0.25 (Product Set B v2 lock, METHODOLOGY §11.5 v2, 2026-06-03):
+      # raised from Set A 0.15 to reflect sustained product tightness through
+      # 2026 — clean tanker earnings >2× historic average, critical regional
+      # shortages, stockpile replenishment phase ahead (Catlin VIE June 2026).
+      # ---------------------------------------------------------------------
+      moderate_correction:
+        weight: 0.25
+        description: >
+          The May-2026 product correction (MR -52% w/w / LR2 -28% w/w; product
+          leading the MoU normalisation) stabilises at current levels. Modest
+          TC firming on MR ($22-30k) and clean LR2 ($82-120k) seasonally.
+        mr:
+          q3_2026: [22000, 27000, 33000]
+          q4_2026: [26000, 32000, 39000]
+          q1_2027: [23000, 28000, 34000]
+          q2_2027: [19000, 23000, 28000]
+          q3_2027: [18000, 22000, 27000]
+          q4_2027: [21000, 25000, 30000]
+          q1_2028: [19000, 23000, 28000]
+          q2_2028: [16000, 20000, 24000]
+        lr1_clean:
+          q3_2026: [100000, 120000, 142000]
+          q4_2026: [96000, 115000, 136000]
+          q1_2027: [88000, 105000, 124000]
+          q2_2027: [80000, 95000, 112000]
+          q3_2027: [77000, 92000, 108000]
+          q4_2027: [84000, 100000, 118000]
+          q1_2028: [75000, 90000, 106000]
+          q2_2028: [69000, 82000, 97000]
+        lr2_clean:
+          q3_2026: [100000, 120000, 142000]
+          q4_2026: [96000, 115000, 136000]
+          q1_2027: [88000, 105000, 124000]
+          q2_2027: [80000, 95000, 112000]
+          q3_2027: [77000, 92000, 108000]
+          q4_2027: [84000, 100000, 118000]
+          q1_2028: [75000, 90000, 106000]
+          q2_2028: [69000, 82000, 97000]
+
+      # ---------------------------------------------------------------------
+      # glut_base — product 2026-2028 oversupply central view.
+      # MR / LR2 newbuild orderbook delivers; refinery margin compression;
+      # MR 12M TC $18-22k. The product central case.
+      # Weight 0.45 (Product Set B v2 lock, METHODOLOGY §11.5 v2, 2026-06-03):
+      # trimmed from Set A 0.50. Glut still arrives once SoH reopens + 2026
+      # delivery cohort fully absorbs, but timing shifts to 2027 — empirical
+      # 2026 is unambiguously tight, not glut.
+      # ---------------------------------------------------------------------
+      glut_base:
+        weight: 0.45
+        description: >
+          MR + LR2 newbuild orderbook delivers through 2027 (MR ~50 NB / yr,
+          LR2 ~30 NB / yr); refinery margin compression normalises; jet-fuel
+          recovery does NOT offset the supply growth. MR $18-22k, LR2 $30-40k.
+          The product-cycle central view at 50% probability.
+        mr:
+          q3_2026: [17000, 21000, 26000]
+          q4_2026: [20000, 25000, 31000]
+          q1_2027: [18000, 22000, 27000]
+          q2_2027: [15000, 18000, 22000]
+          q3_2027: [14000, 17000, 21000]
+          q4_2027: [16000, 20000, 24000]
+          q1_2028: [15000, 18000, 22000]
+          q2_2028: [13000, 16000, 20000]
+        lr1_clean:
+          q3_2026: [65000, 95000, 120000]
+          q4_2026: [28000, 35000, 42000]
+          q1_2027: [26000, 34000, 42000]
+          q2_2027: [22000, 29000, 36000]
+          q3_2027: [22000, 29000, 36000]
+          q4_2027: [26000, 33000, 40000]
+          q1_2028: [24000, 31000, 38000]
+          q2_2028: [20000, 26000, 32000]
+        lr2_clean:
+          q3_2026: [65000, 95000, 120000]
+          q4_2026: [28000, 35000, 42000]
+          q1_2027: [26000, 34000, 42000]
+          q2_2027: [22000, 29000, 36000]
+          q3_2027: [22000, 29000, 36000]
+          q4_2027: [26000, 33000, 40000]
+          q1_2028: [24000, 31000, 38000]
+          q2_2028: [20000, 26000, 32000]
+
+      # ---------------------------------------------------------------------
+      # demand_softening — the cyclical bear. Refinery margin collapse +
+      # warm winter + EV gasoline demand softness + faster NB delivery.
+      # Weight 0.15 (Product Set B v2 lock, METHODOLOGY §11.5 v2, 2026-06-03):
+      # trimmed from Set A 0.25. Empirical evidence contradicts the demand-
+      # side bear: cargo-mile demand UP YTD, critical regional shortages
+      # (Myanmar/Vietnam/Philippines/Indonesia/Pakistan/Australia), PMI growth.
+      # The 10pp shift moves into the constructive band (refinery_squeeze +
+      # moderate_correction). Same shift-direction as LNG Set B-revised
+      # (10pp off bear-side analog of glut_intensifies).
+      # ---------------------------------------------------------------------
+      demand_softening:
+        weight: 0.15
+        description: >
+          Refinery margin compression deepens (Singapore complex margin sub
+          $5/bbl); warm northern winter mutes jet-fuel + heating-product demand;
+          NB delivery wave accelerated. MR $13-18k, LR2 $22-28k. The cyclical
+          product bear case.
+        mr:
+          q3_2026: [13000, 16000, 20000]
+          q4_2026: [15000, 19000, 23000]
+          q1_2027: [13000, 16000, 20000]
+          q2_2027: [11000, 14000, 17000]
+          q3_2027: [11000, 13000, 16000]
+          q4_2027: [12000, 15000, 18000]
+          q1_2028: [11000, 14000, 17000]
+          q2_2028: [10000, 12000, 15000]
+        lr1_clean:
+          q3_2026: [38000, 48000, 58000]
+          q4_2026: [24000, 30000, 36000]
+          q1_2027: [22000, 28000, 34000]
+          q2_2027: [20000, 25000, 30000]
+          q3_2027: [20000, 25000, 30000]
+          q4_2027: [22000, 28000, 34000]
+          q1_2028: [20000, 26000, 32000]
+          q2_2028: [18000, 22000, 26000]
+        lr2_clean:
+          q3_2026: [38000, 48000, 58000]
+          q4_2026: [24000, 30000, 36000]
+          q1_2027: [22000, 28000, 34000]
+          q2_2027: [20000, 25000, 30000]
+          q3_2027: [20000, 25000, 30000]
+          q4_2027: [22000, 28000, 34000]
+          q1_2028: [20000, 26000, 32000]
+          q2_2028: [18000, 22000, 26000]
+
+      # ---------------------------------------------------------------------
+      # structural_decline — the product energy-transition TAIL.
+      #
+      # Curated and AVAILABLE; weight 0.00. Captures secular product-demand
+      # decline drivers that don't fit the cyclical glut narrative:
+      #   - EV gasoline demand peak (now < 2030 in optimistic transition view)
+      #   - Jet fuel: efficiency + SAF substitution slows growth materially
+      #   - Refinery rationalisation: 2026-2030 sees 2-3 mb/d capacity closures
+      #     in OECD, structurally lowering product transport volumes
+      #   - Marine fuel: ammonia / methanol bunkering displaces some marine
+      #     gasoil + VLSFO demand
+      #
+      # Includes vessel_scale_multiplier 0.90 — accelerated-retirement haircut
+      # on product carrier values, analogous to LNG structural_reset. Front
+      # quarters resemble demand_softening (near-term cyclical weakness); the
+      # back half is structurally worse (no late-cycle relief because demand
+      # itself is declining).
+      #
+      # Weight 0.00 because the timing/magnitude of structural product demand
+      # peak within the 2028-2035 window is too judgmental to assign a
+      # meaningful parametric weight. Apply as a qualitative overlay (-5 to
+      # -15% on the product FV) per individual transition-timing view.
+      # ---------------------------------------------------------------------
+      structural_decline:
+        weight: 0.0
+        vessel_scale_multiplier: 0.90
+        description: >
+          Energy transition accelerates: EV gasoline peak, jet fuel growth
+          slows on efficiency + SAF, refinery rationalisation accelerates.
+          Distinct from demand_softening (cyclical) — this is the SECULAR
+          product-demand decline tail.
+        mr:
+          q3_2026: [11000, 14000, 17000]
+          q4_2026: [13000, 16000, 20000]
+          q1_2027: [11000, 14000, 17000]
+          q2_2027: [9000, 12000, 15000]
+          q3_2027: [9000, 11000, 14000]
+          q4_2027: [10000, 13000, 16000]
+          q1_2028: [9000, 12000, 15000]
+          q2_2028: [8000, 10000, 13000]
+        lr1_clean:
+          q3_2026: [30000, 38000, 46000]
+          q4_2026: [20000, 25000, 30000]
+          q1_2027: [18000, 23000, 28000]
+          q2_2027: [17000, 21000, 25000]
+          q3_2027: [17000, 21000, 25000]
+          q4_2027: [18000, 23000, 28000]
+          q1_2028: [16000, 21000, 26000]
+          q2_2028: [15000, 18000, 22000]
+        lr2_clean:
+          q3_2026: [30000, 38000, 46000]
+          q4_2026: [20000, 25000, 30000]
+          q1_2027: [18000, 23000, 28000]
+          q2_2027: [17000, 21000, 25000]
+          q3_2027: [17000, 21000, 25000]
+          q4_2027: [18000, 23000, 28000]
+          q1_2028: [16000, 21000, 26000]
+          q2_2028: [15000, 18000, 22000]
+
+    # =======================================================================
+    # PRODUCT — CYCLE WEIGHTING ANCHORS
+    # 10-yr historical means by class. MR + LR2_clean moved from sectors.crude
+    # (where they lived as v2 INSW shortcut anchors). LR1_clean added new.
+    # =======================================================================
+    cycle_anchors:
+      mr:
+        ten_year_mean: 16000
+        source: Baltic MR clean (TC2/TC7) 10yr mean
+      lr1_clean:
+        ten_year_mean: 25000
+        source: clean LR1 10yr mean (v1 proxy ~midpoint MR / LR2)
+      lr2_clean:
+        ten_year_mean: 27000
+        source: Baltic TC1 / TC15 historical, approximate
+
+# =============================================================================
+# TRIGGERS TO WATCH (CRUDE)
+# Observable signals that recalibrate crude scenario weights between runs.
+# =============================================================================
+triggers_to_watch:
+  - name: MoU signing event
+    current_status: announced_unsigned
+    binary: true
+    if_signs: shift weight toward mou_base + mou_bear; pre_mou_baseline → 0.10
+    if_no_sign_in_14d: shift weight toward pre_mou_baseline → 0.50
+
+  - name: MR Product Avg floor
+    current_value_per_day: 23800
+    direction_last_week: down_52pct
+    bullish_signal: stabilizes or recovers to $30k within 5 trading days
+    bearish_signal: continues falling below $20k
+    interpretation: >
+      The MR product market is the leading indicator for the broader complex.
+      Recovery → Phase 1 conviction strengthens, lift mou_base weight.
+      Continued decline → equity market may already be in Phase 2; lift mou_bear.
+
+  - name: Iran export volume (first 2 weeks post-MoU sign)
+    bullish_signal: ramps above 2.0 mb/d
+    bearish_signal: stays below 1.0 mb/d
+    interpretation: >
+      Above 2.0 mb/d implies aggressive surge → Phase 1 spike intensifies and
+      extends; could push VLCC TD3C to $500k+. Below 1.0 mb/d implies Iran can't
+      ramp → Phase 1 collapses → mou_bear scenario.
+
+  - name: Floating storage (current vs Windward 158.6mb anchor)
+    source_to_check: Vortexa or Kpler crude floating storage report
+    current_anchor_age_days: 60
+    interpretation: >
+      Windward data is 2 months stale. Current floating storage > 200mb tightens
+      Phase 1 duration estimate (longer backlog clearance, more sustained spike).
+      < 100mb means storage has already been worked off; Phase 1 weaker.
+
+  - name: TD3C VLCC spot
+    current_value: 388300
+    direction_last_week: down_17pct
+    interpretation: >
+      Sub-$300k while MoU still unsigned → backlog clearance already starting
+      in anticipation. Sustained > $400k → Phase 1 mechanic still loaded.
+
+# =============================================================================
+# OUTPUT REQUIREMENTS
+# What the FV engine should produce after consuming this file.
+# (Sector-agnostic — the scenario column names vary per sector but the schema
+# is the same.)
+# =============================================================================
+output_requirements:
+  per_name_report:
+    - probability_weighted_FV: weighted average across the sector's scenarios
+    - per_scenario_FV: standalone FV under each scenario
+    - per_scenario_NAV_share: NAV is mostly scenario-invariant in T+0; flag if vessel-value reset materially in a scenario
+    - per_scenario_dividend_strip_NPV: this is what diverges most across scenarios
+    - per_scenario_implied_breakeven_TCE: what flat rate ties FV to current price
+    - upside_to_best_scenario: FV(best) − current_price
+    - downside_to_worst_scenario: FV(worst) − current_price
+    - expected_value_vs_current: weighted_FV − current_price (the decision signal)
+
+  watchlist_rollup:
+    columns:
+      - ticker
+      - sector                    # crude or lng (sector-layer, METHODOLOGY §11)
+      - current_price
+      - per-scenario FV columns   # vary by sector
+      - probability_weighted_FV
+      - upside_pct
+      - downside_pct
+      - expected_value_pct
+      - position_recommendation  # tool's view; analyst overrides
+    sort: descending by expected_value_pct
+    highlight: |
+      Convention: expected_value_pct = (probability_weighted_FV / current_price - 1).
+      FV above price (positive EV) = undervalued = BUY/LONG candidate.
+      FV below price (negative EV) = overvalued = TRIM/SHORT candidate.
+      Names where expected_value_pct exceeds +5% are buy/long candidates.
+      Names where expected_value_pct is below -5% are trim/short candidates.
+      Cross-name relative value: rank from most overvalued (lowest EV) to most
+      undervalued (highest EV) WITHIN sector — cross-sector pair trades are
+      flagged as mixed-cycle and require separate judgement.
+
+# =============================================================================
+# WHAT WOULD BREAK THE FRAMEWORK (CRUDE)
+# Conditions that would invalidate the three-phase decomposition entirely
+# and require a model rebuild rather than a recalibration.
+# =============================================================================
+framework_breakers:
+  - condition: MoU collapses and conflict escalates beyond pre-MoU levels
+    response: Add a fourth "escalation" scenario; pre_mou_baseline becomes lower bound
+  - condition: Permanent comprehensive Iran settlement (sanctions fully lifted)
+    response: Phase 3 structural haircut deepens significantly; sanctioned fleet
+              gets fully cleared; add Cal-28+ persistent supply overhang scenario
+  - condition: Major non-Iran tanker disruption (Russia escalation, Suez closure)
+    response: All three scenarios shift up by varying degrees; pre-MoU baseline
+              re-anchors at war premium plus new disruption premium
+  - condition: Global recession with oil demand collapse
+    response: Demand side dominates supply side; all scenarios shift down ~20-30%
+              regardless of Iran path
+
+# =============================================================================
+# OPEN DATA GAPS (acknowledged; flagged for v5 refinement)
+# =============================================================================
+data_gaps:
+  crude:
+    - post_MoU_broker_FFA_quotes:
+        status: not yet publicly available
+        action: request from Haavaldsen at Pareto; cross-check FIS or Marex weekly
+    - cross_route_aframax_peak_prints:
+        status: TD7/TD19 weekly prints from Wk 7-11 not extracted
+        action: Baltic Exchange direct
+    - current_floating_storage:
+        status: Windward data 60 days stale
+        action: Vortexa or Kpler crude floating storage tracker
+    - cal_2028_market_quotes:
+        status: no liquid quote across any class
+        action: derive from orderbook delivery schedule + scrapping assumptions
+                (currently extrapolated from Cal-27 shape)
+  lng:
+    - lng_scenario_weights:
+        status: RESOLVED 2026-06-01. Set B locked - {tight_resurgence 0.10,
+                moderate_tightening 0.15, glut_base 0.55, glut_intensifies 0.20,
+                structural_reset 0.00}. Sector-specific weights replace the
+                crude-inherited placeholder. Rationale in METHODOLOGY §11.3.
+        action: revisit if (a) LNG cycle structure shifts materially, (b) better
+                data emerges on energy-transition timing, or (c) the structural
+                overlay (qualitative -5 to -15% on FV per individual view of
+                transition window) consistently disagrees with realised prices.
+    - structural_reset_tail:
+        status: 5th scenario CURATED and AVAILABLE in inputs/scenario_inputs.yaml
+                (sectors.lng.scenarios.structural_reset; weight 0.0). Includes a
+                -10% vessel_scale_multiplier for accelerated-retirement haircut.
+                Not parametrically weighted because the energy-transition timing
+                and magnitude are too judgmental to assign a meaningful prob mass.
+        action: keep as a sensitivity / scenario-override tool, NOT a default
+                weighted input. Investors apply -5 to -15% overlay on the
+                production FV based on their own transition-timing view.
+    - lng_ffa_curve_quality:
+        status: LNG forward curve liquidity is much thinner than crude;
+                ffa_forward_curve.yaml entries for LNGC are largely TC-implied.
+        action: Affinity / Fearnleys weekly + Spark TC curves as anchors.

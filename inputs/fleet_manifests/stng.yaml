@@ -1,0 +1,118 @@
+# Scorpio Tankers (STNG / NYSE:STNG) fleet manifest — METHODOLOGY.md §4.1, §11.5
+# Source: Scorpio Q1 2026 results (6-K, ex-99.1, filed 2026-05-05); cross-checked
+# against the public IR fleet page (`STNG-Fleet-as-of-5-Jan-26.xlsx`, IR site).
+# Balance sheet date: 2026-03-31.
+#
+# Scope = the **87 on-curve product tankers** as of 2026-03-31:
+#   - 32 LR2 (~109-115k DWT, valued via the LR2/Aframax-equivalent curve)
+#   - 41 MR  (~50k DWT, valued via the MR curve)
+#   - 14 Handymax (~38k DWT IMO-II coated, valued via the dedicated Handymax
+#     curve — added 2026-06-05; reproduces STNG's $14.3M/vessel mark @ avg-age 15)
+#
+# Two off-manifest groups remain on the balance sheet (NAV input via
+# working_capital_net), NOT via this fleet manifest:
+#   1. **9 vessels held for sale** at 2026-03-31 (~$395M aggregate agreed sale
+#      price; ~$215M carrying; $200M gain pending in Q2) — entered in NAV via
+#      working_capital_net at the REALISABLE sale price. Same pattern as DHT
+#      Bauhinia and ASC Engineer.
+#   2. **10-vessel newbuild order book** ($572.8M remaining at 2026-03-31; rose
+#      to $641.5M post-April with 2 additional MR LOIs and convert funding).
+#      Includes 4× MR + 4× LR2 + **2× VLCC NBs (2H 2028 delivery — STNG's first
+#      crude exposure)** — entered via newbuild_capex_commitments and
+#      newbuild_advances_paid lines on the balance sheet. The 2 VLCC NBs do NOT
+#      enter scenarios (they deliver past the 8-quarter dividend strip horizon);
+#      if/when they operate, the carve-out architecture (currently INSW-only)
+#      may need to be extended to STNG.
+#
+# Per-vessel fleet detail (87 vessels) is not in the Q1 6-K — STNG's full vessel
+# sheet is the Jan-2026 IR Excel. Aggregated here by class × build-year × scrubber/
+# eco status using `count: N` rows. Distribution within build years approximates
+# the disclosed cohort sizes and the ~95% scrubber-fitted figure for LR2/MR
+# (only ~2 LR2 and 2 MR estimated non-scrubber). Refresh per-vessel when the
+# Q1-end IR Excel is published.
+#
+# age = 2026 - year built. eco = built post-2014 (METHODOLOGY §3.1).
+# Note: the 5× 2013-built MRs sit at eco: false per the §3.1 definition; minor
+# over-valuation on the eco-inclusive MR curve (~$25M aggregate, ~1% of fleet
+# value) flagged in §6 STNG entry. Same gap as ASC's 5× 2013 Eco-Mod MRs.
+ticker: STNG
+report_date: 2026-Q1
+vessels:
+  # ============================================================
+  # LR2 fleet — 32 vessels (predominantly SWS / DSME / HSHI; all eco)
+  # All but ~2 are scrubber-fitted. 10yr anchor on LR2 curve = $68M
+  # ============================================================
+  # ---- 2014 builds (age 12) — 8 LR2; 6 scrubber + 2 non-scrubber ----
+  - {id: STNG_LR2_2014_scr, class: LR2, dwt: 110000, age: 12, scrubber: true,  eco: true, charter_status: spot, count: 6}
+  - {id: STNG_LR2_2014_nscr,class: LR2, dwt: 110000, age: 12, scrubber: false, eco: true, charter_status: spot, count: 2}
+  # ---- 2015 builds (age 11) — 8 LR2; all scrubber ----
+  - {id: STNG_LR2_2015,     class: LR2, dwt: 110000, age: 11, scrubber: true,  eco: true, charter_status: spot, count: 8}
+  # ---- 2016 builds (age 10) — 6 LR2; all scrubber ----
+  - {id: STNG_LR2_2016,     class: LR2, dwt: 110000, age: 10, scrubber: true,  eco: true, charter_status: spot, count: 6}
+  # ---- 2018 builds (age 8) — 5 LR2; all scrubber; 4 TC'd out (Spiga/Lombard/
+  # Rambla/Rose) at $29-35k/d per Q1 disclosure ----
+  - {id: STNG_LR2_2018,     class: LR2, dwt: 110000, age: 8,  scrubber: true,  eco: true, charter_status: time_charter, charter_rate: 30000, count: 4}
+  - {id: STNG_LR2_2018_sp,  class: LR2, dwt: 110000, age: 8,  scrubber: true,  eco: true, charter_status: spot,         count: 1}
+  # ---- 2019 builds (age 7) — 5 LR2; all scrubber ----
+  - {id: STNG_LR2_2019,     class: LR2, dwt: 110000, age: 7,  scrubber: true,  eco: true, charter_status: spot, count: 5}
+
+  # ============================================================
+  # MR fleet — 41 vessels (predominantly Hyundai Mipo / SPP; mix
+  # of eco/non-eco; ~95% scrubber-fitted). MR curve 10yr = $34.5M.
+  # ============================================================
+  # ---- 2013 builds (age 13) — 5 MR; eco: false per §3.1 definition; scrubber ----
+  - {id: STNG_MR_2013,      class: MR, dwt: 50000,  age: 13, scrubber: true,  eco: false, charter_status: spot, count: 5}
+  # ---- 2014 builds (age 12) — 10 MR; 8 scrubber + 2 non-scrubber ----
+  - {id: STNG_MR_2014_scr,  class: MR, dwt: 50000,  age: 12, scrubber: true,  eco: true,  charter_status: spot, count: 8}
+  - {id: STNG_MR_2014_nscr, class: MR, dwt: 50000,  age: 12, scrubber: false, eco: true,  charter_status: spot, count: 2}
+  # ---- 2015 builds (age 11) — 10 MR; all scrubber ----
+  - {id: STNG_MR_2015,      class: MR, dwt: 50000,  age: 11, scrubber: true,  eco: true,  charter_status: spot, count: 10}
+  # ---- 2017 builds (age 9) — 8 MR; all scrubber; 1 bareboat-out (Bosphorus
+  # $13.15k/d through 2037) carried at spot econ since the rate is below-market ----
+  - {id: STNG_MR_2017,      class: MR, dwt: 50000,  age: 9,  scrubber: true,  eco: true,  charter_status: spot, count: 8}
+  # ---- 2019 builds (age 7) — 8 MR; all scrubber ----
+  - {id: STNG_MR_2019,      class: MR, dwt: 50000,  age: 7,  scrubber: true,  eco: true,  charter_status: spot, count: 8}
+
+  # ============================================================
+  # Handymax fleet — 14 vessels (IMO-II coated chemical-capable
+  # ~38k DWT Hyundai Mipo 2008-2014 builds; ages 12-18). On-curve
+  # via the dedicated Handymax class added 2026-06-05 (§11.5).
+  # ============================================================
+  # Per-vessel build years not separately disclosed in the Q1 6-K (would come
+  # from the STNG IR Excel `STNG-Fleet-as-of-5-Jan-26.xlsx`). Approximated as
+  # 2 per build-year over 2008-2014 (7 cohorts × 2 = 14); average age 15
+  # reproduces STNG's $14.3M/vessel mark via the Handymax curve. Eco: false
+  # per §3.1 definition (pre-2014). Scrubber: false (chem-capable hulls run
+  # MGO/cleaner fuel; scrubber retrofits uncommon in this sleeve).
+  - {id: STNG_HMX_2008, class: Handymax, dwt: 38000, age: 18, scrubber: false, eco: false, charter_status: spot, count: 2}
+  - {id: STNG_HMX_2009, class: Handymax, dwt: 38000, age: 17, scrubber: false, eco: false, charter_status: spot, count: 2}
+  - {id: STNG_HMX_2010, class: Handymax, dwt: 38000, age: 16, scrubber: false, eco: false, charter_status: spot, count: 2}
+  - {id: STNG_HMX_2011, class: Handymax, dwt: 38000, age: 15, scrubber: false, eco: false, charter_status: spot, count: 2}
+  - {id: STNG_HMX_2012, class: Handymax, dwt: 38000, age: 14, scrubber: false, eco: false, charter_status: spot, count: 2}
+  - {id: STNG_HMX_2013, class: Handymax, dwt: 38000, age: 13, scrubber: false, eco: false, charter_status: spot, count: 2}
+  - {id: STNG_HMX_2014, class: Handymax, dwt: 38000, age: 12, scrubber: false, eco: true,  charter_status: spot, count: 2}
+
+# Charter coverage (Q1 2026 expected Q2 days):
+#   LR2:  61% spot / 39% TC (heaviest TC mix in fleet — long-dated LR2 TCs $29-35k)
+#   MR:   88% spot / 12% TC + bareboat
+#   Fleet-wide: ~75% spot / 25% TC. Modeled here as 4 LR2 vessels on TC at $30k
+#   (the disclosed 1-yr / 5-yr / 8-yr LR2 fixtures averaged ~$30k/d); MRs all
+#   spot in this aggregation since per-vessel TC detail wasn't disclosed.
+spot_coverage_pct:
+  LR2: 0.875        # 28/32 spot (4 TC'd-out per disclosure)
+  MR:  1.00         # not enough disclosure to split TC vessels by class; treated all spot
+  Handymax: 1.00    # Q1 disclosure does not split Handymax TC vs spot; treated all spot
+fleet_summary:
+  LR2_count: 32
+  MR_count: 41
+  Handymax_count: 14                   # on-curve as of 2026-06-05 (was off-curve $200M)
+  on_curve_total: 87
+  held_for_sale_count: 9               # off-curve via working_capital_net at $395M
+  newbuild_orders_q1: 10               # 4 MR + 4 LR2 + 2 VLCC (post-April: +2 MR LOI = 12)
+  avg_age_LR2_approx: 9.7
+  avg_age_MR_approx: 10.2
+  avg_age_Handymax_approx: 15.0
+  avg_age_on_curve: 10.0
+  scrubber_share_LR2: 0.94            # 30/32
+  scrubber_share_MR:  0.95            # 39/41
+  tc_count_LR2: 4

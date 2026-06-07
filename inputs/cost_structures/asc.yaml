@@ -1,0 +1,30 @@
+# Ardmore Shipping (ASC) cost structure — METHODOLOGY.md §4.4, §11.5
+# Derived from Ardmore Q1 2026 results (USD). Forward run-rate proxies.
+ticker: ASC
+
+opex_per_day:
+  # Q1 2026 disclosed daily vessel opex:
+  #   MR: $7,921/day (press release, "vessel operating expenses per day")
+  #   Handysize/chemical: $7,286/day (off-curve sleeve; not used by the MR
+  #     class engine — they're valued via working_capital_net in the BS).
+  # Modern eco-design MRs trend ~10% below conventional MR opex (DHT VLCC
+  # opex was $9,400/day for comparison; MRs run lower due to lower fuel
+  # burn and smaller crew).
+  MR: 7921
+
+# G&A: Q1 2026 corporate G&A $5.184M + commercial/chartering G&A $1.2M
+# = $6.384M Q1 ~ $25.6M/yr annualized. Higher than DHT ($20M) reflecting
+# Ardmore's larger headcount (in-house commercial team) and chemical/specialty
+# trading desk.
+annual_G_and_A: 25600000
+
+# Interest expense: Q1 2026 $2.1M ~ $8.4M/yr annualised. Modest leverage
+# ($103.4M debt, $56M net debt) keeps interest burden small. Up from
+# $0.9M Q1'25 (3 MR acquisitions drew on the RCF in Q3'25).
+annual_interest_expense: 8400000
+
+# Effective tax rate: Ardmore is Irish-domiciled and runs through Irish
+# tonnage tax (replaces corporate income tax with a small fixed tax based
+# on net tonnage). Q1 2026 tax expense was $0.055M on $16.0M pre-tax
+# (~0.34% effective). Modeled at 0.3% (vs METHODOLOGY's generic 2%).
+effective_tax_rate: 0.003

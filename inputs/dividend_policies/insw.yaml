@@ -1,0 +1,12 @@
+# International Seaways dividend policy — METHODOLOGY.md sections 4.3, 6
+# INSW pays a fixed regular quarterly base PLUS a supplemental targeting ~75% of
+# adjusted net income (the supplemental sits ON TOP of the base) -> policy_type
+# base_plus_variable (DPS = base + payout x max(0, EPS - floor)). Q1 2026 declared
+# $4.55/sh = $0.12 regular + $4.43 supplemental on a very strong quarter.
+# payout 0.70 (vs the ~0.75 ANI target) leaves headroom for the additive base so
+# total payout lands near policy in high-EPS quarters.
+ticker: INSW
+policy_type: base_plus_variable
+payout_ratio: 0.70
+base_dividend_per_share: 0.12
+floor: 0

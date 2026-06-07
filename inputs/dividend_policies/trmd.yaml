@@ -1,0 +1,28 @@
+# Torm Plc (TRMD) dividend policy — METHODOLOGY §4.3, §11.5
+# Source: Torm Q1 2026 6-K (filed 2026-05-08) + earnings call transcript.
+#
+# IMPORTANT: VIE Coverage Universe (Catlin / Mintzmyer) tags TRMD as "100% FCF"
+# but per Torm IR the actual Distribution Policy is NOT a fixed % of NI or FCF —
+# it's a quarterly Board-discretion assessment based on earnings + cash
+# generation + capital commitments + balance sheet strength (target net LTV
+# ~25%, where TRMD currently sits at 25.1%).
+#
+# In practice, payout ratios have varied 58%-82% of net profit recently:
+#   - Q1 2026: 58% of NI ($0.70/sh declared, depressed by $30M WC build)
+#   - Q4 2025: 82% of NI ($0.70/sh)
+#   - FY2025 trailing 4Q DPS: $2.42
+#
+# Modelled here as variable @ 75% of EPS (smoothed midpoint of the 58-82% range),
+# no fixed base, no floor. This places TRMD methodologically similar to NAT
+# (high-payout variable) but with meaningfully more retained-earnings buffer
+# than NAT's ~100% policy — reduces but does not eliminate the §12 framework
+# limitation exposure (cycle-peak NAV-as-floor concern).
+#
+# When refreshing next quarter: if Q2 2026 payout normalises toward 80%+ (per
+# management commentary that the Q1 WC build was transitory), revise the
+# payout_ratio upward toward 0.78.
+ticker: TRMD
+policy_type: variable
+payout_ratio: 0.75              # smoothed midpoint of trailing 58-82% of NI range
+base_dividend_per_share: 0.0    # no fixed base
+floor: 0.0                      # no EPS breakeven threshold deducted before payout

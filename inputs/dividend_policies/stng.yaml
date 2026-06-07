@@ -1,0 +1,20 @@
+# Scorpio Tankers (STNG) dividend policy — METHODOLOGY.md §4.3, §11.5
+# Source: Scorpio Q1 2026 results (press release, 2026-05-05) — declared
+# $0.45/sh Q1 dividend, the 5th consecutive quarter at $0.40-0.45. STNG runs a
+# FIXED quarterly dividend (board-discretion, no formal payout-ratio formula),
+# with capital return supplemented by AGGRESSIVE BUYBACKS rather than
+# specials.
+#
+# Recent DPS trajectory: $0.40 (Q1-Q2 2025) → $0.42 (Q3 2025) → $0.45 (Q4 2025,
+# Q1 2026). No specials in 2025-Q1 2026 (vs the $1+ specials paid in 2023-2024).
+# Buyback authorisation reset to $500M concurrent with Q1 2026 results;
+# ~4M shares retired in Q1 + April for ~$300M.
+#
+# policy_type "base_plus_variable" with payout_ratio=0 = FIXED-ONLY pattern
+# (same wrapper as TNK / FLNG / CCEC) — base is paid every quarter, no variable
+# component on top.
+ticker: STNG
+policy_type: base_plus_variable
+payout_ratio: 0.0              # FIXED-ONLY — buybacks are the variable return vehicle, not dividends
+base_dividend_per_share: 0.45  # $0.45/qtr fixed (Q4 2025 + Q1 2026 level)
+floor: 0.0                     # not relevant for base_plus_variable with payout_ratio=0

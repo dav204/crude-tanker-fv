@@ -1,0 +1,40 @@
+# Capital Clean Energy Carriers (CCEC) balance sheet — METHODOLOGY.md §4.2
+# Source: CCEC Q1 2026 6-K filing, balance sheet at 2026-03-31. USD.
+# Heavily levered LNG-fleet growth name: $2.6B debt + $2.25B NB commitment
+# funded by $546M cash + asset-backed financing (JOLCO + senior facilities).
+ticker: CCEC
+quarter: 2026-Q1
+
+# Cash + restricted cash (current $7,021k + non-current $14,022k).
+# $525,309k unrestricted + $21,043k restricted = $546,352k total.
+cash_and_equivalents: 546352000
+
+# Working capital: trade accounts receivable $12,852k. Other current assets
+# (inventory, prepaid, accrued) not separately disclosed; conservatively
+# excluded. Net WC slightly understated as a result.
+working_capital_net: 12852000
+
+# Interest-bearing debt: current portion $289,489k + long-term $2,313,453k
+# = $2,602,942k. Mix of senior secured facilities + €250M 3.75% 2033 bond
+# (April 2026 issuance) + JOLCO financing for first three LNG NB deliveries.
+total_debt: 2602942000
+
+# Operating leases not separately disclosed in Q1 6-K; assume minimal for a
+# vessel-owning operator (head-office leases only).
+lease_liabilities: 0
+
+# Total newbuild capex outstanding: $2,251.5M (LNG $1,855.1M + gas fleet $396.4M).
+# This is the TOTAL. As of 2026-06-01 the gas-fleet portion is now matched on the
+# asset side: the 8 gas NBs (2 LCO2 incl Amadeus + 6 dual-fuel MGCs) are included
+# in the CCEC fleet manifest as MGC class at delivered market value per §3.1.
+# Active (in-water LCO2) is also in fleet. Net effect: the $396M gas-fleet
+# commit deduction is now offset by the corresponding MGC NB asset values.
+newbuild_capex_commitments: 2251500000
+
+# Per METHODOLOGY §3.1 newbuild-at-market: NBs included in fleet at delivered
+# market value -> advances are embedded in that market value -> set to 0 here
+# to avoid double-counting.
+newbuild_advances_paid: 0
+
+# Diluted shares: 60,121,845 (Q1 2026 weighted-average).
+diluted_shares_outstanding: 60121845

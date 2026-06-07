@@ -1,0 +1,32 @@
+# Torm Plc (TRMD) cost structure — METHODOLOGY §4.4, §11.5
+# Derived from Torm Q1 2026 6-K + earnings call transcript (USD). Forward run-rate proxies.
+ticker: TRMD
+
+opex_per_day:
+  # Q1 2026 disclosed daily vessel opex per operating day (Torm 6-K):
+  #   LR2: $8,321/day (+3% YoY)
+  #   LR1: $7,743/day (+10% YoY)
+  #   MR:  $7,963/day
+  # Fleet-wide tanker segment opex: $8,021/day
+  # Comparable to peers: ASC $7,921 (MR), STNG $8,832 (LR2) / $8,190 (MR).
+  # Torm sits slightly above ASC on MR (older mix + UK tonnage compliance
+  # overhead) and slightly below STNG on LR2 (smaller scrubber-fitted share).
+  LR2: 8321
+  LR1: 7743
+  MR: 7963
+
+# G&A: Q1 2026 admin expenses $23.0M → annualised ~$92M. Larger than ASC
+# ($25.6M) reflecting Torm's larger fleet (95 vessels vs ASC's 19+6) and
+# dual-listed (NASDAQ + Copenhagen) reporting overhead.
+annual_G_and_A: 92000000
+
+# Interest expense: Q1 2026 financial expenses $18.9M → annualised ~$76M.
+# Reflects $1.09B gross debt (bank + IFRS 16 vessel leases) at blended ~7%
+# rate. Net LTV 25.1% (well below industry avg).
+annual_interest_expense: 76000000
+
+# Effective tax rate: TORM is UK-incorporated and elected into the UK tonnage
+# tax regime (pre-2024 used Danish tonnage tax; current structure is UK-based
+# with Danish operations). Q1 2026 tax expense $1.6M on $124.0M pre-tax =
+# ~1.3% effective. Modelled at 1.5% (vs METHODOLOGY's generic 2%).
+effective_tax_rate: 0.015

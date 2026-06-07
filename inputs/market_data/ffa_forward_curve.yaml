@@ -1,0 +1,87 @@
+# FFA forward curve by class — METHODOLOGY.md sections 3.2, 4.5
+# USD/day TCE-equivalent, 8 quarters forward (q1=Q3'26 .. q8=Q2'28).
+#
+# Source: trader/market FFA assessment in $/MT (TD3C, MEG-China), converted to
+# TCE/day. Conversion basis (TD3C standard): 270,000 MT cargo, ~45-day round
+# voyage, ~$2.0M voyage cost => TCE = ($/MT * 270,000 - 2,000,000) / 45.
+# This is calibrated so the front-month $25.40/MT ~= $108k/day, matching the
+# Compass 12-month TC (~$111.5k). NOTE: the forward strip below is ~40% more
+# bullish than that 12-month TC (12-mo avg ~$155k/day vs $111.5k) — fair value
+# is sensitive to this; see the dividend-strip sensitivity.
+#
+#   q  Quarter   $/MT    TCE/day   driver
+#   1  Q3'26     32.00   147,500   seasonal dip from winter
+#   2  Q4'26     38.00   183,500   winter demand peak
+#   3  Q1'27     35.00   165,500   transition; newbuild deliveries begin
+#   4  Q2'27     28.00   123,500   supply growth may outpace demand
+#   5  Q3'27     26.00   111,500   69 VLCC deliveries in 2027 pressure rates
+#   6  Q4'27     30.00   135,500   winter strength; long-distance flows
+#   7  Q1'28     32.00   147,500   structural tightness persists
+#   8  Q2'28     25.00   105,500   mean reversion; 70 VLCCs due 2028
+# (Q2'26 is excluded from the strip: it is effectively booked/realized at
+#  ~$113.5k combined per DHT's Q1'26 outlook.)
+# Suezmax: from the TD20 Worldscale forward curve, converted with the SAME
+# affine method as VLCC (cost-offset, not linear-through-origin):
+#   TCE = (WS/100 * flat * cargo - voyage_cost) / days
+# TD20 (WAF-UKC) basis: cargo 130,000 MT, 32-day round voyage, $0.9M voyage
+# cost => offset $28,125/day. Worldscale flat rate ~$17.4/ton (no clean
+# published 2026 TD20 flat available; calibrated so the 12-month strip ~= 1.39x
+# the 12M TC, matching the VLCC FFA/TC ratio for cross-class consistency).
+#   q  Qtr     WS(mid)  TCE/day
+#   1  Q3'26   155      81,500
+#   2  Q4'26   180      99,000
+#   3  Q1'27   170      92,000
+#   4  Q2'27   135      67,500
+#   5  Q3'27   125      60,000
+#   6  Q4'27   150      78,000
+#   7  Q1'28   155      81,500
+#   8  Q2'28   120      56,500
+#
+# *** Aframax / LR2: CONSTRUCTED, NO MARKET ANCHOR. *** No $/MT or WS quote was
+# available; built from the Aframax 12M TC ($56.25k) + spot ($50.5k) and the
+# seasonal shape. validate.py flags this in the report. Second-order to FRO's FV
+# (VLCC dominates by value; strip is 30% weight) but not a converted series.
+ffa_forward_curve:
+  VLCC: [147500, 183500, 165500, 123500, 111500, 135500, 147500, 105500]
+  Suezmax: [81500, 99000, 92000, 67500, 60000, 78000, 81500, 56500]
+  Aframax: [75000, 88000, 82000, 64000, 59000, 70000, 74000, 56000]
+  LR2: [75000, 88000, 82000, 64000, 59000, 70000, 74000, 56000]
+  # LR1 here = the DIRTY (Aframax-equiv) rate, for a dual-use LR1's crude portion
+  # in a hybrid carve-out. Its clean-product strip is a v2 module.
+  LR1: [75000, 88000, 82000, 64000, 59000, 70000, 74000, 56000]
+  # ---- PRODUCT sleeve FFA-equivalent forwards (clean trading) ----
+  # CONSTRUCTED. No liquid product FFA quotes; built from the front-month spot +
+  # 12M TC + product-specific seasonality (winter Atlantic refining lifts MR/LR1
+  # demand). Captures the user's flagged "product leading the MoU correction"
+  # narrative: front-quarter is weak (post -52% w/w MR crash), recovering
+  # gradually but never reaching the elevated pre-correction levels.
+  MR: [22000, 30000, 28000, 19000, 18000, 23000, 26000, 18000]
+  # Handysize (clean-product ~38k) — v1 EARNINGS PROXY to MR (added 2026-06-05).
+  # Handysize earns somewhat below MR per-day on size, but the chem-parcel premium
+  # on clean-Handy trade roughly offsets it; the sleeve is small (HAFN winding
+  # down; ASC 2 hulls) and down-weighted at peak, so the difference is immaterial
+  # to FV (~$0.04/sh on HAFN). The NAV-side differentiation is the dedicated
+  # Handysize value curve. Refine to ~0.8x MR with a dedicated handysize scenario
+  # block in v2 if the sleeve grows. (METHODOLOGY §11.5; mirrors LR1→lr2_clean.)
+  Handysize: [22000, 30000, 28000, 19000, 18000, 23000, 26000, 18000]
+  # Handymax (chemical-capable IMO-II ~38k) — v1 EARNINGS PROXY to MR (added
+  # 2026-06-05). STNG's Q1+Q2 2026 disclosed Handymax pool/spot rates ran $34k
+  # / $32k vs MR's $32k / $36.5k — slight Handymax premium in Q1, slight
+  # discount in Q2 (per STNG IR 25-Mar-2026). Empirical rate parity with MR
+  # validates the proxy; the "chemical discount" lives on the value side, not
+  # the rate side. NAV-side differentiation via the dedicated Handymax value
+  # curve. (METHODOLOGY §11.5; LIMITATIONS §2.)
+  Handymax: [22000, 30000, 28000, 19000, 18000, 23000, 26000, 18000]
+  LR1_clean: [35000, 45000, 42000, 32000, 30000, 38000, 40000, 30000]
+  LR2_clean: [50000, 62000, 58000, 45000, 42000, 52000, 55000, 42000]
+  # LNGC: CONSTRUCTED from spot ($40k) + 12M TC ($60k) + LNG seasonality (Q4/Q1
+  # winter peak, Q2/Q3 summer trough). Spark Commodities publishes 174k-cbm 1yr
+  # TC and seasonal forwards but is paywalled; refresh from those next quarter.
+  # Q3'26 -> Q2'28; winter peaks $80-85k, summer troughs $45-50k. Treat the LNG
+  # strip contribution as INDICATIVE (validate.py flags this).
+  LNGC: [50000, 80000, 75000, 48000, 52000, 80000, 75000, 50000]
+  # MGC: CONSTRUCTED from spot ($25k) + 12M TC ($28k). Less winter-seasonal than
+  # LNG because LPG/ammonia trade flows are more steady; modest winter lift from
+  # NW Europe / Asia heating-LPG demand. Treat the MGC strip contribution as
+  # INDICATIVE (no liquid FFA market for MGCs; refresh from broker indications).
+  MGC: [22000, 30000, 28000, 22000, 23000, 30000, 28000, 22000]

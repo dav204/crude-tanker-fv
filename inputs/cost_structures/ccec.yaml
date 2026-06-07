@@ -1,0 +1,22 @@
+# Capital Clean Energy Carriers cost structure — METHODOLOGY.md §4.4
+# Source: CCEC Q1 2026 6-K income statement. USD.
+ticker: CCEC
+
+# Q1 2026 vessel opex $19,566k + $2,487k related-party = $22,053k. Across the
+# ~13 in-water vessels (12 LNG/Cs + 1 multi-gas Active delivered Jan'26) over
+# ~91 days = $18,650/day blended. The multi-gas vessel skews up (gas-handling
+# complexity); LNG-only opex is closer to $15-16k/day. Use $16,000/day for the
+# LNG fleet — slightly above FLNG's $15.7k reflecting CCEC's mixed-age fleet.
+opex_per_day:
+  LNGC: 16000
+
+# Q1 2026 G&A $3,465k -> ~$13.9M/yr annual.
+annual_G_and_A: 13900000
+
+# Q1 2026 interest expense & finance cost $23,034k -> ~$92.1M/yr on the $2.6B
+# debt book (~3.5% all-in cost — recently refinanced via €250M 2033 bond at
+# 3.75% + JOLCO facilities at competitive LNG-backed rates).
+annual_interest_expense: 92100000
+
+# Marshall Islands-domiciled; minimal cash tax (tonnage-tax regimes).
+effective_tax_rate: 0.02

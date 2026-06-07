@@ -1,0 +1,11 @@
+# Cost structure template — METHODOLOGY.md section 4.4
+# Copy to {ticker}.yaml (e.g. dht.yaml) and fill in. USD.
+ticker: null                  # e.g. DHT
+opex_per_day:                 # daily operating cost per vessel, by class
+  VLCC: null
+  Suezmax: null
+  Aframax: null
+  LR2: null
+annual_G_and_A: null
+annual_interest_expense: null
+effective_tax_rate: null      # e.g. 0.02 (tonnage-tax regimes; verify per company)

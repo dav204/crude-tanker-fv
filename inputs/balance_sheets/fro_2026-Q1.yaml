@@ -1,0 +1,27 @@
+# Frontline plc balance sheet snapshot — METHODOLOGY.md section 4.2
+# Source: FRO Q1 2026 results, Statement of Financial Position as of 2026-03-31
+# (report dated 2026-05-22). USD. Reconciled to avoid double-counting (cash and
+# debt are added/subtracted separately by the NAV formula).
+ticker: FRO
+quarter: 2026-Q1
+
+cash_and_equivalents: 471672000      # cash 470,759 + marketable securities 913 ($k)
+
+# working_capital_net = other current assets 487,470 - other current payables 191,910 ($k).
+# (Excludes cash and the current portion of debt, which the NAV formula handles.)
+# The 2 oldest Suezmax (agreed sale $140M, April 2026) are a subsequent event;
+# they remain in the Mar-31 NAV fleet at market (curve value ~= the agreed price).
+working_capital_net: 295560000
+
+total_debt: 2631087000               # short-term + current 279,593 + long-term 2,351,494 ($k)
+
+lease_liabilities: 0                  # immaterial (lease repayments ~0; not broken out)
+
+# 9 VLCC newbuildings acquired from Hemen ($1,224.0M total). As of 2026-03-31:
+newbuild_capex_commitments: 925000000   # remaining commitment (Q1 report)
+# Advances set to 0 here because the newbuilds are valued at DELIVERED MARKET
+# value in the fleet manifest (the $315.7M book advances are embedded in that
+# market value). NAV newbuild contribution = (9 x market) - 925M commitment.
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 222622889   # ordinary shares outstanding at 2026-03-31

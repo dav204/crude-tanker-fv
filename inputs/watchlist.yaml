@@ -1,0 +1,136 @@
+# Watchlist: current prices and analyst target prices — METHODOLOGY.md section 7
+# Feeds the per-company report header, the implied-breakeven solve (3.3), and
+# the watchlist roll-up. Prices + consensus_pnav: Pareto Securities Shipping
+# Daily, 4 JUN 2026 (matched price + P/NAV from the same report so broker NAV
+# = price / P/NAV recovers Pareto's own NAV estimate).
+# NOTE: Pareto does NOT publish a P/NAV for NAT, ASC, or CCEC (shown as "-" in
+# the report's P/NAV column) — those three keep APPROX consensus_pnav and remain
+# genuinely unanchored to a broker NAV. All other names are real Pareto prints.
+# Entries without an analyst_target are skipped by the loader until modeled.
+#
+# consensus_pnav = the broker/consensus Price/NAV (Pareto). broker NAV = price /
+# consensus_pnav — the implied broker vessel-mark NAV. The broker-NAV sensitivity
+# (marks.py / pipeline.run_broker_sweep) solves the uniform vessel-value premium k
+# that lifts the tool NAV to this broker NAV, then re-values at tool / midpoint /
+# broker marks. The tool-vs-broker spread shows how much of a name's cheapness or
+# richness is genuine vs a NAV-mark choice (small for validated pure-plays).
+#
+# sector: which scenario set to value the name through (METHODOLOGY §11). Default
+# `crude` if omitted. `lng` routes the name through sectors.lng in
+# inputs/scenario_inputs.yaml (LNG glut-cycle scenarios). Future sectors: product,
+# dry_bulk.
+DHT:
+  current_price: 16.40     # Pareto 4 Jun 2026 (P/E 8.8x consensus)
+  analyst_target: 16.00
+  consensus_pnav: 1.09     # Pareto 4 Jun 2026 (was 1.09 — confirmed exact)
+  consensus_fwd_pe: 8.8    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-06-04
+ECO:
+  current_price: 47.70     # Pareto 4 Jun 2026 (P/E 8.4x consensus)
+  analyst_target: 45.00
+  consensus_pnav: 1.21     # Pareto 4 Jun 2026 (was 1.22 — confirmed)
+  consensus_fwd_pe: 8.4    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-06-04
+FRO:
+  current_price: 34.50     # Pareto 4 Jun 2026 (P/E 9.4x consensus)
+  analyst_target: 30.50
+  consensus_pnav: 1.20     # Pareto 4 Jun 2026 (was 1.21 — confirmed)
+  consensus_fwd_pe: 9.4    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-06-04
+INSW:
+  current_price: 78.00     # Pareto 4 Jun 2026 (P/E 11.4x consensus). HYBRID:
+  analyst_target: 79.50    # crude carve-out compares vs the crude-ALLOCATED price (x crude_share).
+  consensus_pnav: 0.98     # Pareto 4 Jun 2026 whole-company P/NAV (broker NAV = 78.00/0.98 = $79.59)
+  consensus_fwd_pe: 11.4    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-06-04
+TNK:
+  current_price: 70.80     # Pareto 4 Jun 2026; Teekay Tankers (Atlantic crude, ~half Aframax)
+  analyst_target: 75.00
+  consensus_pnav: 0.76     # Pareto 4 Jun 2026 (was 0.76 — confirmed exact); genuinely cheap vs broker NAV (= 70.80/0.76 = $93.16)
+  consensus_fwd_pe: 8.7    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-06-04
+NAT:
+  current_price: 5.20      # Pareto 4 Jun 2026; Nordic American Tankers (pure Suezmax, full-payout)
+  analyst_target: 6.00     # consensus analyst target (public sources)
+  consensus_pnav: 0.85     # APPROX -- Pareto does NOT publish a P/NAV for NAT (shown as "-" 4 Jun);
+                           # kept at midpoint of NAT's historical 0.7-1.0x P/NAV band. Genuinely unanchored.
+  consensus_fwd_pe: 17.2    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-06-04
+FLNG:
+  current_price: 29.70     # Pareto 4 Jun 2026; Flex LNG (13x modern 174k cbm LNGCs)
+  analyst_target: 25.00    # analyst consensus (modest bearish; rate normalisation theme)
+  consensus_pnav: 1.37     # Pareto 4 Jun 2026 (was 1.42 APPROX); implied broker NAV = 29.70 / 1.37 = $21.68/sh
+  sector: lng              # valued through sectors.lng scenarios (METHODOLOGY §11)
+  consensus_fwd_pe: 14.5    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-06-04
+CCEC:
+  current_price: 21.90     # Pareto 4 Jun 2026; Capital Clean Energy Carriers (12 in-water + 9 NB LNG/Cs)
+  analyst_target: 25.17    # analyst consensus
+  consensus_pnav: 0.90     # APPROX -- Pareto does NOT publish a P/NAV for CCEC (shown as "-" 4 Jun);
+                           # kept at ~book. Genuinely unanchored.
+  sector: lng              # valued through sectors.lng scenarios (METHODOLOGY §11)
+  consensus_fwd_pe: 8.8    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-06-04
+STNG:
+  current_price: 75.60     # Pareto 4 Jun 2026 (was 79.00 APPROX 29-May). Net-cash
+                           # name; outperformed on 3-Jun per Pareto commentary.
+  analyst_target: 94.00    # median of ~6 active analysts (BofA $76 / Jefferies $90 /
+                           # Evercore ISI $96 / BTIG $100); Strong Buy consensus
+  consensus_pnav: 0.70     # Pareto 4 Jun 2026 — CORRECTED from 0.87 APPROX (was too HIGH
+                           # by 0.17). Real Pareto P/NAV 0.70x → broker NAV = 75.60 / 0.70
+                           # = $108.0/sh. STNG is far more mark-driven than the stale APPROX
+                           # implied; broker NAV now ABOVE VIE NAV ($103.62). See vie_nav_xref.md.
+  sector: product          # valued through sectors.product scenarios (METHODOLOGY §11.5)
+  consensus_fwd_pe: 11.4    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-06-04
+HAFN:
+  current_price: 7.70      # Pareto 4 Jun 2026 (Hafnia Ltd. US line; was 8.05 29-May).
+                           # Pareto price is the US-listed line, 4-Jun print.
+  analyst_target: 10.00    # Median 3-broker Wall Street consensus.
+                           # Pareto (Haavaldsen): Hold $8.50. MarketBeat $10.00.
+  consensus_pnav: 0.95     # Pareto 4 Jun 2026 — CORRECTED from 1.00 APPROX (was high by
+                           # 0.05). Real Pareto P/NAV 0.95x → broker NAV = 7.70 / 0.95
+                           # = $8.11/sh. ≈ VIE NAV ($8.55). HAFN now a real Pareto print.
+  sector: product          # valued through sectors.product (METHODOLOGY §11.5)
+  consensus_fwd_pe: 9.8    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-06-04
+TRMD:
+  current_price: 28.20     # Pareto 4 Jun 2026 (TORM US line; was 27.25 29-May).
+  analyst_target: 25.00    # Median of public coverage range $17-34:
+                           # Public.com avg $23.33, Evercore raised to $34
+                           # (Outperform post-Q1), Yahoo/TipRanks median ~$25
+  consensus_pnav: 0.83     # Pareto 4 Jun 2026 — CORRECTED from 1.00 APPROX (was too HIGH
+                           # by 0.17). Real Pareto P/NAV 0.83x → broker NAV = 28.20 / 0.83
+                           # = $33.98/sh. TRMD far more mark-driven than the stale APPROX
+                           # implied; broker NAV now ABOVE VIE NAV ($30.83). See vie_nav_xref.md.
+  sector: product          # valued through sectors.product (METHODOLOGY §11.5)
+  consensus_fwd_pe: 9.5    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-06-04
+ASC:
+  current_price: 16.00     # Pareto 4 Jun 2026 (Ardmore; was 18.50 APPROX 13-May —
+                           # the stale price was materially too high; -2% on the week per Pareto).
+  analyst_target: 17.95    # median of 9 analysts (range $14.90-$21.00); Public.com / MarketBeat
+  consensus_pnav: 0.75     # APPROX -- Pareto does NOT publish a P/NAV for ASC (shown as "-"
+                           # 4 Jun). Kept at ~75% per aggregator commentary; broker NAV implied
+                           # = 16.00 / 0.75 = $21.33/sh. Genuinely unanchored to a Pareto print.
+  sector: product          # valued through sectors.product scenarios (METHODOLOGY §11.5)
+  consensus_fwd_pe: 14.2    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-06-04
+TEN:
+  current_price: 44.00     # NYSE 5 Jun 2026 estimate (TEN Q1 2026 6-K text "~$44"; refresh
+                           # against live print at next pipeline run).
+  analyst_target: 51.50    # VIE Bullish $51.50 (`outputs/vie_coverage_universe_xref.md`).
+                           # No active Pareto coverage; sell-side coverage thin overall.
+  consensus_pnav: 0.40     # APPROX -- VIE-stale P/NAV ~0.37; refreshed to ~0.40 against
+                           # 20-F stockholders' equity ~$1.86B ÷ 30.1M shares = $61.79/sh book,
+                           # implied P/NAV = 44/61.79 = 0.71 vs vessel-value-adjusted higher NAV.
+                           # Unanchored to a current broker print — treat the broker NAV
+                           # column in the sweep as APPROX for TEN.
+  sector: crude            # 3-sleeve hybrid (crude largest by vessel value); routed via
+                           # THREE_SLEEVE_TICKERS dispatch in pipeline.py (METHODOLOGY §11.6).
+                           # The sector tag here drives the WATCHLIST default lookup; the
+                           # actual valuation runs through crude + product + lng carve-outs.
+  consensus_fwd_pe: 5.5    # APPROX — TEN Q1 EPS $2.72; mgmt-guided Q2 $2.37, Q3 $1.88
+                           # = ~$7-8 NTM EPS. Price $44 / EPS $8 = 5.5x forward P/E.
+                           # Not a Pareto print; APPROX from management guidance.
+  as_of: 2026-06-05

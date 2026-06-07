@@ -1,0 +1,32 @@
+# Teekay Tankers balance sheet snapshot — METHODOLOGY.md section 4.2
+# Source: TNK Q1 2026 ER, Summary Consolidated Balance Sheet at 2026-03-31. USD.
+# NOTE: TNK is effectively DEBT-FREE (no interest-bearing debt line; Q1 interest
+# expense $489k = revolver commitment fees) with a ~$1.0B cash/investments pile —
+# a very different balance sheet from the leveraged peers. NAV ≈ vessels + cash.
+ticker: TNK
+quarter: 2026-Q1
+
+# Cash & equivalents 722,009 + short-term investments 274,142 = 996,151.
+cash_and_equivalents: 996151000
+
+# working_capital_net = non-cash current assets (ex held-for-sale) - non-debt/non-lease CL:
+#   (accounts receivable 113,001 + bunker/lube 28,719 + prepaid 17,195
+#    + accrued revenue & other 54,098) = 213,013
+#   - (accounts payable & accrued 103,450 + other current liabilities 12,278) = 115,728
+#   = 97,285. Excludes assets-held-for-sale 61,036 (the VLCC, valued in the fleet)
+#   and current operating-lease liabilities (offset by the ROU asset; see below).
+working_capital_net: 97285000
+
+# No interest-bearing debt. The only "borrowing-like" items are operating-lease
+# liabilities (current 19,422 + LT 13,577 = 32,999) for chartered-in tonnage,
+# whose ROU asset (~32,998) offsets them ~1:1; the chartered-in vessels are
+# excluded from the owned fleet, so leases net to ~0 here (no double-count).
+total_debt: 0
+lease_liabilities: 0
+
+# 2 Korean Suezmax resale newbuilds ($190M) were agreed in APRIL 2026 — after this
+# 2026-03-31 snapshot — so no commitment sits on this balance sheet (subsequent event).
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 34643858    # common shares outstanding at period end

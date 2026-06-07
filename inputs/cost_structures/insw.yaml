@@ -1,0 +1,25 @@
+# International Seaways cost structure — METHODOLOGY.md sections 4.4, 6
+# Source: INSW Q1 2026 results. USD. G&A and interest are WHOLE-COMPANY figures;
+# the crude carve-out scales them by crude vessel-value share (carveout.py).
+ticker: INSW
+
+# Daily opex by class. Q1 2026 vessel expenses $61.0M across the operating fleet
+# (~$10k/calendar-day blended); split by class (larger crude units run higher).
+opex_per_day:
+  VLCC: 9500
+  Suezmax: 8800
+  Aframax: 8200
+  LR2: 8000
+  LR1: 7800
+  MR: 7200
+
+# Corporate G&A: Q1 2026 $9.3M -> ~$37M/yr (whole company; carve-out pro-rates).
+annual_G_and_A: 37000000
+
+# Interest & finance: Q1 2026 interest expense $9.0M -> ~$36M/yr (whole company;
+# includes the LR1 ECA tranche, so pro-rating slightly over-allocates to crude —
+# a conservative simplification).
+annual_interest_expense: 36000000
+
+# US C-corp but tanker income largely shielded (tonnage/Sec.883); minimal cash tax.
+effective_tax_rate: 0.01

@@ -1,0 +1,22 @@
+# DHT Holdings cost structure — METHODOLOGY.md section 4.4
+# Derived from DHT Q1 2026 results (USD). These are REAL figures from the
+# quarter, used as forward run-rate proxies.
+ticker: DHT
+
+opex_per_day:
+  # Vessel operating expenses Q1 2026 = $19.126M over 2,034.5 operating days
+  # => ~$9,400/day per vessel (running cost: crew, R&M, insurance, stores;
+  # excludes voyage/bunker costs, which TCE is already net of).
+  VLCC: 9400
+
+# G&A Q1 2026 = $4.957M => ~$20M/yr annualized.
+annual_G_and_A: 20000000
+
+# ASSUMPTION (forward estimate): Q1 2026 interest expense was $4.424M
+# (~$17.7M/yr run-rate), but debt rose to $505M with the newbuild draws and the
+# 4th newbuilding's debt comes on in Q2 2026. Forward run-rate estimated ~$25M.
+annual_interest_expense: 25000000
+
+# DHT pays almost no tax (Marshall Islands / tonnage regimes): Q1 2026 tax was
+# $0.126M on $164.7M pre-tax (~0.08%). Modeled at 0.1% (vs METHODOLOGY's generic 2%).
+effective_tax_rate: 0.001

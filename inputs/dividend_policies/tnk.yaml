@@ -1,0 +1,13 @@
+# Teekay Tankers dividend policy — METHODOLOGY.md section 4.3
+# TNK pays a FIXED quarterly base + discretionary specials, while prioritising
+# fleet renewal (acquired 5 mid-size tankers YTD '26, ordered 2 Suezmax NB) — so
+# total payout has been LOW relative to peers. Q1 2026 declared $1.25 combined
+# ($0.25 regular + $1.00 special) on GAAP EPS $4.42 / adjusted $3.69 -> ~28-34%
+# total payout. Model as base_plus_variable with a 25% payout on excess earnings;
+# captures both the fixed floor and the modest top-up while leaving cash retention
+# for the renewal programme.
+ticker: TNK
+policy_type: base_plus_variable
+payout_ratio: 0.25
+base_dividend_per_share: 0.25
+floor: 0

@@ -1,0 +1,96 @@
+# Capital Clean Energy Carriers (CCEC) fleet manifest — METHODOLOGY.md §4.1, §11
+# Source: CCEC Q1 2026 6-K filing + press release (StockTitan / Globe Newswire,
+# 7 May 2026). Pure-LNG sector port (METHODOLOGY §11.2).
+#
+# In-water fleet at 2026-03-31: 12 LNG/Cs (174k cbm modern) + 1 LCO2/multi-gas
+# (Active, 22k cbm, delivered Jan 5 2026, Hyundai Mipo). The 1 legacy Neo-Panamax
+# container ship is still EXCLUDED (no value curve, single non-core vessel).
+#
+# Gas fleet added 2026-06-01 alongside the new MGC class (METHODOLOGY §3.1 /
+# §11): Active in-water + 8 NBs (2 LCO2 incl Amadeus delivered Apr'26 + 6
+# dual-fuel MGCs delivering Q2'26-Q1'29). All at age 0 in the manifest — Active
+# was 3 months old at Q1 cutoff (effectively newbuild value) and the 8 NBs enter
+# at delivered market value per the §3.1 newbuild-at-market treatment, with the
+# $396M gas-fleet remaining commitment continuing to subtract via the balance
+# sheet's newbuild_capex_commitments. The advances are embedded in market value.
+#
+# Under-construction LNG fleet (9 newbuilds) is INCLUDED per METHODOLOGY §3.1
+# newbuild-at-market: each NB enters at delivered market value (LNG curve age 0)
+# with newbuild_advances_paid = 0 (embedded in market value to avoid double-
+# counting) and the $1.86B remaining LNG commitment net of advances handled in
+# the balance sheet as part of the total $2.25B newbuild_capex_commitments
+# (which also subtracts the $396M gas-fleet NB commit — again conservative).
+#
+# Named vessels (Q1 filing): Adamastos, Aristarchos (5-yr special surveys -> ~2021
+# builds), Amore Mio I (2023, 174k cbm, 10-yr TC to BGN INT DMCC at up to $485.6M).
+# The remaining 9 owned LNG/Cs spread across CPLP-legacy 2019-2020 + 2024-2025
+# delivery wave — representative groups; the curve is piecewise-linear so age
+# precision is second-order vs. the broker-NAV sweep band.
+#
+# All vessels Korean-built (HSHI / Hanwha Ocean / Samsung); modern two-stroke
+# propulsion (TFDE/MEGI/X-DF/X-DF2.1). Heavily TC-out (avg 6.9-yr firm contract
+# duration per disclosure; ~$2.9B firm contracted revenues).
+ticker: CCEC
+report_date: 2026-Q1
+vessels:
+  # ---- In-water LNG/Cs (12 vessels) — age-grouped representative blocks ----
+  # Propulsion tagging per LNGC class reinterpretation (METHODOLOGY §3.1):
+  # `eco: true` denotes X-DF2.1 latest-generation propulsion (+5% premium);
+  # `eco: false` is X-DF / MEGI / TFDE baseline. CCEC's 2024-2025 wave + all
+  # 9 newbuilds are X-DF2.1 (CCEC ordered the latest-gen WinGD design for the
+  # post-2023 ordering rounds). Pre-2024 deliveries are MEGI / X-DF / TFDE.
+
+  # 2024-2025 delivery wave (age 1-2): X-DF2.1 modern tonnage on long TCs.
+  - {id: CCEC_2025_xdf21, class: LNGC, dwt: 174000, age: 1, scrubber: false, eco: true, yard: Hanwha Ocean,
+     charter_status: time_charter, charter_rate: 90000, count: 2}
+  - {id: CCEC_2024_xdf21, class: LNGC, dwt: 174000, age: 2, scrubber: false, eco: true, yard: Hyundai,
+     charter_status: time_charter, charter_rate: 85000, count: 2}
+  # 2022-2023 deliveries (age 3-4): MEGI / X-DF baseline — eco: false
+  - {id: Amore_Mio_I_2023, class: LNGC, dwt: 174000, age: 3, scrubber: false, eco: false, yard: Hanwha Ocean,
+     charter_status: time_charter, charter_rate: 78000, count: 1}    # 10yr BGN charter, $485.6M
+  - {id: CCEC_2023_megi, class: LNGC, dwt: 174000, age: 3, scrubber: false, eco: false, yard: Samsung,
+     charter_status: time_charter, charter_rate: 85000, count: 2}
+  # 2021 deliveries (age 5): Adamastos + Aristarchos (MEGI; 5-yr special surveys).
+  - {id: Adamastos_2021, class: LNGC, dwt: 174000, age: 5, scrubber: false, eco: false, yard: Hyundai,
+     charter_status: time_charter, charter_rate: 75000, count: 1}
+  - {id: Aristarchos_2021, class: LNGC, dwt: 174000, age: 5, scrubber: false, eco: false, yard: Hyundai,
+     charter_status: time_charter, charter_rate: 75000, count: 1}
+  # 2019-2020 CPLP-era deliveries (age 6-7): older MEGI / TFDE tonnage — eco: false.
+  - {id: CCEC_2020_megi, class: LNGC, dwt: 174000, age: 6, scrubber: false, eco: false, yard: Hanwha Ocean,
+     charter_status: time_charter, charter_rate: 70000, count: 2}
+  - {id: CCEC_2019_tfde, class: LNGC, dwt: 174000, age: 7, scrubber: false, eco: false, yard: Samsung,
+     charter_status: time_charter, charter_rate: 65000, count: 1}
+  # ---- LNG newbuilds (9 vessels) — at delivered market value per §3.1 ----
+  # Named: Archimidis / Agamemnon (both June'26 deliveries advanced from later),
+  # Alcaios I (July'26); 6 additional unnamed (Q3'26-Q1'29 deliveries). All age 0.
+  # All 9 are X-DF2.1 (CCEC's 2023+ NB ordering rounds were X-DF2.1).
+  - {id: CCEC_NB_xdf21, class: LNGC, dwt: 174000, age: 0, scrubber: false, eco: true, yard: Hanwha Ocean,
+     charter_status: time_charter, charter_rate: 90000, count: 9}
+  # ---- Gas fleet (MGC class, 9 vessels): 1 in-water + 8 NB ----
+  # Active (in-water, age 0): 22k cbm LCO2/multi-gas, delivered Jan 5 2026,
+  # Hyundai Mipo Dockyard; backing $50.9M term loan; on multi-year TC.
+  - {id: Active_2026_lco2, class: MGC, dwt: 22000, age: 0, scrubber: false, eco: false, yard: Hyundai,
+     charter_status: time_charter, charter_rate: 30000, count: 1}
+  # 8 NBs at delivered market value per §3.1 (2 LCO2 incl Amadeus delivering
+  # Apr'26 + 6 dual-fuel MGCs delivering Q2'26-Q1'29). All age 0. Yards / specific
+  # propulsion not disclosed at vessel level; assume Korean / dual-fuel modern.
+  - {id: CCEC_NB_mgc, class: MGC, dwt: 22000, age: 0, scrubber: false, eco: false, yard: Hyundai,
+     charter_status: time_charter, charter_rate: 32000, count: 8}
+# LNG/C charter coverage: ~92% time-charter-out at Q1 disclosure (1-2 spot vessels
+# at most). 21 LNGCs total (12 in-water + 9 NB); 19 disclosed-rate TC + 2 spot.
+spot_coverage_pct:
+  LNGC: 0.10      # 2 of 21 in spot trading; 19 on long TCs
+  MGC: 0.10       # gas fleet TC-out at similar rates (Active on multi-year TC,
+                  # NB MGCs come pre-committed for typical CCEC long-charter model)
+fleet_summary:
+  LNGC_in_water: 12
+  LNGC_newbuilds_in_fleet_at_market: 9
+  LNGC_total: 21
+  MGC_in_water: 1            # Active (22k cbm LCO2/multi-gas, delivered Jan'26)
+  MGC_newbuilds_in_fleet_at_market: 8  # 2 LCO2 incl Amadeus + 6 dual-fuel MGCs
+  MGC_total: 9
+  total_fleet: 30
+  avg_in_water_age_approx: 3.5
+  excluded_from_fleet: "1 legacy Neo-Panamax container ship — single non-core vessel, no LNG-sector class"
+  firm_contract_duration_years: 6.9
+  firm_contracted_revenue_billions: 2.9

@@ -1,0 +1,17 @@
+# Nordic American Tankers dividend policy — METHODOLOGY.md section 4.3
+# NAT's defining feature: pays essentially 100% of earnings as quarterly dividends
+# (115th consecutive quarterly dividend declared in Q1 2026). Q1 2026: EPS $0.219
+# (NI $46.3M / 211.75M shares); dividend $0.22/share -> ~100% payout. The
+# variable policy with payout=1.0 captures this exactly. NAT has no fixed floor
+# component — the dividend tracks earnings on the way down too.
+#
+# Methodology flag: NAT is the framework's first FULL-payout single-asset-class
+# name. The blended FV will track ~NAV (peak cycle w_nav 0.70 + strip that
+# itself returns ~NAV given full payout extraction). At any historically-normal
+# NAT P/NAV in [0.7, 1.0], the model will signal BUY. This is by design — the
+# model is an independent NAV-based check, NOT a structural-discount estimator.
+ticker: NAT
+policy_type: variable
+payout_ratio: 1.00
+base_dividend_per_share: 0
+floor: 0

@@ -1,0 +1,67 @@
+# Torm Plc (TRMD) balance sheet snapshot — METHODOLOGY §4.2, §11.5
+# Source: Torm Q1 2026 6-K (filed 2026-05-08); balance sheet as of 2026-03-31. USD.
+#
+# Figures reconciled to avoid double-counting against the NAV formula
+# (which adds cash and subtracts total_debt SEPARATELY). working_capital_net
+# excludes cash and excludes the current portion of debt.
+ticker: TRMD
+quarter: 2026-Q1
+
+# Cash + restricted cash (Q1 2026 press release).
+cash_and_equivalents: 196000000
+
+# working_capital_net composition (§11.5):
+#
+#   1. OPERATING working capital (non-cash, non-debt): per the Q1 2026 earnings
+#      call, Q1 saw a +$30M WC build (elevated bunker inventory + 45-50 day DSO
+#      on March bookings). Management flagged the build as transitory.
+#      Normalised operating WC for a ~$300M/quarter revenue shipping company
+#      is in the $50-80M range. With the Q1 build, current operating WC is
+#      estimated ~$110M.
+#      → +110,000 ($k).
+#
+#      [ESTIMATE — replace with the operating WC line from the Q1 2026 interim
+#       report PDF (s202.q4cdn.com/126069760/files/doc_financials/2026/q1/) when
+#       available. Could be off by ±$30M.]
+#
+#   2. No held-for-sale at 2026-03-31. TORM Maren (2008 LR2) already delivered
+#      to buyer in Q1; not on books at quarter end. Sale price not disclosed
+#      but ~$30-34M based on May 2025 comparable (would feed §9.9 LR2/Aframax
+#      transaction-anchored recalibration if disclosed).
+#
+# Total: 110,000 ($k).
+working_capital_net: 110000000
+
+# Net interest-bearing debt (NIBD) per Q1 release.
+# Gross debt = cash + NIBD = 196 + 893.6 = ~$1,090M.
+# Bank vs lease split not separately disclosed in press release; ~$300-400M of
+# the gross is estimated IFRS 16 vessel lease liabilities. Tool treats total
+# interest-bearing debt as one line. [ESTIMATE — refresh with Q1 PDF detail.]
+total_debt: 1089600000
+
+# Lease liabilities: TORM materially REDUCED sale-leaseback exposure in 2025 by
+# exercising purchase options on 14 leaseback vessels. Only 2 vessels under SLB
+# at 2026-03-31 (accounted as owned per IFRS 16 with buyback options). Operating
+# leases (office) immaterial. The vessel lease liabilities are INCLUDED in
+# total_debt above to avoid double-counting; this line captures the remaining
+# non-vessel lease portion (immaterial).
+lease_liabilities: 5000000
+
+# Newbuild lines:
+#   - 2 × MR resales (TORM Dehradun / Dapitan), 2015-built, Q2 2026 delivery,
+#     est. acquisition price ~$45M each = $90M
+#   - 6 × MR resales (Splash247 May 2026 disclosure), 2027-2028 delivery,
+#     est. ~$45M each = $270M (rough — actual contracted price not disclosed)
+#   - Q1 2026 investment in tangible fixed assets was $180M (vs $30M Q1 2025),
+#     implying ~$50-60M blended per LR2/MR acquired
+#
+# Total remaining commitments: ~$360M. Agent flagged [ESTIMATE] $350-450M range.
+newbuild_capex_commitments: 360000000
+newbuild_advances_paid: 50000000   # estimated cumulative advances; [ESTIMATE]
+
+# Diluted shares outstanding (weighted-average Q1 2026, includes share options).
+# Common shares O/S ex-treasury at period end: 102.1M; weighted-avg basic 101.5M.
+# Single share class (Class A common, $0.01 par, one vote per share) — dual-listed
+# Nasdaq Copenhagen (TRMD A) + Nasdaq New York (TRMD). One controlling shareholder
+# owns ~65% (Oaktree Capital / Njord, post-2024 secondaries).
+diluted_shares_outstanding: 103300000

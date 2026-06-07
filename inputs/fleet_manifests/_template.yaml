@@ -1,0 +1,22 @@
+# Fleet manifest template — METHODOLOGY.md section 4.1
+# Copy to {ticker}.yaml (e.g. dht.yaml) and fill in. One entry per vessel.
+ticker: null            # e.g. DHT
+report_date: null       # e.g. 2026-Q1
+vessels:
+  - id: null            # e.g. VLCC_001
+    class: null         # VLCC | Suezmax | Aframax | LR2
+    dwt: null           # e.g. 300000
+    age: null           # years, e.g. 7
+    scrubber: null      # true | false
+    eco: null           # true | false (post-2014 fuel-efficient design)
+    charter_status: null  # spot | time_charter
+    charter_rate: null    # USD/day if time_charter, else null
+    charter_end: null     # ISO date if time_charter, else null
+spot_coverage_pct:      # share of fleet on spot, by class (0.0–1.0)
+  VLCC: null
+  Suezmax: null
+fleet_summary:          # convenience totals, cross-check against vessels list
+  VLCC_count: null
+  Suezmax_count: null
+  LR2_count: null
+  avg_age_VLCC: null

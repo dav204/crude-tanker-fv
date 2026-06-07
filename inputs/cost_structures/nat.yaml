@@ -1,0 +1,17 @@
+# Nordic American Tankers cost structure — METHODOLOGY.md section 4.4
+# Source: NAT Q1 2026 ER. Operating costs disclosed as "below $10k/day/ship".
+ticker: NAT
+
+# Per Q1 ER: opex < $10k/day/ship; NAT runs lean on a homogeneous Suezmax fleet.
+opex_per_day:
+  Suezmax: 9500
+
+# G&A is small at NAT (Bermuda-domiciled, no large head office).
+# Annual run-rate ~$15-20M based on prior filings; mid-estimate.
+annual_G_and_A: 17000000          # APPROX
+
+# Interest expense: ~$25-30M/yr on the ~$400M debt at NAT's current cost of debt.
+annual_interest_expense: 27000000
+
+# Bermuda tonnage-tax regime; minimal cash tax.
+effective_tax_rate: 0.02

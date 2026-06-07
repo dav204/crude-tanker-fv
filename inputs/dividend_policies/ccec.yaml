@@ -1,0 +1,12 @@
+# Capital Clean Energy Carriers dividend policy — METHODOLOGY.md §4.3
+# Q1 2026 declared dividend $0.15/share ($0.60/yr annualised; ~2.6% yield on
+# the $23.18 price). LOW-payout growth name vs the FLNG ($0.75/qtr, ~10% yield)
+# and NAT-style structures — CCEC retains cash for the $2.25B newbuild program
+# and the $20M share-repurchase authorisation announced Q1 2026. Model as
+# base_plus_variable with the $0.15 fixed base and zero incremental payout
+# (matches the FLNG template; CCEC does not pay specials either).
+ticker: CCEC
+policy_type: base_plus_variable
+payout_ratio: 0.0
+base_dividend_per_share: 0.15
+floor: 0

@@ -1,0 +1,61 @@
+# International Seaways fleet manifest — METHODOLOGY.md sections 4.1, 6 (hybrid carve-out)
+# Source: INSW Q1 2026 results + fleet page (intlseas.com/fleet), as of 2026-03-31.
+#
+# INSW is a HYBRID crude+product operator (67 total vessels). This manifest lists
+# only OWNED, ON-WATER vessels (the NAV / value-allocation basis). EXCLUDED:
+#   - 8 chartered-in vessels (3 VLCC DSME-2023, 1 LR1, 4 MR) — operating leases,
+#     not owned tonnage; they earn a thin charter-in spread we don't model.
+#   - 3 LR1 newbuildings under construction (CRISTOBAL/DELGADA/MAGELLAN) — these
+#     are PRODUCT-sleeve, with their $122M remaining commitment and the LR1-secured
+#     ECA debt handled outside the crude sleeve (see balance sheet + carveout.py).
+#
+# SLEEVE TAGGING for the crude carve-out (METHODOLOGY 6):
+#   VLCC / Suezmax / Aframax -> crude (1.0).   MR / LR2 -> product (0.0).
+#   LR1 -> dual-use, crude_fraction 0.30 (trades dirty ~30% of the time).
+# Yard discounts: Shanghai Waigaoqiao (SWS) 5%, New Times 10% (vessel_value_curves.yaml).
+# Korean/Japanese yards (Hyundai, Samsung, Daehan, SPP, STX, K Shipbuilding, ...) -> 0%.
+# scrubber/eco flags are best-effort (INSW scrubber-fitted its larger crude units);
+# product-class curves are already eco/scrubber-inclusive so those flags are moot there.
+ticker: INSW
+report_date: 2026-Q1
+vessels:
+  # ---- VLCC (7 owned; 3 DSME-2023 chartered-in EXCLUDED) ----
+  - {id: VLCC_2016_sws, class: VLCC, dwt: 300000, age: 10, scrubber: true, eco: false, yard: SWS, sleeve: crude, count: 5}  # Liberty/Triton/Cape Henry/Diamond Head/Hendricks
+  - {id: VLCC_2015_sws, class: VLCC, dwt: 300000, age: 11, scrubber: true, eco: false, yard: SWS, sleeve: crude, count: 1}  # Tybee
+  - {id: VLCC_2020_hsho, class: VLCC, dwt: 300000, age: 6, scrubber: true, eco: true, yard: Hyundai Samho, sleeve: crude, count: 1}  # Gibbs Hill
+  # ---- Suezmax (13 owned) ----
+  - {id: SMX_2012_hhi, class: Suezmax, dwt: 159000, age: 14, scrubber: false, eco: false, yard: Hyundai, sleeve: crude, count: 4}  # Red/Rio Grande/San Saba/Frio
+  - {id: SMX_2012_sam, class: Suezmax, dwt: 158500, age: 14, scrubber: false, eco: false, yard: Samsung, sleeve: crude, count: 4}  # Colorado/Brazos/Sabine/Pecos
+  - {id: SMX_2016_hhi, class: Suezmax, dwt: 158700, age: 10, scrubber: true, eco: false, yard: Hyundai, sleeve: crude, count: 2}  # Trinity/San Jacinto
+  - {id: SMX_2017_hsho, class: Suezmax, dwt: 158400, age: 9, scrubber: true, eco: false, yard: Hyundai Samho, sleeve: crude, count: 2}  # Hatteras/Montauk
+  - {id: SMX_2016_nt, class: Suezmax, dwt: 157500, age: 10, scrubber: false, eco: false, yard: New Times, sleeve: crude, count: 1}  # Loire (Chinese yard discount)
+  # ---- Aframax (4 owned) ----
+  - {id: AFRA_2017_dh, class: Aframax, dwt: 113700, age: 9, scrubber: true, eco: false, yard: Daehan, sleeve: crude, count: 1}  # Reyes
+  - {id: AFRA_2009_nt, class: Aframax, dwt: 112900, age: 17, scrubber: false, eco: false, yard: New Times, sleeve: crude, count: 2}  # Yellowstone/Yosemite
+  - {id: AFRA_2013_spp, class: Aframax, dwt: 112800, age: 13, scrubber: false, eco: false, yard: SPP, sleeve: crude, count: 1}  # Redwood
+  # ---- LR2 (1 owned) -> PRODUCT sleeve (overrides the LR2-defaults-to-crude rule) ----
+  - {id: LR2_2014_spp, class: LR2, dwt: 112700, age: 12, sleeve: product, count: 1}  # Shenandoah
+  # ---- LR1 (7 owned on-water) -> dual-use, 30% crude / 70% product ----
+  - {id: LR1_old, class: LR1, dwt: 74500, age: 16, sleeve: product, crude_fraction: 0.30, count: 4}  # Guayaquil/Eagle/Leyte/Samar (2009-2011)
+  - {id: LR1_2025_ksb, class: LR1, dwt: 73600, age: 1, sleeve: product, crude_fraction: 0.30, count: 2}  # Alacran/Balboa
+  - {id: LR1_2026_ksb, class: LR1, dwt: 73600, age: 0, sleeve: product, crude_fraction: 0.30, count: 1}  # Bonita
+  # ---- MR (24 owned) -> PRODUCT sleeve ----
+  - {id: MR_2008, class: MR, dwt: 50000, age: 18, sleeve: product, count: 2}  # Spirit/Lily (Hyundai Mipo)
+  - {id: MR_2009, class: MR, dwt: 51000, age: 17, sleeve: product, count: 9}  # Wave/Crest/Muse/Mirage/Oak/Skopelos/Moment/Mystery/Polaris
+  - {id: MR_2014, class: MR, dwt: 50000, age: 12, sleeve: product, count: 2}  # Dwarka/Lonsdale (SPP)
+  - {id: MR_2015, class: MR, dwt: 50000, age: 11, sleeve: product, count: 10}  # Wheat/Watch Hill/Warwick/Cape May/Loma/Stamford/Castle Hill/Lookout/Kolberg/Jeju
+  - {id: MR_2016, class: MR, dwt: 50000, age: 10, sleeve: product, count: 1}  # Kenosha
+# All owned crude tonnage modeled as spot for the crude sleeve (INSW carries some
+# VLCC/Suezmax TC coverage at premium fixed rates — fixed VLCC TCE $128k vs spot
+# $86k in Q1 — so this is mildly conservative on the dividend strip).
+spot_coverage_pct:
+  VLCC: 1.0
+  Suezmax: 1.0
+  Aframax: 1.0
+  LR1: 1.0
+fleet_summary:
+  crude_owned: 24          # VLCC 7 + Suezmax 13 + Aframax 4
+  product_owned: 32        # LR2 1 + LR1 7 + MR 24
+  chartered_in_excluded: 8 # 3 VLCC + 1 LR1 + 4 MR
+  lr1_newbuilds_excluded: 3
+  total_fleet_reported: 67

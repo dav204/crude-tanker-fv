@@ -1,0 +1,34 @@
+# Scorpio Tankers (STNG) cost structure — METHODOLOGY.md §4.4, §11.5
+# Derived from Scorpio Q1 2026 results (USD). Forward run-rate proxies.
+ticker: STNG
+
+opex_per_day:
+  # Q1 2026 disclosed daily vessel opex:
+  #   LR2:      $8,832/day
+  #   MR:       $8,190/day
+  #   Handymax: $7,657/day (on-curve as of 2026-06-05 — METHODOLOGY §11.5)
+  # Higher than ASC's $7,921/day MR opex reflecting (a) larger scrubber-heavy
+  # fleet with scrubber maintenance overhead, (b) Scorpio's in-house technical
+  # management vs ASC's mix, (c) the >90% scrubber-fitted fleet's bunker mix.
+  LR2: 8832
+  MR: 8190
+  Handymax: 7657
+
+# G&A: Q1 2026 reported $39.1M (~$156M annualised) — but this Q1 figure is
+# UNUSUALLY HIGH (Q-end equity-comp accruals + performance bonuses tied to
+# strong cycle earnings + $216M Q1 NI). Historical 2025 quarterly G&A averaged
+# $25-30M = $100-120M run-rate. Modelled at $125M as a normalised mid-point.
+# Refresh after Q2 to confirm whether the elevated Q1 G&A persists.
+annual_G_and_A: 125000000
+
+# Interest expense: Q1 2026 financial expenses $12.2M (~$49M annualised).
+# Pro-forma post-April capital structure:
+#   Secured bank ($368M @ SOFR+175): ~$22M/yr
+#   Unsecured senior notes 2030 ($200M @ 7.5%): $15M/yr
+#   Convertible 2031 ($375M @ 1.75%): $6.6M/yr
+#   Total ~$44M/yr. Modelled at $45M.
+annual_interest_expense: 45000000
+
+# Marshall Islands-domiciled; benefits from international shipping tax
+# exemptions. Q1 2026 tax expense immaterial. Modelled at zero.
+effective_tax_rate: 0.0

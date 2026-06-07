@@ -1,0 +1,127 @@
+# Tsakos Energy Navigation (TEN) balance sheet snapshot — METHODOLOGY §4.2, §11.6
+# Sources: Q1 2026 6-K (filed 2026-05-22, ex 99.1) + 2025 20-F audited financial
+# statements (filed 2026-04-06) rolled forward + data kit (May 11, 2026).
+# Balance sheet date: 2026-03-31. USD.
+#
+# TEN is the first **3-sleeve hybrid** + first name with `shuttle_contracted_book`
+# populated (METHODOLOGY §11.6 off-curve-at-contracted-book convention).
+
+ticker: TEN
+quarter: 2026-Q1
+
+# Cash: 6-K explicit at Mar 31 = "$321.4 million" (cash reserves)
+cash_and_equivalents: 321416000
+
+# working_capital_net composition (derived from 2025 20-F audited balance sheet
+# rolled forward; ~minimal Q1 movement vs Dec 2025 = $28M):
+#   Current other assets (AR $41,079 + inventory $12,591 + prepaid $8,627 +
+#     prepaid/advances/other $19,461 + LT investments-current $30,635 +
+#     short-term receivable $12,767 + capitalized voyage $777 +
+#     margin/time deposits $9,270 + financial instruments-current $1,296)
+#     = $136,503K
+#   minus current other liabilities (payables $42,676 + related $3,170 +
+#     dividends payable $15,064 + accrued $68,117 + unearned $17,273 +
+#     financial instruments $1,987) = $148,287K
+#   plus non-current other assets (LT investments $25,233 + deferred charges
+#     $27,503) = $52,736K
+#   minus non-current other liabilities (TC attached $12,322 + financial inst LT $473)
+#     = $12,795K
+#   Total: 136,503 - 148,287 + 52,736 - 12,795 = $28,157K (Dec 2025).
+# Operating lease RoU asset and LT operating lease obligation are equal and
+# offset in NAV (both excluded above; framework treats op leases as net-zero).
+# Tenergy LNG sale-leaseback is a FINANCING arrangement (per 20-F note) — its
+# liability sits in total_debt, NOT lease_liabilities.
+working_capital_net: 28000000
+
+# Total debt at 31-Mar-2026: per data kit "Expected outstanding debt at March 31,
+# 2026 = $2,148.2M" (Dec 2025 $1,930.4M + Q1 drawdowns $344.8M − repayments $127M).
+# Includes the Tenergy SL financing arrangement (~$130M remaining = ~$2.3M qly
+# × ~28 remaining instalments + $84M purchase obligation NPV).
+total_debt: 2148200000
+
+# Lease liabilities = 0 — operating lease obligations (Sakura Princess, Arctic
+# extended; Antarctic expired during Q1) offset by RoU assets. Tenergy LNG SL
+# in total_debt above.
+lease_liabilities: 0
+
+# Newbuild orderbook (19 vessels per data kit, contract value $2,403M total):
+#   - Advances paid through Q1 2026: ~$400M (Dec 2025 20-F $301.9M + Q1 net
+#     drawdowns; estimate between 20-F $301.9M and data kit May $430M).
+#   - All 19 NBs treated as **delivered-value = contract-price** (DP2 shuttle
+#     per METHODOLOGY §11.6 — no observable resale market; conventional
+#     non-shuttle NBs per the conservative read of §3.1 in the current rate
+#     environment — no material hot-market markup vs Korean/Chinese yard
+#     contract prices). Net NAV from NB program = advances paid only.
+# Convention: `newbuild_capex_commitments` is set to 0 (the remaining future
+# obligation will buy delivered vessels of equal value; net NAV impact zero
+# vs holding the advances at cost). `newbuild_advances_paid` carries the full
+# paid-to-date balance as a positive NAV asset. Equivalent to the FRO-style
+# "list NBs in fleet at delivered value, subtract remaining commitment"
+# convention when delivered = contract, but simpler since we don't need to
+# track NB vessels in the fleet manifest (and no Shuttle vessel class exists
+# to put them on a curve).
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 400000000
+
+# Diluted common shares outstanding: 30,127,603 per 20-F at Dec 31, 2025
+# (issued 30,805,776; treasury 678,173). No Q1 2026 buybacks/issuances disclosed.
+diluted_shares_outstanding: 30127603
+
+# Preferred equity (METHODOLOGY §4.2, ADDED 2026-06-05):
+# Two series outstanding per 20-F note + Q1 6-K Series E + F dividends confirm.
+#   - Series E: 4,745,947 shares × $25.00 redemption value = $118,649K
+#                9.25% coupon, dividends 28-Feb/May/Aug/Nov
+#   - Series F: 6,747,147 shares × $25.00 redemption value = $168,679K
+#                9.50% coupon, dividends 30-Jan/Apr/Jul/Oct
+#   Total liquidation preference: $287,328K
+# (Tsakos-affiliated entities hold 45,000 Series E + 100,000 Series F per 20-F.)
+preferred_equity: 287328000
+
+# Governance / structural-NAV-trap discount (METHODOLOGY §15, NEW 2026-06-06):
+# TEN is the framework's first §15 case — a controlled FPI structure where
+# the market consistently applies a 50-60% P/NAV discount. Drivers per
+# external read + user analysis:
+#   - Controlled-shareholder structure (Tsakos family); related-party
+#     transactions including management fees to Tsakos Columbia Shipmanagement
+#   - Low common payout: $1.50/share against ~$8 EPS in 2026 (~19% payout
+#     ratio); 36% YoY increase is "highest dividend in 10 years" but still
+#     well below mainstream tanker-cycle peers (DHT/NAT 100%, FRO 80%)
+#   - No buyback program; retained capital deployed into a $2.4B NB orderbook
+#     whose returns to common are uncertain
+#   - Preferred E+F structure ($287M aggregate) with Tsakos-affiliated owners
+#     holding meaningful slugs (0.95% E + 1.5% F per 20-F)
+#
+# 30% NAV haircut chosen to bring tool PW FV into the neighborhood of VIE
+# Bullish $51.50 — i.e., interpret VIE's already-discounted target as the
+# anchor for what the market will pay rather than what the assets are worth.
+# Conservative read: even VIE Bullish applies ~47% discount vs unconstrained
+# NAV; our 30% sits in between full-realisation (0%) and VIE Bullish (47%),
+# allowing room for partial governance improvement vs full continuation of
+# the historical discount. Judgmental; revisit when governance signals shift
+# (e.g., capital-return policy change, management transition, M&A).
+#
+# Applied at the BLEND layer (NAV term) and on the strip's TERMINAL value —
+# both are NAV-realisation computations. Interim DPS are NOT haircut (already-
+# realised cash to common). Broker-NAV sweep operates on undiscounted NAV
+# (the question "what are the assets worth" is independent of "what will
+# common shareholders capture").
+governance_discount_pct: 0.30
+
+# Shuttle contracted-book (METHODOLOGY §11.6, NEW 2026-06-05 PM):
+# NPV of 4 in-water DP2 shuttle tankers at contracted day rates +
+# Suezmax-curve residual at TC expiry, discounted at WACC 11%, utilization 98.3%,
+# offhire 1%, daily opex $11,000/day (~10% premium over conventional Suezmax).
+#
+# Per-vessel breakdown (npv = revenue NPV − opex NPV + residual NPV @ TC expiry):
+#   Brasil 2014   $104.8M  ($58,908/d → $60k extension; ext to 2033-11; age 20.5; residual $14.7M NPV)
+#   Rio 2016      $104.2M  ($58,403/d → $60k extension; ext to 2033-10; age 20.6; residual $14.6M NPV)
+#   Athens 04     $121.5M  ($58,569/d through 2032-05; age 7.0; residual $45.4M NPV; high residual)
+#   Paris 24      $122.6M  ($58,569/d through 2032-08; age 6.9; residual $44.4M NPV; high residual)
+#   --
+#   TOTAL         $453.1M
+#
+# Extension rates ($60k/day for Brasil/Rio) are an APPROX of "increased rate"
+# disclosed in the Q1 6-K subsequent events (April 23, 2026). Material if the
+# actual rate is materially higher; the methodology underweights the extension
+# value, leaving upside if the disclosure resolves favorably.
+shuttle_contracted_book: 453100000

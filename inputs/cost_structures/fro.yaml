@@ -1,0 +1,22 @@
+# Frontline plc cost structure — METHODOLOGY.md section 4.4
+# Derived from FRO Q1 2026 results (USD). Per-class opex split from the $61.7M
+# Q1 ship operating expenses (~$9k/day blended) using class size ratios.
+ticker: FRO
+
+opex_per_day:
+  VLCC: 9500
+  Suezmax: 8200
+  Aframax: 7800
+  LR2: 7800        # modeled as Aframax-equivalent
+
+# Administrative expenses Q1 2026 were $25.9M but included one-offs; normalized
+# run-rate ~$13-14M/qtr (Q4'25 $11.2M, Q1'25 $13.3M) -> ~$54M/yr.
+annual_G_and_A: 54000000
+
+# Finance expense Q1 2026 $40.2M (~$161M/yr run-rate, declining on debt paydown);
+# newbuild debt adds at low margins (SOFR+75-130bps), offset by refinancing.
+# Forward estimate ~$155M/yr.
+annual_interest_expense: 155000000
+
+# Cyprus / tonnage-tax regime: Q1 tax $0.57M on $559.7M pretax (~0.1%).
+effective_tax_rate: 0.001

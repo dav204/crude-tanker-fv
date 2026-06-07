@@ -1,0 +1,209 @@
+# Per-ticker IR data sources for the quarterly refresh workflow
+# (METHODOLOGY §8). Consumed by `src/crude_tanker_fv/refresh.py` to populate
+# the IR-URL playbook in `outputs/refresh_checklist.md`.
+#
+# Also carries a small number of NON-TICKER market-data sources under a
+# special "_market_data_sources" key (refresh.py ignores it for per-ticker
+# checklists; the refresh checklist's market-data section references them).
+#
+# Schema per ticker:
+#   ir_home:           the company's investor-relations landing page
+#   press_releases:    archive page where quarterly earnings releases are posted
+#   sec_edgar:         SEC EDGAR filer page (6-K / 20-F / 10-Q / 10-K archive).
+#                      Where the company is a foreign private issuer (FPI) the
+#                      key filing is the 6-K with the quarterly press release
+#                      as an exhibit; US issuers (TNK, INSW) file 10-Q.
+#   fleet_page:        public fleet list if maintained; otherwise null
+#   reporting_pattern: one-line plain-English description of typical Q-end
+#                      release timing. Used by refresh.py to phrase the
+#                      "have they reported yet?" question.
+#   notes:             optional free-text. Useful for non-obvious refresh
+#                      quirks (CCEC's NB delivery cadence, FLNG's TC backlog
+#                      table page, etc.).
+
+# Non-ticker market-data sources used at refresh time for rate-input
+# cross-checks. The refresh checklist references these but the IR-URL
+# playbook code path ignores entries whose key starts with "_".
+_market_data_sources:
+  vie_market_rates_and_trends:
+    label: VIE Live Analytics Platform — Market Rates & Trends tab
+    url: https://docs.google.com/spreadsheets/d/1gRGAetncvYO_iI_DAxTxO_Exx7z6YS4KOKD4pY3IVMs/edit?gid=1944362638
+    auth_required: Google account with VIE research-subscriber access
+    cadence: weekly snapshots + per-quarter forward/historical panel; refresh at quarter-end
+    fields_available:
+      - Weekly rate-level plus W/W M/M Y/Y per class (BDI BDTI BCTI plus per-class breakdown)
+      - Per-quarter Live Est rate per class (Q2-26 currently; prior quarters as historical)
+      - Vs. 10y Avg delta per class — back-compute VIE-implied long-run means
+    feeds:
+      - inputs/market_data/spot_tce.yaml (VIE Q2-26 Live Est = QTD spot average)
+      - inputs/market_data/twelve_month_tc.yaml (forward-quarter columns)
+      - inputs/market_data/historical_tce_means.yaml (back-computed from "Vs 10y Avg")
+    diagnostic: outputs/vie_market_rates_xref.md
+    notes: |
+      Quarter-to-date "Live Est" is what VIE estimates fixtures have averaged
+      thus far into the quarter (NOT a forward 12M TC). Treat as a multi-week
+      spot proxy. The "Vs. 10y Avg" column is the highest-value cell —
+      lets us cross-check our historical_tce_means.yaml directly. Our 10y
+      means run +14% to +58% above VIE-implied across classes; LNG +53%
+      gap is a deliberate spike-inclusive choice (METHODOLOGY note in
+      historical_tce_means.yaml LNGC comment). DO NOT bulk-update without
+      explicit methodology decision on which base period / outlier handling
+      is preferred per class.
+#
+# Verification status: URLs marked [VERIFIED] were fetched during data
+# collection (ASC and STNG, 2026-06-01). Others use canonical IR-endpoint
+# patterns and are likely correct but UNVERIFIED — refresh.py treats them
+# as starting points, not authoritative. Update / fix as you encounter
+# broken links.
+
+DHT:
+  ir_home: https://www.dhtankers.com/investors/
+  press_releases: https://www.dhtankers.com/news-releases/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001331284&type=6-K
+  fleet_page: https://www.dhtankers.com/fleetlist/
+  reporting_pattern: Q-end results released early second month of following quarter (Q1 ≈ early May; Q2 ≈ early Aug; Q3 ≈ early Nov; Q4 ≈ early Feb)
+  notes: Marshall Islands-domiciled, FPI; files 6-K via SEC. Q1 2026 press release was 2026-05-05.
+
+ECO:
+  ir_home: https://www.okeanisecotankers.com/investors/
+  press_releases: https://www.okeanisecotankers.com/news/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=okeanis&type=20-F
+  fleet_page: https://www.okeanisecotankers.com/our-fleet/
+  reporting_pattern: Q-end results typically mid-second month of following quarter (Q1 ≈ mid-May; FY ≈ late March)
+  notes: Dual-listed Oslo + NYSE; FPI on NYSE. Primary disclosure is Oslo press release; NYSE 6-K follows. Annual 20-F instead of 10-K.
+
+FRO:
+  ir_home: https://www.frontline.bm/investors/
+  press_releases: https://www.frontline.bm/news/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000913290&type=6-K
+  fleet_page: https://www.frontline.bm/fleet-list/
+  reporting_pattern: Q-end results typically late second month of following quarter (Q1 ≈ late May; Q4 ≈ late Feb)
+  notes: Cyprus-domiciled FPI dual-listed Oslo + NYSE. Press release posted simultaneously to both exchanges; SEC 6-K is the authoritative archive. Watch for material newbuild contracts disclosed between quarters.
+
+INSW:
+  ir_home: https://www.intlseas.com/investors/
+  press_releases: https://www.intlseas.com/press-releases/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001650044&type=10-Q
+  fleet_page: https://www.intlseas.com/fleet/
+  reporting_pattern: Q-end results typically early second month of following quarter (Q1 ≈ early May; Q4 ≈ early March with 10-K)
+  notes: Marshall Islands-domiciled but DOMESTIC ISSUER on NYSE (files 10-Q not 6-K). Hybrid crude + product operator — when refreshing, confirm both sleeves' fleet counts unchanged or flag re-allocation per §6.
+
+TNK:
+  ir_home: https://www.teekay.com/investors/
+  press_releases: https://www.teekay.com/blog/category/teekay-tankers-news/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001419945&type=10-Q
+  fleet_page: https://www.teekay.com/teekay-tankers/fleet/
+  reporting_pattern: Q-end results typically early second month of following quarter (Q1 ≈ early May; Q4 ≈ late Feb)
+  notes: Marshall Islands-domiciled but DOMESTIC ISSUER on NYSE (10-Q). Teekay Group umbrella site — make sure to filter for Teekay TANKERS not Teekay LNG / Teekay Corp.
+
+NAT:
+  ir_home: https://www.nat.bm/investors/
+  press_releases: https://www.nat.bm/news/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001000177&type=6-K
+  fleet_page: https://www.nat.bm/fleet/
+  reporting_pattern: Q-end results typically mid-second month of following quarter (Q1 ≈ mid-May)
+  notes: Bermuda-domiciled FPI; small-cap so analyst coverage is thin — Pareto / Cleaves are the consensus_pnav anchors. Watch for vessel sales/purchases (active fleet turnover).
+
+FLNG:
+  ir_home: https://www.flexlng.com/investors/
+  press_releases: https://www.flexlng.com/press-releases/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001738202&type=6-K
+  fleet_page: https://www.flexlng.com/our-fleet/
+  reporting_pattern: Q-end results typically mid-second month of following quarter (Q1 ≈ mid-May; Q1 2026 was 2026-05-13)
+  notes: Bermuda-domiciled FPI dual-listed NYSE + Oslo. TC backlog table on the IR site is the source for charter coverage refresh (separate from fleet table).
+
+CCEC:
+  ir_home: https://www.capclnenrg.com/investors/
+  press_releases: https://www.capclnenrg.com/news/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001736035&type=6-K
+  fleet_page: https://www.capclnenrg.com/fleet/
+  reporting_pattern: Q-end results typically mid-second month of following quarter (Q1 ≈ mid-May)
+  notes: Marshall Islands-domiciled FPI. Active NB delivery schedule ($2.25B program) — refresh the newbuild_capex_commitments + newbuild_advances_paid every quarter against the disclosed remaining commitments.
+
+ASC:
+  ir_home: https://ardmoreshipping.com/investors/
+  press_releases: https://ardmoreshipping.com/press-releases/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001577437&type=6-K  # [VERIFIED 2026-06-01]
+  fleet_page: https://ardmoreshipping.com/our-fleet/                                              # [VERIFIED 2026-06-01]
+  reporting_pattern: Q-end results typically early second month of following quarter (Q1 2026 was 2026-05-07)
+  notes: Irish-domiciled FPI on NYSE (ticker ASC). Q1 2026 dividend policy was DOUBLED to 2/3 of Adj. Earnings — watch for any policy changes in subsequent quarters. 2 Handysize NBs (2028 delivery) in the orderbook; refresh NB capex line each quarter.
+
+HAFN:
+  ir_home: https://www.hafniabw.com/investors/
+  press_releases: https://www.hafniabw.com/investors/announcements/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001815779&type=6-K
+  fleet_page: https://www.hafniabw.com/our-fleet/
+  reporting_pattern: Q-end results typically late second month of following quarter (Q1 2026 was 2026-05-27); Oslo Bors filing same day
+  notes: |
+    Bermuda-incorporated, Singapore-headquartered, IFRS reporter. Dual-listed
+    NYSE (HAFN) + Oslo (HAFNI via Norwegian deposit receipts). Files 6-K via
+    SEC. BW Group owns 44.18% (controlling-but-not-majority); free float ~55%.
+    Q1 2026 detailed interim PDF (s201.q4cdn.com/891122012/files/doc_financials/
+    2026/q1/Hafnia-Limited-Q1-2026-Investor-Presentation-vF2.pdf) contains
+    per-vessel scrubber/eco flags, granular G&A breakdown, itemized disposal
+    prices, and exact diluted share count — pull from PDF each quarter.
+    Watch items: Handysize segment WIND-DOWN (22 hulls + 4 in pending sale);
+    8 firm MR newbuilds at Hyundai (2028-2029 delivery); large TORM equity
+    stake ($395M) generates dividend income but isn't reflected in our schema
+    via dedicated line; Hafnia operates the world's largest product tanker
+    POOL — "spot" earnings are pool-derived (net of pool admin fees);
+    BW Group ownership dynamics affect free float and consensus P/NAV reads.
+TRMD:
+  ir_home: https://www.torm.com/investors/
+  press_releases: https://www.torm.com/investors/announcements/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001655891&type=6-K
+  fleet_page: https://www.torm.com/our-fleet/
+  reporting_pattern: Q-end results typically early-mid second month of following quarter (Q1 2026 was 2026-05-08; Q4 results released in March with FY outlook)
+  notes: |
+    UK-incorporated, dual-listed Nasdaq Copenhagen (TRMD A) + Nasdaq New York (TRMD).
+    Files 6-K via SEC. UK tonnage tax regime (~1.5% effective rate).
+    Single Class A common share class; one controlling shareholder ~65%.
+    Q1 2026 interim report PDF (s202.q4cdn.com/126069760/files/doc_financials/...)
+    contains the per-vessel fleet detail, bank-vs-lease debt split, and held-for-sale
+    book values that the 6-K summary doesn't break out — refresh from PDF each quarter.
+    Watch items: SLB exposure (down to 2 vessels at Q1 2026 vs 16+ in 2024 peak),
+    NB resale program (currently 8 outstanding: 2 Q2 2026 + 6 2027-2028), dividend
+    payout ratio variability (58-82% of NI; quarterly Board discretion, not formula).
+STNG:
+  ir_home: https://www.scorpiotankers.com/investors/
+  press_releases: https://www.scorpiotankers.com/press-releases/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001483934&type=6-K  # [VERIFIED 2026-06-01]
+  fleet_page: https://www.scorpiotankers.com/our-fleet/                                          # [VERIFIED 2026-06-01]
+  reporting_pattern: Q-end results typically early second month of following quarter (Q1 2026 was 2026-05-05)
+  notes: |
+    Marshall Islands-domiciled FPI. Multiple high-frequency disclosures to watch:
+      - $500M buyback authorisation refresh (May 2026); pace varies quarter-to-quarter
+      - Newbuild orderbook shifts (Q1 2026: 10 vessels; post-April LOIs: 12)
+      - 2 VLCC NBs (2H 2028) — STNG's first crude exposure
+      - Fleet count drifts as HFS vessels close (9 pending Q2 2026)
+    Refresh the fleet manifest, NB commitments, AND share count every quarter.
+TEN:
+  ir_home: https://www.tenn.gr/
+  press_releases: https://www.tenn.gr/news-events/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001166663&type=6-K
+  fleet_page: https://www.tenn.gr/fleet/
+  data_kit: https://www.tenn.gr/wp-content/uploads/(YYYY)/(MM)/TEN-Data-Kit-(MMM-DD_YY).pdf
+  reporting_pattern: |
+    Q-end results typically late second month of following quarter (Q1 2026 was 2026-05-22).
+    Monthly DATA KIT published mid-month with per-vessel TC rates and NB schedule —
+    refresh from data kit each month (independent of 6-K cadence).
+    Annual 20-F filed early April with full audited balance sheet detail.
+    AGM proxy 6-K (typically April) names directors and certifies preferred share counts.
+  notes: |
+    Bermuda-incorporated FPI; 3-sleeve hybrid (crude + product + lng) with the DP2
+    shuttle sleeve OFF-CURVE via shuttle_contracted_book (METHODOLOGY §11.6).
+    First name in THREE_SLEEVE_TICKERS.
+    Key per-quarter refresh items:
+      - Data kit per-vessel TC rates (especially shuttle vessels Brasil 2014, Rio 2016,
+        Athens 04, Paris 24 — drive shuttle_contracted_book NPV)
+      - NB orderbook schedule + advances paid (19 vessels, $2,403M total contract)
+      - Total debt roll-forward (data kit narrates Q1 movements; 6-K confirms)
+      - Common dividend declaration (semi-annual, Board discretion)
+    Watch items:
+      - DP2 shuttle extension events (Apr 2026 announced extension for Brasil/Rio
+        @ "increased rate" through H2 2033 — current shuttle NPV uses $60k/day APPROX
+        ext rate; refresh when actual rate disclosed)
+      - 10-yr-old VLCC Ulysses sold May 2026 ($83M free cash) — already reflected in
+        fleet manifest age
+      - 2 Suezmax 2007-built repurchase Apr 2026 (Arctic, Antarctic from 5y bareboat)
+      - Series E ($118.6M) + Series F ($168.7M) preferred — stable; rates fixed

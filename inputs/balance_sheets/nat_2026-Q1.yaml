@@ -1,0 +1,33 @@
+# Nordic American Tankers balance sheet — METHODOLOGY.md section 4.2
+# Source: NAT Q1 2026 ER (limited disclosure) + Dec 31 2025 20-F + Jan 2026
+# disposal proceeds applied. Several items are CONSTRUCTED from disclosed pieces
+# (Q1 net income, share count, dividend declared, opex per day, Jan vessel sale
+# $50M net) and clearly flagged; refine when the full Q1 6-K balance sheet is
+# pulled.
+ticker: NAT
+quarter: 2026-Q1
+
+# CASH — Q1 not explicitly disclosed; NAT's pattern is to keep working cash modest
+# (~$50-100M) and pay out the rest. Mid-estimate post-Jan-sale of vessels.
+# Confirm against NAT's actual Q1 6-K balance sheet when available.
+cash_and_equivalents: 75000000      # APPROX — Q1 cash not disclosed in headline release
+
+# Working capital: receivables + bunker inventory - payables. Constructed from
+# typical NAT pattern of ~$30M AR, ~$10M inventory, $15-20M payables; net ~$25M.
+working_capital_net: 25000000       # APPROX
+
+# Total debt: $424.1M at Dec 31 2025 per 20-F. Jan 2026 vessel-sale proceeds of
+# $50M likely partially applied to debt paydown; estimate ~$390-400M at Mar 31.
+total_debt: 395000000               # APPROX (Dec 2025 $424.1M - ~$30M Jan sale paydown)
+
+# Operating leases (head office, etc.) — minimal for NAT.
+lease_liabilities: 5000000
+
+# 2 Suezmax newbuilds firm-contracted Jan 2026 (delivery 2028). Each ~$85M;
+# total commitment ~$170M with first ~10% advance paid in Q1.
+newbuild_capex_commitments: 153000000   # ~$170M total - $17M advances paid
+newbuild_advances_paid: 17000000
+
+# Per Q1 2026 ER income statement: NI $46.3M / EPS basic ~$0.22 -> ~210.45M shares.
+# Latest disclosed share count 211,750,663 (Dec 31 2025). Use that.
+diluted_shares_outstanding: 211750663

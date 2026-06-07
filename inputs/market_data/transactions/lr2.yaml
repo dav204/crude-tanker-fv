@@ -1,0 +1,44 @@
+# LR2 (~110,000 DWT clean product tanker) secondhand sale prints —
+# METHODOLOGY 3.1, 9.9, 11.5.
+#
+# CURRENT FRAMEWORK STATE (v1): LR2 is valued via the Aframax curve (proxy
+# alias — see vessel_value_curves.yaml LR2 block + transactions.py
+# _PROXY_ALIASES). When this file has fewer than 2 in-window prints, the
+# LR2 fit falls back AND the Aframax proxy fit propagates to LR2 (as it did
+# before this file existed). Net behaviour identical to no-lr2-file —
+# this file's purpose is DATA DOCUMENTATION, not recalibration.
+#
+# SCOPE — 1 in-window print:
+#   - 2× STNG LR2 2016 (age 10) — $52.3M closing Q1 2026
+#     STI Goal + STI Gallantry, $104.6M aggregate.
+#
+# WHY ONE PRINT IS ENOUGH TO MATTER (BUT NOT TO RECALIBRATE):
+# The Aframax-proxy curve gives $68M base × 1.05 eco = $71.4M at age 10. The
+# print at $52.3M comes in ~27% BELOW the proxy. This is the first empirical
+# confirmation of the long-flagged §3.1 v1 limitation — "LR2 modeled as
+# Aframax-equivalent (crude/dirty proxy) for v1; v2: distinguish clean-LR2
+# product economics." A 2-vessel STNG package is reasonably representative,
+# but the solver requires n>=2 in-window prints. Documented here pending more
+# LR2 data so a clean-LR2 sub-curve can be calibrated in v2.
+#
+# IMPLICATION FOR §11.5 (PRODUCT-SECTOR HYPOTHESIS TEST):
+# Candidate hypothesis #2 in §11.5 was: "our product vessel curves are too
+# conservative vs current secondhand transactions, which would mean
+# recalibrating up would close the tool-TRIM vs VIE-Bullish divergence."
+# The LR2 print FALSIFIES that hypothesis in the wrong direction — our LR2
+# curve runs ~27% HIGH, not low. Recalibrating LR2 down to transaction
+# levels would WIDEN the VIE-Bullish-vs-tool-TRIM divergence on LR2-heavy
+# product names (STNG, HAFN, TRMD), not close it.
+#
+# SOURCES: Scorpio Tankers PR Dec 2025 (sale announcement); STNG Q1 2026
+# 6-K (closing). Raw worksheet at inputs/market_data/transactions/raw/
+# product_tanker_transactions_2026.xlsx.
+class: LR2
+as_of: 2026-05-29
+prints:
+  - date: 2026-03-31
+    vessel_age_at_sale: 10
+    sale_price_usd_m: 52.3
+    source: Scorpio Tankers (STNG) press release Dec 2025; closing Q1 2026
+    quality_flag: standard
+    notes: 2-vessel package — STI Goal + STI Gallantry (2016-built LR2). $104.6M aggregate ($52.3M/vessel). FIRST empirical clean-LR2 print in our infrastructure — sits 27% BELOW the Aframax-proxy curve at age 10 (validates the §3.1 v1 LR2-as-Aframax-proxy limitation; reinforces §11.5 falsification of curve-too-conservative hypothesis).

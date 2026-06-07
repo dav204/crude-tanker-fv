@@ -1,0 +1,20 @@
+# Tsakos Energy Navigation (TEN) dividend policy — METHODOLOGY §4.3
+# TEN pays SEMI-ANNUAL common dividends, declared by the Board with high
+# discretion. The framework's per-quarter model approximates this by setting
+# a quarterly base dividend = (annual aggregate) / 4.
+#
+# 2026 disclosure (Q1 6-K): aggregate common dividends $1.50/share for 2026
+# ($0.50/share first semi-annual + $1.00/share second semi-annual declared
+# for July 2026). 36% increase vs $1.10/share in 2025; "highest dividend in
+# more than 10 years". This is materially BELOW a variable-payout model
+# (TEN retains most earnings for the $2.4B newbuild program — 2026 payout
+# ratio against tool-projected EPS ~$8 = ~19%).
+#
+# Modelled as base + low-payout variable: $0.375/qtr fixed (= $1.50/yr / 4)
+# with a 19% variable layer above EPS breakeven.
+
+ticker: TEN
+policy_type: base_plus_variable
+payout_ratio: 0.19              # rough 2026 implied ratio ($1.50/$8.0 mgmt-guided EPS)
+base_dividend_per_share: 0.375  # = $1.50/yr aggregate ÷ 4 quarters
+floor: 0.0                      # no EPS-floor deduction before variable

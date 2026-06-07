@@ -1,0 +1,20 @@
+# 12-month time-charter rates by class — METHODOLOGY.md sections 2.3, 4.5
+# USD/day. This is the CYCLE-POSITION numerator (cycle = 12M TC / 10yr mean).
+# The TC is a conservative, fixed-rate market read (what a charterer will pay to
+# lock a year), deliberately distinct from the FFA forward curve, which drives
+# the dividend-strip cash flows. Source: Compass Maritime weekly, 25 May 2026
+# ("TANKER 12 MONTHS T/C RATES").
+twelve_month_tc:
+  VLCC: 111500
+  Suezmax: 61250
+  Aframax: 56250
+  LR2: 56250     # modeled as Aframax-equivalent (crude proxy) for v1
+  LR1: 56250     # dual-use crude (dirty/Aframax-equiv) rate for hybrid carve-outs
+  LNGC: 60000    # modern 174k cbm 12M TC (broker indications mid-2026)
+  MGC: 28000     # 22-45k cbm dual-fuel multi-gas 12M TC (broker indications mid-2026)
+  # ---- PRODUCT sleeve 12M TC (clean trading) ----
+  MR: 22000      # ~$22k 12M TC current; reflects post-crash environment
+  Handysize: 22000   # v1 EARNINGS PROXY to MR (=MR ⇒ Handysize cycle position = MR's). §11.5
+  Handymax: 22000    # v1 EARNINGS PROXY to MR (=MR ⇒ Handymax cycle position = MR's). §11.5
+  LR1_clean: 38000   # clean LR1 12M TC (Pareto / VIE indications)
+  LR2_clean: 45000   # clean LR2 12M TC (was elevated; correcting)

@@ -1,0 +1,145 @@
+# Tsakos Energy Navigation (TEN / NYSE:TEN) fleet manifest — METHODOLOGY §4.1, §11.6
+# Source: TEN Data Kit (May 11, 2026) + Q1 2026 6-K (filed 2026-05-22).
+# Balance sheet date: 2026-03-31.
+#
+# Scope = the **60 on-curve in-water vessels** as of 2026-03-31:
+#   - Crude: 3 VLCC + 14 conventional Suezmax + 22 Aframax = 39 vessels
+#   - Product: 4 Aframax LR + 9 Panamax LR1 + 2 MR + 2 Handysize = 17 vessels
+#   - LNG: 2 LNG carriers = 2 vessels
+#   - Shuttle: **EXCLUDED** (4 in-water DP2 shuttle tankers — Brasil 2014, Rio 2016,
+#     Athens 04, Paris 24 — handled OFF-CURVE via `shuttle_contracted_book`
+#     per METHODOLOGY §11.6, NOT in this manifest)
+#
+# Total in-water fleet per data kit = 64 vessels (60 here + 4 shuttle off-curve).
+#
+# Newbuild orderbook (19 vessels) is handled via balance sheet
+# `newbuild_capex_commitments` + `newbuild_advances_paid` lines:
+#   - 10 DP2 Shuttle Suezmaxes (Anfield + HN2733-2741): contract value ~$1,481M
+#   - 5 Panamax LR1 (Hull 1623, 0307383-86): contract value ~$280M
+#   - 3 VLCC (HN5331, 5332, 5335): contract value ~$385M
+#   - 1 LNG carrier (HN3643, 81,755 DWT): contract value ~$254M
+#
+# TEN is the first **3-sleeve hybrid** on the watchlist (`THREE_SLEEVE_TICKERS`)
+# — the carve-out routes (crude_carve_out + product_carve_out + lng_carve_out)
+# all run against the same fleet manifest, with vessel.sleeve / class driving
+# the split. The shuttle sleeve sits at the corporate level via
+# `shuttle_contracted_book` (METHODOLOGY §11.6, off-curve-at-contracted-book).
+#
+# Vessel ages computed from build year/month to 2026-03-31. Eco = built post-2014
+# per §3.1 definition. Scrubber flags reflect data kit "scrubber-fitted" callouts;
+# default false when unspecified.
+
+ticker: TEN
+report_date: 2026-Q1
+vessels:
+  # ============================================================
+  # CRUDE SLEEVE — 39 vessels
+  # ============================================================
+  # ---- VLCC (3 vessels, all scrubber-fitted modern) ----
+  - {id: TEN_VLCC_Dias_I,      class: VLCC,    dwt: 299999, age: 6.2,  scrubber: true,  eco: true,  charter_status: time_charter, charter_rate: 42500,  count: 1}
+  - {id: TEN_VLCC_Hercules_I,  class: VLCC,    dwt: 299011, age: 9.2,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 140000, count: 1}
+  - {id: TEN_VLCC_Ulysses,     class: VLCC,    dwt: 299011, age: 9.9,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 138000, count: 1}
+
+  # ---- Suezmax — 14 CONVENTIONAL vessels (shuttle tankers EXCLUDED) ----
+  # Modern post-2014 cohort (eco)
+  - {id: TEN_SUEZ_PopiSaz,     class: Suezmax, dwt: 157583, age: 7.9,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28000, count: 1}
+  - {id: TEN_SUEZ_ArtVoy,      class: Suezmax, dwt: 157400, age: 5.3,  scrubber: true,  eco: true,  charter_status: bareboat, charter_rate: 18750, count: 1}
+  - {id: TEN_SUEZ_ApoVoy,      class: Suezmax, dwt: 157135, age: 5.5,  scrubber: true,  eco: true,  charter_status: bareboat, charter_rate: 18750, count: 1}
+  - {id: TEN_SUEZ_Porto,       class: Suezmax, dwt: 154847, age: 3.7,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 44000, count: 1}
+  - {id: TEN_SUEZ_Lisboa,      class: Suezmax, dwt: 155723, age: 9.0,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 54500, count: 1}
+  # 2011-2013 cohort (pre-eco per §3.1; older)
+  - {id: TEN_SUEZ_Eurovision,  class: Suezmax, dwt: 157803, age: 13.2, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 27000, count: 1}
+  - {id: TEN_SUEZ_Euro,        class: Suezmax, dwt: 157539, age: 13.5, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 27000, count: 1}
+  - {id: TEN_SUEZ_DimitrisP,   class: Suezmax, dwt: 157740, age: 14.6, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: TEN_SUEZ_SpyrosK,     class: Suezmax, dwt: 157648, age: 14.9, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 27000, count: 1}
+  - {id: TEN_SUEZ_Decathlon,   class: Suezmax, dwt: 164274, age: 14.2, scrubber: false, eco: false, charter_status: spot, count: 1}
+  # 2006-2007 ice-class 1A cohort (older but specialized; treat as ice-class premium implicit in TC rate)
+  - {id: TEN_SUEZ_Antarctic,   class: Suezmax, dwt: 163216, age: 19.0, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 30000, count: 1}
+  - {id: TEN_SUEZ_Arctic,      class: Suezmax, dwt: 163216, age: 19.2, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 40000, count: 1}
+  - {id: TEN_SUEZ_Alaska,      class: Suezmax, dwt: 163250, age: 20.1, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 50000, count: 1}
+  - {id: TEN_SUEZ_Archangel,   class: Suezmax, dwt: 163216, age: 20.2, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 102000, count: 1}
+
+  # ---- Aframax — 22 vessels (incl. 4 DF LNG-powered NBs from 2023-24) ----
+  # Modern DF (dual-fuel LNG-powered) — eco premium applies
+  - {id: TEN_AFRA_Aspen,       class: Aframax, dwt: 112900, age: 7.2,  scrubber: true,  eco: true,  charter_status: time_charter, charter_rate: 29900, count: 1}
+  - {id: TEN_AFRA_Alpes,       class: Aframax, dwt: 112900, age: 8.0,  scrubber: true,  eco: true,  charter_status: time_charter, charter_rate: 27750, count: 1}
+  - {id: TEN_AFRA_MedVoy,      class: Aframax, dwt: 115166, age: 6.4,  scrubber: true,  eco: true,  charter_status: bareboat, charter_rate: 13600, count: 1}
+  - {id: TEN_AFRA_CarVoy,      class: Aframax, dwt: 115166, age: 6.2,  scrubber: true,  eco: true,  charter_status: bareboat, charter_rate: 13600, count: 1}
+  - {id: TEN_AFRA_IthakiDF,    class: Aframax, dwt: 114598, age: 2.2,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28200, count: 1}
+  - {id: TEN_AFRA_ChiosDF,     class: Aframax, dwt: 114580, age: 2.2,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28200, count: 1}
+  - {id: TEN_AFRA_NjordDF,     class: Aframax, dwt: 114545, age: 2.5,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28200, count: 1}
+  - {id: TEN_AFRA_RanDF,       class: Aframax, dwt: 114575, age: 2.4,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28200, count: 1}
+  # 2017 cohort — ice-class 1B
+  - {id: TEN_AFRA_BergenTS,    class: Aframax, dwt: 113039, age: 8.5,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26651, count: 1}
+  - {id: TEN_AFRA_StavangerTS, class: Aframax, dwt: 113004, age: 8.7,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26651, count: 1}
+  - {id: TEN_AFRA_OsloTS,      class: Aframax, dwt: 112949, age: 8.9,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 27651, count: 1}
+  - {id: TEN_AFRA_SolaTS,      class: Aframax, dwt: 112939, age: 9.0,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 25651, count: 1}
+  - {id: TEN_AFRA_MarathonTS,  class: Aframax, dwt: 112700, age: 9.1,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 27000, count: 1}
+  # 2016 cohort
+  - {id: TEN_AFRA_ParthenonTS, class: Aframax, dwt: 113554, age: 9.4,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26000, count: 1}
+  - {id: TEN_AFRA_LeontiosH,   class: Aframax, dwt: 113612, age: 9.5,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26000, count: 1}
+  - {id: TEN_AFRA_ThomasZ,     class: Aframax, dwt: 113691, age: 9.6,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26000, count: 1}
+  - {id: TEN_AFRA_EliasT,      class: Aframax, dwt: 113737, age: 9.8,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26000, count: 1}
+  # 2007-2010 cohort (older Japan-built 105k princess cohort)
+  - {id: TEN_AFRA_SakuraP,     class: Aframax, dwt: 105365, age: 18.9, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: TEN_AFRA_MariaP,      class: Aframax, dwt: 105346, age: 17.5, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: TEN_AFRA_AsahiP,      class: Aframax, dwt: 105372, age: 16.6, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 40000, count: 1}
+  - {id: TEN_AFRA_SapporoP,    class: Aframax, dwt: 105354, age: 16.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: TEN_AFRA_UragaP,      class: Aframax, dwt: 105344, age: 15.7, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 29500, count: 1}
+
+  # ============================================================
+  # PRODUCT SLEEVE — 17 vessels (sleeve tagged explicitly)
+  # ============================================================
+  # ---- Aframax LR (clean-product 117k coated; tagged sleeve: product) ----
+  - {id: TEN_AFRALR_Promitheas, class: LR2, dwt: 117055, age: 19.7, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
+  - {id: TEN_AFRALR_Propontis,  class: LR2, dwt: 117055, age: 19.5, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
+  - {id: TEN_AFRALR_Mystras,    class: LR2, dwt: 109999, age: 2.8,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28900, count: 1, sleeve: product}
+  - {id: TEN_AFRALR_Montmartre, class: LR2, dwt: 109999, age: 2.6,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28900, count: 1, sleeve: product}
+  # ---- Panamax LR1 (clean-product) ----
+  - {id: TEN_PMAX_Sunray,     class: LR1, dwt: 74039, age: 9.6,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 30000, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Sunrise,    class: LR1, dwt: 74043, age: 9.5,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 35000, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Selecao,    class: LR1, dwt: 74296, age: 18.1, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Socrates,   class: LR1, dwt: 74327, age: 18.0, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
+  - {id: TEN_PMAX_WorldHarm,  class: LR1, dwt: 74200, age: 16.9, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 29500, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Chantal,    class: LR1, dwt: 74329, age: 16.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 35000, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Selini,     class: LR1, dwt: 74296, age: 17.2, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 29500, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Salamina,   class: LR1, dwt: 74251, age: 17.1, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 35000, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Andes,      class: LR1, dwt: 68439, age: 22.5, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 24000, count: 1, sleeve: product}
+  # ---- MR (2 vessels — Delos T + Dion, Q1 2026 deliveries) ----
+  - {id: TEN_MR_DelosT, class: MR, dwt: 50479, age: 0.2, scrubber: true, eco: true, charter_status: time_charter, charter_rate: 24000, count: 1, sleeve: product}
+  - {id: TEN_MR_Dion,   class: MR, dwt: 50396, age: 0.1, scrubber: true, eco: true, charter_status: time_charter, charter_rate: 25000, count: 1, sleeve: product}
+  # ---- Handysize (clean-product, 49% FLOPEC JV — counted at full per data kit) ----
+  - {id: TEN_HANDY_Bosporos,  class: Handysize, dwt: 37244, age: 18.6, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
+  - {id: TEN_HANDY_Byzantion, class: Handysize, dwt: 37275, age: 18.9, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
+
+  # ============================================================
+  # LNG SLEEVE — 2 vessels
+  # ============================================================
+  # Note: Tenergy is under sale-leaseback (financing arrangement); valued on-curve
+  # and the SL liability sits in total_debt (NOT lease_liabilities).
+  - {id: TEN_LNG_Tenergy,     class: LNGC, dwt: 93650, age: 4.2,  scrubber: false, eco: false, charter_status: time_charter, charter_rate: 50000, count: 1}
+  - {id: TEN_LNG_MariaEnergy, class: LNGC, dwt: 93301, age: 9.4,  scrubber: false, eco: false, charter_status: time_charter, charter_rate: 74000, count: 1}
+
+# Charter coverage — heavily TC-skewed (~85% TC + bareboat per data kit; ~15% spot)
+spot_coverage_pct:
+  VLCC:     0.00              # 3 vessels all on TC
+  Suezmax:  0.143             # 2 of 14 spot (DimitrisP, Decathlon); ArtVoy/ApoVoy on bareboat (treated TC-economic)
+  Aframax:  0.182             # 4 of 22 spot (SakuraP, MariaP, SapporoP — princess cohort)
+  LR2:      0.50              # Promitheas + Propontis spot; 2 DF on TC
+  LR1:      0.222             # Selecao + Socrates spot; 7 on TC
+  MR:       0.00              # both on TC
+  Handysize: 1.00             # both Bosporos/Byzantion pool/spot
+  LNGC:     0.00              # both on long-term TC
+
+# fleet_summary — informational; sleeve totals support the 3-sleeve aggregation
+fleet_summary:
+  on_curve_total: 60
+  shuttle_off_curve_count: 4              # OFF-CURVE via shuttle_contracted_book (METHODOLOGY §11.6)
+  newbuild_orders_q1: 19                  # 10 shuttle + 5 panamax + 3 vlcc + 1 lng
+  crude_sleeve_count: 39                  # 3 VLCC + 14 conventional Suezmax + 22 Aframax
+  product_sleeve_count: 17                # 4 LR2 + 9 LR1 + 2 MR + 2 Handy
+  lng_sleeve_count: 2
+  avg_age_crude: 11.2
+  avg_age_product: 12.8
+  avg_age_lng: 6.8
+  total_in_water_per_data_kit: 64         # 60 on-curve + 4 shuttle off-curve

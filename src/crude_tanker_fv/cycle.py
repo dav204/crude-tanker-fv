@@ -1,0 +1,119 @@
+"""Cycle-position weighting (METHODOLOGY.md section 2.3).
+
+Cycle position = 12-month time-charter (TC) rate / 10-year historical mean TCE,
+per vessel class. (Deviation from the literal METHODOLOGY.md 2.3, which names
+the 12M FFA strip: the fixed-rate 12M TC is a more conservative cycle read and
+is kept distinct from the FFA forward curve, which drives the dividend-strip
+cash flows. ``twelve_month_ffa`` remains available for strip reporting.) The
+ratio selects the NAV vs. earnings blend weights via a step function:
+
+    > 1.5x       -> w_nav 0.70, w_earn 0.30  (late-cycle / peak)
+    1.2x - 1.5x  -> w_nav 0.60, w_earn 0.40  (elevated)
+    0.8x - 1.2x  -> w_nav 0.50, w_earn 0.50  (mid-cycle)
+    0.5x - 0.8x  -> w_nav 0.40, w_earn 0.60  (below-mid)
+    < 0.5x       -> w_nav 0.30, w_earn 0.70  (trough)
+
+For multi-class operators the per-class ratio is combined at the
+fleet-weighted-average level, weighted by each class's share of vessel value.
+
+Open decision 9.1: step function vs. continuous logistic.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+from .schemas import CompanyInputs
+from .vessel_values import vessel_market_value
+
+FFA_12M_QUARTERS = 4
+
+# (lower_bound_exclusive, w_nav, w_earn, label); checked high to low.
+_BANDS = [
+    (1.5, 0.70, 0.30, "late-cycle/peak"),
+    (1.2, 0.60, 0.40, "elevated"),
+    (0.8, 0.50, 0.50, "mid-cycle"),
+    (0.5, 0.40, 0.60, "below-mid"),
+    (float("-inf"), 0.30, 0.70, "trough"),
+]
+
+
+@dataclass
+class CycleResult:
+    """Cycle-position weighting for the per-company report (section 7)."""
+
+    cycle_position: float  # fleet-weighted 12M TC / 10yr mean
+    cycle_position_by_class: dict[str, float]
+    twelve_month_tc_by_class: dict[str, float]
+    w_nav: float
+    w_earn: float
+    band_label: str
+
+
+def twelve_month_ffa(ffa: list[float]) -> float:
+    """The 12-month FFA strip = mean of the first 4 quarters of the FFA curve.
+
+    Single canonical definition of the "12M forward rate", shared by the cycle
+    weighting and the dividend-strip reconciliation so there is one source and
+    one number (METHODOLOGY.md 2.3).
+    """
+    if len(ffa) < FFA_12M_QUARTERS:
+        raise ValueError(f"FFA curve needs >= {FFA_12M_QUARTERS} quarters, got {len(ffa)}")
+    return sum(ffa[:FFA_12M_QUARTERS]) / FFA_12M_QUARTERS
+
+
+def cycle_position_for_class(ffa_12m: float, historical_mean: float) -> float:
+    """Single-class cycle ratio = 12M FFA strip / 10yr mean TCE."""
+    if historical_mean <= 0:
+        raise ValueError(f"historical mean must be positive, got {historical_mean}")
+    return ffa_12m / historical_mean
+
+
+def weights_for_position(cycle_position: float) -> tuple[float, float, str]:
+    """Map a cycle ratio to (w_nav, w_earn, label) via the section 2.3 bands."""
+    for lower, w_nav, w_earn, label in _BANDS:
+        if cycle_position > lower:
+            return w_nav, w_earn, label
+    raise AssertionError("unreachable: bands cover all reals")
+
+
+def _class_value_weights(inputs: CompanyInputs) -> dict[str, float]:
+    """Each class's share of total fleet market value (count- and discount-aware)."""
+    curves = inputs.market_data.vessel_value_curves
+    yard_discounts = inputs.market_data.yard_discounts
+    by_class: dict[str, float] = {}
+    for v in inputs.fleet.vessels:
+        value = vessel_market_value(v, curves[v.cls], yard_discounts) * v.count
+        by_class[v.cls] = by_class.get(v.cls, 0.0) + value
+    total = sum(by_class.values())
+    return {cls: val / total for cls, val in by_class.items()}
+
+
+def compute_cycle(inputs: CompanyInputs) -> CycleResult:
+    """Fleet-weighted cycle position and resulting blend weights."""
+    md = inputs.market_data
+    value_weights = _class_value_weights(inputs)
+
+    by_class: dict[str, float] = {}
+    tc_by_class: dict[str, float] = {}
+    for cls in value_weights:
+        tc = md.twelve_month_tc.get(cls)
+        if tc is None:
+            raise ValueError(f"no 12-month TC rate for class {cls!r}")
+        mean = md.historical_tce_means.get(cls)
+        if mean is None:
+            raise ValueError(f"no historical mean TCE for class {cls!r}")
+        tc_by_class[cls] = tc
+        by_class[cls] = cycle_position_for_class(tc, mean)
+
+    fleet_position = sum(value_weights[cls] * by_class[cls] for cls in by_class)
+    w_nav, w_earn, label = weights_for_position(fleet_position)
+
+    return CycleResult(
+        cycle_position=fleet_position,
+        cycle_position_by_class=by_class,
+        twelve_month_tc_by_class=tc_by_class,
+        w_nav=w_nav,
+        w_earn=w_earn,
+        band_label=label,
+    )

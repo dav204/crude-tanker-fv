@@ -1,0 +1,20 @@
+# Okeanis Eco Tankers cost structure — METHODOLOGY.md section 4.4
+# Source: OET Q1 2026 results. USD. ECO's eco fleet runs low daily opex.
+ticker: ECO
+
+# Reported all-in Daily Opex (incl. management fees) was $9,593/calendar day Q1
+# 2026. Split modestly by class (VLCC > Suezmax).
+opex_per_day:
+  VLCC: 10000
+  Suezmax: 9200
+
+# Corporate G&A: Q1 2026 was $8.53M (vs $4.42M Q1 2025) — elevated (likely
+# offering / stock-comp one-offs). Normalized to ~$25M/yr (flagged).
+annual_G_and_A: 25000000
+
+# Interest & finance: Q1 2026 interest expense $9.7M (~$39M/yr); rising slightly
+# with newbuild/buyback facilities. Forward estimate ~$40M/yr.
+annual_interest_expense: 40000000
+
+# Greek/Marshall Islands tonnage-tax: Q1 showed no tax line (profit before = after).
+effective_tax_rate: 0.001

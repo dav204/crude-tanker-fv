@@ -1,0 +1,36 @@
+# Tsakos Energy Navigation (TEN) cost structure — METHODOLOGY §4.4, §11.6
+# Source: Q1 2026 6-K + data kit management fee schedule. USD.
+
+ticker: TEN
+
+# Vessel daily operating expenses — Q1 2026 6-K disclosed $9,952/day fleet-average.
+# Per-class allocation derived from the Q1 6-K fleet mix (LR2/VLCC heavier opex,
+# Handysize lighter). Data kit management fees ($32.5k/mo standard, $38.5k/mo
+# shuttle, $22.5k/mo bareboat) are EXCLUDED from this line — they roll into
+# annual_G_and_A below per the framework convention.
+opex_per_day:
+  VLCC: 11500       # premium for older Hercules I + Ulysses higher
+  Suezmax: 10200    # mid-range with the ice-class 1A older suezmax cohort lifting
+  Aframax: 9800     # eco DF cohort offsets older princess cohort
+  LR2: 9500         # for the 4 Aframax LR (~117k); clean-trade slightly lower
+  LR1: 8800         # 9-vessel panamax sleeve
+  MR: 8200          # 2 new MR (Delos T, Dion) ~Hyundai Mipo opex
+  Handysize: 7200   # 2 hulls Bosporos/Byzantion
+  LNGC: 14500       # 2 LNG carriers — opex significantly higher than tankers (LNG-spec crew + BOG handling)
+
+# G&A: Q1 2026 6-K narrative — annualised admin + management fees + RSU
+# amortisation. Estimated ~$50M/yr (TEN is a moderately-staffed Athens-based
+# foreign filer; G&A is structurally lower than US-domiciled peers).
+annual_G_and_A: 50000000
+
+# Interest expense: Q1 2026 6-K disclosed loan interest $26.2M annualised
+# = $104.8M, but TEN benefits from reduced spreads on refinanced facilities;
+# 6-K narrative implies ~$83M annual run-rate.
+annual_interest_expense: 83000000
+
+# Tax: TEN is a Bermuda-incorporated foreign filer with Greek management
+# operations; effective tax rate ~0% per 20-F note on tax treatment
+# (tonnage tax regimes apply to Greek-managed shipping income; minimal US tax
+# exposure). Standard shipping sector convention; matches our ~2% blanket
+# elsewhere but TEN's structure is even lighter — use 0%.
+effective_tax_rate: 0.0

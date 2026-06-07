@@ -1,0 +1,60 @@
+# Ardmore Shipping (ASC / NYSE:ASC) balance sheet snapshot — METHODOLOGY.md §4.2, §11.5
+# Source: Ardmore Q1 2026 results, 6-K filed 2026-05-07, balance sheet as of
+# 2026-03-31. USD.
+#
+# Figures are reconciled to avoid double-counting against the NAV formula,
+# which adds cash and subtracts total_debt SEPARATELY. So working_capital_net
+# below excludes cash and excludes the current portion of debt.
+ticker: ASC
+quarter: 2026-Q1
+
+cash_and_equivalents: 47200000        # "Cash and cash equivalents" (Q1 2026 6-K)
+
+# working_capital_net composition (§11.5 — off-curve fleet adjustment):
+#
+#   1. OPERATING working capital (non-cash, non-debt, non-HFS):
+#      AR 52,800 + inventories 13,000 + other current assets 10,300 (prepaids
+#      + capitalized voyage exp + derivatives, derived from total current
+#      assets 146,200 less cash 47,200 less AR 52,800 less inventories 13,000
+#      less HFS 22,900) − total current liabilities 30,000 = +46,100 ($k).
+#
+#   2. Ardmore Engineer held-for-sale at AGREED SALE PRICE:
+#      Balance sheet carries HFS at 22,900 ($k); the agreed sale price is
+#      $35.5M (delivery ~Jun 2026). NAV uses the realisable $35.5M.
+#      → adds +35,500 ($k).
+#
+#   3. OFF-CURVE CHEMICAL Handy sleeve — 4 vessels (NARROWED 2026-06-05). The
+#      2 × 37k Korea-built product Handies (Defender/Dauntless) moved ON-CURVE
+#      via the new Handysize class (fleet_manifests/asc.yaml; ~$24.6M each at
+#      age 11). Remaining off-curve = the 4 × 25k DWT Japan-built STAINLESS
+#      CHEMICAL hulls (Chippewa/Chinook/Cheyenne/Cherokee, 2015, age 11):
+#        • ~$13M each = $52M (25k chem; a 38k product curve would overvalue
+#          these smaller stainless hulls — they stay off-curve as a narrower
+#          "chemical Handy" residual tied to the chemical-sector gap, §11.5 /
+#          LIMITATIONS §2).
+#        • Apply 5% liquidity/marketability discount → $49.4M ≈ $49,400 ($k).
+#      → adds +49,400 ($k).  (was +91,000 before the 2 product Handies moved
+#        on-curve.)
+#
+#   Total: 46,100 + 35,500 + 49,400 = 131,000 ($k).
+#
+# Narrowed from the prior $91M Handysize/chem sleeve: the clean-product portion
+# is now curve-valued; only the 25k stainless chemical hulls remain off-curve.
+working_capital_net: 131000000
+
+total_debt: 103400000                # "Long-term debt" (all non-current; current portion $0)
+
+# Operating-lease liabilities (vessel + office) — Q1 2026 6-K reported
+# $0.6M current + $1.2M non-current = $1.8M. Suggests SLB obligations
+# have been refinanced into bank debt; no material finance leases remain.
+lease_liabilities: 1800000
+
+# Newbuild lines: 2 × Handysize product/chemical (40,500 DWT each, late-2028
+# delivery, $44.9M each = $89.8M committed). Q1 cash outflow on vessels under
+# construction was ~$1M (cumulative advances paid). Remaining instalments
+# = $89.8M − $1M = $88.8M.
+newbuild_capex_commitments: 88800000   # remaining instalments
+newbuild_advances_paid: 1000000        # cumulative advances at 2026-03-31
+
+# 40.8M common shares O/S at period-end; 40.9M weighted-avg diluted Q1.
+diluted_shares_outstanding: 40900000

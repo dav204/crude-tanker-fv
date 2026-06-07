@@ -1,0 +1,9 @@
+# Okeanis Eco Tankers dividend policy — METHODOLOGY.md section 4.3
+# Stated policy ~75% of EPS above breakeven. Q1 2026 declared $2.00/sh on $2.31
+# basic EPS (~86%) — above the 75% floor, consistent with peak payout behavior.
+# Base case 0.85 (recent actual); payout sensitivity shows 0.80/0.95/1.00.
+ticker: ECO
+policy_type: variable
+payout_ratio: 0.85
+base_dividend_per_share: 0    # no fixed base
+floor: 0                      # 75%-above-breakeven floor immaterial at peak EPS

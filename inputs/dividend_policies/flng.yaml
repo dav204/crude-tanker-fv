@@ -1,0 +1,14 @@
+# Flex LNG dividend policy — METHODOLOGY.md section 4.3
+# FLNG declared its 19th consecutive ordinary quarterly dividend of $0.75/share
+# in Q1 2026 ($3.00/yr annualised). Q1 EPS $0.36 -> the $0.75 dividend EXCEEDS
+# quarterly earnings (current payout >100% of GAAP NI), funded by the $389M
+# cash pile + the long-dated TC backlog. The dividend is a fixed-floor policy
+# (anchored at $0.75/qtr regardless of EPS variability), so model as
+# base_plus_variable with the $0.75 base and ZERO incremental payout — FLNG
+# does not pay specials. The base+variable wrapper supports the floor
+# correctly; the variable component is held at 0.
+ticker: FLNG
+policy_type: base_plus_variable
+payout_ratio: 0.0
+base_dividend_per_share: 0.75
+floor: 0

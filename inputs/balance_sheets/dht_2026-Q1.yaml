@@ -1,0 +1,37 @@
+# DHT Holdings balance sheet snapshot — METHODOLOGY.md section 4.2
+# Source: DHT Q1 2026 results, Consolidated Statement of Financial Position
+# as of 2026-03-31 (USD; report press release dated 2026-05-05).
+#
+# Figures are reconciled to avoid double-counting against the NAV formula,
+# which adds cash and subtracts total_debt SEPARATELY. So working_capital_net
+# below excludes cash and excludes the current portion of debt.
+ticker: DHT
+quarter: 2026-Q1
+
+cash_and_equivalents: 126246000      # "Cash and cash equivalents"
+
+# working_capital_net = operating working capital (non-cash, non-debt)
+#                       + DHT Bauhinia held-for-sale at its agreed sale price.
+# Operating WC = (AR 85,288 + capitalized voyage exp 1,701 + prepaid 6,501
+#                 + current derivative assets 355 + inventories 30,241)
+#              - (accounts payable 33,933 + other current liab 914
+#                 + deferred shipping revenues 6,593)
+#              = 124,086 - 41,440 = 82,646 ($k).
+# Bauhinia: balance sheet carries it in "assets held for sale" at 16,777 ($k);
+# the agreed sale price is $51.5M (DHT expects a ~$34.2M gain). NAV uses the
+# realizable $51.5M, so 82,646 + 51,500 = 134,146 ($k).
+working_capital_net: 134146000
+
+total_debt: 505343000                # Interest bearing debt (Note 4)
+
+# DHT has no vessel lease liabilities (all vessels owned); only small office
+# leases. Reported lease liabilities as of 2026-03-31 were $0.99M.
+lease_liabilities: 990000
+
+# Newbuild lines relate ONLY to DHT Impala (4th newbuilding, still under
+# construction at 2026-03-31; the other three were delivered and are valued on
+# the age curve in the fleet manifest).
+newbuild_capex_commitments: 77481000   # remaining installments (Note 5)
+newbuild_advances_paid: 55676000       # "vessels under construction" carrying amount (Note 5)
+
+diluted_shares_outstanding: 161041637  # common shares outstanding at 2026-03-31

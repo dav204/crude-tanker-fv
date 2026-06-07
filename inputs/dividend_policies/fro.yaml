@@ -1,0 +1,11 @@
+# Frontline plc dividend policy — METHODOLOGY.md section 4.3
+# policy_type "variable" => DPS = max(base, payout_ratio * max(0, EPS - floor)).
+# FRO declared $1.55/qtr in Q1 2026 = ~100% of ADJUSTED (operating) EPS, above
+# its stated ~75-80% policy. Tanker boards pay near-100% at peaks. Base case is
+# 0.95 (recent peak behaviour with some conservatism); the report shows payout
+# sensitivity at 0.80 (stated floor) and 1.00 (peak persists).
+ticker: FRO
+policy_type: variable
+payout_ratio: 0.95
+base_dividend_per_share: 0    # no fixed base
+floor: 0                      # no EPS threshold

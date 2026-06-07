@@ -1,0 +1,29 @@
+# Okeanis Eco Tankers balance sheet snapshot — METHODOLOGY.md section 4.2
+# Source: OET Q1 2026 results, Statement of Financial Position as of 2026-03-31. USD.
+ticker: ECO
+quarter: 2026-Q1
+
+# Total cash incl. restricted ($45.9M current + $5.0M non-current = $51M restricted,
+# mostly Nissos Piperi facility collateral). It is ECO's cash, so included.
+cash_and_equivalents: 176519699
+
+# working_capital_net = non-cash current assets - non-debt current liabilities:
+#   (inventories 24,351,319 + trade receivables 78,658,818 + claims 590,016
+#    + prepaid 12,479,166 + current derivatives 963,507 + due from related 7,263,886)
+#   - (trade payables 21,595,404 + accrued 12,721,427 + deferred revenue 2,700,023)
+#   = 124,306,712 - 37,016,854 = 87,289,858, net of immaterial non-current other (~-0.4M).
+# Excludes the $39.7M newbuild advances (handled via newbuild-at-market).
+working_capital_net: 86900000
+
+# Total interest-bearing debt INCLUDES the sale-leaseback obligations (within
+# "borrowings"; no separate lease line): LT 546,218,974 + current 136,868,358.
+total_debt: 683087332
+lease_liabilities: 0          # sale-leasebacks are inside total_debt; no double-count
+
+# 2 Suezmax newbuilds (Tigani, Vous) at $99.3M each = $198.6M; $39.7M advanced.
+# Valued at delivered market value in the fleet (advances embedded -> set to 0);
+# remaining commitment subtracted here.
+newbuild_capex_commitments: 158860000   # 198.6M - 39.74M advances
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 39044655    # 35,433,544 (Jan 1) + 3,611,111 (Jan offering)

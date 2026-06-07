@@ -1,0 +1,41 @@
+# Nordic American Tankers (NAT) fleet manifest — METHODOLOGY.md section 4.1
+# Source: NAT Q1 2026 ER (fleet count as of 2026-03-31 = 18 Suezmaxes after Jan
+# 2026 sale of 2 oldest hulls), plus public disclosures (Splash247 / Nasdaq).
+# NAT's fleet pages render dynamically — per-vessel ages/yards constructed from
+# known transaction history (2003-2017 builds, almost entirely Korean yards;
+# Samsung / Hyundai / Sungdong are NAT's house yards).
+#
+# RECENT TRANSACTIONS (already reflected here):
+#   + Mar/Apr 2025: acquired 2x 2016-built Sungdong Suezmaxes (modern, age 10)
+#   - Jan 2026:    SOLD 2x oldest (2004 + 2005 built) for $50M total ($25M avg
+#                  at age 21-22) -- great old-Suezmax DISPOSAL validation
+#                  (my curve gives ~$28.6M avg at age 21.5 -> ~14% high; within
+#                  the band but worth noting for later Suezmax recalibration).
+#
+# SUBSEQUENT EVENTS (NOT in the snapshot):
+#   - 2 Suezmax newbuilds (S. Korean yard) firm-contracted Jan 2026, deliver 2028.
+#     Each ~$85M -> ~$170M total commitment; modeled as newbuild_capex_commitments
+#     in the balance sheet (small advance paid).
+ticker: NAT
+report_date: 2026-Q1
+vessels:
+  # ---- 5 fixed-rate (TC-out, Q1 2026 disclosed TCE ~$44k blended) ----
+  - {id: NAT_tc, class: Suezmax, dwt: 158500, age: 16, scrubber: false, eco: false, yard: Hyundai,
+     charter_status: time_charter, charter_rate: 44000, count: 5}
+  # ---- 13 spot ----
+  - {id: NAT_2016_sungdong, class: Suezmax, dwt: 158500, age: 10, scrubber: false, eco: false, yard: Sungdong, count: 2}
+  - {id: NAT_2013_samsung,  class: Suezmax, dwt: 158500, age: 13, scrubber: false, eco: false, yard: Samsung, count: 2}
+  - {id: NAT_2011_samsung,  class: Suezmax, dwt: 158500, age: 15, scrubber: false, eco: false, yard: Samsung, count: 2}
+  - {id: NAT_2010_hyundai,  class: Suezmax, dwt: 158500, age: 16, scrubber: false, eco: false, yard: Hyundai, count: 2}
+  - {id: NAT_2009_samsung,  class: Suezmax, dwt: 158500, age: 17, scrubber: false, eco: false, yard: Samsung, count: 2}
+  - {id: NAT_2007_samsung,  class: Suezmax, dwt: 158500, age: 19, scrubber: false, eco: false, yard: Samsung, count: 2}
+  - {id: NAT_2006_hyundai,  class: Suezmax, dwt: 158500, age: 20, scrubber: false, eco: false, yard: Hyundai, count: 1}
+# Q1 2026: ~5 vessels on time charter (avg ~$44k) + 13 spot per 20-F segment data.
+# Spot coverage ~72%; disclosed charter rate tagging on TC vessels below.
+spot_coverage_pct:
+  Suezmax: 0.72       # 13 spot of 18 owned
+fleet_summary:
+  Suezmax_count: 18
+  newbuild_orders_post_q1: 2     # 2 Suezmax NB at S. Korean yard, agreed Jan'26, deliver 2028
+  avg_age_approx: 15.6
+  disposals_jan_2026: 2          # 2004 + 2005 built, $50M total ($25M avg @ age 21-22)

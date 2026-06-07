@@ -1,0 +1,12 @@
+# Ardmore Shipping (ASC) dividend policy — METHODOLOGY.md §4.3, §11.5
+# Source: Ardmore Q1 2026 results (press release 2026-05-07) — dividend policy
+# DOUBLED effective Q1 2026 from 1/3 to 2/3 of Adjusted Earnings. Q1 2026 DPS
+# declared $0.39 (record 2026-05-14, ex-div ~2026-05-29).
+#
+# policy_type "variable" => DPS = max(base_dividend_per_share, payout_ratio * max(0, EPS - floor)).
+# Ardmore has no fixed base and no EPS breakeven threshold deducted before payout.
+ticker: ASC
+policy_type: variable
+payout_ratio: 0.667            # 2/3 of Adjusted Earnings (doubled from 1/3 in Q1 2026)
+base_dividend_per_share: 0.0   # no fixed base
+floor: 0.0                     # no EPS breakeven threshold deducted before payout
