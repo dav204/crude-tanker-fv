@@ -43,7 +43,7 @@ This tool produces an **independent fair value estimate per share** for crude ta
 - LNGC X-DF2.1 propulsion-premium recalibration + MGC gas-carrier sub-class (§3.1)
 - §12 framework limitation documented for high-payout pure-plays during cycle peaks
 
-**Out of scope for current build:** Pure chemical tankers — IMO-II/III stainless parcel trade (Stolt-Nielsen / Odfjell) and the **sub-25k stainless chemical Handy** residual (ASC's 4 × 25k stainless chem stay off-curve; the new Handymax curve covers 38k IMO-II coated only — §11.5 / LIMITATIONS §2). NOTE: **chemical Handymax (38k IMO-II coated) is now ON-curve** (Handymax class added 2026-06-05; STNG's 14 hulls migrated from `working_capital_net` $200M to on-curve $205M; rate path = MR-proxy validated by STNG Q1+Q2 2026 disclosed rates ≈ MR — §11.5). NOTE: **clean-product Handysize (~37-40k) is now ON-curve** (Handysize class added 2026-06-05; HAFN's 22 + ASC's 2 product Handies migrated from off-curve — §11.5). Dry bulk (would be greenfield sector with new value curves and a different cycle). Offshore. (Standalone product tankers — STNG / TORM / HAFN / ASC — are **unlocked** as of 2026-06-01 via `sectors.product`; see §11.5. **ASC onboarded 2026-06-01** as the product-sector methodology validator; **STNG onboarded 2026-06-01** as the first multi-class product name; **TRMD (Torm) onboarded 2026-06-03** as the first full-3-class product name; **HAFN (Hafnia) onboarded 2026-06-04** as the first IFRS-reporting + first pool-operator + largest product fleet on the watchlist. **TEN (Tsakos) onboarded 2026-06-06** — first 3-sleeve hybrid on the watchlist (crude + product + LNG, with the DP2 shuttle sleeve handled OFF-CURVE via `shuttle_contracted_book` per METHODOLOGY §11.6) **and first §15 case** (governance / value-trap haircut). The 2026-06-04 deferral closed in one session after the architectural unblock (2026-06-05 PM) shipped: (1) `preferred_equity` schema; (2) §11.6 off-curve-at-contracted-book convention + `shuttle_contracted_book` schema; (3) `lng_carve_out()` + 3-sleeve aggregator. A §15 governance haircut (30%) was added 2026-06-06 to account for the persistent market discount on controlled-FPI structures with related-party transactions and low common payout. TEN's headline (post-§15): asset NAV $88.56, PW FV $49.37 vs price $44.00 (EV +12%, **BUY**) — consistent with VIE Bullish $51.50. Full §6 entry below.)
+**Out of scope for current build:** Pure chemical tankers — IMO-II/III stainless parcel trade (Stolt-Nielsen / Odfjell) and the **sub-25k stainless chemical Handy** residual (ASC's 4 × 25k stainless chem stay off-curve; the new Handymax curve covers 38k IMO-II coated only — §11.5 / LIMITATIONS §2). NOTE: **chemical Handymax (38k IMO-II coated) is now ON-curve** (Handymax class added 2026-06-05; STNG's 14 hulls migrated from `working_capital_net` $200M to on-curve $205M; rate path = MR-proxy validated by STNG Q1+Q2 2026 disclosed rates ≈ MR — §11.5). NOTE: **clean-product Handysize (~37-40k) is now ON-curve** (Handysize class added 2026-06-05; HAFN's 22 + ASC's 2 product Handies migrated from off-curve — §11.5). **Dry bulk is now methodology-unlocked as of 2026-06-09** via `sectors.dry_bulk` (see §11.7) — first fully greenfield sector after the v1 crude/LNG/product builds; ships with three classes (Cape / Pana / Supra-Ultra), the four-scenario Bulk Set A weight family, and a 22-month Pareto-archive-derived empirical cycle anchor (Cape $23,650, Pana $11,900, Supra-Ultra $13,930 USD/day). Validators v1: SBLK + GNK (Pareto-anchored) + CMDB (APPROX-anchored). Code wire-up + name onboarding Week 2. Offshore. (Standalone product tankers — STNG / TORM / HAFN / ASC — are **unlocked** as of 2026-06-01 via `sectors.product`; see §11.5. **ASC onboarded 2026-06-01** as the product-sector methodology validator; **STNG onboarded 2026-06-01** as the first multi-class product name; **TRMD (Torm) onboarded 2026-06-03** as the first full-3-class product name; **HAFN (Hafnia) onboarded 2026-06-04** as the first IFRS-reporting + first pool-operator + largest product fleet on the watchlist. **TEN (Tsakos) onboarded 2026-06-06** — first 3-sleeve hybrid on the watchlist (crude + product + LNG, with the DP2 shuttle sleeve handled OFF-CURVE via `shuttle_contracted_book` per METHODOLOGY §11.6) **and first §15 case** (governance / value-trap haircut). The 2026-06-04 deferral closed in one session after the architectural unblock (2026-06-05 PM) shipped: (1) `preferred_equity` schema; (2) §11.6 off-curve-at-contracted-book convention + `shuttle_contracted_book` schema; (3) `lng_carve_out()` + 3-sleeve aggregator. A §15 governance haircut (30%) was added 2026-06-06 to account for the persistent market discount on controlled-FPI structures with related-party transactions and low common payout. TEN's headline (post-§15): asset NAV $88.56, PW FV $49.37 vs price $44.00 (EV +12%, **BUY**) — consistent with VIE Bullish $51.50. Full §6 entry below.)
 
 ## 2. Core Valuation Framework
 
@@ -1314,6 +1314,193 @@ discount on the Suezmax residual rather than full step-down), DP2-spec
 premium amortisation curve, or a full Shuttle value class once enough
 disposal data emerges. For v1 the simple convention is the honest call.
 
+### 11.7 Dry bulk sector — formalised 2026-06-09
+
+First fully greenfield sector after the v1 crude / LNG / product builds.
+Dry bulk shipping moves the largest cargoes by tonne-mile — iron ore, coal,
+grain, and the catch-all "minor bulks" (bauxite, fertilisers, scrap metal,
+cement clinker). The freight cycle is China-dominated on the demand side
+(China imports ~70% of seaborne iron ore and ~30% of coal) and orderbook-
+sensitive on the supply side. The methodology lifts cleanly into the
+NAV + dividend-strip + cycle-blend skeleton; this section locks the
+sector-specific decisions for v1.
+
+#### 11.7.1 Vessel classes
+
+| Class | DWT range | Primary cargo | Pareto rate published? |
+|---|---|---|---|
+| Capesize | ~180k+ | Iron ore (60%+), coal | ✓ as "Capesize USD/day" |
+| Panamax | ~75-85k | Coal, grain, minor bulk | ✓ as "Panamax" |
+| Supra-Ultra (combined) | ~55-65k | Minor bulk, cabotage | ✓ as "Ultramax" (was "Supramax" pre-Sep-2025) |
+
+**Supra-Ultra is a deliberate v1 collapse.** Pareto's Shipping Daily
+reclassified the smaller-bulker benchmark from Supramax to Ultramax in
+September 2025 — the same chartering desk continues to quote a single
+sub-Panamax rate, just under a more modern label. We treat them as one
+class in v1 (`bulk_supra_ultra`); the source label is preserved per-report
+as a transparency tag for downstream analysis. The Pareto class evolution
+independently validates the methodology decision.
+
+**Omitted from v1:**
+- **Handysize bulk (~38k DWT)** — Pareto does not separately rate it
+  (thin liquidity, less-traded second-hand market). Mirrors VIE's class
+  scope.
+- **Newcastlemax (~200k+ DWT)** — collapsed into Capesize. Real chartering
+  treats them as one segment for spot rates with a modest premium.
+
+#### 11.7.2 External NAV anchor — Pareto coverage
+
+Pareto Shipping Daily publishes P/NAV and 1Y FWD P/E for **three dry-bulk
+pure-plays**: SBLK (Star Bulk), GNK (Genco Shipping), HSHP (Himalaya
+Shipping). The watchlist tickers without Pareto coverage (CMDB, PANL, SB,
+DSX, EDRY, SHIP) carry `APPROX` consensus_pnav values per the existing
+APPROX convention (METHODOLOGY §6 NAT/ASC/CCEC/TEN precedent;
+`/reconcile` treats them as `n/a` for SANITY rather than failing against
+a placeholder anchor).
+
+**Complementary cycle indicator:** the `baltic_indexes_daily.csv` feed
+(per `inputs/rocketchat_sources.yaml`) carries published Baltic Exchange
+index values — BDI composite, BCI / BPI / BSI sub-indices, capesize_index
+— at index units rather than $/day. These are NOT used as cycle anchors
+(anchor methodology is $/day-denominated per §10) but feed cycle-position
+diagnostics and serve as a primary-source cross-check on Pareto's reported
+bulk rates.
+
+#### 11.7.3 Validator pool (v1)
+
+Three names, mirroring the existing-sector pattern (single methodology
+validator + a peer for v1 calibration):
+
+- **SBLK** (Star Bulk) — Pareto P/NAV-anchored, multi-class fleet
+  (Capesize + Ultramax), largest pure-play with deep analyst coverage.
+  Stress-tests the multi-class machinery.
+- **GNK** (Genco Shipping) — Pareto P/NAV-anchored, also Cape + Ultra,
+  clean structure. The two-Pareto-anchored sample lets the v1 calibration
+  lock test (§11.7.6) report against a real bar.
+- **CMDB** (Costamare Bulkers) — APPROX-anchored (no Pareto), the
+  originally-stated interest. CMRE spinoff with potential intercompany
+  contract structure to monitor; reconciles via the APPROX path.
+
+#### 11.7.4 Scenarios — Bulk Set A (locked 2026-06-09)
+
+Four scenarios, weights mirror the four-scenario crude structure. Macro
+drivers are China-iron-ore-dominated for Cape, more diversified for
+Pana/Supra-Ultra:
+
+| Scenario | Probability | Cape | Pana | Supra-Ultra | Macro driver |
+|---|:---:|:---:|:---:|:---:|---|
+| `china_acceleration` | **0.20** | tight | tight | firm | China steel demand re-accelerates; iron ore imports >110 mt/mo |
+| `moderate_growth` (base) | **0.40** | base | base | base | Current trajectory: ~100 mt/mo iron ore, modest grain growth |
+| `china_property_drag` | **0.25** | weak | base | base | China property/steel weakness; Pana/Supra insulated by grain + minor bulk |
+| `coordinated_slowdown` | **0.15** | weak | weak | weak | Global recession; broad freight demand contraction |
+
+**Weight rationale.** `moderate_growth` as base reflects the current
+firm-but-not-extreme rate environment (Cape ~$44k, Pana ~$20k, Supra-Ultra
+~$20k as of Jun 2026). `china_property_drag` gets the largest downside
+weight (25%) because it is bulk-specific, observable through China iron
+ore import data, and the most documented soft spot in 2025-26 commentary.
+`coordinated_slowdown` is the global tail. `china_acceleration` is
+meaningful upside given the orderbook is low (post-2015 trauma) plus iron
+ore inventory dynamics.
+
+**Per-class rate paths** (8-quarter strip horizons) are wired in Week 2
+when `inputs/scenario_inputs.yaml` gets the `sectors.dry_bulk` block.
+The v1 forward-curve approach inherits the synthesised-from-spot
+convention used in tanker sectors; OCR'd FFA grids from Joeri's
+`inputs/joeri_clipboard/` PNGs are deferred to §11.7 v2 (see task #3 in
+this session's task log).
+
+#### 11.7.5 Cycle anchors — v1 empirical from Pareto archive
+
+Cycle anchors per METHODOLOGY §10 are TC-anchored 10-year means. For dry
+bulk v1 we have a **22-month Pareto archive** (Aug 2024 → Jun 2026), not
+a 10-year series. The v1 anchors are the **median** of daily Pareto-
+reported $/day rates over the archive — median rather than mean for
+robustness to PDF parse-error tails (a handful of dates have rate
+extractions that survive plausibility filtering but inflate the right
+tail; medians are unaffected). Refine in Q3 when longer history or a
+paid Clarksons/Howe Robinson series is available.
+
+| Class | v1 cycle anchor (USD/day) | n obs | Date range |
+|---|---:|---:|---|
+| Capesize | **$23,650** | 349 | 2024-08-22 → 2026-06-08 |
+| Panamax | **$11,900** | 349 | same |
+| Supra-Ultra | **$13,930** | 349 | same |
+
+Per-quarter empirical means (cycle shape, for §11.7.4 scenario tuning):
+
+| Period | Cape | Pana | Supra-Ultra | n |
+|---|---:|---:|---:|---:|
+| 2024-Q3 | $26,254 | $11,378 | $14,241 | 23 |
+| 2024-Q4 | $24,154 | $9,351 | $11,958 | 48 |
+| 2025-Q1 | $30,779 | $13,685 | $9,490 | 57 |
+| 2025-Q2 | $35,305 | $10,513 | $12,155 | 49 |
+| 2025-Q3 | $25,960 | $14,450 | $17,636 | 35 |
+| 2025-Q4 | $42,885 | $14,995 | $17,639 | 47 |
+| 2026-Q1 | $35,980 | $13,824 | $14,433 | 55 |
+| 2026-Q2 (PD) | $37,230 | $18,277 | $18,716 | 37 |
+
+Cycle position at archive end (2026-06-08): Cape 1.73× anchor, Pana
+1.69×, Supra-Ultra 1.44× — the dry bulk market is in a structurally firm
+environment, comparable to the post-MoU crude tanker setup but anchored
+on Chinese steel demand rather than ton-mile redirection.
+
+**Methodology caveat (locked in writing here):** the empirical anchor is
+biased ELEVATED by the 22-month sample (which sits in a relatively strong
+dry bulk environment vs the 2015-2020 trough). A true 10-year TC-anchored
+mean is likely lower — perhaps $18-20k for Cape, $9-11k for Pana,
+$10-12k for Supra-Ultra. The current anchors will read as biased toward
+"current is cycle position 1.0×" rather than "current is peak". Acceptable
+for v1; flag during Q3 refresh if positioning calls feel off.
+
+#### 11.7.6 v1 calibration lock target
+
+Per the new-sector bar (CLAUDE.md "Reconciliation has three jobs"):
+**≥70% of Pareto-anchored validators within ±10% of broker NAV at v1
+ship**. With SBLK + GNK as the two Pareto-anchored names, the bar is
+2/2 (100%) or 1/2 (50%) — a binary outcome at this sample size. The
+calibration-lock test runs once at sector ship:
+
+```
+PYTHONPATH=src .venv/bin/python -m crude_tanker_fv.reconcile \
+    --calibration-lock dry_bulk
+```
+
+A FAIL signals methodology calibration is off — likely the cycle anchors
+(too high, biasing tool NAVs above broker consensus) or the class map
+(if Pana is being routed through Cape rates by accident).
+
+#### 11.7.7 What is NOT in v1
+
+- **Handysize bulk class** — added if a Pareto-covered Handy pure-play
+  appears on the watchlist, or if Joeri OCR yields a Handy FFA series.
+- **Newcastlemax sub-class** — collapsed into Cape; could split later
+  with disposal evidence.
+- **Transaction-anchored recalibration** (METHODOLOGY §9.9 scope
+  discipline) — no comparable transaction sample for bulk classes.
+  Do NOT add without an analogous disclosed-deals dataset.
+- **Per-class scrubber premium** — Pareto's bulk table does not separate
+  scrubber from non-scrubber rates the way the tanker table does.
+- **OCR-derived FFA forward curve** — Joeri's clipboard PNGs include
+  clean Cape/Pmax/Smax FFA grids (~12-25% of his images) but require
+  classifier + OCR work to harvest. Deferred to §11.7 v2; trigger is
+  §9.11 EPS-xref signalling that the synthesised-curve bulk strip is
+  unreliable vs consensus.
+
+#### 11.7.8 Onboarding sequence
+
+| Step | When | Owner |
+|---|---|---|
+| §11.7 methodology decision doc (this section) | DONE 2026-06-09 | methodology |
+| `inputs/scenario_inputs.yaml` sectors.dry_bulk block + class map + cycle anchors YAML | Week 2 Day 1 | code |
+| `pipeline._load_all_sectors` includes dry_bulk; `SCENARIO_CLASS_MAP_BY_SECTOR` updates | Week 2 Day 1 | code |
+| CMDB + SBLK + GNK YAMLs scaffolded via `/add-ticker` | Week 2 Day 2 | data |
+| Data assembly from Q1 2026 results | Week 2 Day 2-4 | data |
+| `/reconcile --calibration-lock dry_bulk` test | Week 2 end | gate |
+| §11.7 v2 (OCR FFA, longer history): | Q3 if triggered | — |
+
+## 12. Framework limitation — high-payout pure-plays at cycle peak
+
 The NAV + dividend-strip framework **systematically undervalues high-payout single-asset-class equities during cycle peaks**. This is a structural feature of the model, not a calibration error. It is documented here as a named constraint so that outputs for the affected names are read correctly.
 
 ### 12.1 Mechanism
@@ -1594,6 +1781,39 @@ unwind, preferred refinancing).
 ## Appendix A. Changelog
 
 Dated record of material framework changes. Lock dates use UTC.
+
+### 2026-06-09 — §11.7 Dry bulk sector formalised (first fully greenfield sector)
+
+- **§11.7 added.** Dry bulk methodology decision doc locked: three classes
+  (Cape / Pana / Supra-Ultra collapsed), four-scenario Bulk Set A weight family
+  (china_acceleration 0.20 / moderate_growth 0.40 / china_property_drag 0.25 /
+  coordinated_slowdown 0.15), three-name validator pool (SBLK + GNK Pareto-
+  anchored, CMDB APPROX-anchored). Cycle anchors derived empirically from a
+  22-month Pareto Shipping Daily archive (351 reports, 2024-08 → 2026-06):
+  Capesize $23,650 / Panamax $11,900 / Supra-Ultra $13,930 USD/day, all median
+  (robust to PDF parse-error tails). Calibration-lock target ≥70%/±10% per
+  CLAUDE.md new-sector tier. **Methodology-only this week**; code wire-up
+  (`sectors.dry_bulk` block + class map + cycle anchors YAML + name onboarding)
+  in Week 2.
+- **Independent validation of the Supra/Ultra collapse decision:** Pareto's
+  own Shipping Daily reclassified the smaller-bulker benchmark from "Supramax"
+  to "Ultramax" in September 2025 — a chartering-desk-level confirmation that
+  the two are commonly treated as one cycle class.
+- **Pareto archive infrastructure shipped:** new module
+  `src/crude_tanker_fv/pareto_archive.py` walks 481 PDFs in
+  `inputs/research_pareto/`, classifies as shipping_daily (351) /
+  container_weekly (42) / company_report (83) / other (5), refolders non-
+  dailies under `inputs/research_pareto_other/<type>/YYYY/MM/`. Extracts ~45
+  right-column scalars per shipping_daily into `inputs/market_data/
+  pareto_daily.csv` (wide) and per-ticker share-price + P/NAV + P/E rows into
+  `inputs/market_data/pareto_share_prices.csv` (long, 3,834 rows × 25 tickers).
+  Handles four documented schema epochs (tanker route labels added Apr 2025,
+  Supramax→Ultramax Sep 2025, MR West/East split May 2026, comma vs space
+  thousands separator). Designed for re-use by Phase F daily-extraction hook.
+- **Joeri PNG sampling outcome:** 837 PNGs from Rocket.Chat clipboard ingest
+  evaluated; ~12-25% are clean Cape/Pmax/Smax FFA grids — high-quality
+  structured data when present. Decision: defer OCR to §11.7 v2 (post-§9.11-
+  signal); v1 ships with synthesised forward curve per tanker-sector default.
 
 ### 2026-06-04 (late-evening — §14.6.4 bunker-spread channel)
 

@@ -246,7 +246,7 @@ SHARE_PRICES_CSV = OUTPUTS_DIR / "pareto_share_prices.csv"
 
 # Regex toolkit. The "rate-percent" pair is the load-bearing trick: greedy
 # match the rate, ending on a digit, then a small-form percentage.
-_RATE_PCT = r"\$([\d,\s ]*\d)\s*(-?\d+\.?\d*)%"
+_RATE_PCT = r"\$([\d,\s ]+?)\s*(-?\d{1,2}\.\d+)%"
 
 
 def _to_int(s: Optional[str]) -> Optional[int]:
@@ -284,10 +284,55 @@ def _parse_tanker_row(text: str, cls: str, route: Optional[str]) -> tuple[Option
 
 
 def _parse_simple_rate(text: str, anchor: str) -> Optional[int]:
-    """For bulk/LPG/LNG one-rate-per-row entries: anchor followed by $rate change%."""
-    pat = re.compile(rf"{anchor}[^$\n]*{_RATE_PCT}")
+    """Anchor followed by $rate<change>%. Rate/change boundary is ambiguous
+    after PDF text-extraction strips column-boundary spaces (e.g.
+    '$44 67216.3%' could be rate=44672+chg=16.3% or rate=446721+chg=6.3%).
+    Capture the full digit block + decimal portion, try ALL plausible
+    splits, pick the one with a typical daily-change magnitude."""
+    # Capture: $ then any digits/commas/spaces/optional minus, then .digits %
+    pat = re.compile(
+        rf"{anchor}[^$\n]*\$([\d,\s ]+?(?:-?[\d,\s ]+?)?)\.(\d+)%"
+    )
     m = pat.search(text)
-    return _to_int(m.group(1)) if m else None
+    if not m:
+        return None
+    pre_decimal = m.group(1)
+    post_decimal = m.group(2)
+    # Handle explicit negative (clean case): rate is before the "-", change is "-<...>"
+    minus_idx = pre_decimal.rfind("-")
+    if minus_idx >= 0:
+        rate_str = pre_decimal[:minus_idx]
+        change_pre = pre_decimal[minus_idx+1:]
+        rate_digits = re.sub(r"[\s ,]", "", rate_str)
+        change_digits = re.sub(r"[\s ,]", "", change_pre)
+        if rate_digits and change_digits:
+            try:
+                return int(rate_digits)
+            except ValueError:
+                return None
+    # No minus: digits are ambiguously split between rate and change
+    all_digits = re.sub(r"[\s ,]", "", pre_decimal)
+    candidates = []
+    # Try every split where rate >= 1 digit and change has 1-2 digits before decimal
+    for change_pre_len in (1, 2):
+        if len(all_digits) <= change_pre_len:
+            continue
+        rate_part = all_digits[:-change_pre_len]
+        change_part = all_digits[-change_pre_len:]
+        try:
+            rate_v = int(rate_part)
+            change_v = float(change_part + "." + post_decimal)
+        except ValueError:
+            continue
+        candidates.append((rate_v, change_v))
+    # Plausibility: rate in [3000, 150000], |change| <= 30
+    plausible = [(r, c) for r, c in candidates if 3000 <= r <= 150000 and abs(c) <= 30]
+    if not plausible:
+        plausible = [(r, c) for r, c in candidates if 3000 <= r <= 150000]
+    if not plausible:
+        return None
+    # Prefer smaller |change| (typical daily move)
+    return min(plausible, key=lambda x: abs(x[1]))[0]
 
 
 def _parse_simple_price(text: str, anchor: str) -> Optional[float]:
