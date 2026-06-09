@@ -43,8 +43,13 @@ TESTS = ROOT / "tests"
 DECISIONS = ROOT / "decisions"
 STATE_PATH = ROOT / "state" / "last_run.json"
 
-EXISTING_SECTORS = {"crude", "product", "lng"}
-NEW_SECTOR_WARNING = {"dry_bulk", "containerships", "lpg", "offshore_drilling"}
+# Sectors the scaffold offers as `--sector` choices. A sector is "live" if it
+# actually has a `sectors.<name>` block in inputs/scenario_inputs.yaml — that's
+# the canonical source of truth (looked up at runtime; survives sector landings
+# without code edits). Sectors in this list that aren't yet in the YAML get a
+# warning at scaffold time pointing the user at METHODOLOGY §11.x.
+KNOWN_SECTORS = ("crude", "product", "lng", "dry_bulk",
+                 "containerships", "lpg", "offshore_drilling")
 
 # Sector-appropriate vessel class hints. Keep crude as the historical default
 # (matches what the _template.yaml files ship with) so existing sectors get
@@ -58,6 +63,19 @@ SECTOR_CLASSES: dict[str, list[str]] = {
     "lpg": ["VLGC", "MGC"],
     "offshore_drilling": ["Drillship", "Semi", "Jackup"],
 }
+
+
+def _live_sectors() -> set[str]:
+    """Return the set of sectors with a sectors.<name> block in
+    inputs/scenario_inputs.yaml. Single source of truth — no hardcoded list."""
+    import yaml
+    path = INPUTS / "scenario_inputs.yaml"
+    try:
+        doc = yaml.safe_load(path.read_text())
+        return set((doc.get("sectors") or {}).keys())
+    except Exception:
+        # Fallback to historical set if the file is unreadable for any reason.
+        return {"crude", "product", "lng"}
 
 
 def _quarter_from_state() -> str:
@@ -241,8 +259,10 @@ def scaffold(ticker: str, sector: str, quarter: str, force: bool, dry_run: bool)
     sector = sector.lower()
     lowercase = ticker.lower()
 
-    if sector not in EXISTING_SECTORS:
+    live = _live_sectors()
+    if sector not in live:
         print(f"WARNING: sector {sector!r} is not in scenario_inputs.yaml yet.")
+        print(f"         (live sectors: {sorted(live)})")
         print("         A methodology decision doc (METHODOLOGY §11.x) must land BEFORE")
         print("         this ticker can be valued. Scaffolding the files anyway.")
         print()
@@ -311,7 +331,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("ticker", help="ticker symbol (e.g. SBLK)")
     parser.add_argument(
         "--sector", required=True,
-        choices=sorted(EXISTING_SECTORS | NEW_SECTOR_WARNING),
+        choices=sorted(KNOWN_SECTORS),
         help="sector (existing: crude/product/lng; new sectors warn)",
     )
     parser.add_argument(
