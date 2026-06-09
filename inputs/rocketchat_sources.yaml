@@ -1,0 +1,33 @@
+# Rocket.Chat ingest sources.
+#
+# Each entry describes one ingestion lane in the Value Investor's Edge channel.
+#   kind: file  →  download every matching attachment to dest_dir/YYYY/MM/<date>_<name>
+#   kind: text  →  parse the message with `parser` and upsert into dest_file (CSV)
+#
+# Edit this file to add a new contributor — no code change required.
+
+host: https://rc.seekingalpha.com
+group: value-investor-s-edge
+
+sources:
+  - name: pareto_research
+    kind: file
+    sender: Immo.Schroeder
+    accept: [pdf]
+    dest_dir: inputs/research_pareto
+
+  - name: ffa_drybulk
+    kind: file
+    sender: Joeri.van.der.Sman
+    accept: [image]
+    dest_dir: inputs/ffa_drybulk
+
+  - name: baltic_indexes
+    kind: text
+    senders: [John.Pace, Chris.Palun]
+    parser: baltic_indexes
+    dest_file: inputs/market_data/baltic_indexes_daily.csv
+    # When multiple senders post for the same date, higher priority wins.
+    priority:
+      John.Pace: 2
+      Chris.Palun: 1

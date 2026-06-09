@@ -160,6 +160,13 @@ go in Q3.
   is gitignored and quarter-specific.
 - Don't add error handling for cases that can't happen, or comments
   explaining what the code does. METHODOLOGY.md carries the why.
+- **Don't drop credential files in the repo.** Secrets (Rocket.Chat PATs,
+  API tokens, broker creds, anything that grants access) live in
+  `~/.config/crude-tanker-fv.env` — the launchd wrapper sources it.
+  `.gitignore` blocks `*_token*`, `*_credentials*`, `*_secret*`, `*.rtf`,
+  `.env*` defensively, but the gate is discipline. (Caught 2026-06-09:
+  stray `rocketchat_token.rtf` landed at repo root, untracked but one
+  `git add -A` away from being public history.)
 
 ## Per-ticker quick-refs
 
@@ -204,3 +211,7 @@ sessions.
   reconciliation framework, "what this tool is, philosophically" section,
   gotcha list, per-ticker quick-refs all promoted from session memory +
   decision logs.
+- **2026-06-09** — added secrets-discipline rule to "What NOT to do" after
+  a `rocketchat_token.rtf` was dropped at repo root during Rocket.Chat
+  ingest setup. Caught untracked but not gitignored. Defensive `.gitignore`
+  patterns added (`*_token*`, `*_credentials*`, `*_secret*`, `*.rtf`, `.env*`).
