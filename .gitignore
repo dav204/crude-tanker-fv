@@ -15,6 +15,15 @@ env/
 # Generated PDFs (regenerate via scripts/build_methodology_pdf.sh)
 *.pdf
 
+# Pareto research archive — PDFs are large binaries downloaded daily by the
+# launchd ingest job. `*.pdf` above already ignores them; the durable
+# classification index `_manifest.json` is JSON and tracked by default.
+
+# Joeri clipboard — ~837 PNGs from Rocket.Chat ingest; ~12-25% are FFA grids,
+# rest is screenshot noise. Stay local; downstream-parsed CSVs are tracked.
+inputs/ffa_drybulk/**/*.png
+inputs/joeri_clipboard/**/*.png
+
 # Pipeline snapshot state (machine-local; durable history lives in decisions/)
 # Note: state/.gitignore also exists for belt-and-braces.
 state/last_run.json
