@@ -1,42 +1,16 @@
-# 10-year historical mean TCE by class — METHODOLOGY.md sections 2.3, 4.5
-# USD/day. Denominator of the cycle-position ratio (12M FFA / 10yr mean).
-#
-# VLCC: ~$40,000/day — CONFIRMED from the TD3C (MEG-China) 10-year average,
-# the primary VLCC benchmark route. (TD22 USG-China runs higher, ~$50-60k/day,
-# but TD3C is the benchmark used here.)
-# Suezmax: ~$27,747/day from TD20 (WAF-UKC) 10-year average (for v2 scope).
-#
-# SECOND-OPINION CROSS-CHECK (2026-06-03, `outputs/vie_market_rates_xref.md`):
-# VIE Live Analytics Platform "Vs. 10y Avg" column implies 10y means that
-# are LOWER than ours across every comparable class — VLCC ~$25.3k (+58%
-# vs ours), Suezmax ~$24.2k (+14%), Aframax ~$24.0k (+15%), LR2_clean
-# ~$20.4k (+37%), MR ~$13.6k (+18%), LNGC ~$55.4k (+53%). The LNGC gap is a
-# deliberate spike-inclusive choice (see LNGC comment below). The other
-# gaps are base-period / outlier-handling methodology differences.
-# Do NOT bulk-update from VIE without a per-class methodology decision —
-# our cycle-position ratios are calibrated on this set; switching base
-# would shift FVs across the watchlist. See §8.3 Step 3 and the diagnostic.
 historical_tce_means:
   VLCC: 40000
   Suezmax: 27747
-  Aframax: 27600    # approximate Aframax 10-yr mean (gives ~2.04x cycle ratio)
-  LR2: 27600        # modeled as Aframax-equivalent for v1
-  LR1: 27600        # dual-use crude (Aframax-equiv) mean for hybrid carve-outs
-  # ---- PRODUCT sleeve 10-yr means (clean trading) ----
-  MR: 16000         # MR clean (TC2/TC7) 10yr mean — modest cyclical sensitivity
-  Handysize: 16000  # v1 EARNINGS PROXY to MR (=MR mean ⇒ Handysize cycle position = MR's). §11.5
-  Handymax: 16000   # v1 EARNINGS PROXY to MR (=MR mean ⇒ Handymax cycle position = MR's). §11.5
-  LR1_clean: 25000  # clean LR1 10yr mean (~MR + LR2 midpoint)
-  LR2_clean: 28000  # clean LR2 (TC1/TC15) 10yr mean
-  # LNGC: 10-yr mean spans 2016-2025 inclusive of the 2022-2023 Russia/Ukraine
-  # super-spike (peak >$300k/day) AND the 2024-2025 orderbook-glut normalisation.
-  # ~$85,000/day is a defensible mid; the median (less spike-distorted) is more
-  # like $60-70k. Choice affects the LNG cycle-position read: $60k 12M TC /
-  # $85k mean = 0.71x (below mid). NOTE: this is the most fragile LNG-sector
-  # input — confirm with a Spark / Affinity LNG series next refresh.
+  Aframax: 27600
+  LR2: 27600
+  LR1: 27600
+  MR: 16000
+  Handysize: 16000
+  Handymax: 16000
+  LR1_clean: 25000
+  LR2_clean: 28000
   LNGC: 85000
-  # MGC (Medium Gas Carrier 22-45k cbm dual-fuel multi-gas) — added 2026-06-01.
-  # 10yr mean ~$20k/day reflects LPG/ammonia trade history (less volatile than LNG;
-  # 2022-23 LNG spike did not translate to MGC equivalent rate strength).
   MGC: 20000
-
+  Cape: 23650
+  Pana: 11900
+  Supra-Ultra: 13930

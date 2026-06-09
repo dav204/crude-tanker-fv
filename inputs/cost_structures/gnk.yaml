@@ -1,0 +1,13 @@
+# GNK cost structure — METHODOLOGY.md section 4.4
+# FIXME: derive from latest quarterly results (USD).
+ticker: GNK
+
+opex_per_day:                 # daily operating cost per vessel, by class
+  Cape: null
+  Pana: null
+  Supra: null
+  Ultra: null
+
+annual_G_and_A: null
+annual_interest_expense: null
+effective_tax_rate: null      # e.g. 0.02 (tonnage-tax regimes; verify per company)

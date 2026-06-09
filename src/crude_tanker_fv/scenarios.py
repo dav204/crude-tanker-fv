@@ -74,8 +74,11 @@ SCENARIO_CLASS_MAP_BY_SECTOR: dict[str, dict[str, str]] = {
         "LR2": "lr2_clean",
     },
     "dry_bulk": {                   # NEW 2026-06-09 — METHODOLOGY §11.7
-        "Capesize": "cape",
-        "Panamax": "pana",
+        # Methodology class names per §11.7.1 (collapse Pareto's 6 sub-classes
+        # into 3): Cape / Pana / Supra-Ultra. Match ALLOWED_CLASSES in loaders.py
+        # and the fleet manifest `class:` field.
+        "Cape": "cape",
+        "Pana": "pana",
         "Supra-Ultra": "supra_ultra",  # collapsed Supramax + Ultramax per §11.7.1
                                         # (Pareto reclassified the benchmark Sep 2025)
     },
@@ -90,6 +93,9 @@ SCENARIO_CLASS_MAP: dict[str, str] = {
     **SCENARIO_CLASS_MAP_BY_SECTOR["lng"],     # LNGC / MGC
     # MR is intentionally NOT in the default — only valid in product context
     # and routed via PRODUCT_SCENARIO_CLASS_MAP.
+    # dry_bulk classes (Cape / Pana / Supra-Ultra) ALSO not in default —
+    # only valid in dry_bulk context; pipeline.py routes via the explicit
+    # SCENARIO_CLASS_MAP_BY_SECTOR["dry_bulk"] map for dry_bulk tickers.
 }
 
 # Product-sleeve override map for hybrid carve-outs (e.g. INSW product sleeve,

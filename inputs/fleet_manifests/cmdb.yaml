@@ -1,0 +1,27 @@
+# CMDB fleet manifest — METHODOLOGY.md section 4.1
+# FIXME: source from latest IR fleet page + cross-check against quarter-end
+# report counts (CLAUDE.md: trust the report at quarter-end, not the live page).
+ticker: CMDB
+report_date: 2026-Q1
+vessels:
+  # FIXME: one entry per vessel. Example:
+  - id: PLACEHOLDER_001
+    class: Cape
+    dwt: null           # e.g. 300000
+    age: null           # years (= 2026 - year built)
+    scrubber: null      # true | false
+    eco: null           # true | false (post-2014 fuel-efficient design)
+    charter_status: null  # spot | time_charter
+    charter_rate: null    # USD/day if time_charter, else null
+    charter_end: null     # ISO date if time_charter, else null
+spot_coverage_pct:      # share of fleet on spot, by class (0.0–1.0)
+  Cape: null
+  Pana: null
+  Supra: null
+  Ultra: null
+fleet_summary:          # convenience totals, cross-check against vessels list
+  Cape_count: null
+  Pana_count: null
+  Supra_count: null
+  Ultra_count: null
+  avg_age_Cape: null

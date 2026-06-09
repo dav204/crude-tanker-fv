@@ -1,31 +1,15 @@
-# Current spot TCE by class — METHODOLOGY.md sections 3.2, 4.5
-# USD/day. Source: Pareto Securities Shipping Daily, 29 May 2026 (Howe Robinson
-# tanker rates), ECO no-scrubber basis. Used by the implied-breakeven sanity
-# check (3.3), NOT by cycle weighting (which uses the 12M FFA strip per 2.3).
-#
-# *** VLCC spot is a VERIFIED but EXTRAORDINARY SPIKE — do not anchor on it. ***
-# TD3C (MEG-China) = $388,300/day is genuine (not a unit error), driven by the
-# Strait of Hormuz naval blockade (~Iran disruption). The "clean" VLCC rate is
-# TD22 (US Gulf-China) at $111,300/day — the ~$277k gap IS the disruption. A
-# US-Iran 60-day MoU reopening Hormuz is expected, so the forward market prices
-# normalization (FFA strip ~$155k 12M, backwardated). validate.py flags TD3C as
-# unsustainable. The breakeven-vs-spot row should be read against TD22/FFA, not
-# the TD3C spike.
 spot_tce:
-  VLCC: 388300       # TD3C (spike); cf. TD22 $111,300/day undisrupted
-  Suezmax: 68700     # TD20 (WAF-UKC)
+  VLCC: 388300
+  Suezmax: 68700
   Aframax: 50500
-  LR2: 50500         # modeled as Aframax-equivalent (dirty). Clean-LR2 spot was ~$112,300.
-  LNGC: 40000        # 174k cbm modern LNGC spot, mid-2026 (soft post-glut market)
-  MGC: 25000         # 22-45k cbm dual-fuel multi-gas/LCO2 carrier spot, mid-2026
-                     # (LPG/ammonia trade soft; LCO2 trade emerging, scarce data)
-  # ---- PRODUCT sleeve rates (clean trading) — used by product_carve_out ----
-  # MR / LR1_clean / LR2_clean rates feed the product sleeve for hybrid carve-outs
-  # (INSW v2 whole-company aggregation). Values reflect a -52% w/w MR correction
-  # (2026-05-29 trade-press) — product is LEADING the MoU rate normalisation.
-  MR: 20000          # post-crash spot; INSW Q1 disclosed $37,224 -> halved
-  Handysize: 20000   # v1 EARNINGS PROXY to MR (clean-product Handysize ~38k). §11.5
-  Handymax: 20000    # v1 EARNINGS PROXY to MR (chem-capable IMO-II ~38k); rate parity
-                     # with MR empirically validated by STNG Q1+Q2 2026 actuals. §11.5
-  LR1_clean: 35000   # post-Q1 correction; clean LR1 trades modestly above MR
-  LR2_clean: 50000   # Pareto Q1 clean LR2 had been higher but has corrected -28%
+  LR2: 50500
+  LNGC: 40000
+  MGC: 25000
+  MR: 20000
+  Handysize: 20000
+  Handymax: 20000
+  LR1_clean: 35000
+  LR2_clean: 50000
+  Cape: 38000
+  Pana: 20500
+  Supra-Ultra: 19500

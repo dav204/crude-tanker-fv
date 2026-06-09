@@ -1,0 +1,23 @@
+# Balance sheet snapshot template — METHODOLOGY.md section 4.2
+# Copy to {ticker}_{quarter}.yaml (e.g. dht_2026-Q1.yaml) and fill in. USD.
+ticker: CMDB
+quarter: 2026-Q1
+cash_and_equivalents: null
+working_capital_net: null
+total_debt: null
+lease_liabilities: null
+newbuild_capex_commitments: null
+newbuild_advances_paid: null
+diluted_shares_outstanding: null
+# Optional. Sum of preferred-equity liquidation preferences (subtracts from
+# NAV ahead of common). Omit or leave at 0 if the name has no preferreds.
+preferred_equity: 0
+# Optional. NPV of contracted cash flows for off-curve / contract-anchored
+# vessel sleeves — currently the DP2 shuttle convention (METHODOLOGY §11.6).
+# Adds to NAV. Omit or leave at 0 if no contract-anchored sleeve exists.
+shuttle_contracted_book: 0
+# Optional. Governance / structural-NAV-trap discount (METHODOLOGY §15) in
+# [0, 1]; applied as a haircut to the NAV term of the blended FV and to the
+# strip's terminal value. Set per-name based on observed multi-year median
+# P/NAV vs peer group. Defaults to 0 (asset NAV treated as fully realisable).
+governance_discount_pct: 0

@@ -134,3 +134,37 @@ TEN:
                            # = ~$7-8 NTM EPS. Price $44 / EPS $8 = 5.5x forward P/E.
                            # Not a Pareto print; APPROX from management guidance.
   as_of: 2026-06-05
+
+# FIXME: filled in by /add-ticker scaffold CMDB. Replace null values with real data,
+# then re-order alphabetically if you care about list order.
+CMDB:
+  current_price: null          # FIXME: latest close (Pareto Shipping Daily, dated)
+  analyst_target: null         # FIXME: analyst / VIE target
+  consensus_pnav: null         # FIXME: Pareto P/NAV (or APPROX if no Pareto coverage —
+                               # see CLAUDE.md for the APPROX-anchored treatment)
+  consensus_fwd_pe: null       # FIXME: Pareto consensus 1Y FWD P/E (or APPROX)
+  sector: dry_bulk
+  as_of: null                  # FIXME: YYYY-MM-DD
+
+SBLK:
+  current_price: 27.20         # Pareto Shipping Daily Jun 5 2026
+  analyst_target: 34.50        # VIE Coverage Universe (Catlin / Mintzmyer) Bullish $34.50
+                               # → 26.8% upside vs price (cross-checks with Pareto P/NAV
+                               # implied: $27.20 / 0.82 = $33.17 broker NAV, close to VIE).
+  consensus_pnav: 0.82         # Pareto Shipping Daily Jun 5 2026 (anchored series; SBLK
+                               # is one of three Pareto-anchored dry bulk validators per
+                               # METHODOLOGY §11.7.2 — SBLK / GNK / HSHP).
+  consensus_fwd_pe: 6.9        # Pareto consensus 1Y FWD P/E Jun 5 2026
+  sector: dry_bulk
+  as_of: 2026-06-05
+
+# FIXME: filled in by /add-ticker scaffold GNK. Replace null values with real data,
+# then re-order alphabetically if you care about list order.
+GNK:
+  current_price: null          # FIXME: latest close (Pareto Shipping Daily, dated)
+  analyst_target: null         # FIXME: analyst / VIE target
+  consensus_pnav: null         # FIXME: Pareto P/NAV (or APPROX if no Pareto coverage —
+                               # see CLAUDE.md for the APPROX-anchored treatment)
+  consensus_fwd_pe: null       # FIXME: Pareto consensus 1Y FWD P/E (or APPROX)
+  sector: dry_bulk
+  as_of: null                  # FIXME: YYYY-MM-DD

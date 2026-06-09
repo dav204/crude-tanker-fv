@@ -1,38 +1,18 @@
-# Vessel value curve anchors by class — METHODOLOGY.md sections 3.1, 4.5
-# Four age anchors per class (ages 0 / 5 / 10 / 25), taken from the broker term
-# structure. The curve (see vessel_values.py) is piecewise-linear between them.
-# Refresh quarterly from broker reports. USD.
 classes:
-  # VLCC anchors from Compass Maritime Weekly Report, May 25 2026 (Week 21).
-  # Compass tanker-values table (VLCC 300k DWT): Newbuild 130, Resale 175,
-  # 5yr 138, 10yr 111 ($M).
-  # NOTE on the age-0 anchor: we use the RESALE/prompt value (175), NOT the 130
-  # forward-contract newbuild price. A just-delivered on-water VLCC is worth the
-  # prompt price, and in this hot market resale (175) > forward newbuild (130);
-  # using 130 would make the curve rise from age 0->5, which is nonsensical.
-  # The 10yr anchor (111) pins mid-life value directly, so no separate
-  # "post-15 acceleration" knob is needed — the 10->25 leg is steeper than
-  # 5->10 because the broker term structure says so.
-  # scrap_25yr: derived from Compass recycling (~$486/LDT, Bangladesh, tankers
-  # >=30k LDT) x ~45,000 LDT VLCC lightweight ~= $21.9M, rounded to 22.
   VLCC:
     dwt: 300000
-    newbuild: 175000000          # Compass RESALE/prompt value (see note above)
+    newbuild: 175000000
     five_year_benchmark: 138000000
     ten_year_benchmark: 111000000
     scrap_25yr: 22000000
-    scrubber_premium: 2500000    # METHODOLOGY 3.1 indicative ~$2-3M for VLCC
+    scrubber_premium: 2500000
     eco_premium_pct: 0.05
-  # Out of v1 scope (DHT is pure VLCC). Compass May 25 2026 hints for later:
-  #   Suezmax 160k: resale 108, 5yr 92, 10yr 80, newbuild(contract) 89
-  #   Aframax 115k: resale 90,  5yr 79, 10yr 68, newbuild(contract) 77
-  # Suezmax/Aframax from Compass 25 May 2026; scrap from recycling (~$486/LDT).
   Suezmax:
     dwt: 157000
-    newbuild: 108000000        # Compass resale/prompt
+    newbuild: 108000000
     five_year_benchmark: 92000000
     ten_year_benchmark: 80000000
-    scrap_25yr: 13000000       # ~26k LDT x ~$486/LDT
+    scrap_25yr: 13000000
     scrubber_premium: 1500000
     eco_premium_pct: 0.05
   Aframax:
@@ -40,11 +20,9 @@ classes:
     newbuild: 90000000
     five_year_benchmark: 79000000
     ten_year_benchmark: 68000000
-    scrap_25yr: 9000000        # ~18k LDT x ~$486/LDT
+    scrap_25yr: 9000000
     scrubber_premium: 1000000
     eco_premium_pct: 0.05
-  # LR2 modeled as Aframax-equivalent (crude/dirty proxy) for v1 — same anchors
-  # as Aframax. v2: distinguish clean-LR2 product economics.
   LR2:
     dwt: 110000
     newbuild: 90000000
@@ -53,17 +31,12 @@ classes:
     scrap_25yr: 9000000
     scrubber_premium: 1000000
     eco_premium_pct: 0.05
-  # Product classes (MR, LR1) — supplied per-class data, 2026-05-29. These are
-  # eco+scrubber-INCLUSIVE values (modern spec), so eco/scrubber adjustments are
-  # set to 0 to avoid double-counting (unlike the crude curves, which are
-  # standard-spec + adjustments). 15yr cross-checks: MR ~$24M, LR1 ~$30M — the
-  # piecewise 10yr->scrap leg reproduces these.
   MR:
     dwt: 50000
-    newbuild: 49500000          # NB 2027 eco scrubber
+    newbuild: 49500000
     five_year_benchmark: 46000000
     ten_year_benchmark: 34500000
-    scrap_25yr: 5800000         # 10,500 LDT x $550/LDT
+    scrap_25yr: 5800000
     scrubber_premium: 0
     eco_premium_pct: 0.0
   LR1:
@@ -71,138 +44,72 @@ classes:
     newbuild: 59000000
     five_year_benchmark: 53500000
     ten_year_benchmark: 42000000
-    scrap_25yr: 7700000         # 14,000 LDT x $550/LDT
+    scrap_25yr: 7700000
     scrubber_premium: 0
     eco_premium_pct: 0.0
-  # Handymax (chemical-capable IMO-II coated ~38k DWT) — added 2026-06-05 (METHODOLOGY §3.1, §11.5).
-  # Retires the §11.5 off-curve gap for IMO-II coated chemical Handymax hulls
-  # (STNG's 14 Hyundai Mipo 2008-2014 builds, ages 12-18, currently in
-  # working_capital_net at ~$14.3M/vessel = $200M aggregate per STNG marks).
-  #
-  # Anchored on STNG's Q1 2026 disclosed marks ($14.3M avg at avg-age ~15). The
-  # curve reproduces that at age 15 within ~$0.4M: 10yr $20M → scrap_25 $4M
-  # piecewise gives $14.67M at age 15. NB anchor $45M is the IMO-II coated 38k
-  # Hyundai Mipo NB ballpark (~10% premium over clean-product Handysize $40M
-  # for chem-capable spec). Mid-age 5yr $32M from STNG's disclosed Handymax
-  # Q1+Q2 2026 TCEs being ≈MR rates (Q1 $34k vs MR $32k; Q2 $32k vs MR $36.5k):
-  # *rate parity with MR* + *value discount to clean Handy* together imply a
-  # steeper depreciation curve than clean product, hitting STNG's age-15 mark.
-  #
-  # SCOPE — IMO-II COATED 38k chemical Handymax only. Deliberately does NOT
-  # cover (a) STAINLESS STEEL chemical Handymax (~40k) which trades materially
-  # higher (Odfjell 2027-29 NB $72.5M ea anchor; no current watchlist
-  # exposure), or (b) SUB-25k stainless chemical Handy (ASC's 4 × 25k Japan-
-  # built 2015 hulls), which is a structurally smaller specialty-trade pool
-  # left OFF-CURVE in working_capital_net per LIMITATIONS §2 (now-narrower
-  # "sub-25k stainless chem" residual). Both fall outside this curve's anchors.
-  #
-  # APPROX FLAG: mid-age anchors (5yr / 10yr) inferred from a single class-
-  # average anchor (STNG's $14.3M) plus rate-parity with MR; no second-hand
-  # transaction file exists for chemical Handymax (sparse public deal flow).
-  # Refresh when a disclosed chem Handymax transaction print clears the
-  # transaction-anchored fallback guard.
   Handymax:
     dwt: 38000
-    newbuild: 45000000          # IMO-II 38k coated, Hyundai Mipo NB ballpark
+    newbuild: 45000000
     five_year_benchmark: 32000000
-    ten_year_benchmark: 20000000   # anchors STNG's $14.3M/vessel @ avg-age 15
-    scrap_25yr: 4000000         # ~7,300 LDT x ~$550/LDT (similar to product Handysize)
+    ten_year_benchmark: 20000000
+    scrap_25yr: 4000000
     scrubber_premium: 0
     eco_premium_pct: 0.0
-  # Handysize (clean-product ~37-40k DWT) — added 2026-06-05 (METHODOLOGY §3.1, §11.5).
-  # Retires the §11.5 off-curve gap for CLEAN-PRODUCT Handysize hulls (HAFN's 22
-  # winding-down Handies; ASC's 2 Korea-built 37k product Handies). Eco-inclusive
-  # modern-spec like the other product curves (premiums 0). Broker indications
-  # mid-2026 for modern eco 37-40k product Handysize: NB/resale ~$40M, 5yr ~$34M,
-  # 10yr ~$26M; scrap ~$4.5M (~8,200 LDT x ~$550/LDT). 15yr cross-check ~$15M
-  # reproduces HAFN's wind-down cohort estimate (~$15M/vessel at ~age 18).
-  #
-  # SCOPE NOTE — this curve is CLEAN-PRODUCT Handysize only. It deliberately does
-  # NOT cover (a) sub-25k stainless chemical hulls (ASC's 4 × 25k chem, ~$13M ea)
-  # or (b) IMO-II chemical Handymax (STNG's 14 × 38k), both of which trade at a
-  # discount to clean-product Handy and stay OFF-curve (working_capital_net) —
-  # now a narrower "chemical Handy/Handymax" residual tied to the chemical-sector
-  # gap (LIMITATIONS §2), not the old blanket "no Handysize class" gap.
   Handysize:
     dwt: 38000
     newbuild: 40000000
     five_year_benchmark: 34000000
     ten_year_benchmark: 26000000
-    scrap_25yr: 4500000         # ~8,200 LDT x ~$550/LDT
+    scrap_25yr: 4500000
     scrubber_premium: 0
     eco_premium_pct: 0.0
-  # LNGC (LNG carrier) — modern 174,000 cbm two-stroke (MEGI / X-DF / X-DF2.1) class.
-  # First sector-port from crude tankers (METHODOLOGY 11, FLNG v1). Anchors are
-  # broker indications (Clarksons / Affinity) for 174k cbm modern X-DF/MEGI
-  # baseline tonnage, mid-2026. LNG carriers depreciate more slowly than tankers
-  # due to longer useful life (~35-40 years effective vs ~25 for tankers) and
-  # lower steel content per cbm.
-  #
-  # NOTE on age-0: newbuild contract price ~$265M Korean (HD Hyundai / Samsung
-  # / Hanwha Ocean) for delivery 2027-28; prompt resale ~$260M. Baseline anchors
-  # are X-DF / MEGI standard modern tonnage; X-DF2.1 commands +5% premium —
-  # see eco_premium_pct below.
-  #
-  # NOTE on scrap_25yr: deliberately higher than tankers ($50M) because a 25yr
-  # LNG carrier still has commercial value as a short-term-trading or FSRU
-  # conversion candidate; it's not yet at end of useful life.
-  #
-  # NOTE on eco_premium_pct REINTERPRETATION FOR LNGC: in the tanker classes
-  # this multiplier represents the "eco-design" post-2014 fuel-efficiency
-  # premium for hull + engine. In LNG, the entire modern fleet is gas-fueled by
-  # construction (LNG-as-fuel BOG), so the original semantics don't apply.
-  # Instead, for the LNGC class ONLY, eco_premium_pct denotes the
-  # **latest-generation propulsion premium** (currently X-DF2.1 over the
-  # X-DF / MEGI baseline). Vessels tagged `eco: true` in LNG fleet manifests
-  # are X-DF2.1; `eco: false` vessels are X-DF / MEGI / older-tech (TFDE) and
-  # priced at the baseline curve. METHODOLOGY §3.1 documents the reinterpretation.
-  # The +5% premium reflects 2025-26 broker quotes (X-DF2.1 commands $12-15M
-  # premium over X-DF on newbuild, narrowing modestly with age).
   LNGC:
-    dwt: 174000                  # cbm (not DWT in the tanker sense; field name preserved for code uniformity)
-    newbuild: 260000000          # prompt resale ($M), 2026 Korean yard — X-DF/MEGI baseline
+    dwt: 174000
+    newbuild: 260000000
     five_year_benchmark: 235000000
     ten_year_benchmark: 200000000
-    scrap_25yr: 50000000         # NOT genuine scrap — residual operating/FSRU value at 25yr
-    scrubber_premium: 0          # n/a for LNG (LNGs use LNG-as-fuel BOG)
-    eco_premium_pct: 0.05        # LNGC-specific: X-DF2.1 latest-generation propulsion premium
-  # MGC (Medium Gas Carrier) — 22-45k cbm dual-fuel multi-gas / LCO2 carrier class.
-  # Added 2026-06-01 to capture CCEC's gas fleet (1 in-water LCO2/multi-gas Active
-  # + 8 NBs: 2 LCO2 incl Amadeus + 6 dual-fuel MGCs, all Q2'26-Q1'29 delivery).
-  # Korean-built (Hyundai Mipo for the in-water vessel; yards on NBs not disclosed).
-  # The class is broader than just LCO2: it includes all 22-45k cbm modern dual-
-  # fuel vessels capable of LPG / ammonia / multi-gas (incl. LCO2) trade. LCO2
-  # capability per vessel is currently NOT differentiated in pricing (would be a
-  # vessel-level flag in a future iteration if the CO2 transport trade matures
-  # enough for liquid resale-price differentiation).
-  #
-  # Anchors (mid-2026 broker quotes for modern dual-fuel 22-25k cbm hulls):
-  #   newbuild ~$65M (Korean yard); 5yr-old ~$58M; 10yr-old ~$48M.
-  #   scrap_25yr $10M — modest residual operating/storage value (longer useful
-  #   life than tanker steel scrap, but shorter than LNGC; LCO2 sub-segment may
-  #   re-rate higher as the trade matures, currently not priced in).
-  # No eco premium yet (the X-DF2.1 LNGC premium semantic doesn't extend here
-  # because MGCs are uniformly dual-fuel by construction; future propulsion
-  # differentiation can re-use the field if it emerges).
+    scrap_25yr: 50000000
+    scrubber_premium: 0
+    eco_premium_pct: 0.05
   MGC:
-    dwt: 22000                   # cbm (multi-gas / LCO2 22k handy class)
+    dwt: 22000
     newbuild: 65000000
     five_year_benchmark: 58000000
     ten_year_benchmark: 48000000
     scrap_25yr: 10000000
-    scrubber_premium: 0          # n/a (dual-fuel design)
-    eco_premium_pct: 0.0         # no current MGC propulsion differentiation
-
-# Yard-quality discount by building yard (fractional haircut on hull value).
-# Broker benchmarks above are good-spec (effectively Korean/Japanese); these
-# haircut lower-tier yards. Korea/Japan yards omitted => 0%.
+    scrubber_premium: 0
+    eco_premium_pct: 0.0
+  Cape:
+    dwt: 180000
+    newbuild: 78000000
+    five_year_benchmark: 62000000
+    ten_year_benchmark: 45000000
+    scrap_25yr: 14000000
+    scrubber_premium: 2500000
+    eco_premium_pct: 0.05
+  Pana:
+    dwt: 82000
+    newbuild: 38000000
+    five_year_benchmark: 32000000
+    ten_year_benchmark: 24000000
+    scrap_25yr: 7500000
+    scrubber_premium: 2000000
+    eco_premium_pct: 0.05
+  Supra-Ultra:
+    dwt: 62000
+    newbuild: 38000000
+    five_year_benchmark: 33000000
+    ten_year_benchmark: 25000000
+    scrap_25yr: 6500000
+    scrubber_premium: 1500000
+    eco_premium_pct: 0.05
 yard_discounts:
-  Hengli: 0.05         # modern top-tier Chinese
+  Hengli: 0.05
   Dalian: 0.05
-  SWS: 0.05            # Shanghai Waigaoqiao (modern Chinese)
-  New Times: 0.10      # older Chinese
-  Longxue: 0.10
-  Cosco: 0.10
-  Hudong Zhonghua: 0.08  # Chinese state yard (also builds LNG/naval) — mid tier
-  Rongsheng: 0.13      # distressed-era Chinese (welding/engine-room quality issues)
-  Hanjin Subic: 0.10   # Philippines; yard bankrupt 2019, no warranty/parts support
+  SWS: 0.05
+  New Times: 0.1
+  Longxue: 0.1
+  Cosco: 0.1
+  Hudong Zhonghua: 0.08
+  Rongsheng: 0.13
+  Hanjin Subic: 0.1

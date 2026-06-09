@@ -241,7 +241,17 @@ def _run_scenarios_for_ticker(
         # (mr / lr1_clean / lr2_clean) rather than the default crude+lng map
         # (which lacks MR and would map LR1->aframax_dirty). For crude/lng
         # pure-plays the default map is correct and we pass it implicitly.
-        kwargs = {"scenario_class_map": PRODUCT_SCENARIO_CLASS_MAP} if sector == "product" else {}
+        # Sectors whose vessel classes are NOT in the module-level default
+        # SCENARIO_CLASS_MAP need the explicit per-sector map passed through.
+        # product: MR/LR1_clean/LR2_clean route via PRODUCT_SCENARIO_CLASS_MAP.
+        # dry_bulk: Cape/Pana/Supra-Ultra route via the dry_bulk sector map.
+        if sector == "product":
+            kwargs = {"scenario_class_map": PRODUCT_SCENARIO_CLASS_MAP}
+        elif sector == "dry_bulk":
+            from .scenarios import SCENARIO_CLASS_MAP_BY_SECTOR
+            kwargs = {"scenario_class_map": SCENARIO_CLASS_MAP_BY_SECTOR["dry_bulk"]}
+        else:
+            kwargs = {}
         return run_scenarios(whole_inputs, whole_price, whole_target, doc, **kwargs), None, None
 
     crude_doc = sector_docs["crude"]

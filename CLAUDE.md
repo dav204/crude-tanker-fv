@@ -116,6 +116,19 @@ quarter of data. **The bars apply at lock-time, not per-run.**
   layer + strip terminal but NOT to `compute_nav`)**. They are inverse
   cases of the same NAV-vs-realisation gap. The haircut is judgmental,
   not parametric — store it auditably per-name with a rationale.
+- **Don't back-solve validator marks to broker NAV (2026-06-09).** Caught
+  ratcheting Cape vessel-value curves upward in two passes ($65M → $78M →
+  $88M NB) during SBLK onboarding to shrink the −22% gap toward the v1
+  calibration-lock ±10% bar. The first lift was independent reasoning
+  (anchored to publicly-observable Chinese yard NB cost); the second was
+  back-solving to the target. The methodology forbids this — see "What this
+  tool is, philosophically" above. The v1 calibration-lock test REPORTS a
+  hit rate; failing it surfaces a methodology question (transaction-anchor
+  the classes per §9.9? accept as documented mark-driven?), NOT a license
+  to tune marks. If a validator gap is wide, do the §9.9 transaction-anchored
+  work (build `inputs/market_data/transactions/<class>.yaml` from disclosed
+  prints, refit) — that's the methodologically-honest fix. See
+  `decisions/sblk_log.md` for the full incident.
 
 ## Onboarding a new ticker — the workflow
 

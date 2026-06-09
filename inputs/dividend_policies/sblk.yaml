@@ -1,0 +1,23 @@
+# Star Bulk Carriers dividend policy — METHODOLOGY.md §4.3
+# Source: Q1 2026 6-K (dividend declaration) + 2025 20-F Item 8 Dividend Policy.
+# Q1 2026 dividend declared: $0.50/share payable June 22, 2026 (record date
+# June 12). Q1 2026 diluted EPS: $0.52. Implied Q1 payout: ~96% of EPS.
+#
+# Stated policy (per 20-F): variable dividend payable from Cash Available for
+# Distribution (CAD), tied to the company's earnings and FFA-implied forward
+# outlook. The "we are targeting to return more than $3 per share to
+# shareholders this year (under the current FFA curve)" guidance in Q1 6-K
+# implies annual run-rate ~$0.75/quarter at midpoint; Q1 came in below run-
+# rate, with potential for Q2-Q4 supplemental dividends or buybacks.
+#
+# v1 methodology characterisation: variable ~95-100% of EPS, no fixed base.
+# Closest analogue in the existing watchlist is DHT (variable 100% of NI,
+# $0.025/qtr nominal floor). SBLK has no disclosed floor.
+ticker: SBLK
+policy_type: variable
+payout_ratio: 0.95            # ~95% of EPS — Q1 2026 implied ratio; conservative
+                              # below the "target $3/share annual return" guidance
+                              # which implies higher payout under good earnings
+base_dividend_per_share: 0    # no fixed base
+floor: 0                      # no disclosed floor (SBLK has cut to $0 in past
+                              # weak cycles — 2015-2016 / late-2019)

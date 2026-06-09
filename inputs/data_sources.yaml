@@ -207,3 +207,30 @@ TEN:
         fleet manifest age
       - 2 Suezmax 2007-built repurchase Apr 2026 (Arctic, Antarctic from 5y bareboat)
       - Series E ($118.6M) + Series F ($168.7M) preferred — stable; rates fixed
+
+# Dry bulk validators — onboarded 2026-06-09 with METHODOLOGY §11.7.
+# SBLK populated from SEC search; GNK/CMDB stubs for review during their
+# onboarding (Week 2 Day 3-4). Refresh-script doesn't enforce content quality.
+SBLK:
+  ir_home: https://www.starbulk.com/investor-relations/
+  press_releases: https://www.starbulk.com/investor-relations/news-releases/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001386716&type=6-K
+  fleet_page: https://www.starbulk.com/fleet/
+  reporting_pattern: Q-end results released mid-second month of following quarter (Q1 ≈ mid-May; Q2 ≈ early-Aug; Q3 ≈ early-Nov; FY ≈ mid-Mar via 20-F)
+  notes: Marshall Islands-domiciled FPI; files 6-K with quarterly press releases. Q1 2026 6-K filed 2026-05-20 (accession 0000950157-26-000639). Annual 20-F 2025 filed 2026-03-19 (accession 0000950157-26-000397). Post-Eagle-Bulk-merger fleet ~141 vessels (May 2026 fully-delivered basis). One of three Pareto-anchored dry bulk validators per METHODOLOGY §11.7.2.
+
+GNK:
+  ir_home: https://www.gencoshipping.com/
+  press_releases: https://www.gencoshipping.com/press-releases/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=genco+shipping&type=10-Q
+  fleet_page: https://www.gencoshipping.com/our-fleet/
+  reporting_pattern: FIXME — to confirm during onboarding (Genco files 10-Q quarterly as a US domestic filer)
+  notes: STUB — populated by /add-ticker scaffold; refine during Week 2 Day 3-4 GNK onboarding. Pareto-anchored validator per METHODOLOGY §11.7.2.
+
+CMDB:
+  ir_home: FIXME — Costamare Bulkers IR landing page (verify post-spinoff structure)
+  press_releases: FIXME
+  sec_edgar: FIXME — Costamare Bulkers Inc. CIK (separate from CMRE parent)
+  fleet_page: FIXME
+  reporting_pattern: FIXME
+  notes: STUB — populated by /add-ticker scaffold; CMDB is the Costamare bulker spinoff (separate listing from CMRE). APPROX-anchored per METHODOLOGY §11.7.2 (no Pareto P/NAV coverage). Refine during Week 2 Day 3-4 onboarding.

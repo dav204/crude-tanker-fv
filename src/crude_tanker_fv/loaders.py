@@ -24,7 +24,9 @@ from .schemas import (
 )
 
 INPUTS_DIR = Path(__file__).resolve().parents[2] / "inputs"
-ALLOWED_CLASSES = {"VLCC", "Suezmax", "Aframax", "LR2", "LR1", "MR", "Handymax", "Handysize", "LNGC", "MGC"}
+ALLOWED_CLASSES = {"VLCC", "Suezmax", "Aframax", "LR2", "LR1", "MR", "Handymax", "Handysize", "LNGC", "MGC",
+                   # dry_bulk classes added 2026-06-09 with SBLK onboarding (METHODOLOGY §11.7.1)
+                   "Cape", "Pana", "Supra-Ultra"}
 
 
 def _read_yaml(path: Path) -> dict:

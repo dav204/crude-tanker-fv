@@ -1,0 +1,12 @@
+# GNK dividend policy — METHODOLOGY.md section 4.3
+# FIXME: source from latest capital allocation policy / earnings release.
+# Known v1 policies (METHODOLOGY §4.3):
+#   FRO  — variable ~75–80% of net income, no fixed base
+#   DHT  — variable 100% of net income, $0.025/qtr nominal floor
+#   ECO  — variable, 75% of EPS above breakeven
+#   INSW — $0.12/qtr base + supplemental variable on excess earnings
+ticker: GNK
+policy_type: null             # e.g. variable | base_plus_variable | fixed
+payout_ratio: null            # fraction of net income (0–1)
+base_dividend_per_share: null # fixed per-share base, 0 if none
+floor: null                   # minimum quarterly payment, 0 if none
