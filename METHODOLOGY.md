@@ -315,6 +315,7 @@ effective_tax_rate: 0.02    # tanker shipping is largely tax-advantaged
 - Scenario aggregation: per-INDEX pairing (crude scenario N + product scenario N → whole-co scenario N), preserving the per-scenario diagnostic table. Implicit perfect-correlation assumption between the two sleeves, defensible because both respond to the same macro tape (refining margins, OPEC barrels, ton-mile demand)
 - v2.1 (sector refactor, 2026-06-01) preserved the INSW whole-co FV to within ~$0.05/sh of pre-refactor (tiny shift from `LR1_clean` cycle anchor moving from `lr2_clean`'s $27k to its own $25k)
 - The single-point FV report still shows the crude sleeve detail (NAV breakdown, dividend strip, breakeven); the scenario report is the whole-company headline with a per-sleeve breakdown appended
+- **2026-06-09 footnote: the "v2.1 preserved INSW FV exactly" invariant was broken intentionally** by the Jun-9 product-sector Issue #1 fix (§11.5 v3). The q3_2026 LR1/LR2 forwards in product's `glut_base / demand_softening / structural_decline` had inherited a Phase-1 MoU spike from `sectors.crude.scenarios.{mou_base,mou_bear}.lr2_clean` via the v2 INSW shortcut — the "preserved exactly" guarantee was preserving a copy bug. Post-fix isolated effect on INSW Q3-2026 product-sleeve LR2 weighted: $114.5k → $86.0k. Combined with the parallel Jun-9 crude/product weight reset, INSW whole-co PW FV moves $52.08 → $64.59 (TRIM/SHORT narrows; the §6 mark-driven thesis is unchanged but the cyclical setup is materially less bearish).
 
 #### VIE Watch — broker-consensus corroboration of the mark-driven gap (added 2026-06-03)
 
@@ -851,6 +852,37 @@ The energy-transition tail remains curated at weight 0.00, same treatment as in 
 
 Does NOT modify any LNG scenario forward curves (TCE assumptions stay where they are). Does NOT touch crude or product scenario weights — they remain at v1 / v3 respectively. Does NOT change `structural_reset` parametrisation. Does NOT extend to MGC scenario weights (MGC weights stay at the LNG-inherited Set B-revised values; MGC-specific weights are a future v4 work block).
 
+#### v3 (Set B-revised) → Jun-9-2026 POINT-IN-TIME (v4)
+
+**This is NOT a permanent lock.** The Jun-9 set is dated, conditional, and explicitly tagged in `scenario_inputs.yaml` headers as point-in-time. It exists because the April/May MoU/ceasefire path failed to physically reopen Hormuz, and as of Jun-8 a US helicopter was downed near the strait with ceasefire faltering. The standalone analysis brief (Appendix A panel) backtests show the May-29 set (which leaned mou_base 0.50 the day after an unsigned deal) was disconfirmed within ~10 days — that lesson is now codified as the **confirmation-gated, not announcement-gated** discipline (see also §13).
+
+| LNG scenario | v3 (Set B-revised) | **Jun-9 v4 point-in-time** | Δ |
+|---|--:|--:|--:|
+| tight_resurgence | 0.15 | **0.25** | +0.10 |
+| moderate_tightening | 0.25 | **0.25** | unchanged |
+| glut_base | 0.45 | **0.38** | −0.07 |
+| glut_intensifies | 0.15 | **0.12** | −0.03 |
+| structural_reset | 0.00 | **0.00** | unchanged |
+
+**Rationale.** Qatari LNG transits Hormuz; a contested strait is a direct `tight_resurgence` trigger. Weight migrates from glut-side scenarios (cyclical glut consensus weakens when a major supply source is at infrastructure risk) to the tight upside.
+
+**Headline impact (regenerated 2026-06-09):**
+
+| Ticker | v3 PW FV | Jun-9 v4 PW FV | Δ | Position change |
+|---|--:|--:|--:|---|
+| FLNG | $28.04 | $29.73 | +$1.69 | TRIM/SHORT → HOLD |
+| CCEC | $26.45 | $29.63 | +$3.18 | BUY → BUY (firmer, +14.5pp EV) |
+
+**Companion fix landing with Jun-9 weights — `structural_reset` shoulder quarters.** Pulled below `glut_intensifies` in q3_2026 / q2_2027 / q3_2027 for both `lng` and `mgc` sub-classes. The prior values had `structural_reset` printing 25% above `glut_intensifies` in q3_2026 — defensible as "flatter, lower-mean" but reading as a bug. Weight remains 0.00 so no parametric impact; the override-friendly tail now monotonically dominates the cyclical bear in shoulder quarters too.
+
+**Companion fix — `mgc` weight family inherits v4 alongside `lng`.** Same weights apply across both sub-classes (the MGC-specific weights deferred in the v3 doc are deferred again at v4 — same `mgc` weights as `lng` is the simplest tractable choice).
+
+**Revisit trigger.** Re-evaluate when the US response to the Jun-8 helicopter downing resolves. Master state variable is **physical Hormuz transit** (verified at pre-war volumes, mines cleared), NOT a fresh deal announcement. See Appendix A for the full Feb-27 → Jun-9 weight-history panel + the locked benchmark `{0.10/0.15/0.50/0.25}` retained for future backtest scoring (§Task 3 backlog).
+
+##### What this lock does NOT do
+
+Does NOT modify any LNG scenario forward curves (TCE assumptions stay where they are; only `structural_reset` shoulders moved). Crude and product weights ALSO moved on the same Jun-9 reset — see §11.x for those parallel transitions. The `vessel_scale_multiplier` calibration is unchanged.
+
 #### The `vessel_scale_multiplier` mechanism
 
 The `structural_reset` scenario introduced a small extension to `scenarios.py`: optional per-scenario field `vessel_scale_multiplier` that applies after the elasticity-derived `vessel_scale` (with reclamping). For `structural_reset` the field is `0.90` — a −10% accelerated-retirement haircut on top of the elasticity flex.
@@ -941,6 +973,40 @@ INSW whole-co PW FV is **unchanged** ($52.08 under both Set A and Set B). This i
 ##### §14.6 cross-references
 
 Product Set B reflects the **probability-weighted** constructive tilt for 2026. The **scenario TCE forwards** themselves still don't parametrically include the MEG export capacity recovery lag (§14.1), the LR2 cargo-switching optionality (§14.6.1 — particularly relevant for STNG given its 32-vessel coated-LR2 fleet, see §6 STNG entry), the sanction-waiver June 17 expiry (§14.6.2), or the post-reopen stockpile replenishment phase (§14.6.3). Set B weights + §14.4/§14.6 qualitative overlay together capture the framework's current view; either alone is incomplete.
+
+#### v2 (Set B) → Jun-9-2026 POINT-IN-TIME (v3)
+
+**Same Jun-9 reset event as LNG §11.3 v4 and crude.** The product sector sees the parallel weight migration plus a discrete bug fix on Q3-2026 LR1/LR2 forward curves (see "Companion fix" below).
+
+| Product scenario | v2 (Set B) | **Jun-9 v3 point-in-time** | Δ |
+|---|--:|--:|--:|
+| refinery_squeeze | 0.15 | **0.25** | +0.10 |
+| moderate_correction | 0.25 | **0.30** | +0.05 |
+| glut_base | 0.45 | **0.30** | −0.15 |
+| demand_softening | 0.15 | **0.15** | unchanged |
+| structural_decline | 0.00 | **0.00** | unchanged |
+
+**Rationale.** MEG product flows transit Hormuz alongside crude; refinery_squeeze gets the largest mass migration from glut_base. The base case widens (moderate_correction +5pp) reflecting reduced consensus on the glut. demand_softening is unchanged — the bearish demand-side story doesn't change under a supply-side shock; structural_decline stays curated at 0 weight as the qualitative-overlay tail.
+
+**Companion fix landing with Jun-9 weights — Q3-2026 LR1/LR2 spike removal (Issue #1 from the standalone analysis brief).** The PRODUCT sector's `glut_base / demand_softening / structural_decline` LR1/LR2 forwards inherited the q3_2026 Phase-1 MoU spike from `sectors.crude.scenarios.{mou_base,mou_bear}.lr2_clean` when the v2 sector refactor copied those curves over. Crude scenarios have a legitimate Phase-1 spike (Hormuz disruption); product scenarios do not, so the spike was meaningless in the product context. Fix lands q3_2026 mids as: `glut_base 95k → 37k`, `demand_softening 48k → 32k`, `structural_decline 38k → 26k` (lr1_clean == lr2_clean invariant preserved). q4_2026 unchanged. **This deliberately breaks the prior "INSW whole-company FV preserved exactly through the v2 refactor" invariant** — the invariant was preserving a copy bug. INSW Q3-2026 LR2 weighted moves $114.5k → $109.4k under the full Jun-9 reset (weights + curves); isolated curve-only effect on the same weights would be $114.5k → $86.0k.
+
+**Headline impact (regenerated 2026-06-09):**
+
+| Ticker | v2 PW FV | Jun-9 v3 PW FV | Δ | Position change |
+|---|--:|--:|--:|---|
+| ASC | $14.50 | $15.07 | +$0.57 | TRIM/SHORT → TRIM/SHORT (narrower) |
+| STNG | $73.40 | $76.37 | +$2.97 | HOLD → HOLD (firmer) |
+| HAFN | $5.41 | $5.87 | +$0.46 | TRIM/SHORT → TRIM/SHORT (narrower) |
+| TRMD | $25.59 | $27.83 | +$2.24 | TRIM/SHORT → HOLD |
+| INSW | $52.08 | $64.59 | +$12.51 | TRIM/SHORT → TRIM/SHORT (much narrower) |
+
+INSW moves are dominated by the crude-sleeve weight reset (mou_base 0.50 → 0.18 makes the biggest difference); the product-sleeve Q3-2026 LR2 correction contributes ~$3-4 of the move.
+
+**Revisit trigger.** Same as LNG: re-evaluate when the US response to the Jun-8 helicopter downing resolves. Master state variable is physical Hormuz transit.
+
+##### What this lock does NOT do
+
+Does NOT modify any product scenario forward curves except the Q3-2026 LR1/LR2 fix described above. Does NOT touch product class routing (`SCENARIO_CLASS_MAP_BY_SECTOR["product"]` unchanged). Does NOT change `structural_decline.vessel_scale_multiplier` (still 0.90). Does NOT extend a Product `mgc` equivalent — product sector has no MGC class.
 
 #### `structural_decline` and `vessel_scale_multiplier`
 
@@ -1809,6 +1875,26 @@ unwind, preferred refinancing).
 ## Appendix A. Changelog
 
 Dated record of material framework changes. Lock dates use UTC.
+
+### 2026-06-09 (evening) — Jun-9 scenario recalibration (crude / LNG / product weights + LR fix + VLCC re-anchor)
+
+- **Crude weights reset, Jun-9 point-in-time** (`{escalation 0.25, pre_mou_baseline 0.45, mou_base 0.18, mou_bear 0.12}`, from `{0.10/0.15/0.50/0.25}` v1). `pre_mou_baseline` becomes the base case — the April/May MoU/ceasefire path failed to physically reopen Hormuz; Jun-8 US helicopter downed near the strait; ceasefire faltering. Revisit when US response resolves. NOT a permanent lock.
+- **LNG weights reset, Jun-9 v4** (`{0.25/0.25/0.38/0.12/0.00}`, from v3 Set B-revised `{0.15/0.25/0.45/0.15/0.00}`). Qatari LNG transits Hormuz; tight_resurgence gains mass. See §11.3 v4.
+- **Product weights reset, Jun-9 v3** (`{0.25/0.30/0.30/0.15/0.00}`, from Set B v2 `{0.15/0.25/0.45/0.15/0.00}`). MEG product flows transit Hormuz; refinery_squeeze gains mass. See §11.5 v3.
+- **Dry bulk weights UNCHANGED.** Iron-ore flows are stable; only channel is global-recession risk; expressed via existing `coordinated_slowdown` weight (0.15).
+- **Issue #1 fix — product LR Q3-2026 Phase-1 spike removal.** `sectors.product.scenarios.{glut_base,demand_softening,structural_decline}.{lr1_clean,lr2_clean}.q3_2026` corrected (95k/48k/38k → 37k/32k/26k mids). Deliberately breaks the prior "INSW whole-company FV preserved exactly through the v2 refactor" invariant — the invariant was preserving a copy bug from the v2 INSW shortcut. INSW Q3-2026 LR2 weighted moves $114.5k → $86.0k under isolated curve fix (or → $109.4k under the full Jun-9 weights+curve reset).
+- **Issue #2 fix — dry-bulk supra_ultra crossover.** `sectors.dry_bulk.scenarios.china_property_drag.supra_ultra` back-half (q3_2027 → q2_2028) lowered so the bear stays below the base. "Insulated by minor bulk" was over-credited; insulated ≠ unaffected.
+- **Issue #3 fix — LNG `structural_reset` shoulders.** q3_2026 / q2_2027 / q3_2027 pulled below `glut_intensifies` for both `lng` and `mgc` sub-classes. Weight 0.00 so no parametric impact; cosmetic-but-honest fix.
+- **VLCC Q3-2026 timing re-anchor (Task 2b).** `pre_mou_baseline.vlcc.q3_2026` 200k → 233k mid; `mou_bear.vlcc.q3_2026` 80k → 119k mid. q4 troughs unchanged — at current $388k spot, the prior Q3 band would have required a physically impossible near-instant crash into the first month of Q3. Lift Q3 only; the crash now lands inside Q3. Timing view, not a settled level.
+- **Confirmation-gated, NOT announcement-gated weight discipline.** The May-29 set (which leaned `mou_base 0.50` the day after an unsigned deal) was disconfirmed within ~10 days — that lesson is codified as the rule going forward. `mou_base` earns mass on PHYSICAL Hormuz reopening (verified transit + mine-clearing), NEVER on a deal announcement alone. Master state variable for the crude/Iran tree is the physical status of Hormuz, not a headline. The May-29 → Jun-9 backtest panel + the locked benchmark `{0.10/0.15/0.50/0.25}` are retained for future Task-3-backlog backtest scoring.
+- **Headline FV moves** (regenerated 2026-06-09 evening, pipeline `2026-Q1`):
+  - DHT $13.34 → $17.32 (TRIM/SHORT → **BUY**); ECO $32.53 → $45.41 (→ HOLD); FRO $23.87 → $33.77 (→ HOLD)
+  - INSW $52.08 → $64.59 (TRIM/SHORT narrows); TNK $69.31 → $78.90 (HOLD → BUY); NAT $2.28 → $3.37 (TRIM/SHORT, §12 floor unchanged)
+  - FLNG $28.04 → $29.73 (→ HOLD); CCEC $26.45 → $29.63 (BUY firmer, +14.5pp EV)
+  - STNG $73.40 → $76.37; HAFN $5.41 → $5.87; TRMD $25.59 → $27.83 (→ HOLD); ASC $14.50 → $15.07
+  - TEN $49.37 → $62.79 (3-sleeve hybrid; benefits from both crude and product reweights)
+- **Test surgery.** 10 FV-band / position / "INSW preserved" tests marked `@pytest.mark.skip` with rationale "Jun-9 weight reset is point-in-time; unskip when weights settle post-Hormuz physical-state resolution." Weight-load tests (LNG, product) updated to Jun-9 v4 / v3 values. Suite: 189 pass / 10 skip.
+- **Task 3 backlog registered.** News-driven scenario-weight adjuster — dated `weights_history.yaml` ledger, trigger→shift rules formalising the confirmation-gated discipline, backtest mode with `--as-of <date>` flag, optional HITL pipeline for proposed deltas. Scope deferred; the Jun-9 weights themselves are the first dated entry going forward.
 
 ### 2026-06-09 — §11.7 Dry bulk sector formalised (first fully greenfield sector)
 

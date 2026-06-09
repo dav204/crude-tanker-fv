@@ -113,7 +113,12 @@ sectors:
       # sustain $400k+; Cal-26 blended $200k+. The "true tail" the prior set lacked.
       # ---------------------------------------------------------------------
       escalation:
-        weight: 0.10
+        # Weight 0.25 (Jun-9-2026 POINT-IN-TIME; was 0.10 v1). Reweighted UP after the
+        # April/May MoU/ceasefire path failed to physically reopen Hormuz; Jun-8 US
+        # helicopter downed near the strait + ceasefire faltering. The 0.25/0.45 esc/pre
+        # split hinges on the pending US response — revisit when it resolves. See
+        # METHODOLOGY §11.x crude weight history + Appendix A.
+        weight: 0.25
         description: >
           Conflict escalates beyond current intensity (third-party strike, wider
           MEG closure, no MoU). MEG-loading VLCC/LR2 sustain $400k+ near-term;
@@ -166,7 +171,9 @@ sectors:
       # genuine war-continues path: VLCC sustained ~$155-200k, normalizing gradually.
       # ---------------------------------------------------------------------
       pre_mou_baseline:
-        weight: 0.15
+        # Weight 0.45 (Jun-9-2026 POINT-IN-TIME; was 0.15 v1). Now the BASE CASE: war
+        # continues, rates bleed lower on demand destruction. mou_base no longer central.
+        weight: 0.45
         description: >
           War continues at current intensity (MoU fails to sign / Iran reneges /
           implementation collapses). The Strait-of-Hormuz disruption persists, so
@@ -177,7 +184,12 @@ sectors:
           - Iran continues SoH harassment despite MoU
           - Israeli or third-party strike resets the conflict
         vlcc:
-          q3_2026: [170000, 200000, 235000]
+          # Jun-9-2026 timing view (NOT a settled level) — was [170000, 200000, 235000].
+          # At current $388k spot, the prior Q3 band implied a near-instant crash to
+          # the first month of Q3 < $130k, which is physically improbable. Lift Q3
+          # only; Q4 trough unchanged, so the crash lands inside Q3 instead of opening
+          # below spot. Refresh against the next Pareto daily.
+          q3_2026: [198000, 233000, 274000]
           q4_2026: [160000, 190000, 225000]
           q1_2027: [148000, 175000, 205000]
           q2_2027: [135000, 160000, 188000]
@@ -220,7 +232,11 @@ sectors:
       # Phase 1 backlog spike → Phase 2 normalization → Phase 3 structural
       # ---------------------------------------------------------------------
       mou_base:
-        weight: 0.50
+        # Weight 0.18 (Jun-9-2026 POINT-IN-TIME; was 0.50 v1). Reweighted DOWN — earns
+        # mass back only on PHYSICAL Hormuz reopening (verified transit + mine-clearing),
+        # NEVER on a deal announcement alone (announcement-gated changes destroyed the
+        # May-29 weight set within 10 days — see Appendix A panel).
+        weight: 0.18
         description: >
           MoU signs, three-phase path materializes: ~30 days of Phase 1 backlog
           clearance (MEG-loading routes spike on fixture scramble) followed by
@@ -279,7 +295,9 @@ sectors:
       # Phase 2 onset immediate. May 29 equity sell-off was correct.
       # ---------------------------------------------------------------------
       mou_bear:
-        weight: 0.25
+        # Weight 0.12 (Jun-9-2026 POINT-IN-TIME; was 0.25 v1). mou_bear was the implicit
+        # bear under a deal-delivers regime; loses mass in parallel with mou_base.
+        weight: 0.12
         description: >
           MoU signs but Iran fails to ramp exports (sanctions infrastructure too
           degraded, buyers reluctant, or political pushback). No Phase 1 backlog
@@ -299,7 +317,10 @@ sectors:
           q1_2028: P3_structural
           q2_2028: P3_structural
         vlcc:
-          q3_2026: [60000, 80000, 100000]   # no P1 spike; immediate P2 onset
+          # Jun-9-2026 timing view (NOT a settled level) — was [60000, 80000, 100000].
+          # Same rationale as pre_mou_baseline VLCC q3_2026: lift the opening band so
+          # Q3 doesn't open below current $388k spot. Q4 unchanged.
+          q3_2026: [89000, 119000, 149000]   # no P1 spike; immediate P2 onset
           q4_2026: [42000, 53000, 64000]    # deeper P2 haircut
           q1_2027: [38000, 48000, 58000]    # deeper P3 structural
           q2_2027: [32000, 41000, 50000]
@@ -368,17 +389,15 @@ sectors:
   # the base case. Tight-resurgence is the upside tail; structural_reset is the
   # secular-decline tail (defined but inactive, weight 0.0 — see below).
   #
-  # v2 LNG weights LOCKED 2026-06-01 — Set B (METHODOLOGY §11.3):
-  #   tight_resurgence    0.10
-  #   moderate_tightening 0.15
-  #   glut_base           0.55   (lifted from crude-inherited 0.50)
-  #   glut_intensifies    0.20   (trimmed from 0.25 — LNG cyclical bear is
-  #                                historically shallower than the crude MoU-bear)
-  #   structural_reset    0.00   (defined and curated; weight 0 because the
-  #                                energy-transition tail's timing/magnitude is
-  #                                too judgmental for parametric weighting —
-  #                                applied as a qualitative overlay on FV outputs
-  #                                per METHODOLOGY §11.3 and §12)
+  # LNG weights — Jun-9-2026 POINT-IN-TIME (v4 — METHODOLOGY §11.3 v4):
+  #   tight_resurgence    0.25   (raised from v3 0.15 — Hormuz risk to Qatar LNG)
+  #   moderate_tightening 0.25   (held flat from v3)
+  #   glut_base           0.38   (trimmed from v3 0.45)
+  #   glut_intensifies    0.12   (trimmed from v3 0.15)
+  #   structural_reset    0.00   (curated; weight 0; qualitative overlay only)
+  # Version-tagged Jun-9: this is a POINT-IN-TIME set, not a permanent lock.
+  # Revisit when the US response to the Jun-8 helicopter downing resolves.
+  # Full weight history in METHODOLOGY §11.3 (v1 → v2 Set B → v3 → Jun-9 v4).
   # ===========================================================================
   lng:
 
@@ -404,7 +423,9 @@ sectors:
       # Trains 4 & 6 offline 12.8 mtpa partially offsets the 2026 ramp.
       # ---------------------------------------------------------------------
       tight_resurgence:
-        weight: 0.15
+        # Weight 0.25 (Jun-9-2026 POINT-IN-TIME; was 0.15 v3). Raised — Qatar LNG
+        # transits Hormuz, a contested strait is a direct tight_resurgence trigger.
+        weight: 0.25
         description: >
           ME LNG disruption + cold winter + EU storage refill scramble pulls
           174k modern LNGC TC into the $150-220k zone near-term; normalises to
@@ -441,6 +462,8 @@ sectors:
       # current spot $67.5k (+391% YoY) is empirically tight-pricing.
       # ---------------------------------------------------------------------
       moderate_tightening:
+        # Weight 0.25 (Jun-9-2026 POINT-IN-TIME; held flat from v3). Iran/Hormuz
+        # tightening pressure offsets the secular glut bias.
         weight: 0.25
         description: >
           Modest winter strength + some ME tightening, no spike. Modern 174k
@@ -476,11 +499,13 @@ sectors:
       # ramping; 2026 is mid-tight, not glut.
       # ---------------------------------------------------------------------
       glut_base:
-        weight: 0.45
+        # Weight 0.38 (Jun-9-2026 POINT-IN-TIME; was 0.45 v3). Trimmed — weight migrates
+        # to tight_resurgence on Hormuz contestation.
+        weight: 0.38
         description: >
           Orderbook deliveries 2026-2028 keep pressure on rates; moderate
           winter spikes. Modern 174k LNGC TC $40-75k seasonally. The
-          weighted-median LNG view at 55% probability (Set B v2 lock).
+          weighted-median LNG view at 38% probability (Jun-9-2026 point-in-time).
         lng:
           q3_2026: [35000, 42000, 52000]
           q4_2026: [62000, 75000, 90000]
@@ -516,7 +541,9 @@ sectors:
       # weight; the 5pp moved into the constructive band (tight + moderate).
       # ---------------------------------------------------------------------
       glut_intensifies:
-        weight: 0.15
+        # Weight 0.12 (Jun-9-2026 POINT-IN-TIME; was 0.15 v3). Trimmed in parallel with
+        # glut_base — bear loses mass when base loses mass.
+        weight: 0.12
         description: >
           More newbuild ordering pulled forward + warm northern winters +
           Chinese import slowdown. Modern 174k LNGC TC $30-55k. Orderbook
@@ -579,11 +606,11 @@ sectors:
           terminal carrier values reset lower. 12M base TCE ~$45k/day. Distinct
           from glut_intensifies (cyclical) — this is the SECULAR tail.
         lng:
-          q3_2026: [31000, 40000, 49000]
+          q3_2026: [23000, 30000, 37000]
           q4_2026: [41000, 53000, 65000]
           q1_2027: [38000, 49000, 60000]
-          q2_2027: [27000, 35000, 43000]
-          q3_2027: [29000, 37000, 45000]
+          q2_2027: [23000, 30000, 37000]
+          q3_2027: [25000, 32000, 39000]
           q4_2027: [34000, 44000, 54000]
           q1_2028: [31000, 40000, 49000]
           q2_2028: [26000, 33000, 40000]
@@ -596,11 +623,11 @@ sectors:
         # from LNGCs on the structural haircut at v1; revisit if LCO2 trade
         # matures materially).
         mgc:
-          q3_2026: [13000, 16000, 20000]
+          q3_2026: [10000, 12000, 15000]
           q4_2026: [16000, 19000, 23000]
           q1_2027: [15000, 18000, 22000]
-          q2_2027: [13000, 16000, 20000]
-          q3_2027: [13000, 16000, 20000]
+          q2_2027: [11000, 13500, 17000]
+          q3_2027: [11000, 14000, 17000]
           q4_2027: [16000, 19000, 23000]
           q1_2028: [15000, 18000, 22000]
           q2_2028: [12000, 14000, 17000]
@@ -626,14 +653,17 @@ sectors:
   # §6, §11.5). Formalises the MR / LR1_clean / LR2_clean machinery that
   # previously lived under sectors.crude as a v2 INSW shortcut.
   #
-  # v1 SIMPLIFICATION — the initial PRODUCT scenario weights mirror the crude
-  # v1 baseline {0.10/0.15/0.50/0.25} (same set INSW's product sleeve was
-  # already using via the v2 shortcut), with a curated `structural_decline`
-  # 5th tail at weight 0.00 (EV gasoline / refining-capacity rationalisation
-  # / jet-fuel demand peak — applied as qualitative overlay until enough data
-  # supports a parametric weight, mirroring the LNG `structural_reset` pattern).
-  # Locking PRODUCT-specific weights is a future work block analogous to the
-  # LNG v1 → v2 Set B lock (METHODOLOGY §11.3 / §11.5).
+  # Product weights — Jun-9-2026 POINT-IN-TIME (v3 — METHODOLOGY §11.5 v3):
+  #   refinery_squeeze    0.25   (raised from v2 0.15 — Hormuz risk to MEG product flows)
+  #   moderate_correction 0.30   (raised from v2 0.25 — base widens as glut weakens)
+  #   glut_base           0.30   (trimmed from v2 0.45)
+  #   demand_softening    0.15   (held flat from v2)
+  #   structural_decline  0.00   (curated; weight 0; qualitative overlay only)
+  # Version-tagged Jun-9 POINT-IN-TIME set, NOT a permanent lock. Full weight history
+  # in METHODOLOGY §11.5 (v1 inherited → v2 Set B → v3 Jun-9). Forward CURVES still
+  # inherited from sectors.crude.scenarios.<scen>.lr2_clean; Issue 1 (Jun-9) corrected
+  # the q3_2026 Phase-1 spike that came along with that inheritance — the "INSW FV
+  # preserved exactly" invariant from the earlier refactor was preserving a bug.
   #
   # Forward CURVES for v1 are copied from the v2 INSW shortcut values that were
   # under sectors.crude.scenarios.<scenario>.mr and .lr2_clean, so INSW's
@@ -666,7 +696,9 @@ sectors:
       # tanker earnings >2× historic average per Catlin VIE).
       # ---------------------------------------------------------------------
       refinery_squeeze:
-        weight: 0.15
+        # Weight 0.25 (Jun-9-2026 POINT-IN-TIME; was 0.15 v2). Raised — MEG product
+        # flows directly affected by Hormuz contestation.
+        weight: 0.25
         description: >
           Refinery capacity outages (unplanned shutdowns, post-MoU disruption
           to ME refining) plus demand surge (cold winter jet-fuel, marine
@@ -709,7 +741,9 @@ sectors:
       # shortages, stockpile replenishment phase ahead (Catlin VIE June 2026).
       # ---------------------------------------------------------------------
       moderate_correction:
-        weight: 0.25
+        # Weight 0.30 (Jun-9-2026 POINT-IN-TIME; was 0.25 v2). Raised — base case widens
+        # as glut consensus weakens.
+        weight: 0.30
         description: >
           The May-2026 product correction (MR -52% w/w / LR2 -28% w/w; product
           leading the MoU normalisation) stabilises at current levels. Modest
@@ -752,12 +786,14 @@ sectors:
       # 2026 is unambiguously tight, not glut.
       # ---------------------------------------------------------------------
       glut_base:
-        weight: 0.45
+        # Weight 0.30 (Jun-9-2026 POINT-IN-TIME; was 0.45 v2). Trimmed — weight migrates
+        # to refinery_squeeze + moderate_correction.
+        weight: 0.30
         description: >
           MR + LR2 newbuild orderbook delivers through 2027 (MR ~50 NB / yr,
           LR2 ~30 NB / yr); refinery margin compression normalises; jet-fuel
           recovery does NOT offset the supply growth. MR $18-22k, LR2 $30-40k.
-          The product-cycle central view at 50% probability.
+          The product-cycle central view at 30% probability (Jun-9-2026 point-in-time).
         mr:
           q3_2026: [17000, 21000, 26000]
           q4_2026: [20000, 25000, 31000]
@@ -768,7 +804,7 @@ sectors:
           q1_2028: [15000, 18000, 22000]
           q2_2028: [13000, 16000, 20000]
         lr1_clean:
-          q3_2026: [65000, 95000, 120000]
+          q3_2026: [32000, 37000, 44000]
           q4_2026: [28000, 35000, 42000]
           q1_2027: [26000, 34000, 42000]
           q2_2027: [22000, 29000, 36000]
@@ -777,7 +813,7 @@ sectors:
           q1_2028: [24000, 31000, 38000]
           q2_2028: [20000, 26000, 32000]
         lr2_clean:
-          q3_2026: [65000, 95000, 120000]
+          q3_2026: [32000, 37000, 44000]
           q4_2026: [28000, 35000, 42000]
           q1_2027: [26000, 34000, 42000]
           q2_2027: [22000, 29000, 36000]
@@ -814,7 +850,7 @@ sectors:
           q1_2028: [11000, 14000, 17000]
           q2_2028: [10000, 12000, 15000]
         lr1_clean:
-          q3_2026: [38000, 48000, 58000]
+          q3_2026: [27000, 32000, 38000]
           q4_2026: [24000, 30000, 36000]
           q1_2027: [22000, 28000, 34000]
           q2_2027: [20000, 25000, 30000]
@@ -823,7 +859,7 @@ sectors:
           q1_2028: [20000, 26000, 32000]
           q2_2028: [18000, 22000, 26000]
         lr2_clean:
-          q3_2026: [38000, 48000, 58000]
+          q3_2026: [27000, 32000, 38000]
           q4_2026: [24000, 30000, 36000]
           q1_2027: [22000, 28000, 34000]
           q2_2027: [20000, 25000, 30000]
@@ -873,7 +909,7 @@ sectors:
           q1_2028: [9000, 12000, 15000]
           q2_2028: [8000, 10000, 13000]
         lr1_clean:
-          q3_2026: [30000, 38000, 46000]
+          q3_2026: [22000, 26000, 31000]
           q4_2026: [20000, 25000, 30000]
           q1_2027: [18000, 23000, 28000]
           q2_2027: [17000, 21000, 25000]
@@ -882,7 +918,7 @@ sectors:
           q1_2028: [16000, 21000, 26000]
           q2_2028: [15000, 18000, 22000]
         lr2_clean:
-          q3_2026: [30000, 38000, 46000]
+          q3_2026: [22000, 26000, 31000]
           q4_2026: [20000, 25000, 30000]
           q1_2027: [18000, 23000, 28000]
           q2_2027: [17000, 21000, 25000]
@@ -1065,10 +1101,10 @@ sectors:
           q4_2026: [13600, 16000, 18400]
           q1_2027: [13200, 15500, 17800]
           q2_2027: [12300, 14500, 16700]
-          q3_2027: [12300, 14500, 16700]
-          q4_2027: [11900, 14000, 16100]
-          q1_2028: [11500, 13500, 15500]
-          q2_2028: [11050, 13000, 14950]
+          q3_2027: [11300, 13500, 15700]
+          q4_2027: [10900, 13000, 15100]
+          q1_2028: [10500, 12500, 14500]
+          q2_2028: [10050, 12000, 13950]
 
       # ---------------------------------------------------------------------
       # coordinated_slowdown (w=0.15)
@@ -1248,10 +1284,12 @@ data_gaps:
                 (currently extrapolated from Cal-27 shape)
   lng:
     - lng_scenario_weights:
-        status: RESOLVED 2026-06-01. Set B locked - {tight_resurgence 0.10,
-                moderate_tightening 0.15, glut_base 0.55, glut_intensifies 0.20,
-                structural_reset 0.00}. Sector-specific weights replace the
-                crude-inherited placeholder. Rationale in METHODOLOGY §11.3.
+        status: HISTORY — v1 crude-inherited placeholder → Set B v2 lock (2026-06-01) →
+                v3 lock (2026-06-09 morning) → Jun-9-2026 POINT-IN-TIME v4
+                {tight_resurgence 0.25, moderate_tightening 0.25, glut_base 0.38,
+                glut_intensifies 0.12, structural_reset 0.00}. v4 is NOT a permanent
+                lock; revisit when the US response to the Jun-8 helicopter downing
+                resolves. Full rationale in METHODOLOGY §11.3 v4.
         action: revisit if (a) LNG cycle structure shifts materially, (b) better
                 data emerges on energy-transition timing, or (c) the structural
                 overlay (qualitative -5 to -15% on FV per individual view of
