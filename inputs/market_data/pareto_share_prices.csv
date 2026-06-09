@@ -1,0 +1,3835 @@
+report_date,ticker,display_name,currency,price,pnav,fwd_pe
+2024-08-22,AWILCO,Awilco LNG,kr,7.9,0.75,14.2
+2024-08-22,BWLP,BW LPG,kr,162.5,1.02,7.2
+2024-08-22,DHT,DHT Holdings,$,11.1,0.93,5.0
+2024-08-22,DIS,d'Amico International,€,6.3,0.64,7.5
+2024-08-22,ECO,Okeanis Eco Tankers,kr,318.0,1.08,4.4
+2024-08-22,FLNG,Flex LNG,kr,283.0,0.86,11.2
+2024-08-22,GLNG,Golar LNG,$,32.9,0.99,16.0
+2024-08-22,HAFN,Hafnia Ltd.,kr,80.6,0.9,5.2
+2024-08-22,INSW,International Seaways,$,50.2,0.68,5.0
+2024-08-22,LPG,Dorian LPG,$,37.2,0.99,6.9
+2024-08-22,ODFB,Odfjell SE,kr,156.4,0.69,3.7
+2024-08-22,SBLK,Star Bulk Carriers,$,21.4,0.68,5.9
+2024-08-22,SNI,Stolt-Nielsen,kr,410.0,0.72,4.7
+2024-08-22,STNG,Scorpio Tankers,$,70.8,0.73,5.7
+2024-08-22,TNK,Teekay Tankers,$,55.4,0.71,3.9
+2024-08-22,TRMD,TORM,kr,256.0,1.07,5.7
+2024-08-23,AWILCO,Awilco LNG,kr,7.5,0.71,13.4
+2024-08-23,BWLP,BW LPG,kr,163.3,1.01,6.8
+2024-08-23,DHT,DHT Holdings,$,10.8,0.91,4.9
+2024-08-23,DIS,d'Amico International,€,6.2,0.64,7.4
+2024-08-23,ECO,Okeanis Eco Tankers,kr,320.0,1.08,4.4
+2024-08-23,FLNG,Flex LNG,kr,283.0,0.85,11.1
+2024-08-23,GLNG,Golar LNG,$,32.3,0.97,15.8
+2024-08-23,HAFN,Hafnia Ltd.,kr,80.7,0.89,5.2
+2024-08-23,INSW,International Seaways,$,50.0,0.68,4.9
+2024-08-23,LPG,Dorian LPG,$,37.0,0.99,6.9
+2024-08-23,ODFB,Odfjell SE,kr,153.6,0.68,3.6
+2024-08-23,SBLK,Star Bulk Carriers,$,21.2,0.68,5.8
+2024-08-23,SNI,Stolt-Nielsen,kr,411.0,0.72,4.7
+2024-08-23,STNG,Scorpio Tankers,$,70.5,0.73,5.7
+2024-08-23,TNK,Teekay Tankers,$,54.8,0.7,3.8
+2024-08-23,TRMD,TORM,kr,254.0,1.06,5.6
+2024-08-26,AWILCO,Awilco LNG,kr,7.8,0.74,14.0
+2024-08-26,BWLP,BW LPG,kr,174.0,1.09,7.1
+2024-08-26,DHT,DHT Holdings,$,10.7,0.89,4.8
+2024-08-26,DIS,d'Amico International,€,6.3,0.64,7.2
+2024-08-26,ECO,Okeanis Eco Tankers,kr,319.0,1.08,4.4
+2024-08-26,FLNG,Flex LNG,kr,285.0,0.86,11.3
+2024-08-26,GLNG,Golar LNG,$,32.8,0.99,16.1
+2024-08-26,HAFN,Hafnia Ltd.,kr,83.2,0.9,5.4
+2024-08-26,INSW,International Seaways,$,50.9,0.69,5.0
+2024-08-26,LPG,Dorian LPG,$,38.3,1.02,6.8
+2024-08-26,ODFB,Odfjell SE,kr,156.0,0.69,3.7
+2024-08-26,SBLK,Star Bulk Carriers,$,21.2,0.67,5.8
+2024-08-26,SNI,Stolt-Nielsen,kr,413.0,0.73,4.7
+2024-08-26,STNG,Scorpio Tankers,$,70.5,0.71,5.7
+2024-08-26,TNK,Teekay Tankers,$,55.7,0.71,3.9
+2024-08-26,TRMD,TORM,kr,255.0,1.07,5.7
+2024-08-27,AWILCO,Awilco LNG,kr,7.7,0.73,13.8
+2024-08-27,BWLP,BW LPG,kr,169.5,1.06,6.9
+2024-08-27,DHT,DHT Holdings,$,10.8,0.9,4.9
+2024-08-27,DIS,d'Amico International,€,6.3,0.63,7.3
+2024-08-27,ECO,Okeanis Eco Tankers,kr,327.0,1.11,4.5
+2024-08-27,FLNG,Flex LNG,kr,290.0,0.88,11.4
+2024-08-27,GLNG,Golar LNG,$,33.0,0.99,16.1
+2024-08-27,HAFN,Hafnia Ltd.,kr,84.6,0.91,5.4
+2024-08-27,INSW,International Seaways,$,51.1,0.7,5.1
+2024-08-27,LPG,Dorian LPG,$,38.5,1.03,6.8
+2024-08-27,ODFB,Odfjell SE,kr,144.8,0.68,3.4
+2024-08-27,SBLK,Star Bulk Carriers,$,21.6,0.69,5.9
+2024-08-27,SNI,Stolt-Nielsen,kr,414.0,0.73,4.7
+2024-08-27,STNG,Scorpio Tankers,$,71.1,0.72,5.8
+2024-08-27,TNK,Teekay Tankers,$,55.9,0.71,3.9
+2024-08-27,TRMD,TORM,kr,258.0,1.08,5.7
+2024-08-29,AWILCO,Awilco LNG,kr,7.6,0.72,13.7
+2024-08-29,BWLP,BW LPG,kr,161.0,1.01,6.6
+2024-08-29,DHT,DHT Holdings,$,10.6,0.88,4.8
+2024-08-29,DIS,d'Amico International,€,6.1,0.6,7.0
+2024-08-29,ECO,Okeanis Eco Tankers,kr,317.0,1.08,4.4
+2024-08-29,FLNG,Flex LNG,kr,280.0,0.85,11.1
+2024-08-29,GLNG,Golar LNG,$,32.7,0.98,16.0
+2024-08-29,HAFN,Hafnia Ltd.,kr,82.4,0.89,5.5
+2024-08-29,INSW,International Seaways,$,50.6,0.69,5.0
+2024-08-29,LPG,Dorian LPG,$,37.5,1.0,6.6
+2024-08-29,ODFB,Odfjell SE,kr,143.2,0.67,3.3
+2024-08-29,SBLK,Star Bulk Carriers,$,20.6,0.65,5.7
+2024-08-29,SNI,Stolt-Nielsen,kr,407.0,0.72,4.7
+2024-08-29,STNG,Scorpio Tankers,$,70.4,0.71,5.7
+2024-08-29,TNK,Teekay Tankers,$,55.5,0.71,4.4
+2024-08-29,TRMD,TORM,kr,235.0,1.02,5.2
+2024-08-30,AWILCO,Awilco LNG,kr,7.8,0.74,14.0
+2024-08-30,BWLP,BW LPG,kr,161.1,1.01,6.6
+2024-08-30,DHT,DHT Holdings,$,10.6,0.89,4.8
+2024-08-30,DIS,d'Amico International,€,6.2,0.62,7.1
+2024-08-30,ECO,Okeanis Eco Tankers,kr,318.0,1.08,4.4
+2024-08-30,FLNG,Flex LNG,kr,277.0,0.84,11.0
+2024-08-30,GLNG,Golar LNG,$,33.0,0.99,16.1
+2024-08-30,HAFN,Hafnia Ltd.,kr,82.2,0.88,5.4
+2024-08-30,INSW,International Seaways,$,50.7,0.69,5.0
+2024-08-30,LPG,Dorian LPG,$,38.3,1.02,6.7
+2024-08-30,ODFB,Odfjell SE,kr,146.8,0.68,3.4
+2024-08-30,SBLK,Star Bulk Carriers,$,21.3,0.68,5.9
+2024-08-30,SNI,Stolt-Nielsen,kr,410.0,0.72,4.7
+2024-08-30,STNG,Scorpio Tankers,$,70.6,0.71,6.1
+2024-08-30,TNK,Teekay Tankers,$,55.5,0.71,4.4
+2024-08-30,TRMD,TORM,kr,241.0,1.04,5.3
+2024-09-02,AWILCO,Awilco LNG,kr,7.9,0.74,14.0
+2024-09-02,BWLP,BW LPG,kr,166.5,1.03,6.7
+2024-09-02,DHT,DHT Holdings,$,10.8,0.91,4.9
+2024-09-02,DIS,d'Amico International,€,6.3,0.63,7.3
+2024-09-02,ECO,Okeanis Eco Tankers,kr,332.0,1.12,4.5
+2024-09-02,FLNG,Flex LNG,kr,283.0,0.85,11.1
+2024-09-02,GLNG,Golar LNG,$,33.3,1.0,16.3
+2024-09-02,HAFN,Hafnia Ltd.,kr,86.0,0.92,5.6
+2024-09-02,INSW,International Seaways,$,51.8,0.71,5.1
+2024-09-02,LPG,Dorian LPG,$,39.0,1.04,6.9
+2024-09-02,ODFB,Odfjell SE,kr,148.8,0.69,3.4
+2024-09-02,SBLK,Star Bulk Carriers,$,21.4,0.68,5.9
+2024-09-02,SNI,Stolt-Nielsen,kr,423.0,0.74,4.8
+2024-09-02,STNG,Scorpio Tankers,$,71.5,0.72,6.2
+2024-09-02,TNK,Teekay Tankers,$,56.9,0.73,4.5
+2024-09-02,TRMD,TORM,kr,247.0,1.06,5.6
+2024-09-03,AWILCO,Awilco LNG,kr,7.4,0.71,17.3
+2024-09-03,BWLP,BW LPG,kr,162.1,1.01,6.5
+2024-09-03,DHT,DHT Holdings,$,10.8,0.91,4.9
+2024-09-03,DIS,d'Amico International,€,6.2,0.62,7.1
+2024-09-03,ECO,Okeanis Eco Tankers,kr,319.0,1.08,4.3
+2024-09-03,FLNG,Flex LNG,kr,277.0,0.83,10.8
+2024-09-03,GLNG,Golar LNG,$,33.3,1.0,16.3
+2024-09-03,HAFN,Hafnia Ltd.,kr,79.5,0.81,5.2
+2024-09-03,INSW,International Seaways,$,51.8,0.71,5.1
+2024-09-03,LPG,Dorian LPG,$,39.0,1.04,6.9
+2024-09-03,ODFB,Odfjell SE,kr,146.2,0.68,3.4
+2024-09-03,SBLK,Star Bulk Carriers,$,21.4,0.69,5.9
+2024-09-03,SNI,Stolt-Nielsen,kr,412.0,0.72,4.7
+2024-09-03,STNG,Scorpio Tankers,$,71.5,0.72,6.2
+2024-09-03,TNK,Teekay Tankers,$,56.9,0.73,4.5
+2024-09-03,TRMD,TORM,kr,237.0,1.02,5.3
+2024-09-04,AWILCO,Awilco LNG,kr,7.2,0.68,16.7
+2024-09-04,BWLP,BW LPG,kr,159.9,0.98,6.4
+2024-09-04,DHT,DHT Holdings,$,10.4,0.87,4.7
+2024-09-04,DIS,d'Amico International,€,6.0,0.6,6.9
+2024-09-04,ECO,Okeanis Eco Tankers,kr,320.0,1.07,4.3
+2024-09-04,FLNG,Flex LNG,kr,276.0,0.82,10.7
+2024-09-04,GLNG,Golar LNG,$,32.0,0.96,15.7
+2024-09-04,HAFN,Hafnia Ltd.,kr,78.0,0.79,5.0
+2024-09-04,INSW,International Seaways,$,49.9,0.68,4.9
+2024-09-04,LPG,Dorian LPG,$,37.5,1.0,6.6
+2024-09-04,ODFB,Odfjell SE,kr,140.4,0.65,3.2
+2024-09-04,SBLK,Star Bulk Carriers,$,20.6,0.66,5.7
+2024-09-04,SNI,Stolt-Nielsen,kr,403.0,0.71,4.5
+2024-09-04,STNG,Scorpio Tankers,$,68.0,0.69,5.9
+2024-09-04,TNK,Teekay Tankers,$,54.3,0.69,4.3
+2024-09-04,TRMD,TORM,kr,232.0,1.0,5.2
+2024-09-05,AWILCO,Awilco LNG,kr,7.2,0.69,16.8
+2024-09-05,BWLP,BW LPG,kr,160.5,1.0,6.4
+2024-09-05,DHT,DHT Holdings,$,10.3,0.86,4.7
+2024-09-05,DIS,d'Amico International,€,6.0,0.6,6.9
+2024-09-05,ECO,Okeanis Eco Tankers,kr,321.0,1.08,4.4
+2024-09-05,FLNG,Flex LNG,kr,277.0,0.83,10.8
+2024-09-05,GLNG,Golar LNG,$,32.0,0.96,15.6
+2024-09-05,HAFN,Hafnia Ltd.,kr,76.7,0.78,5.0
+2024-09-05,INSW,International Seaways,$,49.8,0.68,4.9
+2024-09-05,LPG,Dorian LPG,$,36.1,0.96,6.4
+2024-09-05,ODFB,Odfjell SE,kr,142.0,0.66,3.3
+2024-09-05,SBLK,Star Bulk Carriers,$,20.6,0.66,5.8
+2024-09-05,SNI,Stolt-Nielsen,kr,393.0,0.69,4.4
+2024-09-05,STNG,Scorpio Tankers,$,68.5,0.69,5.9
+2024-09-05,TNK,Teekay Tankers,$,53.7,0.69,4.3
+2024-09-05,TRMD,TORM,kr,232.0,1.0,5.2
+2024-09-06,AWILCO,Awilco LNG,kr,7.1,0.68,16.6
+2024-09-06,BWLP,BW LPG,kr,157.2,0.97,6.3
+2024-09-06,DHT,DHT Holdings,$,10.4,0.87,4.7
+2024-09-06,DIS,d'Amico International,€,5.9,0.58,6.8
+2024-09-06,ECO,Okeanis Eco Tankers,kr,318.0,1.07,4.3
+2024-09-06,FLNG,Flex LNG,kr,274.0,0.82,10.7
+2024-09-06,GLNG,Golar LNG,$,32.0,0.96,15.7
+2024-09-06,HAFN,Hafnia Ltd.,kr,75.7,0.77,4.9
+2024-09-06,INSW,International Seaways,$,49.6,0.68,4.9
+2024-09-06,LPG,Dorian LPG,$,35.7,0.95,6.3
+2024-09-06,ODFB,Odfjell SE,kr,135.4,0.63,3.1
+2024-09-06,SBLK,Star Bulk Carriers,$,20.7,0.66,5.8
+2024-09-06,SNI,Stolt-Nielsen,kr,387.0,0.68,4.4
+2024-09-06,STNG,Scorpio Tankers,$,68.3,0.69,5.9
+2024-09-06,TNK,Teekay Tankers,$,53.7,0.69,4.3
+2024-09-06,TRMD,TORM,kr,225.0,0.97,5.1
+2024-09-09,AWILCO,Awilco LNG,kr,7.0,0.67,16.2
+2024-09-09,BWLP,BW LPG,kr,158.2,0.98,6.3
+2024-09-09,DHT,DHT Holdings,$,10.5,0.88,4.8
+2024-09-09,DIS,d'Amico International,€,5.8,0.58,6.7
+2024-09-09,ECO,Okeanis Eco Tankers,kr,321.0,1.08,4.4
+2024-09-09,FLNG,Flex LNG,kr,271.0,0.81,10.5
+2024-09-09,GLNG,Golar LNG,$,31.2,0.93,15.2
+2024-09-09,HAFN,Hafnia Ltd.,kr,75.9,0.77,4.9
+2024-09-09,INSW,International Seaways,$,49.9,0.68,4.9
+2024-09-09,LPG,Dorian LPG,$,35.9,0.96,6.3
+2024-09-09,ODFB,Odfjell SE,kr,133.8,0.62,3.0
+2024-09-09,SBLK,Star Bulk Carriers,$,19.9,0.64,5.6
+2024-09-09,SNI,Stolt-Nielsen,kr,391.0,0.69,4.4
+2024-09-09,STNG,Scorpio Tankers,$,67.7,0.68,5.9
+2024-09-09,TNK,Teekay Tankers,$,53.4,0.68,4.3
+2024-09-09,TRMD,TORM,kr,223.0,0.97,5.0
+2024-09-10,AWILCO,Awilco LNG,kr,6.7,0.63,15.6
+2024-09-10,BWLP,BW LPG,kr,153.2,0.97,6.0
+2024-09-10,DHT,DHT Holdings,$,10.3,0.86,5.0
+2024-09-10,DIS,d'Amico International,€,5.9,0.58,6.7
+2024-09-10,ECO,Okeanis Eco Tankers,kr,324.0,1.07,4.4
+2024-09-10,FLNG,Flex LNG,kr,273.0,0.8,10.4
+2024-09-10,GLNG,Golar LNG,$,31.1,0.93,15.2
+2024-09-10,HAFN,Hafnia Ltd.,kr,74.8,0.75,5.3
+2024-09-10,INSW,International Seaways,$,49.4,0.67,5.2
+2024-09-10,LPG,Dorian LPG,$,35.6,0.95,6.3
+2024-09-10,ODFB,Odfjell SE,kr,137.2,0.64,3.1
+2024-09-10,SBLK,Star Bulk Carriers,$,20.5,0.66,5.7
+2024-09-10,SNI,Stolt-Nielsen,kr,388.0,0.68,4.3
+2024-09-10,STNG,Scorpio Tankers,$,68.5,0.69,6.1
+2024-09-10,TNK,Teekay Tankers,$,54.0,0.69,4.3
+2024-09-10,TRMD,TORM,kr,222.0,0.95,5.2
+2024-09-13,AWILCO,Awilco LNG,kr,6.7,0.64,15.6
+2024-09-13,BWLP,BW LPG,kr,156.7,0.99,6.2
+2024-09-13,DHT,DHT Holdings,$,10.9,0.93,5.3
+2024-09-13,DIS,d'Amico International,€,5.9,0.58,6.8
+2024-09-13,ECO,Okeanis Eco Tankers,kr,342.0,1.13,4.7
+2024-09-13,FLNG,Flex LNG,kr,279.0,0.82,10.8
+2024-09-13,GLNG,Golar LNG,$,31.4,0.94,15.3
+2024-09-13,HAFN,Hafnia Ltd.,kr,76.9,0.77,5.5
+2024-09-13,INSW,International Seaways,$,49.1,0.67,5.1
+2024-09-13,LPG,Dorian LPG,$,34.6,0.92,6.1
+2024-09-13,ODFB,Odfjell SE,kr,139.0,0.65,3.2
+2024-09-13,SBLK,Star Bulk Carriers,$,20.7,0.66,5.8
+2024-09-13,SNI,Stolt-Nielsen,kr,390.0,0.69,4.4
+2024-09-13,STNG,Scorpio Tankers,$,67.6,0.71,6.1
+2024-09-13,TNK,Teekay Tankers,$,55.1,0.71,4.4
+2024-09-13,TRMD,TORM,kr,230.0,0.99,5.4
+2024-09-16,AWILCO,Awilco LNG,kr,6.9,0.66,16.1
+2024-09-16,BWLP,BW LPG,kr,152.8,0.98,6.1
+2024-09-16,DHT,DHT Holdings,$,11.0,0.94,5.6
+2024-09-16,DIS,d'Amico International,€,5.9,0.59,6.8
+2024-09-16,ECO,Okeanis Eco Tankers,kr,341.0,1.15,4.7
+2024-09-16,FLNG,Flex LNG,kr,279.0,0.83,11.0
+2024-09-16,GLNG,Golar LNG,$,31.9,0.96,15.7
+2024-09-16,HAFN,Hafnia Ltd.,kr,77.7,0.79,5.7
+2024-09-16,INSW,International Seaways,$,49.3,0.68,5.2
+2024-09-16,LPG,Dorian LPG,$,34.5,0.92,6.1
+2024-09-16,ODFB,Odfjell SE,kr,142.2,0.65,3.3
+2024-09-16,SBLK,Star Bulk Carriers,$,20.8,0.67,5.8
+2024-09-16,SNI,Stolt-Nielsen,kr,394.0,0.69,4.4
+2024-09-16,STNG,Scorpio Tankers,$,68.0,0.71,6.1
+2024-09-16,TNK,Teekay Tankers,$,55.1,0.71,4.4
+2024-09-16,TRMD,TORM,kr,231.0,0.99,5.6
+2024-09-17,AWILCO,Awilco LNG,kr,6.9,0.67,16.3
+2024-09-17,BWLP,BW LPG,kr,154.6,1.0,6.2
+2024-09-17,DHT,DHT Holdings,$,11.2,0.95,5.7
+2024-09-17,DIS,d'Amico International,€,6.0,0.6,7.1
+2024-09-17,ECO,Okeanis Eco Tankers,kr,351.0,1.18,5.2
+2024-09-17,FLNG,Flex LNG,kr,282.0,0.84,11.1
+2024-09-17,GLNG,Golar LNG,$,32.4,0.97,15.9
+2024-09-17,HAFN,Hafnia Ltd.,kr,79.1,0.8,5.9
+2024-09-17,INSW,International Seaways,$,50.6,0.7,5.3
+2024-09-17,LPG,Dorian LPG,$,35.1,0.94,6.2
+2024-09-17,ODFB,Odfjell SE,kr,144.8,0.66,3.4
+2024-09-17,SBLK,Star Bulk Carriers,$,21.2,0.71,5.9
+2024-09-17,SNI,Stolt-Nielsen,kr,392.0,0.69,4.4
+2024-09-17,STNG,Scorpio Tankers,$,68.7,0.72,6.2
+2024-09-17,TNK,Teekay Tankers,$,56.2,0.72,4.5
+2024-09-17,TRMD,TORM,kr,234.0,1.01,5.6
+2024-09-19,AWILCO,Awilco LNG,kr,7.3,0.71,17.3
+2024-09-19,BWLP,BW LPG,kr,156.6,1.01,6.3
+2024-09-19,DHT,DHT Holdings,$,11.2,0.96,5.7
+2024-09-19,DIS,d'Amico International,€,6.2,0.61,7.3
+2024-09-19,ECO,Okeanis Eco Tankers,kr,354.0,1.2,5.2
+2024-09-19,FLNG,Flex LNG,kr,283.0,0.85,11.2
+2024-09-19,GLNG,Golar LNG,$,32.6,0.98,16.0
+2024-09-19,HAFN,Hafnia Ltd.,kr,81.3,0.83,6.0
+2024-09-19,INSW,International Seaways,$,50.6,0.7,5.3
+2024-09-19,LPG,Dorian LPG,$,35.2,0.94,6.2
+2024-09-19,ODFB,Odfjell SE,kr,149.0,0.68,3.5
+2024-09-19,SBLK,Star Bulk Carriers,$,21.0,0.71,5.9
+2024-09-19,SNI,Stolt-Nielsen,kr,399.0,0.71,4.6
+2024-09-19,STNG,Scorpio Tankers,$,69.5,0.73,6.2
+2024-09-19,TNK,Teekay Tankers,$,55.8,0.72,4.5
+2024-09-19,TRMD,TORM,kr,245.0,1.06,5.8
+2024-09-20,AWILCO,Awilco LNG,kr,7.5,0.73,17.7
+2024-09-20,BWLP,BW LPG,kr,153.5,1.0,6.2
+2024-09-20,DHT,DHT Holdings,$,11.3,0.97,5.7
+2024-09-20,DIS,d'Amico International,€,6.1,0.61,7.2
+2024-09-20,ECO,Okeanis Eco Tankers,kr,356.0,1.21,5.3
+2024-09-20,FLNG,Flex LNG,kr,283.0,0.85,11.2
+2024-09-20,GLNG,Golar LNG,$,34.4,1.03,16.9
+2024-09-20,HAFN,Hafnia Ltd.,kr,81.5,0.83,6.1
+2024-09-20,INSW,International Seaways,$,51.8,0.72,5.4
+2024-09-20,LPG,Dorian LPG,$,35.4,0.94,6.2
+2024-09-20,ODFB,Odfjell SE,kr,150.0,0.68,3.6
+2024-09-20,SBLK,Star Bulk Carriers,$,21.8,0.73,6.1
+2024-09-20,SNI,Stolt-Nielsen,kr,400.0,0.71,4.6
+2024-09-20,STNG,Scorpio Tankers,$,70.5,0.73,6.3
+2024-09-20,TNK,Teekay Tankers,$,57.1,0.73,4.6
+2024-09-20,TRMD,TORM,kr,245.0,1.06,5.8
+2024-09-23,AWILCO,Awilco LNG,kr,7.5,0.73,17.9
+2024-09-23,BWLP,BW LPG,kr,148.2,0.96,5.2
+2024-09-23,DHT,DHT Holdings,$,10.8,0.92,5.7
+2024-09-23,DIS,d'Amico International,€,6.0,0.6,7.0
+2024-09-23,ECO,Okeanis Eco Tankers,kr,344.0,1.17,5.1
+2024-09-23,FLNG,Flex LNG,kr,279.0,0.84,11.1
+2024-09-23,GLNG,Golar LNG,$,34.1,1.02,16.8
+2024-09-23,HAFN,Hafnia Ltd.,kr,77.1,0.79,5.7
+2024-09-23,INSW,International Seaways,$,50.2,0.7,5.3
+2024-09-23,LPG,Dorian LPG,$,34.6,0.92,6.1
+2024-09-23,ODFB,Odfjell SE,kr,146.0,0.66,3.5
+2024-09-23,SBLK,Star Bulk Carriers,$,21.6,0.72,6.1
+2024-09-23,SNI,Stolt-Nielsen,kr,394.0,0.7,4.6
+2024-09-23,STNG,Scorpio Tankers,$,68.3,0.71,6.1
+2024-09-23,TNK,Teekay Tankers,$,55.8,0.72,4.5
+2024-09-23,TRMD,TORM,kr,235.0,1.02,5.5
+2024-09-24,AWILCO,Awilco LNG,kr,7.7,0.76,18.4
+2024-09-24,BWLP,BW LPG,kr,149.8,0.98,5.3
+2024-09-24,DHT,DHT Holdings,$,10.8,0.92,5.6
+2024-09-24,DIS,d'Amico International,€,6.0,0.61,7.0
+2024-09-24,ECO,Okeanis Eco Tankers,kr,345.0,1.19,5.1
+2024-09-24,FLNG,Flex LNG,kr,277.0,0.84,11.0
+2024-09-24,GLNG,Golar LNG,$,34.5,1.04,17.0
+2024-09-24,HAFN,Hafnia Ltd.,kr,77.0,0.79,5.7
+2024-09-24,INSW,International Seaways,$,50.7,0.72,5.4
+2024-09-24,LPG,Dorian LPG,$,34.4,0.92,6.1
+2024-09-24,ODFB,Odfjell SE,kr,145.0,0.66,3.5
+2024-09-24,SBLK,Star Bulk Carriers,$,21.7,0.73,6.1
+2024-09-24,SNI,Stolt-Nielsen,kr,391.0,0.7,4.5
+2024-09-24,STNG,Scorpio Tankers,$,69.7,0.71,6.3
+2024-09-24,TNK,Teekay Tankers,$,56.1,0.74,4.5
+2024-09-24,TRMD,TORM,kr,234.0,1.04,5.5
+2024-09-25,AWILCO,Awilco LNG,kr,7.3,0.72,17.6
+2024-09-25,BWLP,BW LPG,kr,151.8,1.0,5.4
+2024-09-25,DHT,DHT Holdings,$,11.0,0.94,5.8
+2024-09-25,DIS,d'Amico International,€,6.0,0.61,7.0
+2024-09-25,ECO,Okeanis Eco Tankers,kr,346.0,1.2,5.2
+2024-09-25,FLNG,Flex LNG,kr,276.0,0.84,11.1
+2024-09-25,GLNG,Golar LNG,$,35.7,1.07,17.5
+2024-09-25,HAFN,Hafnia Ltd.,kr,78.0,0.81,5.8
+2024-09-25,INSW,International Seaways,$,51.7,0.73,5.5
+2024-09-25,LPG,Dorian LPG,$,34.9,0.93,6.2
+2024-09-25,ODFB,Odfjell SE,kr,143.2,0.65,3.5
+2024-09-25,SBLK,Star Bulk Carriers,$,22.7,0.76,6.4
+2024-09-25,SNI,Stolt-Nielsen,kr,390.0,0.7,4.6
+2024-09-25,STNG,Scorpio Tankers,$,71.0,0.72,6.4
+2024-09-25,TNK,Teekay Tankers,$,57.4,0.76,4.6
+2024-09-25,TRMD,TORM,kr,235.0,1.05,5.6
+2024-09-26,AWILCO,Awilco LNG,kr,7.3,0.72,17.1
+2024-09-26,BWLP,BW LPG,kr,151.1,1.0,5.3
+2024-09-26,DHT,DHT Holdings,$,10.6,0.94,5.5
+2024-09-26,DIS,d'Amico International,€,5.9,0.6,7.0
+2024-09-26,ECO,Okeanis Eco Tankers,kr,341.0,1.2,5.1
+2024-09-26,FLNG,Flex LNG,kr,273.0,0.84,10.8
+2024-09-26,GLNG,Golar LNG,$,34.9,1.07,17.1
+2024-09-26,HAFN,Hafnia Ltd.,kr,76.0,0.81,5.6
+2024-09-26,INSW,International Seaways,$,50.6,0.73,5.4
+2024-09-26,LPG,Dorian LPG,$,33.1,0.93,5.7
+2024-09-26,ODFB,Odfjell SE,kr,144.2,0.65,3.4
+2024-09-26,SBLK,Star Bulk Carriers,$,22.8,0.77,6.4
+2024-09-26,SNI,Stolt-Nielsen,kr,387.0,0.7,4.5
+2024-09-26,STNG,Scorpio Tankers,$,69.5,0.72,6.2
+2024-09-26,TNK,Teekay Tankers,$,56.3,0.76,4.5
+2024-09-26,TRMD,TORM,kr,233.0,1.05,5.5
+2024-09-30,AWILCO,Awilco LNG,kr,7.1,0.7,17.0
+2024-09-30,BWLP,BW LPG,kr,151.0,0.99,5.3
+2024-09-30,DHT,DHT Holdings,$,11.1,0.94,5.8
+2024-09-30,DIS,d'Amico International,€,5.8,0.6,6.9
+2024-09-30,ECO,Okeanis Eco Tankers,kr,345.0,1.19,5.1
+2024-09-30,FLNG,Flex LNG,kr,275.0,0.83,11.0
+2024-09-30,GLNG,Golar LNG,$,37.5,1.13,18.4
+2024-09-30,HAFN,Hafnia Ltd.,kr,75.4,0.78,5.6
+2024-09-30,INSW,International Seaways,$,51.8,0.73,5.5
+2024-09-30,LPG,Dorian LPG,$,34.0,0.91,5.9
+2024-09-30,ODFB,Odfjell SE,kr,142.0,0.65,3.4
+2024-09-30,SBLK,Star Bulk Carriers,$,23.5,0.79,6.6
+2024-09-30,SNI,Stolt-Nielsen,kr,391.0,0.7,4.6
+2024-09-30,STNG,Scorpio Tankers,$,71.7,0.73,6.4
+2024-09-30,TNK,Teekay Tankers,$,58.3,0.77,4.8
+2024-09-30,TRMD,TORM,kr,227.0,1.01,5.4
+2024-10-01,AWILCO,Awilco LNG,kr,7.5,0.73,17.7
+2024-10-01,BWLP,BW LPG,kr,150.5,0.98,5.3
+2024-10-01,DHT,DHT Holdings,$,11.0,0.94,5.8
+2024-10-01,DIS,d'Amico International,€,5.7,0.58,7.1
+2024-10-01,ECO,Okeanis Eco Tankers,kr,346.0,1.19,5.1
+2024-10-01,FLNG,Flex LNG,kr,272.0,0.82,10.8
+2024-10-01,GLNG,Golar LNG,$,36.8,1.1,18.1
+2024-10-01,HAFN,Hafnia Ltd.,kr,75.1,0.77,5.7
+2024-10-01,INSW,International Seaways,$,51.6,0.73,5.5
+2024-10-01,LPG,Dorian LPG,$,34.4,0.92,5.9
+2024-10-01,ODFB,Odfjell SE,kr,141.8,0.64,3.4
+2024-10-01,SBLK,Star Bulk Carriers,$,23.7,0.79,6.6
+2024-10-01,SNI,Stolt-Nielsen,kr,390.0,0.7,4.6
+2024-10-01,STNG,Scorpio Tankers,$,71.3,0.72,6.5
+2024-10-01,TNK,Teekay Tankers,$,58.3,0.77,4.8
+2024-10-01,TRMD,TORM,kr,228.0,1.01,5.5
+2024-10-02,AWILCO,Awilco LNG,kr,7.3,0.71,17.2
+2024-10-02,BWLP,BW LPG,kr,158.3,1.02,5.8
+2024-10-02,DHT,DHT Holdings,$,11.2,0.96,5.9
+2024-10-02,DIS,d'Amico International,€,5.8,0.59,7.2
+2024-10-02,ECO,Okeanis Eco Tankers,kr,347.0,1.18,5.1
+2024-10-02,FLNG,Flex LNG,kr,271.0,0.81,10.7
+2024-10-02,GLNG,Golar LNG,$,38.3,1.15,18.8
+2024-10-02,HAFN,Hafnia Ltd.,kr,75.8,0.79,5.7
+2024-10-02,INSW,International Seaways,$,51.4,0.73,5.5
+2024-10-02,LPG,Dorian LPG,$,35.9,0.96,6.2
+2024-10-02,ODFB,Odfjell SE,kr,141.2,0.64,3.4
+2024-10-02,SBLK,Star Bulk Carriers,$,23.6,0.79,6.6
+2024-10-02,SNI,Stolt-Nielsen,kr,388.0,0.7,4.5
+2024-10-02,STNG,Scorpio Tankers,$,71.3,0.72,6.5
+2024-10-02,TNK,Teekay Tankers,$,58.3,0.77,4.8
+2024-10-02,TRMD,TORM,kr,219.0,0.97,5.3
+2024-10-03,AWILCO,Awilco LNG,kr,7.5,0.72,17.6
+2024-10-03,BWLP,BW LPG,kr,167.7,1.09,6.2
+2024-10-03,DHT,DHT Holdings,$,11.5,0.98,6.0
+2024-10-03,DIS,d'Amico International,€,5.8,0.59,7.2
+2024-10-03,ECO,Okeanis Eco Tankers,kr,360.0,1.23,5.3
+2024-10-03,FLNG,Flex LNG,kr,277.0,0.83,10.9
+2024-10-03,GLNG,Golar LNG,$,38.9,1.17,19.1
+2024-10-03,HAFN,Hafnia Ltd.,kr,78.6,0.81,6.0
+2024-10-03,INSW,International Seaways,$,53.0,0.75,5.7
+2024-10-03,LPG,Dorian LPG,$,36.4,0.97,6.3
+2024-10-03,ODFB,Odfjell SE,kr,141.6,0.64,3.4
+2024-10-03,SBLK,Star Bulk Carriers,$,22.9,0.77,6.4
+2024-10-03,SNI,Stolt-Nielsen,kr,362.0,0.56,4.4
+2024-10-03,STNG,Scorpio Tankers,$,73.3,0.74,6.7
+2024-10-03,TNK,Teekay Tankers,$,59.7,0.79,4.9
+2024-10-03,TRMD,TORM,kr,224.0,0.99,5.4
+2024-10-07,AWILCO,Awilco LNG,kr,7.3,0.71,17.2
+2024-10-07,BWLP,BW LPG,kr,167.7,1.08,6.1
+2024-10-07,DHT,DHT Holdings,$,11.9,1.02,6.2
+2024-10-07,DIS,d'Amico International,€,6.1,0.61,7.5
+2024-10-07,ECO,Okeanis Eco Tankers,kr,371.0,1.26,5.5
+2024-10-07,FLNG,Flex LNG,kr,283.0,0.84,11.1
+2024-10-07,GLNG,Golar LNG,$,38.8,1.16,19.0
+2024-10-07,HAFN,Hafnia Ltd.,kr,79.7,0.82,6.0
+2024-10-07,INSW,International Seaways,$,53.5,0.76,5.7
+2024-10-07,LPG,Dorian LPG,$,35.8,0.96,6.2
+2024-10-07,ODFB,Odfjell SE,kr,148.4,0.67,3.5
+2024-10-07,SBLK,Star Bulk Carriers,$,22.7,0.76,6.4
+2024-10-07,SNI,Stolt-Nielsen,kr,373.0,0.58,4.8
+2024-10-07,STNG,Scorpio Tankers,$,72.9,0.74,6.7
+2024-10-07,TNK,Teekay Tankers,$,61.1,0.8,5.0
+2024-10-07,TRMD,TORM,kr,224.0,0.99,5.3
+2024-10-08,AWILCO,Awilco LNG,kr,7.4,0.71,17.2
+2024-10-08,BWLP,BW LPG,kr,169.5,1.08,6.2
+2024-10-08,DHT,DHT Holdings,$,12.1,1.02,6.3
+2024-10-08,DIS,d'Amico International,€,6.1,0.61,7.5
+2024-10-08,ECO,Okeanis Eco Tankers,kr,375.0,1.26,5.5
+2024-10-08,FLNG,Flex LNG,kr,286.0,0.84,11.2
+2024-10-08,GLNG,Golar LNG,$,38.9,1.16,19.1
+2024-10-08,HAFN,Hafnia Ltd.,kr,78.4,0.82,5.9
+2024-10-08,INSW,International Seaways,$,54.1,0.76,5.8
+2024-10-08,LPG,Dorian LPG,$,35.9,0.96,6.2
+2024-10-08,ODFB,Odfjell SE,kr,148.2,0.67,3.5
+2024-10-08,SBLK,Star Bulk Carriers,$,22.5,0.76,6.3
+2024-10-08,SNI,Stolt-Nielsen,kr,376.0,0.58,4.9
+2024-10-08,STNG,Scorpio Tankers,$,73.1,0.74,6.7
+2024-10-08,TNK,Teekay Tankers,$,62.1,0.8,5.1
+2024-10-08,TRMD,TORM,kr,223.0,0.99,5.3
+2024-10-09,AWILCO,Awilco LNG,kr,7.4,0.71,17.3
+2024-10-09,BWLP,BW LPG,kr,165.0,1.06,6.0
+2024-10-09,DHT,DHT Holdings,$,11.9,1.02,6.2
+2024-10-09,DIS,d'Amico International,€,6.1,0.61,7.5
+2024-10-09,ECO,Okeanis Eco Tankers,kr,368.0,1.24,5.4
+2024-10-09,FLNG,Flex LNG,kr,283.0,0.84,11.0
+2024-10-09,GLNG,Golar LNG,$,38.6,1.16,19.0
+2024-10-09,HAFN,Hafnia Ltd.,kr,77.5,0.8,5.8
+2024-10-09,INSW,International Seaways,$,53.1,0.75,5.7
+2024-10-09,LPG,Dorian LPG,$,35.5,0.95,6.7
+2024-10-09,ODFB,Odfjell SE,kr,145.6,0.67,3.4
+2024-10-09,SBLK,Star Bulk Carriers,$,22.0,0.74,6.1
+2024-10-09,SNI,Stolt-Nielsen,kr,362.0,0.56,4.7
+2024-10-09,STNG,Scorpio Tankers,$,72.8,0.74,6.7
+2024-10-09,TNK,Teekay Tankers,$,60.8,0.8,5.0
+2024-10-09,TRMD,TORM,kr,218.0,0.96,5.2
+2024-10-10,AWILCO,Awilco LNG,kr,7.4,0.7,17.2
+2024-10-10,BWLP,BW LPG,kr,163.5,1.04,5.9
+2024-10-10,DHT,DHT Holdings,$,11.6,0.99,6.1
+2024-10-10,DIS,d'Amico International,€,6.0,0.6,7.3
+2024-10-10,ECO,Okeanis Eco Tankers,kr,370.0,1.24,5.4
+2024-10-10,FLNG,Flex LNG,kr,283.0,0.83,11.0
+2024-10-10,GLNG,Golar LNG,$,38.2,1.15,18.8
+2024-10-10,HAFN,Hafnia Ltd.,kr,78.8,0.8,5.9
+2024-10-10,INSW,International Seaways,$,51.8,0.74,5.5
+2024-10-10,LPG,Dorian LPG,$,34.7,0.93,6.5
+2024-10-10,ODFB,Odfjell SE,kr,146.2,0.67,3.4
+2024-10-10,SBLK,Star Bulk Carriers,$,21.4,0.72,6.0
+2024-10-10,SNI,Stolt-Nielsen,kr,357.0,0.55,4.6
+2024-10-10,STNG,Scorpio Tankers,$,70.9,0.72,6.5
+2024-10-10,TNK,Teekay Tankers,$,59.3,0.78,4.9
+2024-10-10,TRMD,TORM,kr,218.0,0.96,5.2
+2024-10-14,AWILCO,Awilco LNG,kr,7.4,0.71,17.3
+2024-10-14,BWLP,BW LPG,kr,164.2,1.03,6.0
+2024-10-14,DHT,DHT Holdings,$,11.7,1.0,6.1
+2024-10-14,DIS,d'Amico International,€,5.9,0.59,7.2
+2024-10-14,ECO,Okeanis Eco Tankers,kr,368.0,1.24,5.4
+2024-10-14,FLNG,Flex LNG,kr,280.0,0.83,10.9
+2024-10-14,GLNG,Golar LNG,$,39.0,1.17,19.2
+2024-10-14,HAFN,Hafnia Ltd.,kr,78.4,0.81,5.9
+2024-10-14,INSW,International Seaways,$,51.9,0.74,5.6
+2024-10-14,LPG,Dorian LPG,$,35.3,0.94,6.6
+2024-10-14,ODFB,Odfjell SE,kr,147.0,0.68,3.5
+2024-10-14,SBLK,Star Bulk Carriers,$,21.1,0.71,5.9
+2024-10-14,SNI,Stolt-Nielsen,kr,358.0,0.56,4.7
+2024-10-14,STNG,Scorpio Tankers,$,70.9,0.72,6.5
+2024-10-14,TNK,Teekay Tankers,$,59.2,0.78,4.9
+2024-10-14,TRMD,TORM,kr,216.0,0.95,5.1
+2024-10-18,AWILCO,Awilco LNG,kr,7.2,0.68,16.6
+2024-10-18,BWLP,BW LPG,kr,156.0,0.97,5.6
+2024-10-18,DHT,DHT Holdings,$,11.3,0.97,6.1
+2024-10-18,DIS,d'Amico International,€,5.6,0.56,6.8
+2024-10-18,ECO,Okeanis Eco Tankers,kr,349.0,1.16,5.5
+2024-10-18,FLNG,Flex LNG,kr,279.0,0.81,10.7
+2024-10-18,GLNG,Golar LNG,$,38.3,1.15,18.9
+2024-10-18,HAFN,Hafnia Ltd.,kr,72.7,0.75,5.4
+2024-10-18,INSW,International Seaways,$,49.1,0.7,5.2
+2024-10-18,LPG,Dorian LPG,$,33.0,0.88,6.2
+2024-10-18,ODFB,Odfjell SE,kr,137.6,0.63,3.2
+2024-10-18,SBLK,Star Bulk Carriers,$,20.2,0.67,5.7
+2024-10-18,SNI,Stolt-Nielsen,kr,340.0,0.53,4.4
+2024-10-18,STNG,Scorpio Tankers,$,66.2,0.7,6.1
+2024-10-18,TNK,Teekay Tankers,$,55.4,0.76,4.5
+2024-10-18,TRMD,TORM,kr,207.0,0.9,4.9
+2024-10-21,AWILCO,Awilco LNG,kr,7.2,0.68,16.5
+2024-10-21,BWLP,BW LPG,kr,154.0,0.96,5.5
+2024-10-21,DHT,DHT Holdings,$,11.4,0.99,6.1
+2024-10-21,DIS,d'Amico International,€,5.6,0.56,6.9
+2024-10-21,ECO,Okeanis Eco Tankers,kr,348.0,1.2,6.6
+2024-10-21,FLNG,Flex LNG,kr,279.0,0.81,10.6
+2024-10-21,GLNG,Golar LNG,$,37.8,1.13,18.6
+2024-10-21,HAFN,Hafnia Ltd.,kr,72.2,0.76,5.3
+2024-10-21,INSW,International Seaways,$,50.0,0.73,5.3
+2024-10-21,LPG,Dorian LPG,$,32.8,0.87,6.2
+2024-10-21,ODFB,Odfjell SE,kr,135.8,0.63,3.1
+2024-10-21,SBLK,Star Bulk Carriers,$,20.4,0.67,5.7
+2024-10-21,SNI,Stolt-Nielsen,kr,341.0,0.53,4.3
+2024-10-21,STNG,Scorpio Tankers,$,67.0,0.72,6.2
+2024-10-21,TNK,Teekay Tankers,$,55.6,0.78,4.6
+2024-10-21,TRMD,TORM,kr,204.0,0.95,4.8
+2024-10-22,AWILCO,Awilco LNG,kr,7.0,0.66,16.0
+2024-10-22,BWLP,BW LPG,kr,156.8,0.97,5.6
+2024-10-22,DHT,DHT Holdings,$,11.2,0.98,6.0
+2024-10-22,DIS,d'Amico International,€,5.6,0.6,6.8
+2024-10-22,ECO,Okeanis Eco Tankers,kr,346.0,1.2,6.6
+2024-10-22,FLNG,Flex LNG,kr,277.0,0.8,10.5
+2024-10-22,GLNG,Golar LNG,$,37.5,1.12,18.4
+2024-10-22,HAFN,Hafnia Ltd.,kr,71.7,0.76,5.3
+2024-10-22,INSW,International Seaways,$,49.5,0.73,5.3
+2024-10-22,LPG,Dorian LPG,$,32.8,0.88,6.2
+2024-10-22,ODFB,Odfjell SE,kr,136.8,0.63,3.2
+2024-10-22,SBLK,Star Bulk Carriers,$,20.1,0.68,5.7
+2024-10-22,SNI,Stolt-Nielsen,kr,343.0,0.53,4.4
+2024-10-22,STNG,Scorpio Tankers,$,66.6,0.72,6.1
+2024-10-22,TNK,Teekay Tankers,$,54.9,0.77,4.5
+2024-10-22,TRMD,TORM,kr,204.0,0.95,4.8
+2024-10-23,AWILCO,Awilco LNG,kr,6.7,0.64,15.4
+2024-10-23,BWLP,BW LPG,kr,155.0,0.96,5.5
+2024-10-23,DHT,DHT Holdings,$,10.9,0.95,6.0
+2024-10-23,DIS,d'Amico International,€,5.7,0.6,7.3
+2024-10-23,ECO,Okeanis Eco Tankers,kr,340.0,1.18,6.4
+2024-10-23,FLNG,Flex LNG,kr,276.0,0.8,10.5
+2024-10-23,GLNG,Golar LNG,$,37.0,1.11,18.2
+2024-10-23,HAFN,Hafnia Ltd.,kr,71.4,0.76,5.4
+2024-10-23,INSW,International Seaways,$,48.0,0.7,5.3
+2024-10-23,LPG,Dorian LPG,$,31.7,0.85,6.0
+2024-10-23,ODFB,Odfjell SE,kr,139.2,0.64,3.2
+2024-10-23,SBLK,Star Bulk Carriers,$,19.9,0.68,6.2
+2024-10-23,SNI,Stolt-Nielsen,kr,342.0,0.53,4.4
+2024-10-23,STNG,Scorpio Tankers,$,64.8,0.71,6.4
+2024-10-23,TNK,Teekay Tankers,$,53.3,0.74,4.6
+2024-10-23,TRMD,TORM,kr,204.0,0.96,4.9
+2024-10-24,AWILCO,Awilco LNG,kr,6.6,0.62,15.1
+2024-10-24,BWLP,BW LPG,kr,146.4,0.9,5.2
+2024-10-24,DHT,DHT Holdings,$,10.4,0.9,5.8
+2024-10-24,DIS,d'Amico International,€,5.3,0.6,6.8
+2024-10-24,ECO,Okeanis Eco Tankers,kr,333.0,1.14,6.3
+2024-10-24,FLNG,Flex LNG,kr,273.0,0.79,10.3
+2024-10-24,GLNG,Golar LNG,$,36.9,1.11,18.1
+2024-10-24,HAFN,Hafnia Ltd.,kr,68.8,0.73,5.2
+2024-10-24,INSW,International Seaways,$,45.1,0.66,4.9
+2024-10-24,LPG,Dorian LPG,$,30.2,0.81,5.7
+2024-10-24,ODFB,Odfjell SE,kr,134.4,0.62,3.2
+2024-10-24,SBLK,Star Bulk Carriers,$,19.2,0.68,6.0
+2024-10-24,SNI,Stolt-Nielsen,kr,332.0,0.51,4.2
+2024-10-24,STNG,Scorpio Tankers,$,61.6,0.67,6.1
+2024-10-24,TNK,Teekay Tankers,$,50.1,0.7,4.3
+2024-10-24,TRMD,TORM,kr,192.0,0.9,4.8
+2024-10-25,AWILCO,Awilco LNG,kr,6.4,0.6,14.6
+2024-10-25,BWLP,BW LPG,kr,144.3,0.89,5.1
+2024-10-25,DHT,DHT Holdings,$,10.5,0.92,5.8
+2024-10-25,DIS,d'Amico International,€,5.3,0.6,6.8
+2024-10-25,ECO,Okeanis Eco Tankers,kr,317.0,1.09,6.0
+2024-10-25,FLNG,Flex LNG,kr,266.0,0.77,10.2
+2024-10-25,GLNG,Golar LNG,$,37.5,1.13,18.7
+2024-10-25,HAFN,Hafnia Ltd.,kr,68.0,0.72,5.2
+2024-10-25,INSW,International Seaways,$,45.0,0.66,5.1
+2024-10-25,LPG,Dorian LPG,$,30.4,0.81,5.7
+2024-10-25,ODFB,Odfjell SE,kr,133.0,0.61,3.1
+2024-10-25,SBLK,Star Bulk Carriers,$,19.2,0.68,6.0
+2024-10-25,SNI,Stolt-Nielsen,kr,327.0,0.51,4.3
+2024-10-25,STNG,Scorpio Tankers,$,61.3,0.67,6.1
+2024-10-25,TNK,Teekay Tankers,$,49.7,0.69,4.3
+2024-10-25,TRMD,TORM,kr,186.0,0.88,4.7
+2024-10-28,AWILCO,Awilco LNG,kr,6.2,0.59,14.2
+2024-10-28,BWLP,BW LPG,kr,147.9,0.92,5.2
+2024-10-28,DHT,DHT Holdings,$,10.6,0.92,5.9
+2024-10-28,DIS,d'Amico International,€,5.3,0.6,6.8
+2024-10-28,ECO,Okeanis Eco Tankers,kr,315.0,1.09,5.9
+2024-10-28,FLNG,Flex LNG,kr,270.0,0.79,10.2
+2024-10-28,GLNG,Golar LNG,$,37.6,1.13,18.7
+2024-10-28,HAFN,Hafnia Ltd.,kr,68.1,0.73,5.2
+2024-10-28,INSW,International Seaways,$,45.4,0.67,5.1
+2024-10-28,LPG,Dorian LPG,$,31.0,0.87,5.8
+2024-10-28,ODFB,Odfjell SE,kr,134.0,0.62,3.1
+2024-10-28,SBLK,Star Bulk Carriers,$,19.4,0.68,6.0
+2024-10-28,SNI,Stolt-Nielsen,kr,333.0,0.52,4.4
+2024-10-28,STNG,Scorpio Tankers,$,62.0,0.68,6.1
+2024-10-28,TNK,Teekay Tankers,$,50.0,0.7,4.3
+2024-10-28,TRMD,TORM,kr,188.0,0.89,4.7
+2024-10-29,AWILCO,Awilco LNG,kr,6.2,0.59,14.1
+2024-10-29,BWLP,BW LPG,kr,145.7,0.9,5.2
+2024-10-29,DHT,DHT Holdings,$,10.6,0.92,6.0
+2024-10-29,DIS,d'Amico International,€,5.2,0.6,6.7
+2024-10-29,ECO,Okeanis Eco Tankers,kr,308.0,1.06,5.8
+2024-10-29,FLNG,Flex LNG,kr,270.0,0.78,10.2
+2024-10-29,GLNG,Golar LNG,$,37.1,1.11,18.5
+2024-10-29,HAFN,Hafnia Ltd.,kr,66.4,0.7,5.0
+2024-10-29,INSW,International Seaways,$,44.7,0.66,5.0
+2024-10-29,LPG,Dorian LPG,$,30.8,0.86,5.8
+2024-10-29,ODFB,Odfjell SE,kr,132.4,0.61,3.1
+2024-10-29,SBLK,Star Bulk Carriers,$,19.0,0.68,5.9
+2024-10-29,SNI,Stolt-Nielsen,kr,323.0,0.5,4.2
+2024-10-29,STNG,Scorpio Tankers,$,61.0,0.67,6.3
+2024-10-29,TNK,Teekay Tankers,$,49.5,0.69,4.5
+2024-10-29,TRMD,TORM,kr,184.0,0.87,4.9
+2024-10-31,AWILCO,Awilco LNG,kr,6.1,0.58,13.9
+2024-10-31,BWLP,BW LPG,kr,140.3,0.87,5.0
+2024-10-31,DHT,DHT Holdings,$,10.3,0.9,5.8
+2024-10-31,DIS,d'Amico International,€,5.1,0.6,6.6
+2024-10-31,ECO,Okeanis Eco Tankers,kr,296.0,1.02,5.6
+2024-10-31,FLNG,Flex LNG,kr,265.0,0.77,10.1
+2024-10-31,GLNG,Golar LNG,$,36.7,1.1,18.5
+2024-10-31,HAFN,Hafnia Ltd.,kr,64.0,0.68,4.9
+2024-10-31,INSW,International Seaways,$,43.3,0.64,4.9
+2024-10-31,LPG,Dorian LPG,$,29.6,0.83,5.6
+2024-10-31,ODFB,Odfjell SE,kr,127.4,0.58,3.0
+2024-10-31,SBLK,Star Bulk Carriers,$,19.2,0.68,5.9
+2024-10-31,SNI,Stolt-Nielsen,kr,311.0,0.48,4.1
+2024-10-31,STNG,Scorpio Tankers,$,58.1,0.62,6.1
+2024-10-31,TNK,Teekay Tankers,$,47.9,0.67,4.3
+2024-10-31,TRMD,TORM,kr,179.0,0.85,4.8
+2024-11-01,AWILCO,Awilco LNG,kr,6.1,0.58,14.0
+2024-11-01,BWLP,BW LPG,kr,141.5,0.87,5.0
+2024-11-01,DHT,DHT Holdings,$,10.3,0.9,5.8
+2024-11-01,DIS,d'Amico International,€,4.9,0.6,6.4
+2024-11-01,ECO,Okeanis Eco Tankers,kr,290.0,1.0,5.5
+2024-11-01,FLNG,Flex LNG,kr,269.0,0.77,10.2
+2024-11-01,GLNG,Golar LNG,$,36.3,1.09,18.3
+2024-11-01,HAFN,Hafnia Ltd.,kr,64.0,0.68,4.9
+2024-11-01,INSW,International Seaways,$,43.5,0.64,5.3
+2024-11-01,LPG,Dorian LPG,$,28.9,0.81,5.4
+2024-11-01,ODFB,Odfjell SE,kr,125.8,0.63,2.9
+2024-11-01,SBLK,Star Bulk Carriers,$,19.1,0.68,5.9
+2024-11-01,SNI,Stolt-Nielsen,kr,313.0,0.49,4.1
+2024-11-01,STNG,Scorpio Tankers,$,58.3,0.62,6.1
+2024-11-01,TNK,Teekay Tankers,$,47.7,0.64,4.3
+2024-11-01,TRMD,TORM,kr,179.0,0.85,4.7
+2024-11-05,AWILCO,Awilco LNG,kr,6.2,0.59,14.0
+2024-11-05,AWILCO,Awilco LNG,kr,6.3,0.61,14.2
+2024-11-05,BWLP,BW LPG,kr,141.0,0.88,5.0
+2024-11-05,BWLP,BW LPG,kr,138.2,0.87,4.9
+2024-11-05,DHT,DHT Holdings,$,10.3,0.9,5.8
+2024-11-05,DHT,DHT Holdings,$,10.1,0.88,5.7
+2024-11-05,DIS,d'Amico International,€,5.0,0.6,6.6
+2024-11-05,DIS,d'Amico International,€,4.9,0.6,6.4
+2024-11-05,ECO,Okeanis Eco Tankers,kr,295.0,1.01,5.5
+2024-11-05,ECO,Okeanis Eco Tankers,kr,281.0,0.97,5.3
+2024-11-05,FLNG,Flex LNG,kr,270.0,0.78,10.1
+2024-11-05,FLNG,Flex LNG,kr,261.0,0.75,9.8
+2024-11-05,GLNG,Golar LNG,$,35.9,1.08,18.1
+2024-11-05,GLNG,Golar LNG,$,35.6,1.07,17.9
+2024-11-05,HAFN,Hafnia Ltd.,kr,64.3,0.68,4.9
+2024-11-05,HAFN,Hafnia Ltd.,kr,62.2,0.66,4.7
+2024-11-05,INSW,International Seaways,$,43.6,0.64,5.3
+2024-11-05,INSW,International Seaways,$,43.2,0.63,5.3
+2024-11-05,LPG,Dorian LPG,$,29.3,0.82,5.5
+2024-11-05,LPG,Dorian LPG,$,28.8,0.81,5.7
+2024-11-05,ODFB,Odfjell SE,kr,128.0,0.64,3.0
+2024-11-05,ODFB,Odfjell SE,kr,122.4,0.61,2.9
+2024-11-05,SBLK,Star Bulk Carriers,$,19.0,0.68,5.9
+2024-11-05,SBLK,Star Bulk Carriers,$,19.1,0.68,5.9
+2024-11-05,SNI,Stolt-Nielsen,kr,315.0,0.49,4.1
+2024-11-05,SNI,Stolt-Nielsen,kr,307.0,0.48,4.0
+2024-11-05,STNG,Scorpio Tankers,$,58.4,0.63,6.1
+2024-11-05,STNG,Scorpio Tankers,$,57.9,0.62,6.1
+2024-11-05,TNK,Teekay Tankers,$,46.7,0.64,4.2
+2024-11-05,TNK,Teekay Tankers,$,46.6,0.64,4.2
+2024-11-05,TRMD,TORM,kr,179.0,0.85,4.8
+2024-11-05,TRMD,TORM,kr,174.0,0.83,4.6
+2024-11-06,AWILCO,Awilco LNG,kr,6.2,0.6,13.9
+2024-11-06,BWLP,BW LPG,kr,139.7,0.75,4.9
+2024-11-06,DHT,DHT Holdings,$,10.0,0.87,5.7
+2024-11-06,DIS,d'Amico International,€,4.8,0.6,6.3
+2024-11-06,ECO,Okeanis Eco Tankers,kr,282.0,0.97,5.3
+2024-11-06,FLNG,Flex LNG,kr,251.0,0.73,9.3
+2024-11-06,GLNG,Golar LNG,$,36.5,1.09,18.4
+2024-11-06,HAFN,Hafnia Ltd.,kr,62.1,0.66,4.7
+2024-11-06,INSW,International Seaways,$,43.4,0.64,5.3
+2024-11-06,LPG,Dorian LPG,$,27.3,0.77,5.4
+2024-11-06,ODFB,Odfjell SE,kr,123.8,0.61,2.9
+2024-11-06,SBLK,Star Bulk Carriers,$,19.6,0.68,6.1
+2024-11-06,SNI,Stolt-Nielsen,kr,304.0,0.47,3.9
+2024-11-06,STNG,Scorpio Tankers,$,57.5,0.62,6.1
+2024-11-06,TNK,Teekay Tankers,$,45.8,0.63,4.1
+2024-11-06,TRMD,TORM,kr,171.0,0.81,4.5
+2024-11-07,AWILCO,Awilco LNG,kr,6.0,0.6,13.6
+2024-11-07,BWLP,BW LPG,kr,139.3,0.75,4.9
+2024-11-07,DHT,DHT Holdings,$,10.4,0.87,5.9
+2024-11-07,DIS,d'Amico International,€,4.9,0.6,6.4
+2024-11-07,ECO,Okeanis Eco Tankers,kr,278.0,0.97,5.2
+2024-11-07,FLNG,Flex LNG,kr,260.0,0.73,9.8
+2024-11-07,GLNG,Golar LNG,$,38.2,1.09,19.2
+2024-11-07,HAFN,Hafnia Ltd.,kr,60.5,0.66,4.6
+2024-11-07,INSW,International Seaways,$,44.8,0.64,5.4
+2024-11-07,LPG,Dorian LPG,$,28.2,0.77,5.6
+2024-11-07,ODFB,Odfjell SE,kr,110.4,0.61,2.9
+2024-11-07,SBLK,Star Bulk Carriers,$,19.6,0.68,6.1
+2024-11-07,SNI,Stolt-Nielsen,kr,295.0,0.47,3.9
+2024-11-07,STNG,Scorpio Tankers,$,56.5,0.62,5.9
+2024-11-07,TNK,Teekay Tankers,$,46.7,0.63,4.2
+2024-11-07,TRMD,TORM,kr,171.0,0.81,4.5
+2024-11-08,AWILCO,Awilco LNG,kr,5.9,0.59,27.2
+2024-11-08,BWLP,BW LPG,kr,141.0,0.77,5.0
+2024-11-08,DHT,DHT Holdings,$,10.6,0.92,6.0
+2024-11-08,DIS,d'Amico International,€,4.9,0.6,6.7
+2024-11-08,ECO,Okeanis Eco Tankers,kr,284.0,1.0,5.7
+2024-11-08,FLNG,Flex LNG,kr,265.0,0.78,10.1
+2024-11-08,GLNG,Golar LNG,$,38.8,1.17,19.6
+2024-11-08,HAFN,Hafnia Ltd.,kr,61.8,0.66,4.7
+2024-11-08,INSW,International Seaways,$,43.9,0.66,5.6
+2024-11-08,LPG,Dorian LPG,$,27.5,0.77,5.4
+2024-11-08,ODFB,Odfjell SE,kr,113.8,0.56,3.2
+2024-11-08,SBLK,Star Bulk Carriers,$,20.2,0.68,6.3
+2024-11-08,SNI,Stolt-Nielsen,kr,304.0,0.46,4.0
+2024-11-08,STNG,Scorpio Tankers,$,55.5,0.59,5.8
+2024-11-08,TNK,Teekay Tankers,$,46.8,0.64,4.2
+2024-11-08,TRMD,TORM,kr,173.0,0.84,4.6
+2024-11-11,AWILCO,Awilco LNG,kr,5.9,0.57,26.7
+2024-11-11,BWLP,BW LPG,kr,138.0,0.74,4.9
+2024-11-11,DHT,DHT Holdings,$,10.5,0.93,5.9
+2024-11-11,DIS,d'Amico International,€,4.5,0.6,6.2
+2024-11-11,ECO,Okeanis Eco Tankers,kr,267.0,0.96,5.7
+2024-11-11,FLNG,Flex LNG,kr,261.0,0.75,10.1
+2024-11-11,GLNG,Golar LNG,$,38.0,1.14,19.1
+2024-11-11,HAFN,Hafnia Ltd.,kr,60.1,0.64,4.6
+2024-11-11,INSW,International Seaways,$,43.1,0.66,5.6
+2024-11-11,LPG,Dorian LPG,$,26.9,0.75,5.3
+2024-11-11,ODFB,Odfjell SE,kr,112.2,0.55,3.2
+2024-11-11,SBLK,Star Bulk Carriers,$,20.1,0.68,6.2
+2024-11-11,SNI,Stolt-Nielsen,kr,302.0,0.46,4.0
+2024-11-11,STNG,Scorpio Tankers,$,54.7,0.59,5.8
+2024-11-11,TNK,Teekay Tankers,$,45.5,0.63,4.1
+2024-11-11,TRMD,TORM,kr,168.0,0.84,4.7
+2024-11-12,AWILCO,Awilco LNG,kr,5.9,0.57,26.6
+2024-11-12,BWLP,BW LPG,kr,139.1,0.74,4.9
+2024-11-12,DHT,DHT Holdings,$,10.3,0.92,5.8
+2024-11-12,DIS,d'Amico International,€,4.5,0.6,6.2
+2024-11-12,ECO,Okeanis Eco Tankers,kr,259.0,0.92,5.6
+2024-11-12,FLNG,Flex LNG,kr,262.0,0.75,10.1
+2024-11-12,GLNG,Golar LNG,$,38.1,1.14,19.3
+2024-11-12,HAFN,Hafnia Ltd.,kr,59.4,0.62,4.5
+2024-11-12,INSW,International Seaways,$,42.5,0.65,5.6
+2024-11-12,LPG,Dorian LPG,$,26.8,0.75,5.3
+2024-11-12,ODFB,Odfjell SE,kr,112.4,0.55,3.2
+2024-11-12,SBLK,Star Bulk Carriers,$,20.3,0.68,6.3
+2024-11-12,SNI,Stolt-Nielsen,kr,306.0,0.46,4.0
+2024-11-12,STNG,Scorpio Tankers,$,54.6,0.58,5.7
+2024-11-12,TNK,Teekay Tankers,$,45.1,0.62,4.0
+2024-11-12,TRMD,TORM,kr,168.0,0.84,4.8
+2024-11-13,AWILCO,Awilco LNG,kr,5.7,0.55,25.8
+2024-11-13,BWLP,BW LPG,kr,139.0,0.74,4.9
+2024-11-13,DHT,DHT Holdings,$,10.2,0.89,5.7
+2024-11-13,DIS,d'Amico International,€,4.3,0.6,5.9
+2024-11-13,ECO,Okeanis Eco Tankers,kr,258.0,0.92,4.4
+2024-11-13,FLNG,Flex LNG,kr,272.0,0.78,11.3
+2024-11-13,GLNG,Golar LNG,$,36.5,0.84,19.1
+2024-11-13,HAFN,Hafnia Ltd.,kr,57.3,0.6,4.3
+2024-11-13,INSW,International Seaways,$,41.9,0.64,5.5
+2024-11-13,LPG,Dorian LPG,$,26.6,0.74,5.2
+2024-11-13,ODFB,Odfjell SE,kr,109.8,0.54,3.1
+2024-11-13,SBLK,Star Bulk Carriers,$,19.9,0.68,6.2
+2024-11-13,SNI,Stolt-Nielsen,kr,302.0,0.45,3.9
+2024-11-13,STNG,Scorpio Tankers,$,53.1,0.57,5.6
+2024-11-13,TNK,Teekay Tankers,$,44.2,0.61,4.0
+2024-11-13,TRMD,TORM,kr,164.0,0.84,4.6
+2024-11-14,AWILCO,Awilco LNG,kr,6.3,0.6,28.2
+2024-11-14,BWLP,BW LPG,kr,143.5,0.76,5.0
+2024-11-14,DHT,DHT Holdings,$,10.7,0.92,6.3
+2024-11-14,DIS,d'Amico International,€,4.4,0.6,5.9
+2024-11-14,ECO,Okeanis Eco Tankers,kr,264.0,0.94,4.5
+2024-11-14,FLNG,Flex LNG,kr,282.0,0.8,11.7
+2024-11-14,GLNG,Golar LNG,$,34.9,0.85,20.6
+2024-11-14,HAFN,Hafnia Ltd.,kr,57.6,0.6,4.3
+2024-11-14,INSW,International Seaways,$,42.5,0.65,5.6
+2024-11-14,LPG,Dorian LPG,$,27.4,0.77,5.4
+2024-11-14,ODFB,Odfjell SE,kr,110.0,0.54,2.9
+2024-11-14,SBLK,Star Bulk Carriers,$,20.1,0.68,6.2
+2024-11-14,SNI,Stolt-Nielsen,kr,303.0,0.45,3.9
+2024-11-14,STNG,Scorpio Tankers,$,54.2,0.58,5.7
+2024-11-14,TNK,Teekay Tankers,$,44.1,0.61,4.0
+2024-11-14,TRMD,TORM,kr,165.0,0.84,4.6
+2024-11-15,AWILCO,Awilco LNG,kr,4.8,0.42,21.5
+2024-11-15,BWLP,BW LPG,kr,149.0,0.79,5.2
+2024-11-15,DHT,DHT Holdings,$,10.8,0.93,6.4
+2024-11-15,DIS,d'Amico International,€,4.5,0.6,6.0
+2024-11-15,ECO,Okeanis Eco Tankers,kr,275.0,0.98,4.7
+2024-11-15,FLNG,Flex LNG,kr,286.0,0.81,11.9
+2024-11-15,GLNG,Golar LNG,$,35.0,0.84,20.8
+2024-11-15,HAFN,Hafnia Ltd.,kr,60.6,0.63,4.5
+2024-11-15,INSW,International Seaways,$,42.6,0.65,5.6
+2024-11-15,LPG,Dorian LPG,$,27.6,0.77,5.4
+2024-11-15,ODFB,Odfjell SE,kr,113.8,0.56,3.0
+2024-11-15,SBLK,Star Bulk Carriers,$,20.2,0.68,6.3
+2024-11-15,SNI,Stolt-Nielsen,kr,312.0,0.47,4.0
+2024-11-15,STNG,Scorpio Tankers,$,55.0,0.59,5.8
+2024-11-15,TNK,Teekay Tankers,$,44.8,0.62,4.1
+2024-11-15,TRMD,TORM,kr,170.0,0.84,4.8
+2024-11-18,AWILCO,Awilco LNG,kr,4.6,0.4,20.6
+2024-11-18,BWLP,BW LPG,kr,144.3,0.84,5.3
+2024-11-18,DHT,DHT Holdings,$,10.5,0.92,6.0
+2024-11-18,DIS,d'Amico International,€,4.4,0.6,5.8
+2024-11-18,ECO,Okeanis Eco Tankers,kr,263.0,0.93,4.5
+2024-11-18,FLNG,Flex LNG,kr,283.0,0.81,11.6
+2024-11-18,GLNG,Golar LNG,$,34.0,0.82,21.0
+2024-11-18,HAFN,Hafnia Ltd.,kr,59.4,0.62,4.5
+2024-11-18,INSW,International Seaways,$,41.2,0.63,5.4
+2024-11-18,LPG,Dorian LPG,$,26.0,0.75,5.5
+2024-11-18,ODFB,Odfjell SE,kr,113.2,0.56,3.2
+2024-11-18,SBLK,Star Bulk Carriers,$,20.3,0.68,6.3
+2024-11-18,SNI,Stolt-Nielsen,kr,311.0,0.46,4.0
+2024-11-18,STNG,Scorpio Tankers,$,53.7,0.58,5.7
+2024-11-18,TNK,Teekay Tankers,$,43.2,0.59,3.9
+2024-11-18,TRMD,TORM,kr,164.0,0.84,4.6
+2024-11-19,AWILCO,Awilco LNG,kr,4.8,0.42,21.7
+2024-11-19,BWLP,BW LPG,kr,145.1,0.85,5.4
+2024-11-19,DHT,DHT Holdings,$,10.7,0.95,6.1
+2024-11-19,DIS,d'Amico International,€,4.2,0.6,5.6
+2024-11-19,ECO,Okeanis Eco Tankers,kr,268.0,0.96,4.6
+2024-11-19,FLNG,Flex LNG,kr,283.0,0.81,11.7
+2024-11-19,GLNG,Golar LNG,$,34.4,0.83,21.2
+2024-11-19,HAFN,Hafnia Ltd.,kr,59.7,0.63,4.5
+2024-11-19,INSW,International Seaways,$,41.9,0.64,5.5
+2024-11-19,LPG,Dorian LPG,$,26.2,0.75,5.6
+2024-11-19,ODFB,Odfjell SE,kr,113.0,0.55,3.2
+2024-11-19,SBLK,Star Bulk Carriers,$,20.4,0.68,6.3
+2024-11-19,SNI,Stolt-Nielsen,kr,307.0,0.45,4.0
+2024-11-19,STNG,Scorpio Tankers,$,54.8,0.59,5.8
+2024-11-19,TNK,Teekay Tankers,$,43.2,0.59,3.9
+2024-11-19,TRMD,TORM,kr,164.0,0.84,4.6
+2024-11-20,AWILCO,Awilco LNG,kr,4.5,0.4,20.5
+2024-11-20,BWLP,BW LPG,kr,148.8,0.85,5.6
+2024-11-20,DHT,DHT Holdings,$,10.6,0.94,6.1
+2024-11-20,DIS,d'Amico International,€,4.3,0.43,5.6
+2024-11-20,ECO,Okeanis Eco Tankers,kr,269.0,0.97,4.6
+2024-11-20,FLNG,Flex LNG,kr,287.0,0.83,11.9
+2024-11-20,GLNG,Golar LNG,$,34.9,0.84,20.1
+2024-11-20,HAFN,Hafnia Ltd.,kr,61.1,0.65,4.7
+2024-11-20,INSW,International Seaways,$,42.0,0.64,5.5
+2024-11-20,LPG,Dorian LPG,$,25.7,0.74,5.5
+2024-11-20,ODFB,Odfjell SE,kr,113.2,0.56,3.2
+2024-11-20,SBLK,Star Bulk Carriers,$,20.0,0.68,6.2
+2024-11-20,SNI,Stolt-Nielsen,kr,307.0,0.45,4.0
+2024-11-20,STNG,Scorpio Tankers,$,55.7,0.6,5.9
+2024-11-20,TNK,Teekay Tankers,$,43.1,0.59,3.9
+2024-11-20,TRMD,TORM,kr,168.0,0.79,4.7
+2024-11-21,AWILCO,Awilco LNG,kr,4.2,0.37,18.8
+2024-11-21,BWLP,BW LPG,kr,149.5,0.84,5.6
+2024-11-21,DHT,DHT Holdings,$,10.5,0.93,6.0
+2024-11-21,DIS,d'Amico International,€,4.4,0.44,5.6
+2024-11-21,ECO,Okeanis Eco Tankers,kr,270.0,0.96,4.6
+2024-11-21,FLNG,Flex LNG,kr,291.0,0.83,12.0
+2024-11-21,GLNG,Golar LNG,$,36.0,0.86,20.9
+2024-11-21,HAFN,Hafnia Ltd.,kr,63.0,0.66,4.8
+2024-11-21,INSW,International Seaways,$,41.9,0.64,5.5
+2024-11-21,LPG,Dorian LPG,$,25.7,0.74,5.5
+2024-11-21,ODFB,Odfjell SE,kr,113.8,0.56,3.2
+2024-11-21,SBLK,Star Bulk Carriers,$,19.0,0.68,5.7
+2024-11-21,SNI,Stolt-Nielsen,kr,311.0,0.46,4.1
+2024-11-21,STNG,Scorpio Tankers,$,54.7,0.59,5.8
+2024-11-21,TNK,Teekay Tankers,$,42.7,0.59,3.9
+2024-11-21,TRMD,TORM,kr,163.0,0.76,4.6
+2024-11-22,AWILCO,Awilco LNG,kr,4.1,0.36,18.5
+2024-11-22,BWLP,BW LPG,kr,148.8,0.84,5.5
+2024-11-22,DHT,DHT Holdings,$,10.4,0.92,5.9
+2024-11-22,DIS,d'Amico International,€,4.2,0.43,5.5
+2024-11-22,ECO,Okeanis Eco Tankers,kr,262.0,0.94,4.5
+2024-11-22,FLNG,Flex LNG,kr,290.0,0.83,11.9
+2024-11-22,GLNG,Golar LNG,$,36.9,0.89,21.4
+2024-11-22,HAFN,Hafnia Ltd.,kr,61.5,0.65,4.7
+2024-11-22,INSW,International Seaways,$,41.4,0.63,5.4
+2024-11-22,LPG,Dorian LPG,$,25.2,0.72,5.4
+2024-11-22,ODFB,Odfjell SE,kr,110.6,0.54,3.1
+2024-11-22,SBLK,Star Bulk Carriers,$,18.7,0.68,5.5
+2024-11-22,SNI,Stolt-Nielsen,kr,288.0,0.43,3.8
+2024-11-22,STNG,Scorpio Tankers,$,52.9,0.57,5.6
+2024-11-22,TNK,Teekay Tankers,$,41.9,0.58,3.8
+2024-11-22,TRMD,TORM,kr,155.0,0.72,4.3
+2024-11-26,AWILCO,Awilco LNG,kr,4.1,0.59,18.4
+2024-11-26,BWLP,BW LPG,kr,144.1,0.84,5.6
+2024-11-26,DHT,DHT Holdings,$,10.0,0.93,5.7
+2024-11-26,DIS,d'Amico International,€,4.1,0.42,5.3
+2024-11-26,ECO,Okeanis Eco Tankers,kr,254.0,0.94,4.3
+2024-11-26,FLNG,Flex LNG,kr,290.0,0.83,11.9
+2024-11-26,GLNG,Golar LNG,$,41.2,0.89,24.0
+2024-11-26,HAFN,Hafnia Ltd.,kr,59.2,0.66,4.5
+2024-11-26,INSW,International Seaways,$,40.8,0.66,5.4
+2024-11-26,LPG,Dorian LPG,$,25.4,0.74,6.0
+2024-11-26,ODFB,Odfjell SE,kr,115.6,0.56,3.3
+2024-11-26,SBLK,Star Bulk Carriers,$,18.7,0.68,6.0
+2024-11-26,SNI,Stolt-Nielsen,kr,289.0,0.44,3.8
+2024-11-26,STNG,Scorpio Tankers,$,51.8,0.58,5.5
+2024-11-26,TNK,Teekay Tankers,$,41.5,0.6,3.8
+2024-11-26,TRMD,TORM,kr,153.0,0.76,4.3
+2024-11-27,AWILCO,Awilco LNG,kr,4.5,0.62,20.2
+2024-11-27,BWLP,BW LPG,kr,145.0,0.81,5.6
+2024-11-27,DHT,DHT Holdings,$,9.8,0.88,5.6
+2024-11-27,DIS,d'Amico International,€,4.1,0.41,5.3
+2024-11-27,ECO,Okeanis Eco Tankers,kr,253.0,0.91,4.3
+2024-11-27,FLNG,Flex LNG,kr,283.0,0.8,11.6
+2024-11-27,GLNG,Golar LNG,$,39.5,0.95,23.0
+2024-11-27,HAFN,Hafnia Ltd.,kr,59.9,0.64,4.5
+2024-11-27,INSW,International Seaways,$,39.5,0.63,5.2
+2024-11-27,LPG,Dorian LPG,$,24.6,0.71,5.8
+2024-11-27,ODFB,Odfjell SE,kr,113.2,0.56,3.2
+2024-11-27,SBLK,Star Bulk Carriers,$,18.0,0.68,5.8
+2024-11-27,SNI,Stolt-Nielsen,kr,287.0,0.42,3.7
+2024-11-27,STNG,Scorpio Tankers,$,51.2,0.57,5.4
+2024-11-27,TNK,Teekay Tankers,$,41.1,0.6,3.7
+2024-11-27,TRMD,TORM,kr,151.0,0.75,4.2
+2024-11-28,AWILCO,Awilco LNG,kr,4.4,0.62,20.0
+2024-11-28,BWLP,BW LPG,kr,137.1,0.77,5.3
+2024-11-28,DHT,DHT Holdings,$,9.6,0.87,5.5
+2024-11-28,DIS,d'Amico International,€,4.1,0.41,5.3
+2024-11-28,ECO,Okeanis Eco Tankers,kr,243.0,0.88,4.1
+2024-11-28,FLNG,Flex LNG,kr,270.0,0.77,11.1
+2024-11-28,GLNG,Golar LNG,$,39.3,0.94,22.8
+2024-11-28,HAFN,Hafnia Ltd.,kr,61.3,0.69,4.8
+2024-11-28,INSW,International Seaways,$,39.6,0.63,5.2
+2024-11-28,LPG,Dorian LPG,$,24.4,0.7,5.7
+2024-11-28,ODFB,Odfjell SE,kr,109.4,0.54,3.1
+2024-11-28,SBLK,Star Bulk Carriers,$,17.6,0.68,5.6
+2024-11-28,SNI,Stolt-Nielsen,kr,279.0,0.41,3.6
+2024-11-28,STNG,Scorpio Tankers,$,50.7,0.56,5.4
+2024-11-28,TNK,Teekay Tankers,$,40.9,0.59,3.7
+2024-11-28,TRMD,TORM,kr,149.0,0.74,4.2
+2024-11-29,AWILCO,Awilco LNG,kr,4.4,0.62,20.1
+2024-11-29,BWLP,BW LPG,kr,136.2,0.77,5.3
+2024-11-29,DHT,DHT Holdings,$,9.6,0.87,5.5
+2024-11-29,DIS,d'Amico International,€,4.1,0.42,5.3
+2024-11-29,ECO,Okeanis Eco Tankers,kr,243.0,0.88,4.2
+2024-11-29,FLNG,Flex LNG,kr,267.0,0.76,11.0
+2024-11-29,GLNG,Golar LNG,$,39.3,0.94,22.8
+2024-11-29,HAFN,Hafnia Ltd.,kr,63.0,0.71,5.1
+2024-11-29,INSW,International Seaways,$,39.6,0.63,5.2
+2024-11-29,LPG,Dorian LPG,$,24.4,0.7,5.7
+2024-11-29,ODFB,Odfjell SE,kr,110.4,0.54,3.1
+2024-11-29,SBLK,Star Bulk Carriers,$,17.6,0.68,5.6
+2024-11-29,SNI,Stolt-Nielsen,kr,279.0,0.41,3.7
+2024-11-29,STNG,Scorpio Tankers,$,50.7,0.56,5.4
+2024-11-29,TNK,Teekay Tankers,$,40.9,0.59,3.7
+2024-11-29,TRMD,TORM,kr,149.0,0.74,4.2
+2024-12-03,AWILCO,Awilco LNG,kr,4.2,0.58,18.7
+2024-12-03,BWLP,BW LPG,kr,135.0,0.7,5.9
+2024-12-03,DHT,DHT Holdings,$,9.4,0.9,5.3
+2024-12-03,DIS,d'Amico International,€,4.0,0.42,5.2
+2024-12-03,ECO,Okeanis Eco Tankers,kr,243.0,0.89,4.1
+2024-12-03,FLNG,Flex LNG,kr,264.0,0.88,10.8
+2024-12-03,GLNG,Golar LNG,$,39.7,0.95,23.1
+2024-12-03,HAFN,Hafnia Ltd.,kr,61.6,0.73,4.9
+2024-12-03,INSW,International Seaways,$,38.3,0.64,5.0
+2024-12-03,LPG,Dorian LPG,$,24.4,0.7,5.7
+2024-12-03,ODFB,Odfjell SE,kr,106.0,0.52,3.0
+2024-12-03,SBLK,Star Bulk Carriers,$,17.0,0.62,5.5
+2024-12-03,SNI,Stolt-Nielsen,kr,271.0,0.4,3.5
+2024-12-03,STNG,Scorpio Tankers,$,50.2,0.6,5.3
+2024-12-03,TNK,Teekay Tankers,$,39.9,0.59,3.6
+2024-12-03,TRMD,TORM,kr,146.0,0.79,4.1
+2024-12-06,AWILCO,Awilco LNG,kr,4.1,0.59,18.6
+2024-12-06,BWLP,BW LPG,kr,127.7,0.67,5.8
+2024-12-06,DHT,DHT Holdings,$,9.6,0.92,5.8
+2024-12-06,DIS,d'Amico International,€,4.1,0.44,5.4
+2024-12-06,ECO,Okeanis Eco Tankers,kr,239.0,0.89,4.1
+2024-12-06,FLNG,Flex LNG,kr,259.0,0.88,10.8
+2024-12-06,GLNG,Golar LNG,$,42.3,0.97,24.6
+2024-12-06,HAFN,Hafnia Ltd.,kr,58.6,0.76,4.7
+2024-12-06,INSW,International Seaways,$,37.6,0.62,4.9
+2024-12-06,LPG,Dorian LPG,$,23.4,0.67,5.5
+2024-12-06,ODFB,Odfjell SE,kr,111.8,0.55,3.2
+2024-12-06,SBLK,Star Bulk Carriers,$,16.5,0.61,5.3
+2024-12-06,SNI,Stolt-Nielsen,kr,288.0,0.41,3.8
+2024-12-06,STNG,Scorpio Tankers,$,49.6,0.6,5.2
+2024-12-06,TNK,Teekay Tankers,$,39.8,0.59,3.6
+2024-12-06,TRMD,TORM,kr,143.0,0.77,4.0
+2024-12-09,AWILCO,Awilco LNG,kr,4.2,0.58,18.6
+2024-12-09,BWLP,BW LPG,kr,126.6,0.65,5.7
+2024-12-09,DHT,DHT Holdings,$,9.4,0.9,5.7
+2024-12-09,DIS,d'Amico International,€,4.1,0.43,5.3
+2024-12-09,ECO,Okeanis Eco Tankers,kr,239.0,0.86,4.0
+2024-12-09,FLNG,Flex LNG,kr,243.0,0.81,10.0
+2024-12-09,GLNG,Golar LNG,$,42.5,1.02,24.7
+2024-12-09,HAFN,Hafnia Ltd.,kr,58.6,0.7,4.6
+2024-12-09,INSW,International Seaways,$,37.1,0.6,4.9
+2024-12-09,LPG,Dorian LPG,$,22.7,0.65,5.3
+2024-12-09,ODFB,Odfjell SE,kr,110.2,0.54,3.1
+2024-12-09,SBLK,Star Bulk Carriers,$,16.0,0.58,5.1
+2024-12-09,SNI,Stolt-Nielsen,kr,292.0,0.43,3.8
+2024-12-09,STNG,Scorpio Tankers,$,48.8,0.58,5.1
+2024-12-09,TNK,Teekay Tankers,$,38.8,0.57,3.5
+2024-12-09,TRMD,TORM,kr,139.0,0.74,3.9
+2024-12-10,AWILCO,Awilco LNG,kr,4.0,0.56,18.0
+2024-12-10,BWLP,BW LPG,kr,126.7,0.67,5.8
+2024-12-10,DHT,DHT Holdings,$,9.5,0.9,5.8
+2024-12-10,DIS,d'Amico International,€,4.1,0.45,5.4
+2024-12-10,ECO,Okeanis Eco Tankers,kr,237.0,0.86,4.0
+2024-12-10,FLNG,Flex LNG,kr,247.0,0.82,10.3
+2024-12-10,GLNG,Golar LNG,$,42.1,1.01,24.5
+2024-12-10,HAFN,Hafnia Ltd.,kr,58.6,0.71,4.6
+2024-12-10,INSW,International Seaways,$,37.5,0.61,4.9
+2024-12-10,LPG,Dorian LPG,$,23.2,0.67,5.4
+2024-12-10,ODFB,Odfjell SE,kr,108.8,0.53,3.1
+2024-12-10,SBLK,Star Bulk Carriers,$,16.3,0.59,5.2
+2024-12-10,SNI,Stolt-Nielsen,kr,290.0,0.43,3.8
+2024-12-10,STNG,Scorpio Tankers,$,48.9,0.59,5.1
+2024-12-10,TNK,Teekay Tankers,$,39.2,0.58,3.6
+2024-12-10,TRMD,TORM,kr,140.0,0.74,3.9
+2024-12-11,AWILCO,Awilco LNG,kr,4.2,0.58,18.8
+2024-12-11,BWLP,BW LPG,kr,129.0,0.69,5.8
+2024-12-11,DHT,DHT Holdings,$,9.4,0.9,5.7
+2024-12-11,DIS,d'Amico International,€,4.1,0.44,5.3
+2024-12-11,ECO,Okeanis Eco Tankers,kr,236.0,0.86,4.0
+2024-12-11,FLNG,Flex LNG,kr,253.0,0.84,10.4
+2024-12-11,GLNG,Golar LNG,$,42.7,1.03,24.8
+2024-12-11,HAFN,Hafnia Ltd.,kr,60.8,0.7,4.8
+2024-12-11,INSW,International Seaways,$,37.2,0.61,4.9
+2024-12-11,LPG,Dorian LPG,$,24.1,0.69,5.7
+2024-12-11,ODFB,Odfjell SE,kr,108.6,0.53,3.0
+2024-12-11,SBLK,Star Bulk Carriers,$,16.1,0.59,5.2
+2024-12-11,SNI,Stolt-Nielsen,kr,286.0,0.42,3.7
+2024-12-11,STNG,Scorpio Tankers,$,49.0,0.59,5.2
+2024-12-11,TNK,Teekay Tankers,$,39.3,0.58,3.6
+2024-12-11,TRMD,TORM,kr,141.0,0.76,3.9
+2024-12-12,AWILCO,Awilco LNG,kr,4.1,0.57,18.6
+2024-12-12,BWLP,BW LPG,kr,126.0,0.7,5.7
+2024-12-12,DHT,DHT Holdings,$,9.1,0.86,6.0
+2024-12-12,DIS,d'Amico International,€,4.2,0.44,5.4
+2024-12-12,ECO,Okeanis Eco Tankers,kr,225.0,0.82,3.8
+2024-12-12,FLNG,Flex LNG,kr,249.0,0.83,10.3
+2024-12-12,GLNG,Golar LNG,$,43.5,1.05,25.3
+2024-12-12,HAFN,Hafnia Ltd.,kr,60.1,0.69,4.8
+2024-12-12,INSW,International Seaways,$,36.1,0.59,4.8
+2024-12-12,LPG,Dorian LPG,$,24.3,0.7,5.7
+2024-12-12,ODFB,Odfjell SE,kr,107.8,0.53,3.0
+2024-12-12,SBLK,Star Bulk Carriers,$,15.5,0.57,5.0
+2024-12-12,SNI,Stolt-Nielsen,kr,285.0,0.42,3.7
+2024-12-12,STNG,Scorpio Tankers,$,47.9,0.58,5.0
+2024-12-12,TNK,Teekay Tankers,$,38.5,0.57,3.5
+2024-12-12,TRMD,TORM,kr,139.0,0.75,3.9
+2024-12-13,AWILCO,Awilco LNG,kr,4.0,0.57,18.0
+2024-12-13,BWLP,BW LPG,kr,124.8,0.69,5.6
+2024-12-13,DHT,DHT Holdings,$,8.9,0.84,5.9
+2024-12-13,DIS,d'Amico International,€,4.1,0.44,5.3
+2024-12-13,ECO,Okeanis Eco Tankers,kr,217.0,0.79,3.7
+2024-12-13,FLNG,Flex LNG,kr,246.0,0.82,10.3
+2024-12-13,GLNG,Golar LNG,$,43.6,1.05,25.3
+2024-12-13,HAFN,Hafnia Ltd.,kr,59.5,0.69,4.7
+2024-12-13,INSW,International Seaways,$,35.9,0.59,4.7
+2024-12-13,LPG,Dorian LPG,$,24.0,0.69,5.6
+2024-12-13,ODFB,Odfjell SE,kr,106.6,0.52,3.0
+2024-12-13,SBLK,Star Bulk Carriers,$,15.5,0.56,5.0
+2024-12-13,SNI,Stolt-Nielsen,kr,289.0,0.43,3.7
+2024-12-13,STNG,Scorpio Tankers,$,47.2,0.57,5.1
+2024-12-13,TNK,Teekay Tankers,$,38.1,0.56,3.5
+2024-12-13,TRMD,TORM,kr,135.0,0.73,3.8
+2024-12-16,AWILCO,Awilco LNG,kr,4.0,0.57,
+2024-12-16,BWLP,BW LPG,kr,120.5,0.69,5.4
+2024-12-16,DHT,DHT Holdings,$,9.1,0.86,6.0
+2024-12-16,DIS,d'Amico International,€,4.0,0.43,5.2
+2024-12-16,ECO,Okeanis Eco Tankers,kr,222.0,0.8,3.7
+2024-12-16,FLNG,Flex LNG,kr,248.0,0.82,10.4
+2024-12-16,GLNG,Golar LNG,$,43.5,1.05,25.3
+2024-12-16,HAFN,Hafnia Ltd.,kr,59.9,0.68,4.7
+2024-12-16,INSW,International Seaways,$,35.0,0.58,4.6
+2024-12-16,LPG,Dorian LPG,$,23.9,0.69,5.6
+2024-12-16,ODFB,Odfjell SE,kr,107.2,0.53,3.0
+2024-12-16,SBLK,Star Bulk Carriers,$,15.2,0.55,4.9
+2024-12-16,SNI,Stolt-Nielsen,kr,289.0,0.43,3.7
+2024-12-16,STNG,Scorpio Tankers,$,48.3,0.58,5.2
+2024-12-16,TNK,Teekay Tankers,$,38.1,0.56,3.6
+2024-12-16,TRMD,TORM,kr,135.0,0.73,3.8
+2024-12-17,AWILCO,Awilco LNG,kr,4.0,0.57,
+2024-12-17,BWLP,BW LPG,kr,119.7,0.67,5.4
+2024-12-17,DHT,DHT Holdings,$,8.9,0.86,6.1
+2024-12-17,DIS,d'Amico International,€,4.0,0.46,5.1
+2024-12-17,ECO,Okeanis Eco Tankers,kr,217.0,0.81,3.7
+2024-12-17,FLNG,Flex LNG,kr,238.0,0.79,10.1
+2024-12-17,GLNG,Golar LNG,$,42.7,1.03,24.8
+2024-12-17,HAFN,Hafnia Ltd.,kr,59.3,0.76,4.8
+2024-12-17,INSW,International Seaways,$,34.0,0.59,4.7
+2024-12-17,LPG,Dorian LPG,$,23.4,0.67,5.9
+2024-12-17,ODFB,Odfjell SE,kr,107.2,0.53,3.0
+2024-12-17,SBLK,Star Bulk Carriers,$,15.0,0.55,5.1
+2024-12-17,SNI,Stolt-Nielsen,kr,290.0,0.43,3.7
+2024-12-17,STNG,Scorpio Tankers,$,47.5,0.6,5.1
+2024-12-17,TNK,Teekay Tankers,$,37.2,0.57,3.7
+2024-12-17,TRMD,TORM,kr,133.0,0.72,3.8
+2024-12-18,AWILCO,Awilco LNG,kr,3.8,0.54,
+2024-12-18,BWLP,BW LPG,kr,113.7,0.66,5.1
+2024-12-18,DHT,DHT Holdings,$,9.0,0.86,6.1
+2024-12-18,DIS,d'Amico International,€,3.9,0.45,5.0
+2024-12-18,ECO,Okeanis Eco Tankers,kr,212.0,0.79,3.6
+2024-12-18,FLNG,Flex LNG,kr,237.0,0.78,10.0
+2024-12-18,GLNG,Golar LNG,$,42.2,1.01,24.5
+2024-12-18,HAFN,Hafnia Ltd.,kr,56.9,0.72,4.6
+2024-12-18,INSW,International Seaways,$,33.3,0.58,4.6
+2024-12-18,LPG,Dorian LPG,$,22.9,0.66,5.8
+2024-12-18,ODFB,Odfjell SE,kr,103.6,0.51,2.9
+2024-12-18,SBLK,Star Bulk Carriers,$,14.9,0.55,5.1
+2024-12-18,SNI,Stolt-Nielsen,kr,273.0,0.4,3.5
+2024-12-18,STNG,Scorpio Tankers,$,47.2,0.6,5.1
+2024-12-18,TNK,Teekay Tankers,$,37.8,0.58,3.8
+2024-12-18,TRMD,TORM,kr,130.0,0.7,3.7
+2024-12-20,AWILCO,Awilco LNG,kr,3.9,0.54,
+2024-12-20,BWLP,BW LPG,kr,115.6,0.67,5.1
+2024-12-20,DHT,DHT Holdings,$,8.9,0.85,6.0
+2024-12-20,DIS,d'Amico International,€,3.9,0.45,5.0
+2024-12-20,ECO,Okeanis Eco Tankers,kr,223.0,0.81,3.7
+2024-12-20,FLNG,Flex LNG,kr,240.0,0.78,9.9
+2024-12-20,GLNG,Golar LNG,$,41.5,1.0,24.1
+2024-12-20,HAFN,Hafnia Ltd.,kr,58.1,0.73,4.6
+2024-12-20,INSW,International Seaways,$,32.5,0.57,4.5
+2024-12-20,LPG,Dorian LPG,$,23.2,0.67,5.8
+2024-12-20,ODFB,Odfjell SE,kr,104.4,0.51,2.9
+2024-12-20,SBLK,Star Bulk Carriers,$,14.7,0.54,5.0
+2024-12-20,SNI,Stolt-Nielsen,kr,275.0,0.4,3.5
+2024-12-20,STNG,Scorpio Tankers,$,47.2,0.6,5.1
+2024-12-20,TNK,Teekay Tankers,$,37.2,0.57,3.7
+2024-12-20,TRMD,TORM,kr,131.0,0.7,3.7
+2025-01-03,AWILCO,Awilco LNG,kr,4.6,0.63,
+2025-01-03,BWLP,BW LPG,kr,133.7,0.73,6.1
+2025-01-03,DHT,DHT Holdings,$,9.6,0.92,6.5
+2025-01-03,DIS,d'Amico International,€,4.3,0.49,5.4
+2025-01-03,ECO,Okeanis Eco Tankers,kr,249.0,0.91,4.1
+2025-01-03,FLNG,Flex LNG,kr,273.0,0.89,11.3
+2025-01-03,GLNG,Golar LNG,$,43.8,1.05,25.5
+2025-01-03,HAFN,Hafnia Ltd.,kr,64.8,0.81,5.2
+2025-01-03,INSW,International Seaways,$,36.3,0.63,5.0
+2025-01-03,LPG,Dorian LPG,$,25.4,0.73,6.4
+2025-01-03,ODFB,Odfjell SE,kr,121.8,0.6,3.4
+2025-01-03,SBLK,Star Bulk Carriers,$,15.5,0.57,5.2
+2025-01-03,SNI,Stolt-Nielsen,kr,305.0,0.45,3.9
+2025-01-03,STNG,Scorpio Tankers,$,50.0,0.64,5.4
+2025-01-03,TNK,Teekay Tankers,$,41.3,0.64,4.1
+2025-01-03,TRMD,TORM,kr,150.0,0.8,4.2
+2025-01-06,AWILCO,Awilco LNG,kr,4.4,0.62,
+2025-01-06,BWLP,BW LPG,kr,134.4,0.74,6.2
+2025-01-06,DHT,DHT Holdings,$,9.4,0.9,6.3
+2025-01-06,DIS,d'Amico International,€,4.2,0.47,5.3
+2025-01-06,ECO,Okeanis Eco Tankers,kr,239.0,0.85,4.0
+2025-01-06,FLNG,Flex LNG,kr,277.0,0.9,11.5
+2025-01-06,GLNG,Golar LNG,$,43.5,1.05,25.3
+2025-01-06,HAFN,Hafnia Ltd.,kr,63.0,0.8,5.0
+2025-01-06,INSW,International Seaways,$,35.4,0.62,4.9
+2025-01-06,LPG,Dorian LPG,$,24.9,0.74,6.3
+2025-01-06,ODFB,Odfjell SE,kr,118.4,0.62,3.3
+2025-01-06,SBLK,Star Bulk Carriers,$,15.2,0.56,5.1
+2025-01-06,SNI,Stolt-Nielsen,kr,296.0,0.53,3.8
+2025-01-06,STNG,Scorpio Tankers,$,48.9,0.62,5.2
+2025-01-06,TNK,Teekay Tankers,$,39.9,0.62,4.0
+2025-01-06,TRMD,TORM,kr,146.0,0.87,4.1
+2025-01-07,AWILCO,Awilco LNG,kr,4.5,0.64,
+2025-01-07,BWLP,BW LPG,kr,131.8,0.73,6.1
+2025-01-07,DHT,DHT Holdings,$,9.3,0.93,6.3
+2025-01-07,DIS,d'Amico International,€,4.1,0.47,5.3
+2025-01-07,ECO,Okeanis Eco Tankers,kr,244.0,0.88,4.1
+2025-01-07,FLNG,Flex LNG,kr,278.0,0.91,11.7
+2025-01-07,GLNG,Golar LNG,$,43.0,1.03,25.0
+2025-01-07,HAFN,Hafnia Ltd.,kr,64.0,0.82,5.1
+2025-01-07,INSW,International Seaways,$,35.4,0.62,4.9
+2025-01-07,LPG,Dorian LPG,$,24.4,0.73,6.2
+2025-01-07,ODFB,Odfjell SE,kr,117.6,0.61,3.3
+2025-01-07,SBLK,Star Bulk Carriers,$,14.7,0.54,5.0
+2025-01-07,SNI,Stolt-Nielsen,kr,293.0,0.52,3.8
+2025-01-07,STNG,Scorpio Tankers,$,48.2,0.62,5.2
+2025-01-07,TNK,Teekay Tankers,$,39.9,0.62,4.0
+2025-01-07,TRMD,TORM,kr,148.0,0.89,4.2
+2025-01-08,AWILCO,Awilco LNG,kr,4.6,0.65,
+2025-01-08,BWLP,BW LPG,kr,129.9,0.74,6.0
+2025-01-08,DHT,DHT Holdings,$,10.0,0.99,6.8
+2025-01-08,DIS,d'Amico International,€,4.3,0.48,5.4
+2025-01-08,ECO,Okeanis Eco Tankers,kr,251.0,0.9,4.2
+2025-01-08,FLNG,Flex LNG,kr,280.0,0.91,11.7
+2025-01-08,GLNG,Golar LNG,$,42.0,1.01,24.4
+2025-01-08,HAFN,Hafnia Ltd.,kr,63.8,0.81,5.1
+2025-01-08,INSW,International Seaways,$,38.4,0.68,5.3
+2025-01-08,LPG,Dorian LPG,$,25.0,0.74,6.3
+2025-01-08,ODFB,Odfjell SE,kr,118.0,0.62,3.3
+2025-01-08,SBLK,Star Bulk Carriers,$,14.8,0.55,5.0
+2025-01-08,SNI,Stolt-Nielsen,kr,295.0,0.53,3.8
+2025-01-08,STNG,Scorpio Tankers,$,52.9,0.68,5.7
+2025-01-08,TNK,Teekay Tankers,$,42.7,0.67,4.2
+2025-01-08,TRMD,TORM,kr,152.0,0.91,4.3
+2025-01-09,AWILCO,Awilco LNG,kr,4.4,0.62,
+2025-01-09,BWLP,BW LPG,kr,128.7,0.74,5.9
+2025-01-09,DHT,DHT Holdings,$,10.1,1.02,6.9
+2025-01-09,DIS,d'Amico International,€,4.3,0.48,5.4
+2025-01-09,ECO,Okeanis Eco Tankers,kr,245.0,0.87,4.2
+2025-01-09,FLNG,Flex LNG,kr,278.0,0.9,11.5
+2025-01-09,GLNG,Golar LNG,$,41.8,1.01,24.3
+2025-01-09,HAFN,Hafnia Ltd.,kr,63.0,0.79,5.0
+2025-01-09,INSW,International Seaways,$,38.2,0.67,5.5
+2025-01-09,LPG,Dorian LPG,$,24.9,0.74,6.3
+2025-01-09,ODFB,Odfjell SE,kr,119.8,0.63,3.3
+2025-01-09,SBLK,Star Bulk Carriers,$,14.9,0.55,5.0
+2025-01-09,SNI,Stolt-Nielsen,kr,295.0,0.53,3.7
+2025-01-09,STNG,Scorpio Tankers,$,52.4,0.67,5.6
+2025-01-09,TNK,Teekay Tankers,$,42.1,0.66,4.5
+2025-01-09,TRMD,TORM,kr,151.0,0.9,4.3
+2025-01-10,AWILCO,Awilco LNG,kr,4.3,0.6,
+2025-01-10,BWLP,BW LPG,kr,128.9,0.74,5.9
+2025-01-10,DHT,DHT Holdings,$,10.1,1.02,6.9
+2025-01-10,DIS,d'Amico International,€,4.2,0.47,5.3
+2025-01-10,ECO,Okeanis Eco Tankers,kr,245.0,0.87,4.2
+2025-01-10,FLNG,Flex LNG,kr,278.0,0.9,11.5
+2025-01-10,GLNG,Golar LNG,$,41.8,1.01,24.3
+2025-01-10,HAFN,Hafnia Ltd.,kr,63.0,0.79,5.0
+2025-01-10,INSW,International Seaways,$,38.2,0.67,5.5
+2025-01-10,LPG,Dorian LPG,$,24.9,0.74,6.3
+2025-01-10,ODFB,Odfjell SE,kr,120.6,0.63,3.3
+2025-01-10,SBLK,Star Bulk Carriers,$,14.9,0.55,5.0
+2025-01-10,SNI,Stolt-Nielsen,kr,290.0,0.52,3.7
+2025-01-10,STNG,Scorpio Tankers,$,52.4,0.67,5.6
+2025-01-10,TNK,Teekay Tankers,$,42.1,0.66,4.5
+2025-01-10,TRMD,TORM,kr,147.0,0.87,4.1
+2025-01-13,AWILCO,Awilco LNG,kr,4.4,0.61,
+2025-01-13,BWLP,BW LPG,kr,137.7,0.77,6.3
+2025-01-13,DHT,DHT Holdings,$,10.7,1.09,7.5
+2025-01-13,DIS,d'Amico International,€,4.4,0.49,5.5
+2025-01-13,ECO,Okeanis Eco Tankers,kr,271.0,0.96,4.6
+2025-01-13,FLNG,Flex LNG,kr,295.0,0.95,12.1
+2025-01-13,GLNG,Golar LNG,$,41.4,0.99,24.1
+2025-01-13,HAFN,Hafnia Ltd.,kr,67.5,0.85,5.3
+2025-01-13,INSW,International Seaways,$,40.7,0.72,5.8
+2025-01-13,LPG,Dorian LPG,$,26.0,0.77,6.6
+2025-01-13,ODFB,Odfjell SE,kr,124.8,0.65,3.4
+2025-01-13,SBLK,Star Bulk Carriers,$,15.3,0.56,5.2
+2025-01-13,SNI,Stolt-Nielsen,kr,312.0,0.56,3.9
+2025-01-13,STNG,Scorpio Tankers,$,54.9,0.7,5.9
+2025-01-13,TNK,Teekay Tankers,$,45.4,0.71,4.9
+2025-01-13,TRMD,TORM,kr,162.0,0.96,4.5
+2025-01-14,AWILCO,Awilco LNG,kr,4.2,0.58,
+2025-01-14,BWLP,BW LPG,kr,140.0,0.79,6.4
+2025-01-14,DHT,DHT Holdings,$,11.1,1.12,7.8
+2025-01-14,DIS,d'Amico International,€,4.5,0.51,5.7
+2025-01-14,ECO,Okeanis Eco Tankers,kr,286.0,1.01,4.9
+2025-01-14,FLNG,Flex LNG,kr,293.0,0.94,12.2
+2025-01-14,GLNG,Golar LNG,$,41.4,0.99,24.1
+2025-01-14,HAFN,Hafnia Ltd.,kr,69.2,0.86,5.5
+2025-01-14,INSW,International Seaways,$,41.4,0.73,5.9
+2025-01-14,LPG,Dorian LPG,$,26.5,0.79,6.7
+2025-01-14,ODFB,Odfjell SE,kr,129.0,0.67,3.5
+2025-01-14,SBLK,Star Bulk Carriers,$,15.2,0.56,5.1
+2025-01-14,SNI,Stolt-Nielsen,kr,311.0,0.55,3.9
+2025-01-14,STNG,Scorpio Tankers,$,56.6,0.72,6.1
+2025-01-14,TNK,Teekay Tankers,$,47.2,0.74,5.1
+2025-01-14,TRMD,TORM,kr,168.0,0.99,4.7
+2025-01-15,AWILCO,Awilco LNG,kr,4.2,0.58,
+2025-01-15,BWLP,BW LPG,kr,144.6,0.79,6.6
+2025-01-15,DHT,DHT Holdings,$,11.2,1.12,8.5
+2025-01-15,DIS,d'Amico International,€,4.4,0.5,5.6
+2025-01-15,ECO,Okeanis Eco Tankers,kr,282.0,1.01,5.6
+2025-01-15,FLNG,Flex LNG,kr,294.0,0.94,12.2
+2025-01-15,GLNG,Golar LNG,$,42.2,0.99,24.5
+2025-01-15,HAFN,Hafnia Ltd.,kr,69.2,0.86,5.9
+2025-01-15,INSW,International Seaways,$,41.2,0.73,5.9
+2025-01-15,LPG,Dorian LPG,$,26.9,0.79,6.8
+2025-01-15,ODFB,Odfjell SE,kr,129.6,0.67,3.6
+2025-01-15,SBLK,Star Bulk Carriers,$,15.1,0.56,5.1
+2025-01-15,SNI,Stolt-Nielsen,kr,308.0,0.55,3.9
+2025-01-15,STNG,Scorpio Tankers,$,56.4,0.72,6.1
+2025-01-15,TNK,Teekay Tankers,$,47.2,0.74,5.1
+2025-01-15,TRMD,TORM,kr,165.0,0.99,5.1
+2025-01-16,AWILCO,Awilco LNG,kr,4.6,0.59,
+2025-01-16,BWLP,BW LPG,kr,145.2,0.8,6.7
+2025-01-16,DHT,DHT Holdings,$,11.4,1.14,8.7
+2025-01-16,DIS,d'Amico International,€,4.5,0.51,5.7
+2025-01-16,ECO,Okeanis Eco Tankers,kr,283.0,1.01,5.7
+2025-01-16,FLNG,Flex LNG,kr,298.0,0.95,12.5
+2025-01-16,GLNG,Golar LNG,$,42.2,1.01,24.5
+2025-01-16,HAFN,Hafnia Ltd.,kr,67.9,0.87,5.8
+2025-01-16,INSW,International Seaways,$,41.6,0.73,6.0
+2025-01-16,LPG,Dorian LPG,$,27.0,0.8,6.8
+2025-01-16,ODFB,Odfjell SE,kr,127.4,0.68,3.5
+2025-01-16,SBLK,Star Bulk Carriers,$,15.2,0.56,5.1
+2025-01-16,SNI,Stolt-Nielsen,kr,308.0,0.55,3.9
+2025-01-16,STNG,Scorpio Tankers,$,56.5,0.72,6.1
+2025-01-16,TNK,Teekay Tankers,$,47.3,0.74,5.1
+2025-01-16,TRMD,TORM,kr,161.0,0.98,5.0
+2025-01-17,AWILCO,Awilco LNG,kr,4.6,0.65,
+2025-01-17,BWLP,BW LPG,kr,145.7,0.76,6.7
+2025-01-17,DHT,DHT Holdings,$,10.9,1.11,8.3
+2025-01-17,DIS,d'Amico International,€,4.4,0.5,5.6
+2025-01-17,ECO,Okeanis Eco Tankers,kr,280.0,1.0,5.6
+2025-01-17,FLNG,Flex LNG,kr,296.0,0.96,12.3
+2025-01-17,GLNG,Golar LNG,$,41.2,0.99,24.0
+2025-01-17,HAFN,Hafnia Ltd.,kr,66.3,0.84,5.7
+2025-01-17,INSW,International Seaways,$,39.4,0.69,5.7
+2025-01-17,LPG,Dorian LPG,$,25.4,0.76,6.4
+2025-01-17,ODFB,Odfjell SE,kr,124.4,0.65,3.4
+2025-01-17,SBLK,Star Bulk Carriers,$,14.7,0.55,5.0
+2025-01-17,SNI,Stolt-Nielsen,kr,305.0,0.54,3.9
+2025-01-17,STNG,Scorpio Tankers,$,54.4,0.7,5.8
+2025-01-17,TNK,Teekay Tankers,$,44.6,0.7,4.8
+2025-01-17,TRMD,TORM,kr,158.0,0.95,4.9
+2025-01-20,AWILCO,Awilco LNG,kr,4.4,0.62,
+2025-01-20,BWLP,BW LPG,kr,143.0,0.75,6.6
+2025-01-20,DHT,DHT Holdings,$,10.8,1.09,8.2
+2025-01-20,DIS,d'Amico International,€,4.3,0.49,5.4
+2025-01-20,ECO,Okeanis Eco Tankers,kr,270.0,0.96,5.8
+2025-01-20,FLNG,Flex LNG,kr,291.0,0.94,12.1
+2025-01-20,GLNG,Golar LNG,$,41.8,1.01,24.3
+2025-01-20,HAFN,Hafnia Ltd.,kr,62.7,0.79,5.4
+2025-01-20,INSW,International Seaways,$,38.5,0.68,5.6
+2025-01-20,LPG,Dorian LPG,$,25.2,0.75,6.4
+2025-01-20,ODFB,Odfjell SE,kr,121.4,0.63,3.3
+2025-01-20,SBLK,Star Bulk Carriers,$,14.7,0.54,5.0
+2025-01-20,SNI,Stolt-Nielsen,kr,287.0,0.51,3.6
+2025-01-20,STNG,Scorpio Tankers,$,52.8,0.68,5.7
+2025-01-20,TNK,Teekay Tankers,$,43.6,0.69,4.7
+2025-01-20,TRMD,TORM,kr,148.0,0.89,4.6
+2025-01-21,AWILCO,Awilco LNG,kr,4.4,0.62,
+2025-01-21,BWLP,BW LPG,kr,141.4,0.75,6.5
+2025-01-21,DHT,DHT Holdings,$,10.8,1.09,8.1
+2025-01-21,DIS,d'Amico International,€,4.1,0.49,5.6
+2025-01-21,ECO,Okeanis Eco Tankers,kr,269.0,0.97,6.1
+2025-01-21,FLNG,Flex LNG,kr,286.0,0.94,11.9
+2025-01-21,GLNG,Golar LNG,$,41.8,1.01,24.3
+2025-01-21,HAFN,Hafnia Ltd.,kr,58.9,0.81,5.1
+2025-01-21,INSW,International Seaways,$,38.5,0.68,5.9
+2025-01-21,LPG,Dorian LPG,$,25.2,0.75,6.4
+2025-01-21,ODFB,Odfjell SE,kr,120.4,0.63,3.3
+2025-01-21,SBLK,Star Bulk Carriers,$,14.7,0.54,5.0
+2025-01-21,SNI,Stolt-Nielsen,kr,288.0,0.51,3.8
+2025-01-21,STNG,Scorpio Tankers,$,52.8,0.7,6.1
+2025-01-21,TNK,Teekay Tankers,$,43.6,0.68,4.9
+2025-01-21,TRMD,TORM,kr,143.0,0.9,4.6
+2025-01-22,AWILCO,Awilco LNG,kr,4.3,0.61,
+2025-01-22,BWLP,BW LPG,kr,135.0,0.71,6.3
+2025-01-22,DHT,DHT Holdings,$,10.3,1.05,7.6
+2025-01-22,DIS,d'Amico International,€,4.0,0.48,5.2
+2025-01-22,ECO,Okeanis Eco Tankers,kr,257.0,0.94,5.5
+2025-01-22,FLNG,Flex LNG,kr,286.0,0.94,12.0
+2025-01-22,GLNG,Golar LNG,$,41.6,1.0,24.2
+2025-01-22,HAFN,Hafnia Ltd.,kr,57.5,0.75,5.3
+2025-01-22,INSW,International Seaways,$,36.9,0.65,5.4
+2025-01-22,LPG,Dorian LPG,$,23.7,0.71,6.0
+2025-01-22,ODFB,Odfjell SE,kr,118.8,0.62,3.2
+2025-01-22,SBLK,Star Bulk Carriers,$,14.7,0.54,5.0
+2025-01-22,SNI,Stolt-Nielsen,kr,284.0,0.51,3.8
+2025-01-22,STNG,Scorpio Tankers,$,47.8,0.63,5.4
+2025-01-22,TNK,Teekay Tankers,$,41.2,0.64,4.4
+2025-01-22,TRMD,TORM,kr,140.0,0.86,4.4
+2025-01-24,AWILCO,Awilco LNG,kr,4.2,0.59,
+2025-01-24,BWLP,BW LPG,kr,132.3,0.71,6.2
+2025-01-24,DHT,DHT Holdings,$,10.9,1.09,8.1
+2025-01-24,DIS,d'Amico International,€,4.0,0.48,5.2
+2025-01-24,ECO,Okeanis Eco Tankers,kr,264.0,0.93,5.7
+2025-01-24,FLNG,Flex LNG,kr,295.0,0.95,12.5
+2025-01-24,GLNG,Golar LNG,$,40.5,0.99,23.2
+2025-01-24,HAFN,Hafnia Ltd.,kr,58.9,0.75,5.5
+2025-01-24,INSW,International Seaways,$,37.0,0.64,6.0
+2025-01-24,LPG,Dorian LPG,$,24.2,0.71,6.2
+2025-01-24,ODFB,Odfjell SE,kr,116.2,0.6,3.3
+2025-01-24,SBLK,Star Bulk Carriers,$,14.8,0.55,5.3
+2025-01-24,SNI,Stolt-Nielsen,kr,284.0,0.51,3.7
+2025-01-24,STNG,Scorpio Tankers,$,47.7,0.63,5.9
+2025-01-24,TNK,Teekay Tankers,$,41.1,0.64,4.4
+2025-01-24,TRMD,TORM,kr,142.0,0.86,4.3
+2025-01-27,AWILCO,Awilco LNG,kr,4.5,0.64,
+2025-01-27,BWLP,BW LPG,kr,128.8,0.71,6.0
+2025-01-27,DHT,DHT Holdings,$,10.8,1.1,8.0
+2025-01-27,DIS,d'Amico International,€,3.8,0.46,4.9
+2025-01-27,ECO,Okeanis Eco Tankers,kr,251.0,0.92,5.4
+2025-01-27,FLNG,Flex LNG,kr,282.0,0.93,12.2
+2025-01-27,GLNG,Golar LNG,$,40.1,0.96,24.7
+2025-01-27,HAFN,Hafnia Ltd.,kr,56.7,0.75,5.3
+2025-01-27,INSW,International Seaways,$,35.8,0.63,5.8
+2025-01-27,LPG,Dorian LPG,$,23.6,0.71,6.1
+2025-01-27,ODFB,Odfjell SE,kr,113.6,0.59,3.2
+2025-01-27,SBLK,Star Bulk Carriers,$,14.8,0.55,5.3
+2025-01-27,SNI,Stolt-Nielsen,kr,278.0,0.5,3.6
+2025-01-27,STNG,Scorpio Tankers,$,46.5,0.61,5.7
+2025-01-27,TNK,Teekay Tankers,$,40.0,0.63,4.3
+2025-01-27,TRMD,TORM,kr,136.0,0.84,4.4
+2025-01-29,AWILCO,Awilco LNG,kr,4.3,0.63,
+2025-01-29,BWLP,BW LPG,kr,131.1,0.73,6.1
+2025-01-29,DHT,DHT Holdings,$,11.0,1.1,8.2
+2025-01-29,DIS,d'Amico International,€,3.8,0.45,4.8
+2025-01-29,ECO,Okeanis Eco Tankers,kr,257.0,0.95,5.6
+2025-01-29,FLNG,Flex LNG,kr,284.0,0.94,12.2
+2025-01-29,GLNG,Golar LNG,$,39.0,0.94,22.3
+2025-01-29,HAFN,Hafnia Ltd.,kr,56.9,0.76,5.3
+2025-01-29,INSW,International Seaways,$,36.3,0.64,5.9
+2025-01-29,LPG,Dorian LPG,$,24.2,0.73,6.3
+2025-01-29,ODFB,Odfjell SE,kr,117.0,0.59,3.4
+2025-01-29,SBLK,Star Bulk Carriers,$,14.9,0.55,5.4
+2025-01-29,SNI,Stolt-Nielsen,kr,306.0,0.55,3.9
+2025-01-29,STNG,Scorpio Tankers,$,46.4,0.62,5.9
+2025-01-29,TNK,Teekay Tankers,$,39.7,0.62,4.5
+2025-01-29,TRMD,TORM,kr,137.0,0.85,4.5
+2025-01-30,AWILCO,Awilco LNG,kr,4.3,0.6,
+2025-01-30,BWLP,BW LPG,kr,132.7,0.74,6.2
+2025-01-30,DHT,DHT Holdings,$,11.2,1.13,8.3
+2025-01-30,DIS,d'Amico International,€,3.9,0.46,4.9
+2025-01-30,ECO,Okeanis Eco Tankers,kr,268.0,0.97,5.8
+2025-01-30,FLNG,Flex LNG,kr,291.0,0.95,12.5
+2025-01-30,GLNG,Golar LNG,$,39.8,0.96,22.8
+2025-01-30,HAFN,Hafnia Ltd.,kr,57.6,0.75,5.3
+2025-01-30,INSW,International Seaways,$,37.5,0.66,6.1
+2025-01-30,LPG,Dorian LPG,$,24.6,0.74,6.4
+2025-01-30,ODFB,Odfjell SE,kr,123.4,0.65,3.6
+2025-01-30,SBLK,Star Bulk Carriers,$,15.3,0.57,5.5
+2025-01-30,SNI,Stolt-Nielsen,kr,313.0,0.58,4.1
+2025-01-30,STNG,Scorpio Tankers,$,47.8,0.63,6.1
+2025-01-30,TNK,Teekay Tankers,$,41.0,0.64,4.6
+2025-01-30,TRMD,TORM,kr,139.0,0.86,4.6
+2025-01-31,AWILCO,Awilco LNG,kr,4.2,0.6,
+2025-01-31,BWLP,BW LPG,kr,143.8,0.76,6.5
+2025-01-31,DHT,DHT Holdings,$,11.5,1.17,8.6
+2025-01-31,DIS,d'Amico International,€,4.0,0.47,5.0
+2025-01-31,ECO,Okeanis Eco Tankers,kr,271.0,0.98,5.9
+2025-01-31,FLNG,Flex LNG,kr,293.0,0.96,12.6
+2025-01-31,GLNG,Golar LNG,$,40.6,0.98,25.0
+2025-01-31,HAFN,Hafnia Ltd.,kr,58.9,0.77,5.4
+2025-01-31,INSW,International Seaways,$,39.0,0.69,6.3
+2025-01-31,LPG,Dorian LPG,$,25.4,0.76,6.6
+2025-01-31,ODFB,Odfjell SE,kr,119.2,0.62,3.5
+2025-01-31,SBLK,Star Bulk Carriers,$,15.6,0.58,5.6
+2025-01-31,SNI,Stolt-Nielsen,kr,298.0,0.55,3.9
+2025-01-31,STNG,Scorpio Tankers,$,47.9,0.63,6.1
+2025-01-31,TNK,Teekay Tankers,$,42.4,0.66,4.8
+2025-01-31,TRMD,TORM,kr,142.0,0.87,4.6
+2025-02-03,AWILCO,Awilco LNG,kr,4.3,0.6,
+2025-02-03,BWLP,BW LPG,kr,143.7,0.73,6.4
+2025-02-03,DHT,DHT Holdings,$,11.3,1.15,8.4
+2025-02-03,DIS,d'Amico International,€,4.0,0.47,5.0
+2025-02-03,ECO,Okeanis Eco Tankers,kr,275.0,0.99,5.9
+2025-02-03,FLNG,Flex LNG,kr,290.0,0.95,12.3
+2025-02-03,GLNG,Golar LNG,$,40.8,0.98,23.2
+2025-02-03,HAFN,Hafnia Ltd.,kr,59.9,0.78,5.5
+2025-02-03,INSW,International Seaways,$,39.0,0.69,6.3
+2025-02-03,LPG,Dorian LPG,$,24.0,0.73,6.2
+2025-02-03,ODFB,Odfjell SE,kr,118.4,0.62,3.5
+2025-02-03,SBLK,Star Bulk Carriers,$,15.4,0.57,5.5
+2025-02-03,SNI,Stolt-Nielsen,kr,293.0,0.54,3.8
+2025-02-03,STNG,Scorpio Tankers,$,47.6,0.63,6.0
+2025-02-03,TNK,Teekay Tankers,$,41.9,0.65,4.7
+2025-02-03,TRMD,TORM,kr,143.0,0.88,4.6
+2025-02-04,AWILCO,Awilco LNG,kr,4.2,0.58,
+2025-02-04,BWLP,BW LPG,kr,141.3,0.73,6.4
+2025-02-04,DHT,DHT Holdings,$,11.5,1.16,8.9
+2025-02-04,DIS,d'Amico International,€,4.0,0.47,5.1
+2025-02-04,ECO,Okeanis Eco Tankers,kr,278.0,1.0,6.0
+2025-02-04,FLNG,Flex LNG,kr,290.0,0.94,10.7
+2025-02-04,GLNG,Golar LNG,$,41.7,1.0,25.5
+2025-02-04,HAFN,Hafnia Ltd.,kr,60.1,0.78,5.5
+2025-02-04,INSW,International Seaways,$,39.0,0.69,6.3
+2025-02-04,LPG,Dorian LPG,$,24.0,0.73,6.3
+2025-02-04,ODFB,Odfjell SE,kr,116.6,0.61,3.4
+2025-02-04,SBLK,Star Bulk Carriers,$,15.2,0.56,5.5
+2025-02-04,SNI,Stolt-Nielsen,kr,286.0,0.51,4.1
+2025-02-04,STNG,Scorpio Tankers,$,48.0,0.63,6.1
+2025-02-04,TNK,Teekay Tankers,$,42.1,0.66,4.7
+2025-02-04,TRMD,TORM,kr,144.0,0.88,4.7
+2025-02-05,AWILCO,Awilco LNG,kr,3.8,0.58,
+2025-02-05,BWLP,BW LPG,kr,146.1,0.73,6.6
+2025-02-05,DHT,DHT Holdings,$,11.9,1.16,9.2
+2025-02-05,DIS,d'Amico International,€,4.1,0.48,5.2
+2025-02-05,ECO,Okeanis Eco Tankers,kr,289.0,1.0,6.3
+2025-02-05,FLNG,Flex LNG,kr,288.0,0.94,11.0
+2025-02-05,GLNG,Golar LNG,$,42.7,1.0,26.1
+2025-02-05,HAFN,Hafnia Ltd.,kr,62.3,0.78,5.8
+2025-02-05,INSW,International Seaways,$,40.9,0.69,6.8
+2025-02-05,LPG,Dorian LPG,$,25.0,0.73,6.3
+2025-02-05,ODFB,Odfjell SE,kr,121.2,0.61,3.6
+2025-02-05,SBLK,Star Bulk Carriers,$,15.7,0.58,5.9
+2025-02-05,SNI,Stolt-Nielsen,kr,291.0,0.52,4.2
+2025-02-05,STNG,Scorpio Tankers,$,50.1,0.63,6.5
+2025-02-05,TNK,Teekay Tankers,$,44.1,0.66,4.9
+2025-02-05,TRMD,TORM,kr,151.0,0.88,4.9
+2025-02-06,AWILCO,Awilco LNG,kr,3.7,0.52,
+2025-02-06,BWLP,BW LPG,kr,147.5,0.76,6.6
+2025-02-06,DHT,DHT Holdings,$,11.8,1.13,7.3
+2025-02-06,DIS,d'Amico International,€,4.0,0.47,5.1
+2025-02-06,ECO,Okeanis Eco Tankers,kr,287.0,1.05,6.2
+2025-02-06,FLNG,Flex LNG,kr,287.0,0.94,11.3
+2025-02-06,GLNG,Golar LNG,$,43.0,1.03,26.3
+2025-02-06,HAFN,Hafnia Ltd.,kr,60.8,0.8,5.6
+2025-02-06,INSW,International Seaways,$,40.7,0.72,6.8
+2025-02-06,LPG,Dorian LPG,$,24.9,0.76,6.3
+2025-02-06,ODFB,Odfjell SE,kr,119.8,0.63,3.6
+2025-02-06,SBLK,Star Bulk Carriers,$,15.6,0.58,6.2
+2025-02-06,SNI,Stolt-Nielsen,kr,280.0,0.5,4.1
+2025-02-06,STNG,Scorpio Tankers,$,49.6,0.66,6.4
+2025-02-06,TNK,Teekay Tankers,$,43.7,0.68,4.9
+2025-02-06,TRMD,TORM,kr,149.0,0.91,4.8
+2025-02-07,AWILCO,Awilco LNG,kr,3.5,0.5,
+2025-02-07,BWLP,BW LPG,kr,145.0,0.72,6.6
+2025-02-07,DHT,DHT Holdings,$,11.5,1.13,7.1
+2025-02-07,DIS,d'Amico International,€,4.0,0.47,5.1
+2025-02-07,ECO,Okeanis Eco Tankers,kr,279.0,1.02,6.1
+2025-02-07,FLNG,Flex LNG,kr,281.0,0.92,11.1
+2025-02-07,GLNG,Golar LNG,$,40.8,0.98,24.9
+2025-02-07,HAFN,Hafnia Ltd.,kr,59.6,0.78,5.6
+2025-02-07,INSW,International Seaways,$,39.7,0.7,6.6
+2025-02-07,LPG,Dorian LPG,$,23.5,0.72,5.9
+2025-02-07,ODFB,Odfjell SE,kr,119.4,0.64,3.7
+2025-02-07,SBLK,Star Bulk Carriers,$,15.4,0.57,6.1
+2025-02-07,SNI,Stolt-Nielsen,kr,283.0,0.5,4.1
+2025-02-07,STNG,Scorpio Tankers,$,48.6,0.64,6.4
+2025-02-07,TNK,Teekay Tankers,$,42.4,0.66,4.8
+2025-02-07,TRMD,TORM,kr,148.0,0.9,4.8
+2025-02-10,AWILCO,Awilco LNG,kr,3.4,0.49,
+2025-02-10,BWLP,BW LPG,kr,145.1,0.72,6.5
+2025-02-10,DHT,DHT Holdings,$,11.4,1.11,7.3
+2025-02-10,DIS,d'Amico International,€,4.0,0.47,5.1
+2025-02-10,ECO,Okeanis Eco Tankers,kr,280.0,1.02,6.1
+2025-02-10,FLNG,Flex LNG,kr,283.0,0.92,11.1
+2025-02-10,GLNG,Golar LNG,$,40.7,0.98,24.9
+2025-02-10,HAFN,Hafnia Ltd.,kr,60.0,0.79,5.6
+2025-02-10,INSW,International Seaways,$,39.3,0.7,6.6
+2025-02-10,LPG,Dorian LPG,$,23.4,0.72,5.9
+2025-02-10,ODFB,Odfjell SE,kr,116.4,0.62,3.8
+2025-02-10,SBLK,Star Bulk Carriers,$,15.4,0.57,6.1
+2025-02-10,SNI,Stolt-Nielsen,kr,281.0,0.51,4.1
+2025-02-10,STNG,Scorpio Tankers,$,47.1,0.62,6.2
+2025-02-10,TNK,Teekay Tankers,$,41.7,0.65,4.7
+2025-02-10,TRMD,TORM,kr,148.0,0.9,4.8
+2025-02-11,AWILCO,Awilco LNG,kr,3.5,0.5,
+2025-02-11,BWLP,BW LPG,kr,142.6,0.73,6.4
+2025-02-11,DHT,DHT Holdings,$,11.3,1.1,7.3
+2025-02-11,DIS,d'Amico International,€,4.0,0.46,5.4
+2025-02-11,ECO,Okeanis Eco Tankers,kr,272.0,0.99,6.1
+2025-02-11,FLNG,Flex LNG,kr,278.0,0.91,11.0
+2025-02-11,GLNG,Golar LNG,$,41.3,0.99,25.4
+2025-02-11,HAFN,Hafnia Ltd.,kr,59.0,0.78,5.6
+2025-02-11,INSW,International Seaways,$,39.6,0.7,6.9
+2025-02-11,LPG,Dorian LPG,$,23.8,0.73,6.0
+2025-02-11,ODFB,Odfjell SE,kr,112.4,0.6,3.8
+2025-02-11,SBLK,Star Bulk Carriers,$,15.7,0.58,6.2
+2025-02-11,SNI,Stolt-Nielsen,kr,273.0,0.49,4.0
+2025-02-11,STNG,Scorpio Tankers,$,48.1,0.64,6.5
+2025-02-11,TNK,Teekay Tankers,$,42.2,0.66,4.9
+2025-02-11,TRMD,TORM,kr,144.0,0.88,4.8
+2025-02-12,AWILCO,Awilco LNG,kr,3.7,0.53,
+2025-02-12,BWLP,BW LPG,kr,145.2,0.72,6.6
+2025-02-12,DHT,DHT Holdings,$,11.1,1.08,7.0
+2025-02-12,DIS,d'Amico International,€,4.0,0.47,5.8
+2025-02-12,ECO,Okeanis Eco Tankers,kr,273.0,0.99,6.2
+2025-02-12,FLNG,Flex LNG,kr,281.0,0.92,11.1
+2025-02-12,GLNG,Golar LNG,$,40.4,0.97,24.8
+2025-02-12,HAFN,Hafnia Ltd.,kr,60.6,0.8,6.0
+2025-02-12,INSW,International Seaways,$,39.8,0.7,7.0
+2025-02-12,LPG,Dorian LPG,$,23.6,0.72,6.0
+2025-02-12,ODFB,Odfjell SE,kr,115.8,0.62,3.9
+2025-02-12,SBLK,Star Bulk Carriers,$,15.6,0.58,6.2
+2025-02-12,SNI,Stolt-Nielsen,kr,276.0,0.5,4.0
+2025-02-12,STNG,Scorpio Tankers,$,48.2,0.64,6.7
+2025-02-12,TNK,Teekay Tankers,$,42.3,0.66,5.2
+2025-02-12,TRMD,TORM,kr,149.0,0.92,5.2
+2025-02-13,AWILCO,Awilco LNG,kr,3.6,0.52,
+2025-02-13,BWLP,BW LPG,kr,146.6,0.7,6.6
+2025-02-13,DHT,DHT Holdings,$,11.3,1.1,7.1
+2025-02-13,DIS,d'Amico International,€,4.0,0.47,5.9
+2025-02-13,ECO,Okeanis Eco Tankers,kr,277.0,1.0,6.2
+2025-02-13,FLNG,Flex LNG,kr,281.0,0.92,11.1
+2025-02-13,GLNG,Golar LNG,$,40.3,0.97,24.8
+2025-02-13,HAFN,Hafnia Ltd.,kr,60.8,0.8,6.1
+2025-02-13,INSW,International Seaways,$,40.3,0.71,7.0
+2025-02-13,LPG,Dorian LPG,$,23.1,0.7,5.8
+2025-02-13,ODFB,Odfjell SE,kr,103.8,0.56,3.8
+2025-02-13,SBLK,Star Bulk Carriers,$,15.7,0.58,7.0
+2025-02-13,SNI,Stolt-Nielsen,kr,275.0,0.5,4.0
+2025-02-13,STNG,Scorpio Tankers,$,47.9,0.63,6.5
+2025-02-13,TNK,Teekay Tankers,$,42.0,0.66,5.2
+2025-02-13,TRMD,TORM,kr,148.0,0.91,5.2
+2025-02-14,AWILCO,Awilco LNG,kr,3.8,0.52,
+2025-02-14,BWLP,BW LPG,kr,144.0,0.7,6.5
+2025-02-14,DHT,DHT Holdings,$,11.1,1.1,7.0
+2025-02-14,DIS,d'Amico International,€,4.0,0.47,5.8
+2025-02-14,ECO,Okeanis Eco Tankers,kr,273.0,1.01,6.2
+2025-02-14,FLNG,Flex LNG,kr,279.0,0.92,11.1
+2025-02-14,GLNG,Golar LNG,$,41.0,0.97,25.2
+2025-02-14,HAFN,Hafnia Ltd.,kr,59.5,0.8,6.1
+2025-02-14,INSW,International Seaways,$,39.0,0.71,6.8
+2025-02-14,LPG,Dorian LPG,$,22.8,0.7,5.6
+2025-02-14,ODFB,Odfjell SE,kr,103.2,0.56,3.8
+2025-02-14,SBLK,Star Bulk Carriers,$,16.0,0.59,7.1
+2025-02-14,SNI,Stolt-Nielsen,kr,274.0,0.5,4.0
+2025-02-14,STNG,Scorpio Tankers,$,44.7,0.64,5.9
+2025-02-14,TNK,Teekay Tankers,$,40.9,0.67,5.0
+2025-02-14,TRMD,TORM,kr,143.0,0.91,5.0
+2025-02-17,AWILCO,Awilco LNG,kr,3.7,0.54,
+2025-02-17,BWLP,BW LPG,kr,141.0,0.69,6.7
+2025-02-17,DHT,DHT Holdings,$,11.2,1.09,7.1
+2025-02-17,DIS,d'Amico International,€,3.9,0.46,5.7
+2025-02-17,ECO,Okeanis Eco Tankers,kr,272.0,1.0,6.2
+2025-02-17,FLNG,Flex LNG,kr,277.0,0.92,11.1
+2025-02-17,GLNG,Golar LNG,$,40.7,0.98,25.0
+2025-02-17,HAFN,Hafnia Ltd.,kr,57.9,0.78,5.9
+2025-02-17,INSW,International Seaways,$,38.2,0.69,6.7
+2025-02-17,LPG,Dorian LPG,$,22.6,0.69,5.6
+2025-02-17,ODFB,Odfjell SE,kr,103.6,0.55,3.7
+2025-02-17,SBLK,Star Bulk Carriers,$,16.1,0.6,7.1
+2025-02-17,SNI,Stolt-Nielsen,kr,271.0,0.49,4.0
+2025-02-17,STNG,Scorpio Tankers,$,44.1,0.59,6.0
+2025-02-17,TNK,Teekay Tankers,$,40.4,0.65,5.0
+2025-02-17,TRMD,TORM,kr,138.0,0.89,4.8
+2025-02-18,AWILCO,Awilco LNG,kr,3.8,0.55,
+2025-02-18,BWLP,BW LPG,kr,137.9,0.69,6.5
+2025-02-18,DHT,DHT Holdings,$,11.2,1.09,7.1
+2025-02-18,DIS,d'Amico International,€,3.9,0.47,5.8
+2025-02-18,ECO,Okeanis Eco Tankers,kr,265.0,0.98,6.0
+2025-02-18,FLNG,Flex LNG,kr,270.0,0.89,10.8
+2025-02-18,GLNG,Golar LNG,$,40.7,0.98,25.0
+2025-02-18,HAFN,Hafnia Ltd.,kr,55.1,0.73,5.6
+2025-02-18,INSW,International Seaways,$,38.2,0.68,6.7
+2025-02-18,LPG,Dorian LPG,$,22.6,0.69,5.6
+2025-02-18,ODFB,Odfjell SE,kr,101.2,0.54,3.7
+2025-02-18,SBLK,Star Bulk Carriers,$,16.1,0.6,7.1
+2025-02-18,SNI,Stolt-Nielsen,kr,267.0,0.48,3.8
+2025-02-18,STNG,Scorpio Tankers,$,44.1,0.59,6.0
+2025-02-18,TNK,Teekay Tankers,$,40.4,0.64,5.0
+2025-02-18,TRMD,TORM,kr,139.0,0.86,4.9
+2025-02-19,AWILCO,Awilco LNG,kr,3.5,0.55,
+2025-02-19,BWLP,BW LPG,kr,144.0,0.69,6.8
+2025-02-19,DHT,DHT Holdings,$,11.0,1.09,7.0
+2025-02-19,DIS,d'Amico International,€,4.0,0.47,5.8
+2025-02-19,ECO,Okeanis Eco Tankers,kr,274.0,0.98,6.4
+2025-02-19,FLNG,Flex LNG,kr,270.0,0.89,11.1
+2025-02-19,GLNG,Golar LNG,$,40.8,0.98,25.1
+2025-02-19,HAFN,Hafnia Ltd.,kr,57.2,0.73,5.8
+2025-02-19,INSW,International Seaways,$,38.6,0.68,6.7
+2025-02-19,LPG,Dorian LPG,$,23.0,0.69,5.6
+2025-02-19,ODFB,Odfjell SE,kr,100.8,0.54,3.7
+2025-02-19,SBLK,Star Bulk Carriers,$,16.4,0.63,4.7
+2025-02-19,SNI,Stolt-Nielsen,kr,269.0,0.49,3.8
+2025-02-19,STNG,Scorpio Tankers,$,43.8,0.59,6.0
+2025-02-19,TNK,Teekay Tankers,$,40.9,0.64,5.0
+2025-02-19,TRMD,TORM,kr,139.0,0.86,4.9
+2025-02-20,AWILCO,Awilco LNG,kr,3.5,0.51,
+2025-02-20,BWLP,BW LPG,kr,145.2,0.69,6.9
+2025-02-20,DHT,DHT Holdings,$,11.1,1.08,7.0
+2025-02-20,DIS,d'Amico International,€,3.9,0.46,5.7
+2025-02-20,ECO,Okeanis Eco Tankers,kr,271.0,1.01,5.1
+2025-02-20,FLNG,Flex LNG,kr,263.0,0.87,10.8
+2025-02-20,GLNG,Golar LNG,$,40.8,0.98,24.6
+2025-02-20,HAFN,Hafnia Ltd.,kr,57.1,0.78,5.8
+2025-02-20,INSW,International Seaways,$,38.4,0.68,6.7
+2025-02-20,LPG,Dorian LPG,$,22.8,0.69,5.6
+2025-02-20,ODFB,Odfjell SE,kr,101.0,0.54,3.7
+2025-02-20,SBLK,Star Bulk Carriers,$,15.0,0.57,4.3
+2025-02-20,SNI,Stolt-Nielsen,kr,270.0,0.49,3.9
+2025-02-20,STNG,Scorpio Tankers,$,42.9,0.57,5.9
+2025-02-20,TNK,Teekay Tankers,$,40.7,0.62,4.7
+2025-02-20,TRMD,TORM,kr,140.0,0.87,4.9
+2025-02-21,AWILCO,Awilco LNG,kr,3.6,0.52,
+2025-02-21,BWLP,BW LPG,kr,139.6,0.69,6.6
+2025-02-21,DHT,DHT Holdings,$,11.0,1.07,6.9
+2025-02-21,DIS,d'Amico International,€,3.8,0.45,5.6
+2025-02-21,ECO,Okeanis Eco Tankers,kr,249.0,0.93,5.1
+2025-02-21,FLNG,Flex LNG,kr,260.0,0.86,10.7
+2025-02-21,GLNG,Golar LNG,$,40.8,0.98,24.6
+2025-02-21,HAFN,Hafnia Ltd.,kr,56.1,0.77,5.7
+2025-02-21,INSW,International Seaways,$,37.4,0.66,6.5
+2025-02-21,LPG,Dorian LPG,$,22.8,0.69,5.6
+2025-02-21,ODFB,Odfjell SE,kr,98.8,0.53,3.6
+2025-02-21,SBLK,Star Bulk Carriers,$,16.0,0.61,4.7
+2025-02-21,SNI,Stolt-Nielsen,kr,263.0,0.48,3.8
+2025-02-21,STNG,Scorpio Tankers,$,42.4,0.57,5.8
+2025-02-21,TNK,Teekay Tankers,$,40.3,0.66,5.0
+2025-02-21,TRMD,TORM,kr,135.0,0.84,4.8
+2025-02-24,AWILCO,Awilco LNG,kr,3.6,0.52,
+2025-02-24,BWLP,BW LPG,kr,140.0,0.68,6.6
+2025-02-24,DHT,DHT Holdings,$,10.8,1.06,6.8
+2025-02-24,DIS,d'Amico International,€,3.8,0.47,5.6
+2025-02-24,ECO,Okeanis Eco Tankers,kr,250.0,0.93,5.2
+2025-02-24,FLNG,Flex LNG,kr,253.0,0.84,10.4
+2025-02-24,GLNG,Golar LNG,$,39.0,0.94,23.5
+2025-02-24,HAFN,Hafnia Ltd.,kr,56.2,0.77,5.9
+2025-02-24,INSW,International Seaways,$,36.7,0.67,6.4
+2025-02-24,LPG,Dorian LPG,$,22.4,0.68,5.5
+2025-02-24,ODFB,Odfjell SE,kr,99.7,0.53,3.3
+2025-02-24,SBLK,Star Bulk Carriers,$,15.4,0.59,4.6
+2025-02-24,SNI,Stolt-Nielsen,kr,268.0,0.49,3.9
+2025-02-24,STNG,Scorpio Tankers,$,41.2,0.55,5.6
+2025-02-24,TNK,Teekay Tankers,$,40.1,0.65,5.4
+2025-02-24,TRMD,TORM,kr,135.0,0.84,4.9
+2025-02-25,AWILCO,Awilco LNG,kr,3.5,0.52,
+2025-02-25,BWLP,BW LPG,kr,134.2,0.68,6.3
+2025-02-25,DHT,DHT Holdings,$,10.7,1.06,6.8
+2025-02-25,DIS,d'Amico International,€,3.8,0.47,5.6
+2025-02-25,ECO,Okeanis Eco Tankers,kr,241.0,0.93,5.0
+2025-02-25,FLNG,Flex LNG,kr,253.0,0.84,10.4
+2025-02-25,GLNG,Golar LNG,$,39.6,0.94,23.9
+2025-02-25,HAFN,Hafnia Ltd.,kr,55.1,0.75,5.8
+2025-02-25,INSW,International Seaways,$,37.5,0.67,6.6
+2025-02-25,LPG,Dorian LPG,$,22.6,0.68,5.6
+2025-02-25,ODFB,Odfjell SE,kr,100.2,0.53,3.3
+2025-02-25,SBLK,Star Bulk Carriers,$,15.3,0.58,4.5
+2025-02-25,SNI,Stolt-Nielsen,kr,269.0,0.49,3.9
+2025-02-25,STNG,Scorpio Tankers,$,42.0,0.55,5.7
+2025-02-25,TNK,Teekay Tankers,$,41.3,0.65,5.6
+2025-02-25,TRMD,TORM,kr,135.0,0.84,4.8
+2025-02-26,AWILCO,Awilco LNG,kr,3.3,0.46,
+2025-02-26,BWLP,BW LPG,kr,130.9,0.65,6.2
+2025-02-26,DHT,DHT Holdings,$,10.6,1.03,6.7
+2025-02-26,DIS,d'Amico International,€,3.8,0.47,5.6
+2025-02-26,ECO,Okeanis Eco Tankers,kr,247.0,0.92,5.1
+2025-02-26,FLNG,Flex LNG,kr,257.0,0.85,10.6
+2025-02-26,GLNG,Golar LNG,$,38.3,0.92,23.1
+2025-02-26,HAFN,Hafnia Ltd.,kr,54.6,0.73,5.7
+2025-02-26,INSW,International Seaways,$,36.2,0.66,6.3
+2025-02-26,LPG,Dorian LPG,$,21.2,0.65,5.2
+2025-02-26,ODFB,Odfjell SE,kr,100.8,0.54,3.3
+2025-02-26,SBLK,Star Bulk Carriers,$,15.5,0.59,4.6
+2025-02-26,SNI,Stolt-Nielsen,kr,270.0,0.49,3.9
+2025-02-26,STNG,Scorpio Tankers,$,41.2,0.55,5.6
+2025-02-26,TNK,Teekay Tankers,$,40.1,0.65,5.4
+2025-02-26,TRMD,TORM,kr,137.0,0.86,4.9
+2025-02-27,AWILCO,Awilco LNG,kr,3.3,0.46,
+2025-02-27,BWLP,BW LPG,kr,129.9,0.65,6.9
+2025-02-27,DHT,DHT Holdings,$,10.7,1.03,6.7
+2025-02-27,DIS,d'Amico International,€,3.8,0.47,5.6
+2025-02-27,ECO,Okeanis Eco Tankers,kr,247.0,0.92,5.1
+2025-02-27,FLNG,Flex LNG,kr,254.0,0.85,10.4
+2025-02-27,GLNG,Golar LNG,$,38.5,0.92,23.2
+2025-02-27,HAFN,Hafnia Ltd.,kr,54.7,0.73,5.6
+2025-02-27,INSW,International Seaways,$,36.5,0.66,6.4
+2025-02-27,LPG,Dorian LPG,$,20.6,0.65,5.1
+2025-02-27,ODFB,Odfjell SE,kr,100.6,0.49,3.3
+2025-02-27,SBLK,Star Bulk Carriers,$,15.8,0.72,4.7
+2025-02-27,SNI,Stolt-Nielsen,kr,270.0,,3.9
+2025-02-27,STNG,Scorpio Tankers,$,40.8,0.56,5.6
+2025-02-27,TNK,Teekay Tankers,$,39.8,0.65,5.4
+2025-02-27,TRMD,TORM,kr,135.0,0.86,4.9
+2025-03-03,AWILCO,Awilco LNG,kr,3.5,0.49,
+2025-03-03,BWLP,BW LPG,kr,130.3,0.62,6.9
+2025-03-03,DHT,DHT Holdings,$,10.3,1.01,6.5
+2025-03-03,DIS,d'Amico International,€,3.7,0.45,5.4
+2025-03-03,ECO,Okeanis Eco Tankers,kr,234.0,0.86,4.7
+2025-03-03,FLNG,Flex LNG,kr,249.0,0.81,10.1
+2025-03-03,GLNG,Golar LNG,$,38.3,0.91,37.7
+2025-03-03,HAFN,Hafnia Ltd.,kr,48.1,0.62,5.2
+2025-03-03,INSW,International Seaways,$,33.3,0.6,5.5
+2025-03-03,LPG,Dorian LPG,$,20.4,0.62,6.9
+2025-03-03,ODFB,Odfjell SE,kr,96.8,0.48,3.1
+2025-03-03,SBLK,Star Bulk Carriers,$,15.6,0.73,4.7
+2025-03-03,SNI,Stolt-Nielsen,kr,265.0,,4.0
+2025-03-03,STNG,Scorpio Tankers,$,39.9,0.55,5.5
+2025-03-03,TNK,Teekay Tankers,$,37.7,0.61,5.1
+2025-03-03,TRMD,TORM,kr,128.0,0.83,4.6
+2025-03-04,AWILCO,Awilco LNG,kr,3.3,0.49,
+2025-03-04,BWLP,BW LPG,kr,126.6,0.62,6.7
+2025-03-04,DHT,DHT Holdings,$,10.4,1.01,6.6
+2025-03-04,DIS,d'Amico International,€,3.7,0.46,5.4
+2025-03-04,ECO,Okeanis Eco Tankers,kr,232.0,0.86,4.7
+2025-03-04,FLNG,Flex LNG,kr,246.0,0.81,10.0
+2025-03-04,GLNG,Golar LNG,$,36.8,0.91,35.4
+2025-03-04,HAFN,Hafnia Ltd.,kr,45.8,0.62,5.0
+2025-03-04,INSW,International Seaways,$,33.0,0.6,5.4
+2025-03-04,LPG,Dorian LPG,$,19.9,0.62,6.7
+2025-03-04,ODFB,Odfjell SE,kr,96.5,0.48,3.1
+2025-03-04,SBLK,Star Bulk Carriers,$,15.2,0.72,4.6
+2025-03-04,SNI,Stolt-Nielsen,kr,260.0,,4.0
+2025-03-04,STNG,Scorpio Tankers,$,39.4,0.55,5.4
+2025-03-04,TNK,Teekay Tankers,$,37.6,0.61,5.1
+2025-03-04,TRMD,TORM,kr,125.0,0.83,4.6
+2025-03-06,AWILCO,Awilco LNG,kr,3.1,0.46,
+2025-03-06,BWLP,BW LPG,kr,121.8,0.71,6.6
+2025-03-06,DHT,DHT Holdings,$,10.4,1.03,6.5
+2025-03-06,DIS,d'Amico International,€,3.5,0.45,5.6
+2025-03-06,ECO,Okeanis Eco Tankers,kr,229.0,0.85,4.8
+2025-03-06,FLNG,Flex LNG,kr,240.0,0.8,10.1
+2025-03-06,GLNG,Golar LNG,$,35.7,0.86,34.3
+2025-03-06,HAFN,Hafnia Ltd.,kr,47.4,0.58,5.1
+2025-03-06,INSW,International Seaways,$,33.6,0.62,5.5
+2025-03-06,LPG,Dorian LPG,$,20.0,0.62,6.7
+2025-03-06,ODFB,Odfjell SE,kr,91.2,0.49,3.0
+2025-03-06,SBLK,Star Bulk Carriers,$,15.4,0.67,4.6
+2025-03-06,SNI,Stolt-Nielsen,kr,249.0,0.46,3.9
+2025-03-06,STNG,Scorpio Tankers,$,39.3,0.54,5.4
+2025-03-06,TNK,Teekay Tankers,$,37.1,0.63,5.0
+2025-03-06,TRMD,TORM,kr,120.0,0.81,4.5
+2025-03-07,ASC,Ardmore Shipping,$,9.8,,7.5
+2025-03-07,AWILCO,Awilco LNG,kr,3.0,0.43,
+2025-03-07,BWLP,BW LPG,kr,120.1,0.72,6.5
+2025-03-07,DHT,DHT Holdings,$,10.6,1.04,6.7
+2025-03-07,DIS,d'Amico International,€,3.6,0.43,5.7
+2025-03-07,ECO,Okeanis Eco Tankers,kr,232.0,0.89,4.9
+2025-03-07,FLNG,Flex LNG,kr,236.0,0.8,9.9
+2025-03-07,GLNG,Golar LNG,$,33.1,0.79,31.8
+2025-03-07,GNK,Genco Shipping,$,14.3,,9.9
+2025-03-07,HAFN,Hafnia Ltd.,kr,47.1,0.63,5.1
+2025-03-07,HAUTO,Höegh Autoliners,kr,74.0,,3.1
+2025-03-07,INSW,International Seaways,$,34.7,0.63,5.2
+2025-03-07,LPG,Dorian LPG,$,21.0,0.64,7.1
+2025-03-07,MPCC,MPC Container Ships,kr,16.7,,6.1
+2025-03-07,NAT,Nordic American Tankers,$,2.5,,6.3
+2025-03-07,ODFB,Odfjell SE,kr,90.3,0.48,3.0
+2025-03-07,SBLK,Star Bulk Carriers,$,15.8,0.69,4.7
+2025-03-07,SNI,Stolt-Nielsen,kr,245.0,0.45,3.9
+2025-03-07,STNG,Scorpio Tankers,$,40.0,0.55,5.5
+2025-03-07,TNK,Teekay Tankers,$,38.3,0.62,5.2
+2025-03-07,TRMD,TORM,kr,133.0,0.82,5.0
+2025-03-07,WAWI,Wallenius Wilhelmsen,kr,89.4,,3.8
+2025-03-10,ASC,Ardmore Shipping,$,9.9,,7.6
+2025-03-10,AWILCO,Awilco LNG,kr,3.0,0.43,
+2025-03-10,BWLP,BW LPG,kr,115.8,0.7,6.4
+2025-03-10,DHT,DHT Holdings,$,10.8,1.05,6.0
+2025-03-10,DIS,d'Amico International,€,3.6,0.43,5.7
+2025-03-10,ECO,Okeanis Eco Tankers,kr,235.0,0.9,5.0
+2025-03-10,FLNG,Flex LNG,kr,238.0,0.81,10.0
+2025-03-10,GLNG,Golar LNG,$,32.7,0.78,31.4
+2025-03-10,GNK,Genco Shipping,$,14.3,,10.0
+2025-03-10,HAFN,Hafnia Ltd.,kr,47.8,0.64,5.2
+2025-03-10,HAUTO,Höegh Autoliners,kr,75.0,,3.1
+2025-03-10,INSW,International Seaways,$,35.1,0.64,5.3
+2025-03-10,LPG,Dorian LPG,$,21.0,0.64,7.1
+2025-03-10,MPCC,MPC Container Ships,kr,17.0,,6.3
+2025-03-10,NAT,Nordic American Tankers,$,2.5,,6.2
+2025-03-10,ODFB,Odfjell SE,kr,91.6,0.49,3.2
+2025-03-10,SBLK,Star Bulk Carriers,$,16.1,0.7,4.8
+2025-03-10,SNI,Stolt-Nielsen,kr,249.0,0.45,4.1
+2025-03-10,STNG,Scorpio Tankers,$,39.7,0.54,5.4
+2025-03-10,TNK,Teekay Tankers,$,38.3,0.62,5.2
+2025-03-10,TRMD,TORM,kr,133.0,0.82,5.1
+2025-03-10,WAWI,Wallenius Wilhelmsen,kr,90.7,,3.8
+2025-03-11,ASC,Ardmore Shipping,$,9.6,,7.3
+2025-03-11,AWILCO,Awilco LNG,kr,3.0,0.43,
+2025-03-11,BWLP,BW LPG,kr,110.3,0.67,6.1
+2025-03-11,DHT,DHT Holdings,$,10.2,1.0,5.7
+2025-03-11,DIS,d'Amico International,€,3.5,0.44,5.6
+2025-03-11,ECO,Okeanis Eco Tankers,kr,223.0,0.86,4.7
+2025-03-11,FLNG,Flex LNG,kr,231.0,0.79,9.7
+2025-03-11,GLNG,Golar LNG,$,31.3,0.74,30.1
+2025-03-11,GNK,Genco Shipping,$,13.8,,9.6
+2025-03-11,HAFN,Hafnia Ltd.,kr,44.7,0.6,5.1
+2025-03-11,HAUTO,Höegh Autoliners,kr,76.0,,3.2
+2025-03-11,INSW,International Seaways,$,33.5,0.61,5.2
+2025-03-11,LPG,Dorian LPG,$,20.3,0.62,6.8
+2025-03-11,MPCC,MPC Container Ships,kr,17.1,,6.4
+2025-03-11,NAT,Nordic American Tankers,$,2.4,,6.0
+2025-03-11,ODFB,Odfjell SE,kr,89.1,0.48,3.1
+2025-03-11,SBLK,Star Bulk Carriers,$,15.8,0.69,4.7
+2025-03-11,SNI,Stolt-Nielsen,kr,245.0,0.45,4.0
+2025-03-11,STNG,Scorpio Tankers,$,38.5,0.53,5.3
+2025-03-11,TNK,Teekay Tankers,$,36.7,0.6,5.0
+2025-03-11,TRMD,TORM,kr,124.0,0.8,4.7
+2025-03-11,WAWI,Wallenius Wilhelmsen,kr,90.6,,3.9
+2025-03-12,ASC,Ardmore Shipping,$,9.5,,7.3
+2025-03-12,AWILCO,Awilco LNG,kr,3.0,0.43,
+2025-03-12,BWLP,BW LPG,kr,107.3,0.65,5.8
+2025-03-12,DHT,DHT Holdings,$,10.2,1.0,5.7
+2025-03-12,DIS,d'Amico International,€,3.3,0.42,5.4
+2025-03-12,ECO,Okeanis Eco Tankers,kr,221.0,0.86,4.7
+2025-03-12,FLNG,Flex LNG,kr,231.0,0.8,9.8
+2025-03-12,GLNG,Golar LNG,$,32.0,0.76,30.7
+2025-03-12,GNK,Genco Shipping,$,13.5,,9.4
+2025-03-12,HAFN,Hafnia Ltd.,kr,44.3,0.6,5.1
+2025-03-12,HAUTO,Höegh Autoliners,kr,77.0,,3.2
+2025-03-12,INSW,International Seaways,$,32.9,0.6,5.1
+2025-03-12,LPG,Dorian LPG,$,20.4,0.62,6.9
+2025-03-12,MPCC,MPC Container Ships,kr,16.8,,6.3
+2025-03-12,NAT,Nordic American Tankers,$,2.4,,6.0
+2025-03-12,ODFB,Odfjell SE,kr,87.8,0.47,3.1
+2025-03-12,SBLK,Star Bulk Carriers,$,15.8,0.69,4.7
+2025-03-12,SNI,Stolt-Nielsen,kr,243.0,0.44,4.0
+2025-03-12,STNG,Scorpio Tankers,$,38.1,0.52,5.2
+2025-03-12,TNK,Teekay Tankers,$,35.9,0.58,4.9
+2025-03-12,TRMD,TORM,kr,117.0,0.76,4.5
+2025-03-12,WAWI,Wallenius Wilhelmsen,kr,90.3,,4.0
+2025-03-13,ASC,Ardmore Shipping,$,9.7,,7.4
+2025-03-13,AWILCO,Awilco LNG,kr,2.9,0.43,
+2025-03-13,BWLP,BW LPG,kr,112.2,0.69,6.1
+2025-03-13,DHT,DHT Holdings,$,10.3,1.0,5.7
+2025-03-13,DIS,d'Amico International,€,3.6,0.46,5.9
+2025-03-13,ECO,Okeanis Eco Tankers,kr,230.0,0.9,4.9
+2025-03-13,FLNG,Flex LNG,kr,232.0,0.8,9.9
+2025-03-13,GLNG,Golar LNG,$,34.0,0.81,32.7
+2025-03-13,GNK,Genco Shipping,$,14.1,,9.9
+2025-03-13,HAFN,Hafnia Ltd.,kr,45.0,0.62,5.2
+2025-03-13,HAUTO,Höegh Autoliners,kr,78.0,,3.3
+2025-03-13,INSW,International Seaways,$,33.2,0.6,5.1
+2025-03-13,LPG,Dorian LPG,$,20.9,0.64,7.0
+2025-03-13,MPCC,MPC Container Ships,kr,17.0,,6.4
+2025-03-13,NAT,Nordic American Tankers,$,2.5,,6.1
+2025-03-13,ODFB,Odfjell SE,kr,91.5,0.49,3.2
+2025-03-13,SBLK,Star Bulk Carriers,$,16.5,0.72,4.9
+2025-03-13,SNI,Stolt-Nielsen,kr,251.0,0.46,4.2
+2025-03-13,STNG,Scorpio Tankers,$,38.0,0.52,5.2
+2025-03-13,TNK,Teekay Tankers,$,36.3,0.59,4.9
+2025-03-13,TRMD,TORM,kr,121.0,0.78,4.6
+2025-03-13,WAWI,Wallenius Wilhelmsen,kr,93.0,,4.1
+2025-03-14,ASC,Ardmore Shipping,$,9.9,,7.6
+2025-03-14,AWILCO,Awilco LNG,kr,3.1,0.45,
+2025-03-14,BWLP,BW LPG,kr,116.4,0.71,6.3
+2025-03-14,DHT,DHT Holdings,$,10.3,1.01,5.7
+2025-03-14,DIS,d'Amico International,€,3.5,0.45,8.2
+2025-03-14,ECO,Okeanis Eco Tankers,kr,230.0,0.89,4.9
+2025-03-14,FLNG,Flex LNG,kr,234.0,0.81,9.9
+2025-03-14,GLNG,Golar LNG,$,32.7,0.78,31.3
+2025-03-14,GNK,Genco Shipping,$,13.9,,9.7
+2025-03-14,HAFN,Hafnia Ltd.,kr,45.6,0.62,5.3
+2025-03-14,HAUTO,Höegh Autoliners,kr,80.0,,3.4
+2025-03-14,INSW,International Seaways,$,33.0,0.6,5.1
+2025-03-14,LPG,Dorian LPG,$,21.3,0.65,7.2
+2025-03-14,MPCC,MPC Container Ships,kr,17.5,,6.5
+2025-03-14,NAT,Nordic American Tankers,$,2.5,,6.1
+2025-03-14,ODFB,Odfjell SE,kr,93.3,0.5,3.3
+2025-03-14,SBLK,Star Bulk Carriers,$,16.4,0.72,4.9
+2025-03-14,SNI,Stolt-Nielsen,kr,255.0,0.46,4.2
+2025-03-14,STNG,Scorpio Tankers,$,38.8,0.53,5.3
+2025-03-14,TNK,Teekay Tankers,$,36.8,0.6,5.0
+2025-03-14,TRMD,TORM,kr,124.0,0.8,4.7
+2025-03-14,WAWI,Wallenius Wilhelmsen,kr,94.0,,4.1
+2025-03-17,ASC,Ardmore Shipping,$,9.9,,7.6
+2025-03-17,AWILCO,Awilco LNG,kr,3.1,0.45,
+2025-03-17,BWLP,BW LPG,kr,113.9,0.7,6.2
+2025-03-17,DHT,DHT Holdings,$,10.5,1.04,5.9
+2025-03-17,DIS,d'Amico International,€,3.4,0.44,8.1
+2025-03-17,ECO,Okeanis Eco Tankers,kr,229.0,0.89,4.9
+2025-03-17,FLNG,Flex LNG,kr,231.0,0.8,9.9
+2025-03-17,GLNG,Golar LNG,$,33.9,0.8,32.4
+2025-03-17,GNK,Genco Shipping,$,13.9,,9.7
+2025-03-17,HAFN,Hafnia Ltd.,kr,45.1,0.62,5.2
+2025-03-17,HAUTO,Höegh Autoliners,kr,80.0,,3.4
+2025-03-17,INSW,International Seaways,$,33.6,0.61,5.2
+2025-03-17,LPG,Dorian LPG,$,21.8,0.66,7.3
+2025-03-17,MPCC,MPC Container Ships,kr,16.9,,6.4
+2025-03-17,NAT,Nordic American Tankers,$,2.5,,6.1
+2025-03-17,ODFB,Odfjell SE,kr,92.4,0.5,3.3
+2025-03-17,SBLK,Star Bulk Carriers,$,16.6,0.73,5.0
+2025-03-17,SNI,Stolt-Nielsen,kr,251.0,0.46,4.2
+2025-03-17,STNG,Scorpio Tankers,$,39.6,0.54,5.5
+2025-03-17,TNK,Teekay Tankers,$,38.0,0.62,5.1
+2025-03-17,TRMD,TORM,kr,124.0,0.8,4.7
+2025-03-17,WAWI,Wallenius Wilhelmsen,kr,91.2,,4.0
+2025-03-19,ASC,Ardmore Shipping,$,10.2,,7.8
+2025-03-19,AWILCO,Awilco LNG,kr,3.0,0.45,
+2025-03-19,BWLP,BW LPG,kr,118.4,0.73,6.5
+2025-03-19,DHT,DHT Holdings,$,10.6,1.05,5.9
+2025-03-19,DIS,d'Amico International,€,3.6,0.48,8.6
+2025-03-19,ECO,Okeanis Eco Tankers,kr,240.0,0.94,5.2
+2025-03-19,FLNG,Flex LNG,kr,238.0,0.83,10.2
+2025-03-19,GLNG,Golar LNG,$,35.0,0.83,33.5
+2025-03-19,GNK,Genco Shipping,$,13.8,,9.6
+2025-03-19,HAFN,Hafnia Ltd.,kr,47.0,0.65,5.8
+2025-03-19,HAUTO,Höegh Autoliners,kr,84.0,,3.6
+2025-03-19,INSW,International Seaways,$,34.3,0.62,5.3
+2025-03-19,LPG,Dorian LPG,$,22.5,0.69,7.6
+2025-03-19,MPCC,MPC Container Ships,kr,17.7,,6.7
+2025-03-19,NAT,Nordic American Tankers,$,2.6,,6.3
+2025-03-19,ODFB,Odfjell SE,kr,99.6,0.53,3.5
+2025-03-19,SBLK,Star Bulk Carriers,$,16.7,0.74,5.0
+2025-03-19,SNI,Stolt-Nielsen,kr,262.0,0.48,4.4
+2025-03-19,STNG,Scorpio Tankers,$,40.8,0.56,5.8
+2025-03-19,TNK,Teekay Tankers,$,38.6,0.63,5.2
+2025-03-19,TRMD,TORM,kr,132.0,0.86,5.1
+2025-03-19,WAWI,Wallenius Wilhelmsen,kr,93.8,,4.1
+2025-03-20,ASC,Ardmore Shipping,$,10.5,,8.1
+2025-03-20,AWILCO,Awilco LNG,kr,3.0,0.44,
+2025-03-20,BWLP,BW LPG,kr,123.0,0.76,6.7
+2025-03-20,DHT,DHT Holdings,$,11.1,1.09,6.2
+2025-03-20,DIS,d'Amico International,€,3.6,0.48,8.5
+2025-03-20,ECO,Okeanis Eco Tankers,kr,248.0,0.97,5.3
+2025-03-20,FLNG,Flex LNG,kr,243.0,0.84,10.4
+2025-03-20,GLNG,Golar LNG,$,37.2,0.88,35.1
+2025-03-20,GNK,Genco Shipping,$,13.8,,9.6
+2025-03-20,HAFN,Hafnia Ltd.,kr,48.3,0.66,6.0
+2025-03-20,HAUTO,Höegh Autoliners,kr,85.0,,3.6
+2025-03-20,INSW,International Seaways,$,35.2,0.64,5.5
+2025-03-20,LPG,Dorian LPG,$,23.2,0.71,7.8
+2025-03-20,MPCC,MPC Container Ships,kr,17.9,,6.8
+2025-03-20,NAT,Nordic American Tankers,$,2.7,,6.4
+2025-03-20,ODFB,Odfjell SE,kr,107.6,0.58,3.8
+2025-03-20,SBLK,Star Bulk Carriers,$,16.9,0.75,5.1
+2025-03-20,SNI,Stolt-Nielsen,kr,274.0,0.5,4.6
+2025-03-20,STNG,Scorpio Tankers,$,41.5,0.57,5.9
+2025-03-20,TNK,Teekay Tankers,$,39.5,0.65,5.3
+2025-03-20,TRMD,TORM,kr,131.0,0.85,5.0
+2025-03-20,WAWI,Wallenius Wilhelmsen,kr,96.8,,4.3
+2025-03-21,ASC,Ardmore Shipping,$,10.4,,8.0
+2025-03-21,AWILCO,Awilco LNG,kr,2.9,0.43,
+2025-03-21,BWLP,BW LPG,kr,123.8,0.76,6.8
+2025-03-21,DHT,DHT Holdings,$,11.1,1.1,6.2
+2025-03-21,DIS,d'Amico International,€,3.7,0.49,8.7
+2025-03-21,ECO,Okeanis Eco Tankers,kr,249.0,0.97,5.4
+2025-03-21,FLNG,Flex LNG,kr,243.0,0.84,10.5
+2025-03-21,GLNG,Golar LNG,$,38.3,0.91,36.1
+2025-03-21,GNK,Genco Shipping,$,14.0,,9.8
+2025-03-21,HAFN,Hafnia Ltd.,kr,48.3,0.66,6.0
+2025-03-21,HAUTO,Höegh Autoliners,kr,82.0,,3.5
+2025-03-21,INSW,International Seaways,$,35.3,0.64,5.5
+2025-03-21,LPG,Dorian LPG,$,23.3,0.71,7.9
+2025-03-21,MPCC,MPC Container Ships,kr,16.6,,5.8
+2025-03-21,NAT,Nordic American Tankers,$,2.6,,6.4
+2025-03-21,ODFB,Odfjell SE,kr,105.6,0.57,3.8
+2025-03-21,SBLK,Star Bulk Carriers,$,17.2,0.76,5.1
+2025-03-21,SNI,Stolt-Nielsen,kr,272.0,0.5,4.6
+2025-03-21,STNG,Scorpio Tankers,$,42.2,0.58,6.0
+2025-03-21,TNK,Teekay Tankers,$,40.0,0.65,5.4
+2025-03-21,TRMD,TORM,kr,130.0,0.84,4.9
+2025-03-21,WAWI,Wallenius Wilhelmsen,kr,93.6,,4.2
+2025-03-24,ASC,Ardmore Shipping,$,10.0,,7.7
+2025-03-24,AWILCO,Awilco LNG,kr,3.0,0.45,
+2025-03-24,BWLP,BW LPG,kr,121.5,0.75,6.7
+2025-03-24,DHT,DHT Holdings,$,10.7,1.06,6.0
+2025-03-24,DIS,d'Amico International,€,3.6,0.47,8.4
+2025-03-24,ECO,Okeanis Eco Tankers,kr,240.0,0.94,5.2
+2025-03-24,FLNG,Flex LNG,kr,237.0,0.83,10.2
+2025-03-24,GLNG,Golar LNG,$,37.8,0.9,36.2
+2025-03-24,GNK,Genco Shipping,$,13.6,,9.5
+2025-03-24,HAFN,Hafnia Ltd.,kr,47.0,0.65,5.8
+2025-03-24,HAUTO,Höegh Autoliners,kr,81.0,,3.5
+2025-03-24,INSW,International Seaways,$,33.8,0.61,5.3
+2025-03-24,LPG,Dorian LPG,$,23.0,0.7,7.8
+2025-03-24,MPCC,MPC Container Ships,kr,16.5,,5.8
+2025-03-24,NAT,Nordic American Tankers,$,2.6,,6.2
+2025-03-24,ODFB,Odfjell SE,kr,102.2,0.55,3.7
+2025-03-24,SBLK,Star Bulk Carriers,$,16.6,0.73,5.0
+2025-03-24,SNI,Stolt-Nielsen,kr,266.0,0.49,4.5
+2025-03-24,STNG,Scorpio Tankers,$,39.7,0.54,5.6
+2025-03-24,TNK,Teekay Tankers,$,38.5,0.63,5.2
+2025-03-24,TRMD,TORM,kr,128.0,0.83,4.8
+2025-03-24,WAWI,Wallenius Wilhelmsen,kr,92.6,,4.1
+2025-03-25,ASC,Ardmore Shipping,$,10.2,,7.8
+2025-03-25,AWILCO,Awilco LNG,kr,3.0,0.45,
+2025-03-25,BWLP,BW LPG,kr,121.0,0.75,6.6
+2025-03-25,DHT,DHT Holdings,$,10.9,1.08,6.1
+2025-03-25,DIS,d'Amico International,€,3.6,0.47,8.3
+2025-03-25,ECO,Okeanis Eco Tankers,kr,238.0,0.94,5.2
+2025-03-25,FLNG,Flex LNG,kr,235.0,0.82,10.1
+2025-03-25,GLNG,Golar LNG,$,40.7,0.97,39.0
+2025-03-25,GNK,Genco Shipping,$,13.6,,9.5
+2025-03-25,HAFN,Hafnia Ltd.,kr,46.3,0.64,5.7
+2025-03-25,HAUTO,Höegh Autoliners,kr,82.0,,3.5
+2025-03-25,INSW,International Seaways,$,34.3,0.62,5.3
+2025-03-25,LPG,Dorian LPG,$,23.5,0.72,7.9
+2025-03-25,MPCC,MPC Container Ships,kr,16.3,,5.7
+2025-03-25,NAT,Nordic American Tankers,$,2.6,,6.2
+2025-03-25,ODFB,Odfjell SE,kr,101.6,0.54,3.6
+2025-03-25,SBLK,Star Bulk Carriers,$,16.3,0.72,4.9
+2025-03-25,SNI,Stolt-Nielsen,kr,266.0,0.51,4.5
+2025-03-25,STNG,Scorpio Tankers,$,40.0,0.55,5.6
+2025-03-25,TNK,Teekay Tankers,$,39.0,0.64,5.3
+2025-03-25,TRMD,TORM,kr,128.0,0.83,4.8
+2025-03-25,WAWI,Wallenius Wilhelmsen,kr,95.4,,4.2
+2025-03-26,ASC,Ardmore Shipping,$,10.0,,7.7
+2025-03-26,AWILCO,Awilco LNG,kr,3.0,0.45,
+2025-03-26,BWLP,BW LPG,kr,122.2,0.76,6.7
+2025-03-26,DHT,DHT Holdings,$,10.9,1.08,6.1
+2025-03-26,DIS,d'Amico International,€,3.6,0.47,6.4
+2025-03-26,ECO,Okeanis Eco Tankers,kr,236.0,0.93,5.1
+2025-03-26,FLNG,Flex LNG,kr,236.0,0.83,10.2
+2025-03-26,GLNG,Golar LNG,$,40.4,0.96,38.7
+2025-03-26,GNK,Genco Shipping,$,13.5,,9.4
+2025-03-26,HAFN,Hafnia Ltd.,kr,46.2,0.64,5.7
+2025-03-26,HAUTO,Höegh Autoliners,kr,82.0,,3.5
+2025-03-26,INSW,International Seaways,$,33.8,0.61,5.3
+2025-03-26,LPG,Dorian LPG,$,23.1,0.71,7.8
+2025-03-26,MPCC,MPC Container Ships,kr,16.4,,5.8
+2025-03-26,NAT,Nordic American Tankers,$,2.5,,6.1
+2025-03-26,ODFB,Odfjell SE,kr,100.6,0.54,3.6
+2025-03-26,SBLK,Star Bulk Carriers,$,16.2,0.71,4.8
+2025-03-26,SNI,Stolt-Nielsen,kr,266.0,0.51,4.5
+2025-03-26,STNG,Scorpio Tankers,$,39.1,0.54,5.5
+2025-03-26,TNK,Teekay Tankers,$,38.3,0.63,5.2
+2025-03-26,TRMD,TORM,kr,124.0,0.8,4.7
+2025-03-26,WAWI,Wallenius Wilhelmsen,kr,94.8,,4.2
+2025-03-27,ASC,Ardmore Shipping,$,10.1,,7.7
+2025-03-27,AWILCO,Awilco LNG,kr,3.0,0.45,
+2025-03-27,BWLP,BW LPG,kr,120.0,0.74,6.6
+2025-03-27,DHT,DHT Holdings,$,10.9,1.08,6.1
+2025-03-27,DIS,d'Amico International,€,3.5,0.46,6.3
+2025-03-27,ECO,Okeanis Eco Tankers,kr,235.0,0.93,5.1
+2025-03-27,FLNG,Flex LNG,kr,237.0,0.83,10.2
+2025-03-27,GLNG,Golar LNG,$,39.7,0.94,38.1
+2025-03-27,GNK,Genco Shipping,$,13.4,,9.4
+2025-03-27,HAFN,Hafnia Ltd.,kr,46.3,0.64,5.7
+2025-03-27,HAUTO,Höegh Autoliners,kr,82.0,,3.5
+2025-03-27,INSW,International Seaways,$,34.3,0.62,5.3
+2025-03-27,LPG,Dorian LPG,$,23.1,0.71,7.8
+2025-03-27,MPCC,MPC Container Ships,kr,16.6,,5.8
+2025-03-27,NAT,Nordic American Tankers,$,2.6,,6.2
+2025-03-27,ODFB,Odfjell SE,kr,99.6,0.53,3.7
+2025-03-27,SBLK,Star Bulk Carriers,$,16.1,0.71,4.8
+2025-03-27,SNI,Stolt-Nielsen,kr,263.0,0.51,4.7
+2025-03-27,STNG,Scorpio Tankers,$,39.3,0.54,5.5
+2025-03-27,TNK,Teekay Tankers,$,38.8,0.63,5.3
+2025-03-27,TRMD,TORM,kr,122.0,0.79,5.8
+2025-03-27,WAWI,Wallenius Wilhelmsen,kr,80.5,,3.6
+2025-03-28,ASC,Ardmore Shipping,$,10.0,,7.7
+2025-03-28,AWILCO,Awilco LNG,kr,3.0,0.44,
+2025-03-28,BWLP,BW LPG,kr,116.4,0.72,6.4
+2025-03-28,DHT,DHT Holdings,$,10.5,1.05,5.9
+2025-03-28,DIS,d'Amico International,€,3.5,0.46,6.2
+2025-03-28,ECO,Okeanis Eco Tankers,kr,236.0,0.93,5.1
+2025-03-28,FLNG,Flex LNG,kr,238.0,0.83,10.3
+2025-03-28,GLNG,Golar LNG,$,39.2,0.93,37.6
+2025-03-28,GNK,Genco Shipping,$,13.2,,9.2
+2025-03-28,HAFN,Hafnia Ltd.,kr,45.3,0.63,5.6
+2025-03-28,HAUTO,Höegh Autoliners,kr,78.0,,3.4
+2025-03-28,INSW,International Seaways,$,32.9,0.6,5.1
+2025-03-28,LPG,Dorian LPG,$,22.4,0.68,7.6
+2025-03-28,MPCC,MPC Container Ships,kr,16.3,,5.7
+2025-03-28,NAT,Nordic American Tankers,$,2.5,,6.1
+2025-03-28,ODFB,Odfjell SE,kr,93.5,0.5,3.5
+2025-03-28,SBLK,Star Bulk Carriers,$,15.9,0.7,4.8
+2025-03-28,SNI,Stolt-Nielsen,kr,246.0,0.47,4.4
+2025-03-28,STNG,Scorpio Tankers,$,38.1,0.52,5.4
+2025-03-28,TNK,Teekay Tankers,$,38.2,0.62,5.2
+2025-03-28,TRMD,TORM,kr,118.0,0.76,5.7
+2025-03-28,WAWI,Wallenius Wilhelmsen,kr,73.4,,3.3
+2025-03-31,ASC,Ardmore Shipping,$,10.2,,7.8
+2025-03-31,AWILCO,Awilco LNG,kr,3.0,0.45,
+2025-03-31,BWLP,BW LPG,kr,116.5,0.73,5.6
+2025-03-31,DHT,DHT Holdings,$,10.7,1.07,6.0
+2025-03-31,DIS,d'Amico International,€,3.4,0.45,6.1
+2025-03-31,ECO,Okeanis Eco Tankers,kr,233.0,0.92,5.1
+2025-03-31,FLNG,Flex LNG,kr,239.0,0.84,10.3
+2025-03-31,GLNG,Golar LNG,$,37.9,0.9,35.1
+2025-03-31,GNK,Genco Shipping,$,13.4,0.62,9.3
+2025-03-31,HAFN,Hafnia Ltd.,kr,43.9,0.61,5.7
+2025-03-31,HAUTO,Höegh Autoliners,kr,78.0,,3.4
+2025-03-31,INSW,International Seaways,$,33.1,0.6,5.2
+2025-03-31,LPG,Dorian LPG,$,22.5,0.69,7.6
+2025-03-31,MPCC,MPC Container Ships,kr,16.3,,5.8
+2025-03-31,NAT,Nordic American Tankers,$,2.5,,6.1
+2025-03-31,ODFB,Odfjell SE,kr,93.7,0.5,3.5
+2025-03-31,SBLK,Star Bulk Carriers,$,16.0,0.7,4.8
+2025-03-31,SNI,Stolt-Nielsen,kr,251.0,0.48,4.5
+2025-03-31,STNG,Scorpio Tankers,$,38.3,0.52,5.4
+2025-03-31,TNK,Teekay Tankers,$,38.7,0.63,5.2
+2025-03-31,TRMD,TORM,kr,115.0,0.75,5.5
+2025-03-31,WAWI,Wallenius Wilhelmsen,kr,76.4,,3.4
+2025-04-04,ASC,Ardmore Shipping,$,9.1,,7.0
+2025-04-04,AWILCO,Awilco LNG,kr,2.8,0.43,
+2025-04-04,BWLP,BW LPG,kr,106.4,0.68,5.2
+2025-04-04,DHT,DHT Holdings,$,10.0,1.0,5.6
+2025-04-04,DIS,d'Amico International,€,3.1,0.41,5.6
+2025-04-04,ECO,Okeanis Eco Tankers,kr,220.0,0.89,4.9
+2025-04-04,FLNG,Flex LNG,kr,228.0,0.81,10.0
+2025-04-04,GLNG,Golar LNG,$,33.8,0.8,31.3
+2025-04-04,GNK,Genco Shipping,$,12.7,0.59,8.6
+2025-04-04,HAFN,Hafnia Ltd.,kr,41.6,0.59,5.5
+2025-04-04,HAUTO,Höegh Autoliners,kr,73.0,,3.2
+2025-04-04,INSW,International Seaways,$,31.0,0.56,4.8
+2025-04-04,LPG,Dorian LPG,$,20.1,0.61,6.8
+2025-04-04,MPCC,MPC Container Ships,kr,15.0,,5.4
+2025-04-04,NAT,Nordic American Tankers,$,2.4,,5.7
+2025-04-04,ODFB,Odfjell SE,kr,84.5,0.45,3.2
+2025-04-04,SBLK,Star Bulk Carriers,$,14.2,0.63,4.2
+2025-04-04,SNI,Stolt-Nielsen,kr,226.0,0.44,4.2
+2025-04-04,STNG,Scorpio Tankers,$,34.4,0.47,4.9
+2025-04-04,TNK,Teekay Tankers,$,36.6,0.6,5.0
+2025-04-04,TRMD,TORM,kr,104.0,0.67,5.1
+2025-04-04,WAWI,Wallenius Wilhelmsen,kr,69.6,,3.1
+2025-04-07,ASC,Ardmore Shipping,$,8.7,,6.7
+2025-04-07,AWILCO,Awilco LNG,kr,2.5,0.37,
+2025-04-07,BWLP,BW LPG,kr,91.7,0.56,4.9
+2025-04-07,DHT,DHT Holdings,$,9.5,0.94,5.3
+2025-04-07,DIS,d'Amico International,€,2.9,0.38,5.3
+2025-04-07,ECO,Okeanis Eco Tankers,kr,196.0,0.76,4.1
+2025-04-07,FLNG,Flex LNG,kr,216.0,0.74,9.0
+2025-04-07,GLNG,Golar LNG,$,30.7,0.73,28.5
+2025-04-07,GNK,Genco Shipping,$,11.7,0.54,7.9
+2025-04-07,HAFN,Hafnia Ltd.,kr,38.8,0.53,4.9
+2025-04-07,HAUTO,Höegh Autoliners,kr,67.0,,2.8
+2025-04-07,INSW,International Seaways,$,28.8,0.52,4.5
+2025-04-07,LPG,Dorian LPG,$,17.3,0.53,6.3
+2025-04-07,MPCC,MPC Container Ships,kr,13.6,,4.6
+2025-04-07,NAT,Nordic American Tankers,$,2.2,,5.3
+2025-04-07,ODFB,Odfjell SE,kr,77.0,0.41,2.8
+2025-04-07,SBLK,Star Bulk Carriers,$,13.1,0.58,3.9
+2025-04-07,SNI,Stolt-Nielsen,kr,203.0,0.39,3.6
+2025-04-07,STNG,Scorpio Tankers,$,31.9,0.44,4.5
+2025-04-07,TNK,Teekay Tankers,$,34.5,0.56,4.7
+2025-04-07,TRMD,TORM,kr,94.0,0.61,5.6
+2025-04-07,WAWI,Wallenius Wilhelmsen,kr,64.1,,2.8
+2025-04-08,AWILCO,Awilco LNG,kr,2.3,0.32,
+2025-04-08,FLNG,Flex LNG,kr,2254.0,0.76,9.4
+2025-04-08,HAUTO,Höegh Autoliners,kr,727.0,,3.0
+2025-04-08,SNI,Stolt-Nielsen,kr,2208.0,0.42,3.9
+2025-04-08,TRMD,TORM,kr,1028.0,0.66,6.1
+2025-04-09,ASC,Ardmore Shipping,$,8.5,,6.5
+2025-04-09,DHT,DHT Holdings,$,9.7,0.97,5.4
+2025-04-09,FLNG,Flex LNG,kr,224.0,0.75,9.3
+2025-04-09,GLNG,Golar LNG,$,32.1,0.76,29.7
+2025-04-09,GNK,Genco Shipping,$,11.4,0.53,7.7
+2025-04-09,HAFN,Hafnia Ltd.,kr,42.2,0.56,5.3
+2025-04-09,HAUTO,Höegh Autoliners,kr,71.0,,3.0
+2025-04-09,LPG,Dorian LPG,$,17.9,0.55,6.5
+2025-04-09,SBLK,Star Bulk Carriers,$,12.7,0.56,3.8
+2025-04-09,SNI,Stolt-Nielsen,kr,214.0,0.41,3.8
+2025-04-09,STNG,Scorpio Tankers,$,33.3,0.46,4.7
+2025-04-09,TNK,Teekay Tankers,$,34.5,0.56,4.7
+2025-04-09,TRMD,TORM,kr,1020.0,0.66,6.1
+2025-04-10,BWLP,BW LPG,kr,92.4,0.56,5.0
+2025-04-10,FLNG,Flex LNG,kr,221.0,0.74,9.3
+2025-04-10,HAFN,Hafnia Ltd.,kr,41.4,0.55,5.3
+2025-04-10,HAUTO,Höegh Autoliners,kr,70.0,,3.0
+2025-04-10,ODFB,Odfjell SE,kr,77.2,0.41,2.8
+2025-04-10,SNI,Stolt-Nielsen,kr,206.0,0.39,3.7
+2025-04-10,TRMD,TORM,kr,95.0,0.62,5.7
+2025-04-14,FLNG,Flex LNG,kr,2352.0,0.8,10.0
+2025-04-14,HAUTO,Höegh Autoliners,kr,754.0,,3.2
+2025-04-14,SNI,Stolt-Nielsen,kr,2204.0,0.42,4.0
+2025-04-14,TRMD,TORM,kr,1020.0,0.66,6.3
+2025-04-22,ASC,Ardmore Shipping,$,9.1,,8.7
+2025-04-22,AWILCO,Awilco LNG,kr,2.6,0.39,
+2025-04-22,BWLP,BW LPG,kr,97.4,0.63,5.5
+2025-04-22,DHT,DHT Holdings,$,10.1,1.01,6.0
+2025-04-22,FLNG,Flex LNG,kr,2401.0,0.85,10.5
+2025-04-22,GLNG,Golar LNG,$,37.5,0.89,34.9
+2025-04-22,GNK,Genco Shipping,$,12.3,0.57,8.3
+2025-04-22,HAFN,Hafnia Ltd.,kr,43.1,0.61,5.9
+2025-04-22,HAUTO,Höegh Autoliners,kr,75.0,,3.4
+2025-04-22,LPG,Dorian LPG,$,20.5,0.63,7.4
+2025-04-22,SBLK,Star Bulk Carriers,$,13.6,0.6,4.1
+2025-04-22,SNI,Stolt-Nielsen,kr,223.0,0.42,4.4
+2025-04-22,STNG,Scorpio Tankers,$,34.2,0.47,5.3
+2025-04-22,TNK,Teekay Tankers,$,39.0,0.64,5.3
+2025-04-22,TRMD,TORM,kr,100.0,0.65,6.1
+2025-04-23,ASC,Ardmore Shipping,$,9.0,,9.4
+2025-04-23,DHT,DHT Holdings,$,10.0,1.01,6.1
+2025-04-23,FLNG,Flex LNG,kr,237.0,0.84,10.4
+2025-04-23,GNK,Genco Shipping,$,12.3,0.57,8.4
+2025-04-23,HAUTO,Höegh Autoliners,kr,71.0,,3.3
+2025-04-23,LPG,Dorian LPG,$,20.3,0.62,7.5
+2025-04-23,ODFB,Odfjell SE,kr,99.0,0.53,3.8
+2025-04-23,SBLK,Star Bulk Carriers,$,13.6,0.6,4.1
+2025-04-23,SNI,Stolt-Nielsen,kr,2282.0,0.43,4.4
+2025-04-23,TNK,Teekay Tankers,$,38.1,0.63,5.1
+2025-04-23,TRMD,TORM,kr,1010.0,0.65,6.3
+2025-04-24,FLNG,Flex LNG,kr,2440.0,0.86,10.5
+2025-04-24,HAUTO,Höegh Autoliners,kr,77.0,,3.6
+2025-04-24,ODFB,Odfjell SE,kr,97.7,0.52,3.8
+2025-04-24,SNI,Stolt-Nielsen,kr,2250.0,0.43,4.3
+2025-04-24,TRMD,TORM,kr,1040.0,0.67,6.5
+2025-04-25,FLNG,Flex LNG,kr,2440.0,0.86,10.1
+2025-04-25,HAUTO,Höegh Autoliners,kr,803.0,,3.9
+2025-04-25,SNI,Stolt-Nielsen,kr,2311.0,0.44,4.6
+2025-04-25,TRMD,TORM,kr,1072.0,0.69,6.7
+2025-04-28,AWILCO,Awilco LNG,kr,2.6,0.4,
+2025-04-28,FLNG,Flex LNG,kr,2492.0,0.88,10.8
+2025-04-28,GNK,Genco Shipping,$,12.8,0.59,9.1
+2025-04-28,HAUTO,Höegh Autoliners,kr,803.0,,3.8
+2025-04-28,ODFB,Odfjell SE,kr,95.2,0.51,3.7
+2025-04-28,SNI,Stolt-Nielsen,kr,2311.0,0.44,4.5
+2025-04-28,TRMD,TORM,kr,1084.0,0.7,6.7
+2025-04-29,ASC,Ardmore Shipping,$,9.6,,10.0
+2025-04-29,AWILCO,Awilco LNG,kr,2.4,0.37,
+2025-04-29,BWLP,BW LPG,kr,105.4,0.68,5.9
+2025-04-29,DHT,DHT Holdings,$,10.5,1.06,6.5
+2025-04-29,FLNG,Flex LNG,kr,244.0,0.87,10.7
+2025-04-29,GNK,Genco Shipping,$,12.7,0.59,9.0
+2025-04-29,HAUTO,Höegh Autoliners,kr,79.0,,3.8
+2025-04-29,LPG,Dorian LPG,$,21.7,0.66,8.0
+2025-04-29,ODFB,Odfjell SE,kr,95.0,0.51,3.7
+2025-04-29,SNI,Stolt-Nielsen,kr,230.0,0.44,4.5
+2025-04-29,STNG,Scorpio Tankers,$,36.6,0.5,6.0
+2025-04-29,TNK,Teekay Tankers,$,42.2,0.69,5.7
+2025-04-29,TRMD,TORM,kr,107.0,0.69,6.7
+2025-04-30,AWILCO,Awilco LNG,kr,2.4,0.36,
+2025-04-30,BWLP,BW LPG,kr,104.6,0.68,5.8
+2025-04-30,FLNG,Flex LNG,kr,2471.0,0.87,10.8
+2025-04-30,HAUTO,Höegh Autoliners,kr,845.0,,4.0
+2025-04-30,SNI,Stolt-Nielsen,kr,2321.0,0.44,4.5
+2025-04-30,TRMD,TORM,kr,1091.0,0.7,6.8
+2025-05-02,FLNG,Flex LNG,kr,250.0,0.88,10.9
+2025-05-02,HAUTO,Höegh Autoliners,kr,852.0,,4.1
+2025-05-02,SNI,Stolt-Nielsen,kr,2423.0,0.46,4.7
+2025-05-02,TRMD,TORM,kr,1111.0,0.72,6.9
+2025-05-05,AWILCO,Awilco LNG,kr,2.4,0.36,
+2025-05-05,FLNG,Flex LNG,kr,249.0,0.88,10.9
+2025-05-05,GLNG,Golar LNG,$,39.6,0.94,39.8
+2025-05-05,HAUTO,Höegh Autoliners,kr,863.0,,4.2
+2025-05-05,SNI,Stolt-Nielsen,kr,2444.0,0.46,5.0
+2025-05-05,TRMD,TORM,kr,1100.0,0.71,6.9
+2025-05-06,BWLP,BW LPG,kr,107.2,0.7,5.9
+2025-05-06,FLNG,Flex LNG,kr,2490.0,0.88,10.9
+2025-05-06,HAUTO,Höegh Autoliners,kr,781.0,,3.8
+2025-05-06,LPG,Dorian LPG,$,21.9,0.67,7.8
+2025-05-06,ODFB,Odfjell SE,kr,98.8,0.58,3.8
+2025-05-06,SNI,Stolt-Nielsen,kr,2450.0,0.46,5.0
+2025-05-06,TRMD,TORM,kr,1121.0,0.76,7.0
+2025-05-07,ASC,Ardmore Shipping,$,9.9,,10.5
+2025-05-07,BWLP,BW LPG,kr,107.0,0.7,6.0
+2025-05-07,DHT,DHT Holdings,$,11.2,1.14,7.4
+2025-05-07,FLNG,Flex LNG,kr,2500.0,0.89,11.0
+2025-05-07,GNK,Genco Shipping,$,13.4,0.63,9.8
+2025-05-07,HAUTO,Höegh Autoliners,kr,77.0,,3.8
+2025-05-07,LPG,Dorian LPG,$,21.9,0.67,7.8
+2025-05-07,SBLK,Star Bulk Carriers,$,15.0,0.66,5.2
+2025-05-07,SNI,Stolt-Nielsen,kr,242.0,0.45,5.0
+2025-05-07,TNK,Teekay Tankers,$,46.1,0.76,6.3
+2025-05-07,TRMD,TORM,kr,1131.0,0.77,7.5
+2025-05-08,ASC,Ardmore Shipping,$,9.7,,10.4
+2025-05-08,BWLP,BW LPG,kr,103.5,0.68,5.7
+2025-05-08,DHT,DHT Holdings,$,11.1,1.1,7.4
+2025-05-08,FLNG,Flex LNG,kr,247.0,0.88,10.8
+2025-05-08,GLNG,Golar LNG,$,39.0,0.93,38.4
+2025-05-08,HAFN,Hafnia Ltd.,kr,51.0,0.72,7.8
+2025-05-08,HAUTO,Höegh Autoliners,kr,77.0,,3.8
+2025-05-08,LPG,Dorian LPG,$,21.4,0.65,7.6
+2025-05-08,ODFB,Odfjell SE,kr,97.7,0.58,3.7
+2025-05-08,SBLK,Star Bulk Carriers,$,15.0,0.66,5.2
+2025-05-08,SNI,Stolt-Nielsen,kr,236.0,0.44,4.8
+2025-05-08,STNG,Scorpio Tankers,$,40.1,0.56,6.7
+2025-05-08,TRMD,TORM,kr,109.0,0.74,7.1
+2025-05-09,ASC,Ardmore Shipping,$,9.7,,10.0
+2025-05-09,AWILCO,Awilco LNG,kr,2.4,0.36,
+2025-05-09,DHT,DHT Holdings,$,11.0,1.09,7.5
+2025-05-09,FLNG,Flex LNG,kr,2480.0,0.89,10.8
+2025-05-09,GLNG,Golar LNG,$,38.4,0.91,37.7
+2025-05-09,HAUTO,Höegh Autoliners,kr,75.0,,3.7
+2025-05-09,ODFB,Odfjell SE,kr,92.4,0.59,3.5
+2025-05-09,SNI,Stolt-Nielsen,kr,234.0,0.44,4.7
+2025-05-09,TNK,Teekay Tankers,$,43.9,0.69,6.2
+2025-05-09,TRMD,TORM,kr,107.0,0.72,7.1
+2025-05-13,ASC,Ardmore Shipping,$,9.8,,10.1
+2025-05-13,AWILCO,Awilco LNG,kr,2.4,0.36,
+2025-05-13,FLNG,Flex LNG,kr,2542.0,0.9,11.1
+2025-05-13,HAUTO,Höegh Autoliners,kr,825.0,,4.1
+2025-05-13,SNI,Stolt-Nielsen,kr,2454.0,0.46,5.0
+2025-05-13,TRMD,TORM,kr,1177.0,0.79,7.8
+2025-05-14,FLNG,Flex LNG,kr,252.0,0.89,11.0
+2025-05-14,HAFN,Hafnia Ltd.,kr,53.7,0.77,8.3
+2025-05-14,TRMD,TORM,kr,115.0,0.78,7.7
+2025-05-15,FLNG,Flex LNG,kr,2561.0,0.91,11.1
+2025-05-15,GNK,Genco Shipping,$,14.4,0.64,11.9
+2025-05-15,HAUTO,Höegh Autoliners,kr,863.0,,4.3
+2025-05-15,SBLK,Star Bulk Carriers,$,16.4,0.72,5.9
+2025-05-15,SNI,Stolt-Nielsen,kr,2581.0,0.48,5.1
+2025-05-15,STNG,Scorpio Tankers,$,41.9,0.58,7.0
+2025-05-15,TNK,Teekay Tankers,$,45.6,0.72,6.5
+2025-05-15,TRMD,TORM,kr,1193.0,0.8,8.2
+2025-05-16,BWLP,BW LPG,kr,119.0,0.77,6.7
+2025-05-16,FLNG,Flex LNG,kr,2560.0,0.9,11.1
+2025-05-16,GLNG,Golar LNG,$,39.0,0.97,38.1
+2025-05-16,HAFN,Hafnia Ltd.,kr,52.7,0.76,6.8
+2025-05-16,LPG,Dorian LPG,$,23.7,0.73,8.5
+2025-05-16,ODFB,Odfjell SE,kr,104.4,0.67,3.9
+2025-05-16,SNI,Stolt-Nielsen,kr,252.0,0.47,5.0
+2025-05-16,TRMD,TORM,kr,118.0,0.8,8.2
+2025-05-19,AWILCO,Awilco LNG,kr,2.6,0.38,
+2025-05-19,FLNG,Flex LNG,kr,2591.0,0.92,11.3
+2025-05-19,SNI,Stolt-Nielsen,kr,2603.0,0.48,5.2
+2025-05-19,TRMD,TORM,kr,1190.0,0.81,8.2
+2025-05-20,BWLP,BW LPG,kr,116.3,0.76,6.6
+2025-05-20,FLNG,Flex LNG,kr,255.0,0.91,11.2
+2025-05-20,GLNG,Golar LNG,$,39.3,0.97,38.4
+2025-05-20,HAFN,Hafnia Ltd.,kr,54.9,0.8,7.2
+2025-05-20,LPG,Dorian LPG,$,23.4,0.72,8.7
+2025-05-20,ODFB,Odfjell SE,kr,104.8,0.67,3.9
+2025-05-20,SNI,Stolt-Nielsen,kr,255.0,0.48,5.1
+2025-05-20,TRMD,TORM,kr,1190.0,0.81,8.2
+2025-05-21,AWILCO,Awilco LNG,kr,2.6,0.41,
+2025-05-21,DHT,DHT Holdings,$,11.7,1.12,8.1
+2025-05-21,FLNG,Flex LNG,kr,2550.0,0.91,11.3
+2025-05-21,SNI,Stolt-Nielsen,kr,2570.0,0.48,5.2
+2025-05-21,TRMD,TORM,kr,1200.0,0.82,8.3
+2025-05-22,AWILCO,Awilco LNG,kr,2.5,0.39,
+2025-05-22,BWLP,BW LPG,kr,112.6,0.74,6.8
+2025-05-22,DHT,DHT Holdings,$,11.6,1.11,8.0
+2025-05-22,FLNG,Flex LNG,kr,239.0,0.87,10.6
+2025-05-22,GLNG,Golar LNG,$,38.4,0.95,37.5
+2025-05-22,HAFN,Hafnia Ltd.,kr,54.9,0.81,7.3
+2025-05-22,LPG,Dorian LPG,$,22.7,0.7,8.4
+2025-05-22,ODFB,Odfjell SE,kr,104.0,0.67,3.9
+2025-05-22,SNI,Stolt-Nielsen,kr,255.0,0.48,5.2
+2025-05-22,TRMD,TORM,kr,116.0,0.79,8.4
+2025-05-26,AWILCO,Awilco LNG,kr,2.4,0.39,
+2025-05-26,BWLP,BW LPG,kr,105.2,0.69,6.4
+2025-05-26,FLNG,Flex LNG,kr,2300.0,0.84,10.3
+2025-05-26,HAFN,Hafnia Ltd.,kr,52.0,0.77,7.0
+2025-05-26,ODFB,Odfjell SE,kr,105.8,0.68,4.0
+2025-05-26,SNI,Stolt-Nielsen,kr,247.0,0.46,5.1
+2025-05-26,TRMD,TORM,kr,111.0,0.76,8.0
+2025-05-27,FLNG,Flex LNG,kr,2320.0,0.84,10.4
+2025-05-27,SNI,Stolt-Nielsen,kr,2532.0,0.47,5.2
+2025-05-27,TRMD,TORM,kr,1164.0,0.79,8.4
+2025-05-28,BWLP,BW LPG,kr,109.1,0.72,6.6
+2025-05-28,FLNG,Flex LNG,kr,2340.0,0.85,10.4
+2025-05-28,HAFN,Hafnia Ltd.,kr,53.0,0.78,7.0
+2025-05-28,ODFB,Odfjell SE,kr,109.2,0.65,4.1
+2025-05-28,SNI,Stolt-Nielsen,kr,252.0,0.47,5.1
+2025-05-28,TRMD,TORM,kr,113.0,0.77,8.1
+2025-05-30,AWILCO,Awilco LNG,kr,2.4,0.38,
+2025-05-30,BWLP,BW LPG,kr,105.6,0.69,6.4
+2025-05-30,FLNG,Flex LNG,kr,2360.0,0.86,10.5
+2025-05-30,HAFN,Hafnia Ltd.,kr,51.7,0.77,6.9
+2025-05-30,ODFB,Odfjell SE,kr,107.0,0.63,4.1
+2025-05-30,SNI,Stolt-Nielsen,kr,249.0,0.47,5.1
+2025-05-30,TRMD,TORM,kr,110.0,0.76,7.9
+2025-06-02,BWLP,BW LPG,kr,104.4,0.68,6.3
+2025-06-02,FLNG,Flex LNG,kr,2433.0,0.88,10.9
+2025-06-02,GLNG,Golar LNG,$,41.2,1.12,39.4
+2025-06-02,HAFN,Hafnia Ltd.,kr,51.5,0.76,6.8
+2025-06-02,LPG,Dorian LPG,$,21.4,0.65,8.1
+2025-06-02,SNI,Stolt-Nielsen,kr,2562.0,0.48,5.2
+2025-06-02,TRMD,TORM,kr,110.0,0.76,7.9
+2025-06-03,BWLP,BW LPG,kr,103.8,0.69,6.3
+2025-06-03,FLNG,Flex LNG,kr,2450.0,0.89,11.1
+2025-06-03,LPG,Dorian LPG,$,21.3,0.65,8.0
+2025-06-03,SNI,Stolt-Nielsen,kr,2581.0,0.48,5.3
+2025-06-03,TRMD,TORM,kr,1100.0,0.76,8.0
+2025-06-05,AWILCO,Awilco LNG,kr,2.5,0.4,
+2025-06-05,FLNG,Flex LNG,kr,2511.0,0.91,11.3
+2025-06-05,GLNG,Golar LNG,$,41.2,1.12,39.8
+2025-06-05,HAFN,Hafnia Ltd.,kr,51.0,0.76,6.8
+2025-06-05,SNI,Stolt-Nielsen,kr,2601.0,0.49,5.3
+2025-06-05,TRMD,TORM,kr,1090.0,0.75,7.9
+2025-06-06,FLNG,Flex LNG,kr,239.0,0.87,10.8
+2025-06-06,ODFB,Odfjell SE,kr,106.6,0.63,4.1
+2025-06-06,SNI,Stolt-Nielsen,kr,257.0,0.48,5.2
+2025-06-06,TRMD,TORM,kr,1090.0,0.75,7.9
+2025-06-10,DHT,DHT Holdings,$,11.3,1.08,7.3
+2025-06-10,FLNG,Flex LNG,kr,2400.0,0.88,10.9
+2025-06-10,GLNG,Golar LNG,$,41.7,1.13,40.3
+2025-06-10,LPG,Dorian LPG,$,22.3,0.68,8.4
+2025-06-10,SNI,Stolt-Nielsen,kr,2663.0,0.5,5.4
+2025-06-10,TRMD,TORM,kr,1133.0,0.78,7.1
+2025-06-11,BWLP,BW LPG,kr,111.3,0.74,6.8
+2025-06-11,DHT,DHT Holdings,$,11.3,1.08,7.3
+2025-06-11,FLNG,Flex LNG,kr,235.0,0.86,10.6
+2025-06-11,HAFN,Hafnia Ltd.,kr,51.6,0.77,6.9
+2025-06-11,ODFB,Odfjell SE,kr,107.6,0.64,4.6
+2025-06-11,SNI,Stolt-Nielsen,kr,260.0,0.48,5.3
+2025-06-11,TRMD,TORM,kr,112.0,0.77,7.0
+2025-06-12,FLNG,Flex LNG,kr,2402.0,0.88,10.9
+2025-06-12,SNI,Stolt-Nielsen,kr,2641.0,0.49,5.4
+2025-06-12,TRMD,TORM,kr,111.0,0.77,7.0
+2025-06-13,FLNG,Flex LNG,kr,236.0,0.87,10.8
+2025-06-13,SNI,Stolt-Nielsen,kr,262.0,0.49,5.4
+2025-06-13,TRMD,TORM,kr,1164.0,0.8,7.4
+2025-06-16,FLNG,Flex LNG,kr,2401.0,0.89,11.1
+2025-06-16,GLNG,Golar LNG,$,42.3,1.15,41.6
+2025-06-16,SNI,Stolt-Nielsen,kr,2661.0,0.5,5.5
+2025-06-16,TRMD,TORM,kr,1192.0,0.82,7.6
+2025-06-17,DHT,DHT Holdings,$,11.9,1.13,7.7
+2025-06-17,FLNG,Flex LNG,kr,2410.0,0.89,11.1
+2025-06-17,HAFN,Hafnia Ltd.,kr,54.3,0.84,7.6
+2025-06-17,LPG,Dorian LPG,$,25.0,0.76,9.5
+2025-06-17,ODFB,Odfjell SE,kr,111.0,0.66,4.8
+2025-06-17,SNI,Stolt-Nielsen,kr,261.0,0.49,5.4
+2025-06-17,TRMD,TORM,kr,117.0,0.8,7.4
+2025-06-18,FLNG,Flex LNG,kr,2441.0,0.9,11.2
+2025-06-18,SNI,Stolt-Nielsen,kr,2620.0,0.49,5.4
+2025-06-18,TRMD,TORM,kr,1235.0,0.85,7.8
+2025-06-19,BWLP,BW LPG,kr,121.9,0.83,7.5
+2025-06-19,DHT,DHT Holdings,$,12.0,1.15,7.7
+2025-06-19,FLNG,Flex LNG,kr,240.0,0.89,11.0
+2025-06-19,GLNG,Golar LNG,$,42.3,1.15,41.7
+2025-06-19,ODFB,Odfjell SE,kr,110.4,0.66,4.8
+2025-06-19,SNI,Stolt-Nielsen,kr,260.0,0.48,5.4
+2025-06-19,TRMD,TORM,kr,1230.0,0.85,7.8
+2025-06-20,AWILCO,Awilco LNG,kr,3.4,0.55,
+2025-06-20,DHT,DHT Holdings,$,12.0,1.11,7.7
+2025-06-20,FLNG,Flex LNG,kr,2420.0,0.88,11.1
+2025-06-20,GLNG,Golar LNG,$,42.3,1.15,41.7
+2025-06-20,SNI,Stolt-Nielsen,kr,2620.0,0.49,5.4
+2025-06-20,TRMD,TORM,kr,1262.0,0.87,8.0
+2025-06-23,AWILCO,Awilco LNG,kr,3.3,0.53,
+2025-06-23,BWLP,BW LPG,kr,122.4,0.82,7.0
+2025-06-23,DHT,DHT Holdings,$,11.7,1.09,7.6
+2025-06-23,FLNG,Flex LNG,kr,2451.0,0.89,11.6
+2025-06-23,GLNG,Golar LNG,$,41.6,1.13,41.0
+2025-06-23,HAFN,Hafnia Ltd.,kr,56.7,0.85,7.7
+2025-06-23,LPG,Dorian LPG,$,25.6,0.77,8.6
+2025-06-23,SNI,Stolt-Nielsen,kr,2651.0,0.49,5.4
+2025-06-23,TRMD,TORM,kr,125.0,0.86,7.9
+2025-06-24,DHT,DHT Holdings,$,11.7,1.08,7.5
+2025-06-24,FLNG,Flex LNG,kr,2470.0,0.9,11.7
+2025-06-24,GLNG,Golar LNG,$,41.2,1.12,40.6
+2025-06-24,HAFN,Hafnia Ltd.,kr,56.5,0.85,7.8
+2025-06-24,LPG,Dorian LPG,$,25.0,0.76,8.4
+2025-06-24,ODFB,Odfjell SE,kr,111.6,0.66,4.8
+2025-06-24,SNI,Stolt-Nielsen,kr,261.0,0.49,5.3
+2025-06-24,TRMD,TORM,kr,122.0,0.84,7.8
+2025-06-25,AWILCO,Awilco LNG,kr,3.4,0.54,
+2025-06-25,BWLP,BW LPG,kr,118.4,0.8,6.7
+2025-06-25,DHT,DHT Holdings,$,11.2,1.03,7.2
+2025-06-25,FLNG,Flex LNG,kr,240.0,0.87,11.4
+2025-06-25,HAFN,Hafnia Ltd.,kr,53.1,0.8,7.3
+2025-06-25,LPG,Dorian LPG,$,24.6,0.74,8.3
+2025-06-25,ODFB,Odfjell SE,kr,107.6,0.64,4.6
+2025-06-25,SNI,Stolt-Nielsen,kr,254.0,0.48,5.1
+2025-06-25,TRMD,TORM,kr,113.0,0.78,7.3
+2025-06-26,AWILCO,Awilco LNG,kr,3.3,0.53,
+2025-06-26,FLNG,Flex LNG,kr,239.0,0.87,11.3
+2025-06-26,GLNG,Golar LNG,$,41.1,1.12,40.6
+2025-06-26,HAFN,Hafnia Ltd.,kr,52.8,0.79,7.2
+2025-06-26,SNI,Stolt-Nielsen,kr,2664.0,0.5,5.4
+2025-06-26,TRMD,TORM,kr,112.0,0.77,7.2
+2025-06-27,AWILCO,Awilco LNG,kr,3.2,0.53,
+2025-06-27,BWLP,BW LPG,kr,120.9,0.82,6.9
+2025-06-27,DHT,DHT Holdings,$,11.2,1.05,7.2
+2025-06-27,FLNG,Flex LNG,kr,235.0,0.86,11.1
+2025-06-27,HAFN,Hafnia Ltd.,kr,52.5,0.79,7.2
+2025-06-27,LPG,Dorian LPG,$,25.2,0.76,8.5
+2025-06-27,ODFB,Odfjell SE,kr,107.8,0.64,4.6
+2025-06-27,SNI,Stolt-Nielsen,kr,264.0,0.5,5.4
+2025-06-27,TRMD,TORM,kr,111.0,0.77,7.2
+2025-07-03,FLNG,Flex LNG,kr,2220.0,0.81,10.5
+2025-07-03,SNI,Stolt-Nielsen,kr,2625.0,0.5,5.4
+2025-07-03,TRMD,TORM,kr,1083.0,0.74,7.0
+2025-07-28,AWILCO,Awilco LNG,kr,3.1,0.5,
+2025-07-28,BWLP,BW LPG,kr,138.4,0.93,7.5
+2025-07-28,DHT,DHT Holdings,$,11.0,1.03,7.0
+2025-07-28,FLNG,Flex LNG,kr,2330.0,0.84,11.0
+2025-07-28,GLNG,Golar LNG,$,40.5,1.13,40.3
+2025-07-28,LPG,Dorian LPG,$,29.0,0.88,9.0
+2025-07-28,ODFB,Odfjell SE,kr,121.4,0.72,5.2
+2025-07-28,SNI,Stolt-Nielsen,kr,301.0,0.59,6.3
+2025-07-28,TRMD,TORM,kr,119.0,0.82,7.7
+2025-07-30,AWILCO,Awilco LNG,kr,3.8,0.61,
+2025-07-30,BWLP,BW LPG,kr,140.5,0.94,7.6
+2025-07-30,DHT,DHT Holdings,$,11.3,1.06,7.2
+2025-07-30,FLNG,Flex LNG,kr,2638.0,0.94,12.4
+2025-07-30,LPG,Dorian LPG,$,29.7,0.9,9.2
+2025-07-30,SNI,Stolt-Nielsen,kr,3100.0,0.6,6.4
+2025-07-30,TRMD,TORM,kr,1250.0,0.86,7.9
+2025-07-31,AWILCO,Awilco LNG,kr,3.7,0.59,
+2025-07-31,BWLP,BW LPG,kr,139.3,0.92,7.5
+2025-07-31,DHT,DHT Holdings,$,11.2,1.05,7.2
+2025-07-31,FLNG,Flex LNG,kr,259.0,0.93,12.1
+2025-07-31,HAFN,Hafnia Ltd.,kr,57.2,0.85,7.4
+2025-07-31,LPG,Dorian LPG,$,29.5,0.89,9.1
+2025-07-31,SNI,Stolt-Nielsen,kr,307.0,0.6,6.3
+2025-07-31,TRMD,TORM,kr,123.0,0.85,7.8
+2025-08-04,AWILCO,Awilco LNG,kr,3.5,0.56,
+2025-08-04,BWLP,BW LPG,kr,135.4,0.9,7.3
+2025-08-04,FLNG,Flex LNG,kr,255.0,0.91,11.9
+2025-08-04,GLNG,Golar LNG,$,40.5,1.13,40.2
+2025-08-04,HAFN,Hafnia Ltd.,kr,55.8,0.83,7.3
+2025-08-04,LPG,Dorian LPG,$,27.1,0.8,8.4
+2025-08-04,ODFB,Odfjell SE,kr,124.4,0.74,5.3
+2025-08-04,SNI,Stolt-Nielsen,kr,298.0,0.58,6.2
+2025-08-04,TRMD,TORM,kr,118.0,0.81,7.5
+2025-08-05,FLNG,Flex LNG,kr,2612.0,0.94,12.2
+2025-08-05,SNI,Stolt-Nielsen,kr,3062.0,0.6,6.3
+2025-08-05,TRMD,TORM,kr,1223.0,0.84,7.7
+2025-08-11,AWILCO,Awilco LNG,kr,3.5,0.55,
+2025-08-11,DHT,DHT Holdings,$,11.4,1.06,7.3
+2025-08-11,FLNG,Flex LNG,kr,2601.0,0.93,12.2
+2025-08-11,GLNG,Golar LNG,$,40.4,1.13,40.2
+2025-08-11,HAFN,Hafnia Ltd.,kr,57.8,0.86,7.6
+2025-08-11,SNI,Stolt-Nielsen,kr,3120.0,0.61,6.4
+2025-08-11,TRMD,TORM,kr,125.0,0.86,7.9
+2025-08-12,BWLP,BW LPG,kr,148.8,1.0,8.0
+2025-08-12,DHT,DHT Holdings,$,11.2,1.04,7.1
+2025-08-12,FLNG,Flex LNG,kr,259.0,0.93,12.2
+2025-08-12,GLNG,Golar LNG,$,40.1,1.12,39.9
+2025-08-12,HAFN,Hafnia Ltd.,kr,55.6,0.83,7.3
+2025-08-12,LPG,Dorian LPG,$,30.4,0.9,9.5
+2025-08-12,ODFB,Odfjell SE,kr,121.4,0.72,5.2
+2025-08-12,SNI,Stolt-Nielsen,kr,300.0,0.58,6.4
+2025-08-12,TRMD,TORM,kr,119.0,0.84,7.5
+2025-08-13,AWILCO,Awilco LNG,kr,3.5,0.55,
+2025-08-13,BWLP,BW LPG,kr,149.7,1.01,8.1
+2025-08-13,FLNG,Flex LNG,kr,257.0,0.92,12.2
+2025-08-13,SNI,Stolt-Nielsen,kr,3050.0,0.59,6.5
+2025-08-13,TRMD,TORM,kr,1220.0,0.86,7.8
+2025-08-14,AWILCO,Awilco LNG,kr,3.5,0.55,
+2025-08-14,BWLP,BW LPG,kr,149.0,1.0,8.1
+2025-08-14,FLNG,Flex LNG,kr,257.0,0.93,12.1
+2025-08-14,GLNG,Golar LNG,$,40.2,1.13,42.6
+2025-08-14,HAFN,Hafnia Ltd.,kr,55.1,0.83,7.4
+2025-08-14,LPG,Dorian LPG,$,30.2,0.89,9.4
+2025-08-14,SNI,Stolt-Nielsen,kr,3112.0,0.61,6.7
+2025-08-14,TRMD,TORM,kr,120.0,0.85,7.6
+2025-08-18,AWILCO,Awilco LNG,kr,3.5,0.56,
+2025-08-18,BWLP,BW LPG,kr,149.5,1.01,8.1
+2025-08-18,DHT,DHT Holdings,$,11.2,1.04,7.2
+2025-08-18,FLNG,Flex LNG,kr,253.0,0.91,11.9
+2025-08-18,HAFN,Hafnia Ltd.,kr,54.7,0.82,7.4
+2025-08-18,LPG,Dorian LPG,$,30.1,0.89,9.4
+2025-08-18,ODFB,Odfjell SE,kr,120.2,0.71,5.7
+2025-08-18,SNI,Stolt-Nielsen,kr,307.0,0.6,6.6
+2025-08-18,TRMD,TORM,kr,129.0,0.88,10.4
+2025-08-19,AWILCO,Awilco LNG,kr,3.5,0.55,
+2025-08-19,FLNG,Flex LNG,kr,2561.0,0.92,12.0
+2025-08-19,ODFB,Odfjell SE,kr,118.4,0.7,5.6
+2025-08-19,SNI,Stolt-Nielsen,kr,303.0,0.59,6.5
+2025-08-19,TRMD,TORM,kr,1311.0,0.9,10.5
+2025-08-20,DHT,DHT Holdings,$,10.7,1.02,6.9
+2025-08-20,FLNG,Flex LNG,kr,2560.0,0.99,12.0
+2025-08-20,GLNG,Golar LNG,$,41.2,1.16,44.4
+2025-08-20,LPG,Dorian LPG,$,30.1,0.89,9.4
+2025-08-20,SNI,Stolt-Nielsen,kr,3102.0,0.6,6.6
+2025-08-20,TRMD,TORM,kr,128.0,0.87,10.3
+2025-08-21,FLNG,Flex LNG,kr,2622.0,1.01,12.3
+2025-08-21,SNI,Stolt-Nielsen,kr,3131.0,0.6,6.7
+2025-08-21,TRMD,TORM,kr,1301.0,0.89,10.4
+2025-08-22,AWILCO,Awilco LNG,kr,3.2,0.52,
+2025-08-22,FLNG,Flex LNG,kr,2703.0,1.05,12.5
+2025-08-22,ODFB,Odfjell SE,kr,122.4,0.68,6.2
+2025-08-22,SNI,Stolt-Nielsen,kr,3191.0,0.61,6.8
+2025-08-22,TRMD,TORM,kr,1324.0,0.91,10.6
+2025-08-26,BWLP,BW LPG,kr,162.8,1.1,8.4
+2025-08-26,DHT,DHT Holdings,$,11.5,1.07,7.4
+2025-08-26,FLNG,Flex LNG,kr,2730.0,1.07,12.7
+2025-08-26,GLNG,Golar LNG,$,44.3,1.24,47.7
+2025-08-26,LPG,Dorian LPG,$,31.7,0.94,10.4
+2025-08-26,ODFB,Odfjell SE,kr,116.4,0.65,5.8
+2025-08-26,SNI,Stolt-Nielsen,kr,322.0,0.62,6.9
+2025-08-26,TRMD,TORM,kr,133.0,0.96,10.6
+2025-08-27,AWILCO,Awilco LNG,kr,3.2,0.51,
+2025-08-27,BWLP,BW LPG,kr,156.8,1.06,7.6
+2025-08-27,DHT,DHT Holdings,$,11.4,1.06,7.3
+2025-08-27,FLNG,Flex LNG,kr,271.0,1.06,12.6
+2025-08-27,HAFN,Hafnia Ltd.,kr,59.6,0.91,8.0
+2025-08-27,ODFB,Odfjell SE,kr,114.6,0.64,5.7
+2025-08-27,SNI,Stolt-Nielsen,kr,321.0,0.62,6.9
+2025-08-27,TRMD,TORM,kr,131.0,0.95,10.5
+2025-08-28,BWLP,BW LPG,kr,155.9,1.05,7.6
+2025-08-28,FLNG,Flex LNG,kr,2772.0,1.08,13.0
+2025-08-28,GLNG,Golar LNG,$,44.7,1.25,48.2
+2025-08-28,ODFB,Odfjell SE,kr,113.6,0.63,5.5
+2025-08-28,SNI,Stolt-Nielsen,kr,3230.0,0.62,7.0
+2025-08-28,TRMD,TORM,kr,1342.0,0.97,10.8
+2025-08-29,FLNG,Flex LNG,kr,2770.0,1.09,13.0
+2025-08-29,LPG,Dorian LPG,$,32.0,0.94,10.5
+2025-08-29,SNI,Stolt-Nielsen,kr,3281.0,0.63,7.1
+2025-08-29,TRMD,TORM,kr,1372.0,0.99,11.0
+2025-09-02,AWILCO,Awilco LNG,kr,3.3,0.54,
+2025-09-02,BWLP,BW LPG,kr,154.1,1.05,7.4
+2025-09-02,DHT,DHT Holdings,$,11.7,1.09,7.5
+2025-09-02,FLNG,Flex LNG,kr,263.0,1.04,12.4
+2025-09-02,GLNG,Golar LNG,$,43.8,1.23,47.8
+2025-09-02,GNK,Genco Shipping,$,16.8,0.77,14.7
+2025-09-02,HAFN,Hafnia Ltd.,kr,60.9,0.93,8.4
+2025-09-02,HAUTO,Höegh Autoliners,kr,107.0,,5.5
+2025-09-02,LPG,Dorian LPG,$,32.0,0.94,10.6
+2025-09-02,ODFB,Odfjell SE,kr,116.8,0.65,5.7
+2025-09-02,SBLK,Star Bulk Carriers,$,18.7,0.81,6.5
+2025-09-02,SNI,Stolt-Nielsen,kr,325.0,0.62,7.1
+2025-09-02,TRMD,TORM,kr,136.0,0.99,11.0
+2025-09-03,BWLP,BW LPG,kr,153.9,1.05,7.9
+2025-09-03,FLNG,Flex LNG,kr,2682.0,1.06,12.6
+2025-09-03,GLNG,Golar LNG,$,43.1,1.21,47.0
+2025-09-03,HAUTO,Höegh Autoliners,kr,1081.0,,5.5
+2025-09-03,LPG,Dorian LPG,$,30.5,0.9,10.1
+2025-09-03,ODFB,Odfjell SE,kr,116.4,0.65,5.7
+2025-09-03,SBLK,Star Bulk Carriers,$,18.6,0.81,6.5
+2025-09-03,SNI,Stolt-Nielsen,kr,3270.0,0.63,7.1
+2025-09-03,TRMD,TORM,kr,1381.0,1.0,11.1
+2025-09-04,AWILCO,Awilco LNG,kr,3.3,0.54,
+2025-09-04,BWLP,BW LPG,kr,152.8,1.04,7.8
+2025-09-04,FLNG,Flex LNG,kr,266.0,1.05,12.5
+2025-09-04,HAUTO,Höegh Autoliners,kr,1090.0,,5.5
+2025-09-04,LPG,Dorian LPG,$,30.5,0.9,10.1
+2025-09-04,SNI,Stolt-Nielsen,kr,326.0,0.63,7.1
+2025-09-04,TRMD,TORM,kr,1412.0,0.97,11.3
+2025-09-05,FLNG,Flex LNG,kr,2652.0,1.03,12.4
+2025-09-05,HAUTO,Höegh Autoliners,kr,1123.0,,5.7
+2025-09-05,SNI,Stolt-Nielsen,kr,3332.0,0.64,7.2
+2025-09-05,STNG,Scorpio Tankers,$,51.4,0.67,8.4
+2025-09-05,TRMD,TORM,kr,1463.0,1.0,11.7
+2025-09-08,AWILCO,Awilco LNG,kr,3.3,0.54,
+2025-09-08,BWLP,BW LPG,kr,152.3,1.04,7.7
+2025-09-08,FLNG,Flex LNG,kr,256.0,1.01,12.1
+2025-09-08,HAFN,Hafnia Ltd.,kr,60.8,0.91,8.4
+2025-09-08,HAUTO,Höegh Autoliners,kr,112.0,,5.7
+2025-09-08,ODFB,Odfjell SE,kr,116.4,0.65,5.7
+2025-09-08,SNI,Stolt-Nielsen,kr,330.0,0.63,7.2
+2025-09-08,TRMD,TORM,kr,144.0,0.99,11.6
+2025-09-09,FLNG,Flex LNG,kr,255.0,1.01,12.1
+2025-09-09,GLNG,Golar LNG,$,41.2,1.15,44.9
+2025-09-09,HAUTO,Höegh Autoliners,kr,1152.0,,5.9
+2025-09-09,SNI,Stolt-Nielsen,kr,3361.0,0.64,7.3
+2025-09-09,TRMD,TORM,kr,1482.0,1.01,12.0
+2025-09-15,AWILCO,Awilco LNG,kr,3.5,0.58,
+2025-09-15,DHT,DHT Holdings,$,12.3,1.15,7.9
+2025-09-15,FLNG,Flex LNG,kr,2501.0,1.0,12.0
+2025-09-15,HAUTO,Höegh Autoliners,kr,110.0,,5.7
+2025-09-15,SNI,Stolt-Nielsen,kr,3391.0,0.65,7.5
+2025-09-15,TRMD,TORM,kr,1452.0,0.99,11.4
+2025-09-16,AWILCO,Awilco LNG,kr,3.5,0.58,
+2025-09-16,BWLP,BW LPG,kr,157.9,1.1,8.2
+2025-09-16,GLNG,Golar LNG,$,40.1,1.12,43.7
+2025-09-16,HAFN,Hafnia Ltd.,kr,61.6,0.94,8.5
+2025-09-16,HAUTO,Höegh Autoliners,kr,1120.0,,5.9
+2025-09-16,SNI,Stolt-Nielsen,kr,348.0,0.67,7.7
+2025-09-16,TRMD,TORM,kr,1470.0,1.01,11.3
+2025-09-17,AWILCO,Awilco LNG,kr,3.5,0.59,
+2025-09-17,BWLP,BW LPG,kr,158.0,1.1,8.3
+2025-09-17,DHT,DHT Holdings,$,12.7,1.18,8.0
+2025-09-17,GLNG,Golar LNG,$,39.8,1.12,43.4
+2025-09-17,HAUTO,Höegh Autoliners,kr,1131.0,,5.9
+2025-09-17,LPG,Dorian LPG,$,32.5,0.96,10.7
+2025-09-17,SBLK,Star Bulk Carriers,$,19.3,0.84,6.6
+2025-09-17,SNI,Stolt-Nielsen,kr,3510.0,0.67,7.8
+2025-09-17,STNG,Scorpio Tankers,$,60.7,0.79,9.4
+2025-09-17,TNK,Teekay Tankers,$,54.4,0.78,9.7
+2025-09-19,BWLP,BW LPG,kr,155.7,1.08,8.1
+2025-09-19,DHT,DHT Holdings,$,12.8,1.19,8.1
+2025-09-19,HAUTO,Höegh Autoliners,kr,1150.0,,5.9
+2025-09-19,SNI,Stolt-Nielsen,kr,3570.0,0.69,7.9
+2025-09-19,STNG,Scorpio Tankers,$,59.7,0.73,9.3
+2025-09-19,TNK,Teekay Tankers,$,54.7,0.78,9.8
+2025-09-23,BWLP,BW LPG,kr,151.6,1.01,7.8
+2025-09-23,DHT,DHT Holdings,$,12.4,1.15,7.8
+2025-09-23,GNK,Genco Shipping,$,18.7,0.79,16.8
+2025-09-23,HAUTO,Höegh Autoliners,kr,1120.0,,5.7
+2025-09-23,LPG,Dorian LPG,$,31.7,0.93,10.5
+2025-09-23,ODFB,Odfjell SE,kr,127.4,0.71,6.1
+2025-09-23,SBLK,Star Bulk Carriers,$,19.1,0.76,6.4
+2025-09-23,SNI,Stolt-Nielsen,kr,346.0,0.66,7.6
+2025-09-23,STNG,Scorpio Tankers,$,57.8,0.71,9.0
+2025-09-23,TNK,Teekay Tankers,$,53.1,0.76,9.5
+2025-09-24,HAUTO,Höegh Autoliners,kr,1130.0,,5.8
+2025-09-24,ODFB,Odfjell SE,kr,127.0,0.71,6.1
+2025-09-24,SNI,Stolt-Nielsen,kr,3490.0,0.67,7.7
+2025-09-25,DHT,DHT Holdings,$,12.6,1.18,7.9
+2025-09-25,GNK,Genco Shipping,$,19.0,0.8,17.0
+2025-09-25,HAUTO,Höegh Autoliners,kr,1140.0,,5.8
+2025-09-25,LPG,Dorian LPG,$,31.9,0.94,10.5
+2025-09-25,ODFB,Odfjell SE,kr,126.6,0.7,6.0
+2025-09-25,SNI,Stolt-Nielsen,kr,3500.0,0.67,7.7
+2025-09-25,STNG,Scorpio Tankers,$,58.1,0.71,9.0
+2025-09-25,TNK,Teekay Tankers,$,53.7,0.76,9.6
+2025-09-26,BWLP,BW LPG,kr,154.0,1.03,7.9
+2025-09-26,DHT,DHT Holdings,$,12.4,1.16,7.8
+2025-09-26,GLNG,Golar LNG,$,40.6,1.14,41.6
+2025-09-26,GNK,Genco Shipping,$,18.5,0.78,16.6
+2025-09-26,HAUTO,Höegh Autoliners,kr,113.0,,5.7
+2025-09-26,LPG,Dorian LPG,$,31.5,0.93,10.4
+2025-09-26,ODFB,Odfjell SE,kr,123.4,0.69,5.8
+2025-09-26,SBLK,Star Bulk Carriers,$,19.4,0.77,6.5
+2025-09-26,SNI,Stolt-Nielsen,kr,343.0,0.66,7.4
+2025-09-26,STNG,Scorpio Tankers,$,57.7,0.71,9.0
+2025-09-26,TNK,Teekay Tankers,$,52.6,0.75,9.4
+2025-09-30,AWILCO,Awilco LNG,kr,4.1,0.67,
+2025-09-30,BWLP,BW LPG,kr,147.8,0.99,7.6
+2025-09-30,DHT,DHT Holdings,$,12.0,1.13,7.6
+2025-09-30,GLNG,Golar LNG,$,40.2,1.13,41.2
+2025-09-30,GNK,Genco Shipping,$,17.9,0.76,15.1
+2025-09-30,HAUTO,Höegh Autoliners,kr,110.0,,5.6
+2025-09-30,LPG,Dorian LPG,$,30.1,0.89,10.0
+2025-09-30,ODFB,Odfjell SE,kr,121.4,0.68,5.6
+2025-09-30,SBLK,Star Bulk Carriers,$,18.7,0.75,6.3
+2025-09-30,SNI,Stolt-Nielsen,kr,339.0,0.68,7.0
+2025-09-30,STNG,Scorpio Tankers,$,57.1,0.7,8.9
+2025-09-30,TNK,Teekay Tankers,$,51.3,0.73,9.1
+2025-10-01,BWLP,BW LPG,kr,142.7,0.95,7.3
+2025-10-01,DHT,DHT Holdings,$,12.0,1.12,7.5
+2025-10-01,GNK,Genco Shipping,$,17.8,0.75,14.9
+2025-10-01,HAUTO,Höegh Autoliners,kr,107.0,,5.4
+2025-10-01,LPG,Dorian LPG,$,29.8,0.88,9.8
+2025-10-01,SBLK,Star Bulk Carriers,$,18.6,0.75,6.3
+2025-10-01,SNI,Stolt-Nielsen,kr,3441.0,0.69,7.1
+2025-10-01,STNG,Scorpio Tankers,$,56.1,0.69,8.8
+2025-10-01,TNK,Teekay Tankers,$,50.6,0.72,9.0
+2025-10-02,AWILCO,Awilco LNG,kr,4.0,0.66,
+2025-10-02,BWLP,BW LPG,kr,139.2,0.93,7.2
+2025-10-02,GLNG,Golar LNG,$,40.1,1.12,41.1
+2025-10-02,LPG,Dorian LPG,$,29.0,0.86,9.6
+2025-10-06,AWILCO,Awilco LNG,kr,3.7,0.61,
+2025-10-06,GLNG,Golar LNG,$,39.3,1.1,40.3
+2025-10-06,GNK,Genco Shipping,$,17.2,0.73,14.5
+2025-10-06,HAUTO,Höegh Autoliners,kr,1101.0,,5.6
+2025-10-06,ODFB,Odfjell SE,kr,120.2,0.67,5.5
+2025-10-06,SBLK,Star Bulk Carriers,$,18.4,0.71,6.2
+2025-10-06,SNI,Stolt-Nielsen,kr,3362.0,0.65,7.3
+2025-10-07,BWLP,BW LPG,kr,138.9,0.93,7.2
+2025-10-07,DHT,DHT Holdings,$,11.6,1.09,7.3
+2025-10-07,FLNG,Flex LNG,$,25.4,0.1,12.0
+2025-10-07,GNK,Genco Shipping,$,17.0,0.72,14.2
+2025-10-07,HAUTO,Höegh Autoliners,kr,109.0,,5.6
+2025-10-07,LPG,Dorian LPG,$,28.4,0.84,9.4
+2025-10-07,ODFB,Odfjell SE,kr,118.4,0.66,5.5
+2025-10-07,SNI,Stolt-Nielsen,kr,328.0,0.63,7.2
+2025-10-07,STNG,Scorpio Tankers,$,56.2,0.69,8.8
+2025-10-07,TNK,Teekay Tankers,$,50.6,0.72,9.0
+2025-10-09,AWILCO,Awilco LNG,kr,3.7,0.61,
+2025-10-09,BWLP,BW LPG,kr,130.3,0.87,6.7
+2025-10-09,FLNG,Flex LNG,$,25.1,0.1,11.9
+2025-10-09,GLNG,Golar LNG,$,38.2,1.07,39.2
+2025-10-09,GNK,Genco Shipping,$,16.5,0.7,12.9
+2025-10-09,HAUTO,Höegh Autoliners,kr,95.0,,4.9
+2025-10-09,ODFB,Odfjell SE,kr,113.6,0.63,5.2
+2025-10-09,SBLK,Star Bulk Carriers,$,18.0,0.7,6.1
+2025-10-09,SNI,Stolt-Nielsen,kr,311.0,0.6,6.8
+2025-10-09,STNG,Scorpio Tankers,$,54.1,0.67,8.5
+2025-10-10,AWILCO,Awilco LNG,kr,3.6,0.6,
+2025-10-10,FLNG,Flex LNG,$,24.8,0.1,11.8
+2025-10-10,GNK,Genco Shipping,$,16.4,0.69,12.9
+2025-10-10,HAUTO,Höegh Autoliners,kr,95.0,,4.9
+2025-10-10,LPG,Dorian LPG,$,27.5,0.81,9.1
+2025-10-10,SBLK,Star Bulk Carriers,$,17.7,0.68,6.0
+2025-10-10,SNI,Stolt-Nielsen,kr,3202.0,0.59,6.9
+2025-10-13,AWILCO,Awilco LNG,kr,3.6,0.59,
+2025-10-13,BWLP,BW LPG,kr,131.3,0.88,6.7
+2025-10-13,DHT,DHT Holdings,$,11.4,1.07,7.2
+2025-10-13,FLNG,Flex LNG,$,24.4,0.1,11.6
+2025-10-13,GNK,Genco Shipping,$,15.6,0.66,12.2
+2025-10-13,HAUTO,Höegh Autoliners,kr,950.0,,4.9
+2025-10-13,LPG,Dorian LPG,$,26.2,0.77,8.7
+2025-10-13,ODFB,Odfjell SE,kr,113.6,0.63,5.2
+2025-10-13,SBLK,Star Bulk Carriers,$,16.8,0.65,5.7
+2025-10-13,SNI,Stolt-Nielsen,kr,3241.0,0.6,6.9
+2025-10-13,STNG,Scorpio Tankers,$,54.1,0.67,8.5
+2025-10-13,TNK,Teekay Tankers,$,49.1,0.73,8.7
+2025-10-14,AWILCO,Awilco LNG,kr,3.5,0.58,
+2025-10-14,BWLP,BW LPG,kr,129.2,0.86,6.6
+2025-10-14,DHT,DHT Holdings,$,11.4,1.06,7.3
+2025-10-14,FLNG,Flex LNG,$,24.4,0.1,11.5
+2025-10-14,HAUTO,Höegh Autoliners,kr,92.0,,4.7
+2025-10-14,ODFB,Odfjell SE,kr,113.4,0.63,5.2
+2025-10-14,SNI,Stolt-Nielsen,kr,319.0,0.59,6.8
+2025-10-16,HAUTO,Höegh Autoliners,kr,940.0,,4.8
+2025-10-16,SNI,Stolt-Nielsen,kr,3211.0,0.59,6.9
+2025-10-17,AWILCO,Awilco LNG,kr,3.4,0.56,
+2025-10-17,FLNG,Flex LNG,$,24.7,0.1,11.7
+2025-10-17,GLNG,Golar LNG,$,38.2,1.07,43.8
+2025-10-17,HAUTO,Höegh Autoliners,kr,94.0,,5.0
+2025-10-17,LPG,Dorian LPG,$,26.6,0.79,8.8
+2025-10-17,SNI,Stolt-Nielsen,kr,3240.0,0.6,7.0
+2025-10-20,AWILCO,Awilco LNG,kr,3.4,0.56,
+2025-10-20,BWLP,BW LPG,kr,122.8,0.82,6.3
+2025-10-20,GLNG,Golar LNG,$,38.1,1.07,43.7
+2025-10-20,GNK,Genco Shipping,$,16.2,0.69,12.7
+2025-10-20,HAUTO,Höegh Autoliners,kr,951.0,,5.0
+2025-10-20,ODFB,Odfjell SE,kr,114.0,0.63,5.3
+2025-10-20,SNI,Stolt-Nielsen,kr,321.0,0.59,6.9
+2025-10-21,GNK,Genco Shipping,$,15.9,0.67,12.5
+2025-10-21,HAUTO,Höegh Autoliners,kr,960.0,,5.2
+2025-10-21,SBLK,Star Bulk Carriers,$,17.6,0.68,6.0
+2025-10-21,SNI,Stolt-Nielsen,kr,3271.0,0.6,7.0
+2025-10-22,AWILCO,Awilco LNG,kr,3.4,0.55,
+2025-10-22,BWLP,BW LPG,kr,120.8,0.81,6.2
+2025-10-22,DHT,DHT Holdings,$,11.9,1.1,7.5
+2025-10-22,FLNG,Flex LNG,$,24.7,0.1,11.9
+2025-10-22,GLNG,Golar LNG,$,38.1,1.07,43.7
+2025-10-22,GNK,Genco Shipping,$,15.7,0.66,12.4
+2025-10-22,HAUTO,Höegh Autoliners,kr,94.0,,5.1
+2025-10-22,LPG,Dorian LPG,$,26.5,0.79,8.9
+2025-10-22,ODFB,Odfjell SE,kr,114.0,0.63,5.3
+2025-10-22,SBLK,Star Bulk Carriers,$,17.5,0.67,5.9
+2025-10-22,SNI,Stolt-Nielsen,kr,321.0,0.59,6.9
+2025-10-22,STNG,Scorpio Tankers,$,56.9,0.7,8.9
+2025-10-22,TNK,Teekay Tankers,$,53.8,0.79,8.1
+2025-10-23,AWILCO,Awilco LNG,kr,3.1,0.51,
+2025-10-23,GLNG,Golar LNG,$,38.1,1.07,43.7
+2025-10-23,HAUTO,Höegh Autoliners,kr,93.0,,5.1
+2025-10-23,SNI,Stolt-Nielsen,kr,319.0,0.59,6.9
+2025-10-24,HAUTO,Höegh Autoliners,kr,941.0,,5.1
+2025-10-24,SNI,Stolt-Nielsen,kr,3293.0,0.61,7.1
+2025-10-28,AWILCO,Awilco LNG,kr,3.3,0.54,
+2025-10-28,HAUTO,Höegh Autoliners,kr,951.0,,5.4
+2025-10-28,SNI,Stolt-Nielsen,kr,3270.0,0.6,7.1
+2025-10-28,STNG,Scorpio Tankers,$,60.2,0.72,9.5
+2025-10-29,GLNG,Golar LNG,$,41.0,1.15,49.7
+2025-10-29,HAUTO,Höegh Autoliners,kr,95.0,,5.4
+2025-10-29,SNI,Stolt-Nielsen,kr,3300.0,0.61,7.2
+2025-10-30,FLNG,Flex LNG,$,25.7,1.02,12.6
+2025-10-30,GLNG,Golar LNG,$,40.7,1.14,49.3
+2025-10-30,HAUTO,Höegh Autoliners,kr,971.0,,5.5
+2025-10-30,SNI,Stolt-Nielsen,kr,3382.0,0.62,7.3
+2025-10-31,AWILCO,Awilco LNG,kr,3.4,0.55,
+2025-10-31,GLNG,Golar LNG,$,40.5,1.13,49.1
+2025-10-31,HAUTO,Höegh Autoliners,kr,90.0,,5.1
+2025-10-31,LPG,Dorian LPG,$,28.3,0.84,9.5
+2025-10-31,ODFB,Odfjell SE,kr,120.2,0.69,5.6
+2025-10-31,SNI,Stolt-Nielsen,kr,3380.0,0.62,7.3
+2025-10-31,STNG,Scorpio Tankers,$,61.1,0.72,9.3
+2025-10-31,TNK,Teekay Tankers,$,58.8,0.84,8.6
+2025-11-03,AWILCO,Awilco LNG,kr,3.3,0.54,
+2025-11-03,BWLP,BW LPG,kr,134.4,0.92,6.9
+2025-11-03,HAUTO,Höegh Autoliners,kr,910.0,,5.2
+2025-11-03,SNI,Stolt-Nielsen,kr,3400.0,0.63,7.4
+2025-11-04,DHT,DHT Holdings,$,13.0,1.14,7.3
+2025-11-04,FLNG,Flex LNG,$,25.9,1.03,12.7
+2025-11-04,GNK,Genco Shipping,$,16.8,0.69,13.9
+2025-11-04,HAUTO,Höegh Autoliners,kr,91.0,,5.3
+2025-11-04,SBLK,Star Bulk Carriers,$,18.3,0.7,6.2
+2025-11-04,SNI,Stolt-Nielsen,kr,3410.0,0.62,7.4
+2025-11-04,STNG,Scorpio Tankers,$,61.6,0.72,9.5
+2025-11-04,TNK,Teekay Tankers,$,60.6,0.86,8.9
+2025-11-07,AWILCO,Awilco LNG,kr,3.3,0.53,
+2025-11-07,BWLP,BW LPG,kr,136.2,0.93,6.9
+2025-11-07,GLNG,Golar LNG,$,39.2,1.1,
+2025-11-07,HAUTO,Höegh Autoliners,kr,901.0,,5.1
+2025-11-07,LPG,Dorian LPG,$,27.2,0.81,9.1
+2025-11-07,ODFB,Odfjell SE,kr,120.2,0.68,5.4
+2025-11-07,SBLK,Star Bulk Carriers,$,18.2,0.7,6.2
+2025-11-07,SNI,Stolt-Nielsen,kr,340.0,0.62,7.3
+2025-11-10,AWILCO,Awilco LNG,kr,3.2,0.53,
+2025-11-10,BWLP,BW LPG,kr,136.0,0.93,7.0
+2025-11-10,GLNG,Golar LNG,$,38.4,1.08,
+2025-11-10,GNK,Genco Shipping,$,16.9,0.69,14.2
+2025-11-10,HAUTO,Höegh Autoliners,kr,911.0,,5.2
+2025-11-10,SNI,Stolt-Nielsen,kr,3420.0,0.62,7.4
+2025-11-10,TNK,Teekay Tankers,$,60.9,0.87,9.0
+2025-11-11,HAUTO,Höegh Autoliners,kr,89.0,,4.8
+2025-11-11,LPG,Dorian LPG,$,27.4,0.79,8.8
+2025-11-11,SNI,Stolt-Nielsen,kr,3440.0,0.62,7.4
+2025-11-12,AWILCO,Awilco LNG,kr,3.2,0.52,
+2025-11-12,BWLP,BW LPG,kr,134.8,0.92,7.0
+2025-11-12,FLNG,Flex LNG,$,26.5,1.05,13.0
+2025-11-12,GLNG,Golar LNG,$,38.4,1.06,
+2025-11-12,GNK,Genco Shipping,$,17.4,0.71,14.6
+2025-11-12,HAUTO,Höegh Autoliners,kr,88.0,,4.8
+2025-11-12,LPG,Dorian LPG,$,26.6,0.77,8.5
+2025-11-12,SNI,Stolt-Nielsen,kr,3460.0,0.63,7.5
+2025-11-12,STNG,Scorpio Tankers,$,62.6,0.73,9.7
+2025-11-12,TNK,Teekay Tankers,$,60.8,0.86,9.0
+2025-11-14,BWLP,BW LPG,kr,130.6,0.89,6.8
+2025-11-14,GLNG,Golar LNG,$,37.9,1.04,
+2025-11-14,GNK,Genco Shipping,$,17.5,0.72,14.7
+2025-11-14,HAUTO,Höegh Autoliners,kr,86.0,,4.7
+2025-11-14,LPG,Dorian LPG,$,26.5,0.77,8.2
+2025-11-14,SNI,Stolt-Nielsen,kr,342.0,0.62,7.5
+2025-11-14,STNG,Scorpio Tankers,$,61.8,0.72,9.6
+2025-11-17,BWLP,BW LPG,kr,129.4,0.89,6.7
+2025-11-17,HAUTO,Höegh Autoliners,kr,86.0,,4.7
+2025-11-17,SBLK,Star Bulk Carriers,$,18.9,0.7,6.5
+2025-11-17,SNI,Stolt-Nielsen,kr,338.0,0.61,7.3
+2025-11-18,DHT,DHT Holdings,$,13.6,1.2,8.0
+2025-11-18,GLNG,Golar LNG,$,37.3,1.02,
+2025-11-18,HAUTO,Höegh Autoliners,kr,871.0,,4.7
+2025-11-18,LPG,Dorian LPG,$,25.5,0.75,7.9
+2025-11-18,SNI,Stolt-Nielsen,kr,3390.0,0.61,7.3
+2025-11-18,STNG,Scorpio Tankers,$,61.6,0.72,9.6
+2025-11-19,AWILCO,Awilco LNG,kr,3.6,0.58,
+2025-11-19,BWLP,BW LPG,kr,132.2,0.9,6.8
+2025-11-19,GLNG,Golar LNG,$,37.1,1.02,
+2025-11-19,HAUTO,Höegh Autoliners,kr,87.0,,4.7
+2025-11-19,ODFB,Odfjell SE,kr,122.4,0.71,5.9
+2025-11-19,SNI,Stolt-Nielsen,kr,338.0,0.61,7.3
+2025-11-20,AWILCO,Awilco LNG,kr,3.6,0.58,
+2025-11-20,BWLP,BW LPG,kr,131.7,0.9,6.7
+2025-11-20,DHT,DHT Holdings,$,13.3,1.18,7.8
+2025-11-20,FLNG,Flex LNG,$,26.5,1.05,13.8
+2025-11-20,GLNG,Golar LNG,$,36.7,1.01,
+2025-11-20,HAUTO,Höegh Autoliners,kr,903.0,,4.8
+2025-11-20,LPG,Dorian LPG,$,25.3,0.75,7.8
+2025-11-20,SBLK,Star Bulk Carriers,$,19.1,0.71,6.3
+2025-11-20,SNI,Stolt-Nielsen,kr,3383.0,0.61,7.3
+2025-11-20,STNG,Scorpio Tankers,$,61.1,0.71,9.5
+2025-11-20,TNK,Teekay Tankers,$,61.9,0.88,9.1
+2025-11-21,BWLP,BW LPG,kr,130.8,0.9,6.7
+2025-11-21,FLNG,Flex LNG,$,26.4,1.04,13.7
+2025-11-21,GLNG,Golar LNG,$,36.4,1.0,
+2025-11-21,GNK,Genco Shipping,$,17.4,0.72,14.6
+2025-11-21,HAUTO,Höegh Autoliners,kr,89.0,,4.7
+2025-11-21,LPG,Dorian LPG,$,24.7,0.73,7.6
+2025-11-21,SBLK,Star Bulk Carriers,$,18.8,0.7,6.3
+2025-11-21,SNI,Stolt-Nielsen,kr,3441.0,0.62,7.4
+2025-11-21,STNG,Scorpio Tankers,$,60.2,0.7,9.4
+2025-11-21,TNK,Teekay Tankers,$,60.5,0.86,8.9
+2025-11-25,AWILCO,Awilco LNG,kr,3.7,0.59,
+2025-11-25,BWLP,BW LPG,kr,125.9,0.86,6.4
+2025-11-25,DHT,DHT Holdings,$,13.3,1.18,7.8
+2025-11-25,FLNG,Flex LNG,$,26.4,1.04,13.7
+2025-11-25,GLNG,Golar LNG,$,35.3,0.73,
+2025-11-25,HAUTO,Höegh Autoliners,kr,85.0,,4.5
+2025-11-25,LPG,Dorian LPG,$,24.6,0.73,7.6
+2025-11-25,ODFB,Odfjell SE,kr,126.4,0.72,6.0
+2025-11-25,SNI,Stolt-Nielsen,kr,334.0,0.61,7.1
+2025-11-25,STNG,Scorpio Tankers,$,60.2,0.7,9.4
+2025-11-25,TNK,Teekay Tankers,$,61.0,0.86,9.0
+2025-11-26,AWILCO,Awilco LNG,kr,3.6,0.59,
+2025-11-26,BWLP,BW LPG,kr,125.5,0.86,6.4
+2025-11-26,DHT,DHT Holdings,$,13.0,1.15,7.7
+2025-11-26,GNK,Genco Shipping,$,18.9,0.78,16.0
+2025-11-26,HAUTO,Höegh Autoliners,kr,872.0,,4.7
+2025-11-26,ODFB,Odfjell SE,kr,126.2,0.72,6.0
+2025-11-26,SNI,Stolt-Nielsen,kr,3370.0,0.61,7.2
+2025-11-26,STNG,Scorpio Tankers,$,58.9,0.68,9.2
+2025-11-26,TNK,Teekay Tankers,$,59.3,0.84,8.7
+2025-11-27,DHT,DHT Holdings,$,13.0,1.15,7.7
+2025-11-27,FLNG,Flex LNG,$,26.3,1.04,13.7
+2025-11-27,GNK,Genco Shipping,$,18.8,0.79,16.0
+2025-11-27,HAUTO,Höegh Autoliners,kr,880.0,,4.7
+2025-11-27,LPG,Dorian LPG,$,24.6,0.73,7.6
+2025-11-27,SBLK,Star Bulk Carriers,$,19.7,0.74,6.6
+2025-11-27,SNI,Stolt-Nielsen,kr,3390.0,0.61,7.3
+2025-11-27,STNG,Scorpio Tankers,$,57.9,0.67,9.0
+2025-11-27,TNK,Teekay Tankers,$,58.1,0.82,8.6
+2025-11-28,AWILCO,Awilco LNG,kr,3.6,0.59,
+2025-11-28,BWLP,BW LPG,kr,124.4,0.85,6.4
+2025-11-28,DHT,DHT Holdings,$,13.0,1.15,7.7
+2025-11-28,FLNG,Flex LNG,$,26.3,1.04,13.7
+2025-11-28,GNK,Genco Shipping,$,18.8,0.79,16.0
+2025-11-28,HAUTO,Höegh Autoliners,kr,880.0,,4.7
+2025-11-28,LPG,Dorian LPG,$,24.6,0.73,7.6
+2025-11-28,SBLK,Star Bulk Carriers,$,19.7,0.74,6.6
+2025-11-28,SNI,Stolt-Nielsen,kr,3400.0,0.62,7.3
+2025-11-28,STNG,Scorpio Tankers,$,57.9,0.67,9.0
+2025-11-28,TNK,Teekay Tankers,$,58.1,0.82,8.6
+2025-12-01,FLNG,Flex LNG,$,25.4,1.0,13.2
+2025-12-01,HAUTO,Höegh Autoliners,kr,890.0,,4.8
+2025-12-01,SNI,Stolt-Nielsen,kr,3400.0,0.62,7.4
+2025-12-01,STNG,Scorpio Tankers,$,57.3,0.67,8.9
+2025-12-01,TNK,Teekay Tankers,$,57.7,0.82,8.5
+2025-12-02,BWLP,BW LPG,kr,126.9,0.87,6.5
+2025-12-02,CMBT,CMB.TECH,$,10.6,0.67,8.9
+2025-12-02,DHT,DHT Holdings,$,12.9,1.14,7.6
+2025-12-02,FLNG,Flex LNG,$,25.2,1.0,13.1
+2025-12-02,GNK,Genco Shipping,$,18.9,0.79,16.0
+2025-12-02,HAUTO,Höegh Autoliners,kr,901.0,,4.8
+2025-12-02,LPG,Dorian LPG,$,24.6,0.73,7.6
+2025-12-02,SNI,Stolt-Nielsen,kr,3430.0,0.62,7.4
+2025-12-02,STNG,Scorpio Tankers,$,55.6,0.65,8.8
+2025-12-02,TNK,Teekay Tankers,$,55.5,0.79,8.2
+2025-12-04,AWILCO,Awilco LNG,kr,3.6,,
+2025-12-04,HAUTO,Höegh Autoliners,kr,89.0,,4.8
+2025-12-04,SNI,Stolt-Nielsen,kr,3360.0,0.61,7.3
+2025-12-08,AWILCO,Awilco LNG,kr,3.6,,
+2025-12-08,BWLP,BW LPG,kr,124.5,0.85,6.9
+2025-12-08,CMBT,CMB.TECH,$,10.8,0.69,9.1
+2025-12-08,FLNG,Flex LNG,$,25.3,1.0,13.1
+2025-12-08,GLNG,Golar LNG,$,38.3,0.79,
+2025-12-08,HAUTO,Höegh Autoliners,kr,920.0,,5.0
+2025-12-08,LPG,Dorian LPG,$,25.0,0.74,8.0
+2025-12-08,ODFB,Odfjell SE,kr,128.8,0.73,6.4
+2025-12-08,SNI,Stolt-Nielsen,kr,335.0,0.61,7.3
+2025-12-08,STNG,Scorpio Tankers,$,55.9,0.65,8.8
+2025-12-08,TNK,Teekay Tankers,$,55.2,0.78,8.1
+2025-12-09,AWILCO,Awilco LNG,kr,3.4,,
+2025-12-09,CMBT,CMB.TECH,$,10.8,0.68,9.0
+2025-12-09,GNK,Genco Shipping,$,18.8,0.76,17.2
+2025-12-09,HAUTO,Höegh Autoliners,kr,964.0,,5.2
+2025-12-09,LPG,Dorian LPG,$,24.6,0.73,7.9
+2025-12-09,SBLK,Star Bulk Carriers,$,20.0,0.75,6.6
+2025-12-09,SNI,Stolt-Nielsen,kr,3473.0,0.63,7.5
+2025-12-09,STNG,Scorpio Tankers,$,55.6,0.65,8.8
+2025-12-10,BWLP,BW LPG,kr,124.0,0.85,6.8
+2025-12-10,CMBT,CMB.TECH,$,10.2,0.65,8.6
+2025-12-10,DHT,DHT Holdings,$,12.5,1.11,7.6
+2025-12-10,GLNG,Golar LNG,$,38.5,0.8,
+2025-12-10,GNK,Genco Shipping,$,18.7,0.76,19.2
+2025-12-10,HAUTO,Höegh Autoliners,kr,95.0,,5.1
+2025-12-10,LPG,Dorian LPG,$,24.5,0.72,7.5
+2025-12-10,ODFB,Odfjell SE,kr,127.2,0.72,6.3
+2025-12-10,SBLK,Star Bulk Carriers,$,19.9,0.71,6.3
+2025-12-10,SNI,Stolt-Nielsen,kr,341.0,0.62,7.4
+2025-12-10,STNG,Scorpio Tankers,$,54.7,0.64,9.1
+2025-12-10,TNK,Teekay Tankers,$,53.9,0.76,8.4
+2025-12-11,AWILCO,Awilco LNG,kr,3.4,,
+2025-12-11,BWLP,BW LPG,kr,122.8,0.84,6.8
+2025-12-11,CMBT,CMB.TECH,$,10.0,0.63,8.4
+2025-12-11,DHT,DHT Holdings,$,12.5,1.1,7.6
+2025-12-11,FLNG,Flex LNG,$,25.2,1.0,13.6
+2025-12-11,GLNG,Golar LNG,$,37.6,0.78,
+2025-12-11,HAUTO,Höegh Autoliners,kr,94.0,,5.1
+2025-12-11,LPG,Dorian LPG,$,24.3,0.72,7.4
+2025-12-11,SBLK,Star Bulk Carriers,$,19.5,0.17,6.1
+2025-12-11,SNI,Stolt-Nielsen,kr,338.0,0.62,7.3
+2025-12-11,STNG,Scorpio Tankers,$,54.4,0.63,9.1
+2025-12-11,TNK,Teekay Tankers,$,53.5,0.76,8.3
+2025-12-12,CMBT,CMB.TECH,$,9.8,0.62,8.2
+2025-12-12,GLNG,Golar LNG,$,37.0,0.77,
+2025-12-12,GNK,Genco Shipping,$,18.4,0.75,16.6
+2025-12-12,HAUTO,Höegh Autoliners,kr,962.0,,5.2
+2025-12-12,LPG,Dorian LPG,$,24.2,0.72,7.4
+2025-12-12,SBLK,Star Bulk Carriers,$,18.6,0.67,5.6
+2025-12-12,SNI,Stolt-Nielsen,kr,3410.0,0.62,7.4
+2025-12-12,STNG,Scorpio Tankers,$,53.2,0.62,8.9
+2025-12-16,AWILCO,Awilco LNG,kr,3.4,,
+2025-12-16,BWLP,BW LPG,kr,123.1,0.84,6.8
+2025-12-16,FLNG,Flex LNG,$,25.5,1.01,13.5
+2025-12-16,GLNG,Golar LNG,$,36.9,0.76,
+2025-12-16,GNK,Genco Shipping,$,18.1,0.73,16.3
+2025-12-16,HAUTO,Höegh Autoliners,kr,970.0,,5.2
+2025-12-16,ODFB,Odfjell SE,kr,125.2,0.72,6.2
+2025-12-16,SBLK,Star Bulk Carriers,$,18.2,0.66,5.5
+2025-12-16,SNI,Stolt-Nielsen,kr,330.0,0.6,7.1
+2025-12-17,CMBT,CMB.TECH,$,9.8,0.62,8.2
+2025-12-17,FLNG,Flex LNG,$,25.3,1.0,13.4
+2025-12-17,HAUTO,Höegh Autoliners,kr,970.0,,5.2
+2025-12-17,LPG,Dorian LPG,$,24.8,0.73,7.6
+2025-12-17,ODFB,Odfjell SE,kr,124.6,0.71,6.2
+2025-12-17,SBLK,Star Bulk Carriers,$,18.1,0.65,5.5
+2025-12-17,SNI,Stolt-Nielsen,kr,3310.0,0.6,7.1
+2025-12-17,STNG,Scorpio Tankers,$,51.4,0.6,8.6
+2025-12-17,TNK,Teekay Tankers,$,53.6,0.77,7.9
+2025-12-18,CMBT,CMB.TECH,$,9.7,0.61,8.1
+2025-12-18,HAUTO,Höegh Autoliners,kr,970.0,,5.2
+2025-12-18,SNI,Stolt-Nielsen,kr,331.0,0.6,7.1
+2025-12-19,CMBT,CMB.TECH,$,9.5,0.6,7.9
+2025-12-19,DHT,DHT Holdings,$,12.5,1.1,7.5
+2025-12-19,FLNG,Flex LNG,$,25.3,1.0,13.4
+2025-12-19,HAUTO,Höegh Autoliners,kr,981.0,,5.3
+2025-12-19,LPG,Dorian LPG,$,25.1,0.74,7.7
+2025-12-19,SBLK,Star Bulk Carriers,$,18.1,0.65,5.5
+2025-12-19,SNI,Stolt-Nielsen,kr,3320.0,0.6,7.1
+2025-12-19,STNG,Scorpio Tankers,$,51.0,0.59,8.5
+2025-12-19,TNK,Teekay Tankers,$,53.8,0.77,8.0
+2026-01-02,AWILCO,Awilco LNG,kr,3.3,,
+2026-01-02,GLNG,Golar LNG,$,37.2,0.77,
+2026-01-02,GNK,Genco Shipping,$,18.4,0.75,16.6
+2026-01-02,HAUTO,Höegh Autoliners,kr,980.0,,5.3
+2026-01-02,SBLK,Star Bulk Carriers,$,19.2,0.69,5.8
+2026-01-02,SNI,Stolt-Nielsen,kr,3261.0,0.59,7.1
+2026-01-05,AWILCO,Awilco LNG,kr,3.2,,
+2026-01-05,BWLP,BW LPG,kr,127.7,0.87,7.3
+2026-01-05,CMBT,CMB.TECH,$,9.5,0.6,8.5
+2026-01-05,DHT,DHT Holdings,$,11.7,1.04,7.1
+2026-01-05,FLNG,Flex LNG,$,24.7,0.98,13.1
+2026-01-05,HAUTO,Höegh Autoliners,kr,98.0,,5.3
+2026-01-05,ODFB,Odfjell SE,kr,125.2,0.72,6.3
+2026-01-05,SNI,Stolt-Nielsen,kr,318.0,0.58,6.9
+2026-01-05,STNG,Scorpio Tankers,$,49.7,0.57,8.3
+2026-01-05,TNK,Teekay Tankers,$,51.5,0.73,7.6
+2026-01-06,DHT,DHT Holdings,$,11.6,1.05,7.1
+2026-01-06,GNK,Genco Shipping,$,18.3,0.75,16.5
+2026-01-06,HAUTO,Höegh Autoliners,kr,97.0,,5.3
+2026-01-06,SNI,Stolt-Nielsen,kr,3190.0,0.58,7.0
+2026-01-06,STNG,Scorpio Tankers,$,49.5,0.58,8.3
+2026-01-07,AWILCO,Awilco LNG,kr,3.3,,
+2026-01-07,GLNG,Golar LNG,$,37.6,0.78,
+2026-01-07,HAUTO,Höegh Autoliners,kr,980.0,,5.3
+2026-01-07,SNI,Stolt-Nielsen,kr,317.0,0.58,6.9
+2026-01-08,AWILCO,Awilco LNG,kr,3.3,,
+2026-01-08,GNK,Genco Shipping,$,18.9,0.77,17.0
+2026-01-08,HAUTO,Höegh Autoliners,kr,1024.0,,5.5
+2026-01-08,SNI,Stolt-Nielsen,kr,3304.0,0.6,7.2
+2026-01-09,AWILCO,Awilco LNG,kr,3.3,,
+2026-01-09,HAUTO,Höegh Autoliners,kr,101.0,,5.4
+2026-01-09,LPG,Dorian LPG,$,27.9,0.83,8.2
+2026-01-09,SNI,Stolt-Nielsen,kr,3403.0,0.62,7.4
+2026-01-12,AWILCO,Awilco LNG,kr,3.3,,
+2026-01-12,BWLP,BW LPG,kr,134.8,0.94,7.8
+2026-01-12,DHT,DHT Holdings,$,13.4,1.1,8.2
+2026-01-12,GLNG,Golar LNG,$,38.9,0.81,
+2026-01-12,GNK,Genco Shipping,$,18.8,0.74,17.0
+2026-01-12,HAUTO,Höegh Autoliners,kr,1010.0,,5.5
+2026-01-12,LPG,Dorian LPG,$,27.2,0.81,8.0
+2026-01-12,ODFB,Odfjell SE,kr,134.4,0.77,6.7
+2026-01-12,SBLK,Star Bulk Carriers,$,19.6,0.69,6.2
+2026-01-12,SNI,Stolt-Nielsen,kr,337.0,0.61,7.3
+2026-01-12,STNG,Scorpio Tankers,$,54.8,0.63,9.3
+2026-01-12,TNK,Teekay Tankers,$,58.9,0.83,8.7
+2026-01-13,CMBT,CMB.TECH,$,11.1,0.66,10.4
+2026-01-13,DHT,DHT Holdings,$,13.2,1.08,8.2
+2026-01-13,GLNG,Golar LNG,$,38.6,0.8,
+2026-01-13,HAUTO,Höegh Autoliners,kr,1021.0,,5.5
+2026-01-13,SBLK,Star Bulk Carriers,$,19.6,0.69,6.2
+2026-01-13,SNI,Stolt-Nielsen,kr,335.0,0.61,7.3
+2026-01-13,TNK,Teekay Tankers,$,58.7,0.83,8.7
+2026-01-14,AWILCO,Awilco LNG,kr,3.3,,
+2026-01-14,HAUTO,Höegh Autoliners,kr,1041.0,,5.6
+2026-01-14,SNI,Stolt-Nielsen,kr,3453.0,0.63,7.5
+2026-01-15,AWILCO,Awilco LNG,kr,3.3,,
+2026-01-15,CMBT,CMB.TECH,$,11.6,0.69,10.8
+2026-01-15,HAUTO,Höegh Autoliners,kr,103.0,,5.6
+2026-01-15,ODFB,Odfjell SE,kr,138.8,0.8,6.9
+2026-01-15,SNI,Stolt-Nielsen,kr,344.0,0.63,7.5
+2026-01-15,STNG,Scorpio Tankers,$,59.3,0.68,10.1
+2026-01-16,BWLP,BW LPG,kr,143.2,0.98,8.3
+2026-01-16,CMBT,CMB.TECH,$,11.5,0.68,10.7
+2026-01-16,DHT,DHT Holdings,$,13.3,1.08,8.2
+2026-01-16,GLNG,Golar LNG,$,39.5,0.82,
+2026-01-16,HAUTO,Höegh Autoliners,kr,98.0,,5.3
+2026-01-16,ODFB,Odfjell SE,kr,135.0,0.78,6.7
+2026-01-16,SNI,Stolt-Nielsen,kr,334.0,0.61,7.2
+2026-01-16,STNG,Scorpio Tankers,$,58.4,0.67,9.9
+2026-01-16,TNK,Teekay Tankers,$,59.8,0.84,8.9
+2026-01-19,CMBT,CMB.TECH,$,11.5,0.68,10.7
+2026-01-19,DHT,DHT Holdings,$,13.3,1.05,8.2
+2026-01-19,FLNG,Flex LNG,$,26.8,1.14,14.3
+2026-01-19,GNK,Genco Shipping,$,19.4,0.76,17.4
+2026-01-19,HAUTO,Höegh Autoliners,kr,1023.0,,5.5
+2026-01-19,LPG,Dorian LPG,$,28.5,0.85,8.4
+2026-01-19,SBLK,Star Bulk Carriers,$,20.4,0.71,6.5
+2026-01-19,SNI,Stolt-Nielsen,kr,3556.0,0.65,7.7
+2026-01-20,AWILCO,Awilco LNG,kr,3.3,,
+2026-01-20,BWLP,BW LPG,kr,143.1,0.99,8.0
+2026-01-20,CMBT,CMB.TECH,$,11.5,0.68,10.7
+2026-01-20,DHT,DHT Holdings,$,13.3,1.05,8.2
+2026-01-20,FLNG,Flex LNG,$,26.8,1.14,14.3
+2026-01-20,GNK,Genco Shipping,$,19.4,0.76,17.4
+2026-01-20,HAUTO,Höegh Autoliners,kr,99.0,,5.3
+2026-01-20,LPG,Dorian LPG,$,28.5,0.85,8.4
+2026-01-20,ODFB,Odfjell SE,kr,130.6,0.75,6.6
+2026-01-20,SBLK,Star Bulk Carriers,$,20.4,0.71,6.5
+2026-01-20,SNI,Stolt-Nielsen,kr,344.0,0.63,7.5
+2026-01-21,AWILCO,Awilco LNG,kr,3.3,,
+2026-01-21,BWLP,BW LPG,kr,141.0,0.98,7.9
+2026-01-21,CMBT,CMB.TECH,$,11.4,0.67,10.6
+2026-01-21,FLNG,Flex LNG,$,26.6,1.13,14.1
+2026-01-21,GLNG,Golar LNG,$,38.9,0.81,
+2026-01-21,GNK,Genco Shipping,$,19.2,0.75,17.3
+2026-01-21,HAUTO,Höegh Autoliners,kr,1001.0,,5.4
+2026-01-21,SNI,Stolt-Nielsen,kr,3481.0,0.64,7.6
+2026-01-21,STNG,Scorpio Tankers,$,58.1,0.66,9.8
+2026-01-22,AWILCO,Awilco LNG,kr,3.3,,
+2026-01-22,HAUTO,Höegh Autoliners,kr,1000.0,,5.5
+2026-01-22,SNI,Stolt-Nielsen,kr,341.0,0.63,7.5
+2026-01-23,BWLP,BW LPG,kr,137.9,0.97,7.9
+2026-01-23,CMBT,CMB.TECH,$,11.4,0.66,10.6
+2026-01-23,FLNG,Flex LNG,$,26.7,1.13,14.2
+2026-01-23,HAUTO,Höegh Autoliners,kr,1000.0,,5.5
+2026-01-23,LPG,Dorian LPG,$,28.1,0.83,8.2
+2026-01-23,SNI,Stolt-Nielsen,kr,3502.0,0.65,7.7
+2026-01-23,STNG,Scorpio Tankers,$,57.1,0.65,9.7
+2026-01-23,TNK,Teekay Tankers,$,60.5,0.83,8.6
+2026-01-26,AWILCO,Awilco LNG,kr,3.2,,
+2026-01-26,FLNG,Flex LNG,$,26.4,1.12,14.0
+2026-01-26,GNK,Genco Shipping,$,20.0,0.78,18.0
+2026-01-26,HAUTO,Höegh Autoliners,kr,1000.0,,5.6
+2026-01-26,LPG,Dorian LPG,$,27.5,0.82,8.1
+2026-01-26,SBLK,Star Bulk Carriers,$,21.4,0.75,6.8
+2026-01-26,SNI,Stolt-Nielsen,kr,346.0,0.64,7.5
+2026-01-27,AWILCO,Awilco LNG,kr,3.2,,
+2026-01-27,BWLP,BW LPG,kr,137.1,0.97,7.9
+2026-01-27,DHT,DHT Holdings,$,13.7,1.08,8.4
+2026-01-27,FLNG,Flex LNG,$,26.2,1.11,13.9
+2026-01-27,GLNG,Golar LNG,$,39.7,0.82,
+2026-01-27,HAUTO,Höegh Autoliners,kr,99.0,,5.5
+2026-01-27,LPG,Dorian LPG,$,27.3,0.81,8.0
+2026-01-27,SNI,Stolt-Nielsen,kr,342.0,0.67,7.4
+2026-01-27,STNG,Scorpio Tankers,$,57.4,0.65,9.8
+2026-01-27,TNK,Teekay Tankers,$,61.5,0.84,8.8
+2026-01-28,AWILCO,Awilco LNG,kr,3.1,,
+2026-01-28,DHT,DHT Holdings,$,13.6,1.07,8.4
+2026-01-28,FLNG,Flex LNG,$,26.1,1.11,13.9
+2026-01-28,HAUTO,Höegh Autoliners,kr,1033.0,,5.8
+2026-01-28,SNI,Stolt-Nielsen,kr,341.0,0.67,7.7
+2026-01-29,HAUTO,Höegh Autoliners,kr,1052.0,,6.0
+2026-01-29,ODFB,Odfjell SE,kr,135.6,0.8,6.9
+2026-01-29,SNI,Stolt-Nielsen,kr,318.0,0.68,7.2
+2026-01-30,AWILCO,Awilco LNG,kr,3.1,,
+2026-01-30,HAUTO,Höegh Autoliners,kr,1050.0,,5.9
+2026-01-30,ODFB,Odfjell SE,kr,133.4,0.78,6.7
+2026-01-30,SNI,Stolt-Nielsen,kr,299.0,0.64,6.9
+2026-02-02,AWILCO,Awilco LNG,kr,3.1,,
+2026-02-02,GLNG,Golar LNG,$,40.6,0.84,
+2026-02-02,HAUTO,Höegh Autoliners,kr,1082.0,,6.1
+2026-02-02,LPG,Dorian LPG,$,29.5,0.88,8.4
+2026-02-02,SNI,Stolt-Nielsen,kr,3031.0,0.65,7.6
+2026-02-03,AWILCO,Awilco LNG,kr,3.0,,
+2026-02-03,BWLP,BW LPG,kr,148.8,1.04,8.5
+2026-02-03,CMBT,CMB.TECH,$,13.0,0.73,10.6
+2026-02-03,HAUTO,Höegh Autoliners,kr,1080.0,,6.1
+2026-02-03,MAERSKB,Maersk B,kr,15.0,,
+2026-02-03,ODFB,Odfjell SE,kr,133.6,0.78,6.7
+2026-02-03,SNI,Stolt-Nielsen,kr,3030.0,0.65,7.9
+2026-02-04,AWILCO,Awilco LNG,kr,3.0,,
+2026-02-04,CMBT,CMB.TECH,$,12.8,0.72,10.4
+2026-02-04,DHT,DHT Holdings,$,14.3,1.11,8.8
+2026-02-04,FLNG,Flex LNG,$,26.8,1.13,14.4
+2026-02-04,HAUTO,Höegh Autoliners,kr,1112.0,,6.2
+2026-02-04,SBLK,Star Bulk Carriers,$,22.6,0.76,7.9
+2026-02-04,SNI,Stolt-Nielsen,kr,298.0,0.64,7.8
+2026-02-04,TNK,Teekay Tankers,$,65.1,0.89,8.7
+2026-02-05,AWILCO,Awilco LNG,kr,2.9,,
+2026-02-05,CMBT,CMB.TECH,$,12.2,0.69,10.0
+2026-02-05,DHT,DHT Holdings,$,13.9,1.08,9.7
+2026-02-05,FLNG,Flex LNG,$,26.3,1.11,14.1
+2026-02-05,GLNG,Golar LNG,$,40.6,0.84,
+2026-02-05,GNK,Genco Shipping,$,20.2,0.77,13.2
+2026-02-05,HAUTO,Höegh Autoliners,kr,107.0,,6.0
+2026-02-05,LPG,Dorian LPG,$,29.7,0.88,8.2
+2026-02-05,MAERSKB,Maersk B,kr,15.0,,
+2026-02-05,ODFB,Odfjell SE,kr,130.4,0.77,6.5
+2026-02-05,SBLK,Star Bulk Carriers,$,22.3,0.75,7.1
+2026-02-05,SNI,Stolt-Nielsen,kr,293.0,0.63,7.6
+2026-02-05,STNG,Scorpio Tankers,$,64.5,0.72,10.3
+2026-02-05,TNK,Teekay Tankers,$,64.3,0.88,8.5
+2026-02-06,AWILCO,Awilco LNG,kr,2.9,,
+2026-02-06,CMBT,CMB.TECH,$,12.1,0.68,9.9
+2026-02-06,FLNG,Flex LNG,$,26.1,1.11,14.0
+2026-02-06,GLNG,Golar LNG,$,40.5,0.84,
+2026-02-06,HAUTO,Höegh Autoliners,kr,1080.0,,6.0
+2026-02-06,SBLK,Star Bulk Carriers,$,22.2,0.75,7.1
+2026-02-06,SNI,Stolt-Nielsen,kr,2981.0,0.64,7.6
+2026-02-09,AWILCO,Awilco LNG,kr,2.8,,
+2026-02-09,HAUTO,Höegh Autoliners,kr,1080.0,,6.1
+2026-02-09,SNI,Stolt-Nielsen,kr,2980.0,0.64,7.7
+2026-02-10,AWILCO,Awilco LNG,kr,2.6,,
+2026-02-10,BWLP,BW LPG,kr,157.0,1.11,8.3
+2026-02-10,HAUTO,Höegh Autoliners,kr,1101.0,,6.2
+2026-02-10,SNI,Stolt-Nielsen,kr,3031.0,0.65,7.9
+2026-02-10,STNG,Scorpio Tankers,$,67.7,0.73,10.9
+2026-02-11,AWILCO,Awilco LNG,kr,2.6,,
+2026-02-11,BWLP,BW LPG,kr,156.0,1.11,8.3
+2026-02-11,HAUTO,Höegh Autoliners,kr,110.0,,6.3
+2026-02-11,LPG,Dorian LPG,$,31.6,0.88,9.2
+2026-02-11,MAERSKB,Maersk B,kr,15.0,,
+2026-02-11,SNI,Stolt-Nielsen,kr,3040.0,0.65,8.0
+2026-02-12,AWILCO,Awilco LNG,kr,2.6,,
+2026-02-12,FLNG,Flex LNG,$,26.0,1.14,12.8
+2026-02-12,HAUTO,Höegh Autoliners,kr,1111.0,,6.4
+2026-02-12,ODFB,Odfjell SE,kr,133.2,0.82,6.4
+2026-02-12,SNI,Stolt-Nielsen,kr,3050.0,0.65,8.1
+2026-02-13,AWILCO,Awilco LNG,kr,3.0,,
+2026-02-13,BWLP,BW LPG,kr,156.5,1.11,8.3
+2026-02-13,CMBT,CMB.TECH,$,12.5,0.71,10.2
+2026-02-13,DHT,DHT Holdings,$,15.4,1.16,10.1
+2026-02-13,FLNG,Flex LNG,$,25.5,1.12,12.6
+2026-02-13,GLNG,Golar LNG,$,43.6,0.9,
+2026-02-13,GNK,Genco Shipping,$,21.5,0.82,13.9
+2026-02-13,HAUTO,Höegh Autoliners,kr,112.0,,6.3
+2026-02-13,LPG,Dorian LPG,$,32.2,0.89,8.3
+2026-02-13,ODFB,Odfjell SE,kr,121.8,0.76,6.4
+2026-02-13,SBLK,Star Bulk Carriers,$,23.2,0.78,7.4
+2026-02-13,SNI,Stolt-Nielsen,kr,297.0,0.64,7.8
+2026-02-13,STNG,Scorpio Tankers,$,67.8,0.73,13.2
+2026-02-13,TNK,Teekay Tankers,$,68.5,0.89,8.7
+2026-02-16,AWILCO,Awilco LNG,kr,3.0,,
+2026-02-16,GLNG,Golar LNG,$,43.4,0.9,
+2026-02-16,HAUTO,Höegh Autoliners,kr,113.0,,6.5
+2026-02-16,MAERSKB,Maersk B,kr,15.0,,
+2026-02-16,ODFB,Odfjell SE,kr,122.2,0.76,6.6
+2026-02-16,SNI,Stolt-Nielsen,kr,3060.0,0.66,8.1
+2026-02-17,AWILCO,Awilco LNG,kr,3.0,,
+2026-02-17,GLNG,Golar LNG,$,43.4,0.9,
+2026-02-17,HAUTO,Höegh Autoliners,kr,1152.0,,6.6
+2026-02-17,ODFB,Odfjell SE,kr,116.0,0.74,6.3
+2026-02-17,SNI,Stolt-Nielsen,kr,3101.0,0.67,8.1
+2026-02-18,BWLP,BW LPG,kr,158.7,1.12,8.2
+2026-02-18,HAUTO,Höegh Autoliners,kr,114.0,,6.5
+2026-02-18,MAERSKB,Maersk B,kr,15.0,,
+2026-02-18,ODFB,Odfjell SE,kr,113.0,0.72,6.1
+2026-02-18,SNI,Stolt-Nielsen,kr,306.0,0.66,7.9
+2026-02-18,STNG,Scorpio Tankers,$,70.0,0.75,13.2
+2026-02-19,HAUTO,Höegh Autoliners,kr,1183.0,,6.7
+2026-02-19,MAERSKB,Maersk B,kr,15.0,,
+2026-02-19,SNI,Stolt-Nielsen,kr,3142.0,0.67,8.1
+2026-02-23,HAUTO,Höegh Autoliners,kr,121.0,,6.9
+2026-02-23,MAERSKB,Maersk B,kr,16.0,,
+2026-02-23,SNI,Stolt-Nielsen,kr,3200.0,0.69,8.3
+2026-02-23,STNG,Scorpio Tankers,$,71.7,0.75,13.5
+2026-02-23,TNK,Teekay Tankers,$,72.9,0.93,10.5
+2026-02-24,BWLP,BW LPG,kr,166.4,1.18,8.6
+2026-02-24,GLNG,Golar LNG,$,45.4,0.94,
+2026-02-24,GNK,Genco Shipping,$,23.6,0.92,13.4
+2026-02-24,HAUTO,Höegh Autoliners,kr,121.0,,6.8
+2026-02-24,LPG,Dorian LPG,$,34.7,0.95,8.9
+2026-02-24,ODFB,Odfjell SE,kr,120.6,0.77,6.7
+2026-02-24,SNI,Stolt-Nielsen,kr,315.0,0.68,8.1
+2026-02-24,TNK,Teekay Tankers,$,71.8,0.91,10.4
+2026-02-26,CMBT,CMB.TECH,$,14.4,0.79,9.6
+2026-02-26,DHT,DHT Holdings,$,18.7,1.33,11.9
+2026-02-26,FLNG,Flex LNG,$,27.3,1.2,14.6
+2026-02-26,GLNG,Golar LNG,$,43.1,0.89,
+2026-02-26,GNK,Genco Shipping,$,23.6,0.92,13.4
+2026-02-26,HAUTO,Höegh Autoliners,kr,1263.0,,9.0
+2026-02-26,ODFB,Odfjell SE,kr,123.4,0.79,6.9
+2026-02-26,SBLK,Star Bulk Carriers,$,24.9,0.86,8.0
+2026-02-26,SNI,Stolt-Nielsen,kr,324.0,0.7,8.4
+2026-02-27,AWILCO,Awilco LNG,kr,2.9,,
+2026-02-27,CMBT,CMB.TECH,$,14.3,0.79,9.4
+2026-02-27,GNK,Genco Shipping,$,23.5,0.91,13.3
+2026-02-27,HAUTO,Höegh Autoliners,kr,1325.0,,9.4
+2026-02-27,SNI,Stolt-Nielsen,kr,3312.0,0.71,8.6
+2026-03-02,AWILCO,Awilco LNG,kr,2.8,,
+2026-03-02,HAUTO,Höegh Autoliners,kr,1330.0,,9.4
+2026-03-02,MAERSKB,Maersk B,kr,15.0,,
+2026-03-02,SNI,Stolt-Nielsen,kr,3371.0,0.72,8.7
+2026-03-03,CMBT,CMB.TECH,$,14.7,0.81,10.8
+2026-03-03,HAUTO,Höegh Autoliners,kr,1366.0,,9.2
+2026-03-03,MAERSKB,Maersk B,kr,16.0,,
+2026-03-03,SNI,Stolt-Nielsen,kr,3421.0,0.73,8.8
+2026-03-03,STNG,Scorpio Tankers,$,78.3,0.8,14.7
+2026-03-04,CMBT,CMB.TECH,$,14.3,0.79,10.5
+2026-03-04,DHT,DHT Holdings,$,19.3,1.36,12.2
+2026-03-04,GLNG,Golar LNG,$,45.8,0.95,
+2026-03-04,GNK,Genco Shipping,$,24.0,0.93,13.6
+2026-03-04,HAUTO,Höegh Autoliners,kr,1381.0,,9.3
+2026-03-04,LPG,Dorian LPG,$,36.3,1.0,8.5
+2026-03-04,MAERSKB,Maersk B,kr,17.0,,
+2026-03-04,ODFB,Odfjell SE,kr,131.4,0.84,7.3
+2026-03-04,SBLK,Star Bulk Carriers,$,26.3,0.88,8.3
+2026-03-04,SNI,Stolt-Nielsen,kr,3420.0,0.73,8.7
+2026-03-04,TNK,Teekay Tankers,$,75.9,0.96,11.3
+2026-03-05,BWLP,BW LPG,kr,175.6,1.21,12.5
+2026-03-05,CMBT,CMB.TECH,$,14.1,0.78,10.4
+2026-03-05,DHT,DHT Holdings,$,18.6,1.31,11.4
+2026-03-05,HAUTO,Höegh Autoliners,kr,138.0,,9.3
+2026-03-05,ODFB,Odfjell SE,kr,128.0,0.82,7.1
+2026-03-05,SBLK,Star Bulk Carriers,$,25.6,0.86,8.1
+2026-03-05,SNI,Stolt-Nielsen,kr,340.0,0.73,8.7
+2026-03-06,AWILCO,Awilco LNG,kr,4.8,,
+2026-03-06,BWLP,BW LPG,kr,168.8,1.13,12.0
+2026-03-06,CMBT,CMB.TECH,$,13.6,0.75,11.4
+2026-03-06,DHT,DHT Holdings,$,18.5,1.3,11.4
+2026-03-06,GLNG,Golar LNG,$,46.3,0.96,
+2026-03-06,GNK,Genco Shipping,$,23.2,0.9,13.1
+2026-03-06,HAUTO,Höegh Autoliners,kr,133.0,,9.0
+2026-03-06,LPG,Dorian LPG,$,35.6,0.98,8.3
+2026-03-06,ODFB,Odfjell SE,kr,122.6,0.78,6.8
+2026-03-06,SBLK,Star Bulk Carriers,$,24.6,0.83,7.8
+2026-03-06,SNI,Stolt-Nielsen,kr,332.0,0.71,8.5
+2026-03-06,STNG,Scorpio Tankers,$,78.7,0.81,14.8
+2026-03-06,TNK,Teekay Tankers,$,73.2,0.93,10.9
+2026-03-09,AWILCO,Awilco LNG,kr,4.6,,
+2026-03-09,BWLP,BW LPG,kr,165.1,1.11,11.7
+2026-03-09,CMBT,CMB.TECH,$,13.1,0.73,11.0
+2026-03-09,DHT,DHT Holdings,$,18.1,1.27,11.1
+2026-03-09,GNK,Genco Shipping,$,22.2,0.86,12.6
+2026-03-09,HAUTO,Höegh Autoliners,kr,133.0,,9.0
+2026-03-09,LPG,Dorian LPG,$,34.1,0.94,7.9
+2026-03-09,MAERSKB,Maersk B,kr,17.0,,
+2026-03-09,ODFB,Odfjell SE,kr,121.4,0.77,6.7
+2026-03-09,SBLK,Star Bulk Carriers,$,23.7,0.79,7.4
+2026-03-09,SNI,Stolt-Nielsen,kr,326.0,0.7,8.3
+2026-03-09,STNG,Scorpio Tankers,$,76.9,0.79,14.5
+2026-03-09,TNK,Teekay Tankers,$,71.8,0.91,10.7
+2026-03-10,AWILCO,Awilco LNG,kr,3.7,,
+2026-03-10,FLNG,Flex LNG,$,29.5,1.29,15.6
+2026-03-10,GLNG,Golar LNG,$,45.6,0.94,
+2026-03-10,GNK,Genco Shipping,$,21.6,0.85,12.2
+2026-03-10,HAUTO,Höegh Autoliners,kr,1340.0,,9.1
+2026-03-10,SNI,Stolt-Nielsen,kr,3342.0,0.72,8.6
+2026-03-10,STNG,Scorpio Tankers,$,76.3,0.78,14.4
+2026-03-11,AWILCO,Awilco LNG,kr,3.7,,
+2026-03-11,CMBT,CMB.TECH,$,13.2,0.73,11.1
+2026-03-11,DHT,DHT Holdings,$,18.6,1.31,11.4
+2026-03-11,GLNG,Golar LNG,$,45.0,0.93,
+2026-03-11,HAUTO,Höegh Autoliners,kr,1340.0,,9.1
+2026-03-11,SNI,Stolt-Nielsen,kr,3422.0,0.73,8.8
+2026-03-11,STNG,Scorpio Tankers,$,75.3,0.77,14.2
+2026-03-11,TNK,Teekay Tankers,$,72.5,0.92,10.8
+2026-03-12,AWILCO,Awilco LNG,kr,3.4,,
+2026-03-12,BWLP,BW LPG,kr,148.1,0.99,10.5
+2026-03-12,CMBT,CMB.TECH,$,12.9,0.71,10.8
+2026-03-12,DHT,DHT Holdings,$,17.9,1.26,11.0
+2026-03-12,FLNG,Flex LNG,$,29.0,1.27,15.4
+2026-03-12,GNK,Genco Shipping,$,21.0,0.84,11.9
+2026-03-12,HAUTO,Höegh Autoliners,kr,132.0,,8.9
+2026-03-12,LPG,Dorian LPG,$,31.6,0.87,7.4
+2026-03-12,MAERSKB,Maersk B,kr,16.0,,
+2026-03-12,ODFB,Odfjell SE,kr,123.4,0.79,6.8
+2026-03-12,SBLK,Star Bulk Carriers,$,23.3,0.79,7.3
+2026-03-12,SNI,Stolt-Nielsen,kr,336.0,0.72,8.6
+2026-03-12,STNG,Scorpio Tankers,$,73.3,0.75,13.9
+2026-03-12,TNK,Teekay Tankers,$,69.5,0.88,10.3
+2026-03-16,BWLP,BW LPG,kr,131.3,0.9,9.3
+2026-03-16,CMBT,CMB.TECH,$,11.9,0.66,10.0
+2026-03-16,GLNG,Golar LNG,$,42.9,0.89,
+2026-03-16,GNK,Genco Shipping,$,19.8,0.79,11.3
+2026-03-16,HAUTO,Höegh Autoliners,kr,124.0,,7.9
+2026-03-16,LPG,Dorian LPG,$,29.2,0.81,6.8
+2026-03-16,MAERSKB,Maersk B,kr,16.0,,
+2026-03-16,ODFB,Odfjell SE,kr,116.6,0.74,6.4
+2026-03-16,SBLK,Star Bulk Carriers,$,21.8,0.74,6.9
+2026-03-16,SNI,Stolt-Nielsen,kr,314.0,0.67,7.9
+2026-03-16,STNG,Scorpio Tankers,$,66.4,0.69,12.6
+2026-03-16,TNK,Teekay Tankers,$,63.4,0.81,9.4
+2026-03-18,AWILCO,Awilco LNG,kr,3.9,,
+2026-03-18,CMBT,CMB.TECH,$,12.4,0.69,10.4
+2026-03-18,DHT,DHT Holdings,$,16.9,1.19,10.4
+2026-03-18,HAUTO,Höegh Autoliners,kr,1272.0,,8.3
+2026-03-18,MAERSKB,Maersk B,kr,18.0,,
+2026-03-18,SNI,Stolt-Nielsen,kr,3211.0,0.69,8.3
+2026-03-18,STNG,Scorpio Tankers,$,66.3,0.69,12.6
+2026-03-18,TNK,Teekay Tankers,$,63.9,0.81,9.5
+2026-03-20,AWILCO,Awilco LNG,kr,3.6,,
+2026-03-20,GNK,Genco Shipping,$,22.5,0.9,13.1
+2026-03-20,HAUTO,Höegh Autoliners,kr,136.0,,8.9
+2026-03-20,ODFB,Odfjell SE,kr,123.0,0.78,6.9
+2026-03-20,SBLK,Star Bulk Carriers,$,22.7,0.77,7.2
+2026-03-20,SNI,Stolt-Nielsen,kr,329.0,0.71,8.6
+2026-03-23,AWILCO,Awilco LNG,kr,3.5,,
+2026-03-23,BWLP,BW LPG,kr,153.0,1.07,10.9
+2026-03-23,CMBT,CMB.TECH,$,12.2,0.68,11.0
+2026-03-23,DHT,DHT Holdings,$,17.3,1.22,10.6
+2026-03-23,FLNG,Flex LNG,$,30.1,1.36,16.1
+2026-03-23,GNK,Genco Shipping,$,21.6,0.87,12.5
+2026-03-23,HAUTO,Höegh Autoliners,kr,133.0,,8.6
+2026-03-23,LPG,Dorian LPG,$,32.8,0.91,7.7
+2026-03-23,ODFB,Odfjell SE,kr,120.0,0.76,6.7
+2026-03-23,SBLK,Star Bulk Carriers,$,22.3,0.76,6.9
+2026-03-23,SNI,Stolt-Nielsen,kr,321.0,0.69,8.3
+2026-03-23,STNG,Scorpio Tankers,$,68.0,0.7,12.9
+2026-03-23,TNK,Teekay Tankers,$,67.1,0.85,10.0
+2026-03-25,HAUTO,Höegh Autoliners,kr,1385.0,,8.9
+2026-03-25,MAERSKB,Maersk B,kr,16.0,,
+2026-03-25,SNI,Stolt-Nielsen,kr,3154.0,0.68,8.1
+2026-03-26,BRUTON,Bruton Ltd.,kr,49.6,0.78,
+2026-03-26,BWLP,BW LPG,kr,164.6,1.14,11.7
+2026-03-26,CMBT,CMB.TECH,$,12.7,0.71,11.4
+2026-03-26,DHT,DHT Holdings,$,17.8,1.26,10.4
+2026-03-26,FLNG,Flex LNG,$,30.3,1.38,16.2
+2026-03-26,GLNG,Golar LNG,$,53.1,1.1,
+2026-03-26,GNK,Genco Shipping,$,22.7,0.91,13.2
+2026-03-26,HAUTO,Höegh Autoliners,kr,135.0,,8.7
+2026-03-26,LPG,Dorian LPG,$,33.8,0.93,7.9
+2026-03-26,ODFB,Odfjell SE,kr,115.8,0.74,6.5
+2026-03-26,SBLK,Star Bulk Carriers,$,22.9,0.77,7.0
+2026-03-26,SNI,Stolt-Nielsen,kr,3170.0,0.68,8.2
+2026-03-26,STNG,Scorpio Tankers,$,72.4,0.75,13.8
+2026-03-26,TNK,Teekay Tankers,$,70.4,0.89,10.5
+2026-03-27,CMBT,CMB.TECH,$,12.7,0.7,11.4
+2026-03-27,FLNG,Flex LNG,$,30.2,1.38,16.1
+2026-03-27,GNK,Genco Shipping,$,22.7,0.91,13.1
+2026-03-27,HAUTO,Höegh Autoliners,kr,1371.0,,8.8
+2026-03-27,LPG,Dorian LPG,$,33.3,0.92,7.8
+2026-03-27,MAERSKB,Maersk B,kr,16.0,,
+2026-03-27,SBLK,Star Bulk Carriers,$,22.5,0.76,6.9
+2026-03-27,SNI,Stolt-Nielsen,kr,3231.0,0.69,8.3
+2026-04-07,AWILCO,Awilco LNG,kr,3.4,,
+2026-04-07,BRUTON,Bruton Ltd.,kr,48.6,0.76,19.0
+2026-04-07,BWLP,BW LPG,kr,168.9,1.17,12.0
+2026-04-07,DHT,DHT Holdings,$,18.5,1.31,10.8
+2026-04-07,GNK,Genco Shipping,$,23.9,0.96,13.9
+2026-04-07,HAUTO,Höegh Autoliners,kr,1411.0,,8.8
+2026-04-07,LPG,Dorian LPG,$,34.5,0.95,8.1
+2026-04-07,SBLK,Star Bulk Carriers,$,24.1,0.81,7.4
+2026-04-07,SNI,Stolt-Nielsen,kr,333.0,0.71,8.5
+2026-04-08,CMBT,CMB.TECH,$,12.6,0.7,11.3
+2026-04-08,DHT,DHT Holdings,$,17.6,1.21,10.3
+2026-04-08,FLNG,Flex LNG,$,30.0,1.37,16.0
+2026-04-08,GLNG,Golar LNG,$,54.4,1.13,
+2026-04-08,GNK,Genco Shipping,$,23.5,0.94,13.6
+2026-04-08,HAUTO,Höegh Autoliners,kr,140.0,,9.2
+2026-04-08,LPG,Dorian LPG,$,34.1,0.94,8.0
+2026-04-08,SBLK,Star Bulk Carriers,$,23.7,0.8,7.3
+2026-04-08,SNI,Stolt-Nielsen,kr,3381.0,0.73,8.9
+2026-04-08,STNG,Scorpio Tankers,$,74.4,0.76,14.2
+2026-04-08,TNK,Teekay Tankers,$,75.8,0.94,11.3
+2026-04-09,AWILCO,Awilco LNG,kr,3.3,,
+2026-04-09,HAUTO,Höegh Autoliners,kr,1401.0,,9.2
+2026-04-09,MAERSKB,Maersk B,kr,16.0,,
+2026-04-09,SNI,Stolt-Nielsen,kr,334.0,0.72,8.7
+2026-04-10,AWILCO,Awilco LNG,kr,3.3,,
+2026-04-10,CMBT,CMB.TECH,$,12.8,0.71,11.5
+2026-04-10,DHT,DHT Holdings,$,17.8,1.23,10.4
+2026-04-10,FLNG,Flex LNG,$,29.4,1.34,15.7
+2026-04-10,GLNG,Golar LNG,$,53.4,1.11,
+2026-04-10,GNK,Genco Shipping,$,23.0,0.92,13.3
+2026-04-10,HAUTO,Höegh Autoliners,kr,1423.0,,9.4
+2026-04-10,LPG,Dorian LPG,$,34.9,0.96,8.2
+2026-04-10,MAERSKB,Maersk B,kr,16.0,,
+2026-04-10,ODFB,Odfjell SE,kr,122.0,0.78,6.9
+2026-04-10,SBLK,Star Bulk Carriers,$,24.2,0.82,7.5
+2026-04-10,SNI,Stolt-Nielsen,kr,322.0,0.64,9.2
+2026-04-10,STNG,Scorpio Tankers,$,76.0,0.78,14.5
+2026-04-10,TNK,Teekay Tankers,$,74.9,0.93,11.1
+2026-04-13,BWLP,BW LPG,kr,168.0,1.19,12.1
+2026-04-13,CMBT,CMB.TECH,$,12.5,0.69,11.2
+2026-04-13,DHT,DHT Holdings,$,17.5,1.2,10.2
+2026-04-13,FLNG,Flex LNG,$,29.2,1.33,15.7
+2026-04-13,GLNG,Golar LNG,$,53.3,1.11,
+2026-04-13,HAUTO,Höegh Autoliners,kr,138.0,,9.1
+2026-04-13,LPG,Dorian LPG,$,34.6,0.96,8.1
+2026-04-13,ODFB,Odfjell SE,kr,120.4,0.77,6.8
+2026-04-13,SNI,Stolt-Nielsen,kr,309.0,0.61,9.4
+2026-04-13,STNG,Scorpio Tankers,$,74.5,0.77,14.2
+2026-04-13,TNK,Teekay Tankers,$,74.0,0.92,11.0
+2026-04-14,BRUTON,Bruton Ltd.,kr,50.6,0.78,20.8
+2026-04-14,HAUTO,Höegh Autoliners,kr,137.0,,9.1
+2026-04-14,MAERSKB,Maersk B,kr,15.0,,
+2026-04-14,ODFB,Odfjell SE,kr,119.2,0.76,6.8
+2026-04-14,SNI,Stolt-Nielsen,kr,306.0,0.61,9.6
+2026-04-15,BWLP,BW LPG,kr,169.4,1.2,12.3
+2026-04-15,DHT,DHT Holdings,$,17.2,1.18,10.0
+2026-04-15,GLNG,Golar LNG,$,53.0,1.1,
+2026-04-15,GNK,Genco Shipping,$,23.8,0.95,13.8
+2026-04-15,HAUTO,Höegh Autoliners,kr,134.0,,8.9
+2026-04-15,LPG,Dorian LPG,$,34.6,0.96,8.1
+2026-04-15,ODFB,Odfjell SE,kr,117.4,0.75,6.7
+2026-04-15,SBLK,Star Bulk Carriers,$,24.6,0.83,7.6
+2026-04-15,SNI,Stolt-Nielsen,kr,303.0,0.6,9.7
+2026-04-15,STNG,Scorpio Tankers,$,73.6,0.76,14.1
+2026-04-15,TNK,Teekay Tankers,$,72.9,0.9,10.8
+2026-04-16,AWILCO,Awilco LNG,kr,3.6,,
+2026-04-16,BRUTON,Bruton Ltd.,kr,51.0,0.79,21.0
+2026-04-16,BWLP,BW LPG,kr,169.2,1.15,12.4
+2026-04-16,FLNG,Flex LNG,$,30.8,1.4,16.5
+2026-04-16,HAUTO,Höegh Autoliners,kr,133.0,,8.9
+2026-04-16,ODFB,Odfjell SE,kr,117.0,0.75,6.7
+2026-04-16,SNI,Stolt-Nielsen,kr,3040.0,0.6,9.8
+2026-04-17,BRUTON,Bruton Ltd.,kr,50.8,0.79,21.0
+2026-04-17,BWLP,BW LPG,kr,168.7,1.16,12.4
+2026-04-17,CMBT,CMB.TECH,$,12.9,0.71,11.6
+2026-04-17,GLNG,Golar LNG,$,53.3,1.11,
+2026-04-17,GNK,Genco Shipping,$,23.9,0.96,13.8
+2026-04-17,HAUTO,Höegh Autoliners,kr,1350.0,,9.1
+2026-04-17,LPG,Dorian LPG,$,35.2,0.97,8.3
+2026-04-17,ODFB,Odfjell SE,kr,117.0,0.75,6.8
+2026-04-17,SBLK,Star Bulk Carriers,$,24.5,0.83,8.2
+2026-04-17,SNI,Stolt-Nielsen,kr,3040.0,0.6,9.8
+2026-04-17,TNK,Teekay Tankers,$,74.4,0.9,11.0
+2026-04-20,AWILCO,Awilco LNG,kr,3.5,,
+2026-04-20,BRUTON,Bruton Ltd.,kr,49.5,0.77,20.4
+2026-04-20,FLNG,Flex LNG,$,30.9,1.41,16.4
+2026-04-20,GLNG,Golar LNG,$,51.8,1.08,
+2026-04-20,HAUTO,Höegh Autoliners,kr,133.0,,8.9
+2026-04-20,SBLK,Star Bulk Carriers,$,24.5,0.83,8.1
+2026-04-20,SNI,Stolt-Nielsen,kr,3091.0,0.61,10.1
+2026-04-21,GNK,Genco Shipping,$,24.2,0.98,14.3
+2026-04-21,HAUTO,Höegh Autoliners,kr,1351.0,,9.0
+2026-04-21,MAERSKB,Maersk B,kr,14855.0,,
+2026-04-21,SNI,Stolt-Nielsen,kr,2991.0,0.59,9.8
+2026-04-23,BRUTON,Bruton Ltd.,kr,49.9,0.75,22.7
+2026-04-23,BWLP,BW LPG,kr,165.8,1.14,12.2
+2026-04-23,DHT,DHT Holdings,$,17.7,1.21,9.9
+2026-04-23,GLNG,Golar LNG,$,52.7,1.09,
+2026-04-23,HAUTO,Höegh Autoliners,kr,130.0,,8.7
+2026-04-23,MAERSKB,Maersk B,kr,14970.0,,
+2026-04-23,ODFB,Odfjell SE,kr,112.4,0.73,6.5
+2026-04-23,SNI,Stolt-Nielsen,kr,284.0,0.58,9.4
+2026-04-23,TNK,Teekay Tankers,$,73.4,0.89,9.8
+2026-04-27,BRUTON,Bruton Ltd.,kr,49.2,0.74,
+2026-04-27,CMBT,CMB.TECH,$,12.9,0.71,11.7
+2026-04-27,FLNG,Flex LNG,$,31.0,1.41,16.4
+2026-04-27,GLNG,Golar LNG,$,52.6,1.09,
+2026-04-27,HAUTO,Höegh Autoliners,kr,1331.0,,8.9
+2026-04-27,ODFB,Odfjell SE,kr,115.4,0.74,6.7
+2026-04-27,SNI,Stolt-Nielsen,kr,293.0,0.58,9.7
+2026-04-28,BRUTON,Bruton Ltd.,kr,48.8,0.74,
+2026-04-28,BWLP,BW LPG,kr,171.4,1.19,12.5
+2026-04-28,HAUTO,Höegh Autoliners,kr,131.0,,8.8
+2026-04-28,MAERSKB,Maersk B,kr,14.0,,
+2026-04-28,ODFB,Odfjell SE,kr,113.8,0.73,6.6
+2026-04-28,SNI,Stolt-Nielsen,kr,2930.0,0.58,9.8
+2026-04-29,AWILCO,Awilco LNG,kr,4.0,,
+2026-04-29,DHT,DHT Holdings,$,18.3,1.25,10.2
+2026-04-29,HAUTO,Höegh Autoliners,kr,131.0,,9.0
+2026-04-29,MAERSKB,Maersk B,kr,14.0,,
+2026-04-29,SNI,Stolt-Nielsen,kr,3012.0,0.6,10.0
+2026-04-30,BRUTON,Bruton Ltd.,kr,48.5,0.73,27.0
+2026-04-30,DHT,DHT Holdings,$,18.3,1.25,10.2
+2026-04-30,GNK,Genco Shipping,$,24.3,0.92,14.8
+2026-04-30,HAUTO,Höegh Autoliners,kr,1321.0,,9.1
+2026-04-30,ODFB,Odfjell SE,kr,115.0,0.73,6.6
+2026-04-30,SNI,Stolt-Nielsen,kr,3020.0,0.6,10.1
+2026-04-30,STNG,Scorpio Tankers,$,81.1,0.79,12.6
+2026-05-04,AWILCO,Awilco LNG,kr,4.1,,
+2026-05-04,BWLP,BW LPG,kr,185.1,1.28,13.4
+2026-05-04,CMBT,CMB.TECH,$,13.7,0.74,12.5
+2026-05-04,FLNG,Flex LNG,$,32.3,1.47,17.0
+2026-05-04,HAUTO,Höegh Autoliners,kr,1330.0,,9.1
+2026-05-04,MAERSKB,Maersk B,kr,15.0,,
+2026-05-04,SNI,Stolt-Nielsen,kr,3020.0,0.6,10.1
+2026-05-05,BRUTON,Bruton Ltd.,kr,50.2,0.76,28.0
+2026-05-05,DHT,DHT Holdings,$,18.6,1.27,10.3
+2026-05-05,GNK,Genco Shipping,$,24.0,0.9,14.8
+2026-05-05,HAUTO,Höegh Autoliners,kr,132.0,,9.2
+2026-05-05,ODFB,Odfjell SE,kr,114.4,0.73,6.6
+2026-05-05,SNI,Stolt-Nielsen,kr,3040.0,0.6,10.2
+2026-05-05,TNK,Teekay Tankers,$,79.7,0.96,10.3
+2026-05-06,AWILCO,Awilco LNG,kr,4.0,,
+2026-05-06,HAUTO,Höegh Autoliners,kr,131.0,,9.1
+2026-05-06,MAERSKB,Maersk B,kr,15.0,,
+2026-05-06,SNI,Stolt-Nielsen,kr,3050.0,0.6,10.3
+2026-05-07,AWILCO,Awilco LNG,kr,3.8,,
+2026-05-07,BRUTON,Bruton Ltd.,kr,51.2,0.76,28.5
+2026-05-07,BWLP,BW LPG,kr,183.5,1.28,13.0
+2026-05-07,CMBT,CMB.TECH,$,14.8,0.8,13.4
+2026-05-07,DHT,DHT Holdings,$,18.9,1.2,10.1
+2026-05-07,FLNG,Flex LNG,$,31.9,1.46,16.8
+2026-05-07,GLNG,Golar LNG,$,54.7,1.12,
+2026-05-07,HAUTO,Höegh Autoliners,kr,128.0,,8.8
+2026-05-07,LPG,Dorian LPG,$,39.1,1.08,8.8
+2026-05-07,SNI,Stolt-Nielsen,kr,302.0,0.6,10.1
+2026-05-07,STNG,Scorpio Tankers,$,82.6,0.77,12.1
+2026-05-07,TNK,Teekay Tankers,$,79.4,0.93,10.3
+2026-05-08,AWILCO,Awilco LNG,kr,3.7,,
+2026-05-08,CMBT,CMB.TECH,$,14.8,0.8,12.0
+2026-05-08,GNK,Genco Shipping,$,25.2,0.92,15.9
+2026-05-08,HAUTO,Höegh Autoliners,kr,126.0,,8.7
+2026-05-08,ODFB,Odfjell SE,kr,113.6,0.76,6.9
+2026-05-08,SBLK,Star Bulk Carriers,$,26.8,0.86,8.5
+2026-05-08,SNI,Stolt-Nielsen,kr,301.0,0.6,10.1
+2026-05-11,AWILCO,Awilco LNG,kr,3.6,,
+2026-05-11,DHT,DHT Holdings,$,19.0,1.2,10.1
+2026-05-11,HAUTO,Höegh Autoliners,kr,1324.0,,8.8
+2026-05-11,MAERSKB,Maersk B,kr,14.0,,
+2026-05-11,ODFB,Odfjell SE,kr,112.0,0.75,6.9
+2026-05-11,SNI,Stolt-Nielsen,kr,3041.0,0.6,10.3
+2026-05-11,STNG,Scorpio Tankers,$,84.4,0.79,12.3
+2026-05-12,AWILCO,Awilco LNG,kr,3.6,,
+2026-05-12,CMBT,CMB.TECH,$,14.8,0.77,12.0
+2026-05-12,DHT,DHT Holdings,$,18.7,1.19,9.9
+2026-05-12,HAUTO,Höegh Autoliners,kr,1373.0,,8.8
+2026-05-12,ODFB,Odfjell SE,kr,111.0,0.74,6.8
+2026-05-12,SBLK,Star Bulk Carriers,$,26.7,0.83,8.5
+2026-05-12,SNI,Stolt-Nielsen,kr,302.0,0.6,10.2
+2026-05-12,TNK,Teekay Tankers,$,81.6,0.96,10.6
+2026-05-13,AWILCO,Awilco LNG,kr,3.4,,
+2026-05-13,DHT,DHT Holdings,$,18.7,1.19,9.9
+2026-05-13,HAUTO,Höegh Autoliners,kr,1423.0,,9.1
+2026-05-13,LPG,Dorian LPG,$,40.2,0.94,9.1
+2026-05-13,MAERSKB,Maersk B,kr,14.0,,
+2026-05-13,SNI,Stolt-Nielsen,kr,3040.0,0.6,10.3
+2026-05-13,STNG,Scorpio Tankers,$,83.5,0.78,12.6
+2026-05-13,TNK,Teekay Tankers,$,80.1,0.94,10.4
+2026-05-14,AWILCO,Awilco LNG,kr,3.4,,
+2026-05-14,BWLP,BW LPG,kr,189.3,1.11,13.6
+2026-05-14,CMBT,CMB.TECH,$,15.0,0.78,12.2
+2026-05-14,DHT,DHT Holdings,$,17.8,1.13,9.4
+2026-05-14,FLNG,Flex LNG,$,31.7,1.46,15.4
+2026-05-14,GLNG,Golar LNG,$,56.7,1.16,
+2026-05-14,GNK,Genco Shipping,$,25.5,0.91,14.9
+2026-05-14,HAUTO,Höegh Autoliners,kr,1420.0,,9.1
+2026-05-14,MAERSKB,Maersk B,kr,14.0,,
+2026-05-14,ODFB,Odfjell SE,kr,110.4,0.74,7.2
+2026-05-14,SBLK,Star Bulk Carriers,$,26.7,0.83,8.5
+2026-05-14,SNI,Stolt-Nielsen,kr,303.0,0.6,10.2
+2026-05-14,STNG,Scorpio Tankers,$,82.1,0.77,12.4
+2026-05-14,TNK,Teekay Tankers,$,77.6,0.84,10.1
+2026-05-18,BRUTON,Bruton Ltd.,kr,58.0,0.85,23.1
+2026-05-18,DHT,DHT Holdings,$,17.6,1.12,9.3
+2026-05-18,GLNG,Golar LNG,$,57.0,1.17,
+2026-05-18,GNK,Genco Shipping,$,24.6,0.88,14.4
+2026-05-18,HAUTO,Höegh Autoliners,kr,1441.0,,9.1
+2026-05-18,MAERSKB,Maersk B,kr,14.0,,
+2026-05-18,ODFB,Odfjell SE,kr,110.0,0.73,7.1
+2026-05-18,SBLK,Star Bulk Carriers,$,26.5,0.82,8.4
+2026-05-18,SNI,Stolt-Nielsen,kr,3061.0,0.61,10.2
+2026-05-18,STNG,Scorpio Tankers,$,82.1,0.77,12.4
+2026-05-18,TNK,Teekay Tankers,$,77.2,0.84,10.1
+2026-05-19,GLNG,Golar LNG,$,56.8,1.17,
+2026-05-19,HAUTO,Höegh Autoliners,kr,1432.0,,9.1
+2026-05-19,MAERSKB,Maersk B,kr,14.0,,
+2026-05-19,SBLK,Star Bulk Carriers,$,26.4,0.82,8.4
+2026-05-19,SNI,Stolt-Nielsen,kr,3091.0,0.61,10.4
+2026-05-19,STNG,Scorpio Tankers,$,81.9,0.77,12.3
+2026-05-19,TNK,Teekay Tankers,$,76.9,0.83,10.0
+2026-05-20,AWILCO,Awilco LNG,kr,3.5,,
+2026-05-20,DHT,DHT Holdings,$,17.6,1.12,9.3
+2026-05-20,GLNG,Golar LNG,$,55.7,1.14,
+2026-05-20,GNK,Genco Shipping,$,23.7,0.85,13.7
+2026-05-20,HAUTO,Höegh Autoliners,kr,1451.0,,9.2
+2026-05-20,MAERSKB,Maersk B,kr,14.0,,
+2026-05-20,SBLK,Star Bulk Carriers,$,26.1,0.81,8.3
+2026-05-20,SNI,Stolt-Nielsen,kr,3131.0,0.62,10.5
+2026-05-20,STNG,Scorpio Tankers,$,80.5,0.75,12.1
+2026-05-20,TNK,Teekay Tankers,$,76.0,0.82,9.4
+2026-05-21,AWILCO,Awilco LNG,kr,3.5,,
+2026-05-21,BRUTON,Bruton Ltd.,kr,59.8,0.88,23.5
+2026-05-21,GLNG,Golar LNG,$,55.5,1.14,
+2026-05-21,HAUTO,Höegh Autoliners,kr,1482.0,,9.4
+2026-05-21,MAERSKB,Maersk B,kr,15.0,,
+2026-05-21,SNI,Stolt-Nielsen,kr,3160.0,0.63,10.6
+2026-05-22,AWILCO,Awilco LNG,kr,3.4,,
+2026-05-22,BRUTON,Bruton Ltd.,kr,59.0,0.87,23.2
+2026-05-22,CMBT,CMB.TECH,$,17.2,0.85,11.3
+2026-05-22,FLNG,Flex LNG,$,32.4,1.49,16.1
+2026-05-22,GLNG,Golar LNG,$,52.3,1.08,
+2026-05-22,HAUTO,Höegh Autoliners,kr,1501.0,,9.5
+2026-05-22,LPG,Dorian LPG,$,45.8,1.08,15.2
+2026-05-22,MAERSKB,Maersk B,kr,15.0,,
+2026-05-22,SNI,Stolt-Nielsen,kr,3191.0,0.63,10.7
+2026-05-22,STNG,Scorpio Tankers,$,80.6,0.75,12.1
+2026-05-22,TNK,Teekay Tankers,$,77.7,0.84,9.6
+2026-05-26,AWILCO,Awilco LNG,kr,3.4,,
+2026-05-26,BRUTON,Bruton Ltd.,kr,58.6,0.87,23.0
+2026-05-26,BWLP,BW LPG,kr,203.8,1.18,14.1
+2026-05-26,CMBT,CMB.TECH,$,16.9,0.84,11.1
+2026-05-26,DHT,DHT Holdings,$,17.4,1.16,9.4
+2026-05-26,FLNG,Flex LNG,$,32.0,1.47,15.9
+2026-05-26,GNK,Genco Shipping,$,23.4,0.85,13.6
+2026-05-26,HAUTO,Höegh Autoliners,kr,141.0,,8.9
+2026-05-26,ODFB,Odfjell SE,kr,109.6,0.73,7.1
+2026-05-26,SBLK,Star Bulk Carriers,$,26.4,0.8,7.6
+2026-05-26,SNI,Stolt-Nielsen,kr,307.0,0.61,10.3
+2026-05-26,STNG,Scorpio Tankers,$,80.2,0.75,12.1
+2026-05-26,TNK,Teekay Tankers,$,77.2,0.83,9.5
+2026-05-27,BRUTON,Bruton Ltd.,kr,57.0,0.84,22.3
+2026-05-27,BWLP,BW LPG,kr,202.6,1.17,14.0
+2026-05-27,CMBT,CMB.TECH,$,16.4,0.82,10.0
+2026-05-27,FLNG,Flex LNG,$,31.7,1.46,15.8
+2026-05-27,GLNG,Golar LNG,$,51.8,1.07,
+2026-05-27,HAUTO,Höegh Autoliners,kr,1431.0,,9.0
+2026-05-27,LPG,Dorian LPG,$,44.9,1.05,13.5
+2026-05-27,SNI,Stolt-Nielsen,kr,305.0,0.6,10.2
+2026-05-27,TNK,Teekay Tankers,$,75.5,0.81,9.3
+2026-05-28,BRUTON,Bruton Ltd.,kr,56.0,0.83,21.9
+2026-05-28,BWLP,BW LPG,kr,195.3,1.13,13.5
+2026-05-28,CMBT,CMB.TECH,$,15.8,0.78,9.6
+2026-05-28,DHT,DHT Holdings,$,16.9,1.13,9.1
+2026-05-28,FLNG,Flex LNG,$,31.3,1.44,15.6
+2026-05-28,GLNG,Golar LNG,$,50.3,1.04,
+2026-05-28,GNK,Genco Shipping,$,23.3,0.84,13.5
+2026-05-28,HAUTO,Höegh Autoliners,kr,142.0,,9.0
+2026-05-28,LPG,Dorian LPG,$,43.5,1.02,13.1
+2026-05-28,MAERSKB,Maersk B,kr,15.0,,
+2026-05-28,ODFB,Odfjell SE,kr,110.2,0.73,7.1
+2026-05-28,SBLK,Star Bulk Carriers,$,27.3,0.83,7.8
+2026-05-28,SNI,Stolt-Nielsen,kr,297.0,0.59,9.9
+2026-05-28,STNG,Scorpio Tankers,$,77.7,0.72,11.8
+2026-05-28,TNK,Teekay Tankers,$,74.0,0.8,9.1
+2026-05-29,BRUTON,Bruton Ltd.,kr,55.4,0.82,21.8
+2026-05-29,BWLP,BW LPG,kr,192.0,1.11,13.3
+2026-05-29,CMBT,CMB.TECH,$,15.5,0.77,9.4
+2026-05-29,DHT,DHT Holdings,$,16.4,1.09,8.8
+2026-05-29,FLNG,Flex LNG,$,30.8,1.42,15.0
+2026-05-29,GLNG,Golar LNG,$,49.3,1.02,
+2026-05-29,HAUTO,Höegh Autoliners,kr,139.0,,8.8
+2026-05-29,LPG,Dorian LPG,$,41.7,0.98,12.5
+2026-05-29,MAERSKB,Maersk B,kr,15.0,,
+2026-05-29,ODFB,Odfjell SE,kr,108.4,0.72,7.0
+2026-05-29,SBLK,Star Bulk Carriers,$,27.2,0.82,7.0
+2026-05-29,SNI,Stolt-Nielsen,kr,293.0,0.58,9.8
+2026-05-29,STNG,Scorpio Tankers,$,74.6,0.69,11.3
+2026-05-29,TNK,Teekay Tankers,$,70.3,0.76,8.7
+2026-06-04,AWILCO,Awilco LNG,kr,3.2,,
+2026-06-04,BRUTON,Bruton Ltd.,kr,52.8,0.78,20.6
+2026-06-04,DHT,DHT Holdings,$,16.4,1.09,8.8
+2026-06-04,FLNG,Flex LNG,$,29.7,1.37,14.5
+2026-06-04,GNK,Genco Shipping,$,24.0,0.87,13.9
+2026-06-04,HAUTO,Höegh Autoliners,kr,1380.0,,8.7
+2026-06-04,LPG,Dorian LPG,$,40.8,0.95,12.2
+2026-06-04,MAERSKB,Maersk B,kr,16.0,,
+2026-06-04,SBLK,Star Bulk Carriers,$,27.2,0.82,6.9
+2026-06-04,SNI,Stolt-Nielsen,kr,3043.0,0.6,10.1
+2026-06-05,BRUTON,Bruton Ltd.,kr,52.6,0.77,20.5
+2026-06-05,BWLP,BW LPG,kr,190.6,1.03,12.0
+2026-06-05,CMBT,CMB.TECH,$,14.4,0.72,9.4
+2026-06-05,DHT,DHT Holdings,$,16.2,1.08,8.8
+2026-06-05,FLNG,Flex LNG,$,29.6,1.36,14.4
+2026-06-05,GLNG,Golar LNG,$,51.4,1.06,
+2026-06-05,HAUTO,Höegh Autoliners,kr,1433.0,,9.0
+2026-06-05,LPG,Dorian LPG,$,40.5,0.95,12.2
+2026-06-05,MAERSKB,Maersk B,kr,17.0,,
+2026-06-05,ODFB,Odfjell SE,kr,110.4,0.74,7.2
+2026-06-05,SBLK,Star Bulk Carriers,$,27.2,0.82,6.9
+2026-06-05,SNI,Stolt-Nielsen,kr,3071.0,0.61,10.2
+2026-06-05,STNG,Scorpio Tankers,$,75.1,0.7,11.4
+2026-06-05,TNK,Teekay Tankers,$,70.1,0.75,8.7
+2026-06-08,AWILCO,Awilco LNG,kr,3.4,,
+2026-06-08,BRUTON,Bruton Ltd.,kr,51.0,0.74,19.6
+2026-06-08,GLNG,Golar LNG,$,50.7,0.93,
+2026-06-08,HAUTO,Höegh Autoliners,kr,1472.0,,9.1
+2026-06-08,MAERSKB,Maersk B,kr,17.0,,
+2026-06-08,SNI,Stolt-Nielsen,kr,3090.0,0.61,10.1
