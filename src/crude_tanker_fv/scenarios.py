@@ -73,6 +73,12 @@ SCENARIO_CLASS_MAP_BY_SECTOR: dict[str, dict[str, str]] = {
         "LR1": "lr1_clean",         # product LR1 has its own forwards (v1 proxy = lr2_clean)
         "LR2": "lr2_clean",
     },
+    "dry_bulk": {                   # NEW 2026-06-09 — METHODOLOGY §11.7
+        "Capesize": "cape",
+        "Panamax": "pana",
+        "Supra-Ultra": "supra_ultra",  # collapsed Supramax + Ultramax per §11.7.1
+                                        # (Pareto reclassified the benchmark Sep 2025)
+    },
 }
 
 # Module-level default — combines all classes whose routing is unambiguous
@@ -354,11 +360,18 @@ _PRETTY = {
     "glut_base": "Glut base case",
     "glut_intensifies": "Glut intensifies",
     "structural_reset": "Structural reset",
+    # dry_bulk (Bulk Set A — China-driven, METHODOLOGY §11.7.4)
+    "china_acceleration": "China acceleration",
+    "moderate_growth": "Moderate growth (base)",
+    "china_property_drag": "China property drag",
+    "coordinated_slowdown": "Coordinated slowdown",
 }
 
 _SECTOR_FRAMEWORK_LABEL = {
     "crude": "three-phase MoU framework",
     "lng": "LNG glut-cycle framework",
+    "product": "product margin / glut framework",
+    "dry_bulk": "Bulk Set A (China-driven)",
 }
 
 

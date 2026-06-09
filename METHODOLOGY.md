@@ -1453,6 +1453,34 @@ $10-12k for Supra-Ultra. The current anchors will read as biased toward
 "current is cycle position 1.0×" rather than "current is peak". Acceptable
 for v1; flag during Q3 refresh if positioning calls feel off.
 
+##### FFA cross-check discipline (added 2026-06-09)
+
+Dry bulk has a **liquid FFA forward curve** (Cape / Pmax / Smax quoted out
+to Cal+3) that crude / product / LNG do not. This is a meaningful gift —
+the FFA represents the market's probability-weighted expectation of forward
+TCEs, which is exactly the quantity our scenario set is supposed to
+produce (PW = `weight × forward` summed across scenarios). Use FFA as the
+v1 calibration check on scenario mids.
+
+**Calibration check applied 2026-06-09 (initial Bulk Set A mids):**
+- Joeri's FFA grid (Jun 9 2026) revealed my initial Cape mids ran ~+20%
+  above the FFA forward; Pana was effectively perfect; Supra-Ultra was
+  close on front quarters but ~+20% high in Cal27.
+- v2 mids (this section's locked values) bring PW vs FFA gaps to:
+  Cape Q3-2026 +6.3%, Q4-2026 +1%, Cal27 +5%;
+  Pana effectively exact at Cal27 (+2%);
+  Supra-Ultra Q3-2026 −4%, Q4-2026 +2%, Cal27 within band.
+
+**Refresh discipline:** at each quarterly refresh, re-compute the PW
+forward implied by `sectors.dry_bulk.scenarios` and compare against the
+current FFA grid. Material drift (>10% on Cape front-quarter, >15% on
+Cal27, or Pana Cal27 outside ±5%) triggers a scenarios-block update.
+
+**Source for forward FFA going forward:** Joeri's daily Cape/Pmax/Smax
+clipboard PNGs (`inputs/joeri_clipboard/`) — captured most weekdays via
+the Rocket.Chat ingest. OCR pipeline is task #3 in the session log
+(deferred to §11.7 v2); until then, eyeball-check at refresh time.
+
 #### 11.7.6 v1 calibration lock target
 
 Per the new-sector bar (CLAUDE.md "Reconciliation has three jobs"):

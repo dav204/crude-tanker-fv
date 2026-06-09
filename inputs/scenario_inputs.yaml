@@ -907,6 +907,226 @@ sectors:
         ten_year_mean: 27000
         source: Baltic TC1 / TC15 historical, approximate
 
+
+  # ===========================================================================
+  # DRY BULK SECTOR — formalised 2026-06-09 (METHODOLOGY §11.7)
+  # Four-scenario Bulk Set A: china_acceleration / moderate_growth /
+  # china_property_drag / coordinated_slowdown. Mids v2-calibrated against
+  # the Jun-9 2026 FFA forward curve (Cape PW within 5% of FFA; Pana Cal27
+  # essentially exact; Supra-Ultra Cal27 within ~10%, FFA inside band).
+  # ===========================================================================
+  dry_bulk:
+
+    # -----------------------------------------------------------------------
+    # Per-class route conventions — anchored to Baltic Exchange composites.
+    # Pareto Shipping Daily reports a single $/day per class derived from
+    # these indices (which combine multiple sub-routes per class).
+    # -----------------------------------------------------------------------
+    class_routes:
+      cape:
+        primary_route: BCI 5TC
+        description: Capesize 5-route TC average (Baltic)
+        basin_exposure: Iron ore (China demand-driven; Brazil/Australia loading)
+      pana:
+        primary_route: BPI 5TC
+        description: Panamax 5-route TC average
+        basin_exposure: Coal + grain (China + EU + India demand)
+      supra_ultra:
+        primary_route: BSI 10TC
+        description: >
+          Supramax/Ultramax 10-route TC average. Pareto reclassified the
+          benchmark from Supramax to Ultramax in Sep 2025; we treat as one
+          class per METHODOLOGY §11.7.
+        basin_exposure: Minor bulk (bauxite, fertilisers, scrap, cement)
+
+    # -----------------------------------------------------------------------
+    # Confidence levels — FFA market liquidity drops sharply past Cal27.
+    # -----------------------------------------------------------------------
+    confidence:
+      cape:
+        front_4q: high       # Cape FFA is the most liquid bulk forward
+        cal_2027: medium     # FFA quoted but spread widens
+        cal_2028: low
+      pana:
+        front_4q: high       # Pana FFA also liquid
+        cal_2027: medium
+        cal_2028: low
+      supra_ultra:
+        front_4q: medium     # Smax FFA materially less liquid
+        cal_2027: low
+        cal_2028: very_low
+
+    scenarios:
+
+      # ---------------------------------------------------------------------
+      # china_acceleration (w=0.2)
+      # ---------------------------------------------------------------------
+      china_acceleration:
+        weight: 0.2
+        description: >
+          China steel demand re-accelerates. Iron ore imports back >110
+          mt/mo.Cape benefits most (iron ore is ~50% of Cape demand);
+          Pana/Suprafirm but less spike-y. Peak Q1-2027 reflecting 2-3
+          quarterpolicy-to-rate lag from Chinese stimulus cycles.
+        cape:
+          q3_2026: [35700, 42000, 48300]
+          q4_2026: [39100, 46000, 52900]
+          q1_2027: [40800, 48000, 55200]
+          q2_2027: [35700, 42000, 48300]
+          q3_2027: [32300, 38000, 43700]
+          q4_2027: [30600, 36000, 41400]
+          q1_2028: [28900, 34000, 39100]
+          q2_2028: [27200, 32000, 36800]
+        pana:
+          q3_2026: [18700, 22000, 25300]
+          q4_2026: [20400, 24000, 27600]
+          q1_2027: [21250, 25000, 28750]
+          q2_2027: [19550, 23000, 26450]
+          q3_2027: [18700, 22000, 25300]
+          q4_2027: [17000, 20000, 23000]
+          q1_2028: [16150, 19000, 21850]
+          q2_2028: [15300, 18000, 20700]
+        supra_ultra:
+          q3_2026: [18700, 22000, 25300]
+          q4_2026: [19550, 23000, 26450]
+          q1_2027: [18700, 22000, 25300]
+          q2_2027: [17000, 20000, 23000]
+          q3_2027: [14450, 17000, 19550]
+          q4_2027: [13600, 16000, 18400]
+          q1_2028: [12750, 15000, 17250]
+          q2_2028: [11900, 14000, 16100]
+
+      # ---------------------------------------------------------------------
+      # moderate_growth (w=0.4)
+      # ---------------------------------------------------------------------
+      moderate_growth:
+        weight: 0.4
+        description: >
+          Current trajectory holds: ~100 mt/mo iron ore, modest grain growth,
+          stableminor bulk. Rates gradually mean-revert from current ~1.7x
+          cycle-anchortoward ~1.1-1.2x by end-of-strip. Base case (40%).
+        cape:
+          q3_2026: [29750, 35000, 40250]
+          q4_2026: [28050, 33000, 37950]
+          q1_2027: [27200, 32000, 36800]
+          q2_2027: [25500, 30000, 34500]
+          q3_2027: [23800, 28000, 32200]
+          q4_2027: [22100, 26000, 29900]
+          q1_2028: [21250, 25000, 28750]
+          q2_2028: [20400, 24000, 27600]
+        pana:
+          q3_2026: [17000, 20000, 23000]
+          q4_2026: [16150, 19000, 21850]
+          q1_2027: [14450, 17000, 19550]
+          q2_2027: [13600, 16000, 18400]
+          q3_2027: [12750, 15000, 17250]
+          q4_2027: [12750, 15000, 17250]
+          q1_2028: [11900, 14000, 16100]
+          q2_2028: [11050, 13000, 14950]
+        supra_ultra:
+          q3_2026: [15700, 18500, 21300]
+          q4_2026: [14900, 17500, 20100]
+          q1_2027: [14000, 16500, 19000]
+          q2_2027: [13200, 15500, 17800]
+          q3_2027: [11900, 14000, 16100]
+          q4_2027: [11500, 13500, 15500]
+          q1_2028: [11050, 13000, 14950]
+          q2_2028: [10600, 12500, 14350]
+
+      # ---------------------------------------------------------------------
+      # china_property_drag (w=0.25)
+      # ---------------------------------------------------------------------
+      china_property_drag:
+        weight: 0.25
+        description: >
+          China property/steel weakness drags Cape; Pana/Supra-Ultra
+          insulatedby grain + minor bulk diversity. Cape declines ~45% from
+          Q3-2026to Q2-2028; Pana/Supra hold in tight bands around anchor.
+        cape:
+          q3_2026: [23800, 28000, 32200]
+          q4_2026: [20400, 24000, 27600]
+          q1_2027: [18700, 22000, 25300]
+          q2_2027: [18700, 22000, 25300]
+          q3_2027: [17850, 21000, 24150]
+          q4_2027: [17850, 21000, 24150]
+          q1_2028: [17000, 20000, 23000]
+          q2_2028: [15300, 18000, 20700]
+        pana:
+          q3_2026: [15300, 18000, 20700]
+          q4_2026: [14450, 17000, 19550]
+          q1_2027: [12750, 15000, 17250]
+          q2_2027: [11900, 14000, 16100]
+          q3_2027: [11900, 14000, 16100]
+          q4_2027: [11900, 14000, 16100]
+          q1_2028: [11050, 13000, 14950]
+          q2_2028: [11050, 13000, 14950]
+        supra_ultra:
+          q3_2026: [14450, 17000, 19550]
+          q4_2026: [13600, 16000, 18400]
+          q1_2027: [13200, 15500, 17800]
+          q2_2027: [12300, 14500, 16700]
+          q3_2027: [12300, 14500, 16700]
+          q4_2027: [11900, 14000, 16100]
+          q1_2028: [11500, 13500, 15500]
+          q2_2028: [11050, 13000, 14950]
+
+      # ---------------------------------------------------------------------
+      # coordinated_slowdown (w=0.15)
+      # ---------------------------------------------------------------------
+      coordinated_slowdown:
+        weight: 0.15
+        description: >
+          Global recession; broad freight demand contraction across all
+          dry-bulkclasses. Trough Q1-2028; floors above OPEX but well below
+          anchor.Real bulk recessions (2015-16) hit harder; v1 floor is
+          conservative.
+        cape:
+          q3_2026: [21250, 25000, 28750]
+          q4_2026: [18700, 22000, 25300]
+          q1_2027: [17000, 20000, 23000]
+          q2_2027: [15300, 18000, 20700]
+          q3_2027: [14450, 17000, 19550]
+          q4_2027: [12750, 15000, 17250]
+          q1_2028: [11900, 14000, 16100]
+          q2_2028: [11050, 13000, 14950]
+        pana:
+          q3_2026: [13600, 16000, 18400]
+          q4_2026: [11900, 14000, 16100]
+          q1_2027: [10200, 12000, 13800]
+          q2_2027: [9350, 11000, 12650]
+          q3_2027: [8500, 10000, 11500]
+          q4_2027: [7650, 9000, 10350]
+          q1_2028: [7650, 9000, 10350]
+          q2_2028: [6800, 8000, 9200]
+        supra_ultra:
+          q3_2026: [12750, 15000, 17250]
+          q4_2026: [11050, 13000, 14950]
+          q1_2027: [10200, 12000, 13800]
+          q2_2027: [9350, 11000, 12650]
+          q3_2027: [8900, 10500, 12050]
+          q4_2027: [8500, 10000, 11500]
+          q1_2028: [8100, 9500, 10900]
+          q2_2028: [7650, 9000, 10350]
+
+    # =======================================================================
+    # DRY BULK — CYCLE WEIGHTING ANCHORS
+    # v1 empirical medians from a 22-month Pareto Shipping Daily archive
+    # (METHODOLOGY §11.7.5). 22-month sample, not 10-year — biased ELEVATED
+    # vs a true long-run mean (current cycle is firm). Refine in Q3 with
+    # longer Pareto history or a Clarksons/Howe Robinson series.
+    # =======================================================================
+    cycle_anchors:
+      cape:
+        ten_year_mean: 23650
+        source: Pareto Shipping Daily 2024-08 → 2026-06 median (n=349 obs)
+      pana:
+        ten_year_mean: 11900
+        source: same — Pareto Shipping Daily median
+      supra_ultra:
+        ten_year_mean: 13930
+        source: same — Pareto Shipping Daily median (Supramax pre-Sep-2025, Ultramax after)
+
+
 # =============================================================================
 # TRIGGERS TO WATCH (CRUDE)
 # Observable signals that recalibrate crude scenario weights between runs.

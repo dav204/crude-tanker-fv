@@ -59,9 +59,11 @@ THREE_SLEEVE_TICKERS: set[str] = {"TEN"}
 def _load_all_sectors(inputs_dir: Path = INPUTS_DIR) -> dict[str, dict]:
     """Pre-load all sector scenario sub-docs once per pipeline run.
 
-    Currently {crude, lng, product}. Pipeline picks the right doc per ticker
-    (and per sleeve, for hybrid INSW carve-outs: crude sleeve runs through
-    sectors.crude, product sleeve through sectors.product).
+    Currently {crude, lng, product, dry_bulk}. Pipeline picks the right doc
+    per ticker (and per sleeve, for hybrid INSW carve-outs: crude sleeve runs
+    through sectors.crude, product sleeve through sectors.product). dry_bulk
+    added 2026-06-09 per METHODOLOGY §11.7; no names route through it until
+    CMDB / SBLK / GNK onboard later this week.
     """
     from .scenarios import SCENARIOS_PATH
     path = inputs_dir / "scenario_inputs.yaml" if inputs_dir != INPUTS_DIR else SCENARIOS_PATH
@@ -69,6 +71,7 @@ def _load_all_sectors(inputs_dir: Path = INPUTS_DIR) -> dict[str, dict]:
         "crude": load_scenarios(path, "crude"),
         "lng": load_scenarios(path, "lng"),
         "product": load_scenarios(path, "product"),
+        "dry_bulk": load_scenarios(path, "dry_bulk"),
     }
 
 

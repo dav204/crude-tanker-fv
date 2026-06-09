@@ -142,8 +142,10 @@ def test_lng_sector_scenarios_load(lng_doc):
 
 
 def test_unknown_sector_raises():
+    # dry_bulk landed 2026-06-09 (METHODOLOGY §11.7). Use offshore_drilling
+    # as the placeholder "not-yet-implemented sector" — next on the roadmap.
     with pytest.raises(KeyError):
-        load_scenarios(sector="dry_bulk")
+        load_scenarios(sector="offshore_drilling")
 
 
 def test_flng_runs_through_lng_scenarios(lng_doc):
