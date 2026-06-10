@@ -1590,10 +1590,21 @@ A FAIL signals methodology calibration is off — likely the cycle anchors
 - **Per-class scrubber premium** — Pareto's bulk table does not separate
   scrubber from non-scrubber rates the way the tanker table does.
 - **OCR-derived FFA forward curve** — Joeri's clipboard PNGs include
-  clean Cape/Pmax/Smax FFA grids (~12-25% of his images) but require
-  classifier + OCR work to harvest. Deferred to §11.7 v2; trigger is
-  §9.11 EPS-xref signalling that the synthesised-curve bulk strip is
-  unreliable vs consensus.
+  clean Cape/Pmax/Smax FFA grids but require classifier + OCR work to
+  harvest. Deferred to §11.7 v2; trigger is §9.11 EPS-xref signalling
+  that the synthesised-curve bulk strip is unreliable vs consensus.
+  **Empirical SNR check (2026-06-10, n=14 stratified 2020-2025 from the
+  Rocket.Chat backfill):** FFA-grid hit rate ~7% (1/14) — below the
+  earlier 12-25% eyeball estimate — but the grids are excellent OCR
+  targets (white-on-dark two-panel Cape/Pmax tables with month/quarter/
+  Cal2x labels). At ~7% over the ~11k+ image archive that is still
+  ~800-1,400 dated forward-curve observations across 2020-2026.
+  Classifier recipe: dimension filtering does NOT isolate grids
+  (hand-cropped, no size cluster); use a cheap OCR keyword pass
+  (Cape|Pmax|Smax + Cal2\d|Q[1-4]) instead. Noise inventory is itself
+  reusable: Oslo equity quote boards (6-year intraday price series),
+  Cleaves/other broker notes, LPG rate dashboards, tweets, econ
+  calendars.
 
 #### 11.7.8 Onboarding sequence
 
