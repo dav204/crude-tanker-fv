@@ -1983,6 +1983,37 @@ Dated record of material framework changes. Lock dates use UTC.
   "scan the quarter's 6-K/10-Q/PRs for disclosed vessel sales" step into
   the quarterly refresh checklist per ticker (marginal yield ~1-3 prints
   per name per quarter with better vessel detail than Pareto prose).
+- **Backlog registered (2026-06-10, owner spec vetted) — periodic news
+  pull.** Two halves: (a) a weekly scheduled runner (wrapper + launchd
+  plist, RC-ingest pattern) chaining the existing scanners — `sp_scan` →
+  `--links` → `--fetch-links` → `pareto_archive --build-manifest` —
+  logging to `state/`; (b) a `/news-pull` slash command for the
+  agent-judgment half: web-sweep all watchlist names weighted to the
+  APPROX set (NAT/ASC/CCEC/TEN) + live-event names (detected from
+  decision logs, not hardcoded), hunting disclosed S&P prints, dividend/
+  policy changes, stance changes, NB orders, deal milestones; output a
+  dated review digest at `outputs/news_digest_YYYY-MM-DD.md` with
+  promotable-candidate, stance-change, live-deal, stale-price, and
+  no-action sections; ends with the post-promotion drift-loop reminder.
+  Digest is a review queue — the pipeline never reads it; promotion is
+  human-only. **Amendments from the vetting pass (apply at build time):**
+  (1) restate the automation-write constraint as "never write
+  pipeline-loaded YAMLs" — the raw-archive trees under `inputs/`
+  (`research_pareto*`, `ffa_drybulk`) + the scan cursor are designated
+  automation-writable, otherwise `--fetch-links` violates the rule as
+  drafted; (2) sequence the runner AFTER (or chaining) the Rocket.Chat
+  incremental ingest — dailies arrive via RC, so a Friday-evening runner
+  can fire before Friday's daily exists; (3) APPROX names are
+  permanently stale-priced by construction — flag them only when the
+  sweep finds a FRESHER price, else one standing known-stale line, to
+  keep the digest signal-dense; (4) promotable-candidate format must
+  carry built-year/age and an explicit en-bloc/per-vessel-split field —
+  en-bloc without disclosed split is documented-not-promoted per the
+  no-back-solve rule. Cross-links: complementary to the issuer-report
+  sweep above (weekly web-side vs quarterly filings-side); the digest is
+  a natural future signal feed for the Task-3 news-driven weight
+  adjuster that the demand-destruction overlay depends on (out of v1
+  scope). One session, v1 time-boxed.
 - **Backlog carried forward:** GNK onboarding (second dry-bulk validator —
   decides the §11.7.6 v1 lock outcome), §6 SBLK entry promotion (drafted in
   decisions/sblk_log.md), Pana 2016-kamsarmax duplicate-print
