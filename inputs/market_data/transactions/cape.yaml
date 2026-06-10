@@ -102,6 +102,12 @@ prints:
     source: Pareto Shipping Daily 2026-06-05 — Maran disclosure
     quality_flag: standard
     notes: Maran 2x 2008/09-built SWS (Chinese yard) capesizes, $60M en-bloc ($30M each) vs Pareto quote $55M. This row is the 2009-built (age 17, in-window); the 2008-built sister (age 18) is out-of-window — see documentation section.
+  - date: 2025-10-06
+    vessel_age_at_sale: 6
+    sale_price_usd_m: 65.5
+    source: Pareto Shipping Daily 2025-10-06 — broker reports
+    quality_flag: standard
+    notes: 2019-built scrubber-fitted Qingdao newcastlemax sold to Chinese buyers. Pareto noted below the ~$69.5M 2020B package level but above their $63.5M generic (VV $63.1M). Surfaced 2026-06-10 during the Pana duplicate disambiguation (sentence-splitter miss in the original scan).
   - date: 2025-08-15
     vessel_age_at_sale: 9
     sale_price_usd_m: 55.0

@@ -11,8 +11,8 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, conservati
 | TNK | 0.76× | 1.34 | +4.1% | +14.0% | +23.9% | HOLD→BUY | NAV>px→NAV>px | +20 | mark-driven |
 | TRMD | 0.83× | 1.24 | -5.4% | +8.1% | +21.7% | TRIM/SHORT→BUY | $68,988→NAV>px | +27 | mark-driven |
 | CCEC | 0.90× | 0.96 | +35.3% | +27.3% | +19.2% | BUY→BUY | NAV>px→$2,977,992 | -16 | mark-driven |
-| SBLK | 0.82× | 1.21 | -5.7% | +5.5% | +16.8% | TRIM/SHORT→BUY | $28,968→NAV>px | +23 | mark-driven |
-| GNK | 0.87× | 1.04 | +6.9% | +9.5% | +12.1% | BUY→BUY | $18,726→$12,491 | +5 | mark-robust |
+| SBLK | 0.82× | 1.21 | -5.4% | +5.7% | +16.8% | TRIM/SHORT→BUY | $28,583→NAV>px | +22 | mark-driven |
+| GNK | 0.87× | 1.04 | +7.2% | +9.7% | +12.1% | BUY→BUY | $18,314→$12,474 | +5 | mark-robust |
 | INSW **(WHOLE-CO)** | 0.98× | 1.52 | -23.8% | -7.0% | +9.7% | TRIM/SHORT→BUY | $342,121→$67,887 | +33 | mark-driven |
 | HAFN | 0.95× | 1.43 | -25.1% | -8.4% | +8.3% | TRIM/SHORT→BUY | $126,273→$28,673 | +33 | mark-driven |
 | DHT | 1.09× | 1.14 | -8.1% | -2.0% | +4.0% | TRIM/SHORT→HOLD | $315,444→$168,393 | +12 | mark-driven |

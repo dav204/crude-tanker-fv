@@ -9,6 +9,28 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T18:16:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.00
+- Single-point FV: $25.28
+- Scenario PW FV: $25.73 (EV +7.2%)
+- NAV / share: $26.24
+- Position: **BUY (undervalued)**
+- Broker spread: +4.9pp (k_broker 1.04)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.3% | Δscenario FV: +0.3% | ΔNAV: +0.3% | Δspread: -0.3pp
+
+**Decision:** _Prints pass (4 recovered sentence-splitter misses + Pana
+disambiguation — see sblk_log.md same-timestamp entry for detail).
+Supra-Ultra fit softens ~1.2pp → GNK NAV +0.3%, gap −4.9%, still inside
+the v1 ±10% bar. §6 GNK entry PROMOTED into METHODOLOGY this run.
+Deal-lens caveat unchanged (tender deadline Jun-26)._
+
+---
+
 ## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
 
 **Model state:**

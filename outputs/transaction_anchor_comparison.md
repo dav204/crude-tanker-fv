@@ -17,7 +17,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2025-04-30 • age 15 • $33.5M • Pareto Shipping Daily 2025-04-30 — broker reports
   - 2025-06-19 • age 17 • $31.0M • Pareto Shipping Daily 2025-06-19 — Yasa disclosure
   - 2025-09-23 • age 17 • $29.5M • Pareto Shipping Daily 2025-09-23 — broker reports
-- **Cape** (29 prints, as_of 2026-06-09):
+- **Cape** (30 prints, as_of 2026-06-09):
   - 2025-12-15 • age 5 • $73.5M • Pareto Shipping Daily 2025-12-17 — broker reports
   - 2026-01-09 • age 5 • $76.25M • Pareto Shipping Daily 2026-01-09 — Norden disclosure
   - 2025-09-26 • age 5 • $69.67M • Pareto Shipping Daily 2025-09-26 — 2020 Bulkers disclosure
@@ -29,6 +29,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2025-11-15 • age 5 • $72.75M • GNK Q1 2026 10-Q Note 5 — 2x Newcastlemax purchase agreement
   - 2025-07-10 • age 5 • $63.55M • GNK Q1 2026 10-Q Note 5 — Capesize purchase agreement
   - 2026-06-05 • age 17 • $30.0M • Pareto Shipping Daily 2026-06-05 — Maran disclosure
+  - 2025-10-06 • age 6 • $65.5M • Pareto Shipping Daily 2025-10-06 — broker reports
   - 2025-08-15 • age 9 • $55.0M • Pareto Shipping Daily 2025-08-18 — broker reports
   - 2025-08-15 • age 10 • $55.0M • Pareto Shipping Daily 2025-08-18 — broker reports
   - 2025-08-15 • age 10 • $55.0M • Pareto Shipping Daily 2025-08-18 — broker reports
@@ -117,8 +118,11 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-01-15 • age 0 • $99.3M, newbuild_resale (+0%) • Compass Maritime weekly (Arctic Star + Tromso Star NB resale)
   - 2026-02-15 • age 0 • $95.0M, newbuild_resale (+0%) • Compass Maritime weekly (Olympic Star + Daehan Hull 5118 NB resale)
   - 2026-03-02 • age -2.5 • $81.5M • Performance Shipping (PSHG) press release (2x Suezmax NB order at SWS)
-- **Supra-Ultra** (20 prints, as_of 2026-06-09):
+- **Supra-Ultra** (23 prints, as_of 2026-06-09):
   - 2025-09-19 • age 4 • $32.0M • Pareto Shipping Daily 2025-09-19 — CMB → HMM disclosure
+  - 2025-09-19 • age 5 • $30.0M • Pareto Shipping Daily 2025-09-19 — broker reports
+  - 2025-10-06 • age 6 • $30.5M • Pareto Shipping Daily 2025-10-06 — broker reports
+  - 2025-10-06 • age 10 • $23.2M • Pareto Shipping Daily 2025-10-06 — broker reports
   - 2025-09-19 • age 5 • $32.0M • Pareto Shipping Daily 2025-09-19 — CMB → HMM disclosure
   - 2025-09-16 • age 9 • $26.5M • Pareto Shipping Daily 2025-09-19 — Diana disclosure
   - 2025-08-05 • age 9 • $21.0M • Pareto Shipping Daily 2025-08-05 — Belships disclosure
@@ -158,12 +162,12 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 |---|--:|--:|--:|--:|---|
 | CCEC | $28.10→$28.10 | +0.0% | +35.3%→+35.3% | +0.0 | BUY→BUY |
 | TEN | $88.56→$80.79 | -8.8% | +42.7%→+30.9% | -11.8 | BUY→BUY |
-| GNK | $25.40→$26.16 | +3.0% | +4.3%→+6.9% | +2.6 | HOLD→BUY ⚠️ |
+| GNK | $25.40→$26.24 | +3.3% | +4.3%→+7.2% | +3.0 | HOLD→BUY ⚠️ |
 | TNK | $83.32→$77.45 | -7.0% | +11.4%→+4.1% | -7.3 | BUY→HOLD ⚠️ |
 | FLNG | $28.45→$28.45 | +0.0% | +0.1%→+0.1% | +0.0 | HOLD→HOLD |
 | STNG | $83.87→$80.35 | -4.2% | +1.0%→-3.3% | -4.3 | HOLD→HOLD |
 | TRMD | $26.74→$25.43 | -4.9% | -1.3%→-5.4% | -4.1 | HOLD→TRIM/SHORT ⚠️ |
-| SBLK | $25.98→$26.17 | +0.7% | -6.3%→-5.7% | +0.5 | TRIM/SHORT→TRIM/SHORT |
+| SBLK | $25.98→$26.27 | +1.1% | -6.3%→-5.4% | +0.8 | TRIM/SHORT→TRIM/SHORT |
 | ASC | $15.96→$15.93 | -0.2% | -5.8%→-5.9% | -0.1 | TRIM/SHORT→TRIM/SHORT |
 | DHT | $15.29→$12.93 | -15.4% | +5.6%→-8.1% | -13.7 | BUY→TRIM/SHORT ⚠️ |
 | FRO | $28.79→$24.40 | -15.3% | -2.1%→-14.9% | -12.8 | HOLD→TRIM/SHORT ⚠️ |

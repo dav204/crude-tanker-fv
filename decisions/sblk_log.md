@@ -9,6 +9,31 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T18:16:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.20
+- Single-point FV: $25.74
+- Scenario PW FV: $25.72 (EV -5.4%)
+- NAV / share: $26.27
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +22.3pp (k_broker 1.21)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.3% | Δscenario FV: +0.3% | ΔNAV: +0.4% | Δspread: -0.3pp
+
+**Decision:** _Prints pass: Pana 2016-kamsarmax duplicate DISAMBIGUATED as
+two distinct vessels (Japanese flag + price + premium-to-quote evidence;
+pana.yaml notes updated), and 4 sentence-splitter misses recovered (Qingdao
+nmax $65.5M; Elizabeth M II $30M; 2019 ultra $30.5M; 2015 supra $23.2M).
+Supra-Ultra fit softens −9.9%/−12.6% → −8.4%/−11.6% on the young-print
+evidence → SBLK NAV +0.4%, under the drift gate. §6 SBLK entry PROMOTED
+into METHODOLOGY this run (backlog closed). Gap −20.8%, classification
+unchanged._
+
+---
+
 ## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -121,11 +121,13 @@ quarter of data. **The bars apply at lock-time, not per-run.**
   Set B / Set B-revised" are not interchangeable. Cross-sector "Set B"
   without a prefix is a methodology error.
 - **Transaction-anchored recalibration** covers eight classes with own
-  fits as of 2026-06-10: VLCC (10 in-window), Suezmax (18),
+  fits as of 2026-06-10: VLCC (10 in-window), Suezmax (19),
   Aframax (12), **LR2 (11 — own-fit; the Aframax-proxy alias is retired)**,
-  MR (21), Cape (25), Pana (4), Supra-Ultra (17). Primarily mined from
+  MR (21), Cape (26), Pana (4), Supra-Ultra (20). Primarily mined from
   the Pareto Shipping Daily archive via `sp_scan.py`; GNK's 10-Q added 4
-  issuer-confirmed Cape prints at onboarding. DO NOT add other
+  issuer-confirmed Cape prints at onboarding. The Pana 2016-kamsarmax
+  pair (Sep/Oct-2025) is disambiguated as DISTINCT vessels — see
+  pana.yaml notes. DO NOT add other
   classes (LR1, Handysize, LNGC, MGC) without an analogous sample —
   the 2026-06-09 LNGC scan found only demolition prints, so LNG stays
   out (§9.9 scope discipline). **`use_transaction_anchored` is DEFAULT-ON

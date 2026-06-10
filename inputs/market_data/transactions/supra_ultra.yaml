@@ -47,6 +47,24 @@ prints:
     notes: 2021-built ultramax. CMB sold 2x 2020-21 ultramaxes to HMM en-bloc $64M ($32M each). Pareto had at $30M generic, Japanese-build premium acknowledged.
   - date: 2025-09-19
     vessel_age_at_sale: 5
+    sale_price_usd_m: 30.0
+    source: Pareto Shipping Daily 2025-09-19 — broker reports
+    quality_flag: standard
+    notes: Elizabeth M II (2020-built Chinese ultramax). Pareto called it "spot on our quote". Surfaced 2026-06-10 during the Pana disambiguation re-read (sentence-splitter miss).
+  - date: 2025-10-06
+    vessel_age_at_sale: 6
+    sale_price_usd_m: 30.5
+    source: Pareto Shipping Daily 2025-10-06 — broker reports
+    quality_flag: standard
+    notes: 2019-built Japanese ultramax. Pareto had her at $27.9M (above VV too) — print +9% over quote. Surfaced 2026-06-10 (sentence-splitter miss).
+  - date: 2025-10-06
+    vessel_age_at_sale: 10
+    sale_price_usd_m: 23.2
+    source: Pareto Shipping Daily 2025-10-06 — broker reports
+    quality_flag: standard
+    notes: 2015-built Japanese supramax. Pareto had her at $21.7M — print +7% over quote. Surfaced 2026-06-10 (sentence-splitter miss).
+  - date: 2025-09-19
+    vessel_age_at_sale: 5
     sale_price_usd_m: 32.0
     source: Pareto Shipping Daily 2025-09-19 — CMB → HMM disclosure
     quality_flag: standard
