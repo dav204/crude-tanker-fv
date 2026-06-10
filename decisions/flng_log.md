@@ -7,6 +7,44 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $29.70
+- Single-point FV: $26.27
+- Scenario PW FV: $29.73 (EV +0.1%)
+- NAV / share: $28.45
+- Position: **HOLD (fairly valued)**
+- Broker spread: -21.1pp (k_broker 0.87)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (34 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_flng.md`.
+
+**Pareto stance trajectory — now at SELL:** HOLD TP $25 (2026-03-18,
+"trading at ~1.25x NAV") → **SELL TP $25 (2026-05-27)**: "valuation has
+become too rich... sub 10% dividend yield is rich given the residual risk"
+(2027 charter-option cliffs). Pareto NAV ~$20-21 implied ✓ consistent with
+our watchlist broker NAV $21.68.
+
+**Cross-checks vs our model:** FLNG is our documented §6 inverse case —
+tool NAV $28.45 sits ABOVE broker (k_broker 0.87) because our spike-
+inclusive LNGC marks value the mature TC book richer than Pareto's. Both
+frameworks read price ≥ value (our HOLD at +0.1% EV; their SELL); the
+disagreement is magnitude of the asset-side number, unchanged from the §6
+entry. LNGC stays OUT of the transaction-anchored layer (the sweep window
+shows only steam-ship demolitions — §9.9 scope discipline holds).
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -7,6 +7,45 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $78.00
+- Single-point FV: $37.32
+- Scenario PW FV: $59.47 (EV -23.8%)
+- NAV / share: $52.40
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +33.4pp (k_broker 1.52)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -0.1% | Δscenario FV: -0.1% | ΔNAV: -0.1% | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (46 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_insw.md`.
+
+**Pareto NAV/stance trajectory — the purest marks-momentum case in the
+sweep:** NAV $54 (2025-05-22, 0.70×) → $56-58 potential (Aug-25) →
+**upgrade HOLD→BUY, TP $57→$64** (2026-01-21, 0.95× YE'26 NAV) → **NAV $80
+"pushing towards $85-90 by YE"** (2026-05-08) → 1.11× (May-12). That's
++48% NAV in 12 months, essentially all mark-ups.
+
+**Cross-checks vs our model:** their May-8 $80 statement matches our
+watchlist-implied broker NAV ($79.59) almost exactly — the consensus_pnav
+plumbing is faithful. Our txn-anchored NAV $52.43 sits where THEIR NAV was
+in mid-2025. The k_broker 1.52 spread is therefore precisely dated: it's
+the 2025-H2→2026-H1 broker mark-up cycle our realized-print fit doesn't
+ratify. Pareto BUY vs our TRIM/SHORT — the spread is the call, now with a
+documented timeline. INSW's own disposals (Seaways Luzon LR1 ~$11M,
+Olive/Star 2x MR $16M) are prints in our YAMLs.
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

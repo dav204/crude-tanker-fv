@@ -7,6 +7,44 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $75.60
+- Single-point FV: $74.00
+- Scenario PW FV: $73.13 (EV -3.3%)
+- NAV / share: $80.35
+- Position: **HOLD (fairly valued)**
+- Broker spread: +32.7pp (k_broker 1.37)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (96 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_stng.md`.
+
+**Pareto NAV trajectory — the steepest mark-up path in the product space:**
+~$81 (2025-09-30, "~30% discount confirmed") → $86.5 (2026-01-13) → $97-99
+(early Apr-26) → **"implying NAV of $113"** (2026-04-21, off STNG's own
+6-ship sale 15% above their quotes) → "clear relevant BUY... P/NAV ~0.7x
+without leverage" (2026-05-28). Persistent deepest discount in product
+(0.66-0.77×) throughout. Note: Pareto acted as co-manager in an Apr-26
+STNG offering (their disclosed conflict, worth remembering when reading
+the TP enthusiasm).
+
+**Cross-checks vs our model:** our txn-anchored NAV $80.35 ≈ Pareto's
+OWN September-2025 NAV. The k_broker 1.37 gap is dated mark-up vintage,
+same shape as INSW. The deep-discount + net-cash + buyback story is the
+§6 caveat already on file (buyback channel invisible to the strip).
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

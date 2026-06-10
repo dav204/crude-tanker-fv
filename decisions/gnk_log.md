@@ -9,6 +9,38 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.00
+- Single-point FV: $25.20
+- Scenario PW FV: $25.65 (EV +6.9%)
+- NAV / share: $26.16
+- Position: **BUY (undervalued)**
+- Broker spread: +5.2pp (k_broker 1.04)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (94 mentions, 2025-01 → 2026-06)
+
+The GNK sweep ran DURING onboarding (it's what surfaced Pareto's stated
+NAV $27.6, the tender-at-0.9×-NAV line, and the 0.66-0.75× pre-bid P/NAV
+regime) — findings already distilled into the onboarding entry below.
+Review file archived at `outputs/pareto_mentions_gnk.md`. Additional
+color from the full file: the Diana saga timeline runs continuously from
+2026-01-16 (Diana nominates six directors to replace the entire board)
+through the raised $24.80 tender (May-27) — the board-control fight
+predates the tender by months, so a tender lapse does NOT end the event
+overhang (proxy outcome from the Jun-18 AGM persists either way).
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

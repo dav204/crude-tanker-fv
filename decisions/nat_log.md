@@ -7,6 +7,39 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.20
+- Single-point FV: $2.59
+- Scenario PW FV: $2.86 (EV -44.9%)
+- NAV / share: $2.07
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +72.1pp (k_broker 1.98)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -0.4% | Δscenario FV: -0.3% | ΔNAV: -0.5% | Δspread: +0.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (4 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_nat.md`. **Only 4 context-bearing
+mentions in 280 dailies — empirically confirms the APPROX consensus_pnav
+status** (Pareto tables show "-" for NAT; the prose barely names it).
+
+All 4 items already in our inputs: the 2003-built suezmax sold $22.5M
+(Jan-25); the 2x suezmax NB order ~$86M each, Korean yard, H2'28 delivery
+(Nov-25 LOI → firm Jan-26 — carried in nat_2026-Q1.yaml as $153M
+commitments + $17M advances ✓); the Dec-25 sale of the two oldest ships
+(2004/2005-built — the $50M package documented out-of-window in
+suezmax.yaml ✓). Sweep finds no gaps. §12 archetype framing unchanged.
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

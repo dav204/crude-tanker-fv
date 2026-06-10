@@ -1,5 +1,41 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-06-10 — Pareto free-text retro-sweep (5 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_ten.md`. **Only 5 mentions —
+confirms the APPROX/no-Pareto-coverage status** (VIE remains TEN's only
+external anchor).
+
+The sweep PAID here despite the low count: the 2025-03-14 line ("Chinese
+buyers... bought a Tsakos suezmax built 2009 for ~$40m, our value ~$35m")
+is a disclosed TEN disposal the original class-keyword scan missed —
+**promoted to suezmax.yaml** (age-16 in-window print; Suezmax fit moved
+−6.6%→−6.2% at 5yr / −12.9%→−13.1% at 10yr — under the 2pp drift gate for
+all holders). Also confirmed: TEN's 2x (+1 option) VLCC order at Hanwha,
+$123-128.5M, 2027 delivery (Jun/Jul-25) — inside the $2.4B orderbook
+documented at onboarding; conventionally fuelled, so an age-(-1) NB
+reference consistent with our $130M-area VLCC NB market read.
+
+---
+
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.00
+- Single-point FV: $53.32
+- Scenario PW FV: $57.61 (EV +30.9%)
+- NAV / share: $80.79
+- Position: **BUY (undervalued)**
+- Broker spread: +42.9pp (k_broker 1.24)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -0.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-06 — Onboarded. §15 governance haircut at 30%. First reconcile baseline.
 
 **Decision:** TEN is **on the watchlist** as the 13th name + first 3-sleeve hybrid +

@@ -121,6 +121,12 @@ prints:
     source: Pareto Shipping Daily 2025-05-22 — Advantage Tankers disclosure
     quality_flag: standard
     notes: 2009-built suezmax. Sold to Chinese buyer. Pareto pegged INSW at 0.70x NAV in same commentary.
+  - date: 2025-03-14
+    vessel_age_at_sale: 16
+    sale_price_usd_m: 40.0
+    source: Pareto Shipping Daily 2025-03-14 — broker reports (Tsakos disposal)
+    quality_flag: standard
+    notes: Tsakos (TEN) 2009-built suezmax sold to Chinese buyers ~$40M vs Pareto value ~$35M. Surfaced by the 2026-06-10 name-mention retro-sweep (TEN file) — missed by the original class-keyword scan because the sentence named the seller, not the segment, prominently.
   - date: 2026-02-16
     vessel_age_at_sale: 17
     sale_price_usd_m: 46.0

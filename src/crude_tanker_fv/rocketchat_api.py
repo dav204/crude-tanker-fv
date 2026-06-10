@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 import sys
+import time
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -18,6 +19,31 @@ import requests
 
 BATCH_SIZE = 100
 IMAGE_EXTS = (".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp", ".tiff")
+
+RETRY_ATTEMPTS = 5
+RETRY_INITIAL_DELAY = 5.0  # doubles each attempt: 5s, 10s, 20s, 40s
+
+
+def _get(url: str, **kwargs) -> requests.Response:
+    """GET with retry/backoff. Long history walks span thousands of requests
+    and hit transient connection resets (caught live 2026-06-10: reset 54
+    killed the first scheduled backfill ~3.6k messages in). Retries
+    connection errors, timeouts, 429s, and 5xx; returns 4xx to the caller."""
+    delay = RETRY_INITIAL_DELAY
+    last_exc: Exception | None = None
+    for attempt in range(RETRY_ATTEMPTS):
+        try:
+            r = requests.get(url, **kwargs)
+        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
+            last_exc = e
+        else:
+            if r.status_code != 429 and r.status_code < 500:
+                return r
+            last_exc = requests.exceptions.HTTPError(f"HTTP {r.status_code} from {url}")
+        if attempt < RETRY_ATTEMPTS - 1:
+            time.sleep(delay)
+            delay *= 2
+    raise last_exc
 
 
 def auth_headers() -> dict[str, str]:
@@ -34,7 +60,7 @@ def auth_headers() -> dict[str, str]:
 
 
 def resolve_room_id(host: str, group: str, headers: dict[str, str]) -> str:
-    r = requests.get(
+    r = _get(
         f"{host}/api/v1/groups.info",
         params={"roomName": group},
         headers=headers,
@@ -65,7 +91,7 @@ def iter_history(
             params["latest"] = latest
         if oldest:
             params["oldest"] = oldest
-        r = requests.get(
+        r = _get(
             f"{host}/api/v1/groups.history",
             params=params,
             headers=headers,
@@ -123,14 +149,23 @@ def message_attachments(msg: dict) -> Iterator[tuple[str, str, str]]:
 def download(host: str, url_path: str, dest: Path, headers: dict[str, str]) -> bool:
     if dest.exists():
         return False
-    r = requests.get(f"{host}{url_path}", headers=headers, timeout=180, stream=True)
-    r.raise_for_status()
     dest.parent.mkdir(parents=True, exist_ok=True)
     tmp = dest.with_suffix(dest.suffix + ".part")
-    with tmp.open("wb") as out:
-        for chunk in r.iter_content(64 * 1024):
-            if chunk:
-                out.write(chunk)
+    # _get retries the request phase; this loop covers resets mid-body
+    # (after headers, during the streamed read).
+    for attempt in range(3):
+        r = _get(f"{host}{url_path}", headers=headers, timeout=180, stream=True)
+        r.raise_for_status()
+        try:
+            with tmp.open("wb") as out:
+                for chunk in r.iter_content(64 * 1024):
+                    if chunk:
+                        out.write(chunk)
+            break
+        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout):
+            if attempt == 2:
+                raise
+            time.sleep(RETRY_INITIAL_DELAY)
     tmp.rename(dest)
     return True
 

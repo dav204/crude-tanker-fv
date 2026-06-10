@@ -7,6 +7,49 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.40
+- Single-point FV: $14.31
+- Scenario PW FV: $15.08 (EV -8.1%)
+- NAV / share: $12.93
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.0pp (k_broker 1.14)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (84 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_dht.md` (full review file archived).
+
+**Pareto NAV/stance trajectory:** NAV $10 (2025-01-15, "all-VLCC derivative,
+BUY") → TP $12.75 = 1.15× 1Y-fwd NAV (2025-02-07) → TP $12.3 (2025-05-07) →
+premium re-rate through 2026 (1.05× Oct-25, 1.21× Nov-25, ~1.2× May-26).
+2026-06-05: Pareto states DHT fleet value "just above $2.6bn" with pro-forma
+net debt ~$300M YE'26 — net debt below the fleet's SCRAP value.
+
+**Cross-checks vs our model:** their $2.6bn fleet statement vs our
+transaction-anchored fleet is the k_broker 1.14 mechanism in one line —
+2026-02-16: "Our VLCC and suezmax quotes appear to be conservative to say
+the least"; 2026-05-04: "another 10-15% positive revisions coming here."
+Pareto marks momentum-forward off 1Y-TC regressions; we mark realized S&P.
+Both are internally consistent; the wedge is the call.
+
+**Corporate color:** full-EPS payout intact (16% yield at ~50% TC cover,
+May-26); 2x 1Y TCs at $109k/day on ~15yo vessels (May-26); another Hanwha
+VLCC NB ordered 2026-06-04 (price undisclosed, surprising early Q3-2028
+slot; recent Hanwha orders ~$130M for 2029-30) — watch for the contract
+price disclosure as an age-0 print + Q2 commitment line.
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

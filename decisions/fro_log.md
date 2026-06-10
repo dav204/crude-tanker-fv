@@ -7,6 +7,42 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $34.50
+- Single-point FV: $27.09
+- Scenario PW FV: $29.36 (EV -14.9%)
+- NAV / share: $24.40
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +11.9pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (68 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_fro.md`.
+
+**Pareto NAV/stance trajectory:** ~1.0× GAV (Jan-25) → NAV NOK 170 with
++10%-values sensitivity to NOK 199 (Jun-25) → 1.22-1.38× NAV through Q1-26.
+**Lowered to HOLD 2026-05-26** ("Fair price, uncertain moment" — strong
+operations, backlog into 2027, but price ahead of value).
+
+**Cross-checks vs our model:** our txn-anchored HOLD→TRIM/SHORT flip
+(EV −14.9%) is directionally Pareto's own May-26 move, one notch harder.
+The Front Brage saga (rumoured $41M Feb-25, done $38M Aug-25, Rongsheng
+Chinese-yard discount ~10% per Pareto) is already a print in suezmax.yaml
+— the sweep confirms the timeline. FRO repeatedly cited as prime
+beneficiary of any Sinokor/MSC move into suezmaxes (2026-03-20).
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

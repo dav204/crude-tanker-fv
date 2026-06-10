@@ -7,6 +7,34 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $21.90
+- Single-point FV: $22.88
+- Scenario PW FV: $29.63 (EV +35.3%)
+- NAV / share: $28.10
+- Position: **BUY (undervalued)**
+- Broker spread: -16.1pp (k_broker 0.96)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (0 mentions, 2025-01 → 2026-06)
+
+**Zero context-bearing free-text mentions across 280 Pareto dailies** —
+the strongest possible empirical confirmation of CCEC's APPROX
+consensus_pnav status. Pareto does not cover or discuss the name even in
+passing. External anchoring for CCEC remains VIE-only; weight-driven-BUY
+caution from §9.10/§13 stands on internal legs alone. No action.
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

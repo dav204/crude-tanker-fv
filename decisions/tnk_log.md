@@ -7,6 +7,43 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $70.80
+- Single-point FV: $73.92
+- Scenario PW FV: $73.70 (EV +4.1%)
+- NAV / share: $77.45
+- Position: **HOLD (fairly valued)**
+- Broker spread: +19.8pp (k_broker 1.34)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -0.1% | Δscenario FV: -0.1% | ΔNAV: -0.1% | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (59 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_tnk.md`.
+
+**Pareto NAV/stance trajectory:** "obscene NAV discount" era ends — re-rated
+to 0.93-0.96× by Q1-26. NAV $70 → $72 (2026-01-19, deleveraging means
+less NAV-impact, "Q1 cashflow adds $3-4/share") → "20% up would be
+~$93/share (up from $83)" (2026-05-04, post-suezmax revisions). Our
+watchlist-implied broker NAV $93.16 matches the May-4 upper statement ✓.
+
+**Cross-checks vs our model:** TNK's own H2-25 disposals (4x suezmax +
+1x LR2, $158.5M gross; Los Angeles Spirit mid-$30s) are in our transaction
+YAMLs — the curve partially reflects TNK's own realized prices, which is
+why our txn-anchored BUY→HOLD flip is a marks-vs-momentum statement, not a
+fleet-quality disagreement. Net cash ~$1bn YE'25 repeatedly cited; the
+earnings/net-cash legs carry whatever bull case remains at these marks.
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -7,6 +7,43 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.20
+- Single-point FV: $26.09
+- Scenario PW FV: $26.68 (EV -5.4%)
+- NAV / share: $25.43
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +27.1pp (k_broker 1.24)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (67 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_trmd.md`. Pareto covers TRMD as
+TORM — alias map handles it.
+
+**The cleanest broker-NAV cross-check in the sweep:** 2026-05-13 Pareto
+states TORM NAV **"$34 / DKK 217 — growing to $37.9 / DKK 240 by YE'26"**.
+Our watchlist-implied broker NAV: $33.98. Exact match — the consensus_pnav
+plumbing recovers Pareto's stated NAV to the cent. Trajectory: DKK 180
+(2026-04-21) → DKK 217 (May-13), i.e. +20% in three weeks of mark-ups;
+0.93-1.1× NAV range through Q2-26.
+
+**Cross-checks vs our model:** our txn-anchored NAV $25.43 vs their $34 —
+the k 1.34 gap is, as with INSW/STNG, dated to the 2026 mark-up cycle.
+Position TRIM/SHORT at band edge; their YE'26 NAV guidance ($37.9) bakes
+in further appreciation our realized-print fit hasn't seen.
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

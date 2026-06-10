@@ -1,27 +1,39 @@
-"""Scan the Pareto Shipping Daily archive for S&P (sale & purchase) prints.
+"""Scan the Pareto Shipping Daily archive for S&P prints and name mentions.
 
-Feeds the transaction-anchored recalibration layer (METHODOLOGY 9.9): mines
-the daily commentary for disclosed secondhand vessel sales (name, age, price)
-that become candidate prints for inputs/market_data/transactions/<class>.yaml.
+Two modes:
 
-The scan is INCREMENTAL by default. A cursor at
-inputs/market_data/transactions/_scan_state.json records the newest
-report_date already scanned; subsequent runs only read PDFs dated after it,
-so the weekly Pareto ingest doesn't trigger a 280-PDF re-scan. `--full`
-ignores the cursor (first run, or after changing the keyword patterns —
-pattern changes invalidate old scans, so bump the cursor back deliberately).
+1. S&P PRINT SCAN (default) — feeds the transaction-anchored recalibration
+   layer (METHODOLOGY 9.9): mines the daily commentary for disclosed
+   secondhand vessel sales (name, age, price) that become candidate prints
+   for inputs/market_data/transactions/<class>.yaml.
 
-Candidates are sentences, not parsed prints: a human classifies each hit
-(class, age, clean price, en-bloc splits, quality flag) before it enters a
-transactions YAML. The output at outputs/sp_print_candidates.md is a review
-queue, not data. This is deliberate — Pareto's prose mixes sales, rumours,
-demolitions, and rate-table noise; auto-parsing would silently mis-file
-prints that the YAML schema records as load-bearing fit inputs.
+   The scan is INCREMENTAL by default. A cursor at
+   inputs/market_data/transactions/_scan_state.json records the newest
+   report_date already scanned; subsequent runs only read PDFs dated after
+   it. `--full` ignores the cursor (first run, or after changing the
+   keyword patterns).
+
+   Candidates are sentences, not parsed prints: a human classifies each hit
+   (class, age, clean price, en-bloc splits, quality flag) before it enters
+   a transactions YAML. The output at outputs/sp_print_candidates.md is a
+   review queue, not data — Pareto's prose mixes sales, rumours, demolitions,
+   and rate-table noise; auto-parsing would silently mis-file prints.
+
+2. NAME-MENTION SCAN (`--names`) — per-ticker free-text sweep for the
+   onboarding workflow + quarterly refresh (added 2026-06-10 after the GNK
+   onboarding showed the dailies carry name-specific gold the structured
+   columns miss: Pareto's own dated NAV statements, stance changes, deal
+   commentary, name-attributed S&P references). Alias-aware (Pareto uses
+   Oslo tickers / company names: OET=ECO, HAFNI=HAFN, TORM=TRMD,
+   Tsakos=TEN). Does NOT use or advance the print-scan cursor — a name
+   sweep always covers the full archive window requested.
 
 CLI:
-    python -m crude_tanker_fv.sp_scan              # incremental from cursor
+    python -m crude_tanker_fv.sp_scan              # incremental print scan
     python -m crude_tanker_fv.sp_scan --full       # ignore cursor, scan all
     python -m crude_tanker_fv.sp_scan --since 2026-01-01
+    python -m crude_tanker_fv.sp_scan --names DHT,FRO          # name sweep
+    python -m crude_tanker_fv.sp_scan --names all --since 2025-01-01
 """
 
 from __future__ import annotations
@@ -68,6 +80,46 @@ PRICE_PATTERN = re.compile(r"\$\s*\d{1,3}(?:\.\d+)?\s*[mM]\b|USD\s*\d{1,3}(?:\.\
 DEMOLITION_PATTERN = re.compile(r"\b(demolition|scrap(?:ped|ping)?|recycl)", re.IGNORECASE)
 
 MIN_SENT, MAX_SENT = 50, 700
+
+# Name-mention scan: per-ticker alias patterns. Pareto's dailies mix US
+# tickers, Oslo tickers, and company names — each entry lists every form
+# Pareto actually uses. Word-boundary + case-sensitive for short tickers
+# (TEN, NAT) to avoid prose collisions; company names case-insensitive.
+NAME_ALIASES: dict[str, list[re.Pattern]] = {
+    "DHT": [re.compile(r"\bDHT\b")],
+    "ECO": [re.compile(r"\bOET\b"), re.compile(r"\bOkeanis\b", re.IGNORECASE)],
+    "FRO": [re.compile(r"\bFRO\b"), re.compile(r"\bFrontline\b", re.IGNORECASE)],
+    "INSW": [re.compile(r"\bINSW\b"), re.compile(r"\bInternational Seaways\b", re.IGNORECASE),
+             re.compile(r"\bSeaways\b")],
+    "TNK": [re.compile(r"\bTNK\b"), re.compile(r"\bTeekay Tankers\b", re.IGNORECASE)],
+    "NAT": [re.compile(r"\bNAT\b"), re.compile(r"\bNordic American\b", re.IGNORECASE)],
+    "FLNG": [re.compile(r"\bFLNG\b"), re.compile(r"\bFlex LNG\b", re.IGNORECASE)],
+    "CCEC": [re.compile(r"\bCCEC\b"), re.compile(r"\bCapital Clean\b", re.IGNORECASE),
+             re.compile(r"\bCapital Product\b", re.IGNORECASE)],
+    "STNG": [re.compile(r"\bSTNG\b"), re.compile(r"\bScorpio Tankers\b", re.IGNORECASE),
+             re.compile(r"\bScorpio\b")],
+    "HAFN": [re.compile(r"\bHAFNI?\b"), re.compile(r"\bHafnia\b", re.IGNORECASE)],
+    "TRMD": [re.compile(r"\bTORM\b", re.IGNORECASE), re.compile(r"\bTRMD\b")],
+    "ASC": [re.compile(r"\bASC\b"), re.compile(r"\bArdmore\b", re.IGNORECASE)],
+    "TEN": [re.compile(r"\bTEN\b"), re.compile(r"\bTsakos\b", re.IGNORECASE)],
+    "SBLK": [re.compile(r"\bSBLK\b"), re.compile(r"\bStar Bulk\b", re.IGNORECASE)],
+    "GNK": [re.compile(r"\bGNK\b"), re.compile(r"\bGenco\b", re.IGNORECASE)],
+}
+# A name mention is interesting when it carries valuation / stance / action
+# context — bare ticker drops in rate tables and peer lists are noise.
+NAME_CONTEXT = re.compile(
+    r"\b(NAV|GAV|TP|target|P/NAV|BUY|HOLD|SELL|TRIM|upgrade|downgrade"
+    r"|sold|sale|acquire[ds]?|bought|order(?:ed|s)?|newbuild|dividend|DPS"
+    r"|buyback|tender|offer|merger|spin|charter|backlog|guidance|estimate"
+    r"|EPS|EBITDA|P/E|discount|premium|net cash|net debt)\b",
+    re.IGNORECASE,
+)
+# The daily share-price table names every ticker alongside P/NAV + P/E columns
+# — pure noise for a free-text sweep. These fingerprints appear only in the
+# tabular blocks, never in prose.
+NAME_TABLE_NOISE = re.compile(
+    r"Share prices 6 days|P/E 1Y FWD|imports mtons|Market indicators|USD/day\$",
+)
 
 
 def extract_sp_candidates(text: str) -> list[tuple[str, str, bool]]:
@@ -165,11 +217,81 @@ def run_scan(since: str | None, manifest_path: Path = MANIFEST_PATH,
     return len(files), n, newest
 
 
+def extract_name_mentions(text: str, tickers: list[str]) -> list[tuple[str, str]]:
+    """Pull (ticker, sentence) hits with valuation/stance/action context."""
+    out: list[tuple[str, str]] = []
+    for sent in re.split(r"(?<=[.!?\n])\s+", text):
+        if not NAME_CONTEXT.search(sent) or NAME_TABLE_NOISE.search(sent):
+            continue
+        s = re.sub(r"\s+", " ", sent).strip()
+        if not (MIN_SENT < len(s) < MAX_SENT):
+            continue
+        for ticker in tickers:
+            if any(p.search(sent) for p in NAME_ALIASES[ticker]):
+                out.append((ticker, s))
+    return out
+
+
+def run_name_scan(tickers: list[str], since: str | None,
+                  manifest_path: Path = MANIFEST_PATH,
+                  outputs_dir: Path = ROOT / "outputs") -> dict[str, int]:
+    """Sweep the archive for per-ticker free-text mentions; one review file
+    per ticker at outputs/pareto_mentions_<ticker>.md. Independent of the
+    print-scan cursor."""
+    from pypdf import PdfReader
+
+    manifest = json.loads(manifest_path.read_text())
+    files = select_files(manifest, since)
+    hits: dict[str, list[tuple[str, str]]] = {t: [] for t in tickers}
+    for f in files:
+        path = ROOT / f["path"]
+        if not path.exists():
+            continue
+        try:
+            text = "\n".join(pg.extract_text() for pg in PdfReader(str(path)).pages)
+        except Exception:
+            continue
+        for ticker, sent in extract_name_mentions(text, tickers):
+            hits[ticker].append((f["report_date"], sent))
+
+    counts: dict[str, int] = {}
+    for ticker, items in hits.items():
+        counts[ticker] = len(items)
+        lines = [
+            f"# Pareto Shipping Daily free-text mentions — {ticker}",
+            "",
+            f"{len(items)} context-bearing sentences across {len(files)} reports "
+            f"({files[0]['report_date']} → {files[-1]['report_date']})." if files else "No reports in window.",
+            "Review for: dated Pareto NAV/TP statements, stance changes,",
+            "name-attributed S&P prints, corporate events. Distill into",
+            f"decisions/{ticker.lower()}_log.md — do not treat this file as data.",
+            "",
+        ]
+        for date, sent in items:
+            lines.append(f"- `{date}` {sent}")
+        (outputs_dir / f"pareto_mentions_{ticker.lower()}.md").write_text("\n".join(lines) + "\n")
+    return counts
+
+
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(description="Incremental Pareto S&P print scan")
+    ap = argparse.ArgumentParser(description="Pareto archive scans (S&P prints / name mentions)")
     ap.add_argument("--full", action="store_true", help="ignore the cursor, scan everything")
     ap.add_argument("--since", help="scan reports strictly after this date (YYYY-MM-DD)")
+    ap.add_argument("--names", help="comma-separated tickers (or 'all') for a free-text "
+                                    "name-mention sweep; skips the print scan + cursor")
     args = ap.parse_args(argv)
+
+    if args.names:
+        tickers = list(NAME_ALIASES) if args.names.lower() == "all" else \
+            [t.strip().upper() for t in args.names.split(",")]
+        unknown = [t for t in tickers if t not in NAME_ALIASES]
+        if unknown:
+            print(f"unknown ticker(s) {unknown}; known: {', '.join(NAME_ALIASES)}")
+            return 1
+        counts = run_name_scan(tickers, args.since)
+        for t, n in counts.items():
+            print(f"{t:6s} {n:4d} mentions -> outputs/pareto_mentions_{t.lower()}.md")
+        return 0
 
     since = None if args.full else (args.since or load_scan_state())
     n_files, n_hits, newest = run_scan(since)

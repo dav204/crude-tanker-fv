@@ -161,12 +161,28 @@ quarter of data. **The bars apply at lock-time, not per-run.**
    decision log entry. (Coming end of Week 0.)
 2. Pull the latest 6-K / 20-F / press release; fill in the fleet manifest,
    balance sheet, cost structure, dividend policy (METHODOLOGY §8.1).
-3. Add the watchlist row (current_price, analyst_target, consensus_pnav,
+3. **Sweep the Pareto free text for the name** (added 2026-06-10 after GNK):
+   `python -m crude_tanker_fv.sp_scan --names <TICKER>` (add the alias to
+   `NAME_ALIASES` first — Pareto uses Oslo tickers / company names). The
+   dailies carry name-specific gold the structured columns miss: Pareto's
+   own dated NAV statements (cross-check `consensus_pnav` plumbing),
+   stance/TP changes, deal overlays, name-attributed S&P prints, dividend
+   policy changes, NB orders. Distill into the decision log; promote any
+   prints (then run the prints→rerun→drift loop).
+4. Add the watchlist row (current_price, analyst_target, consensus_pnav,
    consensus_fwd_pe, sector, as_of).
-4. Run pipeline + tests + `/reconcile <TICKER>`.
-5. If SANITY=OK, close the decision log entry with the reconciliation gap
+5. Run pipeline + tests + `/reconcile <TICKER>`.
+6. If SANITY=OK, close the decision log entry with the reconciliation gap
    recorded as the baseline for future drift detection. If SANITY=FAIL,
    **stop and investigate** — don't paper it over.
+
+The same `--names` sweep is a quarterly-refresh habit: run it incrementally
+over the new quarter's dailies for ALL names and skim for stance changes,
+NAV statements, and missed prints. The 2026-06-10 retro-sweep (15 names,
+280 dailies) found the inputs solid but surfaced one missed print (TEN's
+Mar-25 Suezmax disposal), two Pareto stance changes we hadn't recorded
+(FLNG→SELL May-26; OET/FRO→HOLD May-26), and exact-match confirmations of
+the consensus_pnav plumbing (TRMD $34 stated vs $33.98 implied).
 
 ## Onboarding a new sector — the workflow
 
@@ -304,6 +320,21 @@ sessions.
   data-quality only (no per-vessel split). FV-band + sweep tests re-based.
   Drift flags on this run are the re-base, not market moves — 9 logs
   annotated. tests: 198 passed.
+- **2026-06-10 (later)** — **Pareto free-text name-sweep added to the
+  process + run retroactively for all 15 names.** `sp_scan.py --names`
+  mode (alias-aware: OET=ECO, HAFNI=HAFN, TORM=TRMD, Tsakos=TEN;
+  share-price-table noise filtered). 15 review files at
+  `outputs/pareto_mentions_<ticker>.md`; distilled entries in every
+  decision log. Findings: inputs validated (NAT NB commitments + ASC
+  payout-doubling already captured); 1 missed print promoted (TEN Mar-25
+  Suezmax $40M — fit moved <0.5pp, under drift gate); Pareto stance
+  changes recorded (FLNG→SELL 2026-05-27, OET+FRO→HOLD 2026-05-26,
+  INSW→BUY 2026-01-21); consensus_pnav plumbing confirmed by exact
+  matches (TRMD stated $34 vs implied $33.98; INSW $80 vs $79.59; SBLK
+  $33 vs $33.17). Mention-count distribution empirically confirms the
+  APPROX taxonomy (CCEC 0, NAT 4, TEN 5, ASC 6 — "We don't cover ASC"
+  verbatim — vs covered names 34-96). Onboarding workflow updated with
+  the sweep as step 3; quarterly-refresh habit noted. tests: 205 passed.
 - **2026-06-10** — **GNK onboarded** (15th name, second dry-bulk validator)
   from the Q1 2026 10-Q. k_broker 1.04 / gap −5.2% — VALIDATES the
   transaction-anchored dry-bulk curves on a no-Pana fleet; isolates SBLK's

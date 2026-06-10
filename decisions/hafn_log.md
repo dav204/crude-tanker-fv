@@ -7,6 +7,43 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.70
+- Single-point FV: $5.59
+- Scenario PW FV: $5.77 (EV -25.1%)
+- NAV / share: $5.22
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +33.4pp (k_broker 1.43)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (74 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_hafn.md`. Pareto covers HAFN as
+HAFNI (Oslo line) — alias map handles it.
+
+**Pareto NAV/stance trajectory:** buyback completed at sub-0.8× NAV
+(Jan-25); NAV $7.4 / NOK 71 (2026-04-07) → "just above NOK 80" (2026-05-27)
+✓ consistent with our watchlist broker NAV $8.11. Re-rated to premium:
+0.97× (Mar-26) → 1.04-1.1× (May-26) — HAFNI and TORM now bracket the TOP
+of the product space while STNG holds the bottom.
+
+**Refresh flag:** Hafnia ordered 4x MR newbuilds <$50M each, 2028 delivery
+(rumoured 2026-03-20, effectively confirmed 2026-04-07 "price spot on our
+generic quotes"). Post-Q1 event — enters the Q2 balance sheet as
+commitments + advances. Our txn-anchored TRIM/SHORT (k 1.43) is the same
+INSW/STNG-pattern mark-vintage gap; no change to the §6 read.
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

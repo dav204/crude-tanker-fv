@@ -1,6 +1,8 @@
 """Tests for the incremental Pareto S&P scan (sp_scan.py)."""
 
 from crude_tanker_fv.sp_scan import (
+    NAME_ALIASES,
+    extract_name_mentions,
     extract_sp_candidates,
     load_scan_state,
     save_scan_state,
@@ -45,6 +47,40 @@ def test_scan_state_round_trip(tmp_path):
     assert load_scan_state(state) is None
     save_scan_state("2026-06-08", state)
     assert load_scan_state(state) == "2026-06-08"
+
+
+def test_name_mentions_alias_aware():
+    # Pareto uses Oslo tickers / company names — OET is ECO, HAFNI is HAFN.
+    text = ("OET also entered into two $50m bank facilities for the previously "
+            "announced refinancings; we peg the company at ~1.55x NAV. "
+            "HAFNI: Finishes up buyback program at sub-0.8x NAV with 3.95m shares bought.")
+    hits = extract_name_mentions(text, ["ECO", "HAFN", "DHT"])
+    tickers = {t for t, _ in hits}
+    assert tickers == {"ECO", "HAFN"}
+
+
+def test_name_mentions_require_context():
+    # A bare peer-list drop with no valuation/action context is noise.
+    text = ("Shipping equities traded lower across the board yesterday, with "
+            "DHT, FRO and TNK among the laggards in an otherwise quiet session "
+            "for the broader tanker complex across both basins worldwide.")
+    assert extract_name_mentions(text, ["DHT", "FRO", "TNK"]) == []
+
+
+def test_name_mentions_short_ticker_case_sensitivity():
+    # 'TEN' must not fire on the word 'ten'; 'Tsakos' fires case-insensitively.
+    noise = ("The fleet has grown by more than ten vessels over the period, with "
+             "the dividend policy unchanged across all of the company's segments.")
+    assert extract_name_mentions(noise, ["TEN"]) == []
+    real = ("Tsakos Energy Navigation declared a quarterly dividend and trades "
+            "at a steep discount to NAV on our numbers per yesterday's close.")
+    assert {t for t, _ in extract_name_mentions(real, ["TEN"])} == {"TEN"}
+
+
+def test_all_watchlist_names_have_aliases():
+    assert set(NAME_ALIASES) >= {"DHT", "ECO", "FRO", "INSW", "TNK", "NAT", "FLNG",
+                                 "CCEC", "STNG", "HAFN", "TRMD", "ASC", "TEN",
+                                 "SBLK", "GNK"}
 
 
 def test_select_files_filters_by_cursor_and_sorts():

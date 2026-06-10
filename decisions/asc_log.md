@@ -7,6 +7,42 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.00
+- Single-point FV: $14.88
+- Scenario PW FV: $15.05 (EV -5.9%)
+- NAV / share: $15.93
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +30.1pp (k_broker 1.33)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (6 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_asc.md`. **Pareto states "We don't
+cover ASC" verbatim (2025-02-20)** — APPROX consensus_pnav confirmed from
+the horse's mouth.
+
+Timeline color: a tanker peer took a passive 5% stake in Ardmore (Feb-25;
+Pareto scathing about cash-rich NAV-discount names buying peer equity) and
+exited fully by Feb-26. 2026-04-30: ASC "doubling of its dividend payout
+ratio (now distributing 2/3rds of earnings)" — already captured in
+dividend_policies/asc.yaml (0.667) ✓ — plus an order for 2x 40.5k dwt
+handysize at $44.9M each (Wuhu, late-2028 delivery). **Refresh flag:** the
+handysize NB order is post-Q1 → enters the Q2 balance sheet as
+commitments; also a future age-0 print for the clean-Handy class if we
+ever curve it. Off-curve chemical-Handy residual treatment unchanged.
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

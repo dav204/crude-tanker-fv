@@ -92,7 +92,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2025-04-28 • age 17 • $14.25M • Pareto Shipping Daily 2025-04-28 — Thenamaris disclosure
   - 2025-11-14 • age 0 • $35.0M, newbuild_resale (+0%) • Pareto Shipping Daily 2025-11-14 — broker reports
   - 2026-06-05 • age 2 • $42.7M • Pareto Shipping Daily 2026-06-05 — broker reports
-- **Suezmax** (23 prints, as_of 2026-06-09):
+- **Suezmax** (24 prints, as_of 2026-06-09):
   - 2026-05-15 • age 17 • $53.5M • TNK Q2 2026 ER (subsequent-events disclosure — disposal of 2009-built Suezmax)
   - 2025-08-15 • age 6 • $96.0M • trade press (Splash247 / TradeWinds S&P column, Aug 2025 — modern Suezmax market commentary)
   - 2025-10-15 • age 8 • $88.0M • trade press (Hellenic Shipping News / Splash247 weekly S&P, Oct 2025)
@@ -108,6 +108,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2025-10-09 • age 13 • $44.0M • Pareto Shipping Daily 2025-10-09 — Eastern Pacific disclosure
   - 2025-11-20 • age 12 • $58.0M • Pareto Shipping Daily 2025-11-20 — Stena disclosure
   - 2025-05-22 • age 16 • $36.4M • Pareto Shipping Daily 2025-05-22 — Advantage Tankers disclosure
+  - 2025-03-14 • age 16 • $40.0M • Pareto Shipping Daily 2025-03-14 — broker reports (Tsakos disposal)
   - 2026-02-16 • age 17 • $46.0M • Pareto Shipping Daily 2026-02-16 — Maran disclosure
   - 2026-05-05 • age 15 • $67.0M • Pareto Shipping Daily 2026-05-05 — CMBT disclosure
   - 2026-05-11 • age 15 • $67.0M • Pareto Shipping Daily 2026-05-11 — broker reports
@@ -156,20 +157,20 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | Name | NAV base→txn | Δ% | EV base→txn | Δpp | Position |
 |---|--:|--:|--:|--:|---|
 | CCEC | $28.10→$28.10 | +0.0% | +35.3%→+35.3% | +0.0 | BUY→BUY |
-| TEN | $88.56→$80.78 | -8.8% | +42.7%→+30.9% | -11.8 | BUY→BUY |
+| TEN | $88.56→$80.79 | -8.8% | +42.7%→+30.9% | -11.8 | BUY→BUY |
 | GNK | $25.40→$26.16 | +3.0% | +4.3%→+6.9% | +2.6 | HOLD→BUY ⚠️ |
-| TNK | $83.32→$77.49 | -7.0% | +11.4%→+4.1% | -7.3 | BUY→HOLD ⚠️ |
+| TNK | $83.32→$77.45 | -7.0% | +11.4%→+4.1% | -7.3 | BUY→HOLD ⚠️ |
 | FLNG | $28.45→$28.45 | +0.0% | +0.1%→+0.1% | +0.0 | HOLD→HOLD |
 | STNG | $83.87→$80.35 | -4.2% | +1.0%→-3.3% | -4.3 | HOLD→HOLD |
 | TRMD | $26.74→$25.43 | -4.9% | -1.3%→-5.4% | -4.1 | HOLD→TRIM/SHORT ⚠️ |
 | SBLK | $25.98→$26.17 | +0.7% | -6.3%→-5.7% | +0.5 | TRIM/SHORT→TRIM/SHORT |
 | ASC | $15.96→$15.93 | -0.2% | -5.8%→-5.9% | -0.1 | TRIM/SHORT→TRIM/SHORT |
 | DHT | $15.29→$12.93 | -15.4% | +5.6%→-8.1% | -13.7 | BUY→TRIM/SHORT ⚠️ |
-| FRO | $28.79→$24.39 | -15.3% | -2.1%→-14.9% | -12.8 | HOLD→TRIM/SHORT ⚠️ |
-| ECO | $39.93→$33.70 | -15.6% | -4.8%→-17.6% | -12.8 | HOLD→TRIM/SHORT ⚠️ |
-| INSW **(WHOLE-CO)** | $57.91→$52.43 | -9.5% | -17.2%→-23.7% | -6.5 | TRIM/SHORT→TRIM/SHORT |
+| FRO | $28.79→$24.40 | -15.3% | -2.1%→-14.9% | -12.8 | HOLD→TRIM/SHORT ⚠️ |
+| ECO | $39.93→$33.71 | -15.6% | -4.8%→-17.5% | -12.7 | HOLD→TRIM/SHORT ⚠️ |
+| INSW **(WHOLE-CO)** | $57.91→$52.40 | -9.5% | -17.2%→-23.8% | -6.6 | TRIM/SHORT→TRIM/SHORT |
 | HAFN | $5.34→$5.22 | -2.2% | -23.8%→-25.1% | -1.4 | TRIM/SHORT→TRIM/SHORT |
-| NAT | $2.63→$2.08 | -20.9% | -35.2%→-44.8% | -9.7 | TRIM/SHORT→TRIM/SHORT |
+| NAT | $2.63→$2.07 | -21.2% | -35.2%→-44.9% | -9.8 | TRIM/SHORT→TRIM/SHORT |
 
 _Δ% = (txn − base) / base. Names with no exposure to a recalibrated class show Δ ≈ 0 — useful as a control. ⚠️ flags a position-call flip._
 

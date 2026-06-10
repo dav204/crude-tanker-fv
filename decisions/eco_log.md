@@ -7,6 +7,44 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $47.70
+- Single-point FV: $36.67
+- Scenario PW FV: $39.33 (EV -17.5%)
+- NAV / share: $33.71
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +11.3pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (64 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_eco.md`. Pareto covers ECO as OET
+(Oslo line) — the alias map in sp_scan.py handles this.
+
+**Pareto NAV/stance trajectory:** NAV NOK 247 (Jun-25) → NOK 263 (Jun-20-25
+revision); premium expanded 1.05× (May-25) → 1.44× (2026-03-27) → ~1.55×
+(2026-05-04) — the richest tanker name on their numbers. **Lowered to HOLD
+2026-05-26** after Q1.
+
+**The implied-pricing flags are the best part:** 2026-02-19: "A 5Y old VLCC
+is currently bought at ~$154m in the OET share" (vs their own regression
+fair level); 2026-05-11: "a suezmax resale is implicitly bought at ~$150m
+in FRO and OET." Pareto's own arithmetic was flagging froth months before
+their downgrade — and our txn-anchored TRIM/SHORT (EV −17.6%) is the same
+read with a sharper pencil. OET's "well-earned NAV premium" franchise
+(consistently strong realized TCEs) is the bull counter-argument they cite.
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -9,6 +9,42 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T13:25:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.20
+- Single-point FV: $25.66
+- Scenario PW FV: $25.64 (EV -5.7%)
+- NAV / share: $26.17
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +22.6pp (k_broker 1.21)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto free-text retro-sweep (76 mentions, 2025-01 → 2026-06)
+
+Distilled from `outputs/pareto_mentions_sblk.md`. Most material already
+captured during onboarding + the Part 2 transaction-anchoring session;
+this entry records the broker-NAV trajectory the sweep adds.
+
+**Pareto NAV trajectory:** $23 → $25 (2025-09-19 revision, on firm S&P
+datapoints) → $33 by 2026-06-05 ("boosting values by 10% would lift SBLK
+NAV to $36.8 (33)") ✓ exactly our watchlist-implied broker NAV $33.17.
+P/NAV 0.66-0.84× range throughout — the market never paid Pareto's NAV.
+
+**New caveat for the §6 entry:** SBLK ran BUYBACKS during the soft Q3-25
+tape (2025-11-19 "soft Q3 and negative Q4 revisions — buying back
+shares") — the buyback channel is invisible to our dividend strip (same
+§6 caveat as STNG). Worth carrying into the §6 SBLK promotion text.
+
+---
+
 ## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
 
 **Model state:**
