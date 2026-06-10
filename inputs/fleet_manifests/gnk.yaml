@@ -1,27 +1,440 @@
-# GNK fleet manifest — METHODOLOGY.md section 4.1
-# FIXME: source from latest IR fleet page + cross-check against quarter-end
-# report counts (CLAUDE.md: trust the report at quarter-end, not the live page).
+# Genco Shipping & Trading (NYSE:GNK) fleet manifest — METHODOLOGY §4.1 + §11.7.1
+# Source: Q1 2026 10-Q (filed 2026-05-06, accession 0001104659-26-056337):
+# fleet note ("44 drybulk vessels ... 2 Newcastlemax, 17 Capesize, 15 Ultramax,
+# 10 Supramax ... ~4,990,000 dwt ... average age ~12.7 years" at Mar 31 2026)
+# + the per-vessel employment table at pages 33-34 (as of May 5, 2026).
+#
+# Quarter-end convention (CLAUDE.md: trust the report at quarter-end): manifest
+# carries the Mar-31 fleet of 44, INCLUDING Genco Predator (2005 Supramax,
+# held-for-sale at Mar-31, sale completed Apr 15 2026 at $10.6M less 3%
+# commission). The held-for-sale carrying value ($8,585k) is EXCLUDED from
+# working_capital_net in the balance sheet to avoid double-counting.
+# The 2019-built Capesize agreed Apr 16 2026 ($65.0M, June 2026 delivery) is a
+# SUBSEQUENT event — not in this manifest, no commitment existed at Mar-31.
+#
+# Class mapping per §11.7.1: Newcastlemax + Capesize → Cape;
+# Ultramax + Supramax → Supra-Ultra. GNK has NO Pana-class exposure.
+#
+# Scrubber: all 19 Cape-class fitted (GNK 2019-20 major-bulk scrubber program;
+# nmaxes + Courageous explicitly "scrubber-fitted" in Note 5). Minor bulk
+# (Supra-Ultra): not scrubber-fitted.
+# Eco per §3.1: year_built ≥ 2014.
+# Per-vessel dwt approximated from class norms (10-Q gives aggregate 4.99M dwt
+# only; sum below ≈ 4.96M). Valuation uses class + age; dwt is informational.
+# Charter detail from the May-5 employment table: fixed TCs entered with rate +
+# earliest expiration; index-linked (% of BCI) marked spot (spot economics).
 ticker: GNK
 report_date: 2026-Q1
 vessels:
-  # FIXME: one entry per vessel. Example:
-  - id: PLACEHOLDER_001
+  - id: Genco_Stars_and_Stripes
     class: Cape
-    dwt: null           # e.g. 300000
-    age: null           # years (= 2026 - year built)
-    scrubber: null      # true | false
-    eco: null           # true | false (post-2014 fuel-efficient design)
-    charter_status: null  # spot | time_charter
-    charter_rate: null    # USD/day if time_charter, else null
-    charter_end: null     # ISO date if time_charter, else null
-spot_coverage_pct:      # share of fleet on spot, by class (0.0–1.0)
-  Cape: null
-  Pana: null
-  Supra: null
-  Ultra: null
-fleet_summary:          # convenience totals, cross-check against vessels list
-  Cape_count: null
-  Pana_count: null
-  Supra_count: null
-  Ultra_count: null
-  avg_age_Cape: null
+    dwt: 208000
+    age: 6      # built 2020
+    scrubber: true
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Valkyrie
+    class: Cape
+    dwt: 208000
+    age: 6      # built 2020
+    scrubber: true
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Augustus
+    class: Cape
+    dwt: 172000
+    age: 19      # built 2007
+    scrubber: true
+    eco: false
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Tiberius
+    class: Cape
+    dwt: 172000
+    age: 19      # built 2007
+    scrubber: true
+    eco: false
+    charter_status: time_charter
+    charter_rate: 36500
+    charter_end: 2026-06-30
+  - id: Genco_London
+    class: Cape
+    dwt: 172000
+    age: 19      # built 2007
+    scrubber: true
+    eco: false
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Titus
+    class: Cape
+    dwt: 172000
+    age: 19      # built 2007
+    scrubber: true
+    eco: false
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Constantine
+    class: Cape
+    dwt: 172000
+    age: 18      # built 2008
+    scrubber: true
+    eco: false
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Bear
+    class: Cape
+    dwt: 179000
+    age: 16      # built 2010
+    scrubber: true
+    eco: false
+    charter_status: spot      # index-linked TC (% of BCI) = spot economics
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Wolf
+    class: Cape
+    dwt: 179000
+    age: 16      # built 2010
+    scrubber: true
+    eco: false
+    charter_status: spot      # index-linked TC (% of BCI) = spot economics
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Tiger
+    class: Cape
+    dwt: 179000
+    age: 15      # built 2011
+    scrubber: true
+    eco: false
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Lion
+    class: Cape
+    dwt: 179000
+    age: 14      # built 2012
+    scrubber: true
+    eco: false
+    charter_status: spot      # index-linked TC (% of BCI) = spot economics
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Endeavour
+    class: Cape
+    dwt: 180500
+    age: 11      # built 2015
+    scrubber: true
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Resolute
+    class: Cape
+    dwt: 180500
+    age: 11      # built 2015
+    scrubber: true
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Defender
+    class: Cape
+    dwt: 180500
+    age: 10      # built 2016
+    scrubber: true
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Liberty
+    class: Cape
+    dwt: 180500
+    age: 10      # built 2016
+    scrubber: true
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Ranger
+    class: Cape
+    dwt: 180500
+    age: 10      # built 2016
+    scrubber: true
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Reliance
+    class: Cape
+    dwt: 180500
+    age: 10      # built 2016
+    scrubber: true
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Intrepid
+    class: Cape
+    dwt: 180500
+    age: 10      # built 2016
+    scrubber: true
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Courageous
+    class: Cape
+    dwt: 182000
+    age: 6      # built 2020
+    scrubber: true
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Hornet
+    class: Supra-Ultra
+    dwt: 63500
+    age: 12      # built 2014
+    scrubber: false
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Wasp
+    class: Supra-Ultra
+    dwt: 63500
+    age: 11      # built 2015
+    scrubber: false
+    eco: true
+    charter_status: time_charter
+    charter_rate: 15100
+    charter_end: 2026-07-31
+  - id: Genco_Scorpion
+    class: Supra-Ultra
+    dwt: 63500
+    age: 11      # built 2015
+    scrubber: false
+    eco: true
+    charter_status: time_charter
+    charter_rate: 14000
+    charter_end: 2026-05-31
+  - id: Genco_Mantis
+    class: Supra-Ultra
+    dwt: 63500
+    age: 11      # built 2015
+    scrubber: false
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Weatherly
+    class: Supra-Ultra
+    dwt: 63500
+    age: 12      # built 2014
+    scrubber: false
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Columbia
+    class: Supra-Ultra
+    dwt: 63500
+    age: 10      # built 2016
+    scrubber: false
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Magic
+    class: Supra-Ultra
+    dwt: 63500
+    age: 12      # built 2014
+    scrubber: false
+    eco: true
+    charter_status: time_charter
+    charter_rate: 16000
+    charter_end: 2026-05-31
+  - id: Genco_Vigilant
+    class: Supra-Ultra
+    dwt: 63500
+    age: 11      # built 2015
+    scrubber: false
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Freedom
+    class: Supra-Ultra
+    dwt: 63500
+    age: 11      # built 2015
+    scrubber: false
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Enterprise
+    class: Supra-Ultra
+    dwt: 63500
+    age: 10      # built 2016
+    scrubber: false
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Constellation
+    class: Supra-Ultra
+    dwt: 63500
+    age: 9      # built 2017
+    scrubber: false
+    eco: true
+    charter_status: time_charter
+    charter_rate: 21000
+    charter_end: 2026-05-31
+  - id: Genco_Madeleine
+    class: Supra-Ultra
+    dwt: 63500
+    age: 12      # built 2014
+    scrubber: false
+    eco: true
+    charter_status: time_charter
+    charter_rate: 14500
+    charter_end: 2026-05-31
+  - id: Genco_Mayflower
+    class: Supra-Ultra
+    dwt: 63500
+    age: 9      # built 2017
+    scrubber: false
+    eco: true
+    charter_status: time_charter
+    charter_rate: 20000
+    charter_end: 2026-05-31
+  - id: Genco_Mary
+    class: Supra-Ultra
+    dwt: 63500
+    age: 4      # built 2022
+    scrubber: false
+    eco: true
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Laddey
+    class: Supra-Ultra
+    dwt: 63500
+    age: 4      # built 2022
+    scrubber: false
+    eco: true
+    charter_status: time_charter
+    charter_rate: 10500
+    charter_end: 2026-05-31
+  - id: Genco_Hunter
+    class: Supra-Ultra
+    dwt: 56000
+    age: 19      # built 2007
+    scrubber: false
+    eco: false
+    charter_status: time_charter
+    charter_rate: 18750
+    charter_end: 2026-06-30
+  - id: Genco_Aquitaine
+    class: Supra-Ultra
+    dwt: 56000
+    age: 17      # built 2009
+    scrubber: false
+    eco: false
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Ardennes
+    class: Supra-Ultra
+    dwt: 56000
+    age: 17      # built 2009
+    scrubber: false
+    eco: false
+    charter_status: time_charter
+    charter_rate: 25000
+    charter_end: 2026-06-30
+  - id: Genco_Auvergne
+    class: Supra-Ultra
+    dwt: 56000
+    age: 17      # built 2009
+    scrubber: false
+    eco: false
+    charter_status: time_charter
+    charter_rate: 18000
+    charter_end: 2026-05-31
+  - id: Genco_Bourgogne
+    class: Supra-Ultra
+    dwt: 56000
+    age: 16      # built 2010
+    scrubber: false
+    eco: false
+    charter_status: time_charter
+    charter_rate: 15000
+    charter_end: 2026-05-31
+  - id: Genco_Brittany
+    class: Supra-Ultra
+    dwt: 56000
+    age: 16      # built 2010
+    scrubber: false
+    eco: false
+    charter_status: time_charter
+    charter_rate: 20000
+    charter_end: 2026-07-31
+  - id: Genco_Languedoc
+    class: Supra-Ultra
+    dwt: 56000
+    age: 16      # built 2010
+    scrubber: false
+    eco: false
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Pyrenees
+    class: Supra-Ultra
+    dwt: 56000
+    age: 16      # built 2010
+    scrubber: false
+    eco: false
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
+  - id: Genco_Rhone
+    class: Supra-Ultra
+    dwt: 56000
+    age: 15      # built 2011
+    scrubber: false
+    eco: false
+    charter_status: time_charter
+    charter_rate: 15500
+    charter_end: 2026-05-31
+  - id: Genco_Predator
+    class: Supra-Ultra
+    dwt: 56000
+    age: 21      # built 2005
+    scrubber: false
+    eco: false
+    charter_status: spot      # held for sale at Mar-31; sold Apr 15 2026 for $10.6M
+    charter_rate: null
+    charter_end: null
+# Spot coverage per class — from the May-5 employment table.
+# Cape: 18 of 19 on voyage/spot or index-linked BCI; only Tiberius on fixed TC.
+# Supra-Ultra: 12 of 25 on voyage/spot; 13 on short fixed TCs (all expire
+# May-Jul 2026 — effectively rolling near-spot exposure).
+spot_coverage_pct:
+  Cape: 0.95
+  Supra-Ultra: 0.48
+
+# Fleet summary — cross-check against vessels list.
+fleet_summary:
+  Cape_count: 19
+  avg_age_Cape: 12.9
+  Supra-Ultra_count: 25
+  avg_age_Supra-Ultra: 12.8
+  total_operating: 44
+  newbuildings_on_order: 0     # no NB orderbook; Apr-16 2026 secondhand cape agreement is post-Q

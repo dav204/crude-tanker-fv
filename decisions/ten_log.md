@@ -106,6 +106,24 @@ Or any of:
 
 ---
 
+## 2026-06-10T12:59:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.00
+- Single-point FV: $53.31
+- Scenario PW FV: $57.61 (EV +30.9%)
+- NAV / share: $80.78
+- Position: **BUY (undervalued)**
+- Broker spread: +43.0pp (k_broker 1.24)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-10T02:49:54+00:00 — Pipeline run (auto)
 
 **Model state:**

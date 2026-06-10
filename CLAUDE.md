@@ -109,10 +109,11 @@ quarter of data. **The bars apply at lock-time, not per-run.**
   Set B / Set B-revised" are not interchangeable. Cross-sector "Set B"
   without a prefix is a methodology error.
 - **Transaction-anchored recalibration** covers eight classes with own
-  fits as of 2026-06-09 Part 3: VLCC (10 in-window), Suezmax (18),
+  fits as of 2026-06-10: VLCC (10 in-window), Suezmax (18),
   Aframax (12), **LR2 (11 — own-fit; the Aframax-proxy alias is retired)**,
-  MR (21), Cape (21), Pana (4), Supra-Ultra (17). Primarily mined from
-  the Pareto Shipping Daily archive via `sp_scan.py`. DO NOT add other
+  MR (21), Cape (25), Pana (4), Supra-Ultra (17). Primarily mined from
+  the Pareto Shipping Daily archive via `sp_scan.py`; GNK's 10-Q added 4
+  issuer-confirmed Cape prints at onboarding. DO NOT add other
   classes (LR1, Handysize, LNGC, MGC) without an analogous sample —
   the 2026-06-09 LNGC scan found only demolition prints, so LNG stays
   out (§9.9 scope discipline). **`use_transaction_anchored` is DEFAULT-ON
@@ -242,7 +243,18 @@ go in Q3.
   overstated (−10%/−13%), Pana roughly calibrated. Transaction sample:
   Pareto Shipping Daily archive + SBLK Q1 2026 6-K Star Stonington
   ($19.6M). Tool TRIM/SHORT, broker BUY. Onboarded + transaction-anchored
-  2026-06-09.
+  2026-06-09. GNK (k 1.04 on identical curves) isolates SBLK's gap as
+  name-specific — likely the 46-vessel Pana book on the thinnest fit.
+- **GNK** — second dry-bulk validator; VALIDATES the transaction-anchored
+  dry-bulk curves (k_broker 1.04, gap −5.2% — within the v1 ±10% bar on
+  the same marks where SBLK reads −21%). No Pana exposure (19 Cape /
+  25 Supra-Ultra at Mar-31). US domestic issuer — 10-Q not 6-K; per-vessel
+  employment table lives in the 10-Q MD&A. **LIVE DEAL: Diana hostile cash
+  tender $24.80, deadline Jun-26-2026; price is tender-pinned, so EV/position
+  signals are deal-arb readings, not NAV-discount signals, until resolution.**
+  No §15 haircut (event risk ≠ realisation impairment). v1 lock outcome:
+  1/2 (50%) FAIL-with-explanation — the miss is the documented SBLK case;
+  no curve tuning per the back-solve rule. Onboarded 2026-06-09/10.
 
 ## The compounding-knowledge habit
 
@@ -292,3 +304,15 @@ sessions.
   data-quality only (no per-vessel split). FV-band + sweep tests re-based.
   Drift flags on this run are the re-base, not market moves — 9 logs
   annotated. tests: 198 passed.
+- **2026-06-10** — **GNK onboarded** (15th name, second dry-bulk validator)
+  from the Q1 2026 10-Q. k_broker 1.04 / gap −5.2% — VALIDATES the
+  transaction-anchored dry-bulk curves on a no-Pana fleet; isolates SBLK's
+  −21% as name-specific. v1 dry-bulk calibration lock recorded as 1/2
+  (50%) FAIL-with-explanation (SBLK = documented §6 mark-driven miss; no
+  tuning per the back-solve rule); revisit at Q3 with the ≥80%/±5% bar.
+  6 prints harvested at onboarding (2× GNK nmax $72.75M + Courageous
+  $63.55M + Maran SWS cape $30M in-window; Picardy/Predator $10.6M
+  documentation) — Cape fit n 21→25, +16.0%/+12.7%; SBLK moved −0.1%
+  (under drift gate). Diana tender deal overlay documented in
+  decisions/gnk_log.md + watchlist comment — GNK price is tender-pinned
+  until Jun-26. tests: 201 passed.

@@ -1,13 +1,35 @@
-# GNK cost structure — METHODOLOGY.md section 4.4
-# FIXME: derive from latest quarterly results (USD).
+# Genco Shipping & Trading cost structure — METHODOLOGY §4.4
+# Source: Q1 2026 10-Q income statement + operating data (filed 2026-05-06).
+# All figures derived from Q1 2026 actuals; annualised (×4).
+#
+# Per-class opex calibration:
+# Q1 2026 disclosed fleet-average DVOE = $6,805/vessel/day (10-Q MD&A; up from
+# $6,592 in Q1 2025 on higher crew costs). By class (industry conventions,
+# weighted to the disclosed fleet average):
+#   Cape:        higher opex (larger crews, 180-208k dwt hulls, scrubber upkeep)
+#   Supra-Ultra: lower opex (smaller crews, less consumables)
+# Weighted check against fleet composition (19 Cape / 25 Supra-Ultra):
+#   (19×8000 + 25×5900) / 44 = $6,807/day  ← within $2/day of disclosed
 ticker: GNK
 
 opex_per_day:                 # daily operating cost per vessel, by class
-  Cape: null
-  Pana: null
-  Supra: null
-  Ultra: null
+  Cape: 8000
+  Supra-Ultra: 5900
 
-annual_G_and_A: null
-annual_interest_expense: null
-effective_tax_rate: null      # e.g. 0.02 (tonnage-tax regimes; verify per company)
+# Annual G&A — Q1 2026: G&A $8,109 (incl. $1,830 nonvested stock amortization)
+# + technical management expenses $760 = $8,869 ($k). Annualised ×4 = $35,476.
+# NOTE: Q1 G&A excludes the $3,826 "other operating expense" (non-routine 2026
+# Annual Meeting / proxy-fight costs) — one-off takeover-defence spend, not
+# run-rate shoreside cost.
+annual_G_and_A: 35476000
+
+# Annual interest expense — Q1 2026 gross interest expense $4,498 ($k);
+# annualised ×4 = $17,992. (Net interest after interest income is $3,833/qtr;
+# convention uses gross, matching SBLK.) Run-rate note: $330M drawn at Mar-31
+# vs $200M at Dec-25 — Q1 blends the lower early-quarter balance, so forward
+# interest may bias slightly higher.
+annual_interest_expense: 17992000
+
+# Effective tax rate: 0.0 — Marshall Islands corporation; Q1 2026 income tax
+# expense $0. US Section 883 exemption applies to shipping income.
+effective_tax_rate: 0.0

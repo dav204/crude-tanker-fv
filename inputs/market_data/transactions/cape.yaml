@@ -70,12 +70,38 @@ prints:
     source: Pareto Shipping Daily 2025-06-20 — broker reports
     quality_flag: standard
     notes: Mineral Hiroshige (2019-built nmax 209k dwt, Bocimar). Pareto flagged as "solid datapoint for 2019-built newcastlemax".
-  - date: 2026-04-20
+  - date: 2026-04-16
     vessel_age_at_sale: 7
     sale_price_usd_m: 65.0
-    source: Pareto Shipping Daily 2026-04-21 — GNK disclosure
+    source: GNK Q1 2026 10-Q (accession 0001104659-26-056337) — subsequent-events note; first reported Pareto Shipping Daily 2026-04-21
     quality_flag: standard
-    notes: Genco acquired a 2019-built scrubber-fitted Imabari capesize. Buy-side print but priced at arm's-length.
+    notes: GNK agreement (Apr 16 2026) to acquire a 2019-built 182,000 dwt scrubber-fitted Capesize for $65.0M; $6.5M deposit paid May 1; June 2026 delivery. Issuer-confirmed (upgraded from broker-report sourcing during GNK onboarding 2026-06-09). Imabari per Pareto.
+  # ---- GNK onboarding harvest (2026-06-09): issuer-disclosed buy-side prints
+  #      from the Q1 2026 10-Q Note 5 + one fresh Pareto print ----
+  - date: 2025-11-15
+    vessel_age_at_sale: 5
+    sale_price_usd_m: 72.75
+    source: GNK Q1 2026 10-Q Note 5 — 2x Newcastlemax purchase agreement
+    quality_flag: standard
+    notes: Genco Stars and Stripes (2020-built 208,000 dwt scrubber-fitted Newcastlemax). 2-vessel package $145.5M total ($72.75M each); delivered Mar 5 2026. Sits right on the Atlantic Lion ($73.5M, Dec-25) and Nord Palladium ($76.25M, Jan-26) modern-nmax cluster.
+  - date: 2025-11-15
+    vessel_age_at_sale: 5
+    sale_price_usd_m: 72.75
+    source: GNK Q1 2026 10-Q Note 5 — 2x Newcastlemax purchase agreement
+    quality_flag: standard
+    notes: Genco Valkyrie (2020-built 208,000 dwt scrubber-fitted Newcastlemax). Sister in the $145.5M package; delivered Mar 24 2026.
+  - date: 2025-07-10
+    vessel_age_at_sale: 5
+    sale_price_usd_m: 63.55
+    source: GNK Q1 2026 10-Q Note 5 — Capesize purchase agreement
+    quality_flag: standard
+    notes: Genco Courageous (2020-built 182,000 dwt scrubber-fitted Capesize). $63.55M; delivered Oct 15 2025. Standard-cape (not nmax) datapoint at age 5 — nmax premium over standard cape visible vs the $72.75M sisters.
+  - date: 2026-06-05
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 30.0
+    source: Pareto Shipping Daily 2026-06-05 — Maran disclosure
+    quality_flag: standard
+    notes: Maran 2x 2008/09-built SWS (Chinese yard) capesizes, $60M en-bloc ($30M each) vs Pareto quote $55M. This row is the 2009-built (age 17, in-window); the 2008-built sister (age 18) is out-of-window — see documentation section.
   - date: 2025-08-15
     vessel_age_at_sale: 9
     sale_price_usd_m: 55.0
@@ -187,3 +213,9 @@ prints:
     source: Pareto Shipping Daily 2026-03-10 — broker reports
     quality_flag: standard
     notes: outside [3,17] window. Lucky Carina (2007-built capesize, SWS yard). Confirms Chinese-yard 19yo print at low end of older-cape cluster.
+  - date: 2026-06-05
+    vessel_age_at_sale: 18
+    sale_price_usd_m: 30.0
+    source: Pareto Shipping Daily 2026-06-05 — Maran disclosure
+    quality_flag: standard
+    notes: outside [3,17] window. The 2008-built sister in the Maran 2x SWS capesize $60M en-bloc (the 2009-built half is in the fit). Confirms vintage-cape strength continuing into Jun-2026.

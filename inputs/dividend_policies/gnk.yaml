@@ -1,12 +1,23 @@
-# GNK dividend policy — METHODOLOGY.md section 4.3
-# FIXME: source from latest capital allocation policy / earnings release.
-# Known v1 policies (METHODOLOGY §4.3):
-#   FRO  — variable ~75–80% of net income, no fixed base
-#   DHT  — variable 100% of net income, $0.025/qtr nominal floor
-#   ECO  — variable, 75% of EPS above breakeven
-#   INSW — $0.12/qtr base + supplemental variable on excess earnings
+# Genco Shipping & Trading dividend policy — METHODOLOGY §4.3
+# Source: Q1 2026 10-Q "Dividends" section (filed 2026-05-06).
+#
+# Stated policy (formulaic, GNK's "value strategy"):
+#   Operating cash flow
+#   Less: voluntary quarterly reserve (Board discretion; anticipated to be
+#         based on future quarterly debt repayments and interest expense)
+#   = Cash flow distributable as dividends
+#
+# Q2 2026 declared (May 6, 2026): $0.35/share. Q1 2026 diluted EPS was $0.21
+# ($9,309k / 44.41M shares) — the cash-flow formula pays THROUGH earnings
+# because D&A ($21.0M/qtr) adds back to operating cash flow before the
+# reserve. Through-cycle, the formula approximates a full distribution of
+# earnings after maintenance/deleveraging reserve.
+#
+# v1 methodology characterisation: variable, ~100% of net income equivalent,
+# no fixed base, no floor (GNK paid token $0.15/qtr dividends through the
+# 2023 trough — the reserve flexes rather than the policy suspending).
 ticker: GNK
-policy_type: null             # e.g. variable | base_plus_variable | fixed
-payout_ratio: null            # fraction of net income (0–1)
-base_dividend_per_share: null # fixed per-share base, 0 if none
-floor: null                   # minimum quarterly payment, 0 if none
+policy_type: variable
+payout_ratio: 1.00            # cash-flow formula ≈ full NI distribution through-cycle
+base_dividend_per_share: 0    # no fixed base
+floor: 0                      # no contractual floor (reserve flexes instead)

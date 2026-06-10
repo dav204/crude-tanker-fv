@@ -1,23 +1,61 @@
-# Balance sheet snapshot template — METHODOLOGY.md section 4.2
-# Copy to {ticker}_{quarter}.yaml (e.g. dht_2026-Q1.yaml) and fill in. USD.
+# Genco Shipping & Trading (NYSE:GNK) balance sheet — METHODOLOGY §4.2
+# Source: Q1 2026 10-Q, Condensed Consolidated Balance Sheet at 2026-03-31
+# (filed 2026-05-06, accession 0001104659-26-056337). All figures USD.
+#
+# Reconciliation discipline (per DHT/SBLK convention): working_capital_net
+# EXCLUDES cash and EXCLUDES debt — the NAV formula adds cash and subtracts
+# total_debt separately.
 ticker: GNK
 quarter: 2026-Q1
-cash_and_equivalents: null
-working_capital_net: null
-total_debt: null
-lease_liabilities: null
-newbuild_capex_commitments: null
-newbuild_advances_paid: null
-diluted_shares_outstanding: null
-# Optional. Sum of preferred-equity liquidation preferences (subtracts from
-# NAV ahead of common). Omit or leave at 0 if the name has no preferreds.
+
+cash_and_equivalents: 54770000       # "Cash and cash equivalents"
+
+# Working capital net (non-cash, non-debt):
+# Current assets ex-cash: Due from charterers 20,273 + Prepaid 14,204
+#   + Inventories 22,859 = 57,336 ($k)
+# EXCLUDES "Vessels held for sale" 8,585 — the Genco Predator is carried in
+# the fleet manifest at quarter-end (valued on the curve); including its
+# held-for-sale carrying value here would double-count the vessel.
+# Current liabilities (all non-debt): AP + accrued 34,536 + deferred revenue
+#   5,979 = 40,515 ($k)
+# Net working capital = 57,336 - 40,515 = 16,821 ($k)
+working_capital_net: 16821000
+
+# Total debt: $680M Revolver drawn principal at Mar-31 = $330,000 ($k).
+# (Balance sheet shows net-of-deferred-financing 318,879; NAV uses face
+# principal owed — deferred financing costs are not a creditor claim
+# reduction.) GNK has no sale-leaseback / lease financing in debt.
+total_debt: 330000000
+
+# Operating lease liabilities (office space; GNK has no charter-in vessel
+# leases on balance sheet): long-term operating lease liabilities 5,616 ($k).
+lease_liabilities: 5616000
+
+# Newbuild commitments: NONE at Mar-31. Both Nov-2025 Newcastlemax purchases
+# ($145.5M total) were DELIVERED Mar 5 / Mar 24 2026 (in fleet + in debt).
+# "Deposits on vessels" at Mar-31 = $0 (the Dec-25 $14,585k was the nmax
+# escrow, since applied). The Apr-16 2026 agreement for a 2019-built Capesize
+# ($65.0M, $6.5M deposit paid May 1, June 2026 delivery) is a SUBSEQUENT
+# event — no commitment existed at the balance-sheet date. Pick it up in the
+# 2026-Q2 refresh as either delivered fleet or commitment + advance.
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+# Weighted-average diluted shares, Q1 2026 income statement (§4.2 convention):
+# basic 43,706,069; diluted 44,411,222 (dilutive RSUs/options ~705k).
+diluted_shares_outstanding: 44411222
+
+# No preferred equity outstanding.
 preferred_equity: 0
-# Optional. NPV of contracted cash flows for off-curve / contract-anchored
-# vessel sleeves — currently the DP2 shuttle convention (METHODOLOGY §11.6).
-# Adds to NAV. Omit or leave at 0 if no contract-anchored sleeve exists.
+
+# No off-curve contracted sleeve (no DP2 shuttles).
 shuttle_contracted_book: 0
-# Optional. Governance / structural-NAV-trap discount (METHODOLOGY §15) in
-# [0, 1]; applied as a haircut to the NAV term of the blended FV and to the
-# strip's terminal value. Set per-name based on observed multi-year median
-# P/NAV vs peer group. Defaults to 0 (asset NAV treated as fully realisable).
-governance_discount_pct: 0
+
+# §15 governance discount: 0.0 — widely-held US domestic issuer, formulaic
+# dividend policy, active independent board. NOTE: GNK is under a live
+# hostile tender from Diana Shipping ($24.80/sh cash, deadline Jun 26 2026,
+# board rejected; proxy fight at the Jun 18 2026 annual meeting; SBLK has a
+# conditional side-agreement to buy 16 GNK vessels for $470.5M if Diana
+# succeeds). That pins the PRICE to deal odds — it does not impair asset-NAV
+# realisation, so no §15 haircut. See decisions/gnk_log.md.
+governance_discount_pct: 0.0

@@ -158,13 +158,19 @@ SBLK:
   sector: dry_bulk
   as_of: 2026-06-05
 
-# FIXME: filled in by /add-ticker scaffold GNK. Replace null values with real data,
-# then re-order alphabetically if you care about list order.
 GNK:
-  current_price: null          # FIXME: latest close (Pareto Shipping Daily, dated)
-  analyst_target: null         # FIXME: analyst / VIE target
-  consensus_pnav: null         # FIXME: Pareto P/NAV (or APPROX if no Pareto coverage —
-                               # see CLAUDE.md for the APPROX-anchored treatment)
-  consensus_fwd_pe: null       # FIXME: Pareto consensus 1Y FWD P/E (or APPROX)
+  current_price: 24.00         # Pareto Shipping Daily Jun 4 2026
+  analyst_target: 24.80        # Diana Shipping LIVE CASH TENDER $24.80/sh (raised from
+                               # $23.50 on May 27 2026; deadline Jun 26 2026; board
+                               # rejected; proxy fight at Jun-18 AGM). The most concrete
+                               # external value marker. Pareto NAV = $24.00/0.87 = $27.59
+                               # ("0.9x NAV on our numbers" per Pareto May-28 daily —
+                               # cross-checks exactly). DEAL CAVEAT: price is pinned to
+                               # tender odds, NOT NAV — EV-vs-price readings carry deal
+                               # noise until the tender resolves. See decisions/gnk_log.md.
+  consensus_pnav: 0.87         # Pareto Shipping Daily Jun 4 2026 (anchored series; GNK is
+                               # the second of three Pareto-anchored dry bulk validators
+                               # per METHODOLOGY §11.7.2 — SBLK / GNK / HSHP).
+  consensus_fwd_pe: 13.9       # Pareto consensus 1Y FWD P/E Jun 4 2026
   sector: dry_bulk
-  as_of: null                  # FIXME: YYYY-MM-DD
+  as_of: 2026-06-04

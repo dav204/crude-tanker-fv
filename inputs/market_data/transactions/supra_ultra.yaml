@@ -148,3 +148,15 @@ prints:
     source: Pareto Shipping Daily 2025-03-17 — SBLK disclosure
     quality_flag: standard
     notes: outside [3,17] window. Strange Attraction (2006-built supramax, SBLK). "One of its oldest vessels." Confirms old-age leg.
+  - date: 2026-02-24
+    vessel_age_at_sale: 21
+    sale_price_usd_m: 10.6
+    source: GNK Q1 2026 10-Q Note 5 — sale of Genco Picardy
+    quality_flag: standard
+    notes: outside [3,17] window. Genco Picardy (2005-built Supramax), $10.6M less 3% commission; completed Mar 30 2026. With the Predator sister, validates the old-age Supramax leg ~60% above the $6.5M scrap anchor at age 21.
+  - date: 2026-02-24
+    vessel_age_at_sale: 21
+    sale_price_usd_m: 10.6
+    source: GNK Q1 2026 10-Q Note 5 — sale of Genco Predator
+    quality_flag: standard
+    notes: outside [3,17] window. Genco Predator (2005-built Supramax), $10.6M less 3% commission; completed Apr 15 2026 (held-for-sale at Mar-31; carried in the GNK fleet manifest at quarter-end).
