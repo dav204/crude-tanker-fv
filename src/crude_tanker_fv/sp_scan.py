@@ -28,12 +28,29 @@ Two modes:
    Tsakos=TEN). Does NOT use or advance the print-scan cursor — a name
    sweep always covers the full archive window requested.
 
+3. LINKED-REPORT HARVEST (`--links` / `--fetch-links`) — the dailies carry
+   PDF link annotations (pypdf's extract_text() never sees them: they live
+   in /Annots) pointing at Pareto's detailed research (company quarterly
+   reviews/previews, newsflashes, sector notes) hosted publicly on
+   FactSet/BlueMatrix tracked-download URLs — no auth, tokens long-lived
+   (a 2024-08 token still served in 2026-06). Some arrive Proofpoint-
+   wrapped (urldefense.com /v3/) and are unwrapped offline. `--links`
+   extracts annotations into the inventory at
+   outputs/pareto_daily_links.json; `--fetch-links` downloads inventory
+   entries whose BlueMatrix report ID is not already in the archive, into
+   inputs/research_pareto_other/linked/ (then rebuild the manifest with
+   `pareto_archive --build-manifest`). The 2026-06-10 retro-harvest pulled
+   220 reports (217 classified company_report) from 240 link-bearing
+   dailies.
+
 CLI:
     python -m crude_tanker_fv.sp_scan              # incremental print scan
     python -m crude_tanker_fv.sp_scan --full       # ignore cursor, scan all
     python -m crude_tanker_fv.sp_scan --since 2026-01-01
     python -m crude_tanker_fv.sp_scan --names DHT,FRO          # name sweep
     python -m crude_tanker_fv.sp_scan --names all --since 2025-01-01
+    python -m crude_tanker_fv.sp_scan --links      # refresh link inventory
+    python -m crude_tanker_fv.sp_scan --fetch-links  # download new reports
 """
 
 from __future__ import annotations
@@ -273,13 +290,164 @@ def run_name_scan(tickers: list[str], since: str | None,
     return counts
 
 
+LINKS_INVENTORY = ROOT / "outputs" / "pareto_daily_links.json"
+LINKED_DIR = ROOT / "inputs" / "research_pareto_other" / "linked"
+
+
+def unwrap_tracked_url(uri: str) -> str | None:
+    """Normalize a daily's link annotation to a fetchable report URL.
+
+    Direct FactSet/BlueMatrix tracked links pass through; Proofpoint v3
+    wrappers (urldefense.com) are decoded offline (*HH escapes -> %HH, and
+    the single-slash scheme artifact fixed). Returns None for everything
+    that is not a tracked report link (mailto, news sites, share pages).
+    """
+    if "urldefense.com" in uri:
+        m = re.search(r"/v3/__(.+?)__;", uri)
+        if not m:
+            return None
+        uri = re.sub(r"\*([0-9A-Fa-f]{2})", r"%\1", m.group(1))
+        uri = uri.replace("https:/p", "https://p")
+    return uri if "factset" in uri or "bluematrix" in uri else None
+
+
+def extract_link_annotations(reader) -> list[str]:
+    """URI link annotations from an open PdfReader (text layer never has these)."""
+    uris: list[str] = []
+    for page in reader.pages:
+        annots = page.get("/Annots")
+        if not annots:
+            continue
+        for a in annots:
+            try:
+                action = a.get_object().get("/A")
+                if action and action.get("/URI"):
+                    uris.append(str(action["/URI"]))
+            except Exception:
+                continue
+    return uris
+
+
+def run_link_inventory(since: str | None, manifest_path: Path = MANIFEST_PATH) -> int:
+    """Extract link annotations from dailies into the inventory; returns new-link count."""
+    from pypdf import PdfReader
+
+    inventory = json.loads(LINKS_INVENTORY.read_text()) if LINKS_INVENTORY.exists() else []
+    known = {e["uri"] for e in inventory}
+    manifest = json.loads(manifest_path.read_text())
+    new = 0
+    for f in select_files(manifest, since):
+        path = ROOT / f["path"]
+        if not path.exists():
+            continue
+        try:
+            uris = extract_link_annotations(PdfReader(str(path)))
+        except Exception:
+            continue
+        for u in uris:
+            if u in known or u.startswith("mailto:"):
+                continue
+            known.add(u)
+            kind = ("factset_report" if "factset" in u
+                    else "urldefense_wrapped" if "urldefense" in u
+                    else "pareto_share" if "paretosec" in u
+                    else "external")
+            inventory.append({"report_date": f["report_date"], "kind": kind, "uri": u})
+            new += 1
+    inventory.sort(key=lambda e: e["report_date"])
+    LINKS_INVENTORY.write_text(json.dumps(inventory, indent=1) + "\n")
+    return new
+
+
+def existing_report_ids() -> set[str]:
+    """BlueMatrix report IDs already present anywhere in the archive."""
+    ids: set[str] = set()
+    for root in (ROOT / "inputs" / "research_pareto", ROOT / "inputs" / "research_pareto_other"):
+        for p in root.rglob("*.pdf"):
+            m = re.search(r"(\d{6})\.pdf$", p.name)
+            if m:
+                ids.add(m.group(1))
+    return ids
+
+
+def run_fetch_links() -> tuple[int, int, int]:
+    """Download inventory entries whose report ID isn't in the archive yet.
+
+    Returns (downloaded, skipped_dupe, failed). Polite 0.4s spacing; tokens
+    are long-lived but a future-expired token just lands in `failed`.
+
+    The resolved BlueMatrix report_id is written back onto each inventory
+    entry after its first fetch, so re-runs skip already-resolved links
+    WITHOUT network round-trips — only never-fetched links cost a request.
+    """
+    import time
+    import urllib.request
+
+    inventory = json.loads(LINKS_INVENTORY.read_text()) if LINKS_INVENTORY.exists() else []
+    LINKED_DIR.mkdir(parents=True, exist_ok=True)
+    existing = existing_report_ids()
+
+    # One representative inventory entry per unique fetch URL.
+    by_url: dict[str, dict] = {}
+    for e in inventory:
+        u = unwrap_tracked_url(e["uri"])
+        if u and u not in by_url:
+            by_url[u] = e
+
+    got = skipped = failed = 0
+    for url, entry in sorted(by_url.items(), key=lambda kv: kv[1]["report_date"]):
+        rid = entry.get("report_id")
+        if rid and rid in existing:
+            skipped += 1
+            continue   # resolved on a prior run; no network needed
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                cd = resp.headers.get("Content-Disposition", "")
+                m = re.search(r'filename="?(\d+)\.pdf', cd)
+                rid = m.group(1) if m else None
+                if rid:
+                    entry["report_id"] = rid
+                if rid is None or rid in existing:
+                    skipped += 1
+                    continue
+                data = resp.read()
+                if not data.startswith(b"%PDF"):
+                    failed += 1
+                    continue
+                existing.add(rid)
+                (LINKED_DIR / f"{entry['report_date']}_linked-{rid}.pdf").write_bytes(data)
+                got += 1
+        except Exception:
+            failed += 1
+        time.sleep(0.4)
+
+    LINKS_INVENTORY.write_text(json.dumps(inventory, indent=1) + "\n")
+    return got, skipped, failed
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Pareto archive scans (S&P prints / name mentions)")
     ap.add_argument("--full", action="store_true", help="ignore the cursor, scan everything")
     ap.add_argument("--since", help="scan reports strictly after this date (YYYY-MM-DD)")
     ap.add_argument("--names", help="comma-separated tickers (or 'all') for a free-text "
                                     "name-mention sweep; skips the print scan + cursor")
+    ap.add_argument("--links", action="store_true",
+                    help="extract link annotations into outputs/pareto_daily_links.json")
+    ap.add_argument("--fetch-links", action="store_true",
+                    help="download inventory reports not yet in the archive")
     args = ap.parse_args(argv)
+
+    if args.links:
+        n = run_link_inventory(args.since)
+        print(f"{n} new links -> {LINKS_INVENTORY}")
+        return 0
+    if args.fetch_links:
+        got, skipped, failed = run_fetch_links()
+        print(f"downloaded {got}, skipped (already archived) {skipped}, failed {failed}")
+        if got:
+            print("rebuild the manifest: python -m crude_tanker_fv.pareto_archive --build-manifest")
+        return 0
 
     if args.names:
         tickers = list(NAME_ALIASES) if args.names.lower() == "all" else \

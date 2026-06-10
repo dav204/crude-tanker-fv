@@ -7,6 +7,7 @@ from crude_tanker_fv.sp_scan import (
     load_scan_state,
     save_scan_state,
     select_files,
+    unwrap_tracked_url,
 )
 
 
@@ -81,6 +82,24 @@ def test_all_watchlist_names_have_aliases():
     assert set(NAME_ALIASES) >= {"DHT", "ECO", "FRO", "INSW", "TNK", "NAT", "FLNG",
                                  "CCEC", "STNG", "HAFN", "TRMD", "ASC", "TEN",
                                  "SBLK", "GNK"}
+
+
+def test_unwrap_tracked_url_passthrough_and_proofpoint():
+    direct = "https://parp.hosting.factset.com/PARTNERS_TD_TRACK/external/download?q=abc123"
+    assert unwrap_tracked_url(direct) == direct
+    # Proofpoint v3 wrapper: extract between __ and __; decode *HH escapes;
+    # fix the single-slash scheme artifact.
+    wrapped = ("https://urldefense.com/v3/__https:/parp.hosting.factset.com/"
+               "PARTNERS_TD_TRACK/external/download?q=tok*2Babc*2Fdef__;KyU!!extra!!")
+    out = unwrap_tracked_url(wrapped)
+    assert out == ("https://parp.hosting.factset.com/PARTNERS_TD_TRACK/"
+                   "external/download?q=tok%2Babc%2Fdef")
+
+
+def test_unwrap_tracked_url_rejects_non_report_links():
+    assert unwrap_tracked_url("mailto:analyst@paretosec.com") is None
+    assert unwrap_tracked_url("https://www.ft.com/content/abc") is None
+    assert unwrap_tracked_url("https://urldefense.com/v3/__https:/www.ft.com/x__;!!") is None
 
 
 def test_select_files_filters_by_cursor_and_sorts():

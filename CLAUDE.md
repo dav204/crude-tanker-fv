@@ -90,6 +90,18 @@ quarter of data. **The bars apply at lock-time, not per-run.**
   Pareto does NOT publish P/NAV for NAT, ASC, CCEC — those carry APPROX
   values flagged in the YAML comments; `/reconcile` reports them as
   APPROX and downweights the gap accordingly.
+- **The dailies carry hyperlinks to Pareto's detailed research** (company
+  quarterly reviews/previews, newsflashes) as PDF link annotations —
+  `extract_text()` NEVER sees them (they live in /Annots). They resolve to
+  publicly-hosted FactSet/BlueMatrix tracked downloads, no auth, tokens
+  long-lived; some arrive Proofpoint-wrapped (decoded offline). Harvest:
+  `sp_scan --links` (inventory at `outputs/pareto_daily_links.json`, with
+  resolved report_ids baked in) then `sp_scan --fetch-links` (downloads
+  new report IDs to `inputs/research_pareto_other/linked/`) then
+  `pareto_archive --build-manifest`. Retro-harvested 2026-06-10: 220
+  reports (217 company_report) incl. ~70 directly on watchlist names —
+  full NAV breakdowns and estimates, far richer than the daily prose.
+  Run the harvest as part of the weekly/quarterly ingest.
 - **VIE Coverage Universe** (Catlin / Mintzmyer) is an independent
   external check, not a calibration input. Track stance disagreements in
   §6 footnotes; do NOT bulk-update from VIE without an explicit
@@ -320,6 +332,23 @@ sessions.
   data-quality only (no per-vessel split). FV-band + sweep tests re-based.
   Drift flags on this run are the re-base, not market moves — 9 logs
   annotated. tests: 198 passed.
+- **2026-06-10 (later still)** — **Pareto linked-report harvest: 220
+  detail reports pulled from the dailies' hyperlink annotations.** User
+  tip: the dailies embed links to Pareto's full research. pypdf
+  `extract_text()` is blind to /Annots — every prior sweep missed them.
+  240 of 351 dailies carry links → 267 unique tracked-download URLs
+  (FactSet/BlueMatrix, public, long-lived tokens; 100 arrived
+  Proofpoint-wrapped and are unwrapped offline). Downloaded 220 new
+  reports (47 already archived), 0 failures; 217 classify as
+  company_report incl. ~70 on watchlist names (full NAV breakdowns /
+  estimates). `sp_scan --links` + `--fetch-links` codified with
+  inventory + report_id dedupe (no re-fetching on re-runs);
+  `outputs/pareto_daily_links.json` committed. The "Capital Tankers"
+  reports in the set are CAPT (Oslo-listed crude newbuild player,
+  initiated by Pareto Apr-2026, BUY TP NOK 180 at 0.75-0.84x NAV) — a
+  DIFFERENT entity from CCEC, whose no-coverage APPROX status stands.
+  CAPT noted as a future onboarding candidate (Pareto-covered pure
+  crude, deepest crude NAV discount). tests: 207 passed.
 - **2026-06-10 (later)** — **Pareto free-text name-sweep added to the
   process + run retroactively for all 15 names.** `sp_scan.py --names`
   mode (alias-aware: OET=ECO, HAFNI=HAFN, TORM=TRMD, Tsakos=TEN;
