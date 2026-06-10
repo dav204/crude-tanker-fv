@@ -1,23 +1,65 @@
-# Balance sheet snapshot template — METHODOLOGY.md section 4.2
-# Copy to {ticker}_{quarter}.yaml (e.g. dht_2026-Q1.yaml) and fill in. USD.
+# Costamare Bulkers Holdings (NYSE:CMDB) balance sheet — METHODOLOGY §4.2
+# Source: Q1 2026 6-K financials exhibit (exh_992, filed 2026-05-13,
+# accession 0001171843-26-003334), Consolidated Balance Sheet at 2026-03-31
+# (right column; left column is Dec-31-2025). All figures USD.
+#
+# Spinoff context: Costamare Inc. (CMRE) spun the dry-bulk business off in
+# 2025; vessels were contributed at recent fair values, so BOOK ≈ recent
+# market marks — the basis for the P/BV-as-APPROX-P/NAV watchlist convention.
 ticker: CMDB
 quarter: 2026-Q1
-cash_and_equivalents: null
-working_capital_net: null
-total_debt: null
-lease_liabilities: null
-newbuild_capex_commitments: null
-newbuild_advances_paid: null
-diluted_shares_outstanding: null
-# Optional. Sum of preferred-equity liquidation preferences (subtracts from
-# NAV ahead of common). Omit or leave at 0 if the name has no preferreds.
+
+# Cash and cash equivalents 255,105 + restricted cash 3,350 = 258,455 ($k) —
+# matches the PR's footnote-4 "Cash" of $258.5M. Margin deposits ($10,148k,
+# FFA/bunker-swap collateral) are NOT in cash — they sit in working capital
+# (recoverable but encumbered to open derivative positions).
+cash_and_equivalents: 258455000
+
+# Working capital net (non-cash, non-debt), Mar-31 column:
+# Assets: margin deposits 10,148 + AR 13,607 + inventories 14,569
+#   + due-from-related 4,322 + insurance claims 4,567 + derivative FV 2,673
+#   + prepayments 17,273 = 67,159
+# Liabilities (total current 97,983 LESS current debt 13,962 LESS current
+#   operating-lease liabilities 20,648) = 63,373
+# Net = 67,159 - 63,373 = 3,786 ($k)
+working_capital_net: 3786000
+
+# Total debt: long-term 127,401 + current portion 13,962 = 141,363 ($k).
+# (BS lines are net of unamortized deferred financing; face is marginally
+# higher — debt note detail not in the 6-K exhibit. Cross-check: PR states
+# "Cash exceeding Debt by $127.2M": 268.6 cash-incl-margin - 141.4 = 127.2 ✓)
+total_debt: 141363000
+
+# Operating lease liabilities: current 20,648 + non-current ~0 (the
+# non-current section carries only LT debt + other 1,026). These are the
+# CBI chartered-in vessels' lease liabilities (short tenors); the matching
+# RoU asset (21,216) is NOT added to NAV — vessels aren't owned and don't
+# appear in the manifest. Same treatment as SBLK charter-in RoU.
+lease_liabilities: 20648000
+
+# Newbuild commitments: NONE owned (CBI's two chartered-in Kamsarmax NBs are
+# third-party owned). The Astros (ex. Koushun) purchase had only an ADVANCE
+# paid at Mar-31 (amount not separately disclosed; purchase price
+# undisclosed) and closed in Q2 — carried at 0/0 here; enters the fleet at
+# the 2026-Q2 refresh. The advance sits inside "Vessels and advances, net"
+# and is NOT separately counted, so no double-count against the 29-vessel
+# manifest.
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+# 24,180,472 common shares outstanding (20-F). Q1 EPS check:
+# $9,936k / 24,180,472 = $0.411 ✓ matches reported $0.41 (basic ≈ diluted;
+# nominal dilutive awards only).
+diluted_shares_outstanding: 24180472
+
 preferred_equity: 0
-# Optional. NPV of contracted cash flows for off-curve / contract-anchored
-# vessel sleeves — currently the DP2 shuttle convention (METHODOLOGY §11.6).
-# Adds to NAV. Omit or leave at 0 if no contract-anchored sleeve exists.
 shuttle_contracted_book: 0
-# Optional. Governance / structural-NAV-trap discount (METHODOLOGY §15) in
-# [0, 1]; applied as a haircut to the NAV term of the blended FV and to the
-# strip's terminal value. Set per-name based on observed multi-year median
-# P/NAV vs peer group. Defaults to 0 (asset NAV treated as fully realisable).
-governance_discount_pct: 0
+
+# §15 governance discount: 0.0 at v1 — BUT CMDB IS A §15 REVIEW CANDIDATE:
+# related-party management/agency fees ($5.4M/qtr to Costamare-affiliated
+# managers ≈ $21.6M/yr on a $418M mcap), zero dividends/buybacks
+# (accumulated deficit, build-out phase), Konstantakopoulos-family control
+# post-spinoff, and a persistent ~0.6x P/BV print. Same driver family as
+# TEN's 30% haircut. Haircut is an OWNER judgment per §15 — flagged in
+# decisions/cmdb_log.md, not applied unilaterally.
+governance_discount_pct: 0.0

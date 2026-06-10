@@ -138,13 +138,21 @@ TEN:
 # FIXME: filled in by /add-ticker scaffold CMDB. Replace null values with real data,
 # then re-order alphabetically if you care about list order.
 CMDB:
-  current_price: null          # FIXME: latest close (Pareto Shipping Daily, dated)
-  analyst_target: null         # FIXME: analyst / VIE target
-  consensus_pnav: null         # FIXME: Pareto P/NAV (or APPROX if no Pareto coverage —
-                               # see CLAUDE.md for the APPROX-anchored treatment)
-  consensus_fwd_pe: null       # FIXME: Pareto consensus 1Y FWD P/E (or APPROX)
+  current_price: 17.25         # stockanalysis.com 2026-06-10 15:27 EDT (NYSE; Pareto does
+                               # not carry CMDB in its share-price table)
+  analyst_target: 27.98        # APPROX — book value per share ($676,520k equity Mar-31 /
+                               # 24,180,472 sh). NO analyst or VIE coverage exists. Book is
+                               # the best auditable anchor: vessels were contributed at
+                               # recent fair values in the 2025 spinoff, so book ≈ recent
+                               # market marks. NOT a price target in the analyst sense.
+  consensus_pnav: 0.62         # APPROX — price / book-value-per-share (17.25 / 27.98).
+                               # P/BV-as-P/NAV proxy per the spinoff fair-value-basis
+                               # argument above. No Pareto coverage (third dry-bulk
+                               # validator is APPROX-anchored per METHODOLOGY §11.7.2);
+                               # name-sweep of 280 dailies found 0 CMDB mentions.
+  consensus_fwd_pe: 10.5       # APPROX — price / annualised Q1 2026 EPS (17.25 / 1.64)
   sector: dry_bulk
-  as_of: null                  # FIXME: YYYY-MM-DD
+  as_of: 2026-06-10
 
 SBLK:
   current_price: 27.20         # Pareto Shipping Daily Jun 5 2026

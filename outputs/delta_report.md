@@ -1,17 +1,20 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-06-10T18:16:13+00:00
-- **Previous run:** 2026-06-10T13:25:17+00:00
+- **This run:** 2026-06-10T20:00:53+00:00
+- **Previous run:** 2026-06-10T18:16:13+00:00
 
 ## Headline changes (material moves)
 
-- **No material changes.** All tickers within thresholds (|ΔFV%|≤10%, |Δspread|≤5pp, |ΔNAV%|≤5%) and no position flips.
+- **CMDB: new to watchlist** (price $17.25, position BUY (undervalued))
 
 ## Input files changed since last run
 
-- `inputs/market_data/transactions/cape.yaml` (modified)
-- `inputs/market_data/transactions/pana.yaml` (modified)
-- `inputs/market_data/transactions/supra_ultra.yaml` (modified)
+- `inputs/balance_sheets/cmdb_2026-Q1.yaml` (modified)
+- `inputs/cost_structures/cmdb.yaml` (modified)
+- `inputs/data_sources.yaml` (modified)
+- `inputs/dividend_policies/cmdb.yaml` (modified)
+- `inputs/fleet_manifests/cmdb.yaml` (modified)
+- `inputs/watchlist.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -30,7 +33,8 @@
 | TRMD | $28.20 (no change) | $26.09 (no change) | $26.68 (no change) | $25.43 (no change) | TRIM/SHORT (overvalued) | +27.1pp (no change) |
 | ASC | $16.00 (no change) | $14.88 (no change) | $15.05 (no change) | $15.93 (no change) | TRIM/SHORT (overvalued) | +30.1pp (no change) |
 | TEN | $44.00 (no change) | $53.32 (no change) | $57.61 (no change) | $80.79 (no change) | BUY (undervalued) | +42.9pp (no change) |
-| SBLK | $27.20 (no change) | $25.74 (+0.3%) | $25.72 (+0.3%) | $26.27 (+0.4%) | TRIM/SHORT (overvalued) | +22.3pp (-0.3pp) |
-| GNK | $24.00 (no change) | $25.28 (+0.3%) | $25.73 (+0.3%) | $26.24 (+0.3%) | BUY (undervalued) | +4.9pp (-0.3pp) |
+| **CMDB** (new) | $17.25 | $28.35 | $28.32 | $32.23 | BUY (undervalued) | -22.3pp |
+| SBLK | $27.20 (no change) | $25.74 (no change) | $25.72 (no change) | $26.27 (no change) | TRIM/SHORT (overvalued) | +22.3pp (no change) |
+| GNK | $24.00 (no change) | $25.28 (no change) | $25.73 (no change) | $26.24 (no change) | BUY (undervalued) | +4.9pp (no change) |
 
 _⚑ flags a material change (position flip, |ΔFV%| > 10%, |Δspread| > 5pp, or |ΔNAV%| > 5%). ⟵ marks a position flip._

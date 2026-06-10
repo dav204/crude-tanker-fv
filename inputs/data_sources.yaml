@@ -228,9 +228,11 @@ GNK:
   notes: Marshall Islands-domiciled but US DOMESTIC ISSUER on NYSE (files 10-Q/10-K, not 6-K). CIK 1326200. Onboarded 2026-06-09 from Q1 2026 10-Q (accession 0001104659-26-056337). Second Pareto-anchored dry-bulk validator per METHODOLOGY §11.7.2. LIVE DEAL — Diana Shipping hostile cash tender $24.80/sh, deadline 2026-06-26; watch SC 14D9 / SC TO-T amendments alongside the 10-Q cycle until resolved.
 
 CMDB:
-  ir_home: FIXME — Costamare Bulkers IR landing page (verify post-spinoff structure)
-  press_releases: FIXME
-  sec_edgar: FIXME — Costamare Bulkers Inc. CIK (separate from CMRE parent)
-  fleet_page: FIXME
+  ir_home: https://www.costamarebulkers.com/
+  press_releases: https://www.costamarebulkers.com/news/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002033535&type=6-K
+  fleet_page: https://www.costamarebulkers.com/fleet/
+  reporting_pattern: Q-end results released mid-second month of following quarter (Q1 2026 6-K filed 2026-05-13); annual 20-F late March (FY2025 filed 2026-03-30). FPI — 6-K with PR (exh_991) + full financials/MD&A (exh_992); per-vessel fleet table lives in the 20-F.
+  notes: Costamare Bulkers Holdings Limited — 2025 spinoff of Costamare Inc.'s (CMRE) dry-bulk business. CIK 2033535 (separate from CMRE). Monaco-operated, Marshall Islands-incorporated FPI, NYSE CMDB. Third dry-bulk validator, APPROX-anchored per METHODOLOGY §11.7.2 (no Pareto/VIE coverage; P/BV proxies P/NAV per spinoff fair-value basis). Two-layer structure — 29-30 OWNED bulkers (the NAV base) + the CBI chartered-in trading platform (~20 third-party vessels, Kamsarmax-focused, trading book majority transferred to Cargill 2026) which is P&L-only. Onboarded 2026-06-10 from Q1 2026 6-K + FY2025 20-F. ir_home/fleet_page URLs UNVERIFIED canonical patterns — fix on first refresh if broken.
   reporting_pattern: FIXME
   notes: STUB — populated by /add-ticker scaffold; CMDB is the Costamare bulker spinoff (separate listing from CMRE). APPROX-anchored per METHODOLOGY §11.7.2 (no Pareto P/NAV coverage). Refine during Week 2 Day 3-4 onboarding.

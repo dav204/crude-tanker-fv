@@ -121,6 +121,10 @@ NAME_ALIASES: dict[str, list[re.Pattern]] = {
     "TEN": [re.compile(r"\bTEN\b"), re.compile(r"\bTsakos\b", re.IGNORECASE)],
     "SBLK": [re.compile(r"\bSBLK\b"), re.compile(r"\bStar Bulk\b", re.IGNORECASE)],
     "GNK": [re.compile(r"\bGNK\b"), re.compile(r"\bGenco\b", re.IGNORECASE)],
+    # "Costamare Bulk" prefix only — bare "Costamare" is CMRE (containership
+    # parent), a different listing Pareto DOES discuss.
+    "CMDB": [re.compile(r"\bCMDB\b"), re.compile(r"\bCostamare Bulk", re.IGNORECASE),
+             re.compile(r"\bCBI\b")],
 }
 # A name mention is interesting when it carries valuation / stance / action
 # context — bare ticker drops in rate tables and peer lists are noise.

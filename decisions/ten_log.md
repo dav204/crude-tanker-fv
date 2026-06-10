@@ -18,6 +18,24 @@ reference consistent with our $130M-area VLCC NB market read.
 
 ---
 
+## 2026-06-10T20:00:53+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.00
+- Single-point FV: $53.32
+- Scenario PW FV: $57.61 (EV +30.9%)
+- NAV / share: $80.79
+- Position: **BUY (undervalued)**
+- Broker spread: +42.9pp (k_broker 1.24)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-10T18:16:13+00:00 — Pipeline run (auto)
 
 **Model state:**

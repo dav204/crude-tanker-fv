@@ -285,6 +285,17 @@ go in Q3.
   No §15 haircut (event risk ≠ realisation impairment). v1 lock outcome:
   1/2 (50%) FAIL-with-explanation — the miss is the documented SBLK case;
   no curve tuning per the back-solve rule. Onboarded 2026-06-09/10.
+- **CMDB** — third dry-bulk validator, APPROX-anchored (zero Pareto/VIE
+  coverage; consensus_pnav 0.62 is a P/BV proxy — spinoff book ≈ recent
+  fair value). 29 owned old bulkers at Mar-31 (6 Cape / 7 Pana / 16
+  Supra-Ultra); the ~20-vessel CBI chartered-in trading platform is
+  P&L-ONLY, never in the manifest. Tool NAV $32.23 = book +15.8%; price
+  0.54× tool NAV — deepest discount on the board — **but it's a flagged
+  §15 candidate (related-party fees $21.6M/yr, no payout, family control,
+  0.6× P/BV): do NOT act on the +64% EV until the owner sizes a haircut.**
+  Consolidated EPS includes the trading platform → §9.11 xref reads
+  structurally hot. Watch Q2 for the Astros price (clean age-8 Ultramax
+  print) + dividend initiation. Onboarded 2026-06-10; Week 2 closed.
 
 ## The compounding-knowledge habit
 
@@ -366,6 +377,19 @@ sessions.
   APPROX taxonomy (CCEC 0, NAT 4, TEN 5, ASC 6 — "We don't cover ASC"
   verbatim — vs covered names 34-96). Onboarding workflow updated with
   the sweep as step 3; quarterly-refresh habit noted. tests: 205 passed.
+- **2026-06-10 (evening)** — **CMDB onboarded (16th name, third dry-bulk
+  validator) — Week 2 dry-bulk sequence CLOSED.** APPROX-anchored (zero
+  Pareto/VIE coverage; P/BV 0.62 proxies P/NAV on spinoff fair-value
+  book). 29 owned at Mar-31 (Clara/Miracle sold Q1; Astros closed Q2);
+  CBI chartered-in platform excluded as P&L-only. Tool NAV $32.23 =
+  +15.8% over book; 0.54× price/NAV, EV +64% — **flagged §15 candidate
+  (related-party fees / no payout / family control), haircut decision
+  with owner before the signal is actionable.** CMDB added to
+  `APPROX_PNAV_TICKERS` (was missing — briefly mis-entered the lock
+  denominator as 1/3; corrected to 1/2 excluded-APPROX same session).
+  No promotable prints (Clara+Miracle aggregate gain only — no per-vessel
+  prices; no-back-solve). §11.7.8 table marked DONE throughout.
+  tests: 210 passed.
 - **2026-06-10** — **GNK onboarded** (15th name, second dry-bulk validator)
   from the Q1 2026 10-Q. k_broker 1.04 / gap −5.2% — VALIDATES the
   transaction-anchored dry-bulk curves on a no-Pana fleet; isolates SBLK's

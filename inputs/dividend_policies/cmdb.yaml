@@ -1,12 +1,16 @@
-# CMDB dividend policy — METHODOLOGY.md section 4.3
-# FIXME: source from latest capital allocation policy / earnings release.
-# Known v1 policies (METHODOLOGY §4.3):
-#   FRO  — variable ~75–80% of net income, no fixed base
-#   DHT  — variable 100% of net income, $0.025/qtr nominal floor
-#   ECO  — variable, 75% of EPS above breakeven
-#   INSW — $0.12/qtr base + supplemental variable on excess earnings
+# Costamare Bulkers dividend policy — METHODOLOGY §4.3
+# Source: Q1 2026 6-K (zero dividend mentions) + FY2025 20-F Item 8
+# "Common Stock Dividend Policy" (board discretion; none paid).
+#
+# CMDB pays NO common dividend and runs NO buyback: recently-spun growth/
+# build-out phase, accumulated deficit (-$27.4M at Mar-31-2026), capital
+# directed to fleet renewal (Astros purchase, charter-in platform).
+# Modeled as variable with payout 0 — the strip contributes only terminal
+# NAV, no interim distributions. Same shape as CCEC's zero-incremental
+# treatment. REVISIT if the board initiates a payout (a natural catalyst
+# given the net-cash balance sheet — flagged in decisions/cmdb_log.md).
 ticker: CMDB
-policy_type: null             # e.g. variable | base_plus_variable | fixed
-payout_ratio: null            # fraction of net income (0–1)
-base_dividend_per_share: null # fixed per-share base, 0 if none
-floor: null                   # minimum quarterly payment, 0 if none
+policy_type: variable
+payout_ratio: 0.0             # no common distributions in build-out phase
+base_dividend_per_share: 0
+floor: 0

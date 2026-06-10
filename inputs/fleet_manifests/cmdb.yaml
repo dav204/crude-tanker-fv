@@ -1,27 +1,311 @@
-# CMDB fleet manifest — METHODOLOGY.md section 4.1
-# FIXME: source from latest IR fleet page + cross-check against quarter-end
-# report counts (CLAUDE.md: trust the report at quarter-end, not the live page).
+# Costamare Bulkers Holdings (NYSE:CMDB) fleet manifest — METHODOLOGY §4.1 + §11.7.1
+# Source: FY2025 20-F (filed 2026-03-30, accession 0001140361-26-011994) per-vessel
+# fleet table (as of 2026-03-16) + Q1 2026 6-K (filed 2026-05-13, accession
+# 0001171843-26-003334) for quarter-end adjustments.
+#
+# Quarter-end convention (Mar-31 2026): 29 owned vessels.
+#   - Miracle (2011 Capesize 180,643 dwt) EXCLUDED — sale concluded in Q1
+#     (gain in Q1 income statement). Clara (Supramax) also sold in Q1,
+#     pre-dates the 20-F table.
+#   - Astros (ex. Koushun, 2018 Ultramax 60,297 dwt) EXCLUDED — only an
+#     advance was paid in Q1; purchase concluded Q2 (in fleet at the Q2
+#     refresh). Aggregate fleet thereafter: 30 per the May-13 PR.
+#   - The 20-vessel CBI chartered-in trading platform (2 Cape + 18 Kamsarmax,
+#     third-party owned; trading book majority transferred to Cargill) is
+#     NOT in this manifest — not owned, no NAV claim. Its charter-hire cost
+#     ($46.0M in Q1) and revenue live in the P&L, not the asset base.
+#
+# Class mapping per §11.7.1: Capesize → Cape; Kamsarmax → Pana;
+# Ultramax + Supramax → Supra-Ultra. CMDB has NO Newcastlemax or Panamax(75k).
+#
+# Scrubbers: 20-F states 8 of the owned fleet are scrubber-fitted but does
+# not identify which. ALL marked false here — understates NAV by ~8 × $1.5-2M
+# ≈ $12-16M (~2% of fleet value, ~$0.55/sh). REVIEW if per-vessel scrubber
+# detail surfaces. Eco per §3.1: built ≥ 2014 (7 of 29).
+#
+# Charter status: majority on INDEX-LINKED period charters (= spot economics,
+# same convention as GNK's BCI-linked capes); several converted to fixed "for
+# a certain period" (rates undisclosed). All marked spot — no disclosed rates
+# to enter. spot_coverage reflects the index-linked share.
 ticker: CMDB
 report_date: 2026-Q1
 vessels:
-  # FIXME: one entry per vessel. Example:
-  - id: PLACEHOLDER_001
+  - id: Frontier
     class: Cape
-    dwt: null           # e.g. 300000
-    age: null           # years (= 2026 - year built)
-    scrubber: null      # true | false
-    eco: null           # true | false (post-2014 fuel-efficient design)
-    charter_status: null  # spot | time_charter
-    charter_rate: null    # USD/day if time_charter, else null
-    charter_end: null     # ISO date if time_charter, else null
-spot_coverage_pct:      # share of fleet on spot, by class (0.0–1.0)
-  Cape: null
-  Pana: null
-  Supra: null
-  Ultra: null
-fleet_summary:          # convenience totals, cross-check against vessels list
-  Cape_count: null
-  Pana_count: null
-  Supra_count: null
-  Ultra_count: null
-  avg_age_Cape: null
+    dwt: 181415
+    age: 14      # built 2012
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Prosper
+    class: Cape
+    dwt: 179895
+    age: 14      # built 2012
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Dorado
+    class: Cape
+    dwt: 179842
+    age: 15      # built 2011
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Magnes
+    class: Cape
+    dwt: 179546
+    age: 15      # built 2011
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Imperator
+    class: Cape
+    dwt: 176387
+    age: 14      # built 2012
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Enna
+    class: Cape
+    dwt: 175975
+    age: 15      # built 2011
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Aeolian
+    class: Pana
+    dwt: 83478
+    age: 14      # built 2012
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Greneta
+    class: Pana
+    dwt: 82166
+    age: 16      # built 2010
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Hydrus
+    class: Pana
+    dwt: 81601
+    age: 15      # built 2011
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Phoenix
+    class: Pana
+    dwt: 81569
+    age: 14      # built 2012
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Builder
+    class: Pana
+    dwt: 81541
+    age: 14      # built 2012
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Farmer
+    class: Pana
+    dwt: 81541
+    age: 14      # built 2012
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Sauvan
+    class: Pana
+    dwt: 79700
+    age: 16      # built 2010
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Merchia
+    class: Supra-Ultra
+    dwt: 63585
+    age: 11      # built 2015
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: true
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Dawn
+    class: Supra-Ultra
+    dwt: 63561
+    age: 8      # built 2018
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: true
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Seabird
+    class: Supra-Ultra
+    dwt: 63553
+    age: 10      # built 2016
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: true
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Orion
+    class: Supra-Ultra
+    dwt: 63473
+    age: 11      # built 2015
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: true
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Damon
+    class: Supra-Ultra
+    dwt: 63301
+    age: 14      # built 2012
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Arya
+    class: Supra-Ultra
+    dwt: 61424
+    age: 13      # built 2013
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Alwine
+    class: Supra-Ultra
+    dwt: 61090
+    age: 12      # built 2014
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: true
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: August
+    class: Supra-Ultra
+    dwt: 61090
+    age: 11      # built 2015
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: true
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Athena
+    class: Supra-Ultra
+    dwt: 58018
+    age: 14      # built 2012
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Eracle
+    class: Supra-Ultra
+    dwt: 58018
+    age: 14      # built 2012
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Norma
+    class: Supra-Ultra
+    dwt: 58018
+    age: 16      # built 2010
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Uruguay
+    class: Supra-Ultra
+    dwt: 57937
+    age: 15      # built 2011
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Curacao
+    class: Supra-Ultra
+    dwt: 57937
+    age: 15      # built 2011
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Serena
+    class: Supra-Ultra
+    dwt: 57266
+    age: 16      # built 2010
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Libra
+    class: Supra-Ultra
+    dwt: 56701
+    age: 16      # built 2010
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+  - id: Bermondi
+    class: Supra-Ultra
+    dwt: 55469
+    age: 17      # built 2009
+    scrubber: false      # 8 of 30 owned are scrubber-fitted (20-F) but not identified per-vessel; see header
+    eco: false
+    charter_status: spot      # index-linked period TC or short fixed TC, no rates disclosed; see header
+    charter_rate: null
+    charter_end: null
+# Spot coverage: index-linked charters dominate (= spot economics). Fixed-rate
+# conversions exist but tenors/rates undisclosed — 0.75 reflects the fixed
+# conversions noted in the 20-F table footnote (ii).
+spot_coverage_pct:
+  Cape: 0.50       # 3 of 6 fixed per 20-F table (Frontier/Prosper/Dorado/Magnes mix)
+  Pana: 0.55       # 4 of 7 index-linked
+  Supra-Ultra: 0.75
+
+# Fleet summary — cross-check against vessels list.
+fleet_summary:
+  Cape_count: 6
+  avg_age_Cape: 14.5
+  Pana_count: 7
+  avg_age_Pana: 14.7
+  Supra-Ultra_count: 16
+  avg_age_Supra-Ultra: 13.3
+  total_operating: 29
+  newbuildings_on_order: 0     # owned-NB none; CBI's 2 chartered-in Kamsarmax NBs are not owned

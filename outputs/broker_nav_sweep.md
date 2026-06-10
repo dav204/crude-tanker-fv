@@ -5,6 +5,7 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, conservati
 | Name | Cons. P/NAV | k_broker | EV @tool | EV @mid | EV @broker | Pos tool→broker | Breakeven tool→broker | Spread (pp) | Read |
 |---|--:|--:|--:|--:|--:|---|--:|--:|---|
 | TEN | 0.40× | 1.24 | +30.9% | +52.4% | +73.9% | BUY→BUY | NAV>px→NAV>px | +43 | mark-driven |
+| CMDB | 0.62× | 0.84 | +64.2% | +53.0% | +41.9% | BUY→BUY | NAV>px→NAV>px | -22 | mark-driven |
 | STNG | 0.70× | 1.37 | -3.3% | +13.1% | +29.4% | HOLD→BUY | $2,725,019→NAV>px | +33 | mark-driven |
 | NAT | 0.85× | 1.98 | -44.9% | -8.9% | +27.2% | TRIM/SHORT→BUY | $334,239→NAV>px | +72 | mark-driven |
 | ASC | 0.75× | 1.33 | -5.9% | +9.1% | +24.2% | TRIM/SHORT→BUY | $38,532→NAV>px | +30 | mark-driven |

@@ -1600,12 +1600,18 @@ A FAIL signals methodology calibration is off — likely the cycle anchors
 | Step | When | Owner |
 |---|---|---|
 | §11.7 methodology decision doc (this section) | DONE 2026-06-09 | methodology |
-| `inputs/scenario_inputs.yaml` sectors.dry_bulk block + class map + cycle anchors YAML | Week 2 Day 1 | code |
-| `pipeline._load_all_sectors` includes dry_bulk; `SCENARIO_CLASS_MAP_BY_SECTOR` updates | Week 2 Day 1 | code |
-| CMDB + SBLK + GNK YAMLs scaffolded via `/add-ticker` | Week 2 Day 2 | data |
-| Data assembly from Q1 2026 results | Week 2 Day 2-4 | data |
-| `/reconcile --calibration-lock dry_bulk` test | Week 2 end | gate |
-| §11.7 v2 (OCR FFA, longer history): | Q3 if triggered | — |
+| `inputs/scenario_inputs.yaml` sectors.dry_bulk block + class map + cycle anchors YAML | DONE 2026-06-09 (with SBLK) | code |
+| `pipeline._load_all_sectors` includes dry_bulk; `SCENARIO_CLASS_MAP_BY_SECTOR` updates | DONE 2026-06-09 | code |
+| CMDB + SBLK + GNK YAMLs scaffolded via `/add-ticker` | DONE 2026-06-09 | data |
+| Data assembly from Q1 2026 results | DONE — SBLK 06-09, GNK 06-09/10, CMDB 06-10 | data |
+| `/reconcile --calibration-lock dry_bulk` test | DONE 2026-06-10 — **1/2 (50%) FAIL-with-explanation** (SBLK = documented §6 mark-driven miss; GNK passes at −4.9%; CMDB excluded, APPROX anchor). Recorded, not tuned, per the back-solve rule. Q3 tightening pass is the next gate. | gate |
+| §11.7 v2 (OCR FFA, longer history): | Q3 if triggered — raw FFA screenshots now ingesting via Rocket.Chat backfill (2026-06-10) | — |
+
+**Week 2 CLOSED 2026-06-10.** Beyond-plan deliveries in the same window:
+the dry-bulk transaction-anchored layer (Cape 26 / Pana 4 / Supra-Ultra 20
+in-window prints), the tanker S&P sweep + LR2 own-fit, txn-anchored marks
+made the pipeline default (owner decision), the Pareto name-sweep and
+linked-report harvest process steps, and the GNK Diana-tender deal overlay.
 
 ## 12. Framework limitation — high-payout pure-plays at cycle peak
 
