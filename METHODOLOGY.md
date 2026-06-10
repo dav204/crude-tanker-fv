@@ -1824,6 +1824,20 @@ Currently on the watchlist:
   haircut BUY signal at +55% EV would mislead a reader without explicit
   governance overlay. With the 30% haircut, the signal moderates to a
   +12% EV BUY consistent with VIE.
+- **CMDB (Costamare Bulkers)** — second §15 case, haircut set 2026-06-10
+  (owner decision: "roughly equivalent to TEN") at 30%. Drivers:
+  related-party management/agency fees ($21.6M/yr to Costamare-affiliated
+  managers on a $418M mcap), zero return to common (no dividend, no
+  buyback, despite net cash), Konstantakopoulos-family control
+  post-spinoff, persistent ~0.6× P/BV print. Pre-haircut the framework
+  read +64% EV at 0.54× tool NAV — the deepest discount on the board and
+  exactly the misleading signal §15 exists to temper. Post-haircut:
+  PW FV $19.82 vs price $17.25 → **+14.9% EV, mild BUY** (asset NAV
+  $32.23 untouched). Note CMDB has no external NAV anchor (APPROX P/BV
+  proxy) — unlike TEN there is no VIE target to triangulate the haircut
+  against; the 30% is a TEN-equivalence judgment, revisit on any payout
+  initiation (the natural §15 de-rating catalyst given the net-cash
+  balance sheet).
 
 Other archetypes that would exhibit the pattern if onboarded:
 - DSX (Diana Shipping) — controlled-shareholder structure; dry-bulk

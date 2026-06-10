@@ -55,11 +55,19 @@ diluted_shares_outstanding: 24180472
 preferred_equity: 0
 shuttle_contracted_book: 0
 
-# §15 governance discount: 0.0 at v1 — BUT CMDB IS A §15 REVIEW CANDIDATE:
-# related-party management/agency fees ($5.4M/qtr to Costamare-affiliated
-# managers ≈ $21.6M/yr on a $418M mcap), zero dividends/buybacks
-# (accumulated deficit, build-out phase), Konstantakopoulos-family control
-# post-spinoff, and a persistent ~0.6x P/BV print. Same driver family as
-# TEN's 30% haircut. Haircut is an OWNER judgment per §15 — flagged in
-# decisions/cmdb_log.md, not applied unilaterally.
-governance_discount_pct: 0.0
+# §15 governance / value-trap haircut: 0.30 — OWNER DECISION 2026-06-10
+# ("roughly equivalent to TEN"). Drivers, per the TEN §15 template:
+#   1. Related-party management/agency fees: $5.4M/qtr ($21.6M/yr) to
+#      Costamare-affiliated managers on a $418M mcap — the dominant
+#      shoreside cost flows to the controlling family's service entities.
+#   2. Zero return to common: no dividend, no buyback, despite a net-cash
+#      balance sheet (+$117M ex-margin) — capital recycled into fleet
+#      growth and the charter-in platform.
+#   3. Family control post-spinoff (Konstantakopoulos) — no takeover
+#      premium, concentrated capital-allocation discretion.
+#   4. Persistent ~0.6× P/BV market print — the market's standing verdict
+#      on realisation.
+# Calibration: TEN precedent (30%, set 2026-06-06). Applied at the blend
+# layer (NAV term) + dividend-strip terminal, NOT to compute_nav — the
+# asset-side answer stays undiscounted per §15 convention.
+governance_discount_pct: 0.30

@@ -289,13 +289,15 @@ go in Q3.
   coverage; consensus_pnav 0.62 is a P/BV proxy — spinoff book ≈ recent
   fair value). 29 owned old bulkers at Mar-31 (6 Cape / 7 Pana / 16
   Supra-Ultra); the ~20-vessel CBI chartered-in trading platform is
-  P&L-ONLY, never in the manifest. Tool NAV $32.23 = book +15.8%; price
-  0.54× tool NAV — deepest discount on the board — **but it's a flagged
-  §15 candidate (related-party fees $21.6M/yr, no payout, family control,
-  0.6× P/BV): do NOT act on the +64% EV until the owner sizes a haircut.**
-  Consolidated EPS includes the trading platform → §9.11 xref reads
-  structurally hot. Watch Q2 for the Astros price (clean age-8 Ultramax
-  print) + dividend initiation. Onboarded 2026-06-10; Week 2 closed.
+  P&L-ONLY, never in the manifest. Tool asset NAV $32.23 = book +15.8%.
+  **Second §15 case — 30% governance haircut (owner decision 2026-06-10,
+  TEN-equivalent: related-party fees $21.6M/yr, no payout, family
+  control, 0.6× P/BV).** Post-haircut PW FV $19.82 vs price $17.25 →
+  mild BUY (+14.9% EV); pre-haircut read +64%. No external anchor to
+  triangulate the 30% (unlike TEN's VIE check) — revisit on any payout
+  initiation. Consolidated EPS includes the trading platform → §9.11
+  xref reads structurally hot. Watch Q2 for the Astros price (clean
+  age-8 Ultramax print). Onboarded 2026-06-10; Week 2 closed.
 
 ## The compounding-knowledge habit
 
@@ -389,7 +391,9 @@ sessions.
   denominator as 1/3; corrected to 1/2 excluded-APPROX same session).
   No promotable prints (Clara+Miracle aggregate gain only — no per-vessel
   prices; no-back-solve). §11.7.8 table marked DONE throughout.
-  tests: 210 passed.
+  tests: 210 passed. **Same evening: §15 haircut set at 30% (owner
+  decision, TEN-equivalent) — PW FV $28.32 → $19.82, EV +64% → +14.9%
+  mild BUY; asset NAV untouched; §15.3 second-case entry added.**
 - **2026-06-10** — **GNK onboarded** (15th name, second dry-bulk validator)
   from the Q1 2026 10-Q. k_broker 1.04 / gap −5.2% — VALIDATES the
   transaction-anchored dry-bulk curves on a no-Pana fleet; isolates SBLK's

@@ -9,6 +9,39 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T20:17:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.25
+- Single-point FV: $19.84
+- Scenario PW FV: $19.82 (EV +14.9%)
+- NAV / share: $32.23
+- Position: **BUY (undervalued)**
+- Broker spread: -15.6pp (k_broker 0.84)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ single-point FV -30.0%
+- ⚑ scenario PW FV -30.0%
+- ⚑ broker spread +6.7pp
+- Δprice: no change | Δsingle FV: -30.0% | Δscenario FV: -30.0% | ΔNAV: no change | Δspread: +6.7pp
+
+**Decision:** _**§15 GOVERNANCE HAIRCUT SET AT 30% — owner decision
+2026-06-10** ("roughly equivalent to TEN: management concerns /
+related-party transactions / lack of return to common"). The −30.0% FV
+delta IS the haircut application, not a market move; asset NAV unchanged
+at $32.23 per the §15 convention (blend layer + strip terminal only).
+New headline: PW FV $19.82 vs price $17.25 → **+14.9% EV, mild BUY**
+(was +64.2% pre-haircut). With payout at 0, the entire strip is terminal
+NAV, so the haircut passes through ~1:1 — the cleanest §15 application
+yet. CMDB is now the second §15 case (METHODOLOGY §15.3 updated).
+Calibration note: no external anchor exists to triangulate the 30%
+(unlike TEN's VIE Bullish cross-check) — it is a TEN-equivalence
+judgment. Revisit trigger: any dividend/buyback initiation (the natural
+catalyst on a net-cash balance sheet) → re-examine drivers 2 and 4._
+
+---
+
 ## 2026-06-10T20:00:53+00:00 — Pipeline run (auto)
 
 **Model state:**
