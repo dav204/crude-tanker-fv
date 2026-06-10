@@ -1589,22 +1589,39 @@ A FAIL signals methodology calibration is off — likely the cycle anchors
   Do NOT add without an analogous disclosed-deals dataset.
 - **Per-class scrubber premium** — Pareto's bulk table does not separate
   scrubber from non-scrubber rates the way the tanker table does.
-- **OCR-derived FFA forward curve** — Joeri's clipboard PNGs include
-  clean Cape/Pmax/Smax FFA grids but require classifier + OCR work to
-  harvest. Deferred to §11.7 v2; trigger is §9.11 EPS-xref signalling
-  that the synthesised-curve bulk strip is unreliable vs consensus.
-  **Empirical SNR check (2026-06-10, n=14 stratified 2020-2025 from the
-  Rocket.Chat backfill):** FFA-grid hit rate ~7% (1/14) — below the
-  earlier 12-25% eyeball estimate — but the grids are excellent OCR
-  targets (white-on-dark two-panel Cape/Pmax tables with month/quarter/
-  Cal2x labels). At ~7% over the ~11k+ image archive that is still
-  ~800-1,400 dated forward-curve observations across 2020-2026.
-  Classifier recipe: dimension filtering does NOT isolate grids
-  (hand-cropped, no size cluster); use a cheap OCR keyword pass
-  (Cape|Pmax|Smax + Cal2\d|Q[1-4]) instead. Noise inventory is itself
-  reusable: Oslo equity quote boards (6-year intraday price series),
-  Cleaves/other broker notes, LPG rate dashboards, tweets, econ
-  calendars.
+- **OCR-derived FFA forward curve — RE-SCOPED 2026-06-10 (owner + agent
+  assessment): staged build, NO LONGER gated on the §9.11 trigger.**
+  Rationale: (a) cost substitution — live FFA assessments are an
+  expensive subscription; the Rocket.Chat channel delivers them daily
+  for free; (b) structural upgrade — the dry-bulk strip runs on the
+  synthesised-from-spot convention (the framework's weakest leg) while
+  dry bulk is the one sector with a deep, liquid forward market; GNK's
+  §9.11 xref (+149%) already hints the synthesised strip runs hot;
+  (c) curve shape (backwardation/contango) is a direct market cycle
+  statement feeding the Bulk Set A weight diagnostics.
+  **Empirical basis (2026-06-10 sampling):** historical hit rate ~7%
+  (n=14, 2020-2025) — below the 12-25% eyeball estimate but still
+  ~800-1,400 dated observations over the ~11k+ archive. CRITICALLY, the
+  modern format (verified Nov-2025 + Apr-2026) is a standardized
+  three-panel "Markets" widget — Cape/Pmax/Smax × five tenors (M1, M2,
+  Q-next, Q-following, Cal-year), green-on-dark, stable layout — an
+  ideal OCR target whose tenor set maps directly onto the strip's
+  8-quarter horizon. Morning + small-wide is a strong search prior in
+  recent vintages (2 of 3 hits).
+  **Staged plan:** Stage 1 — classifier (OCR keyword pass:
+  Cape|Pmax|Smax + Cal2\d|Q[1-4]; dimension filtering alone fails —
+  hand-cropped, no size cluster) + parser over recent months, wired
+  into the weekly ingest; OCR output lands in a review queue with
+  sanity bands + day-over-day continuity checks; human-approved
+  promotion to `ffa_forward_curve.yaml` until gates prove out.
+  Stage 2 — 2020-2026 backfill to backtest the synthesised-curve
+  convention and enrich the empirical cycle anchors. System dep:
+  tesseract (brew). Designed-for risks: OCR digit errors (sanity bands
+  non-negotiable) and single-source dependence on one poster's habit
+  (staleness alarm in the weekly runner — the feed must die loudly).
+  Side-discovery worth remembering: the non-FFA images include a
+  6-year intraday Oslo shipping equity quote-board series and broker
+  notes (Cleaves et al.) — reusable for other purposes.
 
 #### 11.7.8 Onboarding sequence
 
