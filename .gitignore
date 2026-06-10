@@ -53,3 +53,8 @@ state/last_run.json
 # Logs / scratch
 *.log
 scratch/
+
+# Rocket.Chat ingest binary archives (FFA screenshots, ~1GB+ of PNGs) —
+# same convention as research_pareto*: raw research binaries stay out of
+# git; only derived/parsed artifacts are committed. (2026-06-10)
+inputs/ffa_drybulk/
