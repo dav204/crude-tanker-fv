@@ -7,6 +7,147 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T02:49:54+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $78.00
+- Single-point FV: $37.34
+- Scenario PW FV: $59.50 (EV -23.7%)
+- NAV / share: $52.43
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +33.4pp (k_broker 1.52)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ single-point FV -11.5%
+- ⚑ broker spread +6.8pp
+- ⚑ NAV/sh -9.5%
+- Δprice: no change | Δsingle FV: -11.5% | Δscenario FV: -7.9% | ΔNAV: -9.5% | Δspread: +6.8pp
+
+**Decision:** _METHODOLOGY RE-BASE (txn-anchored marks default-on, owner
+decision 2026-06-09) — not a market move. Position unchanged TRIM/SHORT;
+the mark-driven spread WIDENS to k_broker 1.52 under transaction-validated
+marks (§6 classification amplified — see 02:09:54 annotation below).
+METHODOLOGY Appendix A Part 4._
+
+---
+
+## 2026-06-10T02:09:54+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $78.00
+- Single-point FV: $42.18
+- Scenario PW FV: $64.59 (EV -17.2%)
+- NAV / share: $57.91
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +26.6pp (k_broker 1.37)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _2026-06-09 Pareto S&P sweep §6 RETEST: INSW's mark-driven
+classification SURVIVES and is AMPLIFIED. Txn-anchored reading NAV
+$52.43 / EV −23.7% (from $57.91 / −17.2%) — the expanded transaction
+sample (incl. INSW's own Seaways Luzon LR1 ~$11M and Seaways Olive/Star
+2x MR $16M prints) moves marks AWAY from broker, not toward. The k_broker
+1.37 spread was a real call; under transaction-validated marks it widens
+further. Position TRIM/SHORT unchanged at both mark sets. Duplicate
+02:09:49 entry below covered by this annotation._
+
+---
+
+## 2026-06-10T02:09:49+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $78.00
+- Single-point FV: $42.18
+- Scenario PW FV: $64.59 (EV -17.2%)
+- NAV / share: $57.91
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +26.6pp (k_broker 1.37)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10T01:33:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $78.00
+- Single-point FV: $42.18
+- Scenario PW FV: $64.59 (EV -17.2%)
+- NAV / share: $57.91
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +26.6pp (k_broker 1.37)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T23:27:18+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $78.00
+- Single-point FV: $42.18
+- Scenario PW FV: $64.59 (EV -17.2%)
+- NAV / share: $57.91
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +26.6pp (k_broker 1.37)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T19:14:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $78.00
+- Single-point FV: $42.18
+- Scenario PW FV: $64.59 (EV -17.2%)
+- NAV / share: $57.91
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +26.6pp (k_broker 1.37)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ scenario PW FV +24.0%
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: +24.0% | ΔNAV: no change | Δspread: +4.4pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T15:13:20+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $78.00
+- Single-point FV: $42.18
+- Scenario PW FV: $52.08 (EV -33.2%)
+- NAV / share: $57.91
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +22.2pp (k_broker 1.37)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-07T15:11:36+00:00 — Pipeline run (auto)
 
 **Model state:**

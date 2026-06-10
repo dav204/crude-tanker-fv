@@ -19,7 +19,9 @@ def test_value_company_assembles_consistent_report(dht_report):
     # Blend identity: FV = w_nav*NAV + w_earn*strip.
     expected = r.cycle.w_nav * r.nav.nav_per_share + r.cycle.w_earn * r.strip.implied_price
     assert r.blended.fair_value_per_share == pytest.approx(expected)
-    assert 16.0 < r.blended.fair_value_per_share < 17.0
+    # Band re-based 2026-06-09: txn-anchored marks default-on (owner decision) —
+    # the VLCC fit (−18% at both mid-age anchors) drops DHT FV from ~16.5 to ~14.3.
+    assert 14.0 < r.blended.fair_value_per_share < 15.0
 
 
 def test_write_company_report_creates_md_and_xlsx(dht_report, tmp_path):
@@ -30,7 +32,7 @@ def test_write_company_report_creates_md_and_xlsx(dht_report, tmp_path):
 
     text = md.read_text()
     for needle in ["# DHT", "NAV breakdown", "Dividend strip", "Implied breakeven TCE",
-                   "Sensitivity", "Divergence diagnosis", "$16.49", "FFA spot",
+                   "Sensitivity", "Divergence diagnosis", "$14.31", "FFA spot",
                    "Data validation warnings"]:
         assert needle in text
 
@@ -50,7 +52,7 @@ def test_write_watchlist_summary(dht_report, tmp_path):
     row = [c.value for c in ws[2]]
     assert row[0] == "DHT"
     assert row[1] == "whole-company"   # DHT is a pure-play
-    assert row[3] == pytest.approx(16.49, abs=0.01)
+    assert row[3] == pytest.approx(14.31, abs=0.01)   # re-based 2026-06-09 (txn marks default-on)
 
 
 def test_run_watchlist_end_to_end(tmp_path):

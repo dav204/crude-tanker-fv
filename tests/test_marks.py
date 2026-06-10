@@ -28,13 +28,19 @@ def test_solve_broker_premium_round_trips():
 def test_broker_sweep_discriminates_hybrid(tmp_path):
     rows = run_broker_sweep("2026-Q1", outputs_dir=tmp_path)
     by = {r.ticker: r for r in rows}
-    # Pure-plays: tool marks already reconcile to broker -> ~zero spread.
-    for t in ("DHT", "FRO", "ECO"):
-        assert by[t].k_broker == pytest.approx(1.0, abs=0.05)
-        assert abs(by[t].spread) < 5
-    # INSW: marks uncertain -> wide spread, EV materially better at broker marks.
-    assert by["INSW"].k_broker > 1.3
-    assert by["INSW"].spread > 15
+    # Since 2026-06-09 tool marks = transaction-anchored marks (default-on), so
+    # k_broker measures the broker premium over transaction-validated levels.
+    # Validated crude pure-plays carry a tight, UNIFORM premium (~1.12-1.14 at
+    # the Jun-2026 fit) — the discrimination signal is consistency across them,
+    # not a zero premium.
+    pure_ks = [by[t].k_broker for t in ("DHT", "FRO", "ECO")]
+    for k in pure_ks:
+        assert 1.05 < k < 1.25
+    assert max(pure_ks) - min(pure_ks) < 0.05   # uniformity across pure-plays
+    # INSW: marks uncertain (hybrid carve-out) -> premium far above the
+    # pure-play band, wide spread, EV materially better at broker marks.
+    assert by["INSW"].k_broker > 1.4
+    assert by["INSW"].spread > 25
     assert by["INSW"].ev_broker > by["INSW"].ev_tool
     assert (tmp_path / "broker_nav_sweep.md").exists()
     assert (tmp_path / "broker_nav_sweep.xlsx").exists()

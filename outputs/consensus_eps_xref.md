@@ -21,6 +21,7 @@ The **earnings-leg analog of the broker-NAV sweep** (METHODOLOGY §9.11 / §9.9)
 | TEN | crude | $44.00 | 5.5× | $8.00 | $19.88 | 2.2× | +149% | 18.2% | 1.98× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | ASC | product | $16.00 | 14.2× | $1.13 | $2.36 | 6.8× | +110% | 7.0% | 1.38× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | FLNG | lng | $29.70 | 14.5× | $2.05 | $3.74 | 7.9× | +83% | 6.9% | 0.71× (below-mid) | 0.60 | earnings-driven (tool>cons) |
+| SBLK | dry_bulk | $27.20 | 6.9× | $3.94 | $5.03 | 5.4× | +28% | 14.5% | 1.23× (elevated) | 0.40 | earnings-driven (tool>cons) |
 
 _**(WHOLE-CO)** = hybrid name; the tool forward EPS here is the whole-company FFA strip (a proxy — the headline FV uses the crude+product carve-out aggregation)._
 

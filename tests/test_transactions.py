@@ -39,8 +39,8 @@ def test_load_aframax_yaml_round_trip():
     path = INPUTS_DIR / "market_data" / "transactions" / "aframax.yaml"
     ts = load_transaction_set(path)
     assert ts.cls == "Aframax"
-    assert ts.as_of == date(2026, 5, 29)
-    assert len(ts.prints) >= 4    # we shipped 6
+    assert ts.as_of >= date(2026, 5, 29)   # bumped to 2026-06-09 with the Pareto scan
+    assert len(ts.prints) >= 10   # expanded to 12 prints after Pareto scan
     ages = [p.age for p in ts.prints]
     assert min(ages) <= 10 and max(ages) >= 14   # mid-age coverage on both sides
 
@@ -69,20 +69,26 @@ def test_fit_falls_back_when_too_few_prints():
     assert fit.new_10yr == fit.old_10yr
 
 
-def test_lr2_propagation_from_aframax():
-    """LR2 inherits the Aframax fit (v1 proxy) — directly when LR2 has no own
-    file, and also when LR2 has its own file but with too few in-window prints
-    to clear the solver fallback guard.
+def test_lr2_proxy_alias_logic():
+    """LR2 inherits the Aframax fit only when LR2's own fit falls back.
+
+    As of 2026-06-09, lr2.yaml has 11 in-window prints (Pareto archive scan
+    pulled disclosed STNG/Affinity/Torm prints), so LR2 stands on its own
+    and the Aframax→LR2 proxy alias becomes a no-op. To test the proxy
+    path we synthesize an empty LR2 transaction set and check that
+    `apply_transaction_anchored_curves` still propagates the Aframax fit
+    to LR2 — the v1 proxy-alias contract.
     """
     md = load_market_data()
-    txs = load_all_transactions(INPUTS_DIR)
-    assert "Aframax" in txs
-    # As of 2026-06-04 we ship an lr2.yaml stub with 1 in-window print —
-    # documentation only; the solver falls back and proxy propagation fires.
-    if "LR2" in txs:
-        own_fit = fit_curve_anchors(md.vessel_value_curves["LR2"], txs["LR2"])
-        assert own_fit.fallback, "lr2.yaml has enough prints for own fit — proxy logic test needs revision"
-    _, fits = apply_transaction_anchored_curves(md, txs)
+    txs_all = load_all_transactions(INPUTS_DIR)
+    assert "Aframax" in txs_all
+    # Real LR2 fit now stands on its own (no proxy needed)
+    if "LR2" in txs_all:
+        own_fit = fit_curve_anchors(md.vessel_value_curves["LR2"], txs_all["LR2"])
+        assert not own_fit.fallback   # LR2 self-fits now
+    # Synthesize the "LR2 has no own fit" path to verify proxy logic
+    txs_no_lr2 = {k: v for k, v in txs_all.items() if k != "LR2"}
+    _, fits = apply_transaction_anchored_curves(md, txs_no_lr2)
     assert "Aframax" in fits and "LR2" in fits
     assert "propagated from Aframax" in fits["LR2"].note
 
@@ -152,32 +158,37 @@ def test_vlcc_yaml_loads_and_fit_lowers_anchors():
 
 
 def test_vlcc_recalibration_lowers_dht_nav():
-    """Pure-VLCC DHT NAV must drop with the VLCC recalibration (2026-06-04 update)."""
-    base = value_company("DHT", "2026-Q1", 16.40, 16.00).nav.nav_per_share
-    on = value_company("DHT", "2026-Q1", 16.40, 16.00,
-                        use_transaction_anchored=True).nav.nav_per_share
+    """Pure-VLCC DHT NAV must drop with the VLCC recalibration (2026-06-04 update).
+
+    NOTE 2026-06-09: txn-anchored marks are now the pipeline DEFAULT — the
+    un-anchored baseline side must be requested explicitly with False.
+    """
+    base = value_company("DHT", "2026-Q1", 16.40, 16.00,
+                         use_transaction_anchored=False).nav.nav_per_share
+    on = value_company("DHT", "2026-Q1", 16.40, 16.00).nav.nav_per_share
     assert on < base
 
 
 def test_toggle_on_changes_exposed_names_only(tmp_path):
+    # Default-on since 2026-06-09: "base" = explicit False (un-anchored curve).
     # TNK (Suezmax + Aframax): the Aframax recalibration lowers Aframax mid-age
     # more than the Suezmax recalibration lifts Suezmax mid-age, so net NAV drops.
-    base = value_company("TNK", "2026-Q1", 70.50, 75.00).nav.nav_per_share
-    on = value_company("TNK", "2026-Q1", 70.50, 75.00,
-                       use_transaction_anchored=True).nav.nav_per_share
+    base = value_company("TNK", "2026-Q1", 70.50, 75.00,
+                         use_transaction_anchored=False).nav.nav_per_share
+    on = value_company("TNK", "2026-Q1", 70.50, 75.00).nav.nav_per_share
     assert on < base
     # Pure-VLCC: DHT NAV drops materially under the VLCC fit (2026-06-04 update —
     # vlcc.yaml adds 5 in-window prints; the fit lowers VLCC mid-age anchors
     # ~10-15%, which flows through to pure-VLCC names like DHT).
-    base_dht = value_company("DHT", "2026-Q1", 16.40, 16.00).nav.nav_per_share
-    on_dht = value_company("DHT", "2026-Q1", 16.40, 16.00,
-                            use_transaction_anchored=True).nav.nav_per_share
+    base_dht = value_company("DHT", "2026-Q1", 16.40, 16.00,
+                             use_transaction_anchored=False).nav.nav_per_share
+    on_dht = value_company("DHT", "2026-Q1", 16.40, 16.00).nav.nav_per_share
     assert on_dht < base_dht
     # Pure-LNG: FLNG and CCEC are now the only no-exposure controls (no class
     # with a transactions file overlaps with their fleets).
-    base_flng = value_company("FLNG", "2026-Q1", 26.40, 28.00).nav.nav_per_share
-    on_flng = value_company("FLNG", "2026-Q1", 26.40, 28.00,
-                             use_transaction_anchored=True).nav.nav_per_share
+    base_flng = value_company("FLNG", "2026-Q1", 26.40, 28.00,
+                              use_transaction_anchored=False).nav.nav_per_share
+    on_flng = value_company("FLNG", "2026-Q1", 26.40, 28.00).nav.nav_per_share
     assert on_flng == pytest.approx(base_flng)
 
 
@@ -205,8 +216,8 @@ def test_load_suezmax_yaml_round_trip():
     path = INPUTS_DIR / "market_data" / "transactions" / "suezmax.yaml"
     ts = load_transaction_set(path)
     assert ts.cls == "Suezmax"
-    assert ts.as_of == date(2026, 5, 29)
-    assert len(ts.prints) >= 5
+    assert ts.as_of >= date(2026, 5, 29)   # bumped to 2026-06-09 with Pareto scan
+    assert len(ts.prints) >= 15            # expanded to 18 in-window prints
     # Primary anchor: the TNK May 2026 age-17 print at $53.5M MUST be present.
     primary = [p for p in ts.prints
                if p.age == 17 and p.price_usd_m == pytest.approx(53.5)]
@@ -223,15 +234,26 @@ def test_suezmax_fit_produces_negative_slope_no_fallback():
     assert fit.n_used >= 4                  # at least 4 in-window prints
     assert fit.note == ""                   # no clamping
     assert fit.new_5yr > fit.new_10yr       # monotone within mid-age window
-    # Sample places mid-age slightly above broker curve in the hot 2025 market: both
-    # anchors lift modestly (per directional expectation in METHODOLOGY 9.9).
-    assert fit.delta_5yr_pct > 0
-    assert fit.delta_10yr_pct > 0
+    # POST-PARETO SCAN (2026-06-09): with 18 in-window prints the regression
+    # reveals broker-resale curve was running HOT — fit DROPS both anchors
+    # (5yr ~-7%, 10yr ~-13%). The earlier directional expectation ("hot 2025
+    # lifts modestly") was an artifact of the thin pre-scan sample. The
+    # methodologically-honest reading is that arm's-length disposals settle
+    # below the broker market, with broker mark-ups driven by Sinokor's
+    # opportunistic premium, see vlcc.yaml header.
+    assert fit.delta_5yr_pct < 0
+    assert fit.delta_10yr_pct < 0
 
 
-def test_suezmax_recalibration_lifts_nat_nav():
-    """Pure-Suezmax NAT NAV must rise with the Suezmax recalibration."""
-    base = value_company("NAT", "2026-Q1", 5.40, 6.00).nav.nav_per_share
-    on = value_company("NAT", "2026-Q1", 5.40, 6.00,
-                       use_transaction_anchored=True).nav.nav_per_share
-    assert on > base
+def test_suezmax_recalibration_lowers_nat_nav():
+    """Pure-Suezmax NAT NAV falls with the post-Pareto Suezmax recalibration.
+
+    NOTE: prior test asserted NAV LIFT — that was correct for the thin-sample
+    fit. The expanded Pareto sample reveals broker curves were running hot at
+    both 5yr and 10yr Suezmax anchors; pure-Suezmax NAT NAV must therefore
+    drop with the recalibration. Documented in CLAUDE.md 2026-06-09 entry.
+    """
+    base = value_company("NAT", "2026-Q1", 5.40, 6.00,
+                         use_transaction_anchored=False).nav.nav_per_share
+    on = value_company("NAT", "2026-Q1", 5.40, 6.00).nav.nav_per_share
+    assert on < base

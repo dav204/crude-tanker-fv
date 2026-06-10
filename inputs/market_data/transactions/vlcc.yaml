@@ -24,14 +24,18 @@
 #
 # OUT-OF-FIT REFERENCE — the Sinokor 2026 VLCC buying campaign (~35 of 45
 # sector S&P volume in early 2026, ~$2.5bn+ aggregate, mostly 2010-2016
-# builds, avg ~12yo, reported at +10-15% over market) sits in-window in
-# principle but is intentionally EXCLUDED from the fit: a 35-vessel
-# aggregate carried at a single weighted regression point would dominate
-# the in-window sample and overstate the opportunistic Sinokor campaign
-# premium as a universal market level. Documented with notes-only entry
-# below for transparency.
+# builds, avg ~12yo, reported at +10-15% over prior broker quotes) is
+# EXCLUDED from the fit on DATA-QUALITY grounds only: no per-vessel
+# age/price disclosure exists, and splitting the aggregate into synthetic
+# per-vessel rows would be invention (CLAUDE.md 2026-06-09 no-back-solve
+# rule). NOT excluded as a "distortion" — owner decision 2026-06-09:
+# Sinokor is the dominant buyer in the VLCC S&P market and its bid IS the
+# market. Its price level already enters the fit through named
+# Sinokor-side deals (Ingrid/Ilma $89M each, the 2007 Dalian at $47M).
+# PROMOTE individual campaign vessels into the fit as soon as per-vessel
+# prints surface (TradeWinds periodically itemizes them).
 class: VLCC
-as_of: 2026-05-29
+as_of: 2026-06-09
 prints:
   # ---- IN-WINDOW (drive the fit) ----
   - date: 2026-01-15
@@ -64,13 +68,45 @@ prints:
     source: CMB.TECH press release / Splash247 (Ingrid + Ilma sale to Sinokor)
     quality_flag: standard
     notes: 2-vessel package, 2012-built 314,000 DWT. $178M en bloc / $89M each. CMB.TECH fleet-renewal disposal; Sinokor as part of its 2026 VLCC buying campaign.
+  # ---- Additional in-window prints from Pareto Shipping Daily archive
+  #      scan (added 2026-06-09 per CLAUDE.md changelog) ----
+  - date: 2025-04-25
+    vessel_age_at_sale: 5
+    sale_price_usd_m: 102.5
+    source: Pareto Shipping Daily 2025-04-25 — broker reports
+    quality_flag: standard
+    notes: 2x Dalian-built VLCCs (2019/20) sold to Middle Eastern buyers $205M en-bloc ($102.5M each). Pareto called this an "encouraging modern VLCC print — supporting NAVs". 2020-built sister.
+  - date: 2025-04-25
+    vessel_age_at_sale: 6
+    sale_price_usd_m: 102.5
+    source: Pareto Shipping Daily 2025-04-25 — broker reports
+    quality_flag: standard
+    notes: 2x Dalian-built VLCCs (2019/20) — $205M en-bloc. 2019-built sister.
+  - date: 2025-10-09
+    vessel_age_at_sale: 6
+    sale_price_usd_m: 103.0
+    source: Pareto Shipping Daily 2025-10-09 — broker reports
+    quality_flag: standard
+    notes: Trafigura acquired Dalian-built 2019 VLCC. Confirms ~$103M level for modern 6yo Chinese-build VLCC by Q4 2025.
+  - date: 2025-03-19
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 55.0
+    source: Pareto Shipping Daily 2025-03-19 — broker reports
+    quality_flag: standard
+    notes: DHT Lotus (2011-built VLCC) sold to Chinese buyer. Pareto cited as a sale pending DHT confirmation; subsequently confirmed by DHT.
+  - date: 2025-03-07
+    vessel_age_at_sale: 16
+    sale_price_usd_m: 52.0
+    source: Pareto Shipping Daily 2025-03-07 — broker reports
+    quality_flag: standard
+    notes: 2009-built Bohai (Chinese yard, Chinese transaction) VLCC. Older Chinese-yard print confirms old-age leg at the soft end.
   # ---- OUT-OF-FIT / DOCUMENTATION (excluded from regression) ----
   - date: 2026-03-31
     vessel_age_at_sale: 12
     sale_price_usd_m: 71.0
     source: Veson / IndexBox (Sinokor 2026 VLCC buying campaign Q1 summary)
     quality_flag: standard
-    notes: AGGREGATE — Sinokor bought ~35 of 45 sector S&P vessels in early 2026 (~78% of volume) for ~$2.5bn+ total at +10-15% over prevailing market. Avg vintage ~2010-2016 (avg age ~12). Per-vessel implied $71M average. DOCUMENTATION ONLY — not used in fit (single aggregate point would dominate the in-window weighting; opportunistic +10-15% premium does not reflect arm's-length market level).
+    notes: AGGREGATE — Sinokor bought ~35 of 45 sector S&P vessels in early 2026 (~78% of volume) for ~$2.5bn+ total at +10-15% over prior broker quotes. Avg vintage ~2010-2016 (avg age ~12). Per-vessel implied $71M average. DOCUMENTATION ONLY — excluded from fit solely because no per-vessel age/price split is disclosed (synthetic rows would violate the no-back-solve rule). Sinokor's bid IS the market level (owner decision 2026-06-09); promote individual vessels when itemized prints surface.
   - date: 2026-01-08
     vessel_age_at_sale: 0
     sale_price_usd_m: 136.0

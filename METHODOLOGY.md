@@ -1876,6 +1876,104 @@ unwind, preferred refinancing).
 
 Dated record of material framework changes. Lock dates use UTC.
 
+### 2026-06-09 (late evening, Part 4) — Transaction-anchored marks become the pipeline DEFAULT (owner decision)
+
+- **`use_transaction_anchored` flipped to `True` by default** across
+  `value_company`, `run_scenarios_watchlist`, and `run_broker_sweep`
+  (which now also applies the recalibrated marks to its "tool" endpoint,
+  so `k_broker` measures the broker premium over TRANSACTION-VALIDATED
+  levels). The §9.9 comparison report still values both ways. This closes
+  the question left open in the Part 3 entry below.
+- **Owner rationale (verbatim intent):** Sinokor's VLCC buying campaign is
+  not a distortion to be filtered out — Sinokor is the dominant buyer in
+  the VLCC S&P market and **its bid IS the market**. The "tool produces
+  independent NAV from transaction-validated marks" doctrine now holds at
+  the default code path, not just on a toggle. The Sinokor 35-vessel
+  aggregate remains out of the regression on DATA-QUALITY grounds only
+  (no per-vessel disclosure; synthetic splits would violate the
+  no-back-solve rule) — vlcc.yaml notes updated accordingly; promote
+  individual campaign vessels when itemized prints surface.
+- **Headline re-base (2026-Q1, price-unchanged):** DHT FV $16.49 → $14.31
+  (BUY → TRIM/SHORT), ECO $42.56 → $36.66 (HOLD → TRIM/SHORT), FRO
+  $31.37 → $27.09 (HOLD → TRIM/SHORT), TNK $79.13 → $73.96 (BUY → HOLD),
+  TRMD $27.27 → $26.09 (HOLD → TRIM/SHORT), NAT NAV $2.63 → $2.08,
+  INSW NAV $57.91 → $52.43, TEN NAV $88.56 → $80.78 (BUY intact),
+  STNG NAV $83.87 → $80.35 (HOLD intact), SBLK $25.52 → $25.66.
+  FLNG / CCEC unchanged (no class exposure). Decision logs annotated
+  (9 names) — the drift flags on this run are the methodology re-base,
+  not market moves.
+- **New k_broker semantics:** validated crude pure-plays now show a tight,
+  UNIFORM broker premium (DHT 1.14 / ECO 1.12 / FRO 1.12) — brokers run
+  ~12-14% above arm's-length transaction levels on crude as of Jun-2026.
+  INSW (1.52), HAFN (1.43), STNG (1.37), NAT (1.98) discriminate above
+  that band. `test_broker_sweep_discriminates_hybrid` re-written to
+  assert uniformity-of-premium across pure-plays rather than k≈1.0;
+  DHT FV-band tests re-based 16.0-17.0 → 14.0-15.0.
+- The un-anchored broker-resale curve remains available as the diagnostic
+  alternative (`use_transaction_anchored=False`) and as the baseline
+  column of `outputs/transaction_anchor_comparison.md`.
+
+### 2026-06-09 (late evening, Part 3) — Pareto-archive S&P sweep: tanker transaction samples expanded, LR2 own-fit, incremental scanner
+
+- **Pareto Shipping Daily archive systematically mined for tanker S&P prints**
+  (280 reports, 2025-01 → 2026-06; same sweep methodology as the Part 2
+  dry-bulk pass). In-window samples expanded: VLCC 5 → 10, Suezmax 6 → 18,
+  Aframax 7 → 12, **LR2 1 → 11**, MR 2 → 21. LNGC scanned but yielded only
+  demolition prints — per §9.9 scope discipline, NO lngc.yaml created (no
+  comparable sample exists; LNG S&P for modern tonnage is structurally thin).
+- **LR2 graduates from Aframax-proxy to own-class fit.** The §3.1 v1
+  limitation ("LR2 modeled as Aframax-equivalent") is retired — 11 in-window
+  prints (mostly STNG's own disclosed fleet-renewal sales) clear the n≥2
+  gate, and the `_PROXY_ALIASES` propagation becomes a no-op for LR2. The
+  clean-LR2 fit lands −1.6%/−9.2% at 5/10yr vs the crude-Aframax proxy.
+- **Headline finding: tanker 10yr anchors were running HOT vs arm's-length
+  prints.** New fits: VLCC −18.3%/−18.1% at 5/10yr, Suezmax −6.6%/−12.9%,
+  Aframax +3.3%/−10.4%, MR ~flat (+0.1%/−0.2%). Under
+  `use_transaction_anchored=True` five names flip: DHT BUY→TRIM/SHORT,
+  ECO HOLD→TRIM/SHORT, FRO HOLD→TRIM/SHORT, TNK BUY→HOLD,
+  TRMD HOLD→TRIM/SHORT. Headline (baseline) calls unchanged — the toggle
+  remains opt-in. **OPEN DECISION (owner): make transaction-anchored marks
+  the pipeline default now that every covered class has a real sample?**
+  The "what this tool is" doctrine (independent NAV from transaction-
+  validated marks) argues yes; the counter is that several fits lean on
+  broker-reported (non-issuer-confirmed) prints and the Sinokor-distorted
+  VLCC market. Deliberately NOT flipped unilaterally.
+- **§6 mark-driven retest:** INSW, STNG, HAFN, ASC classifications all
+  SURVIVE the expanded anchors (spreads widen, not close — the marks gap
+  is real, and for STNG the curve is now anchored largely to STNG's own
+  realised prints with NAV moving <4.5%). One locked test expectation
+  reversed with documentation: `test_suezmax_recalibration_lifts_nat_nav`
+  → `..._lowers_nat_nav` (thin-sample artifact corrected by 18-print fit).
+- **Incremental scan infrastructure** (`sp_scan.py`, 6 tests): cursor at
+  `inputs/market_data/transactions/_scan_state.json` (currently 2026-06-08),
+  review queue at `outputs/sp_print_candidates.md` (191 candidates archived).
+  Weekly Pareto ingest now only scans new PDFs:
+  `python -m crude_tanker_fv.sp_scan`. Candidates are human-classified
+  before entering a transactions YAML — auto-parsing prose into fit inputs
+  is deliberately out of scope. 2024-H2 archive files (71 PDFs) deliberately
+  NOT mined: pre-2025 market regime, recency weight < 0.4 at current as_of.
+- **Backlog registered — exogenous-recession demand-destruction overlay**
+  (depends on the Task-3 news-driven weight adjuster above): dated
+  `demand_destruction_overlay` field (0.00–0.25, default 0.00) on the
+  weights ledger, applied as FINAL multiplier on probability-weighted FV,
+  crude + product only. Parameterizes ONLY the war-INDEPENDENT demand
+  channel (credit cycle, China structural, equity drawdown) — the
+  war-LINKED channel (high oil → demand destruction) lives in the scenario
+  curves and must NOT be double-counted. Guardrail first: verify
+  `pre_mou_baseline`'s back half bends down enough to carry the linked
+  erosion before sizing any overlay. Sensitivity report at {0, 10%, 20%};
+  trigger rules tied to macro signals (PMIs, credit spreads, equity tape),
+  explicitly NOT oil price or Hormuz status. Sizing of the 25% cap needs
+  an empirical peg (2008-09 precedent) before implementation.
+- **Backlog registered — issuer-report S&P sweep at refresh time:** fold a
+  "scan the quarter's 6-K/10-Q/PRs for disclosed vessel sales" step into
+  the quarterly refresh checklist per ticker (marginal yield ~1-3 prints
+  per name per quarter with better vessel detail than Pareto prose).
+- **Backlog carried forward:** GNK onboarding (second dry-bulk validator —
+  decides the §11.7.6 v1 lock outcome), §6 SBLK entry promotion (drafted in
+  decisions/sblk_log.md), Pana 2016-kamsarmax duplicate-print
+  disambiguation (2025-09-19 vs 2025-10-06 Pareto mentions).
+
 ### 2026-06-09 (evening) — Jun-9 scenario recalibration (crude / LNG / product weights + LR fix + VLCC re-anchor)
 
 - **Crude weights reset, Jun-9 point-in-time** (`{escalation 0.25, pre_mou_baseline 0.45, mou_base 0.18, mou_bear 0.12}`, from `{0.10/0.15/0.50/0.25}` v1). `pre_mou_baseline` becomes the base case — the April/May MoU/ceasefire path failed to physically reopen Hormuz; Jun-8 US helicopter downed near the strait; ceasefire faltering. Revisit when US response resolves. NOT a permanent lock.

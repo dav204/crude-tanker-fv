@@ -2,7 +2,7 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $75.60
-- **Model fair value:** $77.29
+- **Model fair value:** $74.00
 - **Analyst target:** $94.00
 
 ## Data validation warnings
@@ -14,8 +14,8 @@
 
 | Item | $M |
 |---|---:|
-| Fleet value — LR2 | 2,273.4 |
-| Fleet value — MR | 1,402.0 |
+| Fleet value — LR2 | 2,099.5 |
+| Fleet value — MR | 1,400.1 |
 | Fleet value — Handymax | 205.3 |
 | + Cash & equivalents | 984.3 |
 | + Working capital (net) | 602.8 |
@@ -23,9 +23,9 @@
 | − Lease liabilities | 0.0 |
 | − Newbuild commitments | 572.8 |
 | + Newbuild advances | 90.0 |
-| **= NAV total** | **4,196.0** |
+| **= NAV total** | **4,020.1** |
 | Diluted shares | 50,030,000 |
-| **NAV / share** | **$83.87** |
+| **NAV / share** | **$80.35** |
 
 ## Dividend strip (r = 11%)
 
@@ -40,63 +40,64 @@
 | Q7 | 74,000 | 68,500 | 4.301 | 0.450 | 0.375 |
 | Q8 | 56,000 | 52,750 | 2.614 | 0.450 | 0.365 |
 | Σ discounted DPS | | | | | 3.21 |
-| Terminal value (NAV, q9) | | | | 74.30 | 58.75 |
-| **DivStrip implied price** | | | | | **$61.96** |
+| Terminal value (NAV, q9) | | | | 70.77 | 55.96 |
+| **DivStrip implied price** | | | | | **$59.17** |
 
 _FFA spot is the LR2 forward curve that drives the strip cash flows; its 12-month average is **$77,250/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$56,250/day** — not this FFA average._
 
 ## Cycle weighting
 
-- Cycle position = 12M TC (Compass) $56,250 / 10-yr mean $27,600 = **1.76×** → **late-cycle/peak**
+- Cycle position = 12M TC (Compass) $56,250 / 10-yr mean $27,600 = **1.75×** → **late-cycle/peak**
 - Weights: w_nav = 0.70, w_earn = 0.30
 
 ## Blended fair value
 
-0.70 × $83.87 (NAV) + 0.30 × $61.96 (strip) = **$77.29**
+0.70 × $80.35 (NAV) + 0.30 × $59.17 (strip) = **$74.00**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $83.94 |
-| 95% | $85.19 |
-| 100% | $85.60 |
+| 80% | $80.64 |
+| 95% | $81.89 |
+| 100% | $82.31 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-**NAV alone covers the price.** NAV/share **$83.87** ≥ price **$75.60** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
+The current price requires the fleet to run at **50.00× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **0** | — |
-| 10-year mean | 22,796 | 0.00× |
-| 12-month FFA | 55,506 | 0.00× |
-| Current spot | 37,868 | 0.00× |
+| **Implied breakeven (blended)** | **2,725,019** | — |
+| 10-year mean | 22,573 | 120.72× |
+| 12-month FFA | 54,500 | 50.00× |
+| Current spot | 37,284 | 73.09× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| LR2 (59% of fleet value) | 0 | 0.00× |
-| MR (36% of fleet value) | 0 | 0.00× |
-| Handymax (5% of fleet value) | 0 | 0.00× |
+| LR2 (57% of fleet value) | 3,862,500 | 139.95× |
+| MR (38% of fleet value) | 1,237,500 | 77.34× |
+| Handymax (6% of fleet value) | 1,237,500 | 77.34× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $63.21 | $70.25 | $77.29 | $84.34 | $91.38 |
-| **-15%** | $63.21 | $70.25 | $77.29 | $84.34 | $91.38 |
-| **+0%** | $63.21 | $70.25 | $77.29 | $84.34 | $91.38 |
-| **+15%** | $63.21 | $70.25 | $77.29 | $84.34 | $91.38 |
-| **+30%** | $63.21 | $70.25 | $77.29 | $84.34 | $91.38 |
+| **-30%** | $60.57 | $67.28 | $74.00 | $80.71 | $87.42 |
+| **-15%** | $60.57 | $67.28 | $74.00 | $80.71 | $87.42 |
+| **+0%** | $60.57 | $67.28 | $74.00 | $80.71 | $87.42 |
+| **+15%** | $60.57 | $67.28 | $74.00 | $80.71 | $87.42 |
+| **+30%** | $60.57 | $67.28 | $74.00 | $80.71 | $87.42 |
 
 _Current price $75.60. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$77.29** is +2.2% vs the current price ($75.60) and -17.8% vs the analyst target ($94.00). NAV alone covers the price (NAV/sh $83.87 ≥ $75.60); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
+Tool fair value **$74.00** is -2.1% vs the current price ($75.60) and -21.3% vs the analyst target ($94.00). The current price implies the fleet earning a value-weighted blended **$2,725,019/day** (50.00× the current forward) — 120.7× the value-weighted 10-yr mean ($22,573, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 
+- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $81.6M (+3%) / 10yr $60.9M (-10%) [n=12], Cape 5yr $73.3M (+18%) / 10yr $50.5M (+12%) [n=21], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $34.2M (+7%) / 10yr $24.7M (+3%) [n=4], Suezmax 5yr $85.9M (-7%) / 10yr $69.7M (-13%) [n=18], Supra-Ultra 5yr $29.7M (-10%) / 10yr $21.8M (-13%) [n=17], VLCC 5yr $112.7M (-18%) / 10yr $90.9M (-18%) [n=11]. Newbuild + old-age anchors unchanged.
 - LR2/Aframax vessels modeled as Aframax-equivalent (crude/dirty proxy) for v1; true clean-LR2 product rates would differ (v2: max of Aframax-crude and LR2-product).

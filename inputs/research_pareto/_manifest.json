@@ -12,7 +12,7 @@
       "type": "shipping_daily",
       "report_date": "2024-08-22",
       "downloaded_at": "2026-06-09T01:32:33.525146+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193470,
       "classification_signal": "content:Shipping Daily"
@@ -23,7 +23,7 @@
       "type": "shipping_daily",
       "report_date": "2024-08-23",
       "downloaded_at": "2026-06-09T01:32:31.511835+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193387,
       "classification_signal": "content:Shipping Daily"
@@ -34,7 +34,7 @@
       "type": "shipping_daily",
       "report_date": "2024-08-26",
       "downloaded_at": "2026-06-09T01:32:29.385354+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 192480,
       "classification_signal": "content:Shipping Daily"
@@ -45,7 +45,7 @@
       "type": "shipping_daily",
       "report_date": "2024-08-27",
       "downloaded_at": "2026-06-09T01:32:27.966057+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191442,
       "classification_signal": "content:Shipping Daily"
@@ -56,7 +56,7 @@
       "type": "shipping_daily",
       "report_date": "2024-08-29",
       "downloaded_at": "2026-06-09T01:32:25.300508+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191602,
       "classification_signal": "content:Shipping Daily"
@@ -67,7 +67,7 @@
       "type": "shipping_daily",
       "report_date": "2024-08-30",
       "downloaded_at": "2026-06-09T01:32:23.149389+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 189280,
       "classification_signal": "content:Shipping Daily"
@@ -78,7 +78,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-02",
       "downloaded_at": "2026-06-09T01:32:20.868036+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193024,
       "classification_signal": "content:Shipping Daily"
@@ -89,7 +89,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-03",
       "downloaded_at": "2026-06-09T01:32:18.973528+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191392,
       "classification_signal": "content:Shipping Daily"
@@ -100,7 +100,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-04",
       "downloaded_at": "2026-06-09T01:32:16.952404+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 192162,
       "classification_signal": "content:Shipping Daily"
@@ -111,7 +111,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-05",
       "downloaded_at": "2026-06-09T01:32:14.694217+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191879,
       "classification_signal": "content:Shipping Daily"
@@ -122,7 +122,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-06",
       "downloaded_at": "2026-06-09T01:32:13.274336+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 187830,
       "classification_signal": "content:Shipping Daily"
@@ -133,7 +133,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-09",
       "downloaded_at": "2026-06-09T01:32:11.812806+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 188587,
       "classification_signal": "content:Shipping Daily"
@@ -144,7 +144,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-10",
       "downloaded_at": "2026-06-09T01:32:09.711479+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191097,
       "classification_signal": "content:Shipping Daily"
@@ -155,7 +155,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-13",
       "downloaded_at": "2026-06-09T01:32:05.253923+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194795,
       "classification_signal": "content:Shipping Daily"
@@ -166,7 +166,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-16",
       "downloaded_at": "2026-06-09T01:32:00.924668+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 190108,
       "classification_signal": "content:Shipping Daily"
@@ -177,7 +177,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-17",
       "downloaded_at": "2026-06-09T01:31:59.412786+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 189646,
       "classification_signal": "content:Shipping Daily"
@@ -188,7 +188,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-19",
       "downloaded_at": "2026-06-09T01:31:57.032230+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 189394,
       "classification_signal": "content:Shipping Daily"
@@ -199,7 +199,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-20",
       "downloaded_at": "2026-06-09T01:31:55.031288+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 188839,
       "classification_signal": "content:Shipping Daily"
@@ -210,7 +210,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-23",
       "downloaded_at": "2026-06-09T01:31:53.592731+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 189049,
       "classification_signal": "content:Shipping Daily"
@@ -221,7 +221,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-24",
       "downloaded_at": "2026-06-09T01:31:51.399900+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193708,
       "classification_signal": "content:Shipping Daily"
@@ -232,7 +232,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-25",
       "downloaded_at": "2026-06-09T01:31:48.190023+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 180232,
       "classification_signal": "content:Shipping Daily"
@@ -243,7 +243,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-26",
       "downloaded_at": "2026-06-09T01:31:46.634349+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 192144,
       "classification_signal": "content:Shipping Daily"
@@ -254,7 +254,7 @@
       "type": "shipping_daily",
       "report_date": "2024-09-30",
       "downloaded_at": "2026-06-09T01:31:42.462472+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 189332,
       "classification_signal": "content:Shipping Daily"
@@ -265,7 +265,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-01",
       "downloaded_at": "2026-06-09T01:31:40.190250+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191376,
       "classification_signal": "content:Shipping Daily"
@@ -276,7 +276,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-02",
       "downloaded_at": "2026-06-09T01:31:38.016104+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 187760,
       "classification_signal": "content:Shipping Daily"
@@ -287,7 +287,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-03",
       "downloaded_at": "2026-06-09T01:31:35.710607+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 187945,
       "classification_signal": "content:Shipping Daily"
@@ -298,7 +298,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-07",
       "downloaded_at": "2026-06-09T01:31:31.601457+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 189581,
       "classification_signal": "content:Shipping Daily"
@@ -309,7 +309,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-08",
       "downloaded_at": "2026-06-09T01:31:30.161577+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 188691,
       "classification_signal": "content:Shipping Daily"
@@ -320,7 +320,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-09",
       "downloaded_at": "2026-06-09T01:31:28.711076+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191732,
       "classification_signal": "content:Shipping Daily"
@@ -331,7 +331,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-10",
       "downloaded_at": "2026-06-09T01:31:26.660921+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194471,
       "classification_signal": "content:Shipping Daily"
@@ -342,7 +342,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-14",
       "downloaded_at": "2026-06-09T01:31:24.229182+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 190289,
       "classification_signal": "content:Shipping Daily"
@@ -353,7 +353,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-18",
       "downloaded_at": "2026-06-09T01:31:19.850770+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 187516,
       "classification_signal": "content:Shipping Daily"
@@ -364,7 +364,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-21",
       "downloaded_at": "2026-06-09T01:31:12.641232+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 195901,
       "classification_signal": "content:Shipping Daily"
@@ -375,7 +375,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-22",
       "downloaded_at": "2026-06-09T01:31:11.212743+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 192198,
       "classification_signal": "content:Shipping Daily"
@@ -386,7 +386,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-23",
       "downloaded_at": "2026-06-09T01:31:09.547568+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 190681,
       "classification_signal": "content:Shipping Daily"
@@ -397,7 +397,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-24",
       "downloaded_at": "2026-06-09T01:31:07.395523+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191616,
       "classification_signal": "content:Shipping Daily"
@@ -408,7 +408,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-25",
       "downloaded_at": "2026-06-09T01:31:05.297132+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193434,
       "classification_signal": "content:Shipping Daily"
@@ -419,7 +419,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-28",
       "downloaded_at": "2026-06-09T01:31:02.661050+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 190703,
       "classification_signal": "content:Shipping Daily"
@@ -430,7 +430,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-29",
       "downloaded_at": "2026-06-09T01:31:01.190043+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191404,
       "classification_signal": "content:Shipping Daily"
@@ -441,7 +441,7 @@
       "type": "shipping_daily",
       "report_date": "2024-10-31",
       "downloaded_at": "2026-06-09T01:30:54.044428+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194923,
       "classification_signal": "content:Shipping Daily"
@@ -452,7 +452,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-01",
       "downloaded_at": "2026-06-09T01:30:52.008187+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 195439,
       "classification_signal": "content:Shipping Daily"
@@ -463,7 +463,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-05",
       "downloaded_at": "2026-06-09T01:30:49.843678+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 187512,
       "classification_signal": "content:Shipping Daily"
@@ -474,7 +474,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-05",
       "downloaded_at": "2026-06-09T01:30:48.935852+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 192301,
       "classification_signal": "content:Shipping Daily"
@@ -485,7 +485,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-06",
       "downloaded_at": "2026-06-09T01:30:47.421842+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191268,
       "classification_signal": "content:Shipping Daily"
@@ -496,7 +496,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-07",
       "downloaded_at": "2026-06-09T01:30:45.398434+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 196575,
       "classification_signal": "content:Shipping Daily"
@@ -507,7 +507,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-08",
       "downloaded_at": "2026-06-09T01:30:43.918317+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 195323,
       "classification_signal": "content:Shipping Daily"
@@ -518,7 +518,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-11",
       "downloaded_at": "2026-06-09T01:30:41.774888+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193034,
       "classification_signal": "content:Shipping Daily"
@@ -529,7 +529,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-12",
       "downloaded_at": "2026-06-09T01:30:40.257467+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193520,
       "classification_signal": "content:Shipping Daily"
@@ -540,7 +540,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-13",
       "downloaded_at": "2026-06-09T01:30:37.665775+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 192203,
       "classification_signal": "content:Shipping Daily"
@@ -551,7 +551,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-14",
       "downloaded_at": "2026-06-09T01:30:35.336295+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 192285,
       "classification_signal": "content:Shipping Daily"
@@ -562,7 +562,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-15",
       "downloaded_at": "2026-06-09T01:30:33.094906+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 195231,
       "classification_signal": "content:Shipping Daily"
@@ -573,7 +573,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-18",
       "downloaded_at": "2026-06-09T01:30:30.117828+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 195675,
       "classification_signal": "content:Shipping Daily"
@@ -584,7 +584,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-19",
       "downloaded_at": "2026-06-09T01:30:28.319991+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 196146,
       "classification_signal": "content:Shipping Daily"
@@ -595,7 +595,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-20",
       "downloaded_at": "2026-06-09T01:30:26.826979+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194931,
       "classification_signal": "content:Shipping Daily"
@@ -606,7 +606,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-21",
       "downloaded_at": "2026-06-09T01:30:24.073876+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193153,
       "classification_signal": "content:Shipping Daily"
@@ -617,7 +617,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-22",
       "downloaded_at": "2026-06-09T01:30:21.702130+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 188024,
       "classification_signal": "content:Shipping Daily"
@@ -628,7 +628,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-26",
       "downloaded_at": "2026-06-09T01:30:13.800573+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 196680,
       "classification_signal": "content:Shipping Daily"
@@ -639,7 +639,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-27",
       "downloaded_at": "2026-06-09T01:30:08.743377+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 195765,
       "classification_signal": "content:Shipping Daily"
@@ -650,7 +650,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-28",
       "downloaded_at": "2026-06-09T01:30:06.359177+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191664,
       "classification_signal": "content:Shipping Daily"
@@ -661,7 +661,7 @@
       "type": "shipping_daily",
       "report_date": "2024-11-29",
       "downloaded_at": "2026-06-09T01:30:03.872837+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193473,
       "classification_signal": "content:Shipping Daily"
@@ -672,7 +672,7 @@
       "type": "shipping_daily",
       "report_date": "2024-12-03",
       "downloaded_at": "2026-06-09T01:29:59.419465+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193002,
       "classification_signal": "content:Shipping Daily"
@@ -683,7 +683,7 @@
       "type": "shipping_daily",
       "report_date": "2024-12-06",
       "downloaded_at": "2026-06-09T01:29:56.085958+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 189976,
       "classification_signal": "content:Shipping Daily"
@@ -694,7 +694,7 @@
       "type": "shipping_daily",
       "report_date": "2024-12-09",
       "downloaded_at": "2026-06-09T01:29:48.808967+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194112,
       "classification_signal": "content:Shipping Daily"
@@ -705,7 +705,7 @@
       "type": "shipping_daily",
       "report_date": "2024-12-10",
       "downloaded_at": "2026-06-09T01:29:45.644104+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191145,
       "classification_signal": "content:Shipping Daily"
@@ -716,7 +716,7 @@
       "type": "shipping_daily",
       "report_date": "2024-12-11",
       "downloaded_at": "2026-06-09T01:29:43.693234+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 188442,
       "classification_signal": "content:Shipping Daily"
@@ -727,7 +727,7 @@
       "type": "shipping_daily",
       "report_date": "2024-12-12",
       "downloaded_at": "2026-06-09T01:29:41.827585+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194210,
       "classification_signal": "content:Shipping Daily"
@@ -738,7 +738,7 @@
       "type": "shipping_daily",
       "report_date": "2024-12-13",
       "downloaded_at": "2026-06-09T01:29:39.266785+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191926,
       "classification_signal": "content:Shipping Daily"
@@ -749,7 +749,7 @@
       "type": "shipping_daily",
       "report_date": "2024-12-16",
       "downloaded_at": "2026-06-09T01:29:34.702628+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 188650,
       "classification_signal": "content:Shipping Daily"
@@ -760,7 +760,7 @@
       "type": "shipping_daily",
       "report_date": "2024-12-17",
       "downloaded_at": "2026-06-09T01:29:32.874141+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 190462,
       "classification_signal": "content:Shipping Daily"
@@ -771,7 +771,7 @@
       "type": "shipping_daily",
       "report_date": "2024-12-18",
       "downloaded_at": "2026-06-09T01:29:30.945632+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 192208,
       "classification_signal": "content:Shipping Daily"
@@ -782,7 +782,7 @@
       "type": "shipping_daily",
       "report_date": "2024-12-20",
       "downloaded_at": "2026-06-09T01:29:24.268590+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191000,
       "classification_signal": "content:Shipping Daily"
@@ -793,7 +793,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-03",
       "downloaded_at": "2026-06-09T01:29:15.267511+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 189500,
       "classification_signal": "content:Shipping Daily"
@@ -804,7 +804,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-06",
       "downloaded_at": "2026-06-09T01:29:12.458622+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 189981,
       "classification_signal": "content:Shipping Daily"
@@ -815,7 +815,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-07",
       "downloaded_at": "2026-06-09T01:29:09.356366+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 190647,
       "classification_signal": "content:Shipping Daily"
@@ -826,7 +826,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-08",
       "downloaded_at": "2026-06-09T01:29:06.569527+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194033,
       "classification_signal": "content:Shipping Daily"
@@ -837,7 +837,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-09",
       "downloaded_at": "2026-06-09T01:29:04.985862+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193133,
       "classification_signal": "content:Shipping Daily"
@@ -848,7 +848,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-10",
       "downloaded_at": "2026-06-09T01:29:03.540130+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 190589,
       "classification_signal": "content:Shipping Daily"
@@ -859,7 +859,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-13",
       "downloaded_at": "2026-06-09T01:29:01.301741+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191402,
       "classification_signal": "content:Shipping Daily"
@@ -870,7 +870,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-14",
       "downloaded_at": "2026-06-09T01:28:58.512503+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191249,
       "classification_signal": "content:Shipping Daily"
@@ -881,7 +881,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-15",
       "downloaded_at": "2026-06-09T01:28:55.177992+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193106,
       "classification_signal": "content:Shipping Daily"
@@ -892,7 +892,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-16",
       "downloaded_at": "2026-06-09T01:28:53.026061+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 192857,
       "classification_signal": "content:Shipping Daily"
@@ -903,7 +903,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-17",
       "downloaded_at": "2026-06-09T01:28:51.549366+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 192616,
       "classification_signal": "content:Shipping Daily"
@@ -914,7 +914,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-20",
       "downloaded_at": "2026-06-09T01:28:34.158688+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191996,
       "classification_signal": "content:Shipping Daily"
@@ -925,7 +925,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-21",
       "downloaded_at": "2026-06-09T01:28:32.661511+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191788,
       "classification_signal": "content:Shipping Daily"
@@ -936,7 +936,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-22",
       "downloaded_at": "2026-06-09T01:28:30.202872+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 185373,
       "classification_signal": "content:Shipping Daily"
@@ -947,7 +947,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-24",
       "downloaded_at": "2026-06-09T01:28:27.983315+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 188937,
       "classification_signal": "content:Shipping Daily"
@@ -958,7 +958,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-27",
       "downloaded_at": "2026-06-09T01:28:22.578878+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194192,
       "classification_signal": "content:Shipping Daily"
@@ -969,7 +969,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-29",
       "downloaded_at": "2026-06-09T01:28:20.279382+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193702,
       "classification_signal": "content:Shipping Daily"
@@ -980,7 +980,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-30",
       "downloaded_at": "2026-06-09T01:28:18.741975+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 190556,
       "classification_signal": "content:Shipping Daily"
@@ -991,7 +991,7 @@
       "type": "shipping_daily",
       "report_date": "2025-01-31",
       "downloaded_at": "2026-06-09T01:28:15.648662+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193714,
       "classification_signal": "content:Shipping Daily"
@@ -1002,7 +1002,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-03",
       "downloaded_at": "2026-06-09T01:28:12.825050+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 190953,
       "classification_signal": "content:Shipping Daily"
@@ -1013,7 +1013,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-04",
       "downloaded_at": "2026-06-09T01:28:09.409166+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 191835,
       "classification_signal": "content:Shipping Daily"
@@ -1024,7 +1024,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-05",
       "downloaded_at": "2026-06-09T01:28:06.905850+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193277,
       "classification_signal": "content:Shipping Daily"
@@ -1035,7 +1035,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-06",
       "downloaded_at": "2026-06-09T01:28:04.259507+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193795,
       "classification_signal": "content:Shipping Daily"
@@ -1046,7 +1046,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-07",
       "downloaded_at": "2026-06-09T01:28:00.047905+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193335,
       "classification_signal": "content:Shipping Daily"
@@ -1057,7 +1057,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-10",
       "downloaded_at": "2026-06-09T01:27:58.164019+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 196239,
       "classification_signal": "content:Shipping Daily"
@@ -1068,7 +1068,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-11",
       "downloaded_at": "2026-06-09T01:27:54.897767+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194257,
       "classification_signal": "content:Shipping Daily"
@@ -1079,7 +1079,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-12",
       "downloaded_at": "2026-06-09T01:27:49.495621+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194459,
       "classification_signal": "content:Shipping Daily"
@@ -1090,7 +1090,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-13",
       "downloaded_at": "2026-06-09T01:27:46.325980+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193626,
       "classification_signal": "content:Shipping Daily"
@@ -1101,7 +1101,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-14",
       "downloaded_at": "2026-06-09T01:27:41.717194+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 192309,
       "classification_signal": "content:Shipping Daily"
@@ -1112,7 +1112,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-17",
       "downloaded_at": "2026-06-09T01:27:39.143699+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194476,
       "classification_signal": "content:Shipping Daily"
@@ -1123,7 +1123,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-18",
       "downloaded_at": "2026-06-09T01:27:37.217911+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 193685,
       "classification_signal": "content:Shipping Daily"
@@ -1134,7 +1134,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-19",
       "downloaded_at": "2026-06-09T01:27:34.233544+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194739,
       "classification_signal": "content:Shipping Daily"
@@ -1145,7 +1145,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-20",
       "downloaded_at": "2026-06-09T01:27:30.533675+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 194377,
       "classification_signal": "content:Shipping Daily"
@@ -1156,7 +1156,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-21",
       "downloaded_at": "2026-06-09T01:27:27.814124+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 190334,
       "classification_signal": "content:Shipping Daily"
@@ -1167,7 +1167,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-24",
       "downloaded_at": "2026-06-09T01:27:24.162765+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 232049,
       "classification_signal": "content:Shipping Daily"
@@ -1178,7 +1178,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-25",
       "downloaded_at": "2026-06-09T01:27:21.937533+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 232574,
       "classification_signal": "content:Shipping Daily"
@@ -1189,7 +1189,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-26",
       "downloaded_at": "2026-06-09T01:27:20.078031+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 228637,
       "classification_signal": "content:Shipping Daily"
@@ -1200,7 +1200,7 @@
       "type": "shipping_daily",
       "report_date": "2025-02-27",
       "downloaded_at": "2026-06-09T01:27:16.769121+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 223129,
       "classification_signal": "content:Shipping Daily"
@@ -1211,7 +1211,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-03",
       "downloaded_at": "2026-06-09T01:27:09.508378+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 224244,
       "classification_signal": "content:Shipping Daily"
@@ -1222,7 +1222,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-04",
       "downloaded_at": "2026-06-09T01:27:06.839340+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 236126,
       "classification_signal": "content:Shipping Daily"
@@ -1233,7 +1233,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-06",
       "downloaded_at": "2026-06-09T01:27:01.843601+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 236578,
       "classification_signal": "content:Shipping Daily"
@@ -1244,7 +1244,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-07",
       "downloaded_at": "2026-06-09T01:26:57.422080+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 230742,
       "classification_signal": "content:Shipping Daily"
@@ -1255,7 +1255,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-10",
       "downloaded_at": "2026-06-09T01:26:54.804303+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 225793,
       "classification_signal": "content:Shipping Daily"
@@ -1266,7 +1266,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-11",
       "downloaded_at": "2026-06-09T01:26:52.900337+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 236279,
       "classification_signal": "content:Shipping Daily"
@@ -1277,7 +1277,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-12",
       "downloaded_at": "2026-06-09T01:26:49.080652+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 238138,
       "classification_signal": "content:Shipping Daily"
@@ -1288,7 +1288,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-13",
       "downloaded_at": "2026-06-09T01:26:46.226796+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 227079,
       "classification_signal": "content:Shipping Daily"
@@ -1299,7 +1299,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-14",
       "downloaded_at": "2026-06-09T01:26:43.993372+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 241049,
       "classification_signal": "content:Shipping Daily"
@@ -1310,7 +1310,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-17",
       "downloaded_at": "2026-06-09T01:26:41.172871+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 235633,
       "classification_signal": "content:Shipping Daily"
@@ -1321,7 +1321,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-19",
       "downloaded_at": "2026-06-09T01:26:37.588418+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 233074,
       "classification_signal": "content:Shipping Daily"
@@ -1332,7 +1332,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-20",
       "downloaded_at": "2026-06-09T01:26:30.158869+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 224058,
       "classification_signal": "content:Shipping Daily"
@@ -1343,7 +1343,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-21",
       "downloaded_at": "2026-06-09T01:26:28.314025+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 232465,
       "classification_signal": "content:Shipping Daily"
@@ -1354,7 +1354,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-24",
       "downloaded_at": "2026-06-09T01:26:15.016965+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 231439,
       "classification_signal": "content:Shipping Daily"
@@ -1365,7 +1365,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-25",
       "downloaded_at": "2026-06-09T01:26:14.088895+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 241751,
       "classification_signal": "content:Shipping Daily"
@@ -1376,7 +1376,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-26",
       "downloaded_at": "2026-06-09T01:26:11.336400+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 227909,
       "classification_signal": "content:Shipping Daily"
@@ -1387,7 +1387,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-27",
       "downloaded_at": "2026-06-09T01:26:09.810968+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 239074,
       "classification_signal": "content:Shipping Daily"
@@ -1398,7 +1398,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-28",
       "downloaded_at": "2026-06-09T01:26:06.241739+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 236032,
       "classification_signal": "content:Shipping Daily"
@@ -1409,7 +1409,7 @@
       "type": "shipping_daily",
       "report_date": "2025-03-31",
       "downloaded_at": "2026-06-09T01:26:03.848896+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 239319,
       "classification_signal": "content:Shipping Daily"
@@ -1420,7 +1420,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-04",
       "downloaded_at": "2026-06-09T01:25:59.649143+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 236519,
       "classification_signal": "content:Shipping Daily"
@@ -1431,7 +1431,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-07",
       "downloaded_at": "2026-06-09T01:25:52.836308+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 225284,
       "classification_signal": "content:Shipping Daily"
@@ -1442,7 +1442,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-08",
       "downloaded_at": "2026-06-09T01:25:50.618562+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 147498,
       "classification_signal": "content:Shipping Daily"
@@ -1453,7 +1453,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-09",
       "downloaded_at": "2026-06-09T01:25:47.345144+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 143307,
       "classification_signal": "content:Shipping Daily"
@@ -1464,7 +1464,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-10",
       "downloaded_at": "2026-06-09T01:25:45.358539+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 165850,
       "classification_signal": "content:Shipping Daily"
@@ -1475,7 +1475,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-14",
       "downloaded_at": "2026-06-09T01:25:40.504612+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 159552,
       "classification_signal": "content:Shipping Daily"
@@ -1486,7 +1486,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-22",
       "downloaded_at": "2026-06-09T01:25:34.608532+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155540,
       "classification_signal": "content:Shipping Daily"
@@ -1497,7 +1497,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-23",
       "downloaded_at": "2026-06-09T01:25:25.497748+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 165183,
       "classification_signal": "content:Shipping Daily"
@@ -1508,7 +1508,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-24",
       "downloaded_at": "2026-06-09T01:25:23.986441+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 166021,
       "classification_signal": "content:Shipping Daily"
@@ -1519,7 +1519,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-25",
       "downloaded_at": "2026-06-09T01:25:21.659356+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157833,
       "classification_signal": "content:Shipping Daily"
@@ -1530,7 +1530,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-28",
       "downloaded_at": "2026-06-09T01:25:19.095266+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 168775,
       "classification_signal": "content:Shipping Daily"
@@ -1541,7 +1541,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-29",
       "downloaded_at": "2026-06-09T01:25:17.484268+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157289,
       "classification_signal": "content:Shipping Daily"
@@ -1552,7 +1552,7 @@
       "type": "shipping_daily",
       "report_date": "2025-04-30",
       "downloaded_at": "2026-06-09T01:25:05.076504+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 140883,
       "classification_signal": "content:Shipping Daily"
@@ -1563,7 +1563,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-02",
       "downloaded_at": "2026-06-09T01:25:02.750723+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156325,
       "classification_signal": "content:Shipping Daily"
@@ -1574,7 +1574,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-05",
       "downloaded_at": "2026-06-09T01:24:49.936009+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 161132,
       "classification_signal": "content:Shipping Daily"
@@ -1585,7 +1585,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-06",
       "downloaded_at": "2026-06-09T01:24:48.428577+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 148306,
       "classification_signal": "content:Shipping Daily"
@@ -1596,7 +1596,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-07",
       "downloaded_at": "2026-06-09T01:24:46.972985+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 159506,
       "classification_signal": "content:Shipping Daily"
@@ -1607,7 +1607,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-08",
       "downloaded_at": "2026-06-09T01:24:43.143883+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 3,
       "size_bytes": 183536,
       "classification_signal": "content:Shipping Daily"
@@ -1618,7 +1618,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-09",
       "downloaded_at": "2026-06-09T01:24:41.674098+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 163702,
       "classification_signal": "content:Shipping Daily"
@@ -1629,7 +1629,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-13",
       "downloaded_at": "2026-06-09T01:24:27.499030+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 149263,
       "classification_signal": "content:Shipping Daily"
@@ -1640,7 +1640,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-14",
       "downloaded_at": "2026-06-09T01:24:25.944652+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 186456,
       "classification_signal": "content:Shipping Daily"
@@ -1651,7 +1651,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-15",
       "downloaded_at": "2026-06-09T01:24:23.984813+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 169274,
       "classification_signal": "content:Shipping Daily"
@@ -1662,7 +1662,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-16",
       "downloaded_at": "2026-06-09T01:24:22.166924+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 97214,
       "classification_signal": "content:Shipping Daily"
@@ -1673,7 +1673,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-19",
       "downloaded_at": "2026-06-09T01:24:21.514401+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 102287,
       "classification_signal": "content:Shipping Daily"
@@ -1684,7 +1684,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-20",
       "downloaded_at": "2026-06-09T01:24:19.651235+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 102051,
       "classification_signal": "content:Shipping Daily"
@@ -1695,7 +1695,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-21",
       "downloaded_at": "2026-06-09T01:24:18.286408+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 112521,
       "classification_signal": "content:Shipping Daily"
@@ -1706,7 +1706,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-22",
       "downloaded_at": "2026-06-09T01:24:16.739515+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 104622,
       "classification_signal": "content:Shipping Daily"
@@ -1717,7 +1717,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-26",
       "downloaded_at": "2026-06-09T01:24:02.781883+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 98167,
       "classification_signal": "content:Shipping Daily"
@@ -1728,7 +1728,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-27",
       "downloaded_at": "2026-06-09T01:24:01.147636+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 99942,
       "classification_signal": "content:Shipping Daily"
@@ -1739,7 +1739,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-28",
       "downloaded_at": "2026-06-09T01:23:59.659332+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 98457,
       "classification_signal": "content:Shipping Daily"
@@ -1750,7 +1750,7 @@
       "type": "shipping_daily",
       "report_date": "2025-05-30",
       "downloaded_at": "2026-06-09T01:23:57.840150+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 96293,
       "classification_signal": "content:Shipping Daily"
@@ -1761,7 +1761,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-02",
       "downloaded_at": "2026-06-09T01:23:56.380238+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 101159,
       "classification_signal": "content:Shipping Daily"
@@ -1772,7 +1772,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-03",
       "downloaded_at": "2026-06-09T01:23:54.740278+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 99796,
       "classification_signal": "content:Shipping Daily"
@@ -1783,7 +1783,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-05",
       "downloaded_at": "2026-06-09T01:23:52.497661+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 102457,
       "classification_signal": "content:Shipping Daily"
@@ -1794,7 +1794,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-06",
       "downloaded_at": "2026-06-09T01:23:51.565399+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 100736,
       "classification_signal": "content:Shipping Daily"
@@ -1805,7 +1805,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-10",
       "downloaded_at": "2026-06-09T01:23:45.678463+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 102199,
       "classification_signal": "content:Shipping Daily"
@@ -1816,7 +1816,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-11",
       "downloaded_at": "2026-06-09T01:23:44.838351+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 100902,
       "classification_signal": "content:Shipping Daily"
@@ -1827,7 +1827,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-12",
       "downloaded_at": "2026-06-09T01:23:43.254117+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 98424,
       "classification_signal": "content:Shipping Daily"
@@ -1838,7 +1838,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-13",
       "downloaded_at": "2026-06-09T01:23:41.712533+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 100354,
       "classification_signal": "content:Shipping Daily"
@@ -1849,7 +1849,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-16",
       "downloaded_at": "2026-06-09T01:23:33.707772+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 102470,
       "classification_signal": "content:Shipping Daily"
@@ -1860,7 +1860,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-17",
       "downloaded_at": "2026-06-09T01:23:32.066938+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 98102,
       "classification_signal": "content:Shipping Daily"
@@ -1871,7 +1871,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-18",
       "downloaded_at": "2026-06-09T01:23:29.335254+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 103681,
       "classification_signal": "content:Shipping Daily"
@@ -1882,7 +1882,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-19",
       "downloaded_at": "2026-06-09T01:23:27.095341+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 99156,
       "classification_signal": "content:Shipping Daily"
@@ -1893,7 +1893,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-20",
       "downloaded_at": "2026-06-09T01:23:25.478348+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 99170,
       "classification_signal": "content:Shipping Daily"
@@ -1904,7 +1904,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-23",
       "downloaded_at": "2026-06-09T01:23:23.207111+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 99353,
       "classification_signal": "content:Shipping Daily"
@@ -1915,7 +1915,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-24",
       "downloaded_at": "2026-06-09T01:23:20.661502+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 103300,
       "classification_signal": "content:Shipping Daily"
@@ -1926,7 +1926,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-25",
       "downloaded_at": "2026-06-09T01:23:18.272674+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 103386,
       "classification_signal": "content:Shipping Daily"
@@ -1937,7 +1937,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-26",
       "downloaded_at": "2026-06-09T01:23:14.515372+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 101952,
       "classification_signal": "content:Shipping Daily"
@@ -1948,7 +1948,7 @@
       "type": "shipping_daily",
       "report_date": "2025-06-27",
       "downloaded_at": "2026-06-09T01:23:12.016034+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 100788,
       "classification_signal": "content:Shipping Daily"
@@ -1959,7 +1959,7 @@
       "type": "shipping_daily",
       "report_date": "2025-07-03",
       "downloaded_at": "2026-06-09T01:22:57.515809+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 98729,
       "classification_signal": "content:Shipping Daily"
@@ -1970,7 +1970,7 @@
       "type": "shipping_daily",
       "report_date": "2025-07-28",
       "downloaded_at": "2026-06-09T01:22:30.663963+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 100453,
       "classification_signal": "content:Shipping Daily"
@@ -1981,7 +1981,7 @@
       "type": "shipping_daily",
       "report_date": "2025-07-30",
       "downloaded_at": "2026-06-09T01:22:29.075423+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 97467,
       "classification_signal": "content:Shipping Daily"
@@ -1992,7 +1992,7 @@
       "type": "shipping_daily",
       "report_date": "2025-07-31",
       "downloaded_at": "2026-06-09T01:22:26.478590+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 100989,
       "classification_signal": "content:Shipping Daily"
@@ -2003,7 +2003,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-04",
       "downloaded_at": "2026-06-09T01:22:17.794718+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 101105,
       "classification_signal": "content:Shipping Daily"
@@ -2014,7 +2014,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-05",
       "downloaded_at": "2026-06-09T01:22:16.136545+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 97342,
       "classification_signal": "content:Shipping Daily"
@@ -2025,7 +2025,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-07",
       "downloaded_at": "2026-06-09T01:22:13.125376+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 96242,
       "classification_signal": "content:Shipping Daily"
@@ -2036,7 +2036,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-11",
       "downloaded_at": "2026-06-09T01:22:01.771676+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 99453,
       "classification_signal": "content:Shipping Daily"
@@ -2047,7 +2047,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-12",
       "downloaded_at": "2026-06-09T01:22:00.173838+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 98602,
       "classification_signal": "content:Shipping Daily"
@@ -2058,7 +2058,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-13",
       "downloaded_at": "2026-06-09T01:21:58.545510+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 100796,
       "classification_signal": "content:Shipping Daily"
@@ -2069,7 +2069,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-14",
       "downloaded_at": "2026-06-09T01:21:56.900125+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 108035,
       "classification_signal": "content:Shipping Daily"
@@ -2080,7 +2080,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-18",
       "downloaded_at": "2026-06-09T01:21:54.674036+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 101419,
       "classification_signal": "content:Shipping Daily"
@@ -2091,7 +2091,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-19",
       "downloaded_at": "2026-06-09T01:21:53.119125+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 102588,
       "classification_signal": "content:Shipping Daily"
@@ -2102,7 +2102,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-20",
       "downloaded_at": "2026-06-09T01:21:51.485501+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 104207,
       "classification_signal": "content:Shipping Daily"
@@ -2113,7 +2113,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-21",
       "downloaded_at": "2026-06-09T01:21:49.765321+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 103348,
       "classification_signal": "content:Shipping Daily"
@@ -2124,7 +2124,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-22",
       "downloaded_at": "2026-06-09T01:21:47.552036+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 105389,
       "classification_signal": "content:Shipping Daily"
@@ -2135,7 +2135,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-26",
       "downloaded_at": "2026-06-09T01:21:33.840422+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 100061,
       "classification_signal": "content:Shipping Daily"
@@ -2146,7 +2146,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-27",
       "downloaded_at": "2026-06-09T01:21:31.935759+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 98102,
       "classification_signal": "content:Shipping Daily"
@@ -2157,7 +2157,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-28",
       "downloaded_at": "2026-06-09T01:21:30.455051+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 100908,
       "classification_signal": "content:Shipping Daily"
@@ -2168,7 +2168,7 @@
       "type": "shipping_daily",
       "report_date": "2025-08-29",
       "downloaded_at": "2026-06-09T01:21:29.013000+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 99544,
       "classification_signal": "content:Shipping Daily"
@@ -2179,7 +2179,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-02",
       "downloaded_at": "2026-06-09T01:21:25.512014+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156440,
       "classification_signal": "content:Shipping Daily"
@@ -2190,7 +2190,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-03",
       "downloaded_at": "2026-06-09T01:21:23.770348+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155606,
       "classification_signal": "content:Shipping Daily"
@@ -2201,7 +2201,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-04",
       "downloaded_at": "2026-06-09T01:21:22.290276+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156013,
       "classification_signal": "content:Shipping Daily"
@@ -2212,7 +2212,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-05",
       "downloaded_at": "2026-06-09T01:21:20.013734+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156231,
       "classification_signal": "content:Shipping Daily"
@@ -2223,7 +2223,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-08",
       "downloaded_at": "2026-06-09T01:21:19.158401+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 154910,
       "classification_signal": "content:Shipping Daily"
@@ -2234,7 +2234,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-09",
       "downloaded_at": "2026-06-09T01:21:16.391199+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 153985,
       "classification_signal": "content:Shipping Daily"
@@ -2245,7 +2245,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-15",
       "downloaded_at": "2026-06-09T01:21:10.822848+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157108,
       "classification_signal": "content:Shipping Daily"
@@ -2256,7 +2256,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-16",
       "downloaded_at": "2026-06-09T01:21:08.390363+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155657,
       "classification_signal": "content:Shipping Daily"
@@ -2267,7 +2267,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-17",
       "downloaded_at": "2026-06-09T01:21:06.912857+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 154430,
       "classification_signal": "content:Shipping Daily"
@@ -2278,7 +2278,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-19",
       "downloaded_at": "2026-06-09T01:21:04.106246+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 154872,
       "classification_signal": "content:Shipping Daily"
@@ -2289,7 +2289,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-23",
       "downloaded_at": "2026-06-09T01:21:01.525717+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 140553,
       "classification_signal": "content:Shipping Daily"
@@ -2300,7 +2300,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-24",
       "downloaded_at": "2026-06-09T01:21:00.180367+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 154224,
       "classification_signal": "content:Shipping Daily"
@@ -2311,7 +2311,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-25",
       "downloaded_at": "2026-06-09T01:20:58.720686+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155941,
       "classification_signal": "content:Shipping Daily"
@@ -2322,7 +2322,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-26",
       "downloaded_at": "2026-06-09T01:20:57.853341+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156223,
       "classification_signal": "content:Shipping Daily"
@@ -2333,7 +2333,7 @@
       "type": "shipping_daily",
       "report_date": "2025-09-30",
       "downloaded_at": "2026-06-09T01:20:45.714235+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158349,
       "classification_signal": "content:Shipping Daily"
@@ -2344,7 +2344,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-01",
       "downloaded_at": "2026-06-09T01:20:44.013459+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 153084,
       "classification_signal": "content:Shipping Daily"
@@ -2355,7 +2355,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-02",
       "downloaded_at": "2026-06-09T01:20:40.721602+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 179850,
       "classification_signal": "content:Shipping Daily"
@@ -2366,7 +2366,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-06",
       "downloaded_at": "2026-06-09T01:20:28.512813+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156900,
       "classification_signal": "content:Shipping Daily"
@@ -2377,7 +2377,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-07",
       "downloaded_at": "2026-06-09T01:20:27.588601+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157325,
       "classification_signal": "content:Shipping Daily"
@@ -2388,7 +2388,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-09",
       "downloaded_at": "2026-06-09T01:20:18.847338+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 159074,
       "classification_signal": "content:Shipping Daily"
@@ -2399,7 +2399,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-10",
       "downloaded_at": "2026-06-09T01:20:15.805365+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156092,
       "classification_signal": "content:Shipping Daily"
@@ -2410,7 +2410,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-13",
       "downloaded_at": "2026-06-09T01:20:12.684769+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 151369,
       "classification_signal": "content:Shipping Daily"
@@ -2421,7 +2421,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-14",
       "downloaded_at": "2026-06-09T01:20:08.899171+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 160252,
       "classification_signal": "content:Shipping Daily"
@@ -2432,7 +2432,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-16",
       "downloaded_at": "2026-06-09T01:20:05.109666+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 160481,
       "classification_signal": "content:Shipping Daily"
@@ -2443,7 +2443,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-17",
       "downloaded_at": "2026-06-09T01:20:01.618770+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 154972,
       "classification_signal": "content:Shipping Daily"
@@ -2454,7 +2454,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-20",
       "downloaded_at": "2026-06-09T01:19:58.404191+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 153281,
       "classification_signal": "content:Shipping Daily"
@@ -2465,7 +2465,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-21",
       "downloaded_at": "2026-06-09T01:19:56.010040+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 143792,
       "classification_signal": "content:Shipping Daily"
@@ -2476,7 +2476,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-22",
       "downloaded_at": "2026-06-09T01:19:51.754445+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 143569,
       "classification_signal": "content:Shipping Daily"
@@ -2487,7 +2487,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-23",
       "downloaded_at": "2026-06-09T01:19:50.357558+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 164773,
       "classification_signal": "content:Shipping Daily"
@@ -2498,7 +2498,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-24",
       "downloaded_at": "2026-06-09T01:19:48.808164+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157174,
       "classification_signal": "content:Shipping Daily"
@@ -2509,7 +2509,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-28",
       "downloaded_at": "2026-06-09T01:19:36.773103+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158005,
       "classification_signal": "content:Shipping Daily"
@@ -2520,7 +2520,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-29",
       "downloaded_at": "2026-06-09T01:19:35.280605+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 160311,
       "classification_signal": "content:Shipping Daily"
@@ -2531,7 +2531,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-30",
       "downloaded_at": "2026-06-09T01:19:33.226749+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155399,
       "classification_signal": "content:Shipping Daily"
@@ -2542,7 +2542,7 @@
       "type": "shipping_daily",
       "report_date": "2025-10-31",
       "downloaded_at": "2026-06-09T01:19:29.497243+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157861,
       "classification_signal": "content:Shipping Daily"
@@ -2553,7 +2553,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-03",
       "downloaded_at": "2026-06-09T01:19:16.607321+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156271,
       "classification_signal": "content:Shipping Daily"
@@ -2564,7 +2564,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-04",
       "downloaded_at": "2026-06-09T01:19:14.719382+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155348,
       "classification_signal": "content:Shipping Daily"
@@ -2575,7 +2575,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-07",
       "downloaded_at": "2026-06-09T01:19:07.477128+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 160356,
       "classification_signal": "content:Shipping Daily"
@@ -2586,7 +2586,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-10",
       "downloaded_at": "2026-06-09T01:18:59.749186+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157977,
       "classification_signal": "content:Shipping Daily"
@@ -2597,7 +2597,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-11",
       "downloaded_at": "2026-06-09T01:18:56.908218+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 154150,
       "classification_signal": "content:Shipping Daily"
@@ -2608,7 +2608,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-12",
       "downloaded_at": "2026-06-09T01:18:50.097657+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 162253,
       "classification_signal": "content:Shipping Daily"
@@ -2619,7 +2619,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-14",
       "downloaded_at": "2026-06-09T01:18:44.135880+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157320,
       "classification_signal": "content:Shipping Daily"
@@ -2630,7 +2630,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-17",
       "downloaded_at": "2026-06-09T01:18:37.814199+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155520,
       "classification_signal": "content:Shipping Daily"
@@ -2641,7 +2641,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-18",
       "downloaded_at": "2026-06-09T01:18:35.632114+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 154767,
       "classification_signal": "content:Shipping Daily"
@@ -2652,7 +2652,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-19",
       "downloaded_at": "2026-06-09T01:18:33.228806+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157173,
       "classification_signal": "content:Shipping Daily"
@@ -2663,7 +2663,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-20",
       "downloaded_at": "2026-06-09T01:18:30.748645+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157239,
       "classification_signal": "content:Shipping Daily"
@@ -2674,7 +2674,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-21",
       "downloaded_at": "2026-06-09T01:18:28.386897+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158816,
       "classification_signal": "content:Shipping Daily"
@@ -2685,7 +2685,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-25",
       "downloaded_at": "2026-06-09T01:18:11.574530+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156841,
       "classification_signal": "content:Shipping Daily"
@@ -2696,7 +2696,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-26",
       "downloaded_at": "2026-06-09T01:18:08.093867+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158009,
       "classification_signal": "content:Shipping Daily"
@@ -2707,7 +2707,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-27",
       "downloaded_at": "2026-06-09T01:18:06.147810+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 140541,
       "classification_signal": "content:Shipping Daily"
@@ -2718,7 +2718,7 @@
       "type": "shipping_daily",
       "report_date": "2025-11-28",
       "downloaded_at": "2026-06-09T01:18:05.140587+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 142442,
       "classification_signal": "content:Shipping Daily"
@@ -2729,7 +2729,7 @@
       "type": "shipping_daily",
       "report_date": "2025-12-01",
       "downloaded_at": "2026-06-09T01:18:02.013061+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 149159,
       "classification_signal": "content:Shipping Daily"
@@ -2740,7 +2740,7 @@
       "type": "shipping_daily",
       "report_date": "2025-12-02",
       "downloaded_at": "2026-06-09T01:17:59.191569+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 143939,
       "classification_signal": "content:Shipping Daily"
@@ -2751,7 +2751,7 @@
       "type": "shipping_daily",
       "report_date": "2025-12-04",
       "downloaded_at": "2026-06-09T01:17:56.719667+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 141160,
       "classification_signal": "content:Shipping Daily"
@@ -2762,7 +2762,7 @@
       "type": "shipping_daily",
       "report_date": "2025-12-08",
       "downloaded_at": "2026-06-09T01:17:47.701003+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 169191,
       "classification_signal": "content:Shipping Daily"
@@ -2773,7 +2773,7 @@
       "type": "shipping_daily",
       "report_date": "2025-12-09",
       "downloaded_at": "2026-06-09T01:17:46.583671+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 159784,
       "classification_signal": "content:Shipping Daily"
@@ -2784,7 +2784,7 @@
       "type": "shipping_daily",
       "report_date": "2025-12-10",
       "downloaded_at": "2026-06-09T01:17:35.633758+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157871,
       "classification_signal": "content:Shipping Daily"
@@ -2795,7 +2795,7 @@
       "type": "shipping_daily",
       "report_date": "2025-12-11",
       "downloaded_at": "2026-06-09T01:17:31.941195+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 159803,
       "classification_signal": "content:Shipping Daily"
@@ -2806,7 +2806,7 @@
       "type": "shipping_daily",
       "report_date": "2025-12-12",
       "downloaded_at": "2026-06-09T01:17:29.479673+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 140278,
       "classification_signal": "content:Shipping Daily"
@@ -2817,7 +2817,7 @@
       "type": "shipping_daily",
       "report_date": "2025-12-16",
       "downloaded_at": "2026-06-09T01:17:21.670863+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156039,
       "classification_signal": "content:Shipping Daily"
@@ -2828,7 +2828,7 @@
       "type": "shipping_daily",
       "report_date": "2025-12-17",
       "downloaded_at": "2026-06-09T01:17:19.129704+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157007,
       "classification_signal": "content:Shipping Daily"
@@ -2839,7 +2839,7 @@
       "type": "shipping_daily",
       "report_date": "2025-12-18",
       "downloaded_at": "2026-06-09T01:17:16.762463+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155682,
       "classification_signal": "content:Shipping Daily"
@@ -2850,7 +2850,7 @@
       "type": "shipping_daily",
       "report_date": "2025-12-19",
       "downloaded_at": "2026-06-09T01:17:14.914201+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155662,
       "classification_signal": "content:Shipping Daily"
@@ -2861,7 +2861,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-02",
       "downloaded_at": "2026-06-09T01:17:07.966969+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 143122,
       "classification_signal": "content:Shipping Daily"
@@ -2872,7 +2872,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-05",
       "downloaded_at": "2026-06-09T01:17:06.007717+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156278,
       "classification_signal": "content:Shipping Daily"
@@ -2883,7 +2883,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-06",
       "downloaded_at": "2026-06-09T01:17:04.065403+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 140224,
       "classification_signal": "content:Shipping Daily"
@@ -2894,7 +2894,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-07",
       "downloaded_at": "2026-06-09T01:17:02.320665+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156361,
       "classification_signal": "content:Shipping Daily"
@@ -2905,7 +2905,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-08",
       "downloaded_at": "2026-06-09T01:16:59.587447+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 153878,
       "classification_signal": "content:Shipping Daily"
@@ -2916,7 +2916,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-09",
       "downloaded_at": "2026-06-09T01:16:56.473826+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157715,
       "classification_signal": "content:Shipping Daily"
@@ -2927,7 +2927,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-12",
       "downloaded_at": "2026-06-09T01:16:52.254684+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 141571,
       "classification_signal": "content:Shipping Daily"
@@ -2938,7 +2938,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-13",
       "downloaded_at": "2026-06-09T01:16:49.624036+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157428,
       "classification_signal": "content:Shipping Daily"
@@ -2949,7 +2949,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-14",
       "downloaded_at": "2026-06-09T01:16:46.178778+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155897,
       "classification_signal": "content:Shipping Daily"
@@ -2960,7 +2960,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-15",
       "downloaded_at": "2026-06-09T01:16:43.090721+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 154561,
       "classification_signal": "content:Shipping Daily"
@@ -2971,7 +2971,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-16",
       "downloaded_at": "2026-06-09T01:16:40.714123+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156089,
       "classification_signal": "content:Shipping Daily"
@@ -2982,7 +2982,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-19",
       "downloaded_at": "2026-06-09T01:16:34.306031+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 161079,
       "classification_signal": "content:Shipping Daily"
@@ -2993,7 +2993,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-20",
       "downloaded_at": "2026-06-09T01:16:29.841982+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 162984,
       "classification_signal": "content:Shipping Daily"
@@ -3004,7 +3004,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-21",
       "downloaded_at": "2026-06-09T01:16:21.903315+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156705,
       "classification_signal": "content:Shipping Daily"
@@ -3015,7 +3015,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-22",
       "downloaded_at": "2026-06-09T01:16:15.017702+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 165752,
       "classification_signal": "content:Shipping Daily"
@@ -3026,7 +3026,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-23",
       "downloaded_at": "2026-06-09T01:16:13.093760+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157833,
       "classification_signal": "content:Shipping Daily"
@@ -3037,7 +3037,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-26",
       "downloaded_at": "2026-06-09T01:16:08.549784+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 166545,
       "classification_signal": "content:Shipping Daily"
@@ -3048,7 +3048,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-27",
       "downloaded_at": "2026-06-09T01:16:06.522377+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158318,
       "classification_signal": "content:Shipping Daily"
@@ -3059,7 +3059,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-28",
       "downloaded_at": "2026-06-09T01:16:04.810989+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156934,
       "classification_signal": "content:Shipping Daily"
@@ -3070,7 +3070,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-29",
       "downloaded_at": "2026-06-09T01:16:03.072438+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158639,
       "classification_signal": "content:Shipping Daily"
@@ -3081,7 +3081,7 @@
       "type": "shipping_daily",
       "report_date": "2026-01-30",
       "downloaded_at": "2026-06-09T01:15:58.431372+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 154656,
       "classification_signal": "content:Shipping Daily"
@@ -3092,7 +3092,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-02",
       "downloaded_at": "2026-06-09T01:15:55.771219+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 159090,
       "classification_signal": "content:Shipping Daily"
@@ -3103,7 +3103,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-03",
       "downloaded_at": "2026-06-09T01:15:54.046169+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 153315,
       "classification_signal": "content:Shipping Daily"
@@ -3114,7 +3114,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-04",
       "downloaded_at": "2026-06-09T01:15:52.410767+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 154263,
       "classification_signal": "content:Shipping Daily"
@@ -3125,7 +3125,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-05",
       "downloaded_at": "2026-06-09T01:15:45.158105+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 163976,
       "classification_signal": "content:Shipping Daily"
@@ -3136,7 +3136,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-06",
       "downloaded_at": "2026-06-09T01:15:43.707973+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155695,
       "classification_signal": "content:Shipping Daily"
@@ -3147,7 +3147,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-09",
       "downloaded_at": "2026-06-09T01:15:41.689234+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156702,
       "classification_signal": "content:Shipping Daily"
@@ -3158,7 +3158,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-10",
       "downloaded_at": "2026-06-09T01:15:38.679010+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 142606,
       "classification_signal": "content:Shipping Daily"
@@ -3169,7 +3169,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-11",
       "downloaded_at": "2026-06-09T01:15:37.087014+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 159075,
       "classification_signal": "content:Shipping Daily"
@@ -3180,7 +3180,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-12",
       "downloaded_at": "2026-06-09T01:15:35.029345+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 163747,
       "classification_signal": "content:Shipping Daily"
@@ -3191,7 +3191,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-13",
       "downloaded_at": "2026-06-09T01:15:33.531525+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 135211,
       "classification_signal": "content:Shipping Daily"
@@ -3202,7 +3202,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-16",
       "downloaded_at": "2026-06-09T01:15:31.028938+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158344,
       "classification_signal": "content:Shipping Daily"
@@ -3213,7 +3213,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-17",
       "downloaded_at": "2026-06-09T01:15:28.170595+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156628,
       "classification_signal": "content:Shipping Daily"
@@ -3224,7 +3224,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-18",
       "downloaded_at": "2026-06-09T01:15:26.212049+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158417,
       "classification_signal": "content:Shipping Daily"
@@ -3235,7 +3235,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-19",
       "downloaded_at": "2026-06-09T01:15:19.533849+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 163874,
       "classification_signal": "content:Shipping Daily"
@@ -3246,7 +3246,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-23",
       "downloaded_at": "2026-06-09T01:15:15.168806+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 154011,
       "classification_signal": "content:Shipping Daily"
@@ -3257,7 +3257,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-24",
       "downloaded_at": "2026-06-09T01:15:11.177325+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 159199,
       "classification_signal": "content:Shipping Daily"
@@ -3268,7 +3268,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-26",
       "downloaded_at": "2026-06-09T01:15:08.349632+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 160936,
       "classification_signal": "content:Shipping Daily"
@@ -3279,7 +3279,7 @@
       "type": "shipping_daily",
       "report_date": "2026-02-27",
       "downloaded_at": "2026-06-09T01:15:05.256593+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157336,
       "classification_signal": "content:Shipping Daily"
@@ -3290,7 +3290,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-02",
       "downloaded_at": "2026-06-09T01:14:51.141321+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 161321,
       "classification_signal": "content:Shipping Daily"
@@ -3301,7 +3301,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-03",
       "downloaded_at": "2026-06-09T01:14:46.875308+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156199,
       "classification_signal": "content:Shipping Daily"
@@ -3312,7 +3312,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-04",
       "downloaded_at": "2026-06-09T01:14:41.489594+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157881,
       "classification_signal": "content:Shipping Daily"
@@ -3323,7 +3323,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-05",
       "downloaded_at": "2026-06-09T01:14:38.012998+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155901,
       "classification_signal": "content:Shipping Daily"
@@ -3334,7 +3334,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-06",
       "downloaded_at": "2026-06-09T01:14:35.511401+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155073,
       "classification_signal": "content:Shipping Daily"
@@ -3345,7 +3345,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-09",
       "downloaded_at": "2026-06-09T01:14:29.168131+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 161998,
       "classification_signal": "content:Shipping Daily"
@@ -3356,7 +3356,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-10",
       "downloaded_at": "2026-06-09T01:14:26.756999+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 162549,
       "classification_signal": "content:Shipping Daily"
@@ -3367,7 +3367,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-11",
       "downloaded_at": "2026-06-09T01:14:24.349039+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 155222,
       "classification_signal": "content:Shipping Daily"
@@ -3378,7 +3378,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-12",
       "downloaded_at": "2026-06-09T01:14:20.884877+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156964,
       "classification_signal": "content:Shipping Daily"
@@ -3389,7 +3389,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-16",
       "downloaded_at": "2026-06-09T01:14:14.823349+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 159310,
       "classification_signal": "content:Shipping Daily"
@@ -3400,7 +3400,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-18",
       "downloaded_at": "2026-06-09T01:14:11.372016+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158713,
       "classification_signal": "content:Shipping Daily"
@@ -3411,7 +3411,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-20",
       "downloaded_at": "2026-06-09T01:14:06.450592+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158717,
       "classification_signal": "content:Shipping Daily"
@@ -3422,7 +3422,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-23",
       "downloaded_at": "2026-06-09T01:14:00.574839+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 160324,
       "classification_signal": "content:Shipping Daily"
@@ -3433,7 +3433,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-25",
       "downloaded_at": "2026-06-09T01:13:55.598639+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 162545,
       "classification_signal": "content:Shipping Daily"
@@ -3444,7 +3444,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-26",
       "downloaded_at": "2026-06-09T01:13:52.804921+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 165853,
       "classification_signal": "content:Shipping Daily"
@@ -3455,7 +3455,7 @@
       "type": "shipping_daily",
       "report_date": "2026-03-27",
       "downloaded_at": "2026-06-09T01:13:50.198762+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 160339,
       "classification_signal": "content:Shipping Daily"
@@ -3466,7 +3466,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-07",
       "downloaded_at": "2026-06-09T01:13:36.001372+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 163588,
       "classification_signal": "content:Shipping Daily"
@@ -3477,7 +3477,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-08",
       "downloaded_at": "2026-06-09T01:13:34.068601+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157698,
       "classification_signal": "filename:ShippingDaily"
@@ -3488,7 +3488,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-09",
       "downloaded_at": "2026-06-09T01:13:31.405357+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157792,
       "classification_signal": "filename:ShippingDaily"
@@ -3499,7 +3499,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-10",
       "downloaded_at": "2026-06-09T01:13:29.619582+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158915,
       "classification_signal": "filename:ShippingDaily"
@@ -3510,7 +3510,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-13",
       "downloaded_at": "2026-06-09T01:13:25.002153+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158285,
       "classification_signal": "filename:ShippingDaily"
@@ -3521,7 +3521,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-14",
       "downloaded_at": "2026-06-09T01:13:24.042023+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 160363,
       "classification_signal": "filename:ShippingDaily"
@@ -3532,7 +3532,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-15",
       "downloaded_at": "2026-06-09T01:13:22.274438+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158375,
       "classification_signal": "filename:ShippingDaily"
@@ -3543,7 +3543,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-16",
       "downloaded_at": "2026-06-09T01:13:19.768416+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157918,
       "classification_signal": "filename:ShippingDaily"
@@ -3554,7 +3554,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-17",
       "downloaded_at": "2026-06-09T01:13:17.583845+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158765,
       "classification_signal": "filename:ShippingDaily"
@@ -3565,7 +3565,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-20",
       "downloaded_at": "2026-06-09T01:13:14.189094+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 145672,
       "classification_signal": "filename:ShippingDaily"
@@ -3576,7 +3576,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-21",
       "downloaded_at": "2026-06-09T01:13:12.017355+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 130911,
       "classification_signal": "filename:ShippingDaily"
@@ -3587,7 +3587,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-23",
       "downloaded_at": "2026-06-09T01:13:08.183797+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158464,
       "classification_signal": "filename:ShippingDaily"
@@ -3598,7 +3598,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-27",
       "downloaded_at": "2026-06-09T01:13:06.149004+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 158007,
       "classification_signal": "filename:ShippingDaily"
@@ -3609,7 +3609,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-28",
       "downloaded_at": "2026-06-09T01:13:05.369021+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 161751,
       "classification_signal": "filename:ShippingDaily"
@@ -3620,7 +3620,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-29",
       "downloaded_at": "2026-06-09T01:13:03.989767+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157936,
       "classification_signal": "filename:ShippingDaily"
@@ -3631,7 +3631,7 @@
       "type": "shipping_daily",
       "report_date": "2026-04-30",
       "downloaded_at": "2026-06-09T01:13:01.435384+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 160111,
       "classification_signal": "filename:ShippingDaily"
@@ -3642,7 +3642,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-04",
       "downloaded_at": "2026-06-09T01:12:58.965946+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 143765,
       "classification_signal": "filename:ShippingDaily"
@@ -3653,7 +3653,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-05",
       "downloaded_at": "2026-06-09T01:12:56.851360+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156457,
       "classification_signal": "filename:ShippingDaily"
@@ -3664,7 +3664,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-06",
       "downloaded_at": "2026-06-09T01:12:55.086241+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 162822,
       "classification_signal": "filename:ShippingDaily"
@@ -3675,7 +3675,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-07",
       "downloaded_at": "2026-06-09T01:12:53.123600+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 161829,
       "classification_signal": "filename:ShippingDaily"
@@ -3686,7 +3686,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-08",
       "downloaded_at": "2026-06-09T01:12:49.192357+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 163369,
       "classification_signal": "filename:ShippingDaily"
@@ -3697,7 +3697,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-11",
       "downloaded_at": "2026-06-09T01:12:47.658306+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 147087,
       "classification_signal": "filename:ShippingDaily"
@@ -3708,7 +3708,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-12",
       "downloaded_at": "2026-06-09T01:12:46.278062+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 146697,
       "classification_signal": "filename:ShippingDaily"
@@ -3719,7 +3719,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-13",
       "downloaded_at": "2026-06-09T01:12:43.308448+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 162762,
       "classification_signal": "filename:ShippingDaily"
@@ -3730,7 +3730,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-14",
       "downloaded_at": "2026-06-09T01:12:41.178766+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 161364,
       "classification_signal": "filename:ShippingDaily"
@@ -3741,7 +3741,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-18",
       "downloaded_at": "2026-06-09T01:12:39.740578+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 157316,
       "classification_signal": "filename:ShippingDaily"
@@ -3752,7 +3752,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-19",
       "downloaded_at": "2026-06-09T01:12:38.184886+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156479,
       "classification_signal": "filename:ShippingDaily"
@@ -3763,7 +3763,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-20",
       "downloaded_at": "2026-06-09T01:12:32.557312+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 160973,
       "classification_signal": "filename:ShippingDaily"
@@ -3774,7 +3774,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-21",
       "downloaded_at": "2026-06-09T01:12:28.287803+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 159578,
       "classification_signal": "filename:ShippingDaily"
@@ -3785,7 +3785,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-22",
       "downloaded_at": "2026-06-09T01:12:26.827989+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 145293,
       "classification_signal": "filename:ShippingDaily"
@@ -3796,7 +3796,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-26",
       "downloaded_at": "2026-06-09T01:12:21.506126+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 161021,
       "classification_signal": "filename:ShippingDaily"
@@ -3807,7 +3807,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-27",
       "downloaded_at": "2026-06-09T01:12:19.525297+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 162394,
       "classification_signal": "filename:ShippingDaily"
@@ -3818,7 +3818,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-28",
       "downloaded_at": "2026-06-09T01:12:17.998622+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 161759,
       "classification_signal": "filename:ShippingDaily"
@@ -3829,7 +3829,7 @@
       "type": "shipping_daily",
       "report_date": "2026-05-29",
       "downloaded_at": "2026-06-09T01:12:14.606445+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 159410,
       "classification_signal": "filename:ShippingDaily"
@@ -3840,7 +3840,7 @@
       "type": "shipping_daily",
       "report_date": "2026-06-04",
       "downloaded_at": "2026-06-09T01:12:11.031991+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 2,
       "size_bytes": 156602,
       "classification_signal": "filename:ShippingDaily"
@@ -3851,7 +3851,7 @@
       "type": "shipping_daily",
       "report_date": "2026-06-05",
       "downloaded_at": "2026-06-09T01:12:08.388948+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 142686,
       "classification_signal": "filename:ShippingDaily"
@@ -3862,7 +3862,7 @@
       "type": "shipping_daily",
       "report_date": "2026-06-08",
       "downloaded_at": "2026-06-09T01:12:06.958120+00:00",
-      "parsed_at": "2026-06-09T14:21:42.584776+00:00",
+      "parsed_at": "2026-06-09T14:44:48.610068+00:00",
       "page_count": 1,
       "size_bytes": 143939,
       "classification_signal": "filename:ShippingDaily"

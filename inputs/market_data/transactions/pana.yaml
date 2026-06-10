@@ -1,0 +1,80 @@
+# Pana secondhand sale prints — METHODOLOGY.md sections 3.1, 9.9, 11.7
+# "Pana" class collapses Panamax + Post-Panamax + Kamsarmax per §11.7.1
+# (SBLK class collapse). Used by the transaction-anchor solver to
+# recalibrate 5yr and 10yr anchors. Newbuild + old-age legs untouched.
+#
+# SCOPE — thin sample (4 in-window prints) but spans the mid-age window
+# at ages 9, 9, 15, 17. The two 2016-built kamsarmaxes (2025-09-19 and
+# 2025-10-06) MAY be the same vessel — Pareto's commentary did not
+# disambiguate. Flagged but both kept (the solver weights by recency, so
+# any double-counting is modest and the two prices ($27.5M vs $26.5M)
+# bracket a reasonable range).
+#
+# CALIBRATION CHECK (existing curve at relevant ages, prior to fit):
+#   age 9  curve ≈ $26M (interp 5↔10) vs prints $26.5-27.5M → curve ~OK
+#   age 10 curve = $24.0M (existing) vs ~$25M implied at 10 → curve −4%
+#   age 15 curve = $14.5M (interp 10↔25yr) vs Selina $11.8M → curve +20%
+#   age 17 curve = $12.5M (interp 10↔25yr) vs Thenamaris $14.25M → curve −12%
+# The age-15 Selina print is below curve (older vintage panamax, not
+# kamsarmax — 76k dwt is the smaller subclass); the age-17 Thenamaris is
+# above curve. Expected fit impact: modest DOWNWARD revision at age 10
+# anchor (Pana sector trading weaker than crude/product market dynamics),
+# with the 5yr unchanged or slightly upward given the 9yo cluster.
+#
+# CLASS-COLLAPSE NOTE: prints span Panamax (75-77k dwt) and Kamsarmax
+# (82k dwt). Per Pareto commentary the two trade off the same generic
+# curve with Kamsarmax modestly above (larger/newer). The 2025-06-17
+# Selina print is for the smaller Panamax subclass — sits ~$3M below
+# the Kamsarmax-implied curve at age 15. Kept as-is for v1.
+#
+# SOURCES: Pareto Shipping Daily archive — Thenamaris (kamsarmax 2008),
+# Diana (Selina panamax 2010), broker S&P columns for 2016-built Japanese
+# kamsarmax. Star Mariella (SBLK Q1 2026 6-K) excluded — see note below.
+class: Pana
+as_of: 2026-06-09
+prints:
+  # ---- IN-WINDOW (drive the fit), sorted by age ----
+  - date: 2025-09-19
+    vessel_age_at_sale: 9
+    sale_price_usd_m: 27.5
+    source: Pareto Shipping Daily 2025-09-19 — broker reports
+    quality_flag: standard
+    notes: 2016-built Japanese-yard kamsarmax. Pareto generic quote was $24M; ~10% premium for Japanese build deemed justified. POSSIBLY SAME VESSEL as 2025-10-06 print below (Pareto did not disambiguate); both kept for fit.
+  - date: 2025-10-06
+    vessel_age_at_sale: 9
+    sale_price_usd_m: 26.5
+    source: Pareto Shipping Daily 2025-10-06 — broker reports
+    quality_flag: standard
+    notes: 2016-built kamsarmax. Pareto had vessel at $25.2M (VV $25.7M). POSSIBLY SAME VESSEL as 2025-09-19 print above.
+  - date: 2025-06-17
+    vessel_age_at_sale: 15
+    sale_price_usd_m: 11.8
+    source: Pareto Shipping Daily 2025-06-17 — Diana disclosure
+    quality_flag: standard
+    notes: Selina (2010-built panamax 76k dwt, Diana Shipping). Smaller panamax subclass — sits below the kamsarmax curve at this age.
+  - date: 2025-04-28
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 14.25
+    source: Pareto Shipping Daily 2025-04-28 — Thenamaris disclosure
+    quality_flag: standard
+    notes: Thenamaris 2008-built kamsarmax. Reported alongside a same-vintage supramax ($12.25M).
+  # ---- OUT-OF-WINDOW (documentation only) ----
+  # NOTE on SBLK Star Mariella (2006-built Kamsarmax 82,266 dwt, IMO 9354868):
+  # SBLK Q1 2026 6-K aggregated Scarlett+Mariella combined net proceeds at
+  # $46.4M without per-vessel split. Mariella is age 20 — outside the
+  # mid-age window [3,17] regardless — but more importantly, splitting the
+  # aggregate to record a per-vessel Pana print would be invention
+  # (back-solving the residual after assuming a Scarlett value), violating
+  # the 2026-06-09 dated rule in CLAUDE.md. Excluded.
+  - date: 2025-11-14
+    vessel_age_at_sale: 0
+    sale_price_usd_m: 35.0
+    source: Pareto Shipping Daily 2025-11-14 — broker reports
+    quality_flag: newbuild_resale
+    notes: outside [3,17] window. 3x scrubber-fitted kamsarmax resales for 2026 delivery at $35M each. Pareto generic was $40M (10% discount for Chinese build deemed fair). Documents NB resale anchor.
+  - date: 2026-06-05
+    vessel_age_at_sale: 2
+    sale_price_usd_m: 42.7
+    source: Pareto Shipping Daily 2026-06-05 — broker reports
+    quality_flag: standard
+    notes: outside [3,17] window. 2024-built Chinese-yard kamsarmax sold to undisclosed buyer. Above NB resale (premium for on-the-water modern vessel).

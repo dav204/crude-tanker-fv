@@ -1,58 +1,40 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-06-07T15:11:36+00:00
-- **Previous run:** 2026-06-04T19:26:22+00:00
+- **This run:** 2026-06-10T02:49:54+00:00
+- **Previous run:** 2026-06-10T02:09:54+00:00
 
 ## Headline changes (material moves)
 
-- **TEN: new to watchlist** (price $44.00, position BUY (undervalued))
-- **CCEC:** broker spread -6.3pp
-- **STNG:** position TRIM/SHORT (overvalued) → HOLD (fairly valued); broker spread +19.8pp
-- **TRMD:** broker spread +20.4pp
-- **ASC:** broker spread -12.4pp
+- **DHT:** position BUY (undervalued) → TRIM/SHORT (overvalued); single-point FV -13.2%; scenario PW FV -12.9%; broker spread +13.4pp; NAV/sh -15.4%
+- **ECO:** position HOLD (fairly valued) → TRIM/SHORT (overvalued); single-point FV -13.9%; scenario PW FV -13.4%; broker spread +12.3pp; NAV/sh -15.6%
+- **FRO:** position HOLD (fairly valued) → TRIM/SHORT (overvalued); single-point FV -13.6%; scenario PW FV -13.1%; broker spread +12.0pp; NAV/sh -15.3%
+- **INSW:** single-point FV -11.5%; broker spread +6.8pp; NAV/sh -9.5%
+- **TNK:** position BUY (undervalued) → HOLD (fairly valued); broker spread +7.4pp; NAV/sh -7.0%
+- **NAT:** single-point FV -15.9%; scenario PW FV -14.8%; broker spread +10.0pp; NAV/sh -20.9%
+- **TRMD:** position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- **TEN:** broker spread +11.4pp; NAV/sh -8.8%
 
 ## Input files changed since last run
 
-- `inputs/balance_sheets/ten_2026-Q1.yaml` (new)
-- `inputs/cost_structures/ten.yaml` (new)
-- `inputs/dividend_policies/ten.yaml` (new)
-- `inputs/fleet_manifests/ten.yaml` (new)
-- `inputs/market_data/transactions/lr2.yaml` (new)
-- `inputs/market_data/transactions/mr.yaml` (new)
-- `inputs/market_data/transactions/vlcc.yaml` (new)
-- `inputs/balance_sheets/asc_2026-Q1.yaml` (modified)
-- `inputs/balance_sheets/hafn_2026-Q1.yaml` (modified)
-- `inputs/balance_sheets/stng_2026-Q1.yaml` (modified)
-- `inputs/cost_structures/stng.yaml` (modified)
-- `inputs/data_sources.yaml` (modified)
-- `inputs/fleet_manifests/asc.yaml` (modified)
-- `inputs/fleet_manifests/hafn.yaml` (modified)
-- `inputs/fleet_manifests/stng.yaml` (modified)
-- `inputs/market_data/ffa_forward_curve.yaml` (modified)
-- `inputs/market_data/historical_tce_means.yaml` (modified)
-- `inputs/market_data/spot_tce.yaml` (modified)
-- `inputs/market_data/transactions/aframax.yaml` (modified)
-- `inputs/market_data/transactions/suezmax.yaml` (modified)
-- `inputs/market_data/twelve_month_tc.yaml` (modified)
-- `inputs/market_data/vessel_value_curves.yaml` (modified)
-- `inputs/watchlist.yaml` (modified)
+- `inputs/market_data/transactions/vlcc.yaml` (modified)
 
 ## Full per-ticker deltas
 
 | Ticker | Price | Single-point FV | Scenario PW FV | NAV/sh | Position | Broker spread |
 |---|---|---|---|---|---|---|
-| DHT | $16.40 (no change) | $16.49 (no change) | $13.34 (no change) | $15.29 (no change) | TRIM/SHORT (overvalued) | -1.1pp (no change) |
-| ECO | $47.70 (-0.40) | $42.56 (no change) | $32.53 (no change) | $39.93 (no change) | TRIM/SHORT (overvalued) | -0.8pp (no change) |
-| FRO | $34.50 (no change) | $31.37 (no change) | $23.87 (no change) | $28.79 (no change) | TRIM/SHORT (overvalued) | -0.1pp (+0.5pp) |
-| INSW | $78.00 (+1.20) | $42.18 (no change) | $52.08 (no change) | $57.91 (no change) | TRIM/SHORT (overvalued) | +22.2pp (+0.1pp) |
-| TNK | $70.80 (+0.30) | $79.13 (no change) | $69.31 (no change) | $83.32 (no change) | HOLD (fairly valued) | +10.1pp (+0.4pp) |
-| NAT | $5.20 (-0.20) | $3.09 (no change) | $2.28 (no change) | $2.63 (no change) | TRIM/SHORT (overvalued) | +51.1pp (-1.4pp) |
-| FLNG | $29.70 (-0.53) | $26.27 (no change) | $28.04 (no change) | $28.45 (no change) | TRIM/SHORT (overvalued) | -20.2pp (+0.8pp) |
-| CCEC ⚑ | $21.90 (-1.28) | $22.88 (no change) | $26.45 (no change) | $28.10 (no change) | BUY (undervalued) | -15.4pp (-6.3pp) |
-| STNG ⚑ | $75.60 (-3.40) | $77.29 (-0.1%) | $73.40 (-0.2%) | $83.87 (+0.1%) | HOLD (fairly valued) ⟵ | +27.4pp (+19.8pp) |
-| HAFN | $7.70 (-0.35) | $5.70 (+2.9%) | $5.41 (+2.7%) | $5.34 (+0.8%) | TRIM/SHORT (overvalued) | +30.7pp (+1.5pp) |
-| TRMD ⚑ | $28.20 (+0.95) | $27.27 (no change) | $25.59 (no change) | $26.74 (no change) | TRIM/SHORT (overvalued) | +22.0pp (+20.4pp) |
-| ASC ⚑ | $16.00 (-2.50) | $14.90 (+2.1%) | $14.50 (+1.8%) | $15.96 (+1.1%) | TRIM/SHORT (overvalued) | +29.0pp (-12.4pp) |
-| **TEN** (new) | $44.00 | $58.42 | $49.37 | $88.56 | BUY (undervalued) | +26.4pp |
+| DHT ⚑ | $16.40 (no change) | $14.31 (-13.2%) | $15.08 (-12.9%) | $12.93 (-15.4%) | TRIM/SHORT (overvalued) ⟵ | +12.0pp (+13.4pp) |
+| ECO ⚑ | $47.70 (no change) | $36.66 (-13.9%) | $39.32 (-13.4%) | $33.70 (-15.6%) | TRIM/SHORT (overvalued) ⟵ | +11.3pp (+12.3pp) |
+| FRO ⚑ | $34.50 (no change) | $27.09 (-13.6%) | $29.36 (-13.1%) | $24.39 (-15.3%) | TRIM/SHORT (overvalued) ⟵ | +11.9pp (+12.0pp) |
+| INSW ⚑ | $78.00 (no change) | $37.34 (-11.5%) | $59.50 (-7.9%) | $52.43 (-9.5%) | TRIM/SHORT (overvalued) | +33.4pp (+6.8pp) |
+| TNK ⚑ | $70.80 (no change) | $73.96 (-6.5%) | $73.74 (-6.5%) | $77.49 (-7.0%) | HOLD (fairly valued) ⟵ | +19.8pp (+7.4pp) |
+| NAT ⚑ | $5.20 (no change) | $2.60 (-15.9%) | $2.87 (-14.8%) | $2.08 (-20.9%) | TRIM/SHORT (overvalued) | +72.0pp (+10.0pp) |
+| FLNG | $29.70 (no change) | $26.27 (no change) | $29.73 (no change) | $28.45 (no change) | HOLD (fairly valued) | -21.1pp (no change) |
+| CCEC | $21.90 (no change) | $22.88 (no change) | $29.63 (no change) | $28.10 (no change) | BUY (undervalued) | -16.1pp (no change) |
+| STNG | $75.60 (no change) | $74.00 (-4.3%) | $73.13 (-4.2%) | $80.35 (-4.2%) | HOLD (fairly valued) | +32.7pp (+4.1pp) |
+| HAFN | $7.70 (no change) | $5.59 (-1.9%) | $5.77 (-1.7%) | $5.22 (-2.2%) | TRIM/SHORT (overvalued) | +33.4pp (+1.4pp) |
+| TRMD ⚑ | $28.20 (no change) | $26.09 (-4.3%) | $26.68 (-4.1%) | $25.43 (-4.9%) | TRIM/SHORT (overvalued) ⟵ | +27.1pp (+4.2pp) |
+| ASC | $16.00 (no change) | $14.88 (-0.1%) | $15.05 (-0.1%) | $15.93 (-0.2%) | TRIM/SHORT (overvalued) | +30.1pp (+0.1pp) |
+| TEN ⚑ | $44.00 (no change) | $53.31 (-8.7%) | $57.61 (-8.2%) | $80.78 (-8.8%) | BUY (undervalued) | +43.0pp (+11.4pp) |
+| SBLK | $27.20 (no change) | $25.66 (+0.5%) | $25.64 (+0.6%) | $26.19 (+0.8%) | TRIM/SHORT (overvalued) | +22.5pp (-0.7pp) |
 
 _⚑ flags a material change (position flip, |ΔFV%| > 10%, |Δspread| > 5pp, or |ΔNAV%| > 5%). ⟵ marks a position flip._

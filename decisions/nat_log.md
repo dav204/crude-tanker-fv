@@ -7,6 +7,151 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T02:49:54+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.20
+- Single-point FV: $2.60
+- Scenario PW FV: $2.87 (EV -44.8%)
+- NAV / share: $2.08
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +72.0pp (k_broker 1.98)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ single-point FV -15.9%
+- ⚑ scenario PW FV -14.8%
+- ⚑ broker spread +10.0pp
+- ⚑ NAV/sh -20.9%
+- Δprice: no change | Δsingle FV: -15.9% | Δscenario FV: -14.8% | ΔNAV: -20.9% | Δspread: +10.0pp
+
+**Decision:** _METHODOLOGY RE-BASE (txn-anchored marks default-on, owner
+decision 2026-06-09) — not a market move. Position unchanged TRIM/SHORT;
+NAV floor drops to $2.08 (Suezmax fit −6.6%/−12.9%, see 02:09:54
+annotation below). §12 high-payout archetype caveat still applies — the
+dividend leg is the thesis. METHODOLOGY Appendix A Part 4._
+
+---
+
+## 2026-06-10T02:09:54+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.20
+- Single-point FV: $3.09
+- Scenario PW FV: $3.37 (EV -35.1%)
+- NAV / share: $2.63
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +62.0pp (k_broker 1.74)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _2026-06-09 Pareto S&P sweep: Suezmax sample expanded 6 → 18
+in-window prints; new fit DROPS both anchors (5yr −6.6%, 10yr −12.9%) —
+the prior thin sample read "lifts modestly" and the locked test
+expectation (`test_suezmax_recalibration_lifts_nat_nav`) was REVERSED to
+assert NAT NAV falls (documented in tests/test_transactions.py). Pure-
+Suezmax NAT: txn-anchored NAV $2.08 / EV −44.8% (from $2.63 / −35.2%).
+§12 archetype caveat unchanged — tool FV is a NAV floor for a high-payout
+pure-play at peak, and the dividend leg is the thesis; but the marks leg
+of that floor is now empirically LOWER. APPROX consensus_pnav still
+applies. Duplicate 02:09:49 entry below covered by this annotation._
+
+---
+
+## 2026-06-10T02:09:49+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.20
+- Single-point FV: $3.09
+- Scenario PW FV: $3.37 (EV -35.1%)
+- NAV / share: $2.63
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +62.0pp (k_broker 1.74)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10T01:33:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.20
+- Single-point FV: $3.09
+- Scenario PW FV: $3.37 (EV -35.1%)
+- NAV / share: $2.63
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +62.0pp (k_broker 1.74)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T23:27:18+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.20
+- Single-point FV: $3.09
+- Scenario PW FV: $3.37 (EV -35.1%)
+- NAV / share: $2.63
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +62.0pp (k_broker 1.74)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T19:14:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.20
+- Single-point FV: $3.09
+- Scenario PW FV: $3.37 (EV -35.1%)
+- NAV / share: $2.63
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +62.0pp (k_broker 1.74)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ scenario PW FV +47.8%
+- ⚑ broker spread +10.9pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: +47.8% | ΔNAV: no change | Δspread: +10.9pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T15:13:20+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.20
+- Single-point FV: $3.09
+- Scenario PW FV: $2.28 (EV -56.1%)
+- NAV / share: $2.63
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +51.1pp (k_broker 1.74)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-07T15:11:36+00:00 — Pipeline run (auto)
 
 **Model state:**

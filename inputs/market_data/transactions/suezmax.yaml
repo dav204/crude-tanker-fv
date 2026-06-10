@@ -19,7 +19,7 @@
 # market for mid-life Suezmaxes is thin, so individual prints are bracketed
 # by the broker market summaries rather than vessel-named filings.
 class: Suezmax
-as_of: 2026-05-29
+as_of: 2026-06-09
 prints:
   # ---- IN-WINDOW (drive the fit) ----
   - date: 2026-05-15
@@ -65,6 +65,80 @@ prints:
     source: Frontline (FRO) Q2 2026 disclosure (Front Ull + Front Idun sale)
     quality_flag: standard
     notes: 2-vessel package, 2014/2015 builds, avg age 11.5. $140M aggregate ($70M/vessel). Net cash ~$106M; gain ~$55M. CONFIRMS existing mid-age chatter level — broker $73M at age 12 vs named arm's-length print $70M at age 11.5.
+  # ---- Additional in-window prints from Pareto Shipping Daily archive
+  #      scan (added 2026-06-09) ----
+  - date: 2025-10-09
+    vessel_age_at_sale: 6
+    sale_price_usd_m: 76.0
+    source: Pareto Shipping Daily 2025-10-09 — Performance Shipping disclosure
+    quality_flag: standard
+    notes: Performance Shipping 2x 2019-built suezmaxes acquired at $76M per ship. Pareto noted ~7% above their $70.5M generic NAV value. Sister 1.
+  - date: 2025-10-09
+    vessel_age_at_sale: 6
+    sale_price_usd_m: 76.0
+    source: Pareto Shipping Daily 2025-10-09 — Performance Shipping disclosure
+    quality_flag: standard
+    notes: Performance Shipping 2x 2019-built suezmaxes. Sister 2.
+  - date: 2025-06-20
+    vessel_age_at_sale: 8
+    sale_price_usd_m: 66.0
+    source: Pareto Shipping Daily 2025-06-20 — broker reports
+    quality_flag: standard
+    notes: 2017-built suezmax, no scrubber. Pareto noted ~$2M above their quote. Mid-2025 market level.
+  - date: 2025-08-19
+    vessel_age_at_sale: 11
+    sale_price_usd_m: 38.0
+    source: Pareto Shipping Daily 2025-08-19 — broker reports
+    quality_flag: standard
+    notes: Frontline 'Front Brage' (Rongsheng China yard, ~2014/15 build). Sale to Middle Eastern buyers. Chinese-build discount — sits significantly below Korean-built peers. FRO's penultimate Rongsheng disposal.
+  - date: 2025-08-28
+    vessel_age_at_sale: 15
+    sale_price_usd_m: 40.0
+    source: Pareto Shipping Daily 2025-08-28 — broker reports
+    quality_flag: standard
+    notes: 2010-built suezmax. Pareto cited yields gain of $20M on book value (~$38M).
+  - date: 2025-08-29
+    vessel_age_at_sale: 16
+    sale_price_usd_m: 40.0
+    source: Pareto Shipping Daily 2025-08-29 — broker reports
+    quality_flag: standard
+    notes: 2009-built Hyundai Samho suezmax. Pareto noted ~10% above their NAV value. Buyer reported as Venergy (Greek).
+  - date: 2025-10-09
+    vessel_age_at_sale: 13
+    sale_price_usd_m: 44.0
+    source: Pareto Shipping Daily 2025-10-09 — Eastern Pacific disclosure
+    quality_flag: standard
+    notes: EPS sold 2012-built Hanjin Subic (Philippines yard) suezmax. Modest premium to broker market reflecting non-mainstream yard discount.
+  - date: 2025-11-20
+    vessel_age_at_sale: 12
+    sale_price_usd_m: 58.0
+    source: Pareto Shipping Daily 2025-11-20 — Stena disclosure
+    quality_flag: standard
+    notes: Stena Bulk 'Stena Sunshine' (2013-built Samsung Korea). Sold to Greek buyer. Korean-build premium reflected.
+  - date: 2025-05-22
+    vessel_age_at_sale: 16
+    sale_price_usd_m: 36.4
+    source: Pareto Shipping Daily 2025-05-22 — Advantage Tankers disclosure
+    quality_flag: standard
+    notes: 2009-built suezmax. Sold to Chinese buyer. Pareto pegged INSW at 0.70x NAV in same commentary.
+  - date: 2026-02-16
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 46.0
+    source: Pareto Shipping Daily 2026-02-16 — Maran disclosure
+    quality_flag: standard
+    notes: Maran 2009-built scrubber-fitted suezmax. Greek buyer. Pareto called this ~10% above their $42M value.
+  - date: 2026-05-05
+    vessel_age_at_sale: 15
+    sale_price_usd_m: 67.0
+    source: Pareto Shipping Daily 2026-05-05 — CMBT disclosure
+    quality_flag: standard
+    notes: CMB.TECH 15Y-old suezmax (~2010-2011 vintage). Part of the May 2026 cluster of "astonishing S&P prints" Pareto cited as triggering broker mark-ups across suezmax curves.
+  - date: 2026-05-11
+    vessel_age_at_sale: 15
+    sale_price_usd_m: 67.0
+    source: Pareto Shipping Daily 2026-05-11 — broker reports
+    quality_flag: standard
+    notes: Stella (2011-built suezmax). Part of May 2026 suezmax repricing cluster. Sits ~30% above the FRO Brage Chinese-yard mid-age print at age 11 — concrete Korean vs Chinese yard wedge in 2026 prints.
   # ---- OUT-OF-WINDOW (documentation only; ages > 17, silently excluded by solver) ----
   - date: 2026-02-15
     vessel_age_at_sale: 18

@@ -34,11 +34,81 @@
 # 6-K (closing). Raw worksheet at inputs/market_data/transactions/raw/
 # product_tanker_transactions_2026.xlsx.
 class: LR2
-as_of: 2026-05-29
+as_of: 2026-06-09
 prints:
+  # ---- IN-WINDOW (drive the fit) ----
+  #
+  # AS OF 2026-06-09 SCAN: LR2 transitions from PROXY to OWN-CLASS. The Pareto
+  # archive scan added 9 disclosed prints across ages 10-17, which is more
+  # than enough to clear the n>=2 fallback gate. The LR2 class will now run
+  # its OWN regression and the Aframax-proxy alias becomes a no-op for LR2
+  # (per transactions.py phase-2 logic: alias fires only if the alias's own
+  # fit is fallback). The §3.1 v1 limitation ("LR2 modeled as Aframax-
+  # equivalent") is effectively retired in v1.5.
+  #
   - date: 2026-03-31
     vessel_age_at_sale: 10
     sale_price_usd_m: 52.3
     source: Scorpio Tankers (STNG) press release Dec 2025; closing Q1 2026
     quality_flag: standard
-    notes: 2-vessel package — STI Goal + STI Gallantry (2016-built LR2). $104.6M aggregate ($52.3M/vessel). FIRST empirical clean-LR2 print in our infrastructure — sits 27% BELOW the Aframax-proxy curve at age 10 (validates the §3.1 v1 LR2-as-Aframax-proxy limitation; reinforces §11.5 falsification of curve-too-conservative hypothesis).
+    notes: STI Goal (2016-built LR2). Part of 2-vessel package — STI Goal + STI Gallantry, $104.6M aggregate ($52.3M/vessel).
+  - date: 2026-03-31
+    vessel_age_at_sale: 10
+    sale_price_usd_m: 52.3
+    source: Scorpio Tankers (STNG) press release Dec 2025; closing Q1 2026
+    quality_flag: standard
+    notes: STI Gallantry (2016-built LR2). Sister to STI Goal.
+  - date: 2025-01-10
+    vessel_age_at_sale: 13
+    sale_price_usd_m: 45.3
+    source: Pareto Shipping Daily 2025-01-10 — Affinity broker reports
+    quality_flag: standard
+    notes: Nissos Delos (2012-built Samsung Korea LR2, high quality). Sold by Kyklades (Alafouzos).
+  - date: 2025-03-14
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 35.0
+    source: Pareto Shipping Daily 2025-03-14 — broker reports
+    quality_flag: standard
+    notes: 2008-built LR2 sold to Chinese buyers. Pareto noted their value was $28M; print came in 25% above.
+  - date: 2025-08-26
+    vessel_age_at_sale: 16
+    sale_price_usd_m: 32.0
+    source: Pareto Shipping Daily 2025-08-26 — broker reports
+    quality_flag: standard
+    notes: 16Y-old LR2 STX (Korea). Pareto pegged at $31.5M; print effectively spot on.
+  - date: 2026-01-13
+    vessel_age_at_sale: 11
+    sale_price_usd_m: 57.5
+    source: Pareto Shipping Daily 2026-01-13 — Scorpio Tankers disclosure
+    quality_flag: standard
+    notes: STNG sold a 2015-built Sungdong LR2. Pareto called the price "eye-catching" — sits ~10% above the 2026-03 STNG GSI ship pair at age 10 ($52.3M); Sungdong yard (vs GSI Chinese yard) premium reflected.
+  - date: 2026-03-04
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 41.0
+    source: Pareto Shipping Daily 2026-03-04 — broker reports
+    quality_flag: standard
+    notes: Zenovia Lady (2009-built scrubber-fitted LR2). Pareto cited "far ahead of our $35M generic quote." Strong vintage 17yo print.
+  - date: 2026-03-06
+    vessel_age_at_sale: 11
+    sale_price_usd_m: 60.0
+    source: Pareto Shipping Daily 2026-03-06 — Scorpio Tankers disclosure
+    quality_flag: standard
+    notes: STI Solidarity (2015-built LR2, STNG). Confirms the Sungdong-yard 2015 LR2 cluster at ~$58-60M for age 11.
+  - date: 2026-04-21
+    vessel_age_at_sale: 12
+    sale_price_usd_m: 65.0
+    source: Pareto Shipping Daily 2026-04-21 — Scorpio Tankers disclosure
+    quality_flag: standard
+    notes: STNG 3x 2014-built LR2s for $195M aggregate ($65M each). Pareto cited "15% above our quotes — implying NAV of $113". 2014 LR2 ship 1.
+  - date: 2026-04-21
+    vessel_age_at_sale: 12
+    sale_price_usd_m: 65.0
+    source: Pareto Shipping Daily 2026-04-21 — Scorpio Tankers disclosure
+    quality_flag: standard
+    notes: STNG 2014 LR2 ship 2 of 3 in the $195M aggregate.
+  - date: 2026-04-21
+    vessel_age_at_sale: 12
+    sale_price_usd_m: 65.0
+    source: Pareto Shipping Daily 2026-04-21 — Scorpio Tankers disclosure
+    quality_flag: standard
+    notes: STNG 2014 LR2 ship 3 of 3 in the $195M aggregate.

@@ -322,16 +322,18 @@ def value_company(
     current_price: float,
     analyst_target: float,
     inputs_dir: Path = INPUTS_DIR,
-    use_transaction_anchored: bool = False,
+    use_transaction_anchored: bool = True,
 ) -> CompanyReport:
     """Run the full valuation flow for one ticker and return its report bundle.
 
     For hybrid names (HYBRID_TICKERS) the crude sleeve is carved out first and the
     price/target are crude-allocated, so the report compares like-for-like.
 
-    ``use_transaction_anchored=True`` recalibrates the mid-age leg of any class
+    ``use_transaction_anchored`` recalibrates the mid-age leg of any class
     with a populated ``inputs/market_data/transactions/<class>.yaml`` BEFORE
-    carving / valuing (METHODOLOGY 9.9).
+    carving / valuing (METHODOLOGY 9.9). DEFAULT ON since 2026-06-09 (owner
+    decision): transaction-validated marks ARE the tool's marks; the un-anchored
+    broker-resale curve is the diagnostic alternative (pass False to compare).
     """
     ci = load_company_inputs(ticker, quarter, inputs_dir)
     ci, txn_fits = _maybe_apply_transactions(ci, inputs_dir, use_transaction_anchored)
@@ -511,7 +513,7 @@ def run_scenarios_watchlist(
     tickers: list[str] | None = None,
     inputs_dir: Path = INPUTS_DIR,
     outputs_dir: Path = OUTPUTS_DIR,
-    use_transaction_anchored: bool = False,
+    use_transaction_anchored: bool = True,
 ):
     """Run the sector-layered scenario framework across the watchlist.
 
@@ -597,12 +599,15 @@ def run_broker_sweep(
     tickers: list[str] | None = None,
     inputs_dir: Path = INPUTS_DIR,
     outputs_dir: Path = OUTPUTS_DIR,
+    use_transaction_anchored: bool = True,
 ) -> list[BrokerSweepRow]:
     """Value every name at tool / midpoint / broker vessel marks; write the roll-up.
 
     The broker endpoint is each name's OWN consensus-implied NAV (broker NAV =
     price / consensus_pnav), so validated pure-plays show ~zero spread and only
     genuinely mark-uncertain names (hybrids) show a wide tool-vs-broker swing.
+    "Tool marks" = transaction-anchored marks (the pipeline default), so k_broker
+    measures broker premium over TRANSACTION-VALIDATED levels.
     """
     sector_docs = _load_all_sectors(inputs_dir)
     watchlist = load_watchlist(inputs_dir)
@@ -617,6 +622,7 @@ def run_broker_sweep(
             ci = load_company_inputs(ticker, quarter, inputs_dir)
         except FileNotFoundError:
             continue
+        ci, _ = _maybe_apply_transactions(ci, inputs_dir, use_transaction_anchored)
         price, target = entry["current_price"], entry["analyst_target"]
         broker_nav = price / entry["consensus_pnav"]
         k_broker = solve_broker_premium(ci, broker_nav)

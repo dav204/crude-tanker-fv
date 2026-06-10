@@ -7,6 +7,150 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T02:49:54+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $34.50
+- Single-point FV: $27.09
+- Scenario PW FV: $29.36 (EV -14.9%)
+- NAV / share: $24.39
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +11.9pp (k_broker 1.12)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- ⚑ single-point FV -13.6%
+- ⚑ scenario PW FV -13.1%
+- ⚑ broker spread +12.0pp
+- ⚑ NAV/sh -15.3%
+- Δprice: no change | Δsingle FV: -13.6% | Δscenario FV: -13.1% | ΔNAV: -15.3% | Δspread: +12.0pp
+
+**Decision:** _METHODOLOGY RE-BASE (txn-anchored marks default-on, owner
+decision 2026-06-09) — not a market move. HOLD → TRIM/SHORT is the
+txn-anchored reading detailed in the 02:09:54 annotation below. See
+METHODOLOGY Appendix A Part 4._
+
+---
+
+## 2026-06-10T02:09:54+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $34.50
+- Single-point FV: $31.37
+- Scenario PW FV: $33.77 (EV -2.1%)
+- NAV / share: $28.79
+- Position: **HOLD (fairly valued)**
+- Broker spread: -0.1pp (k_broker 1.00)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _2026-06-09 Pareto S&P sweep: FRO is exposed on all three
+recalibrated crude/product classes (VLCC −18%/−18%, Suezmax −6.6%/−12.9%,
+LR2 now own-fit −1.6%/−9.2%). Txn-anchored reading NAV $24.39 / EV −14.9%,
+a **HOLD → TRIM/SHORT flip**. Notable: the Suezmax sample now carries
+FRO's own Front Brage print ($38M, Rongsheng/Chinese-yard at age 11) —
+the Chinese-build discount FRO's remaining Rongsheng pair carries is now
+empirically anchored rather than assumed. Baseline headline unchanged
+(toggle opt-in). Duplicate 02:09:49 entry below covered by this
+annotation._
+
+---
+
+## 2026-06-10T02:09:49+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $34.50
+- Single-point FV: $31.37
+- Scenario PW FV: $33.77 (EV -2.1%)
+- NAV / share: $28.79
+- Position: **HOLD (fairly valued)**
+- Broker spread: -0.1pp (k_broker 1.00)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10T01:33:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $34.50
+- Single-point FV: $31.37
+- Scenario PW FV: $33.77 (EV -2.1%)
+- NAV / share: $28.79
+- Position: **HOLD (fairly valued)**
+- Broker spread: -0.1pp (k_broker 1.00)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T23:27:18+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $34.50
+- Single-point FV: $31.37
+- Scenario PW FV: $33.77 (EV -2.1%)
+- NAV / share: $28.79
+- Position: **HOLD (fairly valued)**
+- Broker spread: -0.1pp (k_broker 1.00)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T19:14:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $34.50
+- Single-point FV: $31.37
+- Scenario PW FV: $33.77 (EV -2.1%)
+- NAV / share: $28.79
+- Position: **HOLD (fairly valued)**
+- Broker spread: -0.1pp (k_broker 1.00)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position TRIM/SHORT (overvalued) → HOLD (fairly valued)
+- ⚑ scenario PW FV +41.5%
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: +41.5% | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T15:13:20+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $34.50
+- Single-point FV: $31.37
+- Scenario PW FV: $23.87 (EV -30.8%)
+- NAV / share: $28.79
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: -0.1pp (k_broker 1.00)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-07T15:11:36+00:00 — Pipeline run (auto)
 
 **Model state:**

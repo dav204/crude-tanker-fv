@@ -7,6 +7,145 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-10T02:49:54+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $75.60
+- Single-point FV: $74.00
+- Scenario PW FV: $73.13 (EV -3.3%)
+- NAV / share: $80.35
+- Position: **HOLD (fairly valued)**
+- Broker spread: +32.7pp (k_broker 1.37)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -4.3% | Δscenario FV: -4.2% | ΔNAV: -4.2% | Δspread: +4.1pp
+
+**Decision:** _METHODOLOGY RE-BASE (txn-anchored marks default-on, owner
+decision 2026-06-09) — not a market move. Position unchanged HOLD; the
+curve is now anchored largely to STNG's own realised prints (see 02:09:54
+annotation below). METHODOLOGY Appendix A Part 4._
+
+---
+
+## 2026-06-10T02:09:54+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $75.60
+- Single-point FV: $77.29
+- Scenario PW FV: $76.37 (EV +1.0%)
+- NAV / share: $83.87
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.6pp (k_broker 1.31)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _2026-06-09 Pareto S&P sweep §6 RETEST: STNG's mark-driven
+classification SURVIVES. LR2 went from Aframax-proxy to OWN-FIT (11
+in-window prints, mostly STNG's own disclosed fleet-renewal sales: STI
+Goal/Gallantry $52.3M, Sungdong 2015s $57.5-60M, 3x 2014 $65M) and MR
+expanded 2 → 21 prints (fit ~flat). Txn-anchored NAV $80.35 / EV −3.3%
+(from $83.87 / +1.0%) — position HOLD at both mark sets. The useful
+circularity check: STNG's curve is now anchored largely to STNG's own
+realised prints and its NAV barely moves, i.e. our product marks were
+already transaction-consistent for this fleet. The k_broker 1.31 spread
+is broker-side optimism, not our miscalibration. Duplicate 02:09:49
+entry below covered by this annotation._
+
+---
+
+## 2026-06-10T02:09:49+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $75.60
+- Single-point FV: $77.29
+- Scenario PW FV: $76.37 (EV +1.0%)
+- NAV / share: $83.87
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.6pp (k_broker 1.31)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10T01:33:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $75.60
+- Single-point FV: $77.29
+- Scenario PW FV: $76.37 (EV +1.0%)
+- NAV / share: $83.87
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.6pp (k_broker 1.31)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T23:27:18+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $75.60
+- Single-point FV: $77.29
+- Scenario PW FV: $76.37 (EV +1.0%)
+- NAV / share: $83.87
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.6pp (k_broker 1.31)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T19:14:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $75.60
+- Single-point FV: $77.29
+- Scenario PW FV: $76.37 (EV +1.0%)
+- NAV / share: $83.87
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.6pp (k_broker 1.31)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: +4.0% | ΔNAV: no change | Δspread: +1.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T15:13:20+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $75.60
+- Single-point FV: $77.29
+- Scenario PW FV: $73.40 (EV -2.9%)
+- NAV / share: $83.87
+- Position: **HOLD (fairly valued)**
+- Broker spread: +27.4pp (k_broker 1.31)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-07T15:11:36+00:00 — Pipeline run (auto)
 
 **Model state:**

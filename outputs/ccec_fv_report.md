@@ -94,6 +94,10 @@ _Current price $21.90. Cycle weights held at base across the grid._
 
 Tool fair value **$22.88** is +4.5% vs the current price ($21.90) and -9.1% vs the analyst target ($25.17). NAV alone covers the price (NAV/sh $28.10 ≥ $21.90); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
 
+## Modeling notes
+
+- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $81.6M (+3%) / 10yr $60.9M (-10%) [n=12], Cape 5yr $73.3M (+18%) / 10yr $50.5M (+12%) [n=21], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $34.2M (+7%) / 10yr $24.7M (+3%) [n=4], Suezmax 5yr $85.9M (-7%) / 10yr $69.7M (-13%) [n=18], Supra-Ultra 5yr $29.7M (-10%) / 10yr $21.8M (-13%) [n=17], VLCC 5yr $112.7M (-18%) / 10yr $90.9M (-18%) [n=11]. Newbuild + old-age anchors unchanged.
+
 ## Additional diagnostics
 
 - [`ccec_buy_diagnostic.md`](ccec_buy_diagnostic.md) — CCEC — buy-actionability diagnostic

@@ -35,7 +35,7 @@
 # Raw worksheet archived at inputs/market_data/transactions/raw/
 # product_tanker_transactions_2026.xlsx.
 class: MR
-as_of: 2026-05-29
+as_of: 2026-06-09
 prints:
   # ---- IN-WINDOW (drive the fit) ----
   - date: 2026-03-31
@@ -50,6 +50,122 @@ prints:
     source: Scorpio Tankers (STNG) 6-K — closing Q2 2026
     quality_flag: standard
     notes: 2-vessel package — STI Brooklyn / Black Hawk (2015-built MR, scrubber-fitted). $70M aggregate ($35M/vessel).
+  # ---- Additional in-window prints from Pareto Shipping Daily archive
+  #      scan (added 2026-06-09) — substantially expands fit sample ----
+  - date: 2025-03-21
+    vessel_age_at_sale: 5
+    sale_price_usd_m: 40.0
+    source: Pareto Shipping Daily 2025-03-21 — Union Maritime disclosure
+    quality_flag: standard
+    notes: Eden (2020-built MR, Union Maritime). Modern 5yo MR print at $40M.
+  - date: 2025-08-29
+    vessel_age_at_sale: 5
+    sale_price_usd_m: 42.0
+    source: Pareto Shipping Daily 2025-08-29 — broker reports
+    quality_flag: standard
+    notes: 5yo MR, believed to be Scorpio-built ship (~2020 vintage). Rumored — Pareto cited but not confirmed by issuer.
+  - date: 2026-03-04
+    vessel_age_at_sale: 6
+    sale_price_usd_m: 44.0
+    source: Pareto Shipping Daily 2026-03-04 — NORDEN disclosure
+    quality_flag: standard
+    notes: NORDEN 'Nord Marvel' (2020-built MR). Pair with 'Nord Maverick' at same price.
+  - date: 2026-03-04
+    vessel_age_at_sale: 6
+    sale_price_usd_m: 44.0
+    source: Pareto Shipping Daily 2026-03-04 — NORDEN disclosure
+    quality_flag: standard
+    notes: NORDEN 'Nord Maverick' (2020-built MR). Pair with 'Nord Marvel'.
+  - date: 2026-03-04
+    vessel_age_at_sale: 9
+    sale_price_usd_m: 38.0
+    source: Pareto Shipping Daily 2026-03-04 — broker reports
+    quality_flag: standard
+    notes: Altair (2017-built MR).
+  - date: 2025-11-11
+    vessel_age_at_sale: 10
+    sale_price_usd_m: 32.0
+    source: Pareto Shipping Daily 2025-11-11 — Latsco disclosure
+    quality_flag: standard
+    notes: Latsco 2015-built Hyundai Mipo MR sold to Euroholdings (Greek-to-Greek).
+  - date: 2026-04-21
+    vessel_age_at_sale: 12
+    sale_price_usd_m: 35.0
+    source: Pareto Shipping Daily 2026-04-21 — Scorpio Tankers disclosure
+    quality_flag: standard
+    notes: STNG 3x 2014-built MRs at $35M each ($105M aggregate), companion to 3x 2014-built LR2s at $65M each. Different vessels from the earlier Nov 2025 4x 2014-built MR sale at $32M. MR ship 1.
+  - date: 2026-04-21
+    vessel_age_at_sale: 12
+    sale_price_usd_m: 35.0
+    source: Pareto Shipping Daily 2026-04-21 — Scorpio Tankers disclosure
+    quality_flag: standard
+    notes: STNG 2014 MR ship 2 of 3 in the $105M aggregate.
+  - date: 2026-04-21
+    vessel_age_at_sale: 12
+    sale_price_usd_m: 35.0
+    source: Pareto Shipping Daily 2026-04-21 — Scorpio Tankers disclosure
+    quality_flag: standard
+    notes: STNG 2014 MR ship 3 of 3 in the $105M aggregate.
+  - date: 2026-01-19
+    vessel_age_at_sale: 13
+    sale_price_usd_m: 29.5
+    source: Pareto Shipping Daily 2026-01-19 — broker reports
+    quality_flag: standard
+    notes: Greek owner sold 2013-built Hyundai Mipo MR to Great Eastern. Special survey due — premium-to-broker level still firm.
+  - date: 2026-01-27
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 27.0
+    source: Pareto Shipping Daily 2026-01-27 — broker reports
+    quality_flag: standard
+    notes: Ocean Spirit (2012-built MR).
+  - date: 2026-03-26
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 27.6
+    source: Pareto Shipping Daily 2026-03-26 — d'Amico disclosure
+    quality_flag: standard
+    notes: d'Amico 'High Seas' (2012-built MR 52k DWT). Pareto cited "spot on our quotes."
+  - date: 2025-06-24
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 18.15
+    source: Pareto Shipping Daily 2025-06-24 — d'Amico disclosure
+    quality_flag: standard
+    notes: d'Amico 'Glenda Melissa' (2011-built Hyundai Mipo MR, no scrubber). Pair with 'Glenda Melody', $36.3M aggregate ($18.15M each). Confirms the 2011-built non-scrubber Mipo MR cluster.
+  - date: 2025-06-24
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 18.15
+    source: Pareto Shipping Daily 2025-06-24 — d'Amico disclosure
+    quality_flag: standard
+    notes: d'Amico 'Glenda Melody' (2011-built Hyundai Mipo MR, no scrubber). Sister to 'Glenda Melissa'.
+  - date: 2025-09-03
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 18.2
+    source: Pareto Shipping Daily 2025-09-03 — broker reports
+    quality_flag: standard
+    notes: 2011-built Chinese-yard MR. Pareto cited "Generic shipbroker quotes have pushed MRs from $18.5M in June to $20M now."
+  - date: 2025-11-28
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 19.5
+    source: Pareto Shipping Daily 2025-11-28 — d'Amico disclosure
+    quality_flag: standard
+    notes: d'Amico 'Glenda Meryl' (2011-built MR 47k DWT). d'Amico's oldest vessel at the time. Delivery by YE'25.
+  - date: 2025-01-16
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 21.0
+    source: Pareto Shipping Daily 2025-01-16 — broker reports
+    quality_flag: standard
+    notes: Korean-built 2008 MR. Pareto cited "20%+ above our quotes."
+  - date: 2025-12-17
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 16.0
+    source: Pareto Shipping Daily 2025-12-17 — INSW disclosure
+    quality_flag: standard
+    notes: INSW 'Seaways Olive' (2008-built MR). Pair with 'Seaways Star' (2008) at ~$16M each.
+  - date: 2025-12-17
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 16.0
+    source: Pareto Shipping Daily 2025-12-17 — INSW disclosure
+    quality_flag: standard
+    notes: INSW 'Seaways Star' (2008-built MR). Sister to 'Seaways Olive'.
   # ---- OUT-OF-WINDOW (documentation only; ages outside [3,17], silently excluded by solver) ----
   - date: 2026-02-15
     vessel_age_at_sale: 0

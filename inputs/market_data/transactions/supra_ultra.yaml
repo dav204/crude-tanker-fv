@@ -1,0 +1,150 @@
+# Supra-Ultra secondhand sale prints — METHODOLOGY.md sections 3.1, 9.9, 11.7
+# "Supra-Ultra" class collapses Supramax + Ultramax per §11.7.1 (SBLK class
+# collapse). Used by the transaction-anchor solver to recalibrate 5yr and
+# 10yr anchors. Newbuild + old-age legs untouched.
+#
+# SCOPE — rich sample (15 in-window prints) spanning ages 4-17 with strong
+# coverage at ages 9-16. Includes:
+#   - SBLK Star Stonington (2012 Ultramax, $19.6M, age 14) — Q1 2026 6-K
+#     disclosed individually (separate from the Scarlett+Mariella aggregate)
+#   - Belships 4-vessel ultramax package ($84M en-bloc → $21M each, 2015-16
+#     Chinese build) — 2025-08-05
+#   - SBLK Star Goal/Sandpiper pair ($28.5M total → $14.25M each, 2010-11
+#     supramax scrubber) — 2025-08-05
+#   - CMB → HMM en-bloc 2x 2020-21 ultramaxes ($64M → $32M each) —
+#     2025-09-19
+#   - Plus 7+ individually-disclosed broker reports across ages 9-17
+#
+# CALIBRATION CHECK (existing curve at relevant ages, prior to fit):
+#   age 5  curve = $33.0M (existing) vs CMB→HMM $32M → curve −3% (well-calibrated)
+#   age 9  curve ≈ $28.5M (interp 5↔10) vs cluster $21-26.5M → curve +10-25%
+#   age 10 curve = $25.0M (existing) vs $20-21M (Belships/Hantong) → curve +20-25%
+#   age 14 curve ≈ $19M (interp 10↔25yr) vs $12.8-19.6M cluster → curve +5-30%
+#   age 17 curve ≈ $14M (interp 10↔25yr) vs Thenamaris $12.25M → curve +14%
+# Curve runs SIGNIFICANTLY HIGH at age 9-17 (Chinese-build Supra/Ultra
+# trading well below curve). Expected fit impact: DOWNWARD recalibration
+# of 5yr and 10yr anchors, with magnitude depending on the recency-weighted
+# average of the cluster. The age-4 CMB→HMM $32M anchor protects the 5yr
+# leg from over-correction.
+#
+# CLASS-COLLAPSE NOTE: prints span Supramax (50-58k dwt) and Ultramax
+# (60-65k dwt) consistent with the SBLK §11.7.1 collapse. Ultramax
+# commands a modest premium per Pareto commentary (e.g. 2025-01-14
+# 2013 Japanese ultramax $19.5M vs 2011 Japanese supramax $15M — DWT
+# and age contribute).
+#
+# SOURCES: Pareto Shipping Daily archive; SBLK Q1 2026 6-K (Stonington);
+# Diana (DSI Drammen), Belships (4-ship package), SFL (Hudson), Thenamaris.
+class: Supra-Ultra
+as_of: 2026-06-09
+prints:
+  # ---- IN-WINDOW (drive the fit), sorted by age ----
+  - date: 2025-09-19
+    vessel_age_at_sale: 4
+    sale_price_usd_m: 32.0
+    source: Pareto Shipping Daily 2025-09-19 — CMB → HMM disclosure
+    quality_flag: standard
+    notes: 2021-built ultramax. CMB sold 2x 2020-21 ultramaxes to HMM en-bloc $64M ($32M each). Pareto had at $30M generic, Japanese-build premium acknowledged.
+  - date: 2025-09-19
+    vessel_age_at_sale: 5
+    sale_price_usd_m: 32.0
+    source: Pareto Shipping Daily 2025-09-19 — CMB → HMM disclosure
+    quality_flag: standard
+    notes: 2020-built ultramax. CMB → HMM en-bloc sister to the 2021-built above.
+  - date: 2025-09-16
+    vessel_age_at_sale: 9
+    sale_price_usd_m: 26.5
+    source: Pareto Shipping Daily 2025-09-19 — Diana disclosure
+    quality_flag: standard
+    notes: DSI Drammen (2016-built ultramax 63k dwt, Diana Shipping). Confirmed by Diana 3 days after broker reports.
+  - date: 2025-08-05
+    vessel_age_at_sale: 9
+    sale_price_usd_m: 21.0
+    source: Pareto Shipping Daily 2025-08-05 — Belships disclosure
+    quality_flag: standard
+    notes: Belinda (2016-built Chinese-yard ultramax, Belships). 4-vessel en-bloc $84M ($21M each, "spot on" Pareto generic $83M). Sold to undisclosed buyer.
+  - date: 2025-08-05
+    vessel_age_at_sale: 9
+    sale_price_usd_m: 21.0
+    source: Pareto Shipping Daily 2025-08-05 — Belships disclosure
+    quality_flag: standard
+    notes: Belmont (2016-built Chinese ultramax, Belships sister to Belinda). En-bloc $84M/4.
+  - date: 2025-08-05
+    vessel_age_at_sale: 9
+    sale_price_usd_m: 21.0
+    source: Pareto Shipping Daily 2025-08-05 — Belships disclosure
+    quality_flag: standard
+    notes: Belatlantic (2016-built Chinese ultramax, Belships sister). En-bloc $84M/4.
+  - date: 2025-08-05
+    vessel_age_at_sale: 10
+    sale_price_usd_m: 21.0
+    source: Pareto Shipping Daily 2025-08-05 — Belships disclosure
+    quality_flag: standard
+    notes: Belsouth (2015-built Chinese ultramax, Belships). En-bloc $84M/4. Oldest of the four.
+  - date: 2025-04-28
+    vessel_age_at_sale: 10
+    sale_price_usd_m: 20.0
+    source: Pareto Shipping Daily 2025-04-28 — broker reports
+    quality_flag: standard
+    notes: 2015-built ultramax at Jiangsu Hantong yard. "All-Greek" transaction. Pareto headline — "asset values holding well".
+  - date: 2025-01-14
+    vessel_age_at_sale: 12
+    sale_price_usd_m: 19.5
+    source: Pareto Shipping Daily 2025-01-14 — broker reports
+    quality_flag: standard
+    notes: 2013-built Japanese-yard ultramax. Bought by Greek owner.
+  - date: 2025-09-19
+    vessel_age_at_sale: 13
+    sale_price_usd_m: 18.0
+    source: Pareto Shipping Daily 2025-09-19 — broker reports
+    quality_flag: standard
+    notes: 2012-built Japanese vessel (supra/ultra context per Pareto commentary). Pareto generic $16M; Japanese-build premium acknowledged.
+  - date: 2026-02-03
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 19.6
+    source: SBLK Q1 2026 6-K (accession 0000950157-26-000639) — Star Stonington sale
+    quality_flag: standard
+    notes: Star Stonington (2012-built Ultramax 63,301 dwt, IMO 9575151). SBLK collected ~$19.6M and made $6.7M debt prepayment under ESUN $100M Facility. Individual disclosure (not combined with Scarlett/Mariella aggregate).
+  - date: 2025-01-14
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 15.0
+    source: Pareto Shipping Daily 2025-01-14 — broker reports
+    quality_flag: standard
+    notes: 2011-built Japanese-yard supramax. Sold to undisclosed Asian buyer.
+  - date: 2025-06-25
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 12.8
+    source: Pareto Shipping Daily 2025-06-25 — broker reports
+    quality_flag: standard
+    notes: Star Runner (2011-built supramax 58k dwt, SBLK).
+  - date: 2025-08-05
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 14.25
+    source: Pareto Shipping Daily 2025-08-05 — broker reports
+    quality_flag: standard
+    notes: Star Sandpiper (2011-built scrubber-fitted supramax, SBLK). Sold with Star Goal as pair, $28.5M total ($14.25M each).
+  - date: 2025-08-05
+    vessel_age_at_sale: 15
+    sale_price_usd_m: 14.25
+    source: Pareto Shipping Daily 2025-08-05 — broker reports
+    quality_flag: standard
+    notes: Star Goal (2010-built scrubber-fitted supramax, SBLK). Pair with Star Sandpiper, $28.5M total. Just passed 15Y special survey.
+  - date: 2025-06-11
+    vessel_age_at_sale: 16
+    sale_price_usd_m: 11.3
+    source: Pareto Shipping Daily 2025-06-11 — broker reports / VesselsValue
+    quality_flag: standard
+    notes: SFL Hudson (2009-built supramax, SFL Corp). "One of its oldest drybulk vessels."
+  - date: 2025-04-28
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 12.25
+    source: Pareto Shipping Daily 2025-04-28 — Thenamaris disclosure
+    quality_flag: standard
+    notes: Thenamaris 2008-vintage supramax. Reported alongside the 2008 kamsarmax pana print at $14.25M.
+  # ---- OUT-OF-WINDOW (documentation only) ----
+  - date: 2025-03-17
+    vessel_age_at_sale: 19
+    sale_price_usd_m: 9.3
+    source: Pareto Shipping Daily 2025-03-17 — SBLK disclosure
+    quality_flag: standard
+    notes: outside [3,17] window. Strange Attraction (2006-built supramax, SBLK). "One of its oldest vessels." Confirms old-age leg.

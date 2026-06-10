@@ -4,19 +4,20 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, conservati
 
 | Name | Cons. P/NAV | k_broker | EV @tool | EV @mid | EV @broker | Pos tool→broker | Breakeven tool→broker | Spread (pp) | Read |
 |---|--:|--:|--:|--:|--:|---|--:|--:|---|
-| TEN | 0.40× | 1.17 | +12.2% | +25.4% | +38.6% | BUY→BUY | NAV>px→NAV>px | +26 | mark-driven |
-| STNG | 0.70× | 1.31 | -2.9% | +10.8% | +24.4% | HOLD→BUY | NAV>px→NAV>px | +27 | mark-driven |
-| ASC | 0.75× | 1.33 | -9.4% | +5.1% | +19.6% | TRIM/SHORT→BUY | $38,252→NAV>px | +29 | mark-driven |
-| TRMD | 0.83× | 1.19 | -9.3% | +1.7% | +12.8% | TRIM/SHORT→BUY | $58,812→NAV>px | +22 | mark-driven |
-| TNK | 0.76× | 1.19 | -2.1% | +2.9% | +8.0% | HOLD→BUY | NAV>px→NAV>px | +10 | mark-driven |
-| CCEC | 0.90× | 0.96 | +20.8% | +13.1% | +5.3% | BUY→BUY | NAV>px→$2,977,992 | -15 | mark-driven |
-| HAFN | 0.95× | 1.41 | -29.7% | -14.4% | +1.0% | TRIM/SHORT→HOLD | $123,511→$28,991 | +31 | mark-driven |
-| NAT | 0.85× | 1.74 | -56.1% | -30.6% | -5.0% | TRIM/SHORT→TRIM/SHORT | $287,175→NAV>px | +51 | mark-driven |
-| INSW **(WHOLE-CO)** | 0.98× | 1.37 | -33.2% | -22.1% | -11.1% | TRIM/SHORT→TRIM/SHORT | $303,978→$72,181 | +22 | mark-driven |
-| DHT | 1.09× | 0.99 | -18.7% | -19.2% | -19.8% | TRIM/SHORT→TRIM/SHORT | $148,415→$165,372 | -1 | mark-robust |
-| FLNG | 1.37× | 0.87 | -5.6% | -15.7% | -25.8% | TRIM/SHORT→TRIM/SHORT | $3,162,500→$3,162,500 | -20 | mark-driven |
-| FRO | 1.20× | 1.00 | -30.8% | -30.8% | -30.9% | TRIM/SHORT→TRIM/SHORT | $207,932→$208,756 | -0 | mark-robust |
-| ECO | 1.21× | 0.99 | -31.8% | -32.2% | -32.6% | TRIM/SHORT→TRIM/SHORT | $207,393→$215,201 | -1 | mark-robust |
+| TEN | 0.40× | 1.24 | +30.9% | +52.4% | +73.9% | BUY→BUY | NAV>px→NAV>px | +43 | mark-driven |
+| STNG | 0.70× | 1.37 | -3.3% | +13.1% | +29.4% | HOLD→BUY | $2,725,019→NAV>px | +33 | mark-driven |
+| NAT | 0.85× | 1.98 | -44.8% | -8.8% | +27.2% | TRIM/SHORT→BUY | $333,611→NAV>px | +72 | mark-driven |
+| ASC | 0.75× | 1.33 | -5.9% | +9.1% | +24.2% | TRIM/SHORT→BUY | $38,532→NAV>px | +30 | mark-driven |
+| TNK | 0.76× | 1.34 | +4.1% | +14.0% | +23.9% | HOLD→BUY | NAV>px→NAV>px | +20 | mark-driven |
+| TRMD | 0.83× | 1.24 | -5.4% | +8.1% | +21.7% | TRIM/SHORT→BUY | $68,988→NAV>px | +27 | mark-driven |
+| CCEC | 0.90× | 0.96 | +35.3% | +27.3% | +19.2% | BUY→BUY | NAV>px→$2,977,992 | -16 | mark-driven |
+| SBLK | 0.82× | 1.21 | -5.7% | +5.5% | +16.8% | TRIM/SHORT→BUY | $28,969→NAV>px | +23 | mark-driven |
+| INSW **(WHOLE-CO)** | 0.98× | 1.52 | -23.7% | -7.0% | +9.7% | TRIM/SHORT→BUY | $341,877→$67,877 | +33 | mark-driven |
+| HAFN | 0.95× | 1.43 | -25.1% | -8.4% | +8.3% | TRIM/SHORT→BUY | $126,273→$28,673 | +33 | mark-driven |
+| DHT | 1.09× | 1.14 | -8.1% | -2.0% | +4.0% | TRIM/SHORT→HOLD | $315,444→$168,393 | +12 | mark-driven |
+| FRO | 1.20× | 1.12 | -14.9% | -9.0% | -3.0% | TRIM/SHORT→HOLD | $311,398→$214,522 | +12 | mark-driven |
+| ECO | 1.21× | 1.12 | -17.6% | -11.9% | -6.2% | TRIM/SHORT→TRIM/SHORT | $299,841→$214,608 | +11 | mark-driven |
+| FLNG | 1.37× | 0.87 | +0.1% | -10.4% | -21.0% | HOLD→TRIM/SHORT | $3,162,500→$3,162,500 | -21 | mark-driven |
 
 _**(WHOLE-CO)** = hybrid name valued via crude + product sleeve carve-outs aggregated against the whole-company tape price (METHODOLOGY 6 v2). The breakeven shown is the crude-sleeve breakeven (proxy)._
 

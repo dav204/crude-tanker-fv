@@ -22,6 +22,11 @@ for the full framework; this file is the operational rulebook.
 - Pre-flight (what's stale / missing): `python -m crude_tanker_fv.refresh`.
 - Reconcile a name: `python -m crude_tanker_fv.reconcile <TICKER>`
   (or `/reconcile <TICKER>` — see `.claude/commands/reconcile.md`).
+- S&P print scan (incremental): `python -m crude_tanker_fv.sp_scan` —
+  scans only Pareto dailies newer than the cursor in
+  `inputs/market_data/transactions/_scan_state.json`, writes the review
+  queue to `outputs/sp_print_candidates.md`. Candidates are
+  human-classified into `transactions/<class>.yaml`; never auto-promote.
 - The venv at `.venv/` has `pypdf` installed. **Use it for PDFs that fail
   WebFetch** (see below).
 
@@ -103,11 +108,30 @@ quarter of data. **The bars apply at lock-time, not per-run.**
 - **Weight-set names are sector-namespaced.** "Crude Set A/B/C/D" and "LNG
   Set B / Set B-revised" are not interchangeable. Cross-sector "Set B"
   without a prefix is a methodology error.
-- **Transaction-anchored recalibration** is populated for VLCC, Suezmax,
-  Aframax, MR (with own fits) + LR2 (data file but proxies to Aframax
-  until ≥2 prints). DO NOT add other classes (LR1, Handysize, LNGC, MGC,
-  bulk classes) to this pipeline without an analogous transaction sample
-  of comparable quality (§9.9 scope discipline).
+- **Transaction-anchored recalibration** covers eight classes with own
+  fits as of 2026-06-09 Part 3: VLCC (10 in-window), Suezmax (18),
+  Aframax (12), **LR2 (11 — own-fit; the Aframax-proxy alias is retired)**,
+  MR (21), Cape (21), Pana (4), Supra-Ultra (17). Primarily mined from
+  the Pareto Shipping Daily archive via `sp_scan.py`. DO NOT add other
+  classes (LR1, Handysize, LNGC, MGC) without an analogous sample —
+  the 2026-06-09 LNGC scan found only demolition prints, so LNG stays
+  out (§9.9 scope discipline). **`use_transaction_anchored` is DEFAULT-ON
+  since 2026-06-09 (owner decision, METHODOLOGY Appendix A Part 4)** —
+  transaction-validated marks ARE the headline marks; pass `False` for
+  the un-anchored diagnostic baseline. k_broker now reads as the broker
+  premium over transaction levels (uniform ~1.12-1.14 on validated crude
+  pure-plays at the Jun-2026 fit). Sinokor-scale buyers are the market,
+  not a distortion — exclude aggregate prints only when no per-vessel
+  split is disclosed (no-back-solve rule).
+- **When new transaction prints land, the comparison is the drift gate
+  (2026-06-09).** Adding prints to any `transactions/<class>.yaml` can move
+  every name holding that class. After promoting prints: re-run the
+  pipeline, read `outputs/transaction_anchor_comparison.md`, and annotate
+  the decision log of every name whose txn-anchored EV moved >2pp or whose
+  position band flipped — same discipline as the quarterly drift gate,
+  applied to the marks layer. Onboarding a new ticker often surfaces new
+  prints from its filings (e.g. GNK will), so expect this loop on every
+  onboarding.
 - **Two structural framework limitations are now codified**: §12 (high-payout
   pure-plays at peak — tool UNDERvalues because dividends are the thesis;
   NAT archetype) and **§15 (governance/value-trap discount — tool OVERvalues
@@ -210,6 +234,15 @@ go in Q3.
   PW FV $49.37 vs price $44 → mild BUY (matches VIE Bullish $51.50 within
   $2). APPROX consensus_pnav (no Pareto coverage; VIE-stale anchor).
   Onboarded 2026-06-06.
+- **SBLK** — first dry-bulk validator (Cape 31 / Pana 46 / Supra-Ultra 58
+  post-Eagle-Bulk fleet, §11.7.1 class collapse); mark-driven (k_broker
+  1.27 at v1, 1.27 post-transaction-anchor — the recalibration shifted
+  the gap by 0.6pp, confirming the −21% spread is methodological, not a
+  curve artefact). Cape was understated (+18%/+12% at 5/10yr), Supra-Ultra
+  overstated (−10%/−13%), Pana roughly calibrated. Transaction sample:
+  Pareto Shipping Daily archive + SBLK Q1 2026 6-K Star Stonington
+  ($19.6M). Tool TRIM/SHORT, broker BUY. Onboarded + transaction-anchored
+  2026-06-09.
 
 ## The compounding-knowledge habit
 
@@ -228,3 +261,34 @@ sessions.
   a `rocketchat_token.rtf` was dropped at repo root during Rocket.Chat
   ingest setup. Caught untracked but not gitignored. Defensive `.gitignore`
   patterns added (`*_token*`, `*_credentials*`, `*_secret*`, `*.rtf`, `.env*`).
+- **2026-06-09 (evening Part 2)** — dry-bulk classes added to the
+  transaction-anchored pipeline. Cape (24 prints) / Pana (6) / Supra-Ultra
+  (18) YAMLs landed at `inputs/market_data/transactions/`. Sources are
+  the Pareto Shipping Daily archive 2025-01→2026-06 plus the SBLK Q1 2026
+  6-K Stonington print. SBLK gap moved −21.7% → −21.1% post-fit, locking
+  it in the §6 mark-driven taxonomy (k_broker 1.27). Per-ticker quick-ref
+  for SBLK + the §9.9 scope-discipline line updated. tests: 192 passed.
+- **2026-06-09 (late evening Part 3)** — tanker classes swept from the same
+  Pareto archive: VLCC/Suezmax/Aframax/MR samples expanded, LR2 graduates
+  to own-fit (proxy retired). Tanker 10yr anchors were running HOT — VLCC
+  fit −18% at both legs; 5 names flip under txn-anchored marks
+  (DHT/ECO/FRO→TRIM-or-HOLD-down, TNK BUY→HOLD, TRMD HOLD→TRIM). Toggle
+  still opt-in; default-on is an OPEN owner decision. `sp_scan.py` +
+  `_scan_state.json` added for incremental future scans (191-candidate
+  review queue archived at `outputs/sp_print_candidates.md`). One locked
+  test expectation reversed with rationale (Suezmax fit direction — thin-
+  sample artifact). Affected decision logs annotated (9 names). tests:
+  198 passed. Backlogs registered in METHODOLOGY Appendix A: exogenous
+  demand-destruction overlay, issuer-report S&P sweep at refresh, GNK
+  onboarding, §6 SBLK promotion, Pana print disambiguation.
+- **2026-06-09 (late evening Part 4)** — **txn-anchored marks made the
+  pipeline DEFAULT** (owner decision; Sinokor's bid IS the VLCC market).
+  Defaults flipped in `value_company` / `run_scenarios_watchlist` /
+  `run_broker_sweep` (sweep now recalibrates its "tool" endpoint too).
+  Headline re-base: DHT BUY→TRIM/SHORT $14.31, ECO/FRO →TRIM/SHORT,
+  TNK BUY→HOLD, TRMD →TRIM/SHORT; FLNG/CCEC untouched. k_broker semantics
+  now "broker premium over transaction levels" — uniform 1.12-1.14 on
+  crude pure-plays. vlcc.yaml Sinokor exclusion re-grounded on
+  data-quality only (no per-vessel split). FV-band + sweep tests re-based.
+  Drift flags on this run are the re-base, not market moves — 9 logs
+  annotated. tests: 198 passed.

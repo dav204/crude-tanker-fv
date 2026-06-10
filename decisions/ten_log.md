@@ -106,6 +106,145 @@ Or any of:
 
 ---
 
+## 2026-06-10T02:49:54+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.00
+- Single-point FV: $53.31
+- Scenario PW FV: $57.61 (EV +30.9%)
+- NAV / share: $80.78
+- Position: **BUY (undervalued)**
+- Broker spread: +43.0pp (k_broker 1.24)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread +11.4pp
+- ⚑ NAV/sh -8.8%
+- Δprice: no change | Δsingle FV: -8.7% | Δscenario FV: -8.2% | ΔNAV: -8.8% | Δspread: +11.4pp
+
+**Decision:** _METHODOLOGY RE-BASE (txn-anchored marks default-on, owner
+decision 2026-06-09) — not a market move. Still solidly BUY (EV +30.9%);
+the §15 30% governance haircut already absorbs far more than this marks
+delta (see 02:09:54 annotation below). METHODOLOGY Appendix A Part 4._
+
+---
+
+## 2026-06-10T02:09:54+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.00
+- Single-point FV: $58.42
+- Scenario PW FV: $62.79 (EV +42.7%)
+- NAV / share: $88.56
+- Position: **BUY (undervalued)**
+- Broker spread: +31.6pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _2026-06-09 Pareto S&P sweep: Suezmax/Aframax/LR2/MR
+recalibrations hit TEN's 3-sleeve book. Txn-anchored asset NAV $80.78 /
+EV +30.9% (from $88.56 / +42.7%) — still solidly **BUY** at both mark
+sets even before considering that the §15 30% governance haircut already
+absorbs far more than this marks delta. The BUY call is robust to the
+marks question. Duplicate 02:09:49 entry below covered by this
+annotation._
+
+---
+
+## 2026-06-10T02:09:49+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.00
+- Single-point FV: $58.42
+- Scenario PW FV: $62.79 (EV +42.7%)
+- NAV / share: $88.56
+- Position: **BUY (undervalued)**
+- Broker spread: +31.6pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10T01:33:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.00
+- Single-point FV: $58.42
+- Scenario PW FV: $62.79 (EV +42.7%)
+- NAV / share: $88.56
+- Position: **BUY (undervalued)**
+- Broker spread: +31.6pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T23:27:18+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.00
+- Single-point FV: $58.42
+- Scenario PW FV: $62.79 (EV +42.7%)
+- NAV / share: $88.56
+- Position: **BUY (undervalued)**
+- Broker spread: +31.6pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T19:14:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.00
+- Single-point FV: $58.42
+- Scenario PW FV: $62.79 (EV +42.7%)
+- NAV / share: $88.56
+- Position: **BUY (undervalued)**
+- Broker spread: +31.6pp (k_broker 1.17)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ scenario PW FV +27.2%
+- ⚑ broker spread +5.2pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: +27.2% | ΔNAV: no change | Δspread: +5.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-09T15:13:20+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.00
+- Single-point FV: $58.42
+- Scenario PW FV: $49.37 (EV +12.2%)
+- NAV / share: $88.56
+- Position: **BUY (undervalued)**
+- Broker spread: +26.4pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-05 evening — Architecture unblocked. Only data-assembly remains.
 
 **Decision:** TEN's methodology blockers are now closed. The remaining work
