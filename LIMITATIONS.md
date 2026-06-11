@@ -24,9 +24,13 @@ When set, haircuts the NAV term in `blend_fair_value` and the strip's terminal
 value. Broker-NAV sweep / `k_broker` operate on UNDISCOUNTED asset NAV (those
 diagnostics answer the asset-side question).
 
-**Names exhibiting the pattern:** TEN (first case, onboarded 2026-06-06 with
-30% haircut). Other archetypes if onboarded: DSX, SBLK, CMRE, smaller
-Greek-family-controlled FPIs.
+**Names exhibiting the pattern:** TEN (first case, 2026-06-06, 30%) and
+CMDB (second case, 2026-06-10, 30% — re-grounded 2026-06-11 on the
+capitalized fee-drag anchor). The whole book is now §15.7-screened (every
+decision log carries an outcome); TNK and CCEC were full-screened and
+DECLINED at 0% with tripwires. Other archetypes if onboarded: DSX, CMRE,
+smaller Greek-family-controlled FPIs (SBLK screened OUT — self-managed,
+~100% payout).
 
 **Symmetric to §12** (high-payout pure-plays at peak — framework UNDERvalues
 because dividend stream is the thesis). Here the framework OVERvalues because
@@ -90,9 +94,11 @@ under reasonable vessel-mark choices; >10pp spread). For mark-driven names
 the tool FV signal is genuinely sensitive to mark assumptions — don't size
 positions based on tool output alone.
 
-Current mark-driven names (broker NAV from Pareto Shipping Daily 4 Jun 2026):
-TNK (+10pp), TRMD (+22pp), INSW (+22pp), STNG (+27pp), ASC (+29pp), HAFN (+31pp),
-NAT (+51pp), FLNG (-20pp, tool above broker), CCEC (-15pp, tool above broker).
+Mark-driven snapshot below is the 4-Jun-2026 vintage (13 names, pre the
+txn-anchored default flip); the LIVE 17-name table with current k_broker
+values regenerates every run at `outputs/broker_nav_sweep.md` — trust that,
+not this list: TNK (+10pp), TRMD (+22pp), INSW (+22pp), STNG (+27pp),
+ASC (+29pp), HAFN (+31pp), NAT (+51pp), FLNG (-20pp), CCEC (-15pp).
 The wide-spread cases (NAT, HAFN, ASC) are explicit "trust the marks you trust"
 decisions. See [the broker sweep section of the README](README.md#sample-output-broker-nav-sweep)
 for the live table.
@@ -190,9 +196,12 @@ Set B-revised).
 
 ### Sectors
 
-- **Dry bulk** — would be greenfield: new value curves, different cycle
-  drivers (Chinese steel demand, BDI), different scenario set. Not on
-  roadmap.
+- **Dry bulk — CLOSED 2026-06-09** (kept here for history): onboarded as
+  the first fully greenfield sector (METHODOLOGY §11.7) with
+  transaction-anchored Cape/Pana/Supra-Ultra curves and validators
+  SBLK/GNK/CMDB; the FFA-OCR Stage-1 diagnostic (2026-06-11) found the
+  synthesised strip MARKET-CONSISTENT vs the traded forward curve.
+  Containers are the next greenfield candidate (PLAN.md).
 - **Offshore** (drillships, OSVs, FPSOs) — entirely different value
   structure. Out of scope.
 - **Chemical tankers above Handysize** — partially covered via the LR2_clean

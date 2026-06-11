@@ -10,18 +10,18 @@ transaction-anchored curve diagnostic. **Not investment advice.**
 See [METHODOLOGY.md](METHODOLOGY.md) for the full framework (~720 lines);
 this README is orientation for someone landing on the repo cold.
 
-## Status (2026-06-04)
+## Status (2026-06-11)
 
-- **13 tickers** across 3 sectors: crude (6), LNG (2), product (4), plus **TEN** as the
-  first 3-sleeve hybrid (crude + product + LNG, with off-curve DP2 shuttle)
-- **177 tests passing** end-to-end
+- **17 tickers** across 4 sectors: crude (8, incl. **TEN** the 3-sleeve hybrid and
+  **CAPT** the first Oslo/NOK listing), LNG (2), product (4), dry bulk (3)
+- **243 tests passing** end-to-end
 - **7 output families** regenerated per pipeline run + 5 standalone diagnostics
   (LNG weight robustness, crude weight robustness, VIE coverage universe xref,
   VIE market rates xref, terminal-value sensitivity)
-- **Onboarded sector validators:** DHT (crude) / FLNG (LNG) / ASC (product);
-  TRMD (Torm) added 2026-06-03 as first full-3-class product name;
-  HAFN (Hafnia) added 2026-06-04 as first IFRS-reporting + first pool-operator
-  + largest product fleet
+- **Onboarded sector validators:** DHT (crude) / FLNG (LNG) / ASC (product) /
+  SBLK + GNK + CMDB (dry bulk, 2026-06-09/10); TRMD added 2026-06-03 (first
+  full-3-class product), HAFN 2026-06-04 (first IFRS + pool operator), CAPT
+  2026-06-11 (17th name, newbuild-heavy crude, tightest first reconcile on record)
 - **Locked weight families:** crude Set A (current); LNG Set B-revised v3
   (2026-06-01, §11.3); product Set B v2 (2026-06-03, §11.5)
 - **Framework limitations now documented:** §12 (high-payout pure-plays at
@@ -93,7 +93,10 @@ Pre-empting the "where does this go wrong?" question — see
   chemical hulls (sub-25k specialty pool, off-curve) and pure-chemical parcel
   operators above Handysize (Stolt-Nielsen / Odfjell — un-onboardable until a
   stainless-Handymax curve at the Odfjell-NB $72.5M anchor lands). DP2 shuttle
-  tankers (TEN gap) and dry bulk / offshore are out of scope entirely.
+  tankers were RESOLVED via the §11.6 off-curve-at-contracted-book convention
+  (TEN onboarded 2026-06-06); dry bulk is IN-scope as of 2026-06-09 (§11.7,
+  SBLK/GNK/CMDB). Offshore remains out of scope; containers are the Week 4
+  candidate (PLAN.md).
 
 ## Current watchlist
 
@@ -107,7 +110,8 @@ Pre-empting the "where does this go wrong?" question — see
 | INSW | International Seaways | Hybrid crude + product (whole-company v2 carve-out) |
 | TNK  | Teekay Tankers | Atlantic-skewed: Suezmax + Aframax/LR2 + 1 VLCC |
 | NAT  | Nordic American Tankers | Pure Suezmax (18 vessels) — §12 framework-limitation case |
-| TEN  | Tsakos Energy Navigation | 3-sleeve hybrid: crude + product + LNG (60 in-water + 19 NBs); 4 DP2 shuttle off-curve via §11.6 convention |
+| TEN  | Tsakos Energy Navigation | 3-sleeve hybrid: crude + product + LNG (60 in-water + 19 NBs); 4 DP2 shuttle off-curve via §11.6 convention; §15 case (30% haircut) |
+| CAPT | Capital Tankers | 12 VLCC + 10 Suezmax + 4 Aframax + 4 LR2; 21 NBs at delivered-market-less-commitment; Oslo/NOK (added 2026-06-11) |
 
 **LNG sector (`sectors.lng` — glut-cycle framework):**
 
@@ -122,8 +126,21 @@ Pre-empting the "where does this go wrong?" question — see
 |---|---|---|
 | ASC  | Ardmore Shipping | 19 active MRs + 6 off-curve Handysize/chem — product validator |
 | STNG | Scorpio Tankers | 32 LR2 + 41 MR on-curve + 14 Handymax off-curve + 10 NBs (incl. 2 VLCC) |
+| HAFN | Hafnia | Largest product fleet (~120 incl. pools); IFRS reporter |
+| TRMD | Torm | First full 3-class product (LR2 + LR1 + MR) |
+
+**Dry bulk sector (`sectors.dry_bulk` — Bulk Set A, unlocked 2026-06-09):**
+
+| Ticker | Company | Fleet shape |
+|---|---|---|
+| SBLK | Star Bulk Carriers | 135 bulkers (Cape 31 / Pana 46 / Supra-Ultra 58) — first dry-bulk validator; §6 mark-driven |
+| GNK  | Genco Shipping | 44 bulkers (Cape 19 / Supra-Ultra 25, no Pana) — VALIDATES the txn-anchored curves (k 1.04) |
+| CMDB | Costamare Bulkers | 30 owned older bulkers + P&L-only chartered-in platform; §15 case (30% haircut), APPROX anchor |
 
 ## Sample output: broker-NAV sweep
+
+_Illustrative snapshot from the 2026-06-04 vintage (13 names); the live
+17-name table regenerates every run at `outputs/broker_nav_sweep.md`._
 
 The diagnostic that distinguishes mark-validated calls from mark-driven ones.
 Per name: `k_broker` is the uniform vessel-mark premium that lifts tool NAV
@@ -219,7 +236,7 @@ tests/                  177 tests, all green
 ```sh
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
-pytest -q                                    # 167 passing
+pytest -q                                    # 243 passing (2026-06-11)
 python -m crude_tanker_fv.refresh             # smoke-test refresh
 python -m crude_tanker_fv.pipeline 2026-Q1   # smoke-test full pipeline
 ```

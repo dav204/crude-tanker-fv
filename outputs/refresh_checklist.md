@@ -6,9 +6,9 @@
 
 ## Status summary
 
-- ✓ **Balance sheets:** 16 of 16 present for 2026-Q1
+- ✓ **Balance sheets:** 17 of 17 present for 2026-Q1
 - ✓ **Market data:** 5 of 5 fresh (< 30 days)
-- ⚠ **Watchlist:** 7 of 16 clean — 0 stale, 9 APPROX consensus_pnav
+- ⚠ **Watchlist:** 8 of 17 clean — 0 stale, 9 APPROX consensus_pnav
 - ✓ **Earnings:** no reports outstanding
 
 ## 0. Earnings calendar (report-day refresh runbook in CLAUDE.md)
@@ -16,6 +16,7 @@
 | Ticker | Status | Detail |
 |---|---|---|
 | ASC | — | 2026-07-28 → 2026-07-30 (expected). Q1-26 May-7; Q2-25 Jul-30 (announced ~2wk ahead) |
+| CAPT | — | 2026-08-17 → 2026-08-31 (expected). First-ever results (Q1-26) came May-27; Oslo H1-report cadence implies late Aug. No published calendar yet — watch the dailies. |
 | CCEC | — | 2026-07-29 → 2026-08-06 (expected). Q1-26 May-7; Q2-25 Jul-31 |
 | CMDB | — | 2026-08-04 → 2026-08-10 (expected). Q1-26 release May-13; H1-25 Aug-8; announces ~1-2wk ahead |
 | DHT | — | 2026-08-05 → 2026-08-06 (expected). Q1-26 May-5; Q2-25 Aug-6 (announced Jul-23) |
@@ -60,6 +61,7 @@ _All market data files were updated within 30 days. ✓_
 | CMDB | ⚠ APPROX | as_of 2026-06-10 (1d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
 | SBLK | ✓ | as_of 2026-06-05 (6d ago) |
 | GNK | ✓ | as_of 2026-06-04 (7d ago) |
+| CAPT | ✓ | as_of 2026-06-10 (1d ago) |
 
 _9 ticker(s) carry APPROX consensus_pnav comments — replace with authoritative broker NAV print (Pareto / Cleaves / Clarksons) when the Q-end research notes land._
 
@@ -83,6 +85,7 @@ _9 ticker(s) carry APPROX consensus_pnav comments — replace with authoritative
 | CMDB | ✓ 1d | ✓ 1d ago | ✓ 1d | ✓ 1d |
 | SBLK | ✓ 2d | ✓ 2d ago | ✓ 2d | ✓ 2d |
 | GNK | ✓ 1d | ✓ 1d ago | ✓ 1d | ✓ 1d |
+| CAPT | ✓ 0d | ✓ 0d ago | ✓ 0d | ✓ 0d |
 
 _Thresholds: fleet manifest 90d (vessel sales/purchases happen quarterly); cost + dividend 180d (rarely change but should be re-validated annually)._
 
@@ -108,3 +111,4 @@ For ad-hoc lookups outside the refresh cycle:
 | CMDB | https://www.costamarebulkers.com/ | https://www.costamarebulkers.com/news/ | https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002033535&type=6-K | https://www.costamarebulkers.com/fleet/ |
 | SBLK | https://www.starbulk.com/investor-relations/ | https://www.starbulk.com/investor-relations/news-releases/ | https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001386716&type=6-K | https://www.starbulk.com/fleet/ |
 | GNK | https://www.gencoshipping.com/ | https://www.gencoshipping.com/press-releases/ | https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001326200&type=10-Q | https://www.gencoshipping.com/our-fleet/ |
+| CAPT | https://www.capitaltankers.com/ | https://www.capitaltankers.com/news/ | — | https://www.capitaltankers.com/fleet/ |

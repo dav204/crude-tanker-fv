@@ -34,6 +34,9 @@ for the full framework; this file is the operational rulebook.
   live close; watchlist statics stay as the consensus_pnav/fwd_pe
   vintage anchors (broker NAV + consensus EPS use them). Flagged quotes
   (>15% day move, >30% vs static) are written but never applied.
+- Earnings calendar: `inputs/earnings_calendar.yaml` — hand-maintained
+  (the weekly digest flags newly-announced dates; update on sight). The
+  preflight's §0 section consumes it; report-day workflow below.
 - Weekly news pull (mechanical half): `scripts/news_pull_cron.sh` —
   launchd-scheduled Saturdays 08:00 (`com.crude-tanker-fv.news-pull`),
   chains RC ingest → `sp_scan` → `--links` → `--fetch-links` →
@@ -214,7 +217,7 @@ quarter of data. **The bars apply at lock-time, not per-run.**
 ## Onboarding a new ticker — the workflow
 
 1. `/add-ticker <SYMBOL> <SECTOR>` — scaffolds YAML stubs, test file,
-   decision log entry. (Coming end of Week 0.)
+   decision log entry.
 2. Pull the latest 6-K / 20-F / press release; fill in the fleet manifest,
    balance sheet, cost structure, dividend policy (METHODOLOGY §8.1).
 3. **Sweep the Pareto free text for the name** (added 2026-06-10 after GNK):
@@ -335,7 +338,9 @@ go in Q3.
   fails WebFetch.
 - **NAT** — §12 archetype: high-payout pure-play; tool reads as "rich" at
   peak. Treat tool FV as NAV floor. APPROX consensus_pnav.
-- **INSW** — mark-driven (k_broker 1.37); hybrid crude+product carve-out.
+- **INSW** — mark-driven (k_broker 1.52 post txn-anchor flip, ~1.6 at live
+  prices; was 1.37 pre-flip); hybrid crude+product carve-out. Pareto
+  BUY→HOLD 2026-05-18 (valuation-driven, TP raised).
 - **TNK** — Atlantic-skewed; Aframax transaction anchor; both mark-driven
   AND weight-driven.
 - **FLNG** — tool above broker (k_broker 0.87); mature TC-heavy book.
@@ -359,7 +364,9 @@ go in Q3.
   curve artefact). Cape was understated (+18%/+12% at 5/10yr), Supra-Ultra
   overstated (−10%/−13%), Pana roughly calibrated. Transaction sample:
   Pareto Shipping Daily archive + SBLK Q1 2026 6-K Star Stonington
-  ($19.6M). Tool TRIM/SHORT, broker BUY. Onboarded + transaction-anchored
+  ($19.6M). Tool HOLD at live prices (band-edge; was TRIM/SHORT at the
+  Jun-5 static — see sblk_log 2026-06-11), broker BUY. §15.7-screened
+  OUT (self-managed, ~100% payout). Onboarded + transaction-anchored
   2026-06-09. GNK (k 1.04 on identical curves) isolates SBLK's gap as
   name-specific — likely the 46-vessel Pana book on the thinnest fit.
 - **GNK** — second dry-bulk validator; VALIDATES the transaction-anchored
@@ -404,6 +411,31 @@ go in Q3.
   + NB-heavy; cosmetic). Onboarded 2026-06-11 from archived Pareto
   initiation + Q1 review — pull issuer Q1 report at Q2 refresh.
 
+## Week-close checklist (codified 2026-06-11, owner decision)
+
+Work is organised in discrete sprints called "Weeks". At the END of each
+Week, before handoff, run this checklist — documentation accretes play-
+dough seams during a sprint and this is where they get smoothed:
+
+1. **Documentation audit.** METHODOLOGY.md: relocate content that
+   accreted into the wrong section (shipped things out of "NOT in v1"
+   lists; status updates out of bullet asides), split run-on NOTE
+   paragraphs, fix stale counts/k_brokers/positions/statuses, verify
+   cross-references resolve, and write the Week's Appendix A entry.
+   CLAUDE.md: quick-refs reconciled against the latest delta report;
+   stale workflow notes removed. README.md + LIMITATIONS.md: refresh
+   against current state (limitations that closed get marked closed,
+   not deleted). Fan out read-only audit agents for the inventory; apply
+   fixes in the main session.
+2. **Verification gate.** Full pytest green; pipeline runs clean;
+   `/reconcile --all` SANITY column all OK/n-a-APPROX.
+3. **PLAN.md rewritten** for the next Week (theme, steps, standing
+   threads, definition of done). PLAN.md is the sprint handoff document
+   — a new agent reads CLAUDE.md, then PLAN.md, then starts.
+4. **Clean git state** — everything committed with the Week-close
+   changelog entry; no untracked strays (check for credential-shaped
+   files per the secrets rule).
+
 ## The compounding-knowledge habit
 
 Anytime the agent makes a mistake that wasn't caught by these rules,
@@ -413,6 +445,31 @@ sessions.
 
 ## Changelog
 
+- **2026-06-11 (WEEK 3 CLOSED)** — **first Week-close checklist run
+  (checklist itself codified this session, owner decision).**
+  Documentation audit via two read-only agents, fixes applied:
+  METHODOLOGY line-46 monster paragraph → dated scope-change log;
+  coverage header 8→17 names/4 sectors; preferred_equity comment
+  (TEN is the user, not "none"); STNG §6 mark-validated→mark-driven
+  with date-stamps; INSW version-label footnote; §6 entries ADDED for
+  CMDB + CAPT; FFA-OCR saga moved OUT of §11.7.7 "NOT in v1" into new
+  §11.7.8 (onboarding table → §11.7.9); Appendix A entries added for
+  2026-06-10 + 2026-06-11 (closing the §15.7 dangling promise).
+  README: status 2026-06-11, 17 names/4 sectors/243 tests, dry-bulk +
+  CAPT/HAFN/TRMD watchlist tables, DP2/dry-bulk scope line corrected.
+  LIMITATIONS: dry-bulk greenfield marked CLOSED, §15 names updated
+  (TEN+CMDB cases; TNK/CCEC screened-declined), mark-driven snapshot
+  marked as vintage with pointer to the live sweep. CLAUDE.md
+  quick-refs reconciled (INSW k 1.52+, SBLK HOLD); earnings-calendar
+  maintenance line added; stale "(Coming end of Week 0)" removed.
+  Verification gate: 243 passed/10 skipped; `/reconcile --all` 17/17
+  SANITY OK, 0 drift alerts; refresh checklist regenerated 17/17.
+  **PLAN.md created** (the rolling sprint-plan/handoff doc — Week 4 =
+  containers; Step 0 flags the Container Weekly feed stale since
+  Apr-01). Week 3 final tally: news-pull v1, daily price refresh +
+  TEN fix, FFA-OCR Stage 1 + market-consistency diagnostic, earnings
+  readiness, CAPT (17th name), §15.7 + full-book retro screen,
+  Week-close checklist.
 - **2026-06-11 (Week 3, day 2, Part 4)** — **§15.7 screening procedure
   FORMALISED + full-book retro screen run (owner-approved).** New
   METHODOLOGY §15.7: cheap gate (multi-year median P/NAV ≥0.85 → N/A),

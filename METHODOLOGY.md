@@ -4,7 +4,7 @@
 
 This tool produces an **independent fair value estimate per share** for crude tanker equities, used to validate and stress-test existing target prices on the watchlist. It is not a buy/sell recommendation engine; it is a structured methodology applied consistently across names so that disagreements between the tool and analyst targets can be diagnosed (input differences vs. weighting differences vs. genuine methodology divergence).
 
-**Current coverage (8 names across 2 sectors as of 2026-06-01):**
+**Current coverage (17 names across 4 sectors as of 2026-06-11):** crude 8 (DHT, ECO, FRO, INSW, TNK, NAT, TEN-hybrid, CAPT) / LNG 2 (FLNG, CCEC) / product 5 (STNG, HAFN, TRMD, ASC + INSW's product sleeve) / dry bulk 3 (SBLK, GNK, CMDB). The table below is the original crude v1 cohort; per-name detail for all 17 lives in §6 and the decision logs:
 
 *Crude tanker sector (`sectors.crude` — three-phase MoU framework):*
 
@@ -43,7 +43,46 @@ This tool produces an **independent fair value estimate per share** for crude ta
 - LNGC X-DF2.1 propulsion-premium recalibration + MGC gas-carrier sub-class (§3.1)
 - §12 framework limitation documented for high-payout pure-plays during cycle peaks
 
-**Out of scope for current build:** Pure chemical tankers — IMO-II/III stainless parcel trade (Stolt-Nielsen / Odfjell) and the **sub-25k stainless chemical Handy** residual (ASC's 4 × 25k stainless chem stay off-curve; the new Handymax curve covers 38k IMO-II coated only — §11.5 / LIMITATIONS §2). NOTE: **chemical Handymax (38k IMO-II coated) is now ON-curve** (Handymax class added 2026-06-05; STNG's 14 hulls migrated from `working_capital_net` $200M to on-curve $205M; rate path = MR-proxy validated by STNG Q1+Q2 2026 disclosed rates ≈ MR — §11.5). NOTE: **clean-product Handysize (~37-40k) is now ON-curve** (Handysize class added 2026-06-05; HAFN's 22 + ASC's 2 product Handies migrated from off-curve — §11.5). **Dry bulk is now methodology-unlocked as of 2026-06-09** via `sectors.dry_bulk` (see §11.7) — first fully greenfield sector after the v1 crude/LNG/product builds; ships with three classes (Cape / Pana / Supra-Ultra), the four-scenario Bulk Set A weight family, and a 22-month Pareto-archive-derived empirical cycle anchor (Cape $23,650, Pana $11,900, Supra-Ultra $13,930 USD/day). Validators v1: SBLK + GNK (Pareto-anchored) + CMDB (APPROX-anchored). Code wire-up + name onboarding Week 2. Offshore. (Standalone product tankers — STNG / TORM / HAFN / ASC — are **unlocked** as of 2026-06-01 via `sectors.product`; see §11.5. **ASC onboarded 2026-06-01** as the product-sector methodology validator; **STNG onboarded 2026-06-01** as the first multi-class product name; **TRMD (Torm) onboarded 2026-06-03** as the first full-3-class product name; **HAFN (Hafnia) onboarded 2026-06-04** as the first IFRS-reporting + first pool-operator + largest product fleet on the watchlist. **TEN (Tsakos) onboarded 2026-06-06** — first 3-sleeve hybrid on the watchlist (crude + product + LNG, with the DP2 shuttle sleeve handled OFF-CURVE via `shuttle_contracted_book` per METHODOLOGY §11.6) **and first §15 case** (governance / value-trap haircut). The 2026-06-04 deferral closed in one session after the architectural unblock (2026-06-05 PM) shipped: (1) `preferred_equity` schema; (2) §11.6 off-curve-at-contracted-book convention + `shuttle_contracted_book` schema; (3) `lng_carve_out()` + 3-sleeve aggregator. A §15 governance haircut (30%) was added 2026-06-06 to account for the persistent market discount on controlled-FPI structures with related-party transactions and low common payout. TEN's headline (post-§15): asset NAV $88.56, PW FV $49.37 vs price $44.00 (EV +12%, **BUY**) — consistent with VIE Bullish $51.50. Full §6 entry below.)
+**Out of scope for current build:** Pure chemical tankers — IMO-II/III
+stainless parcel trade (Stolt-Nielsen / Odfjell) and the **sub-25k
+stainless chemical Handy** residual (ASC's 4 × 25k stainless chem stay
+off-curve — §11.5 / LIMITATIONS §2). Offshore. Containers are the Week 4
+sector candidate (see PLAN.md).
+
+**Scope-change log** (dated; full detail in the referenced sections):
+
+- **2026-06-01 — product sector unlocked** (`sectors.product`, §11.5).
+  ASC onboarded 2026-06-01 as the product-sector methodology validator;
+  STNG 2026-06-01 (first multi-class product name); TRMD 2026-06-03
+  (first full 3-class); HAFN 2026-06-04 (first IFRS reporter + pool
+  operator + largest product fleet).
+- **2026-06-05 — chemical Handymax (38k IMO-II coated) ON-curve** —
+  Handymax class added; STNG's 14 hulls migrated from
+  `working_capital_net` $200M to on-curve $205M; rate path = MR-proxy,
+  validated by STNG Q1+Q2 2026 disclosed rates ≈ MR (§11.5).
+- **2026-06-05 — clean-product Handysize (~37-40k) ON-curve** — Handysize
+  class added; HAFN's 22 + ASC's 2 product Handies migrated from
+  off-curve (§11.5).
+- **2026-06-06 — TEN (Tsakos) onboarded** — first 3-sleeve hybrid
+  (crude + product + LNG; DP2 shuttle sleeve OFF-CURVE at contracted
+  book per §11.6) and **first §15 case** (30% governance haircut). The
+  2026-06-04 deferral closed in one session after the architectural
+  unblock (2026-06-05 PM): `preferred_equity` schema, §11.6 off-curve
+  convention + `shuttle_contracted_book`, `lng_carve_out()` + 3-sleeve
+  aggregator. Headline post-§15 at onboarding: asset NAV $88.56, PW FV
+  $49.37 vs $44.00 — consistent with VIE Bullish $51.50. Full §6 entry
+  below. (Onboarding price later corrected to $37.14 — input error, see
+  ten_log 2026-06-10.)
+- **2026-06-09 — dry bulk unlocked** (`sectors.dry_bulk`, §11.7) — first
+  fully greenfield sector after the v1 crude/LNG/product builds. Three
+  classes (Cape / Pana / Supra-Ultra), four-scenario Bulk Set A weight
+  family, 22-month Pareto-archive empirical cycle anchors (Cape $23,650 /
+  Pana $11,900 / Supra-Ultra $13,930 USD/day). Validators: SBLK + GNK
+  (Pareto-anchored) + CMDB (APPROX-anchored), onboarded 2026-06-09/10.
+- **2026-06-11 — CAPT (Capital Tankers) onboarded** — 17th name, first
+  Oslo/NOK listing, heaviest §3.1/§9.6 newbuild-convention user (21 of
+  30 vessels under construction). Tightest first reconcile on record
+  (−2.6% vs a real Pareto print). §6 entry below.
 
 ## 2. Core Valuation Framework
 
@@ -221,7 +260,8 @@ diluted_shares_outstanding: 222_600_000
 # from NAV as a creditor-like claim ahead of common (defaults to 0 when
 # omitted; pro-rates by sleeve in hybrid carve-outs the same way corporate/
 # unsecured debt does). Added 2026-06-05 to pre-position TEN onboarding;
-# none of the 12 current watchlist names use it.
+# TEN is the only current user (Series E $118.6M + F $168.7M);
+# the other 16 names carry 0.
 preferred_equity: 0
 ```
 
@@ -308,6 +348,11 @@ effective_tax_rate: 0.02    # tanker shipping is largely tax-advantaged
 - Use as methodology validator: if the model produces a weird answer for DHT, the methodology has a bug because there are fewer moving parts
 
 ### INSW (International Seaways) — whole-company (v2 → v2.1 product-sector refactor)
+
+_Version labels: v1 = original whole-company crude shortcut; v2 = crude+product
+carve-out with MR forwards inside crude scenarios; v2.1 = product sleeve routed
+through `sectors.product` (2026-06-01). The Jun-9 weight reset is orthogonal
+(scenario weights, not architecture)._
 - Hybrid crude + product operator post-Diamond S merger
 - v2 carve-out aggregates **both sleeves**: crude (VLCC + Suezmax + Aframax + LR1 30% crude leg) and product (MR + LR2 + LR1 70% product leg) via separate carve-outs, then sums to whole-company FV against the actual tape price (§6 in original sense, now superseded by v2 whole-company aggregation)
 - Allocation: by vessel **market value** (not count, not EBITDA); vessel-secured debt assigned directly to its sleeve; corporate/unsecured debt pro-rated by sleeve value share
@@ -441,7 +486,7 @@ STNG's 32-vessel coated-LR2 fleet carries an **embedded option to switch between
 - The switch is an operating decision per vessel-quarter, not a structural class assignment. Modelling it parametrically would require either (a) a per-vessel optionality module that re-estimates each quarter, or (b) a market-wide "clean-LR2-vs-dirty spread" forward curve that the framework would consume alongside the `lr2_clean` curve.
 - Neither is in scope for v1. Both are natural v2 extensions if the cargo-switching dynamic persists past the SoH-reopen normalisation.
 
-**Position-sizing implication:** STNG's TRIM/SHORT signal under Set A locked product weights is at EV −13.0% — but the framework's Q2-Q3 2026 EPS estimates likely understate actual earnings power by ~$0.50-1.00/sh if the LR2 fleet captures even a fraction of the cargo-switching upside. **The signal is mark-validated (+7pp spread) and weight-robust within the current product weight set, but the operating-mode optionality (§14.6.1) is a separate unmodeled positive bias that should attenuate the strength of the TRIM signal.** Treat STNG's TRIM as "mildly TRIM, with framework-known upside bias" rather than "decisively TRIM."
+**Position-sizing implication:** STNG's TRIM/SHORT signal under Set A locked product weights is at EV −13.0% — but the framework's Q2-Q3 2026 EPS estimates likely understate actual earnings power by ~$0.50-1.00/sh if the LR2 fleet captures even a fraction of the cargo-switching upside. **The signal is mark-DRIVEN (+27pp spread vs the real Pareto 4-Jun P/NAV 0.70; was mis-read as mark-validated +7pp against the stale APPROX 0.87 — see Appendix A 2026-06-04) and weight-robust within the current product weight set, but the operating-mode optionality (§14.6.1) is a separate unmodeled positive bias that should attenuate the strength of the TRIM signal.** Treat STNG's TRIM as "mildly TRIM, with framework-known upside bias" rather than "decisively TRIM."
 
 **What would close this gap:**
 
@@ -505,6 +550,36 @@ The VIE Coverage Universe (Catlin / Mintzmyer, accessed 2026-06-03) carries TRMD
 - **DEAL OVERLAY (live until ~Jun-26 2026):** Diana Shipping hostile all-cash tender $24.80 (raised from $23.50; board rejected; proxy fight at the Jun-18 AGM; SBLK conditionally buys 16 GNK vessels for $470.5M if Diana wins). Price is tender-pinned — EV/position signals are deal-arb readings, not NAV-discount signals. Pre-bid regime was 0.66-0.75× NAV; a tender lapse likely mean-reverts toward that. **No §15 haircut** — event risk is not realisation impairment.
 - GNK's own disclosures are now fit inputs: 2× 2020 nmax @ $72.75M, Courageous 2020 Cape @ $63.55M, Apr-26 Imabari Cape @ $65M (issuer-confirmed), Picardy/Predator 2005 Supras @ $10.6M (old-age leg validation ~60% above scrap).
 - Onboarded 2026-06-09/10; baseline gap −5.2% is the drift anchor. Q2 items: tender resolution, the $65M June-delivery Cape, and (if Diana wins) the 16-vessel SBLK purchase as a print batch.
+
+### CMDB (Costamare Bulkers Holdings, NYSE:CMDB) — third dry-bulk validator; second §15 case (added 2026-06-11)
+
+- 29 owned bulkers at Mar-31 2026 (6 Cape / 7 Pana / 16 Supra-Ultra; Astros 2018
+  Ultramax closed Apr-16, fleet now 30). The ~20-vessel CBI chartered-in trading
+  platform is P&L-ONLY — never in the manifest; consolidated EPS includes it, so
+  the §9.11 xref reads structurally hot.
+- **APPROX-anchored** (zero Pareto/VIE coverage; consensus_pnav 0.62 is a P/BV
+  proxy — spinoff book ≈ recent fair value). Tool asset NAV $32.23 = book +15.8%.
+- **§15 haircut 30%** (owner 2026-06-10; re-grounded 2026-06-11 on the
+  capitalized fee-drag anchor: ~$28M/yr related-party extraction ÷ 10-12% ≈
+  30-36% of the $779M equity NAV — see §15.7 and cmdb_log). Post-haircut PW FV
+  $19.82 → mild BUY. Revisit on any payout initiation.
+
+### CAPT (Capital Tankers, Euronext Growth Oslo:CAPT) — 17th name; first Oslo/NOK listing (added 2026-06-11)
+
+- 30 firm vessels (12 VLCC / 10 Suezmax / 4 Aframax / 4 LR2 crude-routed); only
+  9 on-water at Mar-31; 21 newbuilds deliver one-per-~6-weeks through mid-2028 —
+  the heaviest user of the §3.1/§9.6 delivered-market-less-commitment convention
+  ($1,880M remaining capex). 13 sponsor options at cost EXCLUDED from NAV.
+- **Tightest first reconcile on record: −2.6% vs a real Pareto pnav print
+  (k_broker 1.04)** — external validation of the NB convention + txn-anchored
+  crude age-0 marks (a NET match: we exclude options ~$1.5/sh and LNG-DF premia
+  where Pareto includes both).
+- BUY, EV +38.8% — deepest-discount crude name; thesis is mechanical NAV
+  accretion through delivery. **§15 screened and DECLINED (0%)** with seven
+  tripwires (capt_log 2026-06-11); venue/liquidity assessed — no haircut
+  (ADV ~$2.8M/day; Euronext Growth junior tier; OET/HAFN uplisting precedent
+  is an embedded catalyst). Quirks: NOK quote (`yahoo_symbol: CAPT.OL`),
+  breakeven solve reads $0/day (net-cash + NB-heavy; cosmetic).
 
 ## 7. Output Format
 
@@ -1589,70 +1664,79 @@ A FAIL signals methodology calibration is off — likely the cycle anchors
   Do NOT add without an analogous disclosed-deals dataset.
 - **Per-class scrubber premium** — Pareto's bulk table does not separate
   scrubber from non-scrubber rates the way the tanker table does.
-- **OCR-derived FFA forward curve — RE-SCOPED 2026-06-10 (owner + agent
-  assessment): staged build, NO LONGER gated on the §9.11 trigger.**
-  Rationale: (a) cost substitution — live FFA assessments are an
-  expensive subscription; the Rocket.Chat channel delivers them daily
-  for free; (b) structural upgrade — the dry-bulk strip runs on the
-  synthesised-from-spot convention (the framework's weakest leg) while
-  dry bulk is the one sector with a deep, liquid forward market; GNK's
-  §9.11 xref (+149%) already hints the synthesised strip runs hot;
-  (c) curve shape (backwardation/contango) is a direct market cycle
-  statement feeding the Bulk Set A weight diagnostics.
-  **Empirical basis (2026-06-10 sampling):** historical hit rate ~7%
-  (n=14, 2020-2025) — below the 12-25% eyeball estimate but still
-  ~800-1,400 dated observations over the ~11k+ archive. CRITICALLY, the
-  modern format (verified Nov-2025 + Apr-2026) is a standardized
-  three-panel "Markets" widget — Cape/Pmax/Smax × five tenors (M1, M2,
-  Q-next, Q-following, Cal-year), green-on-dark, stable layout — an
-  ideal OCR target whose tenor set maps directly onto the strip's
-  8-quarter horizon. Morning + small-wide is a strong search prior in
-  recent vintages (2 of 3 hits).
-  **Staged plan:** Stage 1 — classifier (OCR keyword pass:
-  Cape|Pmax|Smax + Cal2\d|Q[1-4]; dimension filtering alone fails —
-  hand-cropped, no size cluster) + parser over recent months, wired
-  into the weekly ingest; OCR output lands in a review queue with
-  sanity bands + day-over-day continuity checks; human-approved
-  promotion to `ffa_forward_curve.yaml` until gates prove out.
-  Stage 2 — 2020-2026 backfill to backtest the synthesised-curve
-  convention and enrich the empirical cycle anchors. System dep:
-  tesseract (brew). Designed-for risks: OCR digit errors (sanity bands
-  non-negotiable) and single-source dependence on one poster's habit
-  (staleness alarm in the weekly runner — the feed must die loudly).
-  Side-discovery worth remembering: the non-FFA images include a
-  6-year intraday Oslo shipping equity quote-board series and broker
-  notes (Cleaves et al.) — reusable for other purposes.
-  **STAGE 1 SHIPPED 2026-06-11** (`ffa_ocr.py`, 13 tests, wired into the
-  weekly runner with the staleness alarm). Empirics from the build:
-  (a) recipe = grayscale → 4× LANCZOS → tesseract psm 6 TSV; the color
-  original drops the panel headers, and positional (x-band) parsing with
-  per-row tenor majority-vote survives single-cell garbles; (b) the
-  widget posts EVERY business day, not ~7% of days — the 7% sample-wide
-  hit rate was diluted by the pre-2025 format era; Apr-1 → Jun-11 2026
-  yielded 45/46 business days, 29 fully-clean, 16 flagged-for-review
-  (incomplete grids only — the conf-gate refuses to guess rather than
-  admit plausible-but-wrong digits like "(3800"→3800); (c) DISCOVERED
-  TICK MODEL: months/Cal tick in $12.5 displayed truncated; Q tenors
-  display the UNROUNDED 3-month average (31766 = 95300/3 is a real
-  value, not digit noise) — sanity bands encode this, plus ±10%
-  calendar-day continuity and a >3× intra-panel spread check. Stage 2
-  (2020-2026 backfill + strip integration decision) remains open; the
-  go-forward curve accumulates in `state/ffa_ocr_curves.json` from
-  here on, diagnostic-first until one full review cycle passes.
-  **First diagnostic result (2026-06-11, `scripts/ffa_vs_strip.py` →
-  `outputs/ffa_vs_strip.md`): the synthesised strip is MARKET-CONSISTENT
-  — Bulk Set A PW mids sit within ±5% of the traded curve on 8 of 9
-  legs (worst +9.3%, supra_ultra Cal27), and `moderate_growth` (the
-  0.40 base case) is the nearest single scenario on 8 of 9. The traded
-  curve is strongly backwardated (Cape −16%, Pana −25%, Smax −28% from
-  Q3-26 to Cal27), matching the strip's mean-reversion shape — no Set A
-  reweight signal. Consequence: the "synthesised strip runs hot"
-  hypothesis behind GNK's +149% §9.11 xref is REJECTED at the rate
-  level — the anomaly must live in the xref's other legs (days/
-  utilization, costs, consensus vintage, index-vs-earned premia), see
-  gnk_log 2026-06-11.**
+- **OCR-derived FFA forward curve** — re-scoped out of this list
+  2026-06-10 and SHIPPED (Stage 1) 2026-06-11; see §11.7.8.
 
-#### 11.7.8 Onboarding sequence
+#### 11.7.8 FFA-OCR forward curve — re-scoped 2026-06-10; Stage 1 SHIPPED 2026-06-11
+
+(Moved out of the §11.7.7 not-in-v1 list at the 2026-06-11 Week-close
+documentation audit — shipped work does not belong in a scope-exclusion
+list. Text below is the dated record as accreted, lightly re-paragraphed.)
+
+**OCR-derived FFA forward curve — RE-SCOPED 2026-06-10 (owner + agent
+assessment): staged build, NO LONGER gated on the §9.11 trigger.**
+Rationale: (a) cost substitution — live FFA assessments are an
+expensive subscription; the Rocket.Chat channel delivers them daily
+for free; (b) structural upgrade — the dry-bulk strip runs on the
+synthesised-from-spot convention (the framework's weakest leg) while
+dry bulk is the one sector with a deep, liquid forward market; GNK's
+§9.11 xref (+149%) already hints the synthesised strip runs hot;
+(c) curve shape (backwardation/contango) is a direct market cycle
+statement feeding the Bulk Set A weight diagnostics.
+**Empirical basis (2026-06-10 sampling):** historical hit rate ~7%
+(n=14, 2020-2025) — below the 12-25% eyeball estimate but still
+~800-1,400 dated observations over the ~11k+ archive. CRITICALLY, the
+modern format (verified Nov-2025 + Apr-2026) is a standardized
+three-panel "Markets" widget — Cape/Pmax/Smax × five tenors (M1, M2,
+Q-next, Q-following, Cal-year), green-on-dark, stable layout — an
+ideal OCR target whose tenor set maps directly onto the strip's
+8-quarter horizon. Morning + small-wide is a strong search prior in
+recent vintages (2 of 3 hits).
+**Staged plan:** Stage 1 — classifier (OCR keyword pass:
+Cape|Pmax|Smax + Cal2\d|Q[1-4]; dimension filtering alone fails —
+hand-cropped, no size cluster) + parser over recent months, wired
+into the weekly ingest; OCR output lands in a review queue with
+sanity bands + day-over-day continuity checks; human-approved
+promotion to `ffa_forward_curve.yaml` until gates prove out.
+Stage 2 — 2020-2026 backfill to backtest the synthesised-curve
+convention and enrich the empirical cycle anchors. System dep:
+tesseract (brew). Designed-for risks: OCR digit errors (sanity bands
+non-negotiable) and single-source dependence on one poster's habit
+(staleness alarm in the weekly runner — the feed must die loudly).
+Side-discovery worth remembering: the non-FFA images include a
+6-year intraday Oslo shipping equity quote-board series and broker
+notes (Cleaves et al.) — reusable for other purposes.
+**STAGE 1 SHIPPED 2026-06-11** (`ffa_ocr.py`, 13 tests, wired into the
+weekly runner with the staleness alarm). Empirics from the build:
+(a) recipe = grayscale → 4× LANCZOS → tesseract psm 6 TSV; the color
+original drops the panel headers, and positional (x-band) parsing with
+per-row tenor majority-vote survives single-cell garbles; (b) the
+widget posts EVERY business day, not ~7% of days — the 7% sample-wide
+hit rate was diluted by the pre-2025 format era; Apr-1 → Jun-11 2026
+yielded 45/46 business days, 29 fully-clean, 16 flagged-for-review
+(incomplete grids only — the conf-gate refuses to guess rather than
+admit plausible-but-wrong digits like "(3800"→3800); (c) DISCOVERED
+TICK MODEL: months/Cal tick in $12.5 displayed truncated; Q tenors
+display the UNROUNDED 3-month average (31766 = 95300/3 is a real
+value, not digit noise) — sanity bands encode this, plus ±10%
+calendar-day continuity and a >3× intra-panel spread check. Stage 2
+(2020-2026 backfill + strip integration decision) remains open; the
+go-forward curve accumulates in `state/ffa_ocr_curves.json` from
+here on, diagnostic-first until one full review cycle passes.
+**First diagnostic result (2026-06-11, `scripts/ffa_vs_strip.py` →
+`outputs/ffa_vs_strip.md`): the synthesised strip is MARKET-CONSISTENT
+— Bulk Set A PW mids sit within ±5% of the traded curve on 8 of 9
+legs (worst +9.3%, supra_ultra Cal27), and `moderate_growth` (the
+0.40 base case) is the nearest single scenario on 8 of 9. The traded
+curve is strongly backwardated (Cape −16%, Pana −25%, Smax −28% from
+Q3-26 to Cal27), matching the strip's mean-reversion shape — no Set A
+reweight signal. Consequence: the "synthesised strip runs hot"
+hypothesis behind GNK's +149% §9.11 xref is REJECTED at the rate
+level — the anomaly must live in the xref's other legs (days/
+utilization, costs, consensus vintage, index-vs-earned premia), see
+gnk_log 2026-06-11.**
+
+#### 11.7.9 Onboarding sequence
 
 | Step | When | Owner |
 |---|---|---|
@@ -1662,7 +1746,7 @@ A FAIL signals methodology calibration is off — likely the cycle anchors
 | CMDB + SBLK + GNK YAMLs scaffolded via `/add-ticker` | DONE 2026-06-09 | data |
 | Data assembly from Q1 2026 results | DONE — SBLK 06-09, GNK 06-09/10, CMDB 06-10 | data |
 | `/reconcile --calibration-lock dry_bulk` test | DONE 2026-06-10 — **1/2 (50%) FAIL-with-explanation** (SBLK = documented §6 mark-driven miss; GNK passes at −4.9%; CMDB excluded, APPROX anchor). Recorded, not tuned, per the back-solve rule. Q3 tightening pass is the next gate. | gate |
-| §11.7 v2 (OCR FFA, longer history): | **Stage 1 SHIPPED 2026-06-11** (see §11.7.7 entry) — go-forward curve live, diagnostic-first; Stage 2 backfill open | code |
+| §11.7 v2 (OCR FFA, longer history): | **Stage 1 SHIPPED 2026-06-11** (see §11.7.8) — go-forward curve live, diagnostic-first; Stage 2 backfill open | code |
 
 **Week 2 CLOSED 2026-06-10.** Beyond-plan deliveries in the same window:
 the dry-bulk transaction-anchored layer (Cape 26 / Pana 4 / Supra-Ultra 20
@@ -2031,6 +2115,63 @@ each decision log; summary in the Appendix A entry of that date.
 ## Appendix A. Changelog
 
 Dated record of material framework changes. Lock dates use UTC.
+
+### 2026-06-11 — Week 3 close: §15.7 screening formalised + retro screen; CAPT onboarded; FFA Stage 1 + market-consistency diagnostic; earnings readiness
+
+- **§15.7 governance screening procedure locked** (owner-approved): cheap
+  gate (multi-year median P/NAV ≥0.85 → N/A), structured screen below it,
+  evidence-vs-mechanism doctrine (haircuts price EVIDENCE; mechanism →
+  tripwires), two quantitative calibration anchors (capitalized fee drag;
+  external-anchor implied discount). Mandatory onboarding step.
+- **Retro screen, all 17 names** (outcome in every decision log): 9 gated
+  N/A (DHT ECO FRO FLNG INSW HAFN ASC GNK + NAT-§12-inverse); 3 Step-1
+  declines (STNG TRMD SBLK — open payout/buyback channels; discounts are
+  §6 mark-driven calls); TNK full screen → **0% declined** (dual-class
+  control but fee leakage internalized Dec-24, $6.00/sh specials since
+  mid-23; TK-combination tripwire); CCEC full screen → **0% declined,
+  closest call** (float ~13%, sponsor-paid exec comp, fiduciary waiver vs
+  CAPT-like 0.4%-GAV fees, real conflicts committee, 76-quarter dividend
+  record; payout-path + CAPT↔CCEC cross-dealing tripwires; 10%
+  alternative documented). **Recalibrations: TEN HOLD 30%** (band 30-36;
+  VIE-implied converged to 36.3%) and **CMDB HOLD 30% re-grounded** on
+  capitalized fee drag (≈30-36% of equity NAV). Owner ratified.
+- **CAPT onboarded** (17th name, first Oslo/NOK; §6 entry): −2.6% first
+  reconcile on a real Pareto print; NB convention + txn-anchored age-0
+  marks externally validated; price_refresh gains yahoo_symbol +
+  quote_currency (NOK=X conversion).
+- **FFA-OCR Stage 1 shipped** (§11.7.8) + first diagnostic: the
+  synthesised dry-bulk strip is MARKET-CONSISTENT (±5% on 8 of 9 legs vs
+  the traded curve; moderate_growth nearest on 8 of 9) — the "strip runs
+  hot" hypothesis behind GNK's +149% §9.11 xref is rejected at the rate
+  level; anomaly re-classified to the xref's other legs (gnk_log).
+- **Q2 earnings readiness**: `inputs/earnings_calendar.yaml` (16+CAPT
+  names; TEN is a SEPTEMBER H1 reporter), preflight §0 earnings-due
+  check, report-day refresh runbook (CLAUDE.md) incl. the issuer-report
+  S&P sweep (that backlog CLOSED). Week-close checklist codified in
+  CLAUDE.md; Week 4 plan in PLAN.md (containers).
+
+### 2026-06-10 — Automation day: news-pull v1, daily price refresh, TEN price-input fix; CMDB onboarded + §15 second case; Pareto harvest/name-sweep process steps
+
+- **Weekly news pull built** (registered backlog, 4 vetting amendments):
+  launchd scanner chain Saturdays 08:00 + `/news-pull` agent digest
+  (review-only; promotion human-only).
+- **Daily price refresh built** after the TEN incident: TEN was carried
+  at $44.00 from 6-K prose read as a live quote (actual ~$37) — fixed
+  with `consensus_pnav` REBASED 0.40→0.34 to preserve the broker-NAV
+  anchor (vintage rule: price + pnav + fwd_pe move together).
+  `prices_daily.yaml` automation-writable; pipeline CLI values at the
+  live close; reconcile + consensus-EPS keep the watchlist-static
+  `as_of_price`.
+- **CMDB onboarded** (third dry-bulk validator, APPROX P/BV proxy
+  anchor) + **§15 second case at 30%** (owner). Dry-bulk v1 calibration
+  lock recorded 1/2 FAIL-with-explanation (SBLK = documented §6
+  mark-driven miss; no tuning per the back-solve rule).
+- **Pareto linked-report harvest** (220 detail reports from daily /Annots
+  hyperlinks — extract_text() is blind to them) + **free-text name-sweep**
+  process step (`sp_scan --names`), run retroactively for all names:
+  1 missed print promoted (TEN Mar-25 Suezmax), stance changes recorded
+  (FLNG→SELL, OET/FRO→HOLD), consensus_pnav plumbing confirmed by exact
+  matches. GNK onboarded 2026-06-09/10 with the Diana tender deal overlay.
 
 ### 2026-06-09 (late evening, Part 4) — Transaction-anchored marks become the pipeline DEFAULT (owner decision)
 
