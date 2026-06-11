@@ -435,6 +435,9 @@ dough seams during a sprint and this is where they get smoothed:
 4. **Clean git state** — everything committed with the Week-close
    changelog entry; no untracked strays (check for credential-shaped
    files per the secrets rule).
+5. **Push to GitHub** (`git push origin main`) — added 2026-06-11,
+   owner request. Push at Week close at minimum; mid-week pushes after
+   significant commits are fine too.
 
 ## The compounding-knowledge habit
 
