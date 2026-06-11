@@ -54,5 +54,17 @@ CURRENT_STEP="pareto_archive --build-manifest"
 step "$CURRENT_STEP"
 "$PY" -m crude_tanker_fv.pareto_archive --build-manifest
 
+CURRENT_STEP="ffa_ocr (FFA widget scan, incremental)"
+step "$CURRENT_STEP"
+"$PY" -m crude_tanker_fv.ffa_ocr
+
+CURRENT_STEP="ffa_ocr --staleness (single-source feed alarm)"
+step "$CURRENT_STEP"
+if ! "$PY" -m crude_tanker_fv.ffa_ocr --staleness; then
+  echo "!!! [news-pull] FFA FEED STALE — no parsed widget in >7 days."
+  echo "!!! The FFA curve rides ONE poster's screenshot habit; check the"
+  echo "!!! Rocket.Chat channel before trusting any FFA-derived input."
+fi
+
 CURRENT_STEP="done"
-step "chain complete — review queues: outputs/sp_print_candidates.md, outputs/pareto_daily_links.json"
+step "chain complete — review queues: outputs/sp_print_candidates.md, outputs/ffa_ocr_queue.md, outputs/pareto_daily_links.json"

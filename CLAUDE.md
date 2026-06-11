@@ -37,7 +37,16 @@ for the full framework; this file is the operational rulebook.
 - Weekly news pull (mechanical half): `scripts/news_pull_cron.sh` —
   launchd-scheduled Saturdays 08:00 (`com.crude-tanker-fv.news-pull`),
   chains RC ingest → `sp_scan` → `--links` → `--fetch-links` →
-  `pareto_archive --build-manifest`; log at `state/news_pull.log`.
+  `pareto_archive --build-manifest` → `ffa_ocr` (+ staleness alarm);
+  log at `state/news_pull.log`.
+- FFA widget OCR (incremental): `python -m crude_tanker_fv.ffa_ocr` —
+  classifies + parses the daily 3-panel Cape/Pmax/Smax FFA screenshot
+  from `inputs/ffa_drybulk/` into `state/ffa_ocr_curves.json` + review
+  queue `outputs/ffa_ocr_queue.md` (cursor in `state/ffa_ocr_state.json`;
+  `--staleness` exits 1 if the single-source feed is >7 days quiet).
+  Promotion to `inputs/market_data/ffa_forward_curve.yaml` is HUMAN-ONLY.
+  OCR scratch under `state/ffa_scratch/` — tesseract can't read /tmp in
+  the agent sandbox.
   Agent-judgment half: `/news-pull` — web-sweeps watchlist names
   (weighted to APPROX + live-event names) into a dated review digest at
   `outputs/news_digest_YYYY-MM-DD.md`. Digest is review-only; promotion
@@ -341,6 +350,24 @@ sessions.
 
 ## Changelog
 
+- **2026-06-11 (Week 3, day 2)** — **FFA-OCR Stage 1 SHIPPED** (the
+  Week 3 centerpiece; owner-approved re-scope, no longer trigger-gated).
+  `ffa_ocr.py`: classifier (Cape + Cal2\d + "Produc* Price Change"
+  signature) + TSV-positional parser (x-band panel assignment, per-row
+  tenor majority vote, conf≥60 gate, trailing-only punct strip) +
+  sanity model + review queue (`outputs/ffa_ocr_queue.md`) + incremental
+  cursor + `--staleness` alarm, wired as the new tail of the weekly
+  news-pull chain. Key empirics: the widget posts EVERY business day
+  (45/46 days Apr-1→Jun-11; the ~7% archive-wide rate was format-era
+  dilution); recipe = grayscale → 4× LANCZOS → psm 6 (color drops the
+  headers; tesseract can't read /tmp in the sandbox — scratch lives in
+  `state/ffa_scratch/`); DISCOVERED tick model — months/Cal tick $12.5
+  truncated, Q tenors display the unrounded 3-month average (31766 =
+  95300/3 is real, not noise). 29/45 days fully clean, 16 flagged
+  (incomplete grids only; the parser refuses to guess on mangled
+  tokens like "(3800"). Promotion to `ffa_forward_curve.yaml` is
+  human-only; strip integration is diagnostic-first pending one review
+  cycle. Stage 2 (2020-2026 backfill) open. tests: 233 passed.
 - **2026-06-10 (night, Week 3 opener, Part 2)** — **first `/news-pull` run
   + TEN price-input error fixed + daily price refresh BUILT.** The
   inaugural digest (`outputs/news_digest_2026-06-10.md`, 4 agents / 16

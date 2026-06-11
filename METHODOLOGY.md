@@ -1622,6 +1622,23 @@ A FAIL signals methodology calibration is off — likely the cycle anchors
   Side-discovery worth remembering: the non-FFA images include a
   6-year intraday Oslo shipping equity quote-board series and broker
   notes (Cleaves et al.) — reusable for other purposes.
+  **STAGE 1 SHIPPED 2026-06-11** (`ffa_ocr.py`, 13 tests, wired into the
+  weekly runner with the staleness alarm). Empirics from the build:
+  (a) recipe = grayscale → 4× LANCZOS → tesseract psm 6 TSV; the color
+  original drops the panel headers, and positional (x-band) parsing with
+  per-row tenor majority-vote survives single-cell garbles; (b) the
+  widget posts EVERY business day, not ~7% of days — the 7% sample-wide
+  hit rate was diluted by the pre-2025 format era; Apr-1 → Jun-11 2026
+  yielded 45/46 business days, 29 fully-clean, 16 flagged-for-review
+  (incomplete grids only — the conf-gate refuses to guess rather than
+  admit plausible-but-wrong digits like "(3800"→3800); (c) DISCOVERED
+  TICK MODEL: months/Cal tick in $12.5 displayed truncated; Q tenors
+  display the UNROUNDED 3-month average (31766 = 95300/3 is a real
+  value, not digit noise) — sanity bands encode this, plus ±10%
+  calendar-day continuity and a >3× intra-panel spread check. Stage 2
+  (2020-2026 backfill + strip integration decision) remains open; the
+  go-forward curve accumulates in `state/ffa_ocr_curves.json` from
+  here on, diagnostic-first until one full review cycle passes.
 
 #### 11.7.8 Onboarding sequence
 
@@ -1633,7 +1650,7 @@ A FAIL signals methodology calibration is off — likely the cycle anchors
 | CMDB + SBLK + GNK YAMLs scaffolded via `/add-ticker` | DONE 2026-06-09 | data |
 | Data assembly from Q1 2026 results | DONE — SBLK 06-09, GNK 06-09/10, CMDB 06-10 | data |
 | `/reconcile --calibration-lock dry_bulk` test | DONE 2026-06-10 — **1/2 (50%) FAIL-with-explanation** (SBLK = documented §6 mark-driven miss; GNK passes at −4.9%; CMDB excluded, APPROX anchor). Recorded, not tuned, per the back-solve rule. Q3 tightening pass is the next gate. | gate |
-| §11.7 v2 (OCR FFA, longer history): | Q3 if triggered — raw FFA screenshots now ingesting via Rocket.Chat backfill (2026-06-10) | — |
+| §11.7 v2 (OCR FFA, longer history): | **Stage 1 SHIPPED 2026-06-11** (see §11.7.7 entry) — go-forward curve live, diagnostic-first; Stage 2 backfill open | code |
 
 **Week 2 CLOSED 2026-06-10.** Beyond-plan deliveries in the same window:
 the dry-bulk transaction-anchored layer (Cape 26 / Pana 4 / Supra-Ultra 20
