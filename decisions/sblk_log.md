@@ -9,6 +9,50 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T03:20:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $26.57
+- Single-point FV: $25.74
+- Scenario PW FV: $25.72 (EV -3.2%)
+- NAV / share: $26.27
+- Position: **HOLD (fairly valued)**
+- Broker spread: +20.2pp (k_broker 1.19)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position TRIM/SHORT (overvalued) → HOLD (fairly valued)
+- Δprice: -0.63 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -2.1pp
+
+**Decision:** _Position flip is the LIVE-PRICE introduction (2026-06-10:
+daily price refresh shipped; pipeline now values at the Yahoo close,
+here $26.57 vs the Jun-5 Pareto static $27.20), not a model or thesis
+change. SBLK was sitting just over the TRIM band edge; a −2.3% fresher
+price puts it inside HOLD. The §6 mark-driven story (k_broker ~1.2 vs
+broker, documented −21% gap taxonomy) is unchanged. Expect band-edge
+names to wiggle with daily prices from here on — that is the feature,
+not drift._
+
+---
+
+## 2026-06-11T02:59:58+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.20
+- Single-point FV: $25.74
+- Scenario PW FV: $25.72 (EV -5.4%)
+- NAV / share: $26.27
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +22.3pp (k_broker 1.21)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-10T20:17:17+00:00 — Pipeline run (auto)
 
 **Model state:**

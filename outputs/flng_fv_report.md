@@ -1,7 +1,7 @@
 # FLNG — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $29.70
+- **Current price:** $30.34
 - **Model fair value:** $26.27
 - **Analyst target:** $25.00
 
@@ -82,11 +82,11 @@ The current price requires the fleet to run at **50.00× the current forward cur
 | **+15%** | $17.21 | $21.74 | $26.27 | $30.80 | $35.33 |
 | **+30%** | $17.21 | $21.74 | $26.27 | $30.80 | $35.33 |
 
-_Current price $29.70. Cycle weights held at base across the grid._
+_Current price $30.34. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$26.27** is -11.6% vs the current price ($29.70) and +5.1% vs the analyst target ($25.00). The current price implies the fleet earning a value-weighted blended **$3,162,500/day** (50.00× the current forward) — 37.2× the value-weighted 10-yr mean ($85,000, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$26.27** is -13.4% vs the current price ($30.34) and +5.1% vs the analyst target ($25.00). The current price implies the fleet earning a value-weighted blended **$3,162,500/day** (50.00× the current forward) — 37.2× the value-weighted 10-yr mean ($85,000, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

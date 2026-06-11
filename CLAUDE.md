@@ -27,6 +27,13 @@ for the full framework; this file is the operational rulebook.
   `inputs/market_data/transactions/_scan_state.json`, writes the review
   queue to `outputs/sp_print_candidates.md`. Candidates are
   human-classified into `transactions/<class>.yaml`; never auto-promote.
+- Daily price refresh: `python -m crude_tanker_fv.price_refresh` —
+  fetches all watchlist closes (Yahoo) into the automation-writable
+  `inputs/market_data/prices_daily.yaml`; launchd-scheduled 18:30 daily
+  (`com.crude-tanker-fv.price-refresh`). The pipeline CLI values at the
+  live close; watchlist statics stay as the consensus_pnav/fwd_pe
+  vintage anchors (broker NAV + consensus EPS use them). Flagged quotes
+  (>15% day move, >30% vs static) are written but never applied.
 - Weekly news pull (mechanical half): `scripts/news_pull_cron.sh` —
   launchd-scheduled Saturdays 08:00 (`com.crude-tanker-fv.news-pull`),
   chains RC ingest → `sp_scan` → `--links` → `--fetch-links` →
@@ -116,6 +123,15 @@ quarter of data. **The bars apply at lock-time, not per-run.**
   methodology decision per class.
 
 ## Recurring gotchas to NOT relearn
+
+- **Never type a market price from filing/report prose (2026-06-10).**
+  TEN was carried at $44.00 for five days because Q1 6-K text "~$44" was
+  read as a live quote; the market was at ~$37 all week and every TEN
+  signal ran against the wrong denominator. Prices come from
+  `prices_daily.yaml` (auto-fetched) or a dated quote source — and a
+  watchlist `current_price` NEVER moves without rebasing
+  `consensus_pnav` / `consensus_fwd_pe` from the same vintage (broker
+  NAV = price/pnav drifts silently otherwise). See ten_log 2026-06-10.
 
 - **Long-running background jobs die silently under nohup (2026-06-10).**
   Python block-buffers stdout when not a TTY, so a crashing job's traceback
@@ -325,6 +341,31 @@ sessions.
 
 ## Changelog
 
+- **2026-06-10 (night, Week 3 opener, Part 2)** — **first `/news-pull` run
+  + TEN price-input error fixed + daily price refresh BUILT.** The
+  inaugural digest (`outputs/news_digest_2026-06-10.md`, 4 agents / 16
+  names) caught: TEN watchlist price $44.00 was an input ERROR (6-K prose
+  "~$44" typed as a live price; actual $36-37.5 all week) — fixed to
+  $37.14 with `consensus_pnav` REBASED 0.40→0.34 to preserve the implied
+  broker NAV anchor (~$110) and `consensus_fwd_pe` 5.5→4.6 (drift +0.5pp,
+  stable; BUY strengthens, EV +30.9%→+55.1%); an unrecorded Pareto stance
+  change INSW BUY→HOLD 2026-05-18 (TP raised $84→$88, valuation-driven —
+  confirmed verbatim in the archived daily, annotated); GNK deal risk
+  front-loaded to the Jun-18 AGM (all 3 proxy advisors back Genco, Diana
+  withdrew 4/6 nominees + floated dropping the tender, 38 shares
+  tendered); STNG 4×LR2 $285.8M EN-BLOC (documented-not-promoted, watch
+  Q2 6-K for splits); CMDB Astros bounded ~$22.8M (inference — NOT
+  promotable). **Process fix shipped same session: daily price refresh**
+  — `price_refresh.py` fetches all watchlist closes (Yahoo chart API)
+  into automation-writable `prices_daily.yaml` with sanity flags (>15%
+  day move / >30% vs static, flagged = never applied); launchd
+  `com.crude-tanker-fv.price-refresh` daily 18:30; pipeline CLI passes
+  `live_prices=True` (tests keep deterministic statics by default).
+  VINTAGE RULE: broker NAV (reconcile) + consensus EPS keep the
+  watchlist-static `as_of_price` — Pareto ratios pair with Pareto-vintage
+  prices; only EV/position reads live. SBLK TRIM/SHORT→HOLD on the
+  live-price introduction (band-edge wiggle, annotated). tests: 220
+  passed, 10 skipped.
 - **2026-06-10 (night, Week 3 opener)** — **periodic news pull v1 BUILT**
   (registered backlog, owner spec + 4 vetting amendments, one session as
   time-boxed). Mechanical half: `scripts/news_pull_cron.sh` + launchd

@@ -7,6 +7,73 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T03:20:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $82.61
+- Single-point FV: $37.32
+- Scenario PW FV: $59.47 (EV -28.0%)
+- NAV / share: $52.40
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +37.0pp (k_broker 1.61)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +4.61 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +3.6pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-10 — Pareto stance change recorded retroactively: BUY → HOLD (2026-05-18)
+
+Surfaced by the first `/news-pull` digest (third-party ratings roundup),
+confirmed verbatim in the archived 2026-05-18 Shipping Daily:
+
+> "Research focus: INSW – Strong run, deserved premium … Having
+> outperformed peers YTD and achieved a well-earned NAV-premium just as
+> tanker rates show some Hormuz-fatigue, we lower our rating to HOLD
+> (BUY), with TP to $88 ($84); 1.05x our YE'26 NAV."
+
+So: **BUY → HOLD with the TP RAISED $84 → $88** — a valuation-driven
+downgrade on the NAV-premium (Pareto pegged INSW at 1.11x NAV on
+2026-05-12 after the $200M ATM announcement), not a thesis change.
+Replaces the previously-recorded Pareto stance (BUY, 2026-01-21) as
+current. Detail note exists behind the daily's research link — likely
+already in `inputs/research_pareto_other/linked/` via the linked-report
+harvest if needed.
+
+Tool context: tool reads INSW TRIM/SHORT (+33pp broker spread,
+mark-driven, §6 documented k_broker 1.37). Pareto stepping from BUY to
+HOLD at a NAV-premium is directionally consistent with the tool's
+rich-side read; no model change. Note the May-18 sweep gap: the Jun-10
+retro name-sweep recorded the Jan-21 BUY but this distillation missed
+the May-18 downgrade — the weekly digest cadence is the fix.
+
+**Decision:** record only. No watchlist/model input change (stance is
+not a model input; consensus_pnav refreshes from the dailies at the
+normal cadence).
+
+---
+
+## 2026-06-11T02:59:58+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $78.00
+- Single-point FV: $37.32
+- Scenario PW FV: $59.47 (EV -23.8%)
+- NAV / share: $52.40
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +33.4pp (k_broker 1.52)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-10T20:17:17+00:00 — Pipeline run (auto)
 
 **Model state:**

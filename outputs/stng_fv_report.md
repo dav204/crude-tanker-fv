@@ -1,7 +1,7 @@
 # STNG — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $75.60
+- **Current price:** $76.46
 - **Model fair value:** $74.00
 - **Analyst target:** $94.00
 
@@ -91,11 +91,11 @@ The current price requires the fleet to run at **50.00× the current forward cur
 | **+15%** | $60.57 | $67.28 | $74.00 | $80.71 | $87.42 |
 | **+30%** | $60.57 | $67.28 | $74.00 | $80.71 | $87.42 |
 
-_Current price $75.60. Cycle weights held at base across the grid._
+_Current price $76.46. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$74.00** is -2.1% vs the current price ($75.60) and -21.3% vs the analyst target ($94.00). The current price implies the fleet earning a value-weighted blended **$2,725,019/day** (50.00× the current forward) — 120.7× the value-weighted 10-yr mean ($22,573, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$74.00** is -3.2% vs the current price ($76.46) and -21.3% vs the analyst target ($94.00). The current price implies the fleet earning a value-weighted blended **$2,725,019/day** (50.00× the current forward) — 120.7× the value-weighted 10-yr mean ($22,573, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

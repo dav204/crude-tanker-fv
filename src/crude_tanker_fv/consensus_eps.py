@@ -102,7 +102,10 @@ def compute_consensus_eps_rows(
             ci = load_company_inputs(ticker, quarter, inputs_dir)
         except FileNotFoundError:
             continue
-        price = float(entry["current_price"])
+        # Vintage-matched: consensus_fwd_pe is a Pareto ratio tied to the price
+        # on the watchlist as_of date, so implied consensus EPS divides the
+        # as_of price, never a live override (price_refresh.py docstring).
+        price = float(entry.get("as_of_price") or entry["current_price"])
         nav = compute_nav(ci).nav_per_share
         strip = compute_dividend_strip(ci, nav)
         tool_fwd_eps = sum(strip.eps_by_quarter[:_STRIP_NTM_QUARTERS])

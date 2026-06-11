@@ -8,6 +8,7 @@ at this boundary (required keys, class enum, non-negative age).
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 import yaml
@@ -226,10 +227,17 @@ def load_company_inputs(
     )
 
 
-def load_watchlist(inputs_dir: Path = INPUTS_DIR) -> dict[str, dict]:
+def load_watchlist(inputs_dir: Path = INPUTS_DIR, live_prices: bool = False) -> dict[str, dict]:
     """Load ``inputs/watchlist.yaml`` -> {ticker: {current_price, analyst_target, as_of}}.
 
     Used by the report header, breakeven solve, and roll-up (section 7).
+
+    ``live_prices=True`` (the pipeline CLI) overrides ``current_price``
+    with the daily fetched close from ``prices_daily.yaml`` when fresh
+    and unflagged; the watchlist static survives as ``as_of_price`` for
+    vintage-matched consumers (broker NAV via consensus_pnav, consensus
+    EPS via consensus_fwd_pe — both Pareto ratios tied to the as_of
+    price). Default False keeps tests deterministic.
     """
     data = _read_yaml(inputs_dir / "watchlist.yaml")
     out: dict[str, dict] = {}
@@ -255,4 +263,25 @@ def load_watchlist(inputs_dir: Path = INPUTS_DIR) -> dict[str, dict]:
             "sector": str(entry.get("sector") or "crude"),
             "as_of": entry.get("as_of"),
         }
+        out[ticker]["as_of_price"] = out[ticker]["current_price"]
+
+    if live_prices:
+        from .price_refresh import is_fresh, load_daily_prices
+
+        daily = load_daily_prices(inputs_dir)
+        for ticker, entry in out.items():
+            quote = daily.get(ticker)
+            if quote is None:
+                continue
+            if quote.get("flag"):
+                print(f"[watchlist] {ticker}: daily price flagged "
+                      f"({quote['flag']}) — using static ${entry['current_price']}",
+                      file=sys.stderr)
+                continue
+            if not is_fresh(quote["asof"]):
+                print(f"[watchlist] {ticker}: daily price stale ({quote['asof']}) "
+                      f"— using static ${entry['current_price']}", file=sys.stderr)
+                continue
+            entry["current_price"] = float(quote["price"])
+            entry["price_as_of"] = quote["asof"]
     return out

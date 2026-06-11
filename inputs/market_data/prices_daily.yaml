@@ -1,0 +1,99 @@
+fetched_at: '2026-06-11T03:19:45+00:00'
+prices:
+  ASC:
+    asof: '2026-06-10T20:00:03+00:00'
+    day_change_pct: 2.88
+    exchange: NYQ
+    prev_close: 15.97
+    price: 16.43
+  CCEC:
+    asof: '2026-06-10T20:00:00+00:00'
+    day_change_pct: -1.78
+    exchange: NMS
+    prev_close: 21.85
+    price: 21.46
+  CMDB:
+    asof: '2026-06-10T20:00:02+00:00'
+    day_change_pct: 6.09
+    exchange: NYQ
+    prev_close: 16.25
+    price: 17.24
+  DHT:
+    asof: '2026-06-10T20:00:02+00:00'
+    day_change_pct: 1.28
+    exchange: NYQ
+    prev_close: 16.39
+    price: 16.6
+  ECO:
+    asof: '2026-06-10T20:00:02+00:00'
+    day_change_pct: 3.25
+    exchange: NYQ
+    prev_close: 47.65
+    price: 49.2
+  FLNG:
+    asof: '2026-06-10T20:00:03+00:00'
+    day_change_pct: 2.09
+    exchange: NYQ
+    prev_close: 29.72
+    price: 30.34
+  FRO:
+    asof: '2026-06-10T20:00:02+00:00'
+    day_change_pct: 5.28
+    exchange: NYQ
+    prev_close: 34.46
+    price: 36.28
+  GNK:
+    asof: '2026-06-10T20:00:02+00:00'
+    day_change_pct: -2.04
+    exchange: NYQ
+    prev_close: 23.99
+    price: 23.5
+  HAFN:
+    asof: '2026-06-10T20:00:02+00:00'
+    day_change_pct: -4.79
+    exchange: NYQ
+    prev_close: 7.73
+    price: 7.36
+  INSW:
+    asof: '2026-06-10T20:00:02+00:00'
+    day_change_pct: 5.95
+    exchange: NYQ
+    prev_close: 77.97
+    price: 82.61
+  NAT:
+    asof: '2026-06-10T20:00:03+00:00'
+    day_change_pct: -0.77
+    exchange: NYQ
+    prev_close: 5.22
+    price: 5.18
+  SBLK:
+    asof: '2026-06-10T20:00:00+00:00'
+    day_change_pct: -2.21
+    exchange: NMS
+    prev_close: 27.17
+    price: 26.57
+  STNG:
+    asof: '2026-06-10T20:00:02+00:00'
+    day_change_pct: 1.2
+    exchange: NYQ
+    prev_close: 75.55
+    price: 76.46
+  TEN:
+    asof: '2026-06-10T20:00:02+00:00'
+    day_change_pct: 0.6
+    exchange: NYQ
+    prev_close: 36.92
+    price: 37.14
+  TNK:
+    asof: '2026-06-10T20:00:02+00:00'
+    day_change_pct: 2.8
+    exchange: NYQ
+    prev_close: 70.78
+    price: 72.76
+  TRMD:
+    asof: '2026-06-10T20:00:01+00:00'
+    day_change_pct: 3.59
+    exchange: NMS
+    prev_close: 28.17
+    price: 29.18
+source: yahoo-chart-v8

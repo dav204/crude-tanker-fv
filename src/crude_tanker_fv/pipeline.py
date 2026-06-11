@@ -477,9 +477,10 @@ def run_watchlist(
     tickers: list[str] | None = None,
     inputs_dir: Path = INPUTS_DIR,
     outputs_dir: Path = OUTPUTS_DIR,
+    live_prices: bool = False,
 ) -> list[CompanyReport]:
     """Value every ticker with populated inputs, write reports + the roll-up."""
-    watchlist = load_watchlist(inputs_dir)
+    watchlist = load_watchlist(inputs_dir, live_prices=live_prices)
     tickers = tickers or list(watchlist.keys())
 
     reports: list[CompanyReport] = []
@@ -514,6 +515,7 @@ def run_scenarios_watchlist(
     inputs_dir: Path = INPUTS_DIR,
     outputs_dir: Path = OUTPUTS_DIR,
     use_transaction_anchored: bool = True,
+    live_prices: bool = False,
 ):
     """Run the sector-layered scenario framework across the watchlist.
 
@@ -521,7 +523,7 @@ def run_scenarios_watchlist(
     and aggregated into a whole-company ScenarioReport (METHODOLOGY 6 v2).
     """
     sector_docs = _load_all_sectors(inputs_dir)
-    watchlist = load_watchlist(inputs_dir)
+    watchlist = load_watchlist(inputs_dir, live_prices=live_prices)
     tickers = tickers or list(watchlist.keys())
 
     reports = []
@@ -600,6 +602,7 @@ def run_broker_sweep(
     inputs_dir: Path = INPUTS_DIR,
     outputs_dir: Path = OUTPUTS_DIR,
     use_transaction_anchored: bool = True,
+    live_prices: bool = False,
 ) -> list[BrokerSweepRow]:
     """Value every name at tool / midpoint / broker vessel marks; write the roll-up.
 
@@ -610,7 +613,7 @@ def run_broker_sweep(
     measures broker premium over TRANSACTION-VALIDATED levels.
     """
     sector_docs = _load_all_sectors(inputs_dir)
-    watchlist = load_watchlist(inputs_dir)
+    watchlist = load_watchlist(inputs_dir, live_prices=live_prices)
     tickers = tickers or list(watchlist.keys())
 
     rows: list[BrokerSweepRow] = []
@@ -760,6 +763,7 @@ def run_transaction_anchored_comparison(
     tickers: list[str] | None = None,
     inputs_dir: Path = INPUTS_DIR,
     outputs_dir: Path = OUTPUTS_DIR,
+    live_prices: bool = False,
 ) -> list[TxnComparisonRow]:
     """Value every name at baseline vs transaction-anchored marks side-by-side.
 
@@ -767,7 +771,7 @@ def run_transaction_anchored_comparison(
     Diagnostic for the recalibration: shows which calls flip and by how much.
     """
     sector_docs = _load_all_sectors(inputs_dir)
-    watchlist = load_watchlist(inputs_dir)
+    watchlist = load_watchlist(inputs_dir, live_prices=live_prices)
     tickers = tickers or list(watchlist.keys())
 
     rows: list[TxnComparisonRow] = []
@@ -881,16 +885,16 @@ def _write_txn_comparison(
 def main() -> None:
     """Console entry point (see [project.scripts] in pyproject.toml)."""
     quarter = sys.argv[1] if len(sys.argv) > 1 else "2026-Q1"
-    fv_reports = run_watchlist(quarter)
+    fv_reports = run_watchlist(quarter, live_prices=True)
     print("--- scenarios ---")
-    scenario_reports = run_scenarios_watchlist(quarter)
+    scenario_reports = run_scenarios_watchlist(quarter, live_prices=True)
     print("--- broker-NAV sweep ---")
-    broker_rows = run_broker_sweep(quarter)
+    broker_rows = run_broker_sweep(quarter, live_prices=True)
     print("--- consensus forward-EPS cross-check ---")
     from crude_tanker_fv.consensus_eps import run_consensus_eps_xref
     run_consensus_eps_xref(quarter)
     print("--- transaction-anchor comparison ---")
-    run_transaction_anchored_comparison(quarter)
+    run_transaction_anchored_comparison(quarter, live_prices=True)
     print("--- delta + decision log ---")
     _run_delta_and_decision_log(quarter, fv_reports, scenario_reports, broker_rows)
 

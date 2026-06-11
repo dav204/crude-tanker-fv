@@ -8,6 +8,15 @@
 # genuinely unanchored to a broker NAV. All other names are real Pareto prints.
 # Entries without an analyst_target are skipped by the loader until modeled.
 #
+# PRICES ARE VINTAGE ANCHORS, NOT LIVE QUOTES (since 2026-06-10). The pipeline
+# CLI values names at the LIVE close from inputs/market_data/prices_daily.yaml
+# (auto-fetched daily, com.crude-tanker-fv.price-refresh launchd job;
+# loaders.load_watchlist live_prices=True). current_price here is the price
+# PAIRED WITH consensus_pnav / consensus_fwd_pe from the same Pareto vintage —
+# update them TOGETHER when refreshing from a new daily, never the price alone
+# (broker NAV = price/pnav would silently drift; see the TEN $44 incident,
+# decisions/ten_log.md 2026-06-10). Reconcile + consensus-EPS read this static.
+#
 # consensus_pnav = the broker/consensus Price/NAV (Pareto). broker NAV = price /
 # consensus_pnav — the implied broker vessel-mark NAV. The broker-NAV sensitivity
 # (marks.py / pipeline.run_broker_sweep) solves the uniform vessel-value premium k
@@ -117,23 +126,27 @@ ASC:
   consensus_fwd_pe: 14.2    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
   as_of: 2026-06-04
 TEN:
-  current_price: 44.00     # NYSE 5 Jun 2026 estimate (TEN Q1 2026 6-K text "~$44"; refresh
-                           # against live print at next pipeline run).
+  current_price: 37.14     # NYSE close 10 Jun 2026 (Yahoo + stockanalysis.com agree;
+                           # prior close $36.92). CORRECTS the $44.00 input error — Q1 6-K
+                           # prose "~$44" was read as a Jun-5 live price; actual Jun-5→10
+                           # range was $36-37.5. Caught by /news-pull 2026-06-10.
   analyst_target: 51.50    # VIE Bullish $51.50 (`outputs/vie_coverage_universe_xref.md`).
                            # No active Pareto coverage; sell-side coverage thin overall.
-  consensus_pnav: 0.40     # APPROX -- VIE-stale P/NAV ~0.37; refreshed to ~0.40 against
-                           # 20-F stockholders' equity ~$1.86B ÷ 30.1M shares = $61.79/sh book,
-                           # implied P/NAV = 44/61.79 = 0.71 vs vessel-value-adjusted higher NAV.
+  consensus_pnav: 0.34     # APPROX -- rebased from 0.40 with the $44→$37.14 price fix to
+                           # PRESERVE the implied broker NAV anchor (~$110, VIE-stale):
+                           # 37.14/110 = 0.34. Original derivation: VIE-stale P/NAV ~0.37
+                           # refreshed against 20-F book ~$61.79/sh (see ten_log 2026-06-10).
                            # Unanchored to a current broker print — treat the broker NAV
                            # column in the sweep as APPROX for TEN.
   sector: crude            # 3-sleeve hybrid (crude largest by vessel value); routed via
                            # THREE_SLEEVE_TICKERS dispatch in pipeline.py (METHODOLOGY §11.6).
                            # The sector tag here drives the WATCHLIST default lookup; the
                            # actual valuation runs through crude + product + lng carve-outs.
-  consensus_fwd_pe: 5.5    # APPROX — TEN Q1 EPS $2.72; mgmt-guided Q2 $2.37, Q3 $1.88
-                           # = ~$7-8 NTM EPS. Price $44 / EPS $8 = 5.5x forward P/E.
+  consensus_fwd_pe: 4.6    # APPROX — TEN Q1 EPS $2.72; mgmt-guided Q2 $2.37, Q3 $1.88
+                           # = ~$7-8 NTM EPS. Price $37.14 / EPS $8 = 4.6x forward P/E
+                           # (was 5.5x off the erroneous $44).
                            # Not a Pareto print; APPROX from management guidance.
-  as_of: 2026-06-05
+  as_of: 2026-06-10
 
 # FIXME: filled in by /add-ticker scaffold CMDB. Replace null values with real data,
 # then re-order alphabetically if you care about list order.

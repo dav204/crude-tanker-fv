@@ -1,5 +1,40 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-06-10 — PRICE INPUT ERROR corrected: $44.00 → $37.14 (−16%)
+
+Caught by the first `/news-pull` digest (2026-06-10), verified
+independently against Yahoo (NYSE close $37.14, prior close $36.92) and
+stockanalysis.com/stockinvest.us ($36.16–$37.54 range Jun-5→Jun-10).
+
+**What went wrong:** the 2026-06-05 watchlist entry read the Q1 6-K
+prose "~$44" as a live Jun-5 price. It wasn't — it was a stale/loose
+reference in the filing text; the market was at ~$37 all week. Every TEN
+signal between 06-05 and 06-10 was computed against a denominator ~16%
+too high. Classic absence-of-verification miss: a price typed from
+filing prose, never checked against a quote source.
+
+**Fix applied (watchlist.yaml):**
+- `current_price` 44.00 → 37.14 (`as_of` → 2026-06-10).
+- `consensus_pnav` 0.40 → 0.34 — REBASED to preserve the implied broker
+  NAV anchor (~$110, VIE-stale): broker_nav = price/pnav in reconcile,
+  so leaving pnav at 0.40 would have silently moved the broker NAV to
+  $92.85 on a price fix. Anchor preservation confirmed by reconcile:
+  broker NAV $109.24, NAV-gap drift +0.5pp (stable).
+- `consensus_fwd_pe` 5.5 → 4.6 (price-derived APPROX field, same error).
+
+**Signal impact (pipeline 2026-06-11T02:59Z delta):** PW FV $57.61
+unchanged (price doesn't enter the valuation), EV +55.1% at $37.14 vs
++30.9% at the erroneous $44; position BUY unchanged; broker spread
++6.6pp (material flag — this entry is the drift-gate annotation; cause
+is the input fix, not a market move or methodology change). The BUY call
+survives the correction and strengthens; the VIE Bullish $51.50
+cross-check now reads as +39% upside from spot instead of +17%.
+
+**Process fix:** daily automated price refresh being built same session
+(prices land in an automation-writable `prices_daily.yaml`, loader
+prefers them over watchlist statics) — no watchlist price should ever
+again be hand-typed from filing prose.
+
 ## 2026-06-10 — Pareto free-text retro-sweep (5 mentions, 2025-01 → 2026-06)
 
 Distilled from `outputs/pareto_mentions_ten.md`. **Only 5 mentions —
@@ -15,6 +50,43 @@ all holders). Also confirmed: TEN's 2x (+1 option) VLCC order at Hanwha,
 $123-128.5M, 2027 delivery (Jun/Jul-25) — inside the $2.4B orderbook
 documented at onboarding; conventionally fuelled, so an age-(-1) NB
 reference consistent with our $130M-area VLCC NB market read.
+
+---
+
+## 2026-06-11T03:20:17+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $37.14
+- Single-point FV: $53.32
+- Scenario PW FV: $57.61 (EV +55.1%)
+- NAV / share: $80.79
+- Position: **BUY (undervalued)**
+- Broker spread: +49.5pp (k_broker 1.23)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-11T02:59:58+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $37.14
+- Single-point FV: $53.32
+- Scenario PW FV: $57.61 (EV +55.1%)
+- NAV / share: $80.79
+- Position: **BUY (undervalued)**
+- Broker spread: +49.5pp (k_broker 1.23)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread +6.6pp
+- Δprice: -6.86 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +6.6pp
+
+**Decision:** _[pending annotation]_
 
 ---
 
