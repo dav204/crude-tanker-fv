@@ -249,3 +249,62 @@ def test_forward_looking_quarter_flags_all_missing(tmp_path):
     assert "ardmoreshipping.com" in content       # ASC's IR home / fleet
     assert "scorpiotankers.com" in content        # STNG's IR home / fleet
     assert "missing: DHT, ECO, FRO" in content    # status summary lists missing
+
+
+# ----------------------------------------------------------------------------
+# Earnings calendar check (added 2026-06-11, Q2 earnings-readiness pass)
+# ----------------------------------------------------------------------------
+def _cal_fixture(tmp_path, window_start, window_end):
+    inputs = tmp_path / "inputs"
+    (inputs / "balance_sheets").mkdir(parents=True)
+    (inputs / "earnings_calendar.yaml").write_text(yaml.safe_dump({
+        "quarter": "2026-Q2",
+        "DHT": {"window_start": window_start, "window_end": window_end,
+                "status": "expected", "basis": "test"},
+    }))
+    return inputs
+
+
+def test_earnings_future_date_is_ok(tmp_path):
+    from crude_tanker_fv.refresh import check_earnings_calendar
+    inputs = _cal_fixture(tmp_path, date(2026, 8, 5), date(2026, 8, 6))
+    items = check_earnings_calendar("2026-Q1", {"DHT": {}}, inputs,
+                                    today=date(2026, 6, 11))
+    assert items[0].status == "ok"
+
+
+def test_earnings_upcoming_within_horizon_warns(tmp_path):
+    from crude_tanker_fv.refresh import check_earnings_calendar
+    inputs = _cal_fixture(tmp_path, date(2026, 8, 5), date(2026, 8, 6))
+    items = check_earnings_calendar("2026-Q2", {"DHT": {}}, inputs,
+                                    today=date(2026, 7, 25))
+    assert items[0].status == "warn"
+    assert "reports in 11d" in items[0].detail
+
+
+def test_earnings_report_out_no_bs_is_due(tmp_path):
+    from crude_tanker_fv.refresh import check_earnings_calendar
+    inputs = _cal_fixture(tmp_path, date(2026, 8, 5), date(2026, 8, 6))
+    items = check_earnings_calendar("2026-Q2", {"DHT": {}}, inputs,
+                                    today=date(2026, 8, 10))
+    assert items[0].status == "missing"
+    assert "refresh due" in items[0].detail
+
+
+def test_earnings_report_out_with_bs_is_ok(tmp_path):
+    from crude_tanker_fv.refresh import check_earnings_calendar
+    inputs = _cal_fixture(tmp_path, date(2026, 8, 5), date(2026, 8, 6))
+    (inputs / "balance_sheets" / "dht_2026-Q2.yaml").write_text("{}")
+    items = check_earnings_calendar("2026-Q2", {"DHT": {}}, inputs,
+                                    today=date(2026, 8, 10))
+    assert items[0].status == "ok"
+
+
+def test_earnings_no_entry_warns(tmp_path):
+    from crude_tanker_fv.refresh import check_earnings_calendar
+    inputs = _cal_fixture(tmp_path, date(2026, 8, 5), date(2026, 8, 6))
+    items = check_earnings_calendar("2026-Q2", {"DHT": {}, "ECO": {}}, inputs,
+                                    today=date(2026, 6, 11))
+    eco = next(i for i in items if i.label == "ECO")
+    assert eco.status == "warn"
+    assert "no earnings date" in eco.detail

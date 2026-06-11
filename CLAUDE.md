@@ -240,6 +240,43 @@ Mar-25 Suezmax disposal), two Pareto stance changes we hadn't recorded
 (FLNG→SELL May-26; OET/FRO→HOLD May-26), and exact-match confirmations of
 the consensus_pnav plumbing (TRMD $34 stated vs $33.98 implied).
 
+## Report-day refresh — the workflow (added 2026-06-11 for Q2 season)
+
+`inputs/earnings_calendar.yaml` holds each name's next report date
+(confirmed/expected + cadence basis); the preflight
+(`python -m crude_tanker_fv.refresh`) flags 🔴 REFRESH DUE when a window
+opens with no target-quarter balance sheet on file, and 🟡 reports-soon
+within 14 days. The weekly `/news-pull` digest catches newly-announced
+dates — update the calendar when it does. Cadence quirks worth
+remembering: TEN reports Q2 in SEPTEMBER (H1 reporter); FLNG's calendar
+slot is Aug-28 but 2025's release came Aug-20; the early cluster
+(STNG/ASC/TNK/CCEC) opens Jul-28.
+
+Per name, on report day:
+
+1. Pull the 6-K/10-Q + press release (curl + pypdf for PDFs that fail
+   WebFetch; **trust the report counts, not the fleet page**).
+2. Update `inputs/balance_sheets/<ticker>_<quarter>.yaml`; touch the
+   fleet manifest only for entries/exits/deliveries, cost structure and
+   dividend policy only if the policy actually changed.
+3. **Issuer-report S&P sweep** (per filing, ~1-3 prints/quarter with
+   better vessel detail than Pareto prose): scan the filing + PRs for
+   disclosed vessel sales/purchases. Per-vessel price → promote to
+   `transactions/<class>.yaml`; en-bloc without split = document, never
+   back-solve. Any promotion triggers the prints→rerun→drift loop.
+4. Rebase the watchlist vintage TOGETHER: `current_price` +
+   `consensus_pnav` + `consensus_fwd_pe` from the same Pareto daily
+   (never the price alone — see the TEN gotcha). APPROX names: refresh
+   the price leg only, keep the APPROX flags.
+5. `python -m crude_tanker_fv.sp_scan --names <TICKER> --since
+   <quarter-start>` — skim the name's Pareto mentions for stance/NAV
+   statements and missed prints.
+6. Run the pipeline + `/reconcile <TICKER>` — SANITY must be OK; stop
+   and investigate a FAIL, don't paper it over.
+7. Drift gate: >2pp spread move or position flip → annotate
+   `decisions/<ticker>_log.md` with the why (market move? new data?
+   methodology?).
+
 ## Onboarding a new sector — the workflow
 
 METHODOLOGY §11.4 has the engine-side checklist. Before any code:
@@ -350,6 +387,18 @@ sessions.
 
 ## Changelog
 
+- **2026-06-11 (Week 3, day 2, Part 2)** — **Q2 earnings-readiness pass.**
+  `inputs/earnings_calendar.yaml` built for all 16 names (web-swept +
+  cadence-verified: 5 calendar-confirmed — ECO Aug-4, SBLK Aug-5,
+  TRMD Aug-26, HAFN+FLNG Aug-28; 11 expected windows; TEN is a
+  SEPTEMBER H1 reporter). Preflight gains §0 earnings check
+  (`refresh.check_earnings_calendar`): 🔴 REFRESH DUE when a report
+  window opens with no target-quarter balance sheet, 🟡 within 14 days.
+  Report-day refresh runbook added to CLAUDE.md (7 steps incl. the
+  issuer-report S&P sweep — Appendix A backlog CLOSED — and the
+  vintage-rebase rule). Season shape: early cluster Jul-28→Aug-6
+  (STNG/ASC/TNK/CCEC/ECO/GNK/INSW/DHT/SBLK/CMDB), late cluster
+  Aug-20→31 (FLNG/FRO/NAT/TRMD/HAFN), TEN mid-Sep. tests: 238 passed.
 - **2026-06-11 (Week 3, day 2)** — **FFA-OCR Stage 1 SHIPPED** (the
   Week 3 centerpiece; owner-approved re-scope, no longer trigger-gated).
   `ffa_ocr.py`: classifier (Cape + Cal2\d + "Produc* Price Change"

@@ -2060,6 +2060,10 @@ Dated record of material framework changes. Lock dates use UTC.
   "scan the quarter's 6-K/10-Q/PRs for disclosed vessel sales" step into
   the quarterly refresh checklist per ticker (marginal yield ~1-3 prints
   per name per quarter with better vessel detail than Pareto prose).
+  **CLOSED 2026-06-11** — step 3 of the report-day refresh runbook
+  (CLAUDE.md), built in the Q2 earnings-readiness pass alongside
+  `inputs/earnings_calendar.yaml` + the preflight earnings-due check
+  (`refresh.check_earnings_calendar`).
 - **Backlog registered (2026-06-10, owner spec vetted) — periodic news
   pull.** **BUILT 2026-06-10 (same evening):** `scripts/news_pull_cron.sh`
   + `com.crude-tanker-fv.news-pull.plist` (launchd, Saturdays 08:00 —

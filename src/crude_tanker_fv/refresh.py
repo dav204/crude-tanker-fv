@@ -113,6 +113,7 @@ class Checklist:
     balance_sheets: list[CheckItem] = field(default_factory=list)
     market_data: list[CheckItem] = field(default_factory=list)
     watchlist: list[CheckItem] = field(default_factory=list)
+    earnings: list[CheckItem] = field(default_factory=list)
     per_ticker_ages: list[TickerFileAges] = field(default_factory=list)
     data_sources: dict = field(default_factory=dict)
 
@@ -132,6 +133,10 @@ class Checklist:
     def stale_watchlist_count(self) -> int:
         return sum(1 for c in self.watchlist if c.status == "stale")
 
+    @property
+    def earnings_due_count(self) -> int:
+        return sum(1 for c in self.earnings if c.status == "missing")
+
 
 # ----------------------------------------------------------------------------
 # File-age helpers
@@ -144,9 +149,66 @@ def _days_since(path: Path, today: date) -> int | None:
     return (today - mtime).days
 
 
+EARNINGS_UPCOMING_DAYS = 14      # "reports soon" warning horizon
+EARNINGS_CALENDAR_PATH = INPUTS_DIR / "earnings_calendar.yaml"
+
+
 # ----------------------------------------------------------------------------
 # Per-section checks
 # ----------------------------------------------------------------------------
+def check_earnings_calendar(
+    target_quarter: str, watchlist: dict, inputs_dir: Path = INPUTS_DIR,
+    today: date | None = None,
+) -> list[CheckItem]:
+    """One CheckItem per watchlist ticker against inputs/earnings_calendar.yaml.
+
+    Statuses: "missing" = report window has opened/passed but the calendar
+    quarter's balance sheet is absent (REPORT OUT — refresh due NOW);
+    "warn" = reports within EARNINGS_UPCOMING_DAYS, or no calendar entry,
+    or the calendar covers a different quarter than it should; "ok" = dated,
+    in the future, nothing to do yet.
+    """
+    today = today or date.today()
+    path = inputs_dir / "earnings_calendar.yaml"
+    if not path.exists():
+        return [CheckItem(label="(calendar)", status="warn",
+                          detail="inputs/earnings_calendar.yaml missing — "
+                                 "build it before earnings season")]
+    cal = yaml.safe_load(path.read_text()) or {}
+    cal_quarter = cal.pop("quarter", None)
+    items: list[CheckItem] = []
+    for ticker in watchlist:
+        entry = cal.get(ticker)
+        if not isinstance(entry, dict):
+            items.append(CheckItem(label=ticker, status="warn",
+                                   detail="no earnings date on file"))
+            continue
+        start = entry.get("window_start")
+        end = entry.get("window_end") or start
+        status_word = entry.get("status", "expected")
+        basis = entry.get("basis", "")
+        bs_path = (inputs_dir / "balance_sheets"
+                   / f"{ticker.lower()}_{cal_quarter}.yaml")
+        when = f"{start} → {end}" if start != end else f"{start}"
+        if start and today >= start and not bs_path.exists():
+            verb = ("report window open" if end and today <= end
+                    else "report OUT")
+            items.append(CheckItem(
+                label=ticker, status="missing",
+                detail=f"{verb} ({when}, {status_word}) and no "
+                       f"{cal_quarter} balance sheet on file — refresh due. {basis}"))
+        elif start and 0 <= (start - today).days <= EARNINGS_UPCOMING_DAYS:
+            items.append(CheckItem(
+                label=ticker, status="warn",
+                detail=f"reports in {(start - today).days}d "
+                       f"({when}, {status_word}). {basis}"))
+        else:
+            items.append(CheckItem(
+                label=ticker, status="ok",
+                detail=f"{when} ({status_word}). {basis}"))
+    return items
+
+
 def check_balance_sheets(
     target_quarter: str, watchlist: dict, inputs_dir: Path = INPUTS_DIR,
     today: date | None = None,
@@ -332,6 +394,7 @@ def build_checklist(
         balance_sheets=check_balance_sheets(target_quarter, watchlist, inputs_dir, today),
         market_data=check_market_data(inputs_dir, today),
         watchlist=check_watchlist_freshness(watchlist, today),
+        earnings=check_earnings_calendar(target_quarter, watchlist, inputs_dir, today),
         per_ticker_ages=collect_per_ticker_ages(watchlist, target_quarter, inputs_dir, today),
         data_sources=sources,
     )
@@ -376,6 +439,21 @@ def _render_checklist_md(c: Checklist) -> str:
                  f"{wl_clean} of {wl_total} clean"
                  + (f" — {c.stale_watchlist_count} stale, {c.approx_watchlist_count} APPROX consensus_pnav"
                     if (c.stale_watchlist_count + c.approx_watchlist_count) else ""))
+    due = [it.label for it in c.earnings if it.status == "missing"]
+    soon = [it.label for it in c.earnings if it.status == "warn"]
+    lines.append(f"- {_check(not due)} **Earnings:** "
+                 + (f"REFRESH DUE: {', '.join(due)}" if due else "no reports outstanding")
+                 + (f" — upcoming/check: {', '.join(soon)}" if soon else ""))
+    lines.append("")
+
+    # --- Section 0: Earnings calendar ---
+    lines.append("## 0. Earnings calendar (report-day refresh runbook in CLAUDE.md)\n")
+    lines.append("| Ticker | Status | Detail |")
+    lines.append("|---|---|---|")
+    order = {"missing": 0, "warn": 1, "ok": 2}
+    for it in sorted(c.earnings, key=lambda i: (order.get(i.status, 3), i.label)):
+        flag = {"missing": "🔴 DUE", "warn": "🟡", "ok": "—"}.get(it.status, "?")
+        lines.append(f"| {it.label} | {flag} | {it.detail} |")
     lines.append("")
 
     # --- Section 1: Missing balance sheets + IR playbook ---
