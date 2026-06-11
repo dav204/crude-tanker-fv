@@ -385,8 +385,14 @@ go in Q3.
   EXCLUDED from NAV. Tightest first reconcile on record: −2.6% vs real
   Pareto pnav (k_broker 1.04) — validates NB convention + txn-anchored
   crude curves. BUY, EV +38.8% — deepest-discount crude name. §15
-  considered, NOT applied (pays from quarter one; delivery-phase
-  discount ≠ realisation trap). Breakeven solve reads $0/day (net-cash
+  deep-dived vs the full Euronext admission doc (archived
+  `inputs/research_issuer/`) and NOT applied: single share class, fees
+  ~0.4% of GAV/yr (vs CMDB ~4%), transfers at broker marks, pays ~50%
+  from quarter one; BUT blank-check preferreds + written-consent
+  control + no board committees + Crude Carriers fold-in precedent =
+  SIX named tripwires in capt_log (option-funding dilution, preferred
+  issuance, payout walk-back, sponsor merger proposal, fee escalation,
+  Q1-27 NB-debt landing). Breakeven solve reads $0/day (net-cash
   + NB-heavy; cosmetic). Onboarded 2026-06-11 from archived Pareto
   initiation + Q1 review — pull issuer Q1 report at Q2 refresh.
 

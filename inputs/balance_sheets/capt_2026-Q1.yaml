@@ -29,11 +29,13 @@ diluted_shares_outstanding: 133700000   # 133.7M (Pareto, both reports)
 preferred_equity: 0
 shuttle_contracted_book: 0
 
-# §15 considered and NOT applied (decision 2026-06-11, see capt_log):
-# 75% Marinakis control + Capital Maritime related-party management mirror
-# the TEN/CMDB governance pattern, BUT the realisation mechanics differ —
-# CAPT pays dividends from quarter one (~50% payout declared vs 30-40%
-# guided), carries a live Pareto BUY/TP anchor, and its NAV discount is
-# delivery-phase (undelivered fleet), not a structural realisation trap.
-# Revisit if payout guidance is walked back or related-party fees scale.
+# §15 considered and NOT applied — deep-dived 2026-06-11 against the full
+# Euronext Information Document (archived inputs/research_issuer/; full
+# analysis + SIX NAMED TRIPWIRES in decisions/capt_log.md). Single share
+# class; fees near-market (~0.4% of GAV/yr vs CMDB ~4%); transfers at
+# broker marks; pays ~50% from quarter one; BRUT (non-Marinakis newbuild
+# vehicle, same sub-0.8x NAV) attributes the discount to the delivery
+# phase. Standing mechanism risks: blank-check preferreds, written-
+# consent control, no board committees, no pre-emptive rights, Crude
+# Carriers fold-in precedent. Any tripwire reopens this at 0 -> 10-30%.
 governance_discount_pct: 0

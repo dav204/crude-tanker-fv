@@ -26,6 +26,63 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11 (later) — §15 governance deep-dive: 0% CONFIRMED, with tripwires
+
+Owner challenged the onboarding-day §15 decline ("does it plausibly need
+a shitco discount like TEN/CMDB?") — fair, because the decline leaned on
+Pareto reports, which don't scrutinize related-party plumbing. Full
+Euronext Growth Information Document (159pp) pulled + parsed (archived:
+`inputs/research_issuer/2026-03_capt_euronext_information_document.pdf`).
+
+**Verified clean:** single share class, one vote per share, no founder
+shares, no shareholder agreement. IPO sponsor transfers marked to
+third-party broker valuations (Level 2, $872.5M fleet / $790M net), not
+sponsor cost. The 13 options at cost run in the MINORITY's favor.
+Related-party fee load is light and near-market: $550/day/vessel
+technical (Capital Ship Management, CPI-escalating, 6-mo notice),
+$300/day + 1.25% freight commission commercial (Heidmar, 3-mo notice),
+$350k/vessel NB supervision — ~$15M/yr fully delivered ≈ 0.4% of GAV
+vs CMDB ~4% and TEN's similarly heavy pattern. Sponsor track record
+(CPLP/CCEC): process-driven related-party deals (conflicts committees,
+broker marks, premiums), no litigation found.
+
+**Verified concerning (mechanism, not evidence):** 76.3% control PLUS
+100M authorized blank-check preferreds (board-issuable, rights fixed
+per series, no shareholder vote); majority action by WRITTEN CONSENT
+(sponsor can approve anything without a meeting); no pre-emptive
+rights; board may amend bylaws unilaterally; no takeover code; not
+subject to the Norwegian governance code; **no board committees at all**
+(no audit, no conflicts); CEO Kalogiratos simultaneously CEO of Capital
+Maritime + CCEC; director Miltiadis Marinakis owns 44.9% of Heidmar
+(the commercial manager). Closest precedent: **Crude Carriers Corp** —
+Marinakis's 2010 NYSE pure-crude vehicle, folded back into CPLP within
+18 months at below IPO price (35% premium to pre-deal market;
+unaffiliated-class vote held, 60.3% approved). Also disclosed: ~$65M
+working-capital shortfall projected Q1-2027 pending ~$385M NB debt
+(term sheets for $300M secured) — financing execution risk.
+
+**Decision: `governance_discount_pct` stays 0.0.** §15 prices
+DEMONSTRATED realisation impairment (TEN: decades at 0.4-0.5×; CMDB:
+no-payout 0.6× book). CAPT: 3 months listed, pays ~50% from quarter
+one, fees near-market, transfers at broker marks, and the BRUT natural
+experiment (non-Marinakis Oslo newbuild vehicle at the same sub-0.8×
+NAV) attributes the discount to the delivery phase, not the sponsor.
+Sensitivity: a precautionary 10% haircut would read PW FV $17.68 →
+~$16.2, BUY intact at ~+27% — the call is not haircut-sensitive today.
+
+**§15 TRIPWIRES (any one reopens this decision):**
+1. Option exercise funded by equity issued at a discount to NAV (no
+   pre-emptive rights; the lock-up explicitly carves out option-funding
+   shares — the likeliest dilution path).
+2. Any blank-check preferred issuance.
+3. Payout walked back below the guided 30-40% construction band.
+4. Any merger/reshuffle proposal involving the sponsor (Crude Carriers
+   replay) — switch to deal-arb framing immediately, as with GNK.
+5. Fee escalation beyond CPI or new related-party service agreements.
+6. Q1-2027 liquidity: the ~$385M NB debt must land on schedule.
+
+---
+
 ## 2026-06-11 — ONBOARDED (17th name; first Oslo/NOK listing; Week 3 stretch goal)
 
 **What CAPT is:** Capital Tankers — Marinakis (~75%), listed Oslo
