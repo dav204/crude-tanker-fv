@@ -26,6 +26,34 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11 (later still) — listing venue & liquidity: assessed, NO haircut
+
+Owner asked whether Oslo-vs-US liquidity needs pricing in. Measured:
+~218k sh/day over the first 36 listed days ≈ **$2.8M/day, ~0.7% of the
+~$450M free float** — 10-20× thinner than DHT/FRO/INSW (~$30M+/day).
+Binding for institutions; immaterial for tool-signal quality or
+personal-scale positioning.
+
+Assessment: **no model change.** (a) Price-discovery quality — the thing
+the model consumes — is strong: Oslo is the specialist shipping venue
+(four dedicated research desks), and BRUT trading the same sub-0.8× NAV
+shows the market is pricing the newbuild profile, not the postcode.
+(b) The relevant venue fact is the **Euronext Growth junior tier** (no
+index inclusion/passive flows, some mandates excluded) — plausibly a
+slice of the 0.67×, and an embedded UPSIDE catalyst rather than a FV
+haircut: OET and HAFN both re-rated on adding NYSE listings, the
+natural CAPT path post-delivery. (c) Exit friction on a $450M-float
+public equity is negligible at our horizon; any venue discount sits in
+the market price, where it correctly widens EV rather than biasing FV.
+
+Operating caveats: thinner tape → noisier daily closes → expect larger
+band-edge wiggle than US names; and prices_daily mixes vintages for
+CAPT (Oslo 16:25 CET close + FX vs 4pm ET closes) — known, cosmetic.
+Watch-item: a US dual-listing announcement is a re-rating event worth
+flagging in the weekly digest if it appears.
+
+---
+
 ## 2026-06-11 (later) — §15 governance deep-dive: 0% CONFIRMED, with tripwires
 
 Owner challenged the onboarding-day §15 decline ("does it plausibly need
