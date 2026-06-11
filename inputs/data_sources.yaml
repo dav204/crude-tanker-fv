@@ -236,3 +236,16 @@ CMDB:
   notes: Costamare Bulkers Holdings Limited — 2025 spinoff of Costamare Inc.'s (CMRE) dry-bulk business. CIK 2033535 (separate from CMRE). Monaco-operated, Marshall Islands-incorporated FPI, NYSE CMDB. Third dry-bulk validator, APPROX-anchored per METHODOLOGY §11.7.2 (no Pareto/VIE coverage; P/BV proxies P/NAV per spinoff fair-value basis). Two-layer structure — 29-30 OWNED bulkers (the NAV base) + the CBI chartered-in trading platform (~20 third-party vessels, Kamsarmax-focused, trading book majority transferred to Cargill 2026) which is P&L-only. Onboarded 2026-06-10 from Q1 2026 6-K + FY2025 20-F. ir_home/fleet_page URLs UNVERIFIED canonical patterns — fix on first refresh if broken.
   reporting_pattern: FIXME
   notes: STUB — populated by /add-ticker scaffold; CMDB is the Costamare bulker spinoff (separate listing from CMRE). APPROX-anchored per METHODOLOGY §11.7.2 (no Pareto P/NAV coverage). Refine during Week 2 Day 3-4 onboarding.
+CAPT:
+  ir_home: https://www.capitaltankers.com/
+  press_releases: https://www.capitaltankers.com/news/
+  sec_edgar: null   # Oslo-listed (Euronext Oslo Bors, NOK) — no SEC filings;
+                    # primary disclosures via newsweb.oslobors.no + company IR.
+  fleet_page: https://www.capitaltankers.com/fleet/
+  reporting_pattern: "Oslo H1/quarterly releases; first results May-27-2026.
+    Pareto covers (initiation 2026-04-19, BUY TP NOK 180) — the dailies +
+    linked reports are the richest running source."
+  notes: "Capital Tankers (Marinakis ~75%), listed Oslo 2026-03-17, IPO at
+    NOK 134. 30 firm vessels (21 NB through mid-28) + 13 options to YE'26.
+    Onboarded 2026-06-11. IR URLs unverified-by-fetch at onboarding — verify
+    on first issuer-report pull (Q2 refresh)."

@@ -1,0 +1,13 @@
+# CAPT dividend policy — METHODOLOGY.md section 4.3
+# Guided: 30-40% of FCF-to-equity during the construction phase (through
+# mid-2028 = the whole strip horizon), 70-80% when fully delivered.
+# Inaugural Q1-2026 dividend declared NOK 0.5/sh (~$0.05) = ~50% payout —
+# ahead of guidance ("firm dividend signal", Pareto May-27). Pareto models
+# 2026e DPS $0.56 on EPS $1.44 (39%). Strip uses 0.45 — between the
+# declared 50% signal and the guided band; the 70-80% delivered phase
+# starts beyond the strip horizon.
+ticker: CAPT
+policy_type: variable
+payout_ratio: 0.45
+base_dividend_per_share: 0
+floor: 0

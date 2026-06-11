@@ -1,0 +1,66 @@
+# CAPT (Capital Tankers) fleet manifest — METHODOLOGY.md section 4.1
+# Oslo-listed Mar-17-2026 (~75% Marinakis). 30 firm vessels at Q1-2026:
+# 9 on-water at Mar-31 + 21 newbuildings delivering through mid-2028.
+# Sources: Pareto initiation 2026-04-19 + quarterly review 2026-05-27
+# (both archived in inputs/research_pareto_other/linked/) + Shipping Daily
+# mentions (outputs/pareto_mentions_capt.md): Mar-16 "delivery of two
+# suezmaxes and one aframax earlier this month"; Apr-15 "exit April with
+# 11x vessels — 17x by Nov'26, 24x by YE'27, 30x by mid-28, ahead of
+# schedule". Class table (review): VLCC 12x 310k / Suezmax 10x 156k /
+# Aframax 4x 113k avg age 7.8 / LR2 4x 114k avg age 0.5.
+#
+# NEWBUILD CONVENTION (§3.1 / §9.6, FRO precedent): NBs carried at age-0
+# DELIVERED market value in this manifest; the $1,880M remaining capex
+# commitment (Q1'26) sits in the balance sheet. They earn in the strip
+# via fleet_schedule, not the static counts. The 13 options at cost
+# (11 VLCC + 2 Suez, lapse YE'26) are EXCLUDED from NAV entirely —
+# Pareto adds ~$204M option value; we do not value optionality.
+# All vessels scrubber-fitted and/or LNG dual-fuel ("future-proof");
+# our curves carry no DF premium (Pareto adds $14-18M/vessel; their
+# no-LNG NAV is NOK 138 vs headline 158 at initiation — see capt_log).
+ticker: CAPT
+report_date: 2026-Q1
+vessels:
+  # ---- VLCC: all undelivered at Mar-31; first delivers Q2-26. Age 0 =
+  #      delivered-market convention (commitment in the balance sheet).
+  - {id: VLCC_nb,   class: VLCC,    dwt: 310000, age: 0,  scrubber: true, eco: true, count: 12}
+  # ---- Suezmax: 2 delivered Mar-2026; 8 NB, front-loaded 2026-27
+  #      deliveries (class avg own-years -0.3 per Pareto).
+  - {id: SUEZ_2026, class: Suezmax, dwt: 156000, age: 0,  scrubber: true, eco: true, count: 2}
+  - {id: SUEZ_nb,   class: Suezmax, dwt: 156000, age: 0,  scrubber: true, eco: true, count: 8}
+  # ---- Aframax: on-water; class avg 7.8 = 3 older (~age 10) + 1 fresh
+  #      Mar-2026 delivery.
+  - {id: AFRA_2016, class: Aframax, dwt: 113000, age: 10, scrubber: true, eco: true, count: 3}
+  - {id: AFRA_2026, class: Aframax, dwt: 113000, age: 0,  scrubber: true, eco: true, count: 1}
+  # ---- LR2 (crude-routed, same as FRO's LR2 book): class avg 0.5.
+  - {id: LR2_2025,  class: LR2,     dwt: 114000, age: 1,  scrubber: true, eco: true, count: 2}
+  - {id: LR2_2026,  class: LR2,     dwt: 114000, age: 0,  scrubber: true, eco: true, count: 2}
+
+# All-spot (Q1 fleet-wide TCE $162k/day on spot voyages; Q2 fixtures are
+# spot-period fixings, no disclosed TC book).
+spot_coverage_pct:
+  VLCC: 1.0
+  Suezmax: 1.0
+  Aframax: 1.0
+  LR2: 1.0
+
+# On-water count ramp for the strip (8 quarters, q3_2026 -> q2_2028),
+# anchored to Pareto-confirmed waypoints: 11 end-Apr-26, 17 by Nov-26,
+# 24 by YE-27, 30 by mid-28 ("one delivery every ~six weeks"). VLCC
+# back-loaded (class avg own-years -1.3), Suezmax front-loaded (-0.3);
+# the per-class split between the waypoints is our estimate.
+fleet_schedule:
+  VLCC:    [1, 3, 4, 5, 5, 6, 8, 10]
+  Suezmax: [4, 6, 7, 8, 9, 10, 10, 10]
+  Aframax: [4, 4, 4, 4, 4, 4, 4, 4]
+  LR2:     [4, 4, 4, 4, 4, 4, 4, 4]
+
+fleet_summary:
+  VLCC_count: 12
+  Suezmax_count: 10
+  Aframax_count: 4
+  LR2_count: 4
+  on_water_at_quarter_end: 9
+  newbuilds_committed: 21      # $1,880M remaining commitment (Q1'26)
+  options_excluded: 13         # 11 VLCC + 2 Suez at cost, lapse YE'26 — NOT in NAV
+  avg_age: 0.0

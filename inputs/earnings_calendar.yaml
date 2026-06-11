@@ -95,3 +95,8 @@ GNK:
   window_end: 2026-08-06
   status: expected
   basis: "Q1-26 May-6; Q2-25 Aug-6 (announced Jul-21). Diana tender deadline Jun-26 precedes."
+CAPT:
+  window_start: 2026-08-17
+  window_end: 2026-08-31
+  status: expected
+  basis: "First-ever results (Q1-26) came May-27; Oslo H1-report cadence implies late Aug. No published calendar yet — watch the dailies."

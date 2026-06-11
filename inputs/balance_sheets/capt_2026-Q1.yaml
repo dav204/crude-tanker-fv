@@ -1,0 +1,39 @@
+# Capital Tankers balance sheet snapshot — METHODOLOGY.md section 4.2
+# Source: Pareto quarterly review 2026-05-27 (Q1'26 actuals column of the
+# quarterly balance-sheet table + the NAV bridge), archived at
+# inputs/research_pareto_other/linked/2026-05-27_linked-501961.pdf.
+# Company filings are Oslo-listed (no SEC 6-K); pull the issuer Q1 report
+# at the Q2 refresh for primary-source confirmation. USD.
+ticker: CAPT
+quarter: 2026-Q1
+
+cash_and_equivalents: 405000000      # Q1'26 actual (post-IPO $500M raise)
+
+# Pareto NAV bridge "Other assets, net" +13 (May-27 review).
+working_capital_net: 13000000
+
+total_debt: 217000000                # IB non-current 205 + IB current 12 (Q1'26)
+
+lease_liabilities: 0                 # none disclosed; NB financing is mortgage debt
+
+# 21 newbuildings (12 VLCC of which all undelivered at Mar-31, 8 Suezmax,
+# 1 Aframax-equivalent/LR2 mix per our manifest split). Remaining capex as
+# of Q1'26 per the May-27 NAV bridge. Advances at 0: NBs are valued at
+# DELIVERED market in the manifest (FRO convention) — NAV NB contribution
+# = age-0 market - 1,880M commitment.
+newbuild_capex_commitments: 1880000000
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 133700000   # 133.7M (Pareto, both reports)
+
+preferred_equity: 0
+shuttle_contracted_book: 0
+
+# §15 considered and NOT applied (decision 2026-06-11, see capt_log):
+# 75% Marinakis control + Capital Maritime related-party management mirror
+# the TEN/CMDB governance pattern, BUT the realisation mechanics differ —
+# CAPT pays dividends from quarter one (~50% payout declared vs 30-40%
+# guided), carries a live Pareto BUY/TP anchor, and its NAV discount is
+# delivery-phase (undelivered fleet), not a structural realisation trap.
+# Revisit if payout guidance is walked back or related-party fees scale.
+governance_discount_pct: 0

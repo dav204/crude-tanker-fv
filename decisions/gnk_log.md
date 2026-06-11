@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T15:40:59+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $23.80
+- Single-point FV: $25.28
+- Scenario PW FV: $25.73 (EV +8.1%)
+- NAV / share: $26.24
+- Position: **BUY (undervalued)**
+- Broker spread: +4.1pp (k_broker 1.03)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.30 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11 — §9.11 EPS-xref anomaly: rate-level explanation REJECTED by the FFA curve
 
 The +149% tool-vs-consensus forward-EPS gap flagged at onboarding had a

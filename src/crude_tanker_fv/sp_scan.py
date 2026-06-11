@@ -125,6 +125,9 @@ NAME_ALIASES: dict[str, list[re.Pattern]] = {
     # parent), a different listing Pareto DOES discuss.
     "CMDB": [re.compile(r"\bCMDB\b"), re.compile(r"\bCostamare Bulk", re.IGNORECASE),
              re.compile(r"\bCBI\b")],
+    # "Capital Tankers" only — bare "Capital" collides with Capital Clean
+    # Energy (CCEC) and Capital Product Partners, same Marinakis group.
+    "CAPT": [re.compile(r"\bCAPT\b"), re.compile(r"\bCapital Tankers\b", re.IGNORECASE)],
 }
 # A name mention is interesting when it carries valuation / stance / action
 # context — bare ticker drops in rate tables and peer lists are noise.

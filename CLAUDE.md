@@ -378,6 +378,18 @@ go in Q3.
   xref reads structurally hot. Watch Q2 for the Astros price (clean
   age-8 Ultramax print). Onboarded 2026-06-10; Week 2 closed.
 
+- **CAPT** — 17th name, first Oslo/NOK listing (watchlist carries USD;
+  `yahoo_symbol: CAPT.OL` — bare CAPT on Yahoo is the wrong issuer).
+  Marinakis ~75%; 30 firm vessels, 21 NB through mid-28 (heaviest §3.1/
+  §9.6 delivered-market-less-commitment user); 13 options at cost
+  EXCLUDED from NAV. Tightest first reconcile on record: −2.6% vs real
+  Pareto pnav (k_broker 1.04) — validates NB convention + txn-anchored
+  crude curves. BUY, EV +38.8% — deepest-discount crude name. §15
+  considered, NOT applied (pays from quarter one; delivery-phase
+  discount ≠ realisation trap). Breakeven solve reads $0/day (net-cash
+  + NB-heavy; cosmetic). Onboarded 2026-06-11 from archived Pareto
+  initiation + Q1 review — pull issuer Q1 report at Q2 refresh.
+
 ## The compounding-knowledge habit
 
 Anytime the agent makes a mistake that wasn't caught by these rules,
@@ -387,6 +399,24 @@ sessions.
 
 ## Changelog
 
+- **2026-06-11 (Week 3, day 2, Part 3)** — **CAPT onboarded (17th name,
+  Week 3 stretch goal) — first Oslo/NOK listing.** Assembled entirely
+  from the linked-report harvest (Pareto initiation Apr-19 + Q1 review
+  May-27, both already on disk) — zero new fetching for data assembly;
+  issuer-report confirmation deferred to the Q2 refresh. 30 firm
+  vessels (12 VLCC / 10 Suez / 4 Afra / 4 LR2-crude-routed), 9 on-water
+  at Mar-31, 21 NBs at delivered-market-less-$1,880M-commitment with a
+  Pareto-waypoint fleet_schedule ramp (11 Apr-26 → 17 Nov-26 → 24 YE-27
+  → 30 mid-28); 13 options at cost excluded. NOK handling: watchlist in
+  USD (NOK 116.2 / 9.5221 = $12.20, Jun-10 vintage incl. pnav 0.67 +
+  P/E 11.1 from the same daily); price_refresh gains `yahoo_symbol` +
+  `quote_currency` fields (CAPT.OL + NOK=X conversion — bare "CAPT" is
+  Captivision). NAME_ALIASES + data_sources + earnings calendar
+  entries added; 23-mention Pareto sweep distilled. **First reconcile:
+  −2.6% gap on a real Pareto print, SANITY OK, k_broker 1.04 — the
+  tightest onboarding baseline on record; BUY EV +38.8%.** §15
+  considered + declined (documented in the balance sheet + log).
+  tests: 243 passed, 10 skipped.
 - **2026-06-11 (Week 3, day 2, Part 2)** — **Q2 earnings-readiness pass.**
   `inputs/earnings_calendar.yaml` built for all 16 names (web-swept +
   cadence-verified: 5 calendar-confirmed — ECO Aug-4, SBLK Aug-5,

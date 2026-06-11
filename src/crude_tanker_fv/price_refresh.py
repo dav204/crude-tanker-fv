@@ -107,11 +107,31 @@ def run_refresh(inputs_dir: Path = INPUTS_DIR) -> tuple[int, int, int]:
     prices: dict[str, dict] = {}
     fetched = flagged = failed = 0
 
+    fx_cache: dict[str, float] = {}
+
+    def _usd_fx(currency: str) -> float:
+        """USD per 1 unit of `currency` is 1/rate for Yahoo's CUR=X (USD->CUR)."""
+        if currency not in fx_cache:
+            fx_cache[currency] = float(
+                _fetch_chart(f"{currency}=X")["chart"]["result"][0]["meta"]
+                ["regularMarketPrice"])
+        return fx_cache[currency]
+
     for ticker, entry in watchlist.items():
         if not isinstance(entry, dict):
             continue
+        symbol = entry.get("yahoo_symbol") or ticker
         try:
-            quote = extract_quote(_fetch_chart(ticker))
+            quote = extract_quote(_fetch_chart(symbol))
+            currency = entry.get("quote_currency")
+            if currency and currency != "USD":
+                fx = _usd_fx(currency)
+                quote["native_price"] = quote["price"]
+                quote["native_currency"] = currency
+                quote["usd_per_unit_fx"] = round(1.0 / fx, 6)
+                quote["price"] = round(quote["price"] / fx, 2)
+                if "prev_close" in quote:
+                    quote["prev_close"] = round(quote["prev_close"] / fx, 2)
         except Exception as exc:
             failed += 1
             print(f"{ticker:6s} FETCH FAILED ({exc}); keeping previous entry", file=sys.stderr)

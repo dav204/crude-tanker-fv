@@ -195,3 +195,21 @@ GNK:
   consensus_fwd_pe: 13.9       # Pareto consensus 1Y FWD P/E Jun 4 2026
   sector: dry_bulk
   as_of: 2026-06-04
+
+CAPT:
+  current_price: 12.20         # NOK 116.2 (Pareto Shipping Daily Jun 10 2026) / USDNOK
+                               # 9.5221 (Yahoo NOK=X, Jun-10). OSLO-LISTED, NOK-quoted —
+                               # watchlist carries USD for cross-name comparability; the
+                               # daily refresh fetches CAPT.OL and converts (yahoo_symbol
+                               # + quote_currency below). 17th name, onboarded 2026-06-11.
+  analyst_target: 18.90        # Pareto TP NOK 180 (= YE'26 NAV; BUY since Apr-19
+                               # initiation, reiterated May-27 review) / 9.5221.
+  consensus_pnav: 0.67         # Pareto Shipping Daily Jun 10 2026 (same-vintage as price;
+                               # implied broker NAV = 12.20/0.67 = $18.21 ≈ NOK 173 —
+                               # consistent with Pareto's published NAV path 158 (Apr-19)
+                               # → 166 (May-27), rising as newbuilds near delivery).
+  consensus_fwd_pe: 11.1       # Pareto Shipping Daily Jun 10 2026 P/E column.
+  sector: crude                # pure crude+LR2 (LR2 crude-routed, FRO precedent §9.3).
+  yahoo_symbol: CAPT.OL        # bare "CAPT" on Yahoo is Captivision (Nasdaq) — wrong issuer.
+  quote_currency: NOK          # price_refresh converts via NOK=X to USD.
+  as_of: 2026-06-10

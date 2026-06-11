@@ -1,0 +1,21 @@
+# CAPT cost structure — METHODOLOGY.md section 4.4
+# Derived from the Pareto quarterly review 2026-05-27 model tables:
+# 2026e revenues 296 - EBITDA 249 = $47M opex+G&A over ~13 avg on-water
+# vessels (~4,750 vessel-days) => ~$7.4k/day blended ex-G&A at ~$12M/yr.
+# Brand-new fleet -> low R&M; LNG-DF adds complexity at the margin.
+# Company guides $27k/day fleet-wide CASH breakeven (incl. debt service).
+ticker: CAPT
+
+opex_per_day:
+  VLCC: 8000
+  Suezmax: 7500
+  Aframax: 7000
+  LR2: 7000
+
+annual_G_and_A: 12000000
+
+# Pareto net interest: 2026e $23M -> 2027e $53M -> 2028e $77M as NB debt
+# draws. Strip spans mid-26 -> mid-28; ~$45M is the horizon average.
+annual_interest_expense: 45000000
+
+effective_tax_rate: 0.001     # Marshall Islands tonnage regime (Pareto models zero taxes)
