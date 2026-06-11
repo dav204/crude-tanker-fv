@@ -109,6 +109,15 @@ quarter of data. **The bars apply at lock-time, not per-run.**
 
 ## Recurring gotchas to NOT relearn
 
+- **Long-running background jobs die silently under nohup (2026-06-10).**
+  Python block-buffers stdout when not a TTY, so a crashing job's traceback
+  sits in an unflushed buffer and is lost — the log just goes quiet (looks
+  like a hang, is actually a death). The Rocket.Chat backfill "died" twice
+  this way before we instrumented it. Pattern for any multi-hour job:
+  `nohup sh -c 'PYTHONUNBUFFERED=1 ... ; echo "EXIT CODE $?"' >> log 2>&1 &`
+  — unbuffered output + explicit exit-code echo, detached so session
+  events can't kill it. Watch the log mtime, not just its contents.
+
 - **Newbuilds valued at delivered market less remaining commitment** —
   NOT at sunk cost (METHODOLOGY §3.1, §9.6). Decisive for FRO ~$5.7/sh.
 - **ECO sale-leaseback is in "borrowings"** on the balance sheet — no
