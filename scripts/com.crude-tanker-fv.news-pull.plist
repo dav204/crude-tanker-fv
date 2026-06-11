@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.crude-tanker-fv.news-pull</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/dan_personal/Projects/crude-tanker-fv/scripts/news_pull_cron.sh</string>
+    </array>
+
+    <!-- Saturday 08:00 — the daily RC ingest runs 07:00, so Friday's
+         Shipping Daily is guaranteed in the archive before the chain fires
+         (vetting amendment 2: never run before the week's last daily exists). -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>6</integer>
+        <key>Hour</key>
+        <integer>8</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/news_pull.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/news_pull.err</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

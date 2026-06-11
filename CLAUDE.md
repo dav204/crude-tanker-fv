@@ -27,6 +27,14 @@ for the full framework; this file is the operational rulebook.
   `inputs/market_data/transactions/_scan_state.json`, writes the review
   queue to `outputs/sp_print_candidates.md`. Candidates are
   human-classified into `transactions/<class>.yaml`; never auto-promote.
+- Weekly news pull (mechanical half): `scripts/news_pull_cron.sh` —
+  launchd-scheduled Saturdays 08:00 (`com.crude-tanker-fv.news-pull`),
+  chains RC ingest → `sp_scan` → `--links` → `--fetch-links` →
+  `pareto_archive --build-manifest`; log at `state/news_pull.log`.
+  Agent-judgment half: `/news-pull` — web-sweeps watchlist names
+  (weighted to APPROX + live-event names) into a dated review digest at
+  `outputs/news_digest_YYYY-MM-DD.md`. Digest is review-only; promotion
+  is human-only.
 - The venv at `.venv/` has `pypdf` installed. **Use it for PDFs that fail
   WebFetch** (see below).
 
@@ -317,6 +325,21 @@ sessions.
 
 ## Changelog
 
+- **2026-06-10 (night, Week 3 opener)** — **periodic news pull v1 BUILT**
+  (registered backlog, owner spec + 4 vetting amendments, one session as
+  time-boxed). Mechanical half: `scripts/news_pull_cron.sh` + launchd
+  plist `com.crude-tanker-fv.news-pull` (Saturdays 08:00, after the
+  07:00 daily RC ingest per amendment 2), chaining RC ingest → `sp_scan`
+  → `--links` → `--fetch-links` → `pareto_archive --build-manifest`,
+  PYTHONUNBUFFERED + per-step banners + exit-code echo per the silent-
+  death gotcha. Agent half: `/news-pull` command — web-sweep weighted to
+  APPROX (read from `reconcile.APPROX_PNAV_TICKERS`, not hardcoded) +
+  live-event names (detected from decision logs), digest at
+  `outputs/news_digest_YYYY-MM-DD.md` with promotable-candidate (built-
+  year + en-bloc-split fields, amendment 4) / stance-change / live-deal /
+  stale-price (APPROX fresher-price-only, amendment 3) / no-action
+  sections + drift-loop reminder. Never writes pipeline-loaded YAMLs
+  (amendment 1). Dry-run clean end-to-end (cursor Jun-08 → Jun-10).
 - **2026-06-06** — file created. Verification-loop, three-jobs
   reconciliation framework, "what this tool is, philosophically" section,
   gotcha list, per-ticker quick-refs all promoted from session memory +

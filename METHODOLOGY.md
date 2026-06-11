@@ -2032,7 +2032,13 @@ Dated record of material framework changes. Lock dates use UTC.
   the quarterly refresh checklist per ticker (marginal yield ~1-3 prints
   per name per quarter with better vessel detail than Pareto prose).
 - **Backlog registered (2026-06-10, owner spec vetted) — periodic news
-  pull.** Two halves: (a) a weekly scheduled runner (wrapper + launchd
+  pull.** **BUILT 2026-06-10 (same evening):** `scripts/news_pull_cron.sh`
+  + `com.crude-tanker-fv.news-pull.plist` (launchd, Saturdays 08:00 —
+  after the 07:00 daily RC ingest, satisfying amendment 2) +
+  `.claude/commands/news-pull.md`. All 4 vetting amendments applied as
+  specced; no deltas. Dry-run 2026-06-10 clean (cursor Jun-08 → Jun-10,
+  0 new candidates, only automation-writable trees touched). Spec as
+  registered: Two halves: (a) a weekly scheduled runner (wrapper + launchd
   plist, RC-ingest pattern) chaining the existing scanners — `sp_scan` →
   `--links` → `--fetch-links` → `pareto_archive --build-manifest` —
   logging to `state/`; (b) a `/news-pull` slash command for the
