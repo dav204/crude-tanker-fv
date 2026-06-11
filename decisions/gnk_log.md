@@ -9,6 +9,32 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11 — §9.11 EPS-xref anomaly: rate-level explanation REJECTED by the FFA curve
+
+The +149% tool-vs-consensus forward-EPS gap flagged at onboarding had a
+standing hypothesis: the synthesised-from-spot dry-bulk strip runs hot.
+The first FFA-vs-strip diagnostic (`outputs/ffa_vs_strip.md`, FFA-OCR
+Stage 1 curve, 5-day mean Jun-03→Jun-11) rejects that: Bulk Set A PW
+mids are within ±5% of the traded forward curve on 8 of 9 legs (Cape
++3.5% avg, Pana −3.0%, Supra-Ultra +2.3%), and the market curve's
+backwardation matches the strip's mean-reversion shape.
+
+So the +149% lives in the xref's OTHER legs — candidates, in rough
+order of suspicion: (a) consensus_fwd_pe vintage/denominator (Pareto
+P/E at the Jun-4 static, NTM window mismatch vs strip quarters);
+(b) days/utilization and cost assumptions between rate and EPS;
+(c) index-vs-earned premia (GNK's scrubber Capes + Ultramaxes earn
+over the 5TC/Smax indices — which would push tool EPS UP, widening
+not closing the gap); (d) tender-period consensus staleness.
+Investigate at the Q2 refresh alongside the §11.7 Q3 tightening pass —
+NOT by touching the validated rate paths.
+
+**Decision:** rate paths stand (market-validated). The xref anomaly is
+re-classified from "suspected hot strip" to "xref-construction or
+estimate-vintage question," parked for the Q2 refresh.
+
+---
+
 ## 2026-06-11T03:20:17+00:00 — Pipeline run (auto)
 
 **Model state:**

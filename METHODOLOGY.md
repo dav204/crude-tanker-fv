@@ -1639,6 +1639,18 @@ A FAIL signals methodology calibration is off — likely the cycle anchors
   (2020-2026 backfill + strip integration decision) remains open; the
   go-forward curve accumulates in `state/ffa_ocr_curves.json` from
   here on, diagnostic-first until one full review cycle passes.
+  **First diagnostic result (2026-06-11, `scripts/ffa_vs_strip.py` →
+  `outputs/ffa_vs_strip.md`): the synthesised strip is MARKET-CONSISTENT
+  — Bulk Set A PW mids sit within ±5% of the traded curve on 8 of 9
+  legs (worst +9.3%, supra_ultra Cal27), and `moderate_growth` (the
+  0.40 base case) is the nearest single scenario on 8 of 9. The traded
+  curve is strongly backwardated (Cape −16%, Pana −25%, Smax −28% from
+  Q3-26 to Cal27), matching the strip's mean-reversion shape — no Set A
+  reweight signal. Consequence: the "synthesised strip runs hot"
+  hypothesis behind GNK's +149% §9.11 xref is REJECTED at the rate
+  level — the anomaly must live in the xref's other legs (days/
+  utilization, costs, consensus vintage, index-vs-earned premia), see
+  gnk_log 2026-06-11.**
 
 #### 11.7.8 Onboarding sequence
 
