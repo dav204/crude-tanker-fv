@@ -39,7 +39,8 @@ a closed payout channel; TNK now has neither.** The residual 0.76× is
 the documented §6 mark-driven + weight-driven call plus a
 controlled-company overhang the owner MAY price at the §15.4 "modest"
 band (10%) — presented as an option, not applied; at 10% the TNK HOLD
-reading would not flip.
+reading would not flip. **OWNER RATIFIED 2026-06-11: 0% with tripwires
+stands.**
 
 **Tripwires (any one reopens):**
 1. **Any TK/TNK combination proposal** — ratio/price risk for minorities

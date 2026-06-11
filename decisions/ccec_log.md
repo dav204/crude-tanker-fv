@@ -44,8 +44,9 @@ construction phase, per the CAPT natural experiment with the same
 sponsor).** The defensible alternative is the §15.4 "modest overhang"
 10% (float scarcity + sponsor-paid comp + fiduciary waiver + no-vote
 conversion precedent) — at 10%, PW FV $29.63 → ~$27, BUY intact at
-~+24%, so the signal does not hang on this choice. OWNER CALL if the
-modest band is preferred; flagged, not applied.
+~+24%, so the signal does not hang on this choice. **OWNER RATIFIED
+2026-06-11: 0% with tripwires stands** ("we can always tweak this
+later" — the 10% alternative remains documented if a tripwire fires).
 
 **Tripwires (any one reopens):**
 1. **Payout path fails to materialize**: no dividend increase within ~4
