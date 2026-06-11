@@ -7,6 +7,10 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11 — §15.7 retro screen (formalised today): **N/A (gated)** — Pareto P/NAV 0.98× and traded 0.70→1.11× across the 2025-26 mark-up cycle (retro-sweep entry); the market has repeatedly paid NAV. The wide tool spread is the documented §6 mark-driven call, not realisation impairment.
+
+---
+
 ## 2026-06-11T15:40:59+00:00 — Pipeline run (auto)
 
 **Model state:**

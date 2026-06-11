@@ -1,5 +1,41 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-06-11 — §15 haircut recalibration review (§15.7 retro screen): HOLD at 30%
+
+First formal recalibration since the haircut was set at onboarding
+(2026-06-06). The calibration triangle today (per §15.7 Step 2):
+
+- **Owner haircut: 30%.**
+- **VIE-implied: 36.3%** (1 − 51.50/80.79). NOTE the drift: at
+  onboarding this read ~42% against the pre-recalibration NAV $88.56;
+  the txn-anchored re-base LOWERED our NAV, narrowing the VIE-implied
+  discount toward our 30%. The two anchors are converging, not
+  diverging.
+- **Market: ~53%** (price $37.99 / NAV $80.79 = 0.47× — squarely inside
+  TEN's decades-long 0.4-0.5× band). Floor-side reference only, never
+  the calibration (§15.7: haircutting to market deletes the signal).
+
+**Directional evidence since onboarding:** payout RAISED — $1.50/sh
+2026 aggregate, "highest in 10+ years," declared and paid on schedule
+(~19% of EPS, yield ~4% at spot). The realisation channel is opening,
+which argues against moving UP toward the VIE anchor. Nothing on the
+other side: no new related-party expansion observed (TCM fee-load
+anchor NOT yet computed — pull the TCM fees from the 20-F related-party
+note at the Q2 refresh and add the capitalized-fee-drag number per
+§15.7; CMDB now has one and TEN should too).
+
+**Decision: HOLD 30%, working band 30-36%.** Sensitivity: at 36% the
+PW FV falls roughly $3-4 (≈ $54 vs $57.61) — BUY intact at ~+42%; the
+call only flips near the market-implied ~50%+. Signal not
+haircut-sensitive inside the band.
+
+**Reopen triggers:** next dividend action in either direction (a second
+consecutive raise → consider 25%; a cut → move to the VIE anchor 36%),
+preferred refinancing/redemption activity, any VIE stance change, the
+20-F fee-load computation landing outside ~1%/yr of GAV.
+
+---
+
 ## 2026-06-10 — PRICE INPUT ERROR corrected: $44.00 → $37.14 (−16%)
 
 Caught by the first `/news-pull` digest (2026-06-10), verified

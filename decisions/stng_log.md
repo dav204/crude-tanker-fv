@@ -7,6 +7,10 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11 — §15.7 retro screen (formalised today): **Screened Step 1, DECLINED — no governance basis.** Spot 0.70× is recent product-tape softness vs a freshly marked-up broker NAV; multi-year STNG traded near NAV. Widely held, no controlling sponsor, aggressive buybacks + dividends (realisation channel maximally open; the buyback channel is the §6 strip-visibility caveat, a framework limitation, not a governance one). Discount = §6 mark-driven call.
+
+---
+
 ## 2026-06-11T15:40:59+00:00 — Pipeline run (auto)
 
 **Model state:**

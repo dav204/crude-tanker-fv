@@ -1963,6 +1963,71 @@ unwind, preferred refinancing).
   with §15 haircuts. Going forward, §15 names should be tagged at the
   decision-log layer and discount applied per-quarter as relevant.
 
+### 15.7 Screening procedure (formalised 2026-06-11; owner decision)
+
+§15 application was reactive through the first three cases (TEN and CMDB
+owner-flagged; CAPT screened only on owner challenge). That is itself a
+methodology flaw: in a cross-name ranking tool, unscreened names with a
+§15 pathology rank artificially attractive against screened ones. Every
+name now gets an explicit, recorded outcome.
+
+**Step 0 — the cheap gate.** Multi-year median P/NAV ≥ ~0.85× → recorded
+**N/A (gated)**, one line in the decision log, done. A name the market
+persistently pays NAV (or a premium) for has *demonstrated* realisation —
+controlling sponsors notwithstanding (Fredriksen and Alafouzos structures
+do not matter at 1.2-1.4× NAV). Use the longest available history; for
+names listed <12 months, the gate cannot pass — proceed to Step 1 with
+the short-history caveat recorded (CAPT precedent).
+
+**Step 1 — the structured screen** (names below the gate). Dimensions,
+with the discriminator each case contributed:
+
+1. **Control & share structure** — stake %, share classes, written-
+   consent/blank-check/pre-emption mechanics (CAPT). Mechanism only —
+   see doctrine below.
+2. **Related-party fee load as % of GAV per year** — the cleanest
+   quantitative discriminator to date: CMDB ~4%/yr vs CAPT ~0.4%/yr
+   (near market rate). Compute from the related-party notes, not prose.
+3. **Distribution behaviour** — paying common dividends = the
+   realisation channel is OPEN (CAPT pays from quarter one; CMDB pays
+   nothing). Trend matters as much as level (TEN raising).
+4. **Natural-experiment comp** — a structurally similar name with a
+   different sponsor isolates governance from fundamentals (BRUT at the
+   same sub-0.8× as CAPT attributed the discount to the delivery phase,
+   not Marinakis). Seek one before concluding.
+5. **External anchor** — does a broker/VIE discount the name for
+   governance specifically? (VIE's implied ~36-47% discount calibrated
+   TEN's 30%.)
+
+**The doctrine (from TEN/CMDB vs CAPT): haircuts price EVIDENCE of
+realisation impairment; mechanism generates TRIPWIRES.** Blank-check
+preferreds, missing committees, written-consent control — these are
+loaded guns, not fired ones. A §15 decline on a mechanism-rich name MUST
+carry named reopen triggers in the decision log (CAPT carries six).
+
+**Step 2 — calibration** (names where the screen says apply). Two
+quantitative anchors now exist alongside the §15.4 banding:
+- **Capitalized fee drag**: excess related-party extraction per year ÷
+  equity discount rate (10-12%), as % of equity NAV. CMDB: ~$28M/yr
+  capitalized = $233-280M ≈ 30-36% of its $779M equity NAV — landing on
+  the 30% haircut independently of the TEN-equivalence judgment.
+- **External-anchor implied discount**: 1 − (anchor target / tool NAV).
+  TEN: VIE Bullish $51.50 vs NAV $80.79 → ~36%.
+The market's own persistent P/NAV is the FLOOR-side reference, never the
+calibration: haircutting to market ratifies the price and deletes the
+signal (§15.6). Size between the anchors; record the triangle
+(owner haircut / anchor-implied / market) per name.
+
+**Step 3 — recording.** Every watchlist name carries exactly one of:
+`applied X% (calibration logic)`, `declined (rationale + tripwires)`, or
+`N/A (gated at median P/NAV ~Y×)` — in the decision log, with the
+balance-sheet comment pointing at it. The screen is a mandatory
+onboarding step (CLAUDE.md workflow, after the Pareto sweep) and re-runs
+per name at any tripwire or material governance event.
+
+**Retro screen of the pre-§15.7 book: run 2026-06-11** — outcomes in
+each decision log; summary in the Appendix A entry of that date.
+
 ## Appendix A. Changelog
 
 Dated record of material framework changes. Lock dates use UTC.

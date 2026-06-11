@@ -9,6 +9,41 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11 — §15 haircut recalibration review (§15.7 retro screen): HOLD at 30%, RE-GROUNDED
+
+The original 30% (owner decision 2026-06-10) was set as "TEN-equivalent"
+judgment with no external anchor to triangulate. The §15.7 capitalized
+fee-drag anchor now provides the quantitative leg it lacked:
+
+**The math.** Related-party run-rate ~$28M/yr (Jun-2 6-K Q1 actuals
+annualized: $3.0M management + $2.4M agency + $0.7M G&A to a related
+service provider + $0.9M non-cash share issuance — vs the $21.6M/yr in
+the original rationale, i.e. the extraction is HEAVIER than first
+assumed). Equity NAV $779M ($32.23 × 24.18M sh). Capitalized at the
+10-12% equity rate: $233-280M ≈ **30-36% of equity NAV**. Netting a
+generous market-rate service cost (CAPT comparator: ~0.4-1% of GAV ≈
+$3-7M/yr for a fleet this size) leaves excess extraction ~$21-25M/yr →
+$175-250M → **22-32% of NAV**.
+
+**Decision: HOLD 30% — now resting on arithmetic, not analogy.** The
+two bands bracket it (22-32% on excess-fee logic, 30-36% gross). The
+up-pressure from fees running ~30% heavier than the original rationale
+is absorbed inside the band; the 0.62× P/BV market read (~38% discount)
+sits just outside it, floor-side, as §15.7 prescribes. Fee load as %
+of GAV: ~4%/yr — an order of magnitude above CAPT's 0.4%, the widest
+extraction ratio on the watchlist.
+
+**Reopen triggers (unchanged + one added):** any payout/buyback
+initiation (DOWN — the natural §12-style correction per the original
+entry); fee escalation or new related-party agreements (UP); the
+Astros/Q2 print cycle; ADDED — any related-party fee RESTRUCTURING
+disclosure (the Cargill platform transfer completing changes the
+agency-fee mix; watch the Q2 related-party note for the new run-rate).
+
+---
+
+---
+
 ## 2026-06-11T15:40:59+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -225,10 +225,18 @@ quarter of data. **The bars apply at lock-time, not per-run.**
    stance/TP changes, deal overlays, name-attributed S&P prints, dividend
    policy changes, NB orders. Distill into the decision log; promote any
    prints (then run the prints→rerun→drift loop).
-4. Add the watchlist row (current_price, analyst_target, consensus_pnav,
+4. **§15 governance screen (METHODOLOGY §15.7, mandatory since
+   2026-06-11):** gate at multi-year median P/NAV ≥0.85 (recorded N/A);
+   below the gate, run the structured screen (control/share structure,
+   related-party fee load as % of GAV/yr, distribution behaviour,
+   natural-experiment comp, external anchor). Outcome — applied X% /
+   declined-with-tripwires / N/A-gated — goes in the decision log.
+   Doctrine: haircuts price EVIDENCE of realisation impairment;
+   mechanism generates TRIPWIRES.
+5. Add the watchlist row (current_price, analyst_target, consensus_pnav,
    consensus_fwd_pe, sector, as_of).
-5. Run pipeline + tests + `/reconcile <TICKER>`.
-6. If SANITY=OK, close the decision log entry with the reconciliation gap
+6. Run pipeline + tests + `/reconcile <TICKER>`.
+7. If SANITY=OK, close the decision log entry with the reconciliation gap
    recorded as the baseline for future drift detection. If SANITY=FAIL,
    **stop and investigate** — don't paper it over.
 
@@ -405,6 +413,29 @@ sessions.
 
 ## Changelog
 
+- **2026-06-11 (Week 3, day 2, Part 4)** — **§15.7 screening procedure
+  FORMALISED + full-book retro screen run (owner-approved).** New
+  METHODOLOGY §15.7: cheap gate (multi-year median P/NAV ≥0.85 → N/A),
+  structured screen below it (control/share structure, related-party
+  fee load %GAV/yr, distribution behaviour, natural-experiment comp,
+  external anchor), the evidence-vs-mechanism doctrine (haircuts price
+  EVIDENCE; mechanism → tripwires), two quantitative calibration
+  anchors (capitalized fee drag; external-anchor implied discount),
+  mandatory recording per name + onboarding step 4. Retro outcomes,
+  all 17: 9 gated N/A (DHT ECO FRO FLNG INSW HAFN NAT-§12 ASC GNK);
+  3 Step-1 declines (STNG TRMD SBLK — open payout/buyback channels, §6
+  mark-driven discounts); 2 full-screen declines with tripwires —
+  **TNK 0%** (dual-class 54.9%-votes-on-30.8%-economics BUT fee leakage
+  internalized Dec-24, $6.00/sh specials since mid-23; TK-combination
+  tripwire) and **CCEC 0%, closest call** (float ~13%, sponsor-paid
+  exec comp, fiduciary waiver, ~24% payout vs CAPT-like 0.4%-of-GAV
+  fees, real conflicts committee, 76-quarter dividend record;
+  payout-path + CAPT↔CCEC cross-dealing tripwires; 10% alternative
+  documented — owner call). **Haircut recalibrations: TEN HOLD 30%**
+  (band 30-36; VIE-implied drifted to 36.3% but the payout raise argues
+  down; TCM fee anchor due at Q2) and **CMDB HOLD 30%, RE-GROUNDED** —
+  capitalized fee drag ($28M/yr ÷ 10-12%) = 30-36% of the $779M equity
+  NAV, landing on the haircut independently of TEN-equivalence.
 - **2026-06-11 (Week 3, day 2, Part 3)** — **CAPT onboarded (17th name,
   Week 3 stretch goal) — first Oslo/NOK listing.** Assembled entirely
   from the linked-report harvest (Pareto initiation Apr-19 + Q1 review

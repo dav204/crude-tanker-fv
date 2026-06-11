@@ -7,6 +7,54 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11 — §15.7 retro screen (FULL): DECLINED, 0% — with tripwires
+
+Below the gate (0.76× Pareto print; press/broker history ~0.5-0.9× across
+the cycle), Teekay Corp sponsor → full screen run (20-F-grounded).
+
+**Mechanism (real, and worse than CAPT's on paper):** dual-class —
+Class B carries 5 votes/sh (49% aggregate voting cap), giving TK
+**54.9% of votes on 30.8% of economics** (FY2025 20-F); FPI +
+"controlled company" exemptions; Bermuda redomicile 2024. The 20-F
+itself warns TK can control outcomes "even if it comes to own
+significantly less than 50%."
+
+**Evidence (weakening, not strengthening — the §15.7 decider):**
+1. **The fee leakage was INTERNALIZED Dec-31-2024**: TNK bought TK's
+   management companies + Australian ops for $92.2M, ending ~$38-40M/yr
+   of perpetual strategic/admin fees TO the parent. FY2025 related-party
+   flow has REVERSED — TK reimbursed TNK $0.3M (shared CEO/CFO). Fee
+   drag today ≈ nil. The purchase itself was a related-party transaction
+   (price fairness unverifiable from outside), but it is one-time and it
+   removed the §15-relevant perpetuity.
+2. **Distribution channel wide open**: fixed $0.25/qtr + FIVE specials
+   totaling $6.00/sh since mid-2023 (latest $1.00 paid Jun-2-2026).
+3. **Assets realised above book**: six vessels ~$183M gross since
+   start-2025, sold above book, proceeds partly returned.
+4. Consolidation trajectory (TK now ≈ holdco for the stake; shared
+   executives; combination speculation) — cuts both ways, tripwire 1.
+
+**Decision: 0% — the TEN/CMDB archetype requires ongoing extraction or
+a closed payout channel; TNK now has neither.** The residual 0.76× is
+the documented §6 mark-driven + weight-driven call plus a
+controlled-company overhang the owner MAY price at the §15.4 "modest"
+band (10%) — presented as an option, not applied; at 10% the TNK HOLD
+reading would not flip.
+
+**Tripwires (any one reopens):**
+1. **Any TK/TNK combination proposal** — ratio/price risk for minorities
+   is the live endgame risk (family-office precedent: the Teekay
+   Offshore / Brookfield 2019 squeeze-out litigation). Switch to
+   deal-arb framing on announcement.
+2. Re-externalization of services or any new TK fee agreement.
+3. Buyback authorizations remaining unused through another year of >20%
+   NAV discount (the one §15-flavored behavior: the 2017 $45M program
+   was never used; no material use of the 2023 $100M program found).
+4. Dual-class entrenchment events (B-share issuance, voting-cap
+   amendment).
+
+---
+
 ## 2026-06-11T15:40:59+00:00 — Pipeline run (auto)
 
 **Model state:**

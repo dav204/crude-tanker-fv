@@ -9,6 +9,10 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11 — §15.7 retro screen (formalised today): **Screened Step 1, DECLINED — no governance basis.** Persistently below gate (Pareto-history 0.66-0.84×, retro-sweep entry) BUT: self-managed (no sponsor fee extraction), ~95-100% variable payout PLUS opportunistic buybacks — the realisation channel is the widest on the watchlist. The −21% gap is the documented §6 mark-driven call (k_broker 1.27, name-specific Pana-book read). A governance haircut here would double-count a marks question.
+
+---
+
 ## 2026-06-11T15:40:59+00:00 — Pipeline run (auto)
 
 **Model state:**

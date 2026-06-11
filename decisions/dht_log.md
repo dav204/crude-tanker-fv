@@ -7,6 +7,10 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11 — §15.7 retro screen (formalised today): **N/A (gated)** — Pareto P/NAV 1.09× (Jun-4 print), persistent premium-to-NAV name. Realisation demonstrated; no screen needed.
+
+---
+
 ## 2026-06-11T15:40:59+00:00 — Pipeline run (auto)
 
 **Model state:**

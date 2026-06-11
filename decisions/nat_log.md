@@ -7,6 +7,10 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11 — §15.7 retro screen (formalised today): **N/A (gated, §12 inverse)** — market pays ~2× tool NAV at peak; NAT's framework issue is §12 (tool UNDERvalues high-payout pure-plays), the opposite failure mode. No realisation impairment by construction.
+
+---
+
 ## 2026-06-11T15:40:59+00:00 — Pipeline run (auto)
 
 **Model state:**

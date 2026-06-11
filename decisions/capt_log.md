@@ -108,6 +108,9 @@ Sensitivity: a precautionary 10% haircut would read PW FV $17.68 →
    replay) — switch to deal-arb framing immediately, as with GNK.
 5. Fee escalation beyond CPI or new related-party service agreements.
 6. Q1-2027 liquidity: the ~$385M NB debt must land on schedule.
+7. Any CAPT↔CCEC cross-dealing (added at the 2026-06-11 CCEC §15.7
+   screen — the two share a CEO and sponsor; an asset shuffle between
+   them is the novel conflict this group structure enables).
 
 ---
 

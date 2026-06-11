@@ -7,6 +7,10 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11 — §15.7 retro screen (formalised today): **Screened Step 1, DECLINED — no governance basis.** 0.83× sits just under the gate; the overhang is a financial sponsor selling DOWN (Oaktree distribution), not operator-family extraction — no related-party fee load, integrated self-management, 58% payout policy paying quarterly. Discount = §6 mark-driven call.
+
+---
+
 ## 2026-06-11T15:40:59+00:00 — Pipeline run (auto)
 
 **Model state:**
