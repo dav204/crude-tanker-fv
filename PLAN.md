@@ -100,14 +100,23 @@ calendar + preflight §0 drive the timing)
 
 ## Standing threads (not Week 5 step work)
 
-- **MB Shipbrokers weeklies — subscription pending first delivery.**
-  Dan signed up 2026-06-11 for all four (Container / Dry Bulk / LNG /
-  Tanker). **Dan will say when they land.** Until then the container
-  anchor vintage stays frozen at 2026-04-01 (§11.8.5(a), LIMITATIONS
-  §3). On first delivery: ingest route TBD (Gmail is read-only via
-  sanctioned API per guardrails); the three non-container weeklies are
-  fresh independent cross-checks for EXISTING sectors — run a once-over
-  against current anchors when they arrive.
+- **MB Shipbrokers weeklies — LANDED 2026-06-12** (Container / Dry Bulk /
+  Tanker issue 24; **LNG not yet delivered — verify the subscription**).
+  Ingest route established: Gmail link harvest (read-only sanctioned API)
+  → `scripts/fetch_pdf.py` (cdn.flxml.eu in data_sources.yaml) →
+  `inputs/research_mb/<feed>/YYYY/`; weekly cadence folds into the
+  Saturday digest (agent half — Gmail needs an authed session, not cron).
+  Once-over run: `outputs/mb_weekly_check_2026-06-12.md`. Headlines:
+  container feeder +13.4% over the frozen 10 weeks (position 0.98x→1.12x,
+  MBCI +13.9% — owner-gated current-rate refresh queued; anchors stable);
+  tanker 5yr assessments land 5/6 inside the k-band (independent B4
+  confirmation) but crude NB anchors read 14-35% rich vs MB Korea (review
+  item); dry-bulk marks validated by MB's own prints (Proteas dead-on the
+  Pana curve), Pana ANCHOR flagged structurally low (Q3 + B5 xref);
+  **7 promotable print candidates queued incl. Seamusic Aframax $52.5M
+  (~65% above fit — 2026 S&P rally datapoint) and 2 Pana prints for the
+  n=6 fit**; Hormuz trigger NOT met (draft memo, 30-day window — closest
+  signal yet, watch the digests).
 - **Brokerage MCP — CLOSED 2026-06-12 (decision REVISED).** Owner kept
   the IBKR connector attached (Cowork weekly portfolio routine + Chat);
   claude.ai has no per-surface scoping, so the fix is DENY rules on the

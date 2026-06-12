@@ -49,6 +49,24 @@ _market_data_sources:
       historical_tce_means.yaml LNGC comment). DO NOT bulk-update without
       explicit methodology decision on which base period / outlier handling
       is preferred per class.
+  mb_shipbrokers_weeklies:
+    label: MB Shipbrokers weekly research (Container / Dry Bulk / Tanker / LNG)
+    url: https://cdn.flxml.eu/
+    auth_required: none — emailed to dav204@gmail.com (direct subscription since 2026-06-11); the "Download report" button is a flexmail tracked link redirecting to the issue PDF
+    cadence: weekly (issue number = ISO week); first direct delivery 2026-06-12 (issue 24 — Container, Dry Bulk, Tanker; LNG not yet arrived)
+    fields_available:
+      - Container — same 3-page format as the 42-issue archive (MBCI, average charter rates, representative fixtures, NB + 2nd-hand price assessments)
+      - Dry Bulk — period rates / period fixtures per class, S&P section
+      - Tanker — rates & prices per class (USD/day, USD mn), market development
+    feeds:
+      - inputs/research_mb/<feed>/YYYY/ PDF archive (container feed CONTINUES the research_pareto_other/container_weekly archive, frozen 2026-04-01)
+      - "§11.8.5 container cycle-anchor vintage refresh (owner-gated)"
+      - tanker / dry-bulk anchor cross-checks; S&P print candidates (promotion human-only)
+    notes: |
+      The email-body data tables are IMAGES — the PDF behind the Download
+      link is the parseable artifact. Tracked-link tokens are
+      recipient-specific; harvest per issue from Gmail (read-only,
+      sanctioned API), then fetch with scripts/fetch_pdf.py.
 #
 # Verification status: URLs marked [VERIFIED] were fetched during data
 # collection (ASC and STNG, 2026-06-01). Others use canonical IR-endpoint

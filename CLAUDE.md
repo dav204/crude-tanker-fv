@@ -137,6 +137,16 @@ quarter of data. **The bars apply at lock-time, not per-run.**
   reports (217 company_report) incl. ~70 directly on watchlist names —
   full NAV breakdowns and estimates, far richer than the daily prose.
   Run the harvest as part of the weekly/quarterly ingest.
+- **MB Shipbrokers weeklies (direct subscription since 2026-06-12):**
+  Container / Dry Bulk / Tanker (LNG pending) arrive Fridays by email;
+  the email tables are IMAGES — the PDF behind the "Download report"
+  flexmail link is the artifact. Harvest the links from Gmail (read-only
+  API), fetch with `scripts/fetch_pdf.py` (cdn.flxml.eu allowlisted via
+  `data_sources.yaml` `mb_shipbrokers_weeklies`), archive at
+  `inputs/research_mb/<feed>/YYYY/` (container CONTINUES the frozen
+  `research_pareto_other/container_weekly` archive — extraction passes
+  read both roots). Independent cross-check, not a calibration input —
+  same discipline as VIE.
 - **VIE Coverage Universe** (Catlin / Mintzmyer) is an independent
   external check, not a calibration input. Track stance disagreements in
   §6 footnotes; do NOT bulk-update from VIE without an explicit
@@ -514,6 +524,29 @@ sessions.
 
 ## Changelog
 
+- **2026-06-12 (Week 5) — MB weeklies first direct delivery: ingest route
+  built + three-sector once-over run (review-only, nothing promoted).**
+  Container/Dry Bulk/Tanker Weekly 24 archived to `inputs/research_mb/`
+  (LNG not delivered — verify subscription); route = Gmail link harvest →
+  fetch_pdf.py (cdn.flxml.eu added to data_sources.yaml
+  `mb_shipbrokers_weeklies`). Findings in
+  `outputs/mb_weekly_check_2026-06-12.md`: (1) container — frozen 10
+  weeks hid a feeder rally (+13.4%, position 0.98x→1.12x; MBCI +13.9%;
+  intermediate/large drift normal; marks layer current; MPCC most
+  exposed) → owner-gated `twelve_month_tc.yaml` container refresh queued;
+  (2) tanker — MB 5yr assessments land 5/6 classes inside
+  TXN_PURE_PLAY_K_BAND over our txn marks (first INDEPENDENT
+  confirmation of the B4 band semantics), but crude NB anchors read
+  14-35% above MB Korea NB with a 5yr>NB prompt inversion (review item);
+  Hormuz trigger NOT met (draft memo, 30-day window, conditions — the
+  closest signal yet); (3) dry bulk — txn marks validated by MB's own
+  prints (Proteas $12.10M dead-on the age-21 Pana curve), Supra
+  assessment gap = basis not error, **Pana anchor flagged structurally
+  LOW** (MB 5yr tenor never below ~16k vs anchor 11.9k — Q3 refinement +
+  B5 xref). 7 promotable print candidates queued (Seamusic Aframax
+  $52.5M ~65% above fit; Shanhaiguan NB resale $90M; Vulcania/Proteas
+  Pana; 3 Supra-Ultra) — promotion human-only, each triggers the
+  prints→rerun→drift loop.
 - **2026-06-12 (Week 5, Session A) — B4 shipped: mark-driven classification
   restated to post-flip k_broker semantics + fetch_links argparse fix.**
   Two-regime definition landed in METHODOLOGY §9 item 9: txn-anchored
