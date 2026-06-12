@@ -103,6 +103,48 @@ classes:
     scrap_25yr: 6500000
     scrubber_premium: 1500000
     eco_premium_pct: 0.05
+  # ---------------------------------------------------------------------
+  # Containerships (METHODOLOGY §11.8.5) — fit to MB Shipbrokers Apr-01-2026
+  # assessments (FROZEN VINTAGE; refresh on first MB-subscription delivery).
+  # NB anchor = CHINA yard price (Korea premium documented, not modeled).
+  # 5yr = NB↔10yr midpoint (MB publishes no 5yr container assessment).
+  # Scrap from lightweight convention (~$450/LDT, ESTIMATE).
+  # NOTE the deliberate old-age choice: MB's 15yr marks (23.0 @1,700 /
+  # 32.0 @2,700) sit ABOVE our linear 10yr→25yr leg — we do NOT import the
+  # boom-flat old-age retention (§11.8.5(b) marks-tilt caveat); the tool's
+  # old-tonnage marks run conservative vs MB by design.
+  # ---------------------------------------------------------------------
+  Ctr-Feeder:           # reference ~1,700 TEU (MB sizes 1,100/1,700)
+    dwt: 23500
+    newbuild: 32000000          # MB 1,800 TEU China
+    five_year_benchmark: 30000000
+    ten_year_benchmark: 28000000  # MB 1,700 TEU 10yr
+    scrap_25yr: 4000000           # ~8,500 LDT ESTIMATE
+    scrubber_premium: 0
+    eco_premium_pct: 0.05
+  Ctr-Intermediate:     # reference ~2,750 TEU (MB sizes 2,500-4,250)
+    dwt: 39000
+    newbuild: 44000000          # MB 2,800 TEU China
+    five_year_benchmark: 39800000
+    ten_year_benchmark: 35500000  # MB 2,700 TEU 10yr
+    scrap_25yr: 5000000           # ~11,500 LDT ESTIMATE
+    scrubber_premium: 0
+    eco_premium_pct: 0.05
+  Ctr-Large:            # reference ~6,000 TEU (MB sizes 5,500/6,500)
+    # SOFTEST-VALIDATED MARKS IN THE BOOK (§11.8.5): MB's only large-size
+    # 2nd-hand assessments are WB designs (5,000WB $63.5M / 6,700WB $75.0M),
+    # which price ABOVE the conventional 5,400 NB ($63.0M China) — boom
+    # inversion. 10yr below = WB pair interpolated to 6,000 (~$69M) less a
+    # ~12% WB-design premium adjustment (JUDGMENT, documented; keeps the
+    # curve monotonic). Re-derive before trusting any large-heavy name
+    # (DAC/CMRE warning, §11.8.5).
+    dwt: 75000
+    newbuild: 63000000          # MB 5,400 TEU China
+    five_year_benchmark: 59500000
+    ten_year_benchmark: 56000000
+    scrap_25yr: 10000000          # ~22,000 LDT ESTIMATE
+    scrubber_premium: 0
+    eco_premium_pct: 0.05
 yard_discounts:
   Hengli: 0.05
   Dalian: 0.05

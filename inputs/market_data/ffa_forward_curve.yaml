@@ -134,3 +134,43 @@ ffa_forward_curve:
   - 13500
   - 13200
   - 13000
+  # Containerships (§11.8) — NO FFA exists; synthesised current-market
+  # forward per the synthesised-from-spot convention: starts at the MB
+  # Apr-01-2026 TC assessment, mean-reverts toward the FY21-25 anchor
+  # (between disruption_persists and gradual_normalization). 10 elements
+  # (strip_horizon: 10, q3_2026 → q4_2028, §11.8.6.4). Frozen vintage;
+  # refresh on first MB-subscription delivery. Added at sector wire-up
+  # (Week 4 Step 2, owner-ratified) — NOT an OCR promotion.
+  Ctr-Feeder:
+  - 20500
+  - 20250
+  - 20250
+  - 20000
+  - 20000
+  - 19750
+  - 19500
+  - 19500
+  - 19250
+  - 19000
+  Ctr-Intermediate:
+  - 42000
+  - 41500
+  - 41000
+  - 40000
+  - 39500
+  - 38500
+  - 38000
+  - 37500
+  - 36500
+  - 36000
+  Ctr-Large:
+  - 62500
+  - 61500
+  - 60000
+  - 58500
+  - 57000
+  - 55500
+  - 54000
+  - 52000
+  - 50000
+  - 48000

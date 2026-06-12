@@ -72,6 +72,7 @@ def _load_all_sectors(inputs_dir: Path = INPUTS_DIR) -> dict[str, dict]:
         "lng": load_scenarios(path, "lng"),
         "product": load_scenarios(path, "product"),
         "dry_bulk": load_scenarios(path, "dry_bulk"),
+        "containerships": load_scenarios(path, "containerships"),
     }
 
 
@@ -247,9 +248,9 @@ def _run_scenarios_for_ticker(
         # dry_bulk: Cape/Pana/Supra-Ultra route via the dry_bulk sector map.
         if sector == "product":
             kwargs = {"scenario_class_map": PRODUCT_SCENARIO_CLASS_MAP}
-        elif sector == "dry_bulk":
+        elif sector in ("dry_bulk", "containerships"):
             from .scenarios import SCENARIO_CLASS_MAP_BY_SECTOR
-            kwargs = {"scenario_class_map": SCENARIO_CLASS_MAP_BY_SECTOR["dry_bulk"]}
+            kwargs = {"scenario_class_map": SCENARIO_CLASS_MAP_BY_SECTOR[sector]}
         else:
             kwargs = {}
         return run_scenarios(whole_inputs, whole_price, whole_target, doc, **kwargs), None, None

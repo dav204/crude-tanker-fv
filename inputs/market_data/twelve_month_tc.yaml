@@ -14,3 +14,9 @@ twelve_month_tc:
   Cape: 27000
   Pana: 17500
   Supra-Ultra: 16000
+  # Containerships (§11.8) — MB Apr-01-2026 TC assessments, class-collapsed
+  # per §11.8.1 (frozen vintage; ctr_intermediate is the simple average
+  # pending the A3 TEU-weighting at validator onboarding).
+  Ctr-Feeder: 20500
+  Ctr-Intermediate: 42000
+  Ctr-Large: 62500

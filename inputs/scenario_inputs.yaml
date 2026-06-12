@@ -1162,6 +1162,238 @@ sectors:
         ten_year_mean: 13930
         source: same — Pareto Shipping Daily median (Supramax pre-Sep-2025, Ultramax after)
 
+  # ===========================================================================
+  # CONTAINERSHIPS — Container Set A (METHODOLOGY §11.8, locked 2026-06-11,
+  # wired 2026-06-12). Disruption-led demand tree; charter-coverage-dampened
+  # (per-name coverage_schedule earns contracted rates; these curves price
+  # only the UNCOVERED fraction + cycle position).
+  #
+  # ALL LEVELS AT THE FROZEN 2026-04-01 MB VINTAGE (Container Weekly feed
+  # stopped; refresh on first direct-subscription delivery — PLAN standing
+  # thread). Rates are MB Shipbrokers TC assessments collapsed per §11.8.1:
+  #   ctr_feeder       = avg(1,100 / 1,700 TEU)            = $20,500 current
+  #   ctr_intermediate = TEU-weighted(2,500/2,700/3,500/4,250) — A3: weighted
+  #                      by the validator fleets' intermediate TEU mix at
+  #                      onboarding; level below uses the SIMPLE AVERAGE
+  #                      ($42,000) PENDING fleet data [A3-PENDING marker —
+  #                      re-derive when MPCC/GSL manifests land].
+  #   ctr_large        = avg(5,500 / 6,500 TEU)             = $62,500 current
+  #   (5,400 WB excluded — design premium, not a class. §11.8.1)
+  #
+  # strip_horizon: 10 (§11.8.6.4): q3_2026 → q4_2028 — the strip must reach
+  # END-2028 because ~41% of 2028 days are already contracted at boom-vintage
+  # rates (MPCC); an 8q strip collapses that premium into the terminal.
+  # Owner brief said "~12q from current report date"; the repo's strip-quarter
+  # convention starts at q3_2026, so end-2028 = 10 strip quarters. Recorded
+  # in the session log.
+  # ===========================================================================
+  containerships:
+
+    strip_horizon: 10
+
+    scenarios:
+
+      # -----------------------------------------------------------------------
+      # disruption_persists (w=0.25) — Red Sea shut through horizon; congestion
+      # + slow steaming hold ~20% of effective capacity off-market (Pareto
+      # May-26). Rates hold near current with mild late drift.
+      # -----------------------------------------------------------------------
+      disruption_persists:
+        weight: 0.25
+        description: >
+          Red Sea closure persists through the horizon; reroutes, congestion
+          and slow steaming keep effective supply tight. Charter market stays
+          near the Apr-2026 assessments, easing only late as deliveries land.
+        ctr_feeder:
+          q3_2026: [17425, 20500, 23575]
+          q4_2026: [17425, 20500, 23575]
+          q1_2027: [17425, 20500, 23575]
+          q2_2027: [17425, 20500, 23575]
+          q3_2027: [17213, 20250, 23288]
+          q4_2027: [17000, 20000, 23000]
+          q1_2028: [17000, 20000, 23000]
+          q2_2028: [16788, 19750, 22713]
+          q3_2028: [16575, 19500, 22425]
+          q4_2028: [16575, 19500, 22425]
+        ctr_intermediate:
+          q3_2026: [35700, 42000, 48300]
+          q4_2026: [35700, 42000, 48300]
+          q1_2027: [35700, 42000, 48300]
+          q2_2027: [35275, 41500, 47725]
+          q3_2027: [34850, 41000, 47150]
+          q4_2027: [34425, 40500, 46575]
+          q1_2028: [34000, 40000, 46000]
+          q2_2028: [33575, 39500, 45425]
+          q3_2028: [33150, 39000, 44850]
+          q4_2028: [33150, 39000, 44850]
+        ctr_large:
+          q3_2026: [53125, 62500, 71875]
+          q4_2026: [53125, 62500, 71875]
+          q1_2027: [52700, 62000, 71300]
+          q2_2027: [51850, 61000, 70150]
+          q3_2027: [51000, 60000, 69000]
+          q4_2027: [50150, 59000, 67850]
+          q1_2028: [49300, 58000, 66700]
+          q2_2028: [48450, 57000, 65550]
+          q3_2028: [47600, 56000, 64400]
+          q4_2028: [46750, 55000, 63250]
+
+      # -----------------------------------------------------------------------
+      # gradual_normalization (w=0.40, BASE) — phased Suez return from 2027;
+      # rates glide toward the FY21-25 anchors by end-2028.
+      # -----------------------------------------------------------------------
+      gradual_normalization:
+        weight: 0.40
+        description: >
+          Phased Suez return from 2027 releases effective supply; charter
+          rates glide toward the FY21-25 anchor levels by end-2028. The base
+          case — neither the disruption nor the orderbook dominates.
+        ctr_feeder:
+          q3_2026: [17425, 20500, 23575]
+          q4_2026: [17213, 20250, 23288]
+          q1_2027: [17000, 20000, 23000]
+          q2_2027: [16788, 19750, 22713]
+          q3_2027: [16575, 19500, 22425]
+          q4_2027: [16150, 19000, 21850]
+          q1_2028: [15938, 18750, 21563]
+          q2_2028: [15725, 18500, 21275]
+          q3_2028: [15513, 18250, 20988]
+          q4_2028: [15300, 18000, 20700]
+        ctr_intermediate:
+          q3_2026: [35700, 42000, 48300]
+          q4_2026: [34850, 41000, 47150]
+          q1_2027: [34000, 40000, 46000]
+          q2_2027: [32725, 38500, 44275]
+          q3_2027: [31450, 37000, 42550]
+          q4_2027: [30600, 36000, 41400]
+          q1_2028: [29750, 35000, 40250]
+          q2_2028: [28900, 34000, 39100]
+          q3_2028: [28050, 33000, 37950]
+          q4_2028: [27200, 32000, 36800]
+        ctr_large:
+          q3_2026: [53125, 62500, 71875]
+          q4_2026: [51425, 60500, 69575]
+          q1_2027: [49300, 58000, 66700]
+          q2_2027: [47175, 55500, 63825]
+          q3_2027: [45050, 53000, 60950]
+          q4_2027: [42925, 50500, 58075]
+          q1_2028: [40800, 48000, 55200]
+          q2_2028: [39100, 46000, 52900]
+          q3_2028: [37400, 44000, 50600]
+          q4_2028: [35700, 42000, 48300]
+
+      # -----------------------------------------------------------------------
+      # normalization_plus_overhang (w=0.20) — SUPPLY-led downside: Suez
+      # reopens INTO record orderbook deliveries. Size-graded per §11.8.4
+      # (A2): large weak (orderbook concentrates in big ships), intermediate
+      # soft, feeder ~base (nobody built feeders into this cycle).
+      # -----------------------------------------------------------------------
+      normalization_plus_overhang:
+        weight: 0.20
+        description: >
+          Suez reopens into the record orderbook — the FY23-trough analogue,
+          supply-led. ctr_large lands below its FY23 trough (today's orderbook
+          is bigger than 2023's); intermediate goes soft; feeder holds near
+          base (structurally tight supply, no orderbook overhang).
+        ctr_feeder:
+          q3_2026: [17425, 20500, 23575]
+          q4_2026: [17000, 20000, 23000]
+          q1_2027: [16788, 19750, 22713]
+          q2_2027: [16363, 19250, 22138]
+          q3_2027: [16150, 19000, 21850]
+          q4_2027: [15938, 18750, 21563]
+          q1_2028: [15725, 18500, 21275]
+          q2_2028: [15513, 18250, 20988]
+          q3_2028: [15300, 18000, 20700]
+          q4_2028: [15088, 17750, 20413]
+        ctr_intermediate:
+          q3_2026: [35700, 42000, 48300]
+          q4_2026: [34000, 40000, 46000]
+          q1_2027: [32300, 38000, 43700]
+          q2_2027: [30175, 35500, 40825]
+          q3_2027: [28050, 33000, 37950]
+          q4_2027: [26350, 31000, 35650]
+          q1_2028: [25075, 29500, 33925]
+          q2_2028: [23800, 28000, 32200]
+          q3_2028: [22950, 27000, 31050]
+          q4_2028: [22100, 26000, 29900]
+        ctr_large:
+          q3_2026: [53125, 62500, 71875]
+          q4_2026: [49300, 58000, 66700]
+          q1_2027: [45050, 53000, 60950]
+          q2_2027: [40800, 48000, 55200]
+          q3_2027: [36975, 43500, 50025]
+          q4_2027: [33575, 39500, 45425]
+          q1_2028: [30600, 36000, 41400]
+          q2_2028: [28475, 33500, 38525]
+          q3_2028: [26775, 31500, 36225]
+          q4_2028: [25500, 30000, 34500]
+
+      # -----------------------------------------------------------------------
+      # demand_recession (w=0.15) — DEMAND-led downside: consumer contraction,
+      # box volumes fall, tonnage handed back at expiry. Broad weak; feeder /
+      # intermediate at least as hard-hit as large RELATIVE TO ANCHOR (A2):
+      # at q4_2028 feeder 0.62x / intermediate 0.57x / large 0.79x anchor.
+      # -----------------------------------------------------------------------
+      demand_recession:
+        weight: 0.15
+        description: >
+          Global consumer-demand contraction. Box volumes fall and liners
+          hand back tonnage at expiry; regional consumer trade takes feeders
+          and intermediates to their FY23 troughs while large holds slightly
+          better on long-haul network commitments.
+        ctr_feeder:
+          q3_2026: [16575, 19500, 22425]
+          q4_2026: [15300, 18000, 20700]
+          q1_2027: [14025, 16500, 18975]
+          q2_2027: [13175, 15500, 17825]
+          q3_2027: [12325, 14500, 16675]
+          q4_2027: [11900, 14000, 16100]
+          q1_2028: [11475, 13500, 15525]
+          q2_2028: [11263, 13250, 15238]
+          q3_2028: [11050, 13000, 14950]
+          q4_2028: [11050, 13000, 14950]
+        ctr_intermediate:
+          q3_2026: [34000, 40000, 46000]
+          q4_2026: [30600, 36000, 41400]
+          q1_2027: [27200, 32000, 36800]
+          q2_2027: [24225, 28500, 32775]
+          q3_2027: [21675, 25500, 29325]
+          q4_2027: [19975, 23500, 27025]
+          q1_2028: [18275, 21500, 24725]
+          q2_2028: [17000, 20000, 23000]
+          q3_2028: [16150, 19000, 21850]
+          q4_2028: [15725, 18500, 21275]
+        ctr_large:
+          q3_2026: [51000, 60000, 69000]
+          q4_2026: [46750, 55000, 63250]
+          q1_2027: [42500, 50000, 57500]
+          q2_2027: [39100, 46000, 52900]
+          q3_2027: [36125, 42500, 48875]
+          q4_2027: [33575, 39500, 45425]
+          q1_2028: [31450, 37000, 42550]
+          q2_2028: [29750, 35000, 40250]
+          q3_2028: [28475, 33500, 38525]
+          q4_2028: [27625, 32500, 37375]
+
+    # The engine reads `ten_year_mean` as the cycle anchor key; for
+    # containerships the basis is the MB FY2021-2025 average (NOT a 10-year
+    # TC mean — §11.8.5; B5 anchor-basis commensurability is a Week-5 item).
+    # Boom-tilt caveat in §11.8.5: two boom episodes in the 5-year window.
+    cycle_anchors:
+      ctr_feeder:
+        ten_year_mean: 20850
+        source: MB Container Weekly FY21-25 average, bands 900-1,200 + 1,600-1,800 (Apr-01-2026 issue)
+        anchor_basis: FY2021-2025 average (MB)
+      ctr_intermediate:
+        ten_year_mean: 32300
+        source: MB Container Weekly FY21-25 average, bands 2,400-2,700 / 2,700-2,900 / 4,000-5,400
+        anchor_basis: FY2021-2025 average (MB)
+      ctr_large:
+        ten_year_mean: 41000
+        source: MB Container Weekly FY21-25 average, band 5,500-7,000 (softest-validated leg — §11.8.5)
+        anchor_basis: FY2021-2025 average (MB)
+
 
 # =============================================================================
 # TRIGGERS TO WATCH (CRUDE)

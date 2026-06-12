@@ -13,3 +13,8 @@ spot_tce:
   Cape: 38000
   Pana: 20500
   Supra-Ultra: 19500
+  # Containerships: NO spot market exists (TC-only); set = the 12M TC
+  # assessment so the breakeven display has a current-rate reference.
+  Ctr-Feeder: 20500
+  Ctr-Intermediate: 42000
+  Ctr-Large: 62500

@@ -82,6 +82,16 @@ SCENARIO_CLASS_MAP_BY_SECTOR: dict[str, dict[str, str]] = {
         "Supra-Ultra": "supra_ultra",  # collapsed Supramax + Ultramax per §11.7.1
                                         # (Pareto reclassified the benchmark Sep 2025)
     },
+    "containerships": {             # NEW 2026-06-12 — METHODOLOGY §11.8.1
+        # 3-class collapse aligned to MB Shipbrokers' rate-table banding:
+        # Feeder ≤2,000 TEU / Intermediate 2,000-5,500 / Large >5,500.
+        # WB (wide-beam) variants are not classes (design premium lives in
+        # the vessel's own TC rate). This sector sets strip_horizon: 10
+        # (q3_2026 → q4_2028, §11.8.6.4) — its curves carry 10 quarter keys.
+        "Ctr-Feeder": "ctr_feeder",
+        "Ctr-Intermediate": "ctr_intermediate",
+        "Ctr-Large": "ctr_large",
+    },
 }
 
 # Module-level default — combines all classes whose routing is unambiguous
@@ -396,6 +406,11 @@ _PRETTY = {
     "moderate_growth": "Moderate growth (base)",
     "china_property_drag": "China property drag",
     "coordinated_slowdown": "Coordinated slowdown",
+    # containerships (Container Set A — disruption-led, METHODOLOGY §11.8.4)
+    "disruption_persists": "Disruption persists",
+    "gradual_normalization": "Gradual normalization (base)",
+    "normalization_plus_overhang": "Normalization + orderbook overhang",
+    "demand_recession": "Demand recession",
 }
 
 _SECTOR_FRAMEWORK_LABEL = {
@@ -403,6 +418,7 @@ _SECTOR_FRAMEWORK_LABEL = {
     "lng": "LNG glut-cycle framework",
     "product": "product margin / glut framework",
     "dry_bulk": "Bulk Set A (China-driven)",
+    "containerships": "Container Set A (disruption-led)",
 }
 
 
