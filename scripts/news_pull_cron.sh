@@ -5,7 +5,7 @@
 # after Friday's Shipping Daily has arrived via the 07:00 daily RC ingest).
 #
 # Chain: RC incremental ingest -> sp_scan (prints) -> sp_scan --links
-#        -> sp_scan --fetch-links -> pareto_archive --build-manifest
+#        -> fetch_links -> pareto_archive --build-manifest
 #
 # Writes ONLY automation-writable trees (raw archives under inputs/, scan
 # cursors, outputs/ review queues) — never a pipeline-loaded YAML. Promotion
@@ -46,9 +46,9 @@ CURRENT_STEP="sp_scan --links (link inventory)"
 step "$CURRENT_STEP"
 "$PY" -m crude_tanker_fv.sp_scan --links
 
-CURRENT_STEP="sp_scan --fetch-links (download new linked reports)"
+CURRENT_STEP="fetch_links (download new linked reports)"
 step "$CURRENT_STEP"
-"$PY" -m crude_tanker_fv.sp_scan --fetch-links
+"$PY" -m crude_tanker_fv.fetch_links
 
 CURRENT_STEP="pareto_archive --build-manifest"
 step "$CURRENT_STEP"

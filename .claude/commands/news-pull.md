@@ -4,7 +4,7 @@ argument-hint: [TICKER,TICKER … — optional subset; default all watchlist nam
 ---
 
 Run the agent-judgment half of the weekly news pull. The mechanical half
-(Rocket.Chat ingest → `sp_scan` → `--links` → `--fetch-links` → manifest)
+(Rocket.Chat ingest → `sp_scan` → `--links` → `fetch_links` → manifest)
 runs Saturdays via `scripts/news_pull_cron.sh`; this command is the
 web-side sweep that the scanners can't do.
 

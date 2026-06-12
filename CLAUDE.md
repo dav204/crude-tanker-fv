@@ -39,9 +39,13 @@ for the full framework; this file is the operational rulebook.
   preflight's §0 section consumes it; report-day workflow below.
 - Weekly news pull (mechanical half): `scripts/news_pull_cron.sh` —
   launchd-scheduled Saturdays 08:00 (`com.crude-tanker-fv.news-pull`),
-  chains RC ingest → `sp_scan` → `--links` → `--fetch-links` →
+  chains RC ingest → `sp_scan` → `--links` → `fetch_links` →
   `pareto_archive --build-manifest` → `ffa_ocr` (+ staleness alarm);
-  log at `state/news_pull.log`.
+  log at `state/news_pull.log`. (The download step moved from
+  `sp_scan --fetch-links` to its own module
+  `python -m crude_tanker_fv.fetch_links` on 2026-06-12 so every
+  `sp_scan` mode is local-only — see the permissions note in
+  "What NOT to do".)
 - FFA widget OCR (incremental): `python -m crude_tanker_fv.ffa_ocr` —
   classifies + parses the daily 3-panel Cape/Pmax/Smax FFA screenshot
   from `inputs/ffa_drybulk/` into `state/ffa_ocr_curves.json` + review
@@ -106,10 +110,14 @@ quarter of data. **The bars apply at lock-time, not per-run.**
   point-in-time snapshot that disagrees with the report at quarter-end —
   **trust the report.** (Caught on FRO 2026-05.)
 - **WebFetch fails on many IR PDFs** — FlateDecode binary content doesn't
-  render to text. Pattern: `curl -sSL <url> -o /tmp/<file>.pdf` then
-  `.venv/bin/python -c "from pypdf import PdfReader; ..."`. (Caught on
-  DHT, ECO, multiple times.)
-- **ECO's domain TLS chain fails WebFetch entirely** — always curl + pypdf.
+  render to text. Pattern (2026-06-12): `.venv/bin/python
+  scripts/fetch_pdf.py <url>` (downloads to /tmp, validates the host
+  against `inputs/data_sources.yaml` — add new sources THERE, not to the
+  script) then `.venv/bin/python -c "from pypdf import PdfReader; ..."`.
+  Raw `curl` still works but prompts in agent sessions; the wrapper is
+  permission-allowlisted. (Caught on DHT, ECO, multiple times.)
+- **ECO's domain TLS chain fails WebFetch entirely** — use fetch_pdf.py,
+  which carries the one audited TLS-verification exception for that host.
 - **Compass Maritime weekly URL changes every week** — pattern is
   `compassmar.com/wp-content/uploads/YYYY/MM/Compass-Weekly-Report-MMM-DD-YY.pdf`.
 - **Pareto Shipping Daily** is the source for `consensus_pnav` and
@@ -123,8 +131,8 @@ quarter of data. **The bars apply at lock-time, not per-run.**
   publicly-hosted FactSet/BlueMatrix tracked downloads, no auth, tokens
   long-lived; some arrive Proofpoint-wrapped (decoded offline). Harvest:
   `sp_scan --links` (inventory at `outputs/pareto_daily_links.json`, with
-  resolved report_ids baked in) then `sp_scan --fetch-links` (downloads
-  new report IDs to `inputs/research_pareto_other/linked/`) then
+  resolved report_ids baked in) then `python -m crude_tanker_fv.fetch_links`
+  (downloads new report IDs to `inputs/research_pareto_other/linked/`) then
   `pareto_archive --build-manifest`. Retro-harvested 2026-06-10: 220
   reports (217 company_report) incl. ~70 directly on watchlist names —
   full NAV breakdowns and estimates, far richer than the daily prose.
@@ -321,6 +329,20 @@ go in Q3.
 
 - Don't change locked weights (Crude Set A, LNG Set B-revised, Product
   Set B v2) without a §11.x revision and a new lock test.
+- **Don't widen `.claude/settings.json` permission rules casually
+  (2026-06-12).** The tracked allowlist (see
+  `PERMISSIONS_PROPOSAL.md` for the full rationale) encodes policy:
+  every `sp_scan` mode is local-only BY CONSTRUCTION (network download
+  lives in `crude_tanker_fv.fetch_links`, which asks); the watchlist /
+  transactions / FFA-curve edits ask because promotion is human-only;
+  `git push` asks because pushing is a deliberate event. Two caveats to
+  remember: Bash permission rules are PREFIX matchers (a network flag
+  on an allowed module leaks through when flags are reordered — that's
+  why fetch_links is a separate module, keep it that way), and
+  file-rules only govern the agent's file tools, not `cat`/`sed` via
+  Bash — they're drift guardrails, not security walls. Per-machine
+  "don't ask again" accumulation goes in `.claude/settings.local.json`
+  (gitignored), never the tracked file.
 - Don't add classes to the transaction-anchored pipeline without a
   comparable sample (§9.9 scope discipline).
 - Don't bulk-update market data from VIE — directional cross-check only.
@@ -463,6 +485,24 @@ sessions.
 
 ## Changelog
 
+- **2026-06-12 — Permission allowlist shipped (`.claude/settings.json`,
+  tracked) + fetch_links module split + fetch_pdf.py wrapper.** Full
+  rationale in `PERMISSIONS_PROPOSAL.md` (decision record). Narrow
+  allows for the constant loop (pytest/reconcile/pipeline/refresh/
+  sp_scan/price_refresh, git add/commit, WebFetch to the
+  data_sources.yaml host set); ask on git push, fetch_links,
+  ingest_rocketchat, curl, launchctl, and the three human-only
+  promotion surfaces (watchlist vintage / transactions / FFA curve —
+  the TEN-$44 and promotion rules turned mechanical); deny on
+  credential-shaped reads. Two structural changes: `--fetch-links`
+  moved out of sp_scan into `crude_tanker_fv.fetch_links` (Bash rules
+  are prefix matchers — a network flag on an allowed module leaks when
+  flags are reordered, so the boundary is now a module boundary;
+  news_pull_cron.sh updated), and `scripts/fetch_pdf.py` replaces the
+  ad-hoc curl pattern (host-validated against data_sources.yaml in
+  code; carries the single audited Okeanis TLS exception). Brokerage
+  MCP decision: detach from Claude Code entirely (owner action),
+  not deny-rules. New "What NOT to do" rule on widening the allowlist.
 - **2026-06-11 (post-close) — TEN June-5 data-kit reconcile (user-supplied
   PDF; tenn.gr blocks agent fetching).** Found + fixed a Q1 manifest
   omission: Dr Irene Tsakos + Silia T (2025-built conventional Suezmaxes)
