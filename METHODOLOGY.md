@@ -1780,8 +1780,17 @@ Three-class collapse, boundaries following MB's own rate-table banding
 | `ctr_intermediate` | 2,000-5,500 | 2,500 / 2,700 / 3,500 / 4,250 | 2,400-2,700 / 2,700-2,900 / 4,000-5,400 |
 | `ctr_large` | >5,500 | 5,500 / 6,500 | 5,500-7,000 |
 
-Class rate = simple average of the MB standard-size assessments within
-the class. **WB (wide-beam) variants are excluded from class averages** —
+Class rate: `ctr_feeder` and `ctr_large` use the simple average of the
+MB standard-size assessments within the class (two sizes each, narrow
+spans). **`ctr_intermediate` is fleet-TEU-weighted, not simple-averaged
+(amended 2026-06-11, owner direction):** MB quotes 4+ sizes inside the
+class (2,500 / 2,700 / 3,500 / 4,250) across a 2.75× TEU span and does
+NOT pre-collapse them the way Pareto's desk collapsed Supra/Ultra —
+weight the sub-size assessments by each name's actual intermediate-fleet
+TEU distribution (the same move as value-weighted cycle position for
+multi-class crude, §2.3). Three-class scenario structure is unchanged;
+this is a rate-input refinement only, at the frozen 2026-04-01 vintage.
+**WB (wide-beam) variants are excluded from class averages** —
 MB quotes 5,400 WB at a premium ABOVE the 5,500 conventional ($65k vs
 $60k at Apr-01); it is a design premium, treated like ice-class in the
 TEN manifest (premium implicit in the vessel's own TC rate, not a class).
@@ -1852,8 +1861,21 @@ the LINERS' willingness to charter; we model the charter market itself.
 |---|:---:|:---:|:---:|:---:|---|
 | `disruption_persists` | **0.25** | firm | tight | tight | Red Sea stays shut through horizon; congestion + slow steaming hold ~20% of capacity off-market |
 | `gradual_normalization` (base) | **0.40** | base | base | base | Phased Suez return from 2027; rates glide toward mid-cycle as effective supply releases |
-| `normalization_plus_overhang` | **0.20** | weak | weak | weak | Suez reopens INTO record orderbook deliveries — the FY23 trough analogue, container-specific downside |
-| `demand_recession` | **0.15** | weak | weak | weak | Consumer-demand contraction; box volumes fall, liners hand back tonnage at expiry |
+| `normalization_plus_overhang` | **0.20** | ~base | soft | weak | Suez reopens INTO record orderbook deliveries — the FY23 trough analogue, container-specific SUPPLY-led downside |
+| `demand_recession` | **0.15** | weak | weak | weak | Consumer-demand contraction; box volumes fall, liners hand back tonnage at expiry — DEMAND-led, broad |
+
+**The two downsides carry distinct class signatures (amended 2026-06-11,
+owner direction).** The orderbook overhang is large, certain, and
+concentrated in big ships — nobody built feeders into this cycle. So
+`normalization_plus_overhang` is supply-led and size-graded: `ctr_large`
+takes the hardest hit, `ctr_intermediate` goes soft, `ctr_feeder` stays
+near base (feeder supply is structurally tight regardless of Suez).
+`demand_recession` is demand-led and broad: regional consumer trade
+contracts, so feeder/intermediate are at least as hard-hit as large.
+Without this differentiation the two rows were one 0.35 bucket wearing
+two labels — failing the bar dry bulk's `china_property_drag` vs
+`coordinated_slowdown` set (per-class differentiation earns the second
+label). Probabilities are owner-set and unchanged.
 
 **Weight rationale.** Base 0.40 mirrors the sector convention.
 `disruption_persists` gets 0.25 (vs dry bulk's 0.20 upside) because the
@@ -1886,14 +1908,45 @@ FY2021-25 band averages, collapsed to class:
 (FY23 trough levels, for scenario floors: feeder ~$13,300 /
 intermediate ~$18,300 / large ~$32,400 — class means of the FY23 column.)
 
-**Methodology caveat (locked in writing, mirrors §11.7.5):** the FY21-25
-window contains two boom episodes in five years; a true 10-year mean is
-likely LOWER (the 2016-2019 charter market ran far below FY24-25 levels).
-Position reads are therefore conservative-LOW (the market may be later-
-cycle than 1.3-1.5x suggests). Bigger classes read hotter — consistent
-with the disruption mechanics (longer reroutes bind big-ship capacity
-hardest). Feeders at 0.98x are NOT mid-cycle comfort: the feeder anchor
-is itself boom-tilted.
+**Methodology caveat — the bias story is two-layered (amended
+2026-06-11, owner direction; supersedes the original "positions read
+conservative-low" framing):**
+
+(a) The FY21-25 cycle-anchor boom-tilt (two boom episodes in five
+years; a true 10-year mean is likely lower — 2016-2019 charter markets
+ran far below FY24-25 levels) is the **lesser** bias for containers.
+The channel it distorts — cycle position → blend weights → strip
+over-weighting at apparent peak — is muted here, because ~99%
+front-of-strip coverage means the over-weighted strip earns CONTRACTED
+rates, not raw peak spot. An inflated anchor mis-weights cash flows
+that are largely locked either way.
+
+(b) The bias **relocates to the marks layer**, where it has no such
+damper: MB's old-age leg is running historically flat (NB→10yr only
+−12.5% on the 1,700; 10yr→15yr −18%) — boom-vintage residual-value
+retention (cf. 20-year-old 2,800s fixed at ~90% of quoted value in
+EBITDA+scrap, per the May-26 MPCC review). That is a net UPWARD tilt
+concentrated in OLD TONNAGE — worst precisely on MPCC, our cleanest
+validator (feeder fleet skews old) — with NO external NAV anchor to
+catch it (§11.8.2) and a 10-week-stale marks vintage on top (Step 0).
+Expect the old-age leg to steepen hard on normalization; treat
+container NAVs on aged fleets as carrying an unquantified
+marks-vintage premium until the MB subscription delivers a fresh
+assessment set.
+
+**ctr_large is the softest-validated leg in the sector (added
+2026-06-11, owner direction).** It reads hottest (1.53× position) on
+the weakest evidence: MB publishes no rate assessment above 6,500 TEU
+(>7,000 routes through the class unpriced, §11.8.1); its FY-average
+history is a single band (5,500-7,000); big-ship earnings are mostly
+contracted so the curve is barely exercised by validators; and neither
+v1 validator is large-heavy (MPCC has none; GSL's spread thins out at
+the top). The 1.53× is consistent with disruption mechanics (long
+reroutes bind big-ship capacity hardest) but it is a thinly-anchored
+number validated by no name we reconcile. Any future DAC/CMRE
+onboarding — both large-heavy — must NOT inherit this leg as settled:
+re-derive the large anchor and marks against the then-current MB set
+before trusting an EV that leans on them.
 
 **Complementary cycle indicator:** the MBCI (MB Container Index,
 Jan-95 = 1,000) parses from every issue — archive median 1,316, range
@@ -1946,25 +1999,48 @@ handles this with a **coverage-schedule generalization of the existing
    machinery and not warranted where a curve exists).
 3. **Mechanical consequence, stated up front:** with FY-26 coverage near
    99% (MPCC), the front of the strip is nearly scenario-insensitive;
-   scenario torque concentrates in quarters 5-8 and the terminal NAV
-   handoff. Expect container EVs to be NAV-driven and coverage-dampened
-   relative to every other sector — that is the economics, not a bug.
-   The `fleet_schedule` convention (§3.2) applies unchanged for
-   orderbook deliveries (GSL/MPCC NBs enter the earning fleet on
-   delivery dates).
+   scenario torque concentrates in the uncovered later quarters and the
+   terminal NAV handoff. Expect container EVs to be NAV-driven and
+   coverage-dampened relative to every other sector — that is the
+   economics, not a bug. The `fleet_schedule` convention (§3.2) applies
+   unchanged for orderbook deliveries (GSL/MPCC NBs enter the earning
+   fleet on delivery dates).
+4. **Strip horizon: 12 quarters for containerships (added 2026-06-11,
+   owner decision — `strip_horizon` becomes a per-sector parameter,
+   default 8).** The §3.2 8-quarter cap is justified by FFA liquidity
+   dying past 12-18 months — an argument about the reliability of
+   UNCONTRACTED forward rates. It does not apply to containers, whose
+   forward cash is contracted backlog disclosed through 2028+ (MPCC:
+   99/69/41% of 2026/27/28 days fixed). An 8q strip from a 2026-Q1
+   report date truncates at Q1-2028 and collapses the 2028 contracted
+   premium — fixed largely in the 2024-25 disruption boom, above
+   normalized rates — into a bare-mark terminal, destroying exactly
+   what the coverage schedule exists to capture, and understating
+   long-backlog names. Containers run to end-2028 (~12q from the
+   current report date); the terminal handoff mechanism is unchanged
+   (1.0× NAV at the extended final quarter). Counter-consideration,
+   accepted: the q9-12 UNCOVERED portion re-fixes at scenario rates
+   carrying wider uncertainty — acceptable; that is what scenarios are
+   for. Existing sectors keep 8 (verified zero-FV-drift at the
+   parameterization).
 
 #### 11.8.7 v1 calibration lock — recorded N/A by construction
 
 The new-sector bar (≥70% of Pareto-anchored validators within ±10% at
 lock) is **vacuous for containerships: zero container names have a
 Pareto NAV** (§11.8.2). Rather than pretend, the lock is recorded as
-**N/A — no anchored validators**, with two substitutes run and reported
-at sector ship (both directional, neither a gate):
-1. `/reconcile` gap vs VIE NAV estimates (APPROX path, downweighted).
-2. A marks-level check: tool curve values at MB assessment ages must
-   reproduce the MB assessments they were fit to (internal consistency),
-   and the implied fleet values cross-checked against disclosed insured
-   values / recent issuer S&P prints where available.
+**N/A — no anchored validators**, with substitutes run and reported at
+sector ship (directional, not gates; ordering amended 2026-06-11, owner
+direction):
+1. **PRIMARY substitute: external value evidence** — implied per-vessel
+   values cross-checked against disclosed insured values and recent
+   issuer S&P prints where available (issuer-confirmed, charter-noted).
+   This is the only check that brings in evidence the curve was not
+   built from.
+2. `/reconcile` gap vs VIE NAV estimates (APPROX path, downweighted).
+3. Fitting sanity check (NOT validation — it is circular by
+   construction): tool curve values at MB assessment ages must
+   reproduce the MB assessments they were fit to.
 The Q3 tightening pass re-evaluates if any container name gains a real
 broker NAV anchor (e.g. Pareto initiates with NAV, or Fearnleys/Cleaves
 coverage lands in the archive).
@@ -2003,7 +2079,7 @@ coverage lands in the archive).
 
 ## 12. Framework limitation — high-payout pure-plays at cycle peak
 
-The NAV + dividend-strip framework **systematically undervalues high-payout single-asset-class equities during cycle peaks**. This is a structural feature of the model, not a calibration error. It is documented here as a named constraint so that outputs for the affected names are read correctly.
+The NAV + dividend-strip framework **systematically undervalues high-payout single-asset-class equities during cycle peaks**. This is a structural feature of the model, not a calibration error. It is documented here as a named constraint so that outputs for the affected names are read correctly. *(Active per-name applications are registered in the overlay ledger, §16.)*
 
 ### 12.1 Mechanism
 
@@ -2093,7 +2169,24 @@ A structural supply-side factor **not currently parametrically modeled** in the 
 
 ### 14.4 Recommended usage
 
-- **Treat near-term (Q3-Q4 2026) Phase 2 TCEs as conservative on rate level.** Mental adjustment: +10-15% on Q3 pre_mou_baseline / moderate forwards; +5-10% on Q4. Phase 1 (escalation / tight) may extend through Q4 2026 rather than resolving in Q3.
+> **DOUBLE-COUNT WARNING (added 2026-06-11, owner direction).** The
+> "+10-15% Q3 / +5-10% Q4" overlay below was calibrated against the
+> **v1 crude weights** (mou_base 0.50) — it patched a framework leaning
+> normalization. The **Jun-9 weight set** (pre_mou 0.45, escalation
+> 0.25) now CARRIES most of that war-persistence view inside the
+> weights themselves. Applying the full §14.4 adjustment on top of
+> Jun-9 (or any war-leaning) weights **double-counts the bullish
+> side** — the same linked-vs-exogenous failure mode as the
+> demand-destruction backlog ticket, opposite sign. Under such weight
+> sets, apply only the **infrastructure-lag residual** (MEG export
+> volumes lag vessel transit even *within* pre_mou scenarios — a
+> 1-2 quarter timing effect), NOT the full adjustment. Cross-referenced
+> from the Jun-9 Appendix A entry; §14.4 overlay rows in the overlay
+> ledger (§16) carry this interaction note. *(Active per-name
+> applications are registered in the ledger — a §14.4 read not in the
+> ledger is not active.)*
+
+- **Treat near-term (Q3-Q4 2026) Phase 2 TCEs as conservative on rate level.** Mental adjustment: +10-15% on Q3 pre_mou_baseline / moderate forwards; +5-10% on Q4. Phase 1 (escalation / tight) may extend through Q4 2026 rather than resolving in Q3. *(Subject to the double-count warning above.)*
 - **High-spot crude names (ECO, FRO, DHT VLCC):** the framework's near-term bearishness may be premature. Expect actual rates to lag the framework's normalisation assumption by **1-2 quarters**. For position decisions where the call rests primarily on the Q3-Q4 2026 forward decline, weight the qualitative MEG-drag overlay alongside the model's TRIM signal.
 - **LNG specifically:** Ras Laffan is the dominant 2026 narrative — more important than the US Gulf Coast capacity ramp through at least H2 2026. The LNG scenario forwards' winter / Q4 2026 spike numbers are central, not optimistic.
 - **For decision-log entries:** when annotating a TRIM signal on a name with high MEG-rate sensitivity in 2026, note §14 is in scope and the actual signal may resolve in the opposite direction over 1-2 quarters if the supply-side ramp lag is real.
@@ -2142,6 +2235,9 @@ The Iran/MEG crisis transmits to vessel economics via a **bunker cost channel** 
 **Recommended overlay:** as part of the quarterly refresh discipline, cross-check the HSFO-MGO and HSFO-VLSFO spreads (VIE Bunker Fuel Spreads sheet or Ship & Bunker direct) against the bunker-state assumed in current scenario TCE forwards. If spreads have moved >$100/MT since the last forward-deck refresh, treat downstream product TCE assumptions as having ~5-10% upward bias and adjust position-sizing on MGO-exposed product names accordingly. **Not currently modeled parametrically** — adding an explicit bunker-spread layer (dynamic `scrubber_premium` + bunker pass-through coefficient on TCE forwards) is a candidate future framework extension but not warranted at current precision level (2-4% NAV effect, within scenario-weight noise).
 
 ## 15. Framework limitation — governance / structural-NAV-trap discount (added 2026-06-06)
+
+*(Applied haircuts auto-populate the overlay ledger, §16, from the
+balance-sheet `governance_discount_pct`.)*
 
 The framework's NAV machinery answers **"what are the assets worth?"** It
 does not answer **"what will the market pay for those assets given how the
@@ -2329,6 +2425,19 @@ with the discriminator each case contributed:
 5. **External anchor** — does a broker/VIE discount the name for
    governance specifically? (VIE's implied ~36-47% discount calibrated
    TEN's 30%.)
+6. **Charter-counterparty relatedness** (added 2026-06-11, owner
+   direction, with the containerships sector) — does the charter book
+   concentrate with a RELATED liner/operator (equity stake, board
+   seats, common sponsor)? This is the container-specific §15
+   pathology: a tonnage provider whose backlog sits with an affiliated
+   counterparty has its realisation channel (the contracted cash) and
+   its governance risk on the SAME axis — renewal terms, early
+   redeliveries, and charter restructurings are negotiated with a
+   related party, not a market. Quantify the affiliated share of
+   contracted backlog (% of revenue days and % of backlog dollars)
+   from the charter table + related-party notes. GSL/CMA CGM is the
+   motivating case; CMRE (sponsor family on both sides of bulker
+   charters) inherits the check at any onboarding.
 
 **The doctrine (from TEN/CMDB vs CAPT): haircuts price EVIDENCE of
 realisation impairment; mechanism generates TRIPWIRES.** Blank-check
@@ -2358,6 +2467,37 @@ per name at any tripwire or material governance event.
 
 **Retro screen of the pre-§15.7 book: run 2026-06-11** — outcomes in
 each decision log; summary in the Appendix A entry of that date.
+
+## 16. Overlay ledger — the single registry of qualitative adjustments (added 2026-06-11)
+
+The actionable view of a name is no longer the pipeline FV alone: it is
+FV plus a composition of documented overlays — §12 dividend-window
+floors, the §14.4 MEG-lag adjustment (subject to its double-count
+warning), §14.6 attenuations, §15 governance haircuts, marks-vintage
+tilts (§11.8.5b). Each is individually documented; at 17+ names the
+COMPOSITION had become unauditable — two readers could land on
+different numbers, and decision logs couldn't score the result.
+
+**The ledger fixes this.** `inputs/overlays.yaml` holds one curated row
+per active overlay: `{name, overlay_id (§ref), direction, rough
+magnitude or "qualitative", date applied, trigger to retire}`. §15 rows
+are NOT curated — they auto-populate from the balance-sheet
+`governance_discount_pct` (the knob that drives the pipeline), so the
+ledger can never disagree with the engine. Renderer:
+`python -m crude_tanker_fv.overlay_ledger` → `outputs/overlay_ledger.md`.
+
+Discipline:
+- A new overlay is ACTIVE only when its ledger row exists; writing the
+  methodology section without the row is the §15-pre-§15.7 mistake
+  (reactive, unranked) repeated.
+- Decision-log entries cite the composition: *"tool FV $X; active
+  overlays per ledger net to ~$Y; acted at $Z."*
+- Rows carry retire triggers; a retired row moves to the decision log
+  of the name it covered, not deleted from history.
+- Container names enter the ledger at onboarding (MPCC's §11.8.5(b)
+  marks-tilt row is the founding container entry).
+- Sector-wide rows use the sector key as `name` (e.g. the §14.6.2
+  sanction-waiver binary on `crude`).
 
 ## Appendix A. Changelog
 
@@ -2561,7 +2701,7 @@ Dated record of material framework changes. Lock dates use UTC.
 
 ### 2026-06-09 (evening) — Jun-9 scenario recalibration (crude / LNG / product weights + LR fix + VLCC re-anchor)
 
-- **Crude weights reset, Jun-9 point-in-time** (`{escalation 0.25, pre_mou_baseline 0.45, mou_base 0.18, mou_bear 0.12}`, from `{0.10/0.15/0.50/0.25}` v1). `pre_mou_baseline` becomes the base case — the April/May MoU/ceasefire path failed to physically reopen Hormuz; Jun-8 US helicopter downed near the strait; ceasefire faltering. Revisit when US response resolves. NOT a permanent lock.
+- **Crude weights reset, Jun-9 point-in-time** (`{escalation 0.25, pre_mou_baseline 0.45, mou_base 0.18, mou_bear 0.12}`, from `{0.10/0.15/0.50/0.25}` v1). `pre_mou_baseline` becomes the base case — the April/May MoU/ceasefire path failed to physically reopen Hormuz; Jun-8 US helicopter downed near the strait; ceasefire faltering. Revisit when US response resolves. NOT a permanent lock. *(Interaction note added 2026-06-11: this weight set CARRIES most of the war-persistence view that the §14.4 overlay was built to patch under v1 weights — see the §14.4 double-count warning; apply only the infrastructure-lag residual on top of these weights.)*
 - **LNG weights reset, Jun-9 v4** (`{0.25/0.25/0.38/0.12/0.00}`, from v3 Set B-revised `{0.15/0.25/0.45/0.15/0.00}`). Qatari LNG transits Hormuz; tight_resurgence gains mass. See §11.3 v4.
 - **Product weights reset, Jun-9 v3** (`{0.25/0.30/0.30/0.15/0.00}`, from Set B v2 `{0.15/0.25/0.45/0.15/0.00}`). MEG product flows transit Hormuz; refinery_squeeze gains mass. See §11.5 v3.
 - **Dry bulk weights UNCHANGED.** Iron-ore flows are stable; only channel is global-recession risk; expressed via existing `coordinated_slowdown` weight (0.15).

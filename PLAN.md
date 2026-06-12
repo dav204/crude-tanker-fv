@@ -101,14 +101,22 @@ Decisions to make (write the doc BEFORE code, dry-bulk precedent):
 - Validator 1: **MPCC** (MPC Container Ships, Oslo/NOK — Pareto-anchored
   feeder pure-play; cleanest single-class validator, the "DHT of
   containers"). `/add-ticker MPCC containerships`.
-- Validator 2: **DAC or GSL** (US-listed, charter-backlog-heavy — the
-  stress test for the charter-book convention). Pick after Step 1.
+- Validator 2: **GSL** (RATIFIED by owner 2026-06-11; DAC deferred —
+  its Capesize diversification makes it a container+bulk hybrid, same
+  deferral logic as CMRE). US-listed, charter-backlog-heavy — the
+  stress test for the charter-book convention. GSL's §15.7 screen is a
+  REAL charter-affiliation pass (CMA CGM share of the charter book +
+  residual equity/board ties), per §15.7 dimension 6.
 - Defer CMRE (hybrid containers+bulk; CMDB parent) — note the §15.7
   screen will be interesting there, but hybrids cost more.
 - Per-name: full onboarding workflow INCLUDING the new §15.7 screen
   (step 4) and earnings-calendar entries.
-- v1 calibration lock: `≥70%/±10%` (new-sector bar), `/reconcile
-  --calibration-lock containerships`.
+- v1 calibration lock: recorded **N/A-by-construction** per §11.8.7 —
+  zero container names carry a Pareto NAV (verified, Step 1). Run and
+  report the substitutes instead (primary: issuer-S&P / insured-value
+  cross-check; then VIE APPROX gap; the curve-reproduces-MB check is a
+  fitting sanity check only). The DoD's "recorded honestly" means the
+  N/A path here.
 
 ### Step 3 — Week-close checklist (CLAUDE.md) — run it this time too
 
