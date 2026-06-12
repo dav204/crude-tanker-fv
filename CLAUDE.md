@@ -463,6 +463,28 @@ sessions.
 
 ## Changelog
 
+- **2026-06-11 (Week 4, Step 1)** — **§11.8 containerships methodology
+  decision doc LOCKED** (time-boxed one session, doc before code, dry-bulk
+  §11.7 as template). Decisions: 3-class collapse (ctr_feeder ≤2,000 /
+  ctr_intermediate 2,000-5,500 / ctr_large >5,500, WB variants excluded
+  from class averages); **charter-book convention = coverage-schedule
+  generalization of the §3.2 blend** (strip earns disclosed contracted
+  rates through expiry via per-quarter cov_q, re-fixes at scenario rates;
+  NAV stays on-curve at bare marks; charter premium/discount = v1
+  limitation), NOT §11.6 off-curve; Container Set A scenarios
+  0.25/0.40/0.20/0.15 (disruption_persists / gradual_normalization /
+  normalization_plus_overhang / demand_recession); cycle anchors from the
+  weekly's FY21-25 table NOT the boom-only 19-month archive median
+  (feeder $20,850 / intermediate $32,300 / large $41,000 → positions
+  0.98x/1.30x/1.53x at the Apr-01 vintage); **external anchor: NONE —
+  all-APPROX sector** (verified: Pareto's own liner table dashes MPCC's
+  P/NAV; they value the space on EV/EBITDA) → v1 calibration lock
+  recorded N/A-by-construction with VIE + marks-consistency substitutes;
+  validators MPCC + **GSL** (DAC deferred — Capesize hybrid, same logic
+  as CMRE). Empirical basis: mechanical extraction of all four data
+  tables across the 42-issue MB archive (40-42/42 parse rate). Key
+  fresh source found on disk: Pareto MPCC quarterly review 2026-05-28
+  (HOLD, TP NOK 25, 99/69/41% of 26/27/28 days fixed, $2bn backlog).
 - **2026-06-11 (post-close) — TEN June-5 data-kit reconcile (user-supplied
   PDF; tenn.gr blocks agent fetching).** Found + fixed a Q1 manifest
   omission: Dr Irene Tsakos + Silia T (2025-built conventional Suezmaxes)

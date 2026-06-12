@@ -1754,6 +1754,253 @@ in-window prints), the tanker S&P sweep + LR2 own-fit, txn-anchored marks
 made the pipeline default (owner decision), the Pareto name-sweep and
 linked-report harvest process steps, and the GNK Diana-tender deal overlay.
 
+### 11.8 Containerships sector — formalised 2026-06-11 (Week 4)
+
+Fifth sector. Container tonnage providers (the names we value) lease
+vessels to liner operators (Maersk, MSC, CMA CGM, ZIM) on multi-year time
+charters — they sell capacity, not freight. This makes containerships the
+most TC-dominated sector in the book: the §3.2 spot/charter blend that is
+a refinement for tankers is the CENTRAL mechanism here, and §11.8.6 (the
+charter-book convention) is the section's core decision. Primary data
+source: the MB Shipbrokers "Container Weekly" archive (42 issues,
+2024-09-14 → 2026-04-01, structurally identical 3-page format, all five
+data tables parse mechanically at 40-42/42; see PLAN.md Week 4 Step 0).
+**All §11.8 anchor values carry the 2026-04-01 vintage** — the channel
+feed stopped there; refresh on first delivery of Dan's direct MB
+subscription (standing thread in PLAN.md).
+
+#### 11.8.1 Vessel classes
+
+Three-class collapse, boundaries following MB's own rate-table banding
+(assessment sizes / FY-average bands quoted per class):
+
+| Class | TEU range | MB TC assessment sizes | MB FY-average bands |
+|---|---|---|---|
+| `ctr_feeder` | ≤2,000 | 1,100 / 1,700 | 900-1,200 / 1,600-1,800 |
+| `ctr_intermediate` | 2,000-5,500 | 2,500 / 2,700 / 3,500 / 4,250 | 2,400-2,700 / 2,700-2,900 / 4,000-5,400 |
+| `ctr_large` | >5,500 | 5,500 / 6,500 | 5,500-7,000 |
+
+Class rate = simple average of the MB standard-size assessments within
+the class. **WB (wide-beam) variants are excluded from class averages** —
+MB quotes 5,400 WB at a premium ABOVE the 5,500 conventional ($65k vs
+$60k at Apr-01); it is a design premium, treated like ice-class in the
+TEN manifest (premium implicit in the vessel's own TC rate, not a class).
+
+**Boundary notes:** vessels >7,000 TEU route through `ctr_large` with no
+size-specific rate assessment (MB quotes nothing above 6,500) — their
+earnings are almost entirely contracted in practice (§11.8.6), so curve
+exposure is limited to the post-expiry tail; recorded as a v1 limitation.
+Marks above 6,500 TEU do exist (MB 2nd-hand assessments run to 9,000 WB),
+so the NAV side has anchors even where the rate side does not.
+
+#### 11.8.2 External NAV anchor — there is none (all-APPROX sector)
+
+**Pareto publishes NO container P/NAV.** Verified directly: the
+2026-05-28 MPCC quarterly review's own Liner/Industrial valuation table
+carries dashes in NAV/share and P/NAV for MPC CONTAINER SHIPS (while
+quoting them for FLNG, Klaveness, Odfjell, Stolt) — Pareto values the
+liner/tonnage-provider space on EV/EBITDA and P/E instead (MPCC: HOLD,
+TP NOK 25, 2026e EV/EBITDA ~5.5x). ZIM/DAC/GSL/CMRE never appear in the
+Shipping Daily share-price table at all; MPCC appeared briefly
+(Mar-Apr 2025) with fwd P/E only, pnav blank.
+
+Consequences:
+- Every container name carries `APPROX` consensus_pnav per the existing
+  convention (§6 NAT/ASC/CCEC/TEN/CMDB precedent); `/reconcile` reports
+  n/a for SANITY and downweights the gap.
+- The APPROX values are sourced from **VIE Coverage Universe NAV
+  estimates** where available (containers are core VIE coverage) —
+  directional cross-check only, never calibration, per the locked
+  philosophy section. Flag the VIE vintage in watchlist comments.
+- The **marks layer is externally anchored even though the NAV roll-up
+  has no broker comp**: vessel value curves fit directly to MB
+  Shipbrokers' published assessments (§11.8.5), which are market-maker
+  assessments of the same kind Pareto's tanker NAVs consume upstream.
+- Pareto MPCC company research (10 reports on disk, 2024-08 → 2026-05-28,
+  from the linked-report harvest) supplies estimates/backlog detail and
+  the consensus_fwd_pe leg for MPCC.
+
+#### 11.8.3 Validator pool (v1)
+
+- **MPCC** (MPC Container Ships, Oslo:MPCC, NOK via the CAPT machinery —
+  `yahoo_symbol: MPCC.OL`, quote_currency NOK) — feeder/small-intermediate
+  pure-play, ~59 vessels. The "DHT of containers": cleanest class
+  validator, Pareto-researched (not P/NAV-anchored), freshest data on
+  disk (2026-05-28 quarterly review: 99/69/41% of 2026/27/28 days fixed,
+  $2bn backlog, TCE $25k/day, DPS $0.04/q).
+- **GSL** (Global Ship Lease, NYSE:GSL) — second validator and the
+  charter-book stress test: US-listed, 2,000-11,000 TEU spread across
+  all three classes, heavy multi-year backlog. Chosen over DAC because
+  Danaos has diversified into Capesize bulkers (container+bulk hybrid —
+  same deferral logic as CMRE; verify split at any future onboarding).
+- **Deferred:** DAC + CMRE (hybrids cost more, §11.7 CMDB precedent);
+  ZIM (liner OPERATOR, not tonnage provider — different business; the
+  framework values vessel owners).
+
+Both validators run the full onboarding workflow including the §15.7
+governance screen and earnings-calendar entries.
+
+#### 11.8.4 Scenarios — Container Set A
+
+Four scenarios, sector-namespaced. The demand tree is disruption-led:
+per Pareto (May-26), Red Sea closure + congestion + slow steaming
+currently absorb ~20% of global fleet capacity, against a record
+orderbook (the structural overhang). Box-rate (freight) cycles affect
+the LINERS' willingness to charter; we model the charter market itself.
+
+| Scenario | Probability | Feeder | Intermediate | Large | Macro driver |
+|---|:---:|:---:|:---:|:---:|---|
+| `disruption_persists` | **0.25** | firm | tight | tight | Red Sea stays shut through horizon; congestion + slow steaming hold ~20% of capacity off-market |
+| `gradual_normalization` (base) | **0.40** | base | base | base | Phased Suez return from 2027; rates glide toward mid-cycle as effective supply releases |
+| `normalization_plus_overhang` | **0.20** | weak | weak | weak | Suez reopens INTO record orderbook deliveries — the FY23 trough analogue, container-specific downside |
+| `demand_recession` | **0.15** | weak | weak | weak | Consumer-demand contraction; box volumes fall, liners hand back tonnage at expiry |
+
+**Weight rationale.** Base 0.40 mirrors the sector convention.
+`disruption_persists` gets 0.25 (vs dry bulk's 0.20 upside) because the
+disruption is the OBSERVED current state — and the standing Hormuz
+trigger (§13/§14) is upside-correlated for container disruption too.
+`normalization_plus_overhang` is the documented container-specific tail:
+unlike dry bulk (post-2015-trauma low orderbook), containers carry a
+record orderbook, so normalization and supply-glut compound. Charter-book
+coverage (§11.8.6) mutes ALL scenario torque relative to other sectors —
+contracted quarters don't re-price; this is the sector's defining
+risk-dampener and is why the strip horizon's coverage decay matters more
+than scenario width.
+
+#### 11.8.5 Cycle anchors + marks — v1 empirical from the MB archive
+
+**Anchor basis decision: the FY-average table, NOT the 19-month archive
+median.** The archive (2024-09 →) sits entirely inside the post-Red-Sea
+boom; archive medians would read current rates as ~0.96x "normal" — a
+sample artifact. The weekly's own "Average Charter Rates" table publishes
+FY2021-2025 annual averages per band, embedding a full cycle (covid boom
+2021-22, trough 2023, disruption boom 2024-25). v1 anchor = mean of
+FY2021-25 band averages, collapsed to class:
+
+| Class | v1 cycle anchor (USD/day) | Apr-01-2026 class rate | Cycle position |
+|---|---:|---:|:---:|
+| `ctr_feeder` | **$20,850** | $20,500 | 0.98x |
+| `ctr_intermediate` | **$32,300** | $42,000 | 1.30x |
+| `ctr_large` | **$41,000** | $62,500 | 1.53x |
+
+(FY23 trough levels, for scenario floors: feeder ~$13,300 /
+intermediate ~$18,300 / large ~$32,400 — class means of the FY23 column.)
+
+**Methodology caveat (locked in writing, mirrors §11.7.5):** the FY21-25
+window contains two boom episodes in five years; a true 10-year mean is
+likely LOWER (the 2016-2019 charter market ran far below FY24-25 levels).
+Position reads are therefore conservative-LOW (the market may be later-
+cycle than 1.3-1.5x suggests). Bigger classes read hotter — consistent
+with the disruption mechanics (longer reroutes bind big-ship capacity
+hardest). Feeders at 0.98x are NOT mid-cycle comfort: the feeder anchor
+is itself boom-tilted.
+
+**Complementary cycle indicator:** the MBCI (MB Container Index,
+Jan-95 = 1,000) parses from every issue — archive median 1,316, range
+1,146-1,556, Apr-01 at 1,318. Diagnostic only, like the Baltic indexes
+for dry bulk (not $/day, not an anchor).
+
+**Marks (vessel value curves):** fit per-class age curves to MB's
+published assessments at the Apr-01 vintage — NB (China yard price as
+the curve's NB anchor; the Korea premium is documented, not modeled),
+10yr, and 15yr: 1,700 TEU $32.0M NB-China / $28.0M 10yr / $23.0M 15yr;
+2,800 TEU $44.0M / $35.5M (2,700) / $32.0M (2,700); 5,400 TEU $63.0M NB
+vs 5,000 WB $63.5M 10yr. Where MB quotes no 15yr (nothing above 2,700 —
+"no vessels are 15 years old" in the WB designs), apply the 2,700-class
+10yr→15yr ratio (0.90) and flag it. That ratio is itself remarkably flat
+— boom-vintage residual value retention (cf. the MPCC report: 20-year-old
+2,800s fixed at rates worth ~90% of their quoted value in EBITDA+scrap) —
+expect the curve's old-age leg to steepen on normalization; this is a
+marks-vintage risk, not a fitting error. Scrap floor per the existing
+lightweight convention.
+
+#### 11.8.6 The charter-book convention — §11.8's core decision
+
+Container fleets earn contracted rates on multi-year staggered charters;
+issuers disclose forward coverage explicitly (MPCC: 99/69/41% of
+2026/27/28 days fixed; GSL publishes backlog by year). The framework
+handles this with a **coverage-schedule generalization of the existing
+§3.2 blend** — NOT the §11.6 off-curve convention:
+
+1. **NAV stays on-curve at bare-vessel marks.** §11.6's off-curve test
+   fails on both prongs here: container classes HAVE defensible curves
+   (MB assessments + a visible S&P market), and per §11.6's own scope
+   note, contracted-rate vessels in conventional classes stay on-curve.
+   The charter premium/discount on attached charters (a vessel with an
+   above-market 3-year charter is worth more than its bare mark) is NOT
+   priced into NAV in v1 — across a large staggered book the premia and
+   discounts partially net, and pricing them would require per-vessel
+   charter marks we can't validate. Recorded as a v1 limitation; the
+   economic substance is still captured, because the STRIP earns the
+   contracted rates (see 2).
+2. **The strip earns contracted rates through expiry, then re-fixes at
+   scenario rates.** `spot_coverage_pct` (static, per-class) generalizes
+   to an optional per-quarter **`coverage_schedule`**: cov_q per class
+   per strip quarter, built from the issuer's disclosed %-days-fixed by
+   calendar year (interpolated across quarters; conservative-decay
+   within years where only annual figures are disclosed). Then
+   `TCE_class_q = cov_q × contracted_rate_class + (1 − cov_q) ×
+   scenario_rate_q`. The contracted rate is the disclosed average
+   backlog rate per class (per-vessel charter tables aggregate up;
+   class-level is the v1 altitude — per-vessel strips are §11.6
+   machinery and not warranted where a curve exists).
+3. **Mechanical consequence, stated up front:** with FY-26 coverage near
+   99% (MPCC), the front of the strip is nearly scenario-insensitive;
+   scenario torque concentrates in quarters 5-8 and the terminal NAV
+   handoff. Expect container EVs to be NAV-driven and coverage-dampened
+   relative to every other sector — that is the economics, not a bug.
+   The `fleet_schedule` convention (§3.2) applies unchanged for
+   orderbook deliveries (GSL/MPCC NBs enter the earning fleet on
+   delivery dates).
+
+#### 11.8.7 v1 calibration lock — recorded N/A by construction
+
+The new-sector bar (≥70% of Pareto-anchored validators within ±10% at
+lock) is **vacuous for containerships: zero container names have a
+Pareto NAV** (§11.8.2). Rather than pretend, the lock is recorded as
+**N/A — no anchored validators**, with two substitutes run and reported
+at sector ship (both directional, neither a gate):
+1. `/reconcile` gap vs VIE NAV estimates (APPROX path, downweighted).
+2. A marks-level check: tool curve values at MB assessment ages must
+   reproduce the MB assessments they were fit to (internal consistency),
+   and the implied fleet values cross-checked against disclosed insured
+   values / recent issuer S&P prints where available.
+The Q3 tightening pass re-evaluates if any container name gains a real
+broker NAV anchor (e.g. Pareto initiates with NAV, or Fearnleys/Cleaves
+coverage lands in the archive).
+
+#### 11.8.8 What is NOT in v1
+
+- **Transaction-anchored recalibration** (§9.9 scope discipline) —
+  boxship S&P prints are charter-attached; without a charter-adjustment
+  model the prints aren't comparable to bare-vessel marks. Document
+  prints in the weekly review (e.g. 2,800 TEU "Monaco" blt-2006 at
+  $25.5M, Apr-01 issue) but do NOT build `transactions/ctr_*.yaml`.
+  Backlog: revisit if a charter-free print sample ever accumulates.
+- **Charter premium/discount in NAV** (§11.8.6.1) — v1 limitation.
+- **>7,000 TEU rate assessment** — routed through `ctr_large`
+  (§11.8.1); earnings mostly contracted; revisit only if a validator's
+  uncovered big-ship exposure becomes material.
+- **Box-rate / freight indices (SCFI, WCI)** — liner economics, not
+  tonnage-provider economics; at most a future scenario-weight
+  diagnostic.
+- **Idle-fleet / reefer / gear premia** — below v1 altitude.
+- **ZIM and liner operators generally** — different business model,
+  out of scope for the NAV framework.
+
+#### 11.8.9 Onboarding sequence
+
+| Step | When | Owner |
+|---|---|---|
+| §11.8 methodology decision doc (this section) | DONE 2026-06-11 | methodology |
+| `sectors.containerships` block + class map + cycle anchors + marks YAMLs | Week 4 Step 2 | code |
+| `coverage_schedule` strip generalization (§11.8.6) | Week 4 Step 2 (engine change, with tests) | code |
+| MPCC scaffolded via `/add-ticker MPCC containerships` + data assembly (Q1-26 report + 2026-05-28 Pareto review on disk) | Week 4 Step 2 | data |
+| GSL scaffolded + assembled (Q1-26 10-Q/PRs) | Week 4 Step 2 | data |
+| §15.7 governance screens, both names | with onboarding (step 4) | data |
+| `/reconcile --calibration-lock containerships` → record N/A + substitutes (§11.8.7) | at sector ship | gate |
+| Anchor refresh to current vintage | on first MB direct-subscription delivery (PLAN standing thread) | data |
+
 ## 12. Framework limitation — high-payout pure-plays at cycle peak
 
 The NAV + dividend-strip framework **systematically undervalues high-payout single-asset-class equities during cycle peaks**. This is a structural feature of the model, not a calibration error. It is documented here as a named constraint so that outputs for the affected names are read correctly.
