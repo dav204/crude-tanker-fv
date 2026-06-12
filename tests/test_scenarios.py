@@ -42,21 +42,22 @@ def test_run_scenarios_weighted_average_identity(doc):
     assert r.probability_weighted_fv == pytest.approx(expected)
 
 
-@pytest.mark.skip(
-    reason="Jun-9-2026 weight reset (point-in-time, METHODOLOGY §11.x). "
-    "Specific cause: wnav-vs-base assertion is sensitive to weights; Jun-9 point-in-time set. "
-    "Unskip when weights are re-locked (post-Hormuz physical-state resolution).",
-)
+# Point-in-time pin (Jun-9 weights + Jun-11 inputs); re-pin on weight settle
+# (post-Hormuz resolution). Re-pinned from skip 2026-06-11 (B3): a pin against
+# current intended state catches unintended drift; a skip catches nothing.
 def test_nav_flexes_with_scenario(doc):
     ci = load_company_inputs("DHT", "2026-Q1")
     r = run_scenarios(ci, 16.40, 16.00, doc)
     navs = {s.name: s.nav_per_share for s in r.scenarios}
     # Vessel values reset with the scenario forward: escalation > pre-MoU > base > bear.
     assert navs["escalation"] > navs["pre_mou_baseline"] > navs["mou_base"] > navs["mou_bear"]
-    # The reference is the CURRENT forward (fixed), so the probability-weighted NAV
-    # sits BELOW today's NAV — current values embed the war premium the scenarios unwind.
+    # DIRECTION REVERSED at the Jun-9 re-pin: under the war-leaning Jun-9 set
+    # (escalation 0.25 + pre_mou 0.45 both price ABOVE the current forward) the
+    # probability-weighted NAV sits ABOVE today's NAV ($15.79 vs $15.29 at pin
+    # time). The v1 assertion (wnav < base) encoded normalization-leaning
+    # weights; the relationship is weight-set-dependent, not structural.
     wnav = sum(s.weight * s.nav_per_share for s in r.scenarios)
-    assert wnav < r.base_nav_per_share
+    assert wnav > r.base_nav_per_share
 
 
 def test_per_scenario_range_brackets_base(doc):
@@ -74,17 +75,16 @@ def test_bear_softer_than_base(doc):
     assert r["mou_bear"].fair_value < r["mou_base"].fair_value
 
 
-@pytest.mark.skip(
-    reason="Jun-9-2026 weight reset (point-in-time, METHODOLOGY §11.x). "
-    "Specific cause: asserts 'TRIM/SHORT' but FRO flipped to HOLD under Jun-9 weights. "
-    "Unskip when weights are re-locked (post-Hormuz physical-state resolution).",
-)
+# Point-in-time pin (Jun-9 weights + Jun-11 inputs); re-pin on weight settle
+# (post-Hormuz resolution).
 def test_lr2_maps_to_clean_curve(doc):
     # FRO's LR2 sleeve uses the scenario lr2_clean curve (spike-sensitive), not
     # the static Aframax proxy. Sanity: the run completes with 3 classes priced.
     ci = load_company_inputs("FRO", "2026-Q1")
     r = run_scenarios(ci, 34.50, 30.50, doc)
-    assert r.position_recommendation.startswith("TRIM/SHORT")  # FV < price
+    # HOLD at the Jun-9 re-pin (was TRIM/SHORT under v1 weights; PW FV $33.77
+    # vs $34.50 — the war-leaning reweight lifted FRO inside the HOLD band).
+    assert r.position_recommendation.startswith("HOLD")
 
 
 def test_breakeven_is_scenario_invariant(doc):
@@ -187,11 +187,9 @@ def test_flng_runs_through_lng_scenarios(lng_doc):
     assert by["structural_reset"].fair_value < by["glut_intensifies"].fair_value
 
 
-@pytest.mark.skip(
-    reason="Jun-9-2026 weight reset (point-in-time, METHODOLOGY §11.x). "
-    "Specific cause: FV band pinned to v3 weights {0.15/0.25/0.45/0.15}; Jun-9 v4 is point-in-time. "
-    "Unskip when weights are re-locked (post-Hormuz physical-state resolution).",
-)
+# Point-in-time pin (Jun-9 v4 LNG weights + Jun-11 inputs); re-pin on weight
+# settle (post-Hormuz resolution). Band re-based 2026-06-11 from the v3 $28.04
+# pin to the Jun-9-v4 $29.73: ±5% → [28.24, 31.22].
 def test_flng_v3_set_b_revised_fv_band(lng_doc):
     """v3 lock (METHODOLOGY §11.3) — Set B-revised weights locked 2026-06-01
     based on the Ras Laffan + Cheniere Stage 3 timing reality (see §11.3 v3
@@ -214,29 +212,28 @@ def test_flng_v3_set_b_revised_fv_band(lng_doc):
     """
     ci = load_company_inputs("FLNG", "2026-Q1")
     r = run_scenarios(ci, 30.23, 25.00, lng_doc)
-    assert 26.64 < r.probability_weighted_fv < 29.44
+    assert 28.24 < r.probability_weighted_fv < 31.22
     # The weighted-FV identity (already covered for crude) holds in LNG too —
     # including the structural_reset scenario at weight 0 contributing nothing.
     expected = sum(s.weight * s.fair_value for s in r.scenarios)
     assert r.probability_weighted_fv == pytest.approx(expected)
 
 
-@pytest.mark.skip(
-    reason="Jun-9-2026 weight reset (point-in-time, METHODOLOGY §11.x). "
-    "Specific cause: position pinned to v3 weights; Jun-9 v4 is point-in-time. "
-    "Unskip when weights are re-locked (post-Hormuz physical-state resolution).",
-)
+# Point-in-time pin (Jun-9 v4 LNG weights); re-pin on weight settle
+# (post-Hormuz resolution).
 def test_flng_v3_locked_weights_position(lng_doc):
-    """Set B-revised improves FLNG's EV from −13.4% to −7.2% but does NOT flip
-    the position — FLNG stays TRIM/SHORT (EV still below the −5% HOLD boundary).
-    Pinning the position separately from the FV band so a future calibration
-    that pushes the EV across −5% surfaces as a deliberate methodology choice
-    rather than a silent regression.
+    """Position pinned separately from the FV band so a future calibration
+    that pushes the EV across a band boundary surfaces as a deliberate
+    methodology choice rather than a silent regression.
+
+    History: TRIM/SHORT under v3 Set B-revised (EV −7.2%); the Jun-9 v4
+    reweight (tight_resurgence gains mass on Hormuz/Qatar exposure) lifted
+    FLNG inside the HOLD band — pinned HOLD at the 2026-06-11 re-pin.
     """
     ci = load_company_inputs("FLNG", "2026-Q1")
     r = run_scenarios(ci, 30.23, 25.00, lng_doc)
-    assert "TRIM/SHORT" in r.position_recommendation, (
-        f"FLNG position should be TRIM/SHORT under Set B-revised; got "
+    assert "HOLD" in r.position_recommendation, (
+        f"FLNG position should be HOLD under Jun-9 v4 weights; got "
         f"{r.position_recommendation!r}"
     )
 
@@ -278,11 +275,9 @@ def test_lng_weights_sum_to_one(lng_doc):
     assert all_in == pytest.approx(1.0)
 
 
-@pytest.mark.skip(
-    reason="Jun-9-2026 weight reset (point-in-time, METHODOLOGY §11.x). "
-    "Specific cause: FV band + position pinned to v3 weights; Jun-9 v4 is point-in-time. "
-    "Unskip when weights are re-locked (post-Hormuz physical-state resolution).",
-)
+# Point-in-time pin (Jun-9 v4 LNG weights + Jun-11 inputs); re-pin on weight
+# settle (post-Hormuz resolution). Band re-based 2026-06-11 from the v3 $26.45
+# pin to the Jun-9-v4 $29.63: ±5% → [28.15, 31.11]. EV +27.8% at pin time.
 def test_ccec_v3_set_b_revised_fv_band_and_buy_flip(lng_doc):
     """v3 lock companion test — CCEC PW FV jumps from $22.94 (Set B HOLD)
     to $26.45 (Set B-revised BUY) under the reweighting. The flip is
@@ -298,7 +293,7 @@ def test_ccec_v3_set_b_revised_fv_band_and_buy_flip(lng_doc):
     """
     ci = load_company_inputs("CCEC", "2026-Q1")
     r = run_scenarios(ci, 23.18, 25.17, lng_doc)
-    assert 25.13 < r.probability_weighted_fv < 27.77
+    assert 28.15 < r.probability_weighted_fv < 31.11
     # Position must be BUY at locked weights — flag if it shifts.
     ev_pct = r.expected_value_vs_current / r.current_price * 100
     assert ev_pct > 5.0, (
@@ -356,23 +351,21 @@ def test_product_sector_scenarios_load(product_doc):
     assert product_doc["sector"] == "product"
 
 
-@pytest.mark.skip(
-    reason="Jun-9-2026 weight reset (point-in-time, METHODOLOGY §11.x). "
-    "Specific cause: Jun-9 Issue #1 fix DELIBERATELY breaks the 'INSW FV preserved exactly' invariant (it was preserving a copy bug — q3_2026 inherited Phase-1 spike from crude.mou_base). Re-pin after Hormuz resolution + weight re-lock.. "
-    "Unskip when weights are re-locked (post-Hormuz physical-state resolution).",
-)
+# Point-in-time pin (Jun-9 weights + Jun-11 inputs); re-pin on weight settle
+# (post-Hormuz resolution).
 def test_insw_whole_company_fv_preserved_through_product_sector_refactor():
-    """The INSW whole-co FV must stay within ~$0.20 of the pre-refactor headline
-    of $52.03 (post-sector-split, the product sleeve's LR1 anchor moved from
-    lr2_clean's $27k 10yr mean to lr1_clean's own $25k — tiny cycle-position
-    shift). The preservation invariant holds across BOTH the product sector
-    refactor (2026-06-01) AND the product Set A → Set B v2 weight transition
-    (2026-06-03), because `_aggregate_hybrid_report` uses CRUDE scenario weights
-    as the aggregation probability for the whole-co PW FV (the per-scenario
-    sum `c.fv + p.fv` is weight-independent, and the aggregation weights come
-    from the crude doc). Therefore product weight changes affect pure-product
-    names (ASC, STNG) but DO NOT affect INSW whole-co FV — a notable property
-    of the hybrid carve-out methodology (METHODOLOGY §6 v2 + §11.5 v2 note).
+    """HISTORY: this test originally pinned the 'INSW whole-co FV preserved
+    exactly through the product-sector refactor' invariant at $52.03. The
+    Jun-9 Issue #1 fix DELIBERATELY broke that invariant — it was preserving
+    a copy bug (product q3_2026 inherited the Phase-1 spike from
+    crude.mou_base). The structural property it documented still holds and
+    is still asserted below: `_aggregate_hybrid_report` uses CRUDE scenario
+    weights as the whole-co aggregation probability, so product weight
+    changes do not move INSW whole-co FV.
+
+    Re-pinned 2026-06-11 (B3) to the Jun-9-weights value $64.59, ±1% band
+    [63.9, 65.2] — tight, mirroring the original's intent of catching any
+    silent aggregation change.
     """
     from crude_tanker_fv.pipeline import _run_scenarios_for_ticker, _load_all_sectors
     from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
@@ -384,7 +377,7 @@ def test_insw_whole_company_fv_preserved_through_product_sector_refactor():
     headline, crude_r, product_r = _run_scenarios_for_ticker(
         "INSW", ci, insw["current_price"], insw["analyst_target"], docs, watchlist,
     )
-    assert 51.8 < headline.probability_weighted_fv < 52.3
+    assert 63.9 < headline.probability_weighted_fv < 65.2
     # Both sleeves should have valid prob-weighted FVs.
     assert crude_r is not None and product_r is not None
     assert crude_r.probability_weighted_fv > 0
@@ -453,11 +446,9 @@ def test_asc_pure_product_uses_product_class_map():
     assert "structural_decline" in scen_names
 
 
-@pytest.mark.skip(
-    reason="Jun-9-2026 weight reset (point-in-time, METHODOLOGY §11.x). "
-    "Specific cause: FV band pinned to product Set B v2 weights {0.15/0.25/0.45/0.15}; Jun-9 v3 point-in-time. "
-    "Unskip when weights are re-locked (post-Hormuz physical-state resolution).",
-)
+# Point-in-time pin (Jun-9 v3 product weights + Jun-11 inputs); re-pin on
+# weight settle (post-Hormuz resolution). Band re-based 2026-06-11 from the
+# Set-B-v2 $14.24 pin to the Jun-9-v3 $15.07: ±5% → [14.32, 15.82].
 def test_asc_whole_company_fv_in_expected_band():
     """ASC probability-weighted FV pinned in $13.5-$14.9 band (rebased
     2026-06-03 for Product Set B v2 weight lock — was [$13.0, $14.2] under
@@ -483,7 +474,7 @@ def test_asc_whole_company_fv_in_expected_band():
     headline, _, _ = _run_scenarios_for_ticker(
         "ASC", ci, asc["current_price"], asc["analyst_target"], docs, watchlist,
     )
-    assert 13.5 < headline.probability_weighted_fv < 14.9
+    assert 14.32 < headline.probability_weighted_fv < 15.82
     # Position remains TRIM/SHORT under Set B (EV still well below -5% HOLD
     # threshold). If this flips to HOLD it means either the rate environment
     # shifted enough to warrant another lock review, or Set B itself was
@@ -541,11 +532,9 @@ def test_hafn_full_three_class_product_loads_and_routes():
         f"HAFN should be LR2+LR1+MR+Handysize (Handy on-curve 2026-06-05), got {classes}"
 
 
-@pytest.mark.skip(
-    reason="Jun-9-2026 weight reset (point-in-time, METHODOLOGY §11.x). "
-    "Specific cause: same as ASC — FV band pinned to v2 weights. "
-    "Unskip when weights are re-locked (post-Hormuz physical-state resolution).",
-)
+# Point-in-time pin (Jun-9 v3 product weights + Jun-11 inputs); re-pin on
+# weight settle (post-Hormuz resolution). Band re-based 2026-06-11 from the
+# Set-B-v2 $5.35 pin to the Jun-9-v3 $5.87: ±5% → [5.58, 6.16].
 def test_hafn_whole_company_fv_in_expected_band_set_b():
     """HAFN probability-weighted FV pinned in $5.0-$5.8 band under Product
     Set B v2 (locked 2026-06-03). Q1 2026 inputs produce $5.35 (EV −33.5%
@@ -579,7 +568,7 @@ def test_hafn_whole_company_fv_in_expected_band_set_b():
     headline, _, _ = _run_scenarios_for_ticker(
         "HAFN", ci, hafn["current_price"], hafn["analyst_target"], docs, watchlist,
     )
-    assert 5.0 < headline.probability_weighted_fv < 5.8
+    assert 5.58 < headline.probability_weighted_fv < 6.16
     assert "TRIM/SHORT" in headline.position_recommendation
     # Belt-and-suspenders per workflow verifier: assert sector explicitly so a
     # silent watchlist-typo regression (HAFN tagged as crude or lng) doesn't
@@ -611,11 +600,9 @@ def test_trmd_full_three_class_product_loads_and_routes():
     assert classes == {"LR2", "LR1", "MR"}, f"TRMD should be LR2+LR1+MR, got {classes}"
 
 
-@pytest.mark.skip(
-    reason="Jun-9-2026 weight reset (point-in-time, METHODOLOGY §11.x). "
-    "Specific cause: same — FV band pinned to v2 weights. "
-    "Unskip when weights are re-locked (post-Hormuz physical-state resolution).",
-)
+# Point-in-time pin (Jun-9 v3 product weights + Jun-11 inputs); re-pin on
+# weight settle (post-Hormuz resolution). Band re-based 2026-06-11 from the
+# Set-B-v2 $25.59 pin to the Jun-9-v3 $27.83: ±5% → [26.44, 29.22].
 def test_trmd_whole_company_fv_in_expected_band_set_b():
     """TRMD probability-weighted FV pinned in $24-$27 band under Product
     Set B v2 (locked 2026-06-03). Q1 2026 inputs produce $25.59 (EV −6.1%,
@@ -642,7 +629,7 @@ def test_trmd_whole_company_fv_in_expected_band_set_b():
     headline, _, _ = _run_scenarios_for_ticker(
         "TRMD", ci, trmd["current_price"], trmd["analyst_target"], docs, watchlist,
     )
-    assert 24.0 < headline.probability_weighted_fv < 27.0
+    assert 26.44 < headline.probability_weighted_fv < 29.22
 
 
 def test_asc_fleet_loads_mr_plus_handysize():
@@ -752,22 +739,22 @@ def test_stng_whole_company_fv_in_expected_band():
     assert 78.0 < headline.base_nav_per_share < 90.0
 
 
-@pytest.mark.skip(
-    reason="Jun-9-2026 weight reset (point-in-time, METHODOLOGY §11.x). "
-    "Specific cause: FV band pinned to TEN onboarding weights (2026-06-06); Jun-9 weight reset moves it outside. "
-    "Unskip when weights are re-locked (post-Hormuz physical-state resolution).",
-)
+# Point-in-time pin (Jun-9 weights + Jun-11 inputs, incl. the June-5 data-kit
+# Suezmax fix); re-pin on weight settle (post-Hormuz resolution). Bands
+# re-based 2026-06-11: asset NAV $95.95 → [92, 100]; PW FV $67.81 (static
+# watchlist price) → ±5% [64.4, 71.2].
 def test_ten_three_sleeve_integration_band():
     """TEN is the first **3-sleeve hybrid** on the watchlist (THREE_SLEEVE_TICKERS).
     The pipeline dispatches through crude_carve_out + product_carve_out +
     lng_carve_out, with the DP2 shuttle sleeve handled OFF-CURVE via
     shuttle_contracted_book (METHODOLOGY §11.6).
 
-    Build-time sanity bands (2026-06-06, includes §15 governance haircut 30%):
-      - Asset NAV/sh ~$85-93 (UNDISCOUNTED; vs VIE stale ~$98)
-      - Scenario PW FV ~$45-55 (post-haircut, lands near VIE Bullish $51.50)
-      - Position: BUY (undervalued) — milder than pre-haircut BUY, consistent
-        with the structural value-trap reading
+    Sanity bands (re-pinned 2026-06-11; includes §15 governance haircut 30%):
+      - Asset NAV/sh ~$92-100 (UNDISCOUNTED; $95.95 at pin, post June-5
+        data-kit Suezmax fix)
+      - Scenario PW FV ~$64-71 post-haircut ($67.81 at pin, Jun-9 weights,
+        static watchlist price)
+      - Position: BUY (undervalued)
       - 3 sleeve shares sum to 1.0 (validates the carve-out routing)
       - Governance discount applied: 30% (METHODOLOGY §15)
 
@@ -809,21 +796,21 @@ def test_ten_three_sleeve_integration_band():
     assert nav.shuttle_contracted_book == 453_100_000
     assert nav.preferred_equity == 287_328_000
     assert nav.governance_discount_pct == pytest.approx(0.30)
-    assert 85.0 < nav.nav_per_share < 93.0, f"NAV/sh out of band: ${nav.nav_per_share:.2f}"
+    assert 92.0 < nav.nav_per_share < 100.0, f"NAV/sh out of band: ${nav.nav_per_share:.2f}"
 
     # 3-sleeve scenario aggregation: PW FV ~$45-55 band POST-HAIRCUT.
     docs = _load_all_sectors()
     headline, crude_r, product_r = _run_scenarios_for_ticker(
         "TEN", ci, ten["current_price"], ten["analyst_target"], docs, watchlist,
     )
-    assert 45.0 < headline.probability_weighted_fv < 55.0, (
+    assert 64.4 < headline.probability_weighted_fv < 71.2, (
         f"PW FV out of band: ${headline.probability_weighted_fv:.2f}"
     )
     # Both sleeve reports returned (LNG sleeve consumed internally; per-sleeve
     # detail for LNG is an onboarding TODO if needed for reports).
     assert crude_r is not None and product_r is not None
-    # Position must be BUY at price $44 with PW FV ~$49 (EV ~+12%); milder
-    # than the pre-haircut +55% but still indicating value, consistent with
+    # Position must be BUY (PW FV ~$68 vs static price ~$37 at the Jun-11
+    # re-pin); post-haircut value reading, directionally consistent with
     # VIE Bullish $51.50 (independent external read).
     assert headline.position_recommendation.startswith("BUY"), (
         f"expected BUY, got {headline.position_recommendation}"
