@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.44
+- Single-point FV: $5.59
+- Scenario PW FV: $5.77 (EV -22.5%)
+- NAV / share: $5.22
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +31.3pp (k_broker 1.39)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11 — §15.7 retro screen (formalised today): **N/A (gated)** — Pareto P/NAV 0.95× (BW Group anchor shareholder noted; gate passes regardless).
 
 ---

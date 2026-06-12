@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $22.20
+- Single-point FV: $22.88
+- Scenario PW FV: $29.63 (EV +33.5%)
+- NAV / share: $28.10
+- Position: **BUY (undervalued)**
+- Broker spread: -14.4pp (k_broker 0.97)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11 — §15.7 retro screen (FULL): DECLINED, 0% — the closest call of the four; 10% alternative documented
 
 Below the gate (~0.78× tool NAV; APPROX anchor — no Pareto P/NAV),

@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.39
+- Single-point FV: $19.84
+- Scenario PW FV: $19.82 (EV +14.0%)
+- NAV / share: $32.23
+- Position: **BUY (undervalued)**
+- Broker spread: -14.7pp (k_broker 0.85)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11 — §15 haircut recalibration review (§15.7 retro screen): HOLD at 30%, RE-GROUNDED
 
 The original 30% (owner decision 2026-06-10) was set as "TEN-equivalent"

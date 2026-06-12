@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $84.30
+- Single-point FV: $37.32
+- Scenario PW FV: $59.47 (EV -29.4%)
+- NAV / share: $52.40
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +38.2pp (k_broker 1.64)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11 — §15.7 retro screen (formalised today): **N/A (gated)** — Pareto P/NAV 0.98× and traded 0.70→1.11× across the 2025-26 mark-up cycle (retro-sweep entry); the market has repeatedly paid NAV. The wide tool spread is the documented §6 mark-driven call, not realisation impairment.
 
 ---

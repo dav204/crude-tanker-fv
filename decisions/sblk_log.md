@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.06
+- Single-point FV: $25.74
+- Scenario PW FV: $25.72 (EV -5.0%)
+- NAV / share: $26.27
+- Position: **HOLD (fairly valued)**
+- Broker spread: +21.8pp (k_broker 1.21)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11 — §15.7 retro screen (formalised today): **Screened Step 1, DECLINED — no governance basis.** Persistently below gate (Pareto-history 0.66-0.84×, retro-sweep entry) BUT: self-managed (no sponsor fee extraction), ~95-100% variable payout PLUS opportunistic buybacks — the realisation channel is the widest on the watchlist. The −21% gap is the documented §6 mark-driven call (k_broker 1.27, name-specific Pana-book read). A governance haircut here would double-count a marks question.
 
 ---

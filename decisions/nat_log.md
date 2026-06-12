@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.26
+- Single-point FV: $2.59
+- Scenario PW FV: $2.86 (EV -45.6%)
+- NAV / share: $2.07
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +72.5pp (k_broker 2.00)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11 — §15.7 retro screen (formalised today): **N/A (gated, §12 inverse)** — market pays ~2× tool NAV at peak; NAT's framework issue is §12 (tool UNDERvalues high-payout pure-plays), the opposite failure mode. No realisation impairment by construction.
 
 ---

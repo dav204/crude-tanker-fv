@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $77.94
+- Single-point FV: $74.00
+- Scenario PW FV: $73.13 (EV -6.2%)
+- NAV / share: $80.35
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +35.5pp (k_broker 1.42)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11 — §15.7 retro screen (formalised today): **Screened Step 1, DECLINED — no governance basis.** Spot 0.70× is recent product-tape softness vs a freshly marked-up broker NAV; multi-year STNG traded near NAV. Widely held, no controlling sponsor, aggressive buybacks + dividends (realisation channel maximally open; the buyback channel is the §6 strip-visibility caveat, a framework limitation, not a governance one). Discount = §6 mark-driven call.
 
 ---

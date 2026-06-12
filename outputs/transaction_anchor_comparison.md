@@ -160,7 +160,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 
 | Name | NAV base→txn | Δ% | EV base→txn | Δpp | Position |
 |---|--:|--:|--:|--:|---|
-| TEN | $88.56→$80.79 | -8.8% | +65.3%→+51.7% | -13.6 | BUY→BUY |
+| TEN | $95.95→$88.13 | -8.1% | +78.5%→+64.7% | -13.8 | BUY→BUY |
 | CAPT | $17.91→$17.74 | -1.0% | +42.5%→+38.8% | -3.7 | BUY→BUY |
 | CCEC | $28.10→$28.10 | +0.0% | +33.5%→+33.5% | +0.0 | BUY→BUY |
 | CMDB | $32.62→$32.23 | -1.2% | +15.4%→+14.0% | -1.4 | BUY→BUY |
