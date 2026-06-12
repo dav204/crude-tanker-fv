@@ -28,20 +28,24 @@ Two modes:
    Tsakos=TEN). Does NOT use or advance the print-scan cursor — a name
    sweep always covers the full archive window requested.
 
-3. LINKED-REPORT HARVEST (`--links` / `--fetch-links`) — the dailies carry
-   PDF link annotations (pypdf's extract_text() never sees them: they live
-   in /Annots) pointing at Pareto's detailed research (company quarterly
-   reviews/previews, newsflashes, sector notes) hosted publicly on
-   FactSet/BlueMatrix tracked-download URLs — no auth, tokens long-lived
-   (a 2024-08 token still served in 2026-06). Some arrive Proofpoint-
-   wrapped (urldefense.com /v3/) and are unwrapped offline. `--links`
-   extracts annotations into the inventory at
-   outputs/pareto_daily_links.json; `--fetch-links` downloads inventory
-   entries whose BlueMatrix report ID is not already in the archive, into
-   inputs/research_pareto_other/linked/ (then rebuild the manifest with
-   `pareto_archive --build-manifest`). The 2026-06-10 retro-harvest pulled
-   220 reports (217 classified company_report) from 240 link-bearing
-   dailies.
+3. LINKED-REPORT HARVEST (`--links`, plus `crude_tanker_fv.fetch_links`) —
+   the dailies carry PDF link annotations (pypdf's extract_text() never
+   sees them: they live in /Annots) pointing at Pareto's detailed research
+   (company quarterly reviews/previews, newsflashes, sector notes) hosted
+   publicly on FactSet/BlueMatrix tracked-download URLs — no auth, tokens
+   long-lived (a 2024-08 token still served in 2026-06). Some arrive
+   Proofpoint-wrapped (urldefense.com /v3/) and are unwrapped offline.
+   `--links` extracts annotations into the inventory at
+   outputs/pareto_daily_links.json; `python -m crude_tanker_fv.fetch_links`
+   downloads inventory entries whose BlueMatrix report ID is not already
+   in the archive, into inputs/research_pareto_other/linked/ (then rebuild
+   the manifest with `pareto_archive --build-manifest`). The download step
+   is a SEPARATE entry point on purpose (2026-06-12): every sp_scan mode
+   is local-only, so the permission allowlist can pass `sp_scan *` while
+   the one network-touching step still prompts — a flag on this module
+   would leak through prefix-matched permission rules when reordered.
+   The 2026-06-10 retro-harvest pulled 220 reports (217 classified
+   company_report) from 240 link-bearing dailies.
 
 CLI:
     python -m crude_tanker_fv.sp_scan              # incremental print scan
@@ -50,7 +54,7 @@ CLI:
     python -m crude_tanker_fv.sp_scan --names DHT,FRO          # name sweep
     python -m crude_tanker_fv.sp_scan --names all --since 2025-01-01
     python -m crude_tanker_fv.sp_scan --links      # refresh link inventory
-    python -m crude_tanker_fv.sp_scan --fetch-links  # download new reports
+    python -m crude_tanker_fv.fetch_links          # download new reports
 """
 
 from __future__ import annotations
@@ -444,20 +448,13 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--names", help="comma-separated tickers (or 'all') for a free-text "
                                     "name-mention sweep; skips the print scan + cursor")
     ap.add_argument("--links", action="store_true",
-                    help="extract link annotations into outputs/pareto_daily_links.json")
-    ap.add_argument("--fetch-links", action="store_true",
-                    help="download inventory reports not yet in the archive")
+                    help="extract link annotations into outputs/pareto_daily_links.json "
+                         "(downloads moved to: python -m crude_tanker_fv.fetch_links)")
     args = ap.parse_args(argv)
 
     if args.links:
         n = run_link_inventory(args.since)
         print(f"{n} new links -> {LINKS_INVENTORY}")
-        return 0
-    if args.fetch_links:
-        got, skipped, failed = run_fetch_links()
-        print(f"downloaded {got}, skipped (already archived) {skipped}, failed {failed}")
-        if got:
-            print("rebuild the manifest: python -m crude_tanker_fv.pareto_archive --build-manifest")
         return 0
 
     if args.names:
