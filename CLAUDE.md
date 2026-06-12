@@ -362,7 +362,10 @@ go in Q3.
 
 ## Per-ticker quick-refs
 
-(One-liners; full notes live in METHODOLOGY §6.)
+(One-liners; full notes live in METHODOLOGY §6. Prices/EVs quoted here
+are the vintage at which the note was written — read the latest
+`outputs/delta_report.md` for live position + FV; don't "fix" a
+quick-ref price unless the note itself is being updated.)
 
 - **DHT** — pure VLCC, single-class methodology validator. If DHT is weird,
   the methodology has a bug.
@@ -454,7 +457,8 @@ go in Q3.
   commitments; Uthalden JV pair excluded both sides). Coverage 99/69/41%
   of 2026/27/28 days fixed → coverage_schedule; ~50%-of-adj-profit
   dividend (policy_type variable). NAV $2.27, TRIM EV −29.6% at NOK
-  26.42. APPROX anchor = company-implied NAV NOK ~25.5 (Jul-25, stale);
+  26.42 (= USD $2.78 carried in the watchlist, CAPT NOK machinery).
+  APPROX anchor = company-implied NAV NOK ~25.5 (Jul-25, stale);
   Pareto covers on EV/EBITDA only (HOLD TP NOK 25). §15.7 DECLINED
   (fees 0.6%/yr GAV, payout channel wide open). KNOWN SOFT: cohort age
   ESTIMATES (deck has no built years) + NB delivery quarters — refine at
@@ -510,6 +514,43 @@ sessions.
 
 ## Changelog
 
+- **2026-06-12 (Week 4, Step 3 — WEEK 4 CLOSED)** — Week-close checklist
+  run. **§5 red-team pass (first session with the allowlist active):
+  DENY rules ENFORCE** (env-file Read refused, `rm -rf` refused);
+  allow-tier friction-free (pytest, reordered-flag sp_scan, outputs
+  edit, sec.gov WebFetch — probes 7-10 clean); **ASK tier NOT testable
+  in an autonomous session** — the autonomous permission mode
+  auto-approves ask-class calls (curl with no matching rule executed;
+  watchlist Edit applied + immediately reverted; fetch_links ran), so
+  the prompt half of §5 carries to Week 5 as an INTERACTIVE-session
+  item. Real finding, fixed: `Bash(git push *)` had accumulated in
+  `.claude/settings.local.json` as a blanket allow — it defeated the
+  tracked ask-on-push policy in EVERY session, not just this one —
+  pruned. Two new leak observations recorded: `git -C <path> push`
+  dodges the `git push` prefix matcher (the -C variant of the
+  flag-reorder leak), and fetch_links ignores unknown flags (`--help`
+  ran a real pass; dedupe held, 0 downloads — argparse fix queued
+  Week 5). **Verification gate: 274 passed; pipeline clean (0 material,
+  0 input changes); `/reconcile --all` 19/19, 0 SANITY FAIL, 0 drift
+  alerts.** Documentation audit (two read-only agents, fixes applied in
+  main session): README 17→19 names / 4→5 sectors / 243→274 tests +
+  containerships watchlist table + METHODOLOGY line count ~720→~2,900;
+  METHODOLOGY §1 coverage header 19/5, stale "Week 4 candidate" lines
+  closed, **§11.8.6.4 horizon header corrected "12 quarters"→"10 strip
+  quarters"** (body and Appendix A already said 10; owner ratification
+  of the A1 interpretation still pending); LIMITATIONS gains the
+  containerships-CLOSED sector entry, the §11.8.5 stale-vintage +
+  old-age-tilt OPEN limitation, the APPROX consensus_pnav list
+  completed to all SEVEN names with actual bases (audit agent's
+  suggested values were wrong — re-verified against watchlist.yaml
+  before applying), §15 declined list completed
+  (TNK/CCEC/CAPT/MPCC/GSL), validator list extended to all 5 sectors.
+  Quick-ref preamble gains the vintage-prices note (quick-ref prices
+  are note-vintage, not live — stop "fixing" them). PLAN.md rewritten
+  for Week 5 (B4/B5/B6 + Q2 carry-forwards per owner direction).
+  OWNER ACTIONS re-flagged: brokerage MCP connector was STILL attached
+  in this session (order-writing surfaces reachable); A1 horizon
+  ratification.
 - **2026-06-12 (Week 4, Step 2 + maintenance)** — **CONTAINERSHIPS SHIPPED:
   engine (per-sector `strip_horizon` + `coverage_schedule`, zero-drift
   verified on all 17 prior names), Container Set A wiring (A2 class

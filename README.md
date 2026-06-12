@@ -7,19 +7,21 @@ and a forward dividend strip — with the blend weight set by cycle position,
 then runs five-scenario sensitivities, a broker-NAV sweep, and a
 transaction-anchored curve diagnostic. **Not investment advice.**
 
-See [METHODOLOGY.md](METHODOLOGY.md) for the full framework (~720 lines);
+See [METHODOLOGY.md](METHODOLOGY.md) for the full framework (~2,900 lines);
 this README is orientation for someone landing on the repo cold.
 
-## Status (2026-06-11)
+## Status (2026-06-12)
 
-- **17 tickers** across 4 sectors: crude (8, incl. **TEN** the 3-sleeve hybrid and
-  **CAPT** the first Oslo/NOK listing), LNG (2), product (4), dry bulk (3)
-- **243 tests passing** end-to-end
+- **19 tickers** across 5 sectors: crude (8, incl. **TEN** the 3-sleeve hybrid and
+  **CAPT** the first Oslo/NOK listing), LNG (2), product (4), dry bulk (3),
+  containerships (2)
+- **274 tests passing** end-to-end
 - **7 output families** regenerated per pipeline run + 5 standalone diagnostics
   (LNG weight robustness, crude weight robustness, VIE coverage universe xref,
   VIE market rates xref, terminal-value sensitivity)
 - **Onboarded sector validators:** DHT (crude) / FLNG (LNG) / ASC (product) /
-  SBLK + GNK + CMDB (dry bulk, 2026-06-09/10); TRMD added 2026-06-03 (first
+  SBLK + GNK + CMDB (dry bulk, 2026-06-09/10) / MPCC + GSL (containerships,
+  2026-06-12 — first charter-coverage sector); TRMD added 2026-06-03 (first
   full-3-class product), HAFN 2026-06-04 (first IFRS + pool operator), CAPT
   2026-06-11 (17th name, newbuild-heavy crude, tightest first reconcile on record)
 - **Locked weight families:** crude Set A (current); LNG Set B-revised v3
@@ -95,8 +97,9 @@ Pre-empting the "where does this go wrong?" question — see
   stainless-Handymax curve at the Odfjell-NB $72.5M anchor lands). DP2 shuttle
   tankers were RESOLVED via the §11.6 off-curve-at-contracted-book convention
   (TEN onboarded 2026-06-06); dry bulk is IN-scope as of 2026-06-09 (§11.7,
-  SBLK/GNK/CMDB). Offshore remains out of scope; containers are the Week 4
-  candidate (PLAN.md).
+  SBLK/GNK/CMDB); containerships are IN-scope as of 2026-06-12 (§11.8,
+  MPCC/GSL — coverage-schedule charter framework, all-APPROX external
+  anchors). Offshore remains out of scope.
 
 ## Current watchlist
 
@@ -137,10 +140,18 @@ Pre-empting the "where does this go wrong?" question — see
 | GNK  | Genco Shipping | 44 bulkers (Cape 19 / Supra-Ultra 25, no Pana) — VALIDATES the txn-anchored curves (k 1.04) |
 | CMDB | Costamare Bulkers | 30 owned older bulkers + P&L-only chartered-in platform; §15 case (30% haircut), APPROX anchor |
 
+**Containerships sector (`sectors.containerships` — Container Set A,
+coverage-schedule charter framework, unlocked 2026-06-12):**
+
+| Ticker | Company | Fleet shape |
+|---|---|---|
+| MPCC | MPC Container Ships | 51 on-water (21 feeder / 30 intermediate) + 15 owned NBs net-of-commitment; Oslo/NOK; first containerships validator |
+| GSL  | Global Ship Lease | 71 vessels (30 intermediate / 41 large, 18.2-yr TEU-weighted); full charter table — the coverage-convention stress test; APPROX P/B anchor |
+
 ## Sample output: broker-NAV sweep
 
 _Illustrative snapshot from the 2026-06-04 vintage (13 names); the live
-17-name table regenerates every run at `outputs/broker_nav_sweep.md`._
+19-name table regenerates every run at `outputs/broker_nav_sweep.md`._
 
 The diagnostic that distinguishes mark-validated calls from mark-driven ones.
 Per name: `k_broker` is the uniform vessel-mark premium that lifts tool NAV

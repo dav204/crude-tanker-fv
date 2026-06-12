@@ -4,7 +4,7 @@
 
 This tool produces an **independent fair value estimate per share** for crude tanker equities, used to validate and stress-test existing target prices on the watchlist. It is not a buy/sell recommendation engine; it is a structured methodology applied consistently across names so that disagreements between the tool and analyst targets can be diagnosed (input differences vs. weighting differences vs. genuine methodology divergence).
 
-**Current coverage (17 names across 4 sectors as of 2026-06-11):** crude 8 (DHT, ECO, FRO, INSW, TNK, NAT, TEN-hybrid, CAPT) / LNG 2 (FLNG, CCEC) / product 5 (STNG, HAFN, TRMD, ASC + INSW's product sleeve) / dry bulk 3 (SBLK, GNK, CMDB). The table below is the original crude v1 cohort; per-name detail for all 17 lives in §6 and the decision logs:
+**Current coverage (19 names across 5 sectors as of 2026-06-12):** crude 8 (DHT, ECO, FRO, INSW, TNK, NAT, TEN-hybrid, CAPT) / LNG 2 (FLNG, CCEC) / product 5 (STNG, HAFN, TRMD, ASC + INSW's product sleeve) / dry bulk 3 (SBLK, GNK, CMDB) / containerships 2 (MPCC, GSL). The table below is the original crude v1 cohort; per-name detail for all 19 lives in §6 and the decision logs:
 
 *Crude tanker sector (`sectors.crude` — three-phase MoU framework):*
 
@@ -46,8 +46,8 @@ This tool produces an **independent fair value estimate per share** for crude ta
 **Out of scope for current build:** Pure chemical tankers — IMO-II/III
 stainless parcel trade (Stolt-Nielsen / Odfjell) and the **sub-25k
 stainless chemical Handy** residual (ASC's 4 × 25k stainless chem stay
-off-curve — §11.5 / LIMITATIONS §2). Offshore. Containers are the Week 4
-sector candidate (see PLAN.md).
+off-curve — §11.5 / LIMITATIONS §2). Offshore. (Containerships shipped
+2026-06-12 — §11.8, MPCC + GSL.)
 
 **Scope-change log** (dated; full detail in the referenced sections):
 
@@ -2011,9 +2011,9 @@ handles this with a **coverage-schedule generalization of the existing
    economics, not a bug. The `fleet_schedule` convention (§3.2) applies
    unchanged for orderbook deliveries (GSL/MPCC NBs enter the earning
    fleet on delivery dates).
-4. **Strip horizon: 12 quarters for containerships (added 2026-06-11,
-   owner decision — `strip_horizon` becomes a per-sector parameter,
-   default 8).** The §3.2 8-quarter cap is justified by FFA liquidity
+4. **Strip horizon: 10 strip quarters for containerships (added
+   2026-06-11, owner decision — `strip_horizon` becomes a per-sector
+   parameter, default 8).** The §3.2 8-quarter cap is justified by FFA liquidity
    dying past 12-18 months — an argument about the reliability of
    UNCONTRACTED forward rates. It does not apply to containers, whose
    forward cash is contracted backlog disclosed through 2028+ (MPCC:
@@ -2022,8 +2022,11 @@ handles this with a **coverage-schedule generalization of the existing
    premium — fixed largely in the 2024-25 disruption boom, above
    normalized rates — into a bare-mark terminal, destroying exactly
    what the coverage schedule exists to capture, and understating
-   long-backlog names. Containers run to end-2028 (~12q from the
-   current report date); the terminal handoff mechanism is unchanged
+   long-backlog names. Containers run to end-2028 — the owner brief's
+   "~12q from the current report date", which resolves to **10 strip
+   quarters** under the repo's q3-2026 strip-start convention
+   (interpretation flagged for owner ratification, Appendix A
+   2026-06-12); the terminal handoff mechanism is unchanged
    (1.0× NAV at the extended final quarter). Counter-consideration,
    accepted: the q9-12 UNCOVERED portion re-fixes at scenario rates
    carrying wider uncertainty — acceptable; that is what scenarios are
@@ -2059,7 +2062,7 @@ coverage lands in the archive).
   prints in the weekly review (e.g. 2,800 TEU "Monaco" blt-2006 at
   $25.5M, Apr-01 issue) but do NOT build `transactions/ctr_*.yaml`.
   Backlog: revisit if a charter-free print sample ever accumulates.
-- **Charter premium/discount in NAV** (§11.8.6.1) — v1 limitation.
+- **Charter premium/discount in NAV** (§11.8.6 point 1) — v1 limitation.
 - **>7,000 TEU rate assessment** — routed through `ctr_large`
   (§11.8.1); earnings mostly contracted; revisit only if a validator's
   uncovered big-ship exposure becomes material.
@@ -2534,7 +2537,7 @@ Dated record of material framework changes. Lock dates use UTC.
   NB rows, CAPT §3.1 convention, JV pair excluded; coverage 99/69/41)
   and GSL (NAV $38.59, TRIM −18.5%; 71-vessel charter table drives a
   computed coverage_schedule that cross-foots disclosed 100%/86%;
-  coverage-dampened scenario spread ±10% — the §11.8.6.3 prediction
+  coverage-dampened scenario spread ±10% — the §11.8.6 point-3 prediction
   visible). Both §15.7-screened DECLINED with tripwires; GSL's was the
   dimension-6 charter-affiliation founding application (CMA CGM equity
   zero since 2022; 13/71 vessels, #2 charterer). 19 names, SANITY 0

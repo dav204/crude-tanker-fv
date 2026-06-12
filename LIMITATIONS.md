@@ -27,10 +27,12 @@ diagnostics answer the asset-side question).
 **Names exhibiting the pattern:** TEN (first case, 2026-06-06, 30%) and
 CMDB (second case, 2026-06-10, 30% — re-grounded 2026-06-11 on the
 capitalized fee-drag anchor). The whole book is now §15.7-screened (every
-decision log carries an outcome); TNK and CCEC were full-screened and
-DECLINED at 0% with tripwires. Other archetypes if onboarded: DSX, CMRE,
-smaller Greek-family-controlled FPIs (SBLK screened OUT — self-managed,
-~100% payout).
+decision log carries an outcome); TNK, CCEC, CAPT, MPCC, and GSL were
+screened and DECLINED at 0% with tripwires (CAPT via the Euronext
+admission-doc deep-dive; GSL the §15.7 dimension-6 charter-affiliation
+founding pass — CMA CGM equity zero since 2022, 13/71 vessels). Other
+archetypes if onboarded: DSX, CMRE, smaller Greek-family-controlled FPIs
+(SBLK screened OUT — self-managed, ~100% payout).
 
 **Symmetric to §12** (high-payout pure-plays at peak — framework UNDERvalues
 because dividend stream is the thesis). Here the framework OVERvalues because
@@ -95,7 +97,7 @@ the tool FV signal is genuinely sensitive to mark assumptions — don't size
 positions based on tool output alone.
 
 Mark-driven snapshot below is the 4-Jun-2026 vintage (13 names, pre the
-txn-anchored default flip); the LIVE 17-name table with current k_broker
+txn-anchored default flip); the LIVE 19-name table with current k_broker
 values regenerates every run at `outputs/broker_nav_sweep.md` — trust that,
 not this list: TNK (+10pp), TRMD (+22pp), INSW (+22pp), STNG (+27pp),
 ASC (+29pp), HAFN (+31pp), NAT (+51pp), FLNG (-20pp), CCEC (-15pp).
@@ -201,7 +203,14 @@ Set B-revised).
   transaction-anchored Cape/Pana/Supra-Ultra curves and validators
   SBLK/GNK/CMDB; the FFA-OCR Stage-1 diagnostic (2026-06-11) found the
   synthesised strip MARKET-CONSISTENT vs the traded forward curve.
-  Containers are the next greenfield candidate (PLAN.md).
+- **Containerships — CLOSED 2026-06-12** (kept here for history):
+  onboarded per METHODOLOGY §11.8 with the coverage-schedule charter
+  convention (per-quarter contracted-rate blend, generalizing §3.2) and
+  validators MPCC/GSL. An all-APPROX sector — no broker publishes a
+  container P/NAV, so the v1 calibration lock is recorded
+  N/A-by-construction (§11.8.7) with marks-consistency substitutes.
+  Known-open within the sector: the §11.8.5 marks limitations (below,
+  §3 Framework-level).
 - **Offshore** (drillships, OSVs, FPSOs) — entirely different value
   structure. Out of scope.
 - **Chemical tankers above Handysize** — partially covered via the LR2_clean
@@ -236,17 +245,33 @@ Set B-revised).
 
 ### Per-input
 
-- **APPROX consensus_pnav entries** on **NAT, ASC, CCEC** — Pareto Shipping
-  Daily does **not** publish a P/NAV for these three (shown as "-" in the 4-Jun
-  report), so their broker NAVs remain unanchored estimates (NAT 0.85 band-
-  midpoint, ASC 0.75 aggregator commentary, CCEC 0.90 ~book). The broker-NAV
-  sweep's EV @ broker columns for these three carry meaningful uncertainty.
-  *(STNG, TRMD, HAFN were APPROX until 2026-06-04; now real Pareto 4-Jun prints
-  of 0.70 / 0.83 / 0.95 — the STNG/TRMD corrections reclassified both as
-  mark-driven, see §1.)*
+- **APPROX consensus_pnav entries** on **NAT, ASC, CCEC, TEN, CMDB, MPCC,
+  GSL** — no broker P/NAV print exists for these seven (NAT/ASC/CCEC shown
+  as "-" in the Pareto daily; TEN/CMDB/GSL uncovered; MPCC covered on
+  EV/EBITDA only), so their broker NAVs remain unanchored estimates
+  (NAT 0.85 band-midpoint, ASC 0.75 aggregator commentary, CCEC 0.90
+  ~book, TEN 0.34 VIE-stale rebased 2026-06-10, CMDB 0.62 spinoff-book
+  P/BV proxy, MPCC 1.04 company-implied NAV NOK ~25.5 of Jul-25, GSL
+  0.75 depreciated-cost P/B proxy — WEAK). The broker-NAV sweep's EV @
+  broker columns for these seven carry meaningful uncertainty; that is
+  why the v1 containerships calibration lock is N/A-by-construction.
+  *(STNG, TRMD, HAFN were APPROX until 2026-06-04; now real Pareto 4-Jun
+  prints of 0.70 / 0.83 / 0.95 — the STNG/TRMD corrections reclassified
+  both as mark-driven, see §1.)*
 
 ### Framework-level
 
+- **Containership marks: stale vintage + conservative old-age tilt
+  (§11.8.5, OPEN — added 2026-06-12).** Two layered biases, both
+  documented in the §16 overlay ledger with active rows on MPCC and GSL:
+  (a) the MB Container Weekly feed (sole source for container cycle
+  anchors and age-curve marks) stopped arriving 2026-04-01, so the
+  anchor vintage is frozen ~10 weeks stale pending Dan's direct
+  MB Shipbrokers subscription; (b) tool old-age marks read 0–33% BELOW
+  realized on MPCC's three disclosed sale prints — deliberate
+  conservatism, but it tilts NAV down on old-fleet container names.
+  Both validators' TRIM signals should be read with this tilt in mind;
+  refine at the Q2 refresh (MPCC reports 2026-08-26).
 - **Cycle weighting curve shape.** Step function across five bands.
   Could be a continuous logistic but step function is more interpretable.
   Open methodology decision in §9.
@@ -293,7 +318,10 @@ Set B-revised).
 ## 4. What the tool was validated against
 
 - **Per-sector validators:** DHT (pure VLCC) for crude; FLNG (pure modern
-  LNGCs) for LNG; ASC (pure MR) for product. Each validator's fair value
+  LNGCs) for LNG; ASC (pure MR) for product; SBLK + GNK + CMDB for dry
+  bulk (transaction-anchored curves; GNK k_broker 1.04 validates them);
+  MPCC + GSL for containerships (no broker NAV exists — validated via
+  marks-consistency substitutes, §11.8.7). Each validator's fair value
   is band-locked in tests so structural regressions surface immediately
   (`test_dht_*`, `test_flng_v2_locked_weights_fv_band`,
   `test_asc_whole_company_fv_in_expected_band`).
