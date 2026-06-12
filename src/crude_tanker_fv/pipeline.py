@@ -22,7 +22,8 @@ from .carveout import crude_carve_out, lng_carve_out, product_carve_out, product
 from .cycle import compute_cycle
 from .dividend_strip import compute_dividend_strip
 from .loaders import INPUTS_DIR, load_company_inputs, load_watchlist
-from .marks import scale_vessel_marks, solve_broker_premium
+from .marks import (TXN_PURE_PLAY_K_BAND, scale_vessel_marks,
+                    solve_broker_premium)
 from .nav import compute_nav
 from .report import OUTPUTS_DIR, CompanyReport, write_company_report, write_watchlist_summary
 from .scenarios import (
@@ -675,12 +676,18 @@ def _write_broker_sweep(rows: list[BrokerSweepRow], outputs_dir: Path) -> Path:
     out: list[str] = []
     w = out.append
     w("# Broker-NAV sensitivity sweep\n")
-    w("Each name valued at three vessel-mark levels: **tool marks** (k=1.00, conservative "
-      "independent), **midpoint**, and **broker-equivalent** (k lifts the tool NAV to the "
-      "consensus broker NAV = price / consensus P/NAV). EV% = probability-weighted scenario "
-      "FV vs price (crude-allocated for hybrids). The **tool→broker spread** shows how much "
-      "of a name's call is a genuine price-vs-value signal vs a NAV-mark choice — small for "
-      "mark-validated pure-plays, wide for mark-uncertain names.\n")
+    lo, hi = TXN_PURE_PLAY_K_BAND
+    w("Each name valued at three vessel-mark levels: **tool marks** (k=1.00, "
+      "transaction-anchored since 2026-06-09), **midpoint**, and **broker-equivalent** "
+      "(k lifts the tool NAV to the consensus broker NAV = price / consensus P/NAV). "
+      "EV% = probability-weighted scenario FV vs price (crude-allocated for hybrids). "
+      "k_broker is two-regime: on transaction-anchored sectors (crude/product/dry-bulk) "
+      "it is the broker premium over transaction levels, and validated pure-plays are "
+      f"EXPECTED inside the uniform band k {lo:.2f}-{hi:.2f} (~1.12-1.14 at the Jun-2026 "
+      "fit, ~+13-17pp spread); on un-anchored sectors (LNG, containerships) it keeps the "
+      "original broker-vs-independent-curve reading (validated ≈ 1.0). The **Read** column "
+      "is mechanical spread width only — per-name mark-driven / mark-validated "
+      "classification lives in METHODOLOGY 6.\n")
     w("| Name | Cons. P/NAV | k_broker | EV @tool | EV @mid | EV @broker | Pos tool→broker | "
       "Breakeven tool→broker | Spread (pp) | Read |")
     w("|---|--:|--:|--:|--:|--:|---|--:|--:|---|")
@@ -688,7 +695,7 @@ def _write_broker_sweep(rows: list[BrokerSweepRow], outputs_dir: Path) -> Path:
         return "NAV>px" if x < 5000 else f"${x:,.0f}"
 
     for r in sorted(rows, key=lambda x: x.ev_broker, reverse=True):
-        read = "mark-driven" if abs(r.spread) >= 10 else "mark-robust"
+        read = "wide-spread" if abs(r.spread) >= 10 else "narrow-spread"
         tag = " **(WHOLE-CO)**" if r.hybrid else ""
         w(f"| {r.ticker}{tag} | {r.consensus_pnav:.2f}× | {r.k_broker:.2f} | "
           f"{r.ev_tool:+.1f}% | {r.ev_mid:+.1f}% | {r.ev_broker:+.1f}% | "
@@ -698,10 +705,13 @@ def _write_broker_sweep(rows: list[BrokerSweepRow], outputs_dir: Path) -> Path:
         w("\n_**(WHOLE-CO)** = hybrid name valued via crude + product sleeve carve-outs "
           "aggregated against the whole-company tape price (METHODOLOGY 6 v2). The breakeven "
           "shown is the crude-sleeve breakeven (proxy)._\n")
-    w("\n_k_broker ≈ 1.0 ⇒ tool marks already reconcile to broker (validated). k_broker ≫ 1 "
-      "⇒ tool NAV sits well below broker; the name's apparent cheapness is largely a "
-      "NAV-mark choice. Uniform k also lifts the disposal-validated old-age leg (a known "
-      "overshoot); leg-specific recalibration is the follow-up (METHODOLOGY 9)._\n")
+    w(f"\n_On txn-anchored sectors, k_broker inside the {lo:.2f}-{hi:.2f} pure-play band "
+      "⇒ the broker premium is the expected uniform one (mark-validated); k_broker outside "
+      "the band (either side) ⇒ the name's apparent cheapness/richness is partly a NAV-mark "
+      "choice (mark-driven — see the METHODOLOGY 6 entry for the per-name thesis). "
+      "Pre-2026-06-09, validated read as k ≈ 1.0; that semantics survives only on "
+      "un-anchored sectors. Uniform k also lifts the disposal-validated old-age leg (a "
+      "known overshoot); leg-specific recalibration is the follow-up (METHODOLOGY 9)._\n")
     md_path = outputs_dir / "broker_nav_sweep.md"
     md_path.write_text("\n".join(out))
 

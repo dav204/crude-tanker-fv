@@ -3,7 +3,9 @@
 import pytest
 
 from crude_tanker_fv.loaders import load_company_inputs
-from crude_tanker_fv.marks import scale_vessel_marks, solve_broker_premium
+from crude_tanker_fv.marks import (TXN_PURE_PLAY_K_BAND,
+                                   TXN_PURE_PLAY_K_UNIFORMITY,
+                                   scale_vessel_marks, solve_broker_premium)
 from crude_tanker_fv.nav import compute_nav
 from crude_tanker_fv.pipeline import run_broker_sweep
 
@@ -34,13 +36,24 @@ def test_broker_sweep_discriminates_hybrid(tmp_path):
     # the Jun-2026 fit) — the discrimination signal is consistency across them,
     # not a zero premium.
     pure_ks = [by[t].k_broker for t in ("DHT", "FRO", "ECO")]
+    lo, hi = TXN_PURE_PLAY_K_BAND
     for k in pure_ks:
-        assert 1.05 < k < 1.25
-    assert max(pure_ks) - min(pure_ks) < 0.05   # uniformity across pure-plays
+        assert lo < k < hi
+    assert max(pure_ks) - min(pure_ks) < TXN_PURE_PLAY_K_UNIFORMITY
     # INSW: marks uncertain (hybrid carve-out) -> premium far above the
-    # pure-play band, wide spread, EV materially better at broker marks.
+    # pure-play band ceiling (1.25; INSW 1.52 at the Jun-2026 static),
+    # wide spread, EV materially better at broker marks.
     assert by["INSW"].k_broker > 1.4
     assert by["INSW"].spread > 25
     assert by["INSW"].ev_broker > by["INSW"].ev_tool
     assert (tmp_path / "broker_nav_sweep.md").exists()
     assert (tmp_path / "broker_nav_sweep.xlsx").exists()
+    # B4 (2026-06-12): the rendered sweep must carry the two-regime band
+    # language and must NOT claim the retired pre-flip "k ≈ 1.0 = validated"
+    # reading as current semantics.
+    md = (tmp_path / "broker_nav_sweep.md").read_text()
+    assert f"{lo:.2f}-{hi:.2f}" in md
+    assert "two-regime" in md
+    assert "k_broker ≈ 1.0 ⇒ tool marks already reconcile to broker" not in md
+    assert "| mark-driven |" not in md          # Read column is mechanical now
+    assert "wide-spread" in md or "narrow-spread" in md

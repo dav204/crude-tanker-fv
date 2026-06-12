@@ -90,11 +90,18 @@ bulk), DLNG / HSHP (peak VLGC). Full discussion: [METHODOLOGY §12](METHODOLOGY.
 
 ### Vessel-mark uncertainty — mark-driven vs mark-validated bucket
 
-The broker-NAV sweep classifies every name as mark-validated (tool and broker
-agree on direction; ≤10pp EV%-spread) or mark-driven (the call would flip
-under reasonable vessel-mark choices; >10pp spread). For mark-driven names
-the tool FV signal is genuinely sensitive to mark assumptions — don't size
-positions based on tool output alone.
+Every name is classified mark-validated or mark-driven. *(Restated
+2026-06-12, B4 — METHODOLOGY §9 item 9:)* on transaction-anchored sectors
+(crude/product/dry bulk), mark-validated means k_broker inside the uniform
+pure-play band (1.05-1.25; validated names EXPECTED at ~+13-17pp spread, the
+broker premium over transaction levels), mark-driven means k outside the
+band either side; on un-anchored sectors (LNG, containerships) validated
+still reads k ≈ 1.0 / ~0pp. The pre-flip "≤10pp spread = validated" rule
+below this point is vintage language. For mark-driven names the tool FV
+signal is genuinely sensitive to mark assumptions — don't size positions
+based on tool output alone. The sweep's Read column is mechanical spread
+width (`wide-spread`/`narrow-spread`); per-name classification lives in
+METHODOLOGY §6.
 
 Mark-driven snapshot below is the 4-Jun-2026 vintage (13 names, pre the
 txn-anchored default flip); the LIVE 19-name table with current k_broker

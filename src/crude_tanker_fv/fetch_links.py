@@ -19,10 +19,21 @@ CLI:
 
 from __future__ import annotations
 
+import argparse
+
 from crude_tanker_fv.sp_scan import run_fetch_links
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    # Zero options by design: this is an ask-gated network module, and any
+    # unrecognized argv must error out before a download pass starts
+    # (2026-06-12: `--help` silently ran a real pass when there was no parser).
+    ap = argparse.ArgumentParser(
+        prog="python -m crude_tanker_fv.fetch_links",
+        description="Download Pareto linked reports from the daily-link inventory "
+                    "(network half of the harvest; sp_scan stays local-only)")
+    ap.parse_args(argv)
+
     got, skipped, failed = run_fetch_links()
     print(f"downloaded {got}, skipped (already archived) {skipped}, failed {failed}")
     if got:

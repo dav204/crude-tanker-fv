@@ -514,6 +514,24 @@ sessions.
 
 ## Changelog
 
+- **2026-06-12 (Week 5, Session A) — B4 shipped: mark-driven classification
+  restated to post-flip k_broker semantics + fetch_links argparse fix.**
+  Two-regime definition landed in METHODOLOGY §9 item 9: txn-anchored
+  sectors (crude/product/dry bulk) — mark-validated = k_broker inside the
+  uniform pure-play band `TXN_PURE_PLAY_K_BAND = (1.05, 1.25)` (constants
+  in `marks.py`, uniformity < 0.05; DHT/ECO/FRO 1.12-1.14 at the Jun-2026
+  fit, ~+13-17pp spread EXPECTED); mark-driven = outside the band either
+  side. Un-anchored sectors (LNG/containerships) keep the original ≈1.0
+  reading. Broker-sweep Read column relabeled MECHANICAL
+  (`wide-spread`/`narrow-spread`, owner decision) — it had been printing
+  the canonical validators DHT/ECO/FRO as "mark-driven" at their expected
+  band premium; §6 prose is the canonical classification. Dated
+  restatements appended to §6 INSW/TNK/ASC/STNG/HAFN/SBLK, §7.5, §9
+  item 10, §15.2; LIMITATIONS §1 definition updated. No mark changes —
+  pipeline re-run diff was text-only, delta 0 material, reconcile 19/19.
+  fetch_links: zero-option argparse front door (`--help` exits 0
+  pre-network, unknown flags exit 2 — closes the Week-4 §5 observation);
+  no-arg cron path unchanged. tests: 274 → 277.
 - **2026-06-12 (post-Week-4-close) — brokerage MCP decision REVISED:
   keep the IBKR connector attached, DENY it in Claude Code.** The
   Week 4 owner action ("detach entirely") is superseded: the connector

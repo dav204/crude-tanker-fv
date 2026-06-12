@@ -370,13 +370,16 @@ The VIE Coverage Universe (Catlin / Mintzmyer, accessed 2026-06-03) carries INSW
 
 **Operational reading:** VIE's view is *external validation that the broker-NAV anchor for INSW is mainstream sell-side consensus, not an outlier mark.* The discrimination IS the call — if you trust broker NAVs, INSW is fair (VIE Watch); if you trust tool NAVs, INSW is deeply TRIM (us). **Nothing to fix** — the framework's mark-driven flag already surfaces this as an interpretive divergence. The VIE confirmation is documentary support for the existing classification, not a methodology gap. See `outputs/vie_coverage_universe_xref.md`.
 
+*(B4 restatement, 2026-06-12: under post-flip two-regime semantics — §9 item 9 — INSW stays **mark-driven**: k_broker 1.52 at the static vintage / 1.61 at the Jun-12 live sweep, far above the 1.25 txn-anchored pure-play band ceiling. The 1.37 / +22pp figures above are the 2026-06-03 vintage; the thesis is unchanged.)*
+
 ### TNK (Teekay Tankers)
 - Atlantic-skewed crude operator: ~14 Suezmax + 18 Aframax/LR2 + 1 VLCC at Q1 2026 (the VLCC being sold)
 - Active fleet renewal: bought 3× 2016 Aframax (Q1 2026 sale-leaseback at $47.2M ea — the primary Aframax transaction anchor in `transactions.yaml`); 2 Suezmax NBs ordered Q1 2026 (S. Korean yard, 2027 delivery)
 - Disclosed mid-age Aframax prints from TNK drove the Aframax curve recalibration (10yr anchor −12.8%)
 - Mostly spot; modest TC coverage; high near-term cash generation
 - Dividend: $0.25/qtr fixed + occasional supplemental specials (modeled as base_plus_variable with low payout)
-- One of the **mark-driven** names (k_broker 1.18, spread +10pp)
+- One of the **mark-driven** names (k_broker 1.18, spread +10pp at the pre-flip 2026-06-01 vintage)
+- *(B4 restatement, 2026-06-12: under post-flip semantics k_broker 1.39 at the Jun-12 live sweep — above the 1.05-1.25 txn-anchored pure-play band. Classification unchanged: still mark-driven, and still the only mark-driven AND weight-driven name — §9 item 10.)*
 
 ### NAT (Nordic American Tankers)
 - Pure Suezmax (18 vessels at Q1 2026); recently sold 2 oldest (2004/2005) for $50M total
@@ -442,7 +445,7 @@ The VIE Coverage Universe (Catlin / Mintzmyer, accessed 2026-06-03) carries CCEC
 - Dividend policy: variable, **2/3 of Adjusted Earnings** (doubled from 1/3 effective Q1 2026); no fixed base, no floor. Q1 2026 DPS $0.39
 - Plays the same methodology-validator role for the product sector that DHT plays for crude and FLNG plays for LNG: single class, simple capital structure, clean dividend strip — if the tool produces a weird answer for ASC the product machinery has a bug
 - **Off-curve fleet adjustment (§11.5, NARROWED 2026-06-05):** the 2× 37k Korea-built product Handies (Defender/Dauntless, 2015) moved ON-CURVE via the new Handysize class (~$24.6M each at age 11). Remaining off-curve: the 4× 25k Japan-built STAINLESS CHEMICAL hulls (~$13M each → $49.4M after a 5% liquidity discount) — a 38k product Handysize curve would overvalue these smaller chemical hulls, so they stay in `working_capital_net` as a narrower chemical-Handy residual (the small end of the chemical-sector gap). ASC `working_capital_net` $172.6M→$131.0M; NAV +$0.18/sh. Same off-curve treatment pattern as DHT-Bauhinia (held-for-sale at agreed sale price)
-- **Tool below broker** (k_broker 1.33, +29pp spread) — joins TNK/INSW/NAT as a mark-uncertain product-tanker name where broker NAV consensus (~$21.3/sh at P/NAV 0.75 on the refreshed $16.00 price) sits well above the tool's MR-curve-anchored NAV ($15.96). The spread is the dominant call driver — at tool marks ASC is TRIM/SHORT (price $16.00); at broker marks it flips to a BUY. *(Synced 2026-06-05: the prior "1.59 / +40pp / NAV $15.78 / price $18.50" predated the 4-Jun price refresh + Pareto P/NAV reclassification and the Handysize on-curve move.)*
+- **Tool below broker** (k_broker 1.33, +29pp spread) — joins TNK/INSW/NAT as a mark-uncertain product-tanker name where broker NAV consensus (~$21.3/sh at P/NAV 0.75 on the refreshed $16.00 price) sits well above the tool's MR-curve-anchored NAV ($15.96). The spread is the dominant call driver — at tool marks ASC is TRIM/SHORT (price $16.00); at broker marks it flips to a BUY. *(Synced 2026-06-05: the prior "1.59 / +40pp / NAV $15.78 / price $18.50" predated the 4-Jun price refresh + Pareto P/NAV reclassification and the Handysize on-curve move.)* *(B4 restatement, 2026-06-12: k_broker 1.36 at the Jun-12 live sweep — above the txn-anchored pure-play band; still mark-driven under post-flip semantics, §9 item 9.)*
 - **Methodology gap to revisit:** the 5× 2013 Eco-Mod MRs are flagged `eco: false` per §3.1 (built pre-2014), but the MR curve is "eco-inclusive modern-spec" — so these 5 vessels are valued at the modern-spec curve and modestly over-valued vs. a true age-13 conventional-MR transaction print. Minor (~$15M aggregate over-valuation, <1% of NAV) but flagged for future MR-curve calibration work
 
 #### VIE Bullish — external counter-signal on the TRIM call (added 2026-06-03)
@@ -488,6 +491,8 @@ STNG's 32-vessel coated-LR2 fleet carries an **embedded option to switch between
 
 **Position-sizing implication:** STNG's TRIM/SHORT signal under Set A locked product weights is at EV −13.0% — but the framework's Q2-Q3 2026 EPS estimates likely understate actual earnings power by ~$0.50-1.00/sh if the LR2 fleet captures even a fraction of the cargo-switching upside. **The signal is mark-DRIVEN (+27pp spread vs the real Pareto 4-Jun P/NAV 0.70; was mis-read as mark-validated +7pp against the stale APPROX 0.87 — see Appendix A 2026-06-04) and weight-robust within the current product weight set, but the operating-mode optionality (§14.6.1) is a separate unmodeled positive bias that should attenuate the strength of the TRIM signal.** Treat STNG's TRIM as "mildly TRIM, with framework-known upside bias" rather than "decisively TRIM."
 
+*(B4 restatement, 2026-06-12: k_broker 1.38 / +33pp at the Jun-12 live sweep — above the txn-anchored pure-play band; mark-driven classification stands under post-flip semantics, §9 item 9.)*
+
 **What would close this gap:**
 
 - Two-three quarters of post-Iran-crisis disclosed STNG LR2 trade mix (clean vs dirty days actually operated) — would either confirm material capture (and demand a §14.6.1 parametric extension) or show the optionality wasn't exercised (and §14.6.1 collapses to a noted-but-immaterial flag for STNG).
@@ -501,7 +506,7 @@ STNG's 32-vessel coated-LR2 fleet carries an **embedded option to switch between
 - **TORM equity stake $395M** (Hafnia owns a meaningful TRMD position generating $9.9M Q1 dividend income). **Schema gap (flagged):** our YAML schema has no dedicated `marketable_equity_investments` line; rolled into `working_capital_net` at full disclosed value per Hafnia's mgmt NAV. Bounded impact: $395M / 500M shares ≈ $0.79/sh. Adding a dedicated schema line is a candidate future methodology refinement; deferred
 - Dividend policy: variable, **80% of net profit target** (minimum 50%); Q1 2026 DPS $0.2877 USD. 17th consecutive quarterly dividend. Higher payout ratio than TRMD's smoothed ~75% (Hafnia explicit policy vs TRMD Board-discretion). §12-archetype similar to NAT but with material retained-earnings buffer at 80% vs NAT's ~100%
 - **BW Group ownership 44.18%** (controlling-but-not-majority); free float ~55%. BW Group has been a net buyer 2025-26, which tightens float and supports premium-to-pure-float-peer P/NAV reads
-- **Mark-driven (k_broker 1.45, +29pp tool→broker spread).** Tool NAV materially below broker-implied NAV (consensus P/NAV ≈ 1.00 at price $8.05). Joins ASC (+40pp), INSW (+22pp), STNG (+7pp residual) in the mark-driven product/hybrid bucket — broker-NAV consensus reads HAFN as ~fair while tool reads it as deeply discounted. Two structural drivers of the tool-vs-broker gap on HAFN specifically: (a) the framework's MR / LR1 / LR2 curves are conservative against Hafnia's mgmt-disclosed asset values; (b) the TORM equity stake rolled into `working_capital_net` at full $395M is correct in level but our tool NAV still ends up below broker because of the curve-side conservatism. Current consensus_pnav is APPROX (mgmt-NAV-implied); refresh with Cleaves / Pareto / Clarksons charter-free NAV print
+- **Mark-driven (k_broker 1.45, +29pp tool→broker spread).** Tool NAV materially below broker-implied NAV (consensus P/NAV ≈ 1.00 at price $8.05). Joins ASC (+40pp), INSW (+22pp), STNG (+7pp residual) in the mark-driven product/hybrid bucket — broker-NAV consensus reads HAFN as ~fair while tool reads it as deeply discounted. Two structural drivers of the tool-vs-broker gap on HAFN specifically: (a) the framework's MR / LR1 / LR2 curves are conservative against Hafnia's mgmt-disclosed asset values; (b) the TORM equity stake rolled into `working_capital_net` at full $395M is correct in level but our tool NAV still ends up below broker because of the curve-side conservatism. Current consensus_pnav is APPROX (mgmt-NAV-implied); refresh with Cleaves / Pareto / Clarksons charter-free NAV print. *(B4 restatement, 2026-06-12: k_broker 1.37 / +30pp at the Jun-12 live sweep — above the txn-anchored pure-play band; mark-driven stands under post-flip semantics, §9 item 9.)*
 - **VIE Bullish ($9.00) vs our TRIM ($5.27).** Third product name where VIE's structurally-more-bullish view overrules our framework on direction, after ASC and TRMD. Pattern consistent across product sector. **Three-way ordering: tool $5.27 < broker ~$7.66 (implied at P/NAV 1.00 × price discount) < VIE $9.00.** All three diverge but in a coherent pattern — tool most conservative, broker median, VIE most bullish. Suggests VIE is using more constructive forward-curve assumptions on product than our scenario forwards + Set B v2 weights capture. Position-sizing implication: HAFN TRIM is **mark-driven AND opposed by VIE Bullish** — the same combined-conviction signature as ASC. Treat as **weakest TRIM** on the product watchlist alongside ASC; more decisive TRIM than CCEC's HOLD-boundary BUY
 
 ### TRMD (Torm Plc, NASDAQ:TRMD / XCSE:TRMD A) — first full-3-class product
@@ -539,7 +544,7 @@ The VIE Coverage Universe (Catlin / Mintzmyer, accessed 2026-06-03) carries TRMD
 
 ### SBLK (Star Bulk Carriers, NASDAQ:SBLK) — first dry-bulk validator; mark-driven (added 2026-06-10, promoted from decisions/sblk_log.md)
 - Post-Eagle-Bulk fleet: 135 operating (Cape 31 / Pana 46 / Supra-Ultra 58 per §11.7.1 class collapse) + 8 Kamsarmax NBs (Apr-Sep 2026 delivery, §3.1/§9.6 treatment). Variable dividend ~95-100% of EPS, no floor; **buybacks used opportunistically in soft tape (Q3-25) — invisible to the dividend strip, same caveat as STNG.**
-- **Mark-driven (k_broker 1.27)** — the dry-bulk analog of INSW. The −21% tool↔broker gap SURVIVED the §9.9 transaction-anchored recalibration almost unchanged (−21.7% → −21.1%): Cape was understated (+16%/+13% at 5/10yr post-GNK-prints), Supra-Ultra overstated (−10%/−13%), Pana roughly flat — the cross-class corrections net to ~zero on SBLK's mixed book. The gap is a methodological call (our realized-S&P marks vs Pareto's TC-momentum mark-ups), not a curve artefact.
+- **Mark-driven (k_broker 1.27)** — the dry-bulk analog of INSW. The −21% tool↔broker gap SURVIVED the §9.9 transaction-anchored recalibration almost unchanged (−21.7% → −21.1%): Cape was understated (+16%/+13% at 5/10yr post-GNK-prints), Supra-Ultra overstated (−10%/−13%), Pana roughly flat — the cross-class corrections net to ~zero on SBLK's mixed book. The gap is a methodological call (our realized-S&P marks vs Pareto's TC-momentum mark-ups), not a curve artefact. *(B4 note, 2026-06-12: k 1.27 static sits just above the 1.25 pure-play band ceiling — 1.21 at the Jun-12 live sweep, band-edge. The classification rests on the documented −21% gap and its survival through the recalibration, not on the band read alone.)*
 - **GNK isolates the gap as name-specific:** identical class curves reconcile GNK at −5.2% (k 1.04). SBLK's residual is most plausibly its 46-vessel Pana book (the thinnest fit: 4 prints, one possible duplicate) and/or Pareto's richer read on SBLK's specific mix. Investigate the Pana leg at the Q3 tightening pass.
 - Pareto NAV trajectory (free-text sweep): $23 → $25 (Sep-25) → $33 (Jun-26) — our implied broker NAV $33.17 matches their stated $33 exactly. Market paid 0.66-0.84× NAV throughout; the market sides with the tool's level, not the broker's.
 - Tool TRIM/SHORT (EV −5.7% at txn marks) vs broker BUY. v1 dry-bulk calibration-lock outcome recorded as 1/2 (50%) FAIL-with-explanation — SBLK is the documented miss; no curve tuning per the back-solve rule (see the 2026-06-09 incident in decisions/sblk_log.md).
@@ -632,7 +637,7 @@ The mark-robust vs mark-driven discrimination diagnostic (§9.9). Per-name row:
 
 | Name | Cons. P/NAV | k_broker | EV @tool | EV @mid | EV @broker | Pos tool→broker | Breakeven tool→broker | Spread (pp) | Read |
 
-`k_broker` is the uniform vessel-mark premium that lifts tool NAV to the consensus broker NAV (price ÷ consensus P/NAV); the EV%-spread is the headline mark-driven-ness signal. Hybrid names labeled `**(WHOLE-CO)**`; mark-robust names show ~0pp spread, mark-driven names show wide spreads (in either direction).
+`k_broker` is the uniform vessel-mark premium that lifts tool NAV to the consensus broker NAV (price ÷ consensus P/NAV); the EV%-spread is the headline mark-driven-ness signal. Hybrid names labeled `**(WHOLE-CO)**`. *(Restated 2026-06-12, B4:)* on transaction-anchored sectors, mark-validated names show the *uniform pure-play band premium* (k 1.05-1.25, ~+13-17pp spread at the Jun-2026 fit) — NOT ~0pp, which was the pre-2026-06-09 signature; mark-driven names sit outside the band (either direction). On un-anchored sectors (LNG, containerships) validated still reads k ≈ 1.0 / ~0pp. The `Read` column is mechanical spread width (`wide-spread` / `narrow-spread`); per-name classification is in §6 and §9 item 9.
 
 ### 7.5b Consensus forward-EPS cross-check (`outputs/consensus_eps_xref.md` + `.xlsx`)
 
@@ -768,7 +773,7 @@ Decisions that should be revisited as the model matures or new data becomes avai
 8. **Sanctioned / dark fleet ton-mile effects** — not currently modeled explicitly, but show up implicitly through spot TCE rates. Could be made explicit as a forward demand multiplier if structural shifts (Russia, Iran) persist.
 9. **Vessel-mark level (tool vs broker)** — the tool's value curves are conservative independent marks; brokers (Compass / VesselsValue / Clarksons) mark the modern and product fleet higher. Disposal data (the only ground truth) validates the **old-age leg** of the tool curve; the mid-age and product anchors are looser (thin second-hand deal flow). Handled via two complementary diagnostics:
 
-    - **Broker-NAV sweep** (`marks.py`, `pipeline.run_broker_sweep`): each name is valued at tool marks (k=1.00), midpoint, and broker-equivalent (the uniform vessel-mark premium k that lifts tool NAV to the consensus broker NAV = price / consensus P/NAV). The **tool→broker EV spread** shows how much of a name's call is a genuine price-vs-value signal vs a NAV-mark choice — ~0 for mark-validated pure-plays (DHT/FRO/ECO, k_broker≈0.99), wide for mark-uncertain blended-fleet names (TNK k_broker≈1.18 / +10pp; INSW k_broker≈1.37 / +21pp).
+    - **Broker-NAV sweep** (`marks.py`, `pipeline.run_broker_sweep`): each name is valued at tool marks (k=1.00), midpoint, and broker-equivalent (the uniform vessel-mark premium k that lifts tool NAV to the consensus broker NAV = price / consensus P/NAV). The **tool→broker EV spread** shows how much of a name's call is a genuine price-vs-value signal vs a NAV-mark choice. **Classification semantics are two-regime since the 2026-06-09 txn-anchored default flip (restated 2026-06-12, B4):** on transaction-anchored sectors (crude / product / dry bulk), k_broker reads as the *broker premium over transaction levels*, and **mark-validated** means k inside the uniform pure-play band `TXN_PURE_PLAY_K_BAND = (1.05, 1.25)` with cross-name uniformity < 0.05 (DHT 1.14 / ECO 1.12 / FRO 1.12 at the Jun-2026 fit — the ~+13-17pp spread these names carry is the EXPECTED signature, not mark uncertainty); **mark-driven** means k outside the band in either direction (INSW 1.52, HAFN 1.45, ASC 1.33, SBLK 1.27, TNK/STNG per their §6 entries). The discrimination signal is *consistency of the premium across validated pure-plays*, not a zero premium. On un-anchored sectors (LNG, containerships — no transaction sample per the §9.9 scope discipline), the original semantics survive: k_broker is the broker premium over our independent curve and mark-validated ≈ 1.0 (CCEC ~0.96 validated; FLNG 0.87 mark-driven, tool-above-broker). *(Pre-2026-06-09 semantics, preserved for the dated entries below: mark-validated read as k_broker≈0.99 ~0pp spread — DHT/FRO/ECO then; TNK 1.18 / +10pp and INSW 1.37 / +21pp were the mark-driven exemplars.)*
     - **Transaction-anchored curve recalibration** (`transactions.py`, `pipeline.run_transaction_anchored_comparison`): opt-in toggle (`use_transaction_anchored=True`) that replaces the mid-age (5yr, 10yr) anchors of any class with a populated `inputs/market_data/transactions/<class>.yaml`. Newbuild + old-age legs are NOT touched (newbuilds publicly priced; old-age disposal-validated). The fit is a recency-weighted (~15-month half-life) WLS regression of clean prices (quality-flag uplifts: financing +5%, distressed +10%) on age, in the mid-age window [3, 17]; slope must be negative or the fit falls back. The v1 LR2-as-Aframax proxy propagates the Aframax fit to LR2 automatically.
 
     *Scope discipline:* recalibrate one class at a time, anchor to disclosed transactions, stop when the transaction sample is exhausted.
@@ -796,6 +801,8 @@ Decisions that should be revisited as the model matures or new data becomes avai
     *Naming-namespace discipline:* each sector uses its own weight-family labels. The crude family uses Crude Set A/B/C/D; the LNG family uses Set B / Set B-revised (METHODOLOGY §11.3); the product family currently inherits LNG weights and has no independent set labels yet. Cross-sector conflation of set names (e.g. "Set B" without sector qualifier) is a methodology error. Diagnostic outputs always carry the sector prefix.
 
     *Current state (2026-06-01 lock):* on the crude side, DHT / ECO / FRO are mark-robust + weight-robust (highest-conviction TRIM); INSW is mark-driven but weight-robust (TRIM survives any reasonable crude reweighting); **TNK is the only name that is both mark-driven and weight-driven** — its HOLD signal flips to TRIM/SHORT under a bearish Set D reweighting and the +10pp broker spread adds independent mark uncertainty. NAT is mark-driven and weight-robust on direction but always carries the §12 high-payout-pure-play caveat overriding the framework signal. On the LNG side, CCEC is weight-driven (BUY only under Set B-revised; HOLD under Set A/B) and mark-validated; FLNG is weight-robust (TRIM/SHORT across all evaluated sets) and mark-driven (k_broker 0.87 tool-above-broker).
+
+    *Update (2026-06-12, B4 restatement):* the matrix re-expressed under post-flip two-regime semantics (item 9 above) — classifications are UNCHANGED, only the k_broker numbers behind them moved. DHT / ECO / FRO stay mark-robust: their k (1.12-1.14) sits inside the txn-anchored pure-play band, which is the restated definition of mark-validated. INSW stays mark-driven (k 1.52, far above the 1.25 band ceiling). **TNK remains the only mark-driven AND weight-driven name.** FLNG / CCEC are un-anchored-sector names and their readings are untouched by the flip. The Read column in `outputs/broker_nav_sweep.md` was relabeled the same day to mechanical `wide-spread` / `narrow-spread` — the §6 prose entries are the canonical per-name classification; the sweep column no longer claims taxonomy words it cannot compute vintage-stably.
 
 11. **Consensus forward-EPS cross-check (§9.11)** — the **earnings-leg analog of the §9.9 broker-NAV sweep**. The sweep cross-checks the *asset* leg of the blend (does our NAV agree with broker consensus?); §9.11 cross-checks the *earnings* leg that drives the dividend strip (do our modelled forward earnings agree with sell-side consensus?). The three legs are now all independently checked: NAV (§9.9 broker sweep), scenario weights (§9.10), and forward earnings (§9.11). Implemented in `consensus_eps.py` / `pipeline.run_consensus_eps_xref` → `outputs/consensus_eps_xref.md` + `.xlsx`.
 
@@ -2301,7 +2308,9 @@ structural choices. The framework's silence on them is the limitation.
 The §9.9 broker-NAV sweep (`k_broker`) captures *vessel-mark uncertainty*:
 the wedge between tool NAV and broker NAV under different vessel-value
 assumptions. For affected §15 names, **both tool and broker NAV agree on
-the asset-side question** (k_broker close to 1.0 or modestly above), yet
+the asset-side question** (k_broker close to 1.0 or modestly above — under
+post-flip semantics, inside or near the §9 item 9 txn-anchored pure-play
+band; e.g. TEN 1.16 at the Jun-12 sweep), yet
 the market price sits ~50% below both. The k_broker mechanism therefore
 DOES NOT flag §15 cases — it correctly reports the assets agree, while
 the unrelated market discount goes unmodelled.
@@ -2511,6 +2520,48 @@ Discipline:
 ## Appendix A. Changelog
 
 Dated record of material framework changes. Lock dates use UTC.
+
+### 2026-06-12 — Week 5 Session A: B4 mark-driven classification restated to post-flip k_broker semantics (+ fetch_links argparse)
+
+- **B4 (§9.9/§6 restatement — language, thresholds, and labels only; NO
+  mark changes, zero FV drift verified).** The mark-driven/mark-validated
+  taxonomy was written when k_broker meant "broker premium over our
+  independent curve" (validated ≈ 0.99). Since the 2026-06-09 txn-anchored
+  default flip, k_broker on transaction-anchored sectors reads as the
+  broker premium over TRANSACTION levels, and validated crude pure-plays
+  carry a tight UNIFORM premium — the old "validated ≈ k 1.0 / ~0pp
+  spread" reading misclassified the canonical validators (the live sweep
+  printed DHT/ECO/FRO as "mark-driven" at their EXPECTED +13-17pp).
+  **Restated two-regime definition (§9 item 9):** txn-anchored sectors
+  (crude/product/dry bulk) — mark-validated = k inside the uniform
+  pure-play band `TXN_PURE_PLAY_K_BAND = (1.05, 1.25)` with cross-name
+  uniformity < 0.05 (DHT 1.14 / ECO 1.12 / FRO 1.12 at the Jun-2026 fit);
+  mark-driven = outside the band either side. Un-anchored sectors
+  (LNG/containerships) keep the original ≈1.0 semantics (FLNG 0.87
+  mark-driven, CCEC ~0.96 validated). Constants live in `marks.py`,
+  shared by `pipeline._write_broker_sweep` and `tests/test_marks.py`.
+- **Broker-sweep Read column relabeled MECHANICAL (owner decision):**
+  `wide-spread` / `narrow-spread` (|spread| ≥ 10pp), replacing
+  "mark-driven"/"mark-robust" — the column was claiming taxonomy words it
+  cannot compute vintage-stably (SBLK 1.27 static / 1.21 live straddles
+  the band edge). §6 prose is the canonical per-name classification; the
+  sweep intro + footnote now state both regimes and the band.
+- **§6 dated restatements appended** (vintage prose preserved): INSW
+  (1.52 static / 1.61 live — mark-driven stands), TNK (1.39 live; still
+  the only mark-driven AND weight-driven name), ASC (1.36), STNG (1.38),
+  HAFN (1.37), SBLK (band-edge note — classification rests on the
+  documented −21% gap, not the band read alone). §7.5 and §9 item 10
+  re-expressed; §15.2 band cross-ref added.
+- **Tests:** `test_marks.py` re-pinned to the shared constants + new
+  string-asserts that the rendered sweep carries the band language and
+  not the retired footnote. Verification: full suite green, pipeline
+  re-run produced text/label-only diffs in `broker_nav_sweep.md`
+  (numeric columns identical), delta report 0 material changes,
+  `/reconcile --all` 19/19.
+- **fetch_links argparse front door** (Week-4 carry): zero-options parser
+  — `--help` exits 0 before any network, unknown flags exit 2 (previously
+  ANY argv silently ran a real download pass). 3 tests added; the no-arg
+  Saturday cron path is unchanged.
 
 ### 2026-06-12 — Week 4 Step 2: containerships sector SHIPPED (engine + wiring + both validators) + overlay ledger (§16) + §14.4 double-count note
 

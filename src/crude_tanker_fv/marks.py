@@ -30,6 +30,16 @@ from .schemas import CompanyInputs
 _SOLVE_ITERATIONS = 80
 _K_LO, _K_HI = 0.3, 4.0
 
+# Post-2026-06-09 k_broker semantics (tool marks = transaction-anchored):
+# on txn-anchored sectors k_broker is the broker premium over transaction
+# levels, and validated pure-plays carry a tight UNIFORM premium (~1.12-1.14
+# at the Jun-2026 fit) — mark-validated means INSIDE this band with
+# cross-name uniformity, not k ≈ 1.0 (METHODOLOGY 9 items 9-10, Appendix A
+# 2026-06-12 B4). Un-anchored sectors (LNG, containerships) keep the
+# original k ≈ 1.0 reading.
+TXN_PURE_PLAY_K_BAND = (1.05, 1.25)
+TXN_PURE_PLAY_K_UNIFORMITY = 0.05
+
 
 def scale_vessel_marks(inputs: CompanyInputs, k: float) -> CompanyInputs:
     """Return ``inputs`` with every vessel value curve scaled by ``k`` (ratios kept)."""
