@@ -26,6 +26,43 @@ bulk is the template — first fully greenfield sector, same playbook).
   feeder <2k, 2,000-3,500, Panamax ~4-5k, larger; charter PERIODS quoted
   — containers are a TC market, not spot).
 
+**Step 0 DONE 2026-06-11. Triage verdict: the publication is alive; the
+channel sharing stopped.** Findings:
+
+- NOT an ingest failure: the RC mirror is current (dailies + FFA through
+  Jun-11); a full channel scan (7,872 msgs since Mar-15, all senders)
+  shows the last Container Weekly attachment is 2026-04-01, with zero
+  discussion of it since (and none Jan→Mar either — the ragged 2026
+  cadence, 5 issues in 13 weeks, was silent non-posting, not skips).
+- NOT behind link annotations: 310 harvested daily links, 0 container.
+- The "84 classified" was double-counting (42 files mirrored in both
+  archive trees); true corpus = 42 unique issues.
+- The product is MB Shipbrokers' (ex-Maersk Broker) "Container Weekly" —
+  Pareto/VIE only redistributes it. MB still publishes (regular LinkedIn
+  posts; free-ish subscription via mbshipbrokers.com/sign-up-weekly-reports/,
+  which routes through their contact page). **Dan action item: subscribe
+  directly** — restores the feed without the channel middleman. No
+  LinkedIn scraping (guardrail).
+- Rate-table skim → all 42 issues are a structurally identical 3-page
+  format (verified programmatically, 42/42 carry all five tables):
+  representative fixtures; MBCI index (Jan-95=1,000) + avg fixture
+  length; FY average charter rates 2021→YTD in 6 TEU bands (900-1,200 /
+  1,600-1,800 / 2,400-2,700 / 2,700-2,900 / 4,000-5,400 / 5,500-7,000);
+  TC rate assessments at 9 standard sizes (1,100 / 1,700 / 2,500 / 2,700 /
+  3,500 / 4,250 / 5,500 / 5,400WB / 6,500 TEU, 12-month basis); NB price
+  assessments (1,800-15,000 TEU, Korea vs China); 2nd-hand price
+  assessments at 10yr + 15yr (1,700 / 2,700 / 5,000WB / 6,700WB /
+  9,000WB). Prose carries occasional named S&P prints (charter-attached —
+  confirms txn-anchors stay OUT of v1). Charter periods quoted at 12-36
+  months — TC-market framing confirmed.
+- **§11.8 as_of consequence:** anchor vintage freezes at 2026-04-01
+  (~10 weeks stale). Usable for cycle anchors (~19 months of history,
+  42 samples, mechanical extraction viable given format stability) and
+  for age-curve marks (NB/10yr/15yr per size), with the staleness
+  recorded as a documented limitation until the direct subscription
+  lands. MPCC consensus anchors come from Pareto company research
+  (coverage continues — recent rating action), not the weekly.
+
 ### Step 1 — §11.8 methodology decision doc (time-boxed one session)
 
 Decisions to make (write the doc BEFORE code, dry-bulk precedent):
