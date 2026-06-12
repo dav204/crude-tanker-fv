@@ -114,6 +114,16 @@ Decisions to make (write the doc BEFORE code, dry-bulk precedent):
 
 ## Standing threads (not container work)
 
+- **MB Shipbrokers weeklies — subscription pending first delivery.** Dan
+  signed up 2026-06-11 for all FOUR: Container Weekly, Dry Bulk Weekly,
+  LNG Carrier Weekly, Tanker Weekly. **Dan will say when they start
+  landing in his inbox** — until then the container anchor vintage stays
+  frozen at 2026-04-01. On first delivery: ingest route TBD (Gmail is
+  read-only via sanctioned API per guardrails), and note the three
+  non-container weeklies are fresh independent rate/mark cross-checks
+  for the EXISTING sectors (dry bulk FFA/marks, tanker TC assessments,
+  LNG) — worth a once-over against current anchors when they arrive.
+
 - **Sat Jun-13 + Jun-20**: weekly digests (`/news-pull` after the 08:00
   chain). Tripwires armed across TEN/CMDB/CAPT/TNK/CCEC — the digest
   watches them.
