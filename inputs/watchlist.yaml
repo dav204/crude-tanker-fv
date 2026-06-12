@@ -213,3 +213,41 @@ CAPT:
   yahoo_symbol: CAPT.OL        # bare "CAPT" on Yahoo is Captivision (Nasdaq) — wrong issuer.
   quote_currency: NOK          # price_refresh converts via NOK=X to USD.
   as_of: 2026-06-10
+
+MPCC:
+  current_price: 2.78          # NOK 26.42 (Yahoo MPCC.OL, Jun-12) / USDNOK 9.5106.
+                               # OSLO-LISTED, NOK-quoted — USD carried for cross-name
+                               # comparability (CAPT machinery). Onboarded 2026-06-12.
+  analyst_target: 2.63         # Pareto TP NOK 25 (2026-05-28 quarterly review, HOLD,
+                               # up from SELL/18; values on EV/EBITDA ~5.5x NOT NAV)
+                               # / 9.5106. Real research target, not a NAV statement.
+  consensus_pnav: 1.04         # APPROX — NO Pareto/broker NAV exists for containers
+                               # (§11.8.2, verified in Pareto's own liner table).
+                               # Basis: MPCC's OWN Jul-2025 statement that 1,300-TEU
+                               # divestments "imply NAV of NOK 25-26 per share" — a
+                               # company-implied NAV (~NOK 25.5), 11 months stale,
+                               # pre-dating the 2026 charter market. WEAK anchor;
+                               # /reconcile treats as n/a-APPROX and downweights.
+  consensus_fwd_pe: 8.0        # Pareto 2026-05-28 ("we are 7% ahead of cons. seeing
+                               # MPC at P/E 8x").
+  sector: containerships
+  yahoo_symbol: MPCC.OL
+  quote_currency: NOK
+  as_of: 2026-06-12
+
+GSL:
+  current_price: 38.99         # Yahoo GSL close Jun-11-2026 (chart API).
+  analyst_target: 52.04        # APPROX — book value per share ($1,875.3M equity Mar-31
+                               # / 36,035,434 sh), CMDB convention: an auditable
+                               # reference, NOT an analyst target. NOTE: unlike CMDB's
+                               # spinoff fair-value book, GSL book is DEPRECIATED COST
+                               # on an 18.2-yr fleet — likely understates market value
+                               # in the current charter environment.
+  consensus_pnav: 0.75         # APPROX, WEAK — price / book (38.99 / 52.04) as the
+                               # P/NAV proxy. Cost-basis book caveat above means true
+                               # P/NAV is likely LOWER. No Pareto coverage (never in
+                               # the daily share-price table); no VIE figure on file.
+  consensus_fwd_pe: 3.8        # price / Q1-26 normalized EPS run-rate (2.56 x 4 =
+                               # $10.24) — issuer-derived, not consensus.
+  sector: containerships
+  as_of: 2026-06-12

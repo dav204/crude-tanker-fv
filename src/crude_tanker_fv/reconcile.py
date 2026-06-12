@@ -59,11 +59,16 @@ DRIFT_ALERT_PP = 2.0           # Per-quarter gap-pct move that warrants a note.
 # `pnav_basis: approx` field on the watchlist row so the loader carries it
 # through. Keeping the hardcode for Week 0 to avoid a watchlist-schema
 # refactor; promote to a field in Q3.
-APPROX_PNAV_TICKERS = {"NAT", "ASC", "CCEC", "TEN", "CMDB"}
+APPROX_PNAV_TICKERS = {"NAT", "ASC", "CCEC", "TEN", "CMDB", "MPCC", "GSL"}
 # CMDB added 2026-06-10: zero Pareto/VIE coverage (name-sweep: 1 incidental
 # mention in 280 dailies, as a charterer); its consensus_pnav is a P/BV
 # proxy (spinoff fair-value-basis book), so it must not enter the
 # calibration-lock denominator as a Pareto-anchored validator.
+# MPCC + GSL added 2026-06-12: the ENTIRE containerships sector is APPROX
+# (§11.8.2 — Pareto publishes no container NAV, verified in their own liner
+# valuation table). MPCC's proxy is a stale company-implied NAV (Jul-2025
+# divestment statement); GSL's is P/B on a depreciated-cost book (WEAK).
+# The container calibration lock is N/A-by-construction (§11.8.7).
 
 
 @dataclass

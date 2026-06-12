@@ -1,0 +1,27 @@
+# MPC Container Ships balance sheet — 2026-03-31 (Q1 2026)
+# Source: Q1 2026 financial report (published 2026-05-27, mfn.se PDF).
+ticker: MPCC
+quarter: 2026-Q1
+cash_and_equivalents: 269300000      # incl. $8.9M restricted (small; kept in)
+working_capital_net: 85900000        # money-market investments in "other
+                                     # current financial assets" — quasi-liquid
+                                     # (HAFN TORM-stake precedent); company's
+                                     # own "~$100M net debt" framing counts it
+total_debt: 462900000                # non-current 408.8 + current 54.1
+lease_liabilities: 0
+newbuild_capex_commitments: 633700000  # 15 OWNED hulls (17-ship program less
+                                       # the 2 Uthalden JV 4,500s; JV's $23.2M
+                                       # share EXCLUDED both sides). $75.4M
+                                       # due rest of 2026.
+newbuild_advances_paid: 112900000    # "Newbuildings" carrying amount Mar-31
+                                     # (incl. $2.7M capitalized borrowing cost)
+diluted_shares_outstanding: 443700279  # basic = diluted (no dilution)
+preferred_equity: 0
+shuttle_contracted_book: 0
+governance_discount_pct: 0           # §15.7 screen 2026-06-12: gate FAILS
+                                     # (multi-year P/NAV below 0.85) -> Step 1
+                                     # DECLINED with tripwires — see
+                                     # decisions/mpcc_log.md (MPC Capital
+                                     # ship-management fee load ~0.8%/yr GAV,
+                                     # near market rate; ~50% payout channel
+                                     # OPEN; no control block)

@@ -172,10 +172,12 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | TRMD | $26.74→$25.43 | -4.9% | -3.9%→-7.9% | -4.0 | HOLD→TRIM/SHORT ⚠️ |
 | ASC | $15.96→$15.93 | -0.2% | -8.0%→-8.1% | -0.1 | TRIM/SHORT→TRIM/SHORT |
 | DHT | $15.29→$12.93 | -15.4% | +4.0%→-9.4% | -13.5 | HOLD→TRIM/SHORT ⚠️ |
+| GSL | $38.59→$38.59 | +0.0% | -18.5%→-18.5% | +0.0 | TRIM/SHORT→TRIM/SHORT |
 | HAFN | $5.34→$5.22 | -2.2% | -19.4%→-20.8% | -1.4 | TRIM/SHORT→TRIM/SHORT |
 | FRO | $28.79→$24.40 | -15.3% | -9.1%→-20.9% | -11.9 | TRIM/SHORT→TRIM/SHORT |
 | ECO | $39.93→$33.71 | -15.6% | -8.7%→-21.0% | -12.2 | TRIM/SHORT→TRIM/SHORT |
 | INSW **(WHOLE-CO)** | $57.91→$52.40 | -9.5% | -21.8%→-28.0% | -6.2 | TRIM/SHORT→TRIM/SHORT |
+| MPCC | $2.27→$2.27 | +0.0% | -29.6%→-29.6% | +0.0 | TRIM/SHORT→TRIM/SHORT |
 | NAT | $2.63→$2.07 | -21.2% | -34.5%→-44.4% | -9.9 | TRIM/SHORT→TRIM/SHORT |
 
 _Δ% = (txn − base) / base. Names with no exposure to a recalibrated class show Δ ≈ 0 — useful as a control. ⚠️ flags a position-call flip._

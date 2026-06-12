@@ -16,5 +16,5 @@ spot_tce:
   # Containerships: NO spot market exists (TC-only); set = the 12M TC
   # assessment so the breakeven display has a current-rate reference.
   Ctr-Feeder: 20500
-  Ctr-Intermediate: 42000
+  Ctr-Intermediate: 43400   # A3 TEU-weighted 2026-06-12
   Ctr-Large: 62500

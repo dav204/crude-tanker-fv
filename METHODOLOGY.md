@@ -1902,8 +1902,14 @@ FY2021-25 band averages, collapsed to class:
 | Class | v1 cycle anchor (USD/day) | Apr-01-2026 class rate | Cycle position |
 |---|---:|---:|:---:|
 | `ctr_feeder` | **$20,850** | $20,500 | 0.98x |
-| `ctr_intermediate` | **$32,300** | $42,000 | 1.30x |
+| `ctr_intermediate` | **$33,700** | $43,400 | 1.29x |
 | `ctr_large` | **$41,000** | $62,500 | 1.53x |
+
+*(ctr_intermediate updated 2026-06-12 at validator onboarding — A3
+TEU-weighting applied on the combined MPCC+GSL intermediate fleets;
+was $32,300 / $42,000 / 1.30x on the simple average. The two 5,500-TEU
+boundary ships (MPCC Mackenzie/Colorado) bucket to the 4,250 assessment
+per the §11.8.1 class definition — slightly conservative for them.)*
 
 (FY23 trough levels, for scenario floors: feeder ~$13,300 /
 intermediate ~$18,300 / large ~$32,400 — class means of the FY23 column.)
@@ -2069,12 +2075,12 @@ coverage lands in the archive).
 | Step | When | Owner |
 |---|---|---|
 | §11.8 methodology decision doc (this section) | DONE 2026-06-11 | methodology |
-| `sectors.containerships` block + class map + cycle anchors + marks YAMLs | Week 4 Step 2 | code |
-| `coverage_schedule` strip generalization (§11.8.6) | Week 4 Step 2 (engine change, with tests) | code |
-| MPCC scaffolded via `/add-ticker MPCC containerships` + data assembly (Q1-26 report + 2026-05-28 Pareto review on disk) | Week 4 Step 2 | data |
-| GSL scaffolded + assembled (Q1-26 10-Q/PRs) | Week 4 Step 2 | data |
-| §15.7 governance screens, both names | with onboarding (step 4) | data |
-| `/reconcile --calibration-lock containerships` → record N/A + substitutes (§11.8.7) | at sector ship | gate |
+| `sectors.containerships` block + class map + cycle anchors + marks YAMLs | DONE 2026-06-12 (A3 TEU-weighting applied same session) | code |
+| `coverage_schedule` strip generalization + per-sector `strip_horizon` (§11.8.6) | DONE 2026-06-12 — zero-drift verified on all 17 prior names | code |
+| MPCC assembled (Q1-26 report + deck employment table; Pareto 2026-05-28 review on disk) | DONE 2026-06-12 — cohort ages + NB delivery quarters ESTIMATE, refine at Q2 | data |
+| GSL assembled (Q1-26 6-K PR 71-vessel charter table + FY25 20-F) | DONE 2026-06-12 | data |
+| §15.7 governance screens, both names | DONE 2026-06-12 — both DECLINED with tripwires; GSL = dimension-6 founding application | data |
+| `/reconcile --calibration-lock containerships` → record N/A + substitutes (§11.8.7) | DONE 2026-06-12 — N/A machine-confirmed; primary substitute (MPCC sale prints) shows tool old-age marks 0-33% below realized, conservative by design | gate |
 | Anchor refresh to current vintage | on first MB direct-subscription delivery (PLAN standing thread) | data |
 
 ## 12. Framework limitation — high-payout pure-plays at cycle peak
@@ -2502,6 +2508,51 @@ Discipline:
 ## Appendix A. Changelog
 
 Dated record of material framework changes. Lock dates use UTC.
+
+### 2026-06-12 — Week 4 Step 2: containerships sector SHIPPED (engine + wiring + both validators) + overlay ledger (§16) + §14.4 double-count note
+
+- **Engine (A1 + §11.8.6):** `strip_horizon` became a per-sector parameter
+  (default 8; containerships 10 = q3_2026 → q4_2028 — end-2028 per owner
+  direction; the brief's "~12q from report date" resolves to 10 strip
+  quarters under the q3_2026-start convention, recorded here as the
+  interpretation). `coverage_schedule` (per-class per-quarter cov_q)
+  generalizes the §3.2 blend: covered fraction earns disclosed contracted
+  rates, uncovered re-fixes at scenario rates; absent schedule reproduces
+  the static blend exactly. ZERO FV drift verified on all 17 prior names
+  before the container value was enabled. Longer horizons demand
+  longer curves (loud IndexError, no silent hold-last).
+- **Sector wiring:** Container Set A (0.25/0.40/0.20/0.15) with A2
+  class-signature differentiation encoded (overhang supply-led
+  ~base/soft/weak; recession demand-led, feeder/intermediate ≥ large vs
+  anchor); FY21-25 anchors; synthesised 10-element current forwards;
+  marks fit to MB NB-China/10yr with the old-age leg DELIBERATELY
+  steeper than MB's boom-flat 15yr points (§11.8.5(b)); Ctr-Large marks
+  flagged judgment (WB-only 2nd-hand data). **A3 applied at onboarding:**
+  ctr_intermediate re-weighted on the combined validator TEU mix —
+  rate $42,000→$43,400, anchor $32,300→$33,700, position 1.30x→1.29x.
+- **Validators:** MPCC (NAV $2.27, TRIM −29.6%; 51 on-water + 15 owned
+  NB rows, CAPT §3.1 convention, JV pair excluded; coverage 99/69/41)
+  and GSL (NAV $38.59, TRIM −18.5%; 71-vessel charter table drives a
+  computed coverage_schedule that cross-foots disclosed 100%/86%;
+  coverage-dampened scenario spread ±10% — the §11.8.6.3 prediction
+  visible). Both §15.7-screened DECLINED with tripwires; GSL's was the
+  dimension-6 charter-affiliation founding application (CMA CGM equity
+  zero since 2022; 13/71 vessels, #2 charterer). 19 names, SANITY 0
+  FAIL; both APPROX (APPROX_PNAV_TICKERS extended).
+- **Calibration lock recorded N/A-by-construction, machine-confirmed**;
+  primary substitute (MPCC's 3 disclosed sale prints): tool old-age
+  marks 0-33% BELOW realized boom prints — conservative by design, the
+  §11.8.5(b) trade-off made visible. Fitting check passes (circular).
+- **B1 overlay ledger (§16):** inputs/overlays.yaml + §15 auto-population
+  + renderer; 11 active rows incl. both container §11.8.5(b) marks-tilt
+  entries. **B2:** §14.4 double-count warning (Jun-9 weights carry the
+  war-persistence view; apply only the infrastructure-lag residual).
+  **B3:** all 10 Jun-9 weight-skips re-pinned as point-in-time bands
+  (notably DHT wnav-vs-base REVERSED under war-leaning weights; INSW's
+  deliberately-broken $52 invariant re-pinned at $64.59).
+- Tests 243 → 274. PR #2 (permission allowlist + fetch_links split)
+  reviewed and verified in an isolated worktree this session — merge
+  pending owner.
 
 ### 2026-06-11 — Week 3 close: §15.7 screening formalised + retro screen; CAPT onboarded; FFA Stage 1 + market-consistency diagnostic; earnings readiness
 

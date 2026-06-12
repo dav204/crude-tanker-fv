@@ -1,0 +1,115 @@
+# Global Ship Lease (GSL / NYSE:GSL) fleet manifest — METHODOLOGY §4.1, §11.8
+# Source: Q1 2026 earnings release fleet/charter table (6-K exhibit ef20074666_ex99-1,
+# 71 vessels at 2026-03-31; names, TEU, lightweight, built year, charterer,
+# earliest/latest charter expiry, daily rate). Charter rates marked 'Footnote'
+# in the source (index-linked / stepped / confidential) carry NO charter_rate
+# here — they still count in the coverage_schedule, and the strip prices the
+# covered fraction at the class average of the DISCLOSED rates.
+# Balance sheet date: 2026-03-31.
+#
+# Class split (§11.8.1): 0 Ctr-Feeder / 30 Ctr-Intermediate / 41 Ctr-Large —
+# GSL's smallest ships are ~2,200 TEU; MPCC carries the feeder leg.
+#
+# coverage_schedule (§11.8.6): computed per class per strip quarter from the
+# per-vessel charter expiries at MID-POINT of earliest/latest redelivery
+# (the same convention as GSL's own backlog statement). Cross-checks against
+# the disclosed coverage: computed 100% 2026 / 89% 2027 vs disclosed 100%/86%
+# (midpoint convention reads ~3pp generous in 2027 — acceptable; the
+# disclosed figures are day-weighted within calendar years).
+ticker: GSL
+report_date: 2026-Q1
+vessels:
+  # ---- Ctr-Large — 41 vessels, 313,524 TEU ----
+  - {id: GSL_CmaCgmThalassa, class: Ctr-Large, dwt: 38577, age: 17.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 47200, count: 1}  # 11,040 TEU, CMA CGM, expiry 3Q28-1Q29
+  - {id: GSL_ZimNorfolk, class: Ctr-Large, dwt: 31764, age: 10.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 65000, count: 1}  # 9,115 TEU, ZIM, expiry 2Q32-4Q32
+  - {id: GSL_AntheaY, class: Ctr-Large, dwt: 31890, age: 10.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 9,115 TEU, MSC, expiry 4Q28-4Q28
+  - {id: GSL_ZimXiamen, class: Ctr-Large, dwt: 31820, age: 10.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 65000, count: 1}  # 9,115 TEU, ZIM, expiry 3Q32-4Q32
+  - {id: GSL_SydneyExpress, class: Ctr-Large, dwt: 31254, age: 9.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 9,019 TEU, Hapag-Lloyd, expiry 3Q27-4Q29
+  - {id: GSL_IstanbulExpress, class: Ctr-Large, dwt: 31380, age: 9.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 9,019 TEU, Hapag-Lloyd, expiry 4Q26-2Q30
+  - {id: GSL_BremerhavenExpress, class: Ctr-Large, dwt: 31319, age: 10.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 9,019 TEU, Hapag Lloyd, expiry 2Q27-3Q29
+  - {id: GSL_Czech, class: Ctr-Large, dwt: 31319, age: 10.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 9,019 TEU, Hapag-Lloyd, expiry 4Q26-3Q30
+  - {id: GSL_MscTianjin, class: Ctr-Large, dwt: 34243, age: 20.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 8,603 TEU, MSC, expiry 3Q30-1Q31
+  - {id: GSL_MscQingdao, class: Ctr-Large, dwt: 34586, age: 21.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 8,603 TEU, MSC, expiry 4Q30-1Q31
+  - {id: GSL_GslNingbo, class: Ctr-Large, dwt: 34340, age: 21.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 8,603 TEU, MSC, expiry 3Q30-1Q31
+  - {id: GSL_GslAlexandra, class: Ctr-Large, dwt: 37809, age: 21.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 8,599 TEU, Maersk, expiry 2Q28-3Q28
+  - {id: GSL_GslSofia, class: Ctr-Large, dwt: 37777, age: 22.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 8,599 TEU, Maersk, expiry 3Q28-3Q28
+  - {id: GSL_GslEffie, class: Ctr-Large, dwt: 37777, age: 22.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 8,599 TEU, Maersk, expiry 3Q28-3Q28
+  - {id: GSL_GslLydia, class: Ctr-Large, dwt: 37777, age: 22.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 8,599 TEU, Maersk, expiry 2Q28-3Q28
+  - {id: GSL_LotusA, class: Ctr-Large, dwt: 33026, age: 15.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 8,586 TEU, CMA CGM, expiry 3Q26-3Q30
+  - {id: GSL_Koi, class: Ctr-Large, dwt: 33005, age: 14.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 8,586 TEU, CMA CGM, expiry 3Q26-2Q30
+  - {id: GSL_Cypress, class: Ctr-Large, dwt: 33026, age: 14.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 8,586 TEU, CMA CGM, expiry 3Q26-2Q30
+  - {id: GSL_GslEleni, class: Ctr-Large, dwt: 29261, age: 21.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 7,847 TEU, Maersk, expiry 4Q27-2Q29
+  - {id: GSL_GslKalliopi, class: Ctr-Large, dwt: 29261, age: 21.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 7,847 TEU, Maersk, expiry 1Q28-3Q29
+  - {id: GSL_GslGrania, class: Ctr-Large, dwt: 29261, age: 21.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 7,847 TEU, Maersk, expiry 1Q28-3Q29
+  - {id: GSL_ColombiaExpress, class: Ctr-Large, dwt: 23424, age: 12.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 7,072 TEU, Hapag-Lloyd, expiry 4Q28-1Q31
+  - {id: GSL_PanamaExpress, class: Ctr-Large, dwt: 23424, age: 12.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 7,072 TEU, Hapag-Lloyd, expiry 4Q29-4Q31
+  - {id: GSL_CostaRicaExpress, class: Ctr-Large, dwt: 23424, age: 12.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 7,072 TEU, Hapag-Lloyd, expiry 2Q29-3Q31
+  - {id: GSL_NicaraguaExpress, class: Ctr-Large, dwt: 23424, age: 12.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 7,072 TEU, Hapag-Lloyd, expiry 3Q29-4Q31
+  - {id: GSL_AtetiExCmaCgmBerlioz, class: Ctr-Large, dwt: 26776, age: 24.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 7,023 TEU, Footnote, expiry 2Q29-2Q29
+  - {id: GSL_MexicoExpress, class: Ctr-Large, dwt: 23970, age: 10.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 6,918 TEU, Hapag-Lloyd, expiry 3Q29-4Q31
+  - {id: GSL_JamaicaExpress, class: Ctr-Large, dwt: 23915, age: 10.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 6,918 TEU, Hapag-Lloyd, expiry 3Q29-4Q31
+  - {id: GSL_GslChristen, class: Ctr-Large, dwt: 27954, age: 23.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 6,858 TEU, Maersk, expiry 4Q27-1Q28
+  - {id: GSL_GslNicoletta, class: Ctr-Large, dwt: 28070, age: 23.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 6,858 TEU, Maersk, expiry 1Q28-2Q28
+  - {id: GSL_AgiosDimitrios, class: Ctr-Large, dwt: 24931, age: 14.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 6,572 TEU, MSC, expiry 3Q30-4Q30
+  - {id: GSL_GslVinia, class: Ctr-Large, dwt: 23737, age: 21.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 6,080 TEU, Maersk, expiry 1Q28-4Q29
+  - {id: GSL_GslChristelElisabeth, class: Ctr-Large, dwt: 23745, age: 21.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 6,080 TEU, Maersk, expiry 1Q28-3Q29
+  - {id: GSL_GslArcadia, class: Ctr-Large, dwt: 24859, age: 25.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 6,008 TEU, Footnote, expiry 1Q29-2Q29
+  - {id: GSL_GslVioletta, class: Ctr-Large, dwt: 24873, age: 25.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 6,008 TEU, Footnote, expiry 1Q29-1Q29
+  - {id: GSL_GslMaria, class: Ctr-Large, dwt: 24414, age: 24.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 12700, count: 1}  # 6,008 TEU, Maersk, expiry 1Q30-2Q30
+  - {id: GSL_GslMyny, class: Ctr-Large, dwt: 24876, age: 25.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 6,008 TEU, Footnote, expiry 1Q29-2Q29
+  - {id: GSL_GslMelita, class: Ctr-Large, dwt: 24859, age: 24.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 12700, count: 1}  # 6,008 TEU, Maersk, expiry 3Q29-4Q29
+  - {id: GSL_GslTegea, class: Ctr-Large, dwt: 24308, age: 24.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 12700, count: 1}  # 5,994 TEU, Maersk, expiry 4Q29-4Q29
+  - {id: GSL_GslDorothea, class: Ctr-Large, dwt: 24243, age: 24.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 12700, count: 1}  # 5,994 TEU, Maersk, expiry 3Q29-4Q29
+  - {id: GSL_IanH, class: Ctr-Large, dwt: 25128, age: 25.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 5,936 TEU, COSCO, expiry 4Q27-4Q27
+  # ---- Ctr-Intermediate — 30 vessels, 109,496 TEU ----
+  - {id: GSL_GslTripoli, class: Ctr-Intermediate, dwt: 22109, age: 16.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 17250, count: 1}  # 5,470 TEU, Maersk, expiry 3Q27-4Q27
+  - {id: GSL_GslKithira, class: Ctr-Intermediate, dwt: 22259, age: 16.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 17250, count: 1}  # 5,470 TEU, Maersk, expiry 4Q27-1Q28
+  - {id: GSL_GslTinos, class: Ctr-Intermediate, dwt: 22068, age: 15.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 17250, count: 1}  # 5,470 TEU, Maersk, expiry 3Q27-4Q27
+  - {id: GSL_GslSyros, class: Ctr-Intermediate, dwt: 22099, age: 15.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 17250, count: 1}  # 5,470 TEU, Maersk, expiry 4Q27-4Q27
+  - {id: GSL_OrcaI, class: Ctr-Intermediate, dwt: 20633, age: 19.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 5,308 TEU, Footnote, expiry 3Q28-4Q28
+  - {id: GSL_DolphinIi, class: Ctr-Intermediate, dwt: 20596, age: 18.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 5,095 TEU, Footnote, expiry 1Q28-2Q28
+  - {id: GSL_CmaCgmAlcazar, class: Ctr-Intermediate, dwt: 20087, age: 18.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 35500, count: 1}  # 5,089 TEU, CMA CGM, expiry 3Q29-4Q29
+  - {id: GSL_GslChâteauDIf, class: Ctr-Intermediate, dwt: 19994, age: 18.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 35500, count: 1}  # 5,089 TEU, CMA CGM, expiry 4Q29-1Q30
+  - {id: GSL_GslSusan, class: Ctr-Intermediate, dwt: 17309, age: 17.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 4,363 TEU, CMA CGM, expiry 3Q27-1Q28
+  - {id: GSL_CmaCgmJamaica, class: Ctr-Intermediate, dwt: 17272, age: 19.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 4,298 TEU, CMA CGM, expiry 1Q28-2Q28
+  - {id: GSL_CmaCgmSambhar, class: Ctr-Intermediate, dwt: 17355, age: 19.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 4,045 TEU, CMA CGM, expiry 1Q28-2Q28
+  - {id: GSL_CmaCgmAmerica, class: Ctr-Intermediate, dwt: 17355, age: 19.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 4,045 TEU, CMA CGM, expiry 1Q28-2Q28
+  - {id: GSL_GslRossi, class: Ctr-Intermediate, dwt: 16309, age: 13.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 3,421 TEU, Maersk, expiry 1Q29-2Q29
+  - {id: GSL_GslAlice, class: Ctr-Intermediate, dwt: 16543, age: 11.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 31000, count: 1}  # 3,421 TEU, CMA CGM, expiry 2Q28-3Q28
+  - {id: GSL_GslEleftheria, class: Ctr-Intermediate, dwt: 16642, age: 12.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 33000, count: 1}  # 3,421 TEU, Maersk, expiry 3Q28-4Q28
+  - {id: GSL_GslMelina, class: Ctr-Intermediate, dwt: 16703, age: 12.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 29900, count: 1}  # 3,421 TEU, Maersk, expiry 4Q29-1Q30
+  - {id: GSL_Athena, class: Ctr-Intermediate, dwt: 13538, age: 22.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 2,980 TEU, MSC, expiry 2Q27-3Q27
+  - {id: GSL_GslValerie, class: Ctr-Intermediate, dwt: 11971, age: 20.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 27000, count: 1}  # 2,824 TEU, ZIM, expiry 2Q27-3Q27
+  - {id: GSL_GslMamitsa, class: Ctr-Intermediate, dwt: 11949, age: 18.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 28000, count: 1}  # 2,824 TEU, RCL, expiry 1Q28-2Q28
+  - {id: GSL_GslLalo, class: Ctr-Intermediate, dwt: 11950, age: 19.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 2,824 TEU, MSC, expiry 2Q27-3Q27
+  - {id: GSL_GslMercer, class: Ctr-Intermediate, dwt: 11970, age: 18.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 24500, count: 1}  # 2,824 TEU, ONE, expiry 1Q27-2Q27
+  - {id: GSL_GslElizabeth, class: Ctr-Intermediate, dwt: 11530, age: 19.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 20360, count: 1}  # 2,741 TEU, Maersk, expiry 3Q28-4Q28
+  - {id: GSL_Newyorker, class: Ctr-Intermediate, dwt: 11463, age: 24.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 26000, count: 1}  # 2,635 TEU, Maersk, expiry 2Q27-3Q27
+  - {id: GSL_Nikolas, class: Ctr-Intermediate, dwt: 11370, age: 25.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 26000, count: 1}  # 2,635 TEU, CMA CGM, expiry 1Q27-2Q27
+  - {id: GSL_GslChloe, class: Ctr-Intermediate, dwt: 12212, age: 13.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 24500, count: 1}  # 2,546 TEU, ONE, expiry 1Q27-2Q27
+  - {id: GSL_GslMaren, class: Ctr-Intermediate, dwt: 12243, age: 11.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 16500, count: 1}  # 2,546 TEU, OOCL, expiry 2Q28-3Q28
+  - {id: GSL_Maira, class: Ctr-Intermediate, dwt: 11453, age: 25.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 26000, count: 1}  # 2,506 TEU, CMA CGM, expiry 1Q27-2Q27
+  - {id: GSL_Manet, class: Ctr-Intermediate, dwt: 11534, age: 24.8, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 24000, count: 1}  # 2,288 TEU, OOCL, expiry 4Q26-4Q26
+  - {id: GSL_Kumasi, class: Ctr-Intermediate, dwt: 11652, age: 23.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 2,220 TEU, MSC, expiry 4Q26-4Q26
+  - {id: GSL_Julie, class: Ctr-Intermediate, dwt: 11731, age: 23.8, scrubber: false, eco: false, charter_status: time_charter, count: 1}  # 2,207 TEU, MSC, expiry 3Q27-3Q27
+
+# All-TC fleet: no container spot market exists (§11.8). spot_coverage_pct 0
+# is the static fallback; the strip uses coverage_schedule below.
+spot_coverage_pct:
+  Ctr-Intermediate: 0.0
+  Ctr-Large: 0.0
+
+# Per-quarter charter coverage, q3_2026 -> q4_2028 (strip_horizon 10).
+# Count-weighted within class; mid-point-of-redelivery convention.
+coverage_schedule:
+  Ctr-Intermediate: [1.0, 1.0, 0.933, 0.8, 0.667, 0.567, 0.467, 0.3, 0.233, 0.133]
+  Ctr-Large: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.951, 0.927, 0.805, 0.634]
+
+fleet_summary:
+  total_operating: 71
+  ctr_intermediate_count: 30
+  ctr_large_count: 41
+  total_teu: 423020
+  # 423,003 TEU per the FY2025 20-F (as of 2026-03-16); table sums to the
+  # figure above at Mar-31 — within rounding of the 20-F count.
+  avg_age_teu_weighted: 18.2   # per Q1 2026 PR

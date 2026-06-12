@@ -1,0 +1,22 @@
+# MPC Container Ships cost structure — METHODOLOGY §4.4
+# Source: Q1 2026 report. Disclosed adjusted opex $7,660/day (excl. tonnage
+# tax; Q1 2025: $6,992). Per-class allocation calibrated to the disclosed
+# fleet average over the 51-ship on-water mix (21 feeder / 30 intermediate):
+#   (21 x 6,900 + 30 x 8,200) / 51 = $7,665/day
+ticker: MPCC
+
+opex_per_day:
+  Ctr-Feeder: 6900
+  Ctr-Intermediate: 8200
+
+# Q1 admin $5.5M + ship-management fees $2.5M = $8.0M/q -> $32M/yr. The
+# strip's G&A line carries BOTH (management fees are shoreside cost here,
+# SBLK convention).
+annual_G_and_A: 32000000
+
+# NET interest: Q1 finance costs $7.8M less finance income $3.2M = $4.6M,
+# x4 = $18.4M. Will RISE as NB debt draws ($633.7M program) — revisit at
+# the Q2 refresh; the forward-starting SOFR swap (Apr-26) pre-hedges it.
+annual_interest_expense: 18400000
+
+effective_tax_rate: 0.0   # tonnage tax; Q1 income tax $30k on $40.8M profit

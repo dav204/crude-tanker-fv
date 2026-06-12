@@ -1,0 +1,11 @@
+# MPC Container Ships dividend policy — METHODOLOGY §4.3
+# Recurring quarterly dividend anchored to ~50% of adjusted net profit
+# (Q4-25 release: $0.05/q described as "50% of adjusted net profit"; Q1-26
+# recurring $0.04 ≈ 44% of adj. profit) plus possible event-driven
+# distributions. 17+ consecutive quarterly dividends. Variable form: the
+# recurring level floats with earnings; $0.04 acts as the near-term floor.
+ticker: MPCC
+policy_type: variable
+base_dividend_per_share: 0.04
+payout_ratio: 0.50
+floor: 0.0

@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-06-12T02:42:11+00:00
-- **Previous run:** 2026-06-12T00:38:25+00:00
+- **This run:** 2026-06-12T13:50:36+00:00
+- **Previous run:** 2026-06-12T13:44:11+00:00
 
 ## Headline changes (material moves)
 
@@ -9,7 +9,7 @@
 
 ## Input files changed since last run
 
-- `inputs/overlays.yaml` (new)
+- `inputs/overlays.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -32,5 +32,7 @@
 | SBLK | $27.15 (no change) | $25.74 (no change) | $25.72 (no change) | $26.27 (no change) | TRIM/SHORT (overvalued) | +22.1pp (no change) |
 | GNK | $23.69 (no change) | $25.28 (no change) | $25.73 (no change) | $26.24 (no change) | BUY (undervalued) | +3.7pp (no change) |
 | CAPT | $12.79 (no change) | $16.71 (no change) | $17.68 (no change) | $17.74 (no change) | BUY (undervalued) | +9.8pp (no change) |
+| MPCC | $2.78 (no change) | $2.13 (no change) | $1.96 (no change) | $2.27 (no change) | TRIM/SHORT (overvalued) | +11.4pp (no change) |
+| GSL | $38.99 (no change) | $33.61 (no change) | $31.76 (no change) | $38.59 (no change) | TRIM/SHORT (overvalued) | +27.3pp (no change) |
 
 _⚑ flags a material change (position flip, |ΔFV%| > 10%, |Δspread| > 5pp, or |ΔNAV%| > 5%). ⟵ marks a position flip._

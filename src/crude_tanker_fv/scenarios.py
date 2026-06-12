@@ -521,7 +521,9 @@ def write_scenario_summary(
     ]
 
     for sector in sector_order:
-        sheet_title = "Scenario summary" if sector == "crude" else f"Scenario summary ({sector.upper()})"
+        # Excel caps sheet names at 31 chars — "CONTAINERSHIPS" needs a tag.
+        tag = "CTR" if sector == "containerships" else sector.upper()
+        sheet_title = "Scenario summary" if sector == "crude" else f"Scenario summary ({tag})"
         ws = wb.create_sheet(title=sheet_title)
         scen_names = sector_scenarios[sector]
         scen_cols = [f"{name}_FV" for name in scen_names]

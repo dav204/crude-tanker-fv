@@ -1,0 +1,21 @@
+# Global Ship Lease cost structure — METHODOLOGY §4.4
+# Source: Q1 2026 earnings release. Fleet-wide disclosed opex $8,261/day
+# (Q1 2026; FY2025 $8,230). Per-class split is an allocation calibrated to
+# the disclosed fleet average (30 Ctr-Intermediate / 41 Ctr-Large):
+#   (30 x 7,200 + 41 x 9,050) / 71 = $8,268/day  <- within $10 of disclosed
+ticker: GSL
+
+opex_per_day:
+  Ctr-Intermediate: 7200
+  Ctr-Large: 9050
+
+# FY2025 G&A $22.1M; Q1 2026 annualises to $35.2M but is elevated by
+# non-cash stock comp (PR note). ESTIMATE between the two, nearer FY25.
+annual_G_and_A: 24000000
+
+# NET interest: Q1 2026 interest expense $9.3M less interest income $5.7M
+# = $3.6M net, x4 = $14.4M. GSL runs cash-heavy; gross-only would overstate
+# the drag by ~$23M/yr.
+annual_interest_expense: 14400000
+
+effective_tax_rate: 0.0   # Marshall Islands / Section 883 (ESTIMATE; verify 20-F tax note)

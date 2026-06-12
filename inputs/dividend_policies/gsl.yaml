@@ -1,0 +1,13 @@
+# Global Ship Lease dividend policy — METHODOLOGY §4.3
+# $0.625/q common (raised from $0.525 with Q4 2025 results, 2026-03-05);
+# board-reviewed base + occasional supplemental; ~$33M buyback authorization
+# outstanding (no 2025 repurchases). Fixed-only in strip terms: GSL retains
+# the bulk of earnings for fleet renewal (FLNG/TNK/CCEC pattern).
+# NOTE: the 8.75% Series B preferred dividend (~$9.5M/yr) is carried via
+# preferred_equity on the balance sheet (NAV subtraction), consistent with
+# TEN's preferred treatment — not modeled as a common-DPS drag.
+ticker: GSL
+policy_type: base_plus_variable
+base_dividend_per_share: 0.625
+payout_ratio: 0.0
+floor: 0.0

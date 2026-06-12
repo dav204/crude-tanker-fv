@@ -249,3 +249,28 @@ CAPT:
     NOK 134. 30 firm vessels (21 NB through mid-28) + 13 options to YE'26.
     Onboarded 2026-06-11. IR URLs unverified-by-fetch at onboarding — verify
     on first issuer-report pull (Q2 refresh)."
+
+MPCC:
+  ir_page: https://www.mpc-container.com/investors/
+  fleet_page: https://www.mpc-container.com/fleet/our-fleet/
+  q1_2026_report: https://storage.mfn.se/d21d1573-1b5f-4477-ba71-96119e8ee953/mpcc-q1-2026-financial-report.pdf
+  q1_2026_deck: https://storage.mfn.se/9d52caf5-68af-4d4e-b473-2f6f9fdc4fcc/mpcc-q1-2026-earnings-call.pdf
+  reporting_pattern: "Oslo quarterly via MFN; Q1-26 published 2026-05-27. Pareto
+    covers (HOLD TP NOK 25, 2026-05-28 review on disk via linked-report harvest)
+    on EV/EBITDA — publishes NO NAV (§11.8.2)."
+  notes: "Onboarded 2026-06-12 (1st container validator). Fleet-employment
+    table in the earnings deck is the per-vessel source (rates + redelivery
+    windows); built years NOT disclosed there — cohort age estimates pending
+    the issuer fleet list. 17-ship NB program (2 in Uthalden JV, excluded)."
+
+GSL:
+  ir_page: https://www.globalshiplease.com/investors
+  fleet_page: https://www.globalshiplease.com/fleet/ships-contract-cover
+  q1_2026_pr_sec: https://www.sec.gov/Archives/edgar/data/0001430725/000114036126022621/ef20074666_ex99-1.htm
+  reporting_pattern: "NYSE FPI: 20-F annual (FY25 filed 2026-03-20) + 6-K
+    quarterly PRs with the FULL 71-vessel charter table (name/TEU/lightweight/
+    built/charterer/expiry/rate). No Pareto coverage; no VIE figure on file."
+  notes: "Onboarded 2026-06-12 (2nd container validator, charter-book stress
+    test). CMA CGM equity stake ZERO since 2022-08-05 (final 8.3% sold);
+    charter book Maersk 24 / CMA CGM 13 / MSC 9 / Hapag 10 of 71 vessels.
+    10-ship ~$917M NB order announced 2026-06-04 (POST-snapshot, Q2 item)."

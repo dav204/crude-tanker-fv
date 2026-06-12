@@ -426,6 +426,31 @@ go in Q3.
   + NB-heavy; cosmetic). Onboarded 2026-06-11 from archived Pareto
   initiation + Q1 review — pull issuer Q1 report at Q2 refresh.
 
+- **MPCC** — 1st containerships validator (Oslo/NOK; `yahoo_symbol:
+  MPCC.OL`). 51 on-water (21 feeder / 30 intermediate, ~129k TEU) + 15
+  OWNED NB rows at the CAPT §3.1 net-of-commitment convention ($633.7M
+  commitments; Uthalden JV pair excluded both sides). Coverage 99/69/41%
+  of 2026/27/28 days fixed → coverage_schedule; ~50%-of-adj-profit
+  dividend (policy_type variable). NAV $2.27, TRIM EV −29.6% at NOK
+  26.42. APPROX anchor = company-implied NAV NOK ~25.5 (Jul-25, stale);
+  Pareto covers on EV/EBITDA only (HOLD TP NOK 25). §15.7 DECLINED
+  (fees 0.6%/yr GAV, payout channel wide open). KNOWN SOFT: cohort age
+  ESTIMATES (deck has no built years) + NB delivery quarters — refine at
+  Q2 (reports 2026-08-26). §11.8.5(b) marks-tilt ledger row ACTIVE; its
+  3 disclosed sale prints show tool old-age marks 0-33% BELOW realized
+  (deliberate, conservative). Onboarded 2026-06-12.
+- **GSL** — 2nd containerships validator, the charter-book stress test.
+  71 vessels (0 feeder / 30 intermediate / 41 large; 18.2-yr
+  TEU-weighted), full per-vessel charter table from the 6-K PR;
+  coverage_schedule computed at mid-redelivery cross-foots disclosed
+  100%/86%. Coverage dampening visible: scenario FV spread only ±10%.
+  NAV $38.59 (prefs $109M subtracted), TRIM EV −18.5% at $38.99; tool
+  fleet 22% BELOW cost book (§11.8.5(b) row). APPROX = P/B proxy, WEAK.
+  §15.7 dimension-6 charter-affiliation pass DECLINED: CMA CGM equity
+  ZERO since 2022-08-05, 13/71 vessels (#2 behind Maersk 24) — tripwires
+  incl. the Jun-26 $917M NB order's undisclosed charterers (Q2 check).
+  NB order is POST-snapshot — Q2 item. Onboarded 2026-06-12.
+
 ## Week-close checklist (codified 2026-06-11, owner decision)
 
 Work is organised in discrete sprints called "Weeks". At the END of each
@@ -463,6 +488,29 @@ sessions.
 
 ## Changelog
 
+- **2026-06-12 (Week 4, Step 2 + maintenance)** — **CONTAINERSHIPS SHIPPED:
+  engine (per-sector `strip_horizon` + `coverage_schedule`, zero-drift
+  verified on all 17 prior names), Container Set A wiring (A2 class
+  signatures, A3 TEU-weighted intermediate $43,400/$33,700 applied at
+  onboarding), MPCC + GSL onboarded (19 names, SANITY 0 FAIL, both
+  n/a-APPROX), §15.7 screens both DECLINED (GSL = the dimension-6
+  charter-affiliation founding pass: CMA CGM equity zero since 2022,
+  13/71 vessels), calibration lock recorded N/A-by-construction
+  (machine-confirmed; primary substitute = MPCC's 3 disclosed sale
+  prints — tool old-age marks 0-33% BELOW realized, conservative by
+  design).** Maintenance landed: B1 overlay ledger (§16, 11 active
+  rows), B2 §14.4 double-count warning, B3 all 10 weight-skips
+  re-pinned (DHT wnav-vs-base direction REVERSED under Jun-9 weights).
+  SESSION-LOG NOTES: (a) A1 horizon — owner brief said "~12q from
+  report date"; under the repo's q3_2026 strip-start convention,
+  end-2028 = **10 strip quarters** — wired as 10, flagged for owner
+  review; (b) MPCC cohort AGES and NB delivery quarters are ESTIMATES
+  (deck discloses no built years) — refine at Q2 (2026-08-26); (c) GSL
+  analyst_target/consensus_pnav are book-based placeholders (CMDB
+  convention) — replace if VIE coverage surfaces; (d) PR #2 reviewed +
+  worktree-verified, merge pending owner; my 10+ local commits touch
+  the same CLAUDE.md changelog region — resolve additively on pull.
+  Tests 243 → 274. Full detail: METHODOLOGY Appendix A 2026-06-12.
 - **2026-06-11 (Week 4, Step 1)** — **§11.8 containerships methodology
   decision doc LOCKED** (time-boxed one session, doc before code, dry-bulk
   §11.7 as template). Decisions: 3-class collapse (ctr_feeder ≤2,000 /

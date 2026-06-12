@@ -73,3 +73,11 @@ overlays:
     applied: 2026-06-11
     retire_trigger: "fresh MB assessment set lands (direct subscription) and old-age leg re-fit"
     note: "Boom-flat old-age curve at a 10-week-stale vintage, concentrated in old feeders; no external NAV anchor to catch it. First container ledger row, per §11.8.5."
+
+  - name: GSL
+    overlay_id: "§11.8.5(b)"
+    direction: down
+    magnitude: "unquantified — marks-vintage premium on aged tonnage (tool fleet 22% below cost book)"
+    applied: 2026-06-12
+    retire_trigger: "fresh MB assessment set lands (direct subscription) and old-age leg re-fit"
+    note: "Same boom-flat old-age trade-off as MPCC, on an 18.2-yr TEU-weighted fleet; MPCC's sale prints suggest the conservative direction is real (tool 0-33% below realized)."

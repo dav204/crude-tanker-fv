@@ -17,5 +17,5 @@ historical_tce_means:
   # Containerships (§11.8.5) — anchor basis: MB FY2021-2025 average (NOT a
   # 10-year TC mean; boom-tilted, see the §11.8.5 two-layer caveat).
   Ctr-Feeder: 20850
-  Ctr-Intermediate: 32300
+  Ctr-Intermediate: 33700   # A3 TEU-weighted 2026-06-12
   Ctr-Large: 41000

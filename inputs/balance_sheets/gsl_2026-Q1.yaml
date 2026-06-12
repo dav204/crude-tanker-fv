@@ -1,0 +1,29 @@
+# Global Ship Lease balance sheet — 2026-03-31 (Q1 2026)
+# Source: Q1 2026 earnings release (6-K exhibit ef20074666_ex99-1, 2026-05-22).
+ticker: GSL
+quarter: 2026-Q1
+cash_and_equivalents: 404900000      # unrestricted only; $156M restricted +
+                                     # ~$94M time deposits (mgmt "$655M cash
+                                     # position") EXCLUDED conservatively —
+                                     # restricted backs debt service.
+working_capital_net: 0               # ESTIMATE — PR carries no clean WC split;
+                                     # refine from the 20-F at the Q2 refresh.
+total_debt: 657800000                # $292.0M bank + $166.3M 5.69% notes due
+                                     # 2027 + $199.5M sale-leaseback
+lease_liabilities: 0                 # sale-leaseback is INSIDE total_debt
+                                     # (ECO gotcha: never double-count)
+newbuild_capex_commitments: 0        # the 10-ship ~$917M NB order is a
+                                     # POST-SNAPSHOT event (announced
+                                     # 2026-06-04) — enters at the Q2 refresh
+                                     # with its charter attachments
+newbuild_advances_paid: 0
+diluted_shares_outstanding: 36035434 # Class A outstanding at 2026-04-20;
+                                     # Q1 weighted diluted ~35.98M
+preferred_equity: 109000000          # 8.75% Series B: 43,592 prefs x $2,500
+                                     # liq pref (FY25 20-F count — VERIFY at
+                                     # Q2: the Sep-2025 $150M ATM may have
+                                     # added shares in Q1)
+shuttle_contracted_book: 0
+governance_discount_pct: 0           # §15.7 screen 2026-06-12: DECLINED with
+                                     # tripwires — see decisions/gsl_log.md
+                                     # (charter-affiliation pass, dimension 6)

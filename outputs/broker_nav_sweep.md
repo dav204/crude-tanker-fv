@@ -16,10 +16,12 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, conservati
 | GNK | 0.87× | 1.03 | +8.6% | +10.4% | +12.3% | BUY→BUY | $16,716→$12,427 | +4 | mark-robust |
 | HAFN | 0.95× | 1.37 | -20.8% | -5.8% | +9.1% | TRIM/SHORT→BUY | $110,531→$27,874 | +30 | mark-driven |
 | INSW **(WHOLE-CO)** | 0.98× | 1.61 | -28.0% | -9.5% | +9.0% | TRIM/SHORT→BUY | $392,822→$71,660 | +37 | mark-driven |
+| GSL | 0.75× | 1.28 | -18.5% | -4.9% | +8.8% | TRIM/SHORT→BUY | $2,757,173→NAV>px | +27 | mark-driven |
 | DHT | 1.09× | 1.16 | -9.4% | -2.9% | +3.7% | TRIM/SHORT→HOLD | $334,603→$171,590 | +13 | mark-driven |
 | CMDB | 0.62× | 0.86 | +12.6% | +6.0% | -0.7% | BUY→HOLD | NAV>px→$1,070,509 | -13 | mark-driven |
 | FRO | 1.20× | 1.18 | -20.9% | -12.6% | -4.4% | TRIM/SHORT→HOLD | $375,677→$230,245 | +17 | mark-driven |
 | ECO | 1.21× | 1.15 | -21.0% | -13.9% | -6.9% | TRIM/SHORT→TRIM/SHORT | $333,248→$222,848 | +14 | mark-driven |
+| MPCC | 1.04× | 1.11 | -29.6% | -23.9% | -18.2% | TRIM/SHORT→TRIM/SHORT | $350,590→$180,943 | +11 | mark-driven |
 | FLNG | 1.37× | 0.89 | -2.5% | -11.9% | -21.3% | HOLD→TRIM/SHORT | $3,162,500→$3,162,500 | -19 | mark-driven |
 
 _**(WHOLE-CO)** = hybrid name valued via crude + product sleeve carve-outs aggregated against the whole-company tape price (METHODOLOGY 6 v2). The breakeven shown is the crude-sleeve breakeven (proxy)._

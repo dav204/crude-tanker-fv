@@ -100,3 +100,13 @@ CAPT:
   window_end: 2026-08-31
   status: expected
   basis: "First-ever results (Q1-26) came May-27; Oslo H1-report cadence implies late Aug. No published calendar yet — watch the dailies."
+MPCC:
+  window_start: 2026-08-26
+  window_end: 2026-08-26
+  status: confirmed
+  basis: "company financial calendar (fetched 2026-06-12): Q2 26.08.2026, Q3 25.11.2026"
+GSL:
+  window_start: 2026-08-04
+  window_end: 2026-08-06
+  status: expected
+  basis: "Q2-25 Aug-5 pre-market; Q1-26 followed 10-day-notice pattern (notice May-12, release May-22)"

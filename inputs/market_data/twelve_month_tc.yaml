@@ -18,5 +18,5 @@ twelve_month_tc:
   # per §11.8.1 (frozen vintage; ctr_intermediate is the simple average
   # pending the A3 TEU-weighting at validator onboarding).
   Ctr-Feeder: 20500
-  Ctr-Intermediate: 42000
+  Ctr-Intermediate: 43400   # A3 TEU-weighted 2026-06-12
   Ctr-Large: 62500
