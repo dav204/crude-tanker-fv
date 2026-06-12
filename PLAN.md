@@ -108,12 +108,18 @@ calendar + preflight §0 drive the timing)
   sanctioned API per guardrails); the three non-container weeklies are
   fresh independent cross-checks for EXISTING sectors — run a once-over
   against current anchors when they arrive.
-- **OWNER ACTIONS pending (re-flagged at Week 4 close):** detach the
-  brokerage MCP connector from this project — order-writing surfaces
-  were STILL reachable in the 2026-06-12 Step-3 session (PR #2 §6 Q4
-  decision; run /mcp to locate the scope); optionally same for Gmail.
-  Ratify-or-revise the A1 horizon interpretation (wired as 10 strip
-  quarters = end-2028; the brief said "~12q from report date").
+- **Brokerage MCP — CLOSED 2026-06-12 (decision REVISED).** Owner kept
+  the IBKR connector attached (Cowork weekly portfolio routine + Chat);
+  claude.ai has no per-surface scoping, so the fix is DENY rules on the
+  synced server id in `~/.claude/settings.json` + tracked
+  `.claude/settings.json` — verified live (read-only probe refused).
+  See PERMISSIONS_PROPOSAL.md §6.4 revision. Tripwire: a claude.ai
+  disconnect/reconnect can change the UUID and silently stale the deny
+  — re-check the id in the next session's tool list (Gmail-style
+  connectors remain attached and un-denied; optional follow-up).
+- **OWNER ACTION pending:** ratify-or-revise the A1 horizon
+  interpretation (wired as 10 strip quarters = end-2028; the brief
+  said "~12q from report date").
 - **Hormuz weight revisit trigger** — standing; preempts everything if
   physical-transit confirmation lands.
 - **Deferred by owner**: orchestration of the /news-pull agent half
