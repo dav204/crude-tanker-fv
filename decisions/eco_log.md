@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-12T00:38:25+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $49.76
+- Single-point FV: $36.67
+- Scenario PW FV: $39.33 (EV -20.9%)
+- NAV / share: $33.71
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +14.1pp (k_broker 1.15)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.81 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -1.0pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
 
 **Model state:**

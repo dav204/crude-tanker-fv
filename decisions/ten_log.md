@@ -36,6 +36,29 @@ preferred refinancing/redemption activity, any VIE stance change, the
 
 ---
 
+## 2026-06-12T00:38:25+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $37.11
+- Single-point FV: $58.09
+- Scenario PW FV: $62.56 (EV +68.6%)
+- NAV / share: $88.13
+- Position: **BUY (undervalued)**
+- Broker spread: +36.7pp (k_broker 1.16)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -16.0pp
+- ⚑ NAV/sh +9.1%
+- Δprice: -0.88 | Δsingle FV: +8.9% | Δscenario FV: +8.6% | ΔNAV: +9.1% | Δspread: -16.0pp
+
+**Decision:** Local-state resync at Week 4 open — this machine's gitignored
+pipeline state predated the merged June-5 data-kit fix (PR #1), so the drift
+re-detected here is the same manifest-omission correction already annotated
+in the 2026-06-11 entries below (plus a −$0.88 live close). No new decision.
+
+---
+
 ## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
 
 **Model state:**

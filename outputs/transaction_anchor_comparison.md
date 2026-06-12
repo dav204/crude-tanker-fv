@@ -160,23 +160,23 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 
 | Name | NAV base→txn | Δ% | EV base→txn | Δpp | Position |
 |---|--:|--:|--:|--:|---|
-| TEN | $95.95→$88.13 | -8.1% | +78.5%→+64.7% | -13.8 | BUY→BUY |
-| CAPT | $17.91→$17.74 | -1.0% | +42.5%→+38.8% | -3.7 | BUY→BUY |
-| CCEC | $28.10→$28.10 | +0.0% | +33.5%→+33.5% | +0.0 | BUY→BUY |
-| CMDB | $32.62→$32.23 | -1.2% | +15.4%→+14.0% | -1.4 | BUY→BUY |
-| GNK | $25.40→$26.24 | +3.3% | +5.1%→+8.1% | +3.0 | BUY→BUY |
-| TNK | $83.32→$77.45 | -7.0% | +6.5%→-0.5% | -7.0 | BUY→HOLD ⚠️ |
-| FLNG | $28.45→$28.45 | +0.0% | -4.4%→-4.4% | +0.0 | HOLD→HOLD |
-| SBLK | $25.98→$26.27 | +1.1% | -5.8%→-5.0% | +0.8 | TRIM/SHORT→HOLD ⚠️ |
-| STNG | $83.87→$80.35 | -4.2% | -2.0%→-6.2% | -4.2 | HOLD→TRIM/SHORT ⚠️ |
-| ASC | $15.96→$15.93 | -0.2% | -10.8%→-10.9% | -0.1 | TRIM/SHORT→TRIM/SHORT |
-| DHT | $15.29→$12.93 | -15.4% | +2.3%→-10.9% | -13.3 | HOLD→TRIM/SHORT ⚠️ |
-| TRMD | $26.74→$25.43 | -4.9% | -7.2%→-11.0% | -3.8 | TRIM/SHORT→TRIM/SHORT |
-| ECO | $39.93→$33.71 | -15.6% | -10.2%→-22.2% | -12.0 | TRIM/SHORT→TRIM/SHORT |
-| HAFN | $5.34→$5.22 | -2.2% | -21.1%→-22.5% | -1.4 | TRIM/SHORT→TRIM/SHORT |
-| FRO | $28.79→$24.40 | -15.3% | -11.3%→-22.9% | -11.6 | TRIM/SHORT→TRIM/SHORT |
-| INSW **(WHOLE-CO)** | $57.91→$52.40 | -9.5% | -23.4%→-29.4% | -6.1 | TRIM/SHORT→TRIM/SHORT |
-| NAT | $2.63→$2.07 | -21.2% | -35.9%→-45.6% | -9.7 | TRIM/SHORT→TRIM/SHORT |
+| TEN | $95.95→$88.13 | -8.1% | +82.7%→+68.6% | -14.1 | BUY→BUY |
+| CAPT | $17.91→$17.74 | -1.0% | +41.9%→+38.2% | -3.7 | BUY→BUY |
+| CCEC | $28.10→$28.10 | +0.0% | +37.7%→+37.7% | +0.0 | BUY→BUY |
+| CMDB | $32.62→$32.23 | -1.2% | +14.0%→+12.6% | -1.4 | BUY→BUY |
+| GNK | $25.40→$26.24 | +3.3% | +5.6%→+8.6% | +3.0 | BUY→BUY |
+| TNK | $83.32→$77.45 | -7.0% | +8.8%→+1.7% | -7.2 | BUY→HOLD ⚠️ |
+| FLNG | $28.45→$28.45 | +0.0% | -2.5%→-2.5% | +0.0 | HOLD→HOLD |
+| STNG | $83.87→$80.35 | -4.2% | +0.3%→-4.0% | -4.3 | HOLD→HOLD |
+| SBLK | $25.98→$26.27 | +1.1% | -6.1%→-5.3% | +0.8 | TRIM/SHORT→TRIM/SHORT |
+| TRMD | $26.74→$25.43 | -4.9% | -3.9%→-7.9% | -4.0 | HOLD→TRIM/SHORT ⚠️ |
+| ASC | $15.96→$15.93 | -0.2% | -8.0%→-8.1% | -0.1 | TRIM/SHORT→TRIM/SHORT |
+| DHT | $15.29→$12.93 | -15.4% | +4.0%→-9.4% | -13.5 | HOLD→TRIM/SHORT ⚠️ |
+| HAFN | $5.34→$5.22 | -2.2% | -19.4%→-20.8% | -1.4 | TRIM/SHORT→TRIM/SHORT |
+| FRO | $28.79→$24.40 | -15.3% | -9.1%→-20.9% | -11.9 | TRIM/SHORT→TRIM/SHORT |
+| ECO | $39.93→$33.71 | -15.6% | -8.7%→-21.0% | -12.2 | TRIM/SHORT→TRIM/SHORT |
+| INSW **(WHOLE-CO)** | $57.91→$52.40 | -9.5% | -21.8%→-28.0% | -6.2 | TRIM/SHORT→TRIM/SHORT |
+| NAT | $2.63→$2.07 | -21.2% | -34.5%→-44.4% | -9.9 | TRIM/SHORT→TRIM/SHORT |
 
 _Δ% = (txn − base) / base. Names with no exposure to a recalibrated class show Δ ≈ 0 — useful as a control. ⚠️ flags a position-call flip._
 

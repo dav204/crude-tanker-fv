@@ -7,6 +7,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-12T00:38:25+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $76.17
+- Single-point FV: $74.00
+- Scenario PW FV: $73.13 (EV -4.0%)
+- NAV / share: $80.35
+- Position: **HOLD (fairly valued)**
+- Broker spread: +33.4pp (k_broker 1.38)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position TRIM/SHORT (overvalued) → HOLD (fairly valued)
+- Δprice: -1.77 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -2.1pp
+
+**Decision:** Market-move flip at the band edge — Jun-11 close −$1.77 with every FV leg unchanged (this run only resynced local state to the merged TEN data-kit fix, which doesn't touch STNG). Same class as the SBLK band-edge wiggle documented 2026-06-10 at the live-price introduction. No action.
+
+---
+
 ## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
 
 **Model state:**

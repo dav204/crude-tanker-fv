@@ -9,6 +9,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-12T00:38:25+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.15
+- Single-point FV: $25.74
+- Scenario PW FV: $25.72 (EV -5.3%)
+- NAV / share: $26.27
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +22.1pp (k_broker 1.21)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: +0.09 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +0.3pp
+
+**Decision:** Band-edge oscillation, second flip since the 2026-06-10 live-price introduction (TRIM→HOLD then on the static→live switch; HOLD→TRIM now on a +$0.09 close, FV legs unchanged). SBLK sits on the HOLD/TRIM boundary and will keep toggling on daily closes — read as "at the band edge," not as signal. No action.
+
+---
+
 ## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
 
 **Model state:**

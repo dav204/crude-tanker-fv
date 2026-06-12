@@ -1,9 +1,9 @@
 # CCEC — Scenario Fair Value (LNG glut-cycle framework)
 
-- **Current price:** $22.20
+- **Current price:** $21.51
 - **Analyst target:** $25.17
 - **NAV / share (reference, unflexed):** $28.10 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $29.63 (+33.5% vs price)
+- **Probability-weighted fair value:** $29.63 (+37.7% vs price)
 - **Breakeven TCE (scenario-invariant):** $0/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** BUY (undervalued)
 
@@ -22,9 +22,9 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $+26.32
-- **Downside (worst scenario − price):** $-22.65
-- **Expected value vs current** (weighted FV − price): $+7.43 (+33.5%)
+- **Upside (best scenario − price):** $+27.01
+- **Downside (worst scenario − price):** $-21.96
+- **Expected value vs current** (weighted FV − price): $+8.12 (+37.7%)
 - **Position:** BUY (undervalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_
