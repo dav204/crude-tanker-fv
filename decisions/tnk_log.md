@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $74.07
+- Single-point FV: $73.92
+- Scenario PW FV: $73.70 (EV -0.5%)
+- NAV / share: $77.45
+- Position: **HOLD (fairly valued)**
+- Broker spread: +24.1pp (k_broker 1.44)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11 — §15.7 retro screen (FULL): DECLINED, 0% — with tripwires
 
 Below the gate (0.76× Pareto print; press/broker history ~0.5-0.9× across

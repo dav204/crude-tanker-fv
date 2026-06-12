@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $29.98
+- Single-point FV: $26.09
+- Scenario PW FV: $26.68 (EV -11.0%)
+- NAV / share: $25.43
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +31.9pp (k_broker 1.30)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11 — §15.7 retro screen (formalised today): **Screened Step 1, DECLINED — no governance basis.** 0.83× sits just under the gate; the overhang is a financial sponsor selling DOWN (Oaktree distribution), not operator-family extraction — no related-party fee load, integrated self-management, 58% payout policy paying quarterly. Discount = §6 mark-driven call.
 
 ---

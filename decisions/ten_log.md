@@ -36,6 +36,107 @@ preferred refinancing/redemption activity, any VIE stance change, the
 
 ---
 
+## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $37.99
+- Single-point FV: $58.09
+- Scenario PW FV: $62.56 (EV +64.7%)
+- NAV / share: $88.13
+- Position: **BUY (undervalued)**
+- Broker spread: +40.3pp (k_broker 1.18)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -12.4pp
+- ⚑ NAV/sh +9.1%
+- Δprice: no change | Δsingle FV: +8.9% | Δscenario FV: +8.6% | ΔNAV: +9.1% | Δspread: -12.4pp
+
+**Decision:** Drift is the fleet-manifest omission fix from the June-5 data
+kit reconcile (entry below) — data correction, not a market move. Position
+unchanged (BUY); gap to APPROX broker NAV tightened −26.0% → −19.3%.
+
+---
+
+## 2026-06-11 — June-5 Data Kit reconciled against project state. ONE input bug found + fixed; Q2-vintage deltas documented for the Q2 refresh.
+
+Source: TEN Data Kit (June 5, 2026) — user-supplied PDF (tenn.gr blocks
+agent fetching: the WAF 403s the fetch service and the sandbox egress
+allowlist blocks curl). 63 in-water vessels, 7,701,519 DWT + 19 NB =
+82 vessels, 10,658,624 DWT.
+
+### Bug found and FIXED (Q1-vintage — belongs in the Mar-31 snapshot)
+
+**Dr Irene Tsakos (Jun-25, 156,838 DWT) and Silia T (Oct-25, 156,838 DWT)
+were missing from the fleet manifest.** Both are 2025-delivered conventional
+Suezmaxes, in-water well before Mar-31 (6-K confirms 64.0 end-of-quarter
+vessels). Root cause: the 2026-06-05 onboarding build plan wrote "14
+conventional Suezmax" — an arithmetic slip against the same entry's own
+data-kit table (Suezmax 20 − 4 off-curve shuttles = 16); the manifest was
+built to plan. The slip was probably seeded by the May-kit note calling
+Dr Irene Tsakos a "shuttle-rate vessel" — but the Q1 PR NB-table analysis
+(2026-06-06 entry) is explicit that the DP2 set is Brasil 2014 + Rio 2016 +
+Athens 04 + Paris 24 only; Dr Irene Tsakos's $33,000-min + 50-50 p/s
+structure is a conventional Suezmax TC (cf. Popi Sazaklis). The manifest's
+own `fleet_summary` claimed 60 on-curve while only 58 vessels were listed —
+internally inconsistent, now reconciled (16 conv. Suezmax, crude sleeve 41,
+on-curve 60 + 4 shuttle = 64 ✓).
+
+Fix: added both vessels (TC $33,000 / $43,750, active at Mar-31), Suezmax
+spot coverage 0.143 → 0.125 (2 of 16), cosmetic dwt alignments to the
+June-5 kit table (Decathlon 158,475; Marathon TS 113,651; Aspen/Alpes;
+Handies 39,589 — dwt is schema-only, not in valuation math).
+
+Impact (txn-anchored): NAV/sh $80.79 → $88.13 (+9.1%); un-anchored asset
+NAV $88.56 → $95.95; scenario PW FV +8.6% to $62.56; EV +51.7% → +64.7%
+at $37.99. Tool↔broker gap −26.0% → −19.3% (APPROX anchor). Drift gate:
+>2pp move, cause = data omission fix (this entry). 243 tests green;
+reconcile SANITY n/a-APPROX as expected.
+
+### Vintage deltas (June-5 kit vs our Mar-31 snapshot) — DOCUMENTED, not applied
+
+All are Q2 events; the Q1 manifest/balance sheet correctly reflects Mar-31.
+Apply at the Q2-2026 refresh (TEN reports H1 in SEPTEMBER):
+
+1. **Ulysses gone from the kit** — VLCC count 3 → 2. Confirms the 20-May
+   sale ("$83M free cash after debt repayment", already in this log +
+   data_sources). **No gross price disclosed → NOT promotable** to
+   transactions/vlcc.yaml (no-back-solve rule). Watch the Q2 6-K for the
+   gross figure — a 2016-built VLCC print would be valuable.
+2. **Sola TS** stepped up $25,651 → $26,651 (2-yr period agreed from
+   May-1-2026, +1 optional yr at $27,654).
+3. **Dimitris P** spot → TC, $40,000 min + 50-50 p/s capped $105,000,
+   expiry min Oct-27 / max Dec-27. Meaningful coverage add on a 2011 vessel.
+4. **Alaska + Archangel** rolled from fixed TCs ($50,000 / $102,000) to
+   spot-indexed TCs ("Time-Charter Spot Market rate") — the Q1 rates were
+   Hormuz-era; effective spot exposure on the 1A ice cohort rises in Q2.
+   (Archangel notes still carry $110,000 East / $95,000 West redelivery.)
+5. **Hercules I** still at $140,000 "until the situation in the Straits of
+   Hormuz is resolved" — unchanged, expiry Nov-26.
+
+### Confirmations (no action)
+
+- **NB program identical to May kit:** 19 vessels, $2,403M contracts
+  (Anfield $149.1M Q3-26; HN2733-41 $148.1M each, Q3-27→Q4-28; 5 LR1
+  $56-56.6M, Q2-27→Q3-28; 3 VLCC $128.5M each 320k DWT, Q3-27→Q2-28;
+  HN3643 LNG $254.4M Q3-28). Equity contribution $232.3M (unchanged);
+  Anfield debt $111.8M agreed / $44.7M drawn; nine-shuttle facility $1.1B
+  agreed / $148.12M drawn (all unchanged vs May/April kits).
+- **Paid-to-date $430.5M at Jun-5 (contract basis).** FLAG for owner at Q2:
+  our `newbuild_advances_paid` $400M is a documented Mar-31 estimate; the
+  6-K BS line was $442.7M (incl. extras/capitalised interest) and the
+  onboarding build plan had specified that figure. Worth deciding which
+  basis the convention wants — ~$42.7M ≈ $1.4/sh on 30.1M shares.
+- **FLOPEC 49% JV also flagged on Selini + Salamina** (not just the two
+  Handies). Counted at full per the data-kit convention, consistent with
+  current treatment; noted for completeness.
+- Shuttle book anchors unchanged: Brasil 2014 $58,908 → Nov-28, Rio 2016
+  $58,403 → Oct-28 (+$200/day annual adjustments to 2028), Athens 04 /
+  Paris 24 $58,569 → 2032 (Paris 24 +$2,750/day Brazilian trade costs).
+  `shuttle_contracted_book` $453.1M stands.
+
+---
+
 ## 2026-06-10 — PRICE INPUT ERROR corrected: $44.00 → $37.14 (−16%)
 
 Caught by the first `/news-pull` digest (2026-06-10), verified

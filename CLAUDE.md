@@ -145,6 +145,18 @@ quarter of data. **The bars apply at lock-time, not per-run.**
   `consensus_pnav` / `consensus_fwd_pe` from the same vintage (broker
   NAV = price/pnav drifts silently otherwise). See ten_log 2026-06-10.
 
+- **Cross-foot the manifest against the source table before shipping
+  (2026-06-11).** TEN shipped with 58 vessel rows under a `fleet_summary`
+  claiming 60 on-curve: the onboarding plan's "14 conventional Suezmax"
+  was an arithmetic slip (the kit listed 16 = 20 − 4 shuttles) and the
+  manifest was built to the PLAN, not re-checked against the SOURCE —
+  two 2025-built Suezmaxes (≈ +9% NAV) sat omitted for five days. When
+  building or editing a manifest, sum the rows and check them against
+  the issuer table AND the summary block. Machine-enforced since
+  2026-06-11: `test_fleet_summary_totals_cross_foot_against_vessel_rows`
+  (test_validate.py) fails on any `on_curve_total` / `total_operating`
+  that doesn't equal the vessel-row sum.
+
 - **Long-running background jobs die silently under nohup (2026-06-10).**
   Python block-buffers stdout when not a TTY, so a crashing job's traceback
   sits in an unflushed buffer and is lost — the log just goes quiet (looks
@@ -353,10 +365,13 @@ go in Q3.
 - **TRMD** — first full 3-class product.
 - **TEN** — three-sleeve crude+product+LNG (`THREE_SLEEVE_TICKERS`); DP2
   shuttle off-curve at contracted book (§11.6); **first §15 case**
-  (governance/value-trap haircut at 30%). Asset NAV $88.56, post-haircut
-  PW FV $49.37 vs price $44 → mild BUY (matches VIE Bullish $51.50 within
-  $2). APPROX consensus_pnav (no Pareto coverage; VIE-stale anchor).
-  Onboarded 2026-06-06.
+  (governance/value-trap haircut at 30%). Txn-anchored NAV $88.13 (asset
+  NAV $95.95 un-anchored), post-haircut PW FV $62.56 vs price $37.99 →
+  BUY (EV +64.7%). APPROX consensus_pnav (no Pareto coverage; VIE-stale
+  anchor). Onboarded 2026-06-06; June-5 data-kit reconcile 2026-06-11
+  added two Suezmaxes the build omitted (Dr Irene Tsakos, Silia T) —
+  NAV +9.1%, see ten_log. H1 reporter: Q2 events (Ulysses sale, charter
+  rolls) land at the SEPTEMBER refresh.
 - **SBLK** — first dry-bulk validator (Cape 31 / Pana 46 / Supra-Ultra 58
   post-Eagle-Bulk fleet, §11.7.1 class collapse); mark-driven (k_broker
   1.27 at v1, 1.27 post-transaction-anchor — the recalibration shifted
@@ -448,6 +463,17 @@ sessions.
 
 ## Changelog
 
+- **2026-06-11 (post-close) — TEN June-5 data-kit reconcile (user-supplied
+  PDF; tenn.gr blocks agent fetching).** Found + fixed a Q1 manifest
+  omission: Dr Irene Tsakos + Silia T (2025-built conventional Suezmaxes)
+  were never entered — the onboarding plan's "14 conventional Suezmax"
+  slip; fleet_summary claimed 60 on-curve over 58 rows. NAV/sh $80.79 →
+  $88.13 (+9.1%), gap to APPROX broker −26.0% → −19.3%, BUY unchanged.
+  Q2-vintage kit deltas (Ulysses sale confirmed — no gross price, not
+  promotable; Sola TS step-up; Dimitris P spot→TC $40k; Alaska/Archangel
+  to spot-indexed TC) documented in ten_log for the September H1 refresh,
+  NOT applied to the Mar-31 snapshot. New cross-foot guard test
+  (test_validate.py) + gotcha rule. tests: 244 passed.
 - **2026-06-11 (WEEK 3 CLOSED)** — **first Week-close checklist run
   (checklist itself codified this session, owner decision).**
   Documentation audit via two read-only agents, fixes applied:

@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-11T23:54:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $23.80
+- Single-point FV: $25.28
+- Scenario PW FV: $25.73 (EV +8.1%)
+- NAV / share: $26.24
+- Position: **BUY (undervalued)**
+- Broker spread: +4.1pp (k_broker 1.03)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11 — §15.7 retro screen (formalised today): **N/A (gated)** — Pareto P/NAV 0.87×, currently tender-pinned (deal overlay, not governance); widely held, formula dividend. Re-gate after the Diana event resolves.
 
 ---
