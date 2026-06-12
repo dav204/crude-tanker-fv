@@ -65,6 +65,12 @@ channel sharing stopped.** Findings:
 
 ### Step 1 — §11.8 methodology decision doc (time-boxed one session)
 
+**Step 1 DONE 2026-06-11 (commit 2c1bbaa), owner-ratified with amendments
+A0-A7 (applied 2026-06-12).** §11.8 is the locked record — including the
+all-APPROX external-anchor finding (Pareto publishes NO container NAV)
+and the two-layer bias caveat (§11.8.5). Original decision list kept
+below for provenance:
+
 Decisions to make (write the doc BEFORE code, dry-bulk precedent):
 
 1. **Vessel classes** — propose 3-class collapse: Feeder (≤2,000 TEU) /
@@ -96,6 +102,21 @@ Decisions to make (write the doc BEFORE code, dry-bulk precedent):
 
 ### Step 2 — engine wire-up + validators (2-3 sessions)
 
+**Step 2 DONE 2026-06-12 (commits 8abb24b → 13e306a + merge 732c13c,
+all pushed).** Containerships live at 19 names: per-sector
+`strip_horizon` (containers 10q) + `coverage_schedule` engine change
+(zero-drift verified on all 17 prior names); Container Set A wired with
+A2 class signatures; A3 TEU-weighted intermediate applied ($43,400 /
+$33,700 / 1.29x); MPCC NAV $2.27 TRIM −29.6% and GSL NAV $38.59 TRIM
+−18.5%, both SANITY OK n/a-APPROX; §15.7 screens both DECLINED with
+tripwires (GSL = dimension-6 founding pass); calibration lock recorded
+N/A-by-construction, machine-confirmed, substitutes run (MPCC's 3 sale
+prints: tool old-age marks 0-33% below realized — conservative by
+design). B1 (overlay ledger §16) + B2 (§14.4 double-count) + B3 (10
+weight-skips re-pinned) landed. PR #2 (permission allowlist) reviewed,
+merged by owner, integrated. Tests 243 → 274. Full record: METHODOLOGY
+Appendix A 2026-06-12 + CLAUDE.md changelog. Original plan kept below:
+
 - `sectors.containerships` block + class map + cycle anchors YAML;
   `_load_all_sectors` + `SCENARIO_CLASS_MAP_BY_SECTOR`.
 - Validator 1: **MPCC** (MPC Container Ships, Oslo/NOK — Pareto-anchored
@@ -118,7 +139,53 @@ Decisions to make (write the doc BEFORE code, dry-bulk precedent):
   fitting sanity check only). The DoD's "recorded honestly" means the
   N/A path here.
 
-### Step 3 — Week-close checklist (CLAUDE.md) — run it this time too
+### Step 3 — Week-close checklist (CLAUDE.md) — ← YOU ARE HERE
+
+A fresh agent starts at this step. Read CLAUDE.md first (especially the
+2026-06-12 changelog entries — the session log lives there), then run
+the week-close checklist with these Week-4-specific items folded in:
+
+0. **FIRST, before anything else — §5 red-team pass** (ten probes,
+   PERMISSIONS_PROPOSAL.md §5, ~5 minutes). The permission allowlist
+   (`.claude/settings.json`, merged 2026-06-12) was NEVER validated in a
+   live session: the Step-2 session predated the file and proved its
+   rules don't hot-load (a deny-class Read probe returned content).
+   YOUR fresh session is the first one with the rules active. Confirm
+   git push / watchlist-edit / fetch_links / curl PROMPT and the
+   env-file Read DENIES; confirm pytest / sp_scan-reordered-flags /
+   outputs-edit / sec.gov WebFetch DON'T prompt. Record results in the
+   CLAUDE.md changelog. Already verified session-independently:
+   fetch_pdf host/scheme refusal + live pull (1.5MB MPCC PDF),
+   sp_scan --fetch-links loud argparse failure, *_token* gitignore.
+1. **Documentation audit** (per the checklist): note METHODOLOGY is now
+   ~2,300 lines; §11.8 accreted amendments mid-sprint (A2/A3/A5/A6
+   edits) — check it reads coherently end-to-end; README + LIMITATIONS
+   need the containerships state (19 names / 5 sectors / 274 tests;
+   §11.8.5(b) marks-vintage limitation OPEN with both validators
+   carrying ledger rows; A1 horizon = 10q interpretation awaiting
+   owner ratification).
+2. **Verification gate**: full pytest green; pipeline clean;
+   `/reconcile --all` 19/19 OK or n/a-APPROX.
+3. **PLAN.md rewritten for Week 5.** MUST carry (owner direction,
+   2026-06-12 task brief): **B4** (§9.9 mark-driven classification
+   restated for post-default k_broker semantics), **B5** (anchor-basis
+   commensurability: anchor_basis column + MIXED-ANCHOR-BASIS pair
+   flag + §10 paragraph — the containerships FY21-25 basis makes this
+   live now), **B6** ([DECIDE-WITH-OWNER] §9.2 terminal-value one-page
+   recommendation — write options, owner picks). Plus the Q2-refresh
+   carry-forwards: MPCC cohort ages + NB delivery quarters (issuer
+   fleet list), GSL Series B pref count post-ATM + the $917M NB order
+   with charter attachments + 20-F Item 6 board-rights verify, TEN TCM
+   fee-load computation, the three MPCC sale-print handovers (watch
+   Q2-26 6-Ks for clean prices), FFA-OCR diagnostic-cycle decision
+   (end of Week 4 per standing thread).
+4. **Clean git state + push** (steps 4-5 of the checklist).
+
+OWNER ACTIONS pending (outside the repo, flagged 2026-06-12): detach
+the brokerage MCP connector from this project (order-writing surfaces
+reachable in-session — PR #2 §6 Q4 decision; run /mcp to locate the
+scope); optionally same for Gmail. Ratify-or-revise the A1 horizon
+interpretation (10 strip quarters = end-2028; brief said "~12q").
 
 ## Standing threads (not container work)
 
