@@ -52,6 +52,7 @@
       "Edit(inputs/market_data/ffa_forward_curve.yaml)"
     ],
     "deny": [
+      "mcp__8de167eb-dbd9-4178-b52a-a756c1f27b24",
       "Read(~/.config/crude-tanker-fv.env)",
       "Read(.env*)",
       "Read(**/*_token*)",

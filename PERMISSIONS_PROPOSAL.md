@@ -307,4 +307,21 @@ errors out in argparse (unknown flag) — the right failure mode.
    project. Same logic, softer, for email-draft servers. No MCP rules in
    settings.json — rules would mask the real fix and the server names
    are deployment-specific anyway.
+
+   **REVISED 2026-06-12 (owner decision, same week): keep attached,
+   DENY in Code.** The connector stays at the account level after all —
+   a weekly Cowork portfolio routine and ad-hoc Chat discussion depend
+   on it, and claude.ai connectors have no per-surface scoping (the
+   account toggle is all-or-nothing; Code's `deniedMcpServers` key does
+   not match cloud-synced connectors — GH #26625/#22301 still open).
+   With detach off the table, rules ARE the fix: DENY on the synced
+   server id (`mcp__8de167eb-dbd9-4178-b52a-a756c1f27b24`) in both
+   `~/.claude/settings.json` (machine-wide, all projects) and the
+   tracked `.claude/settings.json`. Deny, not ask — the §5 red-team
+   showed autonomous sessions auto-approve ask-tier. Verified live in
+   the same session: a read-only `get_account_summary` probe was
+   refused at the permission layer. CAVEAT: the id is the connector's
+   sync UUID. If IBKR is ever disconnected/reconnected at claude.ai the
+   id may change and both deny rules go silently stale — re-read the id
+   from a fresh session's tool list and update BOTH files.
 5. **Diagnostics scripts → auto mode.** Rare prompts are fine.

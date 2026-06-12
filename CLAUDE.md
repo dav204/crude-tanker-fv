@@ -514,6 +514,26 @@ sessions.
 
 ## Changelog
 
+- **2026-06-12 (post-Week-4-close) — brokerage MCP decision REVISED:
+  keep the IBKR connector attached, DENY it in Claude Code.** The
+  Week 4 owner action ("detach entirely") is superseded: the connector
+  feeds a weekly Cowork portfolio routine + ad-hoc Chat discussion, and
+  claude.ai connectors are account-level all-or-nothing (no per-surface
+  Chat/Cowork/Code scoping exists; Code's `deniedMcpServers` doesn't
+  match cloud-synced connectors). DENY rules on the synced server id
+  (`mcp__8de167eb-dbd9-4178-b52a-a756c1f27b24`) added to
+  `~/.claude/settings.json` (machine-wide) AND the tracked
+  `.claude/settings.json`. Deny, not ask — the §5 red-team proved
+  autonomous sessions auto-approve ask-tier. Verified live same
+  session: read-only `get_account_summary` probe refused at the
+  permission layer (deny rules hot-reload mid-session). CAVEAT: if
+  IBKR is disconnected/reconnected at claude.ai, the UUID may change
+  and the deny goes silently stale — re-check the id in a fresh
+  session's tool list. Full rationale: PERMISSIONS_PROPOSAL.md §6.4
+  revision note. Same session: `settings.local.json` pruned 262 → 38
+  allow entries (arbitrary-write/interpreter/credential-exposing
+  allows, ffmpeg-era strays, ask-tier-bypassing curl/launchctl
+  carve-outs, tracked-allowlist duplicates, stale one-offs).
 - **2026-06-12 (Week 4, Step 3 — WEEK 4 CLOSED)** — Week-close checklist
   run. **§5 red-team pass (first session with the allowlist active):
   DENY rules ENFORCE** (env-file Read refused, `rm -rf` refused);
