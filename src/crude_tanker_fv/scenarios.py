@@ -105,6 +105,23 @@ PRODUCT_SCENARIO_CLASS_MAP: dict[str, str] = SCENARIO_CLASS_MAP_BY_SECTOR["produ
 QUARTER_KEYS = ["q3_2026", "q4_2026", "q1_2027", "q2_2027",
                 "q3_2027", "q4_2027", "q1_2028", "q2_2028"]
 _POINT_IDX = {"low": 0, "base": 1, "high": 2}
+
+
+def quarter_keys(n: int) -> list[str]:
+    """First ``n`` strip-quarter keys, extending the q3_2026 convention.
+
+    Sectors with ``strip_horizon`` > 8 (containerships, §11.8.6.4) carry
+    longer per-scenario curves; their YAML quarter keys continue the same
+    sequence (q3_2028, q4_2028, ...).
+    """
+    q, y = 3, 2026
+    keys = []
+    for _ in range(n):
+        keys.append(f"q{q}_{y}")
+        q += 1
+        if q == 5:
+            q, y = 1, y + 1
+    return keys
 _REC_BAND = 0.05  # +/-5% expected-value band for the position call
 
 # Vessel-value elasticity to the forward curve (Fix B). Forward expectations feed
@@ -178,14 +195,15 @@ def load_scenarios(path: Path = SCENARIOS_PATH, sector: str = "crude") -> dict:
     return out
 
 
-def _curve(scenario_cls: dict, point: str) -> list[float]:
+def _curve(scenario_cls: dict, point: str, keys: list[str] = None) -> list[float]:
     idx = _POINT_IDX[point]
-    return [float(scenario_cls[q][idx]) for q in QUARTER_KEYS]
+    return [float(scenario_cls[q][idx]) for q in (keys or QUARTER_KEYS)]
 
 
 def _override_market_data(
     md, scenario: dict, anchors: dict, classes: set[str], point: str,
     vessel_scale: float = 1.0, scenario_class_map: dict[str, str] = None,
+    keys: list[str] = None,
 ):
     """Replace FFA / 12M-TC / 10yr-mean (and flex vessel values) for the fleet's classes."""
     if scenario_class_map is None:
@@ -194,8 +212,8 @@ def _override_market_data(
     for cls in classes:
         scen_key = scenario_class_map[cls]
         cells = scenario[scen_key]
-        ffa[cls] = _curve(cells, point)
-        tc[cls] = sum(_curve(cells, "base")[:4]) / 4.0   # cycle always uses the base front-4
+        ffa[cls] = _curve(cells, point, keys)
+        tc[cls] = sum(_curve(cells, "base", keys)[:4]) / 4.0   # cycle always uses the base front-4
         means[cls] = float(anchors[scen_key]["ten_year_mean"])
 
     curves = md.vessel_value_curves
@@ -247,20 +265,25 @@ def run_scenarios(
     if scenario_class_map is None:
         scenario_class_map = SCENARIO_CLASS_MAP
     classes = {v.cls for v in inputs.fleet.vessels}
+    # Per-sector strip horizon (METHODOLOGY §11.8.6.4): default 8; sectors
+    # with longer contracted visibility (containerships) set `strip_horizon`
+    # in their scenario_inputs.yaml block and carry curves of that length.
+    horizon = int(doc.get("strip_horizon", 8))
+    qkeys = quarter_keys(horizon)
     base_nav = compute_nav(inputs)  # unflexed reference (value weights + anchoring)
     value_weights = {
         cls: base_nav.fleet_value_by_class[cls] / base_nav.fleet_value
         for cls in base_nav.fleet_value_by_class
     }
 
-    # Value-weighted base forward per scenario: 8-quarter avg drives the vessel-
+    # Value-weighted base forward per scenario: horizon avg drives the vessel-
     # value elasticity; 12-month (front-4) avg is the scenario's "assumed TCE".
     scen_forward: dict[str, float] = {}
     scen_forward_12m: dict[str, float] = {}
     for name, scen in doc["scenarios"].items():
         f8 = f4 = 0.0
         for cls in classes:
-            curve = _curve(scen[scenario_class_map[cls]], "base")
+            curve = _curve(scen[scenario_class_map[cls]], "base", qkeys)
             w = value_weights.get(cls, 0.0)
             f8 += w * (sum(curve) / len(curve))
             f4 += w * (sum(curve[:4]) / 4.0)
@@ -305,7 +328,7 @@ def run_scenarios(
                 inputs,
                 market_data=_override_market_data(
                     inputs.market_data, scen, doc["cycle_anchors"], classes, point,
-                    vessel_scale, scenario_class_map,
+                    vessel_scale, scenario_class_map, qkeys,
                 ),
             )
 
@@ -314,7 +337,9 @@ def run_scenarios(
         cyc = compute_cycle(ci_base)            # cycle weight from the scenario's forward 12M
 
         def fv_at(point: str) -> tuple[float, float]:
-            strip = compute_dividend_strip(build(point), nav_s.nav_per_share)
+            strip = compute_dividend_strip(
+                build(point), nav_s.nav_per_share, strip_horizon=horizon,
+            )
             return blend_fair_value(nav_s, strip, cyc).fair_value_per_share, strip.implied_price
 
         fv_base, strip_npv = fv_at("base")

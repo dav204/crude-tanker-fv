@@ -28,7 +28,9 @@ over-pays a floor-type policy by the base every quarter, so we dispatch on type.
   (2.25 yrs) on the depreciation curve, balance sheet held constant
   (simplification; open decisions 9.2, 9.6).
 
-Strip horizon = 8 quarters (FFA liquidity drops sharply beyond ~18 months).
+Strip horizon: per-sector parameter (METHODOLOGY §11.8.6.4). Default 8
+quarters (FFA liquidity drops sharply beyond ~18 months); containerships run
+longer (contracted backlog, not FFA extrapolation, carries the forward cash).
 """
 
 from __future__ import annotations
@@ -108,7 +110,14 @@ def _quarter_count(inputs: CompanyInputs, cls: str, q: int, static: float) -> fl
 
 
 def _blended_tce_by_class(inputs: CompanyInputs, q: int) -> dict[str, float]:
-    """TCE_class for strip quarter q (0-indexed): spot/FFA + charter blend."""
+    """TCE_class for strip quarter q (0-indexed): scenario/FFA + charter blend.
+
+    Coverage cov_q earns the disclosed contracted rate; (1 - cov_q) earns the
+    scenario/FFA rate. cov_q comes from the manifest's per-quarter
+    ``coverage_schedule`` when present (METHODOLOGY §11.8.6 — issuer-disclosed
+    %-days-fixed, decaying as charters expire); otherwise the static
+    (1 - spot_coverage_pct), which is exactly the pre-§11.8 blend.
+    """
     md = inputs.market_data
     charter_rates = _disclosed_charter_rates(inputs)
     out: dict[str, float] = {}
@@ -117,9 +126,13 @@ def _blended_tce_by_class(inputs: CompanyInputs, q: int) -> dict[str, float]:
         if not ffa:
             raise ValueError(f"no FFA forward curve for class {cls!r}")
         ffa_q = ffa[q]
-        spot_pct = inputs.fleet.spot_coverage_pct.get(cls, 1.0)
+        schedule = inputs.fleet.coverage_schedule.get(cls)
+        if schedule:
+            cov = schedule[q] if q < len(schedule) else schedule[-1]
+        else:
+            cov = 1.0 - inputs.fleet.spot_coverage_pct.get(cls, 1.0)
         charter_rate = charter_rates.get(cls, ffa_q)  # fall back to FFA if none disclosed
-        out[cls] = spot_pct * ffa_q + (1.0 - spot_pct) * charter_rate
+        out[cls] = (1.0 - cov) * ffa_q + cov * charter_rate
     return out
 
 
@@ -136,8 +149,16 @@ def compute_dividend_strip(
     nav_per_share: float,
     discount_rate: float = DEFAULT_DISCOUNT_RATE,
     offhire_rate: float = DEFAULT_OFFHIRE_RATE,
+    strip_horizon: int = STRIP_HORIZON_QUARTERS,
 ) -> DividendStripResult:
-    """Project 8 quarters of DPS, discount, and add the NAV-based terminal value.
+    """Project ``strip_horizon`` quarters of DPS, discount, and add the
+    NAV-based terminal value.
+
+    ``strip_horizon`` is a per-sector parameter (METHODOLOGY §11.8.6.4):
+    default 8 (FFA-liquidity argument, crude/lng/product/dry_bulk);
+    containerships run longer because their forward cash is contracted
+    backlog, not an FFA extrapolation. ``run_scenarios`` passes the sector
+    doc's ``strip_horizon``.
 
     ``nav_per_share`` is the current NAV (for reference); the terminal value is
     recomputed from the aged fleet rather than depreciating this figure.
@@ -157,7 +178,7 @@ def compute_dividend_strip(
     tce_by_class: dict[str, list[float]] = {cls: [] for cls in counts}
     ffa_spot_by_class: dict[str, list[float]] = {cls: [] for cls in counts}
 
-    for q in range(STRIP_HORIZON_QUARTERS):
+    for q in range(strip_horizon):
         tce = _blended_tce_by_class(inputs, q)
         net_tce_revenue = 0.0
         opex = 0.0
@@ -185,7 +206,7 @@ def compute_dividend_strip(
     ]
 
     terminal = TERMINAL_NAV_MULTIPLE * _terminal_nav_per_share(
-        inputs, STRIP_HORIZON_QUARTERS + 1
+        inputs, strip_horizon + 1
     )
     # Governance / value-trap haircut (METHODOLOGY §15): the strip terminal
     # is a NAV realisation and carries the same discount as the blended NAV
@@ -193,7 +214,7 @@ def compute_dividend_strip(
     # to 0 (no haircut) for the 12 standard watchlist names.
     terminal *= (1.0 - inputs.balance_sheet.governance_discount_pct)
     discounted_terminal = terminal / (1.0 + discount_rate) ** (
-        (STRIP_HORIZON_QUARTERS + 1) / 4.0
+        (strip_horizon + 1) / 4.0
     )
 
     return DividendStripResult(

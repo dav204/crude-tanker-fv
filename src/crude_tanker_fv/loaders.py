@@ -81,6 +81,10 @@ def load_fleet_manifest(ticker: str, inputs_dir: Path = INPUTS_DIR) -> FleetMani
         cls: [float(x) for x in counts]
         for cls, counts in (data.get("fleet_schedule") or {}).items()
     }
+    coverage = {
+        cls: [float(x) for x in covs]
+        for cls, covs in (data.get("coverage_schedule") or {}).items()
+    }
     return FleetManifest(
         ticker=_require(data, "ticker", path),
         report_date=str(_require(data, "report_date", path)),
@@ -88,6 +92,7 @@ def load_fleet_manifest(ticker: str, inputs_dir: Path = INPUTS_DIR) -> FleetMani
         spot_coverage_pct=data.get("spot_coverage_pct") or {},
         fleet_summary=data.get("fleet_summary") or {},
         fleet_schedule=schedule,
+        coverage_schedule=coverage,
     )
 
 

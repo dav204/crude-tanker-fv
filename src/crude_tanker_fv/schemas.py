@@ -51,6 +51,12 @@ class FleetManifest:
     # used when the earning fleet changes over the horizon (e.g. newbuild deliveries).
     # If absent, the strip uses the static manifest counts.
     fleet_schedule: dict[VesselClass, list[float]] = field(default_factory=dict)
+    # Optional per-class per-quarter CHARTER COVERAGE (0..1) for the dividend
+    # strip (METHODOLOGY §11.8.6): cov_q earns the disclosed contracted rate,
+    # (1 - cov_q) re-fixes at the scenario rate. Built from issuer-disclosed
+    # %-days-fixed by calendar year. If absent, the strip uses the static
+    # (1 - spot_coverage_pct) — identical to the pre-§11.8 blend.
+    coverage_schedule: dict[VesselClass, list[float]] = field(default_factory=dict)
 
 
 @dataclass

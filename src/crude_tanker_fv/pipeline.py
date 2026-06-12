@@ -323,6 +323,7 @@ def value_company(
     analyst_target: float,
     inputs_dir: Path = INPUTS_DIR,
     use_transaction_anchored: bool = True,
+    strip_horizon: int = 8,
 ) -> CompanyReport:
     """Run the full valuation flow for one ticker and return its report bundle.
 
@@ -352,7 +353,7 @@ def value_company(
             f"Treat its dividend-strip contribution as indicative."
         )
     nav = compute_nav(ci)
-    strip = compute_dividend_strip(ci, nav.nav_per_share)
+    strip = compute_dividend_strip(ci, nav.nav_per_share, strip_horizon=strip_horizon)
     cycle = compute_cycle(ci)
     blended = blend_fair_value(nav, strip, cycle)
     breakeven = implied_breakeven_tce(ci, current_price)
@@ -482,6 +483,12 @@ def run_watchlist(
     """Value every ticker with populated inputs, write reports + the roll-up."""
     watchlist = load_watchlist(inputs_dir, live_prices=live_prices)
     tickers = tickers or list(watchlist.keys())
+    # Per-sector strip horizon (METHODOLOGY §11.8.6.4) for the single-point FV,
+    # consistent with the scenario layer's doc-driven horizon.
+    horizons = {
+        sector: int(doc.get("strip_horizon", 8))
+        for sector, doc in _load_all_sectors(inputs_dir).items()
+    }
 
     reports: list[CompanyReport] = []
     for ticker in tickers:
@@ -491,7 +498,8 @@ def run_watchlist(
             continue
         try:
             report = value_company(
-                ticker, quarter, entry["current_price"], entry["analyst_target"], inputs_dir
+                ticker, quarter, entry["current_price"], entry["analyst_target"], inputs_dir,
+                strip_horizon=horizons.get(entry.get("sector", "crude"), 8),
             )
         except FileNotFoundError as exc:
             print(f"skip {ticker}: inputs not populated ({exc})")
