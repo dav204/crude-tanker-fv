@@ -1498,6 +1498,15 @@ framework_breakers:
   - condition: Global recession with oil demand collapse
     response: Demand side dominates supply side; all scenarios shift down ~20-30%
               regardless of Iran path
+  - condition: Ethanol-as-marine-fuel adoption materially diverts US/Brazil corn
+              from export availability to bunker production (structural grain
+              tonne-mile loss; MB Dry Bulk Weekly 24/2026, RFA 5%-share estimate
+              ~38Mt corn)
+    response: Dry-bulk SCENARIO-CURVE input, not a §14 overlay (sector-structural,
+              not war-independent macro recession — owner routing 2026-06-12).
+              Shade Pana/Supra demand legs in the dry-bulk tree; revisit Bulk
+              Set A weights if projected volumes start landing in USDA export
+              data. Most exposed SBLK (46 Pana) / CMDB; least GNK (zero Pana)
 
 # =============================================================================
 # OPEN DATA GAPS (acknowledged; flagged for v5 refinement)

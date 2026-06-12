@@ -3,8 +3,8 @@
 # (SBLK class collapse). Used by the transaction-anchor solver to
 # recalibrate 5yr and 10yr anchors. Newbuild + old-age legs untouched.
 #
-# SCOPE — thin sample (4 in-window prints) but spans the mid-age window
-# at ages 9, 9, 15, 17. The two 2016-built kamsarmaxes (2025-09-19 and
+# SCOPE — thin sample (5 in-window prints) spanning the mid-age window
+# at ages 9, 9, 11, 15, 17. The two 2016-built kamsarmaxes (2025-09-19 and
 # 2025-10-06) MAY be the same vessel — Pareto's commentary did not
 # disambiguate. Flagged but both kept (the solver weights by recency, so
 # any double-counting is modest and the two prices ($27.5M vs $26.5M)
@@ -31,7 +31,7 @@
 # Diana (Selina panamax 2010), broker S&P columns for 2016-built Japanese
 # kamsarmax. Star Mariella (SBLK Q1 2026 6-K) excluded — see note below.
 class: Pana
-as_of: 2026-06-09
+as_of: 2026-06-12
 prints:
   # ---- IN-WINDOW (drive the fit), sorted by age ----
   - date: 2025-09-19
@@ -46,6 +46,21 @@ prints:
     source: Pareto Shipping Daily 2025-10-06 — broker reports
     quality_flag: standard
     notes: 2016-built kamsarmax (NOT flagged Japanese). Pareto had vessel at $25.2M (VV $25.7M) — quote raised from $24M since the Sep-19 print. Framed in the daily as a NEW transaction "above our recently raised quotes". DISAMBIGUATED from the 2025-09-19 Japanese print — distinct vessels.
+  - date: 2026-06-12
+    vessel_age_at_sale: 11
+    sale_price_usd_m: 26.0
+    source: MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
+    quality_flag: standard
+    notes: >-
+      Vulcania (2015 YZJ, 82,036 dwt kamsarmax, eco m/e), Pimlico Shipping
+      -> Greek buyer. TC-ATTACHED (13/15 months) — the transactions layer
+      has no charter-adjustment flag (uplifts cover financing/distressed
+      only), and at a 13-15mo tenor near current market rates the attached
+      value is small but real: the +5.0% residual over the eco-adj curve
+      ($26.0M vs $24.76M) could be ENTIRELY the charter, not a mark signal
+      (§11.8.8 precedent — charter-attached prints not comparable without
+      adjustment). Promoted 2026-06-12 (owner decision, MB once-over) —
+      takes the thin fit n=4 -> 5.
   - date: 2025-06-17
     vessel_age_at_sale: 15
     sale_price_usd_m: 11.8
@@ -78,3 +93,15 @@ prints:
     source: Pareto Shipping Daily 2026-06-05 — broker reports
     quality_flag: standard
     notes: outside [3,17] window. 2024-built Chinese-yard kamsarmax sold to undisclosed buyer. Above NB resale (premium for on-the-water modern vessel).
+  - date: 2026-06-12
+    vessel_age_at_sale: 21
+    sale_price_usd_m: 12.1
+    source: MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
+    quality_flag: standard
+    notes: >-
+      outside [3,17] window. Proteas (2005 Tsuneishi, 76,454 dwt panamax),
+      Titan Maritime -> undisclosed. OLD-AGE-LEG VALIDATION, not a fit
+      input: $12.10M vs the age-21 txn-anchored curve $12.09M — dead-on
+      (the Picardy/Predator pattern, Pana edition; first independent
+      validation of the Pana old-age leg). Filed 2026-06-12 (owner
+      decision, MB once-over).

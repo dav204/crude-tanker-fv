@@ -64,8 +64,12 @@ the B4 two-regime semantics predict brokers sit over transaction levels.
      rallied past our 2025-weighted fit window. Promotion → drift loop on
      every Aframax/LR2 holder.
   2. **Shanhaiguan P110k-70** — 115,000 dwt NB resale, blt 2026 Dalian,
-     Union Maritime → Ditas, **$90.0M**, scrubber, prompt. Lands on our $90M
-     LR2/Afra NB anchor (and +17% over MB's own Korea NB — prompt premium).
+     Union Maritime → Ditas, **$90.0M**, scrubber, prompt. *(Nuance
+     corrected 2026-06-12, owner review: a DALIAN print landing on an
+     anchor benchmarked to Korean spec, +17% over MB's own Korea NB,
+     says the $90M anchor is CONSERVATIVE-TO-FAIR — not
+     validated-exactly. NB leg untouched by the fit; documentation by
+     construction.)*
 - **Hormuz / US-Iran (standing trigger): NOT met.** MB verbatim: *"Iranian
   state media reported that a draft memorandum would see the US lift its
   blockade and Iran reopen Hormuz within 30 days, though final talks
@@ -105,20 +109,30 @@ MB's realized S&P prints straddle or land on our fitted curves:
   through-cycle mean — feeds the Q3 anchor refinement and the B5
   anchor-basis thread (this is exactly what `archive_median_22m` vs
   `tc_10yr_mean` non-composability looks like in the wild).
-- **Promotable print candidates (5 in-class, none already held):**
-  Pana — **Vulcania** (82,036, blt 2015 YZJ, eco, TC-attached 13/15mo,
-  $26.0M; our eco-adj curve $24.76M) and **Proteas** (above). Supra-Ultra —
-  **Ausone** (56,812, blt 2012, Chinese, eco, $13.7M), **Santa Rita**
-  (55,677, blt 2010 Mitsui, $17.2M), **White Bay** (52,502, blt 2004,
-  scrubber, $10.0M). Handysize prints (Interlink en-bloc $44M no-split;
-  Marina R) — NO CLASS, document-only per §9.9 scope discipline.
-  **Pana promotion is the most valuable** (thickens the n=6 fit behind the
-  SBLK −21% diagnosis).
+- **Promotable print candidates (5 in-class, none already held)**
+  *(categories CORRECTED 2026-06-12, owner review — the original framing
+  overstated the Pana fit effect):*
+  FIT INPUTS (in-window [3,17]) — Pana: **Vulcania** (82,036, blt 2015
+  YZJ, eco, **TC-attached 13/15mo** — the +5% residual over the eco-adj
+  curve could be entirely the charter; §11.8.8 precedent) — the ONLY
+  print that thickens the thin Pana fit (n=4→5). Supra-Ultra: **Ausone**
+  (blt 2012, Chinese, $13.7M) + **Santa Rita** (blt 2010 Mitsui, $17.2M)
+  — bracket the curve from opposite sides; the build-country dispersion
+  the fit should see.
+  DOCUMENTATION (out-of-window) — **Proteas** (blt 2005 → age 21,
+  $12.10M): old-age-LEG VALIDATION dead-on the curve (the
+  Picardy/Predator pattern), NOT fit thickening. **White Bay** (blt 2004
+  → age 22, $10.0M): old-age documentation. Handysize prints (Interlink
+  en-bloc $44M no-split; Marina R) — NO CLASS, document-only per §9.9.
 - **Ethanol-as-marine-fuel corn driver**: RFA estimate — 5% marine-fuel share
   = +1.5bn bushels (~38.1Mt) corn demand; Brazil/Santos as bunkering hub;
   net "potentially lowering grain trade volumes and tonne-mile demand for
-  Panamax and Supramax vessels." Slow-burn structural Pana/Supra negative —
-  exactly the registered demand-destruction-overlay backlog's territory.
+  Panamax and Supramax vessels." Slow-burn structural Pana/Supra negative.
+  *(Routing CORRECTED 2026-06-12, owner review: this is a dry-bulk
+  SCENARIO-CURVE input / framework_breakers line, NOT
+  demand-destruction-overlay territory — the overlay is scoped to
+  war-independent macro recession on crude+product; sector-structural
+  belongs in the sector's tree. framework_breakers entry added.)*
   SBLK (46 Pana) / CMDB most exposed; GNK (zero Pana) least.
 - No GNK/SBLK/CMDB/Diana mentions in the issue.
 
@@ -126,10 +140,19 @@ MB's realized S&P prints straddle or land on our fitted curves:
 
 ## Owner actions queued (nothing applied)
 
-1. **Print promotions** (human-only; each triggers prints→rerun→drift loop):
-   Seamusic (Aframax, the big one), Shanhaiguan (NB resale), Vulcania +
-   Proteas (Pana — most valuable), Ausone + Santa Rita + White Bay
-   (Supra-Ultra). Caveats noted above (TC-attached, build-country basis).
+1. **Print promotions** — **RESOLVED 2026-06-12 (owner decision, same
+   day):** all seven filed. Fit inputs: Seamusic (Aframax, in-window
+   WITH premium-channel note — buyer-type screen found undisclosed buyer
+   + immediate rename to VIRTUS MARIS + no ice notation, NOT
+   confirmed-clean; single-print drift gate PASSED: 5yr −3.6% / 10yr
+   +0.1% / slope negative / no flip on this print alone; revisit if no
+   second corroborating clean print by Q3), Vulcania (Pana, TC-attached
+   caveat), Ausone + Santa Rita (Supra-Ultra brackets). Documentation:
+   Proteas (age 21, old-age-leg validation), White Bay (age 22),
+   Shanhaiguan (age 0, NB leg, conservative-to-fair nuance). Drift loop
+   run: ONE flip — SBLK TRIM/SHORT→HOLD (band-edge, Pana fit
+   +6.9/+3.0 → +11.5/+7.5 on the Vulcania add; annotated in sblk_log
+   with the TC-attached caveat). Tests 277 green, no re-pins needed.
 2. **Container current-rate refresh** (`twelve_month_tc.yaml` rows +
    §11.8.5 position table → Jun-12 vintage; anchors untouched).
 3. **Crude NB anchor review** — ours 14–35% above MB Korea; 5yr>NB inversion

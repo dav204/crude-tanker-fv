@@ -196,9 +196,11 @@ quarter of data. **The bars apply at lock-time, not per-run.**
   Set B / Set B-revised" are not interchangeable. Cross-sector "Set B"
   without a prefix is a methodology error.
 - **Transaction-anchored recalibration** covers eight classes with own
-  fits as of 2026-06-10: VLCC (10 in-window), Suezmax (19),
-  Aframax (12), **LR2 (11 — own-fit; the Aframax-proxy alias is retired)**,
-  MR (21), Cape (26), Pana (4), Supra-Ultra (20). Primarily mined from
+  fits as of 2026-06-12: VLCC (10 in-window), Suezmax (19),
+  Aframax (13 — incl. the premium-channel-noted Seamusic print, see
+  aframax.yaml), **LR2 (11 — own-fit; the Aframax-proxy alias is retired)**,
+  MR (21), Cape (26), Pana (5 — thinnest fit; Vulcania is TC-attached),
+  Supra-Ultra (22). Primarily mined from
   the Pareto Shipping Daily archive via `sp_scan.py`; GNK's 10-Q added 4
   issuer-confirmed Cape prints at onboarding. The Pana 2016-kamsarmax
   pair (Sep/Oct-2025) is disambiguated as DISTINCT vessels — see
@@ -524,6 +526,27 @@ sessions.
 
 ## Changelog
 
+- **2026-06-12 (Week 5) — MB Weekly 24 prints PROMOTED (owner decision,
+  7 prints recategorized per owner review) + drift loop run.** Fit
+  inputs: **Seamusic** (Aframax age-17 $52.5M, in-window WITH
+  premium-channel note — buyer screen: undisclosed buyer + immediate
+  rename to VIRTUS MARIS + no ice notation = NOT confirmed-clean;
+  single-print drift GATE passed: 5yr −3.6%/10yr +0.1%/slope negative,
+  no flip on the print alone; REVISIT if no second clean corroborating
+  print by Q3), Vulcania (Pana n=4→5, TC-ATTACHED caveat — residual
+  could be entirely the charter), Ausone + Santa Rita (Supra-Ultra,
+  curve-bracketing pair). Documentation-only (owner recategorization —
+  original note overstated): Proteas (age 21 — old-age-leg validation
+  DEAD-ON, the Picardy/Predator pattern; NOT fit thickening), White Bay
+  (age 22), Shanhaiguan (age 0 NB; Dalian print on a Korean-spec anchor
+  = conservative-to-fair, not validated-exactly). Drift loop: ONE flip
+  — SBLK TRIM/SHORT→HOLD (+1.1% NAV; Pana fit +6.9/+3.0 → +11.5/+7.5;
+  band-edge third oscillation, leans on the TC-attached print — sblk_log
+  annotated, no size action). Ethanol/corn driver re-routed from
+  demand-destruction overlay to dry-bulk scenario tree
+  (framework_breakers entry — sector-structural ≠ macro recession).
+  Tests 277 green, no re-pins. Fit counts: Aframax 13 / Pana 5 /
+  Supra-Ultra 22.
 - **2026-06-12 (Week 5) — MB weeklies first direct delivery: ingest route
   built + three-sector once-over run (review-only, nothing promoted).**
   Container/Dry Bulk/Tanker Weekly 24 archived to `inputs/research_mb/`

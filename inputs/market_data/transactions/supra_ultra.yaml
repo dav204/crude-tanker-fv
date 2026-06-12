@@ -3,7 +3,7 @@
 # collapse). Used by the transaction-anchor solver to recalibrate 5yr and
 # 10yr anchors. Newbuild + old-age legs untouched.
 #
-# SCOPE — rich sample (15 in-window prints) spanning ages 4-17 with strong
+# SCOPE — rich sample (17 in-window prints) spanning ages 4-17 with strong
 # coverage at ages 9-16. Includes:
 #   - SBLK Star Stonington (2012 Ultramax, $19.6M, age 14) — Q1 2026 6-K
 #     disclosed individually (separate from the Scarlett+Mariella aggregate)
@@ -36,7 +36,7 @@
 # SOURCES: Pareto Shipping Daily archive; SBLK Q1 2026 6-K (Stonington);
 # Diana (DSI Drammen), Belships (4-ship package), SFL (Hudson), Thenamaris.
 class: Supra-Ultra
-as_of: 2026-06-09
+as_of: 2026-06-12
 prints:
   # ---- IN-WINDOW (drive the fit), sorted by age ----
   - date: 2025-09-19
@@ -159,6 +159,27 @@ prints:
     source: Pareto Shipping Daily 2025-04-28 — Thenamaris disclosure
     quality_flag: standard
     notes: Thenamaris 2008-vintage supramax. Reported alongside the 2008 kamsarmax pana print at $14.25M.
+  - date: 2026-06-12
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 13.7
+    source: MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
+    quality_flag: standard
+    notes: >-
+      Ausone (2012 Yangzhou Guoyu, 56,812 dwt supramax, eco m/e), Pioneer
+      Bulk -> Chinese buyer. Chinese build — sits ~27% BELOW the eco-adj
+      curve at age 14; brackets the curve from below against Santa Rita's
+      Japanese print above (build-country dispersion the fit should see,
+      not filter). Promoted 2026-06-12 (owner decision, MB once-over).
+  - date: 2026-06-12
+    vessel_age_at_sale: 16
+    sale_price_usd_m: 17.2
+    source: MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
+    quality_flag: standard
+    notes: >-
+      Santa Rita (2010 Mitsui, 55,677 dwt supramax, Japanese build),
+      Okouchi Kaiun -> Greek buyer. +8.5% over the curve at age 16 —
+      bracket-partner to the Ausone Chinese print below curve. Promoted
+      2026-06-12 (owner decision, MB once-over).
   # ---- OUT-OF-WINDOW (documentation only) ----
   - date: 2025-03-17
     vessel_age_at_sale: 19
@@ -178,3 +199,14 @@ prints:
     source: GNK Q1 2026 10-Q Note 5 — sale of Genco Predator
     quality_flag: standard
     notes: outside [3,17] window. Genco Predator (2005-built Supramax), $10.6M less 3% commission; completed Apr 15 2026 (held-for-sale at Mar-31; carried in the GNK fleet manifest at quarter-end).
+  - date: 2026-06-12
+    vessel_age_at_sale: 22
+    sale_price_usd_m: 10.0
+    source: MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
+    quality_flag: standard
+    notes: >-
+      outside [3,17] window. White Bay (2004 Tsuneishi Cebu, 52,502 dwt
+      supramax, SCRUBBER), Pacific Basin -> undisclosed. Old-age-leg
+      documentation: ~10% below the scrubber-adj curve at age 22 —
+      consistent with the Picardy/Predator-validated leg. Filed
+      2026-06-12 (owner decision, MB once-over).

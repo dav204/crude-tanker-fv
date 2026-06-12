@@ -4,8 +4,8 @@
 
 - **Report date:** 2026-Q1
 - **Current price (crude-allocated):** $53.91
-- **Model fair value:** $37.32
-- **Analyst target (crude-allocated):** $51.92
+- **Model fair value:** $37.31
+- **Analyst target (crude-allocated):** $51.91
 
 ## Data validation warnings
 
@@ -18,18 +18,18 @@
 |---|---:|
 | Fleet value — VLCC | 645.0 |
 | Fleet value — Suezmax | 789.3 |
-| Fleet value — Aframax | 182.6 |
+| Fleet value — Aframax | 182.2 |
 | Fleet value — LR1 | 86.4 |
 | + Cash & equivalents | 246.1 |
 | + Working capital (net) | 149.7 |
-| − Total debt | 365.1 |
-| − Lease liabilities | 5.3 |
+| − Total debt | 365.0 |
+| − Lease liabilities | 5.2 |
 | − Newbuild commitments | 0.0 |
 | + Newbuild advances | 0.0 |
-| **= NAV total** | **1,728.7** |
+| **= NAV total** | **1,728.3** |
 | Diluted shares | 49,700,000 |
-| **NAV / share** | **$34.78** |
-| NAV / share (ex yard discount) | $35.62 |
+| **NAV / share** | **$34.77** |
+| NAV / share (ex yard discount) | $35.61 |
 | Yard-discount impact / share | $-0.83 |
 
 ## Dividend strip (r = 11%)
@@ -38,7 +38,7 @@
 |---|---:|---:|---:|---:|---:|
 | Q1 | 81,500 | 81,500 | 3.886 | 2.840 | 2.767 |
 | Q2 | 99,000 | 99,000 | 4.881 | 3.537 | 3.357 |
-| Q3 | 92,000 | 92,000 | 4.429 | 3.221 | 2.978 |
+| Q3 | 92,000 | 92,000 | 4.430 | 3.221 | 2.978 |
 | Q4 | 67,500 | 67,500 | 3.143 | 2.320 | 2.090 |
 | Q5 | 60,000 | 60,000 | 2.765 | 2.056 | 1.804 |
 | Q6 | 78,000 | 78,000 | 3.601 | 2.641 | 2.258 |
@@ -57,7 +57,7 @@ _FFA spot is the Suezmax forward curve that drives the strip cash flows; its 12-
 
 ## Blended fair value
 
-0.70 × $34.78 (NAV) + 0.30 × $43.24 (strip) = **$37.32**
+0.70 × $34.77 (NAV) + 0.30 × $43.24 (strip) = **$37.31**
 
 ## Payout sensitivity
 
@@ -75,37 +75,37 @@ The current price requires the fleet to run at **3.56× the current forward curv
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **392,822** | — |
-| 10-year mean | 32,364 | 12.14× |
-| 12-month FFA | 110,283 | 3.56× |
-| Current spot | 184,285 | 2.13× |
+| **Implied breakeven (blended)** | **392,865** | — |
+| 10-year mean | 32,365 | 12.14× |
+| 12-month FFA | 110,291 | 3.56× |
+| Current spot | 184,320 | 2.13× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Suezmax (46% of fleet value) | 302,766 | 10.91× |
-| VLCC (38% of fleet value) | 552,104 | 13.80× |
-| Aframax (11% of fleet value) | 275,161 | 9.97× |
-| LR1 (5% of fleet value) | 275,161 | 9.97× |
+| Suezmax (46% of fleet value) | 302,776 | 10.91× |
+| VLCC (38% of fleet value) | 552,121 | 13.80× |
+| Aframax (11% of fleet value) | 275,170 | 9.97× |
+| LR1 (5% of fleet value) | 275,170 | 9.97× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $29.16 | $32.27 | $35.38 | $38.48 | $41.59 |
-| **-15%** | $30.13 | $33.24 | $36.35 | $39.46 | $42.57 |
-| **+0%** | $31.10 | $34.21 | $37.32 | $40.43 | $43.54 |
-| **+15%** | $32.07 | $35.18 | $38.29 | $41.40 | $44.51 |
-| **+30%** | $33.05 | $36.15 | $39.26 | $42.37 | $45.48 |
+| **-30%** | $29.15 | $32.26 | $35.37 | $38.48 | $41.59 |
+| **-15%** | $30.13 | $33.23 | $36.34 | $39.45 | $42.56 |
+| **+0%** | $31.10 | $34.21 | $37.31 | $40.42 | $43.53 |
+| **+15%** | $32.07 | $35.18 | $38.29 | $41.39 | $44.50 |
+| **+30%** | $33.04 | $36.15 | $39.26 | $42.37 | $45.47 |
 
 _Current price $53.91. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$37.32** is -30.8% vs the current price ($53.91) and -28.1% vs the analyst target ($51.92). The current price implies the fleet earning a value-weighted blended **$392,822/day** (3.56× the current forward) — 12.1× the value-weighted 10-yr mean ($32,364, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$37.31** is -30.8% vs the current price ($53.91) and -28.1% vs the analyst target ($51.91). The current price implies the fleet earning a value-weighted blended **$392,865/day** (3.56× the current forward) — 12.1× the value-weighted 10-yr mean ($32,365, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 
-- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $81.6M (+3%) / 10yr $60.9M (-10%) [n=12], Cape 5yr $71.8M (+16%) / 10yr $50.6M (+12%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $34.2M (+7%) / 10yr $24.7M (+3%) [n=4], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $30.2M (-8%) / 10yr $22.1M (-12%) [n=20], VLCC 5yr $112.7M (-18%) / 10yr $90.9M (-18%) [n=11]. Newbuild + old-age anchors unchanged.
+- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $71.8M (+16%) / 10yr $50.6M (+12%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $35.7M (+11%) / 10yr $25.8M (+7%) [n=5], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $29.9M (-9%) / 10yr $22.2M (-11%) [n=22], VLCC 5yr $112.7M (-18%) / 10yr $90.9M (-18%) [n=11]. Newbuild + old-age anchors unchanged.
 - HYBRID crude carve-out (METHODOLOGY 6): crude sleeve = 65.3% of vessel value ($1,703M crude vs $905M product). Price/target shown are crude-ALLOCATED (whole-company x crude_share); balance sheet, G&A and corporate debt pro-rated, LR1-secured ECA debt held with the product sleeve.
 - Crude sleeve (this model): -31% vs the crude-allocated price. Product sleeve (qualitative, awaiting v2): ~35% of vessel value, held at current Compass values. Product rates have corrected MORE than crude week-over-week (MR -52%, LR2 -28% vs Aframax/Suezmax/VLCC -7 to -8%), so product is LEADING the MoU normalization — a static-Compass product NAV likely OVERSTATES fair value once a v2 product strip is incorporated. Whole-company decision deferred to v2.
 - Vessel values carry a yard-quality discount (Chinese / ex-Hanjin-Subic yards); NAV is shown with and without it.

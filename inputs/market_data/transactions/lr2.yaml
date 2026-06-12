@@ -112,3 +112,20 @@ prints:
     source: Pareto Shipping Daily 2026-04-21 — Scorpio Tankers disclosure
     quality_flag: standard
     notes: STNG 2014 LR2 ship 3 of 3 in the $195M aggregate.
+  # ---- OUT-OF-WINDOW (documentation only) ----
+  - date: 2026-06-12
+    vessel_age_at_sale: 0
+    sale_price_usd_m: 90.0
+    source: MB Shipbrokers Tanker Weekly 24/2026 — S&P column
+    quality_flag: newbuild_resale
+    notes: >-
+      outside [3,17] window; NB leg untouched by the fit (§9.9) —
+      documentation by construction. Shanhaiguan P110k-70 (115,000 dwt
+      LR2 NB resale, blt 2026 DALIAN, scrubber, ex-yard July), Union
+      Maritime -> Ditas (named Turkish buyer — clean market). Lands ON
+      our $90M LR2/Aframax NB anchor, but read the nuance: the
+      yard-quality convention benchmarks against Korean spec, this is a
+      CHINESE yard print at +17% over MB's own Korea NB assessment
+      ($77-79M) with a prompt-delivery premium — so the print says our
+      $90M NB anchor is CONSERVATIVE-TO-FAIR, not validated-exactly.
+      Filed 2026-06-12 (owner decision, MB once-over).

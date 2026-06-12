@@ -1,16 +1,19 @@
 # Aframax secondhand sale prints — METHODOLOGY.md sections 3.1, 9.9
-# 6 publicly-disclosed transactions, May 2025 - Apr 2026, used by the
+# 13 publicly-disclosed transactions, Jan 2025 - Jun 2026, used by the
 # transaction-anchor solver (transactions.py) to recalibrate the 5yr and 10yr
 # Aframax curve anchors. Newbuild + old-age legs are NOT touched.
 #
-# Mix: ages 7, 8, 10 (×3), 14, 16, 17 — covers both 5yr and 10yr anchor regions
-# (solver weights by age proximity + recency, ~15mo half-life). LR2 print flagged
-# (clean coatings carry a modest premium over crude Aframax; left at face for v1).
+# Mix: ages 7, 8, 10 (×3), 11, 14, 15 (×3), 16, 17 (×3) — covers both anchor
+# regions (solver weights by age proximity + recency, ~15mo half-life). LR2-hull
+# prints flagged (clean coatings carry a modest premium over crude Aframax;
+# dirty-trading LR2 hulls price to THIS curve per the STI Condotti bifurcation
+# note below).
 #
 # Sources: SEC 6-K filings (Performance Shipping PSHG), Q1 2026 earnings release
-# (Teekay Tankers TNK), trade-press summaries (Riviera, Splash247, TradeWinds).
+# (Teekay Tankers TNK), trade-press summaries (Riviera, Splash247, TradeWinds),
+# Pareto Shipping Daily archive, MB Shipbrokers Tanker Weekly.
 class: Aframax
-as_of: 2026-06-09
+as_of: 2026-06-12
 prints:
   - date: 2026-01-15
     vessel_age_at_sale: 10
@@ -96,3 +99,27 @@ prints:
     source: Pareto Shipping Daily 2025-09-23 — broker reports
     quality_flag: standard
     notes: 2008-built Greek-owner aframax sold to undisclosed buyer. Pareto context "two Greek aframaxes built 2007 and 2008 reportedly sold for $28M and $29.5M — marginally above our quotes." The 2007-built (age 18) sister is out-of-window.
+  - date: 2026-06-12
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 52.5
+    source: MB Shipbrokers Tanker Weekly 24/2026 — S&P column
+    quality_flag: standard
+    notes: >-
+      Seamusic (2009 New Times, 112,922 dwt; COATED LR2 HULL TRADING DIRTY
+      — filed to the Aframax curve per the STI Condotti trading-mode
+      bifurcation above; ABS, no ice notation found on registry pages),
+      Thenamaris SPV -> UNDISCLOSED buyer; hull renamed VIRTUS MARIS
+      within days of the print. PREMIUM-CHANNEL SUSPECTED (owner screen
+      2026-06-12): undisclosed buyer + immediate rename + 17yr
+      crude-trading profile mid-war, in the documented elevated bid for
+      ageing aframaxes (Splash "staggering prices for ice-class/ageing
+      tonnage" series; Thenamaris serial sell-down — Seatrust 2004 ~$34M,
+      Seamagic 2006 ice-1A $45-47M). NOT confirmed clean-market (contrast
+      the TNK 2009 Suezmax TradeWinds confirmation). Sits ~+65% over the
+      pre-print fit at age 17 and +70-80% over the two age-17 prints of
+      mid/late-2025 above; the flag system has no downward adjustment, so
+      this note is the record. SINGLE-PRINT DRIFT GATE at promotion
+      (owner condition): 5yr -3.6% / 10yr +0.1% / slope -4.15 -> -3.55
+      M$/yr (negative, no fallback), implied age-17 31.9 -> 36.1 —
+      bounded by the 12-print base; kept in-window. REVISIT if no second
+      corroborating clean print arrives by the Q3 refresh.

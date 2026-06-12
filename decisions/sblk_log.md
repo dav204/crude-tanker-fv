@@ -9,6 +9,39 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-12T21:55:24+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.15
+- Single-point FV: $26.00
+- Scenario PW FV: $25.98 (EV -4.3%)
+- NAV / share: $26.57
+- Position: **HOLD (fairly valued)**
+- Broker spread: +21.1pp (k_broker 1.20)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position TRIM/SHORT (overvalued) → HOLD (fairly valued)
+- Δprice: no change | Δsingle FV: +1.0% | Δscenario FV: +1.0% | ΔNAV: +1.1% | Δspread: -1.0pp
+
+**Decision:** Prints→rerun→drift loop, MB Weekly 24 promotions (owner
+decision 2026-06-12). The flip is the documented band-edge oscillation,
+third occurrence (TRIM/SHORT at the Jun-5 static → HOLD on the live-price
+introduction → TRIM/SHORT → HOLD here), now driven by the marks layer
+rather than price: the Vulcania promotion (2015 kamsarmax $26.0M, age 11,
+TC-ATTACHED — see pana.yaml note) moved the thin Pana fit n=4→5 and the
+fit legs +6.9%/+3.0% → +11.5%/+7.5%, worth +1.1% NAV on the 46-vessel
+Pana book; the two new Supra prints (Ausone/Santa Rita, bracketing the
+curve both sides) left the Supra fit ~unchanged (−9.4%/−11.2%). Caveat
+carried from the YAML: Vulcania's +5% residual could be entirely its
+attached charter, so this flip leans on a TC-attached print — treat HOLD
+vs TRIM/SHORT as within noise at band-edge (no size action either way).
+The −21% mark-driven gap thesis is UNTOUCHED (spread +21.1pp). Proteas
+(age 21, $12.10M) validated the Pana old-age leg dead-on — first
+independent confirmation; documentation-only, no fit effect.
+
+---
+
 ## 2026-06-12T18:49:44+00:00 — Pipeline run (auto)
 
 **Model state:**
