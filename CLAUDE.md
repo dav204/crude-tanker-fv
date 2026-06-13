@@ -1,5 +1,33 @@
 # CLAUDE.md — agent operating rules for the Tanker FV tool
 
+> ## 🧊 DECISION RECORD — DEVELOPMENT FREEZE (2026-06-13, owner directive)
+>
+> **All feature / sector / methodology work is FROZEN until the crude
+> backtest returns an edge verdict.** The open question that gates
+> everything: *does this tool have edge?* Until a backtest answers it
+> (edge / no edge / inconclusive against the pre-registered metric),
+> the ONLY work in scope is:
+>
+> 1. Code that directly supports the crude backtest (`backtest/` only).
+> 2. Bugfixes.
+>
+> **Out of scope until the verdict:** new sectors (LPG, offshore, …), new
+> methodology sections, new features (B4/B5/B6, the event-window tooling,
+> FFA Stage 2, etc.). These are parked — not deleted — in PLAN.md under
+> "FROZEN until edge verdict". Do not start them.
+>
+> **Hard constraint on the backtest:** it lives in `backtest/`, separate
+> from `src/`, and MUST NOT modify the valuation core
+> (nav / blend / cycle / dividend_strip / scenarios). The core is pure
+> over `CompanyInputs`; the backtest adds only a vintage loader + driver
+> loop + evaluation module. One correctness property is assertion-enforced:
+> **no input dated after quarter _t_ may enter the _t_ computation
+> (no look-ahead).**
+>
+> Status / verdict + data needed: `backtest/README.md` and
+> `outputs/backtest_test0_report.md`. Lift this freeze only on an explicit
+> owner decision after reading the verdict.
+
 **Read this first, every session.** Mistakes that show up here are mistakes
 that have already happened once. Each rule has a date so you can see how
 old/proven it is. When you correct a recurring mistake, append a dated rule.
