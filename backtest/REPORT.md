@@ -141,6 +141,82 @@ ways forward, cheapest first. **None has been run — this is the decision point
 Yahoo adjusted closes. Where data does not exist (pre-2024 P/NAV, NAT P/NAV,
 historical engine vintages), the report says so rather than inventing it.
 
+---
+
+# Amendment 1 — wide USD shipping panel (run 2026-06-14)
+
+Owner chose to widen the universe for a powered read (pre-registered as
+Amendment 1 before this was computed — commit ae991f7). Universe: 16 USD-listed
+shipping names with real published Pareto P/NAV across 5 sectors (crude DHT/FRO/
+ECO/TNK/INSW/CMBT; product STNG/TRMD/HAFN; dry-bulk SBLK/GNK/HSHP; LNG GLNG/FLNG;
+LPG LPG/NVGS). All confirmed correct USD entities by price-match to Pareto.
+
+## VERDICT (Amendment-1 primary, sector-neutral pooled IC): **INCONCLUSIVE**
+
+| signal quarter | pooled n | sectors | IC sector-neutral | IC raw-panel | EW-panel % |
+|---|--:|--:|--:|--:|--:|
+| 2024-09-30 | 12 | 4 | +0.538 | +0.151 | −24.5 |
+| 2024-12-31 | 12 | 4 | −0.510 | −0.041 | −2.8 |
+| 2025-03-31 | 13 | 4 | +0.351 | +0.332 | +8.0 |
+| 2025-06-30 | 13 | 4 | +0.241 | +0.493 | +25.6 |
+| 2025-09-30 | 13 | 4 | +0.211 | −0.002 | +0.2 |
+| 2025-12-31 | 16 | 5 | −0.591 | −0.579 | +41.1 |
+
+> **sector-neutral pooled IC: mean = +0.040, t = +0.21, Nq = 6.**
+> raw whole-panel IC: mean = +0.059, t = +0.39 (secondary, cross-sector confounded).
+
+Per the locked rule: INCONCLUSIVE (positive, far from t ≥ 2). **The point
+estimate is now even closer to zero than crude-only (+0.04 vs +0.095)** — a
+wider, cleaner cross-section did not surface a signal.
+
+Exploratory per-sector (≥3 names/quarter): crude +0.048 (t 0.18), product
++0.272 (t 1.04), dry-bulk **−0.592 (t −1.62)** — in dry bulk cheap-on-P/NAV
+*negatively* predicted returns over 4 quarters, but n=4 and the period is
+distorted by the GNK/Diana tender (GNK price was deal-pinned, not NAV-driven).
+Noise; not actionable.
+
+## What widening proved — the binding constraint is now TIME, not the universe
+
+Widening did its job on the cross-section: per-quarter IC sd fell **0.66 → 0.47**
+(12–16 names/quarter vs 4). But Nq is still **6** — the real published-P/NAV
+history only spans 2024-08 → 2026-06. With the wider cross-section, quarters to
+reach |t| = 2:
+
+| true IC | quarters needed | ≈ years | (have) |
+|--:|--:|--:|--:|
+| 0.10 | ~89 | ~22 | 6 |
+| 0.20 | ~22 | ~6 | 6 |
+| 0.30 | ~10 | ~2.5 | 6 |
+
+So a powered verdict is now **feasible** — it needs ~5–6 years of quarters
+(≈22), not the centuries the crude-only test implied. The only thing missing is
+**P/NAV history before 2024-08**, which the repo does not have.
+
+## Combined verdict and the one decision left
+
+Both the crude-only primary and the wide-panel primary return **INCONCLUSIVE**,
+with point estimates near zero (+0.095 and +0.040). On the ~1.5 years of real
+published P/NAV that exist, **there is no detectable cross-sectional edge — and
+the data is too short to call "no edge" with confidence.** Sector beta (panel
+quarters −24% to +41%) and single events (GNK tender) dominate the tape.
+
+To convert "inconclusive" into a real verdict, the scarce dimension is
+**quarters of P/NAV history**, and there are exactly two honest ways to get them:
+
+1. **P/B proxy back to ~2018–2020 (buildable now).** Yahoo fundamentals give
+   quarterly book value; price/book is the sanctioned "depreciated-book NAV"
+   proxy. It extends the panel to ~22–30 quarters — enough to detect an IC of
+   ~0.15–0.20 if one exists — at the cost of fidelity (book ≠ market NAV across
+   the cycle; flagged). This is the cheapest path to a *powered* read.
+2. **Pre-2024 published P/NAV, if you can supply it.** An archived Pareto (or
+   Clarksons / VesselsValue) P/NAV series back to ~2018 would give the powered
+   test on the *real* signal rather than a proxy. The repo has nothing before
+   2024-08; I will not fabricate it. If you have a subscription archive or an
+   export, that is the highest-fidelity route.
+
+Test 1 (engine EV% vs naive P/NAV) remains both unjustified (no non-zero Test-0
+signal to beat) and data-blocked (only 2026-Q1 vintage inputs in-repo).
+
 ## Reproduce
 
 ```

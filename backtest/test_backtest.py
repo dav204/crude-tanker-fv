@@ -56,6 +56,24 @@ def test_build_panel_signal_predates_asof():
             assert used == prior[-1], "panel used a non-latest-or-future P/NAV"
 
 
+def test_sector_neutral_ic_is_within_sector():
+    """Sector-neutral IC must reward within-sector cheapness, and must ignore a
+    cross-sector P/NAV-level confound (a uniformly-cheap sector that happens to
+    do well should not by itself create signal)."""
+    from backtest.evaluate_wide import wide_quarter_ic
+    # crude: cheaper name wins; product: cheaper name wins -> IC should be +1
+    data = {
+        "A": (0.7, 0.20, "crude"), "B": (1.1, -0.05, "crude"),   # A cheap & best
+        "C": (0.8, 0.15, "product"), "D": (1.2, -0.02, "product"),  # C cheap & best
+    }
+    wq = wide_quarter_ic(data)
+    assert wq.ic_sector_neutral == 1.0
+    # singleton sector contributes nothing (no within-sector rank)
+    data2 = dict(data); data2["E"] = (0.5, 0.99, "lng")
+    wq2 = wide_quarter_ic(data2)
+    assert wq2.ic_sector_neutral == 1.0  # E ignored -> unchanged
+
+
 def test_ic_sign_convention():
     """Low P/NAV paired with high forward return must yield positive IC."""
     c = QuarterCross(

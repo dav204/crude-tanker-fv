@@ -22,7 +22,13 @@ import time
 import urllib.request
 from pathlib import Path
 
-NAMES = ["DHT", "NAT", "FRO", "ECO", "TNK"]
+try:
+    from .panel import YAHOO_OF
+except ImportError:                       # allow running as a plain script
+    from panel import YAHOO_OF
+# crude-five (Test 0) + the wide USD panel (Amendment 1); NAT kept for the
+# crude exploratory read though it has no published P/NAV.
+NAMES = sorted({"DHT", "NAT", "FRO", "ECO", "TNK", *YAHOO_OF})
 DATA_DIR = Path(__file__).resolve().parent / "data"
 USER_AGENT = "Mozilla/5.0"
 # 10y daily history with dividend events + adjusted close.
