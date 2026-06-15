@@ -539,12 +539,18 @@ def extract_share_prices(path: Path, report_date: str) -> list[dict]:
 
     rows: list[dict] = []
     for display, ticker in _SHARE_TABLE_COMPANIES:
-        # Search for company name followed by the row's numeric block. An
-        # optional parenthetical (e.g. "Frontline (US)", "Himalaya Shipping
-        # (US)") may sit between the name and the numbers — Pareto tags the
-        # US line of dual-listed names this way; without this the row silently
-        # drops (caught 2026-06-14: FRO absent from the entire extract).
-        pat = re.compile(rf"{display}(?:\s*\([^)]*\))?\s+{_SHARE_ROW.pattern}")
+        # Search for company name followed by the row's numeric block. Two
+        # rendering quirks, both caught 2026-06-14 while assembling the crude
+        # backtest panel:
+        #  (1) an optional parenthetical can sit between name and numbers
+        #      ("Frontline (US)", "Himalaya Shipping (US)") — Pareto tags the
+        #      US line of dual-listed names this way;
+        #  (2) the name→row separator is OPTIONAL whitespace, not required:
+        #      later issues glue the currency to the name for kr-prefixed rows
+        #      ("Okeanis Eco Tankerskr 275-0.7%...") so a required \s+ dropped
+        #      Okeanis (ECO) from 2025-04 onward. \s* matches both the spaced
+        #      ("DHT Holdings $11.7") and glued ("Tankerskr 275") cases.
+        pat = re.compile(rf"{display}(?:\s*\([^)]*\))?\s*{_SHARE_ROW.pattern}")
         m = pat.search(text)
         if not m:
             continue
