@@ -217,10 +217,94 @@ To convert "inconclusive" into a real verdict, the scarce dimension is
 Test 1 (engine EV% vs naive P/NAV) remains both unjustified (no non-zero Test-0
 signal to beat) and data-blocked (only 2026-Q1 vintage inputs in-repo).
 
+---
+
+# Amendment 2 — P/B proxy from SEC book value, 2018–2026 (run 2026-06-14)
+
+Built to buy the scarce TIME dimension. Yahoo fundamentals were too shallow
+(quarterly to 2025 only) so they were rejected; **SEC EDGAR XBRL** book value
+was used instead (official, deep), with each fact's **filed date** as the
+no-look-ahead lag, and the **as-first-reported** value (earliest filing, not
+restatements). Universe = the 9 names with deep us-gaap XBRL: crude TNK/INSW;
+dry-bulk SBLK/GNK/HSHP; LNG GLNG/FLNG; LPG LPG/NVGS. **No product sector, only
+2 crude (no DHT/FRO/ECO) — see fidelity caveats.** 31 non-overlapping quarters,
+6–9 names each.
+
+## VERDICT (Amendment-2 primary, sector-neutral P/B IC): **NO DETECTABLE EDGE (powered null)**
+
+> sector-neutral pooled IC: **mean = −0.038, t = −0.42, Nq = 31.**
+> Split-half stable: early −0.056, late −0.021. Essentially zero throughout.
+
+This is the first **adequately powered** test in the whole exercise (31 quarters
+× ~7 names). A within-sector value edge of plausible size (IC ≥ ~0.15) would
+likely have surfaced; it did not. Per the locked rule this is NO-EDGE
+territory — the point estimate is ~0/slightly negative with a powered sample.
+
+**The one positive number, and why it is not edge.** The raw whole-panel IC is
+**+0.138 (t = 1.98)** — borderline-significant and tempting. But it is the exact
+cross-sector confound the pre-registration named: it rewards being cheap-on-P/B
+*and in a sector that outperformed*. **Neutralize sectors and it collapses to
+−0.04.** So the apparent signal is **sector allocation, not security
+selection** — and security selection (peer-relative picking) is what the tool
+claims to do. Reported, not credited.
+
+**Fidelity caveats (locked before the run; they bound how far this verdict
+reaches):** book ≠ market NAV (TNK trades ~3× book but ~0.8× NAV — P/B ranks
+need not equal P/NAV ranks), so this is evidence about a *value premium in
+shipping*, not a direct test of the P/NAV marks; the universe is bulk/gas-heavy
+with no product and only 2 crude (excludes the canonical DHT/FRO/ECO); a
+filed-date reporting lag makes the proxy signal intrinsically staler than daily
+P/NAV; survivorship persists (and biases *toward* finding a value premium — we
+found none, which makes the null, if anything, conservative).
+
+---
+
+# FINAL combined verdict
+
+| Test | Signal | Universe | Powered? | Sector-neutral IC | t |
+|---|---|---|---|--:|--:|
+| 0 | published P/NAV | 4 crude | no (Nq 6, n 4) | +0.095 | 0.35 |
+| Amend-1 | published P/NAV | 16 shipping | partial (Nq 6) | +0.040 | 0.21 |
+| Amend-2 | **P/B proxy** | 9 shipping | **yes (Nq 31)** | **−0.038** | **−0.42** |
+
+**Across every peer-relative (sector-neutral) test, cheap-on-NAV(-proxy) shows
+no detectable power to rank shipping winners.** The two real-P/NAV tests are
+underpowered (inconclusive); the one powered test — on a book-value proxy — is a
+clean null, and the only positive reading anywhere is a cross-sector
+sector-tilt that disappears under neutralization.
+
+**What this does and does not establish.**
+- It is **meaningful evidence against** the tool functioning as a cross-
+  sectional stock-picker: the precondition (cheapness predicts peer-relative
+  return) fails in the one powered test and is unproven in the underpowered
+  real-signal tests.
+- It is **not a clean refutation** of the crude P/NAV tool specifically: the
+  powered test uses a book proxy (not the tool's market-NAV marks) on a
+  product-less, 2-crude universe; the real-P/NAV crude test could not be
+  powered with available data; and Test 1 (the tool's own EV%) was never run
+  (data-blocked).
+
+**Recommendation for the freeze decision (owner's call).** The weight of
+evidence does not support resuming development on the premise that the tool's
+NAV-cheapness ranks winners. Two things would change the verdict in either
+direction, and only these are worth unfreezing for:
+1. **Real pre-2024 P/NAV** for the crude pure-plays (DHT/FRO/ECO) → a powered
+   test on the actual signal and the actual names. Highest fidelity; needs an
+   owner-supplied archive.
+2. **Test 1** — the tool's own EV% vs naive P/NAV — needs historical
+   point-in-time `CompanyInputs` (balance sheets + period market-data
+   vintages), which must be supplied/reconstructed.
+
+Absent those, the honest reading is: **no demonstrated edge; do not resume on
+the picker premise.** No data was fabricated anywhere in this exercise.
+
 ## Reproduce
 
 ```
-PYTHONPATH=. .venv/bin/python -m backtest.fetch_prices     # refresh Yahoo cache
+PYTHONPATH=. .venv/bin/python -m backtest.fetch_prices         # Yahoo price/div cache
+PYTHONPATH=. .venv/bin/python -m backtest.fetch_sec_bookvalue  # SEC book-value cache
 PYTHONPATH=. .venv/bin/python -m pytest backtest/test_backtest.py -q
-PYTHONPATH=. .venv/bin/python -m backtest.run_test0
+PYTHONPATH=. .venv/bin/python -m backtest.run_test0            # Test 0  (crude P/NAV)
+PYTHONPATH=. .venv/bin/python -m backtest.run_wide             # Amend-1 (wide P/NAV)
+PYTHONPATH=. .venv/bin/python -m backtest.run_proxy            # Amend-2 (P/B proxy)
 ```

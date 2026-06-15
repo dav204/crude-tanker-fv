@@ -107,6 +107,35 @@ def price_at(series: list[tuple[dt.date, float]], asof: dt.date) -> float | None
     return p
 
 
+def load_bvps() -> dict[str, list[tuple[dt.date, dt.date, float]]]:
+    """ticker -> sorted [(filed_date, period_end, bvps)] from the SEC cache."""
+    out: dict[str, list[tuple[dt.date, dt.date, float]]] = {}
+    for path in PRICE_DIR.glob("sec_bv_*.csv"):
+        ticker = path.stem.split("sec_bv_", 1)[1]
+        series = []
+        with open(path) as fh:
+            for row in csv.DictReader(fh):
+                series.append((_d(row["filed"]), _d(row["period_end"]), float(row["bvps"])))
+        series.sort()                       # by filed date
+        out[ticker] = series
+    return out
+
+
+def bvps_at(series: list[tuple[dt.date, dt.date, float]], asof: dt.date,
+            max_period_staleness_days: int = 250) -> float | None:
+    """Latest book value PUBLIC at asof (filed <= asof — no look-ahead on the
+    date the number became known), if its fiscal period is not too stale."""
+    avail = [(f, pe, v) for f, pe, v in series if f <= asof]
+    if not avail:
+        return None
+    f, pe, v = avail[-1]
+    if f > asof:
+        raise LookaheadError(f"bvps filed {f} > asof {asof}")
+    if (asof - pe).days > max_period_staleness_days:
+        return None
+    return v
+
+
 @dataclass
 class QuarterCross:
     asof: dt.date

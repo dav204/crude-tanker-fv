@@ -34,6 +34,18 @@ def test_signal_staleness_guard():
     assert signal_at(stale, asof, staleness_days=45) is None
 
 
+def test_bvps_filed_date_no_lookahead():
+    """Proxy signal must use book value only once FILED (public), not at the
+    fiscal period-end — financials aren't knowable before they're filed."""
+    from backtest.loaders import bvps_at
+    asof = dt.date(2025, 6, 30)
+    # period ended Mar-31 but filed May-9 (known by Jun-30) -> usable;
+    # period ended Jun-30 filed Aug-7 (NOT yet public at Jun-30) -> must be ignored.
+    series = [(dt.date(2025, 5, 9), dt.date(2025, 3, 31), 10.0),
+              (dt.date(2025, 8, 7), dt.date(2025, 6, 30), 99.0)]
+    assert bvps_at(series, asof) == 10.0
+
+
 def test_price_no_lookahead():
     asof = dt.date(2025, 6, 30)
     series = [(dt.date(2025, 6, 27), 100.0), (dt.date(2025, 7, 2), 999.0)]
