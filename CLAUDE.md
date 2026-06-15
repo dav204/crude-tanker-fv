@@ -4,6 +4,27 @@
 that have already happened once. Each rule has a date so you can see how
 old/proven it is. When you correct a recurring mistake, append a dated rule.
 
+## 🔒 DECISION RECORD — DEVELOPMENT FREEZE (2026-06-14)
+
+All crude-tanker-fv development is FROZEN until ONE question is answered:
+**does this tool have edge?** Until the crude backtest returns a recorded
+verdict (edge / no edge / inconclusive), the ONLY work in scope is:
+
+1. the **crude backtest** itself — lives in `backtest/`, separate from `src/`; and
+2. **bugfixes** to existing code (including data-extraction fixes that
+   directly serve the backtest).
+
+**NOT in scope until the verdict:** no new sectors, no new METHODOLOGY
+sections, no new features, no event-window/digest/FFA/Q2-refresh work. The
+valuation core — `nav` / `blend` / `cycle` / `dividend_strip` / `scenarios`
+— is **NOT to be modified** by backtest work (the core is pure over
+`CompanyInputs`; the harness only adds a vintage loader + driver + evaluation
+around it). The parked Week-5 sprint (B4 shipped; B5 / B6 / event window /
+Q2 carry-forwards / standing threads) is preserved in PLAN.md under
+**"FROZEN until edge verdict."** The verdict decides whether development
+resumes. Pre-registered metric: `backtest/PRE_REGISTRATION.md`. Verdict when
+it lands: `backtest/REPORT.md`.
+
 ## What this repo is
 
 Per-share fair value tool for shipping equities. NAV (per-vessel age-curve

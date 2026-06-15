@@ -1,145 +1,164 @@
-# PLAN.md — current sprint plan (Week 5)
+# PLAN.md — current focus: CRUDE BACKTEST (edge verdict)
 
-Rewritten at each Week close (CLAUDE.md "Week-close checklist"). This file
-is the handoff: a new agent starting the sprint reads CLAUDE.md first,
-then this. Week 4 closed 2026-06-12 — containerships shipped (§11.8
-locked + wired, MPCC + GSL live, 19 names / 5 sectors / 274 tests,
-calibration lock N/A-by-construction recorded honestly) and the §5
-permission red-team ran in the first allowlist-active session (deny
-rules enforce; ask tier is NOT testable in autonomous sessions — see
-the CLAUDE.md 2026-06-12 Step-3 changelog entry).
+> **FREEZE IN EFFECT (2026-06-14).** All feature / sector / methodology work
+> is frozen until the crude backtest below returns a recorded verdict on the
+> one question that gates everything: **does this tool have edge?** Only the
+> backtest (in `backtest/`) and bugfixes are in scope. The valuation core
+> (`nav`/`blend`/`cycle`/`dividend_strip`/`scenarios`) is not to be modified.
+> Decision record at the top of CLAUDE.md. Parked sprint is in the
+> "FROZEN until edge verdict" section at the bottom of this file — parked,
+> not deleted.
 
-## Week 5 theme: hardening + the event window — no new sector
+## The one question
 
-Containers closed the last big sector with data in hand. Week 5 pays the
-methodology debt the sprint accreted (B4–B6, owner-directed 2026-06-12),
-processes the GNK deal events (AGM Jun-18 → tender deadline Jun-26), and
-lands the FFA-OCR go/no-go. New-sector work (LPG, offshore) stays out
-until a data corpus exists; the MB weeklies, when they start landing,
-re-open the container anchor vintage and add cross-checks for the
-existing sectors.
+Does *cheap-on-P/NAV* — and then the tool's *EV%* — predict forward relative
+returns in the crude subsector? If neither beats noise, the tool is not a
+picker and development should not resume on its current premise. The verdict
+(edge / no edge / inconclusive) decides whether the freeze lifts.
 
-### Step 1 — B4: §9.9 mark-driven classification restated (half session)
+## Pre-registered primary metric (LOCKED before looking at any result)
 
-The §6/§9.9 mark-driven taxonomy was written when k_broker meant "broker
-premium over our independent curve" (pre the 2026-06-09 txn-anchored
-default flip). k_broker now reads as the broker premium over TRANSACTION
-levels (uniform ~1.12-1.14 on validated crude pure-plays). Restate the
-classification language + thresholds against the post-default semantics
-so "mark-driven" vs "mark-validated" is defined on the txn-anchored
-baseline, not the retired one. No mark changes — language, thresholds,
-and §6 entry wording only; re-pin any affected locked tests with
-rationale.
+The metric is fixed in `backtest/PRE_REGISTRATION.md`, committed before any
+IC is computed. In one line:
 
-### Step 2 — B5: anchor-basis commensurability (one session)
+> **Mean quarterly cross-sectional Spearman IC between the signal and the
+> 1-quarter-forward, equal-weight-crude-neutralized total return across the
+> crude names {DHT, NAT, FRO, ECO, TNK}, with a t-stat on the time series of
+> quarterly ICs.** Convention: positive IC = cheap (low P/NAV) predicts
+> outperformance. Benchmarks: naive published P/NAV (Test 0) and the
+> equal-weight-crude return. Non-overlapping quarters; Newey-West only where
+> a window overlaps. Everything else (other horizons, per-name, sub-periods,
+> the P/B proxy) is **EXPLORATORY / supporting** and labeled as such.
 
-Live now because Container Set A's cycle anchors are FY21-25
-calendar-average basis (the MB weekly table) while dry bulk's are
-22-month archive medians and tanker/product anchors are TC-anchored
-10-year means — three bases that don't numerically compose (same
-discipline as the §10 TC-vs-spot rule). Build, per the owner brief:
-an `anchor_basis` column in the cycle-anchor YAMLs; a
-MIXED-ANCHOR-BASIS flag wherever a cross-sector pairing mixes bases
-(delta report + reconcile surfaces); a §10 paragraph documenting the
-non-composability. Tests for the flag.
+**Stated up front, not after:** the sample is tiny and survivor-biased
+(today's crude names only; names that delisted or blew up are absent, which
+flatters any value signal). Real published P/NAV exists in-repo only for
+~2024-08 → 2026-06 (~7 quarters), so the primary metric's N is small and its
+t-stat will likely be weak *regardless of whether edge exists*. Do not
+oversell. The honest deliverable may be "inconclusive — here is exactly the
+data needed to make it conclusive."
 
-### Step 3 — B6 [DECIDE-WITH-OWNER]: §9.2 terminal value (memo only)
+## Scope & design (cheapest test first; stop at a clear answer)
 
-Write the one-page options memo; the OWNER picks. Options to lay out:
-keep 1.0× NAV at strip end / 0.9× mid-cycle discount / 1.1× structural
-undersupply / cycle-position-conditional multiple. Evidence inputs:
-`outputs/terminal_value_sensitivity.md` (TNK + STNG flip at 0.9×, FLNG
-flips at 1.1×; other names multiple-robust) and the new containers 10q
-horizon, which moves more weight onto the terminal. Deliverable = memo
-+ recorded owner decision; implementation only if the decision changes
-the convention.
+Everything lives in **`backtest/`**, separate from `src/`. We add only a
+historical/vintage **loader**, a **driver** loop, and an **evaluation**
+module; we call the existing pure valuation core, we do not modify it.
 
-### Step 4 — the event window (calendar-driven)
+**Correctness property (asserted in code):** no input dated after quarter `t`
+may enter the `t` computation. The signal at `t` uses only the most recent
+print with `report_date ≤ asof(t)`; the forward return uses `t` and `t+1`
+prices (the `t+1` price is the thing predicted, never a signal input). The
+assertion fails the run if any signal row post-dates `asof(t)`.
 
-- **Sat Jun-13 + Jun-20**: weekly digests (`/news-pull` after the 08:00
-  mechanical chain). Tripwires armed across TEN/CMDB/CAPT/TNK/CCEC.
-- **Jun-18 GNK AGM**: morning-after read is pre-planned in gnk_log.
-- **Jun-26 tender deadline**: on lapse, GNK price re-anchors, the
-  deal-arb framing comes OFF, and EV/position reads revert to
-  NAV-discount signals — annotate gnk_log either way.
-- **FFA-OCR decision (carried from Week 4)**: owner reviews the 16
-  flagged queue days (~10 min human pass), then record the
-  diagnostic-cycle decision — does the FFA curve stay diagnostic or
-  start informing the dry-bulk strip? Stage 2 (2020-2026 backfill)
-  rides on this.
+### Test 0 — naive published P/NAV (NO engine). CHEAPEST. Do first; show result.
 
-### Step 5 — small carry items
+For DHT / NAT / FRO / ECO / TNK (defer TEN / CAPT / INSW — too short or too
+complex): assemble contemporaneous published Pareto P/NAV per quarter, compute
+1q-forward total return (price + dividends, Yahoo), market-neutralize against
+the equal-weight crude return, and report the quarterly Spearman IC + t-stat
+against the pre-registered metric.
 
-- **§5 ask-tier verification, INTERACTIVE session required**: confirm
-  git push / watchlist-edit / fetch_links / curl actually PROMPT when a
-  human is at the keyboard. The 2026-06-12 autonomous session proved
-  deny rules enforce but could not test prompts (ask-class auto-approves
-  under the autonomous permission mode).
-- **fetch_links argparse**: it silently ignores unknown flags (`--help`
-  ran a real download pass on 2026-06-12 — harmless, dedupe held, but
-  wrong interface behaviour for an ask-gated network module). Tiny fix.
+- **Signal source:** real Pareto P/NAV from `inputs/market_data/pareto_share_prices.csv`
+  (2024-08 → 2026-06). FRO is missing from that extract — recover it (bugfix
+  in scope) or flag it. NAT has no real Pareto P/NAV (APPROX) — excluded from
+  the real-P/NAV primary, noted.
+- **Supporting (exploratory, lower-fidelity, flagged):** a price-to-book (P/B)
+  proxy over a longer Yahoo-fetched window — the "depreciated-book NAV" proxy
+  the brief sanctioned. Book ≠ market NAV across the cycle, so this is a
+  noisier complement, not the primary.
 
-### Q2-refresh carry-forwards (parked until reports land; the earnings
-calendar + preflight §0 drive the timing)
+### Test 1 — engine EV% vs naive P/NAV. ONLY if Test 0 is non-zero.
 
-- **MPCC (reports 2026-08-26, confirmed)**: replace cohort built-year
-  ESTIMATES + NB delivery quarters with the issuer fleet list; watch
-  Q2-26 6-Ks for clean per-vessel prices on the three handed-over sale
-  prints (§11.8.5(b) ledger row); refresh the company-implied NAV
-  anchor if restated.
-- **GSL (Aug-04/06 expected)**: Series B preferred count post-ATM (the
-  $109M pref deduction is the sensitive input); the Jun-26 $917M NB
-  order's charter attachments — undisclosed charterers are a
-  dimension-6 tripwire; 20-F Item 6 board-rights verify.
-- **TEN (SEPTEMBER, H1 reporter)**: TCM fee-load computation (§15
-  calibration anchor due at Q2 data); ten_log Q2-vintage kit deltas
-  (Ulysses sale, Sola TS step-up, charter rolls) get applied at this
-  refresh, not before.
-- **CMDB**: watch for the Astros sale price — clean age-8 Ultramax
-  print if disclosed per-vessel.
+Reconstruct point-in-time `CompanyInputs` per quarter, run `value_company`
+as-of each quarter, compare tool-EV% IC vs the naive-P/NAV IC. The tool must
+**beat** naive P/NAV to justify itself as a picker. **Blocked on data:** only
+2026-Q1 vintage inputs exist in-repo; historical balance sheets + market-data
+vintages (vessel marks, FFA/spot/TC rates) would have to be supplied or
+reconstructed. Do not start until Test 0 is shown and the data path is agreed.
 
-## Standing threads (not Week 5 step work)
+## Data status (from the 2026-06-14 inventory)
 
-- **MB Shipbrokers weeklies — LANDED 2026-06-12** (Container / Dry Bulk /
-  Tanker issue 24; **LNG not yet delivered — verify the subscription**).
-  Ingest route established: Gmail link harvest (read-only sanctioned API)
-  → `scripts/fetch_pdf.py` (cdn.flxml.eu in data_sources.yaml) →
-  `inputs/research_mb/<feed>/YYYY/`; weekly cadence folds into the
-  Saturday digest (agent half — Gmail needs an authed session, not cron).
-  Once-over run: `outputs/mb_weekly_check_2026-06-12.md`. Headlines:
-  container feeder +13.4% over the frozen 10 weeks (position 0.98x→1.12x,
-  MBCI +13.9% — owner-gated current-rate refresh queued; anchors stable);
-  tanker 5yr assessments land 5/6 inside the k-band (independent B4
-  confirmation) but crude NB anchors read 14-35% rich vs MB Korea (review
-  item); dry-bulk marks validated by MB's own prints (Proteas dead-on the
-  Pana curve), Pana ANCHOR flagged structurally low (Q3 + B5 xref);
-  **7 promotable print candidates queued incl. Seamusic Aframax $52.5M
-  (~65% above fit — 2026 S&P rally datapoint) and 2 Pana prints for the
-  n=6 fit**; Hormuz trigger NOT met (draft memo, 30-day window — closest
-  signal yet, watch the digests).
-- **Brokerage MCP — CLOSED 2026-06-12 (decision REVISED).** Owner kept
-  the IBKR connector attached (Cowork weekly portfolio routine + Chat);
-  claude.ai has no per-surface scoping, so the fix is DENY rules on the
-  synced server id in `~/.claude/settings.json` + tracked
-  `.claude/settings.json` — verified live (read-only probe refused).
-  See PERMISSIONS_PROPOSAL.md §6.4 revision. Tripwire: a claude.ai
-  disconnect/reconnect can change the UUID and silently stale the deny
-  — re-check the id in the next session's tool list (Gmail-style
-  connectors remain attached and un-denied; optional follow-up).
-- **OWNER ACTION pending:** ratify-or-revise the A1 horizon
-  interpretation (wired as 10 strip quarters = end-2028; the brief
-  said "~12q from report date").
-- **Hormuz weight revisit trigger** — standing; preempts everything if
-  physical-transit confirmation lands.
-- **Deferred by owner**: orchestration of the /news-pull agent half
-  (scheduled cloud agent); Task-3 weight adjuster; demand-destruction
-  overlay; FFA Stage 2 (pending the Step-4 decision).
+| Need | Have in-repo | Gap |
+|---|---|---|
+| Published P/NAV signal | `pareto_share_prices.csv`, 2024-08→2026-06, DHT/ECO/TNK (+FRO pending extract) | No pre-2024 P/NAV anywhere; NAT never covered by Pareto |
+| Prices + dividends | Single-day snapshot only | Full history fetchable via Yahoo (mechanism + allowlist exist) |
+| Historical `CompanyInputs` | 2026-Q1 only | Pre-2026 balance sheets + market-data vintages absent — blocks Test 1 |
 
-## Definition of done (Week 5)
+**What I will need the owner to supply to make the verdict conclusive** (TBD
+after Test 0 result; do not fabricate): either an archived analyst-NAV / P-NAV
+time series for the names back to ~2018 (exact format to be specified), or
+authorization to extend the proxy. Detailed ask lands in `backtest/REPORT.md`.
 
-B4 + B5 shipped with tests (suite grows from 274); B6 memo written and
-the owner decision recorded; GNK AGM + tender outcomes processed and
-logged; FFA-OCR diagnostic decision recorded; both weekly digests run;
-§5 ask-tier verified interactively; Week-close checklist run (docs
-audited, Appendix A entry, PLAN.md rewritten for Week 6); clean git
-state + push.
+## Definition of done
+
+One report — `backtest/REPORT.md` — stating a verdict (edge / no edge /
+inconclusive) against the pre-registered metric and BOTH benchmarks (naive
+P/NAV and equal-weight crude), with the sample/survivorship caveats and the
+exact data ask if inconclusive. Show Test 0 before any Test 1 work.
+
+---
+
+# FROZEN until edge verdict (parked, not deleted)
+
+Everything below was the active Week-5 sprint at the moment of the freeze.
+It resumes only if the backtest verdict says the tool has edge. Preserved
+verbatim so no context is lost.
+
+## Week 5 theme (parked): hardening + the event window
+
+- **B4 — §9.9 mark-driven classification restated: SHIPPED 2026-06-12**
+  (commit cb83315; two-regime k_broker band in METHODOLOGY §9, mechanical
+  sweep relabel, fetch_links argparse fix). Done before the freeze.
+- **B5 — anchor-basis commensurability (NOT STARTED):** `anchor_basis` enum
+  on all cycle-anchor YAML blocks; MIXED-ANCHOR-BASIS flag in delta +
+  reconcile; §10 non-composability paragraph; tests. Full design in the prior
+  plan file history / the approved Session-B design.
+- **B6 — §9.2 terminal-value options memo (NOT STARTED):** re-run the 19-name
+  terminal sweep, write the four-option memo (1.0× / 0.9× / 1.1× /
+  cycle-conditional) with an agent recommendation + empty owner DECISION
+  block; record the owner pick.
+
+## Event window (parked; dates have now passed — re-plan on resume)
+
+- Weekly `/news-pull` digests (were scheduled Sat Jun-13 / Jun-20).
+- GNK AGM Jun-18 + Diana tender deadline Jun-26 — on resume, read the
+  outcomes and annotate `decisions/gnk_log.md` (deal-arb framing comes off on
+  a tender lapse; EV/position reads revert to NAV-discount).
+- FFA-OCR go/no-go: owner reviews the 16 flagged queue days, then record the
+  diagnostic-vs-strip decision; Stage 2 (2020-2026 backfill) rides on it.
+
+## Small carry items (parked)
+
+- **§5 ask-tier verification, INTERACTIVE session:** confirm git push /
+  watchlist-edit / fetch_links / curl actually PROMPT with a human present
+  (the autonomous session could only prove deny rules enforce).
+
+## Q2-refresh carry-forwards (parked; earnings calendar + preflight §0 drive timing)
+
+- **MPCC (reports 2026-08-26):** replace cohort built-year ESTIMATES + NB
+  delivery quarters with the issuer fleet list; clean per-vessel prices on the
+  three handed-over sale prints; refresh the company-implied NAV anchor.
+- **GSL (Aug-04/06):** Series B preferred count post-ATM; the Jun-26 $917M NB
+  order's charter attachments; 20-F Item 6 board-rights verify.
+- **TEN (September, H1 reporter):** TCM fee-load computation (§15 anchor);
+  apply ten_log Q2-vintage kit deltas (Ulysses sale, Sola TS step-up, rolls).
+- **CMDB:** the Astros sale price — clean age-8 Ultramax print if per-vessel.
+
+## Standing threads (parked)
+
+- **MB Shipbrokers weeklies — LANDED 2026-06-12.** Ingest route established
+  (Gmail link harvest → `scripts/fetch_pdf.py` → `inputs/research_mb/`).
+  Container current-rate refresh queued (owner-gated); crude NB anchor review;
+  Pana anchor flagged structurally low; LNG weekly not yet delivered. Full
+  once-over: `outputs/mb_weekly_check_2026-06-12.md`. The 7 MB Weekly-24 print
+  candidates were promoted 2026-06-12 (commit d7c7a41) before the freeze.
+- **Brokerage MCP — CLOSED 2026-06-12** (DENY rules on the synced server id;
+  re-check the UUID in a fresh session's tool list — disconnect/reconnect can
+  stale it).
+- **OWNER ACTION pending:** ratify-or-revise the A1 horizon interpretation
+  (wired as 10 strip quarters = end-2028; brief said "~12q from report date").
+- **Hormuz weight-revisit trigger** — standing; preempts everything if
+  physical-transit confirmation lands. (MB Weekly 24: draft memo + 30-day
+  window, trigger NOT met.)
+- **Deferred by owner:** /news-pull agent-half orchestration; Task-3 weight
+  adjuster; demand-destruction overlay; FFA Stage 2.
