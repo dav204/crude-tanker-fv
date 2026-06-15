@@ -109,3 +109,58 @@ looks strong is a hypothesis for future pre-registration, not a result.
   feeding `t` has `report_date ≤ asof(t)`; the run aborts otherwise.
 - **Single data vendor** for the signal (Pareto) and returns (Yahoo). No
   cross-vendor validation of either.
+
+---
+
+# AMENDMENT 1 — wide shipping panel (2026-06-14, after Test 0 verdict)
+
+Test 0 returned INCONCLUSIVE because a 4-name crude cross-section is
+underpowered at any feasible sample (quarterly-IC sd ≈ 0.66; detecting IC 0.05–
+0.10 needs decades–centuries). Per owner decision, we widen the universe to the
+full shipping P/NAV panel to obtain a **powered** read on the precondition.
+This is a NEW pre-registration (different universe), committed before its
+results, same discipline. It does not retroactively change Test 0.
+
+**Universe.** All shipping names with real published Pareto P/NAV **and** a
+USD listing (returns must be currency-consistent; Yahoo adjusted close, USD).
+The USD restriction drops Oslo/EUR-only names (AWILCO, BWLP, DIS, ODFB, SNI,
+MPCC) — flagged as a second selection filter, not silently. NAT still excluded
+(prints `na`). Each name carries a curated sector label (crude / product /
+dry_bulk / lng / lpg), held in code, auditable.
+
+**Why sector-neutral.** Cross-sector P/NAV *levels* are not comparable (LNG and
+tanker NAV norms differ — the methodology says so), so a raw cross-sectional
+P/NAV rank would partly pick *sectors*, not names. The tool's actual job is
+peer-relative (is this name cheap vs its NAV/peers). So the PRIMARY is
+sector-neutralized.
+
+**PRIMARY metric (locked).**
+> Mean over quarters of the **sector-neutral pooled cross-sectional Spearman
+> IC**: for quarter `t`, within each (sector,`t`) cell with ≥2 names, rank names
+> by cheapness (−P/NAV) and by 1q-forward total return as fractional in-cell
+> ranks; pool all such names across sectors; IC(t) = Spearman(cheap-rank,
+> return-rank) across the pooled set. Average IC(t) over non-overlapping
+> quarters; t-stat on the quarterly series. Positive IC = cheap predicts
+> outperformance vs sector peers.
+
+Signal construction, staleness guard (45d), and the no-look-ahead assertion are
+identical to the primary above.
+
+**Decision rule (same thresholds):** EDGE = mean IC > 0 AND t ≥ 2.0;
+NO-EDGE = mean IC ≤ 0 with |t| < 2; INCONCLUSIVE otherwise. This verdict, being
+adequately powered, is the one that can actually move the freeze.
+
+**SECONDARY (reported, not the verdict):** raw whole-panel per-quarter Spearman
+of −P/NAV vs (return − equal-weight-panel return) — powered but cross-sector
+confounded.
+
+**EXPLORATORY:** per-sector ICs; sector-neutral cheap-minus-rich spread;
+pooled-observation IC with a quarter-block bootstrap SE.
+
+**Caveats (additional to the base set):** survivorship now spans all of
+today's shipping names (stronger survivor bias than crude alone); the USD-
+listing filter is itself a selection; LNG/LPG sectors are thin (≤2 names) and
+contribute little after sector-neutralization; this answers "does cheap-on-
+P/NAV predict peer-relative returns in (surviving, USD-listed) shipping," which
+is broader than "crude subsector" — it is a precondition read, not a
+crude-specific verdict.
