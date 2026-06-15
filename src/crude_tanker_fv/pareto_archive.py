@@ -539,8 +539,12 @@ def extract_share_prices(path: Path, report_date: str) -> list[dict]:
 
     rows: list[dict] = []
     for display, ticker in _SHARE_TABLE_COMPANIES:
-        # Search for company name followed by the row's numeric block.
-        pat = re.compile(rf"{display}\s+{_SHARE_ROW.pattern}")
+        # Search for company name followed by the row's numeric block. An
+        # optional parenthetical (e.g. "Frontline (US)", "Himalaya Shipping
+        # (US)") may sit between the name and the numbers — Pareto tags the
+        # US line of dual-listed names this way; without this the row silently
+        # drops (caught 2026-06-14: FRO absent from the entire extract).
+        pat = re.compile(rf"{display}(?:\s*\([^)]*\))?\s+{_SHARE_ROW.pattern}")
         m = pat.search(text)
         if not m:
             continue
