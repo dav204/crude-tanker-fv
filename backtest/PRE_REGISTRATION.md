@@ -164,3 +164,53 @@ contribute little after sector-neutralization; this answers "does cheap-on-
 P/NAV predict peer-relative returns in (surviving, USD-listed) shipping," which
 is broader than "crude subsector" — it is a precondition read, not a
 crude-specific verdict.
+
+---
+
+# AMENDMENT 2 — P/B proxy, long history (2026-06-14, after Amend-1 verdict)
+
+Amend-1 was still INCONCLUSIVE: widening fixed the cross-section but the binding
+constraint became TIME (only 6 quarters of real P/NAV; archive starts 2024-08).
+Per owner decision, build the sanctioned depreciated-book-NAV proxy to buy
+quarters. New pre-registration, committed before its results.
+
+**Signal source decided by data availability (probed before locking):** Yahoo
+free fundamentals are too shallow (quarterly book value only to 2025-03, annual
+to 2022) — they cannot reach 2018, so they are NOT used. **SEC EDGAR XBRL
+companyfacts** (official, free, deep) IS used: us-gaap `StockholdersEquity`
+(instant, USD) + `dei:EntityCommonStockSharesOutstanding`, with each fact's
+`filed` date used for the no-look-ahead lag (signal at `t` uses only book values
+**filed ≤ t** — stricter and more correct than period-end ≤ t, since financials
+aren't public until filed).
+
+**Realized universe (probed, locked here before results).** SEC XBRL book value
+exists deep + current for **9 names**: crude **TNK, INSW**; dry-bulk **SBLK,
+GNK, HSHP**; LNG **GLNG, FLNG**; LPG **LPG, NVGS**. It does NOT exist for the
+20-F FPIs **DHT, FRO, ECO, STNG, TRMD, HAFN, CMBT** (no us-gaap XBRL), and FRO's
+XBRL stops at 2022. **Consequences, stated up front:** the product sector is
+absent (0 names); crude is only 2 names and excludes the canonical pure-plays
+DHT/FRO/ECO; the panel is bulk/gas-heavy. History reaches ~2018 (~28 quarters).
+
+**Signal:** P/B = price / book-value-per-share (BVPS = StockholdersEquity /
+shares), as known at `t` (filed-date lag). Cheapness = low P/B.
+
+**PRIMARY metric:** identical machinery to Amendment 1 — sector-neutral pooled
+quarterly Spearman IC of cheapness (−P/B) vs 1q-forward USD total return, mean
+over quarters, t-stat. Same EDGE / NO-EDGE / INCONCLUSIVE thresholds.
+
+**Fidelity caveats locked up front (this is a PROXY, not the verdict on the
+tool):**
+- **Book ≠ market NAV.** Vessels sit at depreciated historical cost; across the
+  cycle market NAV diverges hugely from book (e.g. TNK trades ~2× book but
+  ~0.8× NAV). So P/B-cheapness rankings need NOT match P/NAV-cheapness
+  rankings; a P/B result is evidence about a *value premium in shipping*, not a
+  direct test of the P/NAV tool.
+- **Narrow/biased universe** (no product, 2 crude, bulk/gas-heavy) — not a
+  crude-subsector verdict.
+- **Reporting lag + restatements:** latest-filed value per period-end; the
+  filed-date lag means the proxy signal is intrinsically staler than daily P/NAV.
+- Survivorship as before, amplified by the longer window.
+
+This is the cheapest powered read available on real data; it speaks to the
+*precondition* ("does cheap-on-a-NAV-proxy predict peer-relative shipping
+returns at all"), and explicitly NOT to the crude P/NAV tool's edge per se.
