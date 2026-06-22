@@ -115,10 +115,15 @@ verbatim so no context is lost.
   `scenarios.py`; MIXED-ANCHOR-BASIS flag in the delta report + `reconcile
   --all` (and per-name basis in `--verbose`); METHODOLOGY §10 subsection; +5
   tests (280 passed). Metadata + diagnostics only — valuation core untouched.
-- **B6 — §9.2 terminal-value options memo (NOT STARTED):** re-run the 19-name
-  terminal sweep, write the four-option memo (1.0× / 0.9× / 1.1× /
-  cycle-conditional) with an agent recommendation + empty owner DECISION
-  block; record the owner pick.
+- **B6 — §9.2 terminal-value options memo: MEMO WRITTEN 2026-06-21, OWNER
+  DECISION PENDING.** 19-name sweep refreshed (`outputs/terminal_value_
+  sensitivity.md`, 7 band-edge flippers); four-option memo at
+  `outputs/terminal_value_options_memo.md` with a steelman-panel-grounded
+  recommendation (ratify 1.0× now; cycle-conditional as triggered successor;
+  reject uniform 0.9× / 1.1×) + empty owner DECISION block. §9.2 item 2
+  updated to point at it. **Remaining: owner picks the multiple**; on any pick
+  other than 1.0× the follow-up is the engine change + test re-pin + drift
+  annotations (memo §5). No engine change made (recommendation is status-quo).
 
 ## Event window (parked; dates have now passed — re-plan on resume)
 

@@ -553,6 +553,28 @@ sessions.
 
 ## Changelog
 
+- **2026-06-21 (Week 5) — B6 §9.2 terminal-value options memo WRITTEN (owner
+  decision pending).** Re-ran the terminal-NAV-multiple sweep over the full
+  19-name watchlist (`scripts/terminal_value_sensitivity.py`; was 12 names at
+  the Jun-5 first run) → 7 band-edge flippers (0.9× turns peak names DHT/ECO
+  more bearish; 1.1× turns ASC/SBLK→HOLD + GNK→BUY [deal-pinned, discount];
+  12/19 never flip; CCEC most sensitive but holds BUY). Wrote
+  `outputs/terminal_value_options_memo.md`: four options (1.0× / 0.9× / 1.1× /
+  cycle-conditional), each steelmanned by an independent agent panel, with an
+  empty owner DECISION block. **Recommendation: ratify 1.0× now** (auditable;
+  marks already conservative; `w_earn` already down-weights the strip at peak —
+  the at-stake flips are immaterial band-edge wiggles), **cycle-conditional as
+  the designated successor** pending two adoption triggers (empirically-sized
+  embedded-mark error, or the book gaining trough-band names); **reject uniform
+  0.9×** (wrong sign at troughs — dominated by cycle-conditional) **and 1.1×**
+  (its broker-gap justification is the forbidden "calibrate to broker" move,
+  §6/§9). Key mechanism point: the terminal = current marks aged forward (never
+  re-priced), so the multiple sets the *embedded asset-price level* — orthogonal
+  to `w_earn`, which only weights the leg; §15's `governance_discount_pct` is the
+  architectural precedent for a multiplier at this layer. No engine change (rec
+  is status-quo); `TERMINAL_NAV_MULTIPLE` stays 1.0. §9.2 item 2 + PLAN.md B6
+  updated to point at the memo. Was a parked Week-5 item; resumed at owner
+  direction.
 - **2026-06-21 (Week 5) — B5 anchor-basis commensurability SHIPPED** (commit
   5fc3b7d). Cycle-position anchors carry three non-composable bases (a cycle
   ratio is forward-12M-TC / anchor): `tc_10yr_mean` (crude/product/lng),
