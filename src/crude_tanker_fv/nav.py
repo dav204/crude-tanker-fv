@@ -21,14 +21,18 @@ from dataclasses import dataclass
 from .schemas import CompanyInputs
 from .vessel_values import vessel_market_value
 
-# Time-to-delivery discount for committed-but-undelivered newbuilds (METHODOLOGY
-# §9.6, resolved 2026-06-22). A newbuild arriving in t years is worth its
-# delivered-market value discounted to today; matches the 11% strip discount
-# rate. Applied per-vessel via `years_to_delivery` (0 => on the water => factor
-# 1.0, so existing fleets are unaffected). The remaining capex commitment is
-# kept at face on the balance sheet (conservative; PV-ing the payment schedule
-# is a further refinement).
-NEWBUILD_DELIVERY_DISCOUNT_RATE = 0.11
+# Canonical cost of equity (≈ high-beta cyclical equity discount, METHODOLOGY §3.2/§9.5).
+# ONE 0.11 shared by the newbuild time-to-delivery PV discount AND the dividend-strip
+# discount (dividend_strip.DEFAULT_DISCOUNT_RATE), so the two cannot silently diverge
+# (BUG-7, 2026-06-22).
+COST_OF_EQUITY = 0.11
+
+# Time-to-delivery discount for committed-but-undelivered newbuilds (METHODOLOGY §9.6).
+# A newbuild arriving in t years is worth its delivered-market value discounted to today
+# at the cost of equity. Applied per-vessel via `years_to_delivery` (0 => on the water =>
+# factor 1.0, so existing fleets are unaffected). The remaining capex commitment is kept
+# at face on the balance sheet (conservative; PV-ing the payment schedule is a refinement).
+NEWBUILD_DELIVERY_DISCOUNT_RATE = COST_OF_EQUITY
 
 
 @dataclass

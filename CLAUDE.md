@@ -23,8 +23,12 @@ strip, blended by cycle position. Judge it by whether its per-name reads are
 sound, auditable, and useful for a position call — **not** by a cross-sectional
 information coefficient. New sectors, methodology refinements, features, and the
 Q2/event-window work are all in scope (see PLAN.md). A crude-subsector "edge"
-backtest lives in `backtest/`; its null is an expected small-sample result, kept
-as a recorded diagnostic, **not** a development gate. (A 2026-06-14 "development
+backtest lives in `backtest/`: its real-P/NAV crude tests are inconclusive by design
+(~6 quarters), and its one *powered* test (Amendment-2, P/B proxy, N=31) is a clean
+negative — but on a book-value proxy and a different universe (no DHT/FRO/ECO), so
+not a refutation of *this* engine, and not support either. The tool has **no
+demonstrated ex-post cross-sectional edge** (see `outputs/epistemic_soundness_memo_2026-06-22.md`);
+kept as a recorded diagnostic, **not** a development gate. (A 2026-06-14 "development
 freeze" gated on that verdict was **LIFTED 2026-06-21 by owner decision**.)
 
 ## What this repo is

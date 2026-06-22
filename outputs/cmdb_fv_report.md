@@ -51,7 +51,7 @@ _FFA spot is the Supra-Ultra forward curve that drives the strip cash flows; its
 
 ## Blended fair value
 
-0.60 × $32.49 (NAV) + 0.40 × $18.69 (strip) = **$21.12**
+0.60 × $22.74 (NAV) + 0.40 × $18.69 (strip) = **$21.12**
 
 ## Payout sensitivity
 

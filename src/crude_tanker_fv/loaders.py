@@ -194,11 +194,18 @@ def load_market_data(inputs_dir: Path = INPUTS_DIR) -> MarketData:
 
     def _list_map(filename: str, top_key: str) -> dict:
         data = _read_yaml(md_dir / filename).get(top_key) or {}
-        return {
-            k: [float(x) for x in v]
-            for k, v in data.items()
-            if v and all(x is not None for x in v)
-        }
+        out: dict = {}
+        for k, v in data.items():
+            if not v:
+                continue  # class absent / empty → not covered (legitimate skip)
+            if any(x is None for x in v):
+                # BUG-6 (2026-06-22): a PARTIALLY-null curve is a data error, not
+                # "class not covered" — fail loud instead of silently dropping it.
+                raise ValueError(
+                    f"{filename}:{top_key}.{k} has null values in {v} — fix or remove the row"
+                )
+            out[k] = [float(x) for x in v]
+        return out
 
     return MarketData(
         vessel_value_curves=curves,

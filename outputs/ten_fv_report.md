@@ -57,7 +57,7 @@ _FFA spot is the Aframax forward curve that drives the strip cash flows; its 12-
 
 ## Blended fair value
 
-0.70 × $87.70 (NAV) + 0.30 × $59.25 (strip) = **$60.74**
+0.70 × $61.39 (NAV) + 0.30 × $59.25 (strip) = **$60.74**
 
 ## Payout sensitivity
 

@@ -109,6 +109,8 @@ def compute_cycle(inputs: CompanyInputs) -> CycleResult:
     """Fleet-weighted cycle position and resulting blend weights."""
     md = inputs.market_data
     value_weights = _class_value_weights(inputs)
+    if not value_weights:  # G-1: empty fleet would silently fall to the trough band
+        raise ValueError("empty fleet: no vessel classes to weight for cycle position")
 
     by_class: dict[str, float] = {}
     tc_by_class: dict[str, float] = {}

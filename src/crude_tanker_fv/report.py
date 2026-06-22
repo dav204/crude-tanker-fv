@@ -193,7 +193,9 @@ def _render_markdown(report: CompanyReport) -> str:
     w(f"- Weights: w_nav = {cyc.w_nav:.2f}, w_earn = {cyc.w_earn:.2f}\n")
 
     w("## Blended fair value\n")
-    w(f"{cyc.w_nav:.2f} × ${nav.nav_per_share:,.2f} (NAV) + "
+    # BUG-4 (2026-06-22): show the EFFECTIVE (post-§15-haircut) NAV that actually enters
+    # the blend, so the line foots for §15 names (raw nav.nav_per_share did not).
+    w(f"{cyc.w_nav:.2f} × ${fv.nav_per_share_effective:,.2f} (NAV) + "
       f"{cyc.w_earn:.2f} × ${strip.implied_price:,.2f} (strip) = "
       f"**${fv.fair_value_per_share:,.2f}**\n")
 

@@ -5,6 +5,19 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — Phase 0b inert cheap fixes (audit BUG-4/5/6/7 + G-1; framing BUG-8).**
+  No valuation change (291 tests green). **BUG-4:** the §15 report blend line printed raw
+  NAV while FV used the post-haircut value → now prints `nav_per_share_effective` so it
+  foots for TEN/CMDB. **BUG-5:** value-pinned the Crude Set A weights (0.25/0.45/0.18/0.12)
+  — sum-to-1 alone let a silent crude weight edit pass (LNG/product were already pinned).
+  **BUG-6:** `loaders._list_map` silently dropped a partially-null FFA curve → now raises
+  (a partial-null is a data error, not "class not covered"). **BUG-7:** the two decoupled
+  `0.11` constants (`nav.NEWBUILD_DELIVERY_DISCOUNT_RATE`, `dividend_strip.DEFAULT_DISCOUNT_RATE`)
+  now both reference `nav.COST_OF_EQUITY`. **G-1:** `compute_cycle` raises on an empty fleet
+  instead of silently falling to the trough band. **BUG-8:** corrected the CLAUDE.md/PLAN.md
+  backtest framing to match `REPORT.md` — the powered Amendment-2 null is a clean negative on
+  a P/B proxy / different universe, not "expected small-sample" (which only fits the
+  underpowered real-P/NAV tests).
 - **2026-06-22 — BUG-1 (Aframax dual cycle-anchor) + BUG-2 (Sinokor row in the VLCC
   fit) fixed** (methodology audit, `outputs/METHODOLOGY_AUDIT_2026-06-22.md`).
   **BUG-1:** `historical_tce_means.yaml` carried a stale Aframax 10yr-mean of **27,600**

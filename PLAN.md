@@ -78,7 +78,10 @@ to origin/main. Per-change detail is in `CHANGELOG.md`.
 
 ## Backtest (complete — reference, not a gate)
 Crude-subsector edge backtest in `backtest/` (`REPORT.md`): no *statistically
-demonstrated* cross-sectional edge on ~1.5yr of published P/NAV (small-sample,
-not a refutation of the per-name work). Test 1 (engine EV% vs naive P/NAV) was
-never run (data-blocked on historical point-in-time inputs). No longer gates
-development.
+demonstrated* cross-sectional edge. The real-P/NAV crude tests are inconclusive by
+design (~6q); the one *powered* test (Amendment-2, P/B proxy, N=31) is a clean
+negative — but on a book proxy / different universe, so not a refutation of *this*
+engine nor support. Test 1 (engine EV% vs forward relative return) was never run
+(data-blocked on historical point-in-time inputs); the Sharadar/broker-archive path
+to running it is scoped in `outputs/test1_data_feasibility_memo_2026-06-22.md`. No
+longer gates development.

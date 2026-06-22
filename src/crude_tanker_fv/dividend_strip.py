@@ -41,10 +41,10 @@ from __future__ import annotations
 from dataclasses import dataclass, field, replace
 
 from .cycle import twelve_month_ffa
-from .nav import NavResult, compute_nav
+from .nav import COST_OF_EQUITY, NavResult, compute_nav
 from .schemas import CompanyInputs, DividendPolicy
 
-DEFAULT_DISCOUNT_RATE = 0.11
+DEFAULT_DISCOUNT_RATE = COST_OF_EQUITY   # 11% cost of equity, shared with nav.py (BUG-7)
 STRIP_HORIZON_QUARTERS = 8
 TERMINAL_NAV_MULTIPLE = 1.0   # DEFAULT terminal multiple (mid-cycle / when no cycle
                               # is supplied). §9.2 is CYCLE-CONDITIONAL since 2026-06-22

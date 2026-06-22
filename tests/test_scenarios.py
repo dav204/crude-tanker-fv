@@ -33,6 +33,12 @@ def test_scenarios_parse_and_weights_sum_to_one(doc):
     names = list(doc["scenarios"])
     assert names == ["escalation", "pre_mou_baseline", "mou_base", "mou_bear"]
     assert sum(doc["scenarios"][n]["weight"] for n in names) == pytest.approx(1.0)
+    # BUG-5 (2026-06-22): pin the individual Crude Set A weights — sum-to-1 alone let a
+    # silent weight edit pass (LNG/product weights were value-pinned, crude was not).
+    assert {n: doc["scenarios"][n]["weight"] for n in names} == {
+        "escalation": pytest.approx(0.25), "pre_mou_baseline": pytest.approx(0.45),
+        "mou_base": pytest.approx(0.18), "mou_bear": pytest.approx(0.12),
+    }
     # Sector layer (METHODOLOGY §11): the default load returns the crude sub-doc
     # with its own cycle_anchors, and the sector name is stamped in.
     assert doc["sector"] == "crude"
