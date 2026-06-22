@@ -103,7 +103,7 @@ market moved — not whether to recalibrate the curve.
 
 After any change to inputs, schemas, marks, scenarios, or pipeline code:
 
-1. `pytest -q` — must stay at 311+ passing. This now INCLUDES the drift gate
+1. `pytest -q` — must stay at 315+ passing. This now INCLUDES the drift gate
    (`tests/test_drift_gate.py`): an UNEXPLAINED >2pp EV%/NAV move, a band flip,
    or a >0.05 k_broker *second-difference* vs the committed baseline turns the
    suite red until you either annotate `decisions/<ticker>_log.md` (a dated,

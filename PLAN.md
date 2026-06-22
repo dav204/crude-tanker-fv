@@ -6,7 +6,7 @@ forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest. Development proceeds
 normally (the 2026-06-14 "development freeze" was lifted 2026-06-21).
 
-**Current state (2026-06-22):** 20 watchlist names across 5 sectors; **311 tests
+**Current state (2026-06-22):** 20 watchlist names across 5 sectors; **315 tests
 green** (+11 backtest, run separately); `reconcile --all` 20/20 SANITY OK (0 fail,
 0 drift); committed drift gate ratified (Phase 2 below). This session ran a **methodology-soundness sprint** (full
 adversarial audit → fixes — see below) and then built the **Phase 2 ongoing
@@ -73,8 +73,17 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     premium, blind to a small one. The Amendment-2 null reproduced on the *right*
     universe; still a PROXY (book≠NAV) so NOT an engine verdict. +3 backtest tests
     (cache-guarded). Full write-up: `backtest/REPORT.md` Amendment 3.
-  - **(b) Engine as-of-quarter plumbing — OPEN** (mechanical: parametrize
-    `scenarios.quarter_keys(start_q,start_y)` + add `run_scenarios(asof_quarter=…)`).
+  - **(b) Engine as-of-quarter plumbing — ✅ DONE (2026-06-22).** Parametrized
+    `scenarios.quarter_keys(n, start_q, start_y)` + added `strip_start_from_asof`
+    (report quarter + 2 → q3_2026 for the live 2026-Q1) and an `asof_quarter`
+    parameter threaded `run_scenarios → _run_scenarios_for_ticker →
+    run_scenarios_watchlist`. `None` default = the live q3_2026 anchor, **byte-identical**
+    (315 tests green; pipeline 0 material deltas; drift gate 20/20 +0.0pp). A
+    non-default as-of with no vintage scenario curves **fails fast** naming the
+    missing keys. The single-point NAV/strip path was already as-of-correct via
+    `quarter` (positional strip), so only the scenario quarter-key labels needed
+    routing. +4 tests. **What 3c still needs:** the vintage scenario curves
+    (the data backfill) — the plumbing is ready to consume them.
   - **(c) Pre-register + run the powered engine EV% Test 1 — OPEN** (the only read
     that can validate/refute the marks). Needs (b) + the pre-2024 broker-weekly
     vessel-mark backfill (or a structured Clarksons/VesselsValue feed — both

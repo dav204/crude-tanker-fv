@@ -223,6 +223,7 @@ def _aggregate_three_sleeve_report(
 def _run_scenarios_for_ticker(
     ticker: str, whole_inputs, whole_price: float, whole_target: float,
     sector_docs: dict[str, dict], watchlist: dict,
+    asof_quarter: str | None = None,
 ) -> tuple[ScenarioReport, ScenarioReport | None, ScenarioReport | None]:
     """Headline ScenarioReport per ticker.
 
@@ -254,7 +255,8 @@ def _run_scenarios_for_ticker(
             kwargs = {"scenario_class_map": SCENARIO_CLASS_MAP_BY_SECTOR[sector]}
         else:
             kwargs = {}
-        return run_scenarios(whole_inputs, whole_price, whole_target, doc, **kwargs), None, None
+        return run_scenarios(whole_inputs, whole_price, whole_target, doc,
+                             asof_quarter=asof_quarter, **kwargs), None, None
 
     crude_doc = sector_docs["crude"]
     product_doc = sector_docs["product"]
@@ -262,10 +264,11 @@ def _run_scenarios_for_ticker(
     po = product_carve_out(whole_inputs)
     crude_r = run_scenarios(
         co.crude_inputs, co.carved_price(whole_price), co.carved_price(whole_target), crude_doc,
+        asof_quarter=asof_quarter,
     )
     product_r = run_scenarios(
         po.product_inputs, po.carved_price(whole_price), po.carved_price(whole_target), product_doc,
-        scenario_class_map=PRODUCT_SCENARIO_CLASS_MAP,
+        scenario_class_map=PRODUCT_SCENARIO_CLASS_MAP, asof_quarter=asof_quarter,
     )
 
     if ticker in THREE_SLEEVE_TICKERS:
@@ -274,6 +277,7 @@ def _run_scenarios_for_ticker(
         lo = lng_carve_out(whole_inputs)
         lng_r = run_scenarios(
             lo.lng_inputs, lo.carved_price(whole_price), lo.carved_price(whole_target), lng_doc,
+            asof_quarter=asof_quarter,
         )
         headline = _aggregate_three_sleeve_report(
             crude_r, product_r, lng_r, ticker=ticker, whole_price=whole_price, whole_target=whole_target,
@@ -529,11 +533,20 @@ def run_scenarios_watchlist(
     outputs_dir: Path = OUTPUTS_DIR,
     use_transaction_anchored: bool = True,
     live_prices: bool = False,
+    asof_quarter: str | None = None,
 ):
     """Run the sector-layered scenario framework across the watchlist.
 
     For hybrids (HYBRID_TICKERS) the scenarios are run twice — once per sleeve —
     and aggregated into a whole-company ScenarioReport (METHODOLOGY 6 v2).
+
+    ``asof_quarter`` routes the scenario strip timeline to a historical vintage
+    (PLAN Phase 3b — the engine EV% as-of plumbing). ``None`` (default) keeps the
+    live q3_2026 anchor, so the standard run is byte-unchanged; the single-point
+    NAV/strip path is already as-of-correct via ``quarter`` (the strip is
+    positional), so only the scenario quarter-key labels needed parametrizing.
+    For a historical run the caller passes ``asof_quarter=quarter`` *and* must
+    supply that vintage's scenario curves (else run_scenarios fails fast).
     """
     sector_docs = _load_all_sectors(inputs_dir)
     watchlist = load_watchlist(inputs_dir, live_prices=live_prices)
@@ -553,6 +566,7 @@ def run_scenarios_watchlist(
         whole_target = entry["analyst_target"]
         report, crude_r, product_r = _run_scenarios_for_ticker(
             ticker, ci, whole_price, whole_target, sector_docs, watchlist,
+            asof_quarter=asof_quarter,
         )
         path = write_scenario_report(report, outputs_dir)
         if ticker in HYBRID_TICKERS and crude_r is not None:

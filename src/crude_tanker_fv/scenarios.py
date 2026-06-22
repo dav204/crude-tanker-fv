@@ -118,14 +118,17 @@ QUARTER_KEYS = ["q3_2026", "q4_2026", "q1_2027", "q2_2027",
 _POINT_IDX = {"low": 0, "base": 1, "high": 2}
 
 
-def quarter_keys(n: int) -> list[str]:
-    """First ``n`` strip-quarter keys, extending the q3_2026 convention.
+def quarter_keys(n: int, start_q: int = 3, start_y: int = 2026) -> list[str]:
+    """First ``n`` strip-quarter keys from ``q{start_q}_{start_y}`` forward.
 
-    Sectors with ``strip_horizon`` > 8 (containerships, §11.8.6.4) carry
-    longer per-scenario curves; their YAML quarter keys continue the same
-    sequence (q3_2028, q4_2028, ...).
+    Defaults to the q3_2026 convention (the live 2026-Q1 vintage), so the
+    no-argument and single-argument calls are unchanged. The as-of-quarter
+    plumbing (PLAN Phase 3b) passes an explicit start so a historical
+    valuation routes the strip/scenario timeline to its own vintage
+    (e.g. an as-of 2020-Q1 run starts q3_2020). Sectors with ``strip_horizon``
+    > 8 (containerships, §11.8.6.4) carry longer curves continuing the sequence.
     """
-    q, y = 3, 2026
+    q, y = start_q, start_y
     keys = []
     for _ in range(n):
         keys.append(f"q{q}_{y}")
@@ -133,6 +136,22 @@ def quarter_keys(n: int) -> list[str]:
         if q == 5:
             q, y = 1, y + 1
     return keys
+
+
+def strip_start_from_asof(asof_quarter: Optional[str]) -> tuple[int, int]:
+    """First strip quarter ``(q, y)`` for an as-of report quarter = report + 2.
+
+    ``None`` returns the live anchor ``(3, 2026)`` — identical to the hard-coded
+    q3_2026 convention, so the default valuation path is byte-unchanged. The +2
+    offset matches the live mapping (2026-Q1 report ⇒ q3_2026 first strip
+    quarter: the current and reporting calendar quarters are past, the strip is
+    the forward-visible quarters).
+    """
+    if asof_quarter is None:
+        return 3, 2026
+    y_str, q_str = asof_quarter.upper().split("-Q")
+    idx = int(y_str) * 4 + (int(q_str) - 1) + 2          # quarters since year 0, +2
+    return idx % 4 + 1, idx // 4
 _REC_BAND = 0.05  # +/-5% expected-value band for the position call
 
 # Vessel-value elasticity to the forward curve (Fix B). Forward expectations feed
@@ -340,11 +359,19 @@ def run_scenarios(
     doc: dict,
     elasticity: float = VESSEL_VALUE_ELASTICITY,
     scenario_class_map: dict[str, str] = None,
+    asof_quarter: Optional[str] = None,
 ) -> ScenarioReport:
     """Run every scenario for one name and probability-weight the fair value.
 
     ``scenario_class_map`` defaults to the crude-sleeve map; pass
     ``PRODUCT_SCENARIO_CLASS_MAP`` for product-sleeve runs (whole-co INSW v2).
+
+    ``asof_quarter`` ("YYYY-Qn") routes the strip/scenario timeline to a
+    historical vintage (PLAN Phase 3b). ``None`` (default) uses the live q3_2026
+    anchor — byte-identical to the prior behaviour. A non-default as-of requires
+    the scenario doc to carry that vintage's forward-quarter curves; absent them
+    it fails fast with the missing keys (the expected 3c "no historical data"
+    failure mode), never silently mis-routing.
     """
     if scenario_class_map is None:
         scenario_class_map = SCENARIO_CLASS_MAP
@@ -353,7 +380,22 @@ def run_scenarios(
     # with longer contracted visibility (containerships) set `strip_horizon`
     # in their scenario_inputs.yaml block and carry curves of that length.
     horizon = int(doc.get("strip_horizon", 8))
-    qkeys = quarter_keys(horizon)
+    start_q, start_y = strip_start_from_asof(asof_quarter)
+    qkeys = quarter_keys(horizon, start_q, start_y)
+    if asof_quarter is not None:
+        sample = next(iter(doc["scenarios"].values()))
+        avail: set[str] = set()
+        for cls in classes:
+            block = sample.get(scenario_class_map.get(cls))
+            if isinstance(block, dict):
+                avail |= set(block)
+        missing = [k for k in qkeys if k not in avail]
+        if missing:
+            raise ValueError(
+                f"as-of {asof_quarter}: scenario doc lacks forward-quarter keys "
+                f"{missing} (have {sorted(avail)}). Supply this vintage's scenario "
+                f"curves before running the engine as-of a historical quarter."
+            )
     base_nav = compute_nav(inputs)  # unflexed reference (value weights + anchoring)
     value_weights = {
         cls: base_nav.fleet_value_by_class[cls] / base_nav.fleet_value

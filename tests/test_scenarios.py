@@ -898,3 +898,45 @@ def test_cycle_anchor_cross_file_consistency():
             f"{engine_key}: historical_tce_means {means[engine_key]} != "
             f"scenario_inputs.{scen_key} {crude[scen_key]['ten_year_mean']}"
         )
+
+
+# --------------------------------------------------------------------------- #
+# As-of-quarter plumbing (PLAN Phase 3b — engine EV% historical-vintage routing)
+# --------------------------------------------------------------------------- #
+
+from crude_tanker_fv.scenarios import quarter_keys, strip_start_from_asof  # noqa: E402
+
+
+def test_quarter_keys_default_unchanged_and_parametrized():
+    from crude_tanker_fv.scenarios import QUARTER_KEYS
+    assert quarter_keys(8) == QUARTER_KEYS                       # no-arg path byte-unchanged
+    assert quarter_keys(4, 3, 2020) == ["q3_2020", "q4_2020", "q1_2021", "q2_2021"]
+    assert quarter_keys(3, 1, 2027) == ["q1_2027", "q2_2027", "q3_2027"]
+
+
+def test_strip_start_from_asof_maps_report_quarter_plus_two():
+    assert strip_start_from_asof(None) == (3, 2026)             # live anchor preserved
+    assert strip_start_from_asof("2026-Q1") == (3, 2026)        # +2 ⇒ q3_2026 (the live mapping)
+    assert strip_start_from_asof("2020-Q1") == (3, 2020)
+    assert strip_start_from_asof("2025-Q4") == (2, 2026)        # Q4 report ⇒ Q2 next year
+    assert strip_start_from_asof("2026-Q3") == (1, 2027)
+
+
+def test_run_scenarios_asof_same_vintage_is_byte_identical(doc):
+    """asof_quarter=2026-Q1 must reproduce the default (None) run exactly — both
+    resolve to q3_2026, so the as-of path is a no-op on the live vintage."""
+    ci = load_company_inputs("DHT", "2026-Q1")
+    base = run_scenarios(ci, 16.40, 16.00, doc)
+    asof = run_scenarios(ci, 16.40, 16.00, doc, asof_quarter="2026-Q1")
+    assert asof.probability_weighted_fv == base.probability_weighted_fv
+    assert asof.expected_value_vs_current == base.expected_value_vs_current
+    assert [s.fair_value for s in asof.scenarios] == [s.fair_value for s in base.scenarios]
+
+
+def test_run_scenarios_asof_missing_vintage_fails_fast(doc):
+    """A historical as-of with no vintage curves in the doc must raise a clear
+    error naming the missing forward-quarter keys — never silently mis-route."""
+    ci = load_company_inputs("DHT", "2026-Q1")
+    with pytest.raises(ValueError) as exc:
+        run_scenarios(ci, 16.40, 16.00, doc, asof_quarter="2020-Q1")
+    assert "q3_2020" in str(exc.value)

@@ -5,6 +5,21 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — Phase 3(b) engine as-of-quarter plumbing (the prerequisite for the powered
+  engine EV% test).** The scenario path hard-anchored the strip/scenario timeline to "now"
+  (`QUARTER_KEYS = q3_2026…`), so it could not value a name as-of a historical quarter.
+  Parametrized `scenarios.quarter_keys(n, start_q=3, start_y=2026)` (no-arg/single-arg calls
+  unchanged) + added `scenarios.strip_start_from_asof(asof_quarter)` (report quarter + 2 ⇒
+  q3_2026 for the live 2026-Q1 vintage) and an `asof_quarter` parameter threaded
+  `run_scenarios → _run_scenarios_for_ticker → run_scenarios_watchlist`. `None` (default) =
+  the live q3_2026 anchor, **byte-identical** to prior behaviour (315 tests green; `pipeline
+  2026-Q1` 0 material deltas; drift gate 20/20 at +0.0pp/+0.0%/+0.000). A non-default as-of
+  whose scenario doc lacks the vintage's forward-quarter curves **fails fast** naming the
+  missing keys (the expected 3c "no historical data" failure mode — never silent mis-routing).
+  The single-point NAV/strip path needed no change: the strip is positional and already
+  as-of-correct via the `quarter` arg; only the scenario quarter-key *labels* (which index
+  `scenario_inputs.yaml`) were calendar-anchored. +4 tests (311→315). 3(c) — the powered
+  engine EV% test — now needs only the vintage scenario-curve backfill (its own go/no-go).
 - **2026-06-22 — §16 overlay ledger: §12 dividend-window is now a control, not docs
   (closes audit E-2 for this overlay type).** `overlay_ledger.py` gains
   `dividend_window_rows(quarter)`, which auto-derives a **§12.6** row per gated name
