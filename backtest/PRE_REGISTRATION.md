@@ -214,3 +214,133 @@ tool):**
 This is the cheapest powered read available on real data; it speaks to the
 *precondition* ("does cheap-on-a-NAV-proxy predict peer-relative shipping
 returns at all"), and explicitly NOT to the crude P/NAV tool's edge per se.
+
+---
+
+# AMENDMENT 3 — Sharadar deep-history P/B proxy on the ACTUAL watchlist (2026-06-22)
+
+**Committed before any result is computed** (git order is the proof — this
+amendment lands in its own commit prior to writing `loaders_sharadar.py` /
+`run_proxy_powered.py` and prior to any IC computation). Same discipline as
+Amendments 1–2: locked method, locked decision rule, no post-hoc edits.
+
+**Why a third amendment.** Amendment 2 bought quarters with SEC us-gaap XBRL,
+but that source is **blind to the 20-F FPIs** — its realized 9-name panel
+*excluded the canonical crude pure-plays DHT/FRO/ECO and the entire product
+sector*, leaving a bulk/gas-heavy cross-section that is not the tool's universe.
+**Sharadar standardizes the FPI 20-F/6-K filings** (verified offline:
+`StockholdersEquity` + `EntityCommonStockSharesOutstanding` populated for all
+the FPIs), so for the first time the powered proxy can run on **17 of the 20
+actual watchlist names — including all five crude flagships and the full product
+sector — over deep history**. This is the Amendment-2 idea on the *right*
+universe. It remains a **proxy** (depreciated-cost book, not the engine's NAV);
+it tests the *premise*, not the engine's marks.
+
+## Universe (locked)
+
+The 17 watchlist names with Sharadar coverage, curated sector labels held in
+code (`backtest/loaders_sharadar.py:SHARADAR_PANEL`, auditable):
+
+- **crude (7):** DHT, FRO, ECO, INSW, TNK, NAT, TEN
+- **product (4):** STNG, HAFN, TRMD, ASC
+- **dry_bulk (3):** SBLK, GNK, CMDB
+- **lng (2):** FLNG, CCEC
+- **containerships (1):** GSL — a sector **singleton**, so it enters the raw
+  whole-panel secondary only and **never** the sector-neutral primary (cells of
+  <2 carry no within-sector information; the existing machinery drops it).
+
+**Dropped:** CAPT, BRUT, MPCC — Oslo-only, no US listing, no Sharadar/SEC filer
+record (same exclusion the Amendment-1 USD filter would make). Names enter the
+panel in the quarter they begin reporting (HAFN 2023, CMDB 2024, ECO 2022, …),
+so the cross-section thickens over time; early quarters are crude-heavy.
+
+## Data + no-look-ahead (locked)
+
+- **Signal — P/B.** BVPS = `StockholdersEquity / EntityCommonStockSharesOutstanding`
+  from **Sharadar SF1, dimension ARY (annual)**, read from factor-portfolio's
+  committed cache (`~/Projects/factor-portfolio` branch `v2-validation-first`,
+  `data/cache/sharadar/sec_<T>.csv`). For each fiscal `period_end` present in
+  **both** fields, BVPS is stamped public at `filed = max(equity_filed,
+  shares_filed)` — the date both legs were disclosed (strict). P/B =
+  `adjclose / BVPS`; **cheap = low P/B**.
+- **No-look-ahead (asserted in code, run aborts otherwise).** A signal at `t`
+  uses only BVPS with `filed ≤ t` (reusing `loaders.bvps_at`'s `LookaheadError`
+  guard) and a period not staler than **550 days** (annual cadence: this carries
+  the most-recent annual book across the year incl. a late-filing Q1, and drops a
+  name ~18 months after it stops reporting). Price at `t` uses only
+  `adjclose` with `date ≤ t`.
+- **Returns.** Sharadar SEP `adjclose` (= `closeadj`, split+dividend adjusted →
+  a total-return series, same convention as the Yahoo `adjclose` the existing
+  loaders use), uniform across all 17 names (single vendor for both legs — a
+  caveat, below). 1q-forward total return = `adjclose(≤t+1) / adjclose(≤t) − 1`.
+
+## Window (locked)
+
+Calendar quarter-ends from **2008-01-01** through the last cached price date. A
+quarter is **usable** iff it has **≥4 pooled names** in sector cells of ≥2
+(identical filter to `run_proxy.py`). The realized usable-quarter count Nq is
+data-determined and reported with the result; on the deep panel it is expected
+to be large enough to be **powered against a moderate within-sector edge
+(IC ≈ 0.15–0.20)**, the gain over Amendment 2 that motivates this amendment.
+
+## PRIMARY metric (one, locked — identical machinery to Amendments 1–2)
+
+> Mean over usable quarters of the **sector-neutral pooled cross-sectional
+> Spearman IC**: within each (sector, `t`) cell of ≥2 names, average-rank by
+> cheapness (−P/B) and by 1q-forward total return, center each rank by the cell
+> mean, pool across sectors, take the correlation of the pooled centered ranks.
+> Average that quarterly IC over **non-overlapping** quarters; t-stat on the
+> quarterly IC series (`evaluate_wide.wide_quarter_ic` + `mean_t`, reused
+> unchanged). Positive IC = cheap predicts peer-relative outperformance.
+
+## Pre-registered decision rule (verdict)
+
+- **EDGE (premise supported):** mean IC **> 0** AND **t-stat ≥ 2.0**.
+- **NO-EDGE:** mean IC **≤ 0** with **|t| < 2** (no positive relationship, point
+  estimate not encouraging) — evidence *against* a tradeable value premium in
+  this universe.
+- **INCONCLUSIVE:** a positive point estimate that does not clear t ≥ 2.
+
+This is **adequately powered by construction**, so unlike Amendments 0–1 the
+INCONCLUSIVE escape is not the pre-stated expectation — a genuine null here is
+informative. The verdict updates the project's recorded **ex-post evidence
+status** (LIMITATIONS §1 / README "no demonstrated ex-post cross-sectional edge")
+and calibrates how much to trust **cheapness as a signal family** — it does NOT
+by itself validate or refute the engine's specific P/NAV marks (the deferred
+*powered engine EV% test* is the only thing that can, per
+`outputs/test1_data_feasibility_memo_2026-06-22.md`).
+
+## SECONDARY (pre-registered, reported, NOT the verdict)
+
+- **Raw whole-panel IC** — per-quarter Spearman of −P/B vs (return − equal-weight
+  panel return), pooled across all 17 incl. GSL; cross-sector confounded.
+- **Quarter-block bootstrap 95% CI** on the primary mean IC: resample the
+  quarterly IC series in **non-overlapping blocks of 4 quarters**, **B = 10000**
+  draws, **seed = 20260622** (all locked here). Reported alongside the t-stat as
+  a distribution-free robustness check on the SE.
+
+## EXPLORATORY (researcher DoF; report, never headline)
+
+Per-sector ICs; sector-neutral cheap-minus-rich spread portfolio; split-half
+(early/late) stability; the same read with prices sourced from the cached Yahoo
+`adjclose` (cross-vendor sanity for the 12 names that have both). Any of these
+that looks strong is a hypothesis for future pre-registration, not a result.
+
+## Fidelity caveats (locked up front — this is a PROXY, not the engine verdict)
+
+- **Book ≠ market NAV — the load-bearing caveat.** Vessels sit at depreciated
+  historical cost; across the cycle market NAV diverges from book (a name can
+  trade ~2× book yet ~0.8× NAV). So P/B-cheapness rankings need not match
+  P/NAV-cheapness rankings: a result here is evidence about a **value premium in
+  shipping**, not about the engine's NAV marks.
+- **Annual book leg.** BVPS updates ~annually (ARY), so within a calendar year
+  the four quarterly P/B signals for a name move only via **price**. Standard for
+  an annual-fundamental value test, but it means the signal is part valuation,
+  part price-reversal — flagged, not the verdict.
+- **Survivorship.** The universe is *today's* 17 names; deep history amplifies the
+  survivor bias (delisted/distressed shipping names are absent), biasing any
+  positive finding upward. Cannot be removed with this data.
+- **Single vendor, both legs.** Sharadar supplies fundamentals *and* prices here;
+  no cross-vendor validation (the Yahoo-price exploratory read partly mitigates).
+- **Restatements / reporting lag.** Latest-known-at-`t` book via filed-date lag;
+  the proxy is intrinsically staler than a daily P/NAV.
