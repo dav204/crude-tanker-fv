@@ -764,7 +764,7 @@ These thresholds are tunable but treated as the standard sensitivity. Tighten th
 Decisions that should be revisited as the model matures or new data becomes available:
 
 1. **Cycle weighting curve shape** — currently a step function across five bands. Could be replaced with a continuous logistic, but step function is more interpretable. Revisit after first quarter of use.
-2. **Terminal value at quarter 9 = 1.0× NAV** — *resolved (B6, owner 2026-06-21): **LOCKED at 1.0×*** (pinned in `dividend_strip.TERMINAL_NAV_MULTIPLE`, guarded by `test_terminal_nav_multiple_locked_at_1x`). The alternatives weighed were 0.9× (mid-cycle discount), 1.1× (structural undersupply), and **cycle-conditional** (peak 0.9× / mid 1.0× / trough 1.1×, matching the §10 philosophy) — cycle-conditional is recorded as the designated successor, to be revisited only on an adoption trigger (memo §4). **Options memo: `outputs/terminal_value_options_memo.md`** (full rationale + the steelman of each option). **Sweep refreshed 2026-06-21 over the full 19-name watchlist** (`scripts/terminal_value_sensitivity.py` → `outputs/terminal_value_sensitivity.md`; was 12 names at the 2026-06-05 first run): {0.85, 0.9, 1.0, 1.1, 1.15}. FV % range scales with `w_earn` (0.30 peak ⇒ ~3.7-6.8%; 0.60 below-mid ⇒ ~13-14%); 12 of 19 names never flip. **At the literal 0.9×/1.1× priors, 7 names flip (all band-edge):** 0.9× turns DHT BUY→HOLD and ECO HOLD→TRIM/SHORT (peak, more bearish); 1.1× turns ASC + SBLK TRIM/SHORT→HOLD and GNK HOLD→BUY (GNK deal-pinned — discount it). FLNG/STNG flip only at the 0.85/1.15 extremes. CCEC (most sensitive, 14.4%) does NOT flip. **Owner decision (2026-06-21): LOCKED at 1.0×** (auditable; marks already conservative; `w_earn` already down-weights the strip at peak — the at-stake flips are immaterial band-edge wiggles; uniform 0.9× is wrong at troughs and 1.1×'s broker-gap justification violates the no-calibration-to-broker doctrine). The band-edge names (DHT/ECO/ASC/SBLK; FLNG/STNG at extremes) are the ones whose call would move first if the multiple is ever revisited under the cycle-conditional successor.
+2. **Terminal value multiple** — *resolved (B6): LOCKED at 1.0× (owner 2026-06-21), then **SUPERSEDED 2026-06-22 → CYCLE-CONDITIONAL + net retained earnings*** (owner, as part of the methodology-soundness audit — `outputs/METHODOLOGY_AUDIT_2026-06-22.md`). The terminal now (i) mean-reverts the aged **fleet** value by a cycle-conditional multiple — peak 0.90× / elevated 0.95× / mid 1.00× / below-mid 1.05× / trough 1.10×, on the §2.3 cycle bands via `cycle.terminal_multiple` (cash/debt are NOT reverted); and (ii) carries the balance sheet forward with **net retained earnings** over the strip — `terminal cash += Σ(EPS − DPS)/share` (flat for ~100%-payout names, rising for low-payout retainers — fixes the §12 buyback/low-payout undercount — falling only for names paying out more than they earn). This makes the engine honest against §10/§12.1, which described mean-reversion + dividend-extraction the old flat-1.0× terminal did not implement. Pinned by `test_terminal_multiple_cycle_conditional` + `test_terminal_retains_earnings_low_payout`; `TERMINAL_NAV_MULTIPLE = 1.0` remains the mid-cycle / no-cycle default. Full record + live book impact: **`outputs/terminal_value_options_memo.md` §5** (CCEC +31pp; GSL/TNK/STNG flip toward BUY; DHT 14.31→14.00 via 0.9×; SANITY 0 fail). *(Historical: the 2026-06-21 sweep that informed the since-superseded 1.0× lock — {0.85…1.15}, 12/19 names never flipped — is retained in the memo.)*
 3. **LR2 classification for FRO** — crude or product? Affects fleet weighting and rate inputs.
 4. **INSW allocation method** — *resolved (§6 v2)*: hybrid carve-out allocates by vessel **market value** (not count, not EBITDA), with vessel-secured debt assigned directly to its sleeve and corporate/unsecured debt pro-rated by sleeve vessel-value share. Dual-use LR1 split 30% crude / 70% product. **Both sleeves now run through the scenario engine and aggregate to a whole-company FV** (the v2 product strip — MR/LR1_clean/LR2_clean forward curves under the four MoU scenarios, with the product sleeve weighted MORE bearish than crude to reflect "product is leading the rate normalization" per the May-29 MR -52% / LR2 -28% w/w prints). The scenario report shows the per-sleeve breakdown plus the whole-company aggregate vs the actual tape price; the FV report (single-point detail) remains crude-sleeve.
 5. **Discount rate** — 11% chosen heuristically; could justify a CAPM-derived rate but high beta + cyclical premium probably lands in the same range.
@@ -821,7 +821,7 @@ Decisions that should be revisited as the model matures or new data becomes avai
 - This is a methodology, not advice. Outputs are model estimates with uncertainty bands wider than the point numbers suggest, especially on vessel values without paid broker access.
 - Tanker equities have heavy idiosyncratic risk that the model does not capture: M&A activity, management decisions, sanctioned-flow exposure (positive or negative), regulatory changes (IMO 2030 emissions, etc.).
 - The cycle weighting framework is a heuristic, not a forecast. It does not predict turning points; it adjusts how much to trust the dividend strip in the current environment.
-- Past peak dividends are not future dividends. The model assumes mean reversion in the terminal value but allows the front-loaded dividend strip to reflect current strength.
+- Past peak dividends are not future dividends. Since 2026-06-22 the model **implements** mean reversion in the terminal value via a cycle-conditional multiple (§9.2: peak 0.9× … trough 1.1× on the terminal fleet value), while the front-loaded dividend strip reflects current strength.
 - **MEG export capacity recovery is an unmodeled supply-side constraint (§14).** Scenario TCE forwards through 2026 assume MEG export volumes ramp in step with vessel transit capacity post-MoU; the empirical picture is that volumes lag transit. Near-term Phase 2 signals on names with high MEG-route exposure (VLCC, Suezmax, Aframax-loading-MEG) should be read alongside the §14.4 qualitative overlay.
 - **The framework's 10-year mean TCEs are TC-anchored, not spot-anchored.** `historical_tce_means.yaml` reflects what a one-year time charter would have locked in over a 10-year window — smoothed by the TC contract structure, which **structurally excludes negative spot prints** (owners don't sign multi-month charters at a loss; the floor is at operating cost). This is the methodologically correct denominator for our cycle-position ratio (METHODOLOGY §2.3) because the numerator is also a TC (12M Compass TC). External commentary (VIE, raw Baltic publications) often cites spot-anchored 10-year means, which include deep-negative periods (e.g. VLCC TD3C spot TCE clearing around −$34,845/day in 2020-2022 per SpotMarketCap). Spot-anchored means are structurally lower than TC-anchored means — the gap is a known methodology difference, not a calibration error. Both are internally consistent; they answer different questions ("what would I have locked in?" vs "what did the average day historically pay, loss-making days included?"). **VIE-style cycle multipliers (e.g. "+482% vs 10y avg") are useful for directional commentary but do not numerically compose with our cycle-position ratios**; a name showing "+482%" on VIE is not interchangeable with "2.79× our cycle position." Direct cross-reference at the magnitude level requires unit alignment that we don't have. See `outputs/vie_market_rates_xref.md` for the worked example and LIMITATIONS.md for the credibility-level callout.
 
@@ -2107,14 +2107,14 @@ coverage lands in the archive).
 
 ## 12. Framework limitation — high-payout pure-plays at cycle peak
 
-The NAV + dividend-strip framework **systematically undervalues high-payout single-asset-class equities during cycle peaks**. This is a structural feature of the model, not a calibration error. It is documented here as a named constraint so that outputs for the affected names are read correctly. *(Active per-name applications are registered in the overlay ledger, §16.)*
+For a high-payout single-asset-class equity at a cycle peak the model can **diverge from the market price**, reading a high market P/NAV as "rich" (TRIM). Whether that TRIM is a *correct through-cycle fair-value read* (the market is overpaying for a spot-driven dividend that won't persist — a value trap) or a genuine *undervaluation* (the priced near-term dividend window is rate-supported) is **resolved per name by the §12.6 break-even-dividend-window test**, not assumed. *(Reframed 2026-06-22 — `outputs/peak_cycle_high_payout_resolution_2026-06-22.md`. The earlier blanket "systematically undervalues / treat as a NAV floor / do not act on the TRIM" framing was a one-way bullish override — audit finding E-3, `outputs/METHODOLOGY_AUDIT_2026-06-22.md` — replaced by the §12.5–§12.7 gate + falsifiable test. Active applications registered in the overlay ledger, §16.)*
 
 ### 12.1 Mechanism
 
 - At ~100% payout and peak-cycle conditions the model returns **FV ≈ NAV** (the peak `w_nav` weighting times NAV, plus a small contribution from the dividend strip which itself ≈ NAV + near-term DPS PV).
-- Each quarter of dividend payment is treated by the model as **value extraction** — the terminal NAV at quarter 9 is depleted by the dividends paid out — rather than as the investment thesis.
+- Each quarter of dividend payment is treated by the model as **value extraction**: since 2026-06-22 the terminal carries the balance sheet forward with **net retained earnings** (`terminal cash += Σ(EPS − DPS)/share`, §9.2), so dividends paid out are not retained as terminal value (and the retained earnings of low-payout names DO accrete) — replacing the earlier, un-implemented "terminal NAV depleted by the dividends paid out" description. For a ~100%-payout name retained ≈ 0, so the terminal ≈ aged NAV.
 - Market participants in these names are pricing the **near-term dividend stream as the dominant value driver**: a high-payout pure-play at cycle peak is held for the next ~6-12 quarters of large dividends, not for terminal NAV.
-- The result is market P/NAV multiples well above 1.0× during peak conditions, with the model reading those as "rich" and producing TRIM signals that are mathematically internally consistent but commercially misaligned.
+- The result is market P/NAV multiples well above 1.0× during peak conditions, with the model reading those as "rich" and producing TRIM signals. Those TRIMs are a **correct through-cycle fair-value statement** (the asset is worth its assets; a fat peak yield is the *liquidation rate of a melting ice cube* — collected dividends down the cycle typically do NOT exceed the subsequent capital de-rating, ~−36% on the NAT-archetype arithmetic). The open question is never "is the model's fair value wrong" but "is the market's near-term premium a rate-supported dividend claim, or a value trap" — answered per name by §12.6.
 
 The model does not model **finite-duration dividend extraction as a discrete value claim** — only as a periodic decrement of terminal NAV. Closing that gap would require a separate cycle-aware dividend-window model layered on top of the current strip, which is out of scope for v1.
 
@@ -2126,16 +2126,57 @@ The model does not model **finite-duration dividend extraction as a discrete val
 - **HSHP**
 - Any single-asset-class structure with sustained payout ratio > 90% during a cycle peak
 
-### 12.3 Recommended usage for affected names
+### 12.3 Recommended usage — gated on the §12.6 outcome
 
-- Treat the model's FV as a **NAV floor**, not a market-fair-value estimate.
-- Apply a **qualitative dividend-stream overlay separately** — e.g. 4-8 quarters of projected DPS at the current rate environment, discounted, vs current price — and form the call from the two views together.
-- **Do not act on the model's TRIM signal** for these names without explicitly framing the dividend extraction window.
-- For NAT specifically: the Suezmax curve has been transaction-anchored and validated against the TNK $53.5M disposal with a +0.6% residual (§9.9). The residual gap between tool FV and market price is **not** closeable by further curve work and should not be presented as a calibration weakness.
+- **Run the §12.6 break-even-dividend-window test first** (`outputs/dividend_window_test.md`). It classifies each gated name as *window rate-supported* (the §12 floor framing applies — the market premium is a real near-term claim) or *not rate-supported* (the model's TRIM stands as a value-trap warning).
+- Only when the test says **rate-supported** do you treat the model FV as a floor and weigh the near-term dividend window alongside it. When it says **not rate-supported**, the TRIM is the call — no override.
+- The test computes `Q*` (quarters of discounted DPS needed to bridge price − tool-NAV) vs the FFA-rate-supported horizon, per gated name, from inputs the engine already holds — **no FV change** (§12.4 preserved).
+- For NAT specifically: spot-derived ~100% payout, no contracted book, retention ≈ 0 → `Q*` falls beyond the rate-supported horizon → §12 does **not** fire; the TRIM stands. (NAT is its own historical counterexample — high 2015 yield, then repeated cuts into 2017–18, equity down most of its value.) The Suezmax curve is transaction-anchored/validated (§9.9); the gap to price is a *fair-value* statement, not a calibration weakness.
 
 ### 12.4 What this is not
 
 This is not a "we'll fix it later" caveat. The NAV + cycle-blended strip framework's interpretability across the wider 6-name crude-tanker watchlist + FLNG depends on **not** fitting around the NAT-style edge case (adding a "dividend window" term would silently change every name's FV). Documenting the limitation here, and excluding affected names from the framework's TRIM/HOLD/BUY signal, preserves the model's integrity for the names it is designed to value.
+
+### 12.5 Trigger gate (when §12 even applies)
+
+§12 is N/A unless **all** hold (mirrors the §15.7 cheap gate; computed in `dividend_window.py`):
+- **Single-asset-class pure-play** — fleet value Herfindahl ≥ 0.80 (one class dominates);
+- **Trailing/stated payout ratio > 0.90**;
+- **Cycle position > 1.5×** (late-cycle/peak band);
+- **Market premium over the tool floor**: `price / tool_NAV > 1.5×` (the market pays a large
+  premium over the through-cycle NAV — the "rich" condition).
+
+This is what separates **NAT (fires: price/tool-NAV ≈ 2.5×)** from **DHT (does not: ≈ 1.26×)** —
+both are 100%-payout single-class peak names, but only NAT carries the large market premium §12 is about.
+
+### 12.6 Break-even-dividend-window test (the resolution, computed per name)
+
+For a gated name, define the premium the market pays over the tool's through-cycle floor and ask how
+many quarters of *discounted, rate-supported* dividends would bridge it:
+
+> `gap = price − tool_NAV_floor`
+> `Q* = min N such that Σ_{q=1..N} DPS_q / (1+r)^(q/4) ≥ gap`
+> `H = FFA-rate-supported horizon` = number of forward quarters the FFA curve stays above the
+>   name's through-cycle mean rate (i.e. how long the forward curve says the peak persists).
+
+- **`Q* ≤ H`** → the premium IS bridged by rate-supported dividends → **§12 undervaluation** (floor
+  framing applies; the market premium is a real near-term claim).
+- **`Q* > H`** (or the strip never bridges `gap`) → the premium is NOT rate-supported → **§12-inverse:
+  the TRIM stands** (the market is paying for a dividend the forward curve does not support — a value
+  trap). NAT lands here.
+
+The test uses only `dps_by_quarter`, the discount rate, the FFA roll-off, NAV, and price — all already
+loaded — so it is a **diagnostic, not an FV change** (preserves §12.4: no "dividend window" term silently
+re-prices the book). The 0.9× cycle-conditional terminal (§9.2) is **unaffected and not exempted** — it
+mean-reverts the *asset* level (through-cycle), orthogonal to this *near-term cash-claim* test.
+
+### 12.7 Ex-post falsification (makes §12 symmetric and testable)
+
+A standing line in each gated name's `decisions/<ticker>_log.md`: over a 4–8-quarter window, compare
+**cumulative realized DPS + window-end price** against the **entry price**. A net loss **falsifies** the
+§12-undervaluation framing for that name (the dividend window did not bridge the de-rating); a sustained
+market P/NAV > 1.5× with modeled DPS persisting > 8 quarters would conversely flag the 0.9× terminal as
+too harsh. Either way §12 can now be **wrong on a name and know it** — the property the prior override lacked.
 
 ## 13. Framework limitation — scenario-weight stability under infrastructure shocks
 

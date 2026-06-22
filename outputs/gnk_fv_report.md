@@ -56,8 +56,8 @@ _FFA spot is the Cape forward curve that drives the strip cash flows; its 12-mon
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $24.62 |
-| 95% | $25.13 |
+| 80% | $25.22 |
+| 95% | $25.28 |
 | 100% | $25.30 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._

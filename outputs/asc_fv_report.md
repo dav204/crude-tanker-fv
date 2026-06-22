@@ -2,7 +2,7 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $17.07
-- **Model fair value:** $14.88
+- **Model fair value:** $15.09
 - **Analyst target:** $17.95
 
 ## Data validation warnings
@@ -38,8 +38,8 @@
 | Q7 | 26,000 | 26,000 | 0.648 | 0.432 | 0.360 |
 | Q8 | 18,000 | 18,000 | 0.282 | 0.188 | 0.153 |
 | Σ discounted DPS | | | | | 2.45 |
-| Terminal value (NAV, q9) | | | | 13.72 | 10.85 |
-| **DivStrip implied price** | | | | | **$13.30** |
+| Terminal value (NAV, q9) | | | | 14.38 | 11.37 |
+| **DivStrip implied price** | | | | | **$13.82** |
 
 _FFA spot is the MR forward curve that drives the strip cash flows; its 12-month average is **$24,750/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$22,000/day** — not this FFA average._
 
@@ -50,49 +50,49 @@ _FFA spot is the MR forward curve that drives the strip cash flows; its 12-month
 
 ## Blended fair value
 
-0.60 × $15.93 (NAV) + 0.40 × $13.30 (strip) = **$14.88**
+0.60 × $15.93 (NAV) + 0.40 × $13.82 (strip) = **$15.09**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $15.08 |
-| 95% | $15.30 |
-| 100% | $15.37 |
+| 80% | $15.11 |
+| 95% | $15.14 |
+| 100% | $15.15 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **2.09× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **1.68× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **51,701** | — |
-| 10-year mean | 16,000 | 3.23× |
-| 12-month FFA | 24,750 | 2.09× |
-| Current spot | 20,000 | 2.59× |
+| **Implied breakeven (blended)** | **41,676** | — |
+| 10-year mean | 16,000 | 2.60× |
+| 12-month FFA | 24,750 | 1.68× |
+| Current spot | 20,000 | 2.08× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| MR (93% of fleet value) | 51,701 | 3.23× |
-| Handysize (7% of fleet value) | 51,701 | 3.23× |
+| MR (93% of fleet value) | 41,676 | 2.60× |
+| Handysize (7% of fleet value) | 41,676 | 2.60× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $11.43 | $12.85 | $14.28 | $15.70 | $17.12 |
-| **-15%** | $11.73 | $13.16 | $14.58 | $16.00 | $17.42 |
-| **+0%** | $12.03 | $13.46 | $14.88 | $16.30 | $17.73 |
-| **+15%** | $12.34 | $13.76 | $15.18 | $16.60 | $18.03 |
-| **+30%** | $12.64 | $14.06 | $15.48 | $16.91 | $18.33 |
+| **-30%** | $11.42 | $12.82 | $14.22 | $15.62 | $17.02 |
+| **-15%** | $11.85 | $13.25 | $14.65 | $16.05 | $17.45 |
+| **+0%** | $12.29 | $13.69 | $15.09 | $16.49 | $17.89 |
+| **+15%** | $12.72 | $14.12 | $15.52 | $16.92 | $18.32 |
+| **+30%** | $13.16 | $14.56 | $15.96 | $17.36 | $18.76 |
 
 _Current price $17.07. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$14.88** is -12.8% vs the current price ($17.07) and -17.1% vs the analyst target ($17.95). The current price implies the fleet earning a value-weighted blended **$51,701/day** (2.09× the current forward) — 3.2× the value-weighted 10-yr mean ($16,000, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$15.09** is -11.6% vs the current price ($17.07) and -15.9% vs the analyst target ($17.95). The current price implies the fleet earning a value-weighted blended **$41,676/day** (1.68× the current forward) — 2.6× the value-weighted 10-yr mean ($16,000, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

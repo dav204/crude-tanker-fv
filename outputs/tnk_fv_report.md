@@ -2,7 +2,7 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $74.45
-- **Model fair value:** $73.94
+- **Model fair value:** $79.39
 - **Analyst target:** $75.00
 
 ## Data validation warnings
@@ -42,8 +42,8 @@
 | Q7 | 74,000 | 67,620 | 5.051 | 1.513 | 1.260 |
 | Q8 | 56,000 | 53,580 | 3.613 | 1.153 | 0.936 |
 | Σ discounted DPS | | | | | 10.39 |
-| Terminal value (NAV, q9) | | | | 69.95 | 55.31 |
-| **DivStrip implied price** | | | | | **$65.70** |
+| Terminal value (NAV, q9) | | | | 92.92 | 73.47 |
+| **DivStrip implied price** | | | | | **$83.86** |
 
 _FFA spot is the Aframax forward curve that drives the strip cash flows; its 12-month average is **$77,250/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$56,250/day** — not this FFA average._
 
@@ -54,50 +54,50 @@ _FFA spot is the Aframax forward curve that drives the strip cash flows; its 12-
 
 ## Blended fair value
 
-0.70 × $77.47 (NAV) + 0.30 × $65.70 (strip) = **$73.94**
+0.70 × $77.47 (NAV) + 0.30 × $83.86 (strip) = **$79.39**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $79.62 |
-| 95% | $81.17 |
-| 100% | $81.69 |
+| 80% | $80.06 |
+| 95% | $80.24 |
+| 100% | $80.30 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **1.19× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **0.50× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **100,249** | — |
-| 10-year mean | 28,238 | 3.55× |
-| 12-month FFA | 84,348 | 1.19× |
-| Current spot | 74,317 | 1.35× |
+| **Implied breakeven (blended)** | **41,889** | — |
+| 10-year mean | 28,238 | 1.48× |
+| 12-month FFA | 84,348 | 0.50× |
+| Current spot | 74,317 | 0.56× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Aframax (50% of fleet value) | 91,814 | 3.33× |
-| Suezmax (45% of fleet value) | 101,025 | 3.64× |
-| VLCC (5% of fleet value) | 184,222 | 4.61× |
+| Aframax (50% of fleet value) | 38,365 | 1.39× |
+| Suezmax (45% of fleet value) | 42,213 | 1.52× |
+| VLCC (5% of fleet value) | 76,977 | 1.92× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $64.89 | $69.01 | $73.14 | $77.26 | $81.38 |
-| **-15%** | $65.29 | $69.41 | $73.54 | $77.66 | $81.79 |
-| **+0%** | $65.69 | $69.82 | $73.94 | $78.07 | $82.19 |
-| **+15%** | $66.10 | $70.22 | $74.35 | $78.47 | $82.60 |
-| **+30%** | $66.50 | $70.63 | $74.75 | $78.87 | $83.00 |
+| **-30%** | $68.38 | $72.41 | $76.45 | $80.48 | $84.51 |
+| **-15%** | $69.85 | $73.88 | $77.92 | $81.95 | $85.98 |
+| **+0%** | $71.32 | $75.36 | $79.39 | $83.42 | $87.46 |
+| **+15%** | $72.80 | $76.83 | $80.86 | $84.90 | $88.93 |
+| **+30%** | $74.27 | $78.30 | $82.33 | $86.37 | $90.40 |
 
 _Current price $74.45. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$73.94** is -0.7% vs the current price ($74.45) and -1.4% vs the analyst target ($75.00). Tool, market, and analyst are in broad agreement (all within ~5%). The current price implies the fleet earning a value-weighted blended **$100,249/day** (1.19× the current forward) — 3.6× the value-weighted 10-yr mean ($28,238, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$79.39** is +6.6% vs the current price ($74.45) and +5.9% vs the analyst target ($75.00). The current price implies the fleet earning a value-weighted blended **$41,889/day** (0.50× the current forward) — 1.5× the value-weighted 10-yr mean ($28,238, i.e. the market is pricing extended peak rates), and the market is below the forward curve.
 
 ## Modeling notes
 

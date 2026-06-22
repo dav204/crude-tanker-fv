@@ -355,8 +355,11 @@ def value_company(
             f"Treat its dividend-strip contribution as indicative."
         )
     nav = compute_nav(ci)
-    strip = compute_dividend_strip(ci, nav.nav_per_share, strip_horizon=strip_horizon)
     cycle = compute_cycle(ci)
+    strip = compute_dividend_strip(
+        ci, nav.nav_per_share, strip_horizon=strip_horizon,
+        terminal_multiple=cycle.terminal_multiple,
+    )
     blended = blend_fair_value(nav, strip, cycle)
     breakeven = implied_breakeven_tce(ci, current_price)
     sensitivity = compute_sensitivity(ci, current_price)
@@ -912,6 +915,9 @@ def main() -> None:
     print("--- consensus forward-EPS cross-check ---")
     from crude_tanker_fv.consensus_eps import run_consensus_eps_xref
     run_consensus_eps_xref(quarter)
+    print("--- §12 dividend-window test ---")
+    from crude_tanker_fv.dividend_window import run_dividend_window_xref
+    run_dividend_window_xref(quarter)
     print("--- transaction-anchor comparison ---")
     run_transaction_anchored_comparison(quarter, live_prices=True)
     print("--- delta + decision log ---")

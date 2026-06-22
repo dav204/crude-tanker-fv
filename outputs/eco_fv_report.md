@@ -2,7 +2,7 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $52.48
-- **Model fair value:** $36.67
+- **Model fair value:** $36.60
 - **Analyst target:** $45.00
 
 ## Data validation warnings
@@ -38,8 +38,8 @@
 | Q7 | 81,500 | 81,500 | 3.623 | 3.080 | 2.566 |
 | Q8 | 56,500 | 56,500 | 2.375 | 2.019 | 1.638 |
 | Σ discounted DPS | | | | | 20.76 |
-| Terminal value (NAV, q9) | | | | 28.86 | 22.82 |
-| **DivStrip implied price** | | | | | **$43.57** |
+| Terminal value (NAV, q9) | | | | 28.57 | 22.59 |
+| **DivStrip implied price** | | | | | **$43.34** |
 
 _FFA spot is the Suezmax forward curve that drives the strip cash flows; its 12-month average is **$85,000/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$61,250/day** — not this FFA average._
 
@@ -50,49 +50,49 @@ _FFA spot is the Suezmax forward curve that drives the strip cash flows; its 12-
 
 ## Blended fair value
 
-0.70 × $33.71 (NAV) + 0.30 × $43.57 (strip) = **$36.67**
+0.70 × $33.71 (NAV) + 0.30 × $43.34 (strip) = **$36.60**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $36.30 |
-| 95% | $37.40 |
-| 100% | $37.77 |
+| 80% | $36.56 |
+| 95% | $36.69 |
+| 100% | $36.73 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **3.15× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **2.87× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **377,597** | — |
-| 10-year mean | 33,841 | 11.16× |
-| 12-month FFA | 119,814 | 3.15× |
-| Current spot | 227,653 | 1.66× |
+| **Implied breakeven (blended)** | **343,849** | — |
+| 10-year mean | 33,841 | 10.16× |
+| 12-month FFA | 119,814 | 2.87× |
+| Current spot | 227,653 | 1.51× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Suezmax (50% of fleet value) | 267,879 | 9.65× |
-| VLCC (50% of fleet value) | 488,485 | 12.21× |
+| Suezmax (50% of fleet value) | 243,937 | 8.79× |
+| VLCC (50% of fleet value) | 444,826 | 11.12× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $25.60 | $30.03 | $34.47 | $38.90 | $43.33 |
-| **-15%** | $26.70 | $31.13 | $35.57 | $40.00 | $44.43 |
-| **+0%** | $27.80 | $32.24 | $36.67 | $41.10 | $45.54 |
-| **+15%** | $28.91 | $33.34 | $37.77 | $42.21 | $46.64 |
-| **+30%** | $30.01 | $34.44 | $38.87 | $43.31 | $47.74 |
+| **-30%** | $25.40 | $29.72 | $34.05 | $38.38 | $42.71 |
+| **-15%** | $26.67 | $31.00 | $35.33 | $39.66 | $43.99 |
+| **+0%** | $27.94 | $32.27 | $36.60 | $40.93 | $45.26 |
+| **+15%** | $29.22 | $33.55 | $37.88 | $42.20 | $46.53 |
+| **+30%** | $30.49 | $34.82 | $39.15 | $43.48 | $47.81 |
 
 _Current price $52.48. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$36.67** is -30.1% vs the current price ($52.48) and -18.5% vs the analyst target ($45.00). The current price implies the fleet earning a value-weighted blended **$377,597/day** (3.15× the current forward) — 11.2× the value-weighted 10-yr mean ($33,841, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$36.60** is -30.3% vs the current price ($52.48) and -18.7% vs the analyst target ($45.00). The current price implies the fleet earning a value-weighted blended **$343,849/day** (2.87× the current forward) — 10.2× the value-weighted 10-yr mean ($33,841, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

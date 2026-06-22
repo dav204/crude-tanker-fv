@@ -28,13 +28,18 @@ from .vessel_values import vessel_market_value
 
 FFA_12M_QUARTERS = 4
 
-# (lower_bound_exclusive, w_nav, w_earn, label); checked high to low.
+# (lower_bound_exclusive, w_nav, w_earn, terminal_multiple, label); checked high to low.
+# terminal_multiple (METHODOLOGY §9.2, cycle-conditional, owner 2026-06-22): the
+# strip's terminal asset-price level mean-reverts with the cycle — peak marks are
+# carried DOWN (do not assume peak-forever, §10), trough marks revert UP (ships
+# trade below replacement cost). Applied to the terminal's FLEET value only
+# (dividend_strip._terminal_nav); cash/debt do not mean-revert.
 _BANDS = [
-    (1.5, 0.70, 0.30, "late-cycle/peak"),
-    (1.2, 0.60, 0.40, "elevated"),
-    (0.8, 0.50, 0.50, "mid-cycle"),
-    (0.5, 0.40, 0.60, "below-mid"),
-    (float("-inf"), 0.30, 0.70, "trough"),
+    (1.5, 0.70, 0.30, 0.90, "late-cycle/peak"),
+    (1.2, 0.60, 0.40, 0.95, "elevated"),
+    (0.8, 0.50, 0.50, 1.00, "mid-cycle"),
+    (0.5, 0.40, 0.60, 1.05, "below-mid"),
+    (float("-inf"), 0.30, 0.70, 1.10, "trough"),
 ]
 
 
@@ -48,6 +53,7 @@ class CycleResult:
     w_nav: float
     w_earn: float
     band_label: str
+    terminal_multiple: float = 1.0  # §9.2 cycle-conditional terminal-NAV multiple
 
 
 def twelve_month_ffa(ffa: list[float]) -> float:
@@ -71,9 +77,19 @@ def cycle_position_for_class(ffa_12m: float, historical_mean: float) -> float:
 
 def weights_for_position(cycle_position: float) -> tuple[float, float, str]:
     """Map a cycle ratio to (w_nav, w_earn, label) via the section 2.3 bands."""
-    for lower, w_nav, w_earn, label in _BANDS:
+    for lower, w_nav, w_earn, _term_mult, label in _BANDS:
         if cycle_position > lower:
             return w_nav, w_earn, label
+    raise AssertionError("unreachable: bands cover all reals")
+
+
+def terminal_multiple_for_position(cycle_position: float) -> float:
+    """Cycle-conditional terminal-NAV multiple (METHODOLOGY §9.2): the strip's
+    terminal asset level mean-reverts — 0.90x at a peak (do not carry firm marks
+    forward), 1.10x at a trough (ships trade below replacement cost; revert up)."""
+    for lower, _w_nav, _w_earn, term_mult, _label in _BANDS:
+        if cycle_position > lower:
+            return term_mult
     raise AssertionError("unreachable: bands cover all reals")
 
 
@@ -116,4 +132,5 @@ def compute_cycle(inputs: CompanyInputs) -> CycleResult:
         w_nav=w_nav,
         w_earn=w_earn,
         band_label=label,
+        terminal_multiple=terminal_multiple_for_position(fleet_position),
     )

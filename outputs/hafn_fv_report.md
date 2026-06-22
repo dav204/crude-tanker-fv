@@ -2,7 +2,7 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $7.23
-- **Model fair value:** $5.59
+- **Model fair value:** $5.66
 - **Analyst target:** $10.00
 
 ## Data validation warnings
@@ -41,8 +41,8 @@
 | Q7 | 26,000 | 26,000 | 0.601 | 0.480 | 0.400 |
 | Q8 | 18,000 | 18,000 | 0.387 | 0.310 | 0.252 |
 | Σ discounted DPS | | | | | 3.12 |
-| Terminal value (NAV, q9) | | | | 4.22 | 3.34 |
-| **DivStrip implied price** | | | | | **$6.46** |
+| Terminal value (NAV, q9) | | | | 4.53 | 3.58 |
+| **DivStrip implied price** | | | | | **$6.70** |
 
 _FFA spot is the MR forward curve that drives the strip cash flows; its 12-month average is **$24,750/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$22,000/day** — not this FFA average._
 
@@ -53,51 +53,51 @@ _FFA spot is the MR forward curve that drives the strip cash flows; its 12-month
 
 ## Blended fair value
 
-0.70 × $5.22 (NAV) + 0.30 × $6.46 (strip) = **$5.59**
+0.70 × $5.22 (NAV) + 0.30 × $6.70 (strip) = **$5.66**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $5.59 |
-| 95% | $5.77 |
-| 100% | $5.83 |
+| 80% | $5.66 |
+| 95% | $5.68 |
+| 100% | $5.69 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **2.30× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **2.02× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **108,657** | — |
-| 10-year mean | 20,965 | 5.18× |
-| 12-month FFA | 47,221 | 2.30× |
-| Current spot | 20,190 | 5.38× |
+| **Implied breakeven (blended)** | **95,336** | — |
+| 10-year mean | 20,965 | 4.55× |
+| 12-month FFA | 47,221 | 2.02× |
+| Current spot | 20,190 | 4.72× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| MR (48% of fleet value) | 56,950 | 3.56× |
-| LR1 (25% of fleet value) | 177,754 | 6.44× |
-| LR2 (17% of fleet value) | 177,754 | 6.44× |
-| Handysize (10% of fleet value) | 56,950 | 3.56× |
+| MR (48% of fleet value) | 49,968 | 3.12× |
+| LR1 (25% of fleet value) | 155,962 | 5.65× |
+| LR2 (17% of fleet value) | 155,962 | 5.65× |
+| Handysize (10% of fleet value) | 49,968 | 3.12× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $4.01 | $4.61 | $5.21 | $5.81 | $6.41 |
-| **-15%** | $4.20 | $4.80 | $5.40 | $6.00 | $6.60 |
-| **+0%** | $4.39 | $4.99 | $5.59 | $6.19 | $6.79 |
-| **+15%** | $4.58 | $5.18 | $5.78 | $6.38 | $6.98 |
-| **+30%** | $4.77 | $5.37 | $5.97 | $6.57 | $7.17 |
+| **-30%** | $4.03 | $4.61 | $5.20 | $5.79 | $6.38 |
+| **-15%** | $4.26 | $4.84 | $5.43 | $6.02 | $6.61 |
+| **+0%** | $4.49 | $5.08 | $5.66 | $6.25 | $6.84 |
+| **+15%** | $4.72 | $5.31 | $5.89 | $6.48 | $7.07 |
+| **+30%** | $4.95 | $5.54 | $6.12 | $6.71 | $7.30 |
 
 _Current price $7.23. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$5.59** is -22.7% vs the current price ($7.23) and -44.1% vs the analyst target ($10.00). The current price implies the fleet earning a value-weighted blended **$108,657/day** (2.30× the current forward) — 5.2× the value-weighted 10-yr mean ($20,965, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$5.66** is -21.7% vs the current price ($7.23) and -43.4% vs the analyst target ($10.00). The current price implies the fleet earning a value-weighted blended **$95,336/day** (2.02× the current forward) — 4.5× the value-weighted 10-yr mean ($20,965, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

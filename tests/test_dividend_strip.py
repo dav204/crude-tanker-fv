@@ -142,11 +142,30 @@ def test_dht_integration():
     assert 18.0 < s.implied_price < 21.0
 
 
-def test_terminal_nav_multiple_locked_at_1x():
-    """§9.2 terminal-value decision LOCKED at 1.0x (owner, 2026-06-21 —
-    outputs/terminal_value_options_memo.md). Changing the multiple is a
-    methodology decision: update the memo DECISION block and re-pin this test
-    deliberately (same discipline as the locked-weights tests)."""
+def test_terminal_multiple_cycle_conditional():
+    """§9.2 terminal-value multiple is CYCLE-CONDITIONAL since 2026-06-22 (owner —
+    outputs/terminal_value_options_memo.md): peak 0.90x / elevated 0.95x / mid 1.0x
+    / below-mid 1.05x / trough 1.10x, applied to the terminal's FLEET value.
+    Changing the band ramp is a methodology decision: update the memo DECISION
+    block and re-pin this test deliberately (same discipline as locked weights)."""
     from crude_tanker_fv import dividend_strip
+    from crude_tanker_fv.cycle import terminal_multiple_for_position
 
-    assert dividend_strip.TERMINAL_NAV_MULTIPLE == 1.0
+    assert dividend_strip.TERMINAL_NAV_MULTIPLE == 1.0  # mid-cycle / no-cycle default
+    assert terminal_multiple_for_position(2.0) == pytest.approx(0.90)   # late-cycle/peak
+    assert terminal_multiple_for_position(1.3) == pytest.approx(0.95)   # elevated
+    assert terminal_multiple_for_position(1.0) == pytest.approx(1.00)   # mid-cycle
+    assert terminal_multiple_for_position(0.6) == pytest.approx(1.05)   # below-mid
+    assert terminal_multiple_for_position(0.3) == pytest.approx(1.10)   # trough
+
+
+def test_terminal_retains_earnings_low_payout():
+    """Net retained earnings (sum EPS - DPS) accrete to the terminal (METHODOLOGY
+    §9.2): a low-payout name's terminal exceeds the same name's pure aged-NAV."""
+    ci = _inputs(ffa=[50_000] * 8, payout=0.20, base=0.0)
+    s = compute_dividend_strip(ci, nav_per_share=138.0, discount_rate=0.0, offhire_rate=0.0)
+    retained = sum(s.eps_by_quarter) - sum(s.dps_by_quarter)
+    assert retained > 0  # retains 80% of earnings
+    # mid-cycle default multiple 1.0 => terminal = aged-NAV + retained.
+    aged_only = 125.85  # the pure aged-NAV/share from test_strip_arithmetic_flat_curve
+    assert s.terminal_value == pytest.approx(aged_only + retained)

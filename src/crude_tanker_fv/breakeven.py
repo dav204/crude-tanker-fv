@@ -65,7 +65,9 @@ def _fair_value_at_mult(
         for cls, curve in inputs.market_data.ffa_forward_curve.items()
     }
     shocked = replace(inputs, market_data=replace(inputs.market_data, ffa_forward_curve=scaled))
-    strip = compute_dividend_strip(shocked, nav.nav_per_share)
+    strip = compute_dividend_strip(
+        shocked, nav.nav_per_share, terminal_multiple=base_cycle.terminal_multiple
+    )
     return blend_fair_value(nav, strip, base_cycle).fair_value_per_share
 
 

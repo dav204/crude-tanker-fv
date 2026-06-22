@@ -5,6 +5,39 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — cycle-conditional terminal + net retained earnings (§9.2) + §12
+  reframed to a falsifiable dividend-window test (R3).** Part of the
+  methodology-soundness audit (`outputs/METHODOLOGY_AUDIT_2026-06-22.md`). Resolved a
+  doc-vs-code contradiction the audit found: METHODOLOGY:2115/824 claimed the strip
+  terminal was "depleted by the dividends paid out" + "mean-reverts," but the engine
+  aged hulls at a flat price level with the balance sheet held constant. Owner chose to
+  make the engine honest, not walk back the docs.
+  **Terminal (`dividend_strip.py` / `cycle.py`):** (1) **cycle-conditional multiple** on
+  the terminal FLEET value — peak 0.90× / elevated 0.95× / mid 1.00× / below-mid 1.05× /
+  trough 1.10× via `cycle.terminal_multiple` (cash/debt not reverted); (2) **net retained
+  earnings** — terminal cash += Σ(EPS−DPS)/share (flat for ~100%-payout names, RISES for
+  low-payout retainers — fixes the §12 buyback/low-payout undercount — falls for over-payers).
+  No double-count (strip = PV(8q earnings) + PV(terminal asset), the standard
+  explicit-period-plus-terminal DCF). The literal "subtract dividends" form was rejected as
+  a double-count (owner decision). **Book impact (SANITY 0 fail; NAV untouched):**
+  low-payout retainers up — **CCEC +31pp; GSL TRIM→BUY; TNK HOLD→BUY; STNG TRIM→BUY**;
+  MPCC/FLNG/CMDB/HAFN/TRMD/INSW up — peak crude down — **DHT FV 14.31→14.00** (0.9×),
+  FRO/ECO slightly down. Re-pinned: `test_terminal_multiple_cycle_conditional` +
+  `test_terminal_retains_earnings_low_payout`; CCEC/INSW/STNG FV bands; DHT report FV;
+  breakeven/sensitivity helpers (aligned to pass `terminal_multiple`).
+  **§12 reframe (R3):** the owner-challenged §12 line ("TRIM signals … commercially
+  misaligned") — an unfalsifiable one-way bullish override (audit E-3) — was reframed after
+  a 4-agent analysis (`outputs/peak_cycle_high_payout_resolution_2026-06-22.md`) found the
+  **model is right**: a high-payout pure-play at peak P/NAV ~2× is overvalued through-cycle
+  (the fat yield is "the liquidation rate of a melting ice cube," ~−36% on the NAT
+  arithmetic; NAT is its own 2015→2018 counterexample). The 0.9× terminal is **vindicated
+  and not exempted** for high-payout names (exempting = the forbidden back-solve). §12 is now
+  a falsifiable, computed classification: **§12.5** trigger gate (single-class + payout>90% +
+  cycle>1.5× + price/tool-NAV>1.5×), **§12.6** break-even-dividend-window test (Q* vs the
+  FFA-supported horizon H), **§12.7** ex-post falsification. New `dividend_window.py`
+  (diagnostic-only, no FV change, consensus_eps-style) → `outputs/dividend_window_test.md`:
+  **NAT gates in (premium 2.51×) → Q*=None (DPS never bridge the $3.13 premium) → TRIM stands**
+  (value-trap, no override); DHT (1.27×) / SBLK (diversified) / all others gate out. Tests 287 → 290.
 - **2026-06-22 — §9.6 time-to-delivery discount ROLLED OUT to the other newbuild
   books (owner-approved, post-BRUT).** Applied per-vessel `years_to_delivery` to
   CAPT / FRO / MPCC manifests (GSL's NB order is post-snapshot; CMDB has none).

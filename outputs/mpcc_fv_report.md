@@ -2,7 +2,7 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $2.54
-- **Model fair value:** $1.99
+- **Model fair value:** $2.19
 - **Analyst target:** $2.63
 
 ## Data validation warnings
@@ -40,8 +40,8 @@
 | Q9 | 37,700 | 30,369 | 0.192 | 0.096 | 0.076 |
 | Q10 | 37,200 | 32,493 | 0.217 | 0.108 | 0.084 |
 | Σ discounted DPS | | | | | 0.69 |
-| Terminal value (NAV, q9) | | | | 1.68 | 1.26 |
-| **DivStrip implied price** | | | | | **$1.95** |
+| Terminal value (NAV, q9) | | | | 2.33 | 1.75 |
+| **DivStrip implied price** | | | | | **$2.44** |
 
 _FFA spot is the Ctr-Intermediate forward curve that drives the strip cash flows; its 12-month average is **$42,481/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$43,400/day** — not this FFA average._
 
@@ -52,49 +52,49 @@ _FFA spot is the Ctr-Intermediate forward curve that drives the strip cash flows
 
 ## Blended fair value
 
-0.60 × $2.02 (NAV) + 0.40 × $1.95 (strip) = **$1.99**
+0.60 × $2.02 (NAV) + 0.40 × $2.44 (strip) = **$2.19**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $2.12 |
-| 95% | $2.18 |
-| 100% | $2.20 |
+| 80% | $2.14 |
+| 95% | $2.15 |
+| 100% | $2.15 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **8.28× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **3.81× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **299,648** | — |
-| 10-year mean | 30,057 | 9.97× |
-| 12-month FFA | 36,179 | 8.28× |
-| Current spot | 36,908 | 8.12× |
+| **Implied breakeven (blended)** | **137,799** | — |
+| 10-year mean | 30,057 | 4.58× |
+| 12-month FFA | 36,179 | 3.81× |
+| Current spot | 36,908 | 3.73× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Ctr-Intermediate (72% of fleet value) | 351,846 | 10.44× |
-| Ctr-Feeder (28% of fleet value) | 167,718 | 8.04× |
+| Ctr-Intermediate (72% of fleet value) | 161,804 | 4.80× |
+| Ctr-Feeder (28% of fleet value) | 77,129 | 3.70× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $1.35 | $1.66 | $1.97 | $2.27 | $2.58 |
-| **-15%** | $1.36 | $1.67 | $1.98 | $2.29 | $2.59 |
-| **+0%** | $1.37 | $1.68 | $1.99 | $2.30 | $2.60 |
-| **+15%** | $1.39 | $1.69 | $2.00 | $2.31 | $2.62 |
-| **+30%** | $1.40 | $1.70 | $2.01 | $2.32 | $2.63 |
+| **-30%** | $1.48 | $1.78 | $2.09 | $2.39 | $2.69 |
+| **-15%** | $1.50 | $1.80 | $2.11 | $2.41 | $2.71 |
+| **+0%** | $1.52 | $1.83 | $2.13 | $2.43 | $2.73 |
+| **+15%** | $1.55 | $1.85 | $2.15 | $2.45 | $2.76 |
+| **+30%** | $1.57 | $1.87 | $2.17 | $2.48 | $2.78 |
 
 _Current price $2.54. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$1.99** is -21.5% vs the current price ($2.54) and -24.2% vs the analyst target ($2.63). The current price implies the fleet earning a value-weighted blended **$299,648/day** (8.28× the current forward) — 10.0× the value-weighted 10-yr mean ($30,057, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$2.19** is -13.8% vs the current price ($2.54) and -16.8% vs the analyst target ($2.63). The current price implies the fleet earning a value-weighted blended **$137,799/day** (3.81× the current forward) — 4.6× the value-weighted 10-yr mean ($30,057, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

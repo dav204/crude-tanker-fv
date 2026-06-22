@@ -9,6 +9,42 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-22T19:34:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.24
+- Single-point FV: $15.65
+- Scenario PW FV: $16.77 (EV +26.7%)
+- NAV / share: $15.03
+- Position: **BUY (undervalued)**
+- Broker spread: +33.8pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-22T18:59:57+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.24
+- Single-point FV: $15.65
+- Scenario PW FV: $16.77 (EV +26.7%)
+- NAV / share: $15.03
+- Position: **BUY (undervalued)**
+- Broker spread: +33.8pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +2.6% | Δscenario FV: +3.5% | ΔNAV: no change | Δspread: -0.9pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-22 — CAPT NB cohorts refined to the exact Q1-release delivery dates (estimate confirmed)
 
 Replaced the rollout's estimated cohorts (2/6/4 VLCC @ 0.4/1.2/2.0; flat 0.8 on

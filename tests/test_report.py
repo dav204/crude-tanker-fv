@@ -19,9 +19,10 @@ def test_value_company_assembles_consistent_report(dht_report):
     # Blend identity: FV = w_nav*NAV + w_earn*strip.
     expected = r.cycle.w_nav * r.nav.nav_per_share + r.cycle.w_earn * r.strip.implied_price
     assert r.blended.fair_value_per_share == pytest.approx(expected)
-    # Band re-based 2026-06-09: txn-anchored marks default-on (owner decision) —
-    # the VLCC fit (−18% at both mid-age anchors) drops DHT FV from ~16.5 to ~14.3.
-    assert 14.0 < r.blended.fair_value_per_share < 15.0
+    # Band re-based 2026-06-09 (txn-anchored marks default-on, ~16.5→~14.3) then
+    # 2026-06-22 (cycle-conditional terminal §9.2: DHT late-cycle/peak → 0.9x
+    # mean-reversion of the terminal fleet value, ~14.3→~14.0).
+    assert 13.5 < r.blended.fair_value_per_share < 15.0
 
 
 def test_write_company_report_creates_md_and_xlsx(dht_report, tmp_path):
@@ -52,7 +53,7 @@ def test_write_watchlist_summary(dht_report, tmp_path):
     row = [c.value for c in ws[2]]
     assert row[0] == "DHT"
     assert row[1] == "whole-company"   # DHT is a pure-play
-    assert row[3] == pytest.approx(14.31, abs=0.01)   # re-based 2026-06-09 (txn marks default-on)
+    assert row[3] == pytest.approx(14.00, abs=0.01)   # txn marks 2026-06-09; cycle-conditional terminal 2026-06-22 (DHT peak 0.9x: 14.31→14.00)
 
 
 def test_run_watchlist_end_to_end(tmp_path):

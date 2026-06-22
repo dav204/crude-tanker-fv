@@ -68,7 +68,9 @@ def compute_sensitivity(inputs: CompanyInputs, current_price: float) -> Sensitiv
         for vessel_shock in VESSEL_VALUE_SHOCKS:
             shocked = _shock_inputs(inputs, tce_shock, vessel_shock)
             nav = compute_nav(shocked)
-            strip = compute_dividend_strip(shocked, nav.nav_per_share)
+            strip = compute_dividend_strip(
+                shocked, nav.nav_per_share, terminal_multiple=base_cycle.terminal_multiple
+            )
             row.append(blend_fair_value(nav, strip, base_cycle).fair_value_per_share)
         grid.append(row)
     return SensitivityGrid(grid=grid, current_price=current_price)
@@ -90,6 +92,8 @@ def payout_sensitivity(
         shocked = replace(
             inputs, dividend_policy=replace(inputs.dividend_policy, payout_ratio=payout)
         )
-        strip = compute_dividend_strip(shocked, nav.nav_per_share)
+        strip = compute_dividend_strip(
+            shocked, nav.nav_per_share, terminal_multiple=cycle.terminal_multiple
+        )
         out[payout] = blend_fair_value(nav, strip, cycle).fair_value_per_share
     return out

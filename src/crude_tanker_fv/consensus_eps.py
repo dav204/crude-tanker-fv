@@ -107,9 +107,9 @@ def compute_consensus_eps_rows(
         # as_of price, never a live override (price_refresh.py docstring).
         price = float(entry.get("as_of_price") or entry["current_price"])
         nav = compute_nav(ci).nav_per_share
-        strip = compute_dividend_strip(ci, nav)
-        tool_fwd_eps = sum(strip.eps_by_quarter[:_STRIP_NTM_QUARTERS])
         cyc = compute_cycle(ci)
+        strip = compute_dividend_strip(ci, nav, terminal_multiple=cyc.terminal_multiple)
+        tool_fwd_eps = sum(strip.eps_by_quarter[:_STRIP_NTM_QUARTERS])
         consensus_fwd_eps = price / pe
         gap_pct = (
             100.0 * (tool_fwd_eps - consensus_fwd_eps) / consensus_fwd_eps

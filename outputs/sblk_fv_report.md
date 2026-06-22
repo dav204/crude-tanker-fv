@@ -2,7 +2,7 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $25.81
-- **Model fair value:** $26.00
+- **Model fair value:** $25.68
 - **Analyst target:** $34.50
 
 ## Data validation warnings
@@ -39,8 +39,8 @@
 | Q7 | 24,500 | 24,500 | 0.871 | 0.827 | 0.689 |
 | Q8 | 24,000 | 24,000 | 0.839 | 0.797 | 0.647 |
 | Σ discounted DPS | | | | | 7.38 |
-| Terminal value (NAV, q9) | | | | 22.47 | 17.77 |
-| **DivStrip implied price** | | | | | **$25.15** |
+| Terminal value (NAV, q9) | | | | 21.46 | 16.97 |
+| **DivStrip implied price** | | | | | **$24.35** |
 
 _FFA spot is the Cape forward curve that drives the strip cash flows; its 12-month average is **$29,538/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$27,000/day** — not this FFA average._
 
@@ -51,50 +51,50 @@ _FFA spot is the Cape forward curve that drives the strip cash flows; its 12-mon
 
 ## Blended fair value
 
-0.60 × $26.57 (NAV) + 0.40 × $25.15 (strip) = **$26.00**
+0.60 × $26.57 (NAV) + 0.40 × $24.35 (strip) = **$25.68**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $25.54 |
-| 95% | $26.00 |
-| 100% | $26.16 |
+| 80% | $25.63 |
+| 95% | $25.68 |
+| 100% | $25.70 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **0.96× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **1.02× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **21,396** | — |
-| 10-year mean | 17,337 | 1.23× |
-| 12-month FFA | 22,230 | 0.96× |
-| Current spot | 27,227 | 0.79× |
+| **Implied breakeven (blended)** | **22,755** | — |
+| 10-year mean | 17,337 | 1.31× |
+| 12-month FFA | 22,230 | 1.02× |
+| Current spot | 27,227 | 0.84× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Cape (40% of fleet value) | 28,429 | 1.20× |
-| Supra-Ultra (34% of fleet value) | 15,791 | 1.13× |
-| Pana (26% of fleet value) | 17,752 | 1.49× |
+| Cape (40% of fleet value) | 30,235 | 1.28× |
+| Supra-Ultra (34% of fleet value) | 16,793 | 1.21× |
+| Pana (26% of fleet value) | 18,879 | 1.59× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $18.68 | $21.57 | $24.46 | $27.35 | $30.24 |
-| **-15%** | $19.45 | $22.34 | $25.23 | $28.12 | $31.01 |
-| **+0%** | $20.22 | $23.11 | $26.00 | $28.89 | $31.78 |
-| **+15%** | $20.99 | $23.88 | $26.77 | $29.66 | $32.56 |
-| **+30%** | $21.77 | $24.66 | $27.55 | $30.44 | $33.33 |
+| **-30%** | $18.38 | $21.22 | $24.07 | $26.91 | $29.76 |
+| **-15%** | $19.19 | $22.03 | $24.88 | $27.72 | $30.57 |
+| **+0%** | $19.99 | $22.84 | $25.68 | $28.53 | $31.37 |
+| **+15%** | $20.80 | $23.65 | $26.49 | $29.34 | $32.18 |
+| **+30%** | $21.61 | $24.45 | $27.30 | $30.14 | $32.99 |
 
 _Current price $25.81. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$26.00** is +0.7% vs the current price ($25.81) and -24.6% vs the analyst target ($34.50). The current price implies the fleet earning a value-weighted blended **$21,396/day** (0.96× the current forward) — 1.2× the value-weighted 10-yr mean ($17,337, i.e. the market is pricing extended peak rates), and the market is below the forward curve.
+Tool fair value **$25.68** is -0.5% vs the current price ($25.81) and -25.6% vs the analyst target ($34.50). The current price implies the fleet earning a value-weighted blended **$22,755/day** (1.02× the current forward) — 1.3× the value-weighted 10-yr mean ($17,337, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

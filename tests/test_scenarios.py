@@ -340,7 +340,10 @@ def test_ccec_v3_set_b_revised_fv_band_and_buy_flip(lng_doc):
     """
     ci = load_company_inputs("CCEC", "2026-Q1")
     r = run_scenarios(ci, 23.18, 25.17, lng_doc)
-    assert 28.15 < r.probability_weighted_fv < 31.11
+    # 2026-06-22 rebased for the cycle-conditional terminal + NET RETAINED EARNINGS
+    # (§9.2): CCEC is low-payout LNG with high scenario torque, so retained earnings
+    # lift PW FV ~$29 → ~$35.9 (BUY held, EV strengthens).
+    assert 34.0 < r.probability_weighted_fv < 38.0
     # Position must be BUY at locked weights — flag if it shifts.
     ev_pct = r.expected_value_vs_current / r.current_price * 100
     assert ev_pct > 5.0, (
@@ -424,7 +427,9 @@ def test_insw_whole_company_fv_preserved_through_product_sector_refactor():
     headline, crude_r, product_r = _run_scenarios_for_ticker(
         "INSW", ci, insw["current_price"], insw["analyst_target"], docs, watchlist,
     )
-    assert 63.9 < headline.probability_weighted_fv < 65.2
+    # 2026-06-22: cycle-conditional terminal + net retained earnings (§9.2) lift
+    # INSW PW FV ~$64.5 → ~$66.2 (TRIM/SHORT held).
+    assert 65.0 < headline.probability_weighted_fv < 68.0
     # Both sleeves should have valid prob-weighted FVs.
     assert crude_r is not None and product_r is not None
     assert crude_r.probability_weighted_fv > 0
@@ -781,7 +786,10 @@ def test_stng_whole_company_fv_in_expected_band():
     headline, _, _ = _run_scenarios_for_ticker(
         "STNG", ci, stng["current_price"], stng["analyst_target"], docs, watchlist,
     )
-    assert 70.0 < headline.probability_weighted_fv < 77.0
+    # 2026-06-22: the cycle-conditional terminal's NET RETAINED EARNINGS (§9.2)
+    # captures STNG's buyback/low-payout retention — the §12 buyback-channel
+    # conservatism this test flags — lifting PW FV ~$73.6 → ~$83.2 (TRIM/SHORT → BUY).
+    assert 80.0 < headline.probability_weighted_fv < 86.0
     # NAV per share check — $83.76 baseline, allow ±$5 for input flex.
     assert 78.0 < headline.base_nav_per_share < 90.0
 

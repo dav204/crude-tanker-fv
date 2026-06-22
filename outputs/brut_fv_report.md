@@ -2,7 +2,7 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $5.40
-- **Model fair value:** $9.79
+- **Model fair value:** $9.83
 - **Analyst target:** $7.13
 
 ## Data validation warnings
@@ -37,8 +37,8 @@
 | Q7 | 147,500 | 147,500 | 0.745 | 0.000 | 0.000 |
 | Q8 | 105,500 | 105,500 | 0.783 | 0.000 | 0.000 |
 | Σ discounted DPS | | | | | 0.00 |
-| Terminal value (NAV, q9) | | | | 13.52 | 10.69 |
-| **DivStrip implied price** | | | | | **$10.69** |
+| Terminal value (NAV, q9) | | | | 13.71 | 10.84 |
+| **DivStrip implied price** | | | | | **$10.84** |
 
 _FFA spot is the VLCC forward curve that drives the strip cash flows; its 12-month average is **$155,000/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$111,500/day** — not this FFA average._
 
@@ -49,15 +49,15 @@ _FFA spot is the VLCC forward curve that drives the strip cash flows; its 12-mon
 
 ## Blended fair value
 
-0.70 × $9.40 (NAV) + 0.30 × $10.69 (strip) = **$9.79**
+0.70 × $9.40 (NAV) + 0.30 × $10.84 (strip) = **$9.83**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $10.53 |
-| 95% | $10.67 |
-| 100% | $10.72 |
+| 80% | $9.90 |
+| 95% | $9.91 |
+| 100% | $9.91 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
@@ -76,17 +76,17 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $3.99 | $6.89 | $9.79 | $12.69 | $15.59 |
-| **-15%** | $3.99 | $6.89 | $9.79 | $12.69 | $15.59 |
-| **+0%** | $3.99 | $6.89 | $9.79 | $12.69 | $15.59 |
-| **+15%** | $3.99 | $6.89 | $9.79 | $12.69 | $15.59 |
-| **+30%** | $3.99 | $6.89 | $9.79 | $12.69 | $15.59 |
+| **-30%** | $3.88 | $6.70 | $9.52 | $12.34 | $15.17 |
+| **-15%** | $4.04 | $6.86 | $9.68 | $12.50 | $15.32 |
+| **+0%** | $4.19 | $7.01 | $9.83 | $12.65 | $15.48 |
+| **+15%** | $4.35 | $7.17 | $9.99 | $12.81 | $15.63 |
+| **+30%** | $4.50 | $7.32 | $10.14 | $12.96 | $15.78 |
 
 _Current price $5.40. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$9.79** is +81.3% vs the current price ($5.40) and +37.3% vs the analyst target ($7.13). NAV alone covers the price (NAV/sh $9.40 ≥ $5.40); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
+Tool fair value **$9.83** is +82.1% vs the current price ($5.40) and +37.9% vs the analyst target ($7.13). NAV alone covers the price (NAV/sh $9.40 ≥ $5.40); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
 
 ## Modeling notes
 

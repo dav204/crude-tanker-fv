@@ -24,9 +24,12 @@ over-pays a floor-type policy by the base every quarter, so we dispatch on type.
 - OPEX accrues on all operating days (offhire reduces revenue, not opex).
 - disclosed_charter_rate is the count-average of disclosed (non-null) charter
   rates among time-chartered vessels of the class in the fleet manifest.
-- TerminalValue at q=9 = 1.0x NAV with the fleet aged forward 9 quarters
-  (2.25 yrs) on the depreciation curve, balance sheet held constant
-  (simplification; open decisions 9.2, 9.6).
+- TerminalValue at q=horizon+1 = cycle-conditional NAV (METHODOLOGY §9.2):
+  the fleet aged forward on the depreciation curve, its asset-price level
+  mean-reverted by ``terminal_multiple`` (peak 0.9x … trough 1.1x, FLEET value
+  only), plus the balance sheet carried forward with RETAINED EARNINGS over the
+  strip (terminal cash += sum(EPS - DPS) per share). Callers pass
+  ``cycle.terminal_multiple``; default 1.0 (mid-cycle / no cycle supplied).
 
 Strip horizon: per-sector parameter (METHODOLOGY §11.8.6.4). Default 8
 quarters (FFA liquidity drops sharply beyond ~18 months); containerships run
@@ -38,15 +41,18 @@ from __future__ import annotations
 from dataclasses import dataclass, field, replace
 
 from .cycle import twelve_month_ffa
-from .nav import compute_nav
+from .nav import NavResult, compute_nav
 from .schemas import CompanyInputs, DividendPolicy
 
 DEFAULT_DISCOUNT_RATE = 0.11
 STRIP_HORIZON_QUARTERS = 8
-TERMINAL_NAV_MULTIPLE = 1.0   # q=9 terminal as a multiple of NAV. §9.2 LOCKED at
-                              # 1.0x (owner, 2026-06-21 — outputs/terminal_value_options_memo.md).
-                              # Changing it is a methodology decision: update the memo
-                              # DECISION block + re-pin test_terminal_nav_multiple_locked_at_1x.
+TERMINAL_NAV_MULTIPLE = 1.0   # DEFAULT terminal multiple (mid-cycle / when no cycle
+                              # is supplied). §9.2 is CYCLE-CONDITIONAL since 2026-06-22
+                              # (owner — outputs/terminal_value_options_memo.md): callers
+                              # pass cycle.terminal_multiple (peak 0.9x … trough 1.1x,
+                              # cycle.terminal_multiple_for_position). Changing the band
+                              # ramp is a methodology decision: update the memo DECISION
+                              # block + re-pin test_terminal_multiple_cycle_conditional.
 DEFAULT_OFFHIRE_RATE = 0.02   # ~drydock + unscheduled offhire
 DAYS_PER_QUARTER = 365.0 / 4.0
 
@@ -139,13 +145,15 @@ def _blended_tce_by_class(inputs: CompanyInputs, q: int) -> dict[str, float]:
     return out
 
 
-def _terminal_nav_per_share(inputs: CompanyInputs, quarters_forward: int) -> float:
-    """NAV/share with the fleet aged forward, balance sheet held constant.
+def _terminal_nav(inputs: CompanyInputs, quarters_forward: int) -> NavResult:
+    """NAV breakdown with the fleet aged forward, balance sheet held constant.
 
-    A newbuild delivered before the terminal date drops its time-to-delivery
-    discount (§9.6) and starts aging from delivery; one still pending keeps a
-    reduced discount. ``years_to_delivery`` defaults to 0 (on the water), so an
-    existing fleet just ages by ``years`` exactly as before."""
+    Returns the full ``NavResult`` so the caller can apply the cycle-conditional
+    multiple to the FLEET value only and add retained earnings in per-share space
+    (METHODOLOGY §9.2). A newbuild delivered before the terminal date drops its
+    time-to-delivery discount (§9.6) and starts aging from delivery; one still
+    pending keeps a reduced discount. ``years_to_delivery`` defaults to 0 (on the
+    water), so an existing fleet just ages by ``years`` exactly as before."""
     years = quarters_forward / 4.0
     aged_vessels = [
         replace(
@@ -156,7 +164,7 @@ def _terminal_nav_per_share(inputs: CompanyInputs, quarters_forward: int) -> flo
         for v in inputs.fleet.vessels
     ]
     aged = replace(inputs, fleet=replace(inputs.fleet, vessels=aged_vessels))
-    return compute_nav(aged).nav_per_share
+    return compute_nav(aged)
 
 
 def compute_dividend_strip(
@@ -165,6 +173,7 @@ def compute_dividend_strip(
     discount_rate: float = DEFAULT_DISCOUNT_RATE,
     offhire_rate: float = DEFAULT_OFFHIRE_RATE,
     strip_horizon: int = STRIP_HORIZON_QUARTERS,
+    terminal_multiple: float = TERMINAL_NAV_MULTIPLE,
 ) -> DividendStripResult:
     """Project ``strip_horizon`` quarters of DPS, discount, and add the
     NAV-based terminal value.
@@ -220,13 +229,26 @@ def compute_dividend_strip(
         dps / (1.0 + discount_rate) ** ((q + 1) / 4.0) for q, dps in enumerate(dps_by_q)
     ]
 
-    terminal = TERMINAL_NAV_MULTIPLE * _terminal_nav_per_share(
-        inputs, strip_horizon + 1
+    # Terminal value (METHODOLOGY §9.2/§10/§12.1, owner 2026-06-22):
+    #   (1) the fleet is aged forward and its asset-price level is mean-reverted by
+    #       the CYCLE-CONDITIONAL ``terminal_multiple`` (peak 0.9x … trough 1.1x) —
+    #       applied to the FLEET value only; cash/debt do not mean-revert;
+    #   (2) the balance sheet carries forward RETAINED EARNINGS over the strip
+    #       (terminal cash += sum(EPS - DPS) per share) — dividends paid are value
+    #       extraction, retained earnings accrete; high-payout names net ~flat,
+    #       low-payout retainers rise, names paying out more than they earn fall.
+    aged = _terminal_nav(inputs, strip_horizon + 1)
+    shares = inputs.balance_sheet.diluted_shares_outstanding
+    fleet_per_share = aged.fleet_value / shares
+    balance_sheet_per_share = aged.nav_per_share - fleet_per_share
+    retained_per_share = sum(eps_by_q) - sum(dps_by_q)
+    terminal = (
+        terminal_multiple * fleet_per_share + balance_sheet_per_share + retained_per_share
     )
     # Governance / value-trap haircut (METHODOLOGY §15): the strip terminal
     # is a NAV realisation and carries the same discount as the blended NAV
     # term. Interim DPS are NOT haircut (already realised cash). Defaults
-    # to 0 (no haircut) for the 12 standard watchlist names.
+    # to 0 (no haircut) for the standard watchlist names.
     terminal *= (1.0 - inputs.balance_sheet.governance_discount_pct)
     discounted_terminal = terminal / (1.0 + discount_rate) ** (
         (strip_horizon + 1) / 4.0

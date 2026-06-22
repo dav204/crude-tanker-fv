@@ -7,6 +7,43 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-22T19:34:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $74.45
+- Single-point FV: $79.39
+- Scenario PW FV: $79.56 (EV +6.9%)
+- NAV / share: $77.47
+- Position: **BUY (undervalued)**
+- Broker spread: +24.1pp (k_broker 1.45)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-22T18:59:57+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $74.45
+- Single-point FV: $79.39
+- Scenario PW FV: $79.56 (EV +6.9%)
+- NAV / share: $77.47
+- Position: **BUY (undervalued)**
+- Broker spread: +24.1pp (k_broker 1.45)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- Δprice: no change | Δsingle FV: +7.4% | Δscenario FV: +7.9% | ΔNAV: no change | Δspread: -0.5pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-22T16:25:02+00:00 — Pipeline run (auto)
 
 **Model state:**
@@ -847,3 +884,8 @@ annotation._
 
 ---
 
+
+
+## 2026-06-22 — position flip: cycle-conditional terminal + net retained earnings (§9.2)
+
+**TNK: HOLD → BUY** (EV @tool −1.0% → +6.9%). **Cause: methodology change, not a market/data move.** The new strip terminal carries NET RETAINED EARNINGS over the horizon (terminal cash += Σ(EPS−DPS)/share), capturing this low-payout/buyback name's earnings retention that the old flat 1.0× terminal dropped — the §12 buyback/low-payout conservatism. SANITY OK; NAV unchanged (the terminal moves the strip/FV, not compute_nav). Full record: CHANGELOG.md 2026-06-22 + outputs/terminal_value_options_memo.md §5.

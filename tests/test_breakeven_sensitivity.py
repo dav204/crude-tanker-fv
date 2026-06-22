@@ -17,8 +17,11 @@ def _fv_at_mult(ci, mult):
     scaled = {cls: [r * mult for r in c] for cls, c in ci.market_data.ffa_forward_curve.items()}
     shocked = replace(ci, market_data=replace(ci.market_data, ffa_forward_curve=scaled))
     nav = compute_nav(shocked)
-    strip = compute_dividend_strip(shocked, nav.nav_per_share)
-    return blend_fair_value(nav, strip, compute_cycle(ci)).fair_value_per_share
+    cycle = compute_cycle(ci)
+    strip = compute_dividend_strip(
+        shocked, nav.nav_per_share, terminal_multiple=cycle.terminal_multiple
+    )
+    return blend_fair_value(nav, strip, cycle).fair_value_per_share
 
 
 def test_breakeven_round_trips_to_price():
@@ -53,8 +56,11 @@ def test_sensitivity_grid_shape_and_base():
     assert len(grid.grid) == 5 and all(len(r) == 5 for r in grid.grid)
     # Base cell (0% TCE, 0% vessel) must equal the unshocked blended FV.
     nav = compute_nav(ci)
-    strip = compute_dividend_strip(ci, nav.nav_per_share)
-    base_fv = blend_fair_value(nav, strip, compute_cycle(ci)).fair_value_per_share
+    cycle = compute_cycle(ci)
+    strip = compute_dividend_strip(
+        ci, nav.nav_per_share, terminal_multiple=cycle.terminal_multiple
+    )
+    base_fv = blend_fair_value(nav, strip, cycle).fair_value_per_share
     assert grid.grid[2][2] == pytest.approx(base_fv)
 
 

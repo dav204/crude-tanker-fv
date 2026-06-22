@@ -423,6 +423,7 @@ def run_scenarios(
         def fv_at(point: str) -> tuple[float, float]:
             strip = compute_dividend_strip(
                 build(point), nav_s.nav_per_share, strip_horizon=horizon,
+                terminal_multiple=cyc.terminal_multiple,
             )
             return blend_fair_value(nav_s, strip, cyc).fair_value_per_share, strip.implied_price
 

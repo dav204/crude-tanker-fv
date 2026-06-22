@@ -1,6 +1,7 @@
 # Terminal-value options memo — METHODOLOGY §9.2 (B6)
 
-**Status:** DECISION PENDING (owner) · **Written:** 2026-06-21 · **Basis:** the
+**Status:** DECIDED + IMPLEMENTED 2026-06-22 (Option 4 cycle-conditional + net
+retained earnings — see §5) · **Written:** 2026-06-21 · **Basis:** the
 19-name sweep regenerated today (`scripts/terminal_value_sensitivity.py` →
 `outputs/terminal_value_sensitivity.md` / `.xlsx`).
 
@@ -154,31 +155,51 @@ the pick.
 
 ## 5. OWNER DECISION
 
-> **_Decision:_ 1.0× (ratify status quo) — LOCKED.**
+> **_Decision (2026-06-21):_ 1.0× (ratify status quo) — LOCKED. → SUPERSEDED 2026-06-22.**
 >
-> _Date:_ 2026-06-21   _Rationale:_ The terminal already inherits cycle
-> conservatism from two channels a multiple would otherwise double-count —
-> deliberately conservative, transaction-anchored marks, and a cycle-stepped
-> `w_earn` that down-weights the strip at peak. The decision is immaterial for
-> 12 of 19 names and the flips are band-edge HOLD/TRIM wiggles. 1.0× keeps the
-> terminal a clean, auditable identity (aged NAV × 1.0) with the cycle view
-> living where it belongs (`w_earn` + the marks). Uniform 0.9× is wrong at
-> troughs; uniform 1.1× leans on the forbidden calibrate-to-broker move.
-> Cycle-conditional remains the designated successor, revisited only when an
-> adoption trigger fires (§4: an empirically-sized embedded-mark error, or the
-> book gaining genuine trough-band names). — Dan
+> _Original 2026-06-21 rationale (retained for history):_ the terminal already
+> inherits cycle conservatism from conservative txn-anchored marks + a
+> cycle-stepped `w_earn`; the flips are band-edge wiggles; keep the clean 1.0×
+> identity; cycle-conditional is the designated successor pending an adoption
+> trigger. — Dan
 >
-> _If cycle-conditional:_ n/a (not selected).
+> **_Decision (2026-06-22):_ ADOPT Option 4 (cycle-conditional) + implement the
+> §12.1 dividend-depletion as NET RETAINED EARNINGS — IMPLEMENTED.**
+>
+> _Date:_ 2026-06-22   _Rationale:_ resolved as part of the methodology-soundness
+> work (`outputs/METHODOLOGY_AUDIT_2026-06-22.md`). The audit confirmed a genuine
+> doc-vs-code contradiction — METHODOLOGY:2115 claimed the terminal is "depleted
+> by the dividends paid out" and :824 claimed "mean reversion," but the engine
+> did neither (it aged hulls at a flat price level with the balance sheet held
+> constant). Owner chose to make the engine honest rather than walk back the docs.
+> Two mechanisms now implemented:
+> 1. **Cycle-conditional multiple** on the terminal's FLEET value only (cash/debt
+>    do not mean-revert): peak 0.90× / elevated 0.95× / mid 1.00× / below-mid
+>    1.05× / trough 1.10× — a symmetric 0.9–1.1 ramp on the §2.3 cycle bands
+>    (within the owner's stated 0.9/1.0/1.1 endpoints; gentler at band edges than
+>    a 3-bucket version). Keyed to the same cycle band that drives `w_earn`
+>    (`cycle.terminal_multiple` / `cycle.terminal_multiple_for_position`).
+> 2. **Net retained earnings** (the correct generalisation of "depleted by
+>    dividends"): terminal cash += Σ(EPS − DPS) per share over the strip — flat
+>    for ~100%-payout names, RISES for low-payout retainers (fixes the §12
+>    buyback/low-payout undercount the strip previously dropped), FALLS only for
+>    names paying out more than they earn. The literal "subtract dividends" form
+>    was rejected as a double-count (it re-removes earnings a 100%-payout name
+>    actually earned). No double-count: total strip = PV(8q earnings) + PV(terminal
+>    asset), the standard explicit-period-plus-terminal DCF.
+>
+> _Book impact (live, 2026-06-22):_ SANITY 0 fail (NAV untouched). Low-payout
+> retainers rise (CCEC +31pp; GSL TRIM→BUY; TNK HOLD→BUY; STNG TRIM→BUY;
+> MPCC/FLNG/CMDB/HAFN/TRMD/INSW up); peak crude falls (DHT 14.31→14.00 via 0.9×;
+> FRO/ECO slightly down). — Dan
 
-Pinned in code: `dividend_strip.TERMINAL_NAV_MULTIPLE = 1.0`, guarded by
-`tests/test_dividend_strip.py::test_terminal_nav_multiple_locked_at_1x` —
-changing the multiple now requires editing this DECISION block and re-pinning
-that test deliberately (same discipline as the locked-weights tests).
-
-On a pick other than 1.0×, the follow-up is: set/parameterize
-`dividend_strip.TERMINAL_NAV_MULTIPLE` (or add the cycle-conditional rule keyed to
-`cycle.band_label`), re-pin the affected FV-band tests, re-run the pipeline, and
-annotate the decision logs of every name whose position flips.
+Pinned in code: the cycle-conditional ramp in `cycle._BANDS` /
+`cycle.terminal_multiple_for_position`, guarded by
+`tests/test_dividend_strip.py::test_terminal_multiple_cycle_conditional` +
+`::test_terminal_retains_earnings_low_payout` — changing the ramp now requires
+editing this DECISION block and re-pinning those tests deliberately (same
+discipline as the locked-weights tests). `TERMINAL_NAV_MULTIPLE = 1.0` remains as
+the mid-cycle / no-cycle default.
 
 ## Reproduce
 
