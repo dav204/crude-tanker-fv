@@ -1,0 +1,12 @@
+# BRUT (Bruton Ltd) dividend policy — METHODOLOGY.md section 4.3
+# Pre-operational: Pareto models ZERO dividend through 2027 (capex/leverage);
+# policy is "earnings paid out to shareholders once the company is fully up and
+# running" (i.e. beyond the strip horizon, post mid-2028). So the strip carries
+# ~no DPS — BRUT's blended FV is effectively NAV (the earnings leg ≈ discounted
+# terminal NAV), which is correct for a name with no vessels yet on the water.
+# Revisit the payout when vessels deliver / at H1-2026.
+ticker: BRUT
+policy_type: variable
+payout_ratio: 0.0             # zero during construction (Pareto: no dividend 2026-27)
+base_dividend_per_share: 0
+floor: 0

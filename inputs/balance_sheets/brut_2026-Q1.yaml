@@ -1,0 +1,42 @@
+# BRUT (Bruton Ltd) balance sheet — METHODOLOGY.md section 4.2. USD.
+# PARETO-ESTIMATE snapshot (Pareto initiating coverage 2026-04-22) — Bruton
+# reports HALF-YEARLY (H1-2026 due 2026-08-13, owner-confirmed); there is NO
+# Q1 report, so these are the latest available figures (FY-2025 actual +
+# Feb-2026 placement, per Pareto's 2026e model). CONFIRM at the H1-2026 report.
+ticker: BRUT
+quarter: 2026-Q1
+
+cash_and_equivalents: 100000000      # ~$100M post Feb-2026 private placement (Pareto)
+
+working_capital_net: 0               # none disclosed
+
+# Pre-first-delivery: debt is drawn ON DELIVERY (first vessel Jul-2026), so ~0
+# at the snapshot. FY-2025 carried zero debt / net cash. Pareto models IB
+# non-current debt ramping to ~$115M by YE-2026 as deliveries draw (net debt
+# 2026e ~$10M). Confirm the actual drawn balance at H1-2026.
+total_debt: 0
+
+lease_liabilities: 0
+
+# 12x firm VLCC newbuilds. Total construction cost ~$1,484M, $114M paid (2-Feb),
+# so ~$1,370M remaining commitment. NBs valued at age-0 DELIVERED market in the
+# manifest (FRO/CAPT convention); advances at 0 (the $114M paid is sunk into
+# cash/equity). ~$1.27bn NET of the $100M cash (Pareto). LNG dual-fuel on 2x
+# ships (Pareto NAV +$19M each) — our curves carry no DF premium.
+newbuild_capex_commitments: 1370000000
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 61900000   # 61.9M fully diluted (Pareto initiation)
+
+preferred_equity: 0
+shuttle_contracted_book: 0
+
+# §15: PARTIAL screen — gate cannot pass (<12 months listed, 0.73-0.79x P/NAV
+# < 0.85), so the structured screen applies, but the management-fee load
+# (Goodwood Ship Management terms) + board/control detail need the Euronext
+# admission prospectus (NOT located). Known: dispersed-ish ownership — Koch
+# Industries ~26%, Drew Holdings/Trøim ~20%, free float ~54% (NO single >50%
+# controller, unlike CAPT's Marinakis ~75%); zero distribution is build-phase-
+# appropriate, not extraction. Provisional 0; complete the fee/control screen
+# at H1-2026 / when the prospectus is obtained. See decisions/brut_log.md.
+governance_discount_pct: 0

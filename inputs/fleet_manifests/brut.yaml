@@ -1,0 +1,54 @@
+# BRUT (Bruton Ltd) fleet manifest — METHODOLOGY.md section 4.1
+# Oslo Growth-listed (late 2024), Bermuda-incorporated, sponsor Magni Partners
+# (Tor Olav Trøim). PURE-PLAY VLCC NEWBUILD vehicle: 12 firm VLCCs, ALL under
+# construction — ZERO on the water at the snapshot (first, Mount Vision,
+# delivers Jul-2026). Manager: Goodwood Ship Management.
+#
+# Sources: company fleet page https://bruton-ltd.com/fleet/ (per-vessel yard,
+# dwt, delivery — PRIMARY) + Pareto initiating coverage 2026-04-22 (financials,
+# NAV; archived inputs/research_pareto/2026/04/...InitiatingCoverage...pdf).
+# Bruton reports HALF-YEARLY — H1-2026 due 2026-08-13 (owner-confirmed); no
+# Q1/Q3 interims, so the financial lines are Pareto-estimate, confirmed at H1.
+#
+# NEWBUILD CONVENTION (§3.1 / §9.6, FRO/CAPT precedent): NBs carried at age-0
+# DELIVERED market value here; the ~$1,370M remaining capex commitment sits in
+# the balance sheet. They earn in the strip via fleet_schedule, not the static
+# counts. CAVEAT: NAV = (12x delivered-market − commitment + net cash) is a
+# small difference of large numbers — Pareto flags "max torque" (a 10% asset
+# move shifts NAV ~40%). Pareto NAV includes +$19M/ship for 2 LNG-DF vessels;
+# our curves carry no DF premium (Pareto ex-LNG NAV NOK 61 vs 66 headline).
+ticker: BRUT
+report_date: 2026-Q1
+vessels:
+  # Per-vessel delivery cohorts (bruton-ltd.com/fleet/), with years_to_delivery
+  # from the snapshot (2026-06-22) — drives the §9.6 time-to-delivery PV discount
+  # in compute_nav (a 2029 ship is NOT worth today's delivered price). 8x NTS
+  # (300k) + 4x CIMC (319k). Q-only dates dated to mid-quarter.
+  - {id: VLCC_vision,    class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 0.1}   # Mount Vision, Jul-26
+  - {id: VLCC_horizon,   class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 0.6}   # Mount Horizon, Jan-27
+  - {id: VLCC_frontier,  class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 1.1}   # Mount Frontier, Aug-27
+  - {id: VLCC_summit,    class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 1.3}   # Mount Summit, Oct-27
+  - {id: VLCC_cimc_2028, class: VLCC, dwt: 319000, age: 0, scrubber: true, eco: true, count: 4, years_to_delivery: 2.0}   # Vanguard/Pursuit/Pinnacle/Discovery, 2028 (intra-year est.)
+  - {id: VLCC_endeavour, class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.4}   # Mount Endeavour, Q4-28
+  - {id: VLCC_odyssey,   class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.6}   # Mount Odyssey, Q1-29
+  - {id: VLCC_venture,   class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.9}   # Mount Venture, Q2-29
+  - {id: VLCC_voyager,   class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 3.1}   # Mount Voyager, Q3-29
+
+# Mount Vision is on an index-linked TC ($95k/day net Jul-26→Mar-27, then
+# index-linked, expires 2031) — index-linked ≈ spot for v1; the rest are open.
+spot_coverage_pct:
+  VLCC: 1.0
+
+# On-water VLCC count ramp for the 8-quarter strip (q3_2026 → q2_2028), from the
+# real per-vessel delivery dates: Vision Jul-26 (q3'26), Horizon Jan-27 (q1'27),
+# Frontier Aug-27 (q3'27), Summit Oct-27 (q4'27); the 4x CIMC + Endeavour land
+# 2028+ (mid-point Apr'28 per Pareto → ~half delivered by q2'28). CIMC intra-2028
+# timing is our estimate.
+fleet_schedule:
+  VLCC: [1, 1, 2, 2, 3, 4, 4, 6]
+
+fleet_summary:
+  VLCC_count: 12
+  on_water_at_quarter_end: 0
+  newbuilds_committed: 12       # ~$1,370M remaining commitment ($1,484M total − $114M paid)
+  avg_age_VLCC: 0.0

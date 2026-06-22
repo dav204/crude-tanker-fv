@@ -110,3 +110,8 @@ GSL:
   window_end: 2026-08-06
   status: expected
   basis: "Q2-25 Aug-5 pre-market; Q1-26 followed 10-day-notice pattern (notice May-12, release May-22)"
+BRUT:
+  window_start: 2026-08-13
+  window_end: 2026-08-13
+  status: confirmed
+  basis: "HALF-YEARLY reporter (owner-confirmed): H1-2026 earnings 2026-08-13. No Q1/Q3 interims — this is the first issuer report to confirm the Pareto-derived onboarding inputs."

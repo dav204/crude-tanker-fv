@@ -36,6 +36,11 @@ class Vessel:
     # carve-out. None => binary by sleeve (1.0 crude / 0.0 product). Set e.g. 0.30
     # for dual-use LR1 (trades dirty ~30% of the time per the historical split).
     crude_fraction: Optional[float] = None
+    # Years until a committed-but-undelivered newbuild is delivered. 0.0 => on the
+    # water now (no time-to-delivery discount). >0 => compute_nav PV-discounts this
+    # vessel's delivered-market value for the wait (METHODOLOGY §9.6). Defaults to
+    # 0.0 so existing on-water fleets are unaffected.
+    years_to_delivery: float = 0.0
 
 
 @dataclass

@@ -251,3 +251,23 @@ GSL:
                                # $10.24) — issuer-derived, not consensus.
   sector: containerships
   as_of: 2026-06-12
+
+BRUT:
+  current_price: 5.40          # NOK 50 (Pareto initiation 2026-04-22) / USDNOK ~9.26
+                               # (report-implied). OSLO-LISTED, NOK-quoted — watchlist
+                               # carries USD for cross-name comparability; the daily
+                               # refresh fetches BRUT.OL and converts (yahoo_symbol +
+                               # quote_currency below). 20th name, onboarded 2026-06-22.
+  analyst_target: 7.13         # Pareto TP NOK 66 (= current NAV; BUY since the 2026-04-22
+                               # initiation) / 9.26.
+  consensus_pnav: 0.75         # Pareto initiation 2026-04-22 (same-vintage as price;
+                               # implied broker NAV = 5.40/0.75 = $7.20 ≈ NOK 66.7 ≈
+                               # Pareto's published NAV NOK 66). Real Pareto coverage —
+                               # NOT APPROX. Series in pareto_share_prices.csv (0.73-0.79x).
+  consensus_fwd_pe: 22.0       # Pareto NTM P/E (Apr-2026 vintage). HIGH / not meaningful —
+                               # pre-operational (first vessel delivers Jul-2026); EPS-xref
+                               # reads as noise for BRUT until vessels are on the water.
+  sector: crude                # pure-play VLCC newbuild vehicle (12x firm NB).
+  yahoo_symbol: BRUT.OL        # bare "BRUT" on Yahoo is the wrong issuer — use BRUT.OL.
+  quote_currency: NOK          # refresh converts NOK close → USD via NOK=X.
+  as_of: 2026-04-22            # Pareto initiation vintage (no Q1 report; H1-2026 due Aug-13).

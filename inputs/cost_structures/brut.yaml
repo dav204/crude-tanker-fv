@@ -1,0 +1,18 @@
+# BRUT (Bruton Ltd) cost structure — METHODOLOGY.md section 4.4. USD.
+# Pre-operational (first vessel Jul-2026); figures are Pareto-estimate, confirm
+# at H1-2026. Brand-new VLCCs -> low R&M. Pareto run-rate (12x VLCC @ $100k/day)
+# pegs EV/EBITDA ~4x; P&L 2026e rev $13M / EBITDA $11M ramping as vessels deliver.
+ticker: BRUT
+
+opex_per_day:
+  VLCC: 8000                  # modern super-eco VLCC (CAPT-equivalent)
+  Suezmax: 7500               # unused (VLCC-only fleet) — schema completeness
+  Aframax: 7000               # unused
+
+annual_G_and_A: 3000000       # small holdco pre-operational (Pareto 2026e EBITDA $11M on rev $13M)
+
+# Pareto net interest: 2026e ~$1M -> 2027e ~$13M -> 2028e ~$30M as NB debt draws
+# on delivery. Strip horizon (q3'26 -> q2'28) average ~$12M.
+annual_interest_expense: 12000000
+
+effective_tax_rate: 0.0       # Bermuda-incorporated (no corporate income tax)

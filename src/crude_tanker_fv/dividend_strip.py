@@ -140,9 +140,21 @@ def _blended_tce_by_class(inputs: CompanyInputs, q: int) -> dict[str, float]:
 
 
 def _terminal_nav_per_share(inputs: CompanyInputs, quarters_forward: int) -> float:
-    """NAV/share with the fleet aged forward, balance sheet held constant."""
+    """NAV/share with the fleet aged forward, balance sheet held constant.
+
+    A newbuild delivered before the terminal date drops its time-to-delivery
+    discount (§9.6) and starts aging from delivery; one still pending keeps a
+    reduced discount. ``years_to_delivery`` defaults to 0 (on the water), so an
+    existing fleet just ages by ``years`` exactly as before."""
     years = quarters_forward / 4.0
-    aged_vessels = [replace(v, age=v.age + years) for v in inputs.fleet.vessels]
+    aged_vessels = [
+        replace(
+            v,
+            age=v.age + max(0.0, years - v.years_to_delivery),
+            years_to_delivery=max(0.0, v.years_to_delivery - years),
+        )
+        for v in inputs.fleet.vessels
+    ]
     aged = replace(inputs, fleet=replace(inputs.fleet, vessels=aged_vessels))
     return compute_nav(aged).nav_per_share
 

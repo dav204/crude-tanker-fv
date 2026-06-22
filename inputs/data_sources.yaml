@@ -268,6 +268,22 @@ CAPT:
     Onboarded 2026-06-11. IR URLs unverified-by-fetch at onboarding — verify
     on first issuer-report pull (Q2 refresh)."
 
+BRUT:
+  ir_home: https://bruton-ltd.com/
+  press_releases: https://bruton-ltd.com/news/
+  fleet_page: https://bruton-ltd.com/fleet/   # PRIMARY for the per-vessel NB schedule
+  sec_edgar: null   # Oslo-listed (Euronext Growth Oslo, NOK) — no SEC filings;
+                    # primary disclosures via newsweb.oslobors.no + company IR.
+  reporting_pattern: "HALF-YEARLY reporter — H1-2026 due 2026-08-13 (owner-
+    confirmed); no Q1/Q3 interims. Pareto covers (initiation 2026-04-22, BUY
+    TP NOK 66) — the dailies + the initiation are the running source until H1."
+  notes: "Bruton Ltd — pure-play VLCC newbuild vehicle (Magni Partners / Tor Olav
+    Trøim; Koch ~26% / Trøim ~20% / float ~54%), listed Oslo late-2024. 12 firm
+    VLCC NB (8 NTS 300k + 4 CIMC Raffles 319k), 0 on the water, deliveries
+    Jul-2026 → Q3-2029. Onboarded 2026-06-22 via the §9.6 time-to-delivery
+    discount (raw delivered-less-commitment NAV was +116% vs Pareto; PV-
+    discounting the NB deliveries lands it at +30.6%, SANITY OK)."
+
 MPCC:
   ir_page: https://www.mpc-container.com/investors/
   fleet_page: https://www.mpc-container.com/fleet/our-fleet/

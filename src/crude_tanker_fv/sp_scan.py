@@ -132,6 +132,7 @@ NAME_ALIASES: dict[str, list[re.Pattern]] = {
     # "Capital Tankers" only — bare "Capital" collides with Capital Clean
     # Energy (CCEC) and Capital Product Partners, same Marinakis group.
     "CAPT": [re.compile(r"\bCAPT\b"), re.compile(r"\bCapital Tankers\b", re.IGNORECASE)],
+    "BRUT": [re.compile(r"\bBRUT\b"), re.compile(r"\bBruton\b", re.IGNORECASE)],
     # Containerships (added 2026-06-12, §11.8 validators). "MPC Container" /
     # "MPCC" — bare "MPC" collides with non-shipping uses in macro prose.
     "MPCC": [re.compile(r"\bMPCC\b"), re.compile(r"\bMPC Container", re.IGNORECASE)],

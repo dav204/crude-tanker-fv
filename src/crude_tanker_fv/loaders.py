@@ -77,6 +77,7 @@ def load_fleet_manifest(ticker: str, inputs_dir: Path = INPUTS_DIR) -> FleetMani
                 count=int(raw.get("count", 1)),
                 sleeve=raw.get("sleeve", "crude"),
                 crude_fraction=raw.get("crude_fraction"),
+                years_to_delivery=float(raw.get("years_to_delivery", 0.0) or 0.0),
             )
         )
 

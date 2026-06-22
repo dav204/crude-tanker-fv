@@ -21,6 +21,15 @@ from dataclasses import dataclass
 from .schemas import CompanyInputs
 from .vessel_values import vessel_market_value
 
+# Time-to-delivery discount for committed-but-undelivered newbuilds (METHODOLOGY
+# §9.6, resolved 2026-06-22). A newbuild arriving in t years is worth its
+# delivered-market value discounted to today; matches the 11% strip discount
+# rate. Applied per-vessel via `years_to_delivery` (0 => on the water => factor
+# 1.0, so existing fleets are unaffected). The remaining capex commitment is
+# kept at face on the balance sheet (conservative; PV-ing the payment schedule
+# is a further refinement).
+NEWBUILD_DELIVERY_DISCOUNT_RATE = 0.11
+
 
 @dataclass
 class NavResult:
@@ -72,8 +81,16 @@ def compute_nav(inputs: CompanyInputs) -> NavResult:
         curve = curves.get(vessel.cls)
         if curve is None:
             raise ValueError(f"no vessel value curve for class {vessel.cls!r}")
-        value = vessel_market_value(vessel, curve, yard_discounts) * vessel.count
-        value_ex = vessel_market_value(vessel, curve, None) * vessel.count
+        # PV-discount a not-yet-delivered newbuild's delivered value for the wait
+        # to delivery (§9.6). years_to_delivery defaults to 0 (on the water) ->
+        # pv 1.0, so on-water fleets are unaffected.
+        pv = (
+            (1.0 + NEWBUILD_DELIVERY_DISCOUNT_RATE) ** (-vessel.years_to_delivery)
+            if vessel.years_to_delivery
+            else 1.0
+        )
+        value = vessel_market_value(vessel, curve, yard_discounts) * vessel.count * pv
+        value_ex = vessel_market_value(vessel, curve, None) * vessel.count * pv
         fleet_value += value
         fleet_value_ex += value_ex
         by_class[vessel.cls] = by_class.get(vessel.cls, 0.0) + value

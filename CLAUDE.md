@@ -499,6 +499,18 @@ quick-ref price unless the note itself is being updated.)
   + NB-heavy; cosmetic). Onboarded 2026-06-11 from archived Pareto
   initiation + Q1 review — pull issuer Q1 report at Q2 refresh.
 
+- **BRUT** — 20th name, the CAPT natural-experiment comp. Pure-play VLCC
+  newbuild vehicle (Trøim/Magni; Koch 26% / Trøim 20% / float 54%; NO >50%
+  controller), Oslo Growth/NOK (`yahoo_symbol: BRUT.OL`). 12 firm VLCC NB
+  (8 NTS 300k + 4 CIMC 319k), **0 on the water** — first delivers Jul-2026,
+  last Q3-2029. The name that **resolved §9.6**: raw delivered-less-commitment
+  NAV was +116% vs Pareto (SANITY=FAIL — the $175M VLCC mark on a 100%-NB book,
+  "max torque"); the time-to-delivery PV discount lands it at +30.6% (OK), NAV
+  $9.40, BUY (EV +97%). Real Pareto coverage (NOT APPROX; 0.75× NAV). Pre-
+  operational max-torque + ~75% LTV (equity-raise/dilution risk); §15 partial
+  (provisional 0%, fee/control pending the prospectus). Half-yearly reporter —
+  H1-2026 (Aug-13) confirms the Pareto-estimate financials. Onboarded 2026-06-22.
+
 - **MPCC** — 1st containerships validator (Oslo/NOK; `yahoo_symbol:
   MPCC.OL`). 51 on-water (21 feeder / 30 intermediate, ~129k TEU) + 15
   OWNED NB rows at the CAPT §3.1 net-of-commitment convention ($633.7M
@@ -562,6 +574,30 @@ sessions.
 
 ## Changelog
 
+- **2026-06-22 — BRUT (Bruton Ltd) onboarded as the 20th name + §9.6
+  time-to-delivery newbuild discount resolved (BRUT-first).** Bruton =
+  pure-play VLCC newbuild vehicle (Trøim/Magni; Koch 26% / Trøim 20% / float
+  54%), Oslo Growth, 12 firm VLCC NB (0 on the water), deliveries Jul-2026 →
+  Q3-2029. Real per-vessel fleet from bruton-ltd.com/fleet/; financials from the
+  Pareto initiation 2026-04-22 (half-yearly reporter — H1-2026 due Aug-13
+  confirms). **The build first hit SANITY=FAIL +116%**: the §3.1/§9.6
+  delivered-less-commitment convention credited the full delivered-today VLCC
+  mark ($175M) to ships arriving up to 3 years out — on a 100%-NB balance sheet
+  the ~30% mark premium over Pareto's ~$143M/VLCC levered ~2.5x ("max torque").
+  **Fix (owner-directed, resolves the long-open §9 #6):** `compute_nav` now
+  PV-discounts a not-yet-delivered NB's delivered value by `1.11^(−years_to_delivery)`
+  per vessel (`NEWBUILD_DELIVERY_DISCOUNT_RATE`; commitment kept at face); the
+  strip terminal advances `years_to_delivery`. **Backward-compatible** —
+  `years_to_delivery` defaults to 0 (on the water → factor 1.0), so the other 19
+  names are byte-identical (286 tests green, all pins held). BRUT lands NAV $9.40
+  vs Pareto $7.20 = **+30.6%, SANITY OK**, BUY (EV +97%). New manifest field +
+  loader; schemas.Vessel.years_to_delivery; data_sources + NAME_ALIASES +
+  earnings-calendar (Aug-13) wired; §15 partial (provisional 0%, fee/control
+  pending the prospectus). **Mistake corrected mid-task:** I began unilaterally
+  reverting BRUT on the +116% FAIL — Dan stopped me; a failed gate is a finding
+  to surface, not a trigger to back out (memory saved). **ROLLOUT of the §9.6
+  discount to the other newbuild books (CAPT/FRO/MPCC/GSL/CMDB) is a pending
+  owner decision** — it moves their NAVs and needs re-validation.
 - **2026-06-21 — automation-drift policy set + `commit_drift.sh` helper added
   (owner decision).** The recurring problem: launchd jobs write to TRACKED files
   (prices_daily, baltic CSV, sp_scan cursor + candidates, `_manifest.json`,
