@@ -10,21 +10,19 @@
 # scope: name-level rows use the ticker; sector-wide rows use the sector key.
 
 overlays:
-  - name: NAT
-    overlay_id: "§12"
-    direction: up
-    magnitude: "qualitative — treat tool FV as the NAV floor, not the call"
-    applied: 2026-06-05
-    retire_trigger: "payout window closes (cycle normalization) or payout ratio drops below ~90%"
-    note: "High-payout pure-play at peak; the dividend stream IS the thesis the strip undercounts."
+  # NAT §12 is no longer a curated row — the §12.6 dividend-window row
+  # auto-derives from the COMPUTED classification (overlay_ledger.dividend_window_rows).
+  # The prior hand-written "treat tool FV as the NAV floor" row was the exact
+  # documentation-vs-control drift audit E-2 named: it asserted direction=up while
+  # the §12.5–§12.7 test classifies NAT as TRIM-stands (value trap). Do not re-add it.
 
   - name: SBLK
-    overlay_id: "§12"
+    overlay_id: "§12.2"
     direction: up
     magnitude: "qualitative"
     applied: 2026-06-09
     retire_trigger: "dry-bulk cycle position back inside ~1.2x of anchor"
-    note: "Peak dry bulk per §12.2; tool TRIM at band-edge — read §12 before acting on the short side."
+    note: "Peak dry bulk per §12.2 (NOT the §12.6 dividend-window gate — SBLK is not a high-payout single-class pure-play); tool TRIM at band-edge — read §12 before acting on the short side."
 
   - name: DHT
     overlay_id: "§14.4"

@@ -5,6 +5,19 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — §16 overlay ledger: §12 dividend-window is now a control, not docs
+  (closes audit E-2 for this overlay type).** `overlay_ledger.py` gains
+  `dividend_window_rows(quarter)`, which auto-derives a **§12.6** row per gated name
+  from the COMPUTED `dividend_window.build_rows` classification (same pattern as the §15
+  governance auto-rows). NAT now renders as a *neutral* row — "TRIM stands (value trap)
+  — premium NOT rate-supported (Q*>strip > H=8.0); no floor, no FV change" — with a "·"
+  arrow (render gained a neutral direction). The **stale hand-written NAT §12 row**
+  (`direction: up`, "treat tool FV as the NAV floor") is removed from `inputs/overlays.yaml`:
+  it directly contradicted the computed TRIM-stands classification — the exact
+  documentation-vs-control drift E-2 named. SBLK's peak-cycle note relabelled **§12.2**
+  to disambiguate it from the §12.6 dividend-window gate (SBLK is not a high-payout
+  single-class pure-play). `overlay_ledger.main` takes `--quarter` (defaults to latest
+  balance-sheet quarter). +3 tests (308→311).
 - **2026-06-22 — Phase 3(a) value-premium proxy test (Option C; powered, on the actual
   universe).** Pre-registered **Amendment 3** to `backtest/PRE_REGISTRATION.md` and committed
   it (`db9c4f6`) *before* writing any result-producing code — the same git-order discipline as

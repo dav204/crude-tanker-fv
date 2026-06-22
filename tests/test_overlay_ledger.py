@@ -1,6 +1,17 @@
-from crude_tanker_fv.overlay_ledger import curated_rows, governance_rows, render
+from crude_tanker_fv.dividend_window import DividendWindowRow
+from crude_tanker_fv.overlay_ledger import (
+    curated_rows, dividend_window_overlay, governance_rows, render,
+)
 
 REQUIRED = {"name", "overlay_id", "direction", "magnitude", "applied", "retire_trigger"}
+
+
+def _dw_row(**kw):
+    base = dict(ticker="NAT", sector="crude", price=5.2, tool_nav=2.07, premium_x=2.51,
+                payout_ratio=1.0, herfindahl=1.0, cycle_position=1.9, gated=True,
+                gap=3.13, q_star=None, supported_horizon=8.0, classification="TRIM-stands")
+    base.update(kw)
+    return DividendWindowRow(**base)
 
 
 def test_curated_rows_carry_required_fields():
@@ -24,3 +35,31 @@ def test_render_contains_every_row():
     md = render(rows)
     for r in rows:
         assert f"| {r['name']} | {r['overlay_id']} |" in md
+
+
+def test_dividend_window_overlay_maps_computed_classification():
+    # TRIM-stands → neutral §12.6 row (override evaluated, did NOT fire)
+    trim = dividend_window_overlay(_dw_row(classification="TRIM-stands", q_star=None))
+    assert trim["overlay_id"] == "§12.6"
+    assert trim["direction"] == "none"
+    assert "TRIM stands" in trim["magnitude"]
+    assert trim["_auto"] is True
+    # undervaluation → up
+    under = dividend_window_overlay(_dw_row(classification="undervaluation", q_star=4.0, supported_horizon=8.0))
+    assert under["direction"] == "up" and "undervaluation" in under["magnitude"]
+    # not gated → no overlay row at all
+    assert dividend_window_overlay(_dw_row(gated=False, classification="n/a")) is None
+
+
+def test_render_handles_neutral_direction():
+    md = render([dividend_window_overlay(_dw_row())])
+    assert "| NAT | §12.6 | · |" in md           # neutral arrow, row present
+
+
+def test_no_stale_nat_floor_override_in_curated():
+    """audit E-2: the §12 'NAV floor' hand-row must be gone — §12 dividend-window
+    direction is now the COMPUTED §12.6 row, never a curated assertion."""
+    for r in curated_rows():
+        assert not (r["name"] == "NAT" and r["overlay_id"].startswith("§12")), \
+            "NAT §12 must auto-derive from the dividend-window test, not overlays.yaml"
+        assert r["overlay_id"] != "§12.6", "§12.6 rows must be auto-derived, not curated"

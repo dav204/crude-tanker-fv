@@ -6,9 +6,9 @@ forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest. Development proceeds
 normally (the 2026-06-14 "development freeze" was lifted 2026-06-21).
 
-**Current state (2026-06-22):** 20 watchlist names across 5 sectors; **308 tests
-green**; `reconcile --all` 20/20 SANITY OK (0 fail, 0 drift); committed drift gate
-ratified (Phase 2 below). This session ran a **methodology-soundness sprint** (full
+**Current state (2026-06-22):** 20 watchlist names across 5 sectors; **311 tests
+green** (+11 backtest, run separately); `reconcile --all` 20/20 SANITY OK (0 fail,
+0 drift); committed drift gate ratified (Phase 2 below). This session ran a **methodology-soundness sprint** (full
 adversarial audit → fixes — see below) and then built the **Phase 2 ongoing
 accuracy gate**. Per-change detail is in `CHANGELOG.md`; the full analyses live in
 the `outputs/*_2026-06-22.md` memos.
@@ -80,9 +80,14 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     vessel-mark backfill (or a structured Clarksons/VesselsValue feed — both
     declined so far) per `outputs/test1_data_feasibility_memo_2026-06-22.md`. Its
     own go/no-go.
-- **§16 overlay-ledger row for §12** (small): wire the §12 dividend-window
-  classification into the overlay ledger (resolved direction + `Q*`), closing the
-  audit E-2 "ledger is documentation, not a control" gap for this overlay type.
+- **§16 overlay-ledger row for §12 — ✅ DONE (2026-06-22).** `overlay_ledger.py`
+  now auto-derives a **§12.6** row per gated name from the COMPUTED
+  dividend-window classification (`dividend_window.build_rows`), mirroring the §15
+  auto-population. NAT renders as a *neutral* "TRIM stands (value trap), no FV
+  change" row (Q*>strip vs H=8.0); the stale hand-written NAT "treat FV as a NAV
+  floor" §12 row (which contradicted the computed TRIM-stands) is removed and SBLK
+  relabelled §12.2. Closes audit E-2 ("ledger is documentation, not a control")
+  for this overlay type — the row can no longer drift from the diagnostic. +3 tests.
 - **Tier-4 structural backlog (manage/document — owner judgment, detail per item
   in `outputs/METHODOLOGY_AUDIT_2026-06-22.md` §A–G):** cycle step-band vs
   logistic (C-1); cross-sector anchor commensurability + suppress cross-sector
