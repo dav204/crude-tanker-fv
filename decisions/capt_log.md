@@ -9,6 +9,53 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-22 — Q1 PRIMARY-SOURCE CONFIRMATION DONE — build validated, broker-sourced caveat CLEARED
+
+Pulled CAPT's issuer Q1 2026 earnings release (the deferred primary source) from
+the Oslo release and reconciled it against the Pareto-derived balance sheet.
+Archived: `inputs/research_issuer/2026-Q1_capt_earnings_release.pdf`. **Every
+material line matches:**
+
+| Line | YAML (Pareto) | Issuer Q1 | |
+|---|--:|--:|---|
+| Cash | $405.0M | $404.9M unrestricted (+$3.0M restricted = $407.9M) | ✓ |
+| Total IB debt | $217.0M | $217.0M (205.1 + 11.9); **net CASH $189.5M** | ✓ |
+| Diluted shares | 133.70M | 133,692,593 (131.05M Mar-31 + over-allotment) | ✓ |
+| Leases | 0 | none (NB financing is mortgage debt) | ✓ |
+| Preferred | 0 | none issued | ✓ |
+| Fleet | 30 (12/10/8) | 30: 12 VLCC / 10 Suez / 8 Afra-LR2; 12 sailing + 18 NB | ✓ |
+| NB capex | $1,880M | per-vessel CAPEX table, sums ≈$1.88-1.9bn | ✓≈ |
+
+**The "broker-built, not issuer-confirmed" caveat (the biggest CAPT caveat) is
+CLEARED.** No valuation change — numbers held (confirmed accurate); only the YAML
+provenance comment updated, $0 NAV move.
+
+**New from the primary (not in the Pareto proxy):**
+- **$9.0M dividend declared to Capital Maritime** alongside the NOK 0.50/sh common
+  Q1 dividend — a sponsor-directed distribution; note for §15 (distribution
+  behaviour). Likely a pre-IPO accrued/parent dividend — verify nature at Q2.
+- **Net CASH $189.5M** (cash $407.9M vs $218.4M debt) + **$314.1M secured undrawn
+  financing** — strong liquidity into the NB programme (eases tripwire 6, though
+  the Jun-16 sponsor VLCC $111.8M upfront still lands against it).
+- **Full per-vessel NB CAPEX schedule** (vessels 1-21, staged to 2028) now on file
+  — supersedes the Pareto $1,880M aggregate; rebuild the NB schedule precisely at
+  Q2. **Optional Fleet** detailed: 11 VLCC (Hengli) + 2 Suezmax = the 13 options.
+- M/T Aristotelis II (VLCC) fixed a 1-yr TC at **$100,000/day**; Q2 ~71% of spot
+  days booked at **$153,059/day** — supports the forward strip.
+- Total shareholders' equity $1,609.8M (book ~$12.04/sh vs tool NAV $17.74 — the
+  NB-uplift gap, as designed).
+
+**Open reconciliation item (Q2 nicety):** `working_capital_net` $13M (Pareto
+bridge) vs issuer prepayments $1.1M — ~$0.09/sh, immaterial; resolve to the issuer
+line items at the Q2 refresh, along with the exact NB-capex sum.
+
+**Decision:** Q1 inputs ratified as issuer-confirmed; CAPT's BUY (+33.5% EV at live
+price) no longer carries the broker-sourced-inputs caveat. Remaining live caveats
+unchanged — Marinakis control + the six §15 tripwires; the Jun-16 sponsor VLCC deal
+funding still to verify; NOK/FX.
+
+---
+
 ## 2026-06-21 — Sponsor VLCC asset transfer (from news-pull) — §15 tripwires 4/6 (and 1, conditional) REVIEWED; no haircut change
 
 **Source:** 2026-06-21 news-pull web sweep — Splash247, 2026-06-16

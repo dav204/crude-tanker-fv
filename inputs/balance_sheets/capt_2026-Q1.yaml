@@ -1,18 +1,27 @@
 # Capital Tankers balance sheet snapshot — METHODOLOGY.md section 4.2
-# Source: Pareto quarterly review 2026-05-27 (Q1'26 actuals column of the
-# quarterly balance-sheet table + the NAV bridge), archived at
-# inputs/research_pareto_other/linked/2026-05-27_linked-501961.pdf.
-# Company filings are Oslo-listed (no SEC 6-K); pull the issuer Q1 report
-# at the Q2 refresh for primary-source confirmation. USD.
+# Source: Pareto quarterly review 2026-05-27, CONFIRMED 2026-06-22 against the
+# issuer Q1 2026 earnings release (CAPT_Q1_2026_Earnings_Release_FINAL; archived
+# inputs/research_issuer/2026-Q1_capt_earnings_release.pdf, pulled from the Oslo
+# release). All material lines match the issuer — cash, debt, shares, leases,
+# preferred, fleet (30 = 12 VLCC / 10 Suezmax / 8 Afra-LR2). Reconciliation +
+# findings (net CASH $189.5M; $9.0M dividend to Capital Maritime; full per-vessel
+# NB CAPEX schedule + 13-option "Optional Fleet") in decisions/capt_log.md
+# 2026-06-22. USD.
 ticker: CAPT
 quarter: 2026-Q1
 
-cash_and_equivalents: 405000000      # Q1'26 actual (post-IPO $500M raise)
+cash_and_equivalents: 405000000      # issuer $404.9M unrestricted (+$3.0M restricted
+                                     # = $407.9M total); YAML holds the conservative
+                                     # unrestricted figure. Confirmed 2026-06-22.
 
-# Pareto NAV bridge "Other assets, net" +13 (May-27 review).
+# Pareto NAV bridge "Other assets, net" +13 (May-27 review). NOTE 2026-06-22:
+# issuer balance sheet shows prepayments & other assets $1.1M — the ~$12M gap
+# is the Pareto bridge netting other working-capital items; ~$0.09/sh, immaterial.
+# Resolve to the issuer line items at the Q2 refresh.
 working_capital_net: 13000000
 
-total_debt: 217000000                # IB non-current 205 + IB current 12 (Q1'26)
+total_debt: 217000000                # IB non-current 205.1 + current 11.9 = 217.0
+                                     # (issuer-confirmed 2026-06-22; net CASH $189.5M)
 
 lease_liabilities: 0                 # none disclosed; NB financing is mortgage debt
 
