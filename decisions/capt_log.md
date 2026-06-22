@@ -9,6 +9,45 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-21 — Sponsor VLCC asset transfer (from news-pull) — §15 tripwires 4/6 (and 1, conditional) REVIEWED; no haircut change
+
+**Source:** 2026-06-21 news-pull web sweep — Splash247, 2026-06-16
+(https://splash247.com/capital-tankers-adds-three-vlcc-newbuilds-from-marinakis-affiliate/).
+**NOT issuer-confirmed** — verify against the CAPT primary filing at the Q2
+refresh before any input action.
+
+**Event:** Capital Tankers acquired **3× VLCC newbuild contracts from Capital
+Maritime** (the Marinakis sponsor affiliate) at **$122M each** (Hengli, deliveries
+Sep–Nov 2027), with **$111.8M upfront due by Jun-30-2026**. Reported indicative
+appraisals ~$150M each → ~$82M of stated value accretion to CAPT. CAPT separately
+retains 13 unexercised options (11 VLCC / 2 Suezmax) at original contract prices
+through Dec-31-2026.
+
+**§15 mapping (the tripwire list below):**
+- **Tripwire 4 (sponsor merger/reshuffle) — FIRES as a related-party asset
+  transfer**, the sponsor→listco shuffle this group structure enables. Per the §15
+  doctrine (a haircut prices EVIDENCE of realisation impairment; the mechanism only
+  generates tripwires), *direction* matters: the stated terms ($122M paid vs ~$150M
+  appraised) are **accretive to CAPT minorities** — a sponsor selling below appraisal
+  cuts AGAINST a value-extraction haircut, not for one. **§15 read stays 0%** on the
+  current information.
+- **Tripwire 6 (Q1-2027 NB-debt landing) — pressure.** The $111.8M upfront (due
+  Jun-30) plus three more VLCCs deepen the ~$385M NB-debt requirement; the liquidity
+  tripwire sits closer to the surface. Confirm financing at Q2.
+- **Tripwire 1 (option-funding dilution) — CONDITIONAL.** Not an option exercise, but
+  the same risk: if the $111.8M upfront is funded by equity issued below NAV with no
+  pre-emptive rights, T1 fires. **Funding method is the key unknown — verify it.**
+
+**Decision (documented, NOT actioned):** No §15 haircut change (the transfer reads
+accretive, not extractive, on stated terms). No input edit — the 3 VLCCs are a
+fleet / NB-schedule change that enters via the Q2 refresh from the issuer report,
+not from a trade-press line (CAPT primary-source confirmation was already deferred
+to Q2). **Q2 verification asks:** (1) appraisal basis + actual transfer terms;
+(2) funding method for the $111.8M (equity-below-NAV → T1 fires); (3) updated
+NB-debt schedule (T6). Watchlist untouched (human-only promotion).
+
+---
+
 ## 2026-06-12T21:55:24+00:00 — Pipeline run (auto)
 
 **Model state:**
