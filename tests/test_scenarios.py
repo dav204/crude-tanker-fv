@@ -8,10 +8,15 @@ import pytest
 
 from crude_tanker_fv.loaders import load_company_inputs
 from crude_tanker_fv.scenarios import (
+    ANCHOR_BASIS_LABELS,
+    all_sector_anchor_bases,
+    detect_mixed_anchor_basis,
     load_scenarios,
     position_recommendation,
     run_scenarios,
 )
+
+SECTORS = ("crude", "lng", "product", "dry_bulk", "containerships")
 
 
 @pytest.fixture(scope="module")
@@ -32,6 +37,48 @@ def test_scenarios_parse_and_weights_sum_to_one(doc):
     # with its own cycle_anchors, and the sector name is stamped in.
     assert doc["sector"] == "crude"
     assert set(doc["cycle_anchors"]) >= {"vlcc", "suezmax", "aframax_dirty", "lr2_clean"}
+
+
+# ---------------------------------------------------------------------------
+# Anchor-basis commensurability (B5 — METHODOLOGY §10)
+# ---------------------------------------------------------------------------
+def test_all_cycle_anchors_carry_valid_anchor_basis():
+    """Every cycle_anchor block in every sector must declare an anchor_basis
+    drawn from the recognised enum (B5 — METHODOLOGY §10)."""
+    valid = set(ANCHOR_BASIS_LABELS)
+    for sector in SECTORS:
+        anchors = load_scenarios(sector=sector)["cycle_anchors"]
+        assert anchors, f"{sector} has no cycle_anchors"
+        for cls, block in anchors.items():
+            assert "anchor_basis" in block, f"{sector}.{cls} missing anchor_basis"
+            assert block["anchor_basis"] in valid, \
+                f"{sector}.{cls} anchor_basis {block['anchor_basis']!r} not in {valid}"
+
+
+def test_anchor_basis_uniform_within_each_sector_and_all_three_present():
+    """No sector may mix bases internally (that would surface as 'MIXED'), and
+    all three known bases appear somewhere across the book."""
+    basis_map = all_sector_anchor_bases()
+    valid = set(ANCHOR_BASIS_LABELS)
+    assert basis_map
+    assert all(b in valid for b in basis_map.values())   # no 'MIXED', no junk
+    assert valid <= set(basis_map.values())              # all three are in use
+    assert basis_map["crude"] == "tc_10yr_mean"
+    assert basis_map["dry_bulk"] == "archive_22mo_median"
+    assert basis_map["containerships"] == "fy_calendar_avg"
+
+
+def test_detect_mixed_anchor_basis():
+    # Tanker + LNG sectors share tc_10yr_mean → no cross-basis mix.
+    assert detect_mixed_anchor_basis(["crude", "product", "lng"]) is None
+    # A single sector is trivially one basis.
+    assert detect_mixed_anchor_basis(["dry_bulk"]) is None
+    # A cross-basis pairing returns the basis→sectors map with >1 entry.
+    mix = detect_mixed_anchor_basis(["crude", "dry_bulk", "containerships"])
+    assert mix is not None
+    assert set(mix) == {"tc_10yr_mean", "archive_22mo_median", "fy_calendar_avg"}
+    assert "crude" in mix["tc_10yr_mean"]
+    assert mix["archive_22mo_median"] == ["dry_bulk"]
 
 
 def test_run_scenarios_weighted_average_identity(doc):

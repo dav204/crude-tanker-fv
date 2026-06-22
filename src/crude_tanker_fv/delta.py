@@ -28,6 +28,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
+from .scenarios import detect_mixed_anchor_basis, format_mixed_anchor_basis
+
 # Project root resolved relative to this file (src/crude_tanker_fv/delta.py)
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 STATE_DIR = PROJECT_ROOT / "state"
@@ -397,6 +399,18 @@ def _render_full_table(r: DeltaReport) -> str:
     lines.append("")
     lines.append("_⚑ flags a material change (position flip, |ΔFV%| > 10%, "
                  "|Δspread| > 5pp, or |ΔNAV%| > 5%). ⟵ marks a position flip._")
+
+    # MIXED-ANCHOR-BASIS flag (B5 — METHODOLOGY §10): the table mixes sectors,
+    # whose cycle anchors use incompatible bases. Cycle-position reads are only
+    # comparable within a basis, never across — surface that here.
+    mix = detect_mixed_anchor_basis(d.current.sector for d in r.deltas)
+    if mix:
+        lines.append("")
+        lines.append(
+            f"_⚠ MIXED-ANCHOR-BASIS: this table spans {len(mix)} incompatible "
+            "cycle-anchor bases — cycle-position ratios are NOT comparable across "
+            f"them (METHODOLOGY §10): {format_mixed_anchor_basis(mix)}._"
+        )
     return "\n".join(lines)
 
 

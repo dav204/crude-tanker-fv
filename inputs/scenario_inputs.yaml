@@ -364,19 +364,26 @@ sectors:
     # ratio = (forward 12M base) / (10yr mean). Threshold bands per
     # METHODOLOGY.md section 2.3.
     # =======================================================================
+    # anchor_basis (B5/§10): all crude anchors are TC-anchored 10-year means.
+    # The basis does not numerically compose with dry-bulk (22-month archive
+    # median) or containership (FY calendar average) anchors — see METHODOLOGY §10.
     cycle_anchors:
       vlcc:
         ten_year_mean: 40000
         source: Baltic TD3C historical 2016-2025
+        anchor_basis: tc_10yr_mean
       suezmax:
         ten_year_mean: 27747
         source: Baltic TD20 historical
+        anchor_basis: tc_10yr_mean
       aframax_dirty:
         ten_year_mean: 36483
         source: Baltic TD25 historical (Wk40 2025 reference)
+        anchor_basis: tc_10yr_mean
       lr2_clean:
         ten_year_mean: 27000
         source: Baltic TC1 historical, approximate
+        anchor_basis: tc_10yr_mean
       # MR cycle anchor moved to sectors.product.cycle_anchors.mr (2026-06-01).
       # The crude sector no longer routes any product-class scenarios; clean-trade
       # MR / LR1 / LR2 live entirely under sectors.product. See METHODOLOGY §11.5.
@@ -635,15 +642,19 @@ sectors:
     # =======================================================================
     # LNG — CYCLE WEIGHTING ANCHORS
     # =======================================================================
+    # anchor_basis (B5/§10): LNG anchors are TC-anchored 10-year means (same
+    # basis as crude/product; not comparable to dry-bulk / containership bases).
     cycle_anchors:
       lng:
         ten_year_mean: 85000
         source: 174k cbm modern LNGC 10yr mean (2016-2025, includes 2022-23 spike)
+        anchor_basis: tc_10yr_mean
       # MGC (Medium Gas Carrier 22-45k cbm dual-fuel multi-gas / LCO2) — added
       # 2026-06-01 alongside the gas-carrier sub-class build for CCEC.
       mgc:
         ten_year_mean: 20000
         source: Braemar / Riviera MGC 10yr historical (LPG/ammonia trade; LCO2 too new)
+        anchor_basis: tc_10yr_mean
 
   # ===========================================================================
   # PRODUCT TANKER SECTOR (added 2026-06-01)
@@ -932,16 +943,20 @@ sectors:
     # 10-yr historical means by class. MR + LR2_clean moved from sectors.crude
     # (where they lived as v2 INSW shortcut anchors). LR1_clean added new.
     # =======================================================================
+    # anchor_basis (B5/§10): product anchors are TC-anchored 10-year means.
     cycle_anchors:
       mr:
         ten_year_mean: 16000
         source: Baltic MR clean (TC2/TC7) 10yr mean
+        anchor_basis: tc_10yr_mean
       lr1_clean:
         ten_year_mean: 25000
         source: clean LR1 10yr mean (v1 proxy ~midpoint MR / LR2)
+        anchor_basis: tc_10yr_mean
       lr2_clean:
         ten_year_mean: 27000
         source: Baltic TC1 / TC15 historical, approximate
+        anchor_basis: tc_10yr_mean
 
 
   # ===========================================================================
@@ -1151,16 +1166,23 @@ sectors:
     # vs a true long-run mean (current cycle is firm). Refine in Q3 with
     # longer Pareto history or a Clarksons/Howe Robinson series.
     # =======================================================================
+    # anchor_basis (B5/§10): dry-bulk anchors are 22-month archive medians, NOT
+    # TC-anchored 10-year means — a DIFFERENT basis that does not numerically
+    # compose with tanker/LNG (tc_10yr_mean) or containership (fy_calendar_avg)
+    # anchors. See METHODOLOGY §10 + §11.7.5.
     cycle_anchors:
       cape:
         ten_year_mean: 23650
         source: Pareto Shipping Daily 2024-08 → 2026-06 median (n=349 obs)
+        anchor_basis: archive_22mo_median
       pana:
         ten_year_mean: 11900
         source: same — Pareto Shipping Daily median
+        anchor_basis: archive_22mo_median
       supra_ultra:
         ten_year_mean: 13930
         source: same — Pareto Shipping Daily median (Supramax pre-Sep-2025, Ultramax after)
+        anchor_basis: archive_22mo_median
 
   # ===========================================================================
   # CONTAINERSHIPS — Container Set A (METHODOLOGY §11.8, locked 2026-06-11,
@@ -1381,21 +1403,23 @@ sectors:
 
     # The engine reads `ten_year_mean` as the cycle anchor key; for
     # containerships the basis is the MB FY2021-2025 average (NOT a 10-year
-    # TC mean — §11.8.5; B5 anchor-basis commensurability is a Week-5 item).
-    # Boom-tilt caveat in §11.8.5: two boom episodes in the 5-year window.
+    # TC mean — §11.8.5). anchor_basis (B5/§10) = fy_calendar_avg: does not
+    # numerically compose with tanker/LNG (tc_10yr_mean) or dry-bulk
+    # (archive_22mo_median) anchors. Boom-tilt caveat in §11.8.5: two boom
+    # episodes in the 5-year window.
     cycle_anchors:
       ctr_feeder:
         ten_year_mean: 20850
         source: MB Container Weekly FY21-25 average, bands 900-1,200 + 1,600-1,800 (Apr-01-2026 issue)
-        anchor_basis: FY2021-2025 average (MB)
+        anchor_basis: fy_calendar_avg
       ctr_intermediate:
         ten_year_mean: 33700   # A3 TEU-weighted (validator fleets, 2026-06-12)
         source: MB Container Weekly FY21-25 average, bands 2,400-2,700 / 2,700-2,900 / 4,000-5,400
-        anchor_basis: FY2021-2025 average (MB)
+        anchor_basis: fy_calendar_avg
       ctr_large:
         ten_year_mean: 41000
         source: MB Container Weekly FY21-25 average, band 5,500-7,000 (softest-validated leg — §11.8.5)
-        anchor_basis: FY2021-2025 average (MB)
+        anchor_basis: fy_calendar_avg
 
 
 # =============================================================================

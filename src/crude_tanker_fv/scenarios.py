@@ -29,6 +29,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field, replace
 from pathlib import Path
+from typing import Iterable, Optional
 
 import yaml
 
@@ -203,6 +204,79 @@ def load_scenarios(path: Path = SCENARIOS_PATH, sector: str = "crude") -> dict:
     out = sectors[sector]
     out["sector"] = sector
     return out
+
+
+# ---------------------------------------------------------------------------
+# Cycle-anchor basis commensurability (B5 — METHODOLOGY §10)
+# ---------------------------------------------------------------------------
+# A name's cycle-position ratio is (forward-12M TC) / cycle-anchor. The anchors
+# come in three bases that DO NOT numerically compose, so a ratio is only
+# comparable across names whose anchors share a basis:
+#   tc_10yr_mean       — crude / product / lng  (TC-anchored 10-year means)
+#   archive_22mo_median — dry_bulk             (22-month Pareto archive median)
+#   fy_calendar_avg    — containerships        (FY2021-2025 MB calendar average)
+# The valuation core is unaffected (within-sector valuation is correct); the
+# basis only matters when a cross-sector view (delta report / reconcile --all)
+# lines ratios up side by side. `detect_mixed_anchor_basis` powers the
+# MIXED-ANCHOR-BASIS flag on those surfaces.
+ANCHOR_BASIS_LABELS = {
+    "tc_10yr_mean": "TC-anchored 10-year mean",
+    "archive_22mo_median": "22-month archive median",
+    "fy_calendar_avg": "FY2021-2025 calendar average",
+}
+
+
+def all_sector_anchor_bases(path: Path = SCENARIOS_PATH) -> dict:
+    """Map each sector to the basis token shared by its ``cycle_anchors`` blocks.
+
+    A sector whose class blocks disagree maps to ``"MIXED"`` (a data bug that
+    the tests catch); a sector with no tagged blocks is omitted.
+    """
+    with open(path) as fh:
+        doc = yaml.safe_load(fh)
+    out: dict[str, str] = {}
+    for sector, sub in (doc.get("sectors") or {}).items():
+        anchors = (sub or {}).get("cycle_anchors") or {}
+        bases = {a.get("anchor_basis") for a in anchors.values() if isinstance(a, dict)}
+        bases.discard(None)
+        if len(bases) == 1:
+            out[sector] = next(iter(bases))
+        elif len(bases) > 1:
+            out[sector] = "MIXED"
+    return out
+
+
+def detect_mixed_anchor_basis(
+    sectors: Iterable[str],
+    path: Path = SCENARIOS_PATH,
+    basis_map: Optional[dict] = None,
+) -> Optional[dict]:
+    """Given the sectors present in a cross-sector view, return ``{basis:
+    [sectors]}`` when more than one distinct anchor basis is present (cycle
+    positions not numerically comparable across them — METHODOLOGY §10), else
+    ``None``. Untagged sectors are ignored.
+    """
+    if basis_map is None:
+        basis_map = all_sector_anchor_bases(path)
+    present: dict[str, list[str]] = {}
+    for s in sectors:
+        b = basis_map.get(s)
+        if b is None:
+            continue
+        present.setdefault(b, [])
+        if s not in present[b]:
+            present[b].append(s)
+    return present if len(present) > 1 else None
+
+
+def format_mixed_anchor_basis(mix: dict) -> str:
+    """One-line human description of a `detect_mixed_anchor_basis` result, shared
+    verbatim by the delta report and reconcile surfaces."""
+    parts = []
+    for basis, secs in sorted(mix.items()):
+        label = ANCHOR_BASIS_LABELS.get(basis, basis)
+        parts.append(f"`{basis}` ({label}: {', '.join(sorted(secs))})")
+    return "; ".join(parts)
 
 
 def _curve(scenario_cls: dict, point: str, keys: list[str] = None) -> list[float]:

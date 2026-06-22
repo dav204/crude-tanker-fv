@@ -310,3 +310,29 @@ def test_delta_report_material_change_renders_with_flag(tmp_path):
     assert "HOLD → BUY" in content
     assert "⚑" in content       # material flag in full table
     assert "⟵" in content       # position-flip arrow in full table
+
+
+def test_delta_report_flags_mixed_anchor_basis(tmp_path):
+    """A table spanning sectors on different cycle-anchor bases gets the
+    MIXED-ANCHOR-BASIS note (B5 — METHODOLOGY §10)."""
+    cur = _make_snapshot({
+        "DHT": _base_state(sector="crude"),         # tc_10yr_mean
+        "SBLK": _base_state(sector="dry_bulk"),     # archive_22mo_median
+    })
+    report = compute_deltas(cur, previous=None)
+    content = write_delta_report(report, outputs_dir=tmp_path).read_text()
+    assert "MIXED-ANCHOR-BASIS" in content
+    assert "tc_10yr_mean" in content
+    assert "archive_22mo_median" in content
+
+
+def test_delta_report_no_mixed_anchor_basis_flag_within_one_basis(tmp_path):
+    """Crude + product + LNG are all tc_10yr_mean → no cross-basis warning."""
+    cur = _make_snapshot({
+        "DHT": _base_state(sector="crude"),
+        "STNG": _base_state(sector="product"),
+        "FLNG": _base_state(sector="lng"),
+    })
+    report = compute_deltas(cur, previous=None)
+    content = write_delta_report(report, outputs_dir=tmp_path).read_text()
+    assert "MIXED-ANCHOR-BASIS" not in content

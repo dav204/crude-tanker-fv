@@ -34,6 +34,13 @@ from typing import Optional
 
 import yaml
 
+from .scenarios import (
+    ANCHOR_BASIS_LABELS,
+    all_sector_anchor_bases,
+    detect_mixed_anchor_basis,
+    format_mixed_anchor_basis,
+)
+
 ROOT = Path(__file__).resolve().parents[2]
 STATE_PATH = ROOT / "state" / "last_run.json"
 DRIFT_SNAPSHOT_PATH = ROOT / "state" / "last_reconcile.json"
@@ -84,6 +91,7 @@ class ReconcileRow:
     pnav_basis: str             # "pareto" or "approx"
     k_broker: float
     consensus_pnav: float
+    anchor_basis: Optional[str] = None   # B5/§10 cycle-anchor basis token (set post-construction)
 
 
 def _load_state() -> dict:
@@ -197,6 +205,9 @@ def _print_verbose(row: ReconcileRow) -> None:
     if row.pnav_basis == "approx":
         print(f"  Pareto basis:    APPROX (Pareto does not publish P/NAV for {row.ticker})")
     print(f"  Consensus P/NAV: {row.consensus_pnav:.2f}×")
+    if row.anchor_basis:
+        label = ANCHOR_BASIS_LABELS.get(row.anchor_basis, row.anchor_basis)
+        print(f"  Cycle anchor:    {row.anchor_basis} ({label}) — cross-sector cycle reads not comparable across bases (§10)")
     print()
     if abs(row.gap_pct) > (EXISTING_LOCK_BAR_PCT if row.sector in EXISTING_SECTORS else NEW_LOCK_BAR_PCT):
         print(
@@ -273,6 +284,11 @@ def reconcile(args) -> int:
     if not rows:
         return 2
 
+    # Tag each row with its sector's cycle-anchor basis (B5 — METHODOLOGY §10).
+    basis_map = all_sector_anchor_bases()
+    for r in rows:
+        r.anchor_basis = basis_map.get(r.sector)
+
     _print_table(rows)
 
     if args.verbose and len(rows) == 1:
@@ -292,6 +308,13 @@ def reconcile(args) -> int:
             print(f"  Investigate: {', '.join(r.ticker for r in fails)}")
         if alerts:
             print(f"  Drift alerts: {', '.join(r.ticker for r in alerts)}")
+        mix = detect_mixed_anchor_basis((r.sector for r in rows), basis_map=basis_map)
+        if mix:
+            print(
+                f"  ⚠ MIXED-ANCHOR-BASIS: cycle positions span {len(mix)} incompatible "
+                f"bases — gaps are within-sector diagnostics, NOT comparable across "
+                f"these bases (METHODOLOGY §10): {format_mixed_anchor_basis(mix)}"
+            )
 
     # Persist drift snapshot for next run (only for --all or full sector — avoids
     # wiping the snapshot when you reconcile a single ticker).
