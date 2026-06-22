@@ -554,6 +554,28 @@ sessions.
 
 ## Changelog
 
+- **2026-06-21 — daily S&P scan wired into the RC-ingest job + ingest-lag
+  diagnosis (NOT an ingest failure).** Symptom: the `sp_scan` cursor sat at
+  2026-06-11 while dailies through 06-19 were on disk. Diagnosis: the daily
+  07:00 RC ingest (`com.crude-tanker-fv.rocketchat-ingest` →
+  `scripts/ingest_rocketchat_cron.sh`) is **healthy and current** — ran Jun-21
+  07:00, downloaded the 06-18/06-19 dailies, cursors at pareto_research 06-19 /
+  baltic 06-20; its 14 KB `state/rocketchat_ingest.err` is ~99% a cosmetic
+  urllib3 `NotOpenSSLWarning` (LibreSSL) + one transient TLS-read retry. The
+  real gap was **cadence**: dailies arrive DAILY but `sp_scan` only ran in the
+  WEEKLY news-pull cron, so prints lagged up to a week. **Fix:** added an
+  incremental `sp_scan` (local-only, cursor-based, idempotent — verified
+  "nothing to scan" on a same-day re-run) to the daily ingest wrapper after the
+  ingest step; the linked-report harvest + manifest stay weekly in
+  `news_pull_cron.sh`. (My first instinct — reorder `fetch_links` before
+  `sp_scan` — was WRONG: `fetch_links` downloads linked detail reports, not the
+  dailies, which come from `ingest_rocketchat`.) Manual catch-up this session
+  advanced the cursor 06-11 → 06-19 (+4 review candidates: VLCC ~$180m via FRO;
+  LR2/LR1/MR 06-16 cluster). **SEPARATE open item:** the FFA-OCR staleness alarm
+  (>7 days) is NOT an ingest problem — the ingest still SEES `ffa_drybulk`
+  messages (last 06-19) but `ffa_ocr` hasn't PARSED a 3-panel grid in 9 days, so
+  the single-source poster likely stopped posting the parseable grid (or changed
+  format). Verify the channel content.
 - **2026-06-21 — B6 §9.2 terminal-value multiple LOCKED at 1.0× (owner decision).**
   Closes the last open Week-5 item. Owner ratified the memo recommendation
   (`outputs/terminal_value_options_memo.md`): keep the q9 terminal at 1.0× ×
