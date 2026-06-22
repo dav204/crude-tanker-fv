@@ -554,6 +554,19 @@ sessions.
 
 ## Changelog
 
+- **2026-06-21 — B6 §9.2 terminal-value multiple LOCKED at 1.0× (owner decision).**
+  Closes the last open Week-5 item. Owner ratified the memo recommendation
+  (`outputs/terminal_value_options_memo.md`): keep the q9 terminal at 1.0× ×
+  aged-NAV — `w_earn` + the conservative transaction-anchored marks already carry
+  the cycle view, the sweep flips are immaterial band-edge wiggles, and the
+  alternatives are flawed (uniform 0.9× wrong at troughs; 1.1× = forbidden
+  calibrate-to-broker). Cycle-conditional recorded as the designated successor,
+  revisited only on an adoption trigger. No engine change (1.0× was production);
+  now PINNED by `tests/test_dividend_strip.py::test_terminal_nav_multiple_locked_at_1x`
+  (locked-weights idiom — changing it needs a deliberate memo + test edit).
+  §9.2 item 2 marked *resolved*; memo DECISION block filled; dividend_strip.py
+  constant comment updated. tests: +1 (the pin); full suite 283 passed (the two
+  reconcile state-tests un-skip now that `state/last_run.json` is fresh).
 - **2026-06-21 — DEVELOPMENT FREEZE LIFTED (owner decision).** The 2026-06-14
   freeze (which gated all feature/sector/methodology work on a crude-backtest
   "edge" verdict) is removed. Rationale: this is a forward-looking valuation aid

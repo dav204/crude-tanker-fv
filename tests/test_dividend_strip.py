@@ -140,3 +140,13 @@ def test_dht_integration():
     assert s.eps_by_quarter[0] > s.eps_by_quarter[-1]
     # Sanity band around the ~$19.5 implied price (Q3'26-Q2'28 FFA curve).
     assert 18.0 < s.implied_price < 21.0
+
+
+def test_terminal_nav_multiple_locked_at_1x():
+    """§9.2 terminal-value decision LOCKED at 1.0x (owner, 2026-06-21 —
+    outputs/terminal_value_options_memo.md). Changing the multiple is a
+    methodology decision: update the memo DECISION block and re-pin this test
+    deliberately (same discipline as the locked-weights tests)."""
+    from crude_tanker_fv import dividend_strip
+
+    assert dividend_strip.TERMINAL_NAV_MULTIPLE == 1.0

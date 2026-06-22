@@ -154,12 +154,26 @@ the pick.
 
 ## 5. OWNER DECISION
 
-> _Decision:_ __________________________  (1.0× / 0.9× / 1.1× / cycle-conditional)
+> **_Decision:_ 1.0× (ratify status quo) — LOCKED.**
 >
-> _Date:_ __________   _Rationale:_
+> _Date:_ 2026-06-21   _Rationale:_ The terminal already inherits cycle
+> conservatism from two channels a multiple would otherwise double-count —
+> deliberately conservative, transaction-anchored marks, and a cycle-stepped
+> `w_earn` that down-weights the strip at peak. The decision is immaterial for
+> 12 of 19 names and the flips are band-edge HOLD/TRIM wiggles. 1.0× keeps the
+> terminal a clean, auditable identity (aged NAV × 1.0) with the cycle view
+> living where it belongs (`w_earn` + the marks). Uniform 0.9× is wrong at
+> troughs; uniform 1.1× leans on the forbidden calibrate-to-broker move.
+> Cycle-conditional remains the designated successor, revisited only when an
+> adoption trigger fires (§4: an empirically-sized embedded-mark error, or the
+> book gaining genuine trough-band names). — Dan
 >
->
-> _If cycle-conditional:_ band→multiple table confirmed? ____   thresholds source: ____
+> _If cycle-conditional:_ n/a (not selected).
+
+Pinned in code: `dividend_strip.TERMINAL_NAV_MULTIPLE = 1.0`, guarded by
+`tests/test_dividend_strip.py::test_terminal_nav_multiple_locked_at_1x` —
+changing the multiple now requires editing this DECISION block and re-pinning
+that test deliberately (same discipline as the locked-weights tests).
 
 On a pick other than 1.0×, the follow-up is: set/parameterize
 `dividend_strip.TERMINAL_NAV_MULTIPLE` (or add the cycle-conditional rule keyed to

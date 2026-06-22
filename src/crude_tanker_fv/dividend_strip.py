@@ -43,7 +43,10 @@ from .schemas import CompanyInputs, DividendPolicy
 
 DEFAULT_DISCOUNT_RATE = 0.11
 STRIP_HORIZON_QUARTERS = 8
-TERMINAL_NAV_MULTIPLE = 1.0   # q=9 terminal value as a multiple of NAV (open decision 9.2)
+TERMINAL_NAV_MULTIPLE = 1.0   # q=9 terminal as a multiple of NAV. §9.2 LOCKED at
+                              # 1.0x (owner, 2026-06-21 — outputs/terminal_value_options_memo.md).
+                              # Changing it is a methodology decision: update the memo
+                              # DECISION block + re-pin test_terminal_nav_multiple_locked_at_1x.
 DEFAULT_OFFHIRE_RATE = 0.02   # ~drydock + unscheduled offhire
 DAYS_PER_QUARTER = 365.0 / 4.0
 

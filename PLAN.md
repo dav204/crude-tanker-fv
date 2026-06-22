@@ -17,13 +17,13 @@ by owner decision (see the project-stance note at the top of CLAUDE.md).
   shared helpers in `scenarios.py`; MIXED-ANCHOR-BASIS flag in the delta report
   + `reconcile --all` (per-name basis in `--verbose`); METHODOLOGY §10
   subsection; +5 tests (280 passed). Metadata + diagnostics only.
-- **B6 — §9.2 terminal-value options memo: WRITTEN 2026-06-21, OWNER DECISION
-  PENDING.** 19-name sweep refreshed (`outputs/terminal_value_sensitivity.md`);
-  four-option memo at `outputs/terminal_value_options_memo.md` (rec: ratify 1.0×
-  now, cycle-conditional as the triggered successor; reject uniform 0.9× / 1.1×)
-  + empty owner DECISION block. §9.2 item 2 points at it. **Remaining: owner
-  picks the multiple**; any pick other than 1.0× → engine change + test re-pin +
-  drift annotations (memo §5).
+- **B6 — §9.2 terminal-value multiple: LOCKED at 1.0× (owner, 2026-06-21).**
+  Four-option memo (`outputs/terminal_value_options_memo.md`, each option
+  steelmanned) on the refreshed 19-name sweep; owner ratified 1.0× (status quo),
+  with cycle-conditional recorded as the designated successor pending an adoption
+  trigger (memo §4). No engine change (1.0× is production); decision pinned by
+  `test_terminal_nav_multiple_locked_at_1x` and recorded in §9.2 item 2 + the
+  memo DECISION block. **DONE.**
 
 ## Active backlog
 
