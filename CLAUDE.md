@@ -79,7 +79,7 @@ plus a row in `inputs/watchlist.yaml`. See `METHODOLOGY.md` for the full framewo
 
 ## What this tool is, philosophically (locked 2026-06-06)
 
-**The tool produces independent NAV from transaction-validated marks.** Broker
+**The tool produces independent NAV from transaction-anchored marks (single-vendor-sourced).** Broker
 consensus (Pareto P/NAV) and VIE Coverage Universe are *discrimination
 diagnostics*, not calibration targets. Wide tool↔broker spreads are **features**
 — the divergence is the call (METHODOLOGY §6 INSW, FLNG, ASC, NAT, TNK; §9.9).

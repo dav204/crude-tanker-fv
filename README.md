@@ -10,12 +10,35 @@ transaction-anchored curve diagnostic. **Not investment advice.**
 See [METHODOLOGY.md](METHODOLOGY.md) for the full framework (~2,900 lines);
 this README is orientation for someone landing on the repo cold.
 
+### What "independent" means here, and what it does not
+
+The NAV is methodologically independent of broker *opinion*: it builds per-vessel
+marks from disclosed transaction prices and ages them on its own curves rather than
+backing into a target P/NAV, and a wide gap to a broker's published NAV is treated as
+a signal to investigate, not an error to close. That independence is real but narrow,
+and two dependencies should be stated plainly. First, the transaction marks that
+anchor the curves are not source-independent of the brokers compared against: roughly
+three-quarters of the in-window prints (about 76%, and closer to 87% in dry bulk and
+product) are drawn from a single vendor's research, and for six names that vendor
+supplies both the comparison NAV and the calibrating prints, so agreement between them
+is weaker evidence than it appears. Crude pure-plays are the best-corroborated tier
+(about half their prints carry issuer-filing or trade-press cross-checks); dry bulk and
+product are the most single-source. Second, a disagreement with a broker cannot, by
+construction, prove a mark wrong; only a disclosed transaction at odds with a mark, or a
+gross sanity-gate breach, can. The per-name EV% and BUY/TRIM/HOLD label are a structured,
+auditable valuation opinion relative to price and to one broker's NAV, not a backtested
+forecast of returns: no cross-sectional return edge has been demonstrated for the signal
+on the data that exist, and at this universe size none realistically could
+(see [backtest/REPORT.md](backtest/REPORT.md) and
+[outputs/epistemic_soundness_memo_2026-06-22.md](outputs/epistemic_soundness_memo_2026-06-22.md)).
+Use the reads as one disciplined input to a position call, sized accordingly.
+
 ## Status (2026-06-22)
 
 - **20 tickers** across 5 sectors: crude (9, incl. **TEN** the 3-sleeve hybrid,
   **CAPT** the first Oslo/NOK listing, and **BRUT** the pure-play VLCC newbuild
   vehicle), LNG (2), product (4), dry bulk (3), containerships (2)
-- **286 tests passing** end-to-end
+- **291 tests passing** end-to-end
 - **7 output families** regenerated per pipeline run + 5 standalone diagnostics
   (LNG weight robustness, crude weight robustness, VIE coverage universe xref,
   VIE market rates xref, terminal-value sensitivity)

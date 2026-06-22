@@ -2729,7 +2729,7 @@ Dated record of material framework changes. Lock dates use UTC.
 - **Owner rationale (verbatim intent):** Sinokor's VLCC buying campaign is
   not a distortion to be filtered out — Sinokor is the dominant buyer in
   the VLCC S&P market and **its bid IS the market**. The "tool produces
-  independent NAV from transaction-validated marks" doctrine now holds at
+  independent NAV from transaction-anchored marks (single-vendor-sourced)" doctrine now holds at
   the default code path, not just on a toggle. The Sinokor 35-vessel
   aggregate remains out of the regression on DATA-QUALITY grounds only
   (no per-vessel disclosure; synthetic splits would violate the

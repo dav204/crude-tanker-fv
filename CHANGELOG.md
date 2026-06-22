@@ -5,6 +5,16 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — Phase 1 honest framing (Option A; the direct fix for the CRITICAL
+  epistemic finding).** Doc-only. Added an "independence and ex-post validation status"
+  note to README + LIMITATIONS §1: the NAV is independent of broker *opinion* but not
+  broker *data* (~76% of anchoring prints single-vendor-sourced, ~87% in dry-bulk/product;
+  six shared-source names), so "independent" is narrow, and the tool has **no demonstrated
+  ex-post cross-sectional edge** (auditable opinion, not backtested forecast). Retired the
+  unqualified **"transaction-validated"** doctrine phrase → **"transaction-anchored
+  (single-vendor-sourced)"** (CLAUDE.md "philosophically", METHODOLOGY Appendix A). README
+  test count 286→291. *(Per-name corroboration-tier tags in `delta_report.md` deferred — a
+  renderer change; the tiers are stated in the README/LIMITATIONS note for now.)*
 - **2026-06-22 — Phase 0b inert cheap fixes (audit BUG-4/5/6/7 + G-1; framing BUG-8).**
   No valuation change (291 tests green). **BUG-4:** the §15 report blend line printed raw
   NAV while FV used the post-haircut value → now prints `nav_per_share_effective` so it

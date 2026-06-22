@@ -9,6 +9,20 @@ depth.
 
 ## 1. Hard framework limitations (acknowledge, don't act on the signal)
 
+### Independence and ex-post validation status (2026-06-22)
+
+The NAV is independent of broker *opinion* but not of broker *data*: about 76% of the
+in-window transaction prints that anchor the curves come from a single vendor (closer to
+87% in dry bulk and product), and for six names that vendor supplies both the comparison
+NAV and the calibrating prints. The "independent" claim is therefore narrow — independence
+from the broker's view, not its data — so tool-vs-broker agreement is weaker evidence than
+it looks. Separately, the tool has **no demonstrated ex-post cross-sectional edge**: the one
+powered backtest (Amendment-2) was a clean negative on a P/B proxy and a different universe,
+and the engine's own signal has never been validated against forward returns (data-blocked;
+the path to running it is scoped in `outputs/test1_data_feasibility_memo_2026-06-22.md`).
+Read the per-name calls as auditable opinions, not validated forecasts. Full treatment:
+`outputs/epistemic_soundness_memo_2026-06-22.md` (and `outputs/METHODOLOGY_AUDIT_2026-06-22.md`).
+
 ### §15 — governance / structural-NAV-trap discount (new 2026-06-06)
 
 The framework's NAV machinery answers **"what are the assets worth?"** It does
