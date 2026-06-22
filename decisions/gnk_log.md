@@ -9,6 +9,108 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-21 — DEAL EVENT (partial resolution): Diana LOST the Jun-18 proxy fight; $24.80 tender still live to Jun-26 — framing migrates deal-arb → NAV-discount
+
+**Why this entry:** PLAN.md event-window item — read the Jun-18 AGM + Jun-26
+tender outcomes and re-frame the position signal. The repo's data/news stops
+at Jun-10, so every fact below post-dates that and was web-researched with a
+source; confirmed vs still-open is called out explicitly and nothing is
+assumed (sources at the foot of the entry).
+
+**CONFIRMED (sources dated Jun-18-2026 or later):**
+- **AGM held Jun-18 as scheduled** — Diana's Jun-17 request to delay it was
+  not granted.
+- **Genco won the proxy fight decisively.** All six incumbent Genco nominees
+  re-elected; Diana's slate rejected; ~90% of non-Diana shares voted FOR each
+  Genco director (preliminary, per Genco's solicitor). Equity-incentive plan
+  approved; **shareholder rights agreement (poison pill) ratified**; Diana's
+  proposals voted down.
+- **Diana did NOT withdraw.** It reaffirmed its bid Jun-18. Its Jun-17
+  sweetener stands as a **non-binding implied $27.34/sh = $24.80 cash + 1
+  Diana share** (share leg ~$2.54 on a 30-day VWAP; already eroding — implied
+  ~$26.90 by Jun-18 as DSX fell ~3%).
+- **Tender of record unchanged:** $24.80 all-cash, expiry 5:00pm NY
+  **Jun-26-2026** "unless extended" (Genco SC 14D9/A Amendment 17, filed
+  Jun-18). No SC TO-T/A formally raising the tender to $27.34 was found —
+  Diana only said it *intends* to file an amended Schedule TO + Form F-4.
+- **Board posture on the $27.34 proposal: "reviewing," no decision.** Do NOT
+  read the prior Jun-2 unanimous rejection (which was of the $24.80 cash
+  tender) as a rejection of the $27.34 proposal.
+- **Price de-rating:** GNK closed **~$23.66** Jun-18 (+~1.3% on the day) —
+  now **below the $24.80 cash tender** and ~$3+ below the $27.34 implied. The
+  wide arb spread = market pricing LOW odds of a close at offered terms.
+
+**STILL OPEN as of 2026-06-21 (do not pre-judge):**
+- Tender outcome — deadline Jun-26 is after today; not resolvable yet. No
+  Jun-18+ filing reports a withdrawal, an extension beyond Jun-26, satisfied
+  conditions, or a tendered-share count.
+- Board's formal accept/reject on the $27.34 proposal — none announced.
+- Whether Diana files the promised amended TO/F-4 at $27.34.
+- No definitive merger agreement exists in filings of record.
+- Final certified AGM tallies (Form 8-K) — not yet filed.
+- **SBLK 16-vessel $470.5M side deal** (conditional on Diana acquiring Genco)
+  — no Jun-18+ source addresses it; precondition is unmet, so it is inferred
+  **dormant**, NOT confirmed terminated.
+
+**FRAMING CALL — re-read of the deal overlay.** The onboarding overlay held
+that the board-control fight predates and outlives the tender, so a tender
+lapse alone would not clear the overhang. The Jun-18 AGM **resolves that
+leg**: the incumbent board is firmly seated and the pill is ratified, so the
+**hostile path is now structurally blocked** — the tender's own conditions
+require a definitive merger agreement + board affiliate-transaction approval +
+rights-plan termination, none of which a board that just won can be forced
+into. What remains is a purely **negotiated** outcome the board has so far
+resisted.
+
+Net: the position read **migrates from deal-pinned toward NAV-discount**, but
+is not yet a clean NAV-discount signal — a two-sided event tail remains until
+Jun-26:
+- **Upside tail:** board negotiates a friendly deal at/above the $27.34
+  implied → caps ~$25-27.
+- **Downside tail:** Diana lets the $24.80 tender lapse Jun-26 / walks → price
+  reverts toward the **pre-bid 0.66-0.75× Pareto-NAV regime** (Pareto NAV
+  $27.59 × 0.70 ≈ $19.3) — a sharp drop from $23.66.
+The market's wide arb spread (price below even the cash leg) shows it already
+discounting the deal heavily.
+
+**Tool signal in this light.** Latest pipeline reads **BUY (EV +8.7%, price
+$23.69 vs NAV $26.27, k_broker 1.03)** — the live price (~$23.66 Jun-18) is
+already reflected, so the read is current; no re-run needed. But that +8.7% is
+**still event-contaminated**: the price sits between the lapse-downside (~$19)
+and the deal-upside (~$25-27), so it is not a clean undervaluation read. Hold
+the BUY as **event-contingent**, not actionable as a NAV-discount BUY, until
+Jun-26 resolves the tender and any board decision on the $27.34 proposal lands.
+
+**§15:** still **N/A** — the discount mechanism is event risk, not
+governance/realisation impairment. The Jun-18 result (board entrenchment +
+pill ratified) does not convert a validator into a §15 governance case; re-gate
+at the Q2 refresh once the deal resolves.
+
+**Re-open this log when:** (1) Jun-26 tender expiry — extended / lapsed /
+conditions; (2) a board decision on $27.34 or a signed merger agreement;
+(3) Form 8-K with certified AGM tallies; (4) SBLK side-deal status. **On a
+tender lapse with no deal, drop the deal overlay entirely** and treat GNK as a
+clean NAV-discount validator again (expect price reversion toward the pre-bid
+regime first).
+
+**Watchlist (HUMAN-ONLY — staged, NOT applied):** the row still reads
+`current_price 24.00 / analyst_target 24.80` with a "$24.80 all-cash, board
+rejected" comment. Recommended for owner sign-off: refresh the comment to the
+post-AGM reality (proxy fight lost Jun-18; $24.80 cash tender live to Jun-26 +
+non-binding $27.34 cash+stock under board review; price de-rating below the
+cash leg). Live-price machinery already reflects ~$23.66. Not edited here per
+the human-only promotion rule.
+
+**Sources:**
+- Genco AGM result — GlobeNewswire, Jun-18-2026: https://www.globenewswire.com/news-release/2026/06/18/3314438/37397/en/genco-shipping-trading-limited-shareholders-overwhelmingly-re-elect-all-genco-director-nominees-at-2026-annual-meeting.html
+- Diana reaffirms offer — GlobeNewswire, Jun-18-2026: https://www.globenewswire.com/news-release/2026/06/18/3314549/10065/en/Diana-Shipping-Inc-Reaffirms-Offer-to-Acquire-Genco-Shipping-Trading.html
+- Genco SC 14D9/A Amendment 17 (tender of record $24.80, expiry Jun-26) — SEC, filed Jun-18-2026: https://www.sec.gov/Archives/edgar/data/1326200/000114036126025782/ef20076482_sc14d9a.htm
+- Maritime Executive (vote backing Genco board) Jun-18: https://maritime-executive.com/article/shareholders-back-genco-board-in-critical-vote-rejecting-diana-s-candidates
+- gCaptain (board still reviewing, door not closed) Jun-19: https://gcaptain.com/gencos-proxy-victory-caps-months-of-fighting-with-diana-shipping/
+- SBLK 16-vessel $470.5M conditional SPA — GlobeNewswire, Mar-06-2026: https://www.globenewswire.com/news-release/2026/03/06/3251093/0/en/Star-Bulk-to-Acquire-16-Vessels-from-Diana-Shipping-Inc-Conditional-Upon-the-Success-of-Its-Offer-to-Acquire-Genco-Shipping-Trading-Ltd.html
+
+---
+
 ## 2026-06-12T21:55:24+00:00 — Pipeline run (auto)
 
 **Model state:**

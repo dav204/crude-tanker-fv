@@ -446,9 +446,15 @@ quick-ref price unless the note itself is being updated.)
   dry-bulk curves (k_broker 1.04, gap −5.2% — within the v1 ±10% bar on
   the same marks where SBLK reads −21%). No Pana exposure (19 Cape /
   25 Supra-Ultra at Mar-31). US domestic issuer — 10-Q not 6-K; per-vessel
-  employment table lives in the 10-Q MD&A. **LIVE DEAL: Diana hostile cash
-  tender $24.80, deadline Jun-26-2026; price is tender-pinned, so EV/position
-  signals are deal-arb readings, not NAV-discount signals, until resolution.**
+  employment table lives in the 10-Q MD&A. **LIVE DEAL (updated 2026-06-21):
+  Diana LOST the Jun-18 proxy fight — all 6 Genco nominees re-elected, pill
+  ratified, hostile path now structurally blocked. Diana did NOT withdraw:
+  $24.80 all-cash tender still live to Jun-26 + non-binding $27.34 cash+stock
+  under board review. Price de-rating below the cash leg (~$23.66). Framing
+  migrating deal-arb → NAV-discount but still event-contingent until Jun-26;
+  hold BUY as event-contingent, not a clean NAV-discount signal. On a tender
+  lapse with no deal, drop the overlay and expect reversion toward the pre-bid
+  0.66-0.75× Pareto-NAV regime. See gnk_log 2026-06-21.**
   No §15 haircut (event risk ≠ realisation impairment). v1 lock outcome:
   1/2 (50%) FAIL-with-explanation — the miss is the documented SBLK case;
   no curve tuning per the back-solve rule. Onboarded 2026-06-09/10.
