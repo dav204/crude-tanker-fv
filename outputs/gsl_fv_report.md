@@ -1,7 +1,7 @@
 # GSL — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $38.99
+- **Current price:** $37.89
 - **Model fair value:** $33.61
 - **Analyst target:** $52.04
 
@@ -90,11 +90,11 @@ The current price requires the fleet to run at **50.00× the current forward cur
 | **+15%** | $25.90 | $30.06 | $34.23 | $38.39 | $42.56 |
 | **+30%** | $25.90 | $30.06 | $34.23 | $38.39 | $42.56 |
 
-_Current price $38.99. Cycle weights held at base across the grid._
+_Current price $37.89. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$33.61** is -13.8% vs the current price ($38.99) and -35.4% vs the analyst target ($52.04). The current price implies the fleet earning a value-weighted blended **$2,757,173/day** (50.00× the current forward) — 71.1× the value-weighted 10-yr mean ($38,795, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$33.61** is -11.3% vs the current price ($37.89) and -35.4% vs the analyst target ($52.04). The current price implies the fleet earning a value-weighted blended **$2,757,173/day** (50.00× the current forward) — 71.1× the value-weighted 10-yr mean ($38,795, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

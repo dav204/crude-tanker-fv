@@ -1,9 +1,9 @@
 # FLNG — Scenario Fair Value (LNG glut-cycle framework)
 
-- **Current price:** $30.50
+- **Current price:** $29.74
 - **Analyst target:** $25.00
 - **NAV / share (reference, unflexed):** $28.45 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $29.73 (-2.5% vs price)
+- **Probability-weighted fair value:** $29.73 (-0.0% vs price)
 - **Breakeven TCE (scenario-invariant):** $3,162,500/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** HOLD (fairly valued)
 
@@ -22,9 +22,9 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $+9.26
-- **Downside (worst scenario − price):** $-16.69
-- **Expected value vs current** (weighted FV − price): $-0.77 (-2.5%)
+- **Upside (best scenario − price):** $+10.02
+- **Downside (worst scenario − price):** $-15.93
+- **Expected value vs current** (weighted FV − price): $-0.01 (-0.0%)
 - **Position:** HOLD (fairly valued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

@@ -1,8 +1,8 @@
 # CAPT — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $12.79
-- **Model fair value:** $16.71
+- **Current price:** $13.24
+- **Model fair value:** $15.24
 - **Analyst target:** $18.90
 
 ## Data validation warnings
@@ -14,8 +14,8 @@
 
 | Item | $M |
 |---|---:|
-| Fleet value — VLCC | 2,235.0 |
-| Fleet value — Suezmax | 1,149.0 |
+| Fleet value — VLCC | 1,947.9 |
+| Fleet value — Suezmax | 1,075.4 |
 | Fleet value — Aframax | 290.5 |
 | Fleet value — LR2 | 376.9 |
 | + Cash & equivalents | 405.0 |
@@ -24,9 +24,9 @@
 | − Lease liabilities | 0.0 |
 | − Newbuild commitments | 1,880.0 |
 | + Newbuild advances | 0.0 |
-| **= NAV total** | **2,372.4** |
+| **= NAV total** | **2,011.7** |
 | Diluted shares | 133,700,000 |
-| **NAV / share** | **$17.74** |
+| **NAV / share** | **$15.05** |
 
 ## Dividend strip (r = 11%)
 
@@ -41,8 +41,8 @@
 | Q7 | 147,500 | 147,500 | 1.489 | 0.670 | 0.558 |
 | Q8 | 105,500 | 105,500 | 1.131 | 0.509 | 0.413 |
 | Σ discounted DPS | | | | | 3.28 |
-| Terminal value (NAV, q9) | | | | 13.94 | 11.02 |
-| **DivStrip implied price** | | | | | **$14.30** |
+| Terminal value (NAV, q9) | | | | 15.72 | 12.43 |
+| **DivStrip implied price** | | | | | **$15.71** |
 
 _FFA spot is the VLCC forward curve that drives the strip cash flows; its 12-month average is **$155,000/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$111,500/day** — not this FFA average._
 
@@ -53,51 +53,51 @@ _FFA spot is the VLCC forward curve that drives the strip cash flows; its 12-mon
 
 ## Blended fair value
 
-0.70 × $17.74 (NAV) + 0.30 × $14.30 (strip) = **$16.71**
+0.70 × $15.05 (NAV) + 0.30 × $15.71 (strip) = **$15.24**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $17.48 |
-| 95% | $17.80 |
-| 100% | $17.91 |
+| 80% | $16.01 |
+| 95% | $16.34 |
+| 100% | $16.45 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-**NAV alone covers the price.** NAV/share **$17.74** ≥ price **$12.79** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
+**NAV alone covers the price.** NAV/share **$15.05** ≥ price **$13.24** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
 | **Implied breakeven (blended)** | **0** | — |
-| 10-year mean | 34,482 | 0.00× |
-| 12-month FFA | 122,340 | 0.00× |
-| Current spot | 242,013 | 0.00× |
+| 10-year mean | 34,187 | 0.00× |
+| 12-month FFA | 120,544 | 0.00× |
+| Current spot | 234,091 | 0.00× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| VLCC (55% of fleet value) | 0 | 0.00× |
-| Suezmax (28% of fleet value) | 0 | 0.00× |
-| LR2 (9% of fleet value) | 0 | 0.00× |
-| Aframax (7% of fleet value) | 0 | 0.00× |
+| VLCC (53% of fleet value) | 0 | 0.00× |
+| Suezmax (29% of fleet value) | 0 | 0.00× |
+| LR2 (10% of fleet value) | 0 | 0.00× |
+| Aframax (8% of fleet value) | 0 | 0.00× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $10.85 | $13.60 | $16.35 | $19.10 | $21.85 |
-| **-15%** | $11.03 | $13.78 | $16.53 | $19.28 | $22.03 |
-| **+0%** | $11.21 | $13.96 | $16.71 | $19.46 | $22.21 |
-| **+15%** | $11.39 | $14.14 | $16.89 | $19.64 | $22.39 |
-| **+30%** | $11.57 | $14.32 | $17.07 | $19.82 | $22.57 |
+| **-30%** | $9.68 | $12.29 | $14.89 | $17.49 | $20.09 |
+| **-15%** | $9.86 | $12.46 | $15.07 | $17.67 | $20.27 |
+| **+0%** | $10.04 | $12.64 | $15.24 | $17.85 | $20.45 |
+| **+15%** | $10.22 | $12.82 | $15.42 | $18.03 | $20.63 |
+| **+30%** | $10.40 | $13.00 | $15.60 | $18.20 | $20.81 |
 
-_Current price $12.79. Cycle weights held at base across the grid._
+_Current price $13.24. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$16.71** is +30.7% vs the current price ($12.79) and -11.6% vs the analyst target ($18.90). NAV alone covers the price (NAV/sh $17.74 ≥ $12.79); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
+Tool fair value **$15.24** is +15.1% vs the current price ($13.24) and -19.3% vs the analyst target ($18.90). NAV alone covers the price (NAV/sh $15.05 ≥ $13.24); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
 
 ## Modeling notes
 

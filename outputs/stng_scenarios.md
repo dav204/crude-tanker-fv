@@ -1,11 +1,11 @@
 # STNG — Scenario Fair Value (product margin / glut framework)
 
-- **Current price:** $76.17
+- **Current price:** $80.58
 - **Analyst target:** $94.00
 - **NAV / share (reference, unflexed):** $80.35 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $73.13 (-4.0% vs price)
+- **Probability-weighted fair value:** $73.13 (-9.2% vs price)
 - **Breakeven TCE (scenario-invariant):** $2,725,019/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
-- **Position (tool view):** HOLD (fairly valued)
+- **Position (tool view):** TRIM/SHORT (overvalued)
 
 ## Per-scenario fair value
 
@@ -22,9 +22,9 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $+14.61
-- **Downside (worst scenario − price):** $-28.29
-- **Expected value vs current** (weighted FV − price): $-3.04 (-4.0%)
-- **Position:** HOLD (fairly valued)
+- **Upside (best scenario − price):** $+10.20
+- **Downside (worst scenario − price):** $-32.70
+- **Expected value vs current** (weighted FV − price): $-7.45 (-9.2%)
+- **Position:** TRIM/SHORT (overvalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_
