@@ -6,11 +6,12 @@ forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest. Development proceeds
 normally (the 2026-06-14 "development freeze" was lifted 2026-06-21).
 
-**Current state (2026-06-22):** 20 watchlist names across 5 sectors; **291 tests
-green**; `reconcile --all` 20/20 SANITY OK (0 fail, 0 drift); tree clean, pushed
-to origin/main. This session ran a **methodology-soundness sprint** (full
-adversarial audit → fixes — see below). Per-change detail is in `CHANGELOG.md`;
-the full analyses live in the `outputs/*_2026-06-22.md` memos.
+**Current state (2026-06-22):** 20 watchlist names across 5 sectors; **308 tests
+green**; `reconcile --all` 20/20 SANITY OK (0 fail, 0 drift); committed drift gate
+ratified (Phase 2 below). This session ran a **methodology-soundness sprint** (full
+adversarial audit → fixes — see below) and then built the **Phase 2 ongoing
+accuracy gate**. Per-change detail is in `CHANGELOG.md`; the full analyses live in
+the `outputs/*_2026-06-22.md` memos.
 
 ## This session — methodology-soundness sprint (2026-06-22)
 
@@ -46,16 +47,19 @@ landed + pushed (5 commits, `e57e447..HEAD`):
 
 Full remediation plan + designs are in the three memos above. Open phases, in order:
 
-- **Phase 2 — ongoing accuracy gate (Option B).** The tool has no automated
-  accuracy gate after sector launch (audit A-2). Build: committed
-  `baselines/reconcile_baseline.yaml` (per name: EV% / tool_NAV / position_band /
-  k_broker + ratifying commit + cause), `tests/test_drift_gate.py` (fails the
-  build on an unexplained >2pp EV%/NAV move or a band flip — greps
-  `decisions/<ticker>_log.md` for a dated annotation; tracks **k_broker on its
-  SECOND DIFFERENCE** so it never re-anchors to Pareto; APPROX names tracked on
-  self-consistency only), `scripts/ratify_baseline.sh` (deliberate re-ratify with
-  mandatory cause). Reuses `reconcile.py:144-150,253-261`. Design: epistemic memo
-  "Option B". Ratify the baseline from the current (post-this-session) outputs.
+- **Phase 2 — ongoing accuracy gate (Option B). ✅ DONE (2026-06-22).** Built
+  `src/crude_tanker_fv/drift_gate.py` + committed
+  `baselines/reconcile_baseline.yaml` (20 names: EV% / tool_NAV / position_band /
+  k_broker + ratifying commit + cause) + `tests/test_drift_gate.py` (17 tests; the
+  live gate fails the build on an unexplained >2pp EV%/NAV move, a band flip, or a
+  >0.05 k_broker SECOND-DIFFERENCE move — greps `decisions/<ticker>_log.md` for a
+  dated non-placeholder annotation; APPROX names tracked on self-consistency only,
+  no Δk gate) + `scripts/ratify_baseline.sh` (mandatory cause; writes the YAML,
+  human commits). Pareto-free by construction (k tracked on its change, never its
+  level); reuses `reconcile.APPROX_PNAV_TICKERS` single-sourced. Baseline ratified
+  from the current 2026-Q1 outputs @ d382bfd. **Standing care:** at each quarterly
+  refresh, expect the gate to flag the legitimate moves — annotate the material
+  ones, then `./scripts/ratify_baseline.sh "<Qx refresh>"` to re-anchor.
 - **Phase 3 — ex-post validation (Option C).** (a) **Value-premium proxy test**
   (recommended first — powered, data cached): `backtest/loaders_sharadar.py`
   reading factor-portfolio's `~/Projects/factor-portfolio` (branch
@@ -133,7 +137,9 @@ engine nor support. The path to running the engine's own Test 1 is **now scoped*
 gates development.
 
 ## Verification gate (run before any handoff / Week-close)
-- `PYTHONPATH=src .venv/bin/python -m pytest -q` — must stay green (291 at 2026-06-22).
+- `PYTHONPATH=src .venv/bin/python -m pytest -q` — must stay green (308 at 2026-06-22;
+  includes the Phase 2 drift gate, which can legitimately go red on accepted drift —
+  annotate + re-ratify rather than revert).
 - `python -m crude_tanker_fv.pipeline 2026-Q1` runs clean.
 - `python -m crude_tanker_fv.reconcile --all` — SANITY all OK/n-a-APPROX; annotate
   any >2pp drift / band flip in `decisions/<ticker>_log.md`.

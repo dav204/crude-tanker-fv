@@ -50,6 +50,13 @@ plus a row in `inputs/watchlist.yaml`. See `METHODOLOGY.md` for the full framewo
   on sight when the weekly digest flags a newly-announced date).
 - Reconcile a name: `python -m crude_tanker_fv.reconcile <TICKER>`
   (or `/reconcile <TICKER>`).
+- Drift gate (committed, Pareto-free): `python -m crude_tanker_fv.drift_gate`
+  — compares current pipeline outputs against the tracked
+  `baselines/reconcile_baseline.yaml` (EV% / tool NAV / position band / k_broker
+  on its *second difference*); exit 1 on UNEXPLAINED drift. `tests/test_drift_gate.py`
+  runs it as a build gate. Re-anchor the baseline ONLY via
+  `./scripts/ratify_baseline.sh "<cause>"` (mandatory cause; human commits) —
+  **never hand-edit the numbers.** See the Verification loop below.
 - S&P print scan (incremental): `python -m crude_tanker_fv.sp_scan` — scans
   Pareto dailies newer than the cursor, writes the review queue to
   `outputs/sp_print_candidates.md`. Human-classified into
@@ -93,16 +100,27 @@ market moved — not whether to recalibrate the curve.
 
 After any change to inputs, schemas, marks, scenarios, or pipeline code:
 
-1. `pytest -q` — must stay at 174+ passing.
+1. `pytest -q` — must stay at 308+ passing. This now INCLUDES the drift gate
+   (`tests/test_drift_gate.py`): an UNEXPLAINED >2pp EV%/NAV move, a band flip,
+   or a >0.05 k_broker *second-difference* vs the committed baseline turns the
+   suite red until you either annotate `decisions/<ticker>_log.md` (a dated,
+   non-placeholder note) **or** re-ratify the baseline with a cause. Don't
+   auto-revert a gate-fail on requested work — surface it and let the owner
+   decide (memory `feedback_no_unilateral_revert_on_gate_fail`).
 2. `/reconcile <affected ticker>` — must report **SANITY = OK** (tool NAV
    within ±50% of broker NAV — anything wider is a bug, not a call).
 3. If the **drift column** moved >2pp since the previous quarterly run, update
    the ticker's `decisions/<ticker>_log.md` with the why (market move?
-   methodology change? data refresh?).
+   methodology change? data refresh?) — and re-ratify the baseline
+   (`./scripts/ratify_baseline.sh "<cause>"`) once the move is accepted, so the
+   annotation window advances and the change becomes the new committed anchor.
 
 The sanity check is a **bug gate**, not a consensus-matching gate. INSW at −36%
 to broker NAV is OK (mark-driven, §6 documented); INSW at −95% would be
-SANITY=FAIL (you broke something).
+SANITY=FAIL (you broke something). The drift gate is a **change gate** — it
+never asks a number to move toward Pareto (k_broker is tracked on its second
+difference, so a stable wide spread sits green); it only asks an *unexplained
+change* to be explained or accepted.
 
 ## Reconciliation has three jobs, do not conflate them
 

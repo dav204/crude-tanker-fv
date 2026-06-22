@@ -5,6 +5,28 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — Phase 2 ongoing accuracy gate (Option B; closes audit A-2).** The
+  tool had no automated accuracy gate after sector launch — the one-time calibration
+  lock is manual and never auto-invoked, and the >2pp drift alert ran against a
+  gitignored, self-overwriting snapshot (`state/last_reconcile.json`), so drift had no
+  durable anchor and no teeth. Built a **committed, Pareto-free drift gate**:
+  `src/crude_tanker_fv/drift_gate.py`, the tracked `baselines/reconcile_baseline.yaml`
+  (20 names — EV% / tool NAV / position band / k_broker, plus meta: ratified_at /
+  ratified_commit / quarter / cause), `tests/test_drift_gate.py` (17 tests; +291→308),
+  and `scripts/ratify_baseline.sh` (deliberate re-ratify, mandatory cause, human
+  commits). The gate tracks the tool's **own** EV%/NAV/band against its committed prior
+  (never broker NAV) and k_broker on its **second difference** (the *change* in the
+  tool↔broker spread, never its level) — so a persistently-wide documented §6 spread
+  (INSW k≈1.64, NAT k≈2.16) sits green forever and the gate never asks a number to move
+  toward Pareto; only an *unexplained change* fails. Thresholds (ΔEV>2pp / ΔNAV>2% /
+  Δk>0.05) live in the baseline `thresholds:` block (tunable without a code change). A
+  breach clears via a dated, non-placeholder `decisions/<ticker>_log.md` annotation on/
+  after `ratified_at`, or by re-ratifying with a cause; APPROX names (the reconcile set,
+  single-sourced) are tracked on self-consistency only (no Δk gate). Baseline ratified
+  from the current 2026-Q1 outputs @ d382bfd. Wired into CLAUDE.md "How to run things" +
+  the Verification loop, and PLAN.md. Reuses the reconcile drift-delta pattern
+  (`reconcile.py:144-150`) and `reconcile.APPROX_PNAV_TICKERS`. Design of record:
+  `outputs/epistemic_soundness_memo_2026-06-22.md` §4 Option B.
 - **2026-06-22 — Phase 1 honest framing (Option A; the direct fix for the CRITICAL
   epistemic finding).** Doc-only. Added an "independence and ex-post validation status"
   note to README + LIMITATIONS §1: the NAV is independent of broker *opinion* but not
