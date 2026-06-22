@@ -109,10 +109,12 @@ verbatim so no context is lost.
 - **B4 — §9.9 mark-driven classification restated: SHIPPED 2026-06-12**
   (commit cb83315; two-regime k_broker band in METHODOLOGY §9, mechanical
   sweep relabel, fetch_links argparse fix). Done before the freeze.
-- **B5 — anchor-basis commensurability (NOT STARTED):** `anchor_basis` enum
-  on all cycle-anchor YAML blocks; MIXED-ANCHOR-BASIS flag in delta +
-  reconcile; §10 non-composability paragraph; tests. Full design in the prior
-  plan file history / the approved Session-B design.
+- **B5 — anchor-basis commensurability: SHIPPED 2026-06-21** (commit 5fc3b7d).
+  `anchor_basis` enum on every cycle-anchor block in `scenario_inputs.yaml`
+  (tc_10yr_mean / archive_22mo_median / fy_calendar_avg); shared helpers in
+  `scenarios.py`; MIXED-ANCHOR-BASIS flag in the delta report + `reconcile
+  --all` (and per-name basis in `--verbose`); METHODOLOGY §10 subsection; +5
+  tests (280 passed). Metadata + diagnostics only — valuation core untouched.
 - **B6 — §9.2 terminal-value options memo (NOT STARTED):** re-run the 19-name
   terminal sweep, write the four-option memo (1.0× / 0.9× / 1.1× /
   cycle-conditional) with an agent recommendation + empty owner DECISION

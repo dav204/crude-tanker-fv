@@ -553,6 +553,25 @@ sessions.
 
 ## Changelog
 
+- **2026-06-21 (Week 5) — B5 anchor-basis commensurability SHIPPED** (commit
+  5fc3b7d). Cycle-position anchors carry three non-composable bases (a cycle
+  ratio is forward-12M-TC / anchor): `tc_10yr_mean` (crude/product/lng),
+  `archive_22mo_median` (dry_bulk), `fy_calendar_avg` (containerships). Every
+  `cycle_anchors` block in `scenario_inputs.yaml` now declares an `anchor_basis`
+  enum (12 added; containerships' 3 prose tags normalized). Shared helpers in
+  `scenarios.py` (`all_sector_anchor_bases` / `detect_mixed_anchor_basis` /
+  `format_mixed_anchor_basis` / `ANCHOR_BASIS_LABELS`) drive a **MIXED-ANCHOR-
+  BASIS** flag on the two cross-sector surfaces: the delta-report table
+  footnote and the `reconcile --all` footer (per-name basis shown in
+  `--verbose`); `--sector` / single-name runs use one basis so never flag.
+  METHODOLOGY §10 gains the three-basis subsection. Metadata + diagnostics
+  ONLY — the engine reads just `ten_year_mean`, ignores the new key, so the
+  valuation core is untouched (FV-band + cycle/blend pins unchanged). Tests
+  +5 (3 scenarios, 2 delta) → 280 passed, 2 skipped. The B5 commit was kept
+  to the 7 source/doc/yaml/test files; the verification pipeline run's
+  regenerated outputs + routine decision-log stubs were reverted (they
+  regenerate on the next real refresh). Was a parked Week-5 item; resumed at
+  owner direction with the freeze set aside.
 - **2026-06-12 (Week 5) — MB Weekly 24 prints PROMOTED (owner decision,
   7 prints recategorized per owner review) + drift loop run.** Fit
   inputs: **Seamusic** (Aframax age-17 $52.5M, in-window WITH
