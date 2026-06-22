@@ -9,6 +9,41 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-22 — CAPT NB cohorts refined to the exact Q1-release delivery dates (estimate confirmed)
+
+Replaced the rollout's estimated cohorts (2/6/4 VLCC @ 0.4/1.2/2.0; flat 0.8 on
+the 8 Suezmax NB) with the per-vessel Q1-release dates, `years_to_delivery` from
+the Mar-31-2026 snapshot:
+- **VLCC:** 1 delivered (Aristotelis II, Feb-10-26 → ytd 0) / 7 in 2027 (Alterego,
+  Amfitrion, Alexandros Apr, Apollonas May, Anemos Sep, Akadimos Nov + 1 → ~1.25) /
+  4 in 2028 (Amyntas Jan, Arkesios Feb, Atromitos Apr, Aktor Jun → ~2.0).
+- **Suezmax NB:** 6 near-term 2026 (Ataraktos/Aristoklis Apr → Amor Nov, ~0.3) /
+  2 in 2028 (Akeraios Feb, Alkaios Mar, ~1.9).
+
+NAV/sh $15.05 → **$15.03** (−0.1pp, *stable*) — the estimate was already accurate,
+so this is a provenance/precision upgrade, not a re-rate. CAPT's −17.5% divergence
+to Pareto and BUY (EV +22.4%) stand. The cohort timings are now issuer-dated.
+
+---
+
+## 2026-06-22T16:25:02+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.24
+- Single-point FV: $15.25
+- Scenario PW FV: $16.20 (EV +22.4%)
+- NAV / share: $15.03
+- Position: **BUY (undervalued)**
+- Broker spread: +34.7pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.1% | Δscenario FV: no change | ΔNAV: -0.1% | Δspread: +0.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-22 — DRIFT ALERT (−14.8pp): §9.6 time-to-delivery discount rolled out (NOT a market move)
 
 The gap to Pareto moved **−2.6% → −17.3%** (NAV/sh $17.74 → $15.05) — a drift

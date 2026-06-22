@@ -21,17 +21,22 @@
 ticker: CAPT
 report_date: 2026-Q1
 vessels:
-  # ---- VLCC: all undelivered at Mar-31; first delivers Q2-26. Age 0 =
-  #      delivered-market convention (commitment in the balance sheet).
-  # years_to_delivery (§9.6) — VLCCs are back-loaded (Q1-release schedule:
-  # ~early-2026 → mid-2028). Split into delivery cohorts; avg ~1.4yr.
-  - {id: VLCC_nb_2026, class: VLCC, dwt: 310000, age: 0, scrubber: true, eco: true, count: 2, years_to_delivery: 0.4}
-  - {id: VLCC_nb_2027, class: VLCC, dwt: 310000, age: 0, scrubber: true, eco: true, count: 6, years_to_delivery: 1.2}
+  # ---- VLCC: years_to_delivery (§9.6) from the Q1-release per-vessel dates,
+  #      measured from the Mar-31-2026 snapshot. Aristotelis II delivered
+  #      Feb-10-2026 (pre-snapshot → on the water, ytd 0); the rest deliver
+  #      Apr'27 (Alexandros) → Jun'28 (Aktor). 7 in 2027 (avg ~1.25yr), 4 in 2028
+  #      (Amyntas Jan / Arkesios Feb / Atromitos Apr / Aktor Jun → avg ~2.0yr).
+  - {id: VLCC_deliv,   class: VLCC, dwt: 310000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 0.0}
+  - {id: VLCC_nb_2027, class: VLCC, dwt: 310000, age: 0, scrubber: true, eco: true, count: 7, years_to_delivery: 1.25}
   - {id: VLCC_nb_2028, class: VLCC, dwt: 310000, age: 0, scrubber: true, eco: true, count: 4, years_to_delivery: 2.0}
-  # ---- Suezmax: 2 delivered Mar-2026; 8 NB, front-loaded 2026-27
-  #      deliveries (class avg own-years -0.3 per Pareto).
-  - {id: SUEZ_2026, class: Suezmax, dwt: 156000, age: 0,  scrubber: true, eco: true, count: 2}
-  - {id: SUEZ_nb,   class: Suezmax, dwt: 156000, age: 0,  scrubber: true, eco: true, count: 8, years_to_delivery: 0.8}  # §9.6: Suez NBs deliver 2026-27 (front-loaded), avg ~0.8yr
+  # ---- Suezmax: 2 delivered by Mar-31 (Alkinoos/Archigos Mar-5, on-water). The
+  #      8 NB (Q1-release dates from Mar-31): 6 near-term — Ataraktos/Aristoklis
+  #      Apr-14 (~0.05), Archelaos Jun-08 (0.19), Aristodimos Aug-21 (0.39),
+  #      Ayrton Oct-08 (0.52), Amor Nov-18 (0.63), avg ~0.3 — and 2 in 2028
+  #      (Akeraios Feb-16 / Alkaios Mar-09, ~1.9).
+  - {id: SUEZ_2026,     class: Suezmax, dwt: 156000, age: 0, scrubber: true, eco: true, count: 2}
+  - {id: SUEZ_nb_2026,  class: Suezmax, dwt: 156000, age: 0, scrubber: true, eco: true, count: 6, years_to_delivery: 0.3}
+  - {id: SUEZ_nb_2028,  class: Suezmax, dwt: 156000, age: 0, scrubber: true, eco: true, count: 2, years_to_delivery: 1.9}
   # ---- Aframax: on-water; class avg 7.8 = 3 older (~age 10) + 1 fresh
   #      Mar-2026 delivery.
   - {id: AFRA_2016, class: Aframax, dwt: 113000, age: 10, scrubber: true, eco: true, count: 3}

@@ -5,7 +5,7 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | Name | Cons. P/NAV | k_broker | EV @tool | EV @mid | EV @broker | Pos tool→broker | Breakeven tool→broker | Spread (pp) | Read |
 |---|--:|--:|--:|--:|--:|---|--:|--:|---|
 | TEN | 0.34× | 1.19 | +62.5% | +83.7% | +105.0% | BUY→BUY | NAV>px→NAV>px | +42 | wide-spread |
-| CAPT | 0.67× | 1.17 | +22.4% | +39.6% | +56.9% | BUY→BUY | NAV>px→NAV>px | +35 | wide-spread |
+| CAPT | 0.67× | 1.17 | +22.4% | +39.7% | +57.1% | BUY→BUY | NAV>px→NAV>px | +35 | wide-spread |
 | BRUT | 0.75× | 0.93 | +97.3% | +76.9% | +56.6% | BUY→BUY | NAV>px→NAV>px | -41 | wide-spread |
 | STNG | 0.70× | 1.47 | -9.2% | +10.0% | +29.3% | TRIM/SHORT→BUY | $2,725,019→NAV>px | +39 | wide-spread |
 | NAT | 0.85× | 2.16 | -51.1% | -12.9% | +25.2% | TRIM/SHORT→BUY | $396,401→NAV>px | +76 | wide-spread |
