@@ -55,6 +55,10 @@ class TransactionPrint:
     quality_flag: str
     source: str = ""
     notes: str = ""
+    # Set False for documentation-only rows (en-bloc aggregates with no per-vessel
+    # split, out-of-window references) so they are EXCLUDED from the regression even
+    # if their age falls in the fit window. Defaults True (BUG-2, 2026-06-22).
+    in_fit: bool = True
 
     @property
     def clean_price_usd_m(self) -> float:
@@ -124,6 +128,7 @@ def load_transaction_set(path: Path) -> TransactionSet:
             quality_flag=flag,
             source=str(raw.get("source", "")),
             notes=str(raw.get("notes", "")),
+            in_fit=bool(raw.get("in_fit", True)),
         ))
     return TransactionSet(cls=cls, as_of=as_of, prints=prints)
 
@@ -170,6 +175,8 @@ def fit_curve_anchors(
     """Solve new 5yr / 10yr anchors from transactions. Falls back gracefully."""
     in_window: list[tuple[float, float, float]] = []
     for p in txs.prints:
+        if not p.in_fit:
+            continue   # documentation-only row (e.g. en-bloc aggregate, no per-vessel split)
         if not (MID_AGE_MIN <= p.age <= MID_AGE_MAX):
             continue
         dm = _months_between(p.date, txs.as_of)

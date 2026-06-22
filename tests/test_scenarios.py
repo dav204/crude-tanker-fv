@@ -870,3 +870,25 @@ def test_ten_three_sleeve_integration_band():
     assert headline.position_recommendation.startswith("BUY"), (
         f"expected BUY, got {headline.position_recommendation}"
     )
+
+
+def test_cycle_anchor_cross_file_consistency():
+    """BUG-1 guard (2026-06-22): the crude-dirty trio's 10yr-mean cycle anchors must
+    AGREE between historical_tce_means.yaml (the per-name FV / breakeven / sensitivity
+    path, via compute_cycle) and scenario_inputs.yaml crude cycle_anchors (the scenario
+    path). They silently disagreed on Aframax (27600 vs 36483) → different cycle
+    positions for every Aframax-exposed name across the two surfaces."""
+    import yaml
+    from crude_tanker_fv.loaders import INPUTS_DIR
+
+    means = yaml.safe_load(
+        (INPUTS_DIR / "market_data" / "historical_tce_means.yaml").read_text()
+    )["historical_tce_means"]
+    crude = yaml.safe_load(
+        (INPUTS_DIR / "scenario_inputs.yaml").read_text()
+    )["sectors"]["crude"]["cycle_anchors"]
+    for engine_key, scen_key in {"VLCC": "vlcc", "Suezmax": "suezmax", "Aframax": "aframax_dirty"}.items():
+        assert means[engine_key] == crude[scen_key]["ten_year_mean"], (
+            f"{engine_key}: historical_tce_means {means[engine_key]} != "
+            f"scenario_inputs.{scen_key} {crude[scen_key]['ten_year_mean']}"
+        )

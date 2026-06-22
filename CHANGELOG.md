@@ -5,6 +5,20 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — BUG-1 (Aframax dual cycle-anchor) + BUG-2 (Sinokor row in the VLCC
+  fit) fixed** (methodology audit, `outputs/METHODOLOGY_AUDIT_2026-06-22.md`).
+  **BUG-1:** `historical_tce_means.yaml` carried a stale Aframax 10yr-mean of **27,600**
+  while `scenario_inputs.yaml` `aframax_dirty` carried the B5-curated **36,483** — so the
+  per-name FV / breakeven / sensitivity path (`compute_cycle`) and the scenario path
+  computed *different cycle positions* for every Aframax-exposed name (TNK/TEN/INSW/HAFN/
+  STNG). Reconciled to 36,483 (VLCC/Suezmax already matched) + new guard
+  `test_cycle_anchor_cross_file_consistency`. **BUG-2:** the Sinokor en-bloc VLCC row
+  (`vlcc.yaml`, age 12, $71M, labeled "documentation only — excluded") was actually IN the
+  regression — the loader filtered on the age window only. Added an `in_fit: bool` flag to
+  `TransactionPrint` + loader + `fit_curve_anchors`; set `in_fit: false` on the Sinokor row
+  and the FRO-NB doc row. VLCC fit drops the $71M age-12 drag → age-10 anchor up → VLCC NAVs
+  **+0.3–1.1pp** (DHT $12.93→$13.10; DHT report FV 14.00→14.15). All **under the 2pp drift
+  gate; SANITY 0 fail; no position flips.** Tests 290 → 291.
 - **2026-06-22 — cycle-conditional terminal + net retained earnings (§9.2) + §12
   reframed to a falsifiable dividend-window test (R3).** Part of the
   methodology-soundness audit (`outputs/METHODOLOGY_AUDIT_2026-06-22.md`). Resolved a

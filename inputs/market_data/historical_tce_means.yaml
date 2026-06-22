@@ -1,7 +1,7 @@
 historical_tce_means:
   VLCC: 40000
   Suezmax: 27747
-  Aframax: 27600
+  Aframax: 36483          # BUG-1 (2026-06-22): reconciled to scenario_inputs aframax_dirty (B5 tc_10yr_mean); was a stale 27600 (32% cross-file gap)
   LR2: 27600
   LR1: 27600
   MR: 16000
