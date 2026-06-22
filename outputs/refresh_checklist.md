@@ -8,7 +8,7 @@
 
 - ✓ **Balance sheets:** 20 of 20 present for 2026-Q1
 - ✓ **Market data:** 5 of 5 fresh (< 30 days)
-- ⚠ **Watchlist:** 1 of 20 clean — 7 stale, 12 APPROX consensus_pnav
+- ⚠ **Watchlist:** 1 of 20 clean — 8 stale, 11 APPROX consensus_pnav
 - ✓ **Earnings:** no reports outstanding
 
 ## 0. Earnings calendar (report-day refresh runbook in CLAUDE.md)
@@ -67,9 +67,9 @@ _All market data files were updated within 30 days. ✓_
 | CAPT | ✓ | as_of 2026-06-10 (12d ago) |
 | MPCC | ⚠ APPROX | as_of 2026-06-12 (10d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
 | GSL | ⚠ APPROX | as_of 2026-06-12 (10d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| BRUT | ⚠ APPROX | as_of 2026-04-22 (61d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| BRUT | ⚠ stale | as_of 2026-04-22 (61d ago, threshold 14d) |
 
-_12 ticker(s) carry APPROX consensus_pnav comments — replace with authoritative broker NAV print (Pareto / Cleaves / Clarksons) when the Q-end research notes land._
+_11 ticker(s) carry APPROX consensus_pnav comments — replace with authoritative broker NAV print (Pareto / Cleaves / Clarksons) when the Q-end research notes land._
 
 ## 4. Per-ticker file age table
 

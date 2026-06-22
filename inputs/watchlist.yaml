@@ -263,7 +263,8 @@ BRUT:
   consensus_pnav: 0.75         # Pareto initiation 2026-04-22 (same-vintage as price;
                                # implied broker NAV = 5.40/0.75 = $7.20 ≈ NOK 66.7 ≈
                                # Pareto's published NAV NOK 66). Real Pareto coverage —
-                               # NOT APPROX. Series in pareto_share_prices.csv (0.73-0.79x).
+                               # a genuine broker NAV, not a placeholder/proxy anchor. Series
+                               # in pareto_share_prices.csv (0.73-0.79x).
   consensus_fwd_pe: 22.0       # Pareto NTM P/E (Apr-2026 vintage). HIGH / not meaningful —
                                # pre-operational (first vessel delivers Jul-2026); EPS-xref
                                # reads as noise for BRUT until vessels are on the water.
