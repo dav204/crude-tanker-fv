@@ -10,12 +10,12 @@ transaction-anchored curve diagnostic. **Not investment advice.**
 See [METHODOLOGY.md](METHODOLOGY.md) for the full framework (~2,900 lines);
 this README is orientation for someone landing on the repo cold.
 
-## Status (2026-06-12)
+## Status (2026-06-22)
 
-- **19 tickers** across 5 sectors: crude (8, incl. **TEN** the 3-sleeve hybrid and
-  **CAPT** the first Oslo/NOK listing), LNG (2), product (4), dry bulk (3),
-  containerships (2)
-- **274 tests passing** end-to-end
+- **20 tickers** across 5 sectors: crude (9, incl. **TEN** the 3-sleeve hybrid,
+  **CAPT** the first Oslo/NOK listing, and **BRUT** the pure-play VLCC newbuild
+  vehicle), LNG (2), product (4), dry bulk (3), containerships (2)
+- **286 tests passing** end-to-end
 - **7 output families** regenerated per pipeline run + 5 standalone diagnostics
   (LNG weight robustness, crude weight robustness, VIE coverage universe xref,
   VIE market rates xref, terminal-value sensitivity)

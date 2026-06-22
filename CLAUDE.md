@@ -497,7 +497,12 @@ quick-ref price unless the note itself is being updated.)
   issuance, payout walk-back, sponsor merger proposal, fee escalation,
   Q1-27 NB-debt landing). Breakeven solve reads $0/day (net-cash
   + NB-heavy; cosmetic). Onboarded 2026-06-11 from archived Pareto
-  initiation + Q1 review — pull issuer Q1 report at Q2 refresh.
+  initiation + Q1 review. **UPDATE 2026-06-22:** Q1 issuer report confirmed
+  the build (broker-sourced caveat CLEARED); the §9.6 time-to-delivery
+  discount then rolled out across the NB cohorts (now on exact Q1-release
+  delivery dates) → NAV $15.03, gap **−17.5%, k_broker 1.17** — the tool is
+  now more conservative on NB timing than Pareto (the −2.6%/k-1.04 above was
+  the pre-§9.6 onboarding read). BUY held (EV +22.4%). See capt_log.
 
 - **BRUT** — 20th name, the CAPT natural-experiment comp. Pure-play VLCC
   newbuild vehicle (Trøim/Magni; Koch 26% / Trøim 20% / float 54%; NO >50%

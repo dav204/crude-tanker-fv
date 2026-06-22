@@ -4,84 +4,81 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 **forward-looking valuation aid** for shipping equities (independent NAV +
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest. Development proceeds
-normally; the earlier 2026-06-14 "development freeze" was **lifted 2026-06-21**
-by owner decision (see the project-stance note at the top of CLAUDE.md).
+normally (the 2026-06-14 "development freeze" was lifted 2026-06-21).
 
-## Recent work — Week 5 (hardening)
+**Current state (2026-06-22):** 20 watchlist names across 5 sectors; **286 tests
+green**; `reconcile --all` 20/20 SANITY OK (0 fail, 0 drift); tree clean, pushed
+to origin/main. Per-change detail is in the CLAUDE.md changelog.
 
-- **B4 — §9.9 mark-driven classification restated: SHIPPED 2026-06-12** (commit
-  cb83315; two-regime k_broker band in METHODOLOGY §9, mechanical sweep relabel,
-  fetch_links argparse fix).
-- **B5 — anchor-basis commensurability: SHIPPED 2026-06-21** (commit 5fc3b7d).
-  `anchor_basis` enum on every cycle-anchor block in `scenario_inputs.yaml`;
-  shared helpers in `scenarios.py`; MIXED-ANCHOR-BASIS flag in the delta report
-  + `reconcile --all` (per-name basis in `--verbose`); METHODOLOGY §10
-  subsection; +5 tests (280 passed). Metadata + diagnostics only.
-- **B6 — §9.2 terminal-value multiple: LOCKED at 1.0× (owner, 2026-06-21).**
-  Four-option memo (`outputs/terminal_value_options_memo.md`, each option
-  steelmanned) on the refreshed 19-name sweep; owner ratified 1.0× (status quo),
-  with cycle-conditional recorded as the designated successor pending an adoption
-  trigger (memo §4). No engine change (1.0× is production); decision pinned by
-  `test_terminal_nav_multiple_locked_at_1x` and recorded in §9.2 item 2 + the
-  memo DECISION block. **DONE.**
+## Recent work (this sprint) — detail in the CLAUDE.md changelog
+- **Freeze lifted** (2026-06-21): reframed as a forward-looking valuation aid;
+  CLAUDE.md DECISION-RECORD → project-stance note; PLAN.md de-gated.
+- **Week-5 hardening shipped:** B4 (§9.9 two-regime k_broker), B5 (anchor-basis
+  commensurability + MIXED-ANCHOR-BASIS flag, §10), B6 (§9.2 terminal multiple
+  LOCKED 1.0×; cycle-conditional recorded as the triggered successor).
+- **BRUT (Bruton Ltd) onboarded — 20th name** (pure-play VLCC newbuild vehicle,
+  Oslo Growth). Surfaced + resolved the **§9.6 time-to-delivery PV discount**: a
+  newbuild arriving in N years is PV-discounted (per-vessel `years_to_delivery`,
+  `NEWBUILD_DELIVERY_DISCOUNT_RATE` 11%), backward-compatible (default 0). BRUT
+  +116% SANITY-FAIL → +30.6% OK. **Rolled out** to CAPT/FRO/MPCC (GSL/CMDB have
+  no Q1 NBs); CAPT refined to its exact Q1-release dates (NAV $15.03, now a
+  documented −17.5% divergence — the tool is more conservative on NB timing than
+  Pareto; SANITY OK).
+- **Ingest:** daily incremental `sp_scan` wired into the RC-ingest wrapper
+  (prints surface same-day). **Automation-drift policy:** `scripts/commit_drift.sh`
+  (commit-only) flushes the cron drifters — tracked, not gitignored.
+  **shipping_harvester** reviewed → kept a separate gitignored sibling (vendor as
+  a VIE-style cross-check, NOT integrated into src/).
+- **News pull** 2026-06-21 (`outputs/news_digest_2026-06-21.md`): no promotable
+  prints; CAPT Jun-16 sponsor-VLCC deal logged (§15 tripwire); TEN dividend +36%
+  (argues §15 down).
 
-## Active backlog
-
-### Event window
-- **GNK AGM / Diana tender — IN PROGRESS.** Jun-18 AGM outcome read + annotated
-  (`decisions/gnk_log.md` 2026-06-21: Diana lost the proxy fight; the $24.80
-  tender is still live to Jun-26 + a non-binding $27.34 cash+stock under board
-  review). A one-time Jun-26 tender-resolution check is SCHEDULED
-  (`gnk-diana-tender-jun26-check`) — it re-reads the outcome and re-frames the
-  position (deal-arb → NAV-discount on a lapse).
-- **FFA-OCR go/no-go:** owner reviews the 16 flagged queue days, then record the
-  diagnostic-vs-strip decision; Stage 2 (2020-2026 backfill) rides on it.
-- **Weekly `/news-pull` digests** — resume the Saturday cadence (the Jun-13 /
-  Jun-20 slots lapsed during the freeze).
+## Active backlog / what's next
+### Near-term
+- **GNK / Diana tender — RESOLVES Jun-26.** A one-time check is SCHEDULED
+  (`gnk-diana-tender-jun26-check`, fires ~Jun-26 8pm ET): reads the tender
+  outcome + any board decision on the non-binding $27.34 proposal and re-frames
+  GNK (deal-arb → NAV-discount on a lapse; expect reversion toward ~0.70× Pareto
+  NAV). Then annotate `decisions/gnk_log.md`.
+- **FFA feed DORMANT since 2026-06-12** (source-side — the single poster stopped
+  posting the parseable grid; NOT a pipeline fault; the staleness alarm fires
+  weekly). Action is upstream: check the Rocket.Chat channel / consider an
+  alternative FFA source (Baltic settlements, MB weekly). Only the ffa_vs_strip
+  diagnostic is stale meanwhile — no live valuation input is affected.
+- **Weekly /news-pull** — resume the Saturday cadence (Jun-21 digest done).
 
 ### Q2-refresh carry-forwards (earnings calendar + preflight §0 drive timing)
-- **MPCC (reports 2026-08-26):** replace cohort built-year ESTIMATES + NB
-  delivery quarters with the issuer fleet list; clean per-vessel prices on the
-  three handed-over sale prints; refresh the company-implied NAV anchor.
-- **GSL (Aug-04/06):** Series B preferred count post-ATM; the Jun-26 $917M NB
-  order's charter attachments; 20-F Item 6 board-rights verify.
-- **TEN (September, H1 reporter):** TCM fee-load computation (§15 anchor); apply
-  ten_log Q2-vintage kit deltas (Ulysses sale, Sola TS step-up, rolls).
-- **CMDB:** the Astros sale price — clean age-8 Ultramax print if per-vessel.
+- **Early cluster Jul-28 → Aug-6:** STNG/ASC/TNK/CCEC, then ECO/GNK/GSL/CMDB/
+  DHT/INSW/SBLK.
+- **BRUT (H1, Aug-13):** confirm the Pareto-estimate balance sheet against the
+  first issuer report; complete the §15 screen (Goodwood fee load + control —
+  needs the admission prospectus); refine the NB cohorts.
+- **CAPT (Q2):** verify the Jun-16 sponsor VLCC deal terms/funding (§15
+  tripwire). NB cohorts now issuer-dated.
+- **MPCC (Aug-26):** issuer fleet list → built years + NB delivery quarters (the
+  `years_to_delivery` are deck estimates); 3 sale-print prices; NAV anchor.
+- **GSL (Aug-4/6):** Series B prefs post-ATM; the Jun-26 $917M NB order's
+  charterers + delivery schedule (then apply §9.6 to GSL); 20-F board rights.
+- **TEN (Sep, H1):** TCM fee-load (§15 anchor); the +36% dividend argues the 30%
+  haircut down; ten_log Q2 kit deltas. **CMDB:** the Astros sale price.
 
 ### Standing threads
-- **MB Shipbrokers weeklies — LANDED 2026-06-12.** Ingest route established
-  (Gmail link harvest → `scripts/fetch_pdf.py` → `inputs/research_mb/`).
-  Container current-rate refresh queued (owner-gated); crude NB anchor review;
-  Pana anchor flagged structurally low; LNG weekly not yet delivered. Full
-  once-over: `outputs/mb_weekly_check_2026-06-12.md`.
-- **shipping_harvester (sibling repo) — reviewed 2026-06-21.** Verdict: keep as
-  a separate sibling and vendor it as a VIE-style cross-check; do NOT integrate
-  into `src/`. Only the rate/demolition feeds (spot/period-TC, demolition→scrap)
-  are clean, human-promoted candidates; broker vessel-VALUE legs stay
-  diagnostic-only (anti-calibration rule). Currently untracked inside the repo
-  tree — gitignore or move out to avoid an accidental commit.
-- **Brokerage MCP — CLOSED 2026-06-12** (DENY rules on the synced server id;
-  re-check the UUID in a fresh session's tool list — disconnect/reconnect can
-  stale it).
-- **OWNER ACTION pending:** ratify-or-revise the A1 horizon interpretation
-  (wired as 10 strip quarters = end-2028; brief said "~12q from report date").
-- **Hormuz weight-revisit trigger** — standing; preempts everything if
-  physical-transit confirmation lands. (MB Weekly 24: draft memo + 30-day
-  window, trigger NOT met.)
-- **§5 ask-tier verification (interactive session):** confirm git push /
-  watchlist-edit / fetch_links / curl actually PROMPT with a human present (the
-  autonomous session could only prove deny rules enforce).
+- **§9.6 follow-ups:** cycle-conditional terminal (the B6 successor) on its
+  triggers; GSL gets the time-to-delivery discount once its NB order's delivery
+  schedule is disclosed (Q2).
+- **MB weeklies:** container current-rate refresh (owner-gated); Pana anchor
+  flagged structurally low; LNG weekly not yet delivered.
+- **OWNER ACTION pending:** ratify-or-revise the A1 horizon (wired as 10 strip
+  quarters = end-2028).
+- **Hormuz weight-revisit trigger** — standing (trigger NOT met).
+- **§5 ask-tier verification** — confirm git push / watchlist-edit / fetch_links
+  / curl actually PROMPT in an interactive session.
 - **Deferred by owner:** /news-pull agent-half orchestration; Task-3 weight
   adjuster; demand-destruction overlay; FFA Stage 2.
 
-## Backtest (complete — reference only, not a gate)
-
-A crude-subsector edge backtest lives in `backtest/` (pre-registration +
-`backtest/REPORT.md`). Finding: no *statistically demonstrated* cross-sectional
-edge on the ~1.5 years of published P/NAV available — expected given a 4-name
-universe / ~6 quarters, a known limitation of cross-sectional testing at that
-scale, not a refutation of the per-name valuation work. Kept as a recorded
-diagnostic. Test 1 (engine EV% vs naive P/NAV) was never run (blocked on
-historical point-in-time `CompanyInputs`); revisit only if an independent
-multi-year vintage source is supplied. This no longer gates development.
+## Backtest (complete — reference, not a gate)
+Crude-subsector edge backtest in `backtest/` (`REPORT.md`): no *statistically
+demonstrated* cross-sectional edge on ~1.5yr of published P/NAV (small-sample,
+not a refutation of the per-name work). Test 1 (engine EV% vs naive P/NAV) was
+never run (data-blocked on historical point-in-time inputs). No longer gates
+development.
