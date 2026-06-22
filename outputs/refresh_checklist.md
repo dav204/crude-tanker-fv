@@ -1,14 +1,14 @@
 # Refresh Checklist — 2026-Q1 (target quarter)
 
-- **Today:** 2026-06-21
+- **Today:** 2026-06-22
 - **Target quarter:** 2026-Q1
 - **Workflow:** work through the sections below, then run `python -m crude_tanker_fv.pipeline` to refresh outputs.
 
 ## Status summary
 
-- ✓ **Balance sheets:** 19 of 19 present for 2026-Q1
+- ✓ **Balance sheets:** 20 of 20 present for 2026-Q1
 - ✓ **Market data:** 5 of 5 fresh (< 30 days)
-- ⚠ **Watchlist:** 1 of 19 clean — 7 stale, 11 APPROX consensus_pnav
+- ⚠ **Watchlist:** 1 of 20 clean — 7 stale, 12 APPROX consensus_pnav
 - ✓ **Earnings:** no reports outstanding
 
 ## 0. Earnings calendar (report-day refresh runbook in CLAUDE.md)
@@ -16,6 +16,7 @@
 | Ticker | Status | Detail |
 |---|---|---|
 | ASC | — | 2026-07-28 → 2026-07-30 (expected). Q1-26 May-7; Q2-25 Jul-30 (announced ~2wk ahead) |
+| BRUT | — | 2026-08-13 (confirmed). HALF-YEARLY reporter (owner-confirmed): H1-2026 earnings 2026-08-13. No Q1/Q3 interims — this is the first issuer report to confirm the Pareto-derived onboarding inputs. |
 | CAPT | — | 2026-08-17 → 2026-08-31 (expected). First-ever results (Q1-26) came May-27; Oslo H1-report cadence implies late Aug. No published calendar yet — watch the dailies. |
 | CCEC | — | 2026-07-29 → 2026-08-06 (expected). Q1-26 May-7; Q2-25 Jul-31 |
 | CMDB | — | 2026-08-04 → 2026-08-10 (expected). Q1-26 release May-13; H1-25 Aug-8; announces ~1-2wk ahead |
@@ -47,51 +48,53 @@ _All market data files were updated within 30 days. ✓_
 
 | Ticker | as_of status | Detail |
 |---|---|---|
-| DHT | ⚠ stale | as_of 2026-06-04 (17d ago, threshold 14d) |
-| ECO | ⚠ stale | as_of 2026-06-04 (17d ago, threshold 14d) |
-| FRO | ⚠ stale | as_of 2026-06-04 (17d ago, threshold 14d) |
-| INSW | ⚠ stale | as_of 2026-06-04 (17d ago, threshold 14d) |
-| TNK | ⚠ stale | as_of 2026-06-04 (17d ago, threshold 14d) |
-| NAT | ⚠ APPROX | as_of 2026-06-04 (17d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| FLNG | ⚠ APPROX | as_of 2026-06-04 (17d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| CCEC | ⚠ APPROX | as_of 2026-06-04 (17d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| STNG | ⚠ APPROX | as_of 2026-06-04 (17d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| HAFN | ⚠ APPROX | as_of 2026-06-04 (17d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| TRMD | ⚠ APPROX | as_of 2026-06-04 (17d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| ASC | ⚠ APPROX | as_of 2026-06-04 (17d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| TEN | ⚠ APPROX | as_of 2026-06-10 (11d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| CMDB | ⚠ APPROX | as_of 2026-06-10 (11d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| SBLK | ⚠ stale | as_of 2026-06-05 (16d ago, threshold 14d) |
-| GNK | ⚠ stale | as_of 2026-06-04 (17d ago, threshold 14d) |
-| CAPT | ✓ | as_of 2026-06-10 (11d ago) |
-| MPCC | ⚠ APPROX | as_of 2026-06-12 (9d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| GSL | ⚠ APPROX | as_of 2026-06-12 (9d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| DHT | ⚠ stale | as_of 2026-06-04 (18d ago, threshold 14d) |
+| ECO | ⚠ stale | as_of 2026-06-04 (18d ago, threshold 14d) |
+| FRO | ⚠ stale | as_of 2026-06-04 (18d ago, threshold 14d) |
+| INSW | ⚠ stale | as_of 2026-06-04 (18d ago, threshold 14d) |
+| TNK | ⚠ stale | as_of 2026-06-04 (18d ago, threshold 14d) |
+| NAT | ⚠ APPROX | as_of 2026-06-04 (18d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| FLNG | ⚠ APPROX | as_of 2026-06-04 (18d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| CCEC | ⚠ APPROX | as_of 2026-06-04 (18d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| STNG | ⚠ APPROX | as_of 2026-06-04 (18d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| HAFN | ⚠ APPROX | as_of 2026-06-04 (18d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| TRMD | ⚠ APPROX | as_of 2026-06-04 (18d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| ASC | ⚠ APPROX | as_of 2026-06-04 (18d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| TEN | ⚠ APPROX | as_of 2026-06-10 (12d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| CMDB | ⚠ APPROX | as_of 2026-06-10 (12d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| SBLK | ⚠ stale | as_of 2026-06-05 (17d ago, threshold 14d) |
+| GNK | ⚠ stale | as_of 2026-06-04 (18d ago, threshold 14d) |
+| CAPT | ✓ | as_of 2026-06-10 (12d ago) |
+| MPCC | ⚠ APPROX | as_of 2026-06-12 (10d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| GSL | ⚠ APPROX | as_of 2026-06-12 (10d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| BRUT | ⚠ APPROX | as_of 2026-04-22 (61d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
 
-_11 ticker(s) carry APPROX consensus_pnav comments — replace with authoritative broker NAV print (Pareto / Cleaves / Clarksons) when the Q-end research notes land._
+_12 ticker(s) carry APPROX consensus_pnav comments — replace with authoritative broker NAV print (Pareto / Cleaves / Clarksons) when the Q-end research notes land._
 
 ## 4. Per-ticker file age table
 
 | Ticker | Fleet (≤90d) | BS for 2026-Q1 | Cost (≤180d) | Dividend (≤180d) |
 |---|---|---|---|---|
-| DHT | ✓ 23d | ✓ 23d ago | ✓ 23d | ✓ 23d |
-| ECO | ✓ 23d | ✓ 23d ago | ✓ 23d | ✓ 23d |
-| FRO | ✓ 23d | ✓ 23d ago | ✓ 23d | ✓ 23d |
-| INSW | ✓ 23d | ✓ 23d ago | ✓ 23d | ✓ 23d |
-| TNK | ✓ 23d | ✓ 23d ago | ✓ 23d | ✓ 23d |
-| NAT | ✓ 20d | ✓ 20d ago | ✓ 20d | ✓ 20d |
-| FLNG | ✓ 20d | ✓ 20d ago | ✓ 20d | ✓ 20d |
-| CCEC | ✓ 20d | ✓ 20d ago | ✓ 20d | ✓ 20d |
-| STNG | ✓ 16d | ✓ 16d ago | ✓ 16d | ✓ 20d |
-| HAFN | ✓ 16d | ✓ 16d ago | ✓ 17d | ✓ 17d |
-| TRMD | ✓ 17d | ✓ 17d ago | ✓ 17d | ✓ 17d |
-| ASC | ✓ 16d | ✓ 16d ago | ✓ 20d | ✓ 20d |
-| TEN | ✓ 9d | ✓ 14d ago | ✓ 15d | ✓ 15d |
-| CMDB | ✓ 11d | ✓ 11d ago | ✓ 11d | ✓ 11d |
-| SBLK | ✓ 12d | ✓ 12d ago | ✓ 12d | ✓ 12d |
-| GNK | ✓ 11d | ✓ 11d ago | ✓ 11d | ✓ 11d |
-| CAPT | ✓ 10d | ✓ 10d ago | ✓ 10d | ✓ 10d |
-| MPCC | ✓ 9d | ✓ 9d ago | ✓ 9d | ✓ 9d |
-| GSL | ✓ 9d | ✓ 9d ago | ✓ 9d | ✓ 9d |
+| DHT | ✓ 24d | ✓ 24d ago | ✓ 24d | ✓ 24d |
+| ECO | ✓ 24d | ✓ 24d ago | ✓ 24d | ✓ 24d |
+| FRO | ✓ 0d | ✓ 24d ago | ✓ 24d | ✓ 24d |
+| INSW | ✓ 24d | ✓ 24d ago | ✓ 24d | ✓ 24d |
+| TNK | ✓ 24d | ✓ 24d ago | ✓ 24d | ✓ 24d |
+| NAT | ✓ 21d | ✓ 21d ago | ✓ 21d | ✓ 21d |
+| FLNG | ✓ 21d | ✓ 21d ago | ✓ 21d | ✓ 21d |
+| CCEC | ✓ 21d | ✓ 21d ago | ✓ 21d | ✓ 21d |
+| STNG | ✓ 17d | ✓ 17d ago | ✓ 17d | ✓ 21d |
+| HAFN | ✓ 17d | ✓ 17d ago | ✓ 18d | ✓ 18d |
+| TRMD | ✓ 18d | ✓ 18d ago | ✓ 18d | ✓ 18d |
+| ASC | ✓ 17d | ✓ 17d ago | ✓ 21d | ✓ 21d |
+| TEN | ✓ 10d | ✓ 15d ago | ✓ 16d | ✓ 16d |
+| CMDB | ✓ 12d | ✓ 12d ago | ✓ 12d | ✓ 12d |
+| SBLK | ✓ 13d | ✓ 13d ago | ✓ 13d | ✓ 13d |
+| GNK | ✓ 12d | ✓ 12d ago | ✓ 12d | ✓ 12d |
+| CAPT | ✓ 0d | ✓ 0d ago | ✓ 11d | ✓ 11d |
+| MPCC | ✓ 0d | ✓ 10d ago | ✓ 10d | ✓ 10d |
+| GSL | ✓ 10d | ✓ 10d ago | ✓ 10d | ✓ 10d |
+| BRUT | ✓ 0d | ✓ 0d ago | ✓ 0d | ✓ 0d |
 
 _Thresholds: fleet manifest 90d (vessel sales/purchases happen quarterly); cost + dividend 180d (rarely change but should be re-validated annually)._
 
@@ -120,3 +123,4 @@ For ad-hoc lookups outside the refresh cycle:
 | CAPT | https://www.capitaltankers.com/ | https://www.capitaltankers.com/news/ | — | https://www.capitaltankers.com/fleet/ |
 | MPCC | — | — | — | https://www.mpc-container.com/fleet/our-fleet/ |
 | GSL | — | — | — | https://www.globalshiplease.com/fleet/ships-contract-cover |
+| BRUT | https://bruton-ltd.com/ | https://bruton-ltd.com/news/ | — | https://bruton-ltd.com/fleet/ |
