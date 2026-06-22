@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-22T01:57:26+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $23.68
+- Single-point FV: $25.30
+- Scenario PW FV: $25.76 (EV +8.8%)
+- NAV / share: $26.27
+- Position: **BUY (undervalued)**
+- Broker spread: +3.5pp (k_broker 1.03)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.01 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -0.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-21 — DEAL EVENT (partial resolution): Diana LOST the Jun-18 proxy fight; $24.80 tender still live to Jun-26 — framing migrates deal-arb → NAV-discount
 
 **Why this entry:** PLAN.md event-window item — read the Jun-18 AGM + Jun-26
