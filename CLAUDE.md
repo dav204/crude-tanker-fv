@@ -56,6 +56,14 @@ for the full framework; this file is the operational rulebook.
   live close; watchlist statics stay as the consensus_pnav/fwd_pe
   vintage anchors (broker NAV + consensus EPS use them). Flagged quotes
   (>15% day move, >30% vs static) are written but never applied.
+- Flush automation drift: `./scripts/commit_drift.sh` — stages + commits (one
+  deliberate step) the automation-written data/output files the launchd jobs
+  churn (prices_daily, baltic CSV, sp_scan cursor + candidates, linked-report
+  manifest, preflight, FFA queue). COMMIT-ONLY — push stays manual. Decision
+  logs + per-name pipeline outputs are EXCLUDED (commit those deliberately with
+  their annotations / driving input change). Owner decision 2026-06-21:
+  automation files stay tracked, flushed via this helper (not cron auto-commit,
+  not gitignored).
 - Earnings calendar: `inputs/earnings_calendar.yaml` — hand-maintained
   (the weekly digest flags newly-announced dates; update on sight). The
   preflight's §0 section consumes it; report-day workflow below.
@@ -554,6 +562,17 @@ sessions.
 
 ## Changelog
 
+- **2026-06-21 — automation-drift policy set + `commit_drift.sh` helper added
+  (owner decision).** The recurring problem: launchd jobs write to TRACKED files
+  (prices_daily, baltic CSV, sp_scan cursor + candidates, `_manifest.json`,
+  preflight, FFA queue), so the working tree perpetually accumulates uncommitted
+  drift. Decision (vs gitignoring them or cron auto-commit): **keep them tracked,
+  flush via a manual one-step helper.** `scripts/commit_drift.sh` stages +
+  commits exactly those 8 files when run; COMMIT-ONLY (push stays the deliberate
+  human event); decision logs + per-name pipeline outputs excluded (committed
+  deliberately with their annotations / driving input change). Documented in
+  "How to run things." Rationale: preserves full history + owner control of
+  every commit; no cron clutter; drift cleanup is now one command.
 - **2026-06-21 — daily S&P scan wired into the RC-ingest job + ingest-lag
   diagnosis (NOT an ingest failure).** Symptom: the `sp_scan` cursor sat at
   2026-06-11 while dailies through 06-19 were on disk. Diagnosis: the daily
