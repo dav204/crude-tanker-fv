@@ -574,6 +574,18 @@ sessions.
 
 ## Changelog
 
+- **2026-06-22 — §9.6 time-to-delivery discount ROLLED OUT to the other newbuild
+  books (owner-approved, post-BRUT).** Applied per-vessel `years_to_delivery` to
+  CAPT / FRO / MPCC manifests (GSL's NB order is post-snapshot; CMDB has none).
+  Moves, all SANITY-OK: **CAPT NAV $17.74 → $15.05, gap −2.6% → −17.3%** (the
+  material one — NB-heavy; the discount makes the tool *more conservative on NB
+  timing than Pareto*, opening a documented divergence where CAPT was a tight
+  validator — a call, not a bug; position held BUY); **MPCC $2.27 → $2.02**
+  (−9.4pp; test_mpcc_gsl baseline re-pinned); **FRO $24.40 → $24.08** (−1.1pp,
+  negligible — its NBs deliver Apr'26-Q1'27). `reconcile --all`: 20 names, 0
+  SANITY FAIL, 2 drift alerts (CAPT/MPCC) annotated with the methodology cause.
+  286 tests green. Cohort `years_to_delivery` are estimates (CAPT from the
+  Q1-release schedule; MPCC from the deck's ~qN hints) — refine at the Q2 reports.
 - **2026-06-22 — BRUT (Bruton Ltd) onboarded as the 20th name + §9.6
   time-to-delivery newbuild discount resolved (BRUT-first).** Bruton =
   pure-play VLCC newbuild vehicle (Trøim/Magni; Koch 26% / Trøim 20% / float

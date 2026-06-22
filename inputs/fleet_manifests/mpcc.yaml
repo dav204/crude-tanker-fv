@@ -71,21 +71,23 @@ vessels:
   - {id: MPCC_NclVestland, class: Ctr-Feeder, dwt: 18200, age: 0.9, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 17078, count: 1}  # 1,300 TEU, EUR-fixed +1.1%/yr
   - {id: MPCC_NclNordland, class: Ctr-Feeder, dwt: 18200, age: 0.6, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 16905, count: 1}  # 1,300 TEU
   # ---- owned newbuilds (age 0.0 on-curve; §3.1 net-of-commitment) ----
-  - {id: MPCC_AsFriederikeNb, class: Ctr-Feeder, dwt: 18200, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 17750, count: 1}  # 1,300 TEU NB, delivers ~q1
-  - {id: MPCC_AsRoseNb, class: Ctr-Feeder, dwt: 22400, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 16450, count: 1}  # 1,600 TEU NB, delivers ~q4
-  - {id: MPCC_AsReeseNb, class: Ctr-Feeder, dwt: 22400, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 16450, count: 1}  # 1,600 TEU NB, delivers ~q5
-  - {id: MPCC_AsMarieNb, class: Ctr-Intermediate, dwt: 63000, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 31900, count: 1}  # 4,500 TEU NB, delivers ~q4
-  - {id: MPCC_AsMetteNb, class: Ctr-Intermediate, dwt: 63000, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 31900, count: 1}  # 4,500 TEU NB, delivers ~q5
-  - {id: MPCC_AsMatildeNb, class: Ctr-Intermediate, dwt: 63000, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 27000, count: 1}  # 4,500 TEU NB, delivers ~q6
-  - {id: MPCC_AsMartineNb, class: Ctr-Intermediate, dwt: 63000, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 27000, count: 1}  # 4,500 TEU NB, delivers ~q7
-  - {id: MPCC_AsMarleneNb, class: Ctr-Intermediate, dwt: 63000, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 27000, count: 1}  # 4,500 TEU NB, delivers ~q8
-  - {id: MPCC_AsMaxineNb, class: Ctr-Intermediate, dwt: 63000, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 27000, count: 1}  # 4,500 TEU NB, delivers ~q9
-  - {id: MPCC_AsNadineNb, class: Ctr-Intermediate, dwt: 51800, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 22950, count: 1}  # 3,700 TEU NB, delivers ~q6
-  - {id: MPCC_AsNaomieNb, class: Ctr-Intermediate, dwt: 51800, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 22950, count: 1}  # 3,700 TEU NB, delivers ~q7
-  - {id: MPCC_AsNikeNb, class: Ctr-Intermediate, dwt: 51800, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 22950, count: 1}  # 3,700 TEU NB, delivers ~q8
-  - {id: MPCC_AsNancieNb, class: Ctr-Intermediate, dwt: 51800, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 22950, count: 1}  # 3,700 TEU NB, delivers ~q9
-  - {id: MPCC_AsNicoleNb, class: Ctr-Intermediate, dwt: 51800, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 22950, count: 1}  # 3,700 TEU NB, delivers ~q12
-  - {id: MPCC_AsNoreneNb, class: Ctr-Intermediate, dwt: 51800, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 22950, count: 1}  # 3,700 TEU NB, delivers ~q13
+  # years_to_delivery (§9.6) = the disclosed ~delivery-quarter ÷ 4 (q1→0.25 …
+  # q13→3.25). Delivery quarters are ESTIMATES (deck has no built years).
+  - {id: MPCC_AsFriederikeNb, class: Ctr-Feeder, dwt: 18200, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 17750, count: 1, years_to_delivery: 0.25}  # 1,300 TEU NB, ~q1
+  - {id: MPCC_AsRoseNb, class: Ctr-Feeder, dwt: 22400, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 16450, count: 1, years_to_delivery: 1.0}  # 1,600 TEU NB, ~q4
+  - {id: MPCC_AsReeseNb, class: Ctr-Feeder, dwt: 22400, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 16450, count: 1, years_to_delivery: 1.25}  # 1,600 TEU NB, ~q5
+  - {id: MPCC_AsMarieNb, class: Ctr-Intermediate, dwt: 63000, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 31900, count: 1, years_to_delivery: 1.0}  # 4,500 TEU NB, ~q4
+  - {id: MPCC_AsMetteNb, class: Ctr-Intermediate, dwt: 63000, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 31900, count: 1, years_to_delivery: 1.25}  # 4,500 TEU NB, ~q5
+  - {id: MPCC_AsMatildeNb, class: Ctr-Intermediate, dwt: 63000, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 27000, count: 1, years_to_delivery: 1.5}  # 4,500 TEU NB, ~q6
+  - {id: MPCC_AsMartineNb, class: Ctr-Intermediate, dwt: 63000, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 27000, count: 1, years_to_delivery: 1.75}  # 4,500 TEU NB, ~q7
+  - {id: MPCC_AsMarleneNb, class: Ctr-Intermediate, dwt: 63000, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 27000, count: 1, years_to_delivery: 2.0}  # 4,500 TEU NB, ~q8
+  - {id: MPCC_AsMaxineNb, class: Ctr-Intermediate, dwt: 63000, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 27000, count: 1, years_to_delivery: 2.25}  # 4,500 TEU NB, ~q9
+  - {id: MPCC_AsNadineNb, class: Ctr-Intermediate, dwt: 51800, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 22950, count: 1, years_to_delivery: 1.5}  # 3,700 TEU NB, ~q6
+  - {id: MPCC_AsNaomieNb, class: Ctr-Intermediate, dwt: 51800, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 22950, count: 1, years_to_delivery: 1.75}  # 3,700 TEU NB, ~q7
+  - {id: MPCC_AsNikeNb, class: Ctr-Intermediate, dwt: 51800, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 22950, count: 1, years_to_delivery: 2.0}  # 3,700 TEU NB, ~q8
+  - {id: MPCC_AsNancieNb, class: Ctr-Intermediate, dwt: 51800, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 22950, count: 1, years_to_delivery: 2.25}  # 3,700 TEU NB, ~q9
+  - {id: MPCC_AsNicoleNb, class: Ctr-Intermediate, dwt: 51800, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 22950, count: 1, years_to_delivery: 3.0}  # 3,700 TEU NB, ~q12
+  - {id: MPCC_AsNoreneNb, class: Ctr-Intermediate, dwt: 51800, age: 0.0, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 22950, count: 1, years_to_delivery: 3.25}  # 3,700 TEU NB, ~q13
 
 spot_coverage_pct:
   Ctr-Feeder: 0.0

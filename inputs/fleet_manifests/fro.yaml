@@ -31,8 +31,11 @@ vessels:
   #      these cheaply-contracted ships in a hot market (~$5.7/sh). Hengli/Dalian
   #      = modern top-tier Chinese (5% yard discount). They earn in the strip via
   #      the fleet_schedule ramp, not from the static manifest count.
-  - {id: VLCC_nb_hengli,  class: VLCC, dwt: 306000, age: 0, scrubber: true,  eco: true, yard: Hengli,       count: 6}
-  - {id: VLCC_nb_dalian,  class: VLCC, dwt: 300000, age: 0, scrubber: true,  eco: true, yard: Dalian,       count: 3}
+  # years_to_delivery (§9.6) from the Mar-31 snapshot: the 9 Hemen NBs deliver
+  # Apr'26 → Q1'27 (per the fleet_schedule note) — all near-term, so the PV
+  # discount is small (~2-6%). Hengli earlier (avg ~0.35yr), Dalian later (~0.6).
+  - {id: VLCC_nb_hengli,  class: VLCC, dwt: 306000, age: 0, scrubber: true,  eco: true, yard: Hengli,       count: 6, years_to_delivery: 0.35}
+  - {id: VLCC_nb_dalian,  class: VLCC, dwt: 300000, age: 0, scrubber: true,  eco: true, yard: Dalian,       count: 3, years_to_delivery: 0.6}
   # ---- Suezmax (21 at 2026-03-31; 2 oldest Chinese sold April 2026 -> strip uses 19) ----
   - {id: SMX_2019_kr,     class: Suezmax, dwt: 157000, age: 7,  scrubber: true,  eco: true, yard: HSHI,
      charter_status: time_charter, charter_rate: 60000, count: 11}

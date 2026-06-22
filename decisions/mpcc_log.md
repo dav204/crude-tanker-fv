@@ -7,6 +7,75 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-22 — DRIFT ALERT (−9.4pp): §9.6 time-to-delivery discount rolled out (NOT a market move)
+
+NAV/sh moved **$2.27 → $2.02** (−9.4pp gap) — cause is the §9.6 time-to-delivery
+PV discount (proven on BRUT) rolled out to MPCC's 15 owned newbuilds, which
+deliver ~q1-q13 out (0.25-3.25yr); each is now discounted by
+`1.11^(−years_to_delivery)`, trimming ~$0.25/sh. The 51 on-water vessels are
+unchanged. MPCC is APPROX (n/a SANITY); the company-implied NAV anchor is itself
+stale. Position read unchanged-direction (TRIM/SHORT). The NB `years_to_delivery`
+uses the deck's ~delivery-quarter estimates — refine with the issuer fleet list
+at the Q2 report (2026-08-26). test_mpcc_gsl baseline re-pinned $2.27 → $2.02.
+
+---
+
+## 2026-06-22T16:04:37+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.54
+- Single-point FV: $1.99
+- Scenario PW FV: $1.85 (EV -27.3%)
+- NAV / share: $2.02
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +13.4pp (k_broker 1.12)
+- Sector: containerships
+
+**Material deltas since last run:**
+- ⚑ broker spread +8.1pp
+- ⚑ NAV/sh -11.0%
+- Δprice: no change | Δsingle FV: -6.6% | Δscenario FV: -5.6% | ΔNAV: -11.0% | Δspread: +8.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-22T15:33:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.54
+- Single-point FV: $2.13
+- Scenario PW FV: $1.96 (EV -22.9%)
+- NAV / share: $2.27
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +5.3pp (k_broker 1.05)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-22T15:15:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.54
+- Single-point FV: $2.13
+- Scenario PW FV: $1.96 (EV -22.9%)
+- NAV / share: $2.27
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +5.3pp (k_broker 1.05)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-12T21:55:24+00:00 — Pipeline run (auto)
 
 **Model state:**

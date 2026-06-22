@@ -9,6 +9,84 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-22 — DRIFT ALERT (−14.8pp): §9.6 time-to-delivery discount rolled out (NOT a market move)
+
+The gap to Pareto moved **−2.6% → −17.3%** (NAV/sh $17.74 → $15.05) — a drift
+alert, but the cause is a **methodology change, not the tape**: the §9.6
+time-to-delivery PV discount (proven on BRUT) was rolled out to CAPT's newbuilds.
+CAPT's 12 VLCC NB (split 2026/2027/2028 cohorts, avg ~1.4yr) + 8 Suezmax NB
+(~0.8yr) are now PV-discounted by `1.11^(−years_to_delivery)`; the Mar-2026-
+delivered Suez/Afra/LR2 rows stay on-water (no discount). SANITY still **OK**.
+
+**Observation worth recording:** the discount makes the tool **more conservative
+on NB timing than Pareto**. For BRUT (pure-NB) this CLOSED the gap (Pareto was
+already discounting heavily, 0.75×); for CAPT it OPENED one (−2.6% → −17.3%) —
+i.e. Pareto appears to book CAPT's cheaply-contracted NBs closer to delivered
+value, while the tool now haircuts them for the wait. So CAPT shifts from a
+tight reconcile (k 1.04) to a documented **−17% methodological divergence** (the
+tool's more conservative NB-timing view) — SANITY-OK, a call not a bug. Position
+held **BUY** (NAV $15.05 still > price ~$13.24). Owner may reconsider the cohort
+`years_to_delivery` against CAPT's actual Q1-release delivery dates at the Q2
+refresh (the cohort split here is an estimate).
+
+---
+
+## 2026-06-22T16:04:37+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.24
+- Single-point FV: $15.24
+- Scenario PW FV: $16.20 (EV +22.4%)
+- NAV / share: $15.05
+- Position: **BUY (undervalued)**
+- Broker spread: +34.6pp (k_broker 1.17)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread +20.4pp
+- ⚑ NAV/sh -15.2%
+- Δprice: no change | Δsingle FV: -8.8% | Δscenario FV: -8.4% | ΔNAV: -15.2% | Δspread: +20.4pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-22T15:33:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.24
+- Single-point FV: $16.71
+- Scenario PW FV: $17.68 (EV +33.5%)
+- NAV / share: $17.74
+- Position: **BUY (undervalued)**
+- Broker spread: +14.2pp (k_broker 1.07)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-22T15:15:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.24
+- Single-point FV: $16.71
+- Scenario PW FV: $17.68 (EV +33.5%)
+- NAV / share: $17.74
+- Position: **BUY (undervalued)**
+- Broker spread: +14.2pp (k_broker 1.07)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-22 — Q1 PRIMARY-SOURCE CONFIRMATION DONE — build validated, broker-sourced caveat CLEARED
 
 Pulled CAPT's issuer Q1 2026 earnings release (the deferred primary source) from

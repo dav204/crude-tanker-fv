@@ -13,8 +13,10 @@ from crude_tanker_fv.pipeline import value_company
 def test_mpcc_onboarding_baseline():
     r = value_company("MPCC", "2026-Q1", current_price=2.78, analyst_target=2.63,
                       strip_horizon=10)
-    # NAV $2.27 at pin: 51 on-water + 15 owned NB rows net of $633.7M commitments.
-    assert 2.16 < r.nav.nav_per_share < 2.38
+    # NAV $2.02 (re-pinned 2026-06-22 from $2.27): the §9.6 time-to-delivery
+    # discount rolled out to the 15 owned NBs (q1-q13 out) trims ~$0.25/sh.
+    # 51 on-water + 15 owned NB rows net of $633.7M commitments.
+    assert 1.92 < r.nav.nav_per_share < 2.12
     assert r.nav.preferred_equity == 0
     assert len(r.strip.dps_by_quarter) == 10  # sector horizon, not the default 8
 
