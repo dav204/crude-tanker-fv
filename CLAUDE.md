@@ -24,10 +24,13 @@ sound, auditable, and useful for a position call — **not** by a cross-sectiona
 information coefficient. New sectors, methodology refinements, features, and the
 Q2/event-window work are all in scope (see PLAN.md). A crude-subsector "edge"
 backtest lives in `backtest/`: its real-P/NAV crude tests are inconclusive by design
-(~6 quarters), and its one *powered* test (Amendment-2, P/B proxy, N=31) is a clean
-negative — but on a book-value proxy and a different universe (no DHT/FRO/ECO), so
-not a refutation of *this* engine, and not support either. The tool has **no
-demonstrated ex-post cross-sectional edge** (see `outputs/epistemic_soundness_memo_2026-06-22.md`);
+(~6 quarters); its two *powered* tests (Amendment-2 P/B proxy N=31, and Amendment-3
+P/B proxy on the actual 17-name watchlist incl. all crude flagships + product, N=72,
+sector-neutral IC +0.036/t 0.62) both exclude a *moderate* within-sector value premium
+— but on a book-value proxy, so they bound the value *premise*, not *this* engine's
+market-NAV marks (the powered engine EV% test is still unrun). The tool has **no
+demonstrated ex-post cross-sectional edge** (see `outputs/epistemic_soundness_memo_2026-06-22.md`,
+`backtest/REPORT.md`);
 kept as a recorded diagnostic, **not** a development gate. (A 2026-06-14 "development
 freeze" gated on that verdict was **LIFTED 2026-06-21 by owner decision**.)
 

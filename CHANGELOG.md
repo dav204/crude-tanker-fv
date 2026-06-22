@@ -5,6 +5,26 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — Phase 3(a) value-premium proxy test (Option C; powered, on the actual
+  universe).** Pre-registered **Amendment 3** to `backtest/PRE_REGISTRATION.md` and committed
+  it (`db9c4f6`) *before* writing any result-producing code — the same git-order discipline as
+  Amendments 0–2. Then built `backtest/loaders_sharadar.py` (point-in-time book value + prices
+  from factor-portfolio's `v2-validation-first` Sharadar cache, read directly from the cache
+  CSVs with `filed`-date no-look-ahead — avoids a 3.10+ cross-repo import) and
+  `backtest/run_proxy_powered.py`, reusing `evaluate_wide.wide_quarter_ic`/`mean_t` and
+  `loaders.bvps_at`/`price_at`/`quarter_ends`. The Amendment-2 powered null ran on a 9-name
+  SEC-XBRL panel that excluded DHT/FRO/ECO and all product; Sharadar standardizes the FPI
+  20-F/6-K filings, so this runs on **17 of the 20 watchlist names — all 5 crude flagships +
+  full product + dry-bulk + LNG — over deep history** (NAT→1997). **Result: a powered
+  near-null** — sector-neutral pooled P/B IC **+0.036, t 0.62, Nq 72** (2008–2025), quarter-block
+  bootstrap 95% CI [−0.079, +0.151], split-half unstable (early +0.090 / late −0.018); the raw
+  whole-panel read +0.059 (t 1.36) is not significant. Excludes a *moderate* within-sector value
+  premium, blind to a small one. It is a **book proxy** (book≠market NAV), so it bounds the
+  value-premium *premise*, NOT the engine's marks — the powered engine EV% test (Phase 3 b/c)
+  remains the only read that can validate/refute them. +3 cache-guarded backtest tests (backtest
+  suite 8→11; the main `tests/` suite is unaffected at 308 — `testpaths=["tests"]`). Updated
+  `backtest/REPORT.md` (Amendment 3 + combined verdict), README, LIMITATIONS §1 ("no demonstrated
+  ex-post edge" now backed by a powered test on the right universe), PLAN.md.
 - **2026-06-22 — Phase 2 ongoing accuracy gate (Option B; closes audit A-2).** The
   tool had no automated accuracy gate after sector launch — the one-time calibration
   lock is manual and never auto-invoked, and the >2pp drift alert ran against a

@@ -259,44 +259,99 @@ found none, which makes the null, if anything, conservative).
 
 ---
 
+# Amendment 3 — Sharadar deep-history P/B proxy on the actual watchlist (run 2026-06-22)
+
+Amendment 2's powered null ran on a 9-name SEC-XBRL panel that **excluded the
+crude flagships DHT/FRO/ECO and all of product** — not the tool's universe.
+Sharadar standardizes the FPI 20-F/6-K filings, so the powered P/B proxy now
+runs on **17 of the 20 watchlist names — all five crude flagships + full product
++ dry-bulk + LNG — over deep history** (NAT→1997, DHT/CCEC→2006). Cache
+provenance: factor-portfolio `v2-validation-first@7723092`. Method, universe,
+staleness, decision rule, and bootstrap seed all locked in PRE_REGISTRATION.md
+Amendment 3 **before** any IC was computed (committed `db9c4f6`, prior to the
+runner). Window 2008-03-31 → 2025-12-31, **72 usable quarters** (≥4 pooled
+names; sector cells grow 1→4; GSL is a containerships singleton → raw-panel
+only). Negative-book quarters (e.g. FRO 2013–14 pre-recapitalization) are
+filtered by the `bv≤0` guard.
+
+## VERDICT (Amendment-3 primary, sector-neutral P/B IC): **INCONCLUSIVE — a *powered* near-null**
+
+> sector-neutral pooled IC: **mean = +0.036, t = +0.62, Nq = 72.**
+> quarter-block bootstrap 95% CI (block 4, B 10000, seed 20260622):
+> **[−0.079, +0.151]** — straddles zero.
+> Split-half: **early +0.090 (t 1.01), late −0.018 (t −0.24)** — the faint
+> positive is front-loaded and gone in the recent decade.
+
+This is the most powered test in the exercise (72 quarters × up to 16
+sector-pooled names). At this N a within-sector edge of plausible size
+(IC ≈ 0.15) would clear t ≥ 2; the point estimate is ~0 and the CI excludes a
+*moderate* edge while remaining blind to a *small* one (≤0.10). Per the locked
+rule it is INCONCLUSIVE (positive point estimate, t < 2) — but, unlike Tests 0/1
+and Amendment 1, an **adequately powered** INCONCLUSIVE: it bounds the effect
+rather than merely failing to find one.
+
+**The raw whole-panel read is also weak.** Secondary cross-sector-confounded IC
+**+0.059 (t = 1.36)** — not significant, and weaker than Amendment 2's tempting
++0.138; the sector-tilt that flattered the bulk/gas panel does not reappear on
+the broader universe.
+
+**Fidelity caveats (locked before the run).** Book ≠ market NAV (the
+load-bearing one — a name can trade ~2× book yet ~0.8× NAV, so P/B ranks need
+not equal P/NAV ranks); the book leg updates annually (within-year P/B moves via
+price); single vendor both legs; survivorship (today's 17 names, amplified by
+deep history, biasing *toward* finding a premium — none found, so the null is
+conservative). **This tests the value-premium *premise*, not the engine's NAV
+marks** — it is a complement to, not a substitute for, the deferred powered
+engine EV% test.
+
+---
+
 # FINAL combined verdict
 
 | Test | Signal | Universe | Powered? | Sector-neutral IC | t |
 |---|---|---|---|--:|--:|
 | 0 | published P/NAV | 4 crude | no (Nq 6, n 4) | +0.095 | 0.35 |
 | Amend-1 | published P/NAV | 16 shipping | partial (Nq 6) | +0.040 | 0.21 |
-| Amend-2 | **P/B proxy** | 9 shipping | **yes (Nq 31)** | **−0.038** | **−0.42** |
+| Amend-2 | P/B proxy (SEC XBRL) | 9 shipping (no DHT/FRO/ECO, no product) | yes (Nq 31) | −0.038 | −0.42 |
+| Amend-3 | **P/B proxy (Sharadar)** | **17 watchlist (all crude + product)** | **yes (Nq 72)** | **+0.036** | **+0.62** |
 
 **Across every peer-relative (sector-neutral) test, cheap-on-NAV(-proxy) shows
 no detectable power to rank shipping winners.** The two real-P/NAV tests are
-underpowered (inconclusive); the one powered test — on a book-value proxy — is a
-clean null, and the only positive reading anywhere is a cross-sector
-sector-tilt that disappears under neutralization.
+underpowered; the two powered proxy tests — Amendment 2 (book proxy, narrow
+universe) and Amendment 3 (book proxy, the *actual* universe + deep history) —
+both land on ~0 with the right sign-and-significance to **exclude a moderate
+within-sector value premium**, and the only positive readings anywhere are
+cross-sector sector-tilts that wash out under neutralization or fail to replicate.
 
 **What this does and does not establish.**
 - It is **meaningful evidence against** the tool functioning as a cross-
-  sectional stock-picker: the precondition (cheapness predicts peer-relative
-  return) fails in the one powered test and is unproven in the underpowered
-  real-signal tests.
-- It is **not a clean refutation** of the crude P/NAV tool specifically: the
-  powered test uses a book proxy (not the tool's market-NAV marks) on a
-  product-less, 2-crude universe; the real-P/NAV crude test could not be
-  powered with available data; and Test 1 (the tool's own EV%) was never run
-  (data-blocked).
+  sectional stock-picker on a NAV-*proxy*: the precondition (cheapness predicts
+  peer-relative return) is now a *powered* near-null on the **actual watchlist
+  universe** (Amendment 3, Nq 72, all crude + product), not just the narrow
+  bulk/gas panel — and remains unproven in the underpowered real-P/NAV tests.
+- It is **still not a clean refutation of the engine specifically:** every
+  powered test uses a **book proxy** (depreciated cost), not the tool's
+  market-NAV marks — and book diverges from NAV precisely across the cycle. The
+  real-P/NAV crude test could not be powered with available data, and **Test 1
+  (the tool's own EV%) has not been run** — its powered version needs the
+  pre-2024 broker-weekly vessel-mark backfill (scoped in
+  `outputs/test1_data_feasibility_memo_2026-06-22.md`), the one branch that
+  could actually validate/refute the marks.
 
-**Recommendation for the freeze decision (owner's call).** The weight of
-evidence does not support resuming development on the premise that the tool's
-NAV-cheapness ranks winners. Two things would change the verdict in either
-direction, and only these are worth unfreezing for:
-1. **Real pre-2024 P/NAV** for the crude pure-plays (DHT/FRO/ECO) → a powered
-   test on the actual signal and the actual names. Highest fidelity; needs an
-   owner-supplied archive.
-2. **Test 1** — the tool's own EV% vs naive P/NAV — needs historical
-   point-in-time `CompanyInputs` (balance sheets + period market-data
-   vintages), which must be supplied/reconstructed.
+**Status (not a freeze gate).** The 2026-06-14 development freeze was **lifted
+2026-06-21 by owner decision**; this backtest is a recorded ex-post diagnostic,
+not a development gate (CLAUDE.md project stance). Amendment 3's powered
+near-null is the empirical basis for the README/LIMITATIONS §1 line **"no
+demonstrated ex-post cross-sectional edge"** — it bounds the value-premium
+*premise* on the right universe. The two reads that would move the *engine*
+verdict remain open:
+1. **Powered engine EV% test (Test 1)** — needs the pre-2024 broker-weekly
+   parser backfill (or a structured Clarksons/VesselsValue feed) + the engine
+   as-of-quarter plumbing. The decisive, highest-fidelity next step.
+2. **Real pre-2024 P/NAV** for the crude pure-plays → a powered test on the
+   actual published signal and names; needs an owner-supplied archive.
 
-Absent those, the honest reading is: **no demonstrated edge; do not resume on
-the picker premise.** No data was fabricated anywhere in this exercise.
+No data was fabricated anywhere in this exercise.
 
 ## Reproduce
 
@@ -306,5 +361,6 @@ PYTHONPATH=. .venv/bin/python -m backtest.fetch_sec_bookvalue  # SEC book-value 
 PYTHONPATH=. .venv/bin/python -m pytest backtest/test_backtest.py -q
 PYTHONPATH=. .venv/bin/python -m backtest.run_test0            # Test 0  (crude P/NAV)
 PYTHONPATH=. .venv/bin/python -m backtest.run_wide             # Amend-1 (wide P/NAV)
-PYTHONPATH=. .venv/bin/python -m backtest.run_proxy            # Amend-2 (P/B proxy)
+PYTHONPATH=. .venv/bin/python -m backtest.run_proxy            # Amend-2 (P/B proxy, SEC XBRL)
+PYTHONPATH=. .venv/bin/python -m backtest.run_proxy_powered    # Amend-3 (P/B proxy, Sharadar; needs FACTOR_PORTFOLIO_ROOT)
 ```

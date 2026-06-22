@@ -96,3 +96,59 @@ def test_ic_sign_convention():
         ew_crude=0.033)
     res = ic_series([c], min_names=3)
     assert res.quarter_ics and res.quarter_ics[0].ic == 1.0
+
+
+# --------------------------------------------------------------------------- #
+# Amendment 3 — Sharadar P/B proxy loaders (cache-guarded; skip if absent)
+# --------------------------------------------------------------------------- #
+
+import pytest                                                       # noqa: E402
+from backtest import loaders_sharadar as ls                        # noqa: E402
+
+_NO_CACHE = pytest.mark.skipif(
+    not ls.cache_available(),
+    reason="factor-portfolio Sharadar cache absent (set FACTOR_PORTFOLIO_ROOT)",
+)
+
+
+@_NO_CACHE
+def test_sharadar_bvps_sane_and_deep():
+    bvps = ls.load_bvps()
+    for nm in ("DHT", "FRO", "ECO", "INSW", "TNK"):                # crude flagships present
+        assert nm in bvps and bvps[nm], f"{nm} missing BVPS"
+        assert bvps[nm][-1][2] > 0, f"{nm} latest book value not positive"
+        # negative book equity is a real downturn datum (e.g. FRO 2013-14
+        # pre-recapitalization); the loader surfaces it, the runner's bv<=0
+        # filter drops it — so we assert finiteness, not all-positive.
+        import math
+        assert all(math.isfinite(v) for _, _, v in bvps[nm]), f"{nm} non-finite BVPS"
+    assert min(pe for _, pe, _ in bvps["NAT"]).year <= 1999        # deepest history
+
+
+@_NO_CACHE
+def test_sharadar_prices_total_return_series():
+    prices = ls.load_prices()
+    for nm, s in prices.items():
+        assert all(p > 0 for _, p in s), f"{nm} non-positive adjclose"
+        assert s == sorted(s), f"{nm} price series not date-sorted"
+
+
+@_NO_CACHE
+def test_sharadar_bvps_point_in_time():
+    """Load-bearing: independently re-derived, the BVPS the proxy would surface
+    at every quarter-end is the latest filing dated <= asof (within staleness)
+    — never a future filing."""
+    from backtest.loaders import bvps_at, quarter_ends
+    bvps = ls.load_bvps()
+    prices = ls.load_prices()
+    last = max(d for s in prices.values() for d, _ in s)
+    for asof in quarter_ends(dt.date(2012, 1, 1), last):
+        for nm, ser in bvps.items():
+            got = bvps_at(ser, asof, 550)
+            avail = [(f, pe, v) for f, pe, v in ser if f <= asof]
+            if not avail:
+                assert got is None
+                continue
+            f, pe, v = avail[-1]
+            assert f <= asof
+            assert got is None if (asof - pe).days > 550 else got == v

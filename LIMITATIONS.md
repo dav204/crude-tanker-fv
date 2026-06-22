@@ -16,10 +16,14 @@ in-window transaction prints that anchor the curves come from a single vendor (c
 87% in dry bulk and product), and for six names that vendor supplies both the comparison
 NAV and the calibrating prints. The "independent" claim is therefore narrow — independence
 from the broker's view, not its data — so tool-vs-broker agreement is weaker evidence than
-it looks. Separately, the tool has **no demonstrated ex-post cross-sectional edge**: the one
-powered backtest (Amendment-2) was a clean negative on a P/B proxy and a different universe,
-and the engine's own signal has never been validated against forward returns (data-blocked;
-the path to running it is scoped in `outputs/test1_data_feasibility_memo_2026-06-22.md`).
+it looks. Separately, the tool has **no demonstrated ex-post cross-sectional edge**: the two
+powered backtests on a P/B proxy — Amendment-2 (9 names, no DHT/FRO/ECO/product) and
+Amendment-3 (the *actual* 17-name watchlist incl. all crude flagships + product, deep history,
+Nq 72, sector-neutral IC +0.036/t 0.62, CI straddling zero) — both exclude a *moderate*
+within-sector value premium, and the engine's own signal has never been validated against
+forward returns (the powered engine EV% test needs a pre-2024 vessel-mark backfill, scoped in
+`outputs/test1_data_feasibility_memo_2026-06-22.md`). These are *book*-proxy tests of the value
+premise, not of the engine's market-NAV marks.
 Read the per-name calls as auditable opinions, not validated forecasts. Full treatment:
 `outputs/epistemic_soundness_memo_2026-06-22.md` (and `outputs/METHODOLOGY_AUDIT_2026-06-22.md`).
 

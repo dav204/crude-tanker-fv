@@ -60,21 +60,26 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
   from the current 2026-Q1 outputs @ d382bfd. **Standing care:** at each quarterly
   refresh, expect the gate to flag the legitimate moves — annotate the material
   ones, then `./scripts/ratify_baseline.sh "<Qx refresh>"` to re-anchor.
-- **Phase 3 — ex-post validation (Option C).** (a) **Value-premium proxy test**
-  (recommended first — powered, data cached): `backtest/loaders_sharadar.py`
-  reading factor-portfolio's `~/Projects/factor-portfolio` (branch
-  `v2-validation-first`) Sharadar cache via its `SharadarProvider`
-  (`fundamental_at`/`price_at`, no-look-ahead via `datekey`; key in
-  `~/.config/factor-portfolio.env`) + `backtest/run_proxy_powered.py`; reuses
-  `backtest/evaluate.py`/`evaluate_wide.py`/`panel.py`; ~17 covered names × deep
-  history; **pre-register before running**. (b) **Engine as-of-quarter plumbing**
-  (mechanical: parametrize `scenarios.quarter_keys(start_q,start_y)` + add
-  `run_scenarios(asof_quarter=…)`). (c) **Pre-register Test 1** (the engine EV%
-  sign test). Full design + the Sharadar field-population result (17/20 covered,
-  incl. crude flagships) + the 2018–19 broker-archive depth + the ~2–4-week
-  per-era-parser backfill sizing: `outputs/test1_data_feasibility_memo_2026-06-22.md`.
-  Carried decisions: proxy-test-FIRST; the powered *engine* test needs the
-  broker-weekly backfill — its own go/no-go (Clarksons/VesselsValue declined).
+- **Phase 3 — ex-post validation (Option C).**
+  - **(a) Value-premium proxy test — ✅ DONE (2026-06-22).** Pre-registered
+    Amendment 3 (committed `db9c4f6` *before* the runner — git-order proof), then
+    built `backtest/loaders_sharadar.py` (reads factor-portfolio's
+    `v2-validation-first` Sharadar cache CSVs directly — point-in-time via
+    `filed`-date, no 3.10+ cross-repo import) + `backtest/run_proxy_powered.py`,
+    reusing `evaluate_wide`/`loaders`. **Result: powered near-null** — sector-neutral
+    pooled P/B IC **+0.036, t 0.62, Nq 72** (2008–2025, 17 watchlist names incl. all
+    5 crude flagships + full product), bootstrap 95% CI [−0.079, +0.151], split-half
+    unstable (early +0.090 / late −0.018). Excludes a *moderate* within-sector value
+    premium, blind to a small one. The Amendment-2 null reproduced on the *right*
+    universe; still a PROXY (book≠NAV) so NOT an engine verdict. +3 backtest tests
+    (cache-guarded). Full write-up: `backtest/REPORT.md` Amendment 3.
+  - **(b) Engine as-of-quarter plumbing — OPEN** (mechanical: parametrize
+    `scenarios.quarter_keys(start_q,start_y)` + add `run_scenarios(asof_quarter=…)`).
+  - **(c) Pre-register + run the powered engine EV% Test 1 — OPEN** (the only read
+    that can validate/refute the marks). Needs (b) + the pre-2024 broker-weekly
+    vessel-mark backfill (or a structured Clarksons/VesselsValue feed — both
+    declined so far) per `outputs/test1_data_feasibility_memo_2026-06-22.md`. Its
+    own go/no-go.
 - **§16 overlay-ledger row for §12** (small): wire the §12 dividend-window
   classification into the overlay ledger (resolved direction + `Q*`), closing the
   audit E-2 "ledger is documentation, not a control" gap for this overlay type.
@@ -129,12 +134,14 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
 
 ## Backtest (reference, not a gate)
 Crude-subsector edge backtest in `backtest/` (`REPORT.md`): no *statistically
-demonstrated* cross-sectional edge. The real-P/NAV crude tests are inconclusive by
-design (~6q); the one *powered* test (Amendment-2, P/B proxy, N=31) is a clean
-negative — but on a book proxy / different universe, so not a refutation of *this*
-engine nor support. The path to running the engine's own Test 1 is **now scoped**
-(Phase 3 above; `outputs/test1_data_feasibility_memo_2026-06-22.md`). No longer
-gates development.
+demonstrated* cross-sectional edge. The real-P/NAV tests are inconclusive by design
+(~6q). **Two powered P/B-proxy tests now exist:** Amendment-2 (N=31, 9 names, no
+DHT/FRO/ECO/product) and **Amendment-3 (N=72, the actual 17-name watchlist incl. all
+crude flagships + product; sector-neutral IC +0.036/t 0.62, CI [−0.079,+0.151])** —
+both exclude a *moderate* within-sector value premium. Both are *book* proxies, so they
+bound the value premise, NOT *this* engine's market-NAV marks. The powered **engine** EV%
+test (Phase 3 b/c) is still the only read that can validate/refute the marks
+(`outputs/test1_data_feasibility_memo_2026-06-22.md`). No longer gates development.
 
 ## Verification gate (run before any handoff / Week-close)
 - `PYTHONPATH=src .venv/bin/python -m pytest -q` — must stay green (308 at 2026-06-22;
