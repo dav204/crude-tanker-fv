@@ -8,9 +8,9 @@ normally (the 2026-06-14 "development freeze" was lifted 2026-06-21).
 
 **Current state (2026-06-22):** 20 watchlist names across 5 sectors; **286 tests
 green**; `reconcile --all` 20/20 SANITY OK (0 fail, 0 drift); tree clean, pushed
-to origin/main. Per-change detail is in the CLAUDE.md changelog.
+to origin/main. Per-change detail is in `CHANGELOG.md`.
 
-## Recent work (this sprint) — detail in the CLAUDE.md changelog
+## Recent work (this sprint) — detail in `CHANGELOG.md`
 - **Freeze lifted** (2026-06-21): reframed as a forward-looking valuation aid;
   CLAUDE.md DECISION-RECORD → project-stance note; PLAN.md de-gated.
 - **Week-5 hardening shipped:** B4 (§9.9 two-regime k_broker), B5 (anchor-basis
