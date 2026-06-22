@@ -4,26 +4,27 @@
 that have already happened once. Each rule has a date so you can see how
 old/proven it is. When you correct a recurring mistake, append a dated rule.
 
-## 🔒 DECISION RECORD — DEVELOPMENT FREEZE (2026-06-14)
+## Project stance — a forward-looking valuation aid (2026-06-21)
 
-All crude-tanker-fv development is FROZEN until ONE question is answered:
-**does this tool have edge?** Until the crude backtest returns a recorded
-verdict (edge / no edge / inconclusive), the ONLY work in scope is:
+This is a **forward-looking, fundamentals tool for valuing individual shipping
+equities** — independent NAV (per-vessel age-curve marks) + a forward dividend
+strip, blended by cycle position. Judge it by whether its per-name reads are
+sound, auditable, and useful for a position call — **not** by a cross-sectional
+information coefficient. It is not, and is not trying to be, a rigorously
+backtested cross-sectional quant portfolio. Development proceeds normally:
+new sectors, methodology refinements, features, and the Q2/event-window work
+are all in scope (see PLAN.md).
 
-1. the **crude backtest** itself — lives in `backtest/`, separate from `src/`; and
-2. **bugfixes** to existing code (including data-extraction fixes that
-   directly serve the backtest).
+A crude-subsector "edge" backtest was run earlier and lives in `backtest/`
+(`backtest/REPORT.md`). Its finding — no *statistically demonstrated*
+cross-sectional edge on the ~1.5 years of published P/NAV that exist — is
+**expected** for a 4-name universe over ~6 quarters and is a known limitation
+of cross-sectional testing at that scale, **not** a refutation of the per-name
+valuation work. It is kept as a recorded diagnostic, **not** a development gate.
 
-**NOT in scope until the verdict:** no new sectors, no new METHODOLOGY
-sections, no new features, no event-window/digest/FFA/Q2-refresh work. The
-valuation core — `nav` / `blend` / `cycle` / `dividend_strip` / `scenarios`
-— is **NOT to be modified** by backtest work (the core is pure over
-`CompanyInputs`; the harness only adds a vintage loader + driver + evaluation
-around it). The parked Week-5 sprint (B4 shipped; B5 / B6 / event window /
-Q2 carry-forwards / standing threads) is preserved in PLAN.md under
-**"FROZEN until edge verdict."** The verdict decides whether development
-resumes. Pre-registered metric: `backtest/PRE_REGISTRATION.md`. Verdict when
-it lands: `backtest/REPORT.md`.
+(History: a 2026-06-14 "development freeze" paused feature work pending that
+verdict; it was **LIFTED 2026-06-21 by owner decision** for the reasons above.
+The backtest artefacts are retained as reference.)
 
 ## What this repo is
 
@@ -553,6 +554,20 @@ sessions.
 
 ## Changelog
 
+- **2026-06-21 — DEVELOPMENT FREEZE LIFTED (owner decision).** The 2026-06-14
+  freeze (which gated all feature/sector/methodology work on a crude-backtest
+  "edge" verdict) is removed. Rationale: this is a forward-looking valuation aid
+  for picking/valuing individual shipping names, not a cross-sectional quant
+  portfolio, so a cross-sectional IC backtest is not the right gate — and the
+  backtest's null is an expected small-sample result, not a refutation of the
+  per-name work. The freeze DECISION RECORD at the top of CLAUDE.md was replaced
+  with a forward-looking project-stance note; PLAN.md was rewritten from a
+  backtest-gate plan into the live forward plan (Week-5 hardening status + active
+  backlog), with the backtest demoted to a reference section. The `backtest/`
+  artefacts (PRE_REGISTRATION.md, REPORT.md) are retained as a recorded
+  diagnostic — accurate history, no longer a gate. (Unrelated uses of "frozen"
+  for stale data archives/vintages — container feed, MB anchor — are untouched;
+  they mean a stale feed, not the dev freeze.)
 - **2026-06-21 (Week 5) — B6 §9.2 terminal-value options memo WRITTEN (owner
   decision pending).** Re-ran the terminal-NAV-multiple sweep over the full
   19-name watchlist (`scripts/terminal_value_sensitivity.py`; was 12 names at

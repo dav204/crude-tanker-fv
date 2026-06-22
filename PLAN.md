@@ -1,164 +1,66 @@
-# PLAN.md — current focus: CRUDE BACKTEST (edge verdict)
+# PLAN.md — active plan / sprint handoff
 
-> **FREEZE IN EFFECT (2026-06-14).** All feature / sector / methodology work
-> is frozen until the crude backtest below returns a recorded verdict on the
-> one question that gates everything: **does this tool have edge?** Only the
-> backtest (in `backtest/`) and bugfixes are in scope. The valuation core
-> (`nav`/`blend`/`cycle`/`dividend_strip`/`scenarios`) is not to be modified.
-> Decision record at the top of CLAUDE.md. Parked sprint is in the
-> "FROZEN until edge verdict" section at the bottom of this file — parked,
-> not deleted.
+A new agent reads CLAUDE.md, then this file, then starts. This is a
+**forward-looking valuation aid** for shipping equities (independent NAV +
+forward dividend strip, blended by cycle position), judged by the soundness of
+its per-name reads — not by a cross-sectional backtest. Development proceeds
+normally; the earlier 2026-06-14 "development freeze" was **lifted 2026-06-21**
+by owner decision (see the project-stance note at the top of CLAUDE.md).
 
-## The one question
+## Recent work — Week 5 (hardening)
 
-Does *cheap-on-P/NAV* — and then the tool's *EV%* — predict forward relative
-returns in the crude subsector? If neither beats noise, the tool is not a
-picker and development should not resume on its current premise. The verdict
-(edge / no edge / inconclusive) decides whether the freeze lifts.
-
-## Pre-registered primary metric (LOCKED before looking at any result)
-
-The metric is fixed in `backtest/PRE_REGISTRATION.md`, committed before any
-IC is computed. In one line:
-
-> **Mean quarterly cross-sectional Spearman IC between the signal and the
-> 1-quarter-forward, equal-weight-crude-neutralized total return across the
-> crude names {DHT, NAT, FRO, ECO, TNK}, with a t-stat on the time series of
-> quarterly ICs.** Convention: positive IC = cheap (low P/NAV) predicts
-> outperformance. Benchmarks: naive published P/NAV (Test 0) and the
-> equal-weight-crude return. Non-overlapping quarters; Newey-West only where
-> a window overlaps. Everything else (other horizons, per-name, sub-periods,
-> the P/B proxy) is **EXPLORATORY / supporting** and labeled as such.
-
-**Stated up front, not after:** the sample is tiny and survivor-biased
-(today's crude names only; names that delisted or blew up are absent, which
-flatters any value signal). Real published P/NAV exists in-repo only for
-~2024-08 → 2026-06 (~7 quarters), so the primary metric's N is small and its
-t-stat will likely be weak *regardless of whether edge exists*. Do not
-oversell. The honest deliverable may be "inconclusive — here is exactly the
-data needed to make it conclusive."
-
-## Scope & design (cheapest test first; stop at a clear answer)
-
-Everything lives in **`backtest/`**, separate from `src/`. We add only a
-historical/vintage **loader**, a **driver** loop, and an **evaluation**
-module; we call the existing pure valuation core, we do not modify it.
-
-**Correctness property (asserted in code):** no input dated after quarter `t`
-may enter the `t` computation. The signal at `t` uses only the most recent
-print with `report_date ≤ asof(t)`; the forward return uses `t` and `t+1`
-prices (the `t+1` price is the thing predicted, never a signal input). The
-assertion fails the run if any signal row post-dates `asof(t)`.
-
-### Test 0 — naive published P/NAV (NO engine). CHEAPEST. Do first; show result.
-
-For DHT / NAT / FRO / ECO / TNK (defer TEN / CAPT / INSW — too short or too
-complex): assemble contemporaneous published Pareto P/NAV per quarter, compute
-1q-forward total return (price + dividends, Yahoo), market-neutralize against
-the equal-weight crude return, and report the quarterly Spearman IC + t-stat
-against the pre-registered metric.
-
-- **Signal source:** real Pareto P/NAV from `inputs/market_data/pareto_share_prices.csv`
-  (2024-08 → 2026-06). FRO is missing from that extract — recover it (bugfix
-  in scope) or flag it. NAT has no real Pareto P/NAV (APPROX) — excluded from
-  the real-P/NAV primary, noted.
-- **Supporting (exploratory, lower-fidelity, flagged):** a price-to-book (P/B)
-  proxy over a longer Yahoo-fetched window — the "depreciated-book NAV" proxy
-  the brief sanctioned. Book ≠ market NAV across the cycle, so this is a
-  noisier complement, not the primary.
-
-### Test 1 — engine EV% vs naive P/NAV. ONLY if Test 0 is non-zero.
-
-Reconstruct point-in-time `CompanyInputs` per quarter, run `value_company`
-as-of each quarter, compare tool-EV% IC vs the naive-P/NAV IC. The tool must
-**beat** naive P/NAV to justify itself as a picker. **Blocked on data:** only
-2026-Q1 vintage inputs exist in-repo; historical balance sheets + market-data
-vintages (vessel marks, FFA/spot/TC rates) would have to be supplied or
-reconstructed. Do not start until Test 0 is shown and the data path is agreed.
-
-## Data status (from the 2026-06-14 inventory)
-
-| Need | Have in-repo | Gap |
-|---|---|---|
-| Published P/NAV signal | `pareto_share_prices.csv`, 2024-08→2026-06, DHT/ECO/TNK (+FRO pending extract) | No pre-2024 P/NAV anywhere; NAT never covered by Pareto |
-| Prices + dividends | Single-day snapshot only | Full history fetchable via Yahoo (mechanism + allowlist exist) |
-| Historical `CompanyInputs` | 2026-Q1 only | Pre-2026 balance sheets + market-data vintages absent — blocks Test 1 |
-
-**What I will need the owner to supply to make the verdict conclusive** (TBD
-after Test 0 result; do not fabricate): either an archived analyst-NAV / P-NAV
-time series for the names back to ~2018 (exact format to be specified), or
-authorization to extend the proxy. Detailed ask lands in `backtest/REPORT.md`.
-
-## Definition of done
-
-One report — `backtest/REPORT.md` — stating a verdict (edge / no edge /
-inconclusive) against the pre-registered metric and BOTH benchmarks (naive
-P/NAV and equal-weight crude), with the sample/survivorship caveats and the
-exact data ask if inconclusive. Show Test 0 before any Test 1 work.
-
----
-
-# FROZEN until edge verdict (parked, not deleted)
-
-Everything below was the active Week-5 sprint at the moment of the freeze.
-It resumes only if the backtest verdict says the tool has edge. Preserved
-verbatim so no context is lost.
-
-## Week 5 theme (parked): hardening + the event window
-
-- **B4 — §9.9 mark-driven classification restated: SHIPPED 2026-06-12**
-  (commit cb83315; two-regime k_broker band in METHODOLOGY §9, mechanical
-  sweep relabel, fetch_links argparse fix). Done before the freeze.
+- **B4 — §9.9 mark-driven classification restated: SHIPPED 2026-06-12** (commit
+  cb83315; two-regime k_broker band in METHODOLOGY §9, mechanical sweep relabel,
+  fetch_links argparse fix).
 - **B5 — anchor-basis commensurability: SHIPPED 2026-06-21** (commit 5fc3b7d).
-  `anchor_basis` enum on every cycle-anchor block in `scenario_inputs.yaml`
-  (tc_10yr_mean / archive_22mo_median / fy_calendar_avg); shared helpers in
-  `scenarios.py`; MIXED-ANCHOR-BASIS flag in the delta report + `reconcile
-  --all` (and per-name basis in `--verbose`); METHODOLOGY §10 subsection; +5
-  tests (280 passed). Metadata + diagnostics only — valuation core untouched.
-- **B6 — §9.2 terminal-value options memo: MEMO WRITTEN 2026-06-21, OWNER
-  DECISION PENDING.** 19-name sweep refreshed (`outputs/terminal_value_
-  sensitivity.md`, 7 band-edge flippers); four-option memo at
-  `outputs/terminal_value_options_memo.md` with a steelman-panel-grounded
-  recommendation (ratify 1.0× now; cycle-conditional as triggered successor;
-  reject uniform 0.9× / 1.1×) + empty owner DECISION block. §9.2 item 2
-  updated to point at it. **Remaining: owner picks the multiple**; on any pick
-  other than 1.0× the follow-up is the engine change + test re-pin + drift
-  annotations (memo §5). No engine change made (recommendation is status-quo).
+  `anchor_basis` enum on every cycle-anchor block in `scenario_inputs.yaml`;
+  shared helpers in `scenarios.py`; MIXED-ANCHOR-BASIS flag in the delta report
+  + `reconcile --all` (per-name basis in `--verbose`); METHODOLOGY §10
+  subsection; +5 tests (280 passed). Metadata + diagnostics only.
+- **B6 — §9.2 terminal-value options memo: WRITTEN 2026-06-21, OWNER DECISION
+  PENDING.** 19-name sweep refreshed (`outputs/terminal_value_sensitivity.md`);
+  four-option memo at `outputs/terminal_value_options_memo.md` (rec: ratify 1.0×
+  now, cycle-conditional as the triggered successor; reject uniform 0.9× / 1.1×)
+  + empty owner DECISION block. §9.2 item 2 points at it. **Remaining: owner
+  picks the multiple**; any pick other than 1.0× → engine change + test re-pin +
+  drift annotations (memo §5).
 
-## Event window (parked; dates have now passed — re-plan on resume)
+## Active backlog
 
-- Weekly `/news-pull` digests (were scheduled Sat Jun-13 / Jun-20).
-- GNK AGM Jun-18 + Diana tender deadline Jun-26 — on resume, read the
-  outcomes and annotate `decisions/gnk_log.md` (deal-arb framing comes off on
-  a tender lapse; EV/position reads revert to NAV-discount).
-- FFA-OCR go/no-go: owner reviews the 16 flagged queue days, then record the
+### Event window
+- **GNK AGM / Diana tender — IN PROGRESS.** Jun-18 AGM outcome read + annotated
+  (`decisions/gnk_log.md` 2026-06-21: Diana lost the proxy fight; the $24.80
+  tender is still live to Jun-26 + a non-binding $27.34 cash+stock under board
+  review). A one-time Jun-26 tender-resolution check is SCHEDULED
+  (`gnk-diana-tender-jun26-check`) — it re-reads the outcome and re-frames the
+  position (deal-arb → NAV-discount on a lapse).
+- **FFA-OCR go/no-go:** owner reviews the 16 flagged queue days, then record the
   diagnostic-vs-strip decision; Stage 2 (2020-2026 backfill) rides on it.
+- **Weekly `/news-pull` digests** — resume the Saturday cadence (the Jun-13 /
+  Jun-20 slots lapsed during the freeze).
 
-## Small carry items (parked)
-
-- **§5 ask-tier verification, INTERACTIVE session:** confirm git push /
-  watchlist-edit / fetch_links / curl actually PROMPT with a human present
-  (the autonomous session could only prove deny rules enforce).
-
-## Q2-refresh carry-forwards (parked; earnings calendar + preflight §0 drive timing)
-
+### Q2-refresh carry-forwards (earnings calendar + preflight §0 drive timing)
 - **MPCC (reports 2026-08-26):** replace cohort built-year ESTIMATES + NB
   delivery quarters with the issuer fleet list; clean per-vessel prices on the
   three handed-over sale prints; refresh the company-implied NAV anchor.
 - **GSL (Aug-04/06):** Series B preferred count post-ATM; the Jun-26 $917M NB
   order's charter attachments; 20-F Item 6 board-rights verify.
-- **TEN (September, H1 reporter):** TCM fee-load computation (§15 anchor);
-  apply ten_log Q2-vintage kit deltas (Ulysses sale, Sola TS step-up, rolls).
+- **TEN (September, H1 reporter):** TCM fee-load computation (§15 anchor); apply
+  ten_log Q2-vintage kit deltas (Ulysses sale, Sola TS step-up, rolls).
 - **CMDB:** the Astros sale price — clean age-8 Ultramax print if per-vessel.
 
-## Standing threads (parked)
-
+### Standing threads
 - **MB Shipbrokers weeklies — LANDED 2026-06-12.** Ingest route established
   (Gmail link harvest → `scripts/fetch_pdf.py` → `inputs/research_mb/`).
   Container current-rate refresh queued (owner-gated); crude NB anchor review;
   Pana anchor flagged structurally low; LNG weekly not yet delivered. Full
-  once-over: `outputs/mb_weekly_check_2026-06-12.md`. The 7 MB Weekly-24 print
-  candidates were promoted 2026-06-12 (commit d7c7a41) before the freeze.
+  once-over: `outputs/mb_weekly_check_2026-06-12.md`.
+- **shipping_harvester (sibling repo) — reviewed 2026-06-21.** Verdict: keep as
+  a separate sibling and vendor it as a VIE-style cross-check; do NOT integrate
+  into `src/`. Only the rate/demolition feeds (spot/period-TC, demolition→scrap)
+  are clean, human-promoted candidates; broker vessel-VALUE legs stay
+  diagnostic-only (anti-calibration rule). Currently untracked inside the repo
+  tree — gitignore or move out to avoid an accidental commit.
 - **Brokerage MCP — CLOSED 2026-06-12** (DENY rules on the synced server id;
   re-check the UUID in a fresh session's tool list — disconnect/reconnect can
   stale it).
@@ -167,5 +69,19 @@ verbatim so no context is lost.
 - **Hormuz weight-revisit trigger** — standing; preempts everything if
   physical-transit confirmation lands. (MB Weekly 24: draft memo + 30-day
   window, trigger NOT met.)
+- **§5 ask-tier verification (interactive session):** confirm git push /
+  watchlist-edit / fetch_links / curl actually PROMPT with a human present (the
+  autonomous session could only prove deny rules enforce).
 - **Deferred by owner:** /news-pull agent-half orchestration; Task-3 weight
   adjuster; demand-destruction overlay; FFA Stage 2.
+
+## Backtest (complete — reference only, not a gate)
+
+A crude-subsector edge backtest lives in `backtest/` (pre-registration +
+`backtest/REPORT.md`). Finding: no *statistically demonstrated* cross-sectional
+edge on the ~1.5 years of published P/NAV available — expected given a 4-name
+universe / ~6 quarters, a known limitation of cross-sectional testing at that
+scale, not a refutation of the per-name valuation work. Kept as a recorded
+diagnostic. Test 1 (engine EV% vs naive P/NAV) was never run (blocked on
+historical point-in-time `CompanyInputs`); revisit only if an independent
+multi-year vintage source is supplied. This no longer gates development.
