@@ -51,6 +51,23 @@ def extract_text(pdf_path: str | Path, layout: bool = True) -> str:
     return "\n".join(chunks)
 
 
+def extract_text_poppler(pdf_path: str | Path, layout: bool = True) -> str:
+    """Text via poppler's ``pdftotext``. Several broker weeklies (Allied; Xclusiv
+    pre-2024) embed fonts whose glyph ORDER pdfplumber scrambles — the text layer
+    is there but mis-sequenced — while poppler reads them correctly. Falls back to
+    the pdfplumber extractor when pdftotext is unavailable."""
+    import shutil
+    import subprocess
+    exe = shutil.which("pdftotext")
+    if exe:
+        cmd = [exe] + (["-layout"] if layout else []) + [str(pdf_path), "-"]
+        try:
+            return subprocess.run(cmd, capture_output=True, text=True, timeout=90).stdout
+        except subprocess.SubprocessError:
+            pass
+    return extract_text(pdf_path, layout=layout)
+
+
 # --- value cleaning ---------------------------------------------------------
 _RANGE = re.compile(r"(\d[\d.]*)\s*[-–—]\s*(\d[\d.]*)")
 _NUM = re.compile(r"-?\d[\d.]*")

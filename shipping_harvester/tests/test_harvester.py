@@ -135,9 +135,33 @@ def _make_values_pdf(path):
     SimpleDocTemplate(str(path)).build([t])
 
 
+def _make_allied_weekly_pdf(path):
+    """Allied Weekly Market Report layout: an 'Indicative … Values' section with a
+    class-header line, then per-dwt age rows (Resale / 5 / 10 / 15 year old)."""
+    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.platypus import Preformatted, SimpleDocTemplate
+
+    text = (
+        "Indicative Tanker Values (US$ million)\n"
+        "                       08 May   03 Apr   +/-\n"
+        "Suezmax\n"
+        "160k dwt     Resale       92.5    90.0   2.0%\n"
+        "150k dwt 5 year old       82.0    80.0   2.5%\n"
+        "150k dwt 10 year old      70.0    68.0   2.9%\n"
+        "150k dwt 15 year old      48.0    47.0   2.1%\n"
+        "Aframax\n"
+        "110k dwt     Resale       78.0    77.0   1.3%\n"
+        "105k dwt 10 year old      60.0    59.0   1.7%\n"
+        "MR\n"
+        "52k dwt      Resale       45.0    44.0   2.3%\n"
+    )
+    style = getSampleStyleSheet()["Code"]
+    SimpleDocTemplate(str(path)).build([Preformatted(text, style)])
+
+
 def test_allied_parser_end_to_end(tmp_path):
     pdf = tmp_path / "allied_sample.pdf"
-    _make_values_pdf(pdf)
+    _make_allied_weekly_pdf(pdf)
 
     parser = get_parser("allied")
     assert parser.broker_id == "allied"
@@ -148,7 +172,40 @@ def test_allied_parser_end_to_end(tmp_path):
     got = {(m.vessel_class, m.age_anchor): m.value for m in mm.marks}
     assert got[("Suezmax", "five_year")] == 82.0
     assert got[("Aframax", "ten_year")] == 60.0
-    assert got[("MR", "newbuild")] == 45.0
+    assert got[("MR", "resale")] == 45.0  # Resale -> 'resale' (build_vintage maps it to the newbuild proxy)
+
+
+def _make_xclusiv_flat_pdf(path):
+    """Xclusiv 2021-2023 'flat-row' secondhand layout: class+dwt+age per line."""
+    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.platypus import Preformatted, SimpleDocTemplate
+
+    text = (
+        "DRY NEWBUILDING PRICES (in USD mills)\n"
+        "Capesize         63.0     58.0     9%\n"
+        "WET SECONDHAND PRICES (in USD mills)\n"
+        "Size            Jun/22   Jun/21\n"
+        "VLCC 320k Resale    101.5    95.3   7%\n"
+        "VLCC 320k 5y         76.8    70.3   9%\n"
+        "VLCC 300k 10y        52.4    48.3   9%\n"
+        "Suezmax 160k Resale  72.8    65.3  12%\n"
+        "Suezmax 150k 10y     37.4    32.3  16%\n"
+    )
+    style = getSampleStyleSheet()["Code"]
+    SimpleDocTemplate(str(path)).build([Preformatted(text, style)])
+
+
+def test_xclusiv_flat_row_era(tmp_path):
+    pdf = tmp_path / "xclusiv_2022.pdf"
+    _make_xclusiv_flat_pdf(pdf)
+    parser = get_parser("xclusiv")
+    mm = parser.parse(pdf, ref("xclusiv", dt.date(2022, 6, 28)))
+    assert mm.parser_ok
+    got = {(m.vessel_class, m.age_anchor): m.value for m in mm.marks}
+    assert got[("VLCC", "resale")] == 101.5
+    assert got[("VLCC", "ten_year")] == 52.4
+    assert got[("Suezmax", "resale")] == 72.8
+    assert got[("Capesize", "newbuild")] == 63.0  # dry NB from the section
 
 
 def test_generic_parser_records_but_extracts_nothing(tmp_path):

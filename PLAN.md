@@ -7,16 +7,21 @@ its per-name reads — not by a cross-sectional backtest. Development proceeds
 normally (the 2026-06-14 "development freeze" was lifted 2026-06-21).
 
 **Current state (2026-06-23):** 20 watchlist names across 5 sectors; **315 main
-tests green** (+13 backtest, run via `PYTHONPATH=. pytest backtest/`); `reconcile
---all` 20/20 SANITY OK (0 fail, 0 drift); drift gate 0 unexplained; tree clean,
-pushed to origin/main. **The live valuation engine is unchanged this arc** — all
-work below is the methodology-soundness remediation (audit fixes + the Phase 2/3
-guardrails and ex-post validation). Per-change chronology is in `CHANGELOG.md`.
+tests green** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +58 harvester via
+`.venv310`); `reconcile --all` 20/20 SANITY OK (0 fail, 0 drift); drift gate 0
+unexplained. **The live valuation engine is unchanged this arc** — all work below is
+the methodology-soundness remediation (audit fixes + the Phase 2/3 guardrails and
+ex-post validation). Latest: the **Phase 3(c) powered Test-1 backfill** (Nq 5 → 15–19,
+INCONCLUSIVE) — harvester parser changes are in the working tree, **uncommitted pending
+owner review** (so the tree is NOT clean right now). Per-change chronology in `CHANGELOG.md`.
 
 **A NEW AGENT: read CLAUDE.md, then this file. Everything below "Methodology-audit
-remediation" is DONE except the Phase 3(c) power backfill and the Tier-4 backlog.
-The one thing to internalise before touching Test 1: the ⚠ HANDOFF box in 3(c) —
-the harvester + its parser work are NOT in this repo's git.**
+remediation" is DONE — incl. the Phase 3(c) power backfill (2026-06-23: Nq 5 → 15–19,
+INCONCLUSIVE; see 3(c) + `backtest/REPORT.md` Test 1) — except the Tier-4 backlog and
+the bounded 3(c) power-polish items. Note: the `shipping_harvester` SOURCE is now tracked
+(commit eebfb60); the 2026-06-23 parser work (xclusiv flat-row, allied Weekly, Wayback
+ingest, cli export-marks) is in the working tree and **uncommitted pending owner review**.
+The crawl cache, `.venv310`, and `backtest/vintages/*` stay gitignored (⚠ HANDOFF box in 3(c)).**
 
 ## Recent arc — methodology-soundness remediation (2026-06-22 → 06-23)
 
@@ -94,8 +99,14 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     `quarter` (positional strip), so only the scenario quarter-key labels needed
     routing. +4 tests. **What 3c still needs:** the vintage scenario curves
     (the data backfill) — the plumbing is ready to consume them.
-  - **(c) Powered engine EV% Test 1 — FAITHFUL end-to-end pipeline BUILT; result
-    INCONCLUSIVE at n=5; the only remaining step is POWER (the 2018–2023 backfill).**
+  - **(c) Powered engine EV% Test 1 — BACKFILL DONE 2026-06-23: Nq 5 → Nq 15–19, still
+    INCONCLUSIVE (not anti-predictive).** Sector-neutral pooled IC **+0.040 (t +0.60)** over the
+    clean 2021Q3–2025Q4 window (15 q), **−0.004 (t −0.06)** adding 2019–2020 (19 q). Mildly positive
+    on the actual tool signal recently; ~null with the lower-quality COVID-era quarters; never near
+    the FAIL threshold. Write-up: `backtest/REPORT.md` Test 1; CHANGELOG 2026-06-23. **Key correction:
+    the free broker archive effectively starts 2021, NOT 2018** (HSN 2019–2020 void; Capital Link
+    bot-gated) — 2019–2020 was recovered via the Wayback Machine (Allied Weekly, 4 q). Memory
+    `project_test1_archive_depth`. Earlier n=5 framing kept below for context:
     Pre-registered (`backtest/PRE_REGISTRATION_TEST1.md`, committed before any result —
     within-sector pooled IC of engine EV%-cheapness, FAIL only on a *significant
     anti-predictive* result), data contract (`backtest/DATA_CONTRACT_TEST1.md`), harness
@@ -129,16 +140,22 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     (4) `PYTHONPATH=. .venv/bin/python -m backtest.build_vintage`; (5) `... -m
     backtest.run_engine_test1`.
 
-    **Coverage reality (the binding constraint):** only **xclusiv** parses cleanly. Vessel
-    age-curves + 12M-TC cover 2024Q3/2025Q1/2025Q2 (xclusiv dropped 1y-T/C prose after 2025Q2 →
-    2025Q3/Q4 forward falls back to the through-cycle mean). intermodal/banchero/weber parsers
-    return nothing; Allied is dropped.
+    **Coverage reality (post-backfill 2026-06-23):** vessel_value now covers **19 quarters** —
+    2019Q3/Q4 + 2020Q2/Q3 (Allied Weekly via Wayback, ~42 marks/q), 2021Q3–2023Q4 (Xclusiv flat-row,
+    ~42/q), 2024Q3 + 2025Q1–Q4 (Xclusiv transposed-geometry, 36/q). Single-vendor by era. TC: Xclusiv
+    prose 2021–2025Q2 (dropped after 2025Q2 → through-cycle-mean forward); none for 2019–2020 (Allied
+    Weekly is value-only → neutral forward).
 
-    **NEXT — (c) the 2018–2023 backfill for POWER (the only thing that buys a verdict; n=5 is
-    underpowered).** Multi-week per-era parser work: each era's xclusiv format needs its own
-    tuning (the 2024-vs-2025 spot/TC variants prove it) + the OCR-era risks the feasibility memo
-    flags (`outputs/test1_data_feasibility_memo_2026-06-22.md`). Lower-value polish: vintage
-    working-capital/fleet-ages; extend the parsers to Allied/other houses.
+    **NEXT (power polish, all bounded — data already cached):**
+    1. **2024Q1/Q2/Q4 + 2026 vessel_value gaps** — the 2024+ *transposed* geometry parser misses
+       those issues (succeeds on 2024Q3/2025); a grouped-era poppler text parser (block-ordering on
+       the floating class label) is the cheapest **+3–4 clean quarters** → ~18–19 clean.
+    2. **Secondary-house enrichment** — Intermodal/Banchero/Weber parsers for cross-broker TC
+       reconciliation (currently stubs; Banchero 2025 needs OCR). Improves the forward, not the sign.
+    3. **2019–2020 quality** — recover TC for those quarters; the 6–7yr live-curve look-ahead on
+       *uncovered* classes (LNG/container) makes FLNG/CCEC/GSL 2019–2020 flagged-not-trusted today.
+    4. Deeper history / dense weekly marks → the paid feed (Clarksons SIN / VesselsValue), the memo's
+       clean alternative. Lower-value: vintage working-capital/fleet-ages.
 - **§16 overlay-ledger row for §12 — ✅ DONE (2026-06-22).** `overlay_ledger.py`
   now auto-derives a **§12.6** row per gated name from the COMPUTED
   dividend-window classification (`dividend_window.build_rows`), mirroring the §15

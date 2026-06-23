@@ -134,6 +134,37 @@ def cmd_factor(args: argparse.Namespace) -> None:
         print(json.dumps(schema.get(args.quarter, {}), indent=2))
 
 
+def cmd_export(args: argparse.Namespace) -> None:
+    """Resolve the stored panel and write the engine bridge JSON that
+    backtest/build_vintage.py reads (a flat list of resolved marks). `--brokers`
+    restricts the source houses (e.g. xclusiv for the validated single-vendor
+    value series); omitted = all brokers via the default precedence policy."""
+    import json
+    import math
+    from . import factor
+
+    panel = store.build_panel(write=False)
+    if panel.empty:
+        print("[export] no marks -- run `run` first")
+        return
+    if args.brokers:
+        panel = panel[panel["broker"].isin(set(args.brokers.split(",")))]
+    resolved = factor.to_factor_marks(panel, factor.DEFAULT_POLICY)
+    recs = []
+    for _, r in resolved.iterrows():
+        a = r["anchor"]
+        recs.append({
+            "quarter": r["quarter"], "segment": r["segment"],
+            "vessel_class": r["vessel_class"], "field": r["field"],
+            "anchor": None if (a is None or (isinstance(a, float) and math.isnan(a))) else a,
+            "value": float(r["value"]),
+        })
+    from pathlib import Path
+    Path(args.out).write_text(json.dumps(recs, indent=1))
+    print(f"[export] {len(recs)} resolved marks "
+          f"({args.brokers or 'all brokers'}) -> {args.out}")
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="shipping_harvester")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -162,6 +193,11 @@ def build_parser() -> argparse.ArgumentParser:
                     help="flag groups whose cross-broker spread exceeds this (fraction)")
     fa.add_argument("--quarter", help="also print the schema dict for this quarter (e.g. 2026Q2)")
     fa.set_defaults(func=cmd_factor)
+
+    ex = sub.add_parser("export-marks", help="write the engine bridge JSON (build_vintage reads it)")
+    ex.add_argument("--out", required=True, help="output path, e.g. ../backtest/vintages/_factor_marks.json")
+    ex.add_argument("--brokers", help="comma-separated source houses to keep (e.g. xclusiv); omit = all")
+    ex.set_defaults(func=cmd_export)
     return p
 
 

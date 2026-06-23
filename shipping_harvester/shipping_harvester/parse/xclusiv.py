@@ -31,7 +31,10 @@ from dataclasses import replace
 
 import pdfplumber
 
-from ..models import KIND_PERIOD_TC, KIND_SPOT_TCE, KIND_VESSEL_VALUE, Mark
+from ..models import (
+    KIND_PERIOD_TC, KIND_SPOT_TCE, KIND_VESSEL_VALUE, Mark, MarketMarks,
+)
+from ..quarters import quarter_of
 from . import base
 
 
@@ -74,6 +77,31 @@ _AGE_LABELS = {
     "fifteen_year": ["15 year"],
 }
 
+# --- flat-row era (2021-2023) -----------------------------------------------
+# The pre-2024 issues print secondhand prices one row per (class, age) with an
+# inline dwt ("VLCC 320k Resale  101.5 …", "Handy 38k 10y  19.3 …"); pdfplumber
+# scrambles their glyph order, so we read poppler text and anchor on a KNOWN
+# class word (the page is multi-column: TC prose shares each line with the table
+# cell on the right, so a line-start anchor fails). The 2024 redesign drops the
+# per-row dwt and floats the class label, which the geometry pass handles.
+_FLAT_CLASSWORD = (
+    r"(Capesize|Newcastlemax|Kamsarmax|Panamax|Ultramax|Supramax|"
+    r"Handysize|Handy|VLCC|Suezmax|Aframax|LR2|LR1|MR2|MR)"
+)
+_FLAT_SH = re.compile(
+    _FLAT_CLASSWORD + r"\s+\d{2,3}k\s+(Resale|5y|10y|15y)\s+\$?\s*(\d+\.?\d*)", re.I)
+_FLAT_NB = re.compile(_FLAT_CLASSWORD + r"\s+\$?\s*(\d+\.?\d*)\s+\$?\s*\d", re.I)
+_FLAT_AGE = {"resale": "resale", "5y": "five_year", "10y": "ten_year", "15y": "fifteen_year"}
+# captured word -> harvester canonical; Handy->Handysize and MR2->MR so segment_of
+# and build_vintage.CLASS_MAP agree with the rest of the codebase.
+_FLAT_CLS = {
+    "capesize": "Capesize", "newcastlemax": "Newcastlemax", "kamsarmax": "Kamsarmax",
+    "panamax": "Panamax", "ultramax": "Ultramax", "supramax": "Supramax",
+    "handysize": "Handysize", "handy": "Handysize", "vlcc": "VLCC",
+    "suezmax": "Suezmax", "aframax": "Aframax", "lr2": "LR2", "lr1": "LR1",
+    "mr2": "MR", "mr": "MR",
+}
+
 
 class XclusivParser(base.BrokerParser):
     broker_id = "xclusiv"
@@ -113,10 +141,20 @@ class XclusivParser(base.BrokerParser):
         return out
 
     def parse(self, pdf_path, ref):
-        """Override to add geometry-based secondhand extraction (the pre-2025
-        two-column text layout that pdfplumber does NOT detect as a ruled grid,
-        so ``_secondhand(tables)`` misses it). Falls back to the table parser
-        when the geometry pass yields nothing (newer ruled-grid issues)."""
+        """Two format eras. 2021-2023 ('flat-row' secondhand: class+dwt+age per
+        line) parses from poppler text — pdfplumber scrambles these issues. 2024+
+        (transposed, prose-interleaved two-column) uses the pdfplumber geometry
+        pass, falling back to the table parser when geometry yields nothing."""
+        ptext = base.extract_text_poppler(pdf_path)
+        if self._is_flat(ptext):
+            marks = (self._secondhand_flat(ptext) + self._newbuild_flat(ptext)
+                     + self._period_tc(ptext) + self._spot(ptext))
+            return MarketMarks(
+                broker_id=ref.broker_id, report_date=ref.published,
+                quarter=quarter_of(ref.published), source_post=ref.post_url,
+                source_pdf=ref.pdf_url, parser=self.broker_id,
+                parser_ok=bool(marks), marks=marks, raw_text_chars=len(ptext),
+            )
         mm = super().parse(pdf_path, ref)
         geom = self._secondhand_geom(pdf_path)
         if not geom:
@@ -126,6 +164,43 @@ class XclusivParser(base.BrokerParser):
                 if not (m.kind == KIND_VESSEL_VALUE and m.age_anchor and m.age_anchor != "newbuild")]
         marks = keep + geom
         return replace(mm, marks=marks, parser_ok=bool(marks))
+
+    # -- flat-row era (2021-2023): poppler text -----------------------------
+    @staticmethod
+    def _is_flat(text: str) -> bool:
+        """2021-2023 signature: secondhand rows carry an inline dwt+age
+        ('180k Resale', '110k 5y'); the 2024 redesign drops the per-row dwt."""
+        return bool(re.search(r"\d{2,3}k\s+(?:Resale|5y|10y|15y)\b", text, re.I))
+
+    @staticmethod
+    def _secondhand_flat(text: str) -> list[Mark]:
+        out: list[Mark] = []
+        seen: set = set()
+        for m in _FLAT_SH.finditer(text):
+            cls = _FLAT_CLS.get(m.group(1).lower())
+            age = _FLAT_AGE.get(m.group(2).lower())
+            if cls and age and (cls, age) not in seen:
+                seen.add((cls, age))
+                out.append(Mark(kind=KIND_VESSEL_VALUE, vessel_class=cls, metric="value",
+                                value=float(m.group(3)), unit="musd", age_anchor=age))
+        return out
+
+    @staticmethod
+    def _newbuild_flat(text: str) -> list[Mark]:
+        a = re.search(r"NEWBUILDING PRICES", text, re.I)
+        if not a:
+            return []
+        b = re.search(r"SECONDHAND", text[a.end():], re.I)
+        window = text[a.start(): a.end() + b.start()] if b else text[a.start(): a.start() + 2500]
+        out: list[Mark] = []
+        seen: set = set()
+        for m in _FLAT_NB.finditer(window):
+            cls = _FLAT_CLS.get(m.group(1).lower())
+            if cls and cls not in seen:
+                seen.add(cls)
+                out.append(Mark(kind=KIND_VESSEL_VALUE, vessel_class=cls, metric="value",
+                                value=float(m.group(2)), unit="musd", age_anchor="newbuild"))
+        return out
 
     # -- secondhand values, geometry (two-column text layout, pre-2025) -------
     @staticmethod

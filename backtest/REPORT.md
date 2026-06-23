@@ -306,6 +306,70 @@ engine EV% test.
 
 ---
 
+# Test 1 — engine EV% ex-post (POWERED backfill, run 2026-06-23)
+
+The first test of the tool's **own** signal (not a cheapness proxy): the engine's
+probability-weighted **EV%**, computed strictly as-of each quarter
+(`PRE_REGISTRATION_TEST1.md`, `DATA_CONTRACT_TEST1.md`). The 2026-06-22 build was
+faithful but underpowered (Nq 5, INCONCLUSIVE). This run is the data backfill that
+adds power.
+
+## VERDICT (Test-1 primary, sector-neutral pooled IC of EV%-cheapness): **INCONCLUSIVE**
+
+| Window | Quarters | mean IC | t | bootstrap 95% CI | sign hit-rate | verdict |
+|---|--:|--:|--:|---|--:|---|
+| **2021Q3–2025Q4 (clean)** | **15** | **+0.040** | **+0.60** | [−0.182, +0.225] | 43% | INCONCLUSIVE |
+| 2019Q3–2025Q4 (full) | 19 | −0.004 | −0.06 | [−0.184, +0.190] | 45% | INCONCLUSIVE |
+
+Up from Nq 5 (+0.005). The point estimate is **mildly positive in the cleaner
+recent window**, ~null once the lower-quality 2019–2020 quarters are added.
+**Neither window is anti-predictive** — the verdict never approaches the
+pre-registered FAIL threshold (IC<0 AND t≤−2.0), and the sign hit-rate stays above
+the 40% trip. So the powered test **does not impeach the engine**, and it does not
+clear EDGE (IC>0 AND t≥2.0) either. INCONCLUSIVE remains the honest read, now at
+~3–4× the quarter count, and power compounds forward (every new quarter adds a block).
+
+## What changed — the data backfill
+
+The binding constraint was broker-weekly vessel-mark coverage. Established this run:
+- **The free HSN archive effectively starts 2021**, not 2018 (2019–2020 are a void;
+  the feasibility memo's "reaches 2018" was a category total-count misread). Capital
+  Link's live API is bot-gated.
+- **Xclusiv flat-row parser (2021–2023)** built and validated (poppler text;
+  pdfplumber scrambled these issues' glyph order). The signal spine: full
+  resale/5/10/15yr curves for all 10 classes incl. the crude flagships
+  (VLCC/Suezmax/Aframax), ~42 marks/quarter. The existing geometry parser keeps the
+  2024+ transposed era.
+- **2019–2020 recovered from the Wayback Machine** (Allied *Weekly Market Report*,
+  not the no-value SnP supplement) → 4 quarters (2019Q3/Q4, 2020Q2/Q3), Allied
+  Weekly parser built. Single-vendor by era: Xclusiv 2021–2025, Allied 2019–2020
+  (matches the locked single-vendor caveat).
+
+## Caveats specific to this run
+
+- **Single-vendor marks** (locked): one value series per quarter (Xclusiv, or Allied
+  for 2019–2020). No cross-vendor validation.
+- **2019–2020 quarters are lower quality:** no vintaged 1y-TC (Allied Weekly is
+  value-only → the scenario forward falls to the through-cycle mean, neutral), and a
+  6–7yr **live-curve look-ahead on the *uncovered* classes** (LNG/container/LR2 keep
+  live 2026 marks via the merge) — so FLNG/CCEC/GSL EV% in 2019–2020 is flagged-not-
+  trusted. The crude/dry spine names use real vintaged marks. This is why the
+  2021–2025 window is the better-controlled headline.
+- **Coverage gaps (data already cached):** 2024Q1/Q2/Q4 + 2026 carry no vessel_value
+  — the 2024+ *transposed* geometry parser misses those issues (it succeeds on
+  2024Q3/2025). Recovering them (a grouped-era text parser) is the cheapest next +3–4
+  quarters, all within the clean window.
+
+## Relation to the proxy tests
+
+Amendment 3 (powered P/B *proxy*, Nq 72) excluded a *moderate* within-sector value
+premium on a book proxy. Test 1 now tests the **engine's market-NAV EV% directly**
+and lands in the same place — no detectable cross-sectional edge, but not
+anti-predictive — on the actual tool signal rather than a proxy. Consistent stories;
+both INCONCLUSIVE/near-null, neither a refutation of the marks.
+
+---
+
 # FINAL combined verdict
 
 | Test | Signal | Universe | Powered? | Sector-neutral IC | t |

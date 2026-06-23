@@ -5,6 +5,31 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-23 — Test-1 POWERED backfill: engine EV% over 15–19 quarters (was Nq 5), still INCONCLUSIVE.**
+  Took the engine EV% ex-post test from Nq 5 to **Nq 15 (2021Q3–2025Q4, clean) / Nq 19 (adding
+  2019–2020)**. Result: sector-neutral pooled IC **+0.040 (t +0.60)** on the clean window,
+  **−0.004 (t −0.06)** including 2019–2020; both INCONCLUSIVE, **neither anti-predictive** (never
+  near the FAIL threshold). Mildly positive on the actual tool signal in the recent window; ~null
+  with the lower-quality COVID-era quarters. Power compounds forward. Write-up: `backtest/REPORT.md`
+  Test 1. The work that bought the power:
+  - **Archive reality corrected:** the free HSN broker archive effectively starts **2021** (2019–2020
+    are a void; the feasibility memo's "reaches 2018" was the category total-count misread). Capital
+    Link's live API is now bot-gated (HTTP 202). Memory `project_test1_archive_depth`.
+  - **Xclusiv flat-row parser (2021–2023)** — new poppler-text path (pdfplumber scrambles these
+    issues' glyph order); full resale/5/10/15yr curves, all 10 classes incl. VLCC/Suezmax/Aframax,
+    ~42 marks/quarter. The 2024+ transposed-era geometry parser is unchanged. `base.extract_text_poppler`
+    added (reusable). +1 harvester test.
+  - **2019–2020 recovered via the Wayback Machine** — Allied *Weekly Market Report* (not the no-value
+    SnP supplement), 4 quarters (2019Q3/Q4, 2020Q2/Q3). `allied.py` rewritten to the Weekly value-grid
+    format (HSN S&P-stats issues correctly yield nothing); `wayback_allied.py` (CDX download) +
+    `ingest_wayback.py` (quarter-select + store) added. Allied test updated.
+  - **Bridge export** made reproducible: `cli export-marks --brokers …` writes `_factor_marks.json`
+    (was ad-hoc). Single-vendor by era (Xclusiv 2021–2025, Allied 2019–2020) per the locked caveat.
+  - **Known gaps (next):** 2024Q1/Q2/Q4 + 2026 lack vessel_value (the transposed geometry parser
+    misses those issues; a grouped-era text parser is the cheapest +3–4 clean quarters). 2019–2020
+    carry no vintaged TC (neutral forward) + a 6–7yr live-curve look-ahead on *uncovered* classes
+    (LNG/container) — flagged-not-trusted, which is why 2021–2025 is the headline window.
+  - Gate green: main 315, backtest 13, harvester 58 (+2). No `src/` engine change.
 - **2026-06-23 — `shipping_harvester` source brought into git (was untracked everywhere).**
   The harvester had no version control anywhere (gitignored subdir, no nested repo), so the
   Test-1 parser work (xclusiv geometry secondhand extractor, spot `avg|average` markers,
