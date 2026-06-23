@@ -101,9 +101,17 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     era) → vintage `market_data` via the factor adapter + class-rename/`dwt` shim;
     (ii) Sharadar BS core + slow-rolled fleet/cost/div per `DATA_CONTRACT_TEST1.md`;
     (iii) run `run_engine_test1` (expect INCONCLUSIVE at MVP n); then the 2018–2023
-    powered window — **per-era parser tuning is the real work** (confirmed: the fdprobe
-    `Allied_2025.pdf`, outside the 2024-tuned era, parses only partial TC, no
-    age-anchors). Sizing (~2–4 wk): `outputs/test1_data_feasibility_memo_2026-06-22.md`.
+    powered window. **Per-era parser development is now the EMPIRICALLY-CONFIRMED binding
+    constraint** (not just estimated): the full MVP crawl (`run --since 2024Q1 --until
+    2026Q2 --capitallink`, 1,412 issues, 60 mark-sets) parses only via **xclusiv + allied**;
+    `vessel_value` came back **dry-bulk + NEWBUILD-anchor only** (no tanker values, no
+    5yr/10yr), which is not valuation-grade for the age-curve NAV. Remaining parser work:
+    (a) extend xclusiv/allied to extract the full age curve (5yr/10yr); (b) fix
+    intermodal/banchero/weber parsers; (c) per-era format coverage 2018–2023. The
+    factor→engine glue is fully specified (class-rename/dwt/`musd`×1e6) and ready, gated on
+    coverage. Pipeline + env are proven; this is a deliberate ~2–4 wk build —
+    `outputs/test1_data_feasibility_memo_2026-06-22.md`. Crawl run on `.venv310` from
+    `shipping_harvester/` (cache gitignored).
 - **§16 overlay-ledger row for §12 — ✅ DONE (2026-06-22).** `overlay_ledger.py`
   now auto-derives a **§12.6** row per gated name from the COMPUTED
   dividend-window classification (`dividend_window.build_rows`), mirroring the §15

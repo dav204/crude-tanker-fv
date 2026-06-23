@@ -5,6 +5,22 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — Phase 3(c) MVP backfill kicked off — pipeline proven, parser coverage
+  measured as the binding constraint.** Ran the harvester end-to-end: small validation crawl
+  (HSN, recent quarters) then the full MVP crawl `run --since 2024Q1 --until 2026Q2
+  --max-pages 70 --capitallink` (1,412 raw issues, 60 (broker,quarter) mark-sets stored; crawl
+  → dedupe → download → parse → store → panel/coverage/factor all working under `.venv310`).
+  **Measured coverage (2024Q1–2026Q2):** only **xclusiv + allied** parse; intermodal /
+  banchero / weber / fearnleys / advanced yield 0 (parser gaps / generic fallback).
+  `period_tc` = VLCC/Suezmax/Aframax (tanker 1yr); `spot_tce` = 9 tanker+dry classes (broad);
+  **`vessel_value` = Capesize/Handy/Kamsarmax/Ultramax, NEWBUILD anchor ONLY** — no tanker
+  vessel values and no 5yr/10yr age anchors anywhere. **This is not valuation-grade:** the
+  engine's age-curve NAV needs newbuild+5yr+10yr+scrap per class, so the MVP vintage cannot be
+  assembled from current parser output. The memo's estimate (per-era parser development is the
+  ~2–4 wk bottleneck) is now an empirical fact. The factor→engine glue is fully specified
+  (class-rename `Capesize`→`Cape` etc., dwt injection, `musd`×1e6) and ready; it is gated on
+  parser coverage, not the other way round. Harvester crawl cache is gitignored
+  (`shipping_harvester/data/`).
 - **2026-06-22 — Phase 3(c) env gate cleared: Python 3.12 provisioned for the harvester.**
   Owner chose provisioning a 3.10+ interpreter over a 3.9 backport. Installed CPython 3.12.13
   via `uv` into a dedicated **`.venv310`** (gitignored) with the harvester's deps (requests,
