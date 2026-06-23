@@ -17,12 +17,17 @@ What's real vs slow-rolled in THIS pass (honest, partial MVP):
     Coverage: 2024-Q3 / 2025-Q1 / 2025-Q2 carry full tanker TC; xclusiv dropped
     the 1y-T/C prose after 2025-Q2, so 2025-Q3/Q4 fall back to the through-cycle
     mean (neutral, not spot).
-  * FFA / means / fleet / cost / dividend / balance sheet
-                         — HELD from live (slow-roll).
+  * balance-sheet CORE   — REAL, vintaged: total_debt (Sharadar
+    LongTermDebtNoncurrent + DebtCurrent) and diluted shares, point-in-time
+    (datekey <= quarter-end). Cash is absent from the cache, so cash + the
+    shipping-specific lines (working capital, newbuild commitments, leases) stay
+    slow-rolled from live.
+  * FFA / means / fleet / cost / dividend — HELD from live (slow-roll).
 
 => The EV% is driven by REAL vintaged NAV marks + a REAL vintaged 12M-TC-anchored
-forward + REAL vintaged price. A legitimate (small-n, BS-held) read; the one
-remaining big fidelity gap is the held balance sheet (Sharadar BS vintaging).
+forward + REAL vintaged price + point-in-time debt & share count. A legitimate
+(small-n) read; residual held legs are cash, working capital, fleet ages, and the
+newbuild/lease lines.
 
 CLI: PYTHONPATH=. .venv/bin/python -m backtest.build_vintage 2024-Q3 2025-Q1 ...
 """
@@ -124,6 +129,47 @@ def raw_close_at(ticker: str, asof: str) -> float | None:
     return best
 
 
+def _sharadar_field_at(ticker: str, field: str, asof: str):
+    """Latest ARY value of `field` with filed-date <= the quarter-end (no
+    look-ahead). Returns (period_end, value) or None."""
+    sec = cache_dir() / f"sec_{ticker}.csv"
+    if not sec.exists():
+        return None
+    qend = _qend(asof)
+    avail = []
+    with open(sec) as fh:
+        for row in csv.DictReader(fh):
+            if row.get("field") != field or row.get("dimension") != "ARY":
+                continue
+            try:
+                filed = dt.date.fromisoformat(row["filed"])
+                val = float(row["value"])
+            except (ValueError, KeyError):
+                continue
+            if filed <= qend:
+                avail.append((filed, row["period_end"], val))
+    if not avail:
+        return None
+    avail.sort()
+    return avail[-1][1], avail[-1][2]
+
+
+def vintaged_bs_core(ticker: str, asof: str) -> dict:
+    """Point-in-time balance-sheet core from Sharadar SF1 ARY (datekey<=q-end):
+    total_debt (LongTermDebtNoncurrent + DebtCurrent) and diluted shares. Cash is
+    absent from the cache, so cash + the shipping-specific lines stay slow-rolled
+    from live."""
+    out: dict = {}
+    sh = _sharadar_field_at(ticker, "EntityCommonStockSharesOutstanding", asof)
+    if sh:
+        out["diluted_shares_outstanding"] = round(sh[1])
+    ltd = _sharadar_field_at(ticker, "LongTermDebtNoncurrent", asof)
+    dc = _sharadar_field_at(ticker, "DebtCurrent", asof)
+    if ltd:
+        out["total_debt"] = ltd[1] + (dc[1] if dc and dc[0] == ltd[0] else 0.0)
+    return out
+
+
 # scenario-class key (== cycle_anchors key) -> harvester vessel_class
 HARV_TC_KEY = {
     "vlcc": "VLCC", "suezmax": "Suezmax", "aframax_dirty": "Aframax", "lr2_clean": "LR2",
@@ -204,9 +250,13 @@ def assemble_vintage(asof: str, tickers: list[str]) -> Path:
             src = LIVE / sub / f"{tl}.yaml"
             if src.exists():
                 shutil.copy(src, vd / sub / f"{tl}.yaml")
-        bs = sorted((LIVE / "balance_sheets").glob(f"{tl}_*.yaml"))
-        if bs:
-            shutil.copy(bs[-1], vd / "balance_sheets" / f"{tl}_{asof}.yaml")
+        bs_files = sorted((LIVE / "balance_sheets").glob(f"{tl}_*.yaml"))
+        if bs_files:
+            bs = yaml.safe_load(bs_files[-1].read_text())     # slow-roll base
+            bs.update(vintaged_bs_core(t, asof))              # overwrite debt + shares, point-in-time
+            bs["quarter"] = asof
+            (vd / "balance_sheets" / f"{tl}_{asof}.yaml").write_text(
+                yaml.safe_dump(bs, sort_keys=False))
         price = raw_close_at(t, asof)
         if price is None or t not in watch:
             continue

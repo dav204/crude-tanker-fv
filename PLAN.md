@@ -127,9 +127,11 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     was one stale junk issue, dropped) → vintaged 12M TC for 2024Q3/2025Q1/2025Q2 (xclusiv
     dropped the prose after, so 2025Q3/Q4 mean-fallback); `synthesize_scenarios` now anchors on
     TC (TC-consistent with the means). Re-run mean IC +0.086 → INCONCLUSIVE (unchanged at n=5).
-    **Remaining for a fully-faithful Test 1:** (b) vintage the BS core (Sharadar —
-    `loaders_sharadar` has it); (c) the 2018–2023 backfill for POWER (n=5 is underpowered by
-    design); (d) more houses/eras. Vintage trees + schema JSON gitignored
+    (b) ✅ **BS core vintaged (2026-06-23):** `build_vintage` now sets total_debt
+    (Sharadar LongTermDebtNoncurrent+DebtCurrent) + diluted shares point-in-time (cash absent
+    from the cache → held). Re-run mean IC +0.056 → INCONCLUSIVE. **Remaining:** (c) the
+    2018–2023 backfill for POWER (n=5 underpowered by design); (d) more houses/eras; (e) pull
+    cash + quarterly-grain BS via a direct Sharadar fetch (key in ~/.config/factor-portfolio.env). Vintage trees + schema JSON gitignored
     (reproducible via `build_vintage`). Deliberate ~2–4 wk build —
     `outputs/test1_data_feasibility_memo_2026-06-22.md`. Harvester runs on `.venv310` from
     `shipping_harvester/` (gitignored).

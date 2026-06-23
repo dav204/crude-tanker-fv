@@ -5,6 +5,16 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-23 — Phase 3(c) point-in-time balance-sheet core (Sharadar).** `build_vintage`
+  now vintages **total_debt** (Sharadar `LongTermDebtNoncurrent + DebtCurrent`) and **diluted
+  shares** (`EntityCommonStockSharesOutstanding`) per name, point-in-time (ARY, filed-date
+  <= quarter-end, no look-ahead), overwriting the slow-rolled base. `CashAndCashEquivalents`
+  is absent from factor-portfolio's cached pull, so cash + the shipping-specific lines (working
+  capital, newbuild commitments, leases) stay slow-rolled. Verified per-quarter variation
+  (DHT debt 428.7M @2024Q3 → 409.4M @2025Q2; shares ~160M). Re-ran `run_engine_test1`:
+  **mean IC +0.056, t 0.31, Nq 5 → INCONCLUSIVE** (shifted from +0.086 as vintaged debt/shares
+  move NAV/share; still near-zero at n=5). Debt + share count were the dominant held BS drivers;
+  residual held = cash, working capital, fleet ages, newbuild/lease lines.
 - **2026-06-23 — Phase 3(c) 12M-TC anchoring — the scenario forward is now TC-consistent.**
   Replaced the spot anchor (which mismatched the TC-anchored cycle means, the §10 gotcha) with
   vintaged 12-month TC. Source: not Allied (its `period_tc` is one stale 2024-02-20 issue,
