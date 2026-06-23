@@ -17,11 +17,10 @@ What's real vs slow-rolled in THIS pass (honest, partial MVP):
     Coverage: 2024-Q3 / 2025-Q1 / 2025-Q2 carry full tanker TC; xclusiv dropped
     the 1y-T/C prose after 2025-Q2, so 2025-Q3/Q4 fall back to the through-cycle
     mean (neutral, not spot).
-  * balance-sheet CORE   — REAL, vintaged: total_debt (Sharadar
+  * balance-sheet CORE   — REAL, vintaged: cash, total_debt (Sharadar
     LongTermDebtNoncurrent + DebtCurrent) and diluted shares, point-in-time
-    (datekey <= quarter-end). Cash is absent from the cache, so cash + the
-    shipping-specific lines (working capital, newbuild commitments, leases) stay
-    slow-rolled from live.
+    (datekey <= quarter-end). The shipping-specific lines (working capital,
+    newbuild commitments, leases) stay slow-rolled from live.
   * FFA / means / fleet / cost / dividend — HELD from live (slow-roll).
 
 => The EV% is driven by REAL vintaged NAV marks + a REAL vintaged 12M-TC-anchored
@@ -156,13 +155,16 @@ def _sharadar_field_at(ticker: str, field: str, asof: str):
 
 def vintaged_bs_core(ticker: str, asof: str) -> dict:
     """Point-in-time balance-sheet core from Sharadar SF1 ARY (datekey<=q-end):
-    total_debt (LongTermDebtNoncurrent + DebtCurrent) and diluted shares. Cash is
-    absent from the cache, so cash + the shipping-specific lines stay slow-rolled
-    from live."""
+    cash, total_debt (LongTermDebtNoncurrent + DebtCurrent) and diluted shares.
+    The shipping-specific lines (working capital, newbuild commitments, leases)
+    stay slow-rolled from live."""
     out: dict = {}
     sh = _sharadar_field_at(ticker, "EntityCommonStockSharesOutstanding", asof)
     if sh:
         out["diluted_shares_outstanding"] = round(sh[1])
+    cash = _sharadar_field_at(ticker, "CashAndCashEquivalentsAtCarryingValue", asof)
+    if cash:
+        out["cash_and_equivalents"] = cash[1]
     ltd = _sharadar_field_at(ticker, "LongTermDebtNoncurrent", asof)
     dc = _sharadar_field_at(ticker, "DebtCurrent", asof)
     if ltd:

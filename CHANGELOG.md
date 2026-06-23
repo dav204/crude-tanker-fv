@@ -6,11 +6,15 @@ methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
 - **2026-06-23 — Phase 3(c) point-in-time balance-sheet core (Sharadar).** `build_vintage`
-  now vintages **total_debt** (Sharadar `LongTermDebtNoncurrent + DebtCurrent`) and **diluted
-  shares** (`EntityCommonStockSharesOutstanding`) per name, point-in-time (ARY, filed-date
-  <= quarter-end, no look-ahead), overwriting the slow-rolled base. `CashAndCashEquivalents`
-  is absent from factor-portfolio's cached pull, so cash + the shipping-specific lines (working
-  capital, newbuild commitments, leases) stay slow-rolled. Verified per-quarter variation
+  now vintages **cash, total_debt** (Sharadar `LongTermDebtNoncurrent + DebtCurrent`) and
+  **diluted shares** per name, point-in-time (ARY, filed-date <= quarter-end, no look-ahead),
+  overwriting the slow-rolled base. (Cash was initially thought absent — it is cached under
+  `CashAndCashEquivalentsAtCarryingValue`, a field-name mismatch, now included; DHT 2024Q3 cash
+  $74.7M.) The shipping-specific lines (working capital, newbuild commitments, leases) stay
+  slow-rolled. **Confirmed I can run a direct Sharadar SF1 pull** (key
+  `NASDAQ_DATA_LINK_API_KEY` in `~/.config/factor-portfolio.env`, factor-portfolio's
+  `fetch/sharadar.py`, deps in `.venv310`) — live-fetched DHT to verify — so the cache can be
+  extended (quarterly ARQ grain, SG&A/interest/tax for the strip) on demand. Verified per-quarter variation
   (DHT debt 428.7M @2024Q3 → 409.4M @2025Q2; shares ~160M). Re-ran `run_engine_test1`:
   **mean IC +0.056, t 0.31, Nq 5 → INCONCLUSIVE** (shifted from +0.086 as vintaged debt/shares
   move NAV/share; still near-zero at n=5). Debt + share count were the dominant held BS drivers;
