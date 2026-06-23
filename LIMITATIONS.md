@@ -20,8 +20,10 @@ it looks. Separately, the tool has **no demonstrated ex-post cross-sectional edg
 powered backtests on a P/B proxy — Amendment-2 (9 names, no DHT/FRO/ECO/product) and
 Amendment-3 (the *actual* 17-name watchlist incl. all crude flagships + product, deep history,
 Nq 72, sector-neutral IC +0.036/t 0.62, CI straddling zero) — both exclude a *moderate*
-within-sector value premium, and the engine's own signal has never been validated against
-forward returns (the powered engine EV% test needs a pre-2024 vessel-mark backfill, scoped in
+within-sector value premium, and the engine's own signal has only an **underpowered (n=5,
+INCONCLUSIVE) ex-post read** so far — a faithful vintaged-data pipeline is built (2026-06-23,
+all signal-moving legs point-in-time) but reaching significance needs the pre-2024 vessel-mark
+backfill, scoped in
 `outputs/test1_data_feasibility_memo_2026-06-22.md`). These are *book*-proxy tests of the value
 premise, not of the engine's market-NAV marks.
 Read the per-name calls as auditable opinions, not validated forecasts. Full treatment:

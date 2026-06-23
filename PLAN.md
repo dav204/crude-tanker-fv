@@ -6,18 +6,28 @@ forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest. Development proceeds
 normally (the 2026-06-14 "development freeze" was lifted 2026-06-21).
 
-**Current state (2026-06-22):** 20 watchlist names across 5 sectors; **315 tests
-green** (+13 backtest, run separately); `reconcile --all` 20/20 SANITY OK (0 fail,
-0 drift); committed drift gate ratified (Phase 2 below). This session ran a **methodology-soundness sprint** (full
-adversarial audit → fixes — see below) and then built the **Phase 2 ongoing
-accuracy gate**. Per-change detail is in `CHANGELOG.md`; the full analyses live in
-the `outputs/*_2026-06-22.md` memos.
+**Current state (2026-06-23):** 20 watchlist names across 5 sectors; **315 main
+tests green** (+13 backtest, run via `PYTHONPATH=. pytest backtest/`); `reconcile
+--all` 20/20 SANITY OK (0 fail, 0 drift); drift gate 0 unexplained; tree clean,
+pushed to origin/main. **The live valuation engine is unchanged this arc** — all
+work below is the methodology-soundness remediation (audit fixes + the Phase 2/3
+guardrails and ex-post validation). Per-change chronology is in `CHANGELOG.md`.
 
-## This session — methodology-soundness sprint (2026-06-22)
+**A NEW AGENT: read CLAUDE.md, then this file. Everything below "Methodology-audit
+remediation" is DONE except the Phase 3(c) power backfill and the Tier-4 backlog.
+The one thing to internalise before touching Test 1: the ⚠ HANDOFF box in 3(c) —
+the harvester + its parser work are NOT in this repo's git.**
+
+## Recent arc — methodology-soundness remediation (2026-06-22 → 06-23)
+
+Three stages, all pushed (see `CHANGELOG.md` for the commit-by-commit detail):
+**(1) methodology-soundness sprint** (audit fixes, below); **(2) Phase 2 ongoing
+accuracy gate**; **(3) Phase 3 ex-post validation** — the value-premium proxy test
+(powered null) and the engine EV% Test-1 backfill pipeline (built end-to-end,
+INCONCLUSIVE at n=5). Stage-1 detail:
 
 Driven by a full adversarial audit (`outputs/METHODOLOGY_AUDIT_2026-06-22.md`) +
-an epistemic deep-dive (`outputs/epistemic_soundness_memo_2026-06-22.md`). All
-landed + pushed (5 commits, `e57e447..HEAD`):
+an epistemic deep-dive (`outputs/epistemic_soundness_memo_2026-06-22.md`):
 
 - **Terminal value made honest (§9.2)** — was a doc-vs-code contradiction.
   Implemented (a) a **cycle-conditional multiple** on the terminal *fleet* value
@@ -84,58 +94,49 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     `quarter` (positional strip), so only the scenario quarter-key labels needed
     routing. +4 tests. **What 3c still needs:** the vintage scenario curves
     (the data backfill) — the plumbing is ready to consume them.
-  - **(c) Powered engine EV% Test 1 — method LOCKED + harness READY; blocked only
-    on the (env-gated) free-broker-weekly backfill.** ✅ Pre-registered
-    (`backtest/PRE_REGISTRATION_TEST1.md`, committed before any result — within-sector
-    pooled IC of EV%-cheapness, FAIL only on a significant anti-predictive result),
-    ✅ data contract written (`backtest/DATA_CONTRACT_TEST1.md` — per-vintage source /
-    no-look-ahead / slow-roll spec, free-broker-weekly), ✅ harness built + tested
-    (`backtest/run_engine_test1.py` — reads `backtest/vintages/<q>/`, runs the as-of
-    engine, computes the pre-registered statistic; sign convention + decision rule
-    unit-tested; runs clean with no vintages). **Remaining = data only:** populate
-    vintages via the free-broker-weekly backfill. Owner-committed to free broker-weekly
-    (over a paid feed). **Env gate CLEARED (2026-06-22):** provisioned Python 3.12 via
-    `uv` into `.venv310` (gitignored; engine + 315-suite stay on `.venv` 3.9); the
-    harvester imports, its 57 tests pass, and it parses real broker PDFs under 3.12.
-    **Remaining = the backfill itself:** (i) crawl/download 2024-Q1+ issues (the tuned
-    era) → vintage `market_data` via the factor adapter + class-rename/`dwt` shim;
-    (ii) Sharadar BS core + slow-rolled fleet/cost/div per `DATA_CONTRACT_TEST1.md`;
-    (iii) run `run_engine_test1` (expect INCONCLUSIVE at MVP n); then the 2018–2023
-    powered window. **Per-era parser development is now the EMPIRICALLY-CONFIRMED binding
-    constraint** (not just estimated): the full MVP crawl (`run --since 2024Q1 --until
-    2026Q2 --capitallink`, 1,412 issues, 60 mark-sets) parses only via **xclusiv + allied**;
-    `vessel_value` came back **dry-bulk + NEWBUILD-anchor only** (no tanker values, no
-    5yr/10yr), which is not valuation-grade for the age-curve NAV. Parser work: (a) ✅ **xclusiv
-    geometry age-curve extractor done** — the pre-2025 two-column secondhand table now yields the
-    full age curves for **both tanker (VLCC/Suezmax/Aframax/MR) and dry tiers (Capesize→Cape,
-    Kamsarmax→Pana, Ultramax→Supra-Ultra, Handy)** — all 8 classes resale/5/10/15yr, newbuild
-    merged (re-parsed 10 cached issues → 183 vessel_value rows, verified through the factor
-    schema). (b) extend the same geometry approach to allied; (c) fix intermodal/banchero/weber;
-    (d) per-era format coverage 2018–2023 + the 2026 post-redesign grid. The
-    factor→engine glue is **built** (`backtest/build_vintage.py`: class-rename/dwt/`musd`×1e6,
-    resale→newbuild, merge-over-live, scenario re-key, as-of raw close). **END-TO-END CHAIN
-    PROVEN (2026-06-22):** generated 5 vintages (2024Q3, 2025Q1–Q4) and ran `run_engine_test1`
-    — PDF→harvester→factor→glue→as-of engine→EV%→IC executes on real data for all 16–17 names.
-    **#1 (scenario-forward synthesis) + #2 (vintaged rates) ✅ DONE (2026-06-22):** a one-line
-    xclusiv marker fix (`average`→`avg`, the 2025 redesign) unlocked consistent vintaged tanker
-    spot across all 5 quarters; `build_vintage.synthesize_scenarios` replaces the held 2026 levels
-    with a neutral mean-reversion forward (vintaged spot → through-cycle TC mean, ±25%). Re-run:
-    EV%s no longer uniformly-BUY, per-quarter ICs vary (+0.50/+0.68/−0.32/−0.24/−0.16),
-    **mean IC +0.092 / t 0.44 / Nq 5 → INCONCLUSIVE** — now a *legitimate* vintaged read (real NAV
-    marks + real spot-derived forward + real price), not plumbing-validation. (a) ✅ **12M-TC
-    anchoring DONE (2026-06-23):** added `xclusiv._period_tc` (1y-T/C prose; Allied's period_tc
-    was one stale junk issue, dropped) → vintaged 12M TC for 2024Q3/2025Q1/2025Q2 (xclusiv
-    dropped the prose after, so 2025Q3/Q4 mean-fallback); `synthesize_scenarios` now anchors on
-    TC (TC-consistent with the means). Re-run mean IC +0.086 → INCONCLUSIVE (unchanged at n=5).
-    (b) ✅ **BS core vintaged (2026-06-23):** `build_vintage` now sets total_debt
-    (Sharadar LongTermDebtNoncurrent+DebtCurrent) + diluted shares point-in-time (cash absent
-    from the cache → held). Re-run mean IC +0.056 → INCONCLUSIVE. **Remaining:** (c) the
-    2018–2023 backfill for POWER (n=5 underpowered by design); (d) more houses/eras; (e) ✅ **quarterly-grain BS pulled (2026-06-23):** direct Sharadar SF1 ARQ pull
-    (`backtest/pull_bs_quarterly.py`, 837 rows) — `build_vintage` prefers quarterly, annual
-    fallback for NAT/TEN; de-stales the BS leg (DHT 2025-Q2 now Q1'25 not FY'24). Re-run mean IC +0.005. Vintage trees + schema JSON gitignored
-    (reproducible via `build_vintage`). Deliberate ~2–4 wk build —
-    `outputs/test1_data_feasibility_memo_2026-06-22.md`. Harvester runs on `.venv310` from
-    `shipping_harvester/` (gitignored).
+  - **(c) Powered engine EV% Test 1 — FAITHFUL end-to-end pipeline BUILT; result
+    INCONCLUSIVE at n=5; the only remaining step is POWER (the 2018–2023 backfill).**
+    Pre-registered (`backtest/PRE_REGISTRATION_TEST1.md`, committed before any result —
+    within-sector pooled IC of engine EV%-cheapness, FAIL only on a *significant
+    anti-predictive* result), data contract (`backtest/DATA_CONTRACT_TEST1.md`), harness
+    (`backtest/run_engine_test1.py`, unit-tested). The full chain runs on real data for 5
+    quarters (2024Q3, 2025Q1–Q4): PDF→harvester→factor→`build_vintage`→as-of engine→EV%→IC.
+    **Every signal-moving leg is vintaged point-in-time** — NAV vessel marks (xclusiv
+    geometry), 12M-TC-anchored scenario forward, price (Sharadar raw close), BS core
+    (cash/debt/shares, quarterly ARQ). Held/slow-rolled: working capital, newbuild & lease
+    lines, fleet ages. **Result: mean IC +0.005, t 0.02, Nq 5 → INCONCLUSIVE** — faithful but
+    underpowered by design (consistent with the powered proxy null, Amendment 3).
+
+    **⚠ HANDOFF — what is NOT in this repo's git (a fresh clone will NOT have it):**
+    - `shipping_harvester/` is **gitignored** (vendored cross-check). The parser work that
+      makes the backfill possible lives in the WORKING TREE ONLY, not git: the xclusiv
+      geometry secondhand age-curve extractor, the spot `avg|average` marker fix, and
+      `_period_tc` (1y-T/C prose). If this tree is lost, that parser work is lost.
+    - **`.venv310`** (Python 3.12, gitignored, `uv`-provisioned) is the harvester env; the
+      engine + 315-suite stay on **`.venv` (3.9)**. Never run one on the other.
+    - Bridge artifacts (gitignored, regenerable): `backtest/vintages/_factor_marks.json`
+      (harvester→glue), `backtest/vintages/_bs_quarterly.csv` (Sharadar ARQ pull), the
+      `backtest/vintages/<q>/` trees. Committed glue: `build_vintage.py`,
+      `run_engine_test1.py`, `pull_bs_quarterly.py`.
+
+    **Reproduce the pipeline:** (1) `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python
+    -m shipping_harvester.cli run --since 2024Q1 --until 2026Q2 --capitallink`; (2) re-parse
+    cached xclusiv + export `_factor_marks.json` **filtering `broker!='allied'`** (Allied is one
+    stale 2024-02-20 issue, junk); (3) `set -a; source ~/.config/factor-portfolio.env; set +a;
+    PYTHONPATH=~/Projects/factor-portfolio/src .venv310/bin/python backtest/pull_bs_quarterly.py`;
+    (4) `PYTHONPATH=. .venv/bin/python -m backtest.build_vintage`; (5) `... -m
+    backtest.run_engine_test1`.
+
+    **Coverage reality (the binding constraint):** only **xclusiv** parses cleanly. Vessel
+    age-curves + 12M-TC cover 2024Q3/2025Q1/2025Q2 (xclusiv dropped 1y-T/C prose after 2025Q2 →
+    2025Q3/Q4 forward falls back to the through-cycle mean). intermodal/banchero/weber parsers
+    return nothing; Allied is dropped.
+
+    **NEXT — (c) the 2018–2023 backfill for POWER (the only thing that buys a verdict; n=5 is
+    underpowered).** Multi-week per-era parser work: each era's xclusiv format needs its own
+    tuning (the 2024-vs-2025 spot/TC variants prove it) + the OCR-era risks the feasibility memo
+    flags (`outputs/test1_data_feasibility_memo_2026-06-22.md`). Lower-value polish: vintage
+    working-capital/fleet-ages; extend the parsers to Allied/other houses.
 - **§16 overlay-ledger row for §12 — ✅ DONE (2026-06-22).** `overlay_ledger.py`
   now auto-derives a **§12.6** row per gated name from the COMPUTED
   dividend-window classification (`dividend_window.build_rows`), mirroring the §15
@@ -205,10 +206,16 @@ test (Phase 3 b/c) is still the only read that can validate/refute the marks
 (`outputs/test1_data_feasibility_memo_2026-06-22.md`). No longer gates development.
 
 ## Verification gate (run before any handoff / Week-close)
-- `PYTHONPATH=src .venv/bin/python -m pytest -q` — must stay green (308 at 2026-06-22;
-  includes the Phase 2 drift gate, which can legitimately go red on accepted drift —
-  annotate + re-ratify rather than revert).
+- `PYTHONPATH=src .venv/bin/python -m pytest -q` — main suite, must stay green (**315** at
+  2026-06-23; includes the Phase 2 drift gate, which can legitimately go red on accepted
+  drift — annotate + re-ratify rather than revert).
+- `PYTHONPATH=. .venv/bin/python -m pytest backtest/ -q` — backtest suite (**13**; separate,
+  `testpaths=["tests"]` excludes it from the main run).
+- (Test-1 tooling, optional) `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python -m
+  pytest -q` — harvester (**57**, the gitignored vendored tool).
 - `python -m crude_tanker_fv.pipeline 2026-Q1` runs clean.
 - `python -m crude_tanker_fv.reconcile --all` — SANITY all OK/n-a-APPROX; annotate
   any >2pp drift / band flip in `decisions/<ticker>_log.md`.
-- Clean git state; push `origin main`.
+- Clean git state; push `origin main`. **Note:** `.venv310/`, `shipping_harvester/`,
+  `backtest/vintages/*/`, and `backtest/vintages/_*.{json,csv}` are gitignored by design —
+  a clean `git status` is expected even with the Test-1 tooling present (see 3(c) ⚠ HANDOFF).

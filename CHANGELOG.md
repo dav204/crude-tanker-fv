@@ -5,6 +5,14 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-23 — Handoff doc consolidation (clean-handoff pass).** Verification gate green
+  (main 315, backtest 13, drift gate 0 unexplained). Rewrote the sprawling PLAN.md Phase 3(c)
+  bullet into a scannable handoff with a prominent **⚠ HANDOFF box** flagging what is NOT in this
+  repo's git (the gitignored `shipping_harvester/` + its working-tree-only parser work, `.venv310`,
+  the regenerable bridge artifacts) + a reproduce-the-pipeline command list; refreshed the
+  current-state line (2026-06-23), the verification-gate section (added the backtest/harvester
+  suites + the gitignore note), and the README/LIMITATIONS ex-post line (engine signal now has an
+  underpowered n=5 INCONCLUSIVE read, not "untested"). No code change.
 - **2026-06-23 — Phase 3(c) quarterly-grain balance sheet (direct Sharadar ARQ pull).** The
   cache held only ANNUAL BS, so a mid-year vintage used a balance sheet up to ~12 months stale.
   Ran a **direct Sharadar SF1 ARQ pull** (`backtest/pull_bs_quarterly.py`, via factor-portfolio's

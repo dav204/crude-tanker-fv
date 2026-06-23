@@ -29,8 +29,9 @@ gross sanity-gate breach, can. The per-name EV% and BUY/TRIM/HOLD label are a st
 auditable valuation opinion relative to price and to one broker's NAV, not a backtested
 forecast of returns: no cross-sectional return edge has been demonstrated — two *powered*
 P/B-proxy backtests (incl. one on the actual 17-name watchlist over 72 quarters) exclude a
-moderate within-sector value premium, while the engine's own signal stays untested for
-power reasons (book-proxy tests bound the premise, not the marks)
+moderate within-sector value premium, while the engine's own signal has only an underpowered
+(n=5, INCONCLUSIVE) ex-post read — a faithful vintaged pipeline is built, but reaching
+significance needs a pre-2024 backfill
 (see [backtest/REPORT.md](backtest/REPORT.md) and
 [outputs/epistemic_soundness_memo_2026-06-22.md](outputs/epistemic_soundness_memo_2026-06-22.md)).
 Use the reads as one disciplined input to a position call, sized accordingly.
