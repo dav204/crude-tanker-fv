@@ -434,6 +434,33 @@ Two paths, decision rule locked in `PRE_REGISTRATION_TEST2.md`:
 2. **Multi-cycle history** — a paid vessel-value feed (Clarksons SIN / VesselsValue)
    back to ~2008 gives 2–3 independent cycles → a powered verdict now. Costs access.
 
+## POWERED multi-cycle proxy check (run 2026-06-23) — deflates the one-cycle result
+
+We DO have multi-cycle data for the *book proxy* (P/B, Amendment-3 panel), so the same
+within-name reversion estimand was run on it: `backtest/run_proxy_timeseries.py`,
+**2008–2025, 72 quarters, 14 names, 804 name-quarters** (GFC + 2011–16 depression +
+COVID + 2021–22 boom = multiple independent cycles).
+
+| | IC | quarter-block 95% CI | t | reading |
+|---|--:|---|--:|---|
+| **per-name reversion (P/B, powered)** | **+0.078** | **[−0.081, +0.236]** | +0.97 | **INCONCLUSIVE / ≈ null** |
+| cross-sectional (de-meaned) | +0.086 | — | — | echoes Amendment 3 (~null) |
+| cycle-timing | +0.020 | — | — | ~0 over 72q |
+
+**This deflates the engine's one-cycle +0.234.** The reversion premise that looked
+significant on a single cycle (2019–2026) collapses to a non-significant +0.078 once
+multiple cycles are in play — the single-cycle bootstrap was optimistic, as flagged.
+And the **crude flagships are ~zero-to-negative** (DHT −0.07, INSW −0.03, TNK −0.03,
+NAT +0.01, FRO +0.00); the only positive names are off-thesis (FLNG +0.40, GSL +0.24 —
+the LNG/container names the engine can't even mark).
+
+**Caveat (real, not cope):** book lags market NAV across the cycle (the reason the
+engine uses market marks, not book), so this kills the *book-value* reversion thesis,
+not provably the engine's *market-NAV* one — but the proxy is the only multi-cycle data
+we have, and it shows no edge. Clearing the engine's actual marks at this power still
+needs multi-cycle market-mark history (paid feed). Net across all powered tests:
+**no demonstrated edge, cross-sectional or time-series.**
+
 ---
 
 # FINAL combined verdict

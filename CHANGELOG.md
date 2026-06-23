@@ -5,7 +5,18 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
-- **2026-06-23 — Test 2 (time-series reversion to fair value): in-sample nominally significant; pre-registered, not yet a verdict.**
+- **2026-06-23 — POWERED multi-cycle P/B reversion test DEFLATES the one-cycle engine result → no edge.**
+  Ran the Test-2 within-name reversion estimand on the deep Sharadar P/B proxy (`run_proxy_timeseries.py`,
+  2008–2025, **72 quarters, 14 names, 804 name-quarters** — GFC + 2011–16 depression + COVID + 2021–22
+  boom = multiple independent cycles → genuinely powered). **Result: per-name reversion IC +0.078,
+  quarter-block 95% CI [−0.081, +0.236], t +0.97, p 0.166 → INCONCLUSIVE/≈null.** The engine's one-cycle
+  +0.234 (t 2.30) does NOT survive multiple cycles — it was the single-cycle bootstrap optimism flagged in
+  PRE_REGISTRATION_TEST2. Crude flagships ~zero/negative (DHT −0.07, INSW −0.03, TNK −0.03, NAT +0.01,
+  FRO +0.00); only off-thesis LNG/container names positive (FLNG +0.40, GSL +0.24). Cross-sectional
+  de-meaned +0.086 (echoes Amendment 3). Caveat: book proxy lags market NAV (the reason the engine uses
+  market marks), so this kills the *book-value* reversion thesis, not provably the engine's market-NAV one
+  — but the proxy is the only multi-cycle data we have and it shows no edge. **Net across all powered tests:
+  no demonstrated edge, cross-sectional OR time-series.** harness + docs only; no engine/src change.
   Built `backtest/run_engine_timeseries.py` to test the on-thesis question Test 1's cross-sectional frame
   strips out: does cheap-to-its-own-NAV+strip predict a name's OWN forward return (price reverting to the
   engine's fair value). In-sample (2019Q3–2026Q1, 275 name-quarters): **per-name within-name reversion IC
