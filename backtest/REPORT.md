@@ -316,10 +316,14 @@ adds power.
 
 ## VERDICT (Test-1 primary, sector-neutral pooled IC of EV%-cheapness): **INCONCLUSIVE**
 
+Universe: **tanker + dry only** (3 sectors: crude, product, dry_bulk; 11–14 names/q).
+LNG/container names (FLNG, CCEC, GSL) are **excluded** — no free house tabulates
+their vessel values, so they can't be vintaged (see "2019–2020 quality" below).
+
 | Window | Quarters | mean IC | t | bootstrap 95% CI | sign hit-rate | verdict |
 |---|--:|--:|--:|---|--:|---|
-| **2019Q3–2026Q1 (full)** | **23** | **−0.021** | **−0.31** | **[−0.130, +0.096]** | 45% | INCONCLUSIVE |
-| 2021Q3–2026Q1 (clean) | 19 | +0.011 | +0.16 | — | 45% | INCONCLUSIVE |
+| **2019Q3–2026Q1 (full)** | **23** | **−0.020** | **−0.30** | **[−0.135, +0.100]** | 46% | INCONCLUSIVE |
+| 2021Q3–2026Q1 (clean) | 19 | +0.015 | +0.22 | — | 46% | INCONCLUSIVE |
 
 Up from Nq 5 (+0.005). Both windows are **~zero** — marginally positive in the
 2021+ clean window, marginally negative including the lower-quality 2019–2020
@@ -327,11 +331,12 @@ quarters. **Neither is anti-predictive** — the verdict never approaches the
 pre-registered FAIL threshold (IC<0 AND t≤−2.0), and the sign hit-rate stays above
 the 40% trip. So the powered test **does not impeach the engine**, and it does not
 clear EDGE (IC>0 AND t≥2.0) either. INCONCLUSIVE remains the honest read, now at
-**~4.5× the original quarter count** with a tightened CI [−0.130, +0.096] (excludes a
+**~4.5× the original quarter count** with a tightened CI [−0.135, +0.100] (excludes a
 *large* effect, |IC|>0.13; still blind to a small/moderate one), and power compounds
-forward. *(Numbers shifted only cosmetically across the build-out: 2021Q3–2025Q4
-alone read +0.040; filling the 2024/2026 gaps → +0.019; adding Intermodal TC → +0.011.
-A more complete picture stays a clean ~null — see the TC robustness note below.)*
+forward. *(The number is remarkably stable across every build-out step: 2021Q3–2025Q4
+alone +0.040; +2024/2026 gaps → +0.019; +Intermodal TC → +0.011; +2019–2020 TC and the
+LNG/container exclusion → +0.015 clean / −0.020 full. The verdict survives each
+refinement — it is not an artifact of any single data choice.)*
 
 ## What changed — the data backfill
 
@@ -359,23 +364,29 @@ The binding constraint was broker-weekly vessel-mark coverage. Established this 
   **Robustness:** shifting the entire TC source to Intermodal + filling the gap moved
   the IC only −0.014 → −0.021 — confirming the pre-registered claim that TC perturbs
   EV% *magnitude, not sign*. The verdict is not an artifact of the TC fallback.
+- **2019–2020 quality + no-look-ahead enforcement.** Two fixes: (i) the Allied Weekly
+  'period market TC rates' table (the `12 months` row) now feeds 2019–2020 TC, so those
+  quarters are TC-anchored not pinned to the through-cycle mean; (ii) names whose vessel
+  values *no free house tabulates* — LNG/container (**FLNG, CCEC, GSL**) — are now
+  **excluded** from every vintage (`build_vintage.UNCOVERED_SECTORS`). Previously their
+  NAV fell back to LIVE 2026 curves (a multi-year look-ahead, worst in 2019–2020),
+  violating the no-look-ahead spine; they can't be vintaged from the free archive, so
+  Test 1 is scoped to the tanker+dry universe it *can* vintage. Also fixed a precedence
+  bug exposed here: HSN Allied is spotty/stale and was overriding the Xclusiv value
+  spine for 2022Q4+ via `allied`-first precedence — now **xclusiv-first for value,
+  intermodal-first for TC**, with Allied the fallback (so it only wins the 2019–2020
+  quarters where Xclusiv/Intermodal are absent).
 
 ## Caveats specific to this run
 
-- **Single-vendor marks** (locked): one value series per quarter (Xclusiv, or Allied
-  for 2019–2020). No cross-vendor validation.
-- **2019–2020 quarters are lower quality:** no vintaged 1y-TC (Allied Weekly is
-  value-only → the scenario forward falls to the through-cycle mean, neutral), and a
-  6–7yr **live-curve look-ahead on the *uncovered* classes** (LNG/container/LR2 keep
-  live 2026 marks via the merge) — so FLNG/CCEC/GSL EV% in 2019–2020 is flagged-not-
-  trusted. The crude/dry spine names use real vintaged marks. This is why the
-  2021–2025 window is the better-controlled headline.
-- **Coverage now contiguous** 2021Q3→2026Q1 — the 2024Q1/Q2/Q4 + 2026 vessel_value gaps
-  (which the old geometry parser silently dropped) were closed by the grouped-era text
-  parser, and the 2025Q3+ TC gap was closed by the Intermodal TC source. Remaining thin
-  legs: LR2 is folded into Aframax by both Xclusiv and Intermodal (no separate LR2 mark —
-  product names lean on the Aframax proxy / live LR2 curve); 2019–2020 still carry no
-  vintaged TC (Allied Weekly is value-only → neutral forward).
+- **Single-vendor marks** (locked): one value series per quarter — Xclusiv (2021+) or
+  Allied (2019–2020). No cross-vendor *value* validation (TC is cross-checked).
+- **Scope = tanker + dry.** LNG/container (FLNG/CCEC/GSL) are excluded (no vintaged
+  vessel marks); the sector-neutral IC pools crude + product + dry_bulk (3 cells).
+- **Coverage contiguous** 2021Q3→2026Q1, and 2019Q3/Q4 + 2020Q2/Q3 carry real vintaged
+  VV **and** TC. Remaining thin legs: LR2 is folded into Aframax by every free house (no
+  separate LR2 mark → product names lean on the Aframax proxy); 2019–2020 are patchy
+  within-quarter (one Allied Weekly per quarter, sometimes mid-quarter dated).
 
 ## Relation to the proxy tests
 

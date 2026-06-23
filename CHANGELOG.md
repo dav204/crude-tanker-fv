@@ -5,6 +5,22 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-23 — 2019-2020 quality: Allied TC recovered + LNG/container excluded (no-look-ahead) + precedence fix.**
+  Three fixes to the 2019-2020 quarters and the value spine: **(1)** the Allied Weekly 'period market TC
+  rates' table (the `12 months` row) now feeds 2019-2020 TC — those quarters are TC-anchored, no longer
+  pinned to the through-cycle mean. **(2)** LNG/container names **FLNG/CCEC/GSL excluded** from all
+  vintages (`build_vintage.UNCOVERED_SECTORS = {lng, containerships, …}`): no free house tabulates their
+  vessel values, so their NAV fell back to LIVE 2026 curves (a multi-year look-ahead, worst in 2019-2020)
+  — violating the no-look-ahead spine. Test 1 is now scoped to the tanker+dry universe it can vintage
+  (3 sectors: crude/product/dry_bulk, 11-14 names/q). **(3)** Precedence bug fixed: HSN Allied is
+  spotty/stale (some Weekly-format issues + a 2024W08 reused for 2024Q2+) and was overriding the Xclusiv
+  value spine for 2022Q4+ via `allied`-first precedence — now **xclusiv-first for value, intermodal-first
+  for TC**, with Allied the fallback (wins only the 2019-2020 quarters where Xclusiv/Intermodal are
+  absent). `ingest_wayback` now also clears stale HSN Allied marks so the store matches the methodology.
+  Re-ran Test 1: **Nq 23, IC −0.020 (t −0.30), CI [−0.135, +0.100]**; 2021+ clean +0.015 (t +0.22).
+  **Verdict robust** — moved <0.001 across all three fixes; the result is not an artifact of the
+  look-ahead or the precedence bug. Still INCONCLUSIVE, not anti-predictive, no demonstrated edge.
+  +1 harvester test (Allied TC). Gate: main 315, backtest 13, harvester 60.
 - **2026-06-23 — Intermodal TC enrichment: designated period-TC source feeds the forward; verdict robust.**
   Rebuilt the Intermodal parser (was an untuned keyword stub) as a poppler-text reader of its stable
   'TC Rates' table: 1yr TC per class, lowercase k = tanker / uppercase K = dry (disambiguates the 75k

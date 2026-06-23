@@ -19,7 +19,7 @@ from __future__ import annotations
 
 import re
 
-from ..models import KIND_VESSEL_VALUE, Mark, MarketMarks
+from ..models import KIND_PERIOD_TC, KIND_VESSEL_VALUE, Mark, MarketMarks
 from ..quarters import quarter_of
 from . import base
 
@@ -35,6 +35,18 @@ _AGEROW = re.compile(
 _NB = re.compile(r"(" + "|".join(_ALL) + r")\s*\([\d,]+\s*dwt\)\s+(\d+\.?\d*)", re.I)
 _AGE = {"resale": "resale", "5 year old": "five_year",
         "10 year old": "ten_year", "15 year old": "fifteen_year"}
+
+# 'period market TC rates' tables (the only TC source for the 2019-2020 vintages,
+# since Intermodal/Xclusiv aren't on HSN that far back). A class header on its own
+# line, then a '12 months $X …' row. Emit class names aligned to HARV_TC_KEY so
+# build_vintage consumes them: pana->Kamsarmax, supra_ultra->Ultramax.
+_TC_HDR = re.compile(r"^\s*(" + "|".join(_ALL) + r")\b", re.I)
+_TC_12MO = re.compile(r"12\s*months?\s+\$?\s*([\d,]+)", re.I)
+_TC_CANON = {"capesize": "Capesize", "newcastlemax": "Capesize",
+             "panamax": "Kamsarmax", "kamsarmax": "Kamsarmax",
+             "supramax": "Ultramax", "ultramax": "Ultramax", "handysize": "Handysize",
+             "vlcc": "VLCC", "suezmax": "Suezmax", "aframax": "Aframax",
+             "lr2": "LR2", "lr1": "LR2", "mr2": "MR", "mr": "MR"}
 
 
 def _section(text: str, start: str, ends: tuple) -> str:
@@ -59,7 +71,7 @@ class AlliedParser(base.BrokerParser):
 
     def parse(self, pdf_path, ref) -> MarketMarks:
         ptext = base.extract_text_poppler(pdf_path)
-        marks = self._secondhand(ptext) + self._newbuild(ptext)
+        marks = self._secondhand(ptext) + self._newbuild(ptext) + self._period_tc(ptext)
         return MarketMarks(
             broker_id=ref.broker_id, report_date=ref.published,
             quarter=quarter_of(ref.published), source_post=ref.post_url,
@@ -91,6 +103,30 @@ class AlliedParser(base.BrokerParser):
                         seen.add((cur, age))
                         out.append(Mark(kind=KIND_VESSEL_VALUE, vessel_class=cur, metric="value",
                                         value=float(m.group(2)), unit="musd", age_anchor=age))
+        return out
+
+    @staticmethod
+    def _period_tc(text: str) -> list[Mark]:
+        secs = (_section(text, "Dry Bulk period market TC rates", ("Latest indicative", "Indicative"))
+                + "\n"
+                + _section(text, "Tanker period market TC rates", ("Latest indicative", "Indicative")))
+        out: list[Mark] = []
+        seen: set = set()
+        cur = None
+        for line in secs.splitlines():
+            low = line.lower()
+            if "month" not in low:
+                h = _TC_HDR.match(line)
+                if h:
+                    cur = _TC_CANON.get(h.group(1).lower())
+                continue
+            m = _TC_12MO.search(line)
+            if m and cur and cur not in seen:
+                val = float(m.group(1).replace(",", ""))
+                if 3000 <= val <= 200000:
+                    seen.add(cur)
+                    out.append(Mark(kind=KIND_PERIOD_TC, vessel_class=cur, metric="1yr_tc",
+                                    value=val, unit="usd_per_day"))
         return out
 
     @staticmethod

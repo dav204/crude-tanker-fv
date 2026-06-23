@@ -172,10 +172,17 @@ class ResolutionPolicy:
 
 DEFAULT_POLICY = ResolutionPolicy(
     precedence={
-        ("vessel_value", "dry"): ("allied", "intermodal", "xclusiv"),
-        ("vessel_value", "tanker"): ("allied", "intermodal", "xclusiv"),
-        ("twelve_month_tc", "tanker"): ("weber", "allied", "intermodal"),
-        ("twelve_month_tc", "dry"): ("allied", "intermodal", "xclusiv"),
+        # value: Xclusiv is the primary house (rich resale/5/10/15yr, all eras 2021+);
+        # Allied is the FALLBACK so it only wins where Xclusiv is absent — i.e. the
+        # Wayback-recovered 2019-2020 quarters. (Allied-first would let spotty/stale
+        # HSN Allied issues override the Xclusiv spine for 2022Q4+.)
+        ("vessel_value", "dry"): ("xclusiv", "allied", "intermodal"),
+        ("vessel_value", "tanker"): ("xclusiv", "allied", "intermodal"),
+        # TC: Intermodal is the designated period-TC source (clean table, all eras
+        # 2021+); Allied is the fallback for the 2019-2020 quarters where Intermodal
+        # isn't on HSN; Xclusiv prose is a cross-check.
+        ("twelve_month_tc", "tanker"): ("intermodal", "weber", "xclusiv", "allied"),
+        ("twelve_month_tc", "dry"): ("intermodal", "xclusiv", "allied"),
         ("spot_tce", "tanker"): ("weber", "xclusiv", "intermodal"),
         ("spot_tce", "dry"): ("xclusiv", "intermodal", "weber"),
         ("demolition", "tanker"): ("gms", "allied", "intermodal"),

@@ -69,6 +69,13 @@ ANCHOR_MAP = {"newbuild": "newbuild", "resale": "newbuild",
               "five_year": "five_year_benchmark", "ten_year": "ten_year_benchmark",
               "scrap": "scrap_25yr"}
 
+# Sectors the free broker-weekly value tables don't cover (no house tabulates LNG /
+# container / LPG vessel values). Names in these sectors can't be vintaged — their
+# NAV would fall back to LIVE curves (a multi-year look-ahead), violating the
+# no-look-ahead spine — so they're EXCLUDED from Test-1 vintages entirely. Test 1
+# is therefore a tanker+dry universe test (the marks the harvester can vintage).
+UNCOVERED_SECTORS = {"lng", "containerships", "container", "gas", "lpg"}
+
 
 def _qkey(asof: str) -> str:                       # "2024-Q3" -> "2024Q3"
     return asof.replace("-", "")
@@ -279,6 +286,8 @@ def assemble_vintage(asof: str, tickers: list[str]) -> Path:
     watch = yaml.safe_load((LIVE / "watchlist.yaml").read_text())
     out_watch: dict = {}
     for t in tickers:
+        if watch.get(t, {}).get("sector") in UNCOVERED_SECTORS:
+            continue  # no free vintaged vessel marks for LNG/container/LPG -> exclude (no look-ahead)
         tl = t.lower()
         for sub in ("fleet_manifests", "cost_structures", "dividend_policies"):
             src = LIVE / sub / f"{tl}.yaml"

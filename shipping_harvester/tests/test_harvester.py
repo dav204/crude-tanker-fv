@@ -154,6 +154,16 @@ def _make_allied_weekly_pdf(path):
         "105k dwt 10 year old      60.0    59.0   1.7%\n"
         "MR\n"
         "52k dwt      Resale       45.0    44.0   2.3%\n"
+        "Tanker period market TC rates                last 5 years\n"
+        "               08 May      03 Apr\n"
+        "VLCC\n"
+        "   12 months   $ 55,000 $ 80,000   -31.3%\n"
+        "   36 months   $ 40,000 $ 36,500\n"
+        "Suezmax\n"
+        "   12 months   $ 43,750 $ 45,000   -2.8%\n"
+        "MR\n"
+        "   12 months   $ 19,500 $ 16,500   18.2%\n"
+        "Latest indicative Tanker Period Fixtures\n"
     )
     style = getSampleStyleSheet()["Code"]
     SimpleDocTemplate(str(path)).build([Preformatted(text, style)])
@@ -173,6 +183,11 @@ def test_allied_parser_end_to_end(tmp_path):
     assert got[("Suezmax", "five_year")] == 82.0
     assert got[("Aframax", "ten_year")] == 60.0
     assert got[("MR", "resale")] == 45.0  # Resale -> 'resale' (build_vintage maps it to the newbuild proxy)
+    # period TC (the 12-months row; the 2019-2020 forward source)
+    tc = {m.vessel_class: m.value for m in mm.marks if m.kind == "period_tc"}
+    assert tc["VLCC"] == 55000.0
+    assert tc["Suezmax"] == 43750.0
+    assert tc["MR"] == 19500.0  # the 36-months row is ignored
 
 
 def _make_xclusiv_flat_pdf(path):

@@ -32,6 +32,14 @@ def _date_of(orig: str) -> dt.date | None:
 
 
 def main() -> int:
+    # Own the Allied marks state: clear any HSN-crawled Allied marks (a `cli run`
+    # re-parses HSN Allied, which is spotty/stale) so Allied = the curated Wayback
+    # 2019-2020 recovery only. Run this as the LAST harvester step before export.
+    allied_dir = store.config.MARKS_STORE / "allied"
+    if allied_dir.exists():
+        for jf in allied_dir.glob("*.json"):
+            jf.unlink()
+
     man = json.loads((WB / "manifest.json").read_text())
     refs = []
     for rec in man:
