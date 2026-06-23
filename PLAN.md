@@ -116,13 +116,18 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     resale→newbuild, merge-over-live, scenario re-key, as-of raw close). **END-TO-END CHAIN
     PROVEN (2026-06-22):** generated 5 vintages (2024Q3, 2025Q1–Q4) and ran `run_engine_test1`
     — PDF→harvester→factor→glue→as-of engine→EV%→IC executes on real data for all 16–17 names.
-    Result mean IC +0.220 / t 1.70 / Nq 5 → INCONCLUSIVE, but this is a **plumbing-validation
-    read, NOT valid Test 1** (only vessel_value + price vintaged; TC / scenario *levels* / BS held
-    → near-universal BUY; number not interpretable). **For a valid result:** (1) synthesise the
-    neutral mean-reversion scenario forward (vs held 2026 levels) — the biggest remaining piece;
-    (2) vintage TC (fix the Allied parser); (3) vintage BS core (Sharadar); (4) more
-    quarters/houses (extend geometry to Allied; 2018–2023 + 2026-grid eras). Vintage trees +
-    schema JSON gitignored (reproducible via `build_vintage`). Deliberate ~2–4 wk build —
+    **#1 (scenario-forward synthesis) + #2 (vintaged rates) ✅ DONE (2026-06-22):** a one-line
+    xclusiv marker fix (`average`→`avg`, the 2025 redesign) unlocked consistent vintaged tanker
+    spot across all 5 quarters; `build_vintage.synthesize_scenarios` replaces the held 2026 levels
+    with a neutral mean-reversion forward (vintaged spot → through-cycle TC mean, ±25%). Re-run:
+    EV%s no longer uniformly-BUY, per-quarter ICs vary (+0.50/+0.68/−0.32/−0.24/−0.16),
+    **mean IC +0.092 / t 0.44 / Nq 5 → INCONCLUSIVE** — now a *legitimate* vintaged read (real NAV
+    marks + real spot-derived forward + real price), not plumbing-validation. **Remaining for a
+    fully-faithful Test 1:** (a) 12M-TC anchoring (currently SPOT-anchored — no reliable vintaged
+    TC: Allied period_tc is a constant mis-parse, needs a real TC-table parser); (b) vintage the
+    BS core (Sharadar — `loaders_sharadar` has it); (c) the 2018–2023 backfill for POWER (n=5 is
+    underpowered by design); (d) more houses/eras. Vintage trees + schema JSON gitignored
+    (reproducible via `build_vintage`). Deliberate ~2–4 wk build —
     `outputs/test1_data_feasibility_memo_2026-06-22.md`. Harvester runs on `.venv310` from
     `shipping_harvester/` (gitignored).
 - **§16 overlay-ledger row for §12 — ✅ DONE (2026-06-22).** `overlay_ledger.py`

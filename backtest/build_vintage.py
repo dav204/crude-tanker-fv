@@ -10,16 +10,21 @@ What's real vs slow-rolled in THIS pass (honest, partial MVP):
     newbuild proxy, musd*1e6. MERGED over the live curves so classes the
     harvester doesn't cover (LR2, LNGC, ...) keep live marks and don't break NAV.
   * current_price        — REAL, vintaged: Sharadar raw close at the quarter-end.
-  * scenario_inputs      — live curves RE-KEYED to the vintage's strip quarters
-    (so the as-of routing fires). Values held = the neutral mean-reversion forward
-    is NOT yet synthesised, so the scenario LEVELS are live; flagged.
-  * twelve_month_tc / spot / FFA / means / fleet / cost / dividend / balance sheet
-                         — HELD from live (slow-roll). The harvester TC is still
-    unreliable (Allied bug), so TC stays live this pass.
+  * scenario_inputs      — SYNTHESISED (the neutral mean-reversion forward,
+    DATA_CONTRACT_TEST1.md): one neutral scenario per sector whose per-class
+    forward glides the VINTAGED xclusiv spot toward the through-cycle TC mean
+    (±25% band). Removes the held 2026-Hormuz scenario levels (the dominant
+    contaminant). Anchored on SPOT not 12M-TC (no reliable vintaged TC: Allied's
+    period_tc is a constant mis-parse, xclusiv carries no period TC) — a
+    documented spot-bias on the cycle LEVEL; the sector-neutral cross-section is
+    treated consistently.
+  * FFA / means / fleet / cost / dividend / balance sheet
+                         — HELD from live (slow-roll).
 
-=> The resulting EV% is a PLUMBING-VALIDATION read (real vintaged NAV marks, but
-held TC/scenario-levels/BS), not yet a valid Test-1 result. It proves the chain
-end-to-end and surfaces glue/assembly issues. Marked as such in the report.
+=> The EV% is now driven by REAL vintaged NAV marks + a REAL vintaged (spot-
+derived) forward + REAL vintaged price. It is a legitimate (small-n, spot-
+anchored, BS-held) read — a real step past the held-levels plumbing-validation,
+not yet the fully-faithful Test-1 (12M-TC + Sharadar BS still pending).
 
 CLI: PYTHONPATH=. .venv/bin/python -m backtest.build_vintage 2024-Q3 2025-Q1 ...
 """
@@ -29,7 +34,6 @@ from __future__ import annotations
 import csv
 import datetime as dt
 import json
-import re
 import shutil
 import sys
 from pathlib import Path
@@ -122,17 +126,51 @@ def raw_close_at(ticker: str, asof: str) -> float | None:
     return best
 
 
-def rekey_scenarios(doc: dict, asof: str) -> dict:
-    """Relabel each scenario curve's quarter keys to the vintage's strip quarters
-    (positional) so run_scenarios(asof_quarter) routes; values held."""
+# scenario-class key (== cycle_anchors key) -> harvester spot vessel_class
+HARV_SPOT_KEY = {
+    "vlcc": "VLCC", "suezmax": "Suezmax", "aframax_dirty": "Aframax",
+    "mr": "MR", "mr_clean": "MR", "lr2_clean": "Aframax",  # LR2 tracks Aframax spot
+    "cape": "Capesize", "pana": "Kamsarmax", "supra_ultra": "Ultramax",
+}
+
+
+def vintaged_spot(asof: str) -> dict:
+    """{harvester_class: spot_tce} for this quarter from the harvester marks."""
+    qk = _qkey(asof)
+    return {m["vessel_class"]: float(m["value"]) for m in json.loads(MARKS_JSON.read_text())
+            if m["quarter"] == qk and m["field"] == "spot_tce" and m["value"] is not None}
+
+
+def _synth_curve(anchor: float, mean: float, vk: list[str]) -> dict:
+    """A neutral mean-reversion forward: glide from the as-of rate (`anchor`)
+    toward the through-cycle `mean` over the horizon; ±25% low/high band."""
+    h = len(vk)
+    out = {}
+    for i, q in enumerate(vk):
+        base = anchor + (mean - anchor) * min(1.0, (i + 1) / h)
+        out[q] = [round(base * 0.75), round(base), round(base * 1.25)]
+    return out
+
+
+def synthesize_scenarios(doc: dict, asof: str) -> dict:
+    """Replace each sector's scenarios with ONE neutral scenario (weight 1.0)
+    whose per-class forward mean-reverts the vintaged spot toward the TC mean.
+
+    This is DATA_CONTRACT_TEST1.md's neutral forward — it removes the held
+    2026-Hormuz scenario *levels* (the dominant contaminant). Where a class has
+    no vintaged spot, its forward sits flat at the through-cycle mean (neutral).
+    Caveat: anchored on SPOT, not 12M TC (no reliable vintaged TC source), so the
+    cycle level is spot-biased; the sector-neutral cross-section is consistent."""
     sq, sy = strip_start_from_asof(asof)
+    spot = vintaged_spot(asof)
     for sec in doc["sectors"].values():
         vk = quarter_keys(int(sec.get("strip_horizon", 8)), sq, sy)
-        for scen in sec.get("scenarios", {}).values():
-            for k, v in list(scen.items()):
-                if isinstance(v, dict) and v and all(re.match(r"q[1-4]_\d{4}", kk) for kk in v):
-                    vals = list(v.values())
-                    scen[k] = {vk[i]: vals[i] for i in range(min(len(vk), len(vals)))}
+        scen = {"weight": 1.0, "description": "neutral mean-reversion (Test-1 vintage)"}
+        for key, a in sec.get("cycle_anchors", {}).items():
+            mean = float(a["ten_year_mean"])
+            anchor = spot.get(HARV_SPOT_KEY.get(key, ""), mean)
+            scen[key] = _synth_curve(anchor, mean, vk)
+        sec["scenarios"] = {"neutral": scen}
     return doc
 
 
@@ -150,10 +188,10 @@ def assemble_vintage(asof: str, tickers: list[str]) -> Path:
     (md / "vessel_value_curves.yaml").write_text(
         yaml.safe_dump(merged_vessel_curves(asof), sort_keys=False))
 
-    # scenario_inputs: re-keyed to this vintage's strip quarters
+    # scenario_inputs: neutral mean-reversion forward synthesised from vintaged spot
     doc = yaml.safe_load((LIVE / "scenario_inputs.yaml").read_text())
     (vd / "scenario_inputs.yaml").write_text(
-        yaml.safe_dump(rekey_scenarios(doc, asof), sort_keys=False))
+        yaml.safe_dump(synthesize_scenarios(doc, asof), sort_keys=False))
 
     # per-ticker: fleet/cost/dividend held (no quarter in name); balance sheet renamed
     for sub in ("fleet_manifests", "cost_structures", "dividend_policies"):

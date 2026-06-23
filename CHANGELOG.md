@@ -5,6 +5,23 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — Phase 3(c) neutral scenario-forward synthesis + vintaged spot — first
+  *legitimate* Test-1 read (still small-n).** Removed the dominant contaminant (held 2026-Hormuz
+  scenario levels). **(#2 vintaged rates):** found the Allied `period_tc` is a constant mis-parse
+  (VLCC 5934 every quarter — signal-free) and xclusiv carries no period TC; but the 2025 xclusiv
+  redesign abbreviates "average T/CE"→"avg T/CE", so a one-line marker fix
+  (`(?:average|avg)`) unlocked **consistent vintaged tanker spot across all 5 quarters**
+  (VLCC 38.6k→42.9k→35.1k→89.3k→95.9k). **(#1 synthesis):** `build_vintage.synthesize_scenarios`
+  replaces the held curves with one neutral scenario per sector whose per-class forward glides
+  the vintaged spot toward the through-cycle TC mean (±25% band) — DATA_CONTRACT_TEST1.md's
+  neutral forward. Scale verified: the cycle-anchor means (VLCC 40k) are on the same $/day scale
+  as xclusiv spot, so the synthesized forward yields realistic vintaged cycle positions (2024Q3
+  VLCC ~0.97×, 2025Q4 ~2.4×). Re-ran `run_engine_test1`: EV%s no longer uniformly-BUY; per-quarter
+  ICs vary (+0.50/+0.68/−0.32/−0.24/−0.16); **mean IC +0.092, t 0.44, Nq 5, CI [−0.155,+0.223],
+  hit-rate 49% → INCONCLUSIVE** (expected at n=5). Now a legitimate vintaged read (real NAV marks
+  + real vintaged spot-derived forward + real price), no longer plumbing-validation. Caveats:
+  SPOT-anchored not 12M-TC (no reliable vintaged TC), BS held, n=5. Remaining for fully-faithful
+  Test 1: 12M-TC anchoring, Sharadar BS vintaging, the 2018–2023 backfill for power.
 - **2026-06-22 — Phase 3(c) factor→vintage glue + first end-to-end Test-1 chain run
   (plumbing-validation).** Built `backtest/build_vintage.py`: reads the harvester's resolved
   marks (`_factor_marks.json`, exported from `.venv310`), converts to engine
