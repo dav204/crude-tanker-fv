@@ -5,6 +5,25 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — Phase 3(c) first parser extension: xclusiv geometry-based age-curve
+  extractor — unlocks the tanker vessel-value curves.** Closed the highest-leverage coverage
+  gap. The pre-2025 Xclusiv secondhand-values table is a **two-column text layout** (value
+  table left, S&P prose right) that pdfplumber does NOT detect as a ruled grid, so the existing
+  `_secondhand(tables)` extractor missed it entirely (newbuild-only output). Added a
+  **word-geometry** extractor (`xclusiv.XclusivParser._secondhand_geom`, wired via a `parse()`
+  override that has the pdf_path): isolates the left value column by x-coordinate, reads the age
+  label (Resale/5/10/15yr at x0≈85) + the current value (first numeric to its right),
+  reconstructs one class per Resale→15yr block, and applies a **monotonic-curve sanity filter**
+  so mis-joins drop rather than corrupt. Result on the real 2024-Q3 issue: **36 vessel_value
+  marks** (was newbuild-only), incl. the **complete tanker age curves VLCC/Suezmax/Aframax/MR
+  (resale/5/10/15yr)** — the previously-absent marks the engine's age-curve NAV needs for the
+  crude/product watchlist names. Dry is partial (Capesize/Handy/+2 clean; Kamsarmax/Ultramax
+  age-curve blocks still name-misassigned — the messier dry layout, the residual refinement).
+  Harvester's own xclusiv + dispatch tests stay green (15). **The harvester is gitignored
+  (vendored cross-check), so the parser code lives in the working tree, not this repo's history;
+  the committed deliverable is the coverage win + (next) the assembled vintages.** Remaining:
+  dry class-naming, fix intermodal/banchero/weber, per-era 2018–2023, then the factor→vintage
+  glue + `run_engine_test1`.
 - **2026-06-22 — Phase 3(c) MVP backfill kicked off — pipeline proven, parser coverage
   measured as the binding constraint.** Ran the harvester end-to-end: small validation crawl
   (HSN, recent quarters) then the full MVP crawl `run --since 2024Q1 --until 2026Q2
