@@ -133,6 +133,34 @@ def test_sharadar_prices_total_return_series():
         assert s == sorted(s), f"{nm} price series not date-sorted"
 
 
+def test_engine_test1_ev_cheapness_sign_convention():
+    """Test 1's load-bearing convention: HIGH engine EV% must rank as cheap, so
+    high EV% predicting high forward return yields POSITIVE sector-neutral IC."""
+    from backtest.run_engine_test1 import engine_quarter_ic, sign_hit_rate, verdict
+    ev = {"A": 20.0, "B": -10.0, "C": 15.0, "D": -5.0}      # A,C cheap (high EV%)
+    sec = {"A": "crude", "B": "crude", "C": "product", "D": "product"}
+    ret = {"A": 0.18, "B": -0.06, "C": 0.12, "D": -0.02}    # cheap names outperform
+    assert engine_quarter_ic(ev, ret, sec).ic_sector_neutral == 1.0
+    hit, n = sign_hit_rate(ev, ret, sec)
+    assert hit == 1.0 and n == 4
+    # anti-predictive (cheap names underperform) flips the IC negative
+    ret_anti = {k: -v for k, v in ret.items()}
+    assert engine_quarter_ic(ev, ret_anti, sec).ic_sector_neutral == -1.0
+    # decision rule: significant negative = FAIL, significant positive = EDGE
+    assert verdict(-0.3, -2.5).startswith("FAIL")
+    assert verdict(0.3, 2.5).startswith("EDGE")
+    assert verdict(0.04, 0.6).startswith("INCONCLUSIVE")
+
+
+def test_engine_test1_runs_with_no_vintages(tmp_path):
+    """Harness must be runnable now (data pending): empty vintages → clean exit 0."""
+    from backtest.run_engine_test1 import discover_vintages, qend_date, next_quarter
+    assert discover_vintages(tmp_path) == []
+    assert qend_date("2024-Q1") == dt.date(2024, 3, 31)
+    assert next_quarter("2024-Q4") == "2025-Q1"
+    assert next_quarter("2024-Q1") == "2024-Q2"
+
+
 @_NO_CACHE
 def test_sharadar_bvps_point_in_time():
     """Load-bearing: independently re-derived, the BVPS the proxy would surface

@@ -7,7 +7,7 @@ its per-name reads — not by a cross-sectional backtest. Development proceeds
 normally (the 2026-06-14 "development freeze" was lifted 2026-06-21).
 
 **Current state (2026-06-22):** 20 watchlist names across 5 sectors; **315 tests
-green** (+11 backtest, run separately); `reconcile --all` 20/20 SANITY OK (0 fail,
+green** (+13 backtest, run separately); `reconcile --all` 20/20 SANITY OK (0 fail,
 0 drift); committed drift gate ratified (Phase 2 below). This session ran a **methodology-soundness sprint** (full
 adversarial audit → fixes — see below) and then built the **Phase 2 ongoing
 accuracy gate**. Per-change detail is in `CHANGELOG.md`; the full analyses live in
@@ -84,11 +84,21 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     `quarter` (positional strip), so only the scenario quarter-key labels needed
     routing. +4 tests. **What 3c still needs:** the vintage scenario curves
     (the data backfill) — the plumbing is ready to consume them.
-  - **(c) Pre-register + run the powered engine EV% Test 1 — OPEN** (the only read
-    that can validate/refute the marks). Needs (b) + the pre-2024 broker-weekly
-    vessel-mark backfill (or a structured Clarksons/VesselsValue feed — both
-    declined so far) per `outputs/test1_data_feasibility_memo_2026-06-22.md`. Its
-    own go/no-go.
+  - **(c) Powered engine EV% Test 1 — method LOCKED + harness READY; blocked only
+    on the (env-gated) free-broker-weekly backfill.** ✅ Pre-registered
+    (`backtest/PRE_REGISTRATION_TEST1.md`, committed before any result — within-sector
+    pooled IC of EV%-cheapness, FAIL only on a significant anti-predictive result),
+    ✅ data contract written (`backtest/DATA_CONTRACT_TEST1.md` — per-vintage source /
+    no-look-ahead / slow-roll spec, free-broker-weekly), ✅ harness built + tested
+    (`backtest/run_engine_test1.py` — reads `backtest/vintages/<q>/`, runs the as-of
+    engine, computes the pre-registered statistic; sign convention + decision rule
+    unit-tested; runs clean with no vintages). **Remaining = data only:** populate
+    vintages via the free-broker-weekly backfill. Owner-committed to free broker-weekly
+    (over a paid feed). **Binding gate: the `shipping_harvester` is Python 3.10+
+    (`@dataclass(slots=True)` → TypeError under this Mac's 3.9.6)** — needs a 3.10+
+    interpreter or a small 3.9 backport before the vessel-mark/TC vintage production can
+    run. MVP first (2024-Q1+, parsers tuned, expect INCONCLUSIVE), then the 2018+ powered
+    window (~2–4 wk per-era parsers). Sizing: `outputs/test1_data_feasibility_memo_2026-06-22.md`.
 - **§16 overlay-ledger row for §12 — ✅ DONE (2026-06-22).** `overlay_ledger.py`
   now auto-derives a **§12.6** row per gated name from the COMPUTED
   dividend-window classification (`dividend_window.build_rows`), mirroring the §15

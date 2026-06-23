@@ -5,6 +5,26 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — Phase 3(c) Test 1 pre-registration + data contract + harness (engine EV%
+  ex-post test; method locked, data pending).** Owner committed to the **free broker-weekly**
+  data path. Wrote `backtest/PRE_REGISTRATION_TEST1.md` (locked before any result, git-order
+  proof): the test of the tool's OWN signal — within-sector pooled IC of engine EV%-cheapness
+  vs 1q-forward total return, valued as-of via the Phase-3b plumbing; decision rule **FAILs
+  only on a significant anti-predictive result** (mean IC<0, t≤−2), EDGE on significant
+  positive, INCONCLUSIVE the expected MVP outcome. Wrote `backtest/DATA_CONTRACT_TEST1.md`:
+  per-vintage source / no-look-ahead / slow-roll spec mapped to the free broker-weekly sources
+  (vessel marks + TC + spot are the only sign-moving per-quarter legs; BS core from Sharadar;
+  fleet/cost/dividend slow-rolled; FFA + scenario forward are *derived* via mean-reversion
+  synthesis — the live 2026 MoU scenario set is NOT back-projected, a locked departure). Built
+  `backtest/run_engine_test1.py`: reads `backtest/vintages/<q>/`, runs the as-of engine
+  (`run_scenarios_watchlist(asof_quarter=q, inputs_dir=…)`), computes the pre-registered
+  statistic; the load-bearing EV%-cheapness sign convention (high EV% = cheap, via `−EV%` into
+  the reused `wide_quarter_ic`) and the decision rule are unit-tested; runs clean with no
+  vintages. +2 backtest tests (11→13; main `tests/` unaffected at 315). **Binding execution
+  gate surfaced:** the vendored `shipping_harvester` is Python 3.10+ (`@dataclass(slots=True)`
+  → TypeError under this Mac's 3.9.6), so the vessel-mark/TC vintage production needs a 3.10+
+  interpreter or a small 3.9 backport — everything downstream already runs in the 3.9 venv.
+  Design basis: `outputs/test1_data_feasibility_memo_2026-06-22.md`.
 - **2026-06-22 — Phase 3(b) engine as-of-quarter plumbing (the prerequisite for the powered
   engine EV% test).** The scenario path hard-anchored the strip/scenario timeline to "now"
   (`QUARTER_KEYS = q3_2026…`), so it could not value a name as-of a historical quarter.
