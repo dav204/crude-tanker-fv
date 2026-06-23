@@ -17,9 +17,13 @@ live rules distilled from it.
   so mis-joins drop rather than corrupt. Result on the real 2024-Q3 issue: **36 vessel_value
   marks** (was newbuild-only), incl. the **complete tanker age curves VLCC/Suezmax/Aframax/MR
   (resale/5/10/15yr)** — the previously-absent marks the engine's age-curve NAV needs for the
-  crude/product watchlist names. Dry is partial (Capesize/Handy/+2 clean; Kamsarmax/Ultramax
-  age-curve blocks still name-misassigned — the messier dry layout, the residual refinement).
-  Harvester's own xclusiv + dispatch tests stay green (15). **The harvester is gitignored
+  crude/product watchlist names. Dry then completed too: the dump revealed the table groups
+  **Kamsarmax/Panamax and Ultramax/Supramax into single curves — the same Pana / Supra-Ultra
+  tiers the engine uses** — so assigning each block its *topmost* label (not block-center) yields
+  full curves for Capesize→Cape, Kamsarmax→Pana, Ultramax→Supra-Ultra, Handy, with the text
+  newbuild merging in. **All 8 classes (4 tanker + 4 dry tiers) now carry full age curves**,
+  verified through the factor schema (re-parsed 10 cached issues → 183 vessel_value rows, 80
+  tanker age-curve rows). Harvester's own xclusiv + dispatch tests stay green (15). **The harvester is gitignored
   (vendored cross-check), so the parser code lives in the working tree, not this repo's history;
   the committed deliverable is the coverage win + (next) the assembled vintages.** Remaining:
   dry class-naming, fix intermodal/banchero/weber, per-era 2018–2023, then the factor→vintage

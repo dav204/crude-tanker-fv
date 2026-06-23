@@ -107,10 +107,11 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     `vessel_value` came back **dry-bulk + NEWBUILD-anchor only** (no tanker values, no
     5yr/10yr), which is not valuation-grade for the age-curve NAV. Parser work: (a) ✅ **xclusiv
     geometry age-curve extractor done** — the pre-2025 two-column secondhand table now yields the
-    full **tanker** age curves (VLCC/Suezmax/Aframax/MR resale/5/10/15yr; 36 vessel_value marks on
-    the 2024-Q3 issue, was newbuild-only); dry partial (2 classes still name-misassigned, the
-    residual). (b) extend the same to allied + finish dry; (c) fix intermodal/banchero/weber;
-    (d) per-era format coverage 2018–2023. The
+    full age curves for **both tanker (VLCC/Suezmax/Aframax/MR) and dry tiers (Capesize→Cape,
+    Kamsarmax→Pana, Ultramax→Supra-Ultra, Handy)** — all 8 classes resale/5/10/15yr, newbuild
+    merged (re-parsed 10 cached issues → 183 vessel_value rows, verified through the factor
+    schema). (b) extend the same geometry approach to allied; (c) fix intermodal/banchero/weber;
+    (d) per-era format coverage 2018–2023 + the 2026 post-redesign grid. The
     factor→engine glue is fully specified (class-rename/dwt/`musd`×1e6) and ready, gated on
     coverage. Pipeline + env are proven; this is a deliberate ~2–4 wk build —
     `outputs/test1_data_feasibility_memo_2026-06-22.md`. Crawl run on `.venv310` from
