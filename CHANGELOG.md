@@ -5,6 +5,23 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-23 — Phase 3(c) 12M-TC anchoring — the scenario forward is now TC-consistent.**
+  Replaced the spot anchor (which mismatched the TC-anchored cycle means, the §10 gotcha) with
+  vintaged 12-month TC. Source: not Allied (its `period_tc` is one stale 2024-02-20 issue,
+  mis-parsed to a constant — dropped from the panel), but **xclusiv's 1y-T/C prose**, which the
+  parser ignored. Added `xclusiv._period_tc`: each `USD n/day` level is a TC mark only when
+  "1y T/C" is the nearer rate-type keyword before it (vs the spot "T/CE"), class = nearest class
+  word; a sanity band + change-figure guard ("…firmer…, at USD …") + a 115-char back-window
+  handle the 2024 vs 2025 prose variants. Yields full tanker 12M TC (VLCC/Suezmax/Aframax/LR2/MR,
+  on the TC scale ~29–49k) for **2024-Q3 / 2025-Q1 / 2025-Q2**; xclusiv dropped the 1y-T/C prose
+  after 2025-Q2, so **2025-Q3/Q4 fall back to the through-cycle mean** (neutral, not spot, to
+  avoid a TC-vs-spot level confound). `build_vintage.synthesize_scenarios` now anchors on
+  `vintaged_tc` (mean fallback). Re-ran `run_engine_test1`: VLCC forward now on the TC scale
+  (2024Q3 base 48312 ≈ TC 49.5k; 2025Q4 base = mean 40k); **mean IC +0.086, t 0.42, Nq 5 →
+  INCONCLUSIVE** (unchanged near-zero at n=5, as the cross-sectional NAV signal dominates). The
+  methodology mismatch is fixed; remaining fidelity gap = the held balance sheet (Sharadar BS
+  vintaging). Harvester 57 tests green. Allied excluded at the export step (note in
+  `build_vintage`).
 - **2026-06-22 — Phase 3(c) neutral scenario-forward synthesis + vintaged spot — first
   *legitimate* Test-1 read (still small-n).** Removed the dominant contaminant (held 2026-Hormuz
   scenario levels). **(#2 vintaged rates):** found the Allied `period_tc` is a constant mis-parse

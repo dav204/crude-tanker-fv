@@ -12,19 +12,17 @@ What's real vs slow-rolled in THIS pass (honest, partial MVP):
   * current_price        — REAL, vintaged: Sharadar raw close at the quarter-end.
   * scenario_inputs      — SYNTHESISED (the neutral mean-reversion forward,
     DATA_CONTRACT_TEST1.md): one neutral scenario per sector whose per-class
-    forward glides the VINTAGED xclusiv spot toward the through-cycle TC mean
-    (±25% band). Removes the held 2026-Hormuz scenario levels (the dominant
-    contaminant). Anchored on SPOT not 12M-TC (no reliable vintaged TC: Allied's
-    period_tc is a constant mis-parse, xclusiv carries no period TC) — a
-    documented spot-bias on the cycle LEVEL; the sector-neutral cross-section is
-    treated consistently.
+    forward glides the VINTAGED 12-month TC (xclusiv 1y-T/C prose) toward the
+    through-cycle TC mean (±25% band). TC-consistent with the cycle-anchor means.
+    Coverage: 2024-Q3 / 2025-Q1 / 2025-Q2 carry full tanker TC; xclusiv dropped
+    the 1y-T/C prose after 2025-Q2, so 2025-Q3/Q4 fall back to the through-cycle
+    mean (neutral, not spot).
   * FFA / means / fleet / cost / dividend / balance sheet
                          — HELD from live (slow-roll).
 
-=> The EV% is now driven by REAL vintaged NAV marks + a REAL vintaged (spot-
-derived) forward + REAL vintaged price. It is a legitimate (small-n, spot-
-anchored, BS-held) read — a real step past the held-levels plumbing-validation,
-not yet the fully-faithful Test-1 (12M-TC + Sharadar BS still pending).
+=> The EV% is driven by REAL vintaged NAV marks + a REAL vintaged 12M-TC-anchored
+forward + REAL vintaged price. A legitimate (small-n, BS-held) read; the one
+remaining big fidelity gap is the held balance sheet (Sharadar BS vintaging).
 
 CLI: PYTHONPATH=. .venv/bin/python -m backtest.build_vintage 2024-Q3 2025-Q1 ...
 """
@@ -126,19 +124,19 @@ def raw_close_at(ticker: str, asof: str) -> float | None:
     return best
 
 
-# scenario-class key (== cycle_anchors key) -> harvester spot vessel_class
-HARV_SPOT_KEY = {
-    "vlcc": "VLCC", "suezmax": "Suezmax", "aframax_dirty": "Aframax",
-    "mr": "MR", "mr_clean": "MR", "lr2_clean": "Aframax",  # LR2 tracks Aframax spot
+# scenario-class key (== cycle_anchors key) -> harvester vessel_class
+HARV_TC_KEY = {
+    "vlcc": "VLCC", "suezmax": "Suezmax", "aframax_dirty": "Aframax", "lr2_clean": "LR2",
+    "mr": "MR", "mr_clean": "MR",
     "cape": "Capesize", "pana": "Kamsarmax", "supra_ultra": "Ultramax",
 }
 
 
-def vintaged_spot(asof: str) -> dict:
-    """{harvester_class: spot_tce} for this quarter from the harvester marks."""
+def vintaged_tc(asof: str) -> dict:
+    """{harvester_class: 12-month TC} for this quarter (xclusiv 1y-T/C prose)."""
     qk = _qkey(asof)
     return {m["vessel_class"]: float(m["value"]) for m in json.loads(MARKS_JSON.read_text())
-            if m["quarter"] == qk and m["field"] == "spot_tce" and m["value"] is not None}
+            if m["quarter"] == qk and m["field"] == "twelve_month_tc" and m["value"] is not None}
 
 
 def _synth_curve(anchor: float, mean: float, vk: list[str]) -> dict:
@@ -154,21 +152,22 @@ def _synth_curve(anchor: float, mean: float, vk: list[str]) -> dict:
 
 def synthesize_scenarios(doc: dict, asof: str) -> dict:
     """Replace each sector's scenarios with ONE neutral scenario (weight 1.0)
-    whose per-class forward mean-reverts the vintaged spot toward the TC mean.
+    whose per-class forward mean-reverts the vintaged **12-month TC** toward the
+    through-cycle TC mean (±25% band) — DATA_CONTRACT_TEST1.md's neutral forward.
 
-    This is DATA_CONTRACT_TEST1.md's neutral forward — it removes the held
-    2026-Hormuz scenario *levels* (the dominant contaminant). Where a class has
-    no vintaged spot, its forward sits flat at the through-cycle mean (neutral).
-    Caveat: anchored on SPOT, not 12M TC (no reliable vintaged TC source), so the
-    cycle level is spot-biased; the sector-neutral cross-section is consistent."""
+    Anchored on 12M TC (xclusiv 1y-T/C prose), which is TC-consistent with the
+    cycle-anchor means (vs the earlier spot anchor). Where a class has no
+    vintaged TC for the quarter (xclusiv dropped the 1y-T/C prose after 2025-Q2,
+    so 2025-Q3/Q4 have none), its forward sits flat at the through-cycle mean
+    (neutral) — NOT spot, to avoid a TC-vs-spot level confound across quarters."""
     sq, sy = strip_start_from_asof(asof)
-    spot = vintaged_spot(asof)
+    tc = vintaged_tc(asof)
     for sec in doc["sectors"].values():
         vk = quarter_keys(int(sec.get("strip_horizon", 8)), sq, sy)
         scen = {"weight": 1.0, "description": "neutral mean-reversion (Test-1 vintage)"}
         for key, a in sec.get("cycle_anchors", {}).items():
             mean = float(a["ten_year_mean"])
-            anchor = spot.get(HARV_SPOT_KEY.get(key, ""), mean)
+            anchor = tc.get(HARV_TC_KEY.get(key, ""), mean)
             scen[key] = _synth_curve(anchor, mean, vk)
         sec["scenarios"] = {"neutral": scen}
     return doc

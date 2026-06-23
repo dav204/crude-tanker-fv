@@ -122,11 +122,14 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     with a neutral mean-reversion forward (vintaged spot → through-cycle TC mean, ±25%). Re-run:
     EV%s no longer uniformly-BUY, per-quarter ICs vary (+0.50/+0.68/−0.32/−0.24/−0.16),
     **mean IC +0.092 / t 0.44 / Nq 5 → INCONCLUSIVE** — now a *legitimate* vintaged read (real NAV
-    marks + real spot-derived forward + real price), not plumbing-validation. **Remaining for a
-    fully-faithful Test 1:** (a) 12M-TC anchoring (currently SPOT-anchored — no reliable vintaged
-    TC: Allied period_tc is a constant mis-parse, needs a real TC-table parser); (b) vintage the
-    BS core (Sharadar — `loaders_sharadar` has it); (c) the 2018–2023 backfill for POWER (n=5 is
-    underpowered by design); (d) more houses/eras. Vintage trees + schema JSON gitignored
+    marks + real spot-derived forward + real price), not plumbing-validation. (a) ✅ **12M-TC
+    anchoring DONE (2026-06-23):** added `xclusiv._period_tc` (1y-T/C prose; Allied's period_tc
+    was one stale junk issue, dropped) → vintaged 12M TC for 2024Q3/2025Q1/2025Q2 (xclusiv
+    dropped the prose after, so 2025Q3/Q4 mean-fallback); `synthesize_scenarios` now anchors on
+    TC (TC-consistent with the means). Re-run mean IC +0.086 → INCONCLUSIVE (unchanged at n=5).
+    **Remaining for a fully-faithful Test 1:** (b) vintage the BS core (Sharadar —
+    `loaders_sharadar` has it); (c) the 2018–2023 backfill for POWER (n=5 is underpowered by
+    design); (d) more houses/eras. Vintage trees + schema JSON gitignored
     (reproducible via `build_vintage`). Deliberate ~2–4 wk build —
     `outputs/test1_data_feasibility_memo_2026-06-22.md`. Harvester runs on `.venv310` from
     `shipping_harvester/` (gitignored).
