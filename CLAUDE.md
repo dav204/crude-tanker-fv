@@ -86,6 +86,15 @@ plus a row in `inputs/watchlist.yaml`. See `METHODOLOGY.md` for the full framewo
   (weighted to APPROX + live-event names) into a dated digest. Review-only;
   promotion is human-only.
 - The venv at `.venv/` has `pypdf` installed. **Use it for PDFs that fail WebFetch.**
+- **Two venvs:** the engine + all `crude_tanker_fv` code and the 315-test suite run
+  on `.venv` (Python **3.9.6**). The vendored `shipping_harvester` (broker-weekly
+  parser for the Test 1 backfill) requires **3.10+**, so a dedicated `.venv310`
+  (Python 3.12, gitignored, provisioned via `uv`) is used ONLY for it:
+  `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python -m pytest -q` (57
+  tests). Never run the engine/tests on `.venv310` or the harvester on `.venv`.
+- Test 1 (engine EV% ex-post) backtest: harness `backtest/run_engine_test1.py`
+  (runs on `.venv`) reads vintages from `backtest/vintages/`. Method + input spec:
+  `backtest/PRE_REGISTRATION_TEST1.md` + `backtest/DATA_CONTRACT_TEST1.md`.
 
 ## What this tool is, philosophically (locked 2026-06-06)
 

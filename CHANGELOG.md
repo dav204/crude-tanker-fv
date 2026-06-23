@@ -5,6 +5,18 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — Phase 3(c) env gate cleared: Python 3.12 provisioned for the harvester.**
+  Owner chose provisioning a 3.10+ interpreter over a 3.9 backport. Installed CPython 3.12.13
+  via `uv` into a dedicated **`.venv310`** (gitignored) with the harvester's deps (requests,
+  beautifulsoup4, lxml, pdfplumber, pandas, pyarrow); the engine + the 315-test suite stay on
+  `.venv` (3.9.6), untouched. The vendored `shipping_harvester` now imports under 3.12, its
+  **57 tests pass**, and it parses real broker-weekly PDFs (smoke-tested on
+  `state/fdprobe/Allied_2025.pdf`). That smoke test also confirmed the data contract's per-era
+  reality: a non-2024-tuned format (the 2025 Allied sample) parses `confident=True` but yields
+  only partial TC marks and no age-anchors — i.e. the env is unblocked, but **per-era parser
+  tuning remains the real backfill work** (the 2024+ era is the tuned one). CLAUDE.md "How to
+  run things" documents the two-venv split. Remaining for a result: the free-broker-weekly
+  backfill (crawl 2024-Q1+ → vintages) per `backtest/DATA_CONTRACT_TEST1.md`.
 - **2026-06-22 — Phase 3(c) Test 1 pre-registration + data contract + harness (engine EV%
   ex-post test; method locked, data pending).** Owner committed to the **free broker-weekly**
   data path. Wrote `backtest/PRE_REGISTRATION_TEST1.md` (locked before any result, git-order

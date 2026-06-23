@@ -20,6 +20,7 @@ htmlcov/
 
 # Virtual environments
 .venv/
+.venv310/          # Python 3.12 env for shipping_harvester (3.10+); engine stays on .venv (3.9)
 venv/
 env/
 

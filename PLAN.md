@@ -94,11 +94,16 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     engine, computes the pre-registered statistic; sign convention + decision rule
     unit-tested; runs clean with no vintages). **Remaining = data only:** populate
     vintages via the free-broker-weekly backfill. Owner-committed to free broker-weekly
-    (over a paid feed). **Binding gate: the `shipping_harvester` is Python 3.10+
-    (`@dataclass(slots=True)` → TypeError under this Mac's 3.9.6)** — needs a 3.10+
-    interpreter or a small 3.9 backport before the vessel-mark/TC vintage production can
-    run. MVP first (2024-Q1+, parsers tuned, expect INCONCLUSIVE), then the 2018+ powered
-    window (~2–4 wk per-era parsers). Sizing: `outputs/test1_data_feasibility_memo_2026-06-22.md`.
+    (over a paid feed). **Env gate CLEARED (2026-06-22):** provisioned Python 3.12 via
+    `uv` into `.venv310` (gitignored; engine + 315-suite stay on `.venv` 3.9); the
+    harvester imports, its 57 tests pass, and it parses real broker PDFs under 3.12.
+    **Remaining = the backfill itself:** (i) crawl/download 2024-Q1+ issues (the tuned
+    era) → vintage `market_data` via the factor adapter + class-rename/`dwt` shim;
+    (ii) Sharadar BS core + slow-rolled fleet/cost/div per `DATA_CONTRACT_TEST1.md`;
+    (iii) run `run_engine_test1` (expect INCONCLUSIVE at MVP n); then the 2018–2023
+    powered window — **per-era parser tuning is the real work** (confirmed: the fdprobe
+    `Allied_2025.pdf`, outside the 2024-tuned era, parses only partial TC, no
+    age-anchors). Sizing (~2–4 wk): `outputs/test1_data_feasibility_memo_2026-06-22.md`.
 - **§16 overlay-ledger row for §12 — ✅ DONE (2026-06-22).** `overlay_ledger.py`
   now auto-derives a **§12.6** row per gated name from the COMPUTED
   dividend-window classification (`dividend_window.build_rows`), mirroring the §15
