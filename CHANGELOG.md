@@ -5,6 +5,20 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-23 — Test 2 (time-series reversion to fair value): in-sample nominally significant; pre-registered, not yet a verdict.**
+  Built `backtest/run_engine_timeseries.py` to test the on-thesis question Test 1's cross-sectional frame
+  strips out: does cheap-to-its-own-NAV+strip predict a name's OWN forward return (price reverting to the
+  engine's fair value). In-sample (2019Q3–2026Q1, 275 name-quarters): **per-name within-name reversion IC
+  +0.234, quarter-block 95% CI [+0.015, +0.413], t 2.30, p 0.018, positive in 12/12 names**; cross-sectional
+  (quarter-de-meaned) +0.008 (no name-selection beyond the cycle); cycle-timing +0.191. So the tool's
+  *designed* job — cycle/asset-value timing of single positions — points the right way and clears nominal
+  significance, **but it is not a clean verdict**: exploratory/post-hoc, one autocorrelated cycle (the
+  quarter-block bootstrap is optimistic; 12/12 = one cycle ridden by correlated names, not 12 independent
+  edges), and cycle-not-selection. `PRE_REGISTRATION_TEST2.md` locks the CONFIRMATION on data **not yet
+  used** — out-of-sample forward quarters (evaluate at +8q, ~end-2028) or a multi-cycle paid vessel-value
+  feed (Clarksons SIN / VesselsValue, ~2008+, 2–3 independent cycles) — with an EDGE/FAIL/INCONCLUSIVE
+  rule. Honest standing: **not a name-ranker** (Test 1 null), **plausibly a cycle/value timer** (Test 2
+  hypothesis); proof pending out-of-sample/multi-cycle. No engine/src change; harness + pre-reg only.
 - **2026-06-23 — 2019-2020 quality: Allied TC recovered + LNG/container excluded (no-look-ahead) + precedence fix.**
   Three fixes to the 2019-2020 quarters and the value spine: **(1)** the Allied Weekly 'period market TC
   rates' table (the `12 months` row) now feeds 2019-2020 TC — those quarters are TC-anchored, no longer

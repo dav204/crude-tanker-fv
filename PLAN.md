@@ -165,6 +165,16 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
        *(DONE 2026-06-23: grouped-era parser closed 2024/2026 VV gaps; Intermodal TC closed the 2025Q3+
        gap + reconciliation; Allied TC recovered 2019–2020 TC; LNG/container excluded (no-look-ahead) +
        xclusiv-first value-precedence fix.)*
+  - **(d) Test 2 — time-series reversion to fair value (NEW 2026-06-23).** The on-thesis test Test 1's
+    cross-sectional frame omits: does cheap-to-own-NAV+strip predict a name's OWN forward return.
+    `backtest/run_engine_timeseries.py`; `backtest/PRE_REGISTRATION_TEST2.md`. In-sample (275 name-q):
+    **per-name reversion IC +0.234, quarter-block 95% CI [+0.015,+0.413], t 2.30, p 0.018, 12/12 names
+    positive**; de-meaned +0.008 (no name-selection); cycle-timing +0.191. Nominally significant +
+    on-thesis, but **exploratory/post-hoc + one autocorrelated cycle** → a HYPOTHESIS, not a verdict.
+    **STANDING:** pre-registered confirmation runs on data not yet used — re-run as quarters accrue
+    (evaluate at +8q, ~end-2028) **or** on a multi-cycle paid feed (Clarksons SIN/VesselsValue, ~2008+);
+    EDGE/FAIL/INCONCLUSIVE rule locked. Net read: not a name-ranker (Test 1 null), plausibly a
+    cycle/value timer (Test 2), unproven until out-of-sample/multi-cycle.
 - **§16 overlay-ledger row for §12 — ✅ DONE (2026-06-22).** `overlay_ledger.py`
   now auto-derives a **§12.6** row per gated name from the COMPUTED
   dividend-window classification (`dividend_window.build_rows`), mirroring the §15

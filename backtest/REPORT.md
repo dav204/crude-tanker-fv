@@ -398,6 +398,44 @@ both INCONCLUSIVE/near-null, neither a refutation of the marks.
 
 ---
 
+# Test 2 — engine EV% time-series reversion to fair value (EXPLORATORY → pre-registered, 2026-06-23)
+
+Test 1 graded the *cross-sectional* question (rank a name vs its sector peers) → null.
+Test 2 grades the on-thesis question that frame strips out: **does a name being cheap
+to its own NAV+strip fair value predict its OWN forward return** (does the discount
+close). `backtest/run_engine_timeseries.py`; pre-registration `PRE_REGISTRATION_TEST2.md`.
+
+## In-sample read (2019Q3–2026Q1, 275 name-quarters) — a HYPOTHESIS, not a verdict
+
+| Estimand | IC | quarter-block 95% CI | reading |
+|---|--:|---|---|
+| **per-name reversion** (within-name, primary) | **+0.234** | **[+0.015, +0.413]** (t 2.30, p 0.018) | nominally significant; 12/12 names positive |
+| cross-sectional (quarter-de-meaned) | +0.008 | — | no name-selection beyond the cycle |
+| cycle-timing (quarter-mean EV% vs return) | +0.191 | — | aggregate cheapness times the cycle |
+| raw pooled | +0.059 | [−0.061, +0.171] | cycle + selection, mixed |
+
+**Reading, honestly:** buying a name when it's cheap to its blended NAV+strip and
+waiting for reversion is **positive in every name** and clears nominal significance
+under a quarter-clustered bootstrap. That is the tool's designed job (cycle/asset-value
+timing of individual positions) and it points the right way. **But it is not a clean
+verdict:** (1) the estimate was found exploratorily then tested on the same data
+(post-hoc); (2) 2019–2026 is effectively **one autocorrelated cycle**, so the
+quarter-block bootstrap is optimistic and the 12/12 unanimity is one cycle ridden by
+correlated names, not 12 independent edges; (3) the de-meaned ≈ 0 confirms it is
+**cycle/sector reversion, not name-selection.** Net: a strong, on-thesis *hypothesis*,
+not a proven law.
+
+## What a genuine verdict requires (pre-registered)
+
+No re-processing of 2019–2026 (incl. finer/monthly sampling) adds independent
+information — power is a function of the number of **cycles**, of which we have one.
+Two paths, decision rule locked in `PRE_REGISTRATION_TEST2.md`:
+1. **Time** — re-run as quarters accrue; evaluate at +8 new quarters (~end-2028). Free, slow.
+2. **Multi-cycle history** — a paid vessel-value feed (Clarksons SIN / VesselsValue)
+   back to ~2008 gives 2–3 independent cycles → a powered verdict now. Costs access.
+
+---
+
 # FINAL combined verdict
 
 | Test | Signal | Universe | Powered? | Sector-neutral IC | t |
