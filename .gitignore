@@ -74,3 +74,5 @@ shipping_harvester/
 # backtest.build_vintage from the harvester marks). README stays tracked.
 backtest/vintages/*/
 backtest/vintages/_*.json
+
+backtest/vintages/_*.csv

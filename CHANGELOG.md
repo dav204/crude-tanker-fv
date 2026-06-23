@@ -5,6 +5,16 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-23 — Phase 3(c) quarterly-grain balance sheet (direct Sharadar ARQ pull).** The
+  cache held only ANNUAL BS, so a mid-year vintage used a balance sheet up to ~12 months stale.
+  Ran a **direct Sharadar SF1 ARQ pull** (`backtest/pull_bs_quarterly.py`, via factor-portfolio's
+  fetcher + the owner's key) for the 17 names → 837 quarterly rows (cash / total debt / shares,
+  point-in-time by `datekey`) → `backtest/vintages/_bs_quarterly.csv` (gitignored).
+  `build_vintage.vintaged_bs_core` now **prefers the quarterly grain**, annual ARY fallback for
+  the annual-only FPIs **NAT/TEN** (0 ARQ rows, as the memo warned). De-stales the BS leg: DHT
+  2025-Q2 now uses the Q1'25 BS (debt 364M) vs the stale FY'24 annual (409M). Re-ran
+  `run_engine_test1`: **mean IC +0.005, t 0.02, Nq 5 → INCONCLUSIVE** (fresher BS shifts
+  NAV/share; still near-zero at n=5). The BS leg is now as point-in-time as Sharadar allows.
 - **2026-06-23 — Phase 3(c) point-in-time balance-sheet core (Sharadar).** `build_vintage`
   now vintages **cash, total_debt** (Sharadar `LongTermDebtNoncurrent + DebtCurrent`) and
   **diluted shares** per name, point-in-time (ARY, filed-date <= quarter-end, no look-ahead),

@@ -17,10 +17,11 @@ What's real vs slow-rolled in THIS pass (honest, partial MVP):
     Coverage: 2024-Q3 / 2025-Q1 / 2025-Q2 carry full tanker TC; xclusiv dropped
     the 1y-T/C prose after 2025-Q2, so 2025-Q3/Q4 fall back to the through-cycle
     mean (neutral, not spot).
-  * balance-sheet CORE   — REAL, vintaged: cash, total_debt (Sharadar
-    LongTermDebtNoncurrent + DebtCurrent) and diluted shares, point-in-time
-    (datekey <= quarter-end). The shipping-specific lines (working capital,
-    newbuild commitments, leases) stay slow-rolled from live.
+  * balance-sheet CORE   — REAL, vintaged: cash, total_debt, diluted shares,
+    point-in-time (datekey <= quarter-end), at QUARTERLY grain (Sharadar SF1 ARQ,
+    pull_bs_quarterly.py) — annual ARY fallback for the annual-only FPIs NAT/TEN.
+    The shipping-specific lines (working capital, newbuild commitments, leases)
+    stay slow-rolled from live.
   * FFA / means / fleet / cost / dividend — HELD from live (slow-roll).
 
 => The EV% is driven by REAL vintaged NAV marks + a REAL vintaged 12M-TC-anchored
@@ -153,12 +154,43 @@ def _sharadar_field_at(ticker: str, field: str, asof: str):
     return avail[-1][1], avail[-1][2]
 
 
+_BS_Q: dict = None  # lazy {ticker: sorted-by-filed [row]} from _bs_quarterly.csv
+
+
+def _bs_quarterly_at(ticker: str, asof: str):
+    """Latest QUARTERLY (ARQ) BS row with filed-date <= the quarter-end, or None
+    (pulled by pull_bs_quarterly.py; absent for the annual-only FPIs NAT/TEN)."""
+    global _BS_Q
+    if _BS_Q is None:
+        _BS_Q = {}
+        p = VINTAGES / "_bs_quarterly.csv"
+        if p.exists():
+            for r in csv.DictReader(open(p)):
+                _BS_Q.setdefault(r["ticker"], []).append(r)
+            for t in _BS_Q:
+                _BS_Q[t].sort(key=lambda r: r["filed"])
+    qend = _qend(asof)
+    avail = [r for r in _BS_Q.get(ticker, []) if dt.date.fromisoformat(r["filed"]) <= qend]
+    return avail[-1] if avail else None
+
+
 def vintaged_bs_core(ticker: str, asof: str) -> dict:
-    """Point-in-time balance-sheet core from Sharadar SF1 ARY (datekey<=q-end):
-    cash, total_debt (LongTermDebtNoncurrent + DebtCurrent) and diluted shares.
-    The shipping-specific lines (working capital, newbuild commitments, leases)
-    stay slow-rolled from live."""
-    out: dict = {}
+    """Point-in-time balance-sheet core (cash, total_debt, diluted shares),
+    no look-ahead. Prefers the QUARTERLY ARQ grain (pull_bs_quarterly.py); falls
+    back to the ANNUAL ARY cache for the annual-only FPIs (NAT/TEN). The
+    shipping-specific lines (working capital, newbuilds, leases) stay slow-rolled."""
+    q = _bs_quarterly_at(ticker, asof)
+    if q:
+        out = {}
+        if q.get("shares"):
+            out["diluted_shares_outstanding"] = round(float(q["shares"]))
+        if q.get("cash"):
+            out["cash_and_equivalents"] = float(q["cash"])
+        if q.get("total_debt"):
+            out["total_debt"] = float(q["total_debt"])
+        return out
+    # annual fallback (NAT/TEN)
+    out = {}
     sh = _sharadar_field_at(ticker, "EntityCommonStockSharesOutstanding", asof)
     if sh:
         out["diluted_shares_outstanding"] = round(sh[1])
