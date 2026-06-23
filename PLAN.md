@@ -107,13 +107,15 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     lines, fleet ages. **Result: mean IC +0.005, t 0.02, Nq 5 → INCONCLUSIVE** — faithful but
     underpowered by design (consistent with the powered proxy null, Amendment 3).
 
-    **⚠ HANDOFF — what is NOT in this repo's git (a fresh clone will NOT have it):**
-    - `shipping_harvester/` is **gitignored** (vendored cross-check). The parser work that
-      makes the backfill possible lives in the WORKING TREE ONLY, not git: the xclusiv
-      geometry secondhand age-curve extractor, the spot `avg|average` marker fix, and
-      `_period_tc` (1y-T/C prose). If this tree is lost, that parser work is lost.
+    **⚠ HANDOFF — the moving parts and what's gitignored:**
+    - `shipping_harvester/` **source IS tracked** (since 2026-06-23) — incl. the xclusiv
+      geometry secondhand age-curve extractor, the spot `avg|average` markers, and
+      `_period_tc`. Only `shipping_harvester/data/` (the 62M crawl cache + broker PDFs) is
+      gitignored. The harvester is NOT in `src/` and runs only on `.venv310` (its own deps).
     - **`.venv310`** (Python 3.12, gitignored, `uv`-provisioned) is the harvester env; the
-      engine + 315-suite stay on **`.venv` (3.9)**. Never run one on the other.
+      engine + 315-suite stay on **`.venv` (3.9)**. Never run one on the other. A fresh clone
+      must re-provision `.venv310` (`uv venv --python 3.12 .venv310 && uv pip install --python
+      .venv310/bin/python -r shipping_harvester/requirements.txt`) and re-crawl the cache.
     - Bridge artifacts (gitignored, regenerable): `backtest/vintages/_factor_marks.json`
       (harvester→glue), `backtest/vintages/_bs_quarterly.csv` (Sharadar ARQ pull), the
       `backtest/vintages/<q>/` trees. Committed glue: `build_vintage.py`,

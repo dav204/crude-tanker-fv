@@ -5,6 +5,16 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-23 — `shipping_harvester` source brought into git (was untracked everywhere).**
+  The harvester had no version control anywhere (gitignored subdir, no nested repo), so the
+  Test-1 parser work (xclusiv geometry secondhand extractor, spot `avg|average` markers,
+  `_period_tc`) was working-tree-only and at risk. Changed `.gitignore` `shipping_harvester/` →
+  `shipping_harvester/data/` (ignore only the 62M crawl cache + third-party broker PDFs) and
+  committed the **~452K source** (27 files: the package + tests + requirements.txt). Reverses
+  the 2026-06-21 "stays out of this repo's history" stance — which fit a passive cross-check but
+  not actively-developed parser code Test 1 depends on; versioning the source is orthogonal to
+  the deps concern (it still runs only on `.venv310`, not in `src/`). PLAN.md ⚠ HANDOFF box +
+  CLAUDE.md two-venv note updated. Owner decision.
 - **2026-06-23 — Handoff doc consolidation (clean-handoff pass).** Verification gate green
   (main 315, backtest 13, drift gate 0 unexplained). Rewrote the sprawling PLAN.md Phase 3(c)
   bullet into a scannable handoff with a prominent **⚠ HANDOFF box** flagging what is NOT in this

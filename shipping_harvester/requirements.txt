@@ -1,0 +1,10 @@
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
+pdfplumber>=0.11
+pandas>=2.0
+pyarrow>=15.0
+
+# dev / tests
+pytest>=8.0
+reportlab>=4.0   # only used by the test suite to synthesise a sample PDF

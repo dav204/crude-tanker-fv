@@ -60,11 +60,11 @@ scratch/
 # git; only derived/parsed artifacts are committed. (2026-06-10)
 inputs/ffa_drybulk/
 
-# Sibling harvester tool (reviewed 2026-06-21): kept as a SEPARATE sibling,
-# vendored as a VIE-style cross-check, NOT integrated into src/ (see PLAN.md
-# standing threads). Lives in the working tree but stays out of this repo's
-# history — its own deps (pandas/pyarrow/pdfplumber) are not this project's.
-shipping_harvester/
+# Vendored harvester tool (broker-weekly parser). SOURCE is tracked (2026-06-23 —
+# Test 1 actively depends on its parser code, so it must be versioned); it is NOT
+# integrated into src/ and runs only on .venv310 (its own deps). Only the crawl
+# CACHE is ignored — 62M of regenerable output + third-party broker PDFs.
+shipping_harvester/data/
 # Stray copy of shipping_harvester's requirements that landed at repo root.
 # This project installs into .venv and has no tracked top-level requirements.txt;
 # anchored to root so a real subdir requirements.txt could still be tracked.

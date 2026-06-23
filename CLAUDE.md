@@ -92,6 +92,8 @@ plus a row in `inputs/watchlist.yaml`. See `METHODOLOGY.md` for the full framewo
   (Python 3.12, gitignored, provisioned via `uv`) is used ONLY for it:
   `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python -m pytest -q` (57
   tests). Never run the engine/tests on `.venv310` or the harvester on `.venv`.
+  Its **source is tracked** (since 2026-06-23 — Test 1 depends on its parsers);
+  only `shipping_harvester/data/` (the crawl cache + broker PDFs) is gitignored.
 - Test 1 (engine EV% ex-post) backtest: harness `backtest/run_engine_test1.py`
   (runs on `.venv`) reads vintages from `backtest/vintages/`. Method + input spec:
   `backtest/PRE_REGISTRATION_TEST1.md` + `backtest/DATA_CONTRACT_TEST1.md`.
