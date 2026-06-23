@@ -5,6 +5,18 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-23 — Grouped-era text parser closes the 2024Q1/Q2/Q4 + 2026 gaps → Test-1 window Nq 23.**
+  The Xclusiv 2024+ *transposed/grouped* secondhand layout (age-row blocks with a FLOATING class
+  label, two-column S&P prose bleed) was handled by a fragile pdfplumber geometry pass that silently
+  produced 0 vessel_value for 2024Q1/Q2/Q4 + 2026 (only 2024Q3/2025 worked). Replaced it with a
+  poppler-text **block walk** (`xclusiv._secondhand_grouped`): segment on each "Resale", class = the
+  first *line-start* PRIMARY-tier label in the block (line-start excludes the prose; primary-only
+  avoids the secondary tier label — Panamax/Supramax — floating into the next block). ~40 marks/q, 8
+  clean classes; geometry kept only as a fallback. Coverage is now **contiguous 2021Q3→2026Q1**.
+  Re-ran Test 1: **Nq 23 (2019Q3–2026Q1), IC −0.014 (t −0.21), CI [−0.123, +0.103]**; 2021+ clean
+  subset Nq 19, IC +0.019 (t +0.27). Still INCONCLUSIVE, not anti-predictive; tighter CI excludes a
+  *large* effect. +1 harvester test (grouped, with the floating-label trap). Gate: main 315, backtest
+  13, harvester 59. `backtest/REPORT.md` Test 1 updated.
 - **2026-06-23 — Test-1 POWERED backfill: engine EV% over 15–19 quarters (was Nq 5), still INCONCLUSIVE.**
   Took the engine EV% ex-post test from Nq 5 to **Nq 15 (2021Q3–2025Q4, clean) / Nq 19 (adding
   2019–2020)**. Result: sector-neutral pooled IC **+0.040 (t +0.60)** on the clean window,

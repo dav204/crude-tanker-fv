@@ -208,6 +208,57 @@ def test_xclusiv_flat_row_era(tmp_path):
     assert got[("Capesize", "newbuild")] == 63.0  # dry NB from the section
 
 
+def _make_xclusiv_grouped_pdf(path):
+    """Xclusiv 2024+ grouped layout: age-row blocks (Resale first) with a floating
+    class label. Includes the trap — a secondary tier label ('Panamax') that must
+    NOT set a class and must NOT leak into the next (Handysize) block."""
+    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.platypus import Preformatted, SimpleDocTemplate
+
+    text = (
+        "DRY SECONDHAND PRICES ($ mills)\n"
+        "          Resale         75.4   60.4   25%\n"
+        "          5 Year         61.4   50.9   21%\n"
+        "Capesize\n"
+        "          10 Year        42.1   31.2   35%\n"
+        "          15 Year        28.2   20.3   39%\n"
+        "          Resale         42.8   38.0   13%\n"
+        "Kamsarmax 5 Year         36.8   31.5   17%\n"
+        "          10 Year        28.1   23.7   19%\n"
+        "Panamax 15 Year          18.8   15.1   24%\n"
+        "          Resale         32.0   29.9    7%\n"
+        "          5 Year         27.0   25.8    5%\n"
+        "Handysize\n"
+        "          10 Year        19.7   17.9   10%\n"
+        "          15 Year        12.4   11.7    7%\n"
+        "TANKER SECONDHAND PRICES ($ mills)\n"
+        "          Resale        142.6  124.8   14%\n"
+        "          5 Year        112.6  100.0   13%\n"
+        "VLCC\n"
+        "          10 Year        84.2   76.5   10%\n"
+        "          15 Year        57.7   45.0   28%\n"
+    )
+    style = getSampleStyleSheet()["Code"]
+    SimpleDocTemplate(str(path)).build([Preformatted(text, style)])
+
+
+def test_xclusiv_grouped_era(tmp_path):
+    pdf = tmp_path / "xclusiv_2024.pdf"
+    _make_xclusiv_grouped_pdf(pdf)
+    parser = get_parser("xclusiv")
+    mm = parser.parse(pdf, ref("xclusiv", dt.date(2024, 9, 23)))
+    assert mm.parser_ok
+    got = {(m.vessel_class, m.age_anchor): m.value for m in mm.marks}
+    assert got[("Capesize", "resale")] == 75.4
+    assert got[("Capesize", "fifteen_year")] == 28.2
+    assert got[("Kamsarmax", "resale")] == 42.8       # Kamsarmax wins its tier (→ Pana)
+    assert got[("Kamsarmax", "five_year")] == 36.8
+    assert got[("Handysize", "resale")] == 32.0       # the floating 'Panamax' must not steal this block
+    assert ("Panamax", "fifteen_year") not in got     # secondary label never sets a class
+    assert got[("VLCC", "resale")] == 142.6
+    assert got[("VLCC", "ten_year")] == 84.2
+
+
 def test_generic_parser_records_but_extracts_nothing(tmp_path):
     pdf = tmp_path / "x.pdf"
     _make_values_pdf(pdf)

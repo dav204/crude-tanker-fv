@@ -318,16 +318,20 @@ adds power.
 
 | Window | Quarters | mean IC | t | bootstrap 95% CI | sign hit-rate | verdict |
 |---|--:|--:|--:|---|--:|---|
-| **2021Q3–2025Q4 (clean)** | **15** | **+0.040** | **+0.60** | [−0.182, +0.225] | 43% | INCONCLUSIVE |
-| 2019Q3–2025Q4 (full) | 19 | −0.004 | −0.06 | [−0.184, +0.190] | 45% | INCONCLUSIVE |
+| **2019Q3–2026Q1 (full)** | **23** | **−0.014** | **−0.21** | **[−0.123, +0.103]** | 46% | INCONCLUSIVE |
+| 2021Q3–2026Q1 (clean) | 19 | +0.019 | +0.27 | — | 44% | INCONCLUSIVE |
 
-Up from Nq 5 (+0.005). The point estimate is **mildly positive in the cleaner
-recent window**, ~null once the lower-quality 2019–2020 quarters are added.
-**Neither window is anti-predictive** — the verdict never approaches the
+Up from Nq 5 (+0.005). Both windows are **~zero** — marginally positive in the
+2021+ clean window, marginally negative including the lower-quality 2019–2020
+quarters. **Neither is anti-predictive** — the verdict never approaches the
 pre-registered FAIL threshold (IC<0 AND t≤−2.0), and the sign hit-rate stays above
 the 40% trip. So the powered test **does not impeach the engine**, and it does not
 clear EDGE (IC>0 AND t≥2.0) either. INCONCLUSIVE remains the honest read, now at
-~3–4× the quarter count, and power compounds forward (every new quarter adds a block).
+**~4.5× the original quarter count** with a tightened CI [−0.123, +0.103] (excludes a
+*large* effect, |IC|>0.12; still blind to a small/moderate one), and power compounds
+forward. *(A first 15-quarter cut on 2021Q3–2025Q4 read +0.040/t+0.60; filling the
+2024Q1/Q2/Q4 + 2026 gaps and extending to 2026Q1 moved the clean window to +0.019 —
+a more complete picture is even closer to a clean null.)*
 
 ## What changed — the data backfill
 
@@ -335,11 +339,12 @@ The binding constraint was broker-weekly vessel-mark coverage. Established this 
 - **The free HSN archive effectively starts 2021**, not 2018 (2019–2020 are a void;
   the feasibility memo's "reaches 2018" was a category total-count misread). Capital
   Link's live API is bot-gated.
-- **Xclusiv flat-row parser (2021–2023)** built and validated (poppler text;
-  pdfplumber scrambled these issues' glyph order). The signal spine: full
-  resale/5/10/15yr curves for all 10 classes incl. the crude flagships
-  (VLCC/Suezmax/Aframax), ~42 marks/quarter. The existing geometry parser keeps the
-  2024+ transposed era.
+- **Xclusiv parsers rebuilt on poppler text** (pdfplumber scrambled these issues'
+  glyph order) for BOTH eras: the 2021–2023 *flat-row* secondhand (~42 marks/q, all 10
+  classes incl. the crude flagships) and the 2024+ *transposed/grouped* secondhand (a
+  block-walk on the 4-age-row structure with a floating class label; ~40 marks/q, 8
+  clean classes — replaces the fragile geometry pass, which silently missed
+  2024Q1/Q2/Q4 + 2026). Result: contiguous vessel_value 2021Q3→2026Q1.
 - **2019–2020 recovered from the Wayback Machine** (Allied *Weekly Market Report*,
   not the no-value SnP supplement) → 4 quarters (2019Q3/Q4, 2020Q2/Q3), Allied
   Weekly parser built. Single-vendor by era: Xclusiv 2021–2025, Allied 2019–2020
@@ -355,10 +360,11 @@ The binding constraint was broker-weekly vessel-mark coverage. Established this 
   live 2026 marks via the merge) — so FLNG/CCEC/GSL EV% in 2019–2020 is flagged-not-
   trusted. The crude/dry spine names use real vintaged marks. This is why the
   2021–2025 window is the better-controlled headline.
-- **Coverage gaps (data already cached):** 2024Q1/Q2/Q4 + 2026 carry no vessel_value
-  — the 2024+ *transposed* geometry parser misses those issues (it succeeds on
-  2024Q3/2025). Recovering them (a grouped-era text parser) is the cheapest next +3–4
-  quarters, all within the clean window.
+- **Coverage now contiguous** 2021Q3→2026Q1 — the 2024Q1/Q2/Q4 + 2026 gaps (which the
+  old geometry parser silently dropped) were closed by the grouped-era text parser.
+  Remaining thin legs: 2025Q3+ have no Xclusiv 1y-TC prose (→ through-cycle-mean
+  forward), and LR2 is folded into Aframax by Xclusiv (no separate LR2 mark — product
+  names lean on the Aframax proxy / live LR2 curve).
 
 ## Relation to the proxy tests
 

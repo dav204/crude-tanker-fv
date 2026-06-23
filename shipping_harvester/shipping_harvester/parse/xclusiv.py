@@ -102,6 +102,41 @@ _FLAT_CLS = {
     "mr2": "MR", "mr": "MR",
 }
 
+# --- grouped/transposed era (2024+) ------------------------------------------
+# Two sections (DRY / TANKER SECONDHAND); each class is a block of 4 age-rows
+# starting at 'Resale', with the class label FLOATING within the block. Only
+# PRIMARY tier labels set the class — the secondary label of a shared tier
+# (Panamax with Kamsarmax, Supramax with Ultramax, MR1/LR1) floats and can spill
+# into the next block, so it must never set a class. pdfplumber can't read these
+# issues reliably; poppler text + this block walk replaces the old geometry pass.
+_GROUP_PRIMARY = ("Capesize", "Newcastlemax", "Kamsarmax", "Ultramax", "Handysize",
+                  "VLCC", "Suezmax", "Aframax", "LR2", "MR2")
+_GROUP_LINECLS = re.compile(r"^\s*(" + "|".join(_GROUP_PRIMARY) + r")\b", re.I)
+_GROUP_AGE = re.compile(r"\b(Resale|5 Year|10 Year|15 Year)\s+\$?\s*(\d+\.?\d*)", re.I)
+_GROUP_CANON = {c.lower(): c for c in _GROUP_PRIMARY}
+_GROUP_AGEMAP = {"resale": "resale", "5 year": "five_year",
+                 "10 year": "ten_year", "15 year": "fifteen_year"}
+_GROUP_SECTIONS = (
+    ("DRY SECONDHAND", ("TANKER SECONDHAND", "WET SECONDHAND")),
+    ("TANKER SECONDHAND",
+     ("NEWBUILDING", "DEMOLITION", "BULK CARRIER SALES", "TANKER SALES", "XCLUSIV SHIPBROKERS")),
+    ("WET SECONDHAND",
+     ("NEWBUILDING", "DEMOLITION", "BULK CARRIER SALES", "TANKER SALES", "XCLUSIV SHIPBROKERS")),
+)
+
+
+def _between(text: str, start: str, ends: tuple) -> str:
+    low = text.lower()
+    i = low.find(start.lower())
+    if i < 0:
+        return ""
+    j = len(text)
+    for e in ends:
+        k = low.find(e.lower(), i + len(start))
+        if 0 <= k < j:
+            j = k
+    return text[i:j]
+
 
 class XclusivParser(base.BrokerParser):
     broker_id = "xclusiv"
@@ -141,29 +176,61 @@ class XclusivParser(base.BrokerParser):
         return out
 
     def parse(self, pdf_path, ref):
-        """Two format eras. 2021-2023 ('flat-row' secondhand: class+dwt+age per
-        line) parses from poppler text — pdfplumber scrambles these issues. 2024+
-        (transposed, prose-interleaved two-column) uses the pdfplumber geometry
-        pass, falling back to the table parser when geometry yields nothing."""
+        """Two format eras, both read from poppler text (pdfplumber scrambles these
+        issues' glyph order). 2021-2023 'flat-row' secondhand (class+dwt+age per
+        line) → `_secondhand_flat`; 2024+ transposed/grouped (age-row blocks with a
+        floating class label) → `_secondhand_grouped`. The legacy pdfplumber
+        geometry pass remains a fallback when the grouped text walk yields nothing
+        (e.g. a future redesign)."""
         ptext = base.extract_text_poppler(pdf_path)
         if self._is_flat(ptext):
-            marks = (self._secondhand_flat(ptext) + self._newbuild_flat(ptext)
-                     + self._period_tc(ptext) + self._spot(ptext))
-            return MarketMarks(
-                broker_id=ref.broker_id, report_date=ref.published,
-                quarter=quarter_of(ref.published), source_post=ref.post_url,
-                source_pdf=ref.pdf_url, parser=self.broker_id,
-                parser_ok=bool(marks), marks=marks, raw_text_chars=len(ptext),
-            )
-        mm = super().parse(pdf_path, ref)
-        geom = self._secondhand_geom(pdf_path)
-        if not geom:
-            return mm
-        # geometry wins for the age curve; keep spot + newbuild from the text pass
-        keep = [m for m in mm.marks
-                if not (m.kind == KIND_VESSEL_VALUE and m.age_anchor and m.age_anchor != "newbuild")]
-        marks = keep + geom
-        return replace(mm, marks=marks, parser_ok=bool(marks))
+            vv = self._secondhand_flat(ptext)
+        else:
+            vv = self._secondhand_grouped(ptext)
+            if not vv:
+                geom = self._secondhand_geom(pdf_path)
+                if geom:
+                    mm = super().parse(pdf_path, ref)
+                    keep = [m for m in mm.marks if not (
+                        m.kind == KIND_VESSEL_VALUE and m.age_anchor and m.age_anchor != "newbuild")]
+                    return replace(mm, marks=keep + geom, parser_ok=True)
+        marks = vv + self._newbuild_flat(ptext) + self._period_tc(ptext) + self._spot(ptext)
+        return MarketMarks(
+            broker_id=ref.broker_id, report_date=ref.published,
+            quarter=quarter_of(ref.published), source_post=ref.post_url,
+            source_pdf=ref.pdf_url, parser=self.broker_id,
+            parser_ok=bool(marks), marks=marks, raw_text_chars=len(ptext),
+        )
+
+    # -- grouped/transposed era (2024+): poppler text block walk -------------
+    @staticmethod
+    def _secondhand_grouped(text: str) -> list[Mark]:
+        blocks: list[dict] = []
+        for header, ends in _GROUP_SECTIONS:
+            win = _between(text, header, ends)
+            if not win:
+                continue
+            cur = None
+            for line in win.splitlines():
+                lab = _GROUP_LINECLS.match(line)
+                am = _GROUP_AGE.search(line)
+                age = _GROUP_AGEMAP[am.group(1).lower()] if am else None
+                if age == "resale":
+                    cur = {"ages": {}, "label": None}
+                    blocks.append(cur)
+                if cur is not None:
+                    if lab and cur["label"] is None:
+                        cur["label"] = _GROUP_CANON[lab.group(1).lower()]
+                    if age:
+                        cur["ages"][age] = float(am.group(2))
+        out: list[Mark] = []
+        for b in blocks:
+            if not b["label"]:
+                continue
+            for age, val in b["ages"].items():
+                out.append(Mark(kind=KIND_VESSEL_VALUE, vessel_class=b["label"],
+                                metric="value", value=val, unit="musd", age_anchor=age))
+        return out
 
     # -- flat-row era (2021-2023): poppler text -----------------------------
     @staticmethod
