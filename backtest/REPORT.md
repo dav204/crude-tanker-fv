@@ -318,8 +318,8 @@ adds power.
 
 | Window | Quarters | mean IC | t | bootstrap 95% CI | sign hit-rate | verdict |
 |---|--:|--:|--:|---|--:|---|
-| **2019Q3–2026Q1 (full)** | **23** | **−0.014** | **−0.21** | **[−0.123, +0.103]** | 46% | INCONCLUSIVE |
-| 2021Q3–2026Q1 (clean) | 19 | +0.019 | +0.27 | — | 44% | INCONCLUSIVE |
+| **2019Q3–2026Q1 (full)** | **23** | **−0.021** | **−0.31** | **[−0.130, +0.096]** | 45% | INCONCLUSIVE |
+| 2021Q3–2026Q1 (clean) | 19 | +0.011 | +0.16 | — | 45% | INCONCLUSIVE |
 
 Up from Nq 5 (+0.005). Both windows are **~zero** — marginally positive in the
 2021+ clean window, marginally negative including the lower-quality 2019–2020
@@ -327,11 +327,11 @@ quarters. **Neither is anti-predictive** — the verdict never approaches the
 pre-registered FAIL threshold (IC<0 AND t≤−2.0), and the sign hit-rate stays above
 the 40% trip. So the powered test **does not impeach the engine**, and it does not
 clear EDGE (IC>0 AND t≥2.0) either. INCONCLUSIVE remains the honest read, now at
-**~4.5× the original quarter count** with a tightened CI [−0.123, +0.103] (excludes a
-*large* effect, |IC|>0.12; still blind to a small/moderate one), and power compounds
-forward. *(A first 15-quarter cut on 2021Q3–2025Q4 read +0.040/t+0.60; filling the
-2024Q1/Q2/Q4 + 2026 gaps and extending to 2026Q1 moved the clean window to +0.019 —
-a more complete picture is even closer to a clean null.)*
+**~4.5× the original quarter count** with a tightened CI [−0.130, +0.096] (excludes a
+*large* effect, |IC|>0.13; still blind to a small/moderate one), and power compounds
+forward. *(Numbers shifted only cosmetically across the build-out: 2021Q3–2025Q4
+alone read +0.040; filling the 2024/2026 gaps → +0.019; adding Intermodal TC → +0.011.
+A more complete picture stays a clean ~null — see the TC robustness note below.)*
 
 ## What changed — the data backfill
 
@@ -349,6 +349,16 @@ The binding constraint was broker-weekly vessel-mark coverage. Established this 
   not the no-value SnP supplement) → 4 quarters (2019Q3/Q4, 2020Q2/Q3), Allied
   Weekly parser built. Single-vendor by era: Xclusiv 2021–2025, Allied 2019–2020
   (matches the locked single-vendor caveat).
+- **Intermodal TC enrichment** — the designated period-TC source (DATA_CONTRACT) now
+  feeds the forward: a poppler-text parser on Intermodal's stable 'TC Rates' table
+  (1yr TC by class, k/K case = tanker/dry; TC-only, no vessel_value, so the value
+  spine stays single-vendor). This (a) **fills 2025Q3–2026Q1 TC**, which Xclusiv
+  stopped printing (the forward there was pinned to the through-cycle mean), and (b)
+  adds **cross-broker TC reconciliation** vs Xclusiv prose for 2021–2025Q2 (89 groups,
+  mean spread 16%, 43 disagreements — recorded as the discrimination diagnostic).
+  **Robustness:** shifting the entire TC source to Intermodal + filling the gap moved
+  the IC only −0.014 → −0.021 — confirming the pre-registered claim that TC perturbs
+  EV% *magnitude, not sign*. The verdict is not an artifact of the TC fallback.
 
 ## Caveats specific to this run
 
@@ -360,11 +370,12 @@ The binding constraint was broker-weekly vessel-mark coverage. Established this 
   live 2026 marks via the merge) — so FLNG/CCEC/GSL EV% in 2019–2020 is flagged-not-
   trusted. The crude/dry spine names use real vintaged marks. This is why the
   2021–2025 window is the better-controlled headline.
-- **Coverage now contiguous** 2021Q3→2026Q1 — the 2024Q1/Q2/Q4 + 2026 gaps (which the
-  old geometry parser silently dropped) were closed by the grouped-era text parser.
-  Remaining thin legs: 2025Q3+ have no Xclusiv 1y-TC prose (→ through-cycle-mean
-  forward), and LR2 is folded into Aframax by Xclusiv (no separate LR2 mark — product
-  names lean on the Aframax proxy / live LR2 curve).
+- **Coverage now contiguous** 2021Q3→2026Q1 — the 2024Q1/Q2/Q4 + 2026 vessel_value gaps
+  (which the old geometry parser silently dropped) were closed by the grouped-era text
+  parser, and the 2025Q3+ TC gap was closed by the Intermodal TC source. Remaining thin
+  legs: LR2 is folded into Aframax by both Xclusiv and Intermodal (no separate LR2 mark —
+  product names lean on the Aframax proxy / live LR2 curve); 2019–2020 still carry no
+  vintaged TC (Allied Weekly is value-only → neutral forward).
 
 ## Relation to the proxy tests
 

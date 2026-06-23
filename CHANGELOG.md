@@ -5,6 +5,19 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-23 — Intermodal TC enrichment: designated period-TC source feeds the forward; verdict robust.**
+  Rebuilt the Intermodal parser (was an untuned keyword stub) as a poppler-text reader of its stable
+  'TC Rates' table: 1yr TC per class, lowercase k = tanker / uppercase K = dry (disambiguates the 75k
+  Panamax *tanker* from the 76K *bulker*), class mapped by dwt-band to the engine TC keys
+  (Pana=Kamsarmax, Supra-Ultra=Ultramax per `build_vintage.HARV_TC_KEY`). **TC-only — no vessel_value**,
+  so the value spine stays single-vendor (Xclusiv/Allied). Effect: (a) **fills 2025Q3–2026Q1 TC** —
+  Xclusiv stopped printing its 1y-T/C prose after 2025Q2, so the forward there was pinned to the
+  through-cycle mean — and (b) **cross-broker TC reconciliation** vs Xclusiv prose for 2021–2025Q2 (89
+  groups, mean spread 16%, 43 disagreements, recorded as the discrimination diagnostic). Re-ran Test 1:
+  **Nq 23, IC −0.021 (t −0.31), CI [−0.130, +0.096]** — moved only −0.014→−0.021 vs pre-enrichment,
+  confirming TC perturbs EV% *magnitude not sign* (the verdict is not a TC-fallback artifact). Still
+  INCONCLUSIVE, not anti-predictive. +1 harvester test. Gate: main 315, backtest 13, harvester 60.
+  Remaining TC houses (Banchero/Advanced/Fearnleys, Weber unavailable) optional for further reconciliation.
 - **2026-06-23 — Grouped-era text parser closes the 2024Q1/Q2/Q4 + 2026 gaps → Test-1 window Nq 23.**
   The Xclusiv 2024+ *transposed/grouped* secondhand layout (age-row blocks with a FLOATING class
   label, two-column S&P prose bleed) was handled by a fragile pdfplumber geometry pass that silently

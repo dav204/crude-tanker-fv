@@ -259,6 +259,53 @@ def test_xclusiv_grouped_era(tmp_path):
     assert got[("VLCC", "ten_year")] == 84.2
 
 
+def _make_intermodal_tc_pdf(path):
+    """Intermodal 'TC Rates' table: 1yr/3yr TC by dwt; lowercase k = tanker,
+    uppercase K = dry (the case disambiguates a 75k Panamax tanker from a 76K
+    Panamax bulker)."""
+    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.platypus import Preformatted, SimpleDocTemplate
+
+    text = (
+        "TC Rates\n"
+        "        $/day        26/09/2025   19/09/2025\n"
+        "           300k 1yr TC    52,500      52,500\n"
+        "VLCC\n"
+        "           300k 3yr TC    43,500      43,500\n"
+        "           150k 1yr TC    43,500      43,500\n"
+        "Suezmax\n"
+        "           75k 1yr TC     24,500      24,500\n"
+        "Panamax\n"
+        "           52k 1yr TC     21,000      21,000\n"
+        "MR\n"
+        "           180K 1yr TC    27,750      27,750\n"
+        "Capesize\n"
+        "           76K 1yr TC     15,000      15,000\n"
+        "Panamax\n"
+        "           32K 1yr TC     11,000      11,000\n"
+        "Handysize\n"
+    )
+    style = getSampleStyleSheet()["Code"]
+    SimpleDocTemplate(str(path)).build([Preformatted(text, style)])
+
+
+def test_intermodal_tc(tmp_path):
+    pdf = tmp_path / "intermodal_2025.pdf"
+    _make_intermodal_tc_pdf(pdf)
+    parser = get_parser("intermodal")
+    mm = parser.parse(pdf, ref("intermodal", dt.date(2025, 9, 30)))
+    assert mm.parser_ok
+    got = {m.vessel_class: m.value for m in mm.marks}
+    assert all(m.kind == "period_tc" for m in mm.marks)      # TC only — no vessel_value
+    assert got["VLCC"] == 52500.0
+    assert got["Suezmax"] == 43500.0
+    assert got["MR"] == 21000.0
+    assert got["Capesize"] == 27750.0       # 180K -> dry Capesize
+    assert got["Kamsarmax"] == 15000.0      # 76K (uppercase) -> dry Pana, not the 75k tanker
+    assert got["Handysize"] == 11000.0      # 32K -> dry Handysize
+    assert "Panamax" not in got             # 75k tanker Panamax is skipped (not an engine TC key)
+
+
 def test_generic_parser_records_but_extracts_nothing(tmp_path):
     pdf = tmp_path / "x.pdf"
     _make_values_pdf(pdf)

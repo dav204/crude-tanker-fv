@@ -7,13 +7,13 @@ its per-name reads — not by a cross-sectional backtest. Development proceeds
 normally (the 2026-06-14 "development freeze" was lifted 2026-06-21).
 
 **Current state (2026-06-23):** 20 watchlist names across 5 sectors; **315 main
-tests green** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +59 harvester via
+tests green** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +60 harvester via
 `.venv310`); `reconcile --all` 20/20 SANITY OK (0 fail, 0 drift); drift gate 0
 unexplained. **The live valuation engine is unchanged this arc** — all work below is
 the methodology-soundness remediation (audit fixes + the Phase 2/3 guardrails and
 ex-post validation). Latest: the **Phase 3(c) powered Test-1 backfill** — Nq 5 → **23**
-(2019Q3–2026Q1; IC −0.014, t −0.21; INCONCLUSIVE, not anti-predictive), contiguous
-vessel_value 2021Q3→2026Q1 after the grouped-era parser. Per-change chronology in `CHANGELOG.md`.
+(2019Q3–2026Q1; IC −0.021, t −0.31; INCONCLUSIVE, not anti-predictive), contiguous
+VV 2021Q3→2026Q1 + Intermodal TC all eras. Per-change chronology in `CHANGELOG.md`.
 
 **A NEW AGENT: read CLAUDE.md, then this file. Everything below "Methodology-audit
 remediation" is DONE — incl. the Phase 3(c) power backfill (2026-06-23: Nq 5 → 15–19,
@@ -100,11 +100,13 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     routing. +4 tests. **What 3c still needs:** the vintage scenario curves
     (the data backfill) — the plumbing is ready to consume them.
   - **(c) Powered engine EV% Test 1 — BACKFILL DONE 2026-06-23: Nq 5 → Nq 23, still
-    INCONCLUSIVE (not anti-predictive).** Sector-neutral pooled IC **−0.014 (t −0.21), CI
-    [−0.123, +0.103]** over the full 2019Q3–2026Q1 window (23 q); **+0.019 (t +0.27)** on the 2021+
+    INCONCLUSIVE (not anti-predictive).** Sector-neutral pooled IC **−0.021 (t −0.31), CI
+    [−0.130, +0.096]** over the full 2019Q3–2026Q1 window (23 q); **+0.011 (t +0.16)** on the 2021+
     clean subset (19 q). ~Zero either way; never near the FAIL threshold; tightened CI excludes a
-    *large* effect (still blind to small/moderate). Coverage is contiguous 2021Q3→2026Q1 (Xclusiv
-    flat-row 2021–2023 + grouped block-walk 2024+) plus 2019–2020 (Allied Weekly via Wayback).
+    *large* effect (still blind to small/moderate). Coverage contiguous 2021Q3→2026Q1 (Xclusiv VV
+    flat-row 2021–2023 + grouped block-walk 2024+; Intermodal TC all eras incl. 2025Q3+) plus
+    2019–2020 (Allied Weekly VV via Wayback). TC enrichment moved the IC only −0.014→−0.021 →
+    confirms TC perturbs EV% magnitude not sign.
     Write-up: `backtest/REPORT.md` Test 1; CHANGELOG 2026-06-23. **Key correction:
     the free broker archive effectively starts 2021, NOT 2018** (HSN 2019–2020 void; Capital Link
     bot-gated) — 2019–2020 was recovered via the Wayback Machine (Allied Weekly, 4 q). Memory
@@ -145,20 +147,20 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     **Coverage reality (post-backfill 2026-06-23):** vessel_value covers **24 quarters** —
     2019Q3/Q4 + 2020Q2/Q3 (Allied Weekly via Wayback, ~42 marks/q), 2021Q3–2023Q4 (Xclusiv flat-row,
     ~42/q), **2024Q1–2026Q2 (Xclusiv grouped block-walk, ~40/q — the 2024Q1/Q2/Q4 + 2026 gaps are
-    closed)**. 23 are usable as signal quarters (2026Q2 has no forward return yet). Single-vendor by
-    era. TC: Xclusiv prose 2021–2025Q2 (dropped after 2025Q2 → through-cycle-mean forward); none for
-    2019–2020 (Allied Weekly is value-only → neutral forward).
+    closed)**. 23 are usable as signal quarters (2026Q2 has no forward return yet). VV single-vendor
+    by era. TC: **Intermodal 'TC Rates' table, all eras incl. 2025Q3+** (the designated source),
+    reconciled with Xclusiv prose for 2021–2025Q2 (89 groups, ~16% mean spread); none for 2019–2020
+    (Allied Weekly is value-only → neutral forward).
 
     **NEXT (power polish, all bounded):**
-    1. **Secondary-house enrichment** — Intermodal/Banchero/Weber parsers for cross-broker TC
-       reconciliation (currently stubs; Banchero 2025 needs OCR). Improves the forward, not the sign.
-    2. **2019–2020 quality** — recover TC for those quarters; the 6–7yr live-curve look-ahead on
+    1. **2019–2020 quality** — recover TC for those quarters; the 6–7yr live-curve look-ahead on
        *uncovered* classes (LNG/container) makes FLNG/CCEC/GSL 2019–2020 flagged-not-trusted today.
-    3. **Restore 2025Q3+ TC** — Xclusiv dropped the 1y-T/C prose; pull it from another house so the
-       recent forward isn't pinned to the through-cycle mean.
-    4. Deeper history / dense weekly marks → the paid feed (Clarksons SIN / VesselsValue), the memo's
+    2. **More TC reconciliation sources** (optional) — Banchero/Advanced/Fearnleys parsers for a 3rd
+       cross-broker TC opinion (Weber unavailable — Capital Link only; Banchero 2025 may need OCR).
+    3. Deeper history / dense weekly marks → the paid feed (Clarksons SIN / VesselsValue), the memo's
        clean alternative. Lower-value: vintage working-capital/fleet-ages.
-       *(DONE 2026-06-23: the grouped-era text parser that closed the 2024/2026 gaps.)*
+       *(DONE 2026-06-23: grouped-era text parser closed the 2024/2026 VV gaps; Intermodal TC parser
+       closed the 2025Q3+ TC gap + added xclusiv-vs-intermodal reconciliation.)*
 - **§16 overlay-ledger row for §12 — ✅ DONE (2026-06-22).** `overlay_ledger.py`
   now auto-derives a **§12.6** row per gated name from the COMPUTED
   dividend-window classification (`dividend_window.build_rows`), mirroring the §15
