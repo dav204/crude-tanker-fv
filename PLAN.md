@@ -112,10 +112,19 @@ Full remediation plan + designs are in the three memos above. Open phases, in or
     merged (re-parsed 10 cached issues → 183 vessel_value rows, verified through the factor
     schema). (b) extend the same geometry approach to allied; (c) fix intermodal/banchero/weber;
     (d) per-era format coverage 2018–2023 + the 2026 post-redesign grid. The
-    factor→engine glue is fully specified (class-rename/dwt/`musd`×1e6) and ready, gated on
-    coverage. Pipeline + env are proven; this is a deliberate ~2–4 wk build —
-    `outputs/test1_data_feasibility_memo_2026-06-22.md`. Crawl run on `.venv310` from
-    `shipping_harvester/` (cache gitignored).
+    factor→engine glue is **built** (`backtest/build_vintage.py`: class-rename/dwt/`musd`×1e6,
+    resale→newbuild, merge-over-live, scenario re-key, as-of raw close). **END-TO-END CHAIN
+    PROVEN (2026-06-22):** generated 5 vintages (2024Q3, 2025Q1–Q4) and ran `run_engine_test1`
+    — PDF→harvester→factor→glue→as-of engine→EV%→IC executes on real data for all 16–17 names.
+    Result mean IC +0.220 / t 1.70 / Nq 5 → INCONCLUSIVE, but this is a **plumbing-validation
+    read, NOT valid Test 1** (only vessel_value + price vintaged; TC / scenario *levels* / BS held
+    → near-universal BUY; number not interpretable). **For a valid result:** (1) synthesise the
+    neutral mean-reversion scenario forward (vs held 2026 levels) — the biggest remaining piece;
+    (2) vintage TC (fix the Allied parser); (3) vintage BS core (Sharadar); (4) more
+    quarters/houses (extend geometry to Allied; 2018–2023 + 2026-grid eras). Vintage trees +
+    schema JSON gitignored (reproducible via `build_vintage`). Deliberate ~2–4 wk build —
+    `outputs/test1_data_feasibility_memo_2026-06-22.md`. Harvester runs on `.venv310` from
+    `shipping_harvester/` (gitignored).
 - **§16 overlay-ledger row for §12 — ✅ DONE (2026-06-22).** `overlay_ledger.py`
   now auto-derives a **§12.6** row per gated name from the COMPUTED
   dividend-window classification (`dividend_window.build_rows`), mirroring the §15

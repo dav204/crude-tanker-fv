@@ -69,3 +69,8 @@ shipping_harvester/
 # This project installs into .venv and has no tracked top-level requirements.txt;
 # anchored to root so a real subdir requirements.txt could still be tracked.
 /requirements.txt
+
+# Generated Test-1 vintage trees + harvester schema exports (reproducible via
+# backtest.build_vintage from the harvester marks). README stays tracked.
+backtest/vintages/*/
+backtest/vintages/_*.json

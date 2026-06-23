@@ -5,6 +5,26 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-22 — Phase 3(c) factor→vintage glue + first end-to-end Test-1 chain run
+  (plumbing-validation).** Built `backtest/build_vintage.py`: reads the harvester's resolved
+  marks (`_factor_marks.json`, exported from `.venv310`), converts to engine
+  `vessel_value_curves` (class-rename Capesize→Cape / Kamsarmax→Pana / Ultramax→Supra-Ultra,
+  resale→newbuild proxy, musd×1e6), **merges** over the live curves (uncovered classes keep
+  live marks so NAV never breaks), re-keys `scenario_inputs` to the vintage's strip quarters
+  (so the Phase-3b as-of routing fires), sets `current_price` to the Sharadar raw close at the
+  quarter-end, and assembles the full vintage tree (fleet/cost/dividend held; balance sheet
+  quarter-renamed). Generated 5 vintages (2024Q3, 2025Q1–Q4 — the valuation-grade quarters) and
+  ran `run_engine_test1`: **the whole chain executes end-to-end on real data** (PDF → harvester
+  → factor → glue → as-of engine → EV% → within-sector IC) for all 16–17 names, no errors.
+  Result **mean IC +0.220, t 1.70, Nq 5, CI [+0.014, +0.294] → INCONCLUSIVE**. **This is a
+  PLUMBING-VALIDATION read, NOT a valid Test-1 result:** only vessel_value + price are vintaged;
+  TC, scenario *levels*, and balance sheets are held from live (held 2026-peak scenario levels
+  value fleets against lower 2024–25 prices → near-universal BUY), so the number is not
+  interpretable as signal — it proves the chain works. For a valid result still needed: synthesise
+  the neutral mean-reversion scenario forward (vs held levels), vintage the TC (fix the Allied
+  parser), vintage the balance-sheet core (Sharadar), + more quarters/houses. Generated vintage
+  trees + the schema JSON exports are gitignored (reproducible via `build_vintage`); the glue
+  code is committed.
 - **2026-06-22 — Phase 3(c) first parser extension: xclusiv geometry-based age-curve
   extractor — unlocks the tanker vessel-value curves.** Closed the highest-leverage coverage
   gap. The pre-2025 Xclusiv secondhand-values table is a **two-column text layout** (value
