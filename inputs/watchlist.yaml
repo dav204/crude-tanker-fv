@@ -272,3 +272,23 @@ BRUT:
   yahoo_symbol: BRUT.OL        # bare "BRUT" on Yahoo is the wrong issuer — use BRUT.OL.
   quote_currency: NOK          # refresh converts NOK close → USD via NOK=X.
   as_of: 2026-04-22            # Pareto initiation vintage (no Q1 report; H1-2026 due Aug-13).
+
+# CMB.TECH NV (ex-Euronav) — first crude+dry_bulk+containerships MULTI-SLEEVE
+# hybrid (METHODOLOGY §11.9; MULTI_SLEEVE_TICKERS). Onboarded 2026-06-26.
+CMBT:
+  current_price: 14.90         # Pareto Shipping Daily 11 JUN 2026 (CMB.TECH US line, USD) —
+                               # matched price + P/NAV from the same report (TEN-gotcha discipline).
+  analyst_target: 16.59        # Consensus PT (MarketBeat ~14 analysts, Jun-2026). Pareto rates it
+                               # "deep value" and pegs NAV ~$20/sh (NOK 189) — the bull/NAV anchor.
+  consensus_pnav: 0.74         # Pareto Shipping Daily 11 JUN 2026 — REAL Pareto print (CORRECTED
+                               # from a 0.90 APPROX placeholder set at onboarding; CMBT is genuinely
+                               # Pareto-covered, the onboarding "no broker NAV" read was wrong).
+                               # broker NAV = 14.90/0.74 = $20.14 ≈ Pareto's stated "$20/share" NAV.
+                               # Pareto: "sub-0.75x NAV, the lowest priced name in our drybulk
+                               # coverage" (tracked monthly: 0.62x Dec-25 → 0.77x May → 0.74x Jun-26).
+  consensus_fwd_pe: 9.7        # Pareto Shipping Daily 11 JUN 2026 (consensus 1Y FWD P/E).
+  sector: crude                # LEAD sleeve (drives the watchlist default lookup + strip horizon).
+                               # Actual valuation = crude + dry_bulk + containerships MULTI-SLEEVE
+                               # (MULTI_SLEEVE_TICKERS dispatch, METHODOLOGY §11.9). Chemical /
+                               # offshore / FSO / HFS / newbuild book held off-curve.
+  as_of: 2026-06-24

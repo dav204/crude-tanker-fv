@@ -137,6 +137,11 @@ NAME_ALIASES: dict[str, list[re.Pattern]] = {
     # "MPCC" — bare "MPC" collides with non-shipping uses in macro prose.
     "MPCC": [re.compile(r"\bMPCC\b"), re.compile(r"\bMPC Container", re.IGNORECASE)],
     "GSL": [re.compile(r"\bGSL\b"), re.compile(r"\bGlobal Ship Lease\b", re.IGNORECASE)],
+    # CMB.TECH (ex-Euronav, NYSE/Brussels CMBT). Brokers still use "Euronav"
+    # and the divisional brands; "Bocimar" (dry bulk) is CMBT-specific. Bare
+    # "CMB" collides with the parent CMB NV, so require the ".TECH"/"CMBT" form.
+    "CMBT": [re.compile(r"\bCMBT\b"), re.compile(r"\bCMB\.?\s?TECH\b", re.IGNORECASE),
+             re.compile(r"\bEuronav\b", re.IGNORECASE), re.compile(r"\bBocimar\b", re.IGNORECASE)],
 }
 # A name mention is interesting when it carries valuation / stance / action
 # context — bare ticker drops in rate tables and peer lists are noise.

@@ -7,6 +7,44 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-27T00:31:14+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $72.58
+- Single-point FV: $78.93
+- Scenario PW FV: $79.99 (EV +10.2%)
+- NAV / share: $80.35
+- Position: **BUY (undervalued)**
+- Broker spread: +28.2pp (k_broker 1.32)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -2.88 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -3.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-26T20:14:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $75.46
+- Single-point FV: $78.93
+- Scenario PW FV: $79.99 (EV +6.0%)
+- NAV / share: $80.35
+- Position: **BUY (undervalued)**
+- Broker spread: +31.9pp (k_broker 1.37)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- ⚑ broker spread -5.9pp
+- Δprice: -5.12 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -5.9pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-22T19:52:36+00:00 — Pipeline run (auto)
 
 **Model state:**

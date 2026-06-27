@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-20T12:00:52.759829+00:00",
+  "generated_at": "2026-06-27T12:02:13.067394+00:00",
   "archive_roots": [
     "inputs/research_pareto",
     "inputs/research_pareto_other"
   ],
-  "total_files": 838,
+  "total_files": 844,
   "files": [
     {
       "path": "inputs/research_pareto/2024/06/2024-06-26_d'AmicoInternationalShipping-CompanyReport-InitiatingCoverage-2024-06-26-364456.pdf",
@@ -5375,6 +5375,61 @@
       "classification_signal": "filename:ShippingDaily"
     },
     {
+      "path": "inputs/research_pareto/2026/06/2026-06-22_Periodical-ShippingDaily-2026-06-22-506946.pdf",
+      "filename": "2026-06-22_Periodical-ShippingDaily-2026-06-22-506946.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-06-22",
+      "downloaded_at": "2026-06-22T11:00:03.812396+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 157238,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/06/2026-06-23_Periodical-ShippingDaily-2026-06-23-507160.pdf",
+      "filename": "2026-06-23_Periodical-ShippingDaily-2026-06-23-507160.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-06-23",
+      "downloaded_at": "2026-06-23T11:00:08.926145+00:00",
+      "parsed_at": null,
+      "page_count": 1,
+      "size_bytes": 143200,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/06/2026-06-24_Periodical-ShippingDaily-2026-06-24-507435.pdf",
+      "filename": "2026-06-24_Periodical-ShippingDaily-2026-06-24-507435.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-06-24",
+      "downloaded_at": "2026-06-24T11:00:03.457491+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 157884,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/06/2026-06-25_Periodical-ShippingDaily-2026-06-25-507693.pdf",
+      "filename": "2026-06-25_Periodical-ShippingDaily-2026-06-25-507693.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-06-25",
+      "downloaded_at": "2026-06-25T11:00:06.694273+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 157533,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/06/2026-06-26_Container+Weekly+20+June+-+26+June+2026.pdf",
+      "filename": "2026-06-26_Container+Weekly+20+June+-+26+June+2026.pdf",
+      "type": "container_weekly",
+      "report_date": "2026-06-26",
+      "downloaded_at": "2026-06-27T11:00:04.925900+00:00",
+      "parsed_at": null,
+      "page_count": 3,
+      "size_bytes": 1457073,
+      "classification_signal": "filename:Container Weekly"
+    },
+    {
       "path": "inputs/research_pareto_other/company_report/2024/06/2024-06-26_d'AmicoInternationalShipping-CompanyReport-InitiatingCoverage-2024-06-26-364456.pdf",
       "filename": "2024-06-26_d'AmicoInternationalShipping-CompanyReport-InitiatingCoverage-2024-06-26-364456.pdf",
       "type": "company_report",
@@ -9168,6 +9223,17 @@
       "page_count": 11,
       "size_bytes": 667475,
       "classification_signal": "content:QUARTERLY REVIEW"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-06-16_linked-505929.pdf",
+      "filename": "2026-06-16_linked-505929.pdf",
+      "type": "company_report",
+      "report_date": "2026-06-16",
+      "downloaded_at": "2026-06-27T12:01:01.224323+00:00",
+      "parsed_at": null,
+      "page_count": 11,
+      "size_bytes": 638183,
+      "classification_signal": "content:UPDATE | 1"
     },
     {
       "path": "inputs/research_pareto_other/other/2024/12/2024-12-18_Clarksons Brokers Dry Bulk Markets 2024 Review & Outlook for 2025.pdf",

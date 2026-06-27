@@ -1,0 +1,31 @@
+# CMB.TECH NV (CMBT) cost structure — METHODOLOGY §4.4. USD.
+# Source: Q1-2026 6-K + industry per-class opex conventions. The 6-K does not
+# break out a clean per-class opex / G&A / interest line, so opex-per-day is by
+# class convention (anchored to the SBLK dry-bulk calibration for Cape/Pana) and
+# G&A / interest are Q1-annualised ESTIMATES — flagged. These feed the dividend
+# strip + breakeven (secondary to the NAV + scenario headline); refine on the
+# next report-day refresh if a clean opex/finance-cost disclosure lands.
+
+ticker: CMBT
+
+opex_per_day:                  # daily operating cost per vessel, by class
+  VLCC: 9500
+  Suezmax: 8500
+  Cape: 6300                   # SBLK Cape calibration (180k+ dwt hulls)
+  Pana: 5500                   # Kamsarmax/Panamax mid-tier
+  Ctr-Large: 7500              # 6,000 TEU box (on 10-yr TC; opex largely owner-borne)
+
+# Annual G&A — ESTIMATE ~$110M for the ~250-vessel diversified group (incl. the
+# CMB NV related-party management/shipping-services fees ~$14.6M/yr that run
+# cost-plus). No clean Q1 G&A line disclosed; refine from the FY2025 20-F P&L.
+annual_G_and_A: 110000000
+
+# Annual interest expense — ESTIMATE ~$280M (≈5.3% on $5.24bn interest-bearing
+# debt incl. the sale-leaseback financing book). Q1-annualised approximation; no
+# standalone Q1 finance-cost line was extracted. Refine on the next refresh.
+annual_interest_expense: 280000000
+
+# Effective tax rate — Belgian tonnage-tax regime for shipping (Euronav lineage);
+# effectively near-zero on shipping income. 0.02 placeholder; verify per the
+# FY2025 20-F tax note.
+effective_tax_rate: 0.02

@@ -18,7 +18,13 @@ from dataclasses import replace
 
 from .blend import blend_fair_value
 from .breakeven import implied_breakeven_tce
-from .carveout import crude_carve_out, lng_carve_out, product_carve_out, product_read
+from .carveout import (
+    crude_carve_out,
+    lng_carve_out,
+    product_carve_out,
+    product_read,
+    sector_carve_out,
+)
 from .cycle import compute_cycle
 from .dividend_strip import compute_dividend_strip
 from .loaders import INPUTS_DIR, load_company_inputs, load_watchlist
@@ -28,6 +34,7 @@ from .nav import compute_nav
 from .report import OUTPUTS_DIR, CompanyReport, write_company_report, write_watchlist_summary
 from .scenarios import (
     PRODUCT_SCENARIO_CLASS_MAP,
+    SCENARIO_CLASS_MAP_BY_SECTOR,
     ScenarioFV,
     ScenarioReport,
     load_scenarios,
@@ -55,6 +62,17 @@ HYBRID_TICKERS = {"INSW"}
 # shuttle sleeve, which sits in `shuttle_contracted_book` rather than the
 # carve-out).
 THREE_SLEEVE_TICKERS: set[str] = {"TEN"}
+
+# Multi-sleeve hybrids over an ARBITRARY ordered set of sectors (not the
+# crude/product/lng combos baked into HYBRID_TICKERS / THREE_SLEEVE_TICKERS).
+# CMBT (CMB.TECH, ex-Euronav) onboarded 2026-06-26 — first crude + dry_bulk +
+# containerships hybrid (METHODOLOGY §11.9). Chemical / offshore (Windcat) /
+# FSO / held-for-sale / the multi-segment newbuild book sit OFF-CURVE at the
+# corporate level (working_capital_net / shuttle_contracted_book / newbuild
+# lines), pro-rated across the on-curve sleeves like the rest of the stack.
+MULTI_SLEEVE_TICKERS: dict[str, list[str]] = {
+    "CMBT": ["crude", "dry_bulk", "containerships"],
+}
 
 
 def _load_all_sectors(inputs_dir: Path = INPUTS_DIR) -> dict[str, dict]:
@@ -220,6 +238,82 @@ def _aggregate_three_sleeve_report(
     )
 
 
+def _class_map_for_sector(sector: str):
+    """Scenario class map for a sleeve sector (None ⇒ the crude/lng default map)."""
+    if sector == "product":
+        return PRODUCT_SCENARIO_CLASS_MAP
+    if sector in ("dry_bulk", "containerships"):
+        return SCENARIO_CLASS_MAP_BY_SECTOR[sector]
+    return None
+
+
+def _multi_sleeve_basis(sectors: list[str], shares: list[float]) -> str:
+    """Banner for an N-sleeve aggregate. MUST start with 'WHOLE-COMPANY' so the
+    scenario renderer / roll-up tag it [WHOLE-CO] (scenarios.py)."""
+    parts = " + ".join(f"{sec} ({sh:.1%})" for sec, sh in zip(sectors, shares))
+    return (
+        f"WHOLE-COMPANY MULTI-SLEEVE = {parts} AGGREGATED (METHODOLOGY §11.9). "
+        f"Off-curve segments (chemical / offshore / FSO / held-for-sale / newbuild "
+        f"book) sit at the corporate level and flow through NAV uniformly across "
+        f"sleeves. Compared to the WHOLE-COMPANY tape price."
+    )
+
+
+def _aggregate_multi_sleeve_report(
+    sleeves: list[tuple[ScenarioReport, float]],
+    *, ticker: str, whole_price: float, whole_target: float, sectors: list[str],
+) -> ScenarioReport:
+    """N-sleeve generalisation of ``_aggregate_three_sleeve_report`` (METHODOLOGY §11.9).
+
+    Pairs scenarios across an arbitrary list of sleeve reports by INDEX (the
+    sector scenario lists are pre-aligned by macro optimism; ``min`` length
+    governs, dropping any sleeve's tail scenarios — for CMBT all three sleeves
+    are 4-scenario, so n=4 cleanly). Per-sleeve strip horizons (8/8/10) are NOT
+    the aggregator's concern: each sleeve's ``run_scenarios`` already built its
+    own strip at its own horizon, so the aggregator only sums per-share FVs. The
+    first sleeve carries the display name/weight/cycle; ``assumed_tce`` is
+    value-share-weighted.
+    """
+    reports = [r for r, _ in sleeves]
+    shares = [s for _, s in sleeves]
+    n = min(len(r.scenarios) for r in reports)
+    agg: list[ScenarioFV] = []
+    for i in range(n):
+        cells = [r.scenarios[i] for r in reports]
+        lead = cells[0]
+        agg.append(ScenarioFV(
+            name=lead.name,
+            weight=lead.weight,
+            fair_value=sum(c.fair_value for c in cells),
+            fair_value_low=sum(c.fair_value_low for c in cells),
+            fair_value_high=sum(c.fair_value_high for c in cells),
+            nav_per_share=sum(c.nav_per_share for c in cells),
+            vessel_scale=lead.vessel_scale,
+            divstrip_npv=sum(c.divstrip_npv for c in cells),
+            cycle_position=lead.cycle_position,
+            w_nav=lead.w_nav,
+            assumed_tce=sum(c.assumed_tce * sh for c, sh in zip(cells, shares)),
+        ))
+    total_w = sum(s.weight for s in agg)
+    pw_fv = sum(s.weight * s.fair_value for s in agg) / total_w
+    ev = pw_fv - whole_price
+    return ScenarioReport(
+        ticker=ticker,
+        current_price=whole_price,
+        analyst_target=whole_target,
+        base_nav_per_share=sum(r.base_nav_per_share for r in reports),
+        breakeven_tce=reports[0].breakeven_tce,
+        scenarios=agg,
+        probability_weighted_fv=pw_fv,
+        upside_best=max(s.fair_value for s in agg) - whole_price,
+        downside_worst=min(s.fair_value for s in agg) - whole_price,
+        expected_value_vs_current=ev,
+        position_recommendation=position_recommendation(ev / whole_price * 100.0),
+        basis=_multi_sleeve_basis(sectors, shares),
+        sector=reports[0].sector,
+    )
+
+
 def _run_scenarios_for_ticker(
     ticker: str, whole_inputs, whole_price: float, whole_target: float,
     sector_docs: dict[str, dict], watchlist: dict,
@@ -238,6 +332,34 @@ def _run_scenarios_for_ticker(
     """
     sector = _resolve_sector(ticker, watchlist)
     doc = sector_docs[sector]
+
+    sleeve_sectors = MULTI_SLEEVE_TICKERS.get(ticker)
+    if sleeve_sectors is not None:
+        # Generic N-sleeve hybrid (CMBT): carve each sleeve sector out of the
+        # whole-company fleet, run its scenarios through its own sector doc +
+        # class map, and aggregate to a whole-company headline vs the tape
+        # (METHODOLOGY §11.9). Returns (headline, crude_sleeve_or_None, None) to
+        # keep the 3-tuple contract; the LNG slot is unused here. Per-sleeve
+        # breakdown table is skipped (matches the TEN 3-sleeve precedent).
+        sleeves = []
+        for sec in sleeve_sectors:
+            carve = sector_carve_out(whole_inputs, sec)
+            cmap = _class_map_for_sector(sec)
+            kwargs = {"scenario_class_map": cmap} if cmap is not None else {}
+            r = run_scenarios(
+                carve.sleeve_inputs, carve.carved_price(whole_price),
+                carve.carved_price(whole_target), sector_docs[sec],
+                asof_quarter=asof_quarter, **kwargs,
+            )
+            sleeves.append((r, carve.sleeve_share, sec))
+        headline = _aggregate_multi_sleeve_report(
+            [(r, s) for r, s, _ in sleeves],
+            ticker=ticker, whole_price=whole_price, whole_target=whole_target,
+            sectors=[sec for _, _, sec in sleeves],
+        )
+        crude_r = next((r for r, _, sec in sleeves if sec == "crude"), None)
+        return headline, crude_r, None
+
     if ticker not in HYBRID_TICKERS and ticker not in THREE_SLEEVE_TICKERS:
         # Pure-play routing: pure-product names (sector=product) need the
         # product class map so MR/LR1/LR2 route to clean-trade rate keys
@@ -572,7 +694,12 @@ def run_scenarios_watchlist(
         if ticker in HYBRID_TICKERS and crude_r is not None:
             _append_hybrid_breakdown(path, crude_r, product_r, report)
         ev_pct = report.expected_value_vs_current / report.current_price * 100
-        tag = " [WHOLE-CO: crude+product]" if ticker in HYBRID_TICKERS else ""
+        if ticker in HYBRID_TICKERS:
+            tag = " [WHOLE-CO: crude+product]"
+        elif ticker in MULTI_SLEEVE_TICKERS:
+            tag = " [WHOLE-CO: " + "+".join(MULTI_SLEEVE_TICKERS[ticker]) + "]"
+        else:
+            tag = ""
         print(f"{ticker}{tag}: weighted FV ${report.probability_weighted_fv:,.2f} "
               f"(EV {ev_pct:+.1f}% -> {report.position_recommendation}) -> {path}")
         reports.append(report)
@@ -666,7 +793,7 @@ def run_broker_sweep(
             return r.expected_value_vs_current / r.current_price * 100.0
 
         rows.append(BrokerSweepRow(
-            ticker=ticker, hybrid=ticker in HYBRID_TICKERS,
+            ticker=ticker, hybrid=ticker in HYBRID_TICKERS or ticker in MULTI_SLEEVE_TICKERS,
             consensus_pnav=entry["consensus_pnav"], k_broker=k_broker,
             ev_tool=_ev(r_tool), ev_mid=_ev(r_mid), ev_broker=_ev(r_brk),
             pos_tool=r_tool.position_recommendation, pos_broker=r_brk.position_recommendation,
@@ -831,7 +958,7 @@ def run_transaction_anchored_comparison(
             return r.expected_value_vs_current / r.current_price * 100.0
 
         rows.append(TxnComparisonRow(
-            ticker=ticker, hybrid=ticker in HYBRID_TICKERS,
+            ticker=ticker, hybrid=ticker in HYBRID_TICKERS or ticker in MULTI_SLEEVE_TICKERS,
             nav_base=nav_base, nav_txn=nav_txn,
             ev_base=_ev(r_base), ev_txn=_ev(r_txn),
             pos_base=r_base.position_recommendation, pos_txn=r_txn.position_recommendation,

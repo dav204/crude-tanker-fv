@@ -28,58 +28,86 @@ from .vessel_values import vessel_market_value
 CRUDE_CLASSES = {"VLCC", "Suezmax", "Aframax", "LR2"}
 PRODUCT_CLASSES = {"MR", "LR1", "Handysize", "Handymax"}
 LNG_CLASSES = {"LNGC", "MGC"}
+# Dry-bulk + container classes added 2026-06-26 for the first crude+dry_bulk+
+# container multi-sleeve hybrid (CMBT, METHODOLOGY §11.9). Before this, every
+# dry_bulk/container class fell through to the crude sleeve (a latent bug that
+# only mattered once a name carried those classes through a carve-out).
+DRY_BULK_CLASSES = {"Cape", "Pana", "Supra-Ultra"}
+CONTAINER_CLASSES = {"Ctr-Feeder", "Ctr-Intermediate", "Ctr-Large"}
 
 
 def _sleeve_for(vessel) -> str:
-    """Sleeve assignment for a vessel: 'crude' | 'product' | 'lng'.
+    """Sleeve/sector assignment for a vessel.
 
-    LNG-class vessels always go LNG. Product-class vessels (or any vessel
-    explicitly tagged ``sleeve: product``) go product. Anything explicitly
-    tagged ``sleeve: lng`` goes LNG. Everything else defaults to crude.
-    This preserves the pre-3-sleeve behavior — ``vessel.sleeve`` defaults to
-    ``"crude"`` so the class-default wins unless explicitly overridden.
+    Sector by vessel class, with an explicit ``vessel.sleeve`` override per
+    sector. The crude/product/lng branches are byte-identical to the pre-multi-
+    sleeve behaviour (``vessel.sleeve`` defaults to ``"crude"`` so the class
+    wins unless explicitly overridden to a non-crude sector); dry_bulk +
+    container are added on the same "class OR explicit tag" pattern.
     """
     if vessel.cls in LNG_CLASSES or vessel.sleeve == "lng":
         return "lng"
     if vessel.cls in PRODUCT_CLASSES or vessel.sleeve == "product":
         return "product"
+    if vessel.cls in DRY_BULK_CLASSES or vessel.sleeve == "dry_bulk":
+        return "dry_bulk"
+    if vessel.cls in CONTAINER_CLASSES or vessel.sleeve == "containerships":
+        return "containerships"
     return "crude"
 
 
-def _sleeve_fractions(vessel) -> tuple[float, float, float]:
-    """Return (crude, product, lng) split for a vessel (sums to 1.0).
+def _sleeve_fractions_by_sector(vessel) -> dict[str, float]:
+    """Fraction of a vessel's market value by sector (values sum to 1.0).
 
-    Dual-use LR1 (``crude_fraction`` set) splits between crude and product.
-    Other vessels go 100% to the sleeve from ``_sleeve_for``.
+    Dual-use LR1 (``crude_fraction`` set) splits between crude and product;
+    every other vessel goes 100% to the sector from ``_sleeve_for``. The
+    N-sector generalisation of ``_sleeve_fractions`` (METHODOLOGY §11.9) — the
+    single source of truth both the 3-tuple shim and ``sector_carve_out`` build on.
     """
     if vessel.crude_fraction is not None:
         cf = float(vessel.crude_fraction)
-        return cf, 1.0 - cf, 0.0
-    sleeve = _sleeve_for(vessel)
-    if sleeve == "crude":
-        return 1.0, 0.0, 0.0
-    if sleeve == "product":
-        return 0.0, 1.0, 0.0
-    return 0.0, 0.0, 1.0
+        return {"crude": cf, "product": 1.0 - cf}
+    return {_sleeve_for(vessel): 1.0}
 
 
-def sleeve_values(inputs: CompanyInputs) -> tuple[float, float, float]:
-    """Whole-company vessel value split across (crude, product, lng) sleeves.
+def _sleeve_fractions(vessel) -> tuple[float, float, float]:
+    """(crude, product, lng) split for a vessel — back-compat 3-tuple shim.
 
-    Single source of truth for the 3-sleeve denominator. Used by all three
-    carve-out functions so the shares sum to 1.0 across the whole company
-    (METHODOLOGY §6 v2 / §11.6).
+    Derived from ``_sleeve_fractions_by_sector``; a dry_bulk/container vessel
+    returns (0, 0, 0) here (it belongs to neither of the three legacy sleeves),
+    which is correct for the legacy carve-outs that only see crude/product/lng
+    fleets.
+    """
+    d = _sleeve_fractions_by_sector(vessel)
+    return d.get("crude", 0.0), d.get("product", 0.0), d.get("lng", 0.0)
+
+
+def sleeve_values_by_sector(inputs: CompanyInputs) -> dict[str, float]:
+    """Whole-company vessel value split across ALL sectors (METHODOLOGY §11.9).
+
+    The N-sector denominator source of truth for ``sector_carve_out``. Sectors
+    with no vessels are simply absent from the dict, so ``sum(...)`` over the
+    values is the whole-company on-curve vessel value.
     """
     md = inputs.market_data
     yard_discounts = md.yard_discounts
-    crude_v = product_v = lng_v = 0.0
+    out: dict[str, float] = {}
     for v in inputs.fleet.vessels:
         value = vessel_market_value(v, md.vessel_value_curves[v.cls], yard_discounts) * v.count
-        cf, pf, lf = _sleeve_fractions(v)
-        crude_v += value * cf
-        product_v += value * pf
-        lng_v += value * lf
-    return crude_v, product_v, lng_v
+        for sector, frac in _sleeve_fractions_by_sector(v).items():
+            out[sector] = out.get(sector, 0.0) + value * frac
+    return out
+
+
+def sleeve_values(inputs: CompanyInputs) -> tuple[float, float, float]:
+    """Whole-company vessel value split across (crude, product, lng) — 3-tuple shim.
+
+    Single source of truth for the 3-sleeve denominator used by the three legacy
+    carve-out functions (METHODOLOGY §6 v2 / §11.6). Derived from
+    ``sleeve_values_by_sector``; byte-identical for crude/product/lng-only fleets.
+    """
+    d = sleeve_values_by_sector(inputs)
+    return d.get("crude", 0.0), d.get("product", 0.0), d.get("lng", 0.0)
 
 
 @dataclass
@@ -360,6 +388,91 @@ def lng_carve_out(inputs: CompanyInputs) -> LngCarveOut:
         cost_structure=lng_cost,
     )
     return LngCarveOut(lng_inputs, lng_share, lng_value, crude_value, product_value)
+
+
+@dataclass
+class SectorCarveOut:
+    """Result of a single-sector carve-out (METHODOLOGY §11.9 multi-sleeve).
+
+    The N-sector generalisation of ``CarveOut`` / ``ProductCarveOut`` /
+    ``LngCarveOut``: one carve per sleeve sector, sharing the full whole-company
+    ``all_values`` denominator so every sleeve's ``sleeve_share`` is taken
+    against the same base and the shares across a name's sleeves sum to 1.0.
+    """
+
+    sector: str
+    sleeve_inputs: CompanyInputs    # sector-only fleet + allocated balance sheet/costs
+    sleeve_share: float             # this sector's vessel value / whole-company vessel value
+    sleeve_value: float
+    all_values: dict                # full {sector: vessel_value} split (for the aggregator/banner)
+
+    def carved_price(self, whole_company_price: float) -> float:
+        """This sleeve's share of the whole-company price (for comparison)."""
+        return whole_company_price * self.sleeve_share
+
+
+def sector_carve_out(inputs: CompanyInputs, sector: str) -> SectorCarveOut:
+    """Carve ONE sleeve sector out of a multi-sleeve operator's whole-company inputs.
+
+    Generalises ``crude_carve_out`` to an arbitrary sector. Vessel value splits
+    across ALL sectors via ``sleeve_values_by_sector``; this sector's vessels
+    (count × fraction) enter the sleeve fleet. The corporate stack pro-rates by
+    this sleeve's vessel-value share against the WHOLE-COMPANY denominator
+    (so all of a name's sleeves sum back to the whole company). Vessel-secured
+    debt is allocated directly only where a per-sector field exists today
+    (crude/product); dry_bulk + container have no specific-debt field, so their
+    debt pro-rates as corporate (CMB.TECH finances at the corporate level —
+    METHODOLOGY §11.9). The product sleeve gets the clean-rate remap, as in
+    ``product_carve_out``.
+    """
+    values = sleeve_values_by_sector(inputs)
+    total = sum(values.values()) or 1.0
+    share = values.get(sector, 0.0) / total
+
+    sleeve_vessels = []
+    for v in inputs.fleet.vessels:
+        frac = _sleeve_fractions_by_sector(v).get(sector, 0.0)
+        if frac > 0.0:
+            sleeve_vessels.append(replace(v, count=v.count * frac, crude_fraction=None))
+
+    bs = inputs.balance_sheet
+    specific = (bs.crude_specific_debt if sector == "crude"
+                else bs.product_specific_debt if sector == "product" else 0.0)
+    corporate_debt = bs.total_debt - bs.crude_specific_debt - bs.product_specific_debt
+    sleeve_debt = specific + corporate_debt * share
+    sleeve_bs = replace(
+        bs,
+        cash_and_equivalents=bs.cash_and_equivalents * share,
+        working_capital_net=bs.working_capital_net * share,
+        total_debt=sleeve_debt,
+        lease_liabilities=bs.lease_liabilities * share,
+        newbuild_capex_commitments=bs.newbuild_capex_commitments * share,
+        newbuild_advances_paid=bs.newbuild_advances_paid * share,
+        preferred_equity=bs.preferred_equity * share,
+        shuttle_contracted_book=bs.shuttle_contracted_book * share,
+        crude_specific_debt=0.0,
+        product_specific_debt=0.0,
+    )
+
+    cost = inputs.cost_structure
+    sleeve_cost = replace(
+        cost,
+        annual_G_and_A=cost.annual_G_and_A * share,
+        annual_interest_expense=cost.annual_interest_expense * share,
+    )
+
+    md = inputs.market_data
+    if sector == "product":
+        md = _remap_rates_for_product(md)
+
+    sleeve_inputs = replace(
+        inputs,
+        fleet=replace(inputs.fleet, vessels=sleeve_vessels),
+        balance_sheet=sleeve_bs,
+        cost_structure=sleeve_cost,
+        market_data=md,
+    )
+    return SectorCarveOut(sector, sleeve_inputs, share, values.get(sector, 0.0), values)
 
 
 def product_read(carve: CarveOut, crude_ev_pct: float) -> str:

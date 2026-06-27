@@ -225,6 +225,132 @@ def test_three_sleeve_aggregator_sums_per_scenario():
     assert "3-SLEEVE" in headline.basis
 
 
+def _cape_curve():
+    return VesselValueCurve(cls="Cape", dwt=180_000, newbuild=75 * M,
+                            five_year_benchmark=55 * M, ten_year_benchmark=38 * M, scrap_25yr=14 * M)
+
+
+def _ctr_large_curve():
+    return VesselValueCurve(cls="Ctr-Large", dwt=80_000, newbuild=110 * M,
+                            five_year_benchmark=90 * M, ten_year_benchmark=60 * M, scrap_25yr=15 * M)
+
+
+def _multi_sleeve_hybrid():
+    """Synthetic crude+dry_bulk+container hybrid (CMBT shape): 2 VLCC + 3 Cape + 1 Ctr-Large, age 5."""
+    bs = BalanceSheet(
+        ticker="MSH", quarter="2026-Q1", cash_and_equivalents=300 * M, working_capital_net=50 * M,
+        total_debt=500 * M, lease_liabilities=10 * M, newbuild_capex_commitments=40 * M,
+        newbuild_advances_paid=20 * M, diluted_shares_outstanding=30 * M,
+        preferred_equity=0, shuttle_contracted_book=60 * M,
+    )
+    return CompanyInputs(
+        fleet=FleetManifest(ticker="MSH", report_date="2026-Q1", vessels=[
+            Vessel(id="v", cls="VLCC", dwt=300_000, age=5, count=2),
+            Vessel(id="c", cls="Cape", dwt=180_000, age=5, count=3),
+            Vessel(id="b", cls="Ctr-Large", dwt=80_000, age=5, count=1),
+        ]),
+        balance_sheet=bs,
+        dividend_policy=DividendPolicy(ticker="MSH", policy_type="variable", payout_ratio=1.0),
+        cost_structure=CostStructure(ticker="MSH",
+                                     opex_per_day={"VLCC": 9000, "Cape": 6000, "Ctr-Large": 8000},
+                                     annual_G_and_A=30 * M, annual_interest_expense=20 * M),
+        market_data=MarketData(vessel_value_curves={
+            "VLCC": _vlcc_curve(), "Cape": _cape_curve(), "Ctr-Large": _ctr_large_curve()}),
+    )
+
+
+def test_sleeve_for_routes_dry_bulk_and_container():
+    """Regression guard for the latent bug: dry_bulk/container classes used to
+    fall through to the crude sleeve (METHODOLOGY §11.9)."""
+    from crude_tanker_fv.carveout import _sleeve_for
+    assert _sleeve_for(Vessel(id="a", cls="Cape", dwt=180_000, age=5)) == "dry_bulk"
+    assert _sleeve_for(Vessel(id="b", cls="Pana", dwt=80_000, age=5)) == "dry_bulk"
+    assert _sleeve_for(Vessel(id="c", cls="Ctr-Large", dwt=80_000, age=5)) == "containerships"
+    assert _sleeve_for(Vessel(id="d", cls="VLCC", dwt=300_000, age=5)) == "crude"
+    # Legacy routing is unchanged.
+    assert _sleeve_for(Vessel(id="e", cls="MR", dwt=50_000, age=5)) == "product"
+    assert _sleeve_for(Vessel(id="f", cls="LNGC", dwt=174_000, age=5)) == "lng"
+
+
+def test_sector_carve_out_split_invariant():
+    """N-sleeve carve: shares sum to 1.0, each sleeve fleet is class-clean, and
+    the corporate stack re-aggregates to the whole company (METHODOLOGY §11.9)."""
+    from crude_tanker_fv.carveout import sector_carve_out
+    h = _multi_sleeve_hybrid()
+    cr = sector_carve_out(h, "crude")
+    db = sector_carve_out(h, "dry_bulk")
+    ct = sector_carve_out(h, "containerships")
+    # 2 VLCC @ $138M = $276M; 3 Cape @ $55M = $165M; 1 Ctr-Large @ $90M = $90M.
+    assert cr.sleeve_value == pytest.approx(276 * M)
+    assert db.sleeve_value == pytest.approx(165 * M)
+    assert ct.sleeve_value == pytest.approx(90 * M)
+    assert cr.sleeve_share + db.sleeve_share + ct.sleeve_share == pytest.approx(1.0)
+    assert {v.cls for v in cr.sleeve_inputs.fleet.vessels} == {"VLCC"}
+    assert {v.cls for v in db.sleeve_inputs.fleet.vessels} == {"Cape"}
+    assert {v.cls for v in ct.sleeve_inputs.fleet.vessels} == {"Ctr-Large"}
+    for field in ("cash_and_equivalents", "working_capital_net", "total_debt",
+                  "lease_liabilities", "newbuild_capex_commitments",
+                  "newbuild_advances_paid", "shuttle_contracted_book"):
+        s = (getattr(cr.sleeve_inputs.balance_sheet, field)
+             + getattr(db.sleeve_inputs.balance_sheet, field)
+             + getattr(ct.sleeve_inputs.balance_sheet, field))
+        assert s == pytest.approx(getattr(h.balance_sheet, field)), field
+
+
+def test_multi_sleeve_nav_aggregation_invariant():
+    """Sum of sleeve NAV/share equals the whole-company NAV/share (METHODOLOGY §11.9)."""
+    from crude_tanker_fv.carveout import sector_carve_out
+    h = _multi_sleeve_hybrid()
+    whole = compute_nav(h).nav_per_share
+    parts = sum(
+        compute_nav(sector_carve_out(h, sec).sleeve_inputs).nav_per_share
+        for sec in ("crude", "dry_bulk", "containerships")
+    )
+    assert parts == pytest.approx(whole, abs=0.01)
+
+
+def test_aggregate_multi_sleeve_report_sums_per_scenario():
+    """``_aggregate_multi_sleeve_report`` sums per-scenario FV/NAV across an
+    arbitrary sleeve list and tags the basis WHOLE-COMPANY (METHODOLOGY §11.9)."""
+    from crude_tanker_fv.pipeline import _aggregate_multi_sleeve_report
+    from crude_tanker_fv.scenarios import ScenarioFV, ScenarioReport
+
+    def _r(prefix, fvs):
+        scenarios = [ScenarioFV(
+            name=f"{prefix}_s{i}", weight=w, fair_value=fv,
+            fair_value_low=fv * 0.95, fair_value_high=fv * 1.05,
+            nav_per_share=fv * 1.1, vessel_scale=1.0,
+            divstrip_npv=fv * 0.4, cycle_position=1.5, w_nav=0.6, assumed_tce=40000,
+        ) for i, (w, fv) in enumerate(fvs)]
+        return ScenarioReport(
+            ticker="X", current_price=0, analyst_target=0,
+            base_nav_per_share=sum(fv * 1.1 for _, fv in fvs) / len(fvs),
+            breakeven_tce=20000, scenarios=scenarios,
+            probability_weighted_fv=sum(w * fv for w, fv in fvs),
+            upside_best=0, downside_worst=0, expected_value_vs_current=0,
+            position_recommendation="HOLD", basis="", sector="crude",
+        )
+
+    crude = _r("crude", [(0.10, 50.0), (0.50, 40.0), (0.40, 30.0)])
+    bulk = _r("bulk", [(0.10, 80.0), (0.50, 60.0), (0.40, 45.0)])
+    ctr = _r("ctr", [(0.10, 12.0), (0.50, 10.0), (0.40, 8.0)])
+    headline = _aggregate_multi_sleeve_report(
+        [(crude, 0.52), (bulk, 0.31), (ctr, 0.17)],
+        ticker="CMBT", whole_price=90.0, whole_target=110.0,
+        sectors=["crude", "dry_bulk", "containerships"],
+    )
+    for i, s in enumerate(headline.scenarios):
+        expected = (crude.scenarios[i].fair_value + bulk.scenarios[i].fair_value
+                    + ctr.scenarios[i].fair_value)
+        assert s.fair_value == pytest.approx(expected)
+    expected_pw = 0.10 * (50 + 80 + 12) + 0.50 * (40 + 60 + 10) + 0.40 * (30 + 45 + 8)
+    assert headline.probability_weighted_fv == pytest.approx(expected_pw)
+    assert headline.base_nav_per_share == pytest.approx(
+        crude.base_nav_per_share + bulk.base_nav_per_share + ctr.base_nav_per_share)
+    assert headline.basis.startswith("WHOLE-COMPANY")
+    assert "dry_bulk" in headline.basis and "containerships" in headline.basis
+
+
 def test_carved_inputs_run_through_nav():
     co = crude_carve_out(_hybrid())
     nav = compute_nav(co.crude_inputs)

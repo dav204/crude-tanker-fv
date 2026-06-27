@@ -1,0 +1,83 @@
+# CMB.TECH NV (CMBT) balance sheet snapshot — METHODOLOGY §4.2, §11.9
+# Source: Q1-2026 6-K Ex-99.1 (SEC EDGAR CIK 1604481, filed 2026-05-19;
+# period end 2026-03-31) + FY2025 20-F segment balance sheet (2025-12-31) for
+# the off-curve segment book values. USD. Full sourcing in
+# outputs/cmbt_onboarding/04_financials_nb_div.md + 03_container_chem_offshore.md.
+# First MULTI_SLEEVE name (crude + dry_bulk + containerships, §11.9).
+
+ticker: CMBT
+quarter: 2026-Q1
+
+# Cash $194.6M + short-term investments $8.271M (both liquid). (6-K, 2026-03-31.)
+cash_and_equivalents: 202871000
+
+# working_capital_net = operating WC + the OFF-CURVE segments held at book/agreed
+# price (§11.9 — chemical/offshore have no engine sector; HFS at agreed price per
+# the DHT-Bauhinia convention; equity-method JV stakes at carrying value):
+#   operating WC (6-K, Mar-31): inventory 82,820 + trade&other receivables 350,513
+#     + current tax assets 3,417 − trade&other payables 258,000 − current tax 9,351
+#     = +169,399
+#   + Bochem chemical vessels at segment book (20-F seg B/S, Dec-25) = +276,374
+#   + Windcat owned vessels at segment book (20-F seg B/S, Dec-25)   = +196,542
+#   + equity-accounted JV investments (6-K, Mar-31; incl. the 15 Windcat JV CTVs
+#       $3.46M + other JVs) = +132,308
+#   + assets held-for-sale at agreed price (6-K, Mar-31; Ilma+Ingrid VLCC + Sienna
+#       Suezmax, deliver Q2-26) = +137,513
+#   TOTAL = 169,399 + 276,374 + 196,542 + 132,308 + 137,513 = 912,136
+# Goodwill ($190,689 — Golden Ocean acquisition) is EXCLUDED (not a vessel asset).
+# The chemical/Windcat books are Dec-25 vintage (one quarter stale) — conservative
+# (depreciated cost; the GOGL fleet was fair-valued at the Aug-25 merger so book
+# ≈ fair value). FSO is NOT here (see shuttle_contracted_book below).
+working_capital_net: 912136000
+
+# Total interest-bearing debt EXCL. IFRS-16 leases (6-K, Mar-31):
+#   non-current bank loans 2,783,764 + current bank loans 180,717
+#   + non-current other borrowings 1,902,228 + current other borrowings 171,124
+#   + current "other notes" (unsecured 2026 retail/sustainability notes) 200,327
+#   = 5,238,160
+# "Other borrowings" is predominantly the sale-and-leaseback book (financing, in
+# borrowings per the standing rule) — the small IFRS-16 lease line is additive below.
+total_debt: 5238160000
+
+# IFRS-16 operating-lease liabilities: non-current 4,565 + current 1,667 (6-K).
+lease_liabilities: 6232000
+
+# Newbuild book (§3.1/§9.6, conservative TEN convention): net NB NAV = advances
+# paid. The "Assets under construction" line ($759,807 at Mar-31) carries the
+# advances/capitalised cost; the ~$1.2bn remaining commitment buys delivered
+# vessels of ~equal value, so net NAV impact = advances paid (commitments=0). The
+# ammonia/hydrogen-spec hulls carry NO hot-market markup (the decarbonisation
+# premium is not marked up — §11.9 conservative read; §15 strategy-drift risk
+# priced here, not via a governance multiplier).
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 759807000
+
+# Shares outstanding ex-treasury (6-K, Mar-31): the per-share NAV denominator.
+# (315,977,647 issued − 25,807,878 treasury. Weighted-avg basic = diluted, no
+# dilution. The ~96M YoY jump is the Aug-2025 Golden Ocean merger issuance.)
+diluted_shares_outstanding: 290169769
+
+# No preferred equity outstanding.
+preferred_equity: 0.0
+
+# §15 governance: DECLINE the haircut (governance_discount_pct = 0). Full screen
+# in outputs/cmbt_onboarding/05_governance_s15.md. Saverys/CMB NV control 56.56%
+# economic / 61.59% voting (single share class, no loyalty voting). Fee load
+# immaterial (~0.18-0.21% of GAV, cost-plus); distributions pro-minority; the
+# 2021-24 Euronav-saga natural experiment shows equal-price treatment ($18.43
+# mandatory bid, court-upheld). The genuine risk is strategy/agency drift (the
+# hydrogen/ammonia capex), which is priced through the CONSERVATIVE newbuild +
+# off-curve marks above, NOT a governance multiplier. Tripwires (any one re-opens
+# the haircut): GOGL Bermuda appraisal / FourWorld Antwerp claim outcomes; fee
+# creep off cost-plus; distribution backsliding below ~50%; multi-year median
+# P/NAV < 0.85 alongside any of those; loss of the independent Audit-Committee
+# majority. Recorded in decisions/cmbt_log.md.
+governance_discount_pct: 0.0
+
+# Shuttle / contract-anchored off-curve sleeve (§11.6): the 2 FSOs (FSO Africa /
+# FSO Asia, 2002, on long service contracts). APPROX $100M combined contracted
+# residual — the per-vessel charter terms are not disclosed in the SEC filings, so
+# this is a conservative placeholder (NOT in working_capital_net above to avoid
+# double-count with the equity-JV line; verify FSO owned-vs-JV status on the next
+# refresh — if the FSOs sit inside the equity-accounted investments, zero this).
+shuttle_contracted_book: 100000000

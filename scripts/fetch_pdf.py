@@ -47,7 +47,11 @@ EXTRA_HOSTS = {
 # behaviour for this one host only. Keep this set as small as it is.
 BROKEN_TLS_HOSTS = {"www.okeanisecotankers.com"}
 
-USER_AGENT = "Mozilla/5.0"
+# SEC EDGAR's fair-access policy rejects a bare "Mozilla/5.0" UA with HTTP 403
+# (rate-limited filers); it requires a User-Agent carrying a contact. This
+# contact UA is the path that returns 200 on www.sec.gov (validated during the
+# CMBT onboarding, 2026-06-26). Other allowlisted IR hosts accept it fine.
+USER_AGENT = "crude-tanker-fv research dav204@gmail.com"
 
 
 def allowed_hosts() -> set[str]:

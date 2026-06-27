@@ -308,3 +308,22 @@ GSL:
     test). CMA CGM equity stake ZERO since 2022-08-05 (final 8.3% sold);
     charter book Maersk 24 / CMA CGM 13 / MSC 9 / Hapag 10 of 71 vessels.
     10-ship ~$917M NB order announced 2026-06-04 (POST-snapshot, Q2 item)."
+
+CMBT:
+  ir_home: https://cmb.tech/investors
+  press_releases: https://cmb.tech/news
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001604481&type=6-K
+  fleet_page: https://cmb.tech/fleet
+  reporting_pattern: "NYSE/Euronext Brussels FPI (ex-Euronav). 20-F annual (FY2025
+    filed 2026-04-21, body eurn-20251231.htm) + 6-K quarterly results. Q1-2026 6-K
+    filed 2026-05-19 (accession 0000919574-26-003591, Ex-99.1 d12164570_ex99-1.htm).
+    The 20-F carries the full per-vessel fleet table (built years/yards) across all
+    segments; the 6-K carries the segment counts + balance sheet."
+  notes: "Onboarded 2026-06-26. First crude+dry_bulk+containerships MULTI_SLEEVE
+    hybrid (METHODOLOGY §11.9). CIK 1604481 (legacy eurn- XBRL roots). Five-segment
+    conglomerate post the 20-Aug-2025 Golden Ocean merger (+95.95M shares -> 290.17M
+    ex-treasury); dry bulk ~72% of vessel value. Saverys/CMB NV control 56.56%
+    economic / 61.59% voting (§15: declined haircut, tripwires — see decisions/cmbt_log.md).
+    PARETO-ANCHORED — Pareto publishes a monthly CMB.TECH P/NAV + NAV/sh (11-Jun-2026:
+    price $14.90, P/NAV 0.74x, NAV ~$20/sh, fwd P/E 9.7x). EDGAR fetch needs a contact UA
+    (fetch_pdf.py patched 2026-06-26); chemical/offshore/FSO/HFS/newbuild book off-curve."

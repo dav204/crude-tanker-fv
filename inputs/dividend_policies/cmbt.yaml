@@ -1,0 +1,14 @@
+# CMB.TECH NV (CMBT) dividend policy — METHODOLOGY §4.3.
+# Source: Q1-2026 6-K + earnings call + FY2025 20-F dividend policy.
+# Q1-2026 distribution: $0.64/sh total ($0.20 interim dividend + $0.44 from the
+# share-premium reserve) ≈ 50% of Q1 net profit ($368.8M). The Board stated a
+# go-forward ~50% of net profit (historical practice 50-60%), but the 20-F frames
+# it as a FULLY DISCRETIONARY policy ("we may stop paying distributions at any
+# time"), gated by leverage targets and debt covenants — model as variable ~50%,
+# not a contractual ratio. Full detail in outputs/cmbt_onboarding/04_financials_nb_div.md.
+
+ticker: CMBT
+policy_type: variable
+payout_ratio: 0.50             # ~50% of net profit (stated go-forward; Q1 implied ~50%)
+base_dividend_per_share: 0     # no fixed base
+floor: 0                       # no floor — discretionary, can suspend (covenant/leverage-gated)

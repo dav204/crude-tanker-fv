@@ -13,6 +13,7 @@ one-way bullish override — audit E-3.)
 | BRUT | · | 0.57× | -4.00 | — | 8.0 | n/a (gate) |
 | CAPT | · | 0.81× | -2.83 | — | 8.0 | n/a (gate) |
 | CCEC | · | 0.78× | -6.20 | — | 0.8 | n/a (gate) |
+| CMBT | · | 0.98× | -0.36 | — | 8.1 | n/a (gate) |
 | CMDB | · | 0.53× | -15.24 | — | 6.2 | n/a (gate) |
 | DHT | · | 1.25× | +3.30 | — | 8.0 | n/a (gate) |
 | ECO | · | 1.41× | +13.82 | — | 8.0 | n/a (gate) |

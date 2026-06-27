@@ -51,6 +51,12 @@ off-curve — §11.5 / LIMITATIONS §2). Offshore. (Containerships shipped
 
 **Scope-change log** (dated; full detail in the referenced sections):
 
+- **2026-06-26 — multi-sleeve hybrid generalized** (`MULTI_SLEEVE_TICKERS`, §11.9).
+  CMBT (CMB.TECH, ex-Euronav) onboarded as the 21st name and first
+  crude+dry_bulk+containerships hybrid — the carve-out + aggregator generalized
+  to arbitrary sector sets (`sector_carve_out` + `_aggregate_multi_sleeve_report`;
+  fixed a latent `_sleeve_for` dry_bulk/container→crude fall-through). Chemical +
+  offshore (Windcat) + FSO + held-for-sale + the newbuild book held off-curve.
 - **2026-06-01 — product sector unlocked** (`sectors.product`, §11.5).
   ASC onboarded 2026-06-01 as the product-sector methodology validator;
   STNG 2026-06-01 (first multi-class product name); TRMD 2026-06-03
@@ -2104,6 +2110,83 @@ coverage lands in the archive).
 | §15.7 governance screens, both names | DONE 2026-06-12 — both DECLINED with tripwires; GSL = dimension-6 founding application | data |
 | `/reconcile --calibration-lock containerships` → record N/A + substitutes (§11.8.7) | DONE 2026-06-12 — N/A machine-confirmed; primary substitute (MPCC sale prints) shows tool old-age marks 0-33% below realized, conservative by design | gate |
 | Anchor refresh to current vintage | on first MB direct-subscription delivery (PLAN standing thread) | data |
+
+### 11.9 Multi-sleeve hybrid generalization — added 2026-06-26 (CMBT)
+
+**Motivating case: CMBT (CMB.TECH, ex-Euronav).** After the 20-Aug-2025 Golden
+Ocean merger, CMB.TECH is a five-segment conglomerate — crude tankers, dry bulk
+(Bocimar + the ~105-vessel Golden Ocean fleet), container (Delphis), chemical
+(Bochem), and offshore wind (Windcat) — where **dry bulk is ~72% of vessel
+value**. The crude-flagship framing is dead; no single sector values it.
+
+The existing hybrids were sector-specific: INSW (crude+product, `_aggregate_hybrid_report`)
+and TEN (crude+product+lng, `_aggregate_three_sleeve_report`). Both aggregators
+hardcode their sector combination. CMBT needs a *different* combination
+(crude + dry_bulk + containerships), so the carve-out + aggregator are **generalized
+to an arbitrary ordered set of sectors** rather than adding a fourth hardcoded combo.
+
+#### The generalization (engine)
+
+- **`carveout.sector_carve_out(inputs, sector)`** — the N-sector analog of
+  `crude_carve_out`. Splits the whole-company fleet by `sleeve_values_by_sector`
+  (the N-way denominator), routes this sector's vessels into the sleeve fleet, and
+  pro-rates the corporate stack (cash, working capital, corporate debt, leases,
+  newbuild lines, preferred, `shuttle_contracted_book`) by the sleeve's
+  vessel-value share — so a name's sleeves sum back to the whole company.
+  Vessel-secured debt is allocated directly only where a per-sector field exists
+  (crude/product); dry_bulk + container have none, so their debt pro-rates as
+  corporate (CMB.TECH finances at the corporate level). The legacy
+  crude/product/lng carve-outs are untouched (byte-identical for INSW/TEN).
+- **`_sleeve_for` is now sector-aware** — `Cape`/`Pana`/`Supra-Ultra` → dry_bulk,
+  `Ctr-*` → containerships. *(Before this, those classes fell through to the crude
+  sleeve — a latent bug that only mattered once a name carried them through a
+  carve-out. Guarded by `test_sleeve_for_routes_dry_bulk_and_container`.)*
+- **`_aggregate_multi_sleeve_report`** — the N-sleeve analog of the 3-sleeve
+  aggregator: pairs sleeve scenarios by index (min-length; CMBT's three sleeves are
+  all 4-scenario), sums per-share FV / NAV / strip, value-share-weights `assumed_tce`,
+  and compares to the whole-company tape price. **Differing per-sector strip horizons
+  (crude/dry_bulk 8, container 10) are NOT the aggregator's concern** — each sleeve's
+  `run_scenarios` builds its own strip at its own horizon before the aggregator sums
+  the resulting per-share FVs. The basis starts `WHOLE-COMPANY` so the renderer tags
+  it `[WHOLE-CO]`.
+- **Registration:** `MULTI_SLEEVE_TICKERS = {"CMBT": ["crude","dry_bulk","containerships"]}`.
+  The single-point `value_company` report stays un-carved (the TEN precedent — the
+  whole-company NAV is class-correct via `compute_nav`; the scenario report is the
+  multi-sleeve headline).
+
+#### Off-curve segments (no new sector)
+
+Chemical and offshore are out of scope (§11 "Out of scope"; no value curve, no
+scenario forward), so they are held off-curve at the balance-sheet level, reusing
+the §11.5 / §11.6 / §3.1 precedents — **the same conventions, a new combination:**
+
+| Off-curve segment | Line | Carried at |
+|---|---|---|
+| 2 FSO (service contracts) | `shuttle_contracted_book` | NPV of contracted cash flows (§11.6) — APPROX pending charter disclosure |
+| 8 chemical (25k stainless) | `working_capital_net` | segment book (§11.5 chemical-residual precedent) |
+| owned Windcat (CSOV + CTV) | `working_capital_net` | segment book |
+| JV Windcat CTVs (50%) | `working_capital_net` | equity-method carrying value (hulls off the consolidated B/S) |
+| held-for-sale (3) | `working_capital_net` | agreed sale price (DHT-Bauhinia precedent) |
+| multi-segment newbuild book | `newbuild_advances_paid` (commitments 0) | net = advances paid; no hot-market / ammonia-spec markup (§3.1/§9.6 conservative read) |
+
+Goodwill (Golden Ocean acquisition) is excluded — not a vessel asset.
+
+#### Onboarding read (2026-06-26)
+
+CMBT is a **Pareto-anchored** name (the onboarding "no clean broker NAV → APPROX"
+read was corrected same day — Pareto publishes a monthly CMB.TECH P/NAV + NAV/sh in
+the Shipping Daily). The 11-Jun-2026 daily: price $14.90, **P/NAV 0.74x**, NAV ~$20/sh,
+"the lowest priced name in our drybulk coverage." Reconcile: tool NAV $15.26 vs Pareto
+broker NAV **$20.14**, **gap −24.2%, SANITY OK**, **k_broker 1.14 (inside the validated
+pure-play band 1.05-1.25)**. At the live close the scenario FV $15.66 → **EV +11%, BUY**
+— directionally aligned with Pareto's "deep value 0.74x." The −24% equity-NAV gap is
+**leverage amplification** of a within-band vessel-mark premium (CMBT runs ~55% LTV),
+plus the §11.7.1 **Cape-class collapse** undervaluing CMBT's large modern-Newcastlemax
+book (38 NMax — the most on the watchlist; splitting NMax from Cape is CMBT's top
+refinement). §15: governance haircut **declined** with tripwires (Saverys/CMB NV
+control is concentrated but fee-light, pro-minority, and equal-price-tested through the
+Euronav saga). Full record: `decisions/cmbt_log.md`,
+`outputs/cmbt_multisleeve_methodology_2026-06-26.md`, `outputs/pareto_mentions_cmbt.md`.
 
 ## 12. Framework limitation — high-payout pure-plays at cycle peak
 

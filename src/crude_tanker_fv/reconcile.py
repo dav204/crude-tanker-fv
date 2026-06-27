@@ -67,6 +67,11 @@ DRIFT_ALERT_PP = 2.0           # Per-quarter gap-pct move that warrants a note.
 # through. Keeping the hardcode for Week 0 to avoid a watchlist-schema
 # refactor; promote to a field in Q3.
 APPROX_PNAV_TICKERS = {"NAT", "ASC", "CCEC", "TEN", "CMDB", "MPCC", "GSL"}
+# CMBT was briefly APPROX-flagged at onboarding (2026-06-26) on the mistaken read
+# that Pareto didn't cover it; corrected same day — Pareto DOES publish a real
+# CMB.TECH P/NAV + NAV/share in the Shipping Daily (e.g. 11-Jun-2026: price $14.9,
+# P/NAV 0.74x, NAV ~$20/sh), so CMBT is a genuine Pareto-anchored name with a real
+# SANITY gate, not APPROX. See decisions/cmbt_log.md.
 # CMDB added 2026-06-10: zero Pareto/VIE coverage (name-sweep: 1 incidental
 # mention in 280 dailies, as a charterer); its consensus_pnav is a P/BV
 # proxy (spinoff fair-value-basis book), so it must not enter the

@@ -1,0 +1,119 @@
+# CMB.TECH NV (CMBT, ex-Euronav) fleet manifest — METHODOLOGY §4.1, §11.9
+# First crude + dry_bulk + containerships MULTI-SLEEVE hybrid (MULTI_SLEEVE_TICKERS).
+# Sources (SEC EDGAR CIK 1604481): Q1-2026 6-K Ex-99.1 (filed 2026-05-19; fleet
+# counts at 2026-03-31) + FY2025 20-F (filed 2026-04-21; per-vessel built years,
+# "Our Fleet" table as of 2026-04-01). Full sourced detail in
+# outputs/cmbt_onboarding/{01_crude_fleet,02_drybulk_fleet,03_container_chem_offshore}.md.
+# Onboarded 2026-06-26.
+#
+# SCOPE = the 129 ON-CURVE vessels on the water at 2026-03-31:
+#   - Crude sleeve (sectors.crude):       4 VLCC + 16 Suezmax = 20
+#   - Dry bulk sleeve (sectors.dry_bulk): 75 Cape-class (38 NMax + 37 Capesize)
+#                                         + 30 Pana-class (26 Kamsarmax + 4 Panamax) = 105
+#   - Container sleeve (sectors.containerships): 4 Ctr-Large (6,000 TEU) = 4
+# OFF-CURVE (held at the balance-sheet level, NOT in this manifest — §11.9):
+#   - 2 FSO (service contracts) -> shuttle_contracted_book
+#   - 8 Bochem chemical (25k stainless) -> working_capital_net at segment book
+#   - 3 CSOV + 44 owned + 15 JV CTV (Windcat) -> working_capital_net at segment book
+#   - 3 held-for-sale (Ilma, Ingrid VLCC + Sienna Suezmax) -> working_capital_net at agreed price
+#   - the multi-segment newbuild book -> newbuild_advances_paid
+#   See balance_sheets/cmbt_2026-Q1.yaml for each off-curve line + rationale.
+#
+# Class mapping: Newcastlemax + Capesize -> "Cape" value class; Kamsarmax +
+# Panamax -> "Pana"; 6,000 TEU box -> "Ctr-Large". Dry bulk is grouped by
+# built-year cohort (count) — valuation is by age, so a cohort is exact; the
+# per-vessel rosters (names/yards) are in 02_drybulk_fleet.md.
+# Ages = 2026.25 − built_year. eco = built ≥ 2015. Scrubber UNDISCLOSED in the
+# SEC filings (default false). Yard-quality discount (§9.4) NOT applied in v1
+# (the dry-bulk book is China-heavy; a per-yard pass is a Q3 refinement) — NAV
+# is the "without yard discount" leg.
+
+ticker: CMBT
+report_date: 2026-Q1
+vessels:
+  # ============================================================
+  # CRUDE SLEEVE — 20 vessels (4 VLCC + 16 Suezmax)
+  # Held-for-sale Ilma/Ingrid (VLCC) + Sienna (Suezmax) are OFF-curve.
+  # ============================================================
+  # ---- VLCC (4) ----
+  - {id: CMBT_VLCC_Donoussa,  class: VLCC, dwt: 299999, age: 10.25, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, count: 1}
+  - {id: CMBT_VLCC_Atrebates, class: VLCC, dwt: 319000, age: 1.25,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, count: 1}
+  - {id: CMBT_VLCC_Eburones,  class: VLCC, dwt: 319000, age: 0.25,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, count: 1}
+  - {id: CMBT_VLCC_Menapii,   class: VLCC, dwt: 319000, age: 0.25,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, count: 1}
+  # ---- Suezmax (16) ----
+  - {id: CMBT_SUEZ_CapTheodora,    class: Suezmax, dwt: 158819, age: 18.25, scrubber: false, eco: false, charter_status: time_charter, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_Fraternity,     class: Suezmax, dwt: 157714, age: 17.25, scrubber: false, eco: false, charter_status: time_charter, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_Stella,         class: Suezmax, dwt: 165000, age: 15.25, scrubber: false, eco: false, charter_status: spot, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_CaptainMichael, class: Suezmax, dwt: 157648, age: 14.25, scrubber: false, eco: false, charter_status: spot, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_Maria,          class: Suezmax, dwt: 157523, age: 14.25, scrubber: false, eco: false, charter_status: spot, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_CapCorpusChristi, class: Suezmax, dwt: 156600, age: 8.25, scrubber: false, eco: true, charter_status: time_charter, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_CapPembroke,    class: Suezmax, dwt: 158826, age: 8.25,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_CapPortArthur,  class: Suezmax, dwt: 156600, age: 8.25,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_CapQuebec,      class: Suezmax, dwt: 156600, age: 8.25,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_Cedar,          class: Suezmax, dwt: 157310, age: 4.25,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_Cypres,         class: Suezmax, dwt: 157310, age: 4.25,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_Brest,          class: Suezmax, dwt: 156851, age: 3.25,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_Brugge,         class: Suezmax, dwt: 156851, age: 3.25,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_Bristol,        class: Suezmax, dwt: 156851, age: 2.25,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_Helios,         class: Suezmax, dwt: 156790, age: 2.25,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, count: 1}
+  - {id: CMBT_SUEZ_Orion,          class: Suezmax, dwt: 156790, age: 2.25,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, count: 1}
+
+  # ============================================================
+  # DRY BULK SLEEVE — 105 vessels, grouped by built-year cohort
+  #   Cape class (75) = 38 Newcastlemax + 37 Capesize
+  #   Pana class (30) = 26 Kamsarmax + 4 Panamax
+  # ============================================================
+  # ---- Cape class (75): NMax 210k + Capesize 180k ----
+  - {id: CMBT_CAPE_2010, class: Cape, dwt: 180000, age: 16.25, scrubber: false, eco: false, charter_status: spot, count: 3}
+  - {id: CMBT_CAPE_2011, class: Cape, dwt: 180000, age: 15.25, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: CMBT_CAPE_2013, class: Cape, dwt: 180000, age: 13.25, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: CMBT_CAPE_2014, class: Cape, dwt: 181000, age: 12.25, scrubber: false, eco: false, charter_status: spot, count: 11}
+  - {id: CMBT_CAPE_2015, class: Cape, dwt: 181000, age: 11.25, scrubber: false, eco: true,  charter_status: spot, count: 8}
+  - {id: CMBT_CAPE_2016, class: Cape, dwt: 195000, age: 10.25, scrubber: false, eco: true,  charter_status: spot, count: 7}
+  - {id: CMBT_CAPE_2017, class: Cape, dwt: 195000, age: 9.25,  scrubber: false, eco: true,  charter_status: spot, count: 4}
+  - {id: CMBT_CAPE_2018, class: Cape, dwt: 180500, age: 8.25,  scrubber: false, eco: true,  charter_status: spot, count: 5}
+  - {id: CMBT_CAPE_2019, class: Cape, dwt: 208400, age: 7.25,  scrubber: false, eco: true,  charter_status: spot, count: 2}
+  - {id: CMBT_CAPE_2020, class: Cape, dwt: 209000, age: 6.25,  scrubber: false, eco: true,  charter_status: spot, count: 10}
+  - {id: CMBT_CAPE_2021, class: Cape, dwt: 210000, age: 5.25,  scrubber: false, eco: true,  charter_status: spot, count: 3}
+  - {id: CMBT_CAPE_2023, class: Cape, dwt: 210200, age: 3.25,  scrubber: false, eco: true,  charter_status: spot, count: 2}
+  - {id: CMBT_CAPE_2024, class: Cape, dwt: 210000, age: 2.25,  scrubber: false, eco: true,  charter_status: spot, count: 8}
+  - {id: CMBT_CAPE_2025, class: Cape, dwt: 210000, age: 1.25,  scrubber: false, eco: true,  charter_status: spot, count: 8}
+  - {id: CMBT_CAPE_2026, class: Cape, dwt: 210000, age: 0.25,  scrubber: false, eco: true,  charter_status: spot, count: 2}
+  # ---- Pana class (30): Kamsarmax 82k + Panamax 74k ----
+  - {id: CMBT_PANA_2011, class: Pana, dwt: 82188, age: 15.25, scrubber: false, eco: false, charter_status: spot, count: 2}
+  - {id: CMBT_PANA_2012, class: Pana, dwt: 81500, age: 14.25, scrubber: false, eco: false, charter_status: spot, count: 3}
+  - {id: CMBT_PANA_2013, class: Pana, dwt: 80000, age: 13.25, scrubber: false, eco: false, charter_status: spot, count: 3}
+  - {id: CMBT_PANA_2014, class: Pana, dwt: 84970, age: 12.25, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: CMBT_PANA_2015, class: Pana, dwt: 84978, age: 11.25, scrubber: false, eco: true,  charter_status: spot, count: 1}
+  - {id: CMBT_PANA_2017, class: Pana, dwt: 74500, age: 9.25,  scrubber: false, eco: true,  charter_status: spot, count: 2}
+  - {id: CMBT_PANA_2020, class: Pana, dwt: 81000, age: 6.25,  scrubber: false, eco: true,  charter_status: spot, count: 5}
+  - {id: CMBT_PANA_2021, class: Pana, dwt: 80580, age: 5.25,  scrubber: false, eco: true,  charter_status: spot, count: 3}
+  - {id: CMBT_PANA_2023, class: Pana, dwt: 84510, age: 3.25,  scrubber: false, eco: true,  charter_status: spot, count: 6}
+  - {id: CMBT_PANA_2024, class: Pana, dwt: 84990, age: 2.25,  scrubber: false, eco: true,  charter_status: spot, count: 4}
+
+  # ============================================================
+  # CONTAINER SLEEVE — 4 vessels (6,000 TEU, Delphis), all 10-yr TC to CMA-CGM
+  # ============================================================
+  - {id: CMBT_CTR_MasaiMara, class: Ctr-Large, dwt: 80000, age: 3.25, scrubber: false, eco: true, charter_status: time_charter, charter_rate: null, count: 1}
+  - {id: CMBT_CTR_Zingaro,   class: Ctr-Large, dwt: 80000, age: 2.25, scrubber: false, eco: true, charter_status: time_charter, charter_rate: null, count: 1}
+  - {id: CMBT_CTR_Etosha,    class: Ctr-Large, dwt: 80000, age: 2.25, scrubber: false, eco: true, charter_status: time_charter, charter_rate: null, count: 1}
+  - {id: CMBT_CTR_Dolomites, class: Ctr-Large, dwt: 80000, age: 2.25, scrubber: false, eco: true, charter_status: time_charter, charter_rate: null, count: 1}
+
+# Share of fleet on spot, by class (not used by NAV; drives the single-point
+# strip spot/TC blend). Crude ~81-83% fixed at Q2-QTD (6-K) -> ~0.5 spot blended
+# across the spot/TC mix; dry bulk trades largely spot/index; container 100% TC.
+spot_coverage_pct:
+  VLCC: 0.50
+  Suezmax: 0.50
+  Cape: 0.70
+  Pana: 0.70
+  Ctr-Large: 0.0
+
+fleet_summary:
+  on_curve_total: 129          # MUST equal Σ vessel-row counts (cross-foot gate)
+  VLCC_count: 4
+  Suezmax_count: 16
+  Cape_count: 75               # 38 Newcastlemax + 37 Capesize
+  Pana_count: 30               # 26 Kamsarmax + 4 Panamax
+  Ctr_Large_count: 4
+  off_curve_note: "2 FSO + 8 chemical + 47 owned Windcat + 3 HFS held at the balance-sheet level (§11.9)"
