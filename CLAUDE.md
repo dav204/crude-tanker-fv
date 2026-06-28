@@ -202,6 +202,17 @@ the named decision logs.)
 - **Frontline's SWS yard is Chinese**, not Korean.
 - **TC anchors, not spot.** `historical_tce_means.yaml` is TC-anchored; VIE
   multipliers are spot-anchored — they don't numerically compose. (§10.)
+- **Dry-bulk manifest `dwt` is LOAD-BEARING** (since 2026-06-27, §11.7.10). The
+  Cape/Pana/Supra-Ultra curves are `dwt_scaled` — value scales by `dwt/baseline`
+  (Cape 180k / Pana 82k / Supra-Ultra 62k), so a placeholder/rough dwt silently
+  mis-values a bulk vessel. Use the issuer's exact per-vessel dwt; split mixed
+  built-year cohorts by sub-class. (Crude/product/lng/container stay flat-per-class.)
+  KNOWN LIMIT: the Pana class collapses 74k Panamax → 96k Post-Panamax onto one 82k
+  curve and over-values old Post-Panamax — a dedicated Post-Panamax sub-class is the
+  pending refinement (SB exercises it most; see PLAN.md "Open threads").
+- **EDGAR needs a contact UA.** `scripts/fetch_pdf.py` now sends an SEC-compliant
+  contact User-Agent (was 403 on `Mozilla/5.0`); www.sec.gov is allowlisted, so the
+  fetcher works for 6-K/20-F pulls. (2026-06-26.)
 - **Weight-set names are sector-namespaced** ("Crude Set A", "LNG Set B-revised").
   A cross-sector "Set B" without a prefix is a methodology error.
 - **`use_transaction_anchored` is DEFAULT-ON** (2026-06-09 owner decision).

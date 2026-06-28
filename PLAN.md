@@ -3,257 +3,119 @@
 A new agent reads CLAUDE.md, then this file, then starts. This is a
 **forward-looking valuation aid** for shipping equities (independent NAV +
 forward dividend strip, blended by cycle position), judged by the soundness of
-its per-name reads — not by a cross-sectional backtest. Development proceeds
-normally (the 2026-06-14 "development freeze" was lifted 2026-06-21).
+its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-06-23):** 20 watchlist names across 5 sectors; **315 main
-tests green** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +60 harvester via
-`.venv310`); `reconcile --all` 20/20 SANITY OK (0 fail, 0 drift); drift gate 0
-unexplained. **The live valuation engine is unchanged this arc** — all work below is
-the methodology-soundness remediation (audit fixes + the Phase 2/3 guardrails and
-ex-post validation). Latest: the **Phase 3(c) powered Test-1 backfill** — Nq 5 → **23**
-(2019Q3–2026Q1; IC −0.020, t −0.30; INCONCLUSIVE, not anti-predictive), a clean
-no-look-ahead tanker+dry universe (Xclusiv VV + Intermodal TC; LNG/container excluded).
-Per-change chronology in `CHANGELOG.md`.
+**Current state (2026-06-28):** **22 watchlist names across 5 sectors**; **334 main
+tests green** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester via
+`.venv310`); `reconcile --all` **22/22 SANITY OK** (0 fail, 0 drift); drift gate 0
+unexplained; pipeline clean; pushed to `origin/main` @ `a77e217`. The live engine
+GAINED two capabilities this arc (both documented + tested):
+1. **N-sleeve multi-sleeve generalization** (METHODOLOGY §11.9, `MULTI_SLEEVE_TICKERS`)
+   — `sector_carve_out` + `_aggregate_multi_sleeve_report` over arbitrary sector sets;
+   fixed a latent `_sleeve_for` bug routing dry_bulk/container classes to crude.
+2. **dwt-scaling of the dry-bulk value curves** (METHODOLOGY §11.7.10) — Cape/Pana/
+   Supra-Ultra value scales by `vessel.dwt / curve.dwt` (the curve carries `dwt_scaled`);
+   the transaction fit dwt-normalizes prints to the baseline. **Dry-bulk manifest `dwt`
+   is now LOAD-BEARING.** Crude/product/lng/container stay flat-per-class.
 
-**A NEW AGENT: read CLAUDE.md, then this file. Everything below "Methodology-audit
-remediation" is DONE — incl. the Phase 3(c) power backfill (2026-06-23: Nq 5 → 15–19,
-INCONCLUSIVE; see 3(c) + `backtest/REPORT.md` Test 1) — except the Tier-4 backlog and
-the bounded 3(c) power-polish items. Note: the `shipping_harvester` SOURCE is now tracked
-(commit eebfb60); the 2026-06-23 parser work (xclusiv flat-row, allied Weekly, Wayback
-ingest, cli export-marks) is in the working tree and **uncommitted pending owner review**.
-The crawl cache, `.venv310`, and `backtest/vintages/*` stay gitignored (⚠ HANDOFF box in 3(c)).**
+**A NEW AGENT: read CLAUDE.md, then this file.** Everything below "Recent arc" is DONE
+and committed. The prioritized open threads are in "Open threads"; the standing
+operational threads (Q2 refresh, FFA, news-pull, backtest, Tier-4 backlog) carry forward
+unchanged. Per-change chronology in `CHANGELOG.md`; per-name detail in `decisions/<t>_log.md`.
 
-## Recent arc — methodology-soundness remediation (2026-06-22 → 06-23)
+## Recent arc — equity onboarding + dry-bulk marks (2026-06-26 → 06-28)
 
-Three stages, all pushed (see `CHANGELOG.md` for the commit-by-commit detail):
-**(1) methodology-soundness sprint** (audit fixes, below); **(2) Phase 2 ongoing
-accuracy gate**; **(3) Phase 3 ex-post validation** — the value-premium proxy test
-(powered null) and the engine EV% Test-1 backfill pipeline (built end-to-end,
-INCONCLUSIVE at n=5). Stage-1 detail:
+Three pushed commits (`b1c07db`, `9774411`, `a77e217`):
 
-Driven by a full adversarial audit (`outputs/METHODOLOGY_AUDIT_2026-06-22.md`) +
-an epistemic deep-dive (`outputs/epistemic_soundness_memo_2026-06-22.md`):
+- **CMBT (CMB.TECH, ex-Euronav) onboarded — 21st name, first crude+dry_bulk+containerships
+  MULTI-SLEEVE hybrid** (§11.9). Five-segment conglomerate post the Aug-2025 Golden Ocean
+  merger (dry bulk ~72% of vessel value); chemical/offshore(Windcat)/FSO/HFS/newbuild book
+  held off-curve. PARETO-ANCHORED (P/NAV 0.74x, NAV ~$20/sh; the onboarding briefly mis-read
+  it as APPROX — corrected same day). Read: BUY +11% at the live close. §15 declined +
+  tripwires (Saverys/CMB NV control). Memo: `outputs/cmbt_multisleeve_methodology_2026-06-26.md`
+  + `outputs/cmbt_onboarding/`; record in `decisions/cmbt_log.md`.
+- **dwt-scaling (§11.7.10)** — "split Newcastlemax properly" was implemented as dwt-scaling
+  (owner decision: NMax/Cape trade at the same $/dwt, so it's size, not a structural premium).
+  A **correctness fix, not a gap-closer** (measured): standard-Capesize/Supramax-heavy names
+  corrected DOWN to their own transaction level (GNK −6.2%, CMDB −3.6%); NMax/Ultramax-heavy
+  stayed ~flat (CMBT +0.1%, SBLK +1.3%). CMBT's −24% Pareto gap unchanged (uniform in-band
+  conservatism × leverage). +4 tests; baseline re-ratified.
+- **SB (Safe Bulkers) onboarded — 22nd name, 4th dry-bulk validator.** Greek dry-bulk
+  pure-play; 43 on-curve (36 Pana + 7 Cape) + 2 HFS off-curve + $100M Series C/D preferred;
+  Hajioannou control. APPROX P/BV (no Pareto/VIE NAV — verified). Read: BUY +49% but
+  **mark-rich** — book is conservative depreciated/impaired cost ($24.7M/vessel) AND SB
+  exercises the §11.7.10 Post-Panamax limitation more than any name. `decisions/sb_log.md`.
+- **Toolchain:** `scripts/fetch_pdf.py` UA patched to an SEC-compliant contact string —
+  EDGAR fetches now work (was 403 on `Mozilla/5.0`).
 
-- **Terminal value made honest (§9.2)** — was a doc-vs-code contradiction.
-  Implemented (a) a **cycle-conditional multiple** on the terminal *fleet* value
-  (peak 0.90× … trough 1.10× via `cycle.terminal_multiple`) and (b) **net
-  retained earnings** (`terminal cash += Σ(EPS−DPS)/share`). Book moved
-  (CCEC +31pp; GSL/TNK/STNG → BUY; DHT FV 14.31→14.00); SANITY 0 fail. Decision
-  record: `outputs/terminal_value_options_memo.md` §5.
-- **§12 reframed (R3)** — the high-payout-peak "undervaluation / NAV-floor /
-  don't-act-on-the-TRIM" override (audit finding E-3) → a **falsifiable computed
-  test**: §12.5 trigger gate, §12.6 break-even-dividend-window test (`Q*` vs the
-  FFA-supported horizon), §12.7 ex-post falsification. New diagnostic-only
-  `dividend_window.py` → `outputs/dividend_window_test.md` (NAT gates in → TRIM
-  stands). Analysis: `outputs/peak_cycle_high_payout_resolution_2026-06-22.md`.
-  *(The 0.9× terminal is vindicated and NOT exempted for high-payout names.)*
-- **Bug fixes:** BUG-1 (Aframax dual cycle-anchor 27,600→36,483 + cross-file
-  guard), BUG-2 (Sinokor en-bloc row out of the VLCC fit via a new `in_fit`
-  flag), Phase 0b inert (BUG-4 §15 report blend line foots / BUG-5 Crude Set A
-  weights value-pinned / BUG-6 loader raises on a partial-null curve / BUG-7
-  shared `nav.COST_OF_EQUITY` / BUG-8 backtest framing / G-1 empty-fleet guard).
-- **Honest framing (Phase 1):** README + LIMITATIONS §1 independence note
-  (independence from broker *opinion*, not *data*; no demonstrated ex-post edge);
-  "transaction-validated" → "transaction-anchored (single-vendor-sourced)".
-- **CLAUDE.md restructured** 1147→259 lines (→ `CHANGELOG.md` / `TICKER_NOTES.md`
-  / `WORKFLOWS.md`).
+## Open threads (prioritized — start here)
 
-## Methodology-audit remediation — REMAINING (the staged plan's next phases)
+1. **Post-Panamax sub-class — HIGHEST-VALUE refinement (§11.7.10).** The dry-bulk "Pana"
+   class collapses 74k Panamax → 96k Post-Panamax onto one 82k Kamsarmax curve; dwt-scaling
+   lifts the 85-96k hulls 1.04-1.17× but old Post-Panamax trade at a per-tonne discount, so
+   the tool over-values them. **SB (16 Post-Panamax) is the clearest case** — its +49% BUY is
+   mark-rich because of this; CMBT/SBLK also carry some. Separating ~85-96k Post-Panamax into
+   its own value class (own newbuild/scrap anchors; could share Pana rates like NMax shares
+   Cape) would tighten the dry-bulk marks. Scoped but DEFERRED pending owner go-ahead.
+2. **CMBT open items** (in `cmbt_log.md`): verify FSO owned-vs-JV (zero `shuttle_contracted_book`
+   if the FSOs are inside the equity-JV line); apply the §9.4 yard-quality discount to the
+   China-heavy dry-bulk book (v1 is the "without discount" leg); confirm the NMax newbuild
+   level vs a current NB quote; G&A/interest are Q1-annualised estimates; chemical/Windcat
+   segment books are Dec-2025 vintage; `consensus_fwd_pe` APPROX (Q1 EPS one-off-gain-distorted).
+3. **SB open items** (in `sb_log.md`): refresh `consensus_pnav` if a VIE SB NAV is obtained
+   (currently P/BV common-book proxy); confirm the finance-lease current/non-current split,
+   the exact €950/day + €5.0M mgmt-fee figures, and the buyback authorization from the raw 20-F.
+4. **GNK/Diana tender** — the $24.80/sh cash-tender deadline was 2026-06-26 (now PAST). Verify
+   the scheduled `gnk-diana-tender-jun26-check` fired and the outcome (deal vs lapse → revert to
+   NAV-discount) is captured in `gnk_log.md`; re-frame GNK if not.
 
-Full remediation plan + designs are in the three memos above. Open phases, in order:
-
-- **Phase 2 — ongoing accuracy gate (Option B). ✅ DONE (2026-06-22).** Built
-  `src/crude_tanker_fv/drift_gate.py` + committed
-  `baselines/reconcile_baseline.yaml` (20 names: EV% / tool_NAV / position_band /
-  k_broker + ratifying commit + cause) + `tests/test_drift_gate.py` (17 tests; the
-  live gate fails the build on an unexplained >2pp EV%/NAV move, a band flip, or a
-  >0.05 k_broker SECOND-DIFFERENCE move — greps `decisions/<ticker>_log.md` for a
-  dated non-placeholder annotation; APPROX names tracked on self-consistency only,
-  no Δk gate) + `scripts/ratify_baseline.sh` (mandatory cause; writes the YAML,
-  human commits). Pareto-free by construction (k tracked on its change, never its
-  level); reuses `reconcile.APPROX_PNAV_TICKERS` single-sourced. Baseline ratified
-  from the current 2026-Q1 outputs @ d382bfd. **Standing care:** at each quarterly
-  refresh, expect the gate to flag the legitimate moves — annotate the material
-  ones, then `./scripts/ratify_baseline.sh "<Qx refresh>"` to re-anchor.
-- **Phase 3 — ex-post validation (Option C).**
-  - **(a) Value-premium proxy test — ✅ DONE (2026-06-22).** Pre-registered
-    Amendment 3 (committed `db9c4f6` *before* the runner — git-order proof), then
-    built `backtest/loaders_sharadar.py` (reads factor-portfolio's
-    `v2-validation-first` Sharadar cache CSVs directly — point-in-time via
-    `filed`-date, no 3.10+ cross-repo import) + `backtest/run_proxy_powered.py`,
-    reusing `evaluate_wide`/`loaders`. **Result: powered near-null** — sector-neutral
-    pooled P/B IC **+0.036, t 0.62, Nq 72** (2008–2025, 17 watchlist names incl. all
-    5 crude flagships + full product), bootstrap 95% CI [−0.079, +0.151], split-half
-    unstable (early +0.090 / late −0.018). Excludes a *moderate* within-sector value
-    premium, blind to a small one. The Amendment-2 null reproduced on the *right*
-    universe; still a PROXY (book≠NAV) so NOT an engine verdict. +3 backtest tests
-    (cache-guarded). Full write-up: `backtest/REPORT.md` Amendment 3.
-  - **(b) Engine as-of-quarter plumbing — ✅ DONE (2026-06-22).** Parametrized
-    `scenarios.quarter_keys(n, start_q, start_y)` + added `strip_start_from_asof`
-    (report quarter + 2 → q3_2026 for the live 2026-Q1) and an `asof_quarter`
-    parameter threaded `run_scenarios → _run_scenarios_for_ticker →
-    run_scenarios_watchlist`. `None` default = the live q3_2026 anchor, **byte-identical**
-    (315 tests green; pipeline 0 material deltas; drift gate 20/20 +0.0pp). A
-    non-default as-of with no vintage scenario curves **fails fast** naming the
-    missing keys. The single-point NAV/strip path was already as-of-correct via
-    `quarter` (positional strip), so only the scenario quarter-key labels needed
-    routing. +4 tests. **What 3c still needs:** the vintage scenario curves
-    (the data backfill) — the plumbing is ready to consume them.
-  - **(c) Powered engine EV% Test 1 — BACKFILL DONE 2026-06-23: Nq 5 → Nq 23, still
-    INCONCLUSIVE (not anti-predictive).** Sector-neutral pooled IC **−0.020 (t −0.30), CI
-    [−0.135, +0.100]** over the full 2019Q3–2026Q1 window (23 q); **+0.015 (t +0.22)** on the 2021+
-    clean subset (19 q). ~Zero either way; never near the FAIL threshold; tightened CI excludes a
-    *large* effect (still blind to small/moderate). **Universe = tanker+dry** (3 sectors; LNG/container
-    FLNG/CCEC/GSL excluded — no free vintaged marks → no look-ahead). Coverage contiguous 2021Q3→2026Q1
-    (Xclusiv VV; Intermodal TC all eras) + 2019–2020 (Allied Weekly VV **and** TC via Wayback). Value
-    spine: xclusiv-first precedence (Allied fallback = 2019–2020 only). The verdict held to <0.001 across
-    every build-out step (gaps, TC, 2019–2020, exclusions) → not an artifact of any single data choice.
-    Write-up: `backtest/REPORT.md` Test 1; CHANGELOG 2026-06-23. **Key correction:
-    the free broker archive effectively starts 2021, NOT 2018** (HSN 2019–2020 void; Capital Link
-    bot-gated) — 2019–2020 was recovered via the Wayback Machine (Allied Weekly, 4 q). Memory
-    `project_test1_archive_depth`. Earlier n=5 framing kept below for context:
-    Pre-registered (`backtest/PRE_REGISTRATION_TEST1.md`, committed before any result —
-    within-sector pooled IC of engine EV%-cheapness, FAIL only on a *significant
-    anti-predictive* result), data contract (`backtest/DATA_CONTRACT_TEST1.md`), harness
-    (`backtest/run_engine_test1.py`, unit-tested). The full chain runs on real data for 5
-    quarters (2024Q3, 2025Q1–Q4): PDF→harvester→factor→`build_vintage`→as-of engine→EV%→IC.
-    **Every signal-moving leg is vintaged point-in-time** — NAV vessel marks (xclusiv
-    geometry), 12M-TC-anchored scenario forward, price (Sharadar raw close), BS core
-    (cash/debt/shares, quarterly ARQ). Held/slow-rolled: working capital, newbuild & lease
-    lines, fleet ages. **Result: mean IC +0.005, t 0.02, Nq 5 → INCONCLUSIVE** — faithful but
-    underpowered by design (consistent with the powered proxy null, Amendment 3).
-
-    **⚠ HANDOFF — the moving parts and what's gitignored:**
-    - `shipping_harvester/` **source IS tracked** (since 2026-06-23) — incl. the xclusiv
-      geometry secondhand age-curve extractor, the spot `avg|average` markers, and
-      `_period_tc`. Only `shipping_harvester/data/` (the 62M crawl cache + broker PDFs) is
-      gitignored. The harvester is NOT in `src/` and runs only on `.venv310` (its own deps).
-    - **`.venv310`** (Python 3.12, gitignored, `uv`-provisioned) is the harvester env; the
-      engine + 315-suite stay on **`.venv` (3.9)**. Never run one on the other. A fresh clone
-      must re-provision `.venv310` (`uv venv --python 3.12 .venv310 && uv pip install --python
-      .venv310/bin/python -r shipping_harvester/requirements.txt`) and re-crawl the cache.
-    - Bridge artifacts (gitignored, regenerable): `backtest/vintages/_factor_marks.json`
-      (harvester→glue), `backtest/vintages/_bs_quarterly.csv` (Sharadar ARQ pull), the
-      `backtest/vintages/<q>/` trees. Committed glue: `build_vintage.py`,
-      `run_engine_test1.py`, `pull_bs_quarterly.py`.
-
-    **Reproduce the pipeline:** (1) `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python
-    -m shipping_harvester.cli run --since 2024Q1 --until 2026Q2 --capitallink`; (2) re-parse
-    cached xclusiv + export `_factor_marks.json` **filtering `broker!='allied'`** (Allied is one
-    stale 2024-02-20 issue, junk); (3) `set -a; source ~/.config/factor-portfolio.env; set +a;
-    PYTHONPATH=~/Projects/factor-portfolio/src .venv310/bin/python backtest/pull_bs_quarterly.py`;
-    (4) `PYTHONPATH=. .venv/bin/python -m backtest.build_vintage`; (5) `... -m
-    backtest.run_engine_test1`.
-
-    **Coverage reality (post-backfill 2026-06-23):** vessel_value covers **24 quarters** —
-    2019Q3/Q4 + 2020Q2/Q3 (Allied Weekly via Wayback, ~42 marks/q), 2021Q3–2023Q4 (Xclusiv flat-row,
-    ~42/q), **2024Q1–2026Q2 (Xclusiv grouped block-walk, ~40/q — the 2024Q1/Q2/Q4 + 2026 gaps are
-    closed)**. 23 usable signal quarters (2026Q2 has no forward return yet). VV single-vendor by era,
-    xclusiv-first precedence (Allied fallback = 2019–2020 only). TC: **Intermodal 'TC Rates' table, all
-    eras incl. 2025Q3+** (designated source), reconciled with Xclusiv prose 2021–2025Q2 (89 groups, ~16%
-    spread); **Allied Weekly 'period market TC rates' for 2019–2020**. LNG/container (FLNG/CCEC/GSL)
-    excluded from vintages (`build_vintage.UNCOVERED_SECTORS`) — no free vintaged marks → no look-ahead.
-
-    **NEXT (power polish, all bounded):**
-    1. **More TC reconciliation sources** (optional) — Banchero/Advanced/Fearnleys parsers for a 3rd
-       cross-broker TC opinion (Weber unavailable — Capital Link only; Banchero 2025 may need OCR).
-    2. **LNG/container coverage** (optional, to re-include FLNG/CCEC/GSL) — needs a vintaged LNG +
-       container value source (no free house tabulates it → a paid feed, e.g. Clarksons SIN).
-    3. Deeper history / dense weekly marks → the paid feed (Clarksons SIN / VesselsValue), the memo's
-       clean alternative. Lower-value: vintage working-capital/fleet-ages.
-       *(DONE 2026-06-23: grouped-era parser closed 2024/2026 VV gaps; Intermodal TC closed the 2025Q3+
-       gap + reconciliation; Allied TC recovered 2019–2020 TC; LNG/container excluded (no-look-ahead) +
-       xclusiv-first value-precedence fix.)*
-  - **(d) Test 2 — time-series reversion to fair value (NEW 2026-06-23).** The on-thesis test Test 1's
-    cross-sectional frame omits: does cheap-to-own-NAV+strip predict a name's OWN forward return.
-    `backtest/run_engine_timeseries.py`; `backtest/PRE_REGISTRATION_TEST2.md`. In-sample (275 name-q):
-    **per-name reversion IC +0.234, quarter-block 95% CI [+0.015,+0.413], t 2.30, p 0.018, 12/12 names
-    positive**; de-meaned +0.008 (no name-selection); cycle-timing +0.191. Nominally significant +
-    on-thesis, but **exploratory/post-hoc + one autocorrelated cycle** → a HYPOTHESIS, not a verdict.
-    **STANDING:** pre-registered confirmation runs on data not yet used — re-run as quarters accrue
-    (evaluate at +8q, ~end-2028) **or** on a multi-cycle paid feed (Clarksons SIN/VesselsValue, ~2008+);
-    EDGE/FAIL/INCONCLUSIVE rule locked. Net read: not a name-ranker (Test 1 null), plausibly a
-    cycle/value timer (Test 2), unproven until out-of-sample/multi-cycle.
-- **§16 overlay-ledger row for §12 — ✅ DONE (2026-06-22).** `overlay_ledger.py`
-  now auto-derives a **§12.6** row per gated name from the COMPUTED
-  dividend-window classification (`dividend_window.build_rows`), mirroring the §15
-  auto-population. NAT renders as a *neutral* "TRIM stands (value trap), no FV
-  change" row (Q*>strip vs H=8.0); the stale hand-written NAT "treat FV as a NAV
-  floor" §12 row (which contradicted the computed TRIM-stands) is removed and SBLK
-  relabelled §12.2. Closes audit E-2 ("ledger is documentation, not a control")
-  for this overlay type — the row can no longer drift from the diagnostic. +3 tests.
-- **Tier-4 structural backlog (manage/document — owner judgment, detail per item
-  in `outputs/METHODOLOGY_AUDIT_2026-06-22.md` §A–G):** cycle step-band vs
-  logistic (C-1); cross-sector anchor commensurability + suppress cross-sector
-  pair-trades (C-2); marks statistical thinness / age-5 extrapolation / duplicate
-  prints (B-1/B-2); k_broker band vs live (B-3); the 11% rate calibration (B-4);
-  §15 haircut derivation rule (E-1); data staleness — frozen container feed +
-  APPROX names (F).
-
-## Active backlog (operational — predates this sprint, still live)
-
-### Near-term
-- **GNK / Diana tender — RESOLVES Jun-26.** A one-time check is SCHEDULED
-  (`gnk-diana-tender-jun26-check`, ~Jun-26 8pm ET): read the tender outcome + any
-  board decision on the non-binding $27.34 proposal and re-frame GNK (deal-arb →
-  NAV-discount on a lapse; expect reversion toward ~0.70× Pareto NAV). Then
-  annotate `decisions/gnk_log.md`.
-- **FFA feed DORMANT since 2026-06-12** (source-side — the single poster stopped
-  posting the parseable grid; NOT a pipeline fault; the staleness alarm fires
-  weekly). Action is upstream: check the Rocket.Chat channel / consider an
-  alternative FFA source (Baltic settlements, MB weekly). Only the ffa_vs_strip
-  diagnostic is stale meanwhile — no live valuation input is affected.
-- **Weekly /news-pull** — resume the Saturday cadence (Jun-21 digest done).
+## Standing operational threads (carry forward)
 
 ### Q2-refresh carry-forwards (earnings calendar + preflight §0 drive timing)
-- **Early cluster Jul-28 → Aug-6:** STNG/ASC/TNK/CCEC, then ECO/GNK/GSL/CMDB/
-  DHT/INSW/SBLK.
-- **BRUT (H1, Aug-13):** confirm the Pareto-estimate balance sheet against the
-  first issuer report; complete the §15 screen (needs the admission prospectus);
-  refine the NB cohorts.
-- **CAPT (Q2):** verify the Jun-16 sponsor VLCC deal terms/funding (§15 tripwire).
-- **MPCC (Aug-26):** issuer fleet list → built years + NB delivery quarters (the
-  `years_to_delivery` are deck estimates); 3 sale-print prices; NAV anchor.
-- **GSL (Aug-4/6):** Series B prefs post-ATM; the Jun-26 $917M NB order's
-  charterers + delivery schedule (then apply §9.6 to GSL); 20-F board rights.
-- **TEN (Sep, H1):** TCM fee-load (§15 anchor; the +36% dividend argues the 30%
-  haircut down — feeds the §12.6 window test too); ten_log Q2 kit deltas.
-  **CMDB:** the Astros sale price.
+- **Early cluster Jul-28 → Aug-6:** STNG/ASC/TNK/CCEC, then ECO/GNK/GSL/CMDB/DHT/INSW/SBLK.
+  Now also **CMBT** (ex-Euronav reports ~mid-Aug; H1 basis) and **SB** (early-Aug 6-K) join the
+  dry-bulk refresh cycle.
+- **BRUT (H1, Aug-13):** first issuer report vs the Pareto-estimate balance sheet; §15 screen.
+- **CAPT (Q2):** verify the Jun-16 sponsor VLCC deal terms (§15 tripwire).
+- **MPCC (Aug-26):** issuer fleet list → built years + NB delivery quarters; sale prints.
+- **GSL (Aug-4/6):** Series B prefs post-ATM; the Jun-26 $917M NB order (apply §9.6).
+- **TEN (Sep, H1):** TCM fee-load (§15 anchor); ten_log Q2 kit deltas. **CMDB:** Astros sale.
 
 ### Standing threads
-- **OWNER ACTION pending:** ratify-or-revise the A1 horizon (wired as 10 strip
-  quarters = end-2028).
-- **MB weeklies:** container current-rate refresh (owner-gated); Pana anchor
-  flagged structurally low; LNG weekly not yet delivered.
+- **FFA feed DORMANT since 2026-06-12** (source-side — the single poster stopped). Only the
+  ffa_vs_strip diagnostic is stale; no live valuation input affected. Action is upstream.
+- **Weekly /news-pull** — resume the Saturday cadence.
+- **OWNER ACTION pending:** ratify-or-revise the A1 horizon (10 strip quarters = end-2028).
+- **MB weeklies:** container current-rate refresh (owner-gated); Pana anchor flagged
+  structurally low; LNG weekly not yet delivered.
 - **Hormuz weight-revisit trigger** — standing (trigger NOT met).
-- **§5 ask-tier verification** — confirm git push / watchlist-edit / fetch_links
-  / curl actually PROMPT in an interactive session.
-- **Deferred by owner:** /news-pull agent-half orchestration; Task-3 weight
-  adjuster; demand-destruction overlay; FFA Stage 2.
+- **Deferred by owner:** /news-pull agent-half orchestration; Task-3 weight adjuster;
+  demand-destruction overlay; FFA Stage 2.
+
+### Methodology-soundness remediation — Tier-4 backlog (manage/document; owner judgment)
+Per `outputs/METHODOLOGY_AUDIT_2026-06-22.md` §A–G: cycle step-band vs logistic (C-1);
+cross-sector anchor commensurability (C-2); marks statistical thinness / age-5 extrapolation
+(B-1/B-2); k_broker band vs live (B-3); the 11% rate calibration (B-4); §15 haircut derivation
+rule (E-1); data staleness (frozen container feed + APPROX names, F). Phase 2 drift gate is
+DONE; **standing care: at each quarterly refresh expect the gate to flag legitimate moves —
+annotate the material ones, then `./scripts/ratify_baseline.sh "<Qx refresh>"` to re-anchor.**
 
 ## Backtest (reference, not a gate)
-Crude-subsector edge backtest in `backtest/` (`REPORT.md`): no *statistically
-demonstrated* cross-sectional edge. The real-P/NAV tests are inconclusive by design
-(~6q). **Two powered P/B-proxy tests now exist:** Amendment-2 (N=31, 9 names, no
-DHT/FRO/ECO/product) and **Amendment-3 (N=72, the actual 17-name watchlist incl. all
-crude flagships + product; sector-neutral IC +0.036/t 0.62, CI [−0.079,+0.151])** —
-both exclude a *moderate* within-sector value premium. Both are *book* proxies, so they
-bound the value premise, NOT *this* engine's market-NAV marks. The powered **engine** EV%
-test (Phase 3 b/c) is still the only read that can validate/refute the marks
-(`outputs/test1_data_feasibility_memo_2026-06-22.md`). No longer gates development.
+`backtest/REPORT.md`: no statistically demonstrated cross-sectional edge. Test 1 (engine EV%,
+Nq 23, IC −0.020, INCONCLUSIVE) and the powered P/B-proxy tests (Amendment-2 N=31 / Amendment-3
+N=72, both exclude a moderate within-sector value premium on a book proxy) do NOT gate
+development. **Test 2** (time-series reversion to fair value, in-sample IC +0.234, p 0.018) is a
+HYPOTHESIS — pre-registered out-of-sample/multi-cycle confirmation runs at +8q (~end-2028) or on
+a paid feed. Net: not a name-ranker (Test 1 null), plausibly a cycle/value timer (Test 2), unproven.
 
 ## Verification gate (run before any handoff / Week-close)
-- `PYTHONPATH=src .venv/bin/python -m pytest -q` — main suite, must stay green (**315** at
-  2026-06-23; includes the Phase 2 drift gate, which can legitimately go red on accepted
-  drift — annotate + re-ratify rather than revert).
-- `PYTHONPATH=. .venv/bin/python -m pytest backtest/ -q` — backtest suite (**13**; separate,
-  `testpaths=["tests"]` excludes it from the main run).
-- (Test-1 tooling, optional) `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python -m
-  pytest -q` — harvester (**57**, the gitignored vendored tool).
+- `PYTHONPATH=src .venv/bin/python -m pytest -q` — main suite, **334** at 2026-06-28 (includes
+  the Phase 2 drift gate, which can legitimately go red on accepted drift — annotate + re-ratify).
+- `PYTHONPATH=. .venv/bin/python -m pytest backtest/ -q` — backtest (**13**; separate).
+- (optional) `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python -m pytest -q` — **57**.
 - `python -m crude_tanker_fv.pipeline 2026-Q1` runs clean.
-- `python -m crude_tanker_fv.reconcile --all` — SANITY all OK/n-a-APPROX; annotate
-  any >2pp drift / band flip in `decisions/<ticker>_log.md`.
-- Clean git state; push `origin main`. **Note:** `.venv310/`, `shipping_harvester/`,
-  `backtest/vintages/*/`, and `backtest/vintages/_*.{json,csv}` are gitignored by design —
-  a clean `git status` is expected even with the Test-1 tooling present (see 3(c) ⚠ HANDOFF).
+- `python -m crude_tanker_fv.reconcile --all` — SANITY all OK/n-a-APPROX; annotate >2pp drift.
+- Clean git state; push `origin main`. `.venv310/`, `shipping_harvester/data/`,
+  `backtest/vintages/*/` are gitignored by design. NOTE: every pipeline run auto-prepends a
+  model-state entry to ALL `decisions/<t>_log.md` and regenerates `outputs/*` — commit that
+  churn deliberately (it is expected, mostly "+0.0pp no material moves").
