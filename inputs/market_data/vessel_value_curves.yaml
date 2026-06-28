@@ -79,24 +79,37 @@ classes:
     scrap_25yr: 10000000
     scrubber_premium: 0
     eco_premium_pct: 0.0
+  # dwt-scaled (METHODOLOGY §11.7.x): anchors are at the 180k STANDARD-Capesize
+  # baseline; per-vessel value scales by dwt/180000, so a 210k Newcastlemax marks
+  # ~1.17x a 180k Capesize (same $/dwt, size only). The 5yr/10yr are overridden by
+  # the dwt-normalized transaction fit (cape.yaml). newbuild/scrap re-based to a
+  # clean 180k Capesize (NMax newbuild scales to ~$86M; confirm vs an NMax-NB quote).
   Cape:
     dwt: 180000
-    newbuild: 78000000
+    dwt_scaled: true
+    newbuild: 74000000
     five_year_benchmark: 62000000
     ten_year_benchmark: 45000000
-    scrap_25yr: 14000000
+    scrap_25yr: 13000000
     scrubber_premium: 2500000
     eco_premium_pct: 0.05
+  # dwt-scaled (§11.7.x): anchors at the 82k Kamsarmax baseline; a 76k Panamax
+  # marks ~0.93x, an 84k Kamsarmax ~1.02x. Sample is Kamsarmax-dominated so the
+  # anchors are already ~baseline; the fit dwt-normalizes prints (pana.yaml).
   Pana:
     dwt: 82000
+    dwt_scaled: true
     newbuild: 38000000
     five_year_benchmark: 32000000
     ten_year_benchmark: 24000000
     scrap_25yr: 7500000
     scrubber_premium: 2000000
     eco_premium_pct: 0.05
+  # dwt-scaled (§11.7.x): anchors at the 62k baseline; a 56k Supramax marks
+  # ~0.90x, a 64k Ultramax ~1.03x. The fit dwt-normalizes prints (supra_ultra.yaml).
   Supra-Ultra:
     dwt: 62000
+    dwt_scaled: true
     newbuild: 38000000
     five_year_benchmark: 33000000
     ten_year_benchmark: 25000000

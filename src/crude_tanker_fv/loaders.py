@@ -186,6 +186,7 @@ def load_market_data(inputs_dir: Path = INPUTS_DIR) -> MarketData:
             eco_premium_pct=(
                 float(c["eco_premium_pct"]) if c.get("eco_premium_pct") is not None else 0.05
             ),
+            dwt_scaled=bool(c.get("dwt_scaled", False)),
         )
 
     def _scalar_map(filename: str, top_key: str) -> dict:

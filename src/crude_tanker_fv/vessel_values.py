@@ -71,6 +71,13 @@ def vessel_market_value(
     yard haircut) — used to report NAV both with and without the discount.
     """
     value = value_for_age(curve, vessel.age)
+    # dwt-scaling (dry-bulk collapsed classes, METHODOLOGY §11.7.x): the curve
+    # anchors are at curve.dwt (baseline); scale the base hull value by the
+    # vessel's actual size. Applied to the hull value BEFORE the multiplicative
+    # eco/yard adjustments and the flat scrubber add. Flat-per-class curves
+    # (dwt_scaled False) are unaffected.
+    if curve.dwt_scaled and curve.dwt and vessel.dwt:
+        value *= vessel.dwt / curve.dwt
     if vessel.eco:
         value *= 1.0 + curve.eco_premium_pct
     if yard_discounts and vessel.yard in yard_discounts:

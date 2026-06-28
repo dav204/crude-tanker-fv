@@ -9,6 +9,37 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-27T23:38:06+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $23.57
+- Single-point FV: $23.96
+- Scenario PW FV: $24.02 (EV +1.9%)
+- NAV / share: $24.64
+- Position: **HOLD (fairly valued)**
+- Broker spread: +9.1pp (k_broker 1.08)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- ⚑ broker spread +6.1pp
+- ⚑ NAV/sh -6.2%
+- Δprice: no change | Δsingle FV: -5.3% | Δscenario FV: -5.5% | ΔNAV: -6.2% | Δspread: +6.1pp
+
+**Decision: ACCEPTED — dry-bulk dwt-scaling (METHODOLOGY §11.7.x).** The Cape / Pana /
+Supra-Ultra value curves are now dwt-scaled: anchors at a clean size baseline, the
+transaction fit dwt-normalizes prints to that baseline, and each hull scales by its own
+dwt. GNK's NAV falls 6.2% ($26.27→$24.64) because GNK is **standard-Capesize/Supramax-
+heavy** (17 Capesize at 172-182k + 25 Supra-Ultra; only 2 of 19 Cape-class are 208k
+Newcastlemax). The old collapsed "Cape"/"Supra-Ultra" curves were pulled UP by the
+Newcastlemax/Ultramax-rich transaction sample, over-valuing GNK's smaller standard
+hulls; the dwt-normalized fit corrects them DOWN to their own transaction level (180k
+Capesize 5yr ~$63M vs the old NMax-blended ~$72M). Gap −4.8%→−10.7%, SANITY OK — a
+documented mark-driven position (the tool now marks standard Capesize/Supramax at the
+transaction-grounded level, below Pareto's quotes). Baseline re-ratified.
+
+---
+
 ## 2026-06-27T00:31:14+00:00 — Pipeline run (auto)
 
 **Model state:**

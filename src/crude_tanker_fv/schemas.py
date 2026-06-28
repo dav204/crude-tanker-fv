@@ -147,6 +147,12 @@ class VesselValueCurve:
     scrap_25yr: float           # age 25
     scrubber_premium: float = 0.0
     eco_premium_pct: float = 0.05
+    # When True, per-vessel value scales by vessel.dwt / curve.dwt (the curve's
+    # anchors are read at the baseline dwt). Used for dry-bulk collapsed classes
+    # where intra-class size variation is material (Cape: Newcastlemax ~210k vs
+    # Capesize ~180k — same $/dwt, different size). Default False = flat per-class
+    # (the crude/product/lng/container convention). METHODOLOGY §11.7.x.
+    dwt_scaled: bool = False
 
 
 @dataclass

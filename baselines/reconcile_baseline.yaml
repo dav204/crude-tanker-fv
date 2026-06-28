@@ -2,11 +2,12 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-06-27T00:31:14+00:00'
-  ratified_commit: 357c74e
+  ratified_at: '2026-06-27T23:38:06+00:00'
+  ratified_commit: b1c07db
   quarter: 2026-Q1
-  cause: CMBT consensus_pnav correction — Pareto-anchored 0.74x (was 0.90 APPROX placeholder); broker
-    NAV $17.73→$20.14, gap −13.9%→−24.2%, SANITY n/a→OK; de-APPROX'd
+  cause: dry-bulk dwt-scaling (§11.7.x) — Cape/Pana/Supra-Ultra value curves scale by dwt; standard-Capesize/Supramax
+    marks correct down to transaction level (GNK -6.2%, CMDB -3.6%), NMax-heavy flat (CMBT +0.1%, SBLK
+    +1.3%)
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -42,17 +43,17 @@ names:
     sector: lng
   CMBT:
     pnav_basis: pareto
-    ev_pct: 11.03
-    tool_nav: 15.26
+    ev_pct: 10.94
+    tool_nav: 15.27
     position_band: BUY (undervalued)
     k_broker: 1.14
     sector: crude
   CMDB:
     pnav_basis: approx
-    ev_pct: 20.93
-    tool_nav: 32.49
+    ev_pct: 16.94
+    tool_nav: 31.33
     position_band: BUY (undervalued)
-    k_broker: 0.85
+    k_broker: 0.88
     sector: dry_bulk
   DHT:
     pnav_basis: pareto
@@ -84,10 +85,10 @@ names:
     sector: crude
   GNK:
     pnav_basis: pareto
-    ev_pct: 7.81
-    tool_nav: 26.27
-    position_band: BUY (undervalued)
-    k_broker: 1.03
+    ev_pct: 1.92
+    tool_nav: 24.64
+    position_band: HOLD (fairly valued)
+    k_broker: 1.08
     sector: dry_bulk
   GSL:
     pnav_basis: approx
@@ -126,10 +127,10 @@ names:
     sector: crude
   SBLK:
     pnav_basis: pareto
-    ev_pct: 5.58
-    tool_nav: 26.57
+    ev_pct: 6.86
+    tool_nav: 26.91
     position_band: BUY (undervalued)
-    k_broker: 1.1
+    k_broker: 1.09
     sector: dry_bulk
   STNG:
     pnav_basis: pareto

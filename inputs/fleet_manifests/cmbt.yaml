@@ -69,8 +69,11 @@ vessels:
   - {id: CMBT_CAPE_2013, class: Cape, dwt: 180000, age: 13.25, scrubber: false, eco: false, charter_status: spot, count: 1}
   - {id: CMBT_CAPE_2014, class: Cape, dwt: 181000, age: 12.25, scrubber: false, eco: false, charter_status: spot, count: 11}
   - {id: CMBT_CAPE_2015, class: Cape, dwt: 181000, age: 11.25, scrubber: false, eco: true,  charter_status: spot, count: 8}
-  - {id: CMBT_CAPE_2016, class: Cape, dwt: 195000, age: 10.25, scrubber: false, eco: true,  charter_status: spot, count: 7}
-  - {id: CMBT_CAPE_2017, class: Cape, dwt: 195000, age: 9.25,  scrubber: false, eco: true,  charter_status: spot, count: 4}
+  # 2016/2017 cohorts split NMax vs Capesize (dwt is now load-bearing — §11.7.x dwt-scaling)
+  - {id: CMBT_CAPE_2016_nmax, class: Cape, dwt: 211000, age: 10.25, scrubber: false, eco: true, charter_status: spot, count: 2}
+  - {id: CMBT_CAPE_2016_cape, class: Cape, dwt: 181000, age: 10.25, scrubber: false, eco: true, charter_status: spot, count: 5}
+  - {id: CMBT_CAPE_2017_nmax, class: Cape, dwt: 208000, age: 9.25,  scrubber: false, eco: true, charter_status: spot, count: 1}
+  - {id: CMBT_CAPE_2017_cape, class: Cape, dwt: 181000, age: 9.25,  scrubber: false, eco: true, charter_status: spot, count: 3}
   - {id: CMBT_CAPE_2018, class: Cape, dwt: 180500, age: 8.25,  scrubber: false, eco: true,  charter_status: spot, count: 5}
   - {id: CMBT_CAPE_2019, class: Cape, dwt: 208400, age: 7.25,  scrubber: false, eco: true,  charter_status: spot, count: 2}
   - {id: CMBT_CAPE_2020, class: Cape, dwt: 209000, age: 6.25,  scrubber: false, eco: true,  charter_status: spot, count: 10}

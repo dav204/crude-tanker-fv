@@ -1,77 +1,77 @@
 # Cape secondhand sale prints — METHODOLOGY.md sections 3.1, 9.9, 11.7
-# "Cape" class collapses Capesize + Newcastlemax per §11.7.1 (SBLK class
-# collapse). Used by the transaction-anchor solver (transactions.py) to
-# recalibrate 5yr and 10yr anchors. Newbuild + old-age legs untouched.
+# "Cape" class spans Capesize (~170-182k dwt) + Newcastlemax (~207-210k dwt).
+# As of 2026-06-27 the Cape curve is **dwt-scaled** (METHODOLOGY §11.7.x): the
+# curve anchors are at the 180,000 dwt baseline, the fit below NORMALIZES every
+# print to 180k (price × 180000/dwt) before solving the 5yr/10yr anchors, and
+# vessel_market_value scales each hull back up by its own dwt. So a 210k
+# Newcastlemax and a 180k Capesize differ by SIZE only (they trade at the same
+# $/dwt — the clean Genco pair: 182k Cape $63.55M = $349/dwt vs 208k NMax
+# $72.75M = $350/dwt). Each print therefore carries a `dwt:` field used by the
+# normalization; missing dwt falls back to the baseline (no normalization).
 #
 # SOURCES: Pareto Shipping Daily archive (broker S&P column) for 2025-2026
 # disclosed sales; CMB.TECH (Battersea/Belgravia), 2020 Bulkers (3-vessel
-# package sold to unaffiliated third party), Norden (Nord Palladium),
-# Bocimar (Mineral Hiroshige), Oldendorff (Luise Oldendorff), EPS (Mount
-# Austin/Song), Enesel (Thalassini Agatha), Genco (Imabari Cape
-# acquisition), 3x Mineral Imabari (Edo/Hokusai/Utamaro). Star Scarlett
-# (SBLK Q1 2026 6-K) is documented out-of-fit because the SBLK
-# disclosure aggregated Scarlett+Mariella at $46.4M without per-vessel
-# split — usable as a sanity reference, not as a fit point.
+# package), Norden (Nord Palladium), Bocimar (Mineral Hiroshige), Oldendorff
+# (Luise Oldendorff), EPS (Mount Austin/Song), Enesel (Thalassini Agatha), Genco
+# (Imabari Cape + the Stars/Valkyrie/Courageous Q1 2026 10-Q Note 5), 3x Mineral
+# Imabari (Edo/Hokusai/Utamaro). Star Scarlett (SBLK) documented out-of-fit (the
+# Scarlett+Mariella aggregate had no per-vessel split — no back-solve).
 #
-# CALIBRATION CHECK (existing curve at relevant ages, prior to fit):
-#   age 5  curve = $62.0M (existing) vs cluster of $69.7-76.25M prints → curve −10-19%
-#   age 10 curve = $45.0M (existing) vs cluster of $51-55M Mineral/Oldendorff → curve −12-18%
-#   age 15 curve = $? (interp 5↔10) ~$33M  vs cluster of $25-29M → curve +10-15%
-# Curve runs CONSERVATIVE at age 5-10 (modern eco/scrubber nmaxes commanding
-# premiums) and is ROUGHLY CALIBRATED at age 15-16 (scrubber Japanese
-# capes for $24-29M). Expected fit impact: UPWARD recalibration of 5yr
-# and 10yr anchors, with the 10yr clamp [$21M, $74.1M] likely binding
-# the 5yr ceiling near NB×0.95 = $74.1M.
-#
-# CLASS-COLLAPSE NOTE: prints span Capesize (170-180k dwt) and Newcastlemax
-# (200-210k dwt). Newcastlemax commands a modest premium per-tonne but
-# Pareto's commentary explicitly treats them as a single market segment
-# in S&P discussions (see e.g. 2026-04-21 GNK Imabari Cape vs the Mineral
-# nmaxes — all priced off the same curve with a Japanese-yard premium).
-# v1 keeps them unified per §11.7.1; if the empirical bifurcation widens,
-# split out Newcastlemax as its own class later.
+# CALIBRATION CHECK (dwt-NORMALIZED to 180k, prior to fit):
+#   the modern NMax prints ($69.7-76.25M @ 207-210k) normalize to ~$60-66M @ 180k,
+#   converging with the 182k Capesize prints ($63.55-65M → ~$62-64M @ 180k) — i.e.
+#   the same $/dwt. The fit lands the 5yr baseline near $63M (180k Capesize), and a
+#   210k NMax then scales to ~$73M. (Pre-dwt-scaling the blended fit sat at ~$72M,
+#   which over-valued standard Capesize and was ~right only for NMax.)
 class: Cape
 as_of: 2026-06-09
 prints:
   # ---- IN-WINDOW (drive the fit), sorted by age ----
   - date: 2025-12-15
     vessel_age_at_sale: 5
+    dwt: 208000
     sale_price_usd_m: 73.5
     source: Pareto Shipping Daily 2025-12-17 — broker reports
     quality_flag: standard
     notes: Atlantic Lion (2020-built newcastlemax). Reported as a firm price for a modern eco hull.
   - date: 2026-01-09
     vessel_age_at_sale: 5
+    dwt: 210000
     sale_price_usd_m: 76.25
     source: Pareto Shipping Daily 2026-01-09 — Norden disclosure
     quality_flag: standard
     notes: Nord Palladium (2021-built newcastlemax). ~10% above Pareto generic quotes.
   - date: 2025-09-26
     vessel_age_at_sale: 5
+    dwt: 208000
     sale_price_usd_m: 69.67
     source: Pareto Shipping Daily 2025-09-26 — 2020 Bulkers disclosure
     quality_flag: standard
     notes: Bulk Shenzen (2020-built nmax). Sold to "an unaffiliated third party" in 3-vessel package ($209M aggregate / 3 = $69.67M average). Delivery Q1'26. Pareto cited "value ~15% above our NAV quote."
   - date: 2025-09-26
     vessel_age_at_sale: 6
+    dwt: 208000
     sale_price_usd_m: 69.67
     source: Pareto Shipping Daily 2025-09-26 — 2020 Bulkers disclosure
     quality_flag: standard
     notes: Bulk Sandefjord (2019-built nmax). 2020B 3-vessel package, $209M aggregate. Delivery Q1'26.
   - date: 2025-09-26
     vessel_age_at_sale: 6
+    dwt: 208000
     sale_price_usd_m: 69.67
     source: Pareto Shipping Daily 2025-09-26 — 2020 Bulkers disclosure
     quality_flag: standard
     notes: Bulk Santiago (2019-built nmax). 2020B 3-vessel package, $209M aggregate. Delivery Q1'26.
   - date: 2025-06-20
     vessel_age_at_sale: 6
+    dwt: 209000
     sale_price_usd_m: 64.0
     source: Pareto Shipping Daily 2025-06-20 — broker reports
     quality_flag: standard
     notes: Mineral Hiroshige (2019-built nmax 209k dwt, Bocimar). Pareto flagged as "solid datapoint for 2019-built newcastlemax".
   - date: 2026-04-16
     vessel_age_at_sale: 7
+    dwt: 182000
     sale_price_usd_m: 65.0
     source: GNK Q1 2026 10-Q (accession 0001104659-26-056337) — subsequent-events note; first reported Pareto Shipping Daily 2026-04-21
     quality_flag: standard
@@ -80,114 +80,133 @@ prints:
   #      from the Q1 2026 10-Q Note 5 + one fresh Pareto print ----
   - date: 2025-11-15
     vessel_age_at_sale: 5
+    dwt: 208000
     sale_price_usd_m: 72.75
     source: GNK Q1 2026 10-Q Note 5 — 2x Newcastlemax purchase agreement
     quality_flag: standard
     notes: Genco Stars and Stripes (2020-built 208,000 dwt scrubber-fitted Newcastlemax). 2-vessel package $145.5M total ($72.75M each); delivered Mar 5 2026. Sits right on the Atlantic Lion ($73.5M, Dec-25) and Nord Palladium ($76.25M, Jan-26) modern-nmax cluster.
   - date: 2025-11-15
     vessel_age_at_sale: 5
+    dwt: 208000
     sale_price_usd_m: 72.75
     source: GNK Q1 2026 10-Q Note 5 — 2x Newcastlemax purchase agreement
     quality_flag: standard
     notes: Genco Valkyrie (2020-built 208,000 dwt scrubber-fitted Newcastlemax). Sister in the $145.5M package; delivered Mar 24 2026.
   - date: 2025-07-10
     vessel_age_at_sale: 5
+    dwt: 182000
     sale_price_usd_m: 63.55
     source: GNK Q1 2026 10-Q Note 5 — Capesize purchase agreement
     quality_flag: standard
-    notes: Genco Courageous (2020-built 182,000 dwt scrubber-fitted Capesize). $63.55M; delivered Oct 15 2025. Standard-cape (not nmax) datapoint at age 5 — nmax premium over standard cape visible vs the $72.75M sisters.
+    notes: Genco Courageous (2020-built 182,000 dwt scrubber-fitted Capesize). $63.55M; delivered Oct 15 2025. Standard-cape (not nmax) datapoint at age 5 — same $/dwt as the $72.75M 208k sisters ($349 vs $350/dwt), confirming the size-only model.
   - date: 2026-06-05
     vessel_age_at_sale: 17
+    dwt: 180000
     sale_price_usd_m: 30.0
     source: Pareto Shipping Daily 2026-06-05 — Maran disclosure
     quality_flag: standard
     notes: Maran 2x 2008/09-built SWS (Chinese yard) capesizes, $60M en-bloc ($30M each) vs Pareto quote $55M. This row is the 2009-built (age 17, in-window); the 2008-built sister (age 18) is out-of-window — see documentation section.
   - date: 2025-10-06
     vessel_age_at_sale: 6
+    dwt: 208000
     sale_price_usd_m: 65.5
     source: Pareto Shipping Daily 2025-10-06 — broker reports
     quality_flag: standard
     notes: 2019-built scrubber-fitted Qingdao newcastlemax sold to Chinese buyers. Pareto noted below the ~$69.5M 2020B package level but above their $63.5M generic (VV $63.1M). Surfaced 2026-06-10 during the Pana duplicate disambiguation (sentence-splitter miss in the original scan).
   - date: 2025-08-15
     vessel_age_at_sale: 9
+    dwt: 207000
     sale_price_usd_m: 55.0
     source: Pareto Shipping Daily 2025-08-18 — broker reports
     quality_flag: standard
     notes: Mineral Utamaro (2016-built Imabari nmax 207k dwt). 3-vessel en-bloc $165M / 3 = $55M (Edo/Hokusai/Utamaro). Staggered Nov'25-Apr'26 delivery. Japanese-yard premium acknowledged. None had scrubbers.
   - date: 2025-08-15
     vessel_age_at_sale: 10
+    dwt: 207000
     sale_price_usd_m: 55.0
     source: Pareto Shipping Daily 2025-08-18 — broker reports
     quality_flag: standard
     notes: Mineral Edo (2015-built Imabari nmax 207k dwt). 3-vessel en-bloc $165M / 3 = $55M.
   - date: 2025-08-15
     vessel_age_at_sale: 10
+    dwt: 207000
     sale_price_usd_m: 55.0
     source: Pareto Shipping Daily 2025-08-18 — broker reports
     quality_flag: standard
     notes: Mineral Hokusai (2015-built Imabari nmax 207k dwt). 3-vessel en-bloc $165M / 3 = $55M.
   - date: 2025-05-22
     vessel_age_at_sale: 10
+    dwt: 208000
     sale_price_usd_m: 51.0
     source: Pareto Shipping Daily 2025-05-22 — Oldendorff disclosure
     quality_flag: standard
     notes: Luise Oldendorff (2015-built scrubber-fitted nmax). Sold to HMM (Korea). Pareto cited "more than 10% above our generic quotes."
   - date: 2025-09-19
     vessel_age_at_sale: 12
+    dwt: 180000
     sale_price_usd_m: 37.0
     source: Pareto Shipping Daily 2025-09-19 — broker reports
     quality_flag: standard
     notes: 2013-built Japanese-yard capesize. Pareto generic quote was $34M; ~10% premium for high-quality build deemed justified.
   - date: 2025-05-22
     vessel_age_at_sale: 14
+    dwt: 180000
     sale_price_usd_m: 29.0
     source: Pareto Shipping Daily 2025-05-22 — Enesel disclosure
     quality_flag: standard
     notes: Thalassini Agatha (2011-built scrubber-fitted capesize). Sold to Asian buyers (some reports cite Hayfin).
   - date: 2025-09-15
     vessel_age_at_sale: 14
+    dwt: 180000
     sale_price_usd_m: 25.0
     source: Pareto Shipping Daily 2025-09-15 — broker reports
     quality_flag: standard
     notes: 2x 2011-built Japanese capesizes sold en-bloc $50M with Q4'26 delivery → $25M each. Recorded once (single fit datapoint; doubling would double-weight the en-bloc spread).
   - date: 2025-03-12
     vessel_age_at_sale: 15
+    dwt: 179000
     sale_price_usd_m: 27.5
     source: Pareto Shipping Daily 2025-03-12 — EPS disclosure
     quality_flag: standard
     notes: Mount Austin (2010-built scrubber-fitted capesize 179k dwt, Eastern Pacific Shipping). Pareto headline — "EPS selling 15 year old capes in line with our quotes".
   - date: 2025-03-12
     vessel_age_at_sale: 15
+    dwt: 179000
     sale_price_usd_m: 27.0
     source: Pareto Shipping Daily 2025-03-12 — EPS disclosure
     quality_flag: standard
     notes: Mount Song (2010-built scrubber-fitted capesize 179k dwt, EPS sister to Mount Austin).
   - date: 2025-09-15
     vessel_age_at_sale: 15
+    dwt: 180000
     sale_price_usd_m: 26.5
     source: Pareto Shipping Daily 2025-09-15 — broker reports
     quality_flag: standard
     notes: 2010-built Japanese cape heading to drydock. Sold on auction to Chinese buyers. Pareto generic quote $23.5M, so this print is +13% above.
   - date: 2025-10-02
     vessel_age_at_sale: 16
+    dwt: 180000
     sale_price_usd_m: 24.8
     source: Pareto Shipping Daily 2025-10-02 — CMB.TECH (Bocimar) disclosure
     quality_flag: standard
     notes: Battersea (2009-built scrubber-fitted capesize, CMB.TECH/Bocimar).
   - date: 2025-10-02
     vessel_age_at_sale: 16
+    dwt: 180000
     sale_price_usd_m: 24.8
     source: Pareto Shipping Daily 2025-10-02 — CMB.TECH (Bocimar) disclosure
     quality_flag: standard
     notes: Belgravia (2009-built scrubber-fitted capesize, CMB.TECH sister to Battersea).
   - date: 2025-10-21
     vessel_age_at_sale: 16
+    dwt: 180000
     sale_price_usd_m: 25.5
     source: Pareto Shipping Daily 2025-10-21 — broker reports
     quality_flag: standard
     notes: Cape Aqua (2009-built capesize). Pareto cited "spot on VV ($25.4M) and ahead of us at $23M".
   - date: 2025-10-22
     vessel_age_at_sale: 16
+    dwt: 180000
     sale_price_usd_m: 26.2
     source: Pareto Shipping Daily 2025-10-22 — broker reports
     quality_flag: standard
@@ -203,24 +222,28 @@ prints:
   # split.
   - date: 2025-10-21
     vessel_age_at_sale: 19
+    dwt: 208000
     sale_price_usd_m: 25.0
     source: Pareto Shipping Daily 2025-10-21 — broker reports
     quality_flag: standard
     notes: outside [3,17] window. Samc Mg (2006-built newcastlemax, Imabari). Strong datapoint ahead of 20Y survey — Imabari premium acknowledged. Confirms old-age leg ($14M scrap+) is conservative.
   - date: 2026-03-02
     vessel_age_at_sale: 20
+    dwt: 208000
     sale_price_usd_m: 26.0
     source: Pareto Shipping Daily 2026-03-02 — broker reports
     quality_flag: standard
     notes: outside [3,17] window. 2006-built scrubber-fitted newcastlemax. Another 20yo Imabari-grade print.
   - date: 2026-03-10
     vessel_age_at_sale: 19
+    dwt: 180000
     sale_price_usd_m: 23.0
     source: Pareto Shipping Daily 2026-03-10 — broker reports
     quality_flag: standard
     notes: outside [3,17] window. Lucky Carina (2007-built capesize, SWS yard). Confirms Chinese-yard 19yo print at low end of older-cape cluster.
   - date: 2026-06-05
     vessel_age_at_sale: 18
+    dwt: 180000
     sale_price_usd_m: 30.0
     source: Pareto Shipping Daily 2026-06-05 — Maran disclosure
     quality_flag: standard

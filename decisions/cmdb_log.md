@@ -9,6 +9,29 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-27T23:38:06+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.47
+- Single-point FV: $20.43
+- Scenario PW FV: $20.43 (EV +16.9%)
+- NAV / share: $31.33
+- Position: **BUY (undervalued)**
+- Broker spread: -10.9pp (k_broker 0.88)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -3.3% | Δscenario FV: -3.3% | ΔNAV: -3.6% | Δspread: +4.0pp
+
+**Decision: ACCEPTED — dry-bulk dwt-scaling (METHODOLOGY §11.7.x).** NAV falls 3.6%
+($32.49→$31.33). CMDB is ALL standard Capesize (6 vessels 175-181k, no Newcastlemax)
+plus a Supramax-heavy Supra-Ultra book, so the same correction applies: the previously
+Newcastlemax/Ultramax-pulled collapsed curves over-valued CMDB's smaller hulls; the
+dwt-normalized fit marks them at their own transaction level. APPROX-anchored (P/BV
+proxy, SANITY n/a); gap +16.8%→+12.6%. Baseline re-ratified.
+
+---
+
 ## 2026-06-27T00:31:14+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1525,8 +1525,11 @@ independently validates the methodology decision.
 - **Handysize bulk (~38k DWT)** — Pareto does not separately rate it
   (thin liquidity, less-traded second-hand market). Mirrors VIE's class
   scope.
-- **Newcastlemax (~200k+ DWT)** — collapsed into Capesize. Real chartering
-  treats them as one segment for spot rates with a modest premium.
+- **Newcastlemax (~200k+ DWT)** — same value class as Capesize (same BCI 5TC
+  freight) but the value is **dwt-scaled** (§11.7.10, added 2026-06-27): NMax and
+  Capesize trade at the same $/dwt, so a 210k NMax marks ~1.17× a 180k Capesize by
+  SIZE, not a structural per-tonne premium. (v1 collapsed them flat — over-valuing
+  standard Capesize at the NMax-pulled blended mark; §11.7.10 fixes that.)
 
 #### 11.7.2 External NAV anchor — Pareto coverage
 
@@ -1682,8 +1685,9 @@ A FAIL signals methodology calibration is off — likely the cycle anchors
 
 - **Handysize bulk class** — added if a Pareto-covered Handy pure-play
   appears on the watchlist, or if Joeri OCR yields a Handy FFA series.
-- **Newcastlemax sub-class** — collapsed into Cape; could split later
-  with disposal evidence.
+- **Newcastlemax sub-class** — RESOLVED 2026-06-27 via dwt-scaling (§11.7.10),
+  not a separate class (same freight + same $/dwt → size captured by scaling value
+  by dwt).
 - **Transaction-anchored recalibration** (METHODOLOGY §9.9 scope
   discipline) — no comparable transaction sample for bulk classes.
   Do NOT add without an analogous disclosed-deals dataset.
@@ -1778,6 +1782,58 @@ the dry-bulk transaction-anchored layer (Cape 26 / Pana 4 / Supra-Ultra 20
 in-window prints), the tanker S&P sweep + LR2 own-fit, txn-anchored marks
 made the pipeline default (owner decision), the Pareto name-sweep and
 linked-report harvest process steps, and the GNK Diana-tender deal overlay.
+
+#### 11.7.10 dwt-scaling of the dry-bulk value curves — added 2026-06-27
+
+**Motivating case: CMBT's Newcastlemax book.** The dry-bulk classes COLLAPSE size
+sub-classes (Cape = Capesize ~180k + Newcastlemax ~210k; Pana = Panamax ~76k +
+Kamsarmax ~82k + Post-Panamax; Supra-Ultra = Supramax ~56k + Ultramax ~64k), with
+the WIDEST intra-class dwt range in the framework (Cape ±~10% vs VLCC ±~3%). Until
+now `vessel_market_value` was **flat per class** — value by age only, `dwt` unused —
+so a 210k Newcastlemax and a 180k Capesize at the same age marked at the **identical
+dollar value**. The engine was structurally blind to size.
+
+**The data says it's pure size, not a premium.** The clean apples-to-apples print
+pair — Genco Courageous (182k Capesize, $63.55M = $349/dwt) vs Genco Valkyrie (208k
+NMax, $72.75M = $350/dwt), same age/year — trade at the **same $/dwt**. The dollar
+gap is entirely the extra tonnage. Pareto treats them as one S&P segment.
+
+**Convention.** Dry-bulk value curves carry `dwt_scaled: true` (a per-curve flag,
+schemas.VesselValueCurve). For those curves:
+- The curve anchors are read at the curve's **baseline dwt** (Cape 180k Capesize,
+  Pana 82k Kamsarmax, Supra-Ultra 62k).
+- **Per-vessel value scales by `vessel.dwt / curve.dwt`** (vessel_values.py), applied
+  to the base hull value before the multiplicative eco/yard adjustments and the flat
+  scrubber add. So a 210k NMax marks 210/180 ≈ 1.17× a 180k Capesize.
+- The **transaction fit dwt-normalizes** every print to the baseline before solving
+  the 5yr/10yr anchors (transactions.py: `price × baseline_dwt / print.dwt`; each
+  print carries a `dwt`). This is the **double-count guard**: the blended Cape sample
+  was Newcastlemax-dominated and sat at ~$72M; normalized to 180k it lands at ~$63M
+  (the standard-Capesize level, converging with the 182k prints), and the per-vessel
+  dwt-scaling then does all the size work. Without it, NMax would be counted twice
+  (elevated curve × 1.17 scaling).
+
+This is a **deliberate sector-specific exception** to the flat-per-class convention
+used by crude/product/lng/containerships (whose classes are size-tighter). It is
+VALUE-only: NMax/Cape share the BCI 5TC freight, so there are no scenario/weight/
+cycle-anchor changes.
+
+**Impact (measured 2026-06-27, before/after).** A **correctness fix, not a gap-closer.**
+Standard-Capesize/Supramax-heavy names correct DOWN to their own transaction level
+(GNK −6.2%, CMDB −3.6% — their smaller hulls were over-valued at the NMax/Ultramax-
+pulled blended mark); Newcastlemax/Ultramax-heavy names stay ~flat (CMBT +0.1%, SBLK
++1.3% — young NMax rise to ~$85-88M, fixing the too-low newbuild anchor, offset by the
+standard-Cape correction). CMBT's −24% tool↔Pareto gap is UNCHANGED — it is a uniform
+in-band conservatism amplified by ~55% leverage, not an NMax effect (this retracts the
+earlier "splitting NMax raises CMBT toward Pareto" framing; see `decisions/cmbt_log.md`).
+
+**Known limitation.** dwt-scaling assumes constant $/dwt within a collapsed class —
+good for the tight NMax/Cape and Kamsarmax/Panamax bands, but it can mildly OVER-value
+wide outliers (e.g. SBLK's ~9 "Pana"-class Post-Panamaxes at 92-107k, which scale
+1.12-1.30× off the 82k baseline). Contained (SBLK +1.3% net) and directionally right
+(a 107k bulker IS worth more than a Kamsarmax), but a dedicated Post-Panamax sub-class
+is the refinement if that book grows. The NMax newbuild level (~$86M = 74M × 210/180)
+should be confirmed against a current NMax-newbuild quote on refresh.
 
 ### 11.8 Containerships sector — formalised 2026-06-11 (Week 4)
 
@@ -2180,10 +2236,10 @@ the Shipping Daily). The 11-Jun-2026 daily: price $14.90, **P/NAV 0.74x**, NAV ~
 broker NAV **$20.14**, **gap −24.2%, SANITY OK**, **k_broker 1.14 (inside the validated
 pure-play band 1.05-1.25)**. At the live close the scenario FV $15.66 → **EV +11%, BUY**
 — directionally aligned with Pareto's "deep value 0.74x." The −24% equity-NAV gap is
-**leverage amplification** of a within-band vessel-mark premium (CMBT runs ~55% LTV),
-plus the §11.7.1 **Cape-class collapse** undervaluing CMBT's large modern-Newcastlemax
-book (38 NMax — the most on the watchlist; splitting NMax from Cape is CMBT's top
-refinement). §15: governance haircut **declined** with tripwires (Saverys/CMB NV
+**leverage amplification** of a within-band vessel-mark premium (CMBT runs ~55% LTV).
+*(The Newcastlemax book was addressed 2026-06-27 via dwt-scaling, §11.7.10 — which left
+CMBT's NAV ~flat, confirming the gap is uniform conservatism, not an NMax effect.)*
+§15: governance haircut **declined** with tripwires (Saverys/CMB NV
 control is concentrated but fee-light, pro-minority, and equal-price-tested through the
 Euronav saga). Full record: `decisions/cmbt_log.md`,
 `outputs/cmbt_multisleeve_methodology_2026-06-26.md`, `outputs/pareto_mentions_cmbt.md`.

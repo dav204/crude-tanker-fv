@@ -9,6 +9,37 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-27T23:38:06+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $14.10
+- Single-point FV: $14.68
+- Scenario PW FV: $15.64 (EV +10.9%)
+- NAV / share: $15.27
+- Position: **BUY (undervalued)**
+- Broker spread: +24.2pp (k_broker 1.14)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -0.1% | Δscenario FV: -0.1% | ΔNAV: +0.1% | Δspread: -0.1pp
+
+**Decision: NMax dwt-scaling landed — CMBT ~FLAT (+0.1%), a correctness fix, NOT a
+gap-closer (METHODOLOGY §11.7.x).** "Splitting Newcastlemax properly" was implemented as
+**dwt-scaling** the dry-bulk value curves (owner decision: value ∝ dwt, no separate
+class — NMax and Cape trade at the same $/dwt, so the difference is pure size). For CMBT
+(38 NMax + 37 standard Capesize): the young NMax rise (now ~$85-88M at age 0-2, fixing
+the too-low newbuild anchor) is OFFSET by the standard Capesize correcting DOWN to their
+own transaction level — net NAV $15.26→$15.27, k_broker still 1.14, gap −24.2%.
+**This RETRACTS the 2026-06-27T00:31 entry's claim that "splitting Newcastlemax from
+Cape raises the dry-bulk sleeve toward Pareto."** The measurement disproves it: the −24%
+gap is a *uniform* in-band mark conservatism amplified by ~55% leverage, not an NMax-
+specific undervaluation. The split's real value was **cross-name accuracy** — the
+standard-Capesize/Supramax-heavy names corrected down to transaction-grounded marks
+(GNK −6.2%, CMDB −3.6%) while the NMax-heavy names stayed ~flat (CMBT +0.1%, SBLK +1.3%).
+Baseline re-ratified.
+
+---
+
 ## 2026-06-27T00:31:14+00:00 — Pipeline run (auto)
 
 **Model state:**

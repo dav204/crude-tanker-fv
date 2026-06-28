@@ -36,18 +36,21 @@ prints:
   # ---- IN-WINDOW (drive the fit), sorted by age ----
   - date: 2025-09-19
     vessel_age_at_sale: 9
+    dwt: 82000
     sale_price_usd_m: 27.5
     source: Pareto Shipping Daily 2025-09-19 — broker reports
     quality_flag: standard
     notes: 2016-built JAPANESE-yard kamsarmax. Pareto generic quote was $24M; ~10% premium for Japanese build deemed justified. DISAMBIGUATED 2026-06-10 from the 2025-10-06 print — distinct vessels (different price, different premium-to-quote, Japanese flag present here / absent there; Pareto flags Japanese builds consistently).
   - date: 2025-10-06
     vessel_age_at_sale: 9
+    dwt: 82000
     sale_price_usd_m: 26.5
     source: Pareto Shipping Daily 2025-10-06 — broker reports
     quality_flag: standard
     notes: 2016-built kamsarmax (NOT flagged Japanese). Pareto had vessel at $25.2M (VV $25.7M) — quote raised from $24M since the Sep-19 print. Framed in the daily as a NEW transaction "above our recently raised quotes". DISAMBIGUATED from the 2025-09-19 Japanese print — distinct vessels.
   - date: 2026-06-12
     vessel_age_at_sale: 11
+    dwt: 82036
     sale_price_usd_m: 26.0
     source: MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
     quality_flag: standard
@@ -63,12 +66,14 @@ prints:
       takes the thin fit n=4 -> 5.
   - date: 2025-06-17
     vessel_age_at_sale: 15
+    dwt: 76000
     sale_price_usd_m: 11.8
     source: Pareto Shipping Daily 2025-06-17 — Diana disclosure
     quality_flag: standard
     notes: Selina (2010-built panamax 76k dwt, Diana Shipping). Smaller panamax subclass — sits below the kamsarmax curve at this age.
   - date: 2025-04-28
     vessel_age_at_sale: 17
+    dwt: 82000
     sale_price_usd_m: 14.25
     source: Pareto Shipping Daily 2025-04-28 — Thenamaris disclosure
     quality_flag: standard

@@ -29,6 +29,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field, replace
 from datetime import date as _date
 from pathlib import Path
+from typing import Optional
 
 import yaml
 
@@ -59,6 +60,10 @@ class TransactionPrint:
     # split, out-of-window references) so they are EXCLUDED from the regression even
     # if their age falls in the fit window. Defaults True (BUG-2, 2026-06-22).
     in_fit: bool = True
+    # Vessel dwt at sale. Used ONLY by dwt-scaled classes (dry bulk, §11.7.x) to
+    # normalize the print to the curve's baseline dwt before fitting; None falls
+    # back to the baseline (no normalization). Ignored for flat-per-class fits.
+    dwt: Optional[int] = None
 
     @property
     def clean_price_usd_m(self) -> float:
@@ -129,6 +134,7 @@ def load_transaction_set(path: Path) -> TransactionSet:
             source=str(raw.get("source", "")),
             notes=str(raw.get("notes", "")),
             in_fit=bool(raw.get("in_fit", True)),
+            dwt=(int(raw["dwt"]) if raw.get("dwt") is not None else None),
         ))
     return TransactionSet(cls=cls, as_of=as_of, prints=prints)
 
@@ -174,6 +180,7 @@ def fit_curve_anchors(
 ) -> CurveFit:
     """Solve new 5yr / 10yr anchors from transactions. Falls back gracefully."""
     in_window: list[tuple[float, float, float]] = []
+    n_missing_dwt = 0
     for p in txs.prints:
         if not p.in_fit:
             continue   # documentation-only row (e.g. en-bloc aggregate, no per-vessel split)
@@ -183,7 +190,17 @@ def fit_curve_anchors(
         if dm < 0:
             dm = 0.0  # transaction dated after as_of: treat as fresh
         w = 2.0 ** (-dm / half_life_months)
-        in_window.append((p.age, p.clean_price_usd_m * 1_000_000, w))
+        price = p.clean_price_usd_m * 1_000_000
+        # dwt-scaled classes (dry bulk, §11.7.x): normalize the print to the
+        # curve's baseline dwt so the fitted 5yr/10yr anchors are at the baseline.
+        # vessel_market_value then scales each vessel back up by its own dwt — so a
+        # 210k Newcastlemax and a 180k Capesize at the same age differ by size only.
+        if curve.dwt_scaled and curve.dwt:
+            if p.dwt:
+                price *= curve.dwt / p.dwt
+            else:
+                n_missing_dwt += 1   # treat as baseline (no normalization)
+        in_window.append((p.age, price, w))
 
     if len(in_window) < 2:
         return CurveFit(
@@ -212,6 +229,9 @@ def fit_curve_anchors(
     note = ""
     if new_5yr != raw_5yr or new_10yr != raw_10yr:
         note = "raw fit clamped to [scrap×1.5, newbuild×0.95] / monotone"
+    if n_missing_dwt:
+        note = (note + "; " if note else "") + \
+               f"{n_missing_dwt} dwt-scaled print(s) missing dwt — used baseline"
 
     return CurveFit(
         cls=curve.cls, n_used=len(in_window), intercept=a, slope_per_year=b,
