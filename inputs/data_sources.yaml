@@ -327,3 +327,21 @@ CMBT:
     PARETO-ANCHORED — Pareto publishes a monthly CMB.TECH P/NAV + NAV/sh (11-Jun-2026:
     price $14.90, P/NAV 0.74x, NAV ~$20/sh, fwd P/E 9.7x). EDGAR fetch needs a contact UA
     (fetch_pdf.py patched 2026-06-26); chemical/offshore/FSO/HFS/newbuild book off-curve."
+
+SB:
+  ir_home: https://www.safebulkers.com/
+  press_releases: https://www.safebulkers.com/sbpress.html
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001434754&type=6-K
+  fleet_page: https://www.safebulkers.com/fleet.html
+  reporting_pattern: "NYSE FPI (Marshall Islands). 20-F annual (FY2025 filed 2026-03-04)
+    + 6-K quarterly results. Q1-2026 6-K filed 2026-06-17 (accession 0001317861-26-000033,
+    body f061826sb6k.htm) — carries the full per-vessel fleet table (name/class/dwt/built/
+    scrubber/charter) + the condensed balance sheet. Secondary listing on Euronext Athens
+    (May 2026); primary remains NYSE."
+  notes: "Onboarded 2026-06-27. 4th dry-bulk validator. CIK 1434754. Hajioannou-controlled
+    (~47.5% via Vorini); family-controlled Managers (Safety Management Overseas / Safe Bulkers
+    Management / Monaco — €950/day per vessel + €5.0M/yr). 45 owned (2 HFS off-curve, 1
+    chartered-in excluded) → 43 on-curve: 36 Pana (8 Panamax + 12 Kamsarmax + 16 Post-Panamax)
+    + 7 Cape. 11 NB (10 Kamsarmax + 1 Cape). 8.00% Series C/D preferred = $100M. NO Pareto/VIE
+    public NAV → APPROX P/BV anchor. §15: declined haircut + tripwires (fee load). NOTE: SB's
+    6 large Post-Panamax (92-95.8k) exercise the §11.7.10 dwt-scaling over-valuation risk."

@@ -1,0 +1,57 @@
+# Safe Bulkers Inc. (SB) balance sheet snapshot — METHODOLOGY §4.2. USD.
+# Source: Q1-2026 6-K (SEC CIK 1434754, filed 2026-06-17; period end 2026-03-31),
+# condensed consolidated balance sheet (2026-03-31 column). Onboarded 2026-06-27.
+
+ticker: SB
+quarter: 2026-Q1
+
+# Cash, cash equivalents, time deposits & current restricted cash (6-K, 2026-03-31).
+cash_and_equivalents: 171775000
+
+# working_capital_net = operating WC + non-current restricted cash + the 2 held-for-sale
+# vessels at carrying value (off-curve, DHT-Bauhinia):
+#   other current assets 47,395 − other current liabilities 26,349 − other non-current
+#     liabilities 6,866 = +14,180 (operating WC)
+#   + restricted cash non-current 9,375
+#   + assets held for sale 30,236 (Pedhoulas Commander + Xenia, agreed/carrying value)
+#   = +53,791
+working_capital_net: 53791000
+
+# Total interest-bearing debt (6-K carrying value, net of deferred financing costs):
+#   current portion of long-term debt 155,063 + long-term debt net of current 388,935
+#   = 543,998. Includes secured bank debt + the €100M unsecured 2.95% bond + the
+#   bareboat/finance-lease liabilities (embedded in borrowings — ECO convention, so
+#   lease_liabilities below is 0, NOT additive). Gross principal ~$552.1M.
+total_debt: 544000000
+lease_liabilities: 0
+
+# Newbuild book (§3.1 conservative / TEN convention): net NB NAV = advances paid.
+# "Advances for vessels" $100,040 (6-K, 2026-03-31). Remaining capex commitment
+# ~$227.5M buys delivered Kamsarmaxes of ~equal value → net impact = advances paid,
+# so newbuild_capex_commitments = 0. (11 NB: 10 Kamsarmax + 1 Cape, 2026-2029 delivery.)
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 100040000
+
+# Common shares outstanding (6-K, 2026-06-12) — the per-share NAV denominator.
+diluted_shares_outstanding: 101826580
+
+# Preferred equity (subtracts from common NAV): 8.00% Series C (804,950 sh) +
+# 8.00% Series D (3,195,050 sh), both $25.00 liquidation pref = $20.12M + $79.88M
+# = $100.0M aggregate. (FY2025 20-F; both paying $0.50/sh quarterly.)
+preferred_equity: 100000000
+
+# §15 governance: DECLINE the haircut (governance_discount_pct = 0), carry with the
+# related-party fee load as the headline tripwire. SB is Hajioannou-controlled (~47.5%
+# via Vorini Holdings; sole voting power) and the three Managers (Safety Management
+# Overseas / Safe Bulkers Management / Monaco) are family-controlled — €950/day per
+# vessel + €5.0M/yr Monaco fee ≈ $22M/yr ≈ ~1.5% of GAV ($1,420M). That fee load is the
+# HIGHEST of the declined §15 names (vs CMBT ~0.2%, GSL), but it is ~market-rate full
+# ship-management (not an external-manager promote / incentive-on-NAV), dividends are
+# pari-passu (common + preferred paid pro-rata), and SB's discount-to-NAV is sector-wide
+# (all dry-bulk names trade <1x), not governance-specific extraction. Held un-haircut for
+# v1 consistency with the other 3 dry-bulk validators (SBLK/GNK/CMDB, all un-haircut).
+# Tripwires (any one re-opens the haircut): the €950/day fee rising or moving off a
+# market basis; above-market related-party vessel drop-downs without independent fairness;
+# common-dividend suspension while the family is paid; control crossing to a structural
+# squeeze-out. Full screen in decisions/sb_log.md.
+governance_discount_pct: 0.0

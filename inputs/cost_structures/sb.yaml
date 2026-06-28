@@ -1,0 +1,22 @@
+# Safe Bulkers Inc. (SB) cost structure — METHODOLOGY §4.4. USD.
+# Source: Q1-2026 6-K. opex-per-day by class convention (SBLK dry-bulk calibration);
+# G&A is the family-Manager fee load; interest is Q1-annualised. Onboarded 2026-06-27.
+ticker: SB
+
+opex_per_day:                 # daily operating cost per vessel, by class
+  Cape: 6500
+  Pana: 5200                  # Panamax/Kamsarmax/Post-Panamax (collapsed Pana class)
+
+# Annual G&A — the related-party management fee load (SB has no in-house G&A; the
+# Hajioannou-controlled Managers run everything): €950/day × ~43 vessels × 365 ≈ €15M
+# + €5.0M/yr Monaco fee ≈ €20.6M ≈ ~$22.5M/yr. (Verify exact euro figures vs the 20-F
+# related-party note.)
+annual_G_and_A: 22500000
+
+# Annual interest expense — Q1-2026 net interest $4,995k annualised ≈ $20.0M (on ~$544M
+# debt incl. the €100M 2.95% bond + secured bank + finance leases).
+annual_interest_expense: 20000000
+
+# Effective tax rate — Marshall Islands FPI under tonnage-tax-equivalent regimes;
+# effectively ~0 on shipping income.
+effective_tax_rate: 0.0

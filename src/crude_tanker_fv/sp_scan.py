@@ -142,6 +142,9 @@ NAME_ALIASES: dict[str, list[re.Pattern]] = {
     # "CMB" collides with the parent CMB NV, so require the ".TECH"/"CMBT" form.
     "CMBT": [re.compile(r"\bCMBT\b"), re.compile(r"\bCMB\.?\s?TECH\b", re.IGNORECASE),
              re.compile(r"\bEuronav\b", re.IGNORECASE), re.compile(r"\bBocimar\b", re.IGNORECASE)],
+    # Safe Bulkers (NYSE: SB). Require the full name — bare "SB" collides with "SBLK"
+    # and generic prose. "Hajioannou"/"Pedhoulas"/"Kypros" are SB-specific vessel/owner cues.
+    "SB": [re.compile(r"\bSafe Bulker", re.IGNORECASE), re.compile(r"\bHajioannou\b", re.IGNORECASE)],
 }
 # A name mention is interesting when it carries valuation / stance / action
 # context — bare ticker drops in rate tables and peer lists are noise.

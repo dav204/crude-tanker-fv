@@ -1,0 +1,12 @@
+# Safe Bulkers Inc. (SB) dividend policy — METHODOLOGY §4.3.
+# Source: Q1-2026 6-K (dividend declaration) + dividend history.
+# Q1-2026 common dividend $0.06/sh (declared 2026-06-17, raised from $0.05 in Feb-2026);
+# variable/discretionary, set quarterly by the board — SB retains most earnings for fleet
+# renewal (the 11-vessel newbuild program), so the payout runs modest. Q1 EPS $0.20
+# (annualised ~$0.80) vs $0.24/yr dividend ≈ ~30% payout. (Preferred C/D pay $0.50/sh
+# quarterly, captured separately via preferred_equity.) Onboarded 2026-06-27.
+ticker: SB
+policy_type: variable
+payout_ratio: 0.30             # ~30% of net income (modest; family retains for newbuilds)
+base_dividend_per_share: 0     # no fixed base
+floor: 0                       # no floor — discretionary, board-set quarterly

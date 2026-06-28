@@ -292,3 +292,18 @@ CMBT:
                                # (MULTI_SLEEVE_TICKERS dispatch, METHODOLOGY §11.9). Chemical /
                                # offshore / FSO / HFS / newbuild book held off-curve.
   as_of: 2026-06-24
+
+# Safe Bulkers Inc. (NYSE: SB) — 4th dry-bulk validator. Onboarded 2026-06-27.
+SB:
+  current_price: 6.39          # Yahoo 2026-06-26 (NYSE, USD). NO Pareto coverage
+                               # (verified: 0 "Safe Bulkers" mentions in 135 2026 dailies).
+  analyst_target: 7.10         # Wall Street consensus PT (~$6.90-7.38 range, Jun-2026).
+  consensus_pnav: 0.88         # APPROX, P/BV proxy — NO Pareto NAV (CMDB convention). Anchored
+                               # to COMMON book per share: total equity $843.2M − $100M preferred
+                               # = $743.2M / 101.83M sh = $7.30 common book. broker NAV = 6.39/0.88
+                               # = $7.26 ≈ common book. SB carries vessels near broker marks, so book
+                               # is a reasonable independent NAV anchor; /reconcile downweights (APPROX,
+                               # SANITY n/a). VIE covers SB but its NAV is paywalled — refresh if obtained.
+  consensus_fwd_pe: 8.0        # APPROX — price / annualised Q1-26 EPS ($0.20 × 4 = $0.80).
+  sector: dry_bulk
+  as_of: 2026-06-26

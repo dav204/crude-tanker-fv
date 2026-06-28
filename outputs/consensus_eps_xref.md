@@ -24,6 +24,7 @@ The **earnings-leg analog of the broker-NAV sweep** (METHODOLOGY §9.11 / §9.9)
 | GNK | dry_bulk | $24.00 | 13.9× | $1.73 | $4.29 | 5.6× | +149% | 7.2% | 1.14× (mid-cycle) | 0.50 | earnings-driven (tool>cons) |
 | CMBT | crude | $14.90 | 9.7× | $1.54 | $3.68 | 4.1× | +139% | 10.3% | 1.52× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | CMDB | dry_bulk | $17.25 | 10.5× | $1.64 | $3.89 | 4.4× | +137% | 9.5% | 1.21× (elevated) | 0.40 | earnings-driven (tool>cons) |
+| SB | dry_bulk | $6.39 | 8.0× | $0.80 | $1.81 | 3.5× | +126% | 12.5% | 1.40× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | ASC | product | $16.00 | 14.2× | $1.13 | $2.36 | 6.8× | +110% | 7.0% | 1.38× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | FLNG | lng | $29.70 | 14.5× | $2.05 | $3.74 | 7.9× | +83% | 6.9% | 0.71× (below-mid) | 0.60 | earnings-driven (tool>cons) |
 | MPCC | containerships | $2.78 | 8.0× | $0.35 | $0.54 | 5.2× | +55% | 12.5% | 1.21× (elevated) | 0.40 | earnings-driven (tool>cons) |

@@ -66,7 +66,10 @@ DRIFT_ALERT_PP = 2.0           # Per-quarter gap-pct move that warrants a note.
 # `pnav_basis: approx` field on the watchlist row so the loader carries it
 # through. Keeping the hardcode for Week 0 to avoid a watchlist-schema
 # refactor; promote to a field in Q3.
-APPROX_PNAV_TICKERS = {"NAT", "ASC", "CCEC", "TEN", "CMDB", "MPCC", "GSL"}
+APPROX_PNAV_TICKERS = {"NAT", "ASC", "CCEC", "TEN", "CMDB", "MPCC", "GSL", "SB"}
+# SB (Safe Bulkers) added 2026-06-27: NO Pareto coverage (verified — 0 mentions in 135
+# 2026 dailies) and no public VIE NAV; consensus_pnav is a P/BV proxy (common book),
+# so SANITY is a self-consistency read, not a Pareto-anchored validator (CMDB convention).
 # CMBT was briefly APPROX-flagged at onboarding (2026-06-26) on the mistaken read
 # that Pareto didn't cover it; corrected same day — Pareto DOES publish a real
 # CMB.TECH P/NAV + NAV/share in the Shipping Daily (e.g. 11-Jun-2026: price $14.9,

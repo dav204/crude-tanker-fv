@@ -1,0 +1,90 @@
+# Safe Bulkers Inc. (NYSE: SB) fleet manifest — METHODOLOGY §4.1, §11.7
+# Source: Q1-2026 6-K (SEC CIK 1434754, filed 2026-06-17; fleet status 2026-06-12,
+# balance-sheet date 2026-03-31) + FY2025 20-F. 4th dry-bulk validator.
+# Onboarded 2026-06-27.
+#
+# SCOPE = the 43 OWNED on-curve vessels (45 owned − 2 held-for-sale). The 2 HFS
+# (Pedhoulas Commander 2008 Kamsarmax + Xenia 2006 Post-Panamax) are OFF-curve at
+# the $30.2M assets-held-for-sale carrying value in working_capital_net (DHT-Bauhinia
+# convention). The 1 chartered-in Panamax (Arethousa) is EXCLUDED (not owned).
+# 7 "bareboat leaseback" vessels are OWNED (finance leases — vessel on the books,
+# liability in total_debt; ECO convention, do NOT also drop the hull).
+#
+# CLASS MAPPING (§11.7.1 collapse): Panamax + Kamsarmax + Post-Panamax → "Pana";
+# Capesize → "Cape". dwt is LOAD-BEARING (the dry-bulk curves are dwt-scaled, §11.7.10):
+# value scales by dwt/baseline. ⚠ SB has 6 large Post-Panamax at 92-95.8k (Andreas K,
+# Agios Spyridonas, Venus Heritage/History/Horizon/Harmony) that scale ~1.12-1.17× off
+# the 82k Pana baseline — the documented §11.7.10 Post-Panamax over-valuation risk; SB
+# exercises it more than any name. Flagged in decisions/sb_log.md; refine via a
+# Post-Panamax sub-class if it proves material at reconcile.
+# Ages = 2026.25 − built. eco = built ≥ 2015.
+
+ticker: SB
+report_date: 2026-Q1
+vessels:
+  # ============================================================
+  # Pana class (36) = 8 Panamax + 12 Kamsarmax + 16 Post-Panamax
+  # ============================================================
+  # ---- Panamax (8, ~75-78k) ----
+  - {id: SB_Zoe,           class: Pana, dwt: 75000, age: 13.25, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: SB_Koulitsa2,     class: Pana, dwt: 78100, age: 13.25, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: SB_KyprosLand,    class: Pana, dwt: 77100, age: 12.25, scrubber: false, eco: false, charter_status: time_charter, count: 1}
+  - {id: SB_KyprosSea,     class: Pana, dwt: 77100, age: 12.25, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: SB_KyprosBravery, class: Pana, dwt: 78000, age: 11.25, scrubber: false, eco: true,  charter_status: time_charter, count: 1}
+  - {id: SB_KyprosSky,     class: Pana, dwt: 77100, age: 11.25, scrubber: false, eco: true,  charter_status: time_charter, count: 1}
+  - {id: SB_KyprosLoyalty, class: Pana, dwt: 78000, age: 11.25, scrubber: false, eco: true,  charter_status: time_charter, count: 1}
+  - {id: SB_KyprosSpirit,  class: Pana, dwt: 78000, age: 10.25, scrubber: false, eco: true,  charter_status: time_charter, count: 1}
+  # ---- Kamsarmax (12, ~82k; excl. Pedhoulas Commander HFS) ----
+  - {id: SB_PedhoulasRose,   class: Pana, dwt: 82000, age: 9.25, scrubber: false, eco: true, charter_status: spot, count: 1}
+  - {id: SB_PedhoulasCedrus, class: Pana, dwt: 81800, age: 8.25, scrubber: true,  eco: true, charter_status: spot, count: 1}
+  - {id: SB_Vassos,          class: Pana, dwt: 82000, age: 4.25, scrubber: true,  eco: true, charter_status: time_charter, count: 1}
+  - {id: SB_PedhoulasTrader, class: Pana, dwt: 82000, age: 3.25, scrubber: true,  eco: true, charter_status: time_charter, count: 1}
+  - {id: SB_Morphou,         class: Pana, dwt: 82000, age: 3.25, scrubber: false, eco: true, charter_status: time_charter, count: 1}
+  - {id: SB_Rizokarpaso,     class: Pana, dwt: 82000, age: 3.25, scrubber: true,  eco: true, charter_status: time_charter, count: 1}
+  - {id: SB_Ammoxostos,      class: Pana, dwt: 82000, age: 2.25, scrubber: true,  eco: true, charter_status: spot, count: 1}
+  - {id: SB_Kerynia,         class: Pana, dwt: 82000, age: 2.25, scrubber: false, eco: true, charter_status: time_charter, count: 1}
+  - {id: SB_PedhoulasFarmer, class: Pana, dwt: 82500, age: 2.25, scrubber: true,  eco: true, charter_status: spot, count: 1}
+  - {id: SB_PedhoulasFighter, class: Pana, dwt: 82500, age: 2.25, scrubber: false, eco: true, charter_status: time_charter, count: 1}
+  - {id: SB_Efrossini,       class: Pana, dwt: 82000, age: 1.25, scrubber: false, eco: true, charter_status: spot, count: 1}
+  - {id: SB_Katerina,        class: Pana, dwt: 82000, age: 0.25, scrubber: false, eco: true, charter_status: time_charter, count: 1}
+  # ---- Post-Panamax (16, ~85-95.8k; excl. Xenia HFS) ----
+  - {id: SB_Marina,          class: Pana, dwt: 87000, age: 20.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
+  - {id: SB_Sophia,          class: Pana, dwt: 87000, age: 19.25, scrubber: true, eco: false, charter_status: spot, count: 1}
+  - {id: SB_Eleni,           class: Pana, dwt: 87000, age: 18.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
+  - {id: SB_Martine,         class: Pana, dwt: 87000, age: 17.25, scrubber: true, eco: false, charter_status: spot, count: 1}
+  - {id: SB_AndreasK,        class: Pana, dwt: 92000, age: 17.25, scrubber: true, eco: false, charter_status: spot, count: 1}
+  - {id: SB_AgiosSpyridonas, class: Pana, dwt: 92000, age: 16.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
+  - {id: SB_VenusHeritage,   class: Pana, dwt: 95800, age: 16.25, scrubber: true, eco: false, charter_status: spot, count: 1}
+  - {id: SB_VenusHistory,    class: Pana, dwt: 95800, age: 15.25, scrubber: true, eco: false, charter_status: spot, count: 1}
+  - {id: SB_VenusHorizon,    class: Pana, dwt: 95800, age: 14.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
+  - {id: SB_VenusHarmony,    class: Pana, dwt: 95700, age: 13.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
+  - {id: SB_TroodosSun,      class: Pana, dwt: 85000, age: 10.25, scrubber: true, eco: true,  charter_status: time_charter, count: 1}
+  - {id: SB_TroodosAir,      class: Pana, dwt: 85000, age: 10.25, scrubber: true, eco: true,  charter_status: time_charter, count: 1}
+  - {id: SB_TroodosOak,      class: Pana, dwt: 85000, age: 6.25,  scrubber: true, eco: true,  charter_status: time_charter, count: 1}
+  - {id: SB_ClimateRespect,  class: Pana, dwt: 87000, age: 4.25,  scrubber: true, eco: true,  charter_status: time_charter, count: 1}
+  - {id: SB_ClimateEthics,   class: Pana, dwt: 87000, age: 3.25,  scrubber: true, eco: true,  charter_status: spot, count: 1}
+  - {id: SB_ClimateJustice,  class: Pana, dwt: 87000, age: 3.25,  scrubber: true, eco: true,  charter_status: time_charter, count: 1}
+
+  # ============================================================
+  # Cape class (7, ~176-181k; all scrubber-fitted)
+  # ============================================================
+  - {id: SB_MountTroodos, class: Cape, dwt: 181400, age: 17.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
+  - {id: SB_Kanaris,      class: Cape, dwt: 178100, age: 16.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
+  - {id: SB_Pelopidas,    class: Cape, dwt: 176000, age: 15.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
+  - {id: SB_AghiaSofia,   class: Cape, dwt: 176000, age: 14.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
+  - {id: SB_SteliosY,     class: Cape, dwt: 181400, age: 14.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
+  - {id: SB_LakeDespina,  class: Cape, dwt: 181400, age: 12.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
+  - {id: SB_Maria,        class: Cape, dwt: 181300, age: 12.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
+
+# Share of fleet on spot, by class (feeds the strip, not NAV). 14 of 36 Pana on
+# spot; all 7 Cape on period.
+spot_coverage_pct:
+  Pana: 0.39
+  Cape: 0.0
+
+fleet_summary:
+  on_curve_total: 43          # MUST equal Σ vessel-row counts (cross-foot gate)
+  Pana_count: 36              # 8 Panamax + 12 Kamsarmax + 16 Post-Panamax
+  Cape_count: 7
+  held_for_sale: 2            # Pedhoulas Commander + Xenia → off-curve at $30.2M (working_capital_net)
+  chartered_in: 1             # Arethousa (excluded)
