@@ -27,7 +27,7 @@ where you annotate what you actually did and why.
 - ⚑ NAV/sh -23.0%
 - Δprice: no change | Δsingle FV: -19.6% | Δscenario FV: -18.8% | ΔNAV: -23.0% | Δspread: +25.9pp
 
-**Decision:** Thread 1 basis correction (not a market move). VLCC $175M->$145M and Suezmax $108M->$95M age-0 marks corrected to dated prompt-resale. CAPT carries 21/30 newbuild crude at age-0 delivered-market (§9.6), so NAV -22.9%. Pre-registered direction (PRE_REGISTRATION_NAV_RESALE_ANCHOR.md). Accepted pending owner review; re-ratify deferred.
+**Decision:** Thread 1 basis correction (not a market move). VLCC $175M->$145M and Suezmax $108M->$95M age-0 marks corrected to dated prompt-resale. CAPT carries 21/30 newbuild crude at age-0 delivered-market (§9.6), so NAV -22.9%. Pre-registered direction (PRE_REGISTRATION_NAV_RESALE_ANCHOR.md). Owner-approved 2026-06-29; re-ratified with crude resale LEVELS flagged PROVISIONAL. **LEVEL-PROVISIONAL:** the $145M/$95M age-0 levels are validated for depreciation slope (guard #2), NOT level (A1.5 open). CAPT is newbuild-heavy, so its −22.9% is slope-validated, level-provisional pending a dated current crude resale source (Thread 1B).
 
 ---
 

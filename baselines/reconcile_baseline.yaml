@@ -2,10 +2,11 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-06-29T14:48:15+00:00'
-  ratified_commit: eec298e
+  ratified_at: '2026-06-29T22:10:56+00:00'
+  ratified_commit: ed4e415
   quarter: 2026-Q1
-  cause: P2 Post-Panamax split + SB charter rates (§11.7.10)
+  cause: 'Thread 1: uniform prompt-resale anchor; crude resale levels confirmed for depreciation slope,
+    pending independent level confirmation (A1.5 open)'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -20,17 +21,17 @@ names:
     sector: product
   BRUT:
     pnav_basis: pareto
-    ev_pct: 102.37
-    tool_nav: 9.4
+    ev_pct: 12.24
+    tool_nav: 4.34
     position_band: BUY (undervalued)
-    k_broker: 0.92
+    k_broker: 1.11
     sector: crude
   CAPT:
     pnav_basis: pareto
-    ev_pct: 31.14
-    tool_nav: 15.03
+    ev_pct: 6.47
+    tool_nav: 11.58
     position_band: BUY (undervalued)
-    k_broker: 1.15
+    k_broker: 1.31
     sector: crude
   CCEC:
     pnav_basis: approx
@@ -41,8 +42,8 @@ names:
     sector: lng
   CMBT:
     pnav_basis: pareto
-    ev_pct: 10.94
-    tool_nav: 15.27
+    ev_pct: 11.29
+    tool_nav: 15.4
     position_band: BUY (undervalued)
     k_broker: 1.14
     sector: crude
@@ -55,17 +56,17 @@ names:
     sector: dry_bulk
   DHT:
     pnav_basis: pareto
-    ev_pct: -15.47
-    tool_nav: 13.1
+    ev_pct: -18.27
+    tool_nav: 12.51
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.21
+    k_broker: 1.26
     sector: crude
   ECO:
     pnav_basis: pareto
-    ev_pct: -20.62
-    tool_nav: 33.88
+    ev_pct: -23.46
+    tool_nav: 32.16
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.15
+    k_broker: 1.19
     sector: crude
   FLNG:
     pnav_basis: pareto
@@ -76,15 +77,15 @@ names:
     sector: lng
   FRO:
     pnav_basis: pareto
-    ev_pct: -18.86
-    tool_nav: 24.22
+    ev_pct: -22.49
+    tool_nav: 22.67
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.15
+    k_broker: 1.2
     sector: crude
   GNK:
     pnav_basis: pareto
-    ev_pct: 1.92
-    tool_nav: 24.64
+    ev_pct: 2.05
+    tool_nav: 24.69
     position_band: HOLD (fairly valued)
     k_broker: 1.08
     sector: dry_bulk
@@ -125,10 +126,10 @@ names:
     sector: crude
   SB:
     pnav_basis: approx
-    ev_pct: 46.31
-    tool_nav: 9.82
+    ev_pct: 51.31
+    tool_nav: 10.31
     position_band: BUY (undervalued)
-    k_broker: 0.8
+    k_broker: 0.77
     sector: dry_bulk
   SBLK:
     pnav_basis: pareto
@@ -146,8 +147,8 @@ names:
     sector: product
   TEN:
     pnav_basis: approx
-    ev_pct: 76.82
-    tool_nav: 87.7
+    ev_pct: 75.75
+    tool_nav: 86.95
     position_band: BUY (undervalued)
     k_broker: 1.16
     sector: crude

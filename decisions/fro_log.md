@@ -22,7 +22,7 @@ where you annotate what you actually did and why.
 - ⚑ NAV/sh -6.4%
 - Δprice: no change | Δsingle FV: -4.7% | Δscenario FV: -4.5% | ΔNAV: -6.4% | Δspread: +4.1pp
 
-**Decision:** Thread 1 basis correction (not a market move). VLCC age-0 $175M->$145M (dated prompt-resale); FRO's 18 young VLCC reprice -> NAV -6.4%, pre-registered. Accepted pending owner review; re-ratify deferred.
+**Decision:** Thread 1 basis correction (not a market move). VLCC age-0 $175M->$145M (dated prompt-resale); FRO's 18 young VLCC reprice -> NAV -6.4%, pre-registered. Owner-approved 2026-06-29; re-ratified with crude resale LEVELS flagged PROVISIONAL. **LEVEL-PROVISIONAL:** the $145M VLCC level is slope-validated (guard #2), not level-confirmed (A1.5 open). On the production curve FRO reads P/NAV(mkt) ~1.52× (−21% to broker); the "broker stale-high" reading rides on $145M being current — confirm the level (Thread 1B) before over-claiming broker-staleness.
 
 ---
 
