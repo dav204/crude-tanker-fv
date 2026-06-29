@@ -5,18 +5,27 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-06-28):** **22 watchlist names across 5 sectors**; **334 main
+**Current state (2026-06-29):** **22 watchlist names across 5 sectors**; **378 main
 tests green** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester via
-`.venv310`); `reconcile --all` **22/22 SANITY OK** (0 fail, 0 drift); drift gate 0
-unexplained; pipeline clean; pushed to `origin/main` @ `a77e217`. The live engine
-GAINED two capabilities this arc (both documented + tested):
-1. **N-sleeve multi-sleeve generalization** (METHODOLOGY §11.9, `MULTI_SLEEVE_TICKERS`)
-   — `sector_carve_out` + `_aggregate_multi_sleeve_report` over arbitrary sector sets;
-   fixed a latent `_sleeve_for` bug routing dry_bulk/container classes to crude.
-2. **dwt-scaling of the dry-bulk value curves** (METHODOLOGY §11.7.10) — Cape/Pana/
-   Supra-Ultra value scales by `vessel.dwt / curve.dwt` (the curve carries `dwt_scaled`);
-   the transaction fit dwt-normalizes prints to the baseline. **Dry-bulk manifest `dwt`
-   is now LOAD-BEARING.** Crude/product/lng/container stay flat-per-class.
+`.venv310`); drift gate **0 unexplained** (headline FV untouched all arc); pipeline
+clean; pushed to `origin/main` @ `5fa1050`. The engine GAINED two **diagnostic-only**
+legs this arc (both documented + tested; NEITHER wired into headline FV):
+1. **Justified P/NAV diagnostic** (METHODOLOGY §17, `justified_pnav.py`) — a coverage-
+   independent fair-multiple per name: `P/NAV* = (RONAV_norm − g)/(r − g)`, where RONAV is
+   return on the tool's marked NAV at through-cycle rates. Gives the APPROX names a NAV
+   benchmark; uses the production transaction-anchored NAV (P0 fix).
+2. **Through-cycle normal-rate layer** (METHODOLOGY §18, `normal_rates.py`) — two tagged
+   bases per class: **parity** (replacement economics, from `newbuild_contract_prices.yaml`)
+   and **historical_mean**; the justified leg shows RONAV under both with a Robust verdict.
+   Pre-registered AHEAD of results (`PRE_REGISTRATION_NORMAL_RATES.md` + 2 amendments); a
+   per-class halt-band + an input-basis resale invariant gate the inputs. `cycle.py` FROZEN.
+   Finding: SB cheap on both (robust); crude reads robust-rich (a stale-NB artifact was caught
+   and purged); LNG/container/product parity UNVALIDATED/pending (see Open threads).
+
+Earlier this same push-block (P2, §11.7.10): **Post-Panamax sub-class** split out of the
+collapsed Pana class (SB's 16 hulls; the over-mark closed, SB NAV $10.14→$9.82) + SB
+disclosed charter rates wired; baseline re-ratified. **dwt-scaling** of the dry-bulk curves
+(§11.7.10) — **dry-bulk manifest `dwt` is LOAD-BEARING**; crude/product/lng/container flat.
 
 **A NEW AGENT: read CLAUDE.md, then this file.** Everything below "Recent arc" is DONE
 and committed. The prioritized open threads are in "Open threads"; the standing
@@ -50,13 +59,32 @@ Three pushed commits (`b1c07db`, `9774411`, `a77e217`):
 
 ## Open threads (prioritized — start here)
 
-1. **Post-Panamax sub-class — HIGHEST-VALUE refinement (§11.7.10).** The dry-bulk "Pana"
-   class collapses 74k Panamax → 96k Post-Panamax onto one 82k Kamsarmax curve; dwt-scaling
-   lifts the 85-96k hulls 1.04-1.17× but old Post-Panamax trade at a per-tonne discount, so
-   the tool over-values them. **SB (16 Post-Panamax) is the clearest case** — its +49% BUY is
-   mark-rich because of this; CMBT/SBLK also carry some. Separating ~85-96k Post-Panamax into
-   its own value class (own newbuild/scrap anchors; could share Pana rates like NMax shares
-   Cape) would tighten the dry-bulk marks. Scoped but DEFERRED pending owner go-ahead.
+**P1 normal-rate / justified-leg follow-ons** (the §18 layer is diagnostic-only; these
+harden it and the OTHER names — none affect the durable SB-cheap finding, which rests on the
+§5b-independent historical floor 0.733). All data-gated routes were pre-registered to defer:
+
+   a. **§18.5b orderbook validation** — the parity "under-ordered" signal (dry-bulk −24%) is
+      PROVISIONAL until validated against an INDEPENDENTLY observed orderbook-to-fleet ratio
+      per sector (run per sector, crude included). Until then the parity column is a hypothesis
+      with a test attached, not a result. This is what makes parity trustworthy or rejects it.
+   b. **§18.5a Baltic mean-reversion data** — the historical_mean basis is v1 = current
+      `historical_tce_means` (unvalidated); upgrade to a true $/day realized mean (BCI 5TC /
+      BPI 4TC / BSI 10TC / New ConTex) and run the registered ≥70%-of-≥12q mean-reversion gate.
+   c. **Product LR1 / Handysize / Handymax `newbuild_contract` marks** — DEFERRED (not sourced
+      mid-recompute, on purpose). Source dated broker contract marks, predict per-class bands,
+      register AHEAD of computing (same discipline as the 8 done classes); then product/hybrid
+      parity computes (now reads "pending"). LNG/container stay unvalidated (boom + resale-inflated).
+   d. **NAV-layer thread — `curve.newbuild` basis inconsistency** (substantive, NOT cosmetic):
+      the age-0 NAV mark means CONTRACT for dry-bulk/MR (Cape $74M≈contract) but RESALE for
+      crude (VLCC $175M, plausibly stale-high even as resale), so cross-sector NAV comparisons
+      inherit the inconsistency — upstream of crude P/NAV on both bases. Separate P2-style NAV
+      curve-refresh (would move headline crude NAV → delta-review + re-ratify). See §18 close.
+   e. **P3 presentation guards** (no number changes): suppress the non-composable LNG/container
+      medians from the headline vector; "rich-near-peak" caveat on crude; §15 governance dual-read
+      for TEN/CMDB (clean-NAV-justified ≠ haircut basis). Lowest-stakes; timebox.
+
+Older dry-bulk refinement threads (now DONE by P2): Post-Panamax sub-class split + SB charter
+rates — landed this push-block; removed from this list.
 2. **CMBT open items** (in `cmbt_log.md`): verify FSO owned-vs-JV (zero `shuttle_contracted_book`
    if the FSOs are inside the equity-JV line); apply the §9.4 yard-quality discount to the
    China-heavy dry-bulk book (v1 is the "without discount" leg); confirm the NMax newbuild

@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-06-28T13:49:49+00:00
-- **Previous run:** 2026-06-28T03:21:26+00:00
+- **This run:** 2026-06-29T14:48:15+00:00
+- **Previous run:** 2026-06-28T19:30:21+00:00
 
 ## Headline changes (material moves)
 
@@ -9,7 +9,14 @@
 
 ## Input files changed since last run
 
-- _(no input file changes detected — hashes match)_
+- `inputs/cost_structures/sb.yaml` (modified)
+- `inputs/fleet_manifests/sb.yaml` (modified)
+- `inputs/market_data/ffa_forward_curve.yaml` (modified)
+- `inputs/market_data/historical_tce_means.yaml` (modified)
+- `inputs/market_data/prices_daily.yaml` (modified)
+- `inputs/market_data/spot_tce.yaml` (modified)
+- `inputs/market_data/twelve_month_tc.yaml` (modified)
+- `inputs/market_data/vessel_value_curves.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -36,7 +43,7 @@
 | GSL | $37.79 (no change) | $43.00 (no change) | $40.59 (no change) | $38.59 (no change) | BUY (undervalued) | +24.5pp (no change) |
 | BRUT | $5.34 (no change) | $9.84 (no change) | $10.81 (no change) | $9.40 (no change) | BUY (undervalued) | -41.5pp (no change) |
 | CMBT | $14.10 (no change) | $14.68 (no change) | $15.64 (no change) | $15.27 (no change) | BUY (undervalued) | +24.2pp (no change) |
-| SB | $6.39 (no change) | $9.71 (no change) | $9.52 (no change) | $10.14 (no change) | BUY (undervalued) | -39.0pp (no change) |
+| SB | $6.39 (no change) | $9.48 (-2.4%) | $9.35 (-1.8%) | $9.82 (-3.2%) | BUY (undervalued) | -34.7pp (+4.3pp) |
 
 _⚑ flags a material change (position flip, |ΔFV%| > 10%, |Δspread| > 5pp, or |ΔNAV%| > 5%). ⟵ marks a position flip._
 

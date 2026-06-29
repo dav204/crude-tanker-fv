@@ -36,6 +36,60 @@ preferred refinancing/redemption activity, any VIE stance change, the
 
 ---
 
+## 2026-06-29T14:48:15+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $36.72
+- Single-point FV: $60.74
+- Scenario PW FV: $64.93 (EV +76.8%)
+- NAV / share: $87.70
+- Position: **BUY (undervalued)**
+- Broker spread: +35.2pp (k_broker 1.16)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-28T19:30:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $36.72
+- Single-point FV: $60.74
+- Scenario PW FV: $64.93 (EV +76.8%)
+- NAV / share: $87.70
+- Position: **BUY (undervalued)**
+- Broker spread: +35.2pp (k_broker 1.16)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-28T18:45:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $36.72
+- Single-point FV: $60.74
+- Scenario PW FV: $64.93 (EV +76.8%)
+- NAV / share: $87.70
+- Position: **BUY (undervalued)**
+- Broker spread: +35.2pp (k_broker 1.16)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-28T13:49:49+00:00 — Pipeline run (auto)
 
 **Model state:**
