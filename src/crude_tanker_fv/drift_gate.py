@@ -162,30 +162,48 @@ def write_baseline(cause: str, *, state: Optional[dict] = None,
 def decision_log_annotated_since(
     ticker: str, since: str, decisions_dir: Path = DECISIONS_DIR
 ) -> bool:
-    """True if `decisions/<ticker>_log.md` carries a human annotation dated on/
-    after `since` (an ISO date or timestamp). Counts either a human-authored
-    dated header (title is not "Pipeline run (auto)") or a non-placeholder
-    **Decision:** line under any dated section on/after `since`."""
+    """True iff the MOST-RECENT decision-log entry for `ticker` is a human
+    annotation dated on/after `since`.
+
+    Only the top (newest) entry counts. Every pipeline run prepends a fresh
+    ``Pipeline run (auto)`` entry whose ``**Decision:**`` line is the
+    ``_[pending annotation]_`` placeholder, so a breach is "explained" only when
+    a human has annotated *that* run — either by prepending a dated non-auto
+    header or by replacing the placeholder under the latest auto entry.
+
+    This closes the auto-explain hole: a real annotation buried under an *older*
+    entry (e.g. a prior move's note that still sits inside the ratification
+    window) no longer blesses a fresh, unreviewed move. The pipeline writing the
+    log quietly cannot self-explain — the newest entry it writes carries the
+    placeholder, and a stale lower entry is not consulted.
+    """
     path = decisions_dir / f"{ticker.lower()}_log.md"
     if not path.exists():
         return False
     since_day = since[:10]
-    current_day: Optional[str] = None
-    for line in path.read_text().splitlines():
-        m = _HEADER_RE.match(line)
-        if m:
-            current_day = m.group(1)
-            title = m.group(2).lstrip("—- ").strip()
-            if (current_day >= since_day and title
-                    and not title.lower().startswith(_AUTO_TITLE)):
+    lines = path.read_text().splitlines()
+
+    # Locate the first (most-recent) dated entry header; skip any file preamble.
+    idx = next((i for i, ln in enumerate(lines) if _HEADER_RE.match(ln)), None)
+    if idx is None:
+        return False
+    m = _HEADER_RE.match(lines[idx])
+    day, title = m.group(1), m.group(2).lstrip("—- ").strip()
+    if day < since_day:
+        return False  # the newest entry predates the ratification window
+    if title and not title.lower().startswith(_AUTO_TITLE):
+        return True   # a human-authored header sits on top
+
+    # Auto header on top: explained only if a human replaced its placeholder.
+    # Scan its body up to (but not into) the next, older entry.
+    for line in lines[idx + 1:]:
+        if _HEADER_RE.match(line):
+            break
+        s = line.strip()
+        if s.startswith("**Decision:**"):
+            body = s[len("**Decision:**"):].strip().strip("*_ ").strip()
+            if body and _PLACEHOLDER not in body.lower():
                 return True
-            continue
-        if current_day is not None and current_day >= since_day:
-            s = line.strip()
-            if s.startswith("**Decision:**"):
-                body = s[len("**Decision:**"):].strip().strip("*_ ").strip()
-                if body and _PLACEHOLDER not in body.lower():
-                    return True
     return False
 
 

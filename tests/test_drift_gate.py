@@ -172,6 +172,22 @@ def test_annotation_before_ratify_is_ignored(tmp_path):
     assert r.status == "UNEXPLAINED"
 
 
+def test_stale_annotation_under_fresh_auto_entry_does_not_clear(tmp_path):
+    """Closed auto-explain hole (X9): a real annotation under an OLDER entry must
+    NOT bless a fresh move once the pipeline prepends a new placeholder entry on
+    top. Only the most-recent entry counts — the pipeline cannot self-explain."""
+    baseline = _baseline_from(_state({"DHT": _ticker(ev=-21.0)}))  # ratified 2026-03-01
+    moved = _state({"DHT": _ticker(ev=-15.0)})
+    _write_log(tmp_path, "DHT",
+               "## 2026-04-02T08:00:00+00:00 — Pipeline run (auto)\n\n"
+               "**Decision:** _[pending annotation]_\n\n"
+               "---\n\n"
+               "## 2026-04-01 — real human note for a PRIOR move\n\n"
+               "**Decision:** accepted the prior NAV rerate.\n")
+    r = _row(drift_gate.evaluate(baseline, moved, decisions_dir=tmp_path), "DHT")
+    assert r.status == "UNEXPLAINED"  # fresh placeholder on top ⇒ not explained
+
+
 def test_new_and_missing_names_report_not_fail(tmp_path):
     baseline = _baseline_from(_state({"DHT": _ticker(), "FRO": _ticker()}))
     # state drops FRO (missing) and adds GNK (new)
