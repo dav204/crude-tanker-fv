@@ -172,3 +172,100 @@ trust whichever the data picks.
   orderbook-to-fleet ratios.
 - Convergence: migrating cycle position onto the new historical-mean basis
   (separate pre-registered, delta-reviewed, re-ratified change).
+
+---
+
+# Amendment 1 (2026-06-29) — `newbuild_contract` input + per-class bands + resale invariant
+
+**Frozen ahead of the recompute** (commit precedes results, as the original). Reason: the
+original registered the parity NB price as the `vessel_value_curves.yaml` `newbuild` field —
+a **conceptual conflation**. That field is the age-0 prompt/**resale** value (correct for NAV
+marks); parity needs newbuild-**contract** replacement cost. They converge in some segments and
+diverge where orderbooks run hot (2026 crude: 5yr tonnage trades *above* newbuild contracts). The
+original Cape halt passed honestly-but-incompletely — Cape resale ≈ contract, so the wrong input
+and the right input coincided. A level band cannot distinguish "correct input" from "wrong input
+that happens to match here," so the fix is structural.
+
+## A1.1 New registered input — `newbuild_contract` (distinct from the curve's resale `newbuild`)
+
+In a new `inputs/market_data/newbuild_contract_prices.yaml` (parity-only; the NAV curve is
+untouched). Broker contract for **every** class (no keep-vs-correct tolerance rule). VLCC resolved
+on **reliability** (Clarksons, the authoritative newbuild-price benchmark) not repo-residence.
+
+| Class | `newbuild_contract` | source (dated) |
+|---|--:|---|
+| VLCC | $128M | Clarksons benchmark Jun-2026 (xclusiv $131.5M corrob.) |
+| Suezmax | $88M | Clarksons/market Jun-2026 |
+| Aframax | $73M | market newbuilding cost Jun-2026 (xclusiv $75M corrob.) |
+| LR2 | $73M | ≈ Aframax |
+| MR | $52M | xclusiv 2026Q2 (2026-06-22) |
+| Cape | $75.5M | xclusiv 2026Q2 (2026-06-22) |
+| Pana (Kamsarmax) | $37.5M | xclusiv 2026Q2 |
+| Supra-Ultra (Ultramax) | $34.5M | xclusiv 2026Q2 |
+
+**Dry-bulk verification (the fact SB rests on):** repo curve `newbuild` Cape $74M / Kamsarmax $38M
+are within −2% / +1% of these broker **contracts** (NOT the resale $81.5M / $46M) — i.e. the
+dry-bulk curve field was already contract-basis, which is *why* SB's robust-cheap survived. Now
+registered on the broker contract directly, SB's Pana parity moves $14,831→$14,701 (noise).
+
+## A1.2 Frozen per-class parity bands (halt conditions, ±$500) — predicted before recompute
+
+| Class | predicted | band | | Class | predicted | band |
+|---|--:|---|---|---|--:|---|
+| VLCC | $41,718 | $41.2–42.2k | | MR | $21,315 | $20.8–21.8k |
+| Suezmax | $31,278 | $30.8–31.8k | | Cape | $25,753 | $25.3–26.3k |
+| Aframax | $27,487 | $27.0–28.0k | | Pana | $14,701 | $14.2–15.2k |
+| LR2 | $27,079 | $26.6–27.6k | | Supra-Ultra | $13,738 | $13.2–14.2k |
+
+Every trusted class now carries an out-of-sample gate — complete, not crude-deep. Outside ⇒
+investigate input.
+
+## A1.3 Resale invariant — an INPUT-BASIS halt (gates the error a level band can't)
+
+A level band gates the parity *level* against a prediction derived *from* the NB input — it cannot
+catch an input that is wrong in a way self-consistent with its own prediction (resale-as-contract).
+So register, per class, a dated broker **prompt-resale** reference and the invariant:
+
+```
+HALT (input-basis) if newbuild_contract ≥ prompt_resale[class]
+```
+
+Pointed at a clean **single-basis** broker resale reference — NOT `curve.newbuild`, whose basis is
+inconsistent (resale for crude, contract for dry-bulk/MR), which would false-flag the corrected
+Cape/MR. Kept as the slack inequality (resale strictly above contract is the hot/normal-market norm;
+contract may legitimately approach resale in a soft patch — do not tighten to a margin). `prompt_resale`
+is itself a dated registered input (xclusiv 2026Q2 resale for dry-bulk: Cape $81.5M, Kamsarmax $46M,
+Ultramax $43M; broker resale for crude: VLCC $145M, Suezmax $95M, Aframax/LR2 $88.9M, MR $54M) so a
+stale-high ceiling cannot quietly launder a stale-high contract.
+
+**Validation:** passes all eight corrected classes; **fires on the original bug** — $175M-as-contract
+≥ VLCC resale $145M → FLAG, with no one going to look. This is what makes "the system catches the
+third instance" true.
+
+## A1.4 Unvalidated — no gate (do not read as load-bearing)
+
+- **Post-Panamax** — no broker contract mark; parity unvalidated.
+- **LNGC / MGC / Ctr-\*** — no contract spot-check, AND the resale-vs-contract gap is *largest* where
+  orderbooks run hot (membrane LNG worst), so inflated on the parity side by the same conflation, on
+  top of boom-tilt on the historical side. **No validated normal rate on either basis** — suppressed
+  from the headline subsector vector.
+
+## A1.5 Pre-registered expected outcome (falsifiable; halt if it misses)
+
+Crude under-ordering should **collapse** on contract NB: VLCC parity ≈ historical (−4%, not −26%);
+crude parity median (~$31k) falls *below* the crude historical median (~$36.5k) → crude reads
+**rich-or-fair on both bases**; the prior "crude flips to fair on parity" was the resale artifact and
+should **reverse**. **SB / dry-bulk cheap stands** (verified ≈ contract). If crude does NOT collapse,
+or SB flips on either basis — stop and investigate.
+
+## A1.6 NAV-layer thread (logged as its own finding, weighted substantive — NOT a footnote)
+
+The first conflation (parity borrowed the resale field) is fixed here by giving parity its own input.
+But the verification exposed a **second, deeper** one: `curve.newbuild` — the age-0 **NAV** mark — has
+**no consistent basis across sectors** (contract-ish for dry-bulk/MR at Cape $74M, resale at VLCC
+$175M, and the VLCC value is plausibly stale-high even *as* resale vs a ~$145M prompt mark). So
+cross-sector NAV comparisons inherit that inconsistency, and it sits **upstream of every crude P/NAV
+and RONAV on both bases** — plausibly why crude justified reads look off in ways the parity fix alone
+won't fully resolve. Separate P2-style NAV-curve thread (NOT bundled into P1); the questions it must
+answer: (a) is the curve's age-0 field resale or contract, per sector, made consistent; (b) is VLCC
+$175M stale-high even as resale.
