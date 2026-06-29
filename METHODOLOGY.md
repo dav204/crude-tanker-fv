@@ -2858,9 +2858,105 @@ its justified P/NAV (~0.78) sits above the market's 0.674 and SB reads **cheap**
 vs justified. (The figure moves with the marked NAV; the tests pin the identity,
 not the dollar NAV.)
 
+## 18. Through-cycle normal-rate layer — parity vs historical-mean (added 2026-06-29)
+
+The §17 justified leg pins RONAV to a single through-cycle anchor. P1 replaces that
+single anchor with **two tagged bases computed by one layer** (`normal_rates.py`),
+and surfaces the **divergence** between them. Pre-registered ahead of results in
+`PRE_REGISTRATION_NORMAL_RATES.md` (frozen 2026-06-29, commit precedes computation —
+the parity anchor is an out-of-sample construction, not a fit to a known level).
+
+### 18.1 The two bases (same computation layer, different value)
+
+- **`parity`** (headline for the justified leg) — replacement economics: the TCE/day
+  that lets a *newbuild* earn its cost of capital. It closes the §17 loop (parity is
+  the rate that makes justified-P/NAV = 1 for a newbuild) and is independent of any
+  rate-history-window bias (it is built from newbuild cost, not a rate series).
+  ```
+  required_TCE/day = opex/day + (NB − scrap·(1+WACC)^(−N))·CRF / operating_days
+  CRF = WACC / (1 − (1+WACC)^(−N))
+  ```
+  **Scrap enters at present value** (NPV=0 form) — naive `(NB−scrap)·CRF` double-credits
+  the year-N salvage's time value and under-charges capital (`normal_rates.parity_tce`
+  carries a comment; do not "simplify" the discount away).
+- **`historical_mean`** (cross-check) — the realized through-cycle anchor. v1 = the
+  current `historical_tce_means` values; the true Baltic $/day realized-mean route is
+  deferred and gated (§18.5a).
+
+Each consumer picks the basis right for its job. **Cycle position (`cycle.py`) is a
+mean-reversion signal and is FROZEN on the historical basis** — P1 moved no headline
+FV (drift gate: 0 rows). Migrating cycle position onto the new layer is a separate,
+pre-registered, delta-reviewed, re-ratified change.
+
+### 18.2 Registered parity inputs (frozen — see the pre-reg doc)
+
+WACC **0.08** (gridded 7-10%; built from 11% cost of equity × 42% + a normalized
+~6% after-tax cost of debt × 58% — a NORMALIZED 3% base rate, not today's SOFR;
+**distinct from the §17 `r` = 11% equity discount** — parity discounts the *asset*,
+`r` the *equity claim*). N = 25 yr. operating_days = 360 (reconciled to the strip's
+2% off-hire as an intentional newbuild-vs-aging-fleet difference). NB price + scrap
+from `vessel_value_curves.yaml` (Cape NB $74M — the *current* replacement cost, not
+a stale figure). Opex: per-class **fleet-weighted** across the names carrying the
+class, on the repo's cash-vessel-opex definition (mgmt fees live in G&A), with a
+>25%-from-median outlier exclusion.
+
+### 18.3 The divergence is the deliverable
+
+`divergence = historical_mean − parity`. Negative (historical below parity) ⇒ realized
+rates below replacement ⇒ **under-ordered** (the segment should re-rate up). Positive
+⇒ over-ordered, or a boom-tilted anchor. The justified leg shows each name's RONAV and
+justified P/NAV under **both** bases plus a **`Robust`** verdict: cheap/rich on both ⇒
+robust; **flips ⇒ the call depends on the normalization philosophy, which is itself the
+finding.** (At the 2026-Q1 run: SB cheap on both — robust; the crude tankers flip
+fair↔rich — "rich" only on the historical anchor, fair under replacement parity;
+containerships' historical anchor sits ~64% above parity — the §17.6 boom-tilt made
+quantitative.)
+
+### 18.4 Pre-registered predictions (halt conditions, now CI gates)
+
+At 8% WACC: **Cape parity ∈ $24.8–25.8k, Kamsarmax ∈ $14.5–15.5k**. Outside the band ⇒
+investigate the **input**, never widen the band. Both landed in band at lock
+(Cape $25,363; Kamsarmax $14,831) and are pinned in `test_normal_rates.py`.
+
+### 18.5 Validation gates (per basis; data-gated, registered now)
+
+- **(a) `historical_mean` → mean-reversion:** `(current 12M TC ÷ anchor)` must predict
+  the sign of the next realized-rate change, sign-consistent in ≥70% of ≥12 quarters,
+  else the anchor is rejected for that class. Needs the $/day Baltic series — deferred;
+  until then the historical basis is flagged "unvalidated."
+- **(b) `parity` → level + divergence-sign:** validated by the §18.4 level prediction AND
+  by the divergence sign matching an **independently observed orderbook-to-fleet ratio**
+  per class (not inferred from the divergence — that would be circular). Also data-gated.
+  **The §18.3 divergence read is PROVISIONAL until 5b passes.**
+
+### 18.6 Status / what's deferred
+
+Diagnostic only; not in the headline FV. Deferred: the Baltic $/day series + the 5a/5b
+runs; the cycle-position convergence migration. **The provisional both-under-ordered
+signal is not a result** until the orderbook data confirms it (§18.5b).
+
 ## Appendix A. Changelog
 
 Dated record of material framework changes. Lock dates use UTC.
+
+### 2026-06-29 — Self-consistency sprint: NAV-basis fix, dry-bulk fidelity, through-cycle anchors (§18)
+
+- **P0 — justified-leg NAV basis (commit `8bd450f`).** The justified-P/NAV leg used raw
+  `compute_nav` while every other surface runs transaction-anchored marks (§9.9). Threaded
+  `use_transaction_anchored=True`; SB now lands at the production NAV. Diagnostic-only, no
+  headline move.
+- **P2 — Post-Panamax sub-class + SB charter rates (commits `eec298e`, `6b3b8ea`).** Split SB's
+  16 issuer-classified 85-95.8k Post-Panamax hulls out of the dwt-scaled 82k "Pana" class onto a
+  flat curve anchored on a broker value mark (§11.7.10 over-mark closed; SB NAV $10.14→$9.82, the
+  sole headline mover, baseline re-ratified). Wired the 6-K disclosed charter rates (consensus-EPS
+  gap +126%→+118%, the residual structural).
+- **P1 — through-cycle normal-rate layer (§18).** Pre-registered ahead of results
+  (`PRE_REGISTRATION_NORMAL_RATES.md`). New `normal_rates.py` computes two tagged bases per class
+  (parity replacement-economics + historical-mean) and the divergence; the justified leg shows RONAV
+  under both with a `Robust` verdict. `cycle.py` frozen — drift gate 0 rows. Halt-condition bands
+  (Cape $24.8-25.8k, Kamsarmax $14.5-15.5k) hit and pinned as CI gates. Finding: SB cheap on both
+  (robust); crude tankers flip fair↔rich (richness depends on the normalization philosophy).
+- Suite 312 → 369.
 
 ### 2026-06-28 — Justified P/NAV diagnostic added (§17)
 

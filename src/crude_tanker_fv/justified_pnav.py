@@ -50,8 +50,9 @@ from statistics import median
 from typing import Optional
 
 from .dividend_strip import STRIP_HORIZON_QUARTERS, compute_dividend_strip
-from .loaders import INPUTS_DIR, load_company_inputs, load_watchlist
+from .loaders import ALLOWED_CLASSES, INPUTS_DIR, load_company_inputs, load_watchlist
 from .nav import COST_OF_EQUITY, compute_nav
+from .normal_rates import normal_rate_table
 from .report import OUTPUTS_DIR
 from .scenarios import SCENARIOS_PATH, load_scenarios
 from .schemas import CompanyInputs
@@ -107,13 +108,17 @@ def ronav_implied(price: float, nav_per_share: float, r: float, g: float) -> flo
 # Normalized through-cycle earning power
 # ---------------------------------------------------------------------------
 def normalized_annual_eps(
-    ci: CompanyInputs, nav_per_share: float
+    ci: CompanyInputs, nav_per_share: float, anchors: dict[str, float]
 ) -> tuple[Optional[float], list[str]]:
-    """Annual EPS with every vessel class's TCE pinned to its cycle anchor.
+    """Annual EPS with every vessel class's TCE pinned to a through-cycle anchor.
+
+    ``anchors`` is the per-class flat rate to pin TCE to — either the ``parity``
+    or the ``historical_mean`` basis (P1; PRE_REGISTRATION_NORMAL_RATES.md). The
+    same machinery serves both, so the two RONAVs differ only by the anchor.
 
     Returns ``(eps, missing_anchor_classes)``. ``eps`` is None iff a fleet class
-    has no ``historical_tce_means`` anchor (then ``missing`` is non-empty). The
-    strip is reused unchanged via a normalized ``CompanyInputs``:
+    has no anchor (then ``missing`` is non-empty). The strip is reused unchanged
+    via a normalized ``CompanyInputs``:
 
     - ``ffa_forward_curve`` -> flat per-class anchor (the through-cycle rate),
     - coverage neutralized (cov=0 ⇒ blended TCE = anchor for EVERY vessel, so a
@@ -127,7 +132,6 @@ def normalized_annual_eps(
     terminal value is computed but discarded — only ``eps_by_quarter`` is read.
     """
     md = ci.market_data
-    anchors = md.historical_tce_means
     fleet_classes = {v.cls for v in ci.fleet.vessels}
     missing = sorted(c for c in fleet_classes if c not in anchors)
     if missing:
@@ -159,33 +163,68 @@ def _newbuild_value_share(ci: CompanyInputs) -> float:
 # ---------------------------------------------------------------------------
 # Row model
 # ---------------------------------------------------------------------------
+def _read_from(justified: Optional[float], pnav_mkt: Optional[float],
+               flag: Optional[str]) -> str:
+    """cheap / fair / rich vs the market multiple, or the blocking flag."""
+    if flag is not None:
+        return flag
+    if justified is None or pnav_mkt is None:
+        return "n/a"
+    diff = justified - pnav_mkt
+    if abs(diff) <= FAIR_BAND * pnav_mkt:
+        return "fair"
+    return "cheap" if diff > 0 else "rich"
+
+
 @dataclass
 class JustifiedPnavRow:
-    """One name's justified-P/NAV read. Multiple/FV/label are None when a guard trips."""
+    """One name's justified-P/NAV read under BOTH normal-rate bases (P1).
+
+    The PRIMARY fields are the ``parity`` basis (the headline — it closes the §17
+    loop: parity is the rate that makes justified-P/NAV = 1 for a newbuild). The
+    ``*_hist`` fields are the ``historical_mean`` cross-check. ``pnav_mkt`` and
+    ``ronav_implied`` are basis-independent (market-priced). Multiple/FV/label are
+    None when a guard trips. The deliverable is the DIVERGENCE — whether the
+    cheap/rich call survives the choice between the two legitimate bases.
+    """
 
     ticker: str
     hybrid: bool
     sector: str
     nav_per_share: float
     price: float
-    pnav_mkt: Optional[float]              # price / NAV
-    ronav_norm: Optional[float]            # normalized annual EPS / NAV
+    pnav_mkt: Optional[float]              # price / NAV (basis-independent)
+    ronav_implied: Optional[float]         # g + P/NAV(mkt)·(r − g) (basis-independent)
     r: float
     g: float
-    justified_pnav: Optional[float]        # (RONAV_norm − g)/(r − g)
-    justified_fv: Optional[float]          # justified P/NAV × NAV
-    ronav_implied: Optional[float]         # g + P/NAV(mkt)·(r − g)
-    gap: Optional[float]                   # RONAV_norm − RONAV_implied
-    flag: Optional[str]                    # guard that blocked the multiple, else None
+    # parity basis (headline)
+    ronav_norm: Optional[float]            # parity normalized annual EPS / NAV
+    justified_pnav: Optional[float]        # (RONAV_parity − g)/(r − g)
+    justified_fv: Optional[float]
+    gap: Optional[float]                   # RONAV_parity − RONAV_implied
+    flag: Optional[str]
+    # historical_mean basis (cross-check)
+    ronav_norm_hist: Optional[float]
+    justified_pnav_hist: Optional[float]
+    gap_hist: Optional[float]
+    flag_hist: Optional[str]
 
     @property
     def read(self) -> str:
-        if self.flag is not None:
-            return self.flag
-        diff = self.justified_pnav - self.pnav_mkt
-        if abs(diff) <= FAIR_BAND * self.pnav_mkt:
-            return "fair"
-        return "cheap" if diff > 0 else "rich"
+        """Headline (parity-basis) read."""
+        return _read_from(self.justified_pnav, self.pnav_mkt, self.flag)
+
+    @property
+    def read_hist(self) -> str:
+        return _read_from(self.justified_pnav_hist, self.pnav_mkt, self.flag_hist)
+
+    @property
+    def robust(self) -> str:
+        """Does the cheap/rich call survive the basis choice? The P1 deliverable."""
+        a, b = self.read, self.read_hist
+        if a in ("cheap", "fair", "rich") and b in ("cheap", "fair", "rich"):
+            return "robust" if a == b else f"flips ({a}/{b})"
+        return "n/a"
 
 
 def _g_by_sector(inputs_dir: Path) -> dict[str, float]:
@@ -275,6 +314,12 @@ def compute_justified_pnav_rows(
     """
     watchlist = load_watchlist(inputs_dir)
     g_by_sector = _g_by_sector(inputs_dir)
+    # Parity anchors — computed ONCE for all classes (PRE_REGISTRATION §; P1).
+    parity_anchors = {
+        cls: nr.parity
+        for cls, nr in normal_rate_table(quarter, sorted(ALLOWED_CLASSES), inputs_dir=inputs_dir).items()
+        if nr.parity is not None
+    }
     rows: list[JustifiedPnavRow] = []
     for ticker, entry in watchlist.items():
         try:
@@ -289,14 +334,17 @@ def compute_justified_pnav_rows(
         price = float(entry.get("as_of_price") or entry["current_price"])
         nav = compute_nav(ci).nav_per_share
         has_cost = bool(ci.cost_structure.opex_per_day)
+        nb_share = _newbuild_value_share(ci)
 
-        eps: Optional[float] = None
-        missing: list[str] = []
-        if nav > 0 and has_cost and r > g:
-            eps, missing = normalized_annual_eps(ci, nav)
-        ev = evaluate(
-            nav, price, eps, bool(missing), has_cost, _newbuild_value_share(ci), r, g
-        )
+        def _basis(anchors: dict[str, float]) -> _Eval:
+            eps: Optional[float] = None
+            missing: list[str] = []
+            if nav > 0 and has_cost and r > g:
+                eps, missing = normalized_annual_eps(ci, nav, anchors)
+            return evaluate(nav, price, eps, bool(missing), has_cost, nb_share, r, g)
+
+        par = _basis(parity_anchors)                              # headline
+        hist = _basis(ci.market_data.historical_tce_means)        # cross-check
 
         rows.append(JustifiedPnavRow(
             ticker=ticker,
@@ -308,15 +356,19 @@ def compute_justified_pnav_rows(
             sector=sector,
             nav_per_share=nav,
             price=price,
-            pnav_mkt=ev.pnav_mkt,
-            ronav_norm=ev.ronav_norm,
+            pnav_mkt=par.pnav_mkt,
+            ronav_implied=par.ronav_implied,
             r=r,
             g=g,
-            justified_pnav=ev.justified_pnav,
-            justified_fv=ev.justified_fv,
-            ronav_implied=ev.ronav_implied,
-            gap=ev.gap,
-            flag=ev.flag,
+            ronav_norm=par.ronav_norm,
+            justified_pnav=par.justified_pnav,
+            justified_fv=par.justified_fv,
+            gap=par.gap,
+            flag=par.flag,
+            ronav_norm_hist=hist.ronav_norm,
+            justified_pnav_hist=hist.justified_pnav,
+            gap_hist=hist.gap,
+            flag_hist=hist.flag,
         ))
     return rows
 
@@ -325,11 +377,20 @@ def compute_justified_pnav_rows(
 # Summaries
 # ---------------------------------------------------------------------------
 def subsector_median_pnav(rows: list[JustifiedPnavRow]) -> dict[str, float]:
-    """Median Justified P/NAV by sector (valid rows only) — the headline artifact."""
+    """Median Justified P/NAV by sector (parity basis, valid rows) — headline artifact."""
     by_sector: dict[str, list[float]] = {}
     for r in rows:
         if r.justified_pnav is not None:
             by_sector.setdefault(r.sector, []).append(r.justified_pnav)
+    return {s: median(v) for s, v in by_sector.items() if v}
+
+
+def subsector_median_pnav_hist(rows: list[JustifiedPnavRow]) -> dict[str, float]:
+    """Median Justified P/NAV by sector on the historical_mean cross-check basis."""
+    by_sector: dict[str, list[float]] = {}
+    for r in rows:
+        if r.justified_pnav_hist is not None:
+            by_sector.setdefault(r.sector, []).append(r.justified_pnav_hist)
     return {s: median(v) for s, v in by_sector.items() if v}
 
 
@@ -385,10 +446,19 @@ def write_justified_pnav(
     w("**RONAV_norm is return on *marked NAV*, not on accounting book**, and **through-cycle, not "
       "NTM (next-twelve-months)**: `normalized_annual_EPS / NAV/sh`, where the EPS runs the "
       "dividend-strip earnings machinery with every vessel class's day-rate (TCE, time-charter "
-      "equivalent) pinned to its cycle anchor (`historical_tce_means`), NOT the FFA (forward "
-      "freight agreement) forward curve. Book always 'earns well' mid-cycle and says nothing "
-      "about whether the market value is justified; the FFA front end is the hot near-term number "
-      "that would inflate the multiple — both are deliberately avoided.\n")
+      "equivalent) pinned to a through-cycle anchor, NOT the FFA (forward freight agreement) "
+      "forward curve. Book always 'earns well' mid-cycle and says nothing about whether the market "
+      "value is justified; the FFA front end is the hot near-term number that would inflate the "
+      "multiple — both are deliberately avoided.\n")
+    w("**Two normal-rate bases (P1, §18; PRE_REGISTRATION_NORMAL_RATES.md).** Each name is shown "
+      "under BOTH: **`parity`** (headline) — replacement economics, the TCE that lets a newbuild "
+      "earn its cost of capital (closes the loop: justified-P/NAV = 1 for a newbuild); and "
+      "**`historical_mean`** (cross-check) — the realized through-cycle anchor (current "
+      "`historical_tce_means`). The per-class divergence (`historical − parity`) is the "
+      "under-/over-ordered signal. The deliverable is whether the cheap/rich call **survives the "
+      "basis choice** (`Robust` column): survives → a genuine read; **flips → the call depends on "
+      "the normalization philosophy**, which is itself the finding. PROVISIONAL pending the §18.5b "
+      "orderbook validation of the divergence.\n")
     w("**Read this as an ORDERING tool, not a precision estimate.** `r − g` is a small "
       "denominator, so the multiple is hypersensitive: ±1pp on `g` or `RONAV_norm` swings it "
       "10-20% (see the per-sector sensitivity grids below). **Anchor-bias caveats — RONAV_norm "
@@ -403,35 +473,39 @@ def write_justified_pnav(
     w("**Not in the headline FV** (diagnostic only); whether justified-P/NAV ranking predicts "
       "forward returns is a separate pre-registered study.\n")
 
-    w("| Ticker | Sector | NAV/sh | Price | P/NAV (mkt) | RONAV_norm | r | g | "
-      "Justified P/NAV | Justified FV/sh | RONAV_implied (mkt) | Gap (RONAV−impl) | Read |")
-    w("|---|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|---|")
+    w("| Ticker | Sector | NAV/sh | Price | P/NAV (mkt) | RONAV (par) | Just P/NAV (par) | "
+      "RONAV (hist) | Just P/NAV (hist) | Read: par → hist | Robust? |")
+    w("|---|---|--:|--:|--:|--:|--:|--:|--:|---|---|")
 
     def _sort_key(row: JustifiedPnavRow):
-        # Valid rows by gap descending (cheapest first); flagged rows last.
+        # Valid rows by parity gap descending (cheapest first); flagged rows last.
         return (0, -(row.gap if row.gap is not None else 0.0)) if row.flag is None else (1, 0.0)
+
+    def _jp(x: Optional[float]) -> str:
+        return f"{x:.3f}×" if x is not None else "—"
 
     for r in sorted(rows, key=_sort_key):
         tag = " **(WHOLE-CO)**" if r.hybrid else ""
         pnav_mkt = f"{r.pnav_mkt:.3f}×" if r.pnav_mkt is not None else "n/a"
-        jp = f"{r.justified_pnav:.3f}×" if r.justified_pnav is not None else "—"
-        fv = f"${r.justified_fv:,.2f}" if r.justified_fv is not None else "—"
-        gap = _pct(r.gap, 1, signed=True) if r.gap is not None else "—"
         w(f"| {r.ticker}{tag} | {r.sector} | ${r.nav_per_share:,.2f} | ${r.price:,.2f} | "
-          f"{pnav_mkt} | {_pct(r.ronav_norm)} | {r.r:.0%} | {r.g:.1%} | {jp} | {fv} | "
-          f"{_pct(r.ronav_implied)} | {gap} | {r.read} |")
+          f"{pnav_mkt} | {_pct(r.ronav_norm)} | {_jp(r.justified_pnav)} | "
+          f"{_pct(r.ronav_norm_hist)} | {_jp(r.justified_pnav_hist)} | "
+          f"{r.read} → {r.read_hist} | {r.robust} |")
 
     medians = subsector_median_pnav(rows)
-    w("\n## Subsector vector — median Justified P/NAV\n")
-    w("| Sector | Median Justified P/NAV | n |")
-    w("|---|--:|--:|")
+    medians_h = subsector_median_pnav_hist(rows)
+    w("\n## Subsector vector — median Justified P/NAV (parity headline, historical cross-check)\n")
+    w("| Sector | Median Just P/NAV (parity) | Median (historical) | n |")
+    w("|---|--:|--:|--:|")
     counts = {s: sum(1 for r in rows if r.sector == s and r.justified_pnav is not None)
               for s in medians}
     for s in sorted(medians, key=lambda s: medians[s], reverse=True):
-        w(f"| {s} | {medians[s]:.3f}× | {counts[s]} |")
-    w("\n_Expected ordering lng / containerships ≥ tankers ≥ dry bulk — but the dry-bulk "
-      "anchor-bias (upward) and dwt-scaling (downward on the multiple) caveats above make a "
-      "strict ordering indicative only._\n")
+        mh = f"{medians_h[s]:.3f}×" if s in medians_h else "—"
+        w(f"| {s} | {medians[s]:.3f}× | {mh} | {counts[s]} |")
+    w("\n_The two columns ARE the signal: where parity ≫ historical, the sector reads cheaper under "
+      "replacement economics than under its (boom/firm-window-biased) historical anchor — the §18 "
+      "under-ordering. The §17.6 anchor-bias caveats apply to the historical column only; parity is "
+      "independent of those biases (it is built from newbuild cost, not a rate-history window)._\n")
 
     bases = _sector_base_ronav(rows)
     w("\n## Sensitivity grids — Justified P/NAV across g × RONAV_norm "
@@ -469,23 +543,25 @@ def write_justified_pnav(
     ws = wb.active
     ws.title = "Justified PNAV"
     headers = ["ticker", "basis", "sector", "nav_per_share", "price", "pnav_mkt",
-               "ronav_norm", "r", "g", "justified_pnav", "justified_fv",
-               "ronav_implied", "gap", "read", "flag"]
+               "r", "g", "ronav_implied",
+               "ronav_parity", "justified_pnav_parity", "read_parity",
+               "ronav_hist", "justified_pnav_hist", "read_hist",
+               "robust", "flag"]
     ws.append(headers)
     for c in ws[1]:
         c.font = Font(bold=True)
+
+    def _rnd(x, p=4):
+        return round(x, p) if x is not None else None
+
     for r in sorted(rows, key=_sort_key):
         basis = "WHOLE-COMPANY (hybrid)" if r.hybrid else "whole-company"
         ws.append([
             r.ticker, basis, r.sector, round(r.nav_per_share, 3), round(r.price, 2),
-            (round(r.pnav_mkt, 4) if r.pnav_mkt is not None else None),
-            (round(r.ronav_norm, 4) if r.ronav_norm is not None else None),
-            round(r.r, 4), round(r.g, 4),
-            (round(r.justified_pnav, 4) if r.justified_pnav is not None else None),
-            (round(r.justified_fv, 2) if r.justified_fv is not None else None),
-            (round(r.ronav_implied, 4) if r.ronav_implied is not None else None),
-            (round(r.gap, 4) if r.gap is not None else None),
-            r.read, (r.flag or ""),
+            _rnd(r.pnav_mkt), round(r.r, 4), round(r.g, 4), _rnd(r.ronav_implied),
+            _rnd(r.ronav_norm), _rnd(r.justified_pnav), r.read,
+            _rnd(r.ronav_norm_hist), _rnd(r.justified_pnav_hist), r.read_hist,
+            r.robust, (r.flag or ""),
         ])
     for col in ws.columns:
         width = max((len(str(c.value)) for c in col if c.value is not None), default=10)

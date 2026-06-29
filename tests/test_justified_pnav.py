@@ -122,8 +122,9 @@ def test_evaluate_valid_matches_formula():
 def _row(justified, pnav_mkt, flag=None):
     return JustifiedPnavRow(
         ticker="X", hybrid=False, sector="crude", nav_per_share=20.0, price=14.0,
-        pnav_mkt=pnav_mkt, ronav_norm=0.1, r=R, g=0.01, justified_pnav=justified,
-        justified_fv=None, ronav_implied=0.09, gap=0.01, flag=flag,
+        pnav_mkt=pnav_mkt, ronav_implied=0.09, r=R, g=0.01,
+        ronav_norm=0.1, justified_pnav=justified, justified_fv=None, gap=0.01, flag=flag,
+        ronav_norm_hist=0.1, justified_pnav_hist=justified, gap_hist=0.01, flag_hist=flag,
     )
 
 
@@ -166,7 +167,7 @@ def test_normalized_eps_differs_from_ntm_strip():
     from crude_tanker_fv.dividend_strip import compute_dividend_strip
     ci = load_company_inputs("DHT", QUARTER)
     nav = compute_nav(ci).nav_per_share
-    eps_norm, missing = normalized_annual_eps(ci, nav)
+    eps_norm, missing = normalized_annual_eps(ci, nav, ci.market_data.historical_tce_means)
     assert not missing and eps_norm is not None
     ntm = sum(compute_dividend_strip(ci, nav).eps_by_quarter[:4])
     assert eps_norm != pytest.approx(ntm)  # near a peak the FFA front end runs hotter
@@ -178,8 +179,7 @@ def test_normalized_eps_flags_missing_anchor():
     nav = compute_nav(ci).nav_per_share
     cls = next(iter({v.cls for v in ci.fleet.vessels}))
     stripped = {k: v for k, v in ci.market_data.historical_tce_means.items() if k != cls}
-    ci2 = replace(ci, market_data=replace(ci.market_data, historical_tce_means=stripped))
-    eps, missing = normalized_annual_eps(ci2, nav)
+    eps, missing = normalized_annual_eps(ci, nav, stripped)
     assert eps is None and cls in missing
 
 
@@ -217,19 +217,41 @@ def test_newbuild_heavy_flagged():
 
 def test_high_ronav_prints_above_one_low_below_one():
     rows = {r.ticker: r for r in compute_justified_pnav_rows(QUARTER)}
-    # FLNG earns well above cost of equity on NAV -> justified P/NAV > 1.
+    # FLNG earns well above cost of equity on NAV -> justified P/NAV > 1 (parity basis).
     assert rows["FLNG"].justified_pnav > 1.0
-    # ECO earns below cost of equity on its (high) NAV -> justified P/NAV < 1.
-    assert rows["ECO"].justified_pnav < 1.0
+    # STNG earns below cost of equity on its (high net-cash) NAV -> justified < 1.
+    assert rows["STNG"].justified_pnav < 1.0
 
 
-def test_subsector_medians_present_and_lng_above_crude():
+def test_subsector_medians_present_both_bases():
+    from crude_tanker_fv.justified_pnav import subsector_median_pnav_hist
     rows = compute_justified_pnav_rows(QUARTER)
-    med = subsector_median_pnav(rows)
+    med = subsector_median_pnav(rows)            # parity (headline)
+    med_h = subsector_median_pnav_hist(rows)     # historical (cross-check)
     for s in ("crude", "product", "lng", "dry_bulk", "containerships"):
         assert s in med and med[s] > 0
-    # LNG (secular demand, higher g + strong RONAV) ranks above crude tankers.
-    assert med["lng"] > med["crude"]
+        assert s in med_h and med_h[s] > 0
+    # The divergence is the P1 signal: dry-bulk reads cheaper (higher justified P/NAV)
+    # under replacement parity than under its firm-window historical anchor (§18 under-ordering).
+    assert med["dry_bulk"] > med_h["dry_bulk"]
+
+
+def test_sb_cheap_on_both_bases_robust():
+    sb = {r.ticker: r for r in compute_justified_pnav_rows(QUARTER)}["SB"]
+    # The P1 deliverable: SB's call survives the normalization choice.
+    assert sb.read == "cheap" and sb.read_hist == "cheap"
+    assert sb.robust == "robust"
+    # Parity lifts SB further (the segment is structurally below replacement).
+    assert sb.justified_pnav > sb.justified_pnav_hist
+
+
+def test_parity_basis_is_headline_and_differs_from_historical():
+    rows = {r.ticker: r for r in compute_justified_pnav_rows(QUARTER)}
+    # Crude tankers: parity (high replacement rate) lifts RONAV above the historical basis.
+    dht = rows["DHT"]
+    assert dht.ronav_norm > dht.ronav_norm_hist
+    # And the leg surfaces flips where the call depends on the basis.
+    assert any(r.robust.startswith("flips") for r in rows.values())
 
 
 def test_sb_worked_example_identity():

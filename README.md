@@ -41,7 +41,7 @@ Use the reads as one disciplined input to a position call, sized accordingly.
 - **20 tickers** across 5 sectors: crude (9, incl. **TEN** the 3-sleeve hybrid,
   **CAPT** the first Oslo/NOK listing, and **BRUT** the pure-play VLCC newbuild
   vehicle), LNG (2), product (4), dry bulk (3), containerships (2)
-- **359 tests passing** end-to-end
+- **369 tests passing** end-to-end
 - **8 output families** regenerated per pipeline run + 5 standalone diagnostics
   (LNG weight robustness, crude weight robustness, VIE coverage universe xref,
   VIE market rates xref, terminal-value sensitivity)
