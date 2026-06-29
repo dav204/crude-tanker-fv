@@ -9,6 +9,28 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $12.79
+- Single-point FV: $12.59
+- Scenario PW FV: $13.62 (EV +6.5%)
+- NAV / share: $11.58
+- Position: **BUY (undervalued)**
+- Broker spread: +55.9pp (k_broker 1.31)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ single-point FV -19.6%
+- ⚑ scenario PW FV -18.8%
+- ⚑ broker spread +25.9pp
+- ⚑ NAV/sh -23.0%
+- Δprice: no change | Δsingle FV: -19.6% | Δscenario FV: -18.8% | ΔNAV: -23.0% | Δspread: +25.9pp
+
+**Decision:** Thread 1 basis correction (not a market move). VLCC $175M->$145M and Suezmax $108M->$95M age-0 marks corrected to dated prompt-resale. CAPT carries 21/30 newbuild crude at age-0 delivered-market (§9.6), so NAV -22.9%. Pre-registered direction (PRE_REGISTRATION_NAV_RESALE_ANCHOR.md). Accepted pending owner review; re-ratify deferred.
+
+---
+
 ## 2026-06-29T14:48:15+00:00 — Pipeline run (auto)
 
 **Model state:**

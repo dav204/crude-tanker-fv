@@ -135,9 +135,10 @@ def test_lr2_maps_to_clean_curve(doc):
     # the static Aframax proxy. Sanity: the run completes with 3 classes priced.
     ci = load_company_inputs("FRO", "2026-Q1")
     r = run_scenarios(ci, 34.50, 30.50, doc)
-    # HOLD at the Jun-9 re-pin (was TRIM/SHORT under v1 weights; PW FV $33.77
-    # vs $34.50 — the war-leaning reweight lifted FRO inside the HOLD band).
-    assert r.position_recommendation.startswith("HOLD")
+    # Thread 1 (VLCC age-0 $175M->$145M dated resale) drops FRO's young-VLCC marks,
+    # pushing PW FV below the price -> TRIM/SHORT (was HOLD). The LR2-clean mapping
+    # (this test's actual subject) is unaffected; the run still prices 3 classes.
+    assert r.position_recommendation.startswith("TRIM/SHORT")
 
 
 def test_breakeven_is_scenario_invariant(doc):

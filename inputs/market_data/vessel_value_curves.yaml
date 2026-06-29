@@ -1,7 +1,7 @@
 classes:
   VLCC:
     dwt: 300000
-    newbuild: 175000000
+    newbuild: 145000000          # prompt resale (Thread 1; was 175M stale-high), = prompt_resale.VLCC
     five_year_benchmark: 138000000
     ten_year_benchmark: 111000000
     scrap_25yr: 22000000
@@ -9,7 +9,7 @@ classes:
     eco_premium_pct: 0.05
   Suezmax:
     dwt: 157000
-    newbuild: 108000000
+    newbuild: 95000000           # prompt resale (Thread 1; was 108M), = prompt_resale.Suezmax
     five_year_benchmark: 92000000
     ten_year_benchmark: 80000000
     scrap_25yr: 13000000
@@ -17,7 +17,7 @@ classes:
     eco_premium_pct: 0.05
   Aframax:
     dwt: 110000
-    newbuild: 90000000
+    newbuild: 88900000           # prompt resale (Thread 1; was 90M), = prompt_resale.Aframax
     five_year_benchmark: 79000000
     ten_year_benchmark: 68000000
     scrap_25yr: 9000000
@@ -25,7 +25,7 @@ classes:
     eco_premium_pct: 0.05
   LR2:
     dwt: 110000
-    newbuild: 90000000
+    newbuild: 88900000           # prompt resale (Thread 1; was 90M), = prompt_resale.LR2
     five_year_benchmark: 79000000
     ten_year_benchmark: 68000000
     scrap_25yr: 9000000
@@ -33,7 +33,7 @@ classes:
     eco_premium_pct: 0.05
   MR:
     dwt: 50000
-    newbuild: 49500000
+    newbuild: 54000000           # prompt resale (Thread 1; was 49.5M stale-low), = prompt_resale.MR
     five_year_benchmark: 46000000
     ten_year_benchmark: 34500000
     scrap_25yr: 5800000
@@ -87,7 +87,7 @@ classes:
   Cape:
     dwt: 180000
     dwt_scaled: true
-    newbuild: 74000000
+    newbuild: 81500000           # prompt resale (Thread 1; was 74M CONTRACT-basis), = prompt_resale.Cape
     five_year_benchmark: 62000000
     ten_year_benchmark: 45000000
     scrap_25yr: 13000000
@@ -99,7 +99,7 @@ classes:
   Pana:
     dwt: 82000
     dwt_scaled: true
-    newbuild: 38000000
+    newbuild: 46000000           # prompt resale (Thread 1; was 38M CONTRACT-basis), = prompt_resale.Pana
     five_year_benchmark: 32000000
     ten_year_benchmark: 24000000
     scrap_25yr: 7500000
@@ -117,7 +117,7 @@ classes:
   Post-Panamax:
     dwt: 90000
     dwt_scaled: false
-    newbuild: 38500000
+    newbuild: 46000000           # prompt resale (Thread 1; was 38.5M), = prompt_resale.Post-Panamax (= Kamsarmax resale)
     five_year_benchmark: 34000000
     ten_year_benchmark: 26000000
     scrap_25yr: 8000000
@@ -128,7 +128,7 @@ classes:
   Supra-Ultra:
     dwt: 62000
     dwt_scaled: true
-    newbuild: 38000000
+    newbuild: 43000000           # prompt resale (Thread 1; was 38M CONTRACT-basis), = prompt_resale.Supra-Ultra
     five_year_benchmark: 33000000
     ten_year_benchmark: 25000000
     scrap_25yr: 6500000

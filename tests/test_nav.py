@@ -264,6 +264,7 @@ def test_dht_integration():
     assert all(v.cls == "VLCC" for v in ci.fleet.vessels)
     assert all(v.scrubber for v in ci.fleet.vessels)  # DHT fleet 100% scrubber-fitted
     nav = compute_nav(ci)
-    # Sanity band around the hand-checked ~$15.29/share (recalibrated curve).
+    # Sanity band around ~$14.70/share (Thread 1: VLCC age-0 $175M->$145M resale;
+    # only DHT's <5yr VLCC reprice on the un-anchored curve, so a modest move).
     assert 14.0 < nav.nav_per_share < 17.0
-    assert nav.fleet_value == pytest.approx(2729.90 * M, rel=1e-3)
+    assert nav.fleet_value == pytest.approx(2635.40 * M, rel=1e-3)

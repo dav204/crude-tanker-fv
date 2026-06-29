@@ -113,4 +113,4 @@ def test_dht_fair_value_end_to_end():
     fv = blend_fair_value(nav, strip, cyc)
     # Peak weighting puts 70% on NAV, so FV sits between NAV and the strip price.
     assert nav.nav_per_share < fv.fair_value_per_share < strip.implied_price
-    assert 16.0 < fv.fair_value_per_share < 17.0
+    assert 15.5 < fv.fair_value_per_share < 16.5   # Thread 1: VLCC age-0 -> resale (was 16-17)

@@ -7,6 +7,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $49.88
+- Single-point FV: $35.41
+- Scenario PW FV: $38.18 (EV -23.5%)
+- NAV / share: $32.16
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +16.8pp (k_broker 1.19)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ NAV/sh -5.1%
+- Δprice: no change | Δsingle FV: -3.7% | Δscenario FV: -3.6% | ΔNAV: -5.1% | Δspread: +3.2pp
+
+**Decision:** Thread 1 basis correction (not a market move). VLCC/Suezmax age-0 corrected to dated prompt-resale ($175M->$145M / $108M->$95M). ECO's young crude tonnage reprices -> NAV -5.1%, pre-registered. Accepted pending owner review; re-ratify deferred.
+
+---
+
 ## 2026-06-29T14:48:15+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -36,6 +36,24 @@ preferred refinancing/redemption activity, any VIE stance change, the
 
 ---
 
+## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $36.72
+- Single-point FV: $60.34
+- Scenario PW FV: $64.54 (EV +75.8%)
+- NAV / share: $86.95
+- Position: **BUY (undervalued)**
+- Broker spread: +36.5pp (k_broker 1.16)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -0.7% | Δscenario FV: -0.6% | ΔNAV: -0.9% | Δspread: +1.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-29T14:48:15+00:00 — Pipeline run (auto)
 
 **Model state:**

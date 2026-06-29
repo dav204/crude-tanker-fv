@@ -10,8 +10,13 @@
                 / diluted_shares_outstanding
 
 Vessel market values come from ``vessel_values``. Vessels still under
-construction are NOT valued on the curve; they enter only through the newbuild
-capex / advances balance-sheet lines (open decision 9.6).
+construction (``years_to_delivery > 0``) ARE valued on the curve at their age-0
+DELIVERED-market value, PV-discounted to today by ``1.11^(-years_to_delivery)``
+(§9.6); the remaining capex commitment is carried separately on the balance
+sheet (``newbuild_capex_commitments``) and advances paid are added back. So a
+newbuild's NAV contribution is delivered-market-less-remaining-commitment, NOT
+sunk/contract cost (§3.1 / §9.6; FRO/BRUT/CAPT precedent). The age-0 anchor is
+prompt resale (Thread 1), uniform across sectors.
 """
 
 from __future__ import annotations

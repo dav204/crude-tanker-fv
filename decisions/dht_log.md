@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.65
+- Single-point FV: $13.67
+- Scenario PW FV: $14.42 (EV -18.3%)
+- NAV / share: $12.51
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +19.1pp (k_broker 1.26)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -3.4% | Δscenario FV: -3.4% | ΔNAV: -4.5% | Δspread: +3.1pp
+
+**Decision:** Thread 1 basis correction (not a market move). VLCC age-0 $175M->$145M (dated prompt-resale). Only DHT's <5yr VLCC tonnage reprices (mid-age is transaction-anchored, §9.9), so NAV -4.5% — modest, as pre-registered. Accepted pending owner review; re-ratify deferred.
+
+---
+
 ## 2026-06-29T14:48:15+00:00 — Pipeline run (auto)
 
 **Model state:**

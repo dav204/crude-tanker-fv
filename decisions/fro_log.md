@@ -7,6 +7,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $35.52
+- Single-point FV: $25.28
+- Scenario PW FV: $27.53 (EV -22.5%)
+- NAV / share: $22.67
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +18.1pp (k_broker 1.20)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ NAV/sh -6.4%
+- Δprice: no change | Δsingle FV: -4.7% | Δscenario FV: -4.5% | ΔNAV: -6.4% | Δspread: +4.1pp
+
+**Decision:** Thread 1 basis correction (not a market move). VLCC age-0 $175M->$145M (dated prompt-resale); FRO's 18 young VLCC reprice -> NAV -6.4%, pre-registered. Accepted pending owner review; re-ratify deferred.
+
+---
+
 ## 2026-06-29T14:48:15+00:00 — Pipeline run (auto)
 
 **Model state:**

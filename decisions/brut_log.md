@@ -9,6 +9,28 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.34
+- Single-point FV: $5.16
+- Scenario PW FV: $5.99 (EV +12.2%)
+- NAV / share: $4.34
+- Position: **BUY (undervalued)**
+- Broker spread: +50.7pp (k_broker 1.11)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ single-point FV -47.6%
+- ⚑ scenario PW FV -44.6%
+- ⚑ broker spread +92.2pp
+- ⚑ NAV/sh -53.8%
+- Δprice: no change | Δsingle FV: -47.6% | Δscenario FV: -44.6% | ΔNAV: -53.8% | Δspread: +92.2pp
+
+**Decision:** Thread 1 (uniform prompt-resale age-0 NAV anchor) — methodology/basis correction, NOT a market move. VLCC age-0 mark corrected from the stale-high $175M to the dated prompt-resale $145M (-17%). BRUT is 100% VLCC newbuilds carried at age-0 delivered-market (§9.6), so the -17% asset move levers into -53.8% NAV (Pareto 'max torque' — small difference of large numbers vs the ~$1,370M commitment). Direction pre-registered (PRE_REGISTRATION_NAV_RESALE_ANCHOR.md §6/§7; largest single mover). Accepted pending owner review at the Thread-1 boundary; re-ratify deferred.
+
+---
+
 ## 2026-06-29T14:48:15+00:00 — Pipeline run (auto)
 
 **Model state:**

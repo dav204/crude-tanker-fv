@@ -220,6 +220,20 @@ def load_market_data(inputs_dir: Path = INPUTS_DIR) -> MarketData:
     )
 
 
+VALID_BASIS_STATUS = {"resale-uniform", "pending-sourceable", "structural-unavailable"}
+
+
+def load_basis_status(inputs_dir: Path = INPUTS_DIR) -> dict[str, str]:
+    """Per-class NAV age-0 basis status (Thread 1 single source of truth).
+
+    See ``inputs/market_data/basis_status.yaml`` and
+    PRE_REGISTRATION_NAV_RESALE_ANCHOR.md §8. The per-name scorecard rollup
+    derives from this map; it is NOT recomputed downstream.
+    """
+    data = _read_yaml(inputs_dir / "market_data" / "basis_status.yaml").get("basis_status") or {}
+    return {str(k): str(v) for k, v in data.items()}
+
+
 def load_company_inputs(
     ticker: str, quarter: str, inputs_dir: Path = INPUTS_DIR
 ) -> CompanyInputs:

@@ -2,7 +2,7 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $23.57
-- **Model fair value:** $23.96
+- **Model fair value:** $23.99
 - **Analyst target:** $24.80
 
 ## Data validation warnings
@@ -14,16 +14,16 @@
 | Item | $M |
 |---|---:|
 | Fleet value — Cape | 854.2 |
-| Fleet value — Supra-Ultra | 504.1 |
+| Fleet value — Supra-Ultra | 506.3 |
 | + Cash & equivalents | 54.8 |
 | + Working capital (net) | 16.8 |
 | − Total debt | 330.0 |
 | − Lease liabilities | 5.6 |
 | − Newbuild commitments | 0.0 |
 | + Newbuild advances | 0.0 |
-| **= NAV total** | **1,094.3** |
+| **= NAV total** | **1,096.5** |
 | Diluted shares | 44,411,222 |
-| **NAV / share** | **$24.64** |
+| **NAV / share** | **$24.69** |
 
 ## Dividend strip (r = 11%)
 
@@ -50,49 +50,49 @@ _FFA spot is the Cape forward curve that drives the strip cash flows; its 12-mon
 
 ## Blended fair value
 
-0.50 × $24.64 (NAV) + 0.50 × $23.29 (strip) = **$23.96**
+0.50 × $24.69 (NAV) + 0.50 × $23.29 (strip) = **$23.99**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $23.88 |
-| 95% | $23.94 |
-| 100% | $23.96 |
+| 80% | $23.91 |
+| 95% | $23.97 |
+| 100% | $23.99 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **0.92× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **0.91× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **22,647** | — |
-| 10-year mean | 20,043 | 1.13× |
-| 12-month FFA | 24,664 | 0.92× |
-| Current spot | 31,134 | 0.73× |
+| **Implied breakeven (blended)** | **22,511** | — |
+| 10-year mean | 20,033 | 1.12× |
+| 12-month FFA | 24,651 | 0.91× |
+| Current spot | 31,116 | 0.72× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Cape (63% of fleet value) | 27,122 | 1.15× |
-| Supra-Ultra (37% of fleet value) | 15,064 | 1.08× |
+| Cape (63% of fleet value) | 26,974 | 1.14× |
+| Supra-Ultra (37% of fleet value) | 14,982 | 1.08× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $17.34 | $19.93 | $22.52 | $25.10 | $27.69 |
-| **-15%** | $18.07 | $20.65 | $23.24 | $25.83 | $28.42 |
-| **+0%** | $18.79 | $21.38 | $23.96 | $26.55 | $29.14 |
-| **+15%** | $19.51 | $22.10 | $24.69 | $27.28 | $29.86 |
-| **+30%** | $20.24 | $22.83 | $25.41 | $28.00 | $30.59 |
+| **-30%** | $17.36 | $19.95 | $22.54 | $25.13 | $27.72 |
+| **-15%** | $18.09 | $20.68 | $23.26 | $25.85 | $28.44 |
+| **+0%** | $18.81 | $21.40 | $23.99 | $26.58 | $29.17 |
+| **+15%** | $19.53 | $22.12 | $24.71 | $27.30 | $29.89 |
+| **+30%** | $20.26 | $22.85 | $25.44 | $28.03 | $30.62 |
 
 _Current price $23.57. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$23.96** is +1.7% vs the current price ($23.57) and -3.4% vs the analyst target ($24.80). Tool, market, and analyst are in broad agreement (all within ~5%). The current price implies the fleet earning a value-weighted blended **$22,647/day** (0.92× the current forward) — 1.1× the value-weighted 10-yr mean ($20,043, i.e. the market is pricing extended peak rates), and the market is below the forward curve.
+Tool fair value **$23.99** is +1.8% vs the current price ($23.57) and -3.3% vs the analyst target ($24.80). Tool, market, and analyst are in broad agreement (all within ~5%). The current price implies the fleet earning a value-weighted blended **$22,511/day** (0.91× the current forward) — 1.1× the value-weighted 10-yr mean ($20,033, i.e. the market is pricing extended peak rates), and the market is below the forward curve.
 
 ## Modeling notes
 

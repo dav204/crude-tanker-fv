@@ -1,0 +1,30 @@
+# Per-class NAV age-0 basis status — Thread 1 SINGLE SOURCE OF TRUTH.
+# (PRE_REGISTRATION_NAV_RESALE_ANCHOR.md §8.)
+#
+#   resale-uniform         : age-0 anchor = dated prompt-resale (Thread 1 corrected). Comparable.
+#   pending-sourceable     : Group A — liquid resale market, dated mark not yet sourced; age-0 left
+#                            on current basis. Resolved in Thread 1A. NOT yet comparable.
+#   structural-unavailable : Group B — no clean resale market (LNG charter-attached, container
+#                            boom-distorted); never manufacture a mark. Suppressed from comparability.
+#
+# The per-NAME rollup (scorecard, Thread 4) DERIVES from this: a name is resale-uniform only if ALL
+# its tonnage is in resale-uniform classes; any Group-A class ⇒ pending; any Group-B class ⇒ structural.
+# Pinned at class level so it cannot drift from the actual age-0 wiring (see test_thread1_resale_anchor).
+basis_status:
+  VLCC: resale-uniform
+  Suezmax: resale-uniform
+  Aframax: resale-uniform
+  LR2: resale-uniform
+  MR: resale-uniform
+  Cape: resale-uniform
+  Pana: resale-uniform
+  Supra-Ultra: resale-uniform
+  Post-Panamax: resale-uniform
+  LR1: pending-sourceable
+  Handysize: pending-sourceable
+  Handymax: pending-sourceable
+  LNGC: structural-unavailable
+  MGC: structural-unavailable
+  Ctr-Feeder: structural-unavailable
+  Ctr-Intermediate: structural-unavailable
+  Ctr-Large: structural-unavailable

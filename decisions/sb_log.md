@@ -9,6 +9,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.39
+- Single-point FV: $9.80
+- Scenario PW FV: $9.67 (EV +51.3%)
+- NAV / share: $10.31
+- Position: **BUY (undervalued)**
+- Broker spread: -41.0pp (k_broker 0.77)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ broker spread -6.3pp
+- Δprice: no change | Δsingle FV: +3.4% | Δscenario FV: +3.4% | ΔNAV: +5.0% | Δspread: -6.3pp
+
+**Decision:** Thread 1 basis correction (not a market move). Dry-bulk age-0 moved from CONTRACT to RESALE basis (Pana $38M->$46M, Post-Panamax $38.5M->$46M) — the cross-sector comparability fix. Only SB's <5yr Pana/Post-Panamax tonnage reprices UP (its older Pana/PPMX bulk is unaffected by an age-0 change), so NAV +5.0%: SB becomes modestly LESS cheap on the NAV denominator — the honest direction, pre-registered. Accepted pending owner review; re-ratify deferred.
+
+---
+
 ## 2026-06-29T14:48:15+00:00 — Pipeline run (auto)
 
 **Model state:**
