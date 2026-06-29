@@ -16,38 +16,35 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 
 | Ticker | Sector | NAV/sh | Price | P/NAV (mkt) | RONAV (par) | Just P/NAV (par) | RONAV (hist) | Just P/NAV (hist) | Read: par → hist | Robust? |
 |---|---|--:|--:|--:|--:|--:|--:|--:|---|---|
-| GSL | containerships | $38.59 | $38.99 | 1.010× | 22.8% | 2.244× | 51.1% | 5.219× | cheap → cheap | robust |
-| TEN **(WHOLE-CO)** | crude | $87.70 | $37.14 | 0.424× | 14.2% | 1.320× | 13.3% | 1.234× | cheap → cheap | robust |
-| SB | dry_bulk | $9.82 | $6.39 | 0.651× | 12.7% | 1.175× | 8.3% | 0.733× | cheap → cheap | robust |
-| SBLK | dry_bulk | $26.91 | $27.20 | 1.011× | 14.2% | 1.321× | 11.6% | 1.061× | cheap → fair | flips (cheap/fair) |
-| NAT | crude | $2.07 | $5.20 | 2.508× | 28.7% | 2.768× | 16.1% | 1.513× | cheap → rich | flips (cheap/rich) |
-| FLNG | lng | $28.45 | $29.70 | 1.044× | 13.6% | 1.292× | 14.6% | 1.405× | cheap → cheap | robust |
-| CMDB | dry_bulk | $31.33 | $17.25 | 0.551× | 8.7% | 0.772× | 6.7% | 0.572× | cheap → fair | flips (cheap/fair) |
-| GNK | dry_bulk | $24.64 | $24.00 | 0.974× | 12.8% | 1.185× | 11.2% | 1.020× | cheap → fair | flips (cheap/fair) |
-| HAFN | product | $5.22 | $7.70 | 1.476× | 16.8% | 1.583× | 14.2% | 1.320× | fair → rich | flips (fair/rich) |
-| TRMD | product | $25.43 | $28.20 | 1.109× | 13.2% | 1.216× | 8.6% | 0.763× | fair → rich | flips (fair/rich) |
-| DHT | crude | $13.10 | $16.40 | 1.252× | 14.4% | 1.340× | 9.2% | 0.820× | fair → rich | flips (fair/rich) |
-| FRO | crude | $24.22 | $34.50 | 1.424× | 15.2% | 1.417× | 9.6% | 0.860× | fair → rich | flips (fair/rich) |
-| CMBT **(WHOLE-CO)** | crude | $15.27 | $14.90 | 0.976× | 10.3% | 0.926× | 7.5% | 0.651× | fair → rich | flips (fair/rich) |
-| TNK | crude | $77.51 | $70.80 | 0.913× | 9.5% | 0.852× | 8.8% | 0.782× | fair → rich | flips (fair/rich) |
-| ASC | product | $15.93 | $16.00 | 1.004× | 9.8% | 0.879× | 4.8% | 0.378× | rich → rich | robust |
-| INSW **(WHOLE-CO)** | crude | $52.59 | $78.00 | 1.483× | 13.7% | 1.266× | 9.9% | 0.888× | rich → rich | robust |
-| STNG | product | $80.35 | $75.60 | 0.941× | 8.1% | 0.709× | 4.9% | 0.387× | rich → rich | robust |
-| ECO | crude | $33.88 | $47.70 | 1.408× | 11.9% | 1.086× | 6.5% | 0.549× | rich → rich | robust |
+| SB | dry_bulk | $9.82 | $6.39 | 0.651× | 12.6% | 1.160× | 8.3% | 0.733× | cheap → cheap | robust |
+| SBLK | dry_bulk | $26.91 | $27.20 | 1.011× | 13.7% | 1.268× | 11.6% | 1.061× | cheap → fair | flips (cheap/fair) |
+| GNK | dry_bulk | $24.64 | $24.00 | 0.974× | 12.3% | 1.134× | 11.2% | 1.020× | cheap → fair | flips (cheap/fair) |
+| CMDB | dry_bulk | $31.33 | $17.25 | 0.551× | 8.1% | 0.710× | 6.7% | 0.572× | cheap → fair | flips (cheap/fair) |
+| TNK | crude | $77.51 | $70.80 | 0.913× | 7.4% | 0.638× | 8.8% | 0.782× | rich → rich | robust |
+| DHT | crude | $13.10 | $16.40 | 1.252× | 9.8% | 0.884× | 9.2% | 0.820× | rich → rich | robust |
+| FRO | crude | $24.22 | $34.50 | 1.424× | 10.5% | 0.951× | 9.6% | 0.860× | rich → rich | robust |
+| NAT | crude | $2.07 | $5.20 | 2.508× | 21.2% | 2.020× | 16.1% | 1.513× | rich → rich | robust |
+| ECO | crude | $33.88 | $47.70 | 1.408× | 7.8% | 0.681× | 6.5% | 0.549× | rich → rich | robust |
+| INSW **(WHOLE-CO)** | crude | $52.59 | $78.00 | 1.483× | n/a | — | 9.9% | 0.888× | no anchor → rich | n/a |
+| FLNG | lng | $28.45 | $29.70 | 1.044× | n/a | — | 14.6% | 1.405× | no anchor → cheap | n/a |
 | CCEC | lng | $28.10 | $21.90 | 0.779× | n/a | — | 27.5% | 2.835× | no anchor → cheap | n/a |
-| CAPT | crude | $15.03 | $12.20 | 0.812× | 15.6% | — | 11.1% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
-| MPCC | containerships | $2.02 | $2.78 | 1.374× | 19.9% | — | 50.0% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
-| BRUT | crude | $9.40 | $5.40 | 0.574× | 31.2% | — | 20.9% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
+| STNG | product | $80.35 | $75.60 | 0.941× | n/a | — | 4.9% | 0.387× | no anchor → rich | n/a |
+| HAFN | product | $5.22 | $7.70 | 1.476× | n/a | — | 14.2% | 1.320× | no anchor → rich | n/a |
+| TRMD | product | $25.43 | $28.20 | 1.109× | n/a | — | 8.6% | 0.763× | no anchor → rich | n/a |
+| ASC | product | $15.93 | $16.00 | 1.004× | n/a | — | 4.8% | 0.378× | no anchor → rich | n/a |
+| TEN **(WHOLE-CO)** | crude | $87.70 | $37.14 | 0.424× | n/a | — | 13.3% | 1.234× | no anchor → cheap | n/a |
+| CAPT | crude | $15.03 | $12.20 | 0.812× | 11.4% | — | 11.1% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
+| MPCC | containerships | $2.02 | $2.78 | 1.374× | n/a | — | 50.0% | — | no anchor → newbuild-heavy (unreliable) | n/a |
+| GSL | containerships | $38.59 | $38.99 | 1.010× | n/a | — | 51.1% | 5.219× | no anchor → cheap | n/a |
+| BRUT | crude | $9.40 | $5.40 | 0.574× | 22.2% | — | 20.9% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
+| CMBT **(WHOLE-CO)** | crude | $15.27 | $14.90 | 0.976× | n/a | — | 7.5% | 0.651× | no anchor → rich | n/a |
 
 ## Subsector vector — median Justified P/NAV (parity headline, historical cross-check)
 
 | Sector | Median Just P/NAV (parity) | Median (historical) | n |
 |---|--:|--:|--:|
-| containerships | 2.244× | 5.219× | 1 |
-| crude | 1.293× | 0.840× | 8 |
-| lng | 1.292× | 2.120× | 1 |
-| dry_bulk | 1.180× | 0.876× | 4 |
-| product | 1.047× | 0.575× | 4 |
+| dry_bulk | 1.147× | 0.876× | 4 |
+| crude | 0.884× | 0.840× | 5 |
 
 _The two columns ARE the signal: where parity ≫ historical, the sector reads cheaper under replacement economics than under its (boom/firm-window-biased) historical anchor — the §18 under-ordering. The §17.6 anchor-bias caveats apply to the historical column only; parity is independent of those biases (it is built from newbuild cost, not a rate-history window)._
 
@@ -55,45 +52,21 @@ _The two columns ARE the signal: where parity ≫ historical, the sector reads c
 ## Sensitivity grids — Justified P/NAV across g × RONAV_norm (r = 11%, base = sector median RONAV_norm)
 
 
-**containerships** (base RONAV_norm 22.8%)
+**crude** (base RONAV_norm 9.8%)
 
 | RONAV_norm \ g | g=0% | g=1% | g=2% |
 |---|--:|--:|--:|
-| 20.8% | 1.89× | 1.98× | 2.09× |
-| 22.8% | 2.07× | 2.18× | 2.31× |
-| 24.8% | 2.26× | 2.38× | 2.53× |
+| 7.8% | 0.71× | 0.68× | 0.65× |
+| 9.8% | 0.89× | 0.88× | 0.87× |
+| 11.8% | 1.08× | 1.08× | 1.09× |
 
-**crude** (base RONAV_norm 13.9%)
-
-| RONAV_norm \ g | g=0% | g=1% | g=2% |
-|---|--:|--:|--:|
-| 11.9% | 1.08× | 1.09× | 1.10× |
-| 13.9% | 1.27× | 1.29× | 1.33× |
-| 15.9% | 1.45× | 1.49× | 1.55× |
-
-**dry_bulk** (base RONAV_norm 12.8%)
+**dry_bulk** (base RONAV_norm 12.5%)
 
 | RONAV_norm \ g | g=0% | g=1% | g=2% |
 |---|--:|--:|--:|
-| 10.8% | 0.98× | 0.98× | 0.98× |
-| 12.8% | 1.16× | 1.18× | 1.20× |
-| 14.8% | 1.35× | 1.38× | 1.42× |
-
-**lng** (base RONAV_norm 13.6%)
-
-| RONAV_norm \ g | g=0% | g=1% | g=2% |
-|---|--:|--:|--:|
-| 11.6% | 1.06× | 1.06× | 1.07× |
-| 13.6% | 1.24× | 1.26× | 1.29× |
-| 15.6% | 1.42× | 1.46× | 1.51× |
-
-**product** (base RONAV_norm 11.5%)
-
-| RONAV_norm \ g | g=0% | g=1% | g=2% |
-|---|--:|--:|--:|
-| 9.5% | 0.86× | 0.85× | 0.83× |
-| 11.5% | 1.04× | 1.05× | 1.05× |
-| 13.5% | 1.22× | 1.25× | 1.27× |
+| 10.5% | 0.95× | 0.95× | 0.94× |
+| 12.5% | 1.13× | 1.15× | 1.16× |
+| 14.5% | 1.32× | 1.35× | 1.39× |
 
 _**(WHOLE-CO)** = hybrid (INSW / TEN / CMBT) valued whole-company: whole-company normalized EPS ÷ whole-company NAV, with the lead-sleeve `g` (the watchlist sector tag). Value-weighted `g` is the intended v2 refinement._
 

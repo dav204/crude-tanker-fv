@@ -2894,11 +2894,28 @@ WACC **0.08** (gridded 7-10%; built from 11% cost of equity × 42% + a normalize
 ~6% after-tax cost of debt × 58% — a NORMALIZED 3% base rate, not today's SOFR;
 **distinct from the §17 `r` = 11% equity discount** — parity discounts the *asset*,
 `r` the *equity claim*). N = 25 yr. operating_days = 360 (reconciled to the strip's
-2% off-hire as an intentional newbuild-vs-aging-fleet difference). NB price + scrap
-from `vessel_value_curves.yaml` (Cape NB $74M — the *current* replacement cost, not
-a stale figure). Opex: per-class **fleet-weighted** across the names carrying the
-class, on the repo's cash-vessel-opex definition (mgmt fees live in G&A), with a
->25%-from-median outlier exclusion.
+2% off-hire as an intentional newbuild-vs-aging-fleet difference). Opex: per-class
+**fleet-weighted** across the names carrying the class, on the repo's cash-vessel-opex
+definition (mgmt fees live in G&A), with a >25%-from-median outlier exclusion.
+
+**The NB price is the registered `newbuild_contract`, NOT the curve's `newbuild`**
+(`inputs/market_data/newbuild_contract_prices.yaml`; pre-reg Amendment 1). The curve's
+`newbuild` is the age-0 prompt/**resale** value (right for NAV marks); parity needs the
+newbuild-**contract** replacement cost, which in a hot market is materially lower (2026
+crude: 5yr tonnage trades *above* newbuild contracts). Conflating them was the bug
+Amendment 1 fixed — it had put the curve's resale-basis VLCC $175M into parity, inflating
+the crude under-ordering signal into an artifact (corrected to $128M Clarksons contract,
+crude parity collapses to ≈ historical → crude reads rich-or-fair, not cheap). Every
+trusted class carries a **frozen per-class halt band** (Amendment 1 §A1.2); a parity
+outside band ⇒ investigate the input. An **input-basis invariant** gates the conflation a
+level band can't catch: `HALT if newbuild_contract ≥ prompt_resale[class]` (a contract at
+or above resale is prima facie a resale-as-contract error) — it fires on the original
+$175M without anyone looking. Classes with no broker contract mark return **no parity**:
+LNG/container (boom-tilted historical AND resale-inflated parity — no validated rate on
+either basis, suppressed from the headline vector); product LR1/Handysize/Handymax
+(pending — deferred to a future amendment with bands set before computing); Post-Panamax
+(registered on a flat Kamsarmax replacement-equivalent basis, Amendment 2 — nobody orders
+90k bulkers; flat not dwt-scaled, consistent with the §11.7.10 P2 per-tonne discount).
 
 ### 18.3 The divergence is the deliverable
 

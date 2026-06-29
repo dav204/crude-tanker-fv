@@ -208,31 +208,41 @@ def test_hybrids_flagged_whole_company():
 
 def test_newbuild_heavy_flagged():
     rows = {r.ticker: r for r in compute_justified_pnav_rows(QUARTER)}
-    for t in ("BRUT", "CAPT", "MPCC"):
+    # BRUT/CAPT are crude (VLCC) — parity anchor exists, so newbuild-heavy fires on parity.
+    for t in ("BRUT", "CAPT"):
         assert rows[t].flag == "newbuild-heavy (unreliable)"
         assert rows[t].justified_pnav is None
+    # MPCC is a containership — Ctr-* has no parity anchor (A1.4), so the parity flag is
+    # "no anchor"; newbuild-heavy shows on the historical basis instead.
+    assert rows["MPCC"].flag == "no anchor"
+    assert rows["MPCC"].flag_hist == "newbuild-heavy (unreliable)"
     # A flagship with a sub-threshold (~17%) program still computes.
     assert rows["FRO"].flag is None and rows["FRO"].justified_pnav is not None
 
 
 def test_high_ronav_prints_above_one_low_below_one():
     rows = {r.ticker: r for r in compute_justified_pnav_rows(QUARTER)}
-    # FLNG earns well above cost of equity on NAV -> justified P/NAV > 1 (parity basis).
-    assert rows["FLNG"].justified_pnav > 1.0
-    # STNG earns below cost of equity on its (high net-cash) NAV -> justified < 1.
-    assert rows["STNG"].justified_pnav < 1.0
+    # SB earns well above cost of equity on its low marked NAV -> parity justified P/NAV > 1.
+    assert rows["SB"].justified_pnav > 1.0
+    # CMDB earns below cost of equity on NAV -> parity justified < 1.
+    assert rows["CMDB"].justified_pnav < 1.0
 
 
-def test_subsector_medians_present_both_bases():
+def test_subsector_medians_parity_only_validated_sectors():
     from crude_tanker_fv.justified_pnav import subsector_median_pnav_hist
     rows = compute_justified_pnav_rows(QUARTER)
     med = subsector_median_pnav(rows)            # parity (headline)
     med_h = subsector_median_pnav_hist(rows)     # historical (cross-check)
-    for s in ("crude", "product", "lng", "dry_bulk", "containerships"):
+    # Parity is registered only for crude + dry-bulk; product is pending contract marks and
+    # LNG/container are unvalidated (A1.4) — so they carry NO parity median.
+    for s in ("crude", "dry_bulk"):
         assert s in med and med[s] > 0
+    for s in ("product", "lng", "containerships"):
+        assert s not in med
+    # Historical exists for all sectors (the §5b-independent floor).
+    for s in ("crude", "product", "lng", "dry_bulk", "containerships"):
         assert s in med_h and med_h[s] > 0
-    # The divergence is the P1 signal: dry-bulk reads cheaper (higher justified P/NAV)
-    # under replacement parity than under its firm-window historical anchor (§18 under-ordering).
+    # The §18 signal: dry-bulk reads cheaper under replacement parity than its firm-window anchor.
     assert med["dry_bulk"] > med_h["dry_bulk"]
 
 

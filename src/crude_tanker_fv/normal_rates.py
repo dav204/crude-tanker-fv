@@ -24,6 +24,8 @@ from pathlib import Path
 from statistics import median
 from typing import Optional
 
+import yaml
+
 from .loaders import INPUTS_DIR, load_company_inputs, load_market_data, load_watchlist
 
 # ---------------------------------------------------------------------------
@@ -100,6 +102,36 @@ def class_normalized_opex(
     return out
 
 
+def load_contract_prices(
+    inputs_dir: Path = INPUTS_DIR,
+) -> tuple[dict[str, float], dict[str, float]]:
+    """Registered ``newbuild_contract`` + ``prompt_resale`` per class (Amendment 1).
+
+    Distinct from the NAV curve's resale ``newbuild``. Classes absent from
+    ``newbuild_contract`` are UNVALIDATED (no broker contract mark) → parity None.
+    """
+    doc = yaml.safe_load(open(inputs_dir / "market_data" / "newbuild_contract_prices.yaml"))
+    contract = {k: float(v) for k, v in (doc.get("newbuild_contract") or {}).items()}
+    resale = {k: float(v) for k, v in (doc.get("prompt_resale") or {}).items()}
+    return contract, resale
+
+
+def validate_contract_resale(contract: dict[str, float], resale: dict[str, float]) -> None:
+    """Input-basis halt (Amendment 1 §A1.3): a newbuild CONTRACT price cannot meet or
+    exceed the prompt-RESALE ceiling (resale strictly above contract is the hot/normal-
+    market norm). A violation means a resale/stale value was fed as contract — the exact
+    conflation that put the curve's $175M VLCC resale into the parity formula. Slack
+    inequality, not a margin (contract may legitimately approach resale in a soft patch)."""
+    for cls, c in contract.items():
+        r = resale.get(cls)
+        if r is not None and c >= r:
+            raise ValueError(
+                f"input-basis error: {cls} newbuild_contract {c:,.0f} >= prompt_resale "
+                f"{r:,.0f} — a contract price at/above resale is prima facie a resale-as-"
+                f"contract conflation (PRE_REGISTRATION_NORMAL_RATES.md §A1.3)"
+            )
+
+
 @dataclass
 class NormalRate:
     """Per-class normal rate under both bases + their divergence."""
@@ -140,12 +172,17 @@ def normal_rate_table(
     curves = md.vessel_value_curves
     hist = md.historical_tce_means
     opex = class_normalized_opex(quarter, inputs_dir)
+    contract, resale = load_contract_prices(inputs_dir)
+    validate_contract_resale(contract, resale)   # input-basis halt before any parity
     out: dict[str, NormalRate] = {}
     for cls in classes:
         c = curves.get(cls)
+        nb = contract.get(cls)   # newbuild CONTRACT (NOT the curve's resale newbuild)
+        # parity is None for classes with no registered contract mark (UNVALIDATED:
+        # Post-Panamax / LNGC / MGC / Ctr-* — Amendment 1 §A1.4).
         par = (
-            parity_tce(c.newbuild, c.scrap_25yr, opex[cls], wacc)
-            if c is not None and cls in opex
+            parity_tce(nb, c.scrap_25yr, opex[cls], wacc)
+            if nb is not None and c is not None and cls in opex
             else None
         )
         out[cls] = NormalRate(cls, par, hist.get(cls))

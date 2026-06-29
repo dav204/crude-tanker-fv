@@ -35,18 +35,20 @@ def test_parity_uses_pv_of_salvage_not_naive():
     assert pv == pytest.approx(14_800, abs=200)   # the registered Kamsarmax level
 
 
-def test_HALT_capesize_parity_in_registered_band():
-    """PRE_REGISTRATION §4: Cape parity ∈ $24,800–25,800 at 8%. Outside ⇒ investigate input."""
-    cape = normal_rate_table(QUARTER, ["Cape"])["Cape"].parity
-    assert cape is not None
-    assert 24_800 <= cape <= 25_800, f"Cape parity {cape:.0f} outside registered band"
+# PRE_REGISTRATION Amendment 1 §A1.2 + Amendment 2: frozen per-class bands on the
+# registered newbuild_CONTRACT prices. Outside band ⇒ investigate the INPUT, never widen.
+FROZEN_BANDS = {
+    "VLCC": (41_220, 42_220), "Suezmax": (30_780, 31_780), "Aframax": (26_990, 27_990),
+    "LR2": (26_580, 27_580), "MR": (20_810, 21_810), "Cape": (25_250, 26_250),
+    "Pana": (14_200, 15_200), "Supra-Ultra": (13_240, 14_240), "Post-Panamax": (14_500, 15_500),
+}
 
 
-def test_HALT_kamsarmax_parity_in_registered_band():
-    """PRE_REGISTRATION §4: Kamsarmax (Pana) parity ∈ $14,500–15,500 at 8%."""
-    kam = normal_rate_table(QUARTER, ["Pana"])["Pana"].parity
-    assert kam is not None
-    assert 14_500 <= kam <= 15_500, f"Kamsarmax parity {kam:.0f} outside registered band"
+@pytest.mark.parametrize("cls,lo,hi", [(c, lo, hi) for c, (lo, hi) in FROZEN_BANDS.items()])
+def test_HALT_parity_in_registered_band(cls, lo, hi):
+    """Every trusted class's parity must land in its frozen band — the out-of-sample gate."""
+    p = normal_rate_table(QUARTER, [cls])[cls].parity
+    assert p is not None and lo <= p <= hi, f"{cls} parity {p:.0f} outside band [{lo}-{hi}]"
 
 
 def test_divergence_sign_dry_bulk_under_ordered():
@@ -56,12 +58,27 @@ def test_divergence_sign_dry_bulk_under_ordered():
         assert t[cls].divergence < 0
 
 
-def test_container_historical_far_above_parity():
-    # The §17.6 boom-anchor caveat made quantitative: container historical >> parity.
-    t = normal_rate_table(QUARTER, ["Ctr-Large"])["Ctr-Large"]
-    assert t.historical_mean > t.parity            # boom-tilted anchor above replacement
-    # divergence = (historical − parity)/parity; container historical sits far ABOVE parity.
-    assert t.divergence_pct > 0.20
+def test_unvalidated_classes_have_no_parity():
+    # Amendment 1 §A1.4: LNG/container have no broker contract mark -> parity None
+    # (no validated normal rate on either basis; suppressed from the headline vector).
+    t = normal_rate_table(QUARTER, ["Ctr-Large", "LNGC", "MGC"])
+    for cls in ("Ctr-Large", "LNGC", "MGC"):
+        assert t[cls].parity is None
+        assert t[cls].historical_mean is not None   # historical exists but is boom-tilted
+
+
+def test_post_panamax_registered_on_replacement_equivalent():
+    # Amendment 2: Post-Panamax = Kamsarmax-contract replacement, predicted band $14.5-15.5k.
+    pp = normal_rate_table(QUARTER, ["Post-Panamax"])["Post-Panamax"].parity
+    assert pp is not None and 14_500 <= pp <= 15_500
+
+
+def test_resale_invariant_fires_on_resale_as_contract():
+    from crude_tanker_fv.normal_rates import validate_contract_resale
+    # corrected contract passes; the original $175M-as-contract (>= resale $145M) halts.
+    validate_contract_resale({"VLCC": 128e6}, {"VLCC": 145e6})  # no raise
+    with pytest.raises(ValueError, match="input-basis"):
+        validate_contract_resale({"VLCC": 175e6}, {"VLCC": 145e6})
 
 
 def test_opex_triangulation_sane_no_wild_outliers():
