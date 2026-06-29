@@ -1,11 +1,11 @@
 # TEN [WHOLE-CO] — Scenario Fair Value (three-phase MoU framework)
 
-> **Valuation basis:** WHOLE-COMPANY 3-SLEEVE = crude (72.5%) + product (16.0%) + lng (11.5%) AGGREGATED (METHODOLOGY §11.6). Off-curve shuttle-contracted-book sleeve sits at the corporate level (`shuttle_contracted_book`) and flows through NAV uniformly across scenarios. Compared to the WHOLE-COMPANY tape price.
+> **Valuation basis:** WHOLE-COMPANY 3-SLEEVE = crude (72.8%) + product (15.8%) + lng (11.3%) AGGREGATED (METHODOLOGY §11.6). Off-curve shuttle-contracted-book sleeve sits at the corporate level (`shuttle_contracted_book`) and flows through NAV uniformly across scenarios. Compared to the WHOLE-COMPANY tape price.
 
-- **Current price:** $36.72
+- **Current price:** $35.76
 - **Analyst target:** $51.50
-- **NAV / share (reference, unflexed):** $86.95 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $64.54 (+75.7% vs price)
+- **NAV / share (reference, unflexed):** $88.70 _(flexes per scenario via vessel-value elasticity — see table)_
+- **Probability-weighted fair value:** $65.49 (+83.1% vs price)
 - **Breakeven TCE (scenario-invariant):** $0/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** BUY (undervalued)
 
@@ -13,19 +13,19 @@
 
 | Scenario | Weight | Vessel× | NAV/sh | FV (base) | FV [low–high] | Cycle | w_nav | Strip NPV | Assumed TCE (12M) | Assumed / Breakeven |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| Escalation | 25% | 1.25× | $118.92 | $83.45 | $82.41–$84.67 | 4.39× | 0.70 | $83.94 | $148,079 | 84499698246516870173570367488.00× |
-| Pre-MoU baseline | 45% | 1.04× | $97.94 | $68.47 | $67.82–$69.19 | 2.86× | 0.70 | $68.74 | $92,159 | 52589726012158229980702048256.00× |
-| MoU base case | 18% | 0.75× | $60.71 | $44.40 | $43.94–$44.87 | 1.42× | 0.60 | $47.19 | $45,853 | 26165499452979909790196039680.00× |
-| MoU bear | 12% | 0.71× | $54.33 | $40.56 | $40.15–$40.99 | 1.20× | 0.60 | $43.66 | $37,933 | 21646141668465160043339186176.00× |
-| **Probability-weighted** | | | | **$64.54** | | | | | | |
+| Escalation | 25% | 1.25× | $121.10 | $84.64 | $83.59–$85.85 | 4.40× | 0.70 | $84.33 | $148,031 | 84556351217838733123823599616.00× |
+| Pre-MoU baseline | 45% | 1.04× | $99.85 | $69.51 | $68.86–$70.23 | 2.87× | 0.70 | $69.09 | $92,217 | 52675262577190058982543196160.00× |
+| MoU base case | 18% | 0.75× | $62.04 | $45.06 | $44.60–$45.54 | 1.43× | 0.60 | $47.44 | $45,848 | 26188856601998336671570984960.00× |
+| MoU bear | 12% | 0.72× | $55.61 | $41.19 | $40.77–$41.62 | 1.20× | 0.60 | $43.90 | $37,947 | 21675889616647792688308944896.00× |
+| **Probability-weighted** | | | | **$65.49** | | | | | | |
 
 _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate assumption, NOT a breakeven). Assumed/Breakeven < 1 ⇒ that scenario's rates fall short of justifying the price; > 1 ⇒ they clear it._
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $+46.73
-- **Downside (worst scenario − price):** $+3.84
-- **Expected value vs current** (weighted FV − price): $+27.82 (+75.7%)
+- **Upside (best scenario − price):** $+48.88
+- **Downside (worst scenario − price):** $+5.43
+- **Expected value vs current** (weighted FV − price): $+29.73 (+83.1%)
 - **Position:** BUY (undervalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

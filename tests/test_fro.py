@@ -36,13 +36,11 @@ def test_yard_discount_lowers_nav(fro):
 def test_nav_reconciles_to_consensus_pnav(fro):
     nav = compute_nav(fro)
     # Pareto consensus P/NAV 1.21x at $34.50 -> NAV ~$28.5; newbuilds valued at
-    # market are what get us there (cost-based would read ~$23). Thread 1 (VLCC
-    # age-0 $175M->$145M dated resale) nudges the un-anchored NAV down to ~$26.9
-    # (implied ~1.28). NOTE: on the production transaction-anchored curve the
-    # spread widens further (NAV ~$22.7, implied ~1.52) — the intended crude
-    # tool-vs-broker divergence (CLAUDE.md "wide spreads are features").
+    # market are what get us there (cost-based would read ~$23). age-0 = xclusiv
+    # Resale $175M (Amendment B reverted the Thread-1 5yr-as-age-0; FRO's young
+    # tonnage is VLCC, so it reverts exactly to ~$28.5 / implied ~1.21).
     implied_pnav = 34.50 / nav.nav_per_share
-    assert 1.15 < implied_pnav < 1.30
+    assert 1.15 < implied_pnav < 1.27
 
 
 def test_fleet_schedule_ramps_vlcc_in_strip(fro):

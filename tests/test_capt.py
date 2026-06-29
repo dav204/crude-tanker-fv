@@ -40,13 +40,13 @@ def test_balance_sheet_newbuild_convention():
 
 
 def test_nav_band():
-    """Tool NAV band. Thread 1 (VLCC $175M->$145M, Suezmax $108M->$95M dated
-    resale age-0) drops CAPT — 21/30 newbuild crude at age-0 delivered-market —
-    from ~$17.7 to ~$11.75 (un-anchored). A move outside the band means inputs
-    or curves changed — re-run the drift gate."""
+    """Tool NAV within the documented first-reconcile band (vs Pareto
+    NAV ~$18.2 implied; gap -2.6% at onboarding). A move outside the band
+    means inputs or curves changed — re-run the drift gate. (age-0 = xclusiv
+    Resale; Amendment B reverted the Thread-1 5yr-as-age-0 swap.)"""
     ci = load_company_inputs("CAPT", "2026-Q1")
     nav = compute_nav(ci).nav_per_share
-    assert 10.5 < nav < 13.0     # Thread 1: resale age-0 (was 15-21)
+    assert 15.0 < nav < 21.0
 
 
 def test_position_at_onboarding_price():

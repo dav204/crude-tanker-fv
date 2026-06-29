@@ -36,6 +36,25 @@ preferred refinancing/redemption activity, any VIE stance change, the
 
 ---
 
+## 2026-06-29T23:45:25+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $35.76
+- Single-point FV: $61.29
+- Scenario PW FV: $65.49 (EV +83.2%)
+- NAV / share: $88.70
+- Position: **BUY (undervalued)**
+- Broker spread: +29.3pp (k_broker 1.13)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -7.2pp
+- Δprice: -0.96 | Δsingle FV: +1.6% | Δscenario FV: +1.5% | ΔNAV: +2.0% | Δspread: -7.2pp
+
+**Decision:** Amendment B — crude age-0 reverted to xclusiv Resale; TEN NAV +2.0% on its young Suezmax/Aframax/LR2 lift (xclusiv Resale > old). Dry-bulk/other sleeves unchanged.
+
+---
+
 ## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
 
 **Model state:**

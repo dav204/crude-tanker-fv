@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-29T23:45:25+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $14.08
+- Single-point FV: $15.26
+- Scenario PW FV: $16.07 (EV +14.1%)
+- NAV / share: $15.87
+- Position: **BUY (undervalued)**
+- Broker spread: +20.1pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.02 | Δsingle FV: +2.2% | Δscenario FV: +2.4% | ΔNAV: +3.1% | Δspread: -3.2pp
+
+**Decision:** Amendment B — crude age-0 reverted to xclusiv Resale (dry-bulk holds its Thread-1 Resale levels). CMBT NAV +3.0% net (crude sleeve up; dry-bulk unchanged).
+
+---
+
 ## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
 
 **Model state:**

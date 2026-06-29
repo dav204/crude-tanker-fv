@@ -9,6 +9,28 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-29T23:45:25+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $12.73
+- Single-point FV: $16.13
+- Scenario PW FV: $17.26 (EV +35.6%)
+- NAV / share: $15.59
+- Position: **BUY (undervalued)**
+- Broker spread: +25.3pp (k_broker 1.12)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ single-point FV +28.1%
+- ⚑ scenario PW FV +26.7%
+- ⚑ broker spread -30.6pp
+- ⚑ NAV/sh +34.6%
+- Δprice: -0.06 | Δsingle FV: +28.1% | Δscenario FV: +26.7% | ΔNAV: +34.6% | Δspread: -30.6pp
+
+**Decision:** Amendment B — crude age-0 reverted to xclusiv Resale (VLCC 175, Suezmax 114.3). CAPT NAV $11.58->$15.59 (+34.6%, a touch above pre-Thread-1 $15.03 because xclusiv Suezmax Resale 114.3 > the old 108 — read straight off the curve). Provisional flag clears (reverted).
+
+---
+
 ## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
 
 **Model state:**

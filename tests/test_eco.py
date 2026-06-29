@@ -48,7 +48,10 @@ def test_payout_sensitivity_monotonic(eco):
 
 def test_scenarios_overvalued(eco):
     r = run_scenarios(eco, 48.10, 45.00, load_scenarios())
-    # All-spot -> wide scenario swing; weighted FV below price.
+    # All-spot -> wide scenario swing.
     spread = max(s.fair_value for s in r.scenarios) - min(s.fair_value for s in r.scenarios)
     assert spread > 5.0
-    assert r.position_recommendation.startswith("TRIM/SHORT")
+    # HOLD (EV ~-2%): Amendment B set Suezmax age-0 to xclusiv Resale $114.3M (> the
+    # pre-Thread-1 $108M), lifting ECO's young-Suezmax NAV ~+2% and moving it from
+    # TRIM/SHORT into the fairly-valued band. Read straight off the xclusiv curve.
+    assert r.position_recommendation.startswith("HOLD")

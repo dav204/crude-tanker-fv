@@ -29,13 +29,19 @@ newbuild_contract:
   #   LR1, Handysize, Handymax (product — pending dated broker marks),
   #   LNGC, MGC, Ctr-Feeder, Ctr-Intermediate, Ctr-Large (boom + resale-inflated, A1.4)
 
+# RE-LABELED (Amendment B, 2026-06-29): these are the xclusiv RESALE line (2026-06-22),
+# the just-delivered top of the secondhand age curve — NOT the 5-year value. The earlier
+# VLCC 145 / Suezmax 95 were the xclusiv 5-YEAR values, mislabeled "prompt resale" (the bug
+# Amendment B reverts). This block is BOTH the parity resale-invariant ceiling AND the
+# age-0 NAV anchor source (single source; see inputs/market_data/xclusiv_age_curve.yaml,
+# which test_curve_age0_equals_xclusiv_resale ties the curve to).
 prompt_resale:
-  VLCC: 145000000          # broker prompt resale Jun-2026 (5yr ~138M + delivery premium)
-  Suezmax: 95000000
-  Aframax: 88900000        # market resale Jun-2026
-  LR2: 88900000
-  MR: 54000000
-  Cape: 81500000           # xclusiv Capesize resale 2026Q2
-  Pana: 46000000           # xclusiv Kamsarmax resale 2026Q2
-  Supra-Ultra: 43000000    # xclusiv Ultramax resale 2026Q2
-  Post-Panamax: 46000000   # = Kamsarmax resale (the replacement-equivalent; invariant ceiling)
+  VLCC: 175000000          # xclusiv Resale 2026-06-22 (was 145M = the 5yr value, mislabeled)
+  Suezmax: 114300000       # xclusiv Resale 2026-06-22 (was 95M = the 5yr value)
+  Aframax: 92500000        # xclusiv Resale 2026-06-22 (was 88.9M)
+  LR2: 92500000            # = Aframax hull
+  MR: 54000000             # EXCEPTION: no xclusiv secondhand line — carries its own mark
+  Cape: 81500000           # xclusiv Capesize Resale 2026-06-22
+  Pana: 46000000           # xclusiv Kamsarmax Resale 2026-06-22
+  Supra-Ultra: 43000000    # xclusiv Ultramax Resale 2026-06-22
+  Post-Panamax: 46000000   # = Kamsarmax Resale (replacement-equivalent; invariant ceiling)

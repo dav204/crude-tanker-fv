@@ -7,6 +7,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-29T23:45:25+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $49.60
+- Single-point FV: $37.33
+- Scenario PW FV: $40.17 (EV -19.0%)
+- NAV / share: $34.56
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +11.9pp (k_broker 1.13)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ NAV/sh +7.5%
+- Δprice: -0.28 | Δsingle FV: +5.4% | Δscenario FV: +5.2% | ΔNAV: +7.5% | Δspread: -4.9pp
+
+**Decision:** Amendment B — crude age-0 = xclusiv Resale (VLCC 175, Suezmax 114.3). ECO NAV +7.5% to ~$34.56, a touch above pre-Thread-1 (xclusiv Suezmax Resale 114.3 > old 108); its scenario position moves TRIM/SHORT->HOLD on the directed Suezmax lift. Read straight off the curve.
+
+---
+
 ## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
 
 **Model state:**

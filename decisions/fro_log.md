@@ -7,6 +7,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-29T23:45:25+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $35.44
+- Single-point FV: $26.54
+- Scenario PW FV: $28.82 (EV -18.7%)
+- NAV / share: $24.22
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +13.8pp (k_broker 1.14)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ NAV/sh +6.8%
+- Δprice: -0.08 | Δsingle FV: +5.0% | Δscenario FV: +4.7% | ΔNAV: +6.8% | Δspread: -4.3pp
+
+**Decision:** Amendment B — VLCC age-0 = xclusiv Resale $175M (reverted the Thread-1 $145M = 5yr value). FRO NAV $22.67->$24.22 = back to pre-Thread-1 (young tonnage is VLCC). P/NAV(mkt) back to ~1.21, not the 1.52 the production curve showed — the 'broker stale-high' over-claim is moot. Provisional flag clears.
+
+---
+
 ## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
 
 **Model state:**

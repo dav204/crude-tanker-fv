@@ -1,9 +1,9 @@
 # TNK — Scenario Fair Value (three-phase MoU framework)
 
-- **Current price:** $67.99
+- **Current price:** $65.99
 - **Analyst target:** $75.00
 - **NAV / share (reference, unflexed):** $77.51 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $79.59 (+17.1% vs price)
+- **Probability-weighted fair value:** $79.59 (+20.6% vs price)
 - **Breakeven TCE (scenario-invariant):** $0/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** BUY (undervalued)
 
@@ -21,9 +21,9 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $+26.78
-- **Downside (worst scenario − price):** $-5.70
-- **Expected value vs current** (weighted FV − price): $+11.60 (+17.1%)
+- **Upside (best scenario − price):** $+28.78
+- **Downside (worst scenario − price):** $-3.70
+- **Expected value vs current** (weighted FV − price): $+13.60 (+20.6%)
 - **Position:** BUY (undervalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

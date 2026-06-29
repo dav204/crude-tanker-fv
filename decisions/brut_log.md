@@ -9,6 +9,28 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-29T23:45:25+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.21
+- Single-point FV: $9.84
+- Scenario PW FV: $10.81 (EV +107.4%)
+- NAV / share: $9.40
+- Position: **BUY (undervalued)**
+- Broker spread: -45.8pp (k_broker 0.92)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ single-point FV +90.7%
+- ⚑ scenario PW FV +80.5%
+- ⚑ broker spread -96.5pp
+- ⚑ NAV/sh +116.6%
+- Δprice: -0.13 | Δsingle FV: +90.7% | Δscenario FV: +80.5% | ΔNAV: +116.6% | Δspread: -96.5pp
+
+**Decision:** Amendment B (deliberate correction) — reverted Thread-1's crude age-0. VLCC age-0 = xclusiv RESALE $175M (2026-06-22 PDF); the Thread-1 $145M was the xclusiv 5-YEAR value, mislabeled 'prompt resale'. BRUT NAV $4.34->$9.40 = EXACTLY pre-Thread-1; the -53.8% is fully unwound. LEVEL-PROVISIONAL flag CLEARS — not by confirming a level, but by reverting to the Resale line. Basis LOCKED: age-0 = xclusiv Resale, mid-age = transaction prints (§9.9).
+
+---
+
 ## 2026-06-29T22:10:56+00:00 — Pipeline run (auto)
 
 **Model state:**

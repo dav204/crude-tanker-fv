@@ -1,7 +1,7 @@
 classes:
   VLCC:
     dwt: 300000
-    newbuild: 145000000          # prompt resale (Thread 1; was 175M stale-high), = prompt_resale.VLCC
+    newbuild: 175000000          # age-0 = xclusiv Resale 2026-06-22 (Amdt B revert; the $145M was the 5yr value)
     five_year_benchmark: 138000000
     ten_year_benchmark: 111000000
     scrap_25yr: 22000000
@@ -9,7 +9,7 @@ classes:
     eco_premium_pct: 0.05
   Suezmax:
     dwt: 157000
-    newbuild: 95000000           # prompt resale (Thread 1; was 108M), = prompt_resale.Suezmax
+    newbuild: 114300000          # age-0 = xclusiv Resale 2026-06-22 (Amdt B revert; was 95M = the 5yr value)
     five_year_benchmark: 92000000
     ten_year_benchmark: 80000000
     scrap_25yr: 13000000
@@ -17,7 +17,7 @@ classes:
     eco_premium_pct: 0.05
   Aframax:
     dwt: 110000
-    newbuild: 88900000           # prompt resale (Thread 1; was 90M), = prompt_resale.Aframax
+    newbuild: 92500000           # age-0 = xclusiv Resale 2026-06-22 (Amdt B revert; was 88.9M)
     five_year_benchmark: 79000000
     ten_year_benchmark: 68000000
     scrap_25yr: 9000000
@@ -25,7 +25,7 @@ classes:
     eco_premium_pct: 0.05
   LR2:
     dwt: 110000
-    newbuild: 88900000           # prompt resale (Thread 1; was 90M), = prompt_resale.LR2
+    newbuild: 92500000           # age-0 = xclusiv Resale 2026-06-22 (= Aframax hull; Amdt B revert)
     five_year_benchmark: 79000000
     ten_year_benchmark: 68000000
     scrap_25yr: 9000000
@@ -33,7 +33,7 @@ classes:
     eco_premium_pct: 0.05
   MR:
     dwt: 50000
-    newbuild: 54000000           # prompt resale (Thread 1; was 49.5M stale-low), = prompt_resale.MR
+    newbuild: 54000000           # EXCEPTION: no xclusiv secondhand line (NB 52 only); not reverted (product, immaterial — no young MR). Pending a dated MR resale source.
     five_year_benchmark: 46000000
     ten_year_benchmark: 34500000
     scrap_25yr: 5800000

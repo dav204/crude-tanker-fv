@@ -77,6 +77,31 @@ def test_crude_production_depreciation_floor():
         )
 
 
+# Classes whose age-0 is wired to the xclusiv Resale line (Amendment B). MR has no
+# xclusiv secondhand line; Post-Panamax has no xclusiv PPMX (= Kamsarmax replacement);
+# Handysize/Handymax are Group-A pending (Thread 1A) — all excluded from this guard.
+XCLUSIV_WIRED = ("VLCC", "Suezmax", "Aframax", "LR2", "Cape", "Pana", "Supra-Ultra")
+
+
+def test_curve_age0_equals_xclusiv_resale():
+    """The guard that would have caught the original bug: each wired class's age-0
+    anchor must equal the xclusiv RESALE line (the just-delivered top of the
+    secondhand age curve), NOT the 5-year value. Thread 1 set crude age-0 to the
+    5yr price; Amendment B reverts it to Resale and this test locks it."""
+    curves = load_market_data().vessel_value_curves
+    xcl = yaml.safe_load(open(INPUTS_DIR / "market_data" / "xclusiv_age_curve.yaml"))
+    resale = xcl["resale"]
+    for cls in XCLUSIV_WIRED:
+        want = resale[cls] * 1_000_000
+        assert abs(curves[cls].newbuild - want) < 1.0, (
+            f"{cls}: curve age-0 {curves[cls].newbuild:,.0f} != xclusiv Resale "
+            f"{want:,.0f} ({xcl['report_date']}) — age-0 must be the Resale line, not the 5yr"
+        )
+    # Negative assertion: age-0 must NOT equal the 5yr (the original mislabel).
+    fy = xcl["five_year"]
+    assert curves["VLCC"].newbuild != fy["VLCC"] * 1_000_000, "age-0 must not be the 5yr value"
+
+
 def test_basis_status_covers_curve_classes():
     """basis_status is the single per-class source: every curve class has a
     valid status; the 9 marked classes are resale-uniform."""

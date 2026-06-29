@@ -1,0 +1,50 @@
+# xclusiv secondhand AGE CURVE — tracked source of record for the NAV age-0 anchor.
+# (PRE_REGISTRATION_CRUDE_RESALE_LEVEL.md Amendment B; basis LOCKED 2026-06-29.)
+#
+# BASIS LOCK: curve age-0 = the `resale` line here (the just-delivered top of the broker
+# secondhand age curve); mid-age (5yr/10yr) = transaction-anchored prints (§9.9), NOT this
+# file. The 22% gap between transaction-anchored 5yr and this `five_year` is the INTENDED
+# divergence (the tool produces independent transaction-anchored NAV; broker marks are a
+# discrimination diagnostic) — documented, never reconciled (Thread 1C closed).
+#
+# Source: xclusiv weekly, report 2026-06-22 (2026Q2), parsed by shipping_harvester
+# (shipping_harvester/data/marks/xclusiv/2026Q2.json — gitignored broker cache; this is the
+# committed extract). $ millions. Refresh on a new dated xclusiv issue (2026W26 = cross-check).
+# `test_curve_age0_equals_xclusiv_resale` asserts each wired class's curve age-0 == resale here.
+report_date: 2026-06-22
+source: xclusiv weekly 2026Q2 (hellenicshippingnews.com/.../xclusiv-2026_06_22.pdf)
+resale:                 # age-0 NAV anchor source (the just-delivered / resale line)
+  VLCC: 175.0
+  Suezmax: 114.3
+  Aframax: 92.5
+  LR2: 92.5             # = Aframax hull (110k); no distinct xclusiv line
+  Cape: 81.5            # xclusiv Capesize
+  Pana: 46.0           # xclusiv Kamsarmax
+  Supra-Ultra: 43.0    # xclusiv Ultramax
+  Handysize: 36.0
+  # Post-Panamax: = Kamsarmax Resale 46.0 (no xclusiv PPMX line; replacement-equivalent)
+  # MR: no xclusiv secondhand line (newbuild 52.0 only) — age-0 carries its own mark
+five_year:              # documentation + the Thread-1C divergence reference (NOT wired)
+  VLCC: 145.0
+  Suezmax: 96.7
+  Aframax: 80.0
+  Cape: 72.0
+  Pana: 38.0
+  Supra-Ultra: 38.0
+  Handysize: 29.5
+ten_year:
+  VLCC: 115.0
+  Suezmax: 81.7
+  Aframax: 73.0
+  Cape: 56.5
+  Pana: 29.5
+  Supra-Ultra: 28.0
+  Handysize: 23.3
+newbuild:               # xclusiv newbuild quote (parity uses Clarksons in newbuild_contract_prices.yaml)
+  VLCC: 131.5
+  Aframax: 75.0
+  Cape: 75.5
+  Pana: 37.5
+  Supra-Ultra: 34.5
+  Handysize: 30.5
+  MR: 52.0
