@@ -2,12 +2,10 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-06-28T03:18:37+00:00'
-  ratified_commit: '9774411'
+  ratified_at: '2026-06-29T14:48:15+00:00'
+  ratified_commit: eec298e
   quarter: 2026-Q1
-  cause: SB (Safe Bulkers) onboarding — 4th dry-bulk validator; APPROX P/BV anchor (no Pareto/VIE NAV);
-    tool NAV $10.14 vs common-book $7.26, gap +39.6% SANITY n/a (book conservative + §11.7.10 Post-Panamax,
-    documented)
+  cause: P2 Post-Panamax split + SB charter rates (§11.7.10)
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -127,10 +125,10 @@ names:
     sector: crude
   SB:
     pnav_basis: approx
-    ev_pct: 49.01
-    tool_nav: 10.14
+    ev_pct: 46.31
+    tool_nav: 9.82
     position_band: BUY (undervalued)
-    k_broker: 0.78
+    k_broker: 0.8
     sector: dry_bulk
   SBLK:
     pnav_basis: pareto
