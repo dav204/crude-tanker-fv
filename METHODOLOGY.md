@@ -2754,7 +2754,13 @@ relative fair-band.
 - **`RONAV_norm`** — return on **marked NAV** at **through-cycle** earning power
   (§17.3).
 
-### 17.3 RONAV_norm — return on marked NAV, mid-cycle, not NTM (the crux)
+### 17.3 RONAV_norm — return on marked NAV, mid-cycle, not next-twelve-months (the crux)
+
+**RONAV ("return on NAV") is the asset-NAV analog of return on equity: annual
+earnings ÷ NAV per share.** Two variants are used: `RONAV_norm` (this section —
+the fleet's normalized mid-cycle earning power on its marked NAV) and
+`RONAV_implied` (§17.1 — the return on NAV the market price implies). "NTM"
+elsewhere in this section = next-twelve-months.
 
 `RONAV_norm = normalized_annual_EPS / NAV_per_share`, where
 `normalized_annual_EPS` runs the existing dividend-strip earnings machinery

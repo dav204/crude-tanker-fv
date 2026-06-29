@@ -358,18 +358,23 @@ def write_justified_pnav(
     w("A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broker-NAV "
       "sweep (§9.9) and consensus-EPS cross-check (§9.11) lean on Pareto coverage; this asks a "
       "question answerable from fundamentals alone — **does the fleet earn its cost of capital "
-      "on its own marked NAV?** — so the APPROX / no-Pareto names (SB, CMDB, GSL, MPCC, CCEC, "
-      "NAT, ASC, TEN, CMBT) get a NAV benchmark too.\n")
+      "on its own marked NAV (net asset value)?** — so the APPROX / no-Pareto names (SB, CMDB, "
+      "GSL, MPCC, CCEC, NAT, ASC, TEN, CMBT) get a NAV benchmark too.\n")
+    w("**`RONAV` = return on NAV** — the asset-NAV analog of return on equity: annual earnings ÷ "
+      "NAV per share. Two variants appear below. **`RONAV_norm`** (normalized) is what the fleet "
+      "*would* earn on its marked NAV at mid-cycle rates; **`RONAV_implied`** is the return on NAV "
+      "the *market price* is implying, backed out of the same identity.\n")
     w("`P/NAV* = (RONAV_norm − g)/(r − g) = 1 + (RONAV_norm − r)/(r − g)`; "
       "`Justified FV/sh = P/NAV* × NAV/sh`; `RONAV_implied = g + P/NAV(mkt)·(r − g)`. "
       f"`r` = cost of equity {r0:.0%} (constant in v1). `NAV/sh` is the tool's CLEAN, "
       "un-haircut marked NAV (governance discount is applied downstream, never inside it).\n")
-    w("**RONAV_norm is return on *marked NAV*, not on book**, and **through-cycle, not NTM**: "
-      "`normalized_annual_EPS / NAV/sh`, where the EPS runs the dividend-strip earnings machinery "
-      "with every vessel class's TCE pinned to its cycle anchor (`historical_tce_means`), NOT the "
-      "FFA forward curve. Book always 'earns well' mid-cycle and says nothing about whether the "
-      "market value is justified; the FFA front end is the hot NTM number that would inflate the "
-      "multiple — both are deliberately avoided.\n")
+    w("**RONAV_norm is return on *marked NAV*, not on accounting book**, and **through-cycle, not "
+      "NTM (next-twelve-months)**: `normalized_annual_EPS / NAV/sh`, where the EPS runs the "
+      "dividend-strip earnings machinery with every vessel class's day-rate (TCE, time-charter "
+      "equivalent) pinned to its cycle anchor (`historical_tce_means`), NOT the FFA (forward "
+      "freight agreement) forward curve. Book always 'earns well' mid-cycle and says nothing "
+      "about whether the market value is justified; the FFA front end is the hot near-term number "
+      "that would inflate the multiple — both are deliberately avoided.\n")
     w("**Read this as an ORDERING tool, not a precision estimate.** `r − g` is a small "
       "denominator, so the multiple is hypersensitive: ±1pp on `g` or `RONAV_norm` swings it "
       "10-20% (see the per-sector sensitivity grids below). **Anchor-bias caveats — RONAV_norm "
