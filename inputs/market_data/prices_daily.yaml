@@ -1,4 +1,4 @@
-fetched_at: '2026-06-27T22:30:07+00:00'
+fetched_at: '2026-06-28T22:41:03+00:00'
 prices:
   ASC:
     asof: '2026-06-26T20:00:03+00:00'
@@ -14,7 +14,7 @@ prices:
     native_price: 53.0
     prev_close: 5.22
     price: 5.34
-    usd_per_unit_fx: 0.100798
+    usd_per_unit_fx: 0.100808
   CAPT:
     asof: '2026-06-26T14:25:53+00:00'
     day_change_pct: -3.97
@@ -23,7 +23,7 @@ prices:
     native_price: 126.9
     prev_close: 13.32
     price: 12.79
-    usd_per_unit_fx: 0.100798
+    usd_per_unit_fx: 0.100808
   CCEC:
     asof: '2026-06-26T20:00:01+00:00'
     day_change_pct: 3.39
@@ -98,13 +98,19 @@ prices:
     native_price: 25.93
     prev_close: 2.55
     price: 2.61
-    usd_per_unit_fx: 0.100798
+    usd_per_unit_fx: 0.100808
   NAT:
     asof: '2026-06-26T20:00:03+00:00'
     day_change_pct: 0.0
     exchange: NYQ
     prev_close: 5.85
     price: 5.85
+  SB:
+    asof: '2026-06-26T20:00:03+00:00'
+    day_change_pct: -4.63
+    exchange: NYQ
+    prev_close: 6.7
+    price: 6.39
   SBLK:
     asof: '2026-06-26T20:00:00+00:00'
     day_change_pct: -5.46
