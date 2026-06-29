@@ -2709,9 +2709,176 @@ Discipline:
 - Sector-wide rows use the sector key as `name` (e.g. the §14.6.2
   sanction-waiver binary on `crude`).
 
+## 17. Justified P/NAV diagnostic — a coverage-independent fair-multiple benchmark (added 2026-06-28)
+
+A parallel, **diagnostic-only** leg (`crude_tanker_fv.justified_pnav` →
+`outputs/justified_pnav.{md,xlsx}`, emitted each pipeline run). It does **not**
+touch `compute_nav` or the blended headline FV — exactly like the broker-NAV
+sweep (§9.9). It answers, from fundamentals alone, **"does the fleet earn its
+cost of capital on its own marked NAV?"** and turns that into a justified
+price-to-NAV multiple per name.
+
+### 17.1 The formula (Gordon / residual-income, applied to NAV)
+
+Two algebraically identical forms (the code unit-tests they agree):
+
+```
+P/NAV*            = (RONAV_norm − g) / (r − g)
+                  = 1 + (RONAV_norm − r) / (r − g)        # residual-income form
+Justified FV/sh   = P/NAV* × NAV_per_share
+RONAV_implied     = g + (price / NAV_per_share) × (r − g) # the market's implied return on NAV
+P/NAV(mkt)        = price / NAV_per_share
+Gap               = RONAV_norm − RONAV_implied            # > 0 ⇒ cheap vs justified
+```
+
+The read label (`cheap` / `fair` / `rich`) is the sign and size of
+`Justified P/NAV − P/NAV(mkt)` (equivalently the RONAV gap), with a ±10%
+relative fair-band.
+
+### 17.2 Inputs
+
+- **`NAV_per_share`** — the tool's **clean, un-haircut** marked NAV
+  (`compute_nav(ci).nav_per_share`). The governance discount (§15) is applied
+  downstream — at the blend and the strip terminal — never inside `compute_nav`,
+  so this is the same asset-NAV the broker sweep sees. Pre-haircutting it would
+  destroy the ability to watch P/NAV move, so the diagnostic deliberately takes
+  the clean figure.
+- **`r`** — cost of equity = 11% (`nav.py:COST_OF_EQUITY`), held constant across
+  all names in v1. **Per-subsector `r`** (a higher discount rate for dry-bulk's
+  higher equity risk) is the intended **v2** extension and is arguably the cleaner
+  place than `g` to encode subsector risk.
+- **`g`** — per-subsector sustainable nominal growth, stored as `sectors.<sector>.g`
+  in `scenario_inputs.yaml`: crude 0.01, product 0.01, dry_bulk 0.01, lng 0.02,
+  containerships 0.015. These are **explicit, deliberately conservative
+  assumptions to be stress-tested, not truths** — see the hypersensitivity note.
+- **`RONAV_norm`** — return on **marked NAV** at **through-cycle** earning power
+  (§17.3).
+
+### 17.3 RONAV_norm — return on marked NAV, mid-cycle, not NTM (the crux)
+
+`RONAV_norm = normalized_annual_EPS / NAV_per_share`, where
+`normalized_annual_EPS` runs the existing dividend-strip earnings machinery
+(`compute_dividend_strip`) with every vessel class's TCE pinned to its
+**through-cycle cycle anchor** (`historical_tce_means[cls]` — the same anchor
+§2.3 / `cycle.py` uses for cycle position), holding the current fleet, cost
+structure, and share count; annualized as the sum of the first four strip
+quarters (flat anchor rates + a static fleet make the four quarters identical).
+
+Two deliberate choices, each ruling out a tempting-but-wrong alternative:
+
+- **Return on NAV, not on book.** Using accounting book equity would say "it
+  earns well on depreciated cost" — almost always true mid-cycle, and silent on
+  whether the *market* value is justified. The whole question is whether the
+  marked NAV earns its keep, so the denominator must be the mark.
+- **Through-cycle, not next-twelve-months.** The strip's FFA front end (the EPS
+  `consensus_eps.py` §9.11 uses) is the hot current number; near a peak it would
+  inflate the multiple and defeat the purpose. So the FFA forward curve is
+  replaced by the flat cycle anchor.
+
+Implementation (no edits to `dividend_strip.py`): a normalized `CompanyInputs`
+built with `dataclasses.replace` —
+(1) `ffa_forward_curve` → flat per-class anchor;
+(2) **coverage neutralized** (`coverage_schedule={}`, `spot_coverage_pct={}`) so
+the blended TCE equals the anchor for *every* vessel — load-bearing for names
+with real disclosed charters (CCEC's locked LNG book would otherwise leak into a
+"through-cycle" number; that would answer a different "contracted P/NAV"
+question);
+(3) **`fleet_schedule` neutralized** so all current manifest vessels earn a full
+anchor-year (steady-state) matched to the full-fleet NAV denominator, rather than
+a ramp-year number while the NAV already carries the (PV-discounted) newbuilds.
+
+### 17.4 Guards (flag, never print a misleading number)
+
+Evaluated in order; the first blocker wins and the row carries no multiple:
+`non-positive NAV` (reachable on max-torque newbuild names); `no cost data`;
+`r ≤ g`; `no anchor` (a fleet class without a `historical_tce_means` entry);
+**`newbuild-heavy (unreliable)`** — newbuild value share > 25% (a not-yet-
+delivered hull earns a full anchor-year in the strip while its NAV is
+PV-haircut and its capex commitment never hits strip EPS, so the
+numerator/denominator bases are irreconcilable; flags BRUT, CAPT, MPCC — a
+flagship with a sub-threshold program like FRO ~17% computes with a noted mild
+residual bias); `negative mid-cycle EPS`; `sub-growth returns` (RONAV_norm < g ⇒
+P/NAV* ≤ 0 / unstable).
+
+### 17.5 Hypersensitivity — an ordering tool, not a precision estimate
+
+`r − g` is a small denominator, so the multiple is hypersensitive: ±1pp on `g`
+or `RONAV_norm` swings it 10-20%. The output therefore **always** prints a
+per-sector **sensitivity grid** (Justified P/NAV across `g ∈ {0, 0.01, 0.02}` ×
+`RONAV_norm ± 2pp`, base = sector median RONAV_norm). Read the leg as a
+cross-sectional **ordering** tool, not a point estimate.
+
+### 17.6 Inherited anchor biases (state in every output)
+
+RONAV_norm inherits whatever bias the cycle anchors carry, and the anchors are
+not all true long-run means (§10 anchor-basis machinery):
+
+- **Dry bulk** — anchors are 22-month firm-window medians (§11.7.5), biased
+  elevated vs a true long-run mean, so dry-bulk RONAV_norm and its justified
+  multiples are an **upper bound**.
+- **Containerships** — anchors are FY2021-2025 calendar averages
+  (`fy_calendar_avg`, boom-tilted, **not** a through-cycle mean), so container
+  RONAV_norm is biased high even more than dry-bulk: GSL/MPCC multiples are a
+  **loose upper bound, not a real target**.
+- **dwt-scaling asymmetry** — NAV dwt-scales per vessel (§11.7.10) but the strip's
+  revenue is per-class count-based, so large-hull dry-bulk names (SB, CMBT) are
+  biased toward "rich" — partially offsetting the dry-bulk anchor bias.
+
+### 17.7 Coverage-independence (the reason it exists)
+
+Unlike the broker-NAV sweep (needs a Pareto P/NAV) and the consensus-EPS
+cross-check (needs a consensus forward P/E), this leg uses only the tool NAV and
+a normalized EPS — **no broker coverage**. So it gives the APPROX / no-Pareto
+names (SB, CMDB, GSL, MPCC, CCEC, NAT, ASC, TEN, CMBT) the independent NAV
+benchmark they otherwise lack, and lets the subsector multiple structure (why
+dry bulk should earn a lower multiple than LNG) fall out of fundamentals rather
+than hand-set scenario weights. **Hybrids** (INSW/TEN/CMBT) use whole-company
+normalized EPS ÷ whole-company NAV (the un-carved bundle, as §9.11 does), tagged
+`(WHOLE-CO)`, with the lead-sleeve `g`; value-weighted `g` is a v2 refinement.
+
+### 17.8 Status — diagnostic only, not the backtest
+
+This is the **diagnostic**. Whether justified- (or subsector-demeaned-) P/NAV
+ranking predicts forward returns better than raw P/NAV is a **separate,
+pre-registered** study against the vintaged harness (`backtest/`), not wired into
+the headline FV. The leg adds a benchmark and a lens; it makes no return claim.
+
+**Worked example (SB, 2026-Q1).** Tool NAV/sh ≈ \$9.48 (marked ~30% above the
+~\$7.30 common book — expected for SB given its dwt-scaled Post-Panamax hulls,
+§11.7.10), price \$6.39 → P/NAV(mkt) 0.674. At r 0.11, g 0.01:
+`RONAV_implied = 0.01 + 0.674 × 0.10 = 0.077` — the market prices SB's fleet to
+earn ~7.7% on NAV through cycle. SB's normalized RONAV (~8.8%) exceeds that, so
+its justified P/NAV (~0.78) sits above the market's 0.674 and SB reads **cheap**
+vs justified. (The figure moves with the marked NAV; the tests pin the identity,
+not the dollar NAV.)
+
 ## Appendix A. Changelog
 
 Dated record of material framework changes. Lock dates use UTC.
+
+### 2026-06-28 — Justified P/NAV diagnostic added (§17)
+
+- **New diagnostic-only leg** `crude_tanker_fv.justified_pnav` →
+  `outputs/justified_pnav.{md,xlsx}`, wired into the pipeline after the
+  consensus-EPS cross-check. A Gordon/residual-income justified price-to-NAV per
+  name: `P/NAV* = (RONAV_norm − g)/(r − g)`, where `RONAV_norm` is return on the
+  tool's clean marked NAV at through-cycle anchor rates (the existing strip run
+  with TCE pinned to `historical_tce_means`, coverage + newbuild schedule
+  neutralized — NOT the FFA front end). **Coverage-independent** (no Pareto
+  P/NAV / consensus P/E), so it benchmarks the APPROX names (SB, CMDB, GSL, MPCC,
+  CCEC, NAT, ASC, TEN, CMBT). Does NOT touch `compute_nav` or the headline FV.
+- **New per-sector parameter** `sectors.<sector>.g` in `scenario_inputs.yaml`
+  (crude/product/dry_bulk 0.01, lng 0.02, containerships 0.015) — read only by
+  this leg.
+- **Guards** flag rather than print misleading numbers (non-positive NAV, no
+  cost data, r≤g, no anchor, newbuild-heavy >25% value share, negative mid-cycle
+  EPS, sub-growth). BRUT/CAPT/MPCC flag newbuild-heavy.
+- **Stated limits:** hypersensitive to `g`/`RONAV_norm` (mandatory per-sector
+  sensitivity grid; ordering tool, not precision); dry-bulk anchors biased high
+  (22-mo basis → upper bound), containership anchors boom-tilted (FY-avg → loose
+  upper bound); dwt-scaling asymmetry biases large-hull bulkers "rich". Per-
+  subsector `r` and value-weighted hybrid `g` documented as v2. Diagnostic only,
+  not the backtest. 25 tests; suite 334 → 359.
 
 ### 2026-06-12 — Week 5 Session A: B4 mark-driven classification restated to post-flip k_broker semantics (+ fetch_links argparse)
 

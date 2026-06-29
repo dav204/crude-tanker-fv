@@ -41,8 +41,8 @@ Use the reads as one disciplined input to a position call, sized accordingly.
 - **20 tickers** across 5 sectors: crude (9, incl. **TEN** the 3-sleeve hybrid,
   **CAPT** the first Oslo/NOK listing, and **BRUT** the pure-play VLCC newbuild
   vehicle), LNG (2), product (4), dry bulk (3), containerships (2)
-- **291 tests passing** end-to-end
-- **7 output families** regenerated per pipeline run + 5 standalone diagnostics
+- **359 tests passing** end-to-end
+- **8 output families** regenerated per pipeline run + 5 standalone diagnostics
   (LNG weight robustness, crude weight robustness, VIE coverage universe xref,
   VIE market rates xref, terminal-value sensitivity)
 - **Onboarded sector validators:** DHT (crude) / FLNG (LNG) / ASC (product) /
@@ -212,12 +212,12 @@ python -m crude_tanker_fv.refresh           # → outputs/refresh_checklist.md
 #   update stale market data files; refresh APPROX consensus_pnav entries.
 
 # After data assembly:
-python -m crude_tanker_fv.pipeline 2026-Q1  # → 7 output families
+python -m crude_tanker_fv.pipeline 2026-Q1  # → 8 output families
 #   Then open outputs/delta_report.md for the "what changed" summary,
 #   and annotate decisions/{ticker}_log.md with your calls.
 ```
 
-The 7 output families per pipeline run:
+The 8 output families per pipeline run:
 
 | Output | What it answers |
 |---|---|
@@ -227,6 +227,7 @@ The 7 output families per pipeline run:
 | `scenario_summary.xlsx` | Per-sector scenario sheets + cross-name pair-trade implied returns |
 | `broker_nav_sweep.md` + `.xlsx` | The mark-validated vs mark-driven discrimination diagnostic (shown above) |
 | `transaction_anchor_comparison.md` + `.xlsx` | NAV / EV impact of applying transaction-anchored mid-age curves (Aframax + Suezmax) |
+| `justified_pnav.md` + `.xlsx` | Coverage-independent justified P/NAV per name (does the fleet earn its cost of capital on its marked NAV?) — benchmarks the APPROX names; ordering tool (§17) |
 | `delta_report.md` + `decisions/{ticker}_log.md` | What changed since last run + per-ticker decision log with structured model-state entries |
 
 ## Architecture at a glance

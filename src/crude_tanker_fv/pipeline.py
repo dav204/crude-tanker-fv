@@ -1056,6 +1056,9 @@ def main() -> None:
     print("--- consensus forward-EPS cross-check ---")
     from crude_tanker_fv.consensus_eps import run_consensus_eps_xref
     run_consensus_eps_xref(quarter)
+    print("--- justified P/NAV diagnostic ---")
+    from crude_tanker_fv.justified_pnav import run_justified_pnav_xref
+    run_justified_pnav_xref(quarter)
     print("--- §12 dividend-window test ---")
     from crude_tanker_fv.dividend_window import run_dividend_window_xref
     run_dividend_window_xref(quarter)

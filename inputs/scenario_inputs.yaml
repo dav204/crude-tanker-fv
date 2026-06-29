@@ -61,6 +61,11 @@ sectors:
   # ===========================================================================
   crude:
 
+    # Sustainable nominal growth for the justified-P/NAV diagnostic (METHODOLOGY §17).
+    # A deliberately conservative assumption, NOT a truth — stress-tested in the
+    # sensitivity grid. Per-subsector r is the intended v2 home for subsector risk.
+    g: 0.01
+
     # -----------------------------------------------------------------------
     # Per-class route conventions used as primary anchor for each forward curve.
     # Other routes (TD22, TD23, TC5, TC15, etc.) inform but don't define the curve.
@@ -408,6 +413,8 @@ sectors:
   # ===========================================================================
   lng:
 
+    g: 0.02   # justified-P/NAV growth (METHODOLOGY §17); higher than tankers — LNG demand secular.
+
     framework_description: >
       LNG carrier cycle scenarios. Modern 174k cbm two-stroke LNGC is the
       reference vessel (FLNG fleet, Cool Co fleet, Awilco etc.). Rates expressed
@@ -684,6 +691,8 @@ sectors:
   # tracked under data_gaps.product.
   # ===========================================================================
   product:
+
+    g: 0.01   # justified-P/NAV growth (METHODOLOGY §17).
 
     framework_description: >
       Clean product tanker scenarios. Modern MR (eco / scrubber-fit / IMO-2 /
@@ -968,6 +977,9 @@ sectors:
   # ===========================================================================
   dry_bulk:
 
+    g: 0.01   # justified-P/NAV growth (METHODOLOGY §17). NB: dry-bulk RONAV_norm is
+              # biased high by the 22-month anchor basis (§11.7.5) — multiples are an upper bound.
+
     # -----------------------------------------------------------------------
     # Per-class route conventions — anchored to Baltic Exchange composites.
     # Pareto Shipping Daily reports a single $/day per class derived from
@@ -1213,6 +1225,8 @@ sectors:
   # in the session log.
   # ===========================================================================
   containerships:
+
+    g: 0.015   # justified-P/NAV growth (METHODOLOGY §17).
 
     strip_horizon: 10
 
