@@ -68,3 +68,65 @@ each with a date. No proxy, no fabrication (same discipline as Threads 3/5).
 Needs a dated current broker resale source. If sourced → run §3/§4. If not available here →
 registered-pending (write the data contract, request the marks), exactly like Threads 3/5.
 Until it clears, every crude name carries the level-provisional flag into Thread 4.
+
+---
+
+# Amendment A (2026-06-29) — basis decision + the guard-#2 lag (post-sourcing)
+
+A best-effort web sweep returned dated (May 12 2026, Signal Ocean, via Cyprus Shipping
+News / Splash247 / Seatrade) VLCC values. **Three simultaneously-true prices, not one
+number:** newbuild contract ~$129M; orderly **5yr secondhand ~$138M** ($9M over newbuild);
+**prompt / immediately-available ~$156–174.5M** (21–35% premium, "$45.5M excess"). The
+initial read ("prompt $156–174.5M > wired $145M ⇒ $145M too low") was **wrong** — it treated
+a scarcity print as a NAV basis.
+
+## A.1 Basis decision (owner, resolving the §0 fork)
+
+**Age-0 NAV anchor = orderly delivered-secondhand value, age-curve-anchored — EXCLUDING the
+immediate-availability scarcity premium (a fleet cannot realize it; you can't liquidate 20
+ships into a spot-scarcity bid without becoming the marginal seller and collapsing the
+premium) and EXCLUDING newbuild-contract replacement cost (that lives in parity, Amendment 1).**
+The three prices map cleanly: **newbuild → parity; orderly secondhand → NAV; prompt-scarcity →
+neither.** On current dated data the orderly delivered level is **~$138M** for the VLCC 5yr with
+age-0 modestly above — i.e. the honest age-0 is **at or slightly below the wired $145M, not
+above it.** **Direction: crude marks DOWN, not up; BRUT down further.** The original stale-high
+instinct (A1.5) is **confirmed**, not reversed. The $156–174.5M prompt number is a red herring
+for NAV.
+
+Anti-trap note: BRUT's −3.89%/$1M torque means it is the wrong place to *read* the level off —
+the size of the consequence on one max-torque name must not pull the input toward the softer
+answer. Set the level by orderly-delivered economics; BRUT goes wherever that sends it.
+
+## A.2 Do NOT wire off secondary ranges — require the authoritative mark
+
+The above are secondary outlets quoting *ranges/relatives* in a Hormuz-distorted market, and
+even the ~$138M 5yr is itself somewhat spike-elevated (5yr trading above newbuild is the
+distortion in the secondhand market). So: **register the basis decision now; require a dated
+xclusiv/Clarksons VLCC (and crude) resale mark — with its definition confirmed (orderly vs
+prompt-inclusive) — BEFORE re-wiring.** If the authoritative orderly mark is ~$138M → wire it,
+BRUT moves down, flag clears as a deliberate pre-registered downward correction. If it quotes
+prompt → strip the immediacy premium first. The number wired must be a clean orderly-disposal
+mark, never a scarcity print or a secondary-source range.
+
+## A.3 Guard-#2 LAG — registered as its own item (independent of the level)
+
+Guard #2 passed using the **transaction-anchored** VLCC 5yr of **$113M** (145→113 = 22% slope,
+healthy). But the **live firm 5yr is ~$138M** — so the transaction prints **lag** the spiked
+market, and the *current-market* 0→5 slope is 145→138 ≈ **5% (thin)** — the original Problem-1
+concern, real after all and masked by recency-lagging prints. Sized (lift VLCC 5yr 113→138):
+
+| | DHT | ECO | FRO | (newbuild-heavy BRUT/CAPT: unaffected — sit at age-0) |
+|---|--:|--:|--:|---|
+| NAV impact | +3.4% | +11.2% | +8.9% | |
+
+So the production crude curve **under-marks mid-age crude** by up to ~11% **if** the live 5yr is
+the orderly level. This is a **curve-SHAPE** finding, independent of the age-0 level, touching
+all crude mid-age tonnage, and it points the **opposite** way from the age-0 correction (the two
+partially offset; net per name depends on age mix — newbuild-heavy net down, mid-age-heavy net up).
+
+**Methodology tension to resolve (owner):** the §9.9 transaction-anchoring philosophy says actual
+S&P prints ARE the headline marks (CLAUDE.md) — but those prints lag a spiking firm market. Does
+NAV override the lagging transaction-anchored 5yr toward the firm broker quote, or hold the
+transaction marks as the truer *orderly* level (the firm spike being non-recurring)? This needs
+the same authoritative crude resale **curve** (age-0 AND mid-age) to resolve. Registered-pending;
+does NOT resolve by wiring a secondary number. Tracked as Thread 1C.
