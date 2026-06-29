@@ -269,3 +269,45 @@ and RONAV on both bases** — plausibly why crude justified reads look off in wa
 won't fully resolve. Separate P2-style NAV-curve thread (NOT bundled into P1); the questions it must
 answer: (a) is the curve's age-0 field resale or contract, per sector, made consistent; (b) is VLCC
 $175M stale-high even as resale.
+
+---
+
+# Amendment 2 (2026-06-29) — Post-Panamax parity basis (registered, not patched)
+
+**Disclosure.** On the first recompute against Amendment 1, SB returned parity = `None` (its
+largest class, Post-Panamax, had no registered contract mark — correctly, it is an unbuildable
+size). That `None` was the *right answer under the frozen inputs*. A Post-Panamax = Kamsarmax mark
+was then added in-session and SB resolved to cheap-on-parity — a **sighted input decision** that
+converted the headline name from undefined to the expected result, the exact failure mode the
+pre-reg exists to prevent regardless of how sound the rationale sounds. This amendment **backs that
+out and re-registers it deliberately**: fork resolved on a stated principle, band predicted *before*
+the final recompute, committed ahead of results.
+
+## A2.1 The fork (resolved explicitly)
+
+Post-Panamax (85–96k) is unbuildable, so its replacement newbuild is a modern **Kamsarmax (82k)**.
+But a 95.8k hull carries ~17% more dwt, so the input is contestable: **(a) flat** Kamsarmax $37.5M,
+or **(b) dwt-scaled-up** ~$41M (paying for legacy capacity). **Resolved to (a) flat**, on the same
+principle that drove P2: P2 established old large Post-Panamax trade at a per-tonne *discount* (flat
+curve, no dwt premium, anchored on the SBLK $19M/96k mark); dwt-scaling the parity input up would
+re-introduce the premium P2 removed — inconsistent. Flat is also the **conservative** choice (lower
+Post-Panamax parity → *less* SB cheapness than (b)), so it is not the thumb-on-scale option.
+
+## A2.2 Registered input + predicted band (before recompute)
+
+`newbuild_contract[Post-Panamax] = $37.5M` (= Kamsarmax replacement-equivalent; NOT a direct PPMX
+mark — none exists — so lower-confidence than the eight broker-sourced classes).
+`prompt_resale[Post-Panamax] = $46M` (Kamsarmax resale; $37.5M < $46M passes the invariant).
+
+**Predicted Post-Panamax parity $14,953/day → band $14.5–15.5k.** **Predicted SB consequence:** SB
+parity justified ≈ 1.16 → cheap — but this is the §18.5b-**contingent upside** (rides on the
+dry-bulk Pana under-ordering −24%, unconfirmed). **The durable, §5b-independent finding owes nothing
+to this amendment: SB historical justified 0.733 — cheap.** Halt if SB parity lands outside
+≈1.10–1.22 or the Post-Panamax rate outside $14.5–15.5k.
+
+## A2.3 Deferred (logged, not patched mid-recompute)
+
+`LR1 / Handysize / Handymax` (product) are buildable classes whose contract marks I have **not
+sourced**; sourcing + computing in one turn is the original sin (inputs with no pre-committed band).
+**Deferred** — product/hybrid parity reads "pending contract marks," historical reads (rich) carry
+the column, and when sourced they get marks + predicted bands registered *before* computing.

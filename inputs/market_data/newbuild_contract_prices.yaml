@@ -1,0 +1,41 @@
+# Newbuild CONTRACT replacement-cost prices for the parity normal-rate layer
+# (METHODOLOGY §18; PRE_REGISTRATION_NORMAL_RATES.md Amendment 1, 2026-06-29).
+#
+# DISTINCT from vessel_value_curves.yaml `newbuild`, which is the age-0
+# prompt/RESALE value (correct for NAV marks). Parity needs newbuild-CONTRACT
+# replacement cost — the cost to ORDER a newbuild — which is lower than resale in
+# a hot market (2026 crude: 5yr tonnage trades above newbuild contracts). Conflating
+# the two is the bug Amendment 1 fixes. Sourced from current broker CONTRACT marks.
+#
+# `prompt_resale` is a clean SINGLE-BASIS broker resale ceiling used ONLY for the
+# input-basis invariant: HALT if newbuild_contract >= prompt_resale (resale strictly
+# above contract is the hot/normal-market norm). It is NOT used in the parity formula.
+# Pointed here rather than at curve.newbuild because that field's basis is inconsistent
+# across sectors (resale for crude, contract for dry-bulk/MR) — see the §18 NAV thread.
+
+newbuild_contract:
+  VLCC: 128000000          # Clarksons benchmark Jun-2026 (xclusiv 131.5M corroborates)
+  Suezmax: 88000000        # Clarksons/market Jun-2026
+  Aframax: 73000000        # market newbuilding cost Jun-2026 (xclusiv 75M corroborates)
+  LR2: 73000000            # ~ Aframax (same 110k hull)
+  MR: 52000000             # xclusiv 2026Q2 (2026-06-22)
+  Cape: 75500000           # xclusiv Capesize 2026Q2
+  Pana: 37500000           # xclusiv Kamsarmax 2026Q2
+  Supra-Ultra: 34500000    # xclusiv Ultramax 2026Q2
+  Post-Panamax: 37500000   # replacement-by-modern-equivalent: nobody orders 90-96k bulkers,
+                           # so the replacement newbuild IS a Kamsarmax (xclusiv 37.5M). Own
+                           # scrap/opex still apply. NOT a direct PPMX mark (none exists).
+  # UNVALIDATED (no broker contract mark) — omitted so parity returns None:
+  #   LR1, Handysize, Handymax (product — pending dated broker marks),
+  #   LNGC, MGC, Ctr-Feeder, Ctr-Intermediate, Ctr-Large (boom + resale-inflated, A1.4)
+
+prompt_resale:
+  VLCC: 145000000          # broker prompt resale Jun-2026 (5yr ~138M + delivery premium)
+  Suezmax: 95000000
+  Aframax: 88900000        # market resale Jun-2026
+  LR2: 88900000
+  MR: 54000000
+  Cape: 81500000           # xclusiv Capesize resale 2026Q2
+  Pana: 46000000           # xclusiv Kamsarmax resale 2026Q2
+  Supra-Ultra: 43000000    # xclusiv Ultramax resale 2026Q2
+  Post-Panamax: 46000000   # = Kamsarmax resale (the replacement-equivalent; invariant ceiling)
