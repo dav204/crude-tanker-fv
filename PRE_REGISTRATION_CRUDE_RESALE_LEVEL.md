@@ -130,3 +130,55 @@ NAV override the lagging transaction-anchored 5yr toward the firm broker quote, 
 transaction marks as the truer *orderly* level (the firm spike being non-recurring)? This needs
 the same authoritative crude resale **curve** (age-0 AND mid-age) to resolve. Registered-pending;
 does NOT resolve by wiring a secondary number. Tracked as Thread 1C.
+
+---
+
+# Amendment B (2026-06-29) — RESOLUTION: revert crude age-0 to the xclusiv Resale line
+
+The authoritative dated source was **already in-repo**: `shipping_harvester/data/marks/xclusiv/2026Q2.json`
+(report **2026-06-22**, parsed from the xclusiv PDF), the full secondhand age curve quarterly back to
+2021Q3. No web needed; the secondary sweep was discarded.
+
+## B.1 The reveal — Thread 1 used the 5yr price as age-0
+
+xclusiv 2026Q2 VLCC age curve: **Resale 175.0 / 5yr 145.0 / 10yr 115.0 / 15yr 82.0 / NB 131.5**. The repo's
+Amendment-1 `prompt_resale` VLCC = **$145M was mislabeled** — it is xclusiv's **5-year** value, not "prompt
+resale." The true Resale (just-delivered) line is **$175M**. So Thread 1 swapped crude age-0 down one age
+step (Resale → 5yr). Dry-bulk was different and **correct**: Cape $81.5M = xclusiv Resale $81.5M exactly
+(the contract→Resale fix), Pana $46M = Kamsarmax Resale, Supra $43M = Ultramax Resale.
+
+## B.2 Owner decision — basis locked
+
+**Age-0 = the xclusiv Resale line; mid-age = transaction-anchored prints (§9.9). Locked.** Read straight off
+the dated xclusiv curve, never re-derived. This is the standard broker-secondhand age-curve basis (age-0 =
+the just-delivered/resale top of the curve), not the immediacy-scarcity premium I mistakenly chased.
+
+## B.3 The correction (deliberate, attributed)
+
+- **Revert crude age-0 to xclusiv Resale:** VLCC 145→**175.0**, Suezmax 95→**114.3**, Aframax 88.9→**92.5**,
+  LR2 88.9→**92.5** (=Aframax hull; no distinct xclusiv line). MR stays $54M (no xclusiv secondhand line —
+  documented exception; product, immaterial: no name holds young MR).
+- **Keep dry-bulk unchanged** — already exactly on xclusiv Resale (Cape 81.5, Pana 46, Supra 43, PPMX 46 =
+  Kamsarmax Resale).
+- **Re-label `prompt_resale` → the xclusiv Resale line** (so the mislabel can never re-fire), and add a
+  structural guard `test_curve_age0_equals_xclusiv_resale` asserting each wired class's age-0 == xclusiv
+  Resale (NOT the 5yr) — the test that would have caught this originally.
+- **Wire the dated xclusiv age curve as the tracked age-0 source of record**
+  (`inputs/market_data/xclusiv_age_curve.yaml`, 2026-06-22); 2026W26 is a freshness cross-check only.
+
+## B.4 Thread 1C closes — no reconciliation
+
+Mid-age **holds the transaction-anchored prints** ($113M VLCC 5yr); §9.9 stands. The **22%** gap to the
+xclusiv broker 5yr ($145M) is the **expected, intended** divergence (the tool produces independent
+transaction-anchored NAV; broker marks are a discrimination diagnostic, CLAUDE.md), **documented, not
+reconciled.**
+
+## B.5 Predicted reverted outcome (committed AHEAD of recompute; honor a miss)
+
+- **Crude young-names revert UP toward pre-Thread-1:** BRUT back to ~$9.40 (exact — all VLCC, Resale 175 =
+  original); Suezmax/Aframax-young names land a touch *above* original (xclusiv Resale 114.3/92.5 > the
+  pre-Thread-1 108/90). CAPT/FRO/ECO/DHT/TEN up.
+- **Dry-bulk holds Thread-1 levels** (unchanged): SB +5%, CMBT, GNK stand.
+- **The 13-name control stays flat.** If a control name moves or dry-bulk doesn't hold → halt.
+- **Provisional flags on BRUT/CAPT/FRO clear** — not because the level was confirmed, but because the move
+  was **reverted**. The flag is moot once age-0 is the Resale line.
