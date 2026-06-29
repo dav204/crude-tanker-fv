@@ -57,9 +57,15 @@ from .scenarios import SCENARIOS_PATH, load_scenarios
 from .schemas import CompanyInputs
 from .vessel_values import vessel_market_value
 
-# Hybrid name registries (single source of truth — pipeline owns them). The
-# import is acyclic: pipeline imports THIS module only lazily inside main().
-from .pipeline import HYBRID_TICKERS, MULTI_SLEEVE_TICKERS, THREE_SLEEVE_TICKERS
+# Hybrid name registries + the transaction-anchoring helper (single source of
+# truth — pipeline owns them). The import is acyclic: pipeline imports THIS module
+# only lazily inside main().
+from .pipeline import (
+    HYBRID_TICKERS,
+    MULTI_SLEEVE_TICKERS,
+    THREE_SLEEVE_TICKERS,
+    _maybe_apply_transactions,
+)
 
 # Fallback per-subsector growth if a sector lacks an explicit ``g:`` in the YAML.
 DEFAULT_G = 0.01
@@ -254,12 +260,18 @@ def evaluate(
 
 
 def compute_justified_pnav_rows(
-    quarter: str, inputs_dir: Path = INPUTS_DIR
+    quarter: str, inputs_dir: Path = INPUTS_DIR, use_transaction_anchored: bool = True
 ) -> list[JustifiedPnavRow]:
     """Build the justified-P/NAV row for every valued watchlist name.
 
     Coverage-independent: iterates ALL names (no consensus_fwd_pe / consensus_pnav
     gate), so the APPROX names get a benchmark too.
+
+    ``use_transaction_anchored`` (default True, the production basis) recalibrates
+    the marks via ``_maybe_apply_transactions`` BEFORE ``compute_nav`` — the same
+    NAV every other surface uses (broker sweep, headline FV; METHODOLOGY §9.9,
+    "transaction-validated marks ARE the tool's marks"). Pass False for the
+    un-anchored diagnostic NAV.
     """
     watchlist = load_watchlist(inputs_dir)
     g_by_sector = _g_by_sector(inputs_dir)
@@ -269,6 +281,7 @@ def compute_justified_pnav_rows(
             ci = load_company_inputs(ticker, quarter, inputs_dir)
         except FileNotFoundError:
             continue
+        ci, _ = _maybe_apply_transactions(ci, inputs_dir, use_transaction_anchored)
         sector = entry.get("sector", "crude")
         g = g_by_sector.get(sector, DEFAULT_G)
         r = COST_OF_EQUITY
@@ -367,7 +380,8 @@ def write_justified_pnav(
     w("`P/NAV* = (RONAV_norm − g)/(r − g) = 1 + (RONAV_norm − r)/(r − g)`; "
       "`Justified FV/sh = P/NAV* × NAV/sh`; `RONAV_implied = g + P/NAV(mkt)·(r − g)`. "
       f"`r` = cost of equity {r0:.0%} (constant in v1). `NAV/sh` is the tool's CLEAN, "
-      "un-haircut marked NAV (governance discount is applied downstream, never inside it).\n")
+      "un-haircut marked NAV — transaction-anchored (METHODOLOGY §9.9), the SAME basis the "
+      "headline FV and broker sweep use; governance discount is applied downstream, never inside it.\n")
     w("**RONAV_norm is return on *marked NAV*, not on accounting book**, and **through-cycle, not "
       "NTM (next-twelve-months)**: `normalized_annual_EPS / NAV/sh`, where the EPS runs the "
       "dividend-strip earnings machinery with every vessel class's day-rate (TCE, time-charter "
@@ -499,10 +513,11 @@ def write_justified_pnav(
 
 
 def run_justified_pnav_xref(
-    quarter: str, inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
+    quarter: str, inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR,
+    use_transaction_anchored: bool = True,
 ) -> list[JustifiedPnavRow]:
     """Compute, write, and print the justified-P/NAV diagnostic."""
-    rows = compute_justified_pnav_rows(quarter, inputs_dir)
+    rows = compute_justified_pnav_rows(quarter, inputs_dir, use_transaction_anchored)
     if rows:
         path = write_justified_pnav(rows, outputs_dir)
         for r in sorted(rows, key=lambda x: (x.gap is None, -(x.gap or 0.0))):

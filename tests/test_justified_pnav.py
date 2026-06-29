@@ -47,7 +47,7 @@ def test_validator_known_inputs():
 
 def test_round_trip_implied_recovers_market_pnav():
     # Plug RONAV_implied back in as RONAV_norm -> recover P/NAV(mkt) = price/nav.
-    for price, nav, g in [(6.39, 9.48, 0.01), (40.0, 28.0, 0.02), (10.0, 25.0, 0.0)]:
+    for price, nav, g in [(6.39, 10.14, 0.01), (40.0, 28.0, 0.02), (10.0, 25.0, 0.0)]:
         ri = ronav_implied(price, nav, R, g)
         assert justified_pnav(ri, R, g) == pytest.approx(price / nav)
 
@@ -235,15 +235,19 @@ def test_subsector_medians_present_and_lng_above_crude():
 def test_sb_worked_example_identity():
     rows = {r.ticker: r for r in compute_justified_pnav_rows(QUARTER)}
     sb = rows["SB"]
-    nav = compute_nav(load_company_inputs("SB", QUARTER)).nav_per_share
-    assert 8.0 < nav < 12.0                       # marked above book (~$7.30) per dwt-scaling §11.7.10
+    # NAV is the PRODUCTION transaction-anchored mark (§9.9) — the same basis every
+    # other surface uses. SB's dry-bulk classes recalibrate UP, landing ~$10.14 (vs
+    # the un-anchored $9.48 the prior test wrongly pinned). The row carries it.
+    nav = sb.nav_per_share
+    assert 9.5 < nav < 11.0                        # ~$10.14, marked above book (~$7.30), §11.7.10
     assert sb.price == pytest.approx(6.39)
     # The market prices SB's fleet to earn RONAV_implied on NAV through cycle.
     assert sb.ronav_implied == pytest.approx(0.01 + (sb.price / nav) * (R - 0.01))
     assert sb.pnav_mkt == pytest.approx(sb.price / nav)
-    # At g=0.01 the worked example lands ~7.7% (the brief's 7.3% assumed NAV $10.14;
-    # the live marked NAV is ~$9.5 — the test pins the IDENTITY, not the moving NAV).
-    assert sb.ronav_implied == pytest.approx(0.077, abs=0.006)
+    assert sb.pnav_mkt == pytest.approx(0.630, abs=0.02)   # 6.39 / 10.14
+    # At g=0.01 the worked example lands ~7.3% — the brief's number, now reproduced
+    # on the anchored NAV (the test pins the identity, not the moving dollar NAV).
+    assert sb.ronav_implied == pytest.approx(0.073, abs=0.005)
     # RONAV_norm exceeds implied -> SB is cheap vs justified.
     assert sb.ronav_norm > sb.ronav_implied and sb.read == "cheap"
 
