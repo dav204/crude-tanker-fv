@@ -12,6 +12,7 @@ spot_tce:
   LR2_clean: 50000
   Cape: 38000
   Pana: 20500
+  Post-Panamax: 20500     # shares the Pana freight basin (§11.7.10, 2026-06-29)
   Supra-Ultra: 19500
   # Containerships: NO spot market exists (TC-only); set = the 12M TC
   # assessment so the breakeven display has a current-rate reference.

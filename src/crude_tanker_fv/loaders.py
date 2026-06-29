@@ -26,8 +26,10 @@ from .schemas import (
 
 INPUTS_DIR = Path(__file__).resolve().parents[2] / "inputs"
 ALLOWED_CLASSES = {"VLCC", "Suezmax", "Aframax", "LR2", "LR1", "MR", "Handymax", "Handysize", "LNGC", "MGC",
-                   # dry_bulk classes added 2026-06-09 with SBLK onboarding (METHODOLOGY §11.7.1)
-                   "Cape", "Pana", "Supra-Ultra",
+                   # dry_bulk classes added 2026-06-09 with SBLK onboarding (METHODOLOGY §11.7.1);
+                   # Post-Panamax split out 2026-06-29 (§11.7.10 — SB's 16 old/large 85-95.8k hulls
+                   # were over-marked on the dwt-scaled 82k Pana curve; issuer classifies them PPMX).
+                   "Cape", "Pana", "Post-Panamax", "Supra-Ultra",
                    # containerships classes added 2026-06-12 (METHODOLOGY §11.8.1):
                    # Feeder ≤2,000 TEU / Intermediate 2,000-5,500 / Large >5,500
                    "Ctr-Feeder", "Ctr-Intermediate", "Ctr-Large"}

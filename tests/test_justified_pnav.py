@@ -235,20 +235,17 @@ def test_subsector_medians_present_and_lng_above_crude():
 def test_sb_worked_example_identity():
     rows = {r.ticker: r for r in compute_justified_pnav_rows(QUARTER)}
     sb = rows["SB"]
-    # NAV is the PRODUCTION transaction-anchored mark (§9.9) — the same basis every
-    # other surface uses. SB's dry-bulk classes recalibrate UP, landing ~$10.14 (vs
-    # the un-anchored $9.48 the prior test wrongly pinned). The row carries it.
+    # NAV is the PRODUCTION transaction-anchored mark (§9.9) on the Post-Panamax-split
+    # fleet (§11.7.10) — ~$9.8 (was ~$10.14 pre-split; both well above the ~$7.30 book).
+    # Pin the IDENTITY and loose bands, never the moving dollar NAV (P2/P1 shift it).
     nav = sb.nav_per_share
-    assert 9.5 < nav < 11.0                        # ~$10.14, marked above book (~$7.30), §11.7.10
+    assert 8.5 < nav < 11.0
     assert sb.price == pytest.approx(6.39)
-    # The market prices SB's fleet to earn RONAV_implied on NAV through cycle.
-    assert sb.ronav_implied == pytest.approx(0.01 + (sb.price / nav) * (R - 0.01))
     assert sb.pnav_mkt == pytest.approx(sb.price / nav)
-    assert sb.pnav_mkt == pytest.approx(0.630, abs=0.02)   # 6.39 / 10.14
-    # At g=0.01 the worked example lands ~7.3% — the brief's number, now reproduced
-    # on the anchored NAV (the test pins the identity, not the moving dollar NAV).
-    assert sb.ronav_implied == pytest.approx(0.073, abs=0.005)
-    # RONAV_norm exceeds implied -> SB is cheap vs justified.
+    assert sb.ronav_implied == pytest.approx(0.01 + (sb.price / nav) * (R - 0.01))
+    # The market prices SB's fleet to earn ~7-8% on NAV through cycle (g=0.01).
+    assert 0.065 < sb.ronav_implied < 0.085
+    # RONAV_norm exceeds implied -> SB cheap vs justified (a thin call by design).
     assert sb.ronav_norm > sb.ronav_implied and sb.read == "cheap"
 
 

@@ -80,6 +80,10 @@ SCENARIO_CLASS_MAP_BY_SECTOR: dict[str, dict[str, str]] = {
         # and the fleet manifest `class:` field.
         "Cape": "cape",
         "Pana": "pana",
+        # Post-Panamax (§11.7.10, split 2026-06-29) shares the Panamax/Kamsarmax FREIGHT
+        # forwards (same basin) — only its VALUE curve + opex differ. So it routes to the
+        # "pana" scenario key for rates while carrying its own value_curve / anchor / opex.
+        "Post-Panamax": "pana",
         "Supra-Ultra": "supra_ultra",  # collapsed Supramax + Ultramax per §11.7.1
                                         # (Pareto reclassified the benchmark Sep 2025)
     },

@@ -5,7 +5,9 @@ ticker: SB
 
 opex_per_day:                 # daily operating cost per vessel, by class
   Cape: 6500
-  Pana: 5200                  # Panamax/Kamsarmax/Post-Panamax (collapsed Pana class)
+  Pana: 5200                  # Panamax + Kamsarmax (75-82k)
+  Post-Panamax: 5500          # 85-95.8k (§11.7.10, 2026-06-29): larger hull, older cohort
+                              # (2006-2013 wide-beam) — modestly higher daily opex than Kamsarmax.
 
 # Annual G&A — the related-party management fee load (SB has no in-house G&A; the
 # Hajioannou-controlled Managers run everything): €950/day × ~43 vessels × 365 ≈ €15M

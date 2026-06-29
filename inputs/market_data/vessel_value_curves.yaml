@@ -105,6 +105,24 @@ classes:
     scrap_25yr: 7500000
     scrubber_premium: 2000000
     eco_premium_pct: 0.05
+  # Post-Panamax (§11.7.10, split 2026-06-29). FLAT (dwt_scaled: false): the old
+  # wide-beam 2000s "post-panamax" design — and SB's 85-95.8k cohort — trades at a
+  # per-tonne DISCOUNT to modern Kamsarmax, NOT a 1.17x premium, so it must NOT scale
+  # up off the 82k Pana baseline. Anchored on the Pareto SBLK NAV table (2026-04-29):
+  # 7 units, 96k avg dwt, 15.3yr avg age -> $19.0M/vessel (a broker VALUE mark, not an
+  # S&P print — none exists in the archive; CMDB/GSL broker-anchor fallback). The
+  # 10yr->25yr leg interpolates ~$19.6M at 15.3yr (matches the mark) vs the ~$22M the
+  # dwt-scaled Pana curve gave a 95.8k/16yr hull. Young PPMX (Climate/Troodos) sit near
+  # the Kamsarmax level; the discount bites on the old/large hulls.
+  Post-Panamax:
+    dwt: 90000
+    dwt_scaled: false
+    newbuild: 38500000
+    five_year_benchmark: 34000000
+    ten_year_benchmark: 26000000
+    scrap_25yr: 8000000
+    scrubber_premium: 2000000
+    eco_premium_pct: 0.05
   # dwt-scaled (§11.7.x): anchors at the 62k baseline; a 56k Supramax marks
   # ~0.90x, a 64k Ultramax ~1.03x. The fit dwt-normalizes prints (supra_ultra.yaml).
   Supra-Ultra:

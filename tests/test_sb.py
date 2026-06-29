@@ -15,7 +15,8 @@ def test_fleet_shape():
     counts: dict[str, int] = {}
     for v in ci.fleet.vessels:
         counts[v.cls] = counts.get(v.cls, 0) + v.count
-    assert counts == {"Pana": 36, "Cape": 7}     # 43 on-curve (2 HFS off-curve)
+    # Post-Panamax split out of Pana 2026-06-29 (§11.7.10): 20 Pana + 16 PPMX + 7 Cape.
+    assert counts == {"Pana": 20, "Post-Panamax": 16, "Cape": 7}   # 43 on-curve (2 HFS off-curve)
     assert sum(counts.values()) == 43
 
 
@@ -23,8 +24,10 @@ def test_dwt_is_populated_for_dwt_scaling():
     """dwt is load-bearing under §11.7.10 dwt-scaling — every dry-bulk vessel needs it."""
     ci = load_company_inputs("SB", "2026-Q1")
     assert all(v.dwt and v.dwt > 0 for v in ci.fleet.vessels)
-    # Post-Panamax outliers present (the §11.7.10 over-valuation watch case).
-    assert max(v.dwt for v in ci.fleet.vessels if v.cls == "Pana") >= 95000
+    # The 85-95.8k cohort is now its own Post-Panamax class (the §11.7.10 fix);
+    # Pana tops out at the 82k Kamsarmax, the large hulls live in Post-Panamax.
+    assert max(v.dwt for v in ci.fleet.vessels if v.cls == "Pana") <= 82500
+    assert max(v.dwt for v in ci.fleet.vessels if v.cls == "Post-Panamax") >= 95000
 
 
 def test_preferred_subtracts_from_nav():

@@ -9,6 +9,71 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-29T14:48:15+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.39
+- Single-point FV: $9.48
+- Scenario PW FV: $9.35 (EV +46.3%)
+- NAV / share: $9.82
+- Position: **BUY (undervalued)**
+- Broker spread: -34.7pp (k_broker 0.80)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -2.4% | Δscenario FV: -1.8% | ΔNAV: -3.2% | Δspread: +4.3pp
+
+**Decision:** ΔNAV -3.2% ($10.14 → $9.82) is the **P2 dry-bulk fidelity fix (§11.7.10),
+not a market move or bug.** SB's 16 old/large 85-95.8k hulls were split out of the
+collapsed 82k "Pana" class into their own issuer-classified **Post-Panamax** class on a
+FLAT value curve, removing the dwt-scaling 1.12-1.17× over-mark on the 92-95.8k cohort
+(it had them ABOVE modern Kamsarmax; they trade at a per-tonne discount). The new curve
+is anchored on the Pareto SBLK NAV table broker value mark ($19.0M at 96k/15.3yr); no S&P
+print of an 85-96k hull exists in the archive. Also wired the disclosed 6-K charter rates
+(Pana avg $17.3k, Post-Panamax $18.5k gross/day) — covered-leg revenue now reflects
+contracted rates vs the FFA front ($20.8k); consensus-EPS gap +126% → +118% (the residual
+is the structural FFA-peak-vs-Street-mean-reversion gap, mitigated by low w_earn, not a
+class artifact). SANITY still OK (tool NAV +39.6% over book is mark-driven, §11.7.10).
+Accepted; baseline to be re-ratified ("P2 Post-Panamax split + SB charter rates").
+
+---
+
+## 2026-06-28T19:30:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.39
+- Single-point FV: $9.71
+- Scenario PW FV: $9.52 (EV +49.0%)
+- NAV / share: $10.14
+- Position: **BUY (undervalued)**
+- Broker spread: -39.0pp (k_broker 0.78)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-28T18:45:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.39
+- Single-point FV: $9.71
+- Scenario PW FV: $9.52 (EV +49.0%)
+- NAV / share: $10.14
+- Position: **BUY (undervalued)**
+- Broker spread: -39.0pp (k_broker 0.78)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-28T13:49:49+00:00 — Pipeline run (auto)
 
 **Model state:**

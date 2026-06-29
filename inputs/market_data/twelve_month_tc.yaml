@@ -13,6 +13,7 @@ twelve_month_tc:
   LR2_clean: 45000
   Cape: 27000
   Pana: 17500
+  Post-Panamax: 17500     # shares the Pana freight basin (§11.7.10, 2026-06-29)
   Supra-Ultra: 16000
   # Containerships (§11.8) — MB Apr-01-2026 TC assessments, class-collapsed
   # per §11.8.1 (frozen vintage; ctr_intermediate is the simple average

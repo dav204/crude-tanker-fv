@@ -125,6 +125,15 @@ ffa_forward_curve:
   - 15400
   - 14800
   - 14500
+  Post-Panamax:     # shares the Pana freight basin (§11.7.10, 2026-06-29)
+  - 20775
+  - 19500
+  - 17000
+  - 16500
+  - 15800
+  - 15400
+  - 14800
+  - 14500
   Supra-Ultra:
   - 19075
   - 17550
