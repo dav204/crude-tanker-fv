@@ -45,3 +45,4 @@ prompt_resale:
   Pana: 46000000           # xclusiv Kamsarmax Resale 2026-06-22
   Supra-Ultra: 43000000    # xclusiv Ultramax Resale 2026-06-22
   Post-Panamax: 46000000   # = Kamsarmax Resale (replacement-equivalent; invariant ceiling)
+  Handysize: 36000000      # xclusiv Resale 2026-06-22 (Thread 1A)

@@ -18,13 +18,13 @@ basis_status:
   Suezmax: resale-uniform
   Aframax: resale-uniform
   LR2: resale-uniform
-  MR: unverified-no-current-xclusiv-line   # xclusiv dropped MR secondhand after 2023Q4 ($52.8M); $54M unverified vs a current line — resolve Thread 1A
+  MR: unverified-no-current-xclusiv-line   # xclusiv dropped MR secondhand after 2023Q4; $54M corroborated by allied/advanced 2023 Resale ~$52.5-53.5M but no CURRENT line — request allied/advanced (Thread 1A)
   Cape: resale-uniform
   Pana: resale-uniform
   Supra-Ultra: resale-uniform
   Post-Panamax: resale-uniform
   LR1: pending-sourceable
-  Handysize: pending-sourceable
+  Handysize: resale-uniform   # Thread 1A: wired to xclusiv Resale $36M (2026-06-22)
   Handymax: pending-sourceable
   LNGC: structural-unavailable
   MGC: structural-unavailable

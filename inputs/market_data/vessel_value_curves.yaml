@@ -60,7 +60,8 @@ classes:
     eco_premium_pct: 0.0
   Handysize:
     dwt: 38000
-    newbuild: 40000000
+    newbuild: 36000000           # age-0 = xclusiv Resale 2026-06-22 (Thread 1A; was 40M). Mid-age
+                                 # left static (no transaction prints for Handysize) — see AGE0_BASIS.
     five_year_benchmark: 34000000
     ten_year_benchmark: 26000000
     scrap_25yr: 4500000

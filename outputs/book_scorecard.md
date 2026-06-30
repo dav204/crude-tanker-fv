@@ -16,7 +16,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | NAT | crude | resale-uniform | 2.51× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | TEN | crude | structural-unavailable | 0.42× | no anchor→cheap | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
 | TNK | crude | resale-uniform | 0.91× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
-| ASC | product | pending-sourceable | 1.00× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
+| ASC | product | unverified-no-current-xclusiv-line | 1.00× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: unverified-no-current-xclusiv-line |
 | HAFN | product | pending-sourceable | 1.48× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | STNG | product | pending-sourceable | 0.94× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | TRMD | product | pending-sourceable | 1.11× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
@@ -31,21 +31,21 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 
 ## Summary
 
-**NAV-basis (comparability boundary):** pending-sourceable 5, resale-uniform 11, structural-unavailable 6.
+**NAV-basis (comparability boundary):** pending-sourceable 4, resale-uniform 11, structural-unavailable 6, unverified-no-current-xclusiv-line 1.
 
 **Read robustness (parity↔historical):** flips 3, n/a 13, robust 6.
 
 **Both §18.5 gates are registered-PENDING book-wide** — no Baltic $/day series (§18.5a) or orderbook ratios (§18.5b) in-repo; see `backtest/DATA_CONTRACT_NORMAL_RATES.md`. So no name is *fully* validated yet; the resale-uniform names are comparable and parity-banded, awaiting only the two data-gated gates.
 
 **NAV-basis-flagged (not yet comparable to the resale-uniform set):**
-- **ASC** — pending-sourceable [pending-sourceable: Handysize | unverified-no-current-xclusiv-line: MR]
-- **CCEC** — structural-unavailable [structural-unavailable: LNGC, MGC]
-- **CMBT** — structural-unavailable [structural-unavailable: Ctr-Large]
-- **FLNG** — structural-unavailable [structural-unavailable: LNGC]
-- **GSL** — structural-unavailable [structural-unavailable: Ctr-Intermediate, Ctr-Large]
-- **HAFN** — pending-sourceable [pending-sourceable: Handysize, LR1 | unverified-no-current-xclusiv-line: MR]
-- **INSW** — pending-sourceable [pending-sourceable: LR1 | unverified-no-current-xclusiv-line: MR]
-- **MPCC** — structural-unavailable [structural-unavailable: Ctr-Feeder, Ctr-Intermediate]
-- **STNG** — pending-sourceable [pending-sourceable: Handymax | unverified-no-current-xclusiv-line: MR]
-- **TEN** — structural-unavailable [structural-unavailable: LNGC | pending-sourceable: Handysize, LR1 | unverified-no-current-xclusiv-line: MR]
-- **TRMD** — pending-sourceable [pending-sourceable: LR1 | unverified-no-current-xclusiv-line: MR]
+- **ASC** — unverified-no-current-xclusiv-line: MR
+- **CCEC** — structural-unavailable: LNGC, MGC
+- **CMBT** — structural-unavailable: Ctr-Large
+- **FLNG** — structural-unavailable: LNGC
+- **GSL** — structural-unavailable: Ctr-Intermediate, Ctr-Large
+- **HAFN** — pending-sourceable: LR1 | unverified-no-current-xclusiv-line: MR
+- **INSW** — pending-sourceable: LR1 | unverified-no-current-xclusiv-line: MR
+- **MPCC** — structural-unavailable: Ctr-Feeder, Ctr-Intermediate
+- **STNG** — pending-sourceable: Handymax | unverified-no-current-xclusiv-line: MR
+- **TEN** — structural-unavailable: LNGC | pending-sourceable: LR1 | unverified-no-current-xclusiv-line: MR
+- **TRMD** — pending-sourceable: LR1 | unverified-no-current-xclusiv-line: MR

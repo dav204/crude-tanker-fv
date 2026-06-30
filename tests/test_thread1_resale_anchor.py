@@ -80,7 +80,7 @@ def test_crude_production_depreciation_floor():
 # Classes whose age-0 is wired to the xclusiv Resale line (Amendment B). MR has no
 # xclusiv secondhand line; Post-Panamax has no xclusiv PPMX (= Kamsarmax replacement);
 # Handysize/Handymax are Group-A pending (Thread 1A) — all excluded from this guard.
-XCLUSIV_WIRED = ("VLCC", "Suezmax", "Aframax", "LR2", "Cape", "Pana", "Supra-Ultra")
+XCLUSIV_WIRED = ("VLCC", "Suezmax", "Aframax", "LR2", "Cape", "Pana", "Supra-Ultra", "Handysize")
 
 
 def test_curve_age0_equals_xclusiv_resale():
@@ -114,9 +114,9 @@ AGE0_BASIS = {
     "Supra-Ultra": "xclusiv-resale",
     "Post-Panamax": "alias:Pana",        # = Kamsarmax Resale; no xclusiv PPMX line
     "MR": "exception:no current xclusiv secondhand line (dropped after 2023Q4, last $52.8M); $54M unverified",
-    "LR1": "exception:Group A, pending Thread 1A",
-    "Handysize": "exception:has xclusiv resale but curve on its own basis; Group A pending Thread 1A",
-    "Handymax": "exception:no xclusiv line; Group A pending Thread 1A",
+    "LR1": "exception:Group A; sourceable from intermodal weekly (5yr anchor), no current in-repo issue",
+    "Handysize": "xclusiv-resale",      # Thread 1A: wired to xclusiv Resale $36M
+    "Handymax": "exception:no broker tabulates product-Handymax secondhand; Group A, needs chem-tanker source",
     "LNGC": "exception:non-tanker/dry-bulk sector, own basis",
     "MGC": "exception:non-tanker/dry-bulk sector, own basis",
     "Ctr-Feeder": "exception:container sector, MB China yard basis",
