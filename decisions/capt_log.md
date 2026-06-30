@@ -9,6 +9,77 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-30 — Aframax rows corrected: build years (2018–19, not 3× age-10 + 1× age-0) and scrubber (false, not true)
+
+**What was wrong:** the manifest split the 4 Aframax into `AFRA_2016` (age 10,
+count 3) + `AFRA_2026` (age 0, count 1, "fresh Mar-2026 delivery"), all
+`scrubber: true`. Both the age split and the scrubber flag were wrong.
+
+**Verified against two primary sources:**
+- **Issuer Q1-2026 earnings release, sailing-fleet table p6**
+  (`inputs/research_issuer/2026-Q1_capt_earnings_release.pdf`): all 4 Aframax are
+  2018–2019 HD Hyundai Samho sisters — Alimedon (Jul-2018), Andreios (Oct-2018),
+  Areios (Nov-2018), Ameinon (Apr-2019). **There is no 2026-built Aframax.**
+  Per-vessel prose marks Alimedon "Dual Fuel LNG capable" with no scrubber
+  (contrast Alkinoos "Dual Fuel LNG capable **and** scrubber-fitted"); the p5 fleet
+  note "five scrubber-fitted, four LNG dual-fuel" maps the four DF-only vessels to
+  exactly these Aframax.
+- **Pareto initiation per-vessel fleet table, p2**
+  (`inputs/research_pareto_other/linked/2026-04-20_linked-488376.pdf`):
+  Scrubber = No on all four.
+
+**Fix:** collapsed to one cohort — `AFRA_2018`, class Aframax, count 4, **age 7.4**,
+**scrubber: false**, eco: true, **years_to_delivery 0.0** (all delivered / on the
+water — no §9.6 [time-to-delivery PV] discount). Mean build ≈ late-Oct-2018 → 7.4 yr
+as of the Mar-31-2026 snapshot; the age curve is piecewise-linear over the [5,10]-yr
+anchors, so a single count-4 cohort at 7.4 reproduces the exact aggregate value of the
+four individual ages (6.9–7.75). (Pareto's review class-table cited avg 7.8; the issuer
+per-vessel build dates give 7.4 — the issuer governs.)
+
+**Model impact — small, and basis-dependent (corrected per PR #3 review, which
+caught a sign error in the first draft of this entry):** the NAV move depends on
+which curve set you measure, and the two disagree in sign — both verified by direct
+`compute_nav` (precise, not cent-rounded):
+
+| Basis | OLD (pre) | NEW (post) | Δ/sh | Δ% |
+|---|--:|--:|--:|--:|
+| **Transaction-anchored** (headline — the decision-log "NAV / share" + reconcile tool-NAV; `use_transaction_anchored` default-on) | $15.5919 | $15.6042 | **+$0.012** | **+0.08%** |
+| **Un-anchored** (raw broker-resale curves; the diagnostic alternative) | $15.7616 | $15.7190 | **−$0.043** | **−0.27%** |
+
+The first draft reported only **+$0.01 / +0.06%** (the anchored headline) with a
+muddled "nearly offsets" decomposition — wrong on the un-anchored basis, where the
+move is **−0.27%**. The reviewer's base-NAV flag ($15.59 vs $15.762) is exactly this
+anchored-vs-unanchored split, not stale data. Un-anchored Aframax decomposition (ties
+to −$5.70M fleet, −$0.043/sh): the old `AFRA_2026` age-0 newbuild ($98.1M) re-ages to
+7.4 (**−$20.7M**), the three old age-10 vessels lift to 7.4 (**+$18.0M**), so the **age
+effect is −$1.7M** (not a wash), and **scrubber removal is −$4.0M** (4 × $1.0M Aframax
+premium) → **−$5.7M total**. The sign flips on the anchored curve because anchoring
+steepens the Aframax mid-age leg (10-yr benchmark $68.0M → $61.0M): the three age-10
+vessels are valued low there, so re-aging them to 7.4 lifts them **+$26.1M**, outweighing
+the newbuild's −$24.4M → **+$1.65M** (positive).
+
+Unchanged on both bases: single-point FV $16.13, scenario PW FV ≈$17.27, **EV +35.6%**,
+band **BUY → BUY**, **k_broker 1.12**, broker gap −14.3%, **SANITY OK**. Full pytest
+**416 passed**; the drift gate (which reads the anchored headline) is green for this slice
+in isolation (+0.08%, sub-2pp, no band flip).
+
+**Re-ratify (corrected):** NOT "no re-ratify." This Aframax row is one slice of a wider
+CAPT scrubber correction — the VLCC (6-of-12) and LR2 (2-of-4) rows are also over-broad
+(CAPT is **18/30 ≈ 60% scrubber-fitted** per the Pareto per-vessel ledger) and are being
+corrected separately on `main` (≈ −0.71%). Combined, CAPT moves **≈ −1%** (un-anchored),
+which warrants a re-ratify — to be done **once, after all slices land**, not per-slice.
+
+**Out-of-scope observation for the Q2 refresh (NOT actioned):** the issuer p6 delivery
+dates show only 1 of the 4 Aframax (Alimedon, delivered to CAPT Mar-9) was on the water
+at the Mar-31-2026 quarter-end; Andreios / Areios / Ameinon transferred Apr-8 / 15 / 16.
+The manifest's `fleet_summary: on_water_at_quarter_end: 9` (Pareto's count, as of a later
+date) appears to overstate the Mar-31 on-water tally — the issuer reports 6 Q1 deliveries.
+The `fleet_schedule` [4,4,…] from q3-2026 is unaffected (all 4 on the water well before
+Q3). Left as-is — fleet-summary counts are outside this task's scope; resolve at the Q2
+refresh.
+
+---
+
 ## 2026-06-30T13:41:38+00:00 — Pipeline run (auto)
 
 **Model state:**

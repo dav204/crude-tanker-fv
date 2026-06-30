@@ -37,10 +37,18 @@ vessels:
   - {id: SUEZ_2026,     class: Suezmax, dwt: 156000, age: 0, scrubber: true, eco: true, count: 2}
   - {id: SUEZ_nb_2026,  class: Suezmax, dwt: 156000, age: 0, scrubber: true, eco: true, count: 6, years_to_delivery: 0.3}
   - {id: SUEZ_nb_2028,  class: Suezmax, dwt: 156000, age: 0, scrubber: true, eco: true, count: 2, years_to_delivery: 1.9}
-  # ---- Aframax: on-water; class avg 7.8 = 3 older (~age 10) + 1 fresh
-  #      Mar-2026 delivery.
-  - {id: AFRA_2016, class: Aframax, dwt: 113000, age: 10, scrubber: true, eco: true, count: 3}
-  - {id: AFRA_2026, class: Aframax, dwt: 113000, age: 0,  scrubber: true, eco: true, count: 1}
+  # ---- Aframax: all 4 are 2018-2019 HD Hyundai Samho sisters, delivered (on the
+  #      water), Dual-Fuel-LNG-capable but NOT scrubber-fitted. Sources: issuer Q1
+  #      release sailing-fleet table p6 (Alimedon Jul-18 / Andreios Oct-18 / Areios
+  #      Nov-18 / Ameinon Apr-19) + Pareto initiation per-vessel table (Scrubber=No
+  #      all four). The p5 fleet note "five scrubber-fitted, four LNG dual-fuel" —
+  #      the four DF-only are exactly these Aframax. Mean age 7.4 as of the
+  #      Mar-31-2026 snapshot; the curve is linear over [5,10] so one count-4 cohort
+  #      at 7.4 reproduces the exact aggregate. years_to_delivery 0 (all delivered).
+  #      Corrected 2026-06-30: the prior 3x age-10 + 1x age-0 "fresh Mar-2026
+  #      delivery" split was wrong — there is no 2026-built Aframax. (Pareto review
+  #      class-table cited avg 7.8; the issuer per-vessel build dates give 7.4.)
+  - {id: AFRA_2018, class: Aframax, dwt: 113000, age: 7.4, scrubber: false, eco: true, count: 4, years_to_delivery: 0.0}
   # ---- LR2 (crude-routed, same as FRO's LR2 book): class avg 0.5.
   - {id: LR2_2025,  class: LR2,     dwt: 114000, age: 1,  scrubber: true, eco: true, count: 2}
   - {id: LR2_2026,  class: LR2,     dwt: 114000, age: 0,  scrubber: true, eco: true, count: 2}
