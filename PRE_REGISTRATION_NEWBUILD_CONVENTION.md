@@ -101,6 +101,31 @@ SB is "modestly up," not "flat." Recorded transparently: my registered band was 
 my prediction arithmetic omitted a premium the correct input carries, not because an input was
 wrong — the input is confirmed sound and BRUT-consistent.
 
+**AMENDMENT 2 (eco/scrubber spec verified against each name's OWN 6-K — supersedes A1's
+"BRUT-consistent" justification, which was the peer-flag trap).** A1 justified eco+scrubber=true
+"for consistency with BRUT/CAPT/FRO." On owner challenge, that is the peer-number trap: BRUT's
+spec is not evidence about SB's ships. Decomposing the premium — Pana age-0 **eco +$2.30M /
+scrubber +$2.00M**, independent — and verifying each flag against each name's own filing
+(adversarial workflow vs the live 6-Ks; both verdicts survived the refute):
+- **eco** = the §3.1 mechanical rule (post-2014 build ⇒ eco), derivable from the disclosed
+  delivery date. SB *and* SBLK deliver 2026+ ⇒ eco=true, rule-grounded and consistent book-wide.
+- **scrubber** has NO build-year rule — must trace to an explicit NEWBUILD statement in the
+  name's own filing. **SB: scrubber=FALSE** — SB's 6-K discloses scrubbers only on the existing
+  45-vessel fleet, makes no newbuild scrubber claim, 2 NBs are dual-fuel methanol (no scrubber).
+  **SBLK: scrubber=TRUE** — Note 6, "remaining contracted price, including scrubber installation
+  costs, for the eight vessels under construction" (newbuild-specific).
+Corrected outcome: **SB +1.6%** ($10.31→$10.47, eco-only) — the +1.4% scrubber portion was a
+fabricated peer-borrowed flag, now removed; the registered "flat" prediction was closer to right
+than +3.0% suggested. **SBLK +9.0%** unchanged (both flags disclosure-grounded). Combined SB
+move (Thread-1 +5% + newbuild +1.6%) ≈ **+6.6%**, not +8% — still robustly cheap, wider margin.
+**Durable fix:** `inputs/market_data/newbuild_specs.yaml` (per-name eco/scrubber + filing
+citation) + a provenance guard asserting every on-curve NB's flags trace to disclosure, plus a
+scrubber-verification xfail queue. **It also caught a latent instance: BRUT/CAPT/FRO carry
+scrubber=true on VLCC/Suezmax newbuilds, never verified against their filings — now queued (their
+VLCC scrubber premium dwarfs SB's). This guard is the precondition for the DHT pass.** Meta-lesson
+recorded: when a prediction misses, suspect the input — and check it against the PRIMARY SOURCE,
+not against what the peer does (crude age-0 $145M mislabel; now SB's scrubber flag).
+
 **The headline finding: identical 8-Kamsarmax programs, opposite NAV direction.** SB ~flat
 because its book is back-end-loaded (1 in 2028, 1 in 2029) — the PV discount on delivered
 value offsets the embedded ordering gain (contracted ≈ $40.7M/NB vs $46M resale). SBLK up

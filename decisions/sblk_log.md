@@ -9,6 +9,32 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-30T13:41:38+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.64
+- Single-point FV: $28.34
+- Scenario PW FV: $28.37 (EV +15.1%)
+- NAV / share: $29.34
+- Position: **BUY (undervalued)**
+- Broker spread: +2.5pp (k_broker 1.02)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** Newbuild §9.6 on-curve conversion (carried from the prior run, +9.0% vs baseline;
+no further move this run). Newbuild Amendment 2: SBLK's eco/scrubber spec was VERIFIED against
+its own 6-K — **scrubber=true CONFIRMED** (Note 6: "remaining contracted price, including scrubber
+installation costs, for the eight vessels under construction"; newbuild-specific, adversarially
+could not overturn), **eco=true** via §3.1 post-2014 build rule (filing silent on NB efficiency,
+so eco rests on the build-year rule). Both flags registered in newbuild_specs.yaml with the
+citation, so SBLK is NOT in the scrubber-verification queue. NAV $29.34, SANITY OK (−11.5% vs
+broker $33.17). The SB↔SBLK contrast (identical 8-Kamsarmax programs, SB +1.6% back-loaded vs
+SBLK +9% prompt) stands. PAUSE for owner review before re-ratify.
+
+---
+
 ## 2026-06-30T13:13:01+00:00 — Pipeline run (auto)
 
 **Model state:**

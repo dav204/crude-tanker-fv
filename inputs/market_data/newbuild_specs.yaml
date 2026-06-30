@@ -1,0 +1,62 @@
+# Newbuild value-flag provenance (METHODOLOGY §3.1 / §9.6).
+#
+# Every ON-CURVE newbuild's value-adding flags must trace to the name's OWN disclosure,
+# never a peer default. The two flags differ in how they're grounded:
+#   - eco: the §3.1 mechanical rule (post-2014 build ⇒ eco). Any newbuild delivering 2014+
+#     is eco=true, derivable from the disclosed delivery date. No per-name attestation needed.
+#   - scrubber: a flat equipment premium with NO build-year rule. It MUST trace to an explicit
+#     statement about the NEWBUILDS in the name's filing — scrubbers on the existing fleet, or
+#     peer practice (BRUT does it), are NOT evidence about this name's newbuilds. This is the
+#     peer-number trap that put a fabricated +$0.14/sh on SB before the 2026-06-30 verification.
+#
+# The guard (tests/test_newbuild_convention.py) asserts each on-curve-NB name's manifest NB-row
+# flags match this registry. `scrubber_verified: false` is the verification work queue (xfail):
+# a scrubber=true flag not yet checked against the name's own filing. A name leaves the queue
+# ONLY by verifying (or correcting) against its 6-K.
+
+SB:
+  eco: true
+  scrubber: false
+  scrubber_verified: true
+  source: >
+    Q1-2026 6-K (acc 0001317861-26-000033). eco: "IMO GHG Phase 3 - NOx Tier III newbuilds"
+    (post-2014 ⇒ §3.1 eco). scrubber=FALSE: the filing's only scrubber-equipment statement is
+    existing-fleet-scoped ("20 vessels equipped with scrubbers, including all Capesize"); the
+    11-row orderbook table has no scrubber column and 2 NBs are dual-fuel methanol (no scrubber).
+    Adversarially verified vs the live 6-K 2026-06-30 (could not overturn).
+
+SBLK:
+  eco: true
+  scrubber: true
+  scrubber_verified: true
+  source: >
+    Q1-2026 6-K (acc 0000950157-26-000639). scrubber=TRUE: Note 6 — "the total aggregate
+    remaining contracted price, including scrubber installation costs, for the eight vessels
+    under construction" (newbuild-specific). eco via §3.1 post-2014 build rule (2026 delivery);
+    the filing is silent on NB efficiency, so eco rests on the build-year rule, not an explicit
+    claim. Adversarially verified vs the live 6-K 2026-06-30 (could not overturn).
+
+# --- Pre-existing on-curve names (carried eco+scrubber=true before the provenance guard).
+# eco is §3.1-rule-grounded (their NBs deliver 2026+). scrubber=true is NOT yet verified against
+# their own filings — registered honestly as the verification queue, the same discipline SB just
+# went through. The VLCC scrubber premium is materially larger than SB's, so these matter.
+BRUT:
+  eco: true
+  scrubber: true
+  scrubber_verified: false   # VLCC NB scrubber flag NOT yet checked vs Frontline/BRUT 6-K
+  source: "pre-existing (registered 2026-06-30); scrubber spec unverified against filing — verification queue"
+CAPT:
+  eco: true
+  scrubber: true
+  scrubber_verified: false   # VLCC+Suezmax NB scrubber flag NOT yet checked vs Capital Maritime filing
+  source: "pre-existing (registered 2026-06-30); scrubber spec unverified against filing — verification queue"
+FRO:
+  eco: true
+  scrubber: true
+  scrubber_verified: false   # VLCC NB scrubber flag NOT yet checked vs Frontline 6-K
+  source: "pre-existing (registered 2026-06-30); scrubber spec unverified against filing — verification queue"
+MPCC:
+  eco: true
+  scrubber: false
+  scrubber_verified: true    # container NBs carry no exhaust-gas scrubber (scrubber=false, no premium); eco via §3.1
+  source: "container newbuilds — no exhaust-gas scrubber (scrubber=false); eco via §3.1 post-2014 build rule"

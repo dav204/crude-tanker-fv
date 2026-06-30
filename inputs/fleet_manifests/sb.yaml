@@ -85,11 +85,15 @@ vessels:
   # expenditure requirements" as of 2026-03-31. (The 11-NB June-12 orderbook adds 4 Q2
   # orders — 2 May + 1 June Kamsarmax + 1 June Capesize, all 2029 — and removes Katerina,
   # delivered April; those post-quarter changes are NOT valued here.) See sb_log + NB pre-reg.
-  - {id: SB_NB_Katerina,  class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 0.04}   # delivered Apr-2026; NB at quarter-end
-  - {id: SB_NB_2026,      class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 3, years_to_delivery: 0.50}   # 3 × 2026 (within-year midpoint)
-  - {id: SB_NB_2027,      class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 2, years_to_delivery: 1.30}   # 2 × 2027
-  - {id: SB_NB_2028Q3,    class: Pana, dwt: 82500, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.38}   # Jan-2026 Chinese order, Q3-2028
-  - {id: SB_NB_2029Q1,    class: Pana, dwt: 82500, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.88}   # Jan-2026 Chinese order, Q1-2029
+  # eco: true = §3.1 post-2014 build rule (disclosed "IMO GHG Phase 3 - NOx Tier III"). scrubber:
+  # false = SB's 6-K discloses scrubbers ONLY on the existing 45-vessel fleet ("20 vessels, incl all
+  # Capesize"), NOT the Kamsarmax NBs (no scrubber column in the orderbook table); 2 are dual-fuel
+  # methanol (no scrubber). Adversarially verified vs the live 6-K 2026-06-30 — NOT a peer default.
+  - {id: SB_NB_Katerina,  class: Pana, dwt: 82000, age: 0, scrubber: false, eco: true, count: 1, years_to_delivery: 0.04}   # delivered Apr-2026; NB at quarter-end
+  - {id: SB_NB_2026,      class: Pana, dwt: 82000, age: 0, scrubber: false, eco: true, count: 3, years_to_delivery: 0.50}   # 3 × 2026 (within-year midpoint)
+  - {id: SB_NB_2027,      class: Pana, dwt: 82000, age: 0, scrubber: false, eco: true, count: 2, years_to_delivery: 1.30}   # 2 × 2027
+  - {id: SB_NB_2028Q3,    class: Pana, dwt: 82500, age: 0, scrubber: false, eco: true, count: 1, years_to_delivery: 2.38}   # Jan-2026 Chinese order, Q3-2028
+  - {id: SB_NB_2029Q1,    class: Pana, dwt: 82500, age: 0, scrubber: false, eco: true, count: 1, years_to_delivery: 2.88}   # Jan-2026 Chinese order, Q1-2029
 
 # Share of fleet on spot, by class (feeds the strip, not NAV). 6-K employment table:
 # Pana 8 of 20 on spot (0.40); Post-Panamax 6 of 16 on spot (0.375); all 7 Cape on period.

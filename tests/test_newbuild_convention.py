@@ -93,3 +93,74 @@ def test_structural_exempt_names_are_classifiable():
     nb = set(_nb_names())
     for name in _structural_exempt():
         assert name in nb, f"{name}: structural-exempt but carries no newbuilds — stale entry"
+
+
+# ---------------------------------------------------------------------------
+# Newbuild value-flag provenance: eco/scrubber must trace to the name's OWN
+# disclosure, never a peer default (the trap that put a fabricated scrubber
+# premium on SB before the 2026-06-30 verification). See newbuild_specs.yaml.
+
+def _newbuild_specs() -> dict:
+    return yaml.safe_load(open(INPUTS_DIR / "market_data" / "newbuild_specs.yaml"))
+
+
+def _oncurve_nb_names() -> list[str]:
+    out = []
+    for t in load_watchlist():
+        ci = load_company_inputs(t, QUARTER)
+        if any((v.years_to_delivery or 0) > 0 for v in ci.fleet.vessels):
+            out.append(t)
+    return sorted(out)
+
+
+def test_newbuild_value_flags_trace_to_registered_disclosure():
+    """Every on-curve newbuild's eco/scrubber flags must match the name's registered,
+    disclosure-sourced spec. A value-adding flag cannot enter NAV on peer-consistency —
+    a name with on-curve newbuilds but no registry entry, a flag mismatch, or an empty
+    source citation hard-fails (the durable fix for the peer-borrowed-scrubber trap)."""
+    specs = _newbuild_specs()
+    for name in _oncurve_nb_names():
+        ci = load_company_inputs(name, QUARTER)
+        nb = [v for v in ci.fleet.vessels if (v.years_to_delivery or 0) > 0]
+        assert name in specs, (
+            f"{name}: carries on-curve newbuilds but has no newbuild_specs.yaml entry — "
+            f"register eco/scrubber WITH the filing citation; a value flag may not default."
+        )
+        spec = specs[name]
+        assert str(spec.get("source", "")).strip(), f"{name}: newbuild_specs entry has no source citation"
+        for v in nb:
+            assert bool(v.eco) == bool(spec["eco"]), (
+                f"{name}: NB-row eco={v.eco} != registered {spec['eco']} (newbuild_specs.yaml)"
+            )
+            assert bool(v.scrubber) == bool(spec["scrubber"]), (
+                f"{name}: NB-row scrubber={v.scrubber} != registered {spec['scrubber']} (newbuild_specs.yaml)"
+            )
+
+
+# Scrubber-verification work queue: on-curve NB names whose scrubber=true has NOT been
+# verified against the name's own filing. xfail(strict) — each leaves ONLY by verifying
+# (or correcting) its scrubber flag against its 6-K. eco needs no such queue (§3.1 rule).
+SCRUBBER_UNVERIFIED_QUEUE = {"BRUT", "CAPT", "FRO"}
+
+
+def _scrubber_param(name: str):
+    marks = (
+        [pytest.mark.xfail(strict=True, reason=f"{name}: NB scrubber=true not yet verified vs filing")]
+        if name in SCRUBBER_UNVERIFIED_QUEUE
+        else []
+    )
+    return pytest.param(name, marks=marks)
+
+
+_SCRUBBER_TRUE_NAMES = [n for n, s in _newbuild_specs().items() if s.get("scrubber")]
+
+
+@pytest.mark.parametrize("name", [_scrubber_param(n) for n in sorted(_SCRUBBER_TRUE_NAMES)])
+def test_newbuild_scrubber_verified_against_filing(name):
+    """A registered scrubber=true flag must be verified against the name's own filing.
+    The pre-existing on-curve names (BRUT/CAPT/FRO) carried scrubber=true on peer-convention
+    grounds and sit in the xfail queue until checked — their VLCC scrubber premium is large."""
+    assert _newbuild_specs()[name].get("scrubber_verified") is True, (
+        f"{name}: scrubber=true is not scrubber_verified — verify against the filing or set "
+        f"scrubber=false (newbuild_specs.yaml). A value-adding flag may not rest on peer practice."
+    )

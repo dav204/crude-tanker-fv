@@ -9,6 +9,37 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-30T13:41:38+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.36
+- Single-point FV: $10.17
+- Scenario PW FV: $9.97 (EV +56.8%)
+- NAV / share: $10.47
+- Position: **BUY (undervalued)**
+- Broker spread: -44.2pp (k_broker 0.81)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -1.3% | Δscenario FV: -1.3% | ΔNAV: -1.3% | Δspread: +1.9pp
+
+**Decision:** Newbuild Amendment 2 — eco/scrubber spec VERIFIED against SB's own 6-K (NOT a
+market move). The interim run below (+2.9%) carried scrubber=true on the 8 NBs, set on
+peer-consistency (BRUT/CAPT/FRO do). On re-check that was the peer-number trap: SB's 6-K
+discloses scrubbers ONLY on the existing 45-vessel fleet ("20 vessels, incl all Capesize"),
+makes NO scrubber claim about the Kamsarmax newbuilds (no scrubber column in the orderbook
+table), and 2 NBs are dual-fuel methanol (no scrubber). Adversarially verified vs the live
+6-K — could not overturn. **Corrected scrubber→false**, backing out a fabricated +$0.14/sh.
+**eco stays true** (§3.1 post-2014 rule + disclosed "IMO GHG Phase 3 - NOx Tier III"). So SB's
+true newbuild-convention move is **+1.6%** ($10.31→$10.47, eco premium only), not +3.0% — much
+closer to the registered "flat" prediction; the +1.4% over-shoot was the peer-borrowed flag.
+**Combined-with-Thread-1, corrected:** Thread-1 age-0 (+5%) + newbuild (+1.6%) ⇒ SB ~**+6.6%**
+less cheap than pre-Thread-1 (not +8%), **still robustly cheap (BUY)** — and the cheap margin is
+wider than the interim framing implied. Durable fix: newbuild_specs.yaml + provenance guard now
+require every on-curve NB's value flags to trace to the name's own filing. SANITY n/a (approx).
+
+---
+
 ## 2026-06-30T13:13:01+00:00 — Pipeline run (auto)
 
 **Model state:**

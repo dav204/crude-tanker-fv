@@ -16,7 +16,7 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | ASC | 0.75× | 1.33 | -5.3% | +9.5% | +24.3% | TRIM/SHORT→BUY | $32,539→NAV>px | +30 | wide-spread |
 | NAT | 0.85× | 2.14 | -51.9% | -14.8% | +22.3% | TRIM/SHORT→BUY | $397,445→NAV>px | +74 | wide-spread |
 | SBLK | 0.82× | 1.02 | +15.1% | +16.4% | +17.6% | BUY→BUY | $7,455→NAV>px | +2 | narrow-spread |
-| SB | 0.88× | 0.80 | +58.8% | +35.7% | +12.6% | BUY→BUY | NAV>px→NAV>px | -46 | wide-spread |
+| SB | 0.88× | 0.81 | +56.8% | +34.7% | +12.6% | BUY→BUY | NAV>px→NAV>px | -44 | wide-spread |
 | HAFN | 0.95× | 1.30 | -13.8% | -1.1% | +11.7% | TRIM/SHORT→BUY | $83,976→$29,748 | +26 | wide-spread |
 | INSW **(WHOLE-CO)** | 0.98× | 1.51 | -21.2% | -5.0% | +11.2% | TRIM/SHORT→BUY | $262,650→$70,065 | +32 | wide-spread |
 | GNK | 0.87× | 1.11 | -1.4% | +4.6% | +10.6% | HOLD→BUY | $26,698→$12,255 | +12 | wide-spread |

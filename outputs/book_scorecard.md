@@ -22,7 +22,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | TRMD | product | pending-sourceable | 1.11× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | CMDB | dry_bulk | resale-uniform | 0.55× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
 | GNK | dry_bulk | resale-uniform | 0.97× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
-| SB | dry_bulk | resale-uniform | 0.60× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| SB | dry_bulk | resale-uniform | 0.61× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | SBLK | dry_bulk | resale-uniform | 0.93× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | CCEC | lng | structural-unavailable | 0.78× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | FLNG | lng | structural-unavailable | 1.04× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
