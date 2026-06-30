@@ -1,23 +1,21 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-06-30T15:35:07+00:00
-- **Previous run:** 2026-06-30T14:55:13+00:00
+- **This run:** 2026-06-30T17:38:24+00:00
+- **Previous run:** 2026-06-30T17:32:36+00:00
 
 ## Headline changes (material moves)
 
-- **DHT:** NAV/sh +6.0%
+- **No material changes.** All tickers within thresholds (|ΔFV%|≤10%, |Δspread|≤5pp, |ΔNAV%|≤5%) and no position flips.
 
 ## Input files changed since last run
 
-- `inputs/balance_sheets/dht_2026-Q1.yaml` (modified)
-- `inputs/fleet_manifests/dht.yaml` (modified)
-- `inputs/market_data/newbuild_specs.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 
 | Ticker | Price | Single-point FV | Scenario PW FV | NAV/sh | Position | Broker spread |
 |---|---|---|---|---|---|---|
-| DHT ⚑ | $17.08 (no change) | $14.95 (+5.7%) | $15.77 (+5.7%) | $13.88 (+6.0%) | TRIM/SHORT (overvalued) | +9.6pp (-4.2pp) |
+| DHT | $17.08 (no change) | $14.95 (no change) | $15.77 (no change) | $13.88 (no change) | TRIM/SHORT (overvalued) | +9.6pp (no change) |
 | ECO | $49.60 (no change) | $37.33 (no change) | $40.17 (no change) | $34.56 (no change) | TRIM/SHORT (overvalued) | +11.9pp (no change) |
 | FRO | $35.44 (no change) | $26.54 (no change) | $28.82 (no change) | $24.22 (no change) | TRIM/SHORT (overvalued) | +13.8pp (no change) |
 | INSW | $77.81 (no change) | $38.63 (no change) | $61.34 (no change) | $52.59 (no change) | TRIM/SHORT (overvalued) | +32.3pp (no change) |

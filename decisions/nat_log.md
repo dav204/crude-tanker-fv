@@ -7,6 +7,42 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-30T17:38:24+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.78
+- Single-point FV: $2.51
+- Scenario PW FV: $2.78 (EV -51.9%)
+- NAV / share: $2.07
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +74.2pp (k_broker 2.14)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-06-30T17:32:36+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.78
+- Single-point FV: $2.51
+- Scenario PW FV: $2.78 (EV -51.9%)
+- NAV / share: $2.07
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +74.2pp (k_broker 2.14)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-30 — §9.6 on-curve attempt HALTED; NAT is pending-CORRECTION (not just pending-fix)
 
 **Decision:** The §9.6 on-curve conversion for NAT's 2 Suezmax newbuilds was attempted and
