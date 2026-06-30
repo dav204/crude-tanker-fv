@@ -11,7 +11,12 @@
 #     the age curve (the curve over-values a 19yo VLCC vs. the agreed price).
 #
 # age = 2026 - year built. eco = built post-2014 (METHODOLOGY 3.1 definition).
-# scrubber: DHT's fleet is 100% scrubber-fitted (confirmed) -> all true.
+# scrubber: operating VLCCs flagged true on the ONBOARDING basis (DHT's historically
+# scrubber-heavy fleet). NOT restated in the Q1-2026 6-K (which says "scrubber" 0 times) — the
+# fleet-wide claim is UNVERIFIED against a primary source and sits in the Tier-2 operating-scrubber
+# audit queue (test_scrubber_provenance). The DHT Impala NEWBUILD scrubber is established by Note 5
+# of the Q1-2026 6-K ("fitted with exhaust gas cleaning systems", acc 0000950157-26-000576).
+# [Corrected 2026-06-30: the prior bare flag-claim had no source backing — see test_manifest_provenance.]
 ticker: DHT
 report_date: 2026-Q1
 vessels:

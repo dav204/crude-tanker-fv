@@ -183,6 +183,16 @@ at lock-time, not per-run.**
 (Each is the distilled rule; the incident narrative lives in CHANGELOG.md +
 the named decision logs.)
 
+- **"(confirmed)" is not a citation — a verification CLAIM must trace to a resolvable
+  source** (2026-06-30, DHT). A manifest said the fleet was "100% scrubber-fitted
+  (confirmed)" while the cited 6-K said "scrubber" 0 times — a hollow claim that the word
+  *confirmed* made look settled. The bar for any "confirmed"/"verified" annotation is a
+  specific filing / note / broker / owner / dated reference; the word alone fails. Enforced
+  book-wide by `test_manifest_provenance.py` (general manifest-claim provenance); the
+  field-specific value guards (`test_scrubber_provenance`, `test_newbuild_convention`,
+  AGE0_BASIS) cover the flags/figures. This is the *third* "authoritative label that doesn't
+  trace" instance (xclusiv "resale" mislabel → crude age-0 → scrubber "confirmed"); treat any
+  asserted-but-uncited manifest claim as suspect until a guard covers its field.
 - **Never type a market price from filing/report prose** (2026-06-10, TEN $44).
   Prices come from `prices_daily.yaml` (auto-fetched) or a dated quote source. A
   watchlist `current_price` NEVER moves without rebasing `consensus_pnav` /
