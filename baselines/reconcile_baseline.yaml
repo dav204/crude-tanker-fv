@@ -2,11 +2,10 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-06-30T14:55:13+00:00'
-  ratified_commit: 3d3b10d
+  ratified_at: '2026-06-30T15:35:07+00:00'
+  ratified_commit: fa3df47
   quarter: 2026-Q1
-  cause: 'CAPT scrubber correction: 18/30 scrubber-fitted (Aframax via PR#3 + VLCC/LR2 split), combined
-    -0.63% anchored'
+  cause: 'DHT §9.6 on-curve: DHT Impala newbuild, +6% toward broker'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -56,10 +55,10 @@ names:
     sector: dry_bulk
   DHT:
     pnav_basis: pareto
-    ev_pct: -12.65
-    tool_nav: 13.1
+    ev_pct: -7.68
+    tool_nav: 13.88
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.17
+    k_broker: 1.11
     sector: crude
   ECO:
     pnav_basis: pareto
