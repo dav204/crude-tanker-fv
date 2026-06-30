@@ -36,12 +36,38 @@ anchors, so a single count-4 cohort at 7.4 reproduces the exact aggregate value 
 four individual ages (6.9–7.75). (Pareto's review class-table cited avg 7.8; the issuer
 per-vessel build dates give 7.4 — the issuer governs.)
 
-**Model impact — immaterial:** NAV/share **$15.59 → $15.60** (+$0.01, +0.06%);
-single-point FV $16.13 (unch), scenario PW FV $17.26 → $17.27, **EV +35.6%** (unch),
-band **BUY → BUY**, **k_broker 1.12** (unch), broker gap −14.3%, **SANITY OK**. The
-three age-10→7.4 vessels gaining value nearly offsets the one age-0→7.4 vessel ageing
-plus the scrubber-premium removal across all four. Full pytest **416 passed** (drift
-gate green → within tolerance, no re-ratify needed).
+**Model impact — small, and basis-dependent (corrected per PR #3 review, which
+caught a sign error in the first draft of this entry):** the NAV move depends on
+which curve set you measure, and the two disagree in sign — both verified by direct
+`compute_nav` (precise, not cent-rounded):
+
+| Basis | OLD (pre) | NEW (post) | Δ/sh | Δ% |
+|---|--:|--:|--:|--:|
+| **Transaction-anchored** (headline — the decision-log "NAV / share" + reconcile tool-NAV; `use_transaction_anchored` default-on) | $15.5919 | $15.6042 | **+$0.012** | **+0.08%** |
+| **Un-anchored** (raw broker-resale curves; the diagnostic alternative) | $15.7616 | $15.7190 | **−$0.043** | **−0.27%** |
+
+The first draft reported only **+$0.01 / +0.06%** (the anchored headline) with a
+muddled "nearly offsets" decomposition — wrong on the un-anchored basis, where the
+move is **−0.27%**. The reviewer's base-NAV flag ($15.59 vs $15.762) is exactly this
+anchored-vs-unanchored split, not stale data. Un-anchored Aframax decomposition (ties
+to −$5.70M fleet, −$0.043/sh): the old `AFRA_2026` age-0 newbuild ($98.1M) re-ages to
+7.4 (**−$20.7M**), the three old age-10 vessels lift to 7.4 (**+$18.0M**), so the **age
+effect is −$1.7M** (not a wash), and **scrubber removal is −$4.0M** (4 × $1.0M Aframax
+premium) → **−$5.7M total**. The sign flips on the anchored curve because anchoring
+steepens the Aframax mid-age leg (10-yr benchmark $68.0M → $61.0M): the three age-10
+vessels are valued low there, so re-aging them to 7.4 lifts them **+$26.1M**, outweighing
+the newbuild's −$24.4M → **+$1.65M** (positive).
+
+Unchanged on both bases: single-point FV $16.13, scenario PW FV ≈$17.27, **EV +35.6%**,
+band **BUY → BUY**, **k_broker 1.12**, broker gap −14.3%, **SANITY OK**. Full pytest
+**416 passed**; the drift gate (which reads the anchored headline) is green for this slice
+in isolation (+0.08%, sub-2pp, no band flip).
+
+**Re-ratify (corrected):** NOT "no re-ratify." This Aframax row is one slice of a wider
+CAPT scrubber correction — the VLCC (6-of-12) and LR2 (2-of-4) rows are also over-broad
+(CAPT is **18/30 ≈ 60% scrubber-fitted** per the Pareto per-vessel ledger) and are being
+corrected separately on `main` (≈ −0.71%). Combined, CAPT moves **≈ −1%** (un-anchored),
+which warrants a re-ratify — to be done **once, after all slices land**, not per-slice.
 
 **Out-of-scope observation for the Q2 refresh (NOT actioned):** the issuer p6 delivery
 dates show only 1 of the 4 Aframax (Alimedon, delivered to CAPT Mar-9) was on the water
