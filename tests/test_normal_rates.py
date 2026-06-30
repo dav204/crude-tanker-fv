@@ -11,6 +11,7 @@ import pytest
 
 from crude_tanker_fv.normal_rates import (
     OPERATING_DAYS,
+    PARITY_BANDS,
     WACC_DEFAULT,
     class_normalized_opex,
     crf,
@@ -37,11 +38,8 @@ def test_parity_uses_pv_of_salvage_not_naive():
 
 # PRE_REGISTRATION Amendment 1 §A1.2 + Amendment 2: frozen per-class bands on the
 # registered newbuild_CONTRACT prices. Outside band ⇒ investigate the INPUT, never widen.
-FROZEN_BANDS = {
-    "VLCC": (41_220, 42_220), "Suezmax": (30_780, 31_780), "Aframax": (26_990, 27_990),
-    "LR2": (26_580, 27_580), "MR": (20_810, 21_810), "Cape": (25_250, 26_250),
-    "Pana": (14_200, 15_200), "Supra-Ultra": (13_240, 14_240), "Post-Panamax": (14_500, 15_500),
-}
+# Single-sourced from normal_rates.PARITY_BANDS (the engine + scorecard read the same map).
+FROZEN_BANDS = PARITY_BANDS
 
 
 @pytest.mark.parametrize("cls,lo,hi", [(c, lo, hi) for c, (lo, hi) in FROZEN_BANDS.items()])

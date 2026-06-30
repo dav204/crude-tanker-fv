@@ -39,6 +39,16 @@ OPERATING_DAYS = 360.0           # ~98.6% utilization; reconciled to the strip's
                                  # difference (PRE_REGISTRATION §3c).
 OPEX_OUTLIER_FRAC = 0.25         # drop a name's class-opex >25% from the cross-name median
 
+# Registered per-class parity halt bands (PRE_REGISTRATION_NORMAL_RATES.md §A1.2 +
+# Amendment 2) — $/day. A parity rate OUTSIDE its band ⇒ investigate the INPUT, never
+# widen the band. Single source: both tests/test_normal_rates.py and the §18.5/scorecard
+# band-clear gate read these. Classes absent here carry no registered band (unvalidated).
+PARITY_BANDS = {
+    "VLCC": (41_220, 42_220), "Suezmax": (30_780, 31_780), "Aframax": (26_990, 27_990),
+    "LR2": (26_580, 27_580), "MR": (20_810, 21_810), "Cape": (25_250, 26_250),
+    "Pana": (14_200, 15_200), "Supra-Ultra": (13_240, 14_240), "Post-Panamax": (14_500, 15_500),
+}
+
 
 def crf(wacc: float, n: int = ECONOMIC_LIFE_YEARS) -> float:
     """Capital recovery factor: WACC / (1 − (1+WACC)^−N)."""
