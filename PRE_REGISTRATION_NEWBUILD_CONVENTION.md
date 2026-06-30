@@ -216,3 +216,41 @@ a mixed-name branch (NB scrubber COUNT must match the registered count — the c
 for non-uniform names). CAPT clears the scrubber-verification queue (BRUT/CAPT/FRO all verified).
 
 **Gate:** only CAPT moves; SANITY OK; combined −0.63% annotated + re-ratified once.
+
+---
+
+## CONVENTION QUEUE — pass 1: DHT (registered AHEAD of recompute)
+
+DHT Holdings — first fixable convention-queue name. Currently **commitment-net −$21.8M**
+(advances $55.676M − commitment $77.481M, NO on-curve asset): DHT Impala's ~$175M delivered
+value is entirely missing from NAV (the SBLK pattern). Tool NAV is **−12.9% BELOW broker**
+($13.10 vs $15.05), so the §9.6 fix moves DHT TOWARD consensus, not away.
+
+**Sourced inputs (adversarially verified vs Q1-2026 6-K, acc 0000950157-26-000576, Note 5 —
+both figures EXACT to the in-repo balance sheet, nothing overturned):**
+- **DHT Impala** — the ONLY vessel under construction at 2026-03-31 (the other 3 of the 4-VLCC
+  program delivered in Q1). VLCC, ~300k dwt (VLCC is flat-per-class, dwt immaterial to value).
+- Delivery **June 2026** → `years_to_delivery ≈ 0.25` from 2026-03-31.
+- Remaining commitment **$77,481,000** (Note 5 future-payments, due within 12 months) — stays.
+- Advances **$55,676,000** ("Vessels under construction" carrying amount) → **0** (sunk into the
+  on-curve delivered value, the BRUT/§9.6 convention).
+- **scrubber = true** — Note 5: "four large VLCCs, fitted with exhaust gas cleaning systems"
+  (Impala is one). eco = true (§3.1 post-2014 build). NB scrubber verified; the operating-fleet
+  100%-scrubber claim is NOT in this 6-K — DHT stays in the Tier-2 operating-scrubber audit queue.
+
+**Mechanism:** add DHT Impala to the manifest as a 1× VLCC age-0 row (ytd 0.25, scrubber+eco),
+set `newbuild_advances_paid → 0`, keep `newbuild_capex_commitments 77,481,000`.
+
+**Predicted NAV — ANCHORED (headline) basis** (the move is purely the age-0 delivered value,
+which anchoring does NOT change, so identical $/sh on both bases — no sign-flip risk):
+
+| Basis | DHT NAV/sh | Δ |
+|---|---|---|
+| **Anchored (headline / re-ratify)** | 13.10 → 13.88 | **+$0.786 / +6.0%** |
+| Un-anchored (diagnostic) | 15.29 → 16.07 | +$0.786 / +5.1% |
+
+Moves DHT from −12.9% to ~−7.5% vs broker (toward consensus). **HALT band:** outside +5%…+7%
+anchored → investigate the input.
+
+**Gate:** only DHT moves; SANITY OK (still below broker); +6% annotated; PAUSE for owner review
+before re-ratify. Registry: DHT → eco/scrubber true, NB scrubber_verified true (operating still queued).
