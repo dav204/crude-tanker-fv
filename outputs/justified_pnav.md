@@ -23,7 +23,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | GNK | dry_bulk | $24.69 | $24.00 | 0.972× | 12.3% | 1.132× | 11.2% | 1.017× | cheap → fair | flips (cheap/fair) |
 | CMDB | dry_bulk | $31.33 | $17.25 | 0.551× | 8.1% | 0.709× | 6.7% | 0.572× | cheap → fair | flips (cheap/fair) |
 | TNK | crude | $77.51 | $70.80 | 0.913× | 7.4% | 0.638× | 8.8% | 0.782× | rich → rich | robust |
-| DHT | crude | $13.10 | $16.40 | 1.252× | 9.8% | 0.884× | 9.2% | 0.820× | rich → rich | robust |
+| DHT | crude | $13.88 | $16.40 | 1.182× | 9.8% | 0.880× | 9.2% | 0.817× | rich → rich | robust |
 | FRO | crude | $24.22 | $34.50 | 1.424× | 10.5% | 0.951× | 9.6% | 0.860× | rich → rich | robust |
 | NAT | crude | $2.07 | $5.20 | 2.508× | 21.2% | 2.020× | 16.1% | 1.513× | rich → rich | robust |
 | ECO | crude | $34.56 | $47.70 | 1.380× | 7.7% | 0.666× | 6.4% | 0.536× | rich → rich | robust |
@@ -46,7 +46,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | Sector | Median Just P/NAV (parity) | Median (historical) | n |
 |---|--:|--:|--:|
 | dry_bulk | 1.183× | 0.938× | 4 |
-| crude | 0.884× | 0.840× | 5 |
+| crude | 0.880× | 0.839× | 5 |
 
 _The two columns ARE the signal: where parity ≫ historical, the sector reads cheaper under replacement economics than under its (boom/firm-window-biased) historical anchor — the §18 under-ordering. The §17.6 anchor-bias caveats apply to the historical column only; parity is independent of those biases (it is built from newbuild cost, not a rate-history window)._
 
@@ -61,9 +61,9 @@ _The headline vector covers the COMPOSABLE sectors only (crude / product / dry_b
 
 | RONAV_norm \ g | g=0% | g=1% | g=2% |
 |---|--:|--:|--:|
-| 7.8% | 0.71× | 0.68× | 0.65× |
+| 7.8% | 0.71× | 0.68× | 0.64× |
 | 9.8% | 0.89× | 0.88× | 0.87× |
-| 11.8% | 1.08× | 1.08× | 1.09× |
+| 11.8% | 1.07× | 1.08× | 1.09× |
 
 **dry_bulk** (base RONAV_norm 12.8%)
 

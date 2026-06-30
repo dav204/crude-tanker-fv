@@ -28,10 +28,14 @@ total_debt: 505343000                # Interest bearing debt (Note 4)
 # leases. Reported lease liabilities as of 2026-03-31 were $0.99M.
 lease_liabilities: 990000
 
-# Newbuild lines relate ONLY to DHT Impala (4th newbuilding, still under
-# construction at 2026-03-31; the other three were delivered and are valued on
-# the age curve in the fleet manifest).
-newbuild_capex_commitments: 77481000   # remaining installments (Note 5)
-newbuild_advances_paid: 55676000       # "vessels under construction" carrying amount (Note 5)
+# Newbuild lines relate ONLY to DHT Impala (4th newbuilding, still under construction at
+# 2026-03-31; the other three delivered and are valued on the age curve in the manifest).
+# §9.6 on-curve (standardized 2026-06-30): DHT Impala is now ON the curve at age-0 delivered PV
+# (manifest DHT_Impala_nb), the REMAINING commitment is held here, and advances → 0 (the $55.676M
+# "vessels under construction" carrying amount is sunk into the on-curve delivered value, per
+# BRUT/CAPT/§9.6). Was commitment-net (−$21.8M, Impala's delivered value missing). Q1-2026 6-K
+# Note 5 (acc 0000950157-26-000576): remaining installments $77,481k, due within 12 months.
+newbuild_capex_commitments: 77481000   # remaining installments (Note 5) — stays
+newbuild_advances_paid: 0              # was 55,676,000 — sunk into the on-curve delivered value (§9.6)
 
 diluted_shares_outstanding: 161041637  # common shares outstanding at 2026-03-31

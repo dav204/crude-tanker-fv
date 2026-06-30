@@ -27,8 +27,9 @@ QUARTER = "2026-Q1"
 
 # Off-convention work queue (NB pre-reg §4). Each name leaves ONLY via its own
 # pre-registered fix. strict xfail. (SB+SBLK are removed by the pass-1 wiring commit.)
+# DHT converted to on-curve §9.6 2026-06-30 (1 VLCC, DHT Impala) — removed from the queue.
 OFF_CONVENTION_QUEUE = {
-    "ASC", "CMBT", "DHT", "ECO", "HAFN", "NAT", "STNG", "TEN", "TRMD",
+    "ASC", "CMBT", "ECO", "HAFN", "NAT", "STNG", "TEN", "TRMD",
 }
 
 

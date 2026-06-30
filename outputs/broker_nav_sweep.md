@@ -21,7 +21,7 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | INSW **(WHOLE-CO)** | 0.98× | 1.51 | -21.2% | -5.0% | +11.2% | TRIM/SHORT→BUY | $262,650→$70,065 | +32 | wide-spread |
 | GNK | 0.87× | 1.11 | -1.4% | +4.6% | +10.6% | HOLD→BUY | $26,698→$12,255 | +12 | wide-spread |
 | CMDB | 0.62× | 0.91 | +13.6% | +9.7% | +5.8% | BUY→BUY | $5,949→$14,626 | -8 | narrow-spread |
-| DHT | 1.09× | 1.17 | -12.7% | -5.8% | +1.1% | TRIM/SHORT→HOLD | $379,413→$204,295 | +14 | wide-spread |
+| DHT | 1.09× | 1.11 | -7.7% | -2.9% | +1.9% | TRIM/SHORT→HOLD | $310,818→$194,121 | +10 | narrow-spread |
 | MPCC | 1.04× | 1.14 | -19.6% | -12.0% | -4.3% | TRIM/SHORT→HOLD | $157,594→$49,535 | +15 | wide-spread |
 | FRO | 1.20× | 1.14 | -18.7% | -11.8% | -4.9% | TRIM/SHORT→HOLD | $338,039→$227,490 | +14 | wide-spread |
 | ECO | 1.21× | 1.13 | -19.0% | -13.0% | -7.1% | TRIM/SHORT→TRIM/SHORT | $292,039→$211,357 | +12 | wide-spread |

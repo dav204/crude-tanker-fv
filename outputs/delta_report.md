@@ -1,23 +1,23 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-06-30T14:55:13+00:00
-- **Previous run:** 2026-06-30T13:41:38+00:00
+- **This run:** 2026-06-30T15:35:07+00:00
+- **Previous run:** 2026-06-30T14:55:13+00:00
 
 ## Headline changes (material moves)
 
-- **No material changes.** All tickers within thresholds (|ΔFV%|≤10%, |Δspread|≤5pp, |ΔNAV%|≤5%) and no position flips.
+- **DHT:** NAV/sh +6.0%
 
 ## Input files changed since last run
 
-- `inputs/data_sources.yaml` (modified)
-- `inputs/fleet_manifests/capt.yaml` (modified)
+- `inputs/balance_sheets/dht_2026-Q1.yaml` (modified)
+- `inputs/fleet_manifests/dht.yaml` (modified)
 - `inputs/market_data/newbuild_specs.yaml` (modified)
 
 ## Full per-ticker deltas
 
 | Ticker | Price | Single-point FV | Scenario PW FV | NAV/sh | Position | Broker spread |
 |---|---|---|---|---|---|---|
-| DHT | $17.08 (no change) | $14.15 (no change) | $14.92 (no change) | $13.10 (no change) | TRIM/SHORT (overvalued) | +13.8pp (no change) |
+| DHT ⚑ | $17.08 (no change) | $14.95 (+5.7%) | $15.77 (+5.7%) | $13.88 (+6.0%) | TRIM/SHORT (overvalued) | +9.6pp (-4.2pp) |
 | ECO | $49.60 (no change) | $37.33 (no change) | $40.17 (no change) | $34.56 (no change) | TRIM/SHORT (overvalued) | +11.9pp (no change) |
 | FRO | $35.44 (no change) | $26.54 (no change) | $28.82 (no change) | $24.22 (no change) | TRIM/SHORT (overvalued) | +13.8pp (no change) |
 | INSW | $77.81 (no change) | $38.63 (no change) | $61.34 (no change) | $52.59 (no change) | TRIM/SHORT (overvalued) | +32.3pp (no change) |
@@ -33,7 +33,7 @@
 | CMDB | $17.99 (no change) | $20.43 (no change) | $20.43 (no change) | $31.33 (no change) | BUY (undervalued) | -7.8pp (no change) |
 | SBLK | $24.64 (no change) | $28.34 (no change) | $28.37 (no change) | $29.34 (no change) | BUY (undervalued) | +2.5pp (no change) |
 | GNK | $24.39 (no change) | $23.99 (no change) | $24.05 (no change) | $24.69 (no change) | HOLD (fairly valued) | +11.9pp (no change) |
-| CAPT | $12.73 (no change) | $16.03 (-0.6%) | $17.16 (-0.6%) | $15.49 (-0.6%) | BUY (undervalued) | +26.0pp (+0.7pp) |
+| CAPT | $12.73 (no change) | $16.03 (no change) | $17.16 (no change) | $15.49 (no change) | BUY (undervalued) | +26.0pp (no change) |
 | MPCC | $2.62 (no change) | $2.19 (no change) | $2.11 (no change) | $2.02 (no change) | TRIM/SHORT (overvalued) | +15.3pp (no change) |
 | GSL | $37.74 (no change) | $43.00 (no change) | $40.59 (no change) | $38.59 (no change) | BUY (undervalued) | +24.4pp (no change) |
 | BRUT | $5.21 (no change) | $9.84 (no change) | $10.81 (no change) | $9.40 (no change) | BUY (undervalued) | -45.8pp (no change) |

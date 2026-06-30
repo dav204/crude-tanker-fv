@@ -9,7 +9,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | BRUT | crude | resale-uniform | 0.57× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
 | CAPT | crude | resale-uniform | 0.79× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
 | CMBT | crude | structural-unavailable | 0.94× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
-| DHT | crude | resale-uniform | 1.25× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| DHT | crude | resale-uniform | 1.18× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | ECO | crude | resale-uniform | 1.38× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | FRO | crude | resale-uniform | 1.42× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | INSW | crude | pending-sourceable | 1.48× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |

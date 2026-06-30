@@ -113,4 +113,5 @@ def test_dht_fair_value_end_to_end():
     fv = blend_fair_value(nav, strip, cyc)
     # Peak weighting puts 70% on NAV, so FV sits between NAV and the strip price.
     assert nav.nav_per_share < fv.fair_value_per_share < strip.implied_price
-    assert 16.0 < fv.fair_value_per_share < 17.0
+    # ~$17.33 un-anchored (DHT Impala newbuild on the curve, §9.6 2026-06-30 — was ~$16.x).
+    assert 17.0 < fv.fair_value_per_share < 17.7

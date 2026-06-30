@@ -33,7 +33,7 @@ def test_write_company_report_creates_md_and_xlsx(dht_report, tmp_path):
 
     text = md.read_text()
     for needle in ["# DHT", "NAV breakdown", "Dividend strip", "Implied breakeven TCE",
-                   "Sensitivity", "Divergence diagnosis", "$14.15", "FFA spot",
+                   "Sensitivity", "Divergence diagnosis", "$14.95", "FFA spot",
                    "Data validation warnings"]:
         assert needle in text
 
@@ -53,7 +53,7 @@ def test_write_watchlist_summary(dht_report, tmp_path):
     row = [c.value for c in ws[2]]
     assert row[0] == "DHT"
     assert row[1] == "whole-company"   # DHT is a pure-play
-    assert row[3] == pytest.approx(14.15, abs=0.01)   # age-0 = xclusiv Resale $175M (Amendment B reverted the Thread-1 5yr-as-age-0)
+    assert row[3] == pytest.approx(14.95, abs=0.01)   # DHT Impala newbuild on-curve (§9.6 2026-06-30; was 14.15)
 
 
 def test_run_watchlist_end_to_end(tmp_path):

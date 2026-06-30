@@ -213,6 +213,23 @@ vessels:
     charter_status: spot           # spot at 2026-03-31 (1yr TC fixed in May)
     charter_rate: null
     charter_end: null
+  # Newbuild on the curve (§9.6 delivered-less-commitment, 2026-06-30) — was commitment-net
+  # (advances $55.676M − commitment $77.481M = −$21.8M, Impala's delivered value missing).
+  # DHT Impala = the 4th of the 4-VLCC program, the ONLY hull under construction at 2026-03-31;
+  # delivery June 2026 (ytd 0.25); scrubber-fitted ("four large VLCCs, fitted with exhaust gas
+  # cleaning systems", Q1-2026 6-K Note 5, acc 0000950157-26-000576). Advances→0 in the balance
+  # sheet (sunk into the on-curve delivered value); remaining commitment $77.481M stays.
+  - id: DHT_Impala_nb
+    class: VLCC
+    dwt: 300000
+    age: 0
+    scrubber: true
+    eco: true
+    count: 1
+    years_to_delivery: 0.25
+    charter_status: spot
+    charter_rate: null
+    charter_end: null
 spot_coverage_pct:
   VLCC: 0.55   # 12 of 22 retained vessels on spot at 2026-03-31 (not used by NAV)
 fleet_summary:

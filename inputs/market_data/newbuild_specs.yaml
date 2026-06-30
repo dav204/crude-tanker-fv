@@ -75,3 +75,13 @@ MPCC:
   scrubber: false
   scrubber_verified: true    # container NBs carry no exhaust-gas scrubber (scrubber=false, no premium); eco via §3.1
   source: "container newbuilds — no exhaust-gas scrubber (scrubber=false); eco via §3.1 post-2014 build rule"
+DHT:
+  eco: true
+  scrubber: true
+  scrubber_verified: true     # NEWBUILD (DHT Impala) only — operating fleet 100%-scrubber claim NOT in this 6-K
+  source: >
+    Q1-2026 6-K (acc 0000950157-26-000576) Note 5: the 4-VLCC newbuild program is "fitted with
+    exhaust gas cleaning systems" — DHT Impala (the 1 undelivered hull at 2026-03-31) scrubber=true
+    confirmed. eco via §3.1 (June-2026 delivery). Adversarially verified 2026-06-30. NB scrubber
+    verified; the operating-fleet "100% scrubber-fitted" claim is NOT supported by this 6-K, so DHT
+    stays in the Tier-2 operating-scrubber audit queue (test_scrubber_provenance).

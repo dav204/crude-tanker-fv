@@ -260,11 +260,11 @@ def test_compute_nav_missing_curve_raises(vlcc_curve):
 
 def test_dht_integration():
     ci = load_company_inputs("DHT", "2026-Q1")
-    assert len(ci.fleet.vessels) == 22
+    assert len(ci.fleet.vessels) == 23   # 22 operating VLCCs + DHT Impala newbuild on the curve (§9.6, 2026-06-30)
     assert all(v.cls == "VLCC" for v in ci.fleet.vessels)
-    assert all(v.scrubber for v in ci.fleet.vessels)  # DHT fleet 100% scrubber-fitted
+    assert all(v.scrubber for v in ci.fleet.vessels)  # DHT VLCCs + Impala all scrubber-fitted
     nav = compute_nav(ci)
-    # Sanity band around the hand-checked ~$15.29/share (age-0 = xclusiv Resale
-    # $175M; Amendment B reverted the Thread-1 5yr-as-age-0 swap).
-    assert 14.0 < nav.nav_per_share < 17.0
-    assert nav.fleet_value == pytest.approx(2729.90 * M, rel=1e-3)
+    # Sanity band: un-anchored ~$16.07/share. DHT Impala (1 VLCC) now ON the curve at age-0
+    # delivered PV (§9.6) instead of commitment-net — adds ~$182M PV to fleet_value, advances→0.
+    assert 14.0 < nav.nav_per_share < 18.0
+    assert nav.fleet_value == pytest.approx(2911.35 * M, rel=1e-3)

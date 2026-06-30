@@ -182,7 +182,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | TRMD | $26.74→$25.43 | -4.9% | +8.1%→+3.8% | -4.3 | BUY→HOLD ⚠️ |
 | GNK | $25.53→$24.69 | -3.3% | +1.6%→-1.4% | -2.9 | HOLD→HOLD |
 | ASC | $15.96→$15.93 | -0.2% | -5.2%→-5.3% | -0.1 | TRIM/SHORT→TRIM/SHORT |
-| DHT | $15.29→$13.10 | -14.3% | -0.7%→-12.7% | -11.9 | HOLD→TRIM/SHORT ⚠️ |
+| DHT | $16.07→$13.88 | -13.7% | +4.3%→-7.7% | -12.0 | HOLD→TRIM/SHORT ⚠️ |
 | HAFN | $5.34→$5.22 | -2.2% | -12.3%→-13.8% | -1.5 | TRIM/SHORT→TRIM/SHORT |
 | FRO | $28.47→$24.22 | -14.9% | -7.0%→-18.7% | -11.6 | TRIM/SHORT→TRIM/SHORT |
 | ECO | $40.61→$34.56 | -14.9% | -7.5%→-19.0% | -11.6 | TRIM/SHORT→TRIM/SHORT |

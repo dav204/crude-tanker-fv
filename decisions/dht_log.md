@@ -7,6 +7,39 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-30T15:35:07+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.08
+- Single-point FV: $14.95
+- Scenario PW FV: $15.77 (EV -7.7%)
+- NAV / share: $13.88
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +9.6pp (k_broker 1.11)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ NAV/sh +6.0%
+- Δprice: no change | Δsingle FV: +5.7% | Δscenario FV: +5.7% | ΔNAV: +6.0% | Δspread: -4.2pp
+
+**Decision:** Newbuild convention standardized to §9.6 on-curve (2026-06-30) — NOT a market move.
+DHT was the first fixable convention-queue name, and it was commitment-net WITHOUT the asset:
+−$21.8M (advances $55.676M − commitment $77.481M), with **DHT Impala's ~$175M delivered value
+entirely missing** from NAV (the SBLK pattern). Impala — the only hull under construction at
+2026-03-31, the 4th of the 4-VLCC program (other 3 delivered in Q1) — is now ON the curve at
+age-0 delivered PV (ytd 0.25, delivery June 2026), the REMAINING commitment $77.481M stays, and
+advances → 0. Adversarially verified vs the Q1-2026 6-K Note 5 (acc 0000950157-26-000576): figures
+EXACT to the balance sheet; Impala scrubber=true ("four large VLCCs, fitted with exhaust gas
+cleaning systems"). **NAV +6.0%** ($13.10→$13.88, anchored — same $/sh on both bases since it's
+age-0 delivered value, no anchoring effect). This moves DHT from **−12.9% to −7.7% vs broker
+($15.05) — TOWARD consensus**, and FV $14.15→$14.95 (EV −12.7%→−7.7%). **Position unchanged:
+TRIM/SHORT** — DHT trades $17.08 vs FV ~$15, genuinely above FV; the +6% narrows the overvaluation
+but does not flip the call. SANITY OK (still below broker). NB scrubber verified (registry); the
+operating-fleet 100%-scrubber claim is NOT in this 6-K, so DHT stays in the Tier-2 operating-scrubber
+audit queue. PAUSE for owner review before re-ratify.
+
+---
+
 ## 2026-06-30T14:55:13+00:00 — Pipeline run (auto)
 
 **Model state:**
