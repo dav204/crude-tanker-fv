@@ -95,3 +95,27 @@ METHODOLOGY §11.4 has the engine-side checklist. Before any code:
 
 Methodology decisions get time-boxed to one session. v1 ships; refinements
 go in Q3.
+
+## Harvest the MB Shipbrokers weeklies — the workflow (added 2026-06-29)
+
+Four feeds, Fridays by email from `*@mbshipbrokers.com` (Container / Tanker / Dry Bulk /
+LNG). Email tables are IMAGES; the PDF behind the "Download report" link is the artifact.
+MB is a **cross-check, not a calibration input** (VIE discipline) — promotion is human-only.
+
+**Agent half (authed Gmail session — not cron):**
+1. Search Gmail (read-only): `from:mbshipbrokers.com newer_than:21d` (or `subject:Weekly`).
+2. For each new weekly, `get_thread` and pull the `cdn.flxml.eu/lt-...` URL that the
+   "Download report" button points to (the FIRST `lt-` link in the plaintext body — the
+   others are sign-up / privacy / social). If a thread body exceeds the tool limit it is
+   saved to a tool-results file; extract the link from there with `grep`/`jq`.
+3. Write one TSV line per report:  `<YYYY-MM-DD>\t<email subject>\t<download url>`.
+
+**Mechanical half (scriptable):**
+4. `python scripts/mb_harvest.py links.tsv` — fetches each via `fetch_pdf.py` (cdn.flxml.eu
+   allowlisted), validates `%PDF`, archives under `inputs/research_mb/<feed>/<YYYY>/`
+   (gitignored cache). Idempotent: skips files already archived.
+
+**Then (review, human-gated):** read the new issues (`pypdf`); cross-check S&P prints / value
+assessments against the curves; a promotable per-vessel print goes through the normal §9.9
+drift-gate path; rate/anchor disagreements are logged (§6 footnote), never auto-applied. The
+LNG feed feeds the FLNG/CCEC cross-check (`outputs/mb_lng_crosscheck_*.md`).

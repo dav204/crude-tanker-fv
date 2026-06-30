@@ -114,7 +114,7 @@ AGE0_BASIS = {
     "Supra-Ultra": "xclusiv-resale",
     "Post-Panamax": "alias:Pana",        # = Kamsarmax Resale; no xclusiv PPMX line
     "MR": "exception:no current xclusiv secondhand line (dropped after 2023Q4, last $52.8M); $54M unverified",
-    "LR1": "exception:Group A; MB Tanker Weekly (current) covers LR1 NB+5yr but NO Resale line — age-0 needs a Resale derivation + MB-as-calibration decision (outputs/mb_harvest_2026-06-29.md)",
+    "LR1": "exception:Group A; MB Tanker 2026-06-26 LR1 NB $64M/5yr $58M (col order verified vs crude inversion), NO Resale line; tool age-0 $59M within ~8% of MB NB (cross-check OK). Kept cross-check NOT wired — MB->calibration is owner-gated + immaterial (no LR1-heavy name).",
     "Handysize": "xclusiv-resale",      # Thread 1A: wired to xclusiv Resale $36M
     "Handymax": "exception:no broker tabulates product-Handymax secondhand; Group A, needs chem-tanker source",
     "LNGC": "exception:non-tanker/dry-bulk sector, own basis",
