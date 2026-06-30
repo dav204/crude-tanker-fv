@@ -260,6 +260,11 @@ CAPT:
   sec_edgar: null   # Oslo-listed (Euronext Oslo Bors, NOK) — no SEC filings;
                     # primary disclosures via newsweb.oslobors.no + company IR.
   fleet_page: https://www.capitaltankers.com/fleet/
+  official_filings: "Euronext Growth Oslo (newsweb.oslobors.no / live.euronext.com) is the
+    official disclosure channel — NOT 'Pareto-only'. In repo: research_issuer/2026-03_capt_euronext_information_document.pdf
+    (admission doc, §7.3.2 per-vessel scrubber table for operating vessels; §7.3.4 NB contract
+    table has NO scrubber column) + 2026-Q1_capt_earnings_release.pdf. NB scrubber spec verified
+    2026-06-30 (Pareto initiation 2026-04-20 per-vessel ledger): 18/30 scrubber-fitted (~60%)."
   reporting_pattern: "Oslo H1/quarterly releases; first results May-27-2026.
     Pareto covers (initiation 2026-04-19, BUY TP NOK 180) — the dailies +
     linked reports are the richest running source."
@@ -274,6 +279,11 @@ BRUT:
   fleet_page: https://bruton-ltd.com/fleet/   # PRIMARY for the per-vessel NB schedule
   sec_edgar: null   # Oslo-listed (Euronext Growth Oslo, NOK) — no SEC filings;
                     # primary disclosures via newsweb.oslobors.no + company IR.
+  official_filings: "Euronext Growth Oslo (newsweb.oslobors.no / live.euronext.com) is the
+    official channel. Pulled 2026-06-30 (closes the brut_log:405 'MISSING admission prospectus'
+    gap): research_issuer/2024-11-26_brut_euronext_information_document.pdf (admission) +
+    2025_brut_annual_report.pdf. NB scrubber VERIFIED all-12 (Annual Report 2025: every order
+    'scrubber fitted VLCCs') — official, supersedes the Pareto-only basis."
   reporting_pattern: "HALF-YEARLY reporter — H1-2026 due 2026-08-13 (owner-
     confirmed); no Q1/Q3 interims. Pareto covers (initiation 2026-04-22, BUY
     TP NOK 66) — the dailies + the initiation are the running source until H1."

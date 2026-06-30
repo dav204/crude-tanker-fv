@@ -43,18 +43,33 @@ SBLK:
 BRUT:
   eco: true
   scrubber: true
-  scrubber_verified: false   # VLCC NB scrubber flag NOT yet checked vs Frontline/BRUT 6-K
-  source: "pre-existing (registered 2026-06-30); scrubber spec unverified against filing — verification queue"
+  scrubber_verified: true
+  source: >
+    OFFICIAL (Norway): Bruton Annual Report 2025 (Euronext Oslo attachment, 2026-03-27) +
+    Information Document (Euronext Growth Oslo admission, 2024-11-26) — every newbuild order
+    described as "scrubber fitted VLCCs" (Oct-2025 +2, Jan-2026 +2 New Times, Mar-2026 +4 CIMC
+    Raffles). Pareto initiation per-vessel table (Scrubber col = Yes on all 12; LNG col breaks)
+    corroborates. All 12 scrubber-fitted. Adversarially verified 2026-06-30.
 CAPT:
   eco: true
-  scrubber: true
-  scrubber_verified: false   # VLCC+Suezmax NB scrubber flag NOT yet checked vs Capital Maritime filing
-  source: "pre-existing (registered 2026-06-30); scrubber spec unverified against filing — verification queue"
+  scrubber: true             # matches the current (uncorrected) manifest; CORRECTION PENDING -> mixed
+  scrubber_verified: false   # over-broad: 18 of 30 scrubber-fitted; 8 NB rows wrongly scrubber=true
+  scrubber_correction_pending: "18/30 per Pareto ledger — split VLCC_nb_2027 to 3-of-7, VLCC_nb_2028 to 2-of-4, LR2_2026 to 0-of-2 (-0.71% NAV). Own pre-reg."
+  source: >
+    OFFICIAL (Norway) + research: CAPT Euronext Information Document (2026-03) §7.3.2 operating
+    table + Q1-2026 earnings release (per-vessel scrubber/fuel prose) + Pareto initiation
+    2026-04-20 per-vessel ledger ("~60% scrubber-fitted" = 18/30: VLCC 6/12, Suezmax 10/10,
+    Aframax 0/4, LR2 2/4). The 12 LNG-dual-fuel vessels carry NO scrubber. Verified 2026-06-30;
+    manifest correction (8 NB rows -> scrubber=false) registered pending.
 FRO:
   eco: true
   scrubber: true
-  scrubber_verified: false   # VLCC NB scrubber flag NOT yet checked vs Frontline 6-K
-  source: "pre-existing (registered 2026-06-30); scrubber spec unverified against filing — verification queue"
+  scrubber_verified: true
+  source: >
+    OFFICIAL: FRO Q1-2026 6-K (SEC CIK 0000913290, acc 0000919574-26-003700) Exhibit 1 — the
+    9 VLCC newbuilds described as "nine latest-generation scrubber-fitted ECO VLCC newbuildings"
+    (scrubber-fitted 6×; zero LNG/dual-fuel content). All 9 scrubber-fitted. Adversarially
+    verified 2026-06-30.
 MPCC:
   eco: true
   scrubber: false

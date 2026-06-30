@@ -140,7 +140,10 @@ def test_newbuild_value_flags_trace_to_registered_disclosure():
 # Scrubber-verification work queue: on-curve NB names whose scrubber=true has NOT been
 # verified against the name's own filing. xfail(strict) — each leaves ONLY by verifying
 # (or correcting) its scrubber flag against its 6-K. eco needs no such queue (§3.1 rule).
-SCRUBBER_UNVERIFIED_QUEUE = {"BRUT", "CAPT", "FRO"}
+# BRUT + FRO verified against their own filings 2026-06-30 (BRUT: official Euronext Annual
+# Report 2025; FRO: Q1 6-K) — both confirmed all-scrubber, removed from the queue. CAPT remains:
+# verified MIXED (18/30), manifest correction (8 NB rows -> false) registered pending.
+SCRUBBER_UNVERIFIED_QUEUE = {"CAPT"}
 
 
 def _scrubber_param(name: str):
