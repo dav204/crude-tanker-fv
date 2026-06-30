@@ -7,6 +7,31 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-30 — §9.6 on-curve attempt HALTED; NAT is pending-CORRECTION (not just pending-fix)
+
+**Decision:** The §9.6 on-curve conversion for NAT's 2 Suezmax newbuilds was attempted and
+**halted at verification — the figures it depends on do not trace to the filing.** Adversarial
+verification vs the Q1-2026 6-K (acc 0000919574-26-003779) confirmed the **vessels** (2 Suezmax,
+delivery 2028, firm-contracted Jan 2026, S. Korean yard) but found the **dollar figures are all
+unsourced**: the 6-K has no contract price, no commitments note, no installment schedule, and no
+"vessels under construction" balance-sheet line. The in-repo `newbuild_capex_commitments 153,000,000`
+/ `newbuild_advances_paid 17,000,000` are ESTIMATES ("~$170M total", "~10% advance") that tie to no
+disclosure. **The $17M advance is actively CONTRADICTED by the filing:** Q1-2026 "Investment in
+Vessels" cash flow is **+$38K (a net INFLOW)**, Proceeds from Sale +$50.4M — there is no ~$17M
+newbuild outflow, so the advance was likely paid pre-Q1 (or is wrong), and the $153M derived from
+it is unsupported.
+
+**So NAT was already carrying an unverified NAV-moving figure BEFORE this fix touched it** — the
+current commitment-net −$136M rests on the same uncited estimate. NAT is **pending-correction-of-an-
+existing-error**, not pending-fix. **Direction is now uncertain**: the predicted +39% was computed
+off the same unsourced figures the verification rejected — if the real schedule (from NAT's FY2025
+20-F / a later filing) differs, NAT could move either way. NAT is in the **figure-provenance audit
+queue** (test_manifest_provenance: NB_FIGURE_ESTIMATE_QUEUE); it clears only once the commitment/
+advance are sourced to a citation. NOTHING was wired. (4th "authoritative-label-that-doesn't-trace"
+instance — see CLAUDE.md — which generalized the provenance guard to NAV figures.)
+
+---
+
 ## 2026-06-30T15:35:07+00:00 — Pipeline run (auto)
 
 **Model state:**

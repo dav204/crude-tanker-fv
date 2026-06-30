@@ -183,16 +183,22 @@ at lock-time, not per-run.**
 (Each is the distilled rule; the incident narrative lives in CHANGELOG.md +
 the named decision logs.)
 
-- **"(confirmed)" is not a citation — a verification CLAIM must trace to a resolvable
-  source** (2026-06-30, DHT). A manifest said the fleet was "100% scrubber-fitted
-  (confirmed)" while the cited 6-K said "scrubber" 0 times — a hollow claim that the word
-  *confirmed* made look settled. The bar for any "confirmed"/"verified" annotation is a
-  specific filing / note / broker / owner / dated reference; the word alone fails. Enforced
-  book-wide by `test_manifest_provenance.py` (general manifest-claim provenance); the
-  field-specific value guards (`test_scrubber_provenance`, `test_newbuild_convention`,
-  AGE0_BASIS) cover the flags/figures. This is the *third* "authoritative label that doesn't
-  trace" instance (xclusiv "resale" mislabel → crude age-0 → scrubber "confirmed"); treat any
-  asserted-but-uncited manifest claim as suspect until a guard covers its field.
+- **Any NAV-moving manifest field must resolve to a citation — "(confirmed)" and "~$170M"
+  both fail** (2026-06-30, DHT then NAT). The principle is field-general: a verification CLAIM
+  ("confirmed"/"verified") AND a value-moving FIGURE (commitment / advance / contract price)
+  must each trace to a specific filing / note / broker / owner / dated reference. **A tilde or
+  "[ESTIMATE]" is a RED, not data** — "present but uncited" fails identically to "absent",
+  because for a NAV-driver an uncited number silently drives a move while a missing one fails
+  loudly (DHT's hollow "(confirmed)"; NAT's "~$170M" commitment that traced to nothing and whose
+  "~$17M advance" the cash flow contradicted). Enforced by `test_manifest_provenance.py` (claims
+  + the `NB_FIGURE_ESTIMATE_QUEUE` figure-provenance queue); field-specific value guards
+  (`test_scrubber_provenance`, `test_newbuild_convention`, AGE0_BASIS) cover the flags. This is
+  the *fourth* "authoritative-label-that-doesn't-trace" instance (xclusiv "resale" → crude age-0
+  → scrubber "confirmed" → newbuild-figure estimate) — same root every time: the manifests
+  accreted assertions whose provenance was never mechanically enforced. **Before wiring a §9.6
+  on-curve fix, the name's commitment/advance must be OUT of the figure-provenance queue** (an
+  uncited commitment makes the on-curve NAV move "build on sand"). All 5 fixable convention-queue
+  names (NAT/STNG/TRMD/HAFN/ASC) were estimate-flagged — source each before wiring.
 - **Never type a market price from filing/report prose** (2026-06-10, TEN $44).
   Prices come from `prices_daily.yaml` (auto-fetched) or a dated quote source. A
   watchlist `current_price` NEVER moves without rebasing `consensus_pnav` /
