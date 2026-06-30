@@ -58,6 +58,50 @@ NAV_FIGURE_ESTIMATE_QUEUE = {"asc", "brut", "cmbt", "flng", "hafn", "nat", "stng
 # uncited share of a fleet is material.
 OPERATING_SCRUBBER_MATERIAL_PCT = 0.10
 
+# --- Verdict labeling (consolidated scorecard read) — verified 2026-06-30 ----------------------
+# The owner's three corrections to the verdict so the tiers DO their job and a skim can't misread:
+#   (1) a NAV-relative cycle read is not a trade signal; (2) GOVERNED-WIDE is not a junk drawer —
+#   each name's wideness maps to a resolution path; (3) a number derived off a CONTRADICTED figure
+#   is void, not just unverified. Each set was classified per name from the filings/decision logs
+#   and adversarially verified; the no-drift test asserts coverage so these can't silently rot.
+
+# Derived NAV + broker gap are VOID (not merely unverified): a NAV-driving figure is CONTRADICTED
+# by the name's OWN filing, so anything computed off it is known-suspect — struck in the verdict
+# like the FV, and the position direction is void too. NAT: the ~$17M advance is contradicted by
+# the Q1-2026 cash flow (+$38K inflow, no outflow); the ~$153M commitment ties to no disclosure
+# (nat_log.md). Verified UNIQUE among the 7 PROVISIONAL names (the other 6 are uncited, not disproven).
+NAV_DERIVED_VOID = {"NAT"}
+
+# Position relabel — a TRIM/SHORT (or rich) position that is NOT an actionable directional short:
+#   cycle-position : rich because §17 RONAV is through-cycle while price embeds the near-peak rate
+#                    (§12) — a NAV-relative read, not a trade signal. Crude AND product near peak.
+#   unreliable-read: an artifact of a newbuild-heavy / PV-haircut read that can't be trusted either
+#                    way (MPCC — the tanker method applied to a containership's forward-committed book).
+# Of the book's 8 TRIM/SHORT positions, ALL 8 are here or void — not one is a name-specific short.
+POSITION_CYCLE_RELABEL = {"DHT", "FRO", "ECO", "INSW", "ASC", "HAFN"}
+POSITION_UNRELIABLE = {"MPCC"}
+
+# Tier sub-reason — why the band is wide / why PROVISIONAL, and thus the resolution PATH. Surfaced
+# in the verdict's tier cell so GOVERNED-WIDE / PROVISIONAL aren't junk drawers.
+#   structural-class : dominant class has no clean resale market (LNG/container Group-B) — not resolvable w/o a new data regime
+#   newbuild-heavy   : justified leg can't price it (NAV PV-haircut vs strip full-year) — resolves only as hulls deliver
+#   pending-anchor   : a sleeve's mark is unsourced but SOURCEABLE now (Thread 1A) — resolvable
+#   mixed            : two of the above (TEN: structural LNGC sleeve + pending-anchor Handy/LR1)
+#   read-flips       : read flips cheap<->fair across the §17 bases — needs the §18.5 gate data
+#   void / uncited-figure / off-curve : the PROVISIONAL reasons (contradicted / uncited estimate / off the §9.6 curve)
+TIER_SUBREASON = {
+    "GSL": "structural-class", "CCEC": "structural-class", "FLNG": "structural-class",
+    "CMBT": "structural-class", "MPCC": "structural-class",
+    "CAPT": "newbuild-heavy",
+    "INSW": "pending-anchor",
+    "TEN": "mixed",
+    "CMDB": "read-flips", "GNK": "read-flips",
+    "NAT": "void",
+    "BRUT": "uncited-figure", "ASC": "uncited-figure", "HAFN": "uncited-figure",
+    "STNG": "uncited-figure", "TRMD": "uncited-figure",
+    "ECO": "off-curve",
+}
+
 
 def _structural_nb_names(inputs_dir: Path = INPUTS_DIR) -> set[str]:
     """Group-B newbuild names (no resale curve mark) — their commitment/advance figures are cited;

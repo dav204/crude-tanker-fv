@@ -35,7 +35,15 @@ from .normal_rates import (
     normal_rate_table,
     orderbook_crosscheck_table,
 )
-from .provenance import OPERATING_SCRUBBER_QUEUE, confidence_tier, is_handoff_ready
+from .provenance import (
+    NAV_DERIVED_VOID,
+    OPERATING_SCRUBBER_QUEUE,
+    POSITION_CYCLE_RELABEL,
+    POSITION_UNRELIABLE,
+    TIER_SUBREASON,
+    confidence_tier,
+    is_handoff_ready,
+)
 from .reconcile import APPROX_PNAV_TICKERS
 from .report import OUTPUTS_DIR
 
@@ -249,6 +257,69 @@ def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Va
     return out
 
 
+def _verdict_position(ticker: str, raw: str) -> str:
+    """Displayed position — a cycle-rich or unreliable read is relabeled away from TRIM/SHORT so a
+    skim can't read a NAV-relative cycle signal as a directional short (owner 2026-06-30, §12)."""
+    if ticker in POSITION_CYCLE_RELABEL:
+        return "rich · cycle position (not a short)"
+    if ticker in POSITION_UNRELIABLE:
+        return "unreliable read (not a short)"
+    return raw
+
+
+def _verdict_tier(ticker: str, tier: str) -> str:
+    """Tier cell + its sub-reason (the resolution path) + the PROVISIONAL gate mark."""
+    sub = TIER_SUBREASON.get(ticker)
+    return tier + (f" · {sub}" if sub else "") + (" ⛔" if tier == "PROVISIONAL" else "")
+
+
+def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation"], order: dict) -> None:
+    """The consolidated Verdict table — one row per name, the single handoff surface. Carries the
+    owner's three corrections: cycle-position relabel, tier sub-reasons, and voided derived numbers."""
+    longs = sorted(
+        r.ticker for r in rows
+        if r.confidence_tier == "VALIDATED-TIGHT" and r.read_hist == "cheap"
+        and valuation.get(r.ticker) and valuation[r.ticker].position.startswith("BUY")
+    )
+    n_wide = sum(1 for r in rows if r.confidence_tier == "GOVERNED-WIDE")
+    n_prov = sum(1 for r in rows if r.confidence_tier == "PROVISIONAL")
+    w("## Verdict — the consolidated read (one row per name)\n")
+    w("FV vs current price, position, and the broker-NAV bug-gate on the **same row** as the confidence "
+      "tier — **the single handoff surface** (per-gate detail is the matrix below, same file).\n")
+    w(f"**What this says about the opportunity set:** of {len(rows)} names, the validated-and-actionable-"
+      f"long surface is **{len(longs)} ({', '.join(longs)} — dry bulk, cheap on both NAV bases)**. "
+      f"{n_wide} are directional-only (GOVERNED-WIDE); {n_prov} are not yet trustworthy enough to act on "
+      f"(PROVISIONAL ⛔). TNK is VALIDATED-TIGHT and BUY but reads *rich* — a near-peak-earnings long, "
+      f"cycle-dependent, not a clean value long. And **every one of the book's TRIM/SHORT positions is "
+      f"cycle-position, unreliable-read, or void — not one is a name-specific short.** The thin actionable "
+      f"list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.\n")
+    w("**Reading the labels:** the tier cell carries a **sub-reason = resolution path** "
+      "(`structural-class` needs a new data regime; `pending-anchor` is sourceable now; `newbuild-heavy` "
+      "resolves as hulls deliver; `read-flips` needs the §18.5 gate data; `void` = a derived number rests "
+      "on a contradicted figure). A **`cycle position`** in Position is a NAV-relative read (§12), NOT a "
+      "directional short. A **void** row prints no derived numbers — they are known-suspect, not data.\n")
+    w("| Ticker | Sector | **Tier · why** | Price | Model FV | Upside | Position | NAV/sh | "
+      "Broker NAV | Gap | SANITY | Handoff |")
+    w("|---|---|---|--:|--:|--:|:--|--:|--:|--:|:--|:--|")
+    torder = {"VALIDATED-TIGHT": 0, "GOVERNED-WIDE": 1, "PROVISIONAL": 2}
+    for r in sorted(rows, key=lambda r: (torder.get(r.confidence_tier, 9), order.get(r.sector, 9), r.ticker)):
+        tier = _verdict_tier(r.ticker, r.confidence_tier)
+        ready = "ready" if is_handoff_ready(r.confidence_tier) else "**NO**"
+        v = valuation.get(r.ticker)
+        if v is None:
+            w(f"| {r.ticker} | {r.sector} | {tier} | — | — | — | — | — | — | — | — | {ready} |")
+            continue
+        if r.ticker in NAV_DERIVED_VOID:
+            w(f"| {r.ticker} | {r.sector} | {tier} | ${v.price:.2f} | _void_ | _void_ "
+              f"| _void — pending reconciliation_ | _void_ | _void_ | _void_ | _void_ | **NO** |")
+            continue
+        bn = (f"${v.broker_nav:.2f}" + (" (apx)" if v.approx else "")) if v.broker_nav else ("apx" if v.approx else "—")
+        gp = f"{v.gap_pct:+.0f}%" if v.gap_pct is not None else "—"
+        w(f"| {r.ticker} | {r.sector} | {tier} | ${v.price:.2f} | ${v.fv:.2f} | {v.upside_pct:+.0f}% "
+          f"| {_verdict_position(r.ticker, v.position)} | ${v.nav_ps:.2f} | {bn} | {gp} | {v.sanity} | {ready} |")
+    w("")
+
+
 def write_scorecard(
     rows: list[ScorecardRow],
     outputs_dir: Path = OUTPUTS_DIR,
@@ -261,28 +332,7 @@ def write_scorecard(
     w("# Book-wide scorecard (Thread 4)\n")
 
     if valuation:
-        w("## Verdict — the consolidated read (one row per name)\n")
-        w("FV vs current price, position, and the broker-NAV bug-gate on the **same row** as the "
-          "confidence tier. **This is the single handoff surface**: a downstream sizing decision "
-          "reads HERE — the per-gate validation detail is the matrix in the next section, same file. "
-          "A **PROVISIONAL** name is ⛔ **not handoff-ready** — do not pass its FV to a position call. "
-          "Crude `rich`/TRIM reads are cycle position, not shorts (§12); see the caveat below.\n")
-        w("| Ticker | Sector | **Tier** | Price | Model FV | Upside | Position | NAV/sh | "
-          "Broker NAV | Gap | SANITY | Handoff |")
-        w("|---|---|---|--:|--:|--:|:--|--:|--:|--:|:--|:--|")
-        torder = {"VALIDATED-TIGHT": 0, "GOVERNED-WIDE": 1, "PROVISIONAL": 2}
-        for r in sorted(rows, key=lambda r: (torder.get(r.confidence_tier, 9), order.get(r.sector, 9), r.ticker)):
-            tier = r.confidence_tier + (" ⛔" if r.confidence_tier == "PROVISIONAL" else "")
-            ready = "ready" if is_handoff_ready(r.confidence_tier) else "**NO**"
-            v = valuation.get(r.ticker)
-            if v is None:
-                w(f"| {r.ticker} | {r.sector} | {tier} | — | — | — | — | — | — | — | — | {ready} |")
-                continue
-            bn = (f"${v.broker_nav:.2f}" + (" (apx)" if v.approx else "")) if v.broker_nav else ("apx" if v.approx else "—")
-            gp = f"{v.gap_pct:+.0f}%" if v.gap_pct is not None else "—"
-            w(f"| {r.ticker} | {r.sector} | {tier} | ${v.price:.2f} | ${v.fv:.2f} | {v.upside_pct:+.0f}% "
-              f"| {v.position} | ${v.nav_ps:.2f} | {bn} | {gp} | {v.sanity} | {ready} |")
-        w("")
+        _write_verdict(w, rows, valuation, order)
         w("## Validation matrix — per-gate detail\n")
 
     w("Every covered name on ONE consistent, validated machine. **The product is the "

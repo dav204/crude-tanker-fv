@@ -246,6 +246,18 @@ the named decision logs.)
   OVERvalues; `governance_discount_pct` knob, applied at blend + strip terminal
   but NOT to `compute_nav`; TEN archetype). The haircut is judgmental — store it
   auditably per-name with a rationale.
+- **An output column must not encode a NAV-relative read as a trade signal**
+  (2026-06-30). The verdict's Position column printed "TRIM/SHORT" for crude/product
+  names that are rich only by §12 cycle position (RONAV is through-cycle while price
+  embeds the near-peak rate) — a skim reads the column, not the footnote, and shorts a
+  tanker into a cycle the model is bearish on *by construction*. The whole book's 8
+  TRIM/SHORT positions were cycle/unreliable/void — **zero** name-specific shorts. Rule:
+  a cycle-rich position is RELABELED ("rich · cycle position (not a short)"); a number
+  derived off a CONTRADICTED figure is VOIDED in the output, not just its FV (NAT's
+  NAV+gap rest on the contradicted $17M advance → print `void`); a "wide/provisional"
+  tier carries a **sub-reason = resolution path** so it isn't a junk drawer. Registry in
+  `provenance.py` (`POSITION_CYCLE_RELABEL`, `POSITION_UNRELIABLE`, `NAV_DERIVED_VOID`,
+  `TIER_SUBREASON`), no-drift-tested. The label, not just the number, must be un-misreadable.
 - **Don't back-solve validator marks to broker NAV** (2026-06-09, SBLK). A wide
   validator gap is a methodology question (transaction-anchor per §9.9, or accept
   as documented mark-driven), NOT a license to tune marks. See sblk_log.
