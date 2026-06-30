@@ -64,6 +64,7 @@ class ScorecardRow:
     gate_5a: str                   # pending / pass / reject / n-a
     gate_5b: str                   # pending / coincide / contradict / n-a
     verdict: str
+    governance_discount_pct: float = 0.0   # §15 haircut (>0 only TEN/CMDB); read is clean-NAV
 
 
 def _nav_basis_composite(classes: list[str], status: dict[str, str]) -> tuple[str, str]:
@@ -172,6 +173,7 @@ def compute_scorecard(quarter: str, inputs_dir: Path = INPUTS_DIR) -> list[Score
             verdict=_verdict(nav_basis, (jr.flag if jr else None),
                              (jr.robust if jr else "n/a"),
                              _parity_band_status(held, parity)),
+            governance_discount_pct=(jr.governance_discount_pct if jr else 0.0),
         ))
     return rows
 
@@ -217,6 +219,15 @@ def write_scorecard(rows: list[ScorecardRow], outputs_dir: Path = OUTPUTS_DIR) -
       "or orderbook ratios (§18.5b) in-repo; see `backtest/DATA_CONTRACT_NORMAL_RATES.md`. So no "
       "name is *fully* validated yet; the resale-uniform names are comparable and parity-banded, "
       "awaiting only the two data-gated gates.")
+    w("\n**Caveat — crude `rich` is cycle position, not a short.** Crude pure-plays read rich because "
+      "the §17 RONAV is through-cycle while price embeds the near-peak NTM rate (§12 NAT mechanism); "
+      "read the crude reads with cycle position, not as TRIM/SHORT calls.")
+    gov = [r for r in rows if r.governance_discount_pct > 0]
+    if gov:
+        names = ", ".join(f"{r.ticker} ({r.governance_discount_pct:.0%})" for r in sorted(gov, key=lambda r: r.ticker))
+        w(f"\n**§15 governance dual-read:** {names} carry a realisation haircut applied downstream "
+          "(blend + strip terminal), NOT in the clean-NAV reads above — their reads are clean-basis; "
+          "the haircut basis scales NAV/FV by (1 − haircut).")
     flagged = [r for r in rows if r.nav_basis != "resale-uniform"]
     if flagged:
         w("\n**NAV-basis-flagged (not yet comparable to the resale-uniform set):**")

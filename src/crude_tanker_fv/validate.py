@@ -24,8 +24,14 @@ def validate_inputs(inputs: CompanyInputs) -> list[str]:
     warnings: list[str] = []
     md = inputs.market_data
     means = md.historical_tce_means
+    # Gate per-class market-data warnings to the classes THIS name actually holds — the
+    # market_data dicts are global/all-sector, so without this a VLCC crude spot-spike
+    # surfaces on a dry-bulk report (the cross-sector warning leak, Thread 6).
+    held = {v.cls for v in inputs.fleet.vessels}
 
     for cls, spot in md.spot_tce.items():
+        if cls not in held:
+            continue
         mean = means.get(cls)
         if spot is not None and spot <= 0:
             warnings.append(f"spot TCE {cls}: non-positive ({spot}).")
@@ -37,6 +43,8 @@ def validate_inputs(inputs: CompanyInputs) -> list[str]:
             )
 
     for cls, curve in md.ffa_forward_curve.items():
+        if cls not in held:
+            continue
         mean = means.get(cls)
         for q, v in enumerate(curve, 1):
             if v is None:
@@ -49,6 +57,8 @@ def validate_inputs(inputs: CompanyInputs) -> list[str]:
                 )
 
     for cls, tc in md.twelve_month_tc.items():
+        if cls not in held:
+            continue
         mean = means.get(cls)
         if tc is not None and tc <= 0:
             warnings.append(f"12M TC {cls}: non-positive ({tc}).")
@@ -58,6 +68,8 @@ def validate_inputs(inputs: CompanyInputs) -> list[str]:
             )
 
     for cls, mean in means.items():
+        if cls not in held:
+            continue
         if mean is not None and mean <= 0:
             warnings.append(f"historical mean TCE {cls}: non-positive ({mean}).")
 

@@ -208,6 +208,9 @@ class JustifiedPnavRow:
     justified_pnav_hist: Optional[float]
     gap_hist: Optional[float]
     flag_hist: Optional[str]
+    # §15 governance realisation haircut — applied at the blend layer + strip terminal, NOT in
+    # this leg (which uses CLEAN marked NAV). >0 only for TEN/CMDB. Surfaced for the dual-read.
+    governance_discount_pct: float = 0.0
 
     @property
     def read(self) -> str:
@@ -332,7 +335,8 @@ def compute_justified_pnav_rows(
         r = COST_OF_EQUITY
         # Vintage price, same convention as consensus_eps (deterministic; tool-NAV based).
         price = float(entry.get("as_of_price") or entry["current_price"])
-        nav = compute_nav(ci).nav_per_share
+        nav_res = compute_nav(ci)
+        nav = nav_res.nav_per_share
         has_cost = bool(ci.cost_structure.opex_per_day)
         nb_share = _newbuild_value_share(ci)
 
@@ -369,6 +373,7 @@ def compute_justified_pnav_rows(
             justified_pnav_hist=hist.justified_pnav,
             gap_hist=hist.gap,
             flag_hist=hist.flag,
+            governance_discount_pct=nav_res.governance_discount_pct,
         ))
     return rows
 
@@ -376,20 +381,28 @@ def compute_justified_pnav_rows(
 # ---------------------------------------------------------------------------
 # Summaries
 # ---------------------------------------------------------------------------
+# Sectors whose medians compose into the headline subsector vector (METHODOLOGY §10).
+# crude/product/dry_bulk anchors compose; LNG (spike-inclusive, §18.2) and containerships
+# (fy_calendar_avg, boom-tilted) do NOT — they are SUPPRESSED from the headline vector
+# (their per-name rows are retained in the table above). Per-name reads still stand.
+HEADLINE_VECTOR_SECTORS = frozenset({"crude", "product", "dry_bulk"})
+
+
 def subsector_median_pnav(rows: list[JustifiedPnavRow]) -> dict[str, float]:
-    """Median Justified P/NAV by sector (parity basis, valid rows) — headline artifact."""
+    """Median Justified P/NAV by sector (parity basis, valid + composable rows) — headline."""
     by_sector: dict[str, list[float]] = {}
     for r in rows:
-        if r.justified_pnav is not None:
+        if r.justified_pnav is not None and r.sector in HEADLINE_VECTOR_SECTORS:
             by_sector.setdefault(r.sector, []).append(r.justified_pnav)
     return {s: median(v) for s, v in by_sector.items() if v}
 
 
 def subsector_median_pnav_hist(rows: list[JustifiedPnavRow]) -> dict[str, float]:
-    """Median Justified P/NAV by sector on the historical_mean cross-check basis."""
+    """Median Justified P/NAV by sector on the historical_mean cross-check basis. LNG +
+    containerships are suppressed (non-composable, §10/§18.2) — same headline-vector filter."""
     by_sector: dict[str, list[float]] = {}
     for r in rows:
-        if r.justified_pnav_hist is not None:
+        if r.justified_pnav_hist is not None and r.sector in HEADLINE_VECTOR_SECTORS:
             by_sector.setdefault(r.sector, []).append(r.justified_pnav_hist)
     return {s: median(v) for s, v in by_sector.items() if v}
 
@@ -470,6 +483,11 @@ def write_justified_pnav(
       "upper bound, not a real target**; (3) NAV dwt-scales per vessel but strip revenue is "
       "per-class count-based, so large-hull dry-bulk names (SB, CMBT) are biased toward 'rich' "
       "(partially offsetting (1)).\n")
+    w("**A crude name reading `rich` near a cycle peak is cycle POSITION, not a short signal.** "
+      "RONAV_norm is pinned to a through-cycle anchor while the market price embeds the hot near-peak "
+      "NTM rate, so a crude pure-play at/near peak (DHT/FRO/ECO/NAT) reads `rich` BY CONSTRUCTION "
+      "(the §12 NAT mechanism) — it says where in the cycle the name sits, not TRIM/SHORT. Read the "
+      "crude `rich` column together with the cycle position, never as a standalone call.\n")
     w("**Not in the headline FV** (diagnostic only); whether justified-P/NAV ranking predicts "
       "forward returns is a separate pre-registered study.\n")
 
@@ -506,6 +524,10 @@ def write_justified_pnav(
       "replacement economics than under its (boom/firm-window-biased) historical anchor — the §18 "
       "under-ordering. The §17.6 anchor-bias caveats apply to the historical column only; parity is "
       "independent of those biases (it is built from newbuild cost, not a rate-history window)._\n")
+    w("\n_The headline vector covers the COMPOSABLE sectors only (crude / product / dry_bulk). "
+      "**LNG and containership medians are suppressed** as non-composable (§10: containerships on "
+      "`fy_calendar_avg`, LNG spike-inclusive) — their per-name reads remain in the table above but "
+      "do not roll into a cross-sector median._\n")
 
     bases = _sector_base_ronav(rows)
     w("\n## Sensitivity grids — Justified P/NAV across g × RONAV_norm "
@@ -535,6 +557,16 @@ def write_justified_pnav(
       "EPS`, `sub-growth returns` (RONAV_norm < g ⇒ P/NAV* unstable). Flagged rows carry no "
       "multiple. Names with a sub-threshold newbuild program (e.g. FRO ~17%) compute but carry "
       "a mild residual upward RONAV bias. Per-subsector `r` is a documented v2 extension._\n")
+
+    gov_rows = [r for r in rows if r.governance_discount_pct > 0]
+    if gov_rows:
+        names = ", ".join(f"{r.ticker} ({r.governance_discount_pct:.0%})"
+                          for r in sorted(gov_rows, key=lambda r: r.ticker))
+        w("\n_**§15 governance dual-read.** " + names + " carry a realisation haircut applied at the "
+          "blend layer + dividend-strip terminal but NOT in this leg, which uses CLEAN marked NAV by "
+          "design. So the P/NAV* and Justified FV above are the **clean-NAV** reads; the **haircut "
+          "basis** scales NAV — and Justified FV — by (1 − haircut) and lifts P/NAV(mkt) by the same "
+          "factor (e.g. a 30% haircut ⇒ FV × 0.70, P/NAV(mkt) ÷ 0.70). Read these two names on both._\n")
 
     md_path = outputs_dir / "justified_pnav.md"
     md_path.write_text("\n".join(out))

@@ -239,9 +239,12 @@ def test_subsector_medians_parity_only_validated_sectors():
         assert s in med and med[s] > 0
     for s in ("product", "lng", "containerships"):
         assert s not in med
-    # Historical exists for all sectors (the §5b-independent floor).
-    for s in ("crude", "product", "lng", "dry_bulk", "containerships"):
+    # Headline historical vector covers only the COMPOSABLE sectors; LNG + containerships
+    # are suppressed (non-composable, §10/§18.2). Per-name rows are retained in the table.
+    for s in ("crude", "product", "dry_bulk"):
         assert s in med_h and med_h[s] > 0
+    for s in ("lng", "containerships"):
+        assert s not in med_h
     # The §18 signal: dry-bulk reads cheaper under replacement parity than its firm-window anchor.
     assert med["dry_bulk"] > med_h["dry_bulk"]
 
