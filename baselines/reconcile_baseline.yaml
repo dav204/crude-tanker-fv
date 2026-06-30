@@ -2,11 +2,10 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-06-29T23:45:25+00:00'
-  ratified_commit: f717a4b
+  ratified_at: '2026-06-30T13:41:38+00:00'
+  ratified_commit: a82c896
   quarter: 2026-Q1
-  cause: 'Amendment B: revert crude age-0 to xclusiv Resale line (Thread-1 used the 5yr value); dry-bulk
-    holds; basis locked age-0=xclusiv Resale, mid-age=transaction prints'
+  cause: 'Newbuild §9.6 on-curve convention: SB+SBLK (SB eco-only +1.6% scrubber-verified, SBLK +9.0%)'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -126,17 +125,17 @@ names:
     sector: crude
   SB:
     pnav_basis: approx
-    ev_pct: 52.03
-    tool_nav: 10.31
+    ev_pct: 56.77
+    tool_nav: 10.47
     position_band: BUY (undervalued)
-    k_broker: 0.77
+    k_broker: 0.81
     sector: dry_bulk
   SBLK:
     pnav_basis: pareto
-    ev_pct: 5.82
-    tool_nav: 26.91
+    ev_pct: 15.12
+    tool_nav: 29.34
     position_band: BUY (undervalued)
-    k_broker: 1.09
+    k_broker: 1.02
     sector: dry_bulk
   STNG:
     pnav_basis: pareto
