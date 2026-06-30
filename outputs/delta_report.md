@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-06-30T17:38:24+00:00
-- **Previous run:** 2026-06-30T17:32:36+00:00
+- **This run:** 2026-06-30T17:56:31+00:00
+- **Previous run:** 2026-06-30T17:38:24+00:00
 
 ## Headline changes (material moves)
 
