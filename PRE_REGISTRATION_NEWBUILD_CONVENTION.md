@@ -179,3 +179,40 @@ curve/mark/scenario change). If any other name's NAV moves → halt and investig
    newbuild-convention (~flat). Net: SB modestly less cheap than pre-Thread-1, still
    robustly cheap on both bases. State the combined effect explicitly in the scorecard.
 6. PAUSE for owner review before re-ratify (separate attributable step).
+
+---
+
+## AMENDMENT 3 — CAPT scrubber over-broad correction (Tier-1 verification result)
+
+**Registered AHEAD of the VLCC/LR2 recompute.** The Aframax slice landed via PR #3
+(`AFRA_2018`, scrubber=false, merged). This registers the remaining slice.
+
+**Finding (adversarially verified vs CAPT's own sources — Pareto initiation 2026-04-20
+per-vessel ledger + Euronext Information Document §7.3.2 + Q1-2026 earnings release):** CAPT's
+blanket `scrubber=true` was OVER-BROAD. Verified split is **18 of 30 scrubber-fitted (~60%)**:
+VLCC 6/12, Suezmax 10/10, Aframax 0/4, LR2 2/4. The 12 LNG-dual-fuel vessels carry NO scrubber.
+
+**Manifest correction (the VLCC/LR2 slice; Aframax 0/4 already done in PR #3):**
+- `VLCC_nb_2027` (count 7, scrubber true) → 3 scrubber-true + 4 LNG-only (scrubber false).
+- `VLCC_nb_2028` (count 4, scrubber true) → 2 scrubber-true + 2 LNG-only (scrubber false).
+- `LR2_2026` (count 2, scrubber true, on-water) → scrubber false (Androklos/Athinagoras LNG-only).
+8 vessels (6 VLCC + 2 LR2) lose the fabricated scrubber premium.
+
+**Predicted NAV — ON THE ANCHORED (HEADLINE) BASIS** (process fix: `compute_nav` on raw inputs
+is UN-ANCHORED; the headline/drift-gate uses `use_transaction_anchored` default-on):
+
+| Slice | Anchored (headline) | Un-anchored (diagnostic) |
+|---|---|---|
+| Aframax (PR #3, merged) | +0.08% | −0.27% |
+| VLCC/LR2 (this slice) | −0.71% | −0.70% |
+| **Combined CAPT** | **−0.63% (−$0.099/sh)** | −0.97% |
+
+The Aframax sign flips between bases (anchoring steepens the Aframax 10yr leg $68M→$61M); the
+VLCC/LR2 slice agrees on both (flat scrubber premium). **Re-ratify keys off the anchored −0.63%.**
+
+**Registry + guard:** CAPT → `scrubber: mixed`, `scrubber_nb_count: 13` (NB scrubber-fitted:
+5 VLCC + 8 Suezmax), `scrubber_verified: true`, sourced to the ledger. The provenance guard gains
+a mixed-name branch (NB scrubber COUNT must match the registered count — the contradiction check
+for non-uniform names). CAPT clears the scrubber-verification queue (BRUT/CAPT/FRO all verified).
+
+**Gate:** only CAPT moves; SANITY OK; combined −0.63% annotated + re-ratified once.
