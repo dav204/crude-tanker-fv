@@ -79,72 +79,80 @@ import re as _re  # noqa: E402
 
 import yaml as _yaml  # noqa: E402
 
-_ESTIMATE_RE = _re.compile(
-    r"~|\bapprox\b|\[est|estimate|\bassumed\b|\btypical\b|placeholder|~equal", _re.IGNORECASE
+# Every term in the NAV equation (nav.py compute_nav): NAV = fleet − debt − leases − commitment
+# + advances + cash + working_capital − preferred + shuttle. "NAV-moving" is the guard's scope
+# criterion (the owner's clean line: in the NAV equation -> must trace; not in it -> benign).
+_NAV_FIELDS = (
+    "total_debt", "cash_and_equivalents", "working_capital_net", "lease_liabilities",
+    "newbuild_capex_commitments", "newbuild_advances_paid", "preferred_equity",
+    "shuttle_contracted_book",
 )
-_MONEY_RE = _re.compile(
-    r"\$\s?[\d,]+|\b\d+(?:\.\d+)?\s?(?:M\b|bn\b|million|billion)|\b\d{6,}\b"
-)
+# Context for each half of the equation. Newbuild lines are scanned with a broad estimate marker
+# (bare "~" included — validated clean there); the OTHER NAV fields (debt/cash/leases/preferred/
+# working-capital/shuttle) use an EXPLICIT keyword only, because their comments carry derivations
+# and asides where a bare "~" is not an admission of non-provenance (e.g. "~$34.2M gain" next to an
+# exactly-derived working-capital figure).
 _NB_CTX_RE = _re.compile(r"newbuild|under construction|commitment|advance|instal|capex|\bnb\b", _re.IGNORECASE)
+_OTHER_NAV_CTX_RE = _re.compile(
+    r"\bdebt\b|\bcash\b|working capital|\blease|preferred|shuttle|\bNIBD\b|liquidit|"
+    r"liabilit|payable|receivable|deposit",
+    _re.IGNORECASE,
+)
+_ESTIMATE_RE = _re.compile(r"~|\bapprox\b|\[est|estimate|\bassumed\b|\btypical\b|placeholder|~equal", _re.IGNORECASE)
+_KEYWORD_RE = _re.compile(r"\bapprox\b|\[est|\bestimated\b|\bassumed\b|placeholder|\bguess\b", _re.IGNORECASE)
+_MONEY_RE = _re.compile(r"\$\s?[\d,]+|\b\d+(?:\.\d+)?\s?(?:M\b|bn\b|million|billion)|\b\d{6,}\b")
 
-# Names whose §9.6 newbuild commitment/advance figures are estimate-flagged and NOT cited —
-# the figure-provenance audit queue. Each clears ONLY by sourcing the real figure (filing /
-# 20-F note / dated disclosure) and removing the estimate marker. xfail-strict so a name
-# can't leave by deleting the figure either. THIS GATES THE CONVENTION QUEUE: a name here has
-# an unsourced commitment, so wiring its newbuilds on-curve (§9.6) would build the NAV move on
-# an uncited number — pending-data until sourced.
-NB_FIGURE_ESTIMATE_QUEUE = {
-    "asc", "brut", "cmbt", "hafn", "nat", "stng", "ten", "trmd",
+# Names with an estimate-flagged, uncited NAV-equation figure — the figure-provenance audit queue.
+# Each clears ONLY by sourcing the figure (estimate marker gone, citation present). xfail-strict so
+# a name can't leave by deleting the figure. THIS GATES THE CONVENTION QUEUE: a name here has an
+# uncited NAV-driver, so wiring its newbuilds on-curve (§9.6) would build the move on sand.
+NAV_FIGURE_ESTIMATE_QUEUE = {
+    "asc", "brut", "cmbt", "flng", "hafn", "nat", "stng", "ten", "trmd",
 }
 
 
-def _nb_figure_estimate_flagged(path: str) -> bool:
+def _nav_figure_estimate_flagged(path: str) -> bool:
+    """A NAV-equation figure declared an estimate without a resolvable citation. Newbuild context:
+    any estimate marker (incl. bare "~"). Other NAV fields (debt/cash/…): EXPLICIT keyword only
+    (APPROX/[ESTIMATE]/estimated/assumed) — precise against derivations/asides."""
     doc = _yaml.safe_load(open(path))
-    if not (doc.get("newbuild_capex_commitments") or doc.get("newbuild_advances_paid")):
-        return False
+    has_nb = bool(doc.get("newbuild_capex_commitments") or doc.get("newbuild_advances_paid"))
     for line in open(path, encoding="utf-8"):
-        if (
-            _NB_CTX_RE.search(line)
-            and _ESTIMATE_RE.search(line)
-            and _MONEY_RE.search(line)
-            and not CITATION_RE.search(line)
-        ):
-            return True
+        if _MONEY_RE.search(line) and not CITATION_RE.search(line):
+            if has_nb and _NB_CTX_RE.search(line) and _ESTIMATE_RE.search(line):
+                return True
+            if _OTHER_NAV_CTX_RE.search(line) and _KEYWORD_RE.search(line):
+                return True
     return False
 
 
-def _nb_balance_sheets():
-    out = {}
-    for p in sorted(_glob.glob("inputs/balance_sheets/*.yaml")):
-        doc = _yaml.safe_load(open(p))
-        if doc.get("newbuild_capex_commitments") or doc.get("newbuild_advances_paid"):
-            out[p.split("/")[-1].replace("_2026-Q1.yaml", "")] = p
-    return out
+def _nav_balance_sheets():
+    return {p.split("/")[-1].replace("_2026-Q1.yaml", ""): p for p in sorted(_glob.glob("inputs/balance_sheets/*.yaml"))}
 
 
-def test_every_estimate_flagged_newbuild_figure_is_queued():
-    """Enumeration: a name whose newbuild commitment/advance is an uncited estimate must be in
-    the figure-provenance queue. A NEW such name (the next NAT) hard-fails until placed — so an
-    unsourced NAV-driver can never silently enter the on-curve §9.6 wiring."""
-    for name, path in _nb_balance_sheets().items():
-        if _nb_figure_estimate_flagged(path):
-            assert name in NB_FIGURE_ESTIMATE_QUEUE, (
-                f"{name}: newbuild commitment/advance is an uncited estimate (tilde/[ESTIMATE]) but "
-                f"is not in NB_FIGURE_ESTIMATE_QUEUE — source the figure to a citation, or queue it; "
-                f"a NAV-driving figure may not rest on '~'."
+def test_every_estimate_flagged_nav_figure_is_queued():
+    """Enumeration: a name with an uncited estimate on ANY NAV-equation field (commitment, advance,
+    debt, cash, working capital, …) must be in the queue. A NEW such name (the next NAT) hard-fails
+    until placed — so an uncited NAV-driver can never silently enter the model."""
+    for name, path in _nav_balance_sheets().items():
+        if _nav_figure_estimate_flagged(path):
+            assert name in NAV_FIGURE_ESTIMATE_QUEUE, (
+                f"{name}: a NAV-equation figure is an uncited estimate (APPROX/[ESTIMATE]/tilde) but "
+                f"is not in NAV_FIGURE_ESTIMATE_QUEUE — source it to a citation, or queue it. A figure "
+                f"in the NAV equation may not rest on an estimate marker."
             )
 
 
 def _figq_param(name: str):
-    return pytest.param(name, marks=pytest.mark.xfail(strict=True, reason=f"{name}: newbuild figure uncited estimate"))
+    return pytest.param(name, marks=pytest.mark.xfail(strict=True, reason=f"{name}: NAV figure uncited estimate"))
 
 
-@pytest.mark.parametrize("name", [_figq_param(n) for n in sorted(NB_FIGURE_ESTIMATE_QUEUE)])
-def test_newbuild_figure_sourced(name):
+@pytest.mark.parametrize("name", [_figq_param(n) for n in sorted(NAV_FIGURE_ESTIMATE_QUEUE)])
+def test_nav_figure_sourced(name):
     """xfail-strict figure-provenance queue. Clears ONLY by sourcing the figure (estimate marker
-    gone, citation present) — a strict xpass if a queued name is cleared by removing the marker
-    or the figure, so the queue can't be emptied by hiding the tilde."""
-    bs = _nb_balance_sheets()
-    assert name in bs and not _nb_figure_estimate_flagged(bs[name]), (
-        f"{name}: newbuild commitment/advance still an uncited estimate (figure-provenance queue)."
+    gone, citation present) — a strict xpass if cleared by removing the marker or the figure, so
+    the queue can't be emptied by hiding the tilde."""
+    bs = _nav_balance_sheets()
+    assert name in bs and not _nav_figure_estimate_flagged(bs[name]), (
+        f"{name}: a NAV-equation figure is still an uncited estimate (figure-provenance queue)."
     )
