@@ -187,3 +187,174 @@ def normal_rate_table(
         )
         out[cls] = NormalRate(cls, par, hist.get(cls))
     return out
+
+
+# ===========================================================================
+# §18.5a — mean-reversion gate (Thread 3). DATA-GATED.
+# Validates the historical_mean anchor. Needs a REAL $/day Baltic TC series
+# (inputs/market_data/baltic_tce_series.yaml). REGISTERED-PENDING until provided —
+# see backtest/DATA_CONTRACT_NORMAL_RATES.md. The in-repo baltic_indexes_daily.csv
+# is INDEX-POINT (§11.7.2), insufficient; NEVER scale it to $/day. No proxy.
+# ===========================================================================
+
+# Registered gate parameters (PRE_REGISTRATION_NORMAL_RATES.md §5a).
+MR_GATE_HORIZON_Q = 4        # quarters ahead for the "subsequent realized-rate change"
+MR_GATE_MIN_OBS = 12         # <12 quarterly observations ⇒ "insufficient", never a pass/reject
+MR_GATE_PASS_RATE = 0.70     # sign-consistency threshold; below ⇒ the anchor is REJECTED
+MR_WINSOR_LO, MR_WINSOR_HI = 0.05, 0.95
+
+
+def winsorize(values: list[float], lo: float = MR_WINSOR_LO, hi: float = MR_WINSOR_HI) -> list[float]:
+    """Clamp to the [lo, hi] empirical percentiles (5/95 registered)."""
+    if not values:
+        return []
+    s = sorted(values)
+    n = len(s)
+    lo_v = s[min(n - 1, int(lo * (n - 1)))]
+    hi_v = s[min(n - 1, int(hi * (n - 1)))]
+    return [min(max(v, lo_v), hi_v) for v in values]
+
+
+@dataclass
+class MeanReversionVerdict:
+    """§18.5a verdict for one class's historical_mean anchor."""
+
+    cls: str
+    status: str                       # pass | reject | insufficient | pending
+    hit_rate: Optional[float] = None
+    n_obs: Optional[int] = None
+    anchor: Optional[float] = None
+
+
+def mean_reversion_gate(
+    cls: str,
+    series: list[float],
+    horizon_q: int = MR_GATE_HORIZON_Q,
+    min_obs: int = MR_GATE_MIN_OBS,
+    pass_rate: float = MR_GATE_PASS_RATE,
+) -> MeanReversionVerdict:
+    """Registered §5a gate. ``series``: quarterly REAL (inflation-adjusted) $/day TC,
+    oldest-first. Anchor = 5/95-winsorized median of the series. For each quarter t
+    with t+horizon in range, the ratio ``series[t] / anchor`` predicts the SIGN of the
+    forward realized change (ratio > 1 ⇒ rate falls; < 1 ⇒ rises). Pass = sign-consistent
+    in ≥ ``pass_rate`` of ≥ ``min_obs`` observations; below ⇒ the anchor is REJECTED."""
+    if len(series) <= horizon_q:
+        return MeanReversionVerdict(cls, "insufficient", None, 0, None)
+    anchor = median(winsorize(series))
+    hits = n = 0
+    for t in range(len(series) - horizon_q):
+        ratio = series[t] / anchor if anchor else 1.0
+        realized = series[t + horizon_q] - series[t]
+        if ratio == 1.0 or realized == 0:
+            continue                      # no directional prediction / no realized change
+        predicted_fall = ratio > 1.0
+        hits += 1 if (predicted_fall and realized < 0) or (not predicted_fall and realized > 0) else 0
+        n += 1
+    if n < min_obs:
+        return MeanReversionVerdict(cls, "insufficient", (hits / n if n else None), n, anchor)
+    hr = hits / n
+    return MeanReversionVerdict(cls, "pass" if hr >= pass_rate else "reject", hr, n, anchor)
+
+
+def load_baltic_tce_series(inputs_dir: Path = INPUTS_DIR) -> dict[str, list[float]]:
+    """Real $/day Baltic TC series per class (oldest-first), or {} if the file is
+    absent — REGISTERED-PENDING. NEVER synthesised from baltic_indexes_daily.csv."""
+    path = inputs_dir / "market_data" / "baltic_tce_series.yaml"
+    if not path.exists():
+        return {}
+    doc = yaml.safe_load(open(path)) or {}
+    series = doc.get("series") or {}
+    return {k: [float(x) for x in v] for k, v in series.items() if v}
+
+
+def mean_reversion_gate_table(
+    quarter: str, classes, inputs_dir: Path = INPUTS_DIR
+) -> dict[str, MeanReversionVerdict]:
+    """Run §5a per class IF the Baltic $/day series is present; else every class is
+    'pending' (no crash, no proxy). When a class REJECTS, its historical_mean is
+    unvalidated and consumers should treat that basis as flagged (drop to None)."""
+    series_by_class = load_baltic_tce_series(inputs_dir)
+    out: dict[str, MeanReversionVerdict] = {}
+    for cls in classes:
+        s = series_by_class.get(cls)
+        out[cls] = mean_reversion_gate(cls, s) if s else MeanReversionVerdict(cls, "pending")
+    return out
+
+
+# ===========================================================================
+# §18.5b — orderbook cross-check (Thread 5). DATA-GATED.
+# Breaks the parity circularity: "historical < parity ⇒ under-ordered" is only
+# validated when an INDEPENDENT orderbook-to-fleet ratio confirms a thin book.
+# Needs inputs/market_data/orderbook_ratios.yaml. REGISTERED-PENDING until provided.
+# NEVER estimate orderbook ratios from memory. A contradiction flags the parity INPUT.
+# ===========================================================================
+
+OB_BALANCED_BAND = 0.20      # ±20% around the neutral (replacement-rate) OB level ⇒ "balanced"
+OB_DIVERGENCE_TOL = 0.05     # |divergence / parity| < 5% ⇒ "balanced" divergence
+
+
+@dataclass
+class OrderbookVerdict:
+    """§18.5b verdict: does the divergence sign coincide with the orderbook signal?"""
+
+    cls: str
+    status: str                       # coincide | contradict | pending
+    divergence_signal: Optional[int] = None    # -1 under-ordered / 0 balanced / +1 over-ordered
+    orderbook_signal: Optional[int] = None      # -1 thin / 0 balanced / +1 thick
+    note: str = ""
+
+
+def orderbook_crosscheck(
+    cls: str,
+    divergence_pct: Optional[float],
+    orderbook_ratio: Optional[float],
+    neutral_ratio: Optional[float],
+    band: float = OB_BALANCED_BAND,
+    div_tol: float = OB_DIVERGENCE_TOL,
+) -> OrderbookVerdict:
+    """Registered §5b. ``divergence_pct`` = (historical_mean − parity)/parity (< 0 ⇒
+    under-ordered). ``orderbook_ratio`` = orderbook ÷ fleet; ``neutral_ratio`` = the
+    balanced (replacement-rate) OB level. The SIGN of the divergence must coincide with
+    the orderbook signal (under-ordered ⇒ thin book; over-ordered ⇒ thick). A
+    contradiction flags the parity INPUT, not the output."""
+    if divergence_pct is None or orderbook_ratio is None or not neutral_ratio:
+        return OrderbookVerdict(cls, "pending")
+    div_sig = -1 if divergence_pct < -div_tol else (1 if divergence_pct > div_tol else 0)
+    ob_sig = (
+        -1 if orderbook_ratio < neutral_ratio * (1 - band)
+        else 1 if orderbook_ratio > neutral_ratio * (1 + band)
+        else 0
+    )
+    if div_sig == ob_sig:
+        return OrderbookVerdict(cls, "coincide", div_sig, ob_sig)
+    return OrderbookVerdict(
+        cls, "contradict", div_sig, ob_sig,
+        note="divergence sign vs orderbook signal disagree — investigate the parity INPUT (§5b)",
+    )
+
+
+def load_orderbook_ratios(inputs_dir: Path = INPUTS_DIR) -> dict[str, dict]:
+    """Independent OB-to-fleet ratio + neutral level per class, or {} if absent —
+    REGISTERED-PENDING. Each class: {ratio, neutral, date, source}. NEVER estimated."""
+    path = inputs_dir / "market_data" / "orderbook_ratios.yaml"
+    if not path.exists():
+        return {}
+    doc = yaml.safe_load(open(path)) or {}
+    return doc.get("orderbook") or {}
+
+
+def orderbook_crosscheck_table(
+    quarter: str, classes, wacc: float = WACC_DEFAULT, inputs_dir: Path = INPUTS_DIR
+) -> dict[str, OrderbookVerdict]:
+    """Run §5b per class IF the orderbook ratios are present; else 'pending'."""
+    ratios = load_orderbook_ratios(inputs_dir)
+    table = normal_rate_table(quarter, list(classes), wacc, inputs_dir)
+    out: dict[str, OrderbookVerdict] = {}
+    for cls in classes:
+        ob = ratios.get(cls)
+        dp = table[cls].divergence_pct
+        out[cls] = (
+            orderbook_crosscheck(cls, dp, ob.get("ratio"), ob.get("neutral"))
+            if ob and dp is not None else OrderbookVerdict(cls, "pending")
+        )
+    return out
