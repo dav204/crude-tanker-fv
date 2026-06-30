@@ -88,7 +88,53 @@ def test_write_scorecard_emits_matrix(tmp_path, rows):
     path = write_scorecard(rows, outputs_dir=tmp_path)
     text = path.read_text()
     assert path.name == "book_scorecard.md"
-    assert "Book-wide validation scorecard" in text
+    assert "Book-wide scorecard" in text
     assert "comparability boundary" in text
     assert "registered-PENDING" in text
     assert "| DHT |" in text and "| SB |" in text
+    # No valuation passed ⇒ validation-only, no verdict section (backward compatible).
+    assert "Verdict — the consolidated read" not in text
+
+
+def test_valuation_index_uses_whole_company_spine_for_hybrids():
+    """Regression: a hybrid (INSW) renders as a single SLEEVE in fv_reports with a sleeve-allocated
+    price/NAV. The verdict MUST take price/NAV/position from the scenario spine (whole company),
+    matching the delta-report headline — never the sleeve. Caught 2026-06-30."""
+    from types import SimpleNamespace as NS
+
+    from crude_tanker_fv.scorecard import valuation_index
+
+    fv = [NS(ticker="INSW", blended=NS(fair_value_per_share=38.63),
+             nav=NS(nav_per_share=34.97), current_price=50.91)]            # crude SLEEVE
+    sc = [NS(ticker="INSW", current_price=77.81, base_nav_per_share=52.59,  # WHOLE company
+             position_recommendation="TRIM/SHORT (overvalued)")]
+    bk = [NS(ticker="INSW", consensus_pnav=0.98)]
+    v = valuation_index(fv, sc, bk)["INSW"]
+    assert v.price == 77.81 and v.nav_ps == 52.59          # whole-company spine, not the sleeve
+    assert v.fv == 38.63                                   # single-point FV from the CompanyReport
+    assert v.position == "TRIM/SHORT (overvalued)"
+
+
+def test_write_scorecard_emits_consolidated_verdict_when_valuation_present(tmp_path, rows):
+    """With the valuation join, ONE file carries the verdict (FV-vs-price + position + broker NAV)
+    above the validation matrix — the single handoff surface. A PROVISIONAL name is flagged NO."""
+    from crude_tanker_fv.scorecard import _Valuation
+
+    val = {
+        r.ticker: _Valuation(
+            price=10.0, fv=12.0, upside_pct=20.0, position="BUY (undervalued)",
+            nav_ps=11.0, broker_nav=11.5, gap_pct=-4.3, sanity="OK",
+            approx=(r.ticker in {"SB", "NAT"}),
+        )
+        for r in rows
+    }
+    path = write_scorecard(rows, outputs_dir=tmp_path, valuation=val)
+    text = path.read_text()
+    assert "Verdict — the consolidated read" in text
+    assert "single handoff surface" in text
+    assert "Validation matrix — per-gate detail" in text          # the detail still ships, same file
+    assert "| Ticker | Sector | **Tier** | Price | Model FV |" in text
+    # every PROVISIONAL name is flagged not-handoff-ready in the verdict
+    for r in rows:
+        if r.confidence_tier == "PROVISIONAL":
+            assert "⛔" in text

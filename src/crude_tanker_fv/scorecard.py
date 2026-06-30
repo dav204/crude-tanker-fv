@@ -35,7 +35,8 @@ from .normal_rates import (
     normal_rate_table,
     orderbook_crosscheck_table,
 )
-from .provenance import OPERATING_SCRUBBER_QUEUE, confidence_tier
+from .provenance import OPERATING_SCRUBBER_QUEUE, confidence_tier, is_handoff_ready
+from .reconcile import APPROX_PNAV_TICKERS
 from .report import OUTPUTS_DIR
 
 
@@ -200,11 +201,90 @@ def compute_scorecard(quarter: str, inputs_dir: Path = INPUTS_DIR) -> list[Score
     return rows
 
 
-def write_scorecard(rows: list[ScorecardRow], outputs_dir: Path = OUTPUTS_DIR) -> Path:
+@dataclass
+class _Valuation:
+    """The valuation half of one name's verdict — joined from the pipeline's in-scope objects
+    (fv / scenario / broker sweep), so the scorecard carries FV-vs-price + position + broker NAV
+    on the same row as tier + validation state. ONE consolidated output, not three to cross-join."""
+    price: float
+    fv: float                  # single-point blended FV (report.blended.fair_value_per_share)
+    upside_pct: float          # (fv / price − 1) × 100
+    position: str
+    nav_ps: float              # tool NAV/share
+    broker_nav: Optional[float]
+    gap_pct: Optional[float]   # (nav_ps − broker_nav) / broker_nav × 100
+    sanity: str                # OK / FAIL / n-a (APPROX) — the reconcile ±50% bug-gate
+    approx: bool
+
+
+def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Valuation"]:
+    """Join the pipeline's per-name objects into the verdict's valuation half, keyed by ticker.
+
+    The **scenario report is the whole-company spine** for price / NAV / position — same as
+    delta.snapshot_current_run. This matters for hybrid carve-outs (INSW, CMBT): the CompanyReport
+    in fv_reports is a single SLEEVE (INSW = crude sleeve, price/NAV sleeve-allocated), so reading
+    price off it understates the whole. Only the single-point FV is read from the CompanyReport
+    (matching the delta report's headline FV). So this row equals the decision-log / delta headline."""
+    fv_by = {r.ticker: r for r in fv_reports}
+    bk = {r.ticker: r for r in broker_rows}
+    out: dict[str, _Valuation] = {}
+    for s in scenario_reports:
+        t = s.ticker
+        price = s.current_price
+        nav_ps = s.base_nav_per_share
+        f = fv_by.get(t)
+        fv = f.blended.fair_value_per_share if f else float("nan")
+        b = bk.get(t)
+        broker_nav = (price / b.consensus_pnav) if (b and b.consensus_pnav) else None
+        gap = ((nav_ps - broker_nav) / broker_nav * 100.0) if broker_nav else None
+        approx = t in APPROX_PNAV_TICKERS
+        sanity = ("n-a" if approx else
+                  ("OK" if (gap is not None and abs(gap) <= 50.0) else
+                   ("FAIL" if gap is not None else "—")))
+        out[t] = _Valuation(
+            price=price, fv=fv, upside_pct=(fv / price - 1.0) * 100.0 if price else 0.0,
+            position=s.position_recommendation,
+            nav_ps=nav_ps, broker_nav=broker_nav, gap_pct=gap, sanity=sanity, approx=approx,
+        )
+    return out
+
+
+def write_scorecard(
+    rows: list[ScorecardRow],
+    outputs_dir: Path = OUTPUTS_DIR,
+    valuation: Optional[dict[str, "_Valuation"]] = None,
+) -> Path:
     outputs_dir.mkdir(parents=True, exist_ok=True)
     out: list[str] = []
     w = out.append
-    w("# Book-wide validation scorecard (Thread 4)\n")
+    order = {"crude": 0, "product": 1, "dry_bulk": 2, "lng": 3, "containerships": 4}
+    w("# Book-wide scorecard (Thread 4)\n")
+
+    if valuation:
+        w("## Verdict — the consolidated read (one row per name)\n")
+        w("FV vs current price, position, and the broker-NAV bug-gate on the **same row** as the "
+          "confidence tier. **This is the single handoff surface**: a downstream sizing decision "
+          "reads HERE — the per-gate validation detail is the matrix in the next section, same file. "
+          "A **PROVISIONAL** name is ⛔ **not handoff-ready** — do not pass its FV to a position call. "
+          "Crude `rich`/TRIM reads are cycle position, not shorts (§12); see the caveat below.\n")
+        w("| Ticker | Sector | **Tier** | Price | Model FV | Upside | Position | NAV/sh | "
+          "Broker NAV | Gap | SANITY | Handoff |")
+        w("|---|---|---|--:|--:|--:|:--|--:|--:|--:|:--|:--|")
+        torder = {"VALIDATED-TIGHT": 0, "GOVERNED-WIDE": 1, "PROVISIONAL": 2}
+        for r in sorted(rows, key=lambda r: (torder.get(r.confidence_tier, 9), order.get(r.sector, 9), r.ticker)):
+            tier = r.confidence_tier + (" ⛔" if r.confidence_tier == "PROVISIONAL" else "")
+            ready = "ready" if is_handoff_ready(r.confidence_tier) else "**NO**"
+            v = valuation.get(r.ticker)
+            if v is None:
+                w(f"| {r.ticker} | {r.sector} | {tier} | — | — | — | — | — | — | — | — | {ready} |")
+                continue
+            bn = (f"${v.broker_nav:.2f}" + (" (apx)" if v.approx else "")) if v.broker_nav else ("apx" if v.approx else "—")
+            gp = f"{v.gap_pct:+.0f}%" if v.gap_pct is not None else "—"
+            w(f"| {r.ticker} | {r.sector} | {tier} | ${v.price:.2f} | ${v.fv:.2f} | {v.upside_pct:+.0f}% "
+              f"| {v.position} | ${v.nav_ps:.2f} | {bn} | {gp} | {v.sanity} | {ready} |")
+        w("")
+        w("## Validation matrix — per-gate detail\n")
+
     w("Every covered name on ONE consistent, validated machine. **The product is the "
       "*boundary of what's comparable*, not a buy list.** `pending` ≠ `passed`: a name with a "
       "registered-pending gate is shown pending, never blessed. NAV age-0 basis is the uniform "
@@ -224,7 +304,6 @@ def write_scorecard(rows: list[ScorecardRow], outputs_dir: Path = OUTPUTS_DIR) -
     w("| Ticker | Sector | **Tier** | NAV-basis | P/NAV(mkt) | Read par→hist | Robust? | Parity band | "
       "§18.5a | §18.5b | Verdict |")
     w("|---|---|---|---|--:|---|---|---|---|---|---|")
-    order = {"crude": 0, "product": 1, "dry_bulk": 2, "lng": 3, "containerships": 4}
     for r in sorted(rows, key=lambda r: (order.get(r.sector, 9), r.ticker)):
         pm = f"{r.pnav_mkt:.2f}×" if r.pnav_mkt is not None else "n/a"
         tier = r.confidence_tier + (" ⛔" if r.confidence_tier == "PROVISIONAL" else "")
@@ -277,10 +356,21 @@ def write_scorecard(rows: list[ScorecardRow], outputs_dir: Path = OUTPUTS_DIR) -
 
 def run_scorecard_xref(
     quarter: str, inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR,
+    *, fv_reports=None, scenario_reports=None, broker_rows=None,
 ) -> list[ScorecardRow]:
+    """Compute + write the book scorecard. When the pipeline passes its in-scope per-name objects
+    (fv / scenario / broker sweep), the scorecard becomes the CONSOLIDATED handoff output — verdict
+    (FV-vs-price + position + broker NAV) joined onto tier + validation state in one file. Called
+    standalone (no reports) it emits the validation matrix only — backward compatible."""
     rows = compute_scorecard(quarter, inputs_dir)
+    valuation = None
+    if fv_reports is not None and scenario_reports is not None and broker_rows is not None:
+        valuation = valuation_index(fv_reports, scenario_reports, broker_rows)
     if rows:
-        path = write_scorecard(rows, outputs_dir)
+        path = write_scorecard(rows, outputs_dir, valuation)
         n_uniform = sum(1 for r in rows if r.nav_basis == "resale-uniform")
-        print(f"book scorecard ({n_uniform}/{len(rows)} resale-uniform; §18.5 gates pending) -> {path}")
+        n_ready = sum(1 for r in rows if is_handoff_ready(r.confidence_tier))
+        tag = "CONSOLIDATED verdict+matrix" if valuation else "validation matrix"
+        print(f"book scorecard [{tag}] ({n_uniform}/{len(rows)} resale-uniform; "
+              f"{n_ready}/{len(rows)} handoff-ready) -> {path}")
     return rows

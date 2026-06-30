@@ -1059,9 +1059,14 @@ def main() -> None:
     print("--- justified P/NAV diagnostic ---")
     from crude_tanker_fv.justified_pnav import run_justified_pnav_xref
     run_justified_pnav_xref(quarter)
-    print("--- book-wide validation scorecard (Thread 4) ---")
+    print("--- book-wide scorecard (Thread 4) — consolidated verdict + validation ---")
     from crude_tanker_fv.scorecard import run_scorecard_xref
-    run_scorecard_xref(quarter)
+    run_scorecard_xref(
+        quarter,
+        fv_reports=fv_reports,
+        scenario_reports=scenario_reports,
+        broker_rows=broker_rows,
+    )
     print("--- §12 dividend-window test ---")
     from crude_tanker_fv.dividend_window import run_dividend_window_xref
     run_dividend_window_xref(quarter)
