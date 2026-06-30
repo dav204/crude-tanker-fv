@@ -1,0 +1,16 @@
+# Newbuild NAV-convention registry (METHODOLOGY §3.1 / §9.6).
+#
+# The correct newbuild NAV contribution is delivered-market PV LESS the remaining
+# commitment (NOT sunk cost / advances-only). The structural guard
+# (tests/test_newbuild_convention.py) enforces this in three clauses:
+#   1. fixable  -> must be on-curve (delivered value present)
+#   2. structural -> commitment-net, never advances-only (book the obligation; no asset)
+#   3. exemption ENUMERATED here, not "small" — an unlisted NB name defaults to clause 1,
+#      so a future name cannot land advances-only by being unclassified.
+#
+# structural_exempt: names whose newbuilds are in Group-B classes that have NO resale
+# curve mark (LNG / container — fabricating a mark is forbidden, §A1.4). Exempt from the
+# on-curve requirement; still required to be commitment-net. Each entry carries a reason.
+structural_exempt:
+  CCEC: "LNG/ammonia newbuilds — Group-B LNGC, no resale curve mark (§A1.4). Already commitment-net (passes clause 2)."
+  CMBT: "container/diversified (CMB.TECH) newbuilds — Group-B Ctr-* among them, no resale curve mark (§A1.4). Currently advances-only; must move to commitment-net (own pre-reg)."
