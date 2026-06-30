@@ -35,7 +35,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | TRMD | product | $25.43 | $28.20 | 1.109× | n/a | — | 8.6% | 0.763× | no anchor → rich | n/a |
 | ASC | product | $15.93 | $16.00 | 1.004× | n/a | — | 4.8% | 0.378× | no anchor → rich | n/a |
 | TEN **(WHOLE-CO)** | crude | $88.70 | $37.14 | 0.419× | n/a | — | 13.2% | 1.219× | no anchor → cheap | n/a |
-| CAPT | crude | $15.59 | $12.20 | 0.782× | 11.0% | — | 10.7% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
+| CAPT | crude | $15.49 | $12.20 | 0.787× | 11.1% | — | 10.7% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | MPCC | containerships | $2.02 | $2.78 | 1.374× | n/a | — | 50.0% | — | no anchor → newbuild-heavy (unreliable) | n/a |
 | GSL | containerships | $38.59 | $38.99 | 1.010× | n/a | — | 51.1% | 5.219× | no anchor → cheap | n/a |
 | BRUT | crude | $9.40 | $5.40 | 0.574× | 22.2% | — | 20.9% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |

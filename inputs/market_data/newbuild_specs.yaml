@@ -52,15 +52,15 @@ BRUT:
     corroborates. All 12 scrubber-fitted. Adversarially verified 2026-06-30.
 CAPT:
   eco: true
-  scrubber: true             # matches the current (uncorrected) manifest; CORRECTION PENDING -> mixed
-  scrubber_verified: false   # over-broad: 18 of 30 scrubber-fitted; 8 NB rows wrongly scrubber=true
-  scrubber_correction_pending: "18/30 per Pareto ledger — split VLCC_nb_2027 to 3-of-7, VLCC_nb_2028 to 2-of-4, LR2_2026 to 0-of-2 (-0.71% NAV). Own pre-reg."
+  scrubber: mixed            # 18/30 scrubber-fitted (per-vessel in the manifest); not uniform
+  scrubber_nb_count: 13      # NB rows (years_to_delivery>0) scrubber-fitted: 5 VLCC (3+2) + 8 Suezmax (6+2); the 6 VLCC LNG NBs are false
+  scrubber_verified: true    # corrected to 18/30 2026-06-30 (VLCC/LR2 split + the merged Aframax slice)
   source: >
     OFFICIAL (Norway) + research: CAPT Euronext Information Document (2026-03) §7.3.2 operating
     table + Q1-2026 earnings release (per-vessel scrubber/fuel prose) + Pareto initiation
     2026-04-20 per-vessel ledger ("~60% scrubber-fitted" = 18/30: VLCC 6/12, Suezmax 10/10,
-    Aframax 0/4, LR2 2/4). The 12 LNG-dual-fuel vessels carry NO scrubber. Verified 2026-06-30;
-    manifest correction (8 NB rows -> scrubber=false) registered pending.
+    Aframax 0/4, LR2 2/4). The 12 LNG-dual-fuel vessels carry NO scrubber. Adversarially verified
+    2026-06-30; manifest corrected (Aframax via PR #3, VLCC/LR2 split here).
 FRO:
   eco: true
   scrubber: true

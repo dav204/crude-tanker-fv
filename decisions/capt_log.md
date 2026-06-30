@@ -9,6 +9,35 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-30T14:55:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $12.73
+- Single-point FV: $16.03
+- Scenario PW FV: $17.16 (EV +34.8%)
+- NAV / share: $15.49
+- Position: **BUY (undervalued)**
+- Broker spread: +26.0pp (k_broker 1.13)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -0.6% | Δscenario FV: -0.6% | ΔNAV: -0.6% | Δspread: +0.7pp
+
+**Decision:** CAPT scrubber correction COMPLETE — 18/30 scrubber-fitted (NOT a market move). The
+blanket scrubber=true was over-broad: verified vs CAPT's own sources (Pareto initiation 2026-04-20
+per-vessel ledger + Euronext Information Doc §7.3.2 + Q1 release) = **18/30 (~60%)** — VLCC 6/12,
+Suezmax 10/10, Aframax 0/4, LR2 2/4. Two slices: the **Aframax 0/4** landed via PR #3 (AFRA_2018,
+merged), and this run wires the **VLCC/LR2** slice — VLCC_nb_2027 7→3+4, VLCC_nb_2028 4→2+2,
+LR2_2026 2→0 (6 VLCC + 2 LR2 lose the fabricated scrubber premium). **NAV impact is basis-dependent:**
+on the **anchored (headline) basis** the combined CAPT move is **−0.63%** ($15.59→$15.49); the
+Aframax slice is +0.08% anchored / −0.27% un-anchored (anchoring steepens the Aframax 10yr leg
+$68M→$61M, flipping that slice's sign), VLCC/LR2 −0.71% on both. Reconcile SANITY **OK** (−14.9% vs
+broker $18.21). Process fix recorded: headline NAV must be read on the anchored basis (raw
+`compute_nav` is un-anchored). CAPT cleared the scrubber-verification queue (BRUT/CAPT/FRO all
+verified); registry CAPT→`scrubber: mixed`, NB count 13. Re-ratifying the combined move.
+
+---
+
 ## 2026-06-30 — Aframax rows corrected: build years (2018–19, not 3× age-10 + 1× age-0) and scrubber (false, not true)
 
 **What was wrong:** the manifest split the 4 Aframax into `AFRA_2016` (age 10,

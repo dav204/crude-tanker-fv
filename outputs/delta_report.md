@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-06-30T13:41:38+00:00
-- **Previous run:** 2026-06-30T13:13:01+00:00
+- **This run:** 2026-06-30T14:55:13+00:00
+- **Previous run:** 2026-06-30T13:41:38+00:00
 
 ## Headline changes (material moves)
 
@@ -9,8 +9,9 @@
 
 ## Input files changed since last run
 
-- `inputs/market_data/newbuild_specs.yaml` (new)
-- `inputs/fleet_manifests/sb.yaml` (modified)
+- `inputs/data_sources.yaml` (modified)
+- `inputs/fleet_manifests/capt.yaml` (modified)
+- `inputs/market_data/newbuild_specs.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -32,12 +33,12 @@
 | CMDB | $17.99 (no change) | $20.43 (no change) | $20.43 (no change) | $31.33 (no change) | BUY (undervalued) | -7.8pp (no change) |
 | SBLK | $24.64 (no change) | $28.34 (no change) | $28.37 (no change) | $29.34 (no change) | BUY (undervalued) | +2.5pp (no change) |
 | GNK | $24.39 (no change) | $23.99 (no change) | $24.05 (no change) | $24.69 (no change) | HOLD (fairly valued) | +11.9pp (no change) |
-| CAPT | $12.73 (no change) | $16.13 (no change) | $17.26 (no change) | $15.59 (no change) | BUY (undervalued) | +25.3pp (no change) |
+| CAPT | $12.73 (no change) | $16.03 (-0.6%) | $17.16 (-0.6%) | $15.49 (-0.6%) | BUY (undervalued) | +26.0pp (+0.7pp) |
 | MPCC | $2.62 (no change) | $2.19 (no change) | $2.11 (no change) | $2.02 (no change) | TRIM/SHORT (overvalued) | +15.3pp (no change) |
 | GSL | $37.74 (no change) | $43.00 (no change) | $40.59 (no change) | $38.59 (no change) | BUY (undervalued) | +24.4pp (no change) |
 | BRUT | $5.21 (no change) | $9.84 (no change) | $10.81 (no change) | $9.40 (no change) | BUY (undervalued) | -45.8pp (no change) |
 | CMBT | $14.08 (no change) | $15.26 (no change) | $16.07 (no change) | $15.87 (no change) | BUY (undervalued) | +20.1pp (no change) |
-| SB | $6.36 (no change) | $10.17 (-1.3%) | $9.97 (-1.3%) | $10.47 (-1.3%) | BUY (undervalued) | -44.2pp (+1.9pp) |
+| SB | $6.36 (no change) | $10.17 (no change) | $9.97 (no change) | $10.47 (no change) | BUY (undervalued) | -44.2pp (no change) |
 
 _⚑ flags a material change (position flip, |ΔFV%| > 10%, |Δspread| > 5pp, or |ΔNAV%| > 5%). ⟵ marks a position flip._
 

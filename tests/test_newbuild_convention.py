@@ -132,18 +132,30 @@ def test_newbuild_value_flags_trace_to_registered_disclosure():
             assert bool(v.eco) == bool(spec["eco"]), (
                 f"{name}: NB-row eco={v.eco} != registered {spec['eco']} (newbuild_specs.yaml)"
             )
-            assert bool(v.scrubber) == bool(spec["scrubber"]), (
-                f"{name}: NB-row scrubber={v.scrubber} != registered {spec['scrubber']} (newbuild_specs.yaml)"
+        sc = spec["scrubber"]
+        if sc == "mixed":
+            # Non-uniform name: the contradiction check is on the COUNT — the manifest's
+            # scrubber-fitted NB count must equal the registered, ledger-verified count.
+            got = sum(v.count for v in nb if v.scrubber)
+            assert got == spec["scrubber_nb_count"], (
+                f"{name}: NB scrubber-fitted count {got} != registered {spec['scrubber_nb_count']} "
+                f"(newbuild_specs.yaml — manifest contradicts the verified per-vessel ledger)"
             )
+        else:
+            for v in nb:
+                assert bool(v.scrubber) == bool(sc), (
+                    f"{name}: NB-row scrubber={v.scrubber} != registered {sc} (newbuild_specs.yaml)"
+                )
 
 
 # Scrubber-verification work queue: on-curve NB names whose scrubber=true has NOT been
 # verified against the name's own filing. xfail(strict) — each leaves ONLY by verifying
 # (or correcting) its scrubber flag against its 6-K. eco needs no such queue (§3.1 rule).
-# BRUT + FRO verified against their own filings 2026-06-30 (BRUT: official Euronext Annual
-# Report 2025; FRO: Q1 6-K) — both confirmed all-scrubber, removed from the queue. CAPT remains:
-# verified MIXED (18/30), manifest correction (8 NB rows -> false) registered pending.
-SCRUBBER_UNVERIFIED_QUEUE = {"CAPT"}
+# BRUT/CAPT/FRO all verified against their own filings 2026-06-30 (BRUT: official Euronext
+# Annual Report 2025; FRO: Q1 6-K; CAPT: Pareto per-vessel ledger + Euronext info doc, corrected
+# to 18/30). The newbuild scrubber-verification queue is now EMPTY — every on-curve NB name's
+# scrubber flag traces to its own disclosure.
+SCRUBBER_UNVERIFIED_QUEUE: set[str] = set()
 
 
 def _scrubber_param(name: str):

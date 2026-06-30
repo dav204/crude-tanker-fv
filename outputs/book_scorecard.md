@@ -7,7 +7,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | Ticker | Sector | NAV-basis | P/NAV(mkt) | Read par→hist | Robust? | Parity band | §18.5a | §18.5b | Verdict |
 |---|---|---|--:|---|---|---|---|---|---|
 | BRUT | crude | resale-uniform | 0.57× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
-| CAPT | crude | resale-uniform | 0.78× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
+| CAPT | crude | resale-uniform | 0.79× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
 | CMBT | crude | structural-unavailable | 0.94× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
 | DHT | crude | resale-uniform | 1.25× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | ECO | crude | resale-uniform | 1.38× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |

@@ -2,10 +2,11 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-06-30T13:41:38+00:00'
-  ratified_commit: a82c896
+  ratified_at: '2026-06-30T14:55:13+00:00'
+  ratified_commit: 3d3b10d
   quarter: 2026-Q1
-  cause: 'Newbuild §9.6 on-curve convention: SB+SBLK (SB eco-only +1.6% scrubber-verified, SBLK +9.0%)'
+  cause: 'CAPT scrubber correction: 18/30 scrubber-fitted (Aframax via PR#3 + VLCC/LR2 split), combined
+    -0.63% anchored'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -27,10 +28,10 @@ names:
     sector: crude
   CAPT:
     pnav_basis: pareto
-    ev_pct: 35.58
-    tool_nav: 15.59
+    ev_pct: 34.79
+    tool_nav: 15.49
     position_band: BUY (undervalued)
-    k_broker: 1.12
+    k_broker: 1.13
     sector: crude
   CCEC:
     pnav_basis: approx

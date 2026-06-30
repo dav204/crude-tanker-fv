@@ -27,8 +27,14 @@ vessels:
   #      Apr'27 (Alexandros) → Jun'28 (Aktor). 7 in 2027 (avg ~1.25yr), 4 in 2028
   #      (Amyntas Jan / Arkesios Feb / Atromitos Apr / Aktor Jun → avg ~2.0yr).
   - {id: VLCC_deliv,   class: VLCC, dwt: 310000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 0.0}
-  - {id: VLCC_nb_2027, class: VLCC, dwt: 310000, age: 0, scrubber: true, eco: true, count: 7, years_to_delivery: 1.25}
-  - {id: VLCC_nb_2028, class: VLCC, dwt: 310000, age: 0, scrubber: true, eco: true, count: 4, years_to_delivery: 2.0}
+  # Scrubber split (verified 2026-06-30 vs Pareto initiation 2026-04-20 per-vessel ledger +
+  # Euronext Information Doc §7.3.2 + Q1 release): CAPT is 18/30 scrubber-fitted (~60%), NOT all.
+  # Of the 11 VLCC NBs: 5 scrubber-fitted (Alterego/Alexandros/Apollonas + Arkesios/Aktor),
+  # 6 LNG-dual-fuel WITHOUT scrubber. The LNG-only vessels carry NO fabricated scrubber premium.
+  - {id: VLCC_nb_2027,     class: VLCC, dwt: 310000, age: 0, scrubber: true,  eco: true, count: 3, years_to_delivery: 1.25}   # scrubber-fitted
+  - {id: VLCC_nb_2027_lng, class: VLCC, dwt: 310000, age: 0, scrubber: false, eco: true, count: 4, years_to_delivery: 1.25}   # LNG dual-fuel, no scrubber
+  - {id: VLCC_nb_2028,     class: VLCC, dwt: 310000, age: 0, scrubber: true,  eco: true, count: 2, years_to_delivery: 2.0}    # scrubber-fitted
+  - {id: VLCC_nb_2028_lng, class: VLCC, dwt: 310000, age: 0, scrubber: false, eco: true, count: 2, years_to_delivery: 2.0}    # LNG dual-fuel, no scrubber
   # ---- Suezmax: 2 delivered by Mar-31 (Alkinoos/Archigos Mar-5, on-water). The
   #      8 NB (Q1-release dates from Mar-31): 6 near-term — Ataraktos/Aristoklis
   #      Apr-14 (~0.05), Archelaos Jun-08 (0.19), Aristodimos Aug-21 (0.39),
@@ -50,8 +56,8 @@ vessels:
   #      class-table cited avg 7.8; the issuer per-vessel build dates give 7.4.)
   - {id: AFRA_2018, class: Aframax, dwt: 113000, age: 7.4, scrubber: false, eco: true, count: 4, years_to_delivery: 0.0}
   # ---- LR2 (crude-routed, same as FRO's LR2 book): class avg 0.5.
-  - {id: LR2_2025,  class: LR2,     dwt: 114000, age: 1,  scrubber: true, eco: true, count: 2}
-  - {id: LR2_2026,  class: LR2,     dwt: 114000, age: 0,  scrubber: true, eco: true, count: 2}
+  - {id: LR2_2025,  class: LR2,     dwt: 114000, age: 1,  scrubber: true,  eco: true, count: 2}   # Aisopos, Aiolos — scrubber-fitted (ledger Yes)
+  - {id: LR2_2026,  class: LR2,     dwt: 114000, age: 0,  scrubber: false, eco: true, count: 2}   # Androklos, Athinagoras — LNG-only, no scrubber (ledger No)
 
 # All-spot (Q1 fleet-wide TCE $162k/day on spot voyages; Q2 fixtures are
 # spot-period fixings, no disclosed TC book).
