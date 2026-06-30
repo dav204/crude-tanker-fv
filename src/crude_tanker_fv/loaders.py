@@ -220,7 +220,10 @@ def load_market_data(inputs_dir: Path = INPUTS_DIR) -> MarketData:
     )
 
 
-VALID_BASIS_STATUS = {"resale-uniform", "pending-sourceable", "structural-unavailable"}
+VALID_BASIS_STATUS = {
+    "resale-uniform", "pending-sourceable", "structural-unavailable",
+    "unverified-no-current-xclusiv-line",
+}
 
 
 def load_basis_status(inputs_dir: Path = INPUTS_DIR) -> dict[str, str]:

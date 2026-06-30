@@ -1,11 +1,14 @@
 # Per-class NAV age-0 basis status — Thread 1 SINGLE SOURCE OF TRUTH.
 # (PRE_REGISTRATION_NAV_RESALE_ANCHOR.md §8.)
 #
-#   resale-uniform         : age-0 anchor = dated prompt-resale (Thread 1 corrected). Comparable.
+#   resale-uniform         : age-0 anchor = the dated xclusiv Resale line (Amendment B). Comparable.
 #   pending-sourceable     : Group A — liquid resale market, dated mark not yet sourced; age-0 left
 #                            on current basis. Resolved in Thread 1A. NOT yet comparable.
 #   structural-unavailable : Group B — no clean resale market (LNG charter-attached, container
 #                            boom-distorted); never manufacture a mark. Suppressed from comparability.
+#   unverified-no-current-xclusiv-line : age-0 carries a mark with no CURRENT xclusiv secondhand line
+#                            to verify it against (xclusiv dropped the class's secondhand table). Explicitly
+#                            registered + guarded (AGE0_BASIS), never silently allowed. Resolve in Thread 1A.
 #
 # The per-NAME rollup (scorecard, Thread 4) DERIVES from this: a name is resale-uniform only if ALL
 # its tonnage is in resale-uniform classes; any Group-A class ⇒ pending; any Group-B class ⇒ structural.
@@ -15,7 +18,7 @@ basis_status:
   Suezmax: resale-uniform
   Aframax: resale-uniform
   LR2: resale-uniform
-  MR: resale-uniform
+  MR: unverified-no-current-xclusiv-line   # xclusiv dropped MR secondhand after 2023Q4 ($52.8M); $54M unverified vs a current line — resolve Thread 1A
   Cape: resale-uniform
   Pana: resale-uniform
   Supra-Ultra: resale-uniform

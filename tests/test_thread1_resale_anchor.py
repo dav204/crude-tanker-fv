@@ -102,13 +102,67 @@ def test_curve_age0_equals_xclusiv_resale():
     assert curves["VLCC"].newbuild != fy["VLCC"] * 1_000_000, "age-0 must not be the 5yr value"
 
 
+# Every curve class's age-0 basis, explicitly registered. A class absent from this
+# map fails the completeness guard below — so a future off-basis age-0 on a "small"
+# class (the MR / crude-mislabel re-entry point) cannot slip through silently.
+#   xclusiv-resale : age-0 must == xclusiv resale[cls]
+#   alias:<cls>    : age-0 must == xclusiv resale[<cls>] (no distinct xclusiv line)
+#   exception:<why>: no current xclusiv line to assert against — registered with a reason
+AGE0_BASIS = {
+    "VLCC": "xclusiv-resale", "Suezmax": "xclusiv-resale", "Aframax": "xclusiv-resale",
+    "LR2": "xclusiv-resale", "Cape": "xclusiv-resale", "Pana": "xclusiv-resale",
+    "Supra-Ultra": "xclusiv-resale",
+    "Post-Panamax": "alias:Pana",        # = Kamsarmax Resale; no xclusiv PPMX line
+    "MR": "exception:no current xclusiv secondhand line (dropped after 2023Q4, last $52.8M); $54M unverified",
+    "LR1": "exception:Group A, pending Thread 1A",
+    "Handysize": "exception:has xclusiv resale but curve on its own basis; Group A pending Thread 1A",
+    "Handymax": "exception:no xclusiv line; Group A pending Thread 1A",
+    "LNGC": "exception:non-tanker/dry-bulk sector, own basis",
+    "MGC": "exception:non-tanker/dry-bulk sector, own basis",
+    "Ctr-Feeder": "exception:container sector, MB China yard basis",
+    "Ctr-Intermediate": "exception:container sector, MB China yard basis",
+    "Ctr-Large": "exception:container sector, MB China yard basis",
+}
+
+
+def test_every_curve_class_age0_basis_registered():
+    """Completeness backstop: every curve class's age-0 is EITHER == the xclusiv
+    Resale line (direct or alias) OR an explicitly-registered, reasoned exception.
+    A class missing from AGE0_BASIS fails loudly — the guard that stops a future
+    off-basis age-0 on a 'small' class (the MR re-entry point) slipping through."""
+    curves = load_market_data().vessel_value_curves
+    resale = yaml.safe_load(open(INPUTS_DIR / "market_data" / "xclusiv_age_curve.yaml"))["resale"]
+    for cls in curves:
+        assert cls in AGE0_BASIS, (
+            f"{cls}: age-0 basis UNREGISTERED — add it to AGE0_BASIS as xclusiv-resale "
+            f"or a documented exception. No class may sit off-basis silently."
+        )
+        rule = AGE0_BASIS[cls]
+        if rule == "xclusiv-resale":
+            ref = cls
+        elif rule.startswith("alias:"):
+            ref = rule.split(":", 1)[1]
+        else:  # exception:<reason> — must carry a non-empty reason; no value assertion
+            assert rule.startswith("exception:") and rule.split(":", 1)[1].strip(), f"{cls}: bad exception"
+            continue
+        assert abs(curves[cls].newbuild - resale[ref] * 1_000_000) < 1.0, (
+            f"{cls}: age-0 {curves[cls].newbuild:,.0f} != xclusiv Resale[{ref}] {resale[ref]*1e6:,.0f}"
+        )
+    for cls in AGE0_BASIS:
+        assert cls in curves, f"{cls}: in AGE0_BASIS but absent from the curve"
+
+
 def test_basis_status_covers_curve_classes():
-    """basis_status is the single per-class source: every curve class has a
-    valid status; the 9 marked classes are resale-uniform."""
+    """basis_status is the single per-class source: every curve class has a valid
+    status; the corrected classes are resale-uniform; MR is the registered
+    unverified exception (no current xclusiv line), never silently resale-uniform."""
     status = load_basis_status()
     curves = load_market_data().vessel_value_curves
     for cls in curves:
         assert cls in status, f"{cls} missing a basis_status entry"
         assert status[cls] in VALID_BASIS_STATUS, f"{cls}: bad basis_status {status[cls]!r}"
     for cls in MARKED:
-        assert status[cls] == "resale-uniform", f"{cls} should be resale-uniform after Thread 1"
+        if cls == "MR":
+            assert status[cls] == "unverified-no-current-xclusiv-line", "MR must be the registered exception"
+            continue
+        assert status[cls] == "resale-uniform", f"{cls} should be resale-uniform"

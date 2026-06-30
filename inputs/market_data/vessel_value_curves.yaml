@@ -33,7 +33,10 @@ classes:
     eco_premium_pct: 0.05
   MR:
     dwt: 50000
-    newbuild: 54000000           # EXCEPTION: no xclusiv secondhand line (NB 52 only); not reverted (product, immaterial — no young MR). Pending a dated MR resale source.
+    newbuild: 54000000           # EXCEPTION (basis_status: unverified-no-current-xclusiv-line): xclusiv DROPPED MR
+                                 # secondhand after 2023Q4 (last resale $52.8M); $54M is UNVERIFIED vs a current line.
+                                 # Registered + guarded by the AGE0_BASIS registry (test_thread1_resale_anchor), NOT
+                                 # silently allowed. Resolve in Thread 1A. (No young MR in the book, but provenance ≠ weight.)
     five_year_benchmark: 46000000
     ten_year_benchmark: 34500000
     scrap_25yr: 5800000
