@@ -28,13 +28,29 @@ from typing import Optional
 
 from .justified_pnav import JustifiedPnavRow, compute_justified_pnav_rows
 from .loaders import ALLOWED_CLASSES, INPUTS_DIR, load_basis_status, load_company_inputs, load_watchlist
+from .nav import compute_nav
 from .normal_rates import (
     PARITY_BANDS,
     mean_reversion_gate_table,
     normal_rate_table,
     orderbook_crosscheck_table,
 )
+from .provenance import OPERATING_SCRUBBER_QUEUE, confidence_tier
 from .report import OUTPUTS_DIR
+
+
+def _op_scrubber_error_pct(ci) -> float:
+    """Max possible FV error from a name's UNCITED operating-scrubber flags, as a fraction of NAV
+    (premium × uncited hulls / NAV). Feeds the tier's materiality gate — only a LARGE uncited
+    surface widens the tier; a handful of hulls is a tracked-but-immaterial paperwork item."""
+    curves = ci.market_data.vessel_value_curves
+    err = sum(
+        curves[v.cls].scrubber_premium * v.count
+        for v in ci.fleet.vessels
+        if v.scrubber and not (v.years_to_delivery or 0)
+    )
+    nav = compute_nav(ci).nav_total
+    return err / nav if nav > 0 else 0.0
 
 # NAV-basis composite priority: the name's PRIMARY label is the most-salient non-uniform
 # status present across its fleet. structural (no clean market) > pending-sourceable (market
@@ -65,6 +81,7 @@ class ScorecardRow:
     gate_5b: str                   # pending / coincide / contradict / n-a
     verdict: str
     governance_discount_pct: float = 0.0   # §15 haircut (>0 only TEN/CMDB); read is clean-NAV
+    confidence_tier: str = "PROVISIONAL"   # VALIDATED-TIGHT / GOVERNED-WIDE / PROVISIONAL (handoff)
 
 
 def _nav_basis_composite(classes: list[str], status: dict[str, str]) -> tuple[str, str]:
@@ -156,6 +173,10 @@ def compute_scorecard(quarter: str, inputs_dir: Path = INPUTS_DIR) -> list[Score
         held = sorted({v.cls for v in ci.fleet.vessels})
         nav_basis, detail = _nav_basis_composite(held, status)
         jr = jrows.get(ticker)
+        robust = jr.robust if jr else "n/a"
+        # Operating-scrubber surface is only uncited (and so tier-relevant) for queued names.
+        op_err = _op_scrubber_error_pct(ci) if ticker.upper() in OPERATING_SCRUBBER_QUEUE else 0.0
+        tier = confidence_tier(ticker, nav_basis, robust, op_scrubber_error_pct=op_err, inputs_dir=inputs_dir)
         rows.append(ScorecardRow(
             ticker=ticker,
             sector=entry.get("sector", "crude"),
@@ -174,6 +195,7 @@ def compute_scorecard(quarter: str, inputs_dir: Path = INPUTS_DIR) -> list[Score
                              (jr.robust if jr else "n/a"),
                              _parity_band_status(held, parity)),
             governance_discount_pct=(jr.governance_discount_pct if jr else 0.0),
+            confidence_tier=tier,
         ))
     return rows
 
@@ -192,13 +214,21 @@ def write_scorecard(rows: list[ScorecardRow], outputs_dir: Path = OUTPUTS_DIR) -
       "(Thread 3, data-pending); (5) §18.5b orderbook cross-check (Thread 5, data-pending); "
       "(6) robust vs flips (does the read survive the parity↔historical choice).\n")
 
-    w("| Ticker | Sector | NAV-basis | P/NAV(mkt) | Read par→hist | Robust? | Parity band | "
+    w("**Confidence tier (governance handoff):** the FV's reliability for a sizing decision, read "
+      "from the validation state above — **VALIDATED-TIGHT** (traced basis + robust across both §17 "
+      "bases — broker OR internal two-basis corroboration; SB-class), **GOVERNED-WIDE** (NAV traces "
+      "but rests on a structural-unavailable input or a read that flips — usable directional anchor, "
+      "wide band; CMBT-class), **PROVISIONAL** (a NAV-driving figure is uncited / off-basis — "
+      "**NOT handoff-ready, flag don't pass**; NAT-class). APPROX-pnav does not demote a robust name; "
+      "an immaterial uncited operating-scrubber surface does not either (see provenance.py).\n")
+    w("| Ticker | Sector | **Tier** | NAV-basis | P/NAV(mkt) | Read par→hist | Robust? | Parity band | "
       "§18.5a | §18.5b | Verdict |")
-    w("|---|---|---|--:|---|---|---|---|---|---|")
+    w("|---|---|---|---|--:|---|---|---|---|---|---|")
     order = {"crude": 0, "product": 1, "dry_bulk": 2, "lng": 3, "containerships": 4}
     for r in sorted(rows, key=lambda r: (order.get(r.sector, 9), r.ticker)):
         pm = f"{r.pnav_mkt:.2f}×" if r.pnav_mkt is not None else "n/a"
-        w(f"| {r.ticker} | {r.sector} | {r.nav_basis} | {pm} | {r.read_par}→{r.read_hist} | "
+        tier = r.confidence_tier + (" ⛔" if r.confidence_tier == "PROVISIONAL" else "")
+        w(f"| {r.ticker} | {r.sector} | {tier} | {r.nav_basis} | {pm} | {r.read_par}→{r.read_hist} | "
           f"{r.robust} | {r.parity_band} | {r.gate_5a} | {r.gate_5b} | {r.verdict} |")
 
     # Summary
@@ -215,6 +245,13 @@ def write_scorecard(rows: list[ScorecardRow], outputs_dir: Path = OUTPUTS_DIR) -
     rob = _count(lambda r: "flips" if r.robust.startswith("flips") else r.robust)
     w("\n**Read robustness (parity↔historical):** " +
       ", ".join(f"{k} {v}" for k, v in sorted(rob.items())) + ".")
+    tiers = _count(lambda r: r.confidence_tier)
+    provisional = sorted(r.ticker for r in rows if r.confidence_tier == "PROVISIONAL")
+    w("\n**Confidence tier (handoff):** " +
+      ", ".join(f"{k} {v}" for k, v in sorted(tiers.items())) + ".")
+    w(f"\n**⛔ NOT handoff-ready (PROVISIONAL — do NOT pass a governed FV):** {', '.join(provisional)}. "
+      "Each carries a NAV-driving figure that is uncited or off-basis (figure-provenance / off-convention "
+      "queue); flag, don't pass, until it traces.")
     w("\n**Both §18.5 gates are registered-PENDING book-wide** — no Baltic $/day series (§18.5a) "
       "or orderbook ratios (§18.5b) in-repo; see `backtest/DATA_CONTRACT_NORMAL_RATES.md`. So no "
       "name is *fully* validated yet; the resale-uniform names are comparable and parity-banded, "

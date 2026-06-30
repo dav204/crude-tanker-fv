@@ -222,6 +222,11 @@ where you annotate what you actually did and why.
 
 ## Scaffolded — pending first pipeline run
 
+**Confidence tier (governance handoff): PROVISIONAL** _(scaffold — every NAV-driving figure is
+still a FIXME/estimate, so the FV is not handoff-ready by construction). Once filled + reconciled,
+the tier is computed from the validation state by `crude_tanker_fv.provenance.confidence_tier` and
+emitted in the scorecard. A PROVISIONAL name must NOT hand off a governed FV — flag, don't pass._
+
 **Decision:** _[pending — fill in the four input YAMLs + watchlist row, then
 run `python -m crude_tanker_fv.pipeline {{QUARTER}}`. After the first run, the
 pipeline prepends a structured model-state entry above this line.]_
@@ -249,6 +254,11 @@ def _next_steps(ticker: str, sector: str, quarter: str, files: list[Path]) -> st
         f"  6. Run: /reconcile {ticker}   (must report SANITY = OK)",
         "  7. Close the decision log entry with the reconciliation gap as",
         "     baseline for future drift detection.",
+        "  8. CONFIDENCE TIER (governance handoff): the scorecard computes it from the",
+        "     validation state (provenance.confidence_tier). The name starts PROVISIONAL",
+        "     (uncited figures) and MUST clear to VALIDATED-TIGHT / GOVERNED-WIDE before",
+        "     handing off a governed FV — a PROVISIONAL name is NOT handoff-ready; flag,",
+        "     don't pass. Get its newbuild commitment/advances CITED (not '~estimate').",
         "",
     ])
     return "\n".join(lines)
