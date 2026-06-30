@@ -257,3 +257,31 @@ def test_suezmax_recalibration_lowers_nat_nav():
                          use_transaction_anchored=False).nav.nav_per_share
     on = value_company("NAT", "2026-Q1", 5.40, 6.00).nav.nav_per_share
     assert on < base
+
+
+# --------------------------------------------------------------------------- #
+# Freshness tripwire (PRE_REGISTRATION_CRUDE_RESALE_LEVEL.md B.4 / Thread 1C)
+# --------------------------------------------------------------------------- #
+# The crude mid-age is transaction-anchored (§9.9), and the ~22% gap to the xclusiv
+# broker 5yr is documented as INTENDED divergence — but only while the prints are
+# fresh. If a crude class's latest S&P print lags the freshest crude print by more
+# than ~2 quarters, the mid-age anchor may be STALE (the gap is LAG, not signal), so
+# the "intended divergence" claim needs a look (cross-check the 2026W26 xclusiv weekly).
+MAX_PRINT_LAG_DAYS = 183  # ~2 quarters
+
+def test_crude_midage_prints_not_stale():
+    txs = load_all_transactions(INPUTS_DIR)
+    latest = {c: max(p.date for p in txs[c].prints) for c in txs if txs[c].prints}
+    crude = ["VLCC", "Suezmax", "Aframax", "LR2"]
+    freshest = max(latest[c] for c in crude)
+    for c in crude:
+        lag = (freshest - latest[c]).days
+        assert lag <= MAX_PRINT_LAG_DAYS, (
+            f"{c}: latest S&P print {latest[c]} lags the freshest crude print {freshest} by "
+            f"{lag}d (> {MAX_PRINT_LAG_DAYS}). The transaction-anchored mid-age may be STALE — the "
+            f"22% gap to the xclusiv broker 5yr could be LAG, not intended divergence. Refresh the "
+            f"print or cross-check the 2026W26 xclusiv weekly before trusting the gap."
+        )
+    # WATCH (not a failure): VLCC is the oldest crude print line — flag if it ever
+    # becomes the staleness driver. (Currently ~1 quarter behind the active market.)
+    assert latest["VLCC"] <= freshest, "sanity: VLCC print not newer than the freshest crude print"

@@ -173,6 +173,14 @@ xclusiv broker 5yr ($145M) is the **expected, intended** divergence (the tool pr
 transaction-anchored NAV; broker marks are a discrimination diagnostic, CLAUDE.md), **documented, not
 reconciled.**
 
+**Freshness tripwire (registered).** "Intended divergence" is only true while the prints are fresh — a
+22%-below gap from *stale* prints is LAG, not signal. So `test_crude_midage_prints_not_stale` fails if a
+crude class's latest S&P print lags the freshest crude print by > ~2 quarters (183d). **Live watch:** VLCC
+is the oldest crude line — latest print **2026-03-31** (~1 quarter behind the active market; the rest are
+June-2026). It passes the tripwire today but is the name to watch; if VLCC prints don't refresh, the
+$113M anchor risks lag and the 22% gap needs the 2026W26 xclusiv weekly as a cross-check. So "intended"
+can't quietly become "stale."
+
 ## B.5 Predicted reverted outcome (committed AHEAD of recompute; honor a miss)
 
 - **Crude young-names revert UP toward pre-Thread-1:** BRUT back to ~$9.40 (exact — all VLCC, Resale 175 =

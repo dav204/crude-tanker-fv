@@ -22,7 +22,7 @@ where you annotate what you actually did and why.
 - ⚑ NAV/sh +7.5%
 - Δprice: -0.28 | Δsingle FV: +5.4% | Δscenario FV: +5.2% | ΔNAV: +7.5% | Δspread: -4.9pp
 
-**Decision:** Amendment B — crude age-0 = xclusiv Resale (VLCC 175, Suezmax 114.3). ECO NAV +7.5% to ~$34.56, a touch above pre-Thread-1 (xclusiv Suezmax Resale 114.3 > old 108); its scenario position moves TRIM/SHORT->HOLD on the directed Suezmax lift. Read straight off the curve.
+**Decision:** Amendment B — crude age-0 = xclusiv Resale (VLCC 175, Suezmax 114.3). ECO NAV +7.5% to ~$34.56, a touch above pre-Thread-1 (xclusiv Suezmax Resale 114.3 > old 108); its scenario position moves TRIM/SHORT->HOLD on the directed Suezmax lift. Read straight off the curve. PROVENANCE (the flip is a VINTAGE refresh, not a basis change): the old $108 was the xclusiv 2026Q1 Resale (2026-03-30); the new $114.3 is the xclusiv 2026Q2 Resale (2026-06-22) — same xclusiv-Resale basis, one quarter fresher. The firm Suezmax market rose ~6% Q1->Q2, lifting ECO into the fairly-valued band. ECO's call is ANCHORED to the dated xclusiv Resale curve; if a future quarter moves Suezmax again, the call moves with it (neither $108 nor $114.3 was an error — both are xclusiv Resale, different vintages).
 
 ---
 
