@@ -9,6 +9,36 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-30T13:13:01+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.64
+- Single-point FV: $28.34
+- Scenario PW FV: $28.37 (EV +15.1%)
+- NAV / share: $29.34
+- Position: **BUY (undervalued)**
+- Broker spread: +2.5pp (k_broker 1.02)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ broker spread -8.5pp
+- ⚑ NAV/sh +9.0%
+- Δprice: no change | Δsingle FV: +9.0% | Δscenario FV: +8.8% | ΔNAV: +9.0% | Δspread: -8.5pp
+
+**Decision:** Newbuild convention standardized to §9.6 on-curve delivered-less-commitment
+(2026-06-30) — NOT a market move. SBLK was commitment-net WITHOUT the asset: it subtracted the
+$195,556k commitment but carried no on-curve delivered value, netting −$95.6M (the delivered
+~$386M of 8 Kamsarmaxes was simply missing). The 8 hulls (prompt deliveries Q2–Q4 2026, 6-K
+Note 6 "Under Construction" table, accession 0000950157-26-000639) are now on the curve at
+age-0 delivered PV; the REMAINING commitment $195,556k stays (the prior YAML mislabeled it
+"total" — Note 6 says "remaining") and advances → 0. NAV +9.0% ($29.34). Predicted AHEAD +7.9%;
+landed +8.9% (eco premium, same as SB — NB pre-reg Amendment 1). Reconcile SANITY **OK** (−11.5%
+to broker $33.17). The SB↔SBLK contrast is the headline: identical 8-Kamsarmax programs, SB ~flat
+(back-loaded) vs SBLK +9% (prompt) — delivery timing alone, the canonical can't-borrow-the-peer's-
+number case. PAUSE for owner review before re-ratify.
+
+---
+
 ## 2026-06-29T23:45:25+00:00 — Pipeline run (auto)
 
 **Model state:**

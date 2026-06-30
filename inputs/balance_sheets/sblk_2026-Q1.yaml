@@ -43,16 +43,18 @@ total_debt: 946332000
 # those vessels aren't owned and don't appear in fleet_manifests.
 lease_liabilities: 149835000
 
-# Newbuilding commitments — 8 × 82,000 dwt Kamsarmax newbuilds (Qingdao
-# Shipyard 5 hulls + Hengli Shipbuilding 3 hulls, Chinese yards). Deliveries
-# Apr-Sep 2026. Q1 6-K Note 6: "contracted price, including scrubber
-# installation costs, for the eight vessels under construction was $195,556"
-# ($k). Per METHODOLOGY §3.1 / §9.6, NBs are valued at delivered market
-# value less remaining commitment, NOT at sunk cost.
+# Newbuilding commitments — 8 × 82,000 dwt Kamsarmax (Qingdao 5 + Hengli 3 hulls).
+# §9.6 on-curve delivered-less-commitment (standardized 2026-06-30; the prior version
+# booked these fields WITHOUT the on-curve delivered value, leaving SBLK commitment-net
+# −$95.6M). The 8 hulls are now on the curve at age-0 delivered PV (see sblk.yaml NB rows);
+# this REMAINING commitment is subtracted and advances → 0 (sunk into the on-curve value).
+# Q1 6-K Note 6 (exact): "the total aggregate REMAINING contracted price, including scrubber
+# installation costs, for the eight vessels under construction was $195,556" ($k) — REMAINING,
+# not total (prior comment mislabeled it); deliveries Q2-Q4 2026. See NB pre-reg + sblk_log.
 newbuild_capex_commitments: 195556000
 
-# Advances for vessels under construction (balance sheet line: 99,999 $k).
-newbuild_advances_paid: 99999000
+# Advances → 0: the $99,999k paid is embedded in the on-curve delivered value (BRUT/§9.6).
+newbuild_advances_paid: 0
 
 # Diluted shares outstanding — weighted-average diluted from the Q1 2026
 # income statement (METHODOLOGY §4.2 convention). Basic at March 31 =

@@ -13,11 +13,17 @@ def test_inputs_load():
 def test_fleet_shape():
     ci = load_company_inputs("SB", "2026-Q1")
     counts: dict[str, int] = {}
+    nb = 0
     for v in ci.fleet.vessels:
+        if (v.years_to_delivery or 0) > 0:  # §9.6 on-curve newbuilds — orderbook, not operating
+            nb += v.count
+            continue
         counts[v.cls] = counts.get(v.cls, 0) + v.count
     # Post-Panamax split out of Pana 2026-06-29 (§11.7.10): 20 Pana + 16 PPMX + 7 Cape.
-    assert counts == {"Pana": 20, "Post-Panamax": 16, "Cape": 7}   # 43 on-curve (2 HFS off-curve)
+    assert counts == {"Pana": 20, "Post-Panamax": 16, "Cape": 7}   # 43 operating (2 HFS off-curve)
     assert sum(counts.values()) == 43
+    # 8 Kamsarmax newbuilds on the curve at age-0 delivered PV (§9.6 convention, 2026-06-30).
+    assert nb == 8
 
 
 def test_dwt_is_populated_for_dwt_scaling():

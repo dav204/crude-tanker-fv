@@ -78,6 +78,19 @@ vessels:
   - {id: SB_LakeDespina,  class: Cape, dwt: 181400, age: 12.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
   - {id: SB_Maria,        class: Cape, dwt: 181300, age: 12.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
 
+  # Newbuild orderbook AT 2026-03-31 (the NAV quarter-end) — 8 Kamsarmax (Pana class),
+  # valued on the curve at age-0 DELIVERED-market PV less remaining commitment (§9.6,
+  # the BRUT/CAPT convention), NOT advances-only. Q1-2026 6-K (CIK 1434754, accession
+  # 0001317861-26-000033): "orderbook of eight newbuilds … $227.5M remaining capital
+  # expenditure requirements" as of 2026-03-31. (The 11-NB June-12 orderbook adds 4 Q2
+  # orders — 2 May + 1 June Kamsarmax + 1 June Capesize, all 2029 — and removes Katerina,
+  # delivered April; those post-quarter changes are NOT valued here.) See sb_log + NB pre-reg.
+  - {id: SB_NB_Katerina,  class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 0.04}   # delivered Apr-2026; NB at quarter-end
+  - {id: SB_NB_2026,      class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 3, years_to_delivery: 0.50}   # 3 × 2026 (within-year midpoint)
+  - {id: SB_NB_2027,      class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 2, years_to_delivery: 1.30}   # 2 × 2027
+  - {id: SB_NB_2028Q3,    class: Pana, dwt: 82500, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.38}   # Jan-2026 Chinese order, Q3-2028
+  - {id: SB_NB_2029Q1,    class: Pana, dwt: 82500, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.88}   # Jan-2026 Chinese order, Q1-2029
+
 # Share of fleet on spot, by class (feeds the strip, not NAV). 6-K employment table:
 # Pana 8 of 20 on spot (0.40); Post-Panamax 6 of 16 on spot (0.375); all 7 Cape on period.
 spot_coverage_pct:
@@ -86,8 +99,9 @@ spot_coverage_pct:
   Cape: 0.0
 
 fleet_summary:
-  on_curve_total: 43          # MUST equal Σ vessel-row counts (cross-foot gate)
-  Pana_count: 20              # 8 Panamax + 12 Kamsarmax (75-82k)
+  on_curve_total: 51          # MUST equal Σ ALL curve-valued rows: 43 operating + 8 NB (cross-foot gate)
+  newbuilds_committed: 8      # 8 Kamsarmax on the curve at age-0 delivered PV (§9.6); orderbook, not operating
+  Pana_count: 20              # 8 Panamax + 12 Kamsarmax (75-82k) — on-water only
   Post-Panamax_count: 16      # 85-95.8k (§11.7.10, own class 2026-06-29)
   Cape_count: 7
   held_for_sale: 2            # Pedhoulas Commander + Xenia → off-curve at $30.2M (working_capital_net)

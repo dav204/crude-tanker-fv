@@ -41,19 +41,25 @@ def test_fleet_summary_totals_cross_foot_against_vessel_rows():
 
     import yaml
 
-    total_keys = ("on_curve_total", "total_operating")
     checked = 0
     for path in sorted(glob.glob("inputs/fleet_manifests/*.yaml")):
         if "_template" in path:
             continue
         data = yaml.safe_load(open(path))
         summary = data.get("fleet_summary") or {}
-        rows_sum = sum(v.get("count", 1) for v in data["vessels"])
-        for key in total_keys:
+        # The two total keys mean different things once a name carries §9.6 on-curve
+        # newbuilds (years_to_delivery > 0): on_curve_total counts EVERY curve-valued row
+        # (operating + newbuilds), while total_operating counts the OPERATING fleet only
+        # (newbuilds are orderbook). For a name without newbuilds the two coincide.
+        all_rows = sum(v.get("count", 1) for v in data["vessels"])
+        onwater_rows = sum(
+            v.get("count", 1) for v in data["vessels"] if not (v.get("years_to_delivery") or 0)
+        )
+        for key, expected in (("on_curve_total", all_rows), ("total_operating", onwater_rows)):
             if key in summary:
-                assert summary[key] == rows_sum, (
-                    f"{path}: fleet_summary.{key}={summary[key]} but vessel "
-                    f"rows sum to {rows_sum}"
+                assert summary[key] == expected, (
+                    f"{path}: fleet_summary.{key}={summary[key]} but expected {expected} "
+                    f"(all_rows={all_rows}, on_water_rows={onwater_rows})"
                 )
                 checked += 1
-    assert checked >= 7  # ten/stng/hafn/trmd on_curve_total + sblk/gnk/cmdb total_operating
+    assert checked >= 7  # ten/stng/hafn/trmd/sb/mpcc on_curve_total + sblk/gnk/cmdb total_operating

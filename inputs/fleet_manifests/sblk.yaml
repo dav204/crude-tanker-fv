@@ -1249,6 +1249,15 @@ vessels:
     charter_rate: null
     charter_end: null
 
+  # Newbuild orderbook at 2026-03-31 — 8 × 82,000 dwt Kamsarmax (Pana class), valued on
+  # the curve at age-0 DELIVERED-market PV less remaining commitment (§9.6), NOT
+  # advances-only. Q1-2026 6-K (CIK 1386716, accession 0000950157-26-000639) Note 6
+  # "Under Construction" table: 2 Qingdao Q2-2026, 3 Hengli Q3-2026, 3 Qingdao Q4-2026;
+  # "total aggregate REMAINING contracted price … $195,556" ($k). See sblk_log + NB pre-reg.
+  - {id: SBLK_NB_Q2_2026, class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 2, years_to_delivery: 0.13}   # Star Emma, Evelina (Qingdao)
+  - {id: SBLK_NB_Q3_2026, class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 3, years_to_delivery: 0.38}   # Star Ellie, Bella, Kyra (Hengli)
+  - {id: SBLK_NB_Q4_2026, class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 3, years_to_delivery: 0.63}   # Star Irini, Aline, Affi (Qingdao)
+
 # Spot coverage per class — high (SBLK is predominantly spot-traded). Refine when
 # per-vessel TC detail becomes available; the 0.85+ default reflects historic SBLK
 # disclosure of ~85-95% spot exposure across the cycle.

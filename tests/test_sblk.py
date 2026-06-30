@@ -16,26 +16,29 @@ def test_inputs_load():
 
 
 def test_fleet_class_counts():
-    """SBLK fleet at Q1 2026 — 135 operating vessels per the 6-K enumeration,
-    + 8 newbuildings on order (captured via balance sheet). Class breakdown
-    per METHODOLOGY §11.7.1 (Newcastlemax+Capesize→Cape, Post-Panamax+
+    """SBLK fleet at Q1 2026 — 135 OPERATING vessels per the 6-K enumeration,
+    + 8 Kamsarmax newbuilds now on the curve (§9.6). Class breakdown per
+    METHODOLOGY §11.7.1 (Newcastlemax+Capesize→Cape, Post-Panamax+
     Kamsarmax→Pana, Ultramax+Supramax→Supra-Ultra)."""
     ci = load_company_inputs("SBLK", "2026-Q1")
-    vessels = ci.fleet.vessels
-    assert len(vessels) == 135
+    operating = [v for v in ci.fleet.vessels if not (v.years_to_delivery or 0)]
+    assert len(operating) == 135
     counts = {cls: 0 for cls in ("Cape", "Pana", "Supra-Ultra")}
-    for v in vessels:
+    for v in operating:
         counts[v.cls] += 1
     assert counts["Cape"] == 31
     assert counts["Pana"] == 46
     assert counts["Supra-Ultra"] == 58
 
 
-def test_newbuilds_in_balance_sheet():
-    """8 × 82,000 dwt Kamsarmax newbuilds captured as balance-sheet line items
-    (METHODOLOGY §3.1 / §9.6 — NBs valued at delivered market less remaining
-    commitment, not on the fleet manifest until they deliver)."""
+def test_newbuilds_on_curve_delivered_less_commitment():
+    """8 × 82,000 dwt Kamsarmax newbuilds valued ON the curve at age-0 delivered-market
+    PV (§9.6 on-curve convention, standardized 2026-06-30); the REMAINING commitment
+    ($195,556k per 6-K Note 6) is subtracted and advances → 0 (sunk into the on-curve
+    delivered value, the BRUT/CAPT convention)."""
     ci = load_company_inputs("SBLK", "2026-Q1")
-    # Total contract price $195,556k; advances paid $99,999k
     assert ci.balance_sheet.newbuild_capex_commitments == 195556000
-    assert ci.balance_sheet.newbuild_advances_paid == 99999000
+    assert ci.balance_sheet.newbuild_advances_paid == 0
+    nb = [v for v in ci.fleet.vessels if (v.years_to_delivery or 0) > 0]
+    assert sum(v.count for v in nb) == 8
+    assert all(v.cls == "Pana" for v in nb)

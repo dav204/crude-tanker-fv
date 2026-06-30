@@ -108,7 +108,8 @@ fleet_schedule:
   Ctr-Intermediate: [29.0, 29.0, 29.0, 29.0, 30.0, 31.0, 33.0, 35.0, 37.0, 39.0]
 
 fleet_summary:
-  total_operating: 66   # 51 on-water + 15 owned NB rows
+  on_curve_total: 66    # 51 on-water + 15 owned §9.6 on-curve NB rows (was mislabeled total_operating)
+  total_operating: 51   # operating fleet only (newbuilds are orderbook)
   on_water_count: 51
   owned_newbuild_count: 15
   total_teu_on_water: 129192

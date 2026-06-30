@@ -5,10 +5,6 @@
 - **Model fair value:** $23.99
 - **Analyst target:** $24.80
 
-## Data validation warnings
-
-- spot TCE VLCC: $388,300/day is 9.7x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
-
 ## NAV breakdown
 
 | Item | $M |

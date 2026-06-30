@@ -25,12 +25,17 @@ working_capital_net: 53791000
 total_debt: 544000000
 lease_liabilities: 0
 
-# Newbuild book (§3.1 conservative / TEN convention): net NB NAV = advances paid.
-# "Advances for vessels" $100,040 (6-K, 2026-03-31). Remaining capex commitment
-# ~$227.5M buys delivered Kamsarmaxes of ~equal value → net impact = advances paid,
-# so newbuild_capex_commitments = 0. (11 NB: 10 Kamsarmax + 1 Cape, 2026-2029 delivery.)
-newbuild_capex_commitments: 0
-newbuild_advances_paid: 100040000
+# Newbuild book (§9.6 on-curve, delivered-less-commitment — standardized 2026-06-30 off
+# the prior advances-only "TEN convention"). The 8 Kamsarmax in the orderbook AT 2026-03-31
+# are valued on the curve at age-0 delivered-market PV (see sb.yaml NB rows); the REMAINING
+# commitment is held here and advances → 0 (sunk into the on-curve delivered value, per
+# BRUT/CAPT). 6-K (accession 0001317861-26-000033): as of 2026-03-31, "$227.5M of remaining
+# capital expenditure requirements" on the eight-newbuild orderbook ($97.8M paid; balance-
+# sheet "Advances for vessels" $100,040). NAV impact ≈ flat vs the old advances-only mark
+# (delivered_PV $327.5M − $227.5M ≈ the $100M advances) — back-end-loaded deliveries' PV
+# discount offsets the embedded ordering value. See NB pre-reg + sb_log.
+newbuild_capex_commitments: 227500000
+newbuild_advances_paid: 0
 
 # Common shares outstanding (6-K, 2026-06-12) — the per-share NAV denominator.
 diluted_shares_outstanding: 101826580

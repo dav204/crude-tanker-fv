@@ -86,6 +86,21 @@ remaining — the prior YAML comment mislabeled it "total"); `newbuild_advances_
 | **SB** | $327.5M | +$100.0M (−$227.5M, adv 0) | +$100.0M | 9.92 → 9.92 | **FLAT (−0.01%)** | beyond ±1.5% / ±$0.15/sh → investigate schedule |
 | **SBLK** | $352.6M | +$157.1M (−$195.556M) | −$95.6M | 27.34 → 29.49 | **+$2.15/sh (+7.9%)** | outside +6.5%…+9.5% → investigate |
 
+**AMENDMENT 1 (post-wiring, prediction-arithmetic correction — NOT band-widening).** SB
+landed at **10.22 (+3.0%)**, outside the FLAT ±1.5% band; halt + investigate the input. Cause
+found: the hand-prediction above used a **bare** vessel and omitted the **eco+scrubber
+premium** `vessel_market_value` applies (+$4.3M on a $46M Pana age-0). Modern eco newbuilds
+DO carry that premium, and **BRUT/CAPT/FRO set eco+scrubber=true on every NB row** — so
+eco=true is the correct, *required-for-consistency* input (valuing SB's NBs on a different
+basis than BRUT's would reintroduce the very inconsistency this fixes), not a knob turned to
+fit. Re-derived WITH the premium: delivered_PV **SB $358.1M / SBLK $385.6M**; pipeline **SB
+10.22 (+3.0%), SBLK 29.77 (+8.9%)** — reproduced exactly, and the all-names control confirms
+**only SB + SBLK moved**. Corrected reads: **SB modestly UP +3.0%** (eco premium tips the
+~flat balance up), **SBLK +8.9%**. The flat-vs-up *asymmetry* (back-loaded vs prompt) stands;
+SB is "modestly up," not "flat." Recorded transparently: my registered band was missed because
+my prediction arithmetic omitted a premium the correct input carries, not because an input was
+wrong — the input is confirmed sound and BRUT-consistent.
+
 **The headline finding: identical 8-Kamsarmax programs, opposite NAV direction.** SB ~flat
 because its book is back-end-loaded (1 in 2028, 1 in 2029) — the PV discount on delivered
 value offsets the embedded ordering gain (contracted ≈ $40.7M/NB vs $46M resale). SBLK up

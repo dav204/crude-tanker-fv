@@ -9,6 +9,37 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-06-30T13:13:01+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.36
+- Single-point FV: $10.30
+- Scenario PW FV: $10.10 (EV +58.8%)
+- NAV / share: $10.61
+- Position: **BUY (undervalued)**
+- Broker spread: -46.1pp (k_broker 0.80)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +5.1% | Δscenario FV: +4.4% | ΔNAV: +2.9% | Δspread: -4.5pp
+
+**Decision:** Newbuild convention standardized to §9.6 on-curve delivered-less-commitment
+(2026-06-30) — NOT a market move. SB was the lone dry-bulk advances-only name (+$100M, no
+delivered value, no obligation). The 8 Kamsarmax in the orderbook AT 2026-03-31 are now on
+the curve at age-0 delivered-market PV (sb.yaml NB rows), with the REMAINING commitment
+$227.5M subtracted and advances → 0 (6-K accession 0001317861-26-000033; 8-NB quarter-end
+state, not the 11-NB June orderbook). NAV +2.9% ($10.61). **Direction note:** I pre-registered
+SB ~FLAT; it came in modestly UP (+3.0%) because my hand-prediction omitted the eco+scrubber
+premium the curve applies to newbuilds (BRUT/CAPT/FRO all carry eco=true on NB rows — the input
+is correct and required for consistency, my arithmetic was short; NB pre-reg Amendment 1).
+**Combined-with-Thread-1 (the SB canary, in one place):** Thread-1 dry-bulk age-0 (+5%, less
+cheap on the NAV denominator) + this newbuild move (+3%) ⇒ SB ~+8% less cheap than pre-Thread-1,
+**still robustly cheap on both bases (BUY)** — the cheap read survives both adjacent basis moves.
+Reconcile SANITY n/a (approx-pnav; +46% gap within the ±50% bug gate). PAUSE for owner review
+before re-ratify.
+
+---
+
 ## 2026-06-29T23:45:25+00:00 — Pipeline run (auto)
 
 **Model state:**

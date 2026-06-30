@@ -22,8 +22,8 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | TRMD | product | pending-sourceable | 1.11× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | CMDB | dry_bulk | resale-uniform | 0.55× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
 | GNK | dry_bulk | resale-uniform | 0.97× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
-| SB | dry_bulk | resale-uniform | 0.62× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
-| SBLK | dry_bulk | resale-uniform | 1.01× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
+| SB | dry_bulk | resale-uniform | 0.60× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| SBLK | dry_bulk | resale-uniform | 0.93× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | CCEC | lng | structural-unavailable | 0.78× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | FLNG | lng | structural-unavailable | 1.04× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | GSL | containerships | structural-unavailable | 1.01× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
@@ -33,7 +33,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 
 **NAV-basis (comparability boundary):** pending-sourceable 4, resale-uniform 11, structural-unavailable 6, unverified-no-current-xclusiv-line 1.
 
-**Read robustness (parity↔historical):** flips 3, n/a 13, robust 6.
+**Read robustness (parity↔historical):** flips 2, n/a 13, robust 7.
 
 **Both §18.5 gates are registered-PENDING book-wide** — no Baltic $/day series (§18.5a) or orderbook ratios (§18.5b) in-repo; see `backtest/DATA_CONTRACT_NORMAL_RATES.md`. So no name is *fully* validated yet; the resale-uniform names are comparable and parity-banded, awaiting only the two data-gated gates.
 
