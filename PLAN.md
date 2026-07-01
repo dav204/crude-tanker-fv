@@ -43,7 +43,8 @@ source of truth (imported by both the guards and the tier, so they can't drift):
    queue. CCEC/CMBT are STRUCTURAL (Group-B, commitment-net not on-curve).
 2. **Operating-scrubber provenance gradient** (`test_scrubber_provenance`) — contradicted→hard-
    fail; untraced-newbuild→hard-fail; untraced-operating→xfail-strict. `OPERATING_SCRUBBER_VERIFIED
-   = {CAPT:5}`; `OPERATING_SCRUBBER_QUEUE` = 11 names.
+   = {CAPT:5, SB:20}` (SB traced to the FY2025 20-F 2026-07-01 — see the SB audit); `OPERATING_SCRUBBER_QUEUE`
+   = 10 names.
 3. **NAV-figure provenance** (`test_manifest_provenance`) — field-GENERAL: any figure in the NAV
    equation (debt/cash/leases/commitment/advances/preferred/shuttle/working-capital) that rests
    on an estimate marker (a tilde, `[ESTIMATE]`, `approx`) without a citation is a red. Plus the

@@ -5,6 +5,33 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-01 — SB CORRECTED + POST-MORTEM: the audit found the CAPT bug + a date-mix on the headline name.**
+  An audit of SB (the book's single most important actionable name) vs the Q1-2026 earnings deck + the
+  6-K (acc 0001317861-26-000033) + FY2025 20-F (acc 0001628280-26-014408) found **two NAV-inflating
+  errors**, both now fixed in one pre-registered 2026-03-31-snapshot correction (band $10.05-10.18
+  committed bc33ca9; landed $10.1157; NAV $10.47→$10.12, still ~0.63× — thesis intact):
+  1. **Blanket scrubber flag (the CAPT peer-borrowed-flag bug).** Manifest carried **29** operating
+     scrubbers (all 16 Post-Panamax + 6 Kamsarmax) vs the 20-F's **20** ("21 vessels, all 8 Capes";
+     Michalis H a scrubber-Cape now HFS). Corrected to the 20-F per-vessel set (fleet-table ftn-15):
+     only **Pedhoulas Rose** among the Kamsarmax, 12 Post-Panamax. −$18M. SB CLEARED from
+     `OPERATING_SCRUBBER_QUEUE` → `OPERATING_SCRUBBER_VERIFIED{SB:20}` — the number shrank but now traces.
+  2. **Date-mixing.** The manifest reflected the 2026-06-12 fleet status but valued at the 3/31 balance
+     sheet. Katerina (delivered Apr) was double-counted (operating + orderbook, $47.7M); Michalis H (the
+     ONE 3/31 HFS, 6-K line 398) was omitted; Xenia + Pedhoulas Commander (sales agreed May) were
+     mis-bucketed HFS. Rebuilt as one 3/31 snapshot: 44 operating + 1 HFS + 8 NB.
+  **POST-MORTEM (why EDGAR-sourced yet backwards):** two DIFFERENT root causes. (a) The scrubbers are
+  date-INDEPENDENT — the error was a pure verification miss: the onboarding verified the NEWBUILD
+  scrubbers (even caught the peer-trap there, Amendment 2) but set the OPERATING scrubbers by blanket
+  default and parked SB in the unverified queue, which was never worked. We READ the disclosed aggregate
+  (20) but never cross-footed it against our per-vessel flags (29); the per-vessel data (20-F ftn-15) was
+  never mined. (b) The composition IS date-dependent — the fleet DID change Mar→Jun (4 transactions), and
+  the onboarding took the 6-K's fleet table (as-of the June-12 FILING date, not quarter-end) for a 3/31
+  NAV. Both are the project's "provenance is attention-dependent" theme: attention went to the primed
+  checks (newbuild scrubbers, the balance sheet), and the operating scrubbers + fleet-date-consistency got
+  a close-enough pass. Two dated rules added to CLAUDE.md (fleet-snapshot-must-match-NAV-date;
+  cross-foot-operating-scrubber-count-at-onboarding). Suite 439 passed / 25 xfailed; drift gate green
+  (SB-only re-ratify). Record: `decisions/sb_reconciliation_prereg_2026-07-01.md`; commits bc33ca9 + f2fc0ac.
+
 - **2026-06-30 — NAT DE-VOIDED: P0 full balance-sheet reconciliation (the first PROVISIONAL name cleared).**
   NAT's headline FV was VOID — the $17M newbuild advance was contradicted by the Q1-2026 cash flow and the
   $153M commitment traced to nothing. Pulled the **FY2025 20-F** (acc 0001140361-26-017809, filed 2026-04-29)

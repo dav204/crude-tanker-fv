@@ -208,6 +208,29 @@ the named decision logs.)
   (2026-06-11, TEN): sum the vessel rows, check against the issuer table AND the
   `fleet_summary` block. Machine-enforced by
   `test_fleet_summary_totals_cross_foot_against_vessel_rows`.
+- **The fleet snapshot MUST match the NAV/balance-sheet date — a results 6-K reports the
+  quarter's FINANCIALS but its fleet/employment table is as-of the FILING date** (2026-07-01,
+  SB). SB's manifest took the Q1-2026 6-K's fleet table (as-of 2026-06-12, in the filing prose)
+  and valued it at the 3/31 balance sheet — a 2.5-month gap in which 4 transactions happened, so
+  the June fleet ≠ the March fleet: Katerina (delivered Apr) was double-counted (operating + in
+  the 8-NB orderbook); Michalis H (the ONE 3/31 held-for-sale) was omitted; Xenia + Pedhoulas
+  Commander (sales agreed May) were mis-bucketed as HFS when they were operating at 3/31. **When
+  onboarding/refreshing a name, reconcile every delivery/sale between quarter-end and the filing
+  date, and build the fleet AS-OF the NAV date — the closest-to-quarter-end filing (often the
+  20-F/prior 6-K), not the newest fleet page.** The "fleet didn't change" intuition is the trap:
+  the core fleet is stable, but the quarter-boundary transactions are exactly what a stale snapshot
+  gets wrong. (Contrast the STATIC-attribute rule below: scrubbers don't change with the date.)
+- **Cross-foot the OPERATING-scrubber COUNT against the issuer's disclosed aggregate at onboarding
+  — a blanket per-class scrubber flag is the CAPT peer-borrowed-flag bug** (2026-07-01, SB). SB
+  carried 29 operating scrubbers (a blanket `scrubber:true` on all 16 Post-Panamax + 6 wrong
+  Kamsarmax) while its 6-K/20-F disclose 20-21 ("20 vessels equipped with scrubbers, incl. all
+  Capesize" — the aggregate we HAD read but never cross-footed against our per-vessel flags).
+  Scrubber is a static value-adding flag with NO build-year rule; it MUST trace to the name's own
+  per-vessel disclosure (the 20-F fleet-table footnote for SB), and its sum MUST equal the disclosed
+  aggregate. `OPERATING_SCRUBBER_QUEUE` flags the unverified state — but a queued name can still
+  carry a wrong count, so **work the queue at onboarding: source the set, cross-foot the count,
+  move to `OPERATING_SCRUBBER_VERIFIED{name:count}`.** Don't ship a blanket default into the queue
+  and leave it. (`test_verified_operating_scrubber_count` asserts the count for verified names.)
 - **Long-running background jobs die silently under nohup** (block-buffered
   stdout; 2026-06-10). Pattern: `nohup sh -c 'PYTHONUNBUFFERED=1 ... ; echo "EXIT
   CODE $?"' >> log 2>&1 &`. Watch the log mtime, not just its contents.

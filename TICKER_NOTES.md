@@ -86,6 +86,20 @@ quick-ref price unless the note itself is being updated.)
   xref reads structurally hot. Watch Q2 for the Astros price (clean
   age-8 Ultramax print). Onboarded 2026-06-10; Week 2 closed.
 
+- **SB** — 4th dry-bulk validator (Safe Bulkers, NYSE:SB); one of the **2
+  validated-actionable longs** (with SBLK). Cheap on both bases (~0.63× P/NAV);
+  APPROX consensus_pnav (P/BV proxy, no Pareto). Hajioannou-controlled; §15
+  DECLINED (market-rate mgmt fees, pari-passu dividends). Onboarded 2026-06-27.
+  **AUDIT-CORRECTED 2026-07-01 (data-integrity, not a market move):** NAV
+  $10.47→$10.12. Two errors vs the 6-K/20-F — (1) date-mixing (manifest was the
+  2026-06-12 fleet on the 3/31 balance sheet): Katerina is a NEWBUILD at 3/31 (was
+  double-counted), Michalis H (2012 Cape) is the ONE 3/31 HFS, Xenia + Pedhoulas
+  Commander are operating (sales agreed May); (2) the CAPT blanket-scrubber bug —
+  29 flagged vs 20 disclosed, corrected to the 20-F set (only Pedhoulas Rose among
+  the Kamsarmax). **CLEARED to OPERATING_SCRUBBER_VERIFIED{SB:20}** — tightens the
+  VALIDATED-TIGHT read. Fleet at 3/31 = 44 operating + 1 HFS + 8 NB. See
+  sb_reconciliation_prereg_2026-07-01.md + the CLAUDE.md rules it added.
+
 - **CAPT** — 17th name, first Oslo/NOK listing (watchlist carries USD;
   `yahoo_symbol: CAPT.OL` — bare CAPT on Yahoo is the wrong issuer).
   Marinakis ~75%; 30 firm vessels, 21 NB through mid-28 (heaviest §3.1/
