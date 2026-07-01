@@ -28,8 +28,8 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | CCEC | lng | GOVERNED-WIDE · structural-class | $21.35 | $32.08 | +50% | BUY (undervalued) | $28.10 | $23.72 (apx) | +18% | n-a | ready |
 | FLNG | lng | GOVERNED-WIDE · structural-class | $28.06 | $28.16 | +0% | BUY (undervalued) | $28.45 | $20.48 | +39% | OK | ready |
 | GSL | containerships | GOVERNED-WIDE · structural-class | $37.60 | $43.00 | +14% | BUY (undervalued) | $38.59 | $50.13 (apx) | -23% | n-a | ready |
-| MPCC | containerships | GOVERNED-WIDE · structural-class | $2.55 | $2.19 | -14% | unreliable read (not a short) | $2.02 | $2.45 (apx) | -18% | n-a | ready |
-| BRUT | crude | PROVISIONAL · uncited-figure ⛔ | $5.21 | $9.84 | +89% | BUY (undervalued) | $9.40 | $6.95 | +35% | OK | **NO** |
+| MPCC | containerships | GOVERNED-WIDE · structural-class | $2.55 | $2.19 | -14% | unreliable read (not actionable) | $2.02 | $2.45 (apx) | -18% | n-a | ready |
+| BRUT | crude | PROVISIONAL · cash-pending ⛔ | $5.21 | $9.27 | +78% | unreliable read (not actionable) | $8.80 | $6.95 | +27% | OK | **NO** |
 | ECO | crude | PROVISIONAL · off-curve ⛔ | $50.12 | $37.33 | -26% | rich · cycle position (not a short) | $34.56 | $41.42 | -17% | OK | **NO** |
 | HAFN | product | PROVISIONAL · uncited-figure ⛔ | $6.64 | $5.66 | -15% | rich · cycle position (not a short) | $5.22 | $6.99 | -25% | OK | **NO** |
 | STNG | product | PROVISIONAL · uncited-figure ⛔ | $75.60 | $78.93 | +4% | BUY (undervalued) | $80.35 | $108.00 | -26% | OK | **NO** |
@@ -45,7 +45,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 
 | Ticker | Sector | **Tier** | NAV-basis | P/NAV(mkt) | Read par→hist | Robust? | Parity band | §18.5a | §18.5b | Verdict |
 |---|---|---|---|--:|---|---|---|---|---|---|
-| BRUT | crude | PROVISIONAL ⛔ | resale-uniform | 0.57× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
+| BRUT | crude | PROVISIONAL ⛔ | resale-uniform | 0.61× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
 | CAPT | crude | GOVERNED-WIDE | resale-uniform | 0.79× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
 | CMBT | crude | GOVERNED-WIDE | structural-unavailable | 0.94× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
 | DHT | crude | VALIDATED-TIGHT | resale-uniform | 1.18× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |

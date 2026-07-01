@@ -9,6 +9,67 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-01T19:50:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.21
+- Single-point FV: $9.27
+- Scenario PW FV: $10.24 (EV +96.6%)
+- NAV / share: $8.80
+- Position: **BUY (undervalued)**
+- Broker spread: -34.5pp (k_broker 0.94)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-01) no-change re-run to regenerate outputs after two owner-directed rendering fixes —
+(1) BRUT added to `POSITION_UNRELIABLE`, so the verdict position cell now reads **"unreliable read (not
+actionable)"** instead of a raw BUY: a 0.59× "BUY" sitting next to `PROVISIONAL ⛔ NO` was the ASC
+"rich·cycle" holdover trap in reverse (the eye-catching discount and the untrustworthiness are the SAME
+max-torque fact). (2) The §15 going-concern haircut stays **0% — deliberately** (owner): a going-concern
+doubt is a BINARY survival question, not a tunable %; a made-up 25/30% would fabricate precision, so it is
+a prominent QUALITATIVE flag that resolves with H1-2026 financing clarity. NAV unchanged $8.80. The
+reconciliation itself is annotated on the 19:39:53 entry below; BRUT-only re-ratify follows this run.
+
+---
+
+## 2026-07-01T19:39:53+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.21
+- Single-point FV: $9.27
+- Scenario PW FV: $10.24 (EV +96.6%)
+- NAV / share: $8.80
+- Position: **BUY (undervalued)**
+- Broker spread: -34.5pp (k_broker 0.94)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread +11.3pp
+- ⚑ NAV/sh -6.4%
+- Δprice: no change | Δsingle FV: -5.8% | Δscenario FV: -5.3% | ΔNAV: -6.4% | Δspread: +11.3pp
+
+**Decision:** (2026-07-01) balance-sheet TRACE + cash FLOOR + governance correction — EXPLAINED, INTENDED.
+Fourth P0 reconciliation (pre-reg `decisions/brut_reconciliation_prereg_2026-07-01.md`), workflow-sourced to
+the FY2025 Annual Report (`inputs/research_issuer/2025_brut_annual_report.pdf`, audited US GAAP), the Euronext
+admission doc, and Pareto (cross-check). **The reconciliation VALIDATES the model** — the Pareto estimates were
+accurate: commitment $1,373.1M (Note 10 $661.7M + Note 15 Jan $236.0M + CIMC $499.0M − $23.6M Q1 installments)
+≈ prior $1,370M; debt $0 (Dec-2025 total liab $0.161M, equity-financed); shares 61,923,808 (Dec 52,399,998 +
+Feb placement 9,523,810). These 4 now TRACE to the issuer (banked). NAV $9.40→$8.80 is ENTIRELY the cash line:
+booked at the **$66M conservative FLOOR** (owner decision) not the $116M itemized point nor Pareto's $100M — the
+Mar-2026 CIMC ~$50M execution deposit likely hit Q1, and a going-concern-doubtful issuer doesn't contract 4
+VLCCs without it; band $66–116M, resolves at the H1-2026 report (2026-08-13). **Cash keeps BRUT PROVISIONAL**
+(stays in `NAV_FIGURE_ESTIMATE_QUEUE`), new sub-reason **`cash-pending-H1-report`** (a WAITING state — sourced
+except one figure with a known resolution date — not `void`/`uncited`). Also corrected the **FABRICATED
+governance** block (no "Goodwood"/no "Koch"/not "dispersed" — managers 2020 Bulkers + Himalaya; Trøim-sponsored;
+Magni zero-fee) and recorded the **going-concern doubt** as the §15/risk headline (`governance_discount_pct` 0,
+% pending a §15 judgment at H1). BRUT is NOT actionable — the +96% EV is upside to a going-concern-doubtful,
+max-torque, resale-level-provisional NAV → directional-only; the tight-actionable surface stays SB + SBLK.
+SANITY OK (+22.2% to Pareto NAV $7.20). **Baseline re-ratify (BRUT-only) recommended; RE-RATIFY AGAIN at H1-2026** — owner.
+
+---
+
 ## 2026-07-01T18:24:03+00:00 — Pipeline run (auto)
 
 **Model state:**

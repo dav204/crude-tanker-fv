@@ -7,13 +7,16 @@ its per-name reads — not by a cross-sectional backtest.
 
 **Current state (2026-07-01):** **22 watchlist names across 5 sectors**; **440 main
 tests green, 23 xfailed** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester
-via `.venv310`); drift gate **0 unexplained** (ASC explained); pipeline clean; SANITY 14 OK / 8
-n-a-APPROX / 0 FAIL. Three P0 names cleared this arc: **NAT DE-VOIDED** (2026-06-30, NAV
-$2.07→$2.79, GOVERNED-WIDE·newbuild-indeterminate), **SB corrected** (2026-07-01 — date-mix + CAPT
-blanket-scrubber bug; NAV $10.47→$10.12, ~0.63×, scrubber traced), and **ASC reconciled** (2026-07-01
-— its April-2026 newbuild was wrongly loaded as a −$88.8M Q1 commitment [subsequent event], a phantom
-`Ardmore_Patriot` hull removed, chem-Handies re-marked to a cited 20-F carrying-value floor; NAV
-$15.96→$17.80, PROVISIONAL → GOVERNED-WIDE, now fair-to-slightly-cheap [BUY +5.2%] but §12 cycle-position).
+via `.venv310`); drift gate **0 unexplained** (BRUT explained); pipeline clean; SANITY 14 OK / 8
+n-a-APPROX / 0 FAIL. FOUR P0 names worked this arc: **NAT DE-VOIDED** (2026-06-30, NAV $2.07→$2.79,
+GOVERNED-WIDE·newbuild-indeterminate), **SB corrected** (date-mix + CAPT blanket-scrubber bug; NAV
+$10.47→$10.12, ~0.63×), **ASC reconciled** (April-2026 newbuild wrongly loaded as a −$88.8M Q1
+commitment [subsequent event] + phantom `Ardmore_Patriot` removed + chem-Handies → cited 20-F
+carrying-value floor; NAV $15.96→$17.80, PROVISIONAL → GOVERNED-WIDE, BUY +5.2%), and **BRUT traced**
+(2026-07-01 — a DIFFERENT outcome: the reconciliation VALIDATES the model [commitment $1,373.1M ≈ Pareto
+$1,370M; debt $0; shares 61.9M all now issuer-traced] but BRUT STAYS PROVISIONAL — cash booked at a $66M
+conservative floor keeps it flagged `cash-pending-H1-report`; also fixed a fabricated governance block +
+flagged going-concern doubt; NAV $9.40→$8.80; NOT actionable — going-concern-doubtful, max-torque).
 CLAUDE.md was also restructured to a lean ~3.8k-token router with a build-enforced size cap. These
 hardened **provenance + handoff + hygiene**, not the thesis — SB stays cheap on every version of its numbers.
 
@@ -63,14 +66,15 @@ validation state, NOT a new model: **VALIDATED-TIGHT** (5: DHT, FRO, SB, SBLK, T
 robust two-basis), **GOVERNED-WIDE** (12 — traces but structural-unavailable input, read flips, or
 newbuild parked/absent: **NAT** `newbuild-indeterminate`; **ASC** `structural-class` (chem-Handy
 carrying-value floor, no clean resale curve) — cleared 2026-07-01),
-**PROVISIONAL** (5: BRUT, ECO, HAFN, STNG, TRMD — a NAV-driving figure is uncited /
-off-basis; **NOT handoff-ready, flag don't pass**). APPROX-pnav does NOT demote a robust name
+**PROVISIONAL** (5: ECO, HAFN, STNG, TRMD — a NAV-driving figure uncited/off-basis; + **BRUT**
+`cash-pending` — 4/5 figures issuer-traced 2026-07-01, only cash flagged pending the H1-2026 report,
+a WAITING state not a broken one; **NOT handoff-ready, flag don't pass**). APPROX-pnav does NOT demote a robust name
 (SB's two-basis corroboration substitutes for the missing broker check); an immaterial uncited
 operating-scrubber surface does not either (materiality-gated at 10% of NAV). Emitted in the
 scorecard Verdict + the `/add-ticker` handoff (a PROVISIONAL name may not hand off a governed FV).
 
 **A NEW AGENT: read CLAUDE.md, then this file.** The lead open thread is the **reconciliation
-queue** (below) — clearing PROVISIONAL names to handoff-ready. NAT + SB + ASC are done; **BRUT is next.**
+queue** (below) — clearing PROVISIONAL names to handoff-ready. NAT + SB + ASC + BRUT done; **ECO is next.**
 Per-change chronology in `CHANGELOG.md`; per-name detail in `decisions/<t>_log.md`.
 
 ## Recent arc — convention + provenance + handoff + hygiene (2026-06-29 → 07-01)
@@ -118,10 +122,24 @@ the INPUT; never source mid-recompute.
      4 chem-Handies re-marked to a cited **20-F carrying-value floor** (~$18.3M/hull); HFS Engineer →
      `held_for_sale` field ($35.5M). NAV $15.96→$17.80, PROVISIONAL → GOVERNED-WIDE·structural-class,
      BUY +5.2% but §12 cycle-position. Newbuild to go on-curve in Q2 (§9.6, issuer $44.9M/ship). Record:
-     `decisions/asc_reconciliation_prereg_2026-07-01.md`. **Baseline re-ratify (ASC-only) pending — owner
-     action.** LESSON (owner): **audit the subsequent-events note FIRST** — it's where post-quarter events
-     leak into a Q1 snapshot (ASC's newbuild; the SB fleet-table version).
-   - **NEXT: BRUT, ECO, HAFN, STNG, TRMD** (the rest of `NAV_FIGURE_ESTIMATE_QUEUE` ∩ PROVISIONAL);
+     `decisions/asc_reconciliation_prereg_2026-07-01.md` (commits 48b3956 recon, cfc904e re-ratify).
+     LESSON (owner): **audit the subsequent-events note FIRST** — it's where post-quarter events leak
+     into a Q1 snapshot (ASC's newbuild; the SB fleet-table version).
+   - **BRUT — DONE (2026-07-01), a DIFFERENT outcome: the reconciliation VALIDATES the model, and BRUT
+     stays PROVISIONAL (does NOT clear).** Workflow-sourced (9 agents) to the FY2025 Annual Report
+     (`inputs/research_issuer/2025_brut_annual_report.pdf`) + the Euronext admission doc. The Pareto
+     estimates were ACCURATE: commitment $1,373.1M (Note 10 $661.7M + Note 15 Jan $236.0M + CIMC $499.0M
+     − $23.6M) ≈ prior $1,370M; debt $0; shares 61,923,808 — 4 figures now TRACE to the issuer. Cash
+     booked at the **$66M conservative FLOOR** (owner: not the $116M point, not Pareto's $100M; the
+     Mar-2026 CIMC ~$50M execution deposit likely hit Q1) → NAV $9.40→$8.80. **Cash keeps BRUT
+     PROVISIONAL** — new sub-reason **`cash-pending-H1-report`** (a WAITING state, resolves at H1-2026
+     2026-08-13; re-ratify AGAIN then). Also fixed a **FABRICATED governance** block (no Goodwood/Koch;
+     managers 2020 Bulkers+Himalaya, Trøim-sponsored, Magni zero-fee) + recorded the **going-concern
+     doubt** as the §15/risk headline. NOT actionable (going-concern-doubtful, max-torque, resale-level-
+     provisional). Record: `decisions/brut_reconciliation_prereg_2026-07-01.md`. Baseline re-ratify
+     (BRUT-only) pending — owner. **NEW PATTERN: a reconciliation can VALIDATE + still not clear** (sourced
+     except one figure with a known resolution date → `cash-pending`, distinct from `void`/`uncited`).
+   - **NEXT: ECO, HAFN, STNG, TRMD** (the rest of `NAV_FIGURE_ESTIMATE_QUEUE` ∩ PROVISIONAL);
      then the `OFF_CONVENTION_QUEUE` fixable names onto the §9.6 curve. Same discipline (subsequent-events
      note first). Clearing a name flips its tier and lets it hand off a governed FV.
 

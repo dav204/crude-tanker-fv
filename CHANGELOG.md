@@ -5,6 +5,44 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-01 — BRUT TRACED: the reconciliation VALIDATES the model, and the name still doesn't clear.**
+  Fourth P0 reconciliation, and the first with a DIFFERENT shape — no ASC-style errors. BRUT (Bruton Ltd) is a
+  pre-operational Euronext-Oslo VLCC-newbuild vehicle that reports HALF-YEARLY (first issuer report H1-2026, due
+  2026-08-13), so its "2026-Q1" snapshot is a Dec-2025-actual-rolled-through-Q1-subsequent-events construct.
+  Sourced via a 9-agent workflow + an independent read of the primary docs (FY2025 Annual Report
+  `inputs/research_issuer/2025_brut_annual_report.pdf`, audited PwC US GAAP; the Euronext admission doc — the
+  "prospectus" the model said was "NOT located" IS on disk; Pareto as cross-check). Pre-reg
+  `decisions/brut_reconciliation_prereg_2026-07-01.md`.
+  1. **The balance sheet validates.** Four of five figures now trace to the issuer and CONFIRM the prior Pareto
+     estimates: remaining newbuild commitment **$1,373.1M** (Note 10 6-vessel base $661.7M + Note 15 Jan-2026
+     order $236.0M + Note 15 Mar-2026 CIMC 4-vessel order $499.0M − $23.6M Q1 installments) ≈ prior $1,370M;
+     interest-bearing debt **$0** (Dec-2025 total liabilities $0.161M, equity-financed, draws-on-delivery);
+     shares **61,923,808** (Dec-2025 52,399,998 + Feb-2026 placement 9,523,810 @ $5.25); advances 0 (§9.6
+     convention). The max-torque worry (a wrong commitment ≈ $3/sh) resolved to "the estimate was right."
+  2. **Cash is the one figure that can't settle until H1-2026 — and it keeps BRUT PROVISIONAL.** Roll-forward:
+     Dec-2025 $89.661M + Feb placement $50M − itemized Q1 installments $23.6M = $116M point, BUT the Mar-2026
+     CIMC order's ~$50M (10%) execution deposit likely hit Q1 (a going-concern-doubtful issuer doesn't contract
+     4 VLCCs without it), which would drop cash to ~$66M. Owner decision: book the **$66M conservative FLOOR**
+     (not the $116M point, not Pareto's unsourced $100M midpoint) — on a max-torque name, book the conservative
+     end of the OWN sourced range, flag it a floor, pre-register the Aug-13 resolution. NAV $9.40→$8.80.
+  3. **NEW tier state `cash-pending-H1-report`.** BRUT stays in `NAV_FIGURE_ESTIMATE_QUEUE` (cash is a flagged
+     `[ESTIMATE]` floor) → PROVISIONAL, but its sub-reason is distinct from NAT's `void` or a plain `uncited`:
+     it is SOURCED except one figure with a KNOWN RESOLUTION DATE — a "waiting" state, not "broken." Encodes the
+     insight that **a reconciliation can validate-and-still-not-clear.**
+  4. **Fabricated governance corrected + going-concern doubt surfaced.** The YAML's "Goodwood Ship Management /
+     Koch Industries ~26% / no >50% controller / dispersed" appears in NO filing — the primary docs show managers
+     **2020 Bulkers Management + Himalaya** (no Goodwood), **no Koch**, a **Trøim-sponsored** vehicle (Drew Holdings
+     48.15% at the Nov-2024 admission, now diluted — current % unresolved), and a **zero-fee** Magni support
+     agreement. Corrected to sourced facts. The bigger §15/risk finding: the issuer states **substantial doubt
+     about the ability to continue as a going concern** — the 12-VLCC program is unfinanced ($268.3M due 2026 +
+     $240.1M H1-2027) — so BRUT's NAV is a levered bet on financing that doesn't yet exist. Recorded as the §15
+     haircut basis (`governance_discount_pct` kept 0, a specific % is a §15 judgment deferred to H1 financing
+     clarity). **BRUT is NOT actionable** — the +96% EV is upside to a going-concern-doubtful, max-torque,
+     resale-level-provisional NAV; the tight-actionable surface stays SB + SBLK. **Zero new tight actionable
+     longs across four reconciliations** (NAT, SB, ASC, BRUT) — the queue produces completeness, not opportunity.
+  SANITY OK (+22.2% to Pareto NAV $7.20); 440 pass / 23 xfail; drift 0 unexplained (BRUT annotated). BRUT-only
+  baseline re-ratify pending (owner), to be RE-RATIFIED AGAIN when cash resolves at the H1-2026 report.
+
 - **2026-07-01 — ASC RECONCILED: a Q2 newbuild was posted against a Q1 snapshot; PROVISIONAL → GOVERNED-WIDE.**
   Third P0 reconciliation (pre-reg `decisions/asc_reconciliation_prereg_2026-07-01.md`; band $17.70-17.95
   committed, landed $17.80; NAV $15.96→$17.80). Sourced to the Q1-2026 6-K (acc 0001104659-26-056715),

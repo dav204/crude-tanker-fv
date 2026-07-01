@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-07-01T18:24:03+00:00
-- **Previous run:** 2026-07-01T18:08:59+00:00
+- **This run:** 2026-07-01T19:50:47+00:00
+- **Previous run:** 2026-07-01T19:39:53+00:00
 
 ## Headline changes (material moves)
 
@@ -9,7 +9,7 @@
 
 ## Input files changed since last run
 
-- _(no input file changes detected — hashes match)_
+- `inputs/balance_sheets/brut_2026-Q1.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -34,7 +34,7 @@
 | CAPT | $12.58 (no change) | $16.03 (no change) | $17.16 (no change) | $15.49 (no change) | BUY (undervalued) | +24.7pp (no change) |
 | MPCC | $2.55 (no change) | $2.19 (no change) | $2.11 (no change) | $2.02 (no change) | TRIM/SHORT (overvalued) | +13.6pp (no change) |
 | GSL | $37.60 (no change) | $43.00 (no change) | $40.59 (no change) | $38.59 (no change) | BUY (undervalued) | +24.1pp (no change) |
-| BRUT | $5.21 (no change) | $9.84 (no change) | $10.81 (no change) | $9.40 (no change) | BUY (undervalued) | -45.8pp (no change) |
+| BRUT | $5.21 (no change) | $9.27 (no change) | $10.24 (no change) | $8.80 (no change) | BUY (undervalued) | -34.5pp (no change) |
 | CMBT | $13.99 (no change) | $15.26 (no change) | $16.07 (no change) | $15.87 (no change) | BUY (undervalued) | +19.5pp (no change) |
 | SB | $6.31 (no change) | $9.87 (no change) | $9.68 (no change) | $10.12 (no change) | BUY (undervalued) | -40.5pp (no change) |
 

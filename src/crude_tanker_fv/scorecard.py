@@ -263,7 +263,7 @@ def _verdict_position(ticker: str, raw: str) -> str:
     if ticker in POSITION_CYCLE_RELABEL:
         return "rich · cycle position (not a short)"
     if ticker in POSITION_UNRELIABLE:
-        return "unreliable read (not a short)"
+        return "unreliable read (not actionable)"
     return raw
 
 

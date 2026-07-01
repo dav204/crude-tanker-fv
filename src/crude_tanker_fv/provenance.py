@@ -77,11 +77,14 @@ NAV_DERIVED_VOID: set[str] = set()
 # Position relabel — a TRIM/SHORT (or rich) position that is NOT an actionable directional short:
 #   cycle-position : rich because §17 RONAV is through-cycle while price embeds the near-peak rate
 #                    (§12) — a NAV-relative read, not a trade signal. Crude AND product near peak.
-#   unreliable-read: an artifact of a newbuild-heavy / PV-haircut read that can't be trusted either
-#                    way (MPCC — the tanker method applied to a containership's forward-committed book).
-# Of the book's 8 TRIM/SHORT positions, ALL 8 are here or void — not one is a name-specific short.
+#   unreliable-read: a read that can't be trusted either way — a newbuild-heavy / PV-haircut method
+#                    mismatch (MPCC — the tanker method on a containership's forward-committed book), OR a
+#                    NAV built on stacked structural uncertainties (BRUT — a 0.59x "BUY" resting on a cash
+#                    floor pending H1, a level-provisional VLCC resale mark, AND going-concern doubt; the
+#                    eye-catching discount and the untrustworthiness are the SAME max-torque fact).
+# Of the book's TRIM/SHORT positions, ALL are here or void — not one is a name-specific short.
 POSITION_CYCLE_RELABEL = {"DHT", "FRO", "ECO", "INSW", "HAFN", "NAT"}  # NAT: the §12 archetype (de-voided 2026-06-30). ASC left 2026-07-01: the reconciliation lifted NAV $15.96->$17.80, so it reads mildly CHEAP (0.90x), not rich -> raw BUY; the product-cycle caveat on the near-peak earnings/strip leg lives in asc_log, not a rich-relabel
-POSITION_UNRELIABLE = {"MPCC"}
+POSITION_UNRELIABLE = {"MPCC", "BRUT"}  # BRUT 2026-07-01: the position cell must reflect the untrustworthiness, not the 0.59x discount, so it can't sit as a raw BUY next to PROVISIONAL⛔NO (the ASC "rich·cycle" holdover lesson)
 
 # Newbuild carried at $0 NAV pending a FILED contract price — the name discloses the order but not the
 # price, and the only price is a broker LOI (not out of the figure-provenance queue), so the §9.6
@@ -100,6 +103,8 @@ NEWBUILD_PRICE_PENDING = {"NAT"}
 #   mixed            : two of the above (TEN: structural LNGC sleeve + pending-anchor Handy/LR1)
 #   read-flips       : read flips cheap<->fair across the §17 bases — needs the §18.5 gate data
 #   newbuild-indeterminate : newbuild parked at $0 pending a FILED price (NEWBUILD_PRICE_PENDING) — GOVERNED-WIDE
+#   cash-pending : PROVISIONAL but sourced EXCEPT one NAV figure pending a known future issuer report
+#                  (BRUT: cash → H1-2026 report 2026-08-13) — a well-specified "waiting" state, not "broken"
 #   void / uncited-figure / off-curve : the PROVISIONAL reasons (contradicted / uncited estimate / off the §9.6 curve)
 TIER_SUBREASON = {
     "GSL": "structural-class", "CCEC": "structural-class", "FLNG": "structural-class",
@@ -109,7 +114,7 @@ TIER_SUBREASON = {
     "TEN": "mixed",
     "CMDB": "read-flips", "GNK": "read-flips",
     "NAT": "newbuild-indeterminate",
-    "BRUT": "uncited-figure", "HAFN": "uncited-figure",
+    "BRUT": "cash-pending", "HAFN": "uncited-figure",
     "STNG": "uncited-figure", "TRMD": "uncited-figure",
     "ECO": "off-curve",
 }

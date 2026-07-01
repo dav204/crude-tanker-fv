@@ -1,42 +1,67 @@
-# BRUT (Bruton Ltd) balance sheet — METHODOLOGY.md section 4.2. USD.
-# PARETO-ESTIMATE snapshot (Pareto initiating coverage 2026-04-22) — Bruton
-# reports HALF-YEARLY (H1-2026 due 2026-08-13, owner-confirmed); there is NO
-# Q1 report, so these are the latest available figures (FY-2025 actual +
-# Feb-2026 placement, per Pareto's 2026e model). CONFIRM at the H1-2026 report.
+# BRUT (Bruton Ltd) balance sheet — METHODOLOGY.md §4.2. USD.
+# Source of record: BRUT FY2025 Annual Report (audited US GAAP, PwC; signed 2026-03-26) —
+# inputs/research_issuer/2025_brut_annual_report.pdf. As-of 2026-03-31 = the Dec-31-2025
+# ACTUAL balance sheet rolled forward through Q1-2026 SUBSEQUENT EVENTS (Note 15 / Board Report).
+# BRUT reports HALF-YEARLY — H1-2026 (first post-quarter issuer snapshot) due 2026-08-13.
+# Full reconciliation: decisions/brut_reconciliation_prereg_2026-07-01.md (2026-07-01, workflow-sourced).
+# Prior basis was Pareto-ESTIMATE; this pass TRACES 4 of 5 figures to the issuer and confirms them.
 ticker: BRUT
 quarter: 2026-Q1
 
-cash_and_equivalents: 100000000      # ~$100M post Feb-2026 private placement (Pareto)
+# CASH — the one figure that CANNOT be settled until H1-2026 (BRUT stays PROVISIONAL on it).
+# Derivation: Dec-31-2025 cash $89.661M (Annual Report BS p.15) + Feb-2026 placement +$50M gross
+# (Note 15 p.29) − Q1-2026 installments −$23.6M (Board Report p.3-4, 4×$5.9M) = $116M itemized point.
+# BUT the March-2026 CIMC 4-vessel order (Note 15 p.30) almost certainly carried a ~$50M (10%)
+# deposit AT EXECUTION that the report does not confirm as paid — and a going-concern-doubtful issuer
+# does not contract 4 VLCCs without the execution installment, so "paid" is the MORE LIKELY state.
+# Booked at the $66M conservative FLOOR (deposit-paid), band $66–116M; owner decision 2026-07-01
+# (do not book Pareto's unsourced $100M midpoint). Resolves at the H1-2026 report; re-ratify then.
+cash_and_equivalents: 66000000        # [ESTIMATE] conservative floor — provisional (see derivation above)
 
-working_capital_net: 0               # none disclosed
+working_capital_net: 0               # none (pre-operational; Dec-2025 total current liabilities $0.161M)
 
-# Pre-first-delivery: debt is drawn ON DELIVERY (first vessel Jul-2026), so ~0
-# at the snapshot. FY-2025 carried zero debt / net cash. Pareto models IB
-# non-current debt ramping to ~$115M by YE-2026 as deliveries draw (net debt
-# 2026e ~$10M). Confirm the actual drawn balance at H1-2026.
+# ZERO interest-bearing debt. Dec-31-2025 total liabilities $0.161M = trade payables + accruals only
+# (Annual Report BS p.15); no borrowings line; the vehicle is 100% equity-financed. Debt draws ON
+# delivery (first vessel Jul-2026), and zero vessels are on the water at 2026-03-31.
 total_debt: 0
 
 lease_liabilities: 0
 
-# 12x firm VLCC newbuilds. Total construction cost ~$1,484M, $114M paid (2-Feb),
-# so ~$1,370M remaining commitment. NBs valued at age-0 DELIVERED market in the
-# manifest (FRO/CAPT convention); advances at 0 (the $114M paid is sunk into
-# cash/equity). ~$1.27bn NET of the $100M cash (Pareto). LNG dual-fuel on 2x
-# ships (Pareto NAV +$19M each) — our curves carry no DF premium.
-newbuild_capex_commitments: 1370000000
-newbuild_advances_paid: 0
+# REMAINING newbuild commitment for all 12 firm VLCCs = $1,373.1M. Issuer-traced two ways (converge):
+#   6-vessel base remaining $661.7M (Annual Report Note 10, p.25 / going-concern note p.18)
+#   + Jan-2026 order (Venture/Voyager, 2 New Times) $236.0M (Note 15, p.29)
+#   + Mar-2026 order (4 CIMC Raffles 319k) $499.0M (Note 15, p.30)
+#   − Q1-2026 installments settled $23.6M (Board Report p.3-4) = $1,373.1M.
+# Confirms the prior Pareto estimate ($1,370M) to within $3.1M. NBs carried at age-0 DELIVERED market
+# in the manifest (§9.6/FRO/CAPT); the paid installments (~$117.5M through 3/31) are sunk, so advances=0.
+newbuild_capex_commitments: 1373100000
+newbuild_advances_paid: 0            # §9.6/FRO/CAPT convention (delivered-market less remaining commitment)
 
-diluted_shares_outstanding: 61900000   # 61.9M fully diluted (Pareto initiation)
+# Fully-diluted shares = Dec-31-2025 52,399,998 (Annual Report BS p.15 / Note 6 p.23) + Feb-2026
+# private placement 9,523,810 @ $5.25 (Note 15 p.29; 9,523,810 × $5.25 = $50.0M gross, ties out).
+diluted_shares_outstanding: 61923808
 
 preferred_equity: 0
 shuttle_contracted_book: 0
 
-# §15: PARTIAL screen — gate cannot pass (<12 months listed, 0.73-0.79x P/NAV
-# < 0.85), so the structured screen applies, but the management-fee load
-# (Goodwood Ship Management terms) + board/control detail need the Euronext
-# admission prospectus (NOT located). Known: dispersed-ish ownership — Koch
-# Industries ~26%, Drew Holdings/Trøim ~20%, free float ~54% (NO single >50%
-# controller, unlike CAPT's Marinakis ~75%); zero distribution is build-phase-
-# appropriate, not extraction. Provisional 0; complete the fee/control screen
-# at H1-2026 / when the prospectus is obtained. See decisions/brut_log.md.
+# §15 — GOVERNANCE (corrected 2026-07-01 from the primary docs; the prior block was FABRICATED —
+# "Goodwood Ship Management / Koch ~26% / no >50% controller" appears in NO filing).
+# SOURCED (Euronext Information Document 2024-11-24 + Annual Report):
+#   - Manager: 2020 Bulkers Management AS (cost-plus 13% margin) + Himalaya Shipping Management (UK)
+#     ($10k/yr, treasury/accounting); corporate/commercial support from Magni Partners (Trøim) at
+#     ZERO fee; Golar Management corporate secretary. NO "Goodwood". (BRUT is internalising the manager —
+#     agreed Feb-2026 to buy 36% of 2020 Bulkers Management, effective Apr-2026.)
+#   - Sponsor/control: Tor Olav Trøim-sponsored (Drew Holdings 48.15% at the Nov-2024 admission — now
+#     DILUTED after four 2025-26 issuances; CURRENT % UNRESOLVED pending the shareholder register, but
+#     concentrated/Trøim-led, NOT the "dispersed, no controller" the prior block claimed).
+# GOING-CONCERN DOUBT (the §15/risk HEADLINE, Annual Report going-concern note p.18): the issuer states
+#   "substantial doubt about the ability to continue as a going concern" — the 12-VLCC program is UNFINANCED
+#   ($268.3M due 2026 + $240.1M H1-2027, to be met by hoped-for equity/debt/asset sales). BRUT's NAV is a
+#   LEVERED BET on financing that does not yet exist → the primary reason BRUT is directional-NOT-actionable.
+# governance_discount_pct = 0, and it stays 0 DELIBERATELY (owner 2026-07-01): a going-concern doubt is NOT
+# a tunable valuation knob — it is a BINARY survival question (they finance the 12-VLCC program, or they don't
+# survive to take delivery). A specific haircut % (25%, 30%, ...) would FABRICATE PRECISION — laundering a
+# survival binary into a false continuous number, the same anti-pattern as booking Pareto's $100M cash midpoint.
+# So it is recorded as a PROMINENT QUALITATIVE flag (above + brut_log), not a quantitative haircut, and it
+# RESOLVES with the financing clarity at the H1-2026 report — NOT by picking a made-up %. Do not apply one.
 governance_discount_pct: 0
