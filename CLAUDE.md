@@ -1,357 +1,189 @@
 # CLAUDE.md — agent operating rules for the Tanker FV tool
 
-**Read this first, every session.** Mistakes that show up here are mistakes
-that have already happened once. Each rule has a date so you can see how
-old/proven it is. When you correct a recurring mistake, append a dated rule
-to the relevant section here; the narrative goes in `CHANGELOG.md`.
+**Read this first, every session.** Mistakes that show up here have already happened
+once; each rule is dated so you can see how proven it is. This file is the **router**,
+kept short on purpose — when you fix a recurring mistake, append a dated ONE-LINER rule
+here and the narrative to `CHANGELOG.md`. Detail lives in the companions:
 
-This file is the operational rulebook — kept short on purpose. The detail
-lives in companion docs:
-
-- **METHODOLOGY.md** (~1450 lines) — the full valuation framework. The canonical spec.
-- **PLAN.md** — the rolling sprint plan / handoff doc. A new agent reads CLAUDE.md, then PLAN.md, then starts.
-- **CHANGELOG.md** — dated history of decisions, onboardings, fixes (was this file's Changelog section).
+- **METHODOLOGY.md** (~3450 lines) — the full valuation framework. The canonical spec.
+- **PLAN.md** — the rolling sprint plan / handoff. A new agent reads CLAUDE.md → PLAN.md → starts.
+- **CHANGELOG.md** — dated history of decisions, onboardings, fixes (the gotcha narratives live here).
 - **TICKER_NOTES.md** — per-ticker quick-refs (consult when working a specific name).
-- **WORKFLOWS.md** — step-by-step procedures: onboarding a ticker, report-day refresh, onboarding a sector.
+- **WORKFLOWS.md** — step-by-step procedures + the **command runbook**, **per-source fetch mechanics**,
+  and the **Week-close checklist** (all migrated out of this file 2026-07-01).
 - **LIMITATIONS.md** / **PERMISSIONS_PROPOSAL.md** — known limits; permission-allowlist rationale.
 
-## Project stance — a forward-looking valuation aid (2026-06-21)
+## Project stance (2026-06-21)
 
-This is a **forward-looking, fundamentals tool for valuing individual shipping
-equities** — independent NAV (per-vessel age-curve marks) + a forward dividend
-strip, blended by cycle position. Judge it by whether its per-name reads are
-sound, auditable, and useful for a position call — **not** by a cross-sectional
-information coefficient. New sectors, methodology refinements, features, and the
-Q2/event-window work are all in scope (see PLAN.md). A crude-subsector "edge"
-backtest lives in `backtest/`: its real-P/NAV crude tests are inconclusive by design
-(~6 quarters); its two *powered* tests (Amendment-2 P/B proxy N=31, and Amendment-3
-P/B proxy on the actual 17-name watchlist incl. all crude flagships + product, N=72,
-sector-neutral IC +0.036/t 0.62) both exclude a *moderate* within-sector value premium
-— but on a book-value proxy, so they bound the value *premise*, not *this* engine's
-market-NAV marks (the powered engine EV% test is still unrun). The tool has **no
-demonstrated ex-post cross-sectional edge** (see `outputs/epistemic_soundness_memo_2026-06-22.md`,
-`backtest/REPORT.md`);
-kept as a recorded diagnostic, **not** a development gate. (A 2026-06-14 "development
-freeze" gated on that verdict was **LIFTED 2026-06-21 by owner decision**.)
+A **forward-looking, fundamentals tool for valuing individual shipping equities** — independent NAV
+(per-vessel age-curve marks) + a forward dividend strip, blended by cycle position. Judge it by whether
+its per-name reads are sound, auditable, and useful for a position call — **not** by a cross-sectional
+information coefficient. New sectors, refinements, features, and the Q2/event work are in scope (PLAN.md).
+The tool has **no demonstrated ex-post cross-sectional edge** (`backtest/REPORT.md`,
+`outputs/epistemic_soundness_memo_2026-06-22.md`) — kept as a recorded diagnostic, **not** a development
+gate (the 2026-06-14 freeze on that verdict was LIFTED 2026-06-21 by owner decision).
 
 ## What this repo is
 
-Per-share fair value tool for shipping equities. NAV (per-vessel age-curve
-marks) + forward dividend strip, blended by cycle position. Sectors live
-in `inputs/scenario_inputs.yaml` under `sectors.<name>`. Per-ticker
-artefacts: `inputs/{fleet_manifests,balance_sheets,cost_structures,dividend_policies}/`,
-plus a row in `inputs/watchlist.yaml`. See `METHODOLOGY.md` for the full framework.
+Per-share fair value tool for shipping equities. NAV (per-vessel age-curve marks) + forward dividend
+strip, blended by cycle position. Sectors live in `inputs/scenario_inputs.yaml` under `sectors.<name>`.
+Per-ticker artefacts: `inputs/{fleet_manifests,balance_sheets,cost_structures,dividend_policies}/` + a
+row in `inputs/watchlist.yaml`. See METHODOLOGY.md for the framework.
 
-## How to run things
+## How to run things (essentials — full runbook in WORKFLOWS.md)
 
-- Tests: `PYTHONPATH=src .venv/bin/python -m pytest -q` (174 baseline at
-  2026-06-05; should only ever grow). Never `pytest` without `PYTHONPATH=src`
-  — the package isn't installed.
-- Pipeline: `python -m crude_tanker_fv.pipeline <QUARTER>` (e.g. `2026-Q1`).
-- Pre-flight (what's stale / missing): `python -m crude_tanker_fv.refresh`
-  (its §0 consumes `inputs/earnings_calendar.yaml` — hand-maintained; update
-  on sight when the weekly digest flags a newly-announced date).
-- Reconcile a name: `python -m crude_tanker_fv.reconcile <TICKER>`
-  (or `/reconcile <TICKER>`).
-- Drift gate (committed, Pareto-free): `python -m crude_tanker_fv.drift_gate`
-  — compares current pipeline outputs against the tracked
-  `baselines/reconcile_baseline.yaml` (EV% / tool NAV / position band / k_broker
-  on its *second difference*); exit 1 on UNEXPLAINED drift. `tests/test_drift_gate.py`
-  runs it as a build gate. Re-anchor the baseline ONLY via
-  `./scripts/ratify_baseline.sh "<cause>"` (mandatory cause; human commits) —
-  **never hand-edit the numbers.** See the Verification loop below.
-- S&P print scan (incremental): `python -m crude_tanker_fv.sp_scan` — scans
-  Pareto dailies newer than the cursor, writes the review queue to
-  `outputs/sp_print_candidates.md`. Human-classified into
-  `transactions/<class>.yaml`; **never auto-promote.**
-- Daily price refresh: `python -m crude_tanker_fv.price_refresh` — fetches
-  watchlist closes (Yahoo) into the automation-writable `prices_daily.yaml`;
-  launchd 18:30 daily. Pipeline values at the live close; watchlist statics
-  stay as the consensus_pnav/fwd_pe vintage anchors. Flagged quotes (>15% day
-  move, >30% vs static) are written but never applied.
-- Flush automation drift: `./scripts/commit_drift.sh` — stages + commits (one
-  step) the 8 automation-written files the launchd jobs churn. COMMIT-ONLY
-  (push stays manual). Decision logs + per-name pipeline outputs EXCLUDED —
-  commit those deliberately with their annotations.
-- Weekly news pull (mechanical): `scripts/news_pull_cron.sh` — launchd Sat
-  08:00, chains RC ingest → `sp_scan` → `--links` → `fetch_links` →
-  `pareto_archive --build-manifest` → `ffa_ocr`. The download step is its own
-  module `crude_tanker_fv.fetch_links` so every `sp_scan` mode stays local-only.
-- FFA widget OCR (incremental): `python -m crude_tanker_fv.ffa_ocr` — parses the
-  daily 3-panel Cape/Pmax/Smax screenshot into `state/ffa_ocr_curves.json` +
-  review queue; `--staleness` exits 1 if the feed is >7 days quiet. Promotion to
-  `inputs/market_data/ffa_forward_curve.yaml` is HUMAN-ONLY. Scratch under
-  `state/ffa_scratch/` — tesseract can't read /tmp in the agent sandbox.
-- Weekly news pull (agent-judgment): `/news-pull` — web-sweeps watchlist names
-  (weighted to APPROX + live-event names) into a dated digest. Review-only;
-  promotion is human-only.
-- The venv at `.venv/` has `pypdf` installed. **Use it for PDFs that fail WebFetch.**
-- **Two venvs:** the engine + all `crude_tanker_fv` code and the 315-test suite run
-  on `.venv` (Python **3.9.6**). The vendored `shipping_harvester` (broker-weekly
-  parser for the Test 1 backfill) requires **3.10+**, so a dedicated `.venv310`
-  (Python 3.12, gitignored, provisioned via `uv`) is used ONLY for it:
-  `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python -m pytest -q` (57
-  tests). Never run the engine/tests on `.venv310` or the harvester on `.venv`.
-  Its **source is tracked** (since 2026-06-23 — Test 1 depends on its parsers);
-  only `shipping_harvester/data/` (the crawl cache + broker PDFs) is gitignored.
-- Test 1 (engine EV% ex-post) backtest: harness `backtest/run_engine_test1.py`
-  (runs on `.venv`) reads vintages from `backtest/vintages/`. Method + input spec:
-  `backtest/PRE_REGISTRATION_TEST1.md` + `backtest/DATA_CONTRACT_TEST1.md`.
+- **Tests:** `PYTHONPATH=src .venv/bin/python -m pytest -q`. Never bare `pytest` (package not installed).
+- **Pipeline:** `python -m crude_tanker_fv.pipeline <QUARTER>` (e.g. `2026-Q1`).
+- **Reconcile:** `python -m crude_tanker_fv.reconcile <TICKER>` (or `/reconcile <TICKER>`).
+- **Drift gate:** `python -m crude_tanker_fv.drift_gate` vs `baselines/reconcile_baseline.yaml`.
+  Re-anchor ONLY via `./scripts/ratify_baseline.sh "<cause>"` (mandatory cause; human commits) —
+  **never hand-edit the numbers.**
+- **PDFs:** `.venv/bin/python scripts/fetch_pdf.py <url>` (WebFetch fails on many FlateDecode PDFs).
+- **Two venvs:** engine + tests on `.venv` (Python 3.9.6); the vendored `shipping_harvester` ONLY on
+  `.venv310` (3.12). Never cross them. (`shipping_harvester/data/` is gitignored; its source is tracked.)
+- Other commands (`refresh`, `sp_scan`, `price_refresh`, `commit_drift`, news pulls, `ffa_ocr`, Test-1)
+  → WORKFLOWS.md §Runbook.
 
 ## What this tool is, philosophically (locked 2026-06-06)
 
 **The tool produces independent NAV from transaction-anchored marks (single-vendor-sourced).** Broker
-consensus (Pareto P/NAV) and VIE Coverage Universe are *discrimination
-diagnostics*, not calibration targets. Wide tool↔broker spreads are **features**
-— the divergence is the call (METHODOLOGY §6 INSW, FLNG, ASC, NAT, TNK; §9.9).
-Spreads already documented in §6 with a thesis are intentional, not failures.
-
-This means: **do not "fix" wide spreads by tweaking marks toward Pareto.** If a
-name's spread changes, the question is whether the methodology drifted or the
-market moved — not whether to recalibrate the curve.
+consensus (Pareto P/NAV) and the VIE Coverage Universe are *discrimination diagnostics*, not calibration
+targets. **Wide tool↔broker spreads are FEATURES** — the divergence is the call (METHODOLOGY §6 INSW /
+FLNG / ASC / NAT / TNK; §9.9); spreads documented in §6 with a thesis are intentional, not failures. So:
+**do not "fix" a wide spread by tweaking marks toward Pareto.** If a spread changes, ask whether the
+methodology drifted or the market moved — not whether to recalibrate the curve.
 
 ## Verification loop — every change runs the gate
 
 After any change to inputs, schemas, marks, scenarios, or pipeline code:
 
-1. `pytest -q` — must stay at 315+ passing. This now INCLUDES the drift gate
-   (`tests/test_drift_gate.py`): an UNEXPLAINED >2pp EV%/NAV move, a band flip,
-   or a >0.05 k_broker *second-difference* vs the committed baseline turns the
-   suite red until you either annotate `decisions/<ticker>_log.md` (a dated,
-   non-placeholder note) **or** re-ratify the baseline with a cause. Don't
-   auto-revert a gate-fail on requested work — surface it and let the owner
-   decide (memory `feedback_no_unilateral_revert_on_gate_fail`).
-2. `/reconcile <affected ticker>` — must report **SANITY = OK** (tool NAV
-   within ±50% of broker NAV — anything wider is a bug, not a call).
-3. If the **drift column** moved >2pp since the previous quarterly run, update
-   the ticker's `decisions/<ticker>_log.md` with the why (market move?
-   methodology change? data refresh?) — and re-ratify the baseline
-   (`./scripts/ratify_baseline.sh "<cause>"`) once the move is accepted, so the
-   annotation window advances and the change becomes the new committed anchor.
+1. **`pytest -q`** — must stay green (315+; includes `tests/test_drift_gate.py`). An UNEXPLAINED >2pp
+   EV%/NAV move, a band flip, or a >0.05 k_broker *second-difference* vs the baseline reds the suite
+   until you annotate `decisions/<t>_log.md` (dated, non-placeholder) OR re-ratify with a cause. **Don't
+   auto-revert a gate-fail on requested work** — surface it, let the owner decide (memory
+   `feedback_no_unilateral_revert_on_gate_fail`).
+2. **`/reconcile <affected ticker>`** — must report **SANITY = OK** (tool NAV within ±50% of broker NAV).
+3. If the **drift** moved >2pp since the last quarterly run, annotate the log with the why, then
+   `./scripts/ratify_baseline.sh "<cause>"` once the move is accepted (advances the committed anchor).
 
-The sanity check is a **bug gate**, not a consensus-matching gate. INSW at −36%
-to broker NAV is OK (mark-driven, §6 documented); INSW at −95% would be
-SANITY=FAIL (you broke something). The drift gate is a **change gate** — it
-never asks a number to move toward Pareto (k_broker is tracked on its second
-difference, so a stable wide spread sits green); it only asks an *unexplained
-change* to be explained or accepted.
+**SANITY is a BUG gate, not a consensus gate** (INSW −36% to broker = OK, mark-driven §6; −95% = you
+broke something). **The DRIFT gate is a CHANGE gate** — never asks a number to move toward Pareto
+(k_broker on its second difference, so a stable wide spread sits green); it only asks an *unexplained
+change* to be explained or accepted. Don't conflate the three reconciliation jobs: **Sanity** (±50%,
+every run, gate) vs **v1 calibration-lock** (new sector, ≥70%/±10% of validators at lock-time, once) vs
+**drift** (change alert). Existing sectors locked at ≥80%/±5%; new sectors (dry bulk / containers / LPG /
+offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time, not per-run.**
 
-## Reconciliation has three jobs, do not conflate them
+## Data sources — what to trust (fetch mechanics in WORKFLOWS.md §Data-sources)
 
-| Job | What it checks | When it runs | Gate? |
-|---|---|---|---|
-| **A. Sanity** | Tool NAV within ±50% of broker NAV (no unit error, mis-routed sector, miscount). | Every run, every name. | Yes — pytest fails. |
-| **B. v1 calibration lock** | When a new sector ships, ≥70% of validator names land within ±10% of broker NAV at lock-time. | Once per new sector. | Yes, one-time. |
-| **C. Drift detection** | Has any name's spread moved >2pp since the previous run without an explainable cause? | Each quarterly refresh. | No — alert. |
+- **Quarterly reports (IR PDFs) are the source of record** for fleet counts + balance sheets at
+  quarter-end. The live IR fleet *page* disagrees at quarter-end — **trust the report.** (FRO 2026-05.)
+- **Pareto Shipping Daily** is the source for `consensus_pnav` / `consensus_fwd_pe`. Pareto does NOT
+  publish P/NAV for **NAT / ASC / CCEC** — those carry APPROX values; `/reconcile` flags + downweights.
+- **VIE (Catlin/Mintzmyer) and MB Shipbrokers are independent cross-checks, NOT calibration inputs** —
+  track disagreements in §6 footnotes; do NOT bulk-update from them without a per-class methodology decision.
 
-Existing sectors (crude / product / LNG) were locked at the tighter ≥80%/±5%
-bar; new sectors (dry bulk, containers, LPG, offshore drilling) ship at
-≥70%/±10% v1 and tighten in Q3 with one more quarter of data. **The bars apply
-at lock-time, not per-run.**
+## Recurring gotchas to NOT relearn (distilled; narrative in CHANGELOG.md + the named logs)
 
-## Data sources — what to trust and how to fetch
-
-- **Quarterly reports (IR PDFs)** are the source of record for fleet counts and
-  balance sheets at quarter-end. The live IR fleet *page* disagrees with the
-  report at quarter-end — **trust the report.** (Caught on FRO 2026-05.)
-- **WebFetch fails on many IR PDFs** (FlateDecode binary). Pattern:
-  `.venv/bin/python scripts/fetch_pdf.py <url>` (downloads to /tmp, validates
-  the host against `inputs/data_sources.yaml` — add new sources THERE, not to
-  the script), then parse with pypdf. Raw `curl` works but prompts.
-- **ECO's domain TLS chain fails WebFetch entirely** — use fetch_pdf.py, which
-  carries the one audited TLS-verification exception for that host.
-- **Compass Maritime weekly URL changes every week** — pattern
-  `compassmar.com/wp-content/uploads/YYYY/MM/Compass-Weekly-Report-MMM-DD-YY.pdf`.
-- **Pareto Shipping Daily** is the source for `consensus_pnav` /
-  `consensus_fwd_pe` in `watchlist.yaml`. Pareto does NOT publish P/NAV for NAT,
-  ASC, CCEC — those carry APPROX values; `/reconcile` flags them and downweights.
-- **The dailies carry hyperlinks to Pareto's detailed research** as PDF
-  annotations — `extract_text()` NEVER sees them (they live in /Annots). Harvest:
-  `sp_scan --links` → `fetch_links` → `pareto_archive --build-manifest`. Full NAV
-  breakdowns/estimates, far richer than the daily prose. Part of weekly/quarterly ingest.
-- **MB Shipbrokers weeklies** (Container/Dry Bulk/Tanker, Fridays by email): the
-  email tables are IMAGES — the PDF behind the "Download report" flexmail link is
-  the artifact. Harvest links from Gmail (read-only), fetch with `fetch_pdf.py`
-  (cdn.flxml.eu allowlisted), archive at `inputs/research_mb/<feed>/YYYY/`.
-  Independent cross-check, not a calibration input — same discipline as VIE.
-- **VIE Coverage Universe** (Catlin / Mintzmyer) is an independent external check,
-  not a calibration input. Track disagreements in §6 footnotes; do NOT bulk-update
-  from VIE without an explicit methodology decision per class.
-
-## Recurring gotchas to NOT relearn
-
-(Each is the distilled rule; the incident narrative lives in CHANGELOG.md +
-the named decision logs.)
-
-- **Any NAV-moving manifest field must resolve to a citation — "(confirmed)" and "~$170M"
-  both fail** (2026-06-30, DHT then NAT). The principle is field-general: a verification CLAIM
-  ("confirmed"/"verified") AND a value-moving FIGURE (commitment / advance / contract price)
-  must each trace to a specific filing / note / broker / owner / dated reference. **A tilde or
-  "[ESTIMATE]" is a RED, not data** — "present but uncited" fails identically to "absent",
-  because for a NAV-driver an uncited number silently drives a move while a missing one fails
-  loudly (DHT's hollow "(confirmed)"; NAT's "~$170M" commitment that traced to nothing and whose
-  "~$17M advance" the cash flow contradicted). Enforced by `test_manifest_provenance.py` (claims
-  + the `NB_FIGURE_ESTIMATE_QUEUE` figure-provenance queue); field-specific value guards
-  (`test_scrubber_provenance`, `test_newbuild_convention`, AGE0_BASIS) cover the flags. This is
-  the *fourth* "authoritative-label-that-doesn't-trace" instance (xclusiv "resale" → crude age-0
-  → scrubber "confirmed" → newbuild-figure estimate) — same root every time: the manifests
-  accreted assertions whose provenance was never mechanically enforced. **Before wiring a §9.6
-  on-curve fix, the name's commitment/advance must be OUT of the figure-provenance queue** (an
-  uncited commitment makes the on-curve NAV move "build on sand"). All 5 fixable convention-queue
-  names (NAT/STNG/TRMD/HAFN/ASC) were estimate-flagged — source each before wiring.
-- **Never type a market price from filing/report prose** (2026-06-10, TEN $44).
-  Prices come from `prices_daily.yaml` (auto-fetched) or a dated quote source. A
-  watchlist `current_price` NEVER moves without rebasing `consensus_pnav` /
-  `consensus_fwd_pe` from the same vintage — broker NAV = price/pnav drifts
-  silently otherwise. See ten_log.
-- **Cross-foot the manifest against the source table before shipping**
-  (2026-06-11, TEN): sum the vessel rows, check against the issuer table AND the
-  `fleet_summary` block. Machine-enforced by
-  `test_fleet_summary_totals_cross_foot_against_vessel_rows`.
-- **The fleet snapshot MUST match the NAV/balance-sheet date — a results 6-K reports the
-  quarter's FINANCIALS but its fleet/employment table is as-of the FILING date** (2026-07-01,
-  SB). SB's manifest took the Q1-2026 6-K's fleet table (as-of 2026-06-12, in the filing prose)
-  and valued it at the 3/31 balance sheet — a 2.5-month gap in which 4 transactions happened, so
-  the June fleet ≠ the March fleet: Katerina (delivered Apr) was double-counted (operating + in
-  the 8-NB orderbook); Michalis H (the ONE 3/31 held-for-sale) was omitted; Xenia + Pedhoulas
-  Commander (sales agreed May) were mis-bucketed as HFS when they were operating at 3/31. **When
-  onboarding/refreshing a name, reconcile every delivery/sale between quarter-end and the filing
-  date, and build the fleet AS-OF the NAV date — the closest-to-quarter-end filing (often the
-  20-F/prior 6-K), not the newest fleet page.** The "fleet didn't change" intuition is the trap:
-  the core fleet is stable, but the quarter-boundary transactions are exactly what a stale snapshot
-  gets wrong. (Contrast the STATIC-attribute rule below: scrubbers don't change with the date.)
-- **Cross-foot the OPERATING-scrubber COUNT against the issuer's disclosed aggregate at onboarding
-  — a blanket per-class scrubber flag is the CAPT peer-borrowed-flag bug** (2026-07-01, SB). SB
-  carried 29 operating scrubbers (a blanket `scrubber:true` on all 16 Post-Panamax + 6 wrong
-  Kamsarmax) while its 6-K/20-F disclose 20-21 ("20 vessels equipped with scrubbers, incl. all
-  Capesize" — the aggregate we HAD read but never cross-footed against our per-vessel flags).
-  Scrubber is a static value-adding flag with NO build-year rule; it MUST trace to the name's own
-  per-vessel disclosure (the 20-F fleet-table footnote for SB), and its sum MUST equal the disclosed
-  aggregate. `OPERATING_SCRUBBER_QUEUE` flags the unverified state — but a queued name can still
-  carry a wrong count, so **work the queue at onboarding: source the set, cross-foot the count,
-  move to `OPERATING_SCRUBBER_VERIFIED{name:count}`.** Don't ship a blanket default into the queue
-  and leave it. (`test_verified_operating_scrubber_count` asserts the count for verified names.)
-- **Long-running background jobs die silently under nohup** (block-buffered
-  stdout; 2026-06-10). Pattern: `nohup sh -c 'PYTHONUNBUFFERED=1 ... ; echo "EXIT
-  CODE $?"' >> log 2>&1 &`. Watch the log mtime, not just its contents.
-- **Newbuilds valued at delivered market less remaining commitment**, NOT sunk
-  cost (§3.1, §9.6). Since 2026-06-22 also PV-discounted by
-  `1.11^(−years_to_delivery)` per vessel (`years_to_delivery` defaults 0 = on the water).
+- **Any NAV-moving manifest field must resolve to a citation** (2026-06-30, DHT/NAT). Field-general: a
+  verification CLAIM (`(confirmed)`/`verified`) AND a value-moving FIGURE (commitment / advance / price)
+  must each trace to a specific filing / note / broker / owner / dated reference. A `~` or `[ESTIMATE]`
+  is a **RED, not data** — "present but uncited" fails like "absent" (an uncited NAV-driver silently
+  moves the number). Enforced by `test_manifest_provenance` (+ `test_scrubber_provenance` /
+  `test_newbuild_convention` / AGE0_BASIS for the value flags). **Before wiring a §9.6 on-curve fix, the
+  name's commitment/advance must be OUT of the figure-provenance queue** (`NAV_FIGURE_ESTIMATE_QUEUE`;
+  else the move builds on sand). The live blocked list is in PLAN.md, not here (it's dynamic).
+- **Never type a market price from filing/report prose** (2026-06-10, TEN $44). Prices come from
+  `prices_daily.yaml` or a dated quote; a watchlist `current_price` NEVER moves without rebasing
+  `consensus_pnav` / `consensus_fwd_pe` from the same vintage (broker NAV = price/pnav drifts otherwise).
+- **Cross-foot the manifest vs the issuer table AND the `fleet_summary` block before shipping** (2026-06-11,
+  TEN). Machine-enforced by `test_fleet_summary_totals_cross_foot_against_vessel_rows`.
+- **The fleet snapshot MUST match the NAV/balance-sheet date** (2026-07-01, SB). A results 6-K reports the
+  quarter's FINANCIALS but its fleet/employment table is as-of the FILING date (often months post-quarter).
+  Reconcile every delivery/sale between quarter-end and filing; build the fleet AS-OF the NAV date from the
+  closest-to-quarter-end filing (often the 20-F / prior-quarter 6-K), not the newest fleet page. The "fleet
+  didn't change" intuition is the trap — the core fleet is stable, but the quarter-boundary transactions are
+  exactly what a stale snapshot gets wrong.
+- **Cross-foot the OPERATING-scrubber COUNT vs the issuer's disclosed aggregate at onboarding** (2026-07-01,
+  SB) — a blanket per-class `scrubber:true` is the CAPT peer-borrowed-flag bug. Scrubber is a static
+  value-adding flag with no build-year rule; source it per-vessel — its sum MUST equal the issuer's
+  disclosed aggregate — and move the name to `OPERATING_SCRUBBER_VERIFIED{name:count}`
+  (`test_verified_operating_scrubber_count` asserts the count). **Work the queue at onboarding** — don't
+  ship a blanket default into `OPERATING_SCRUBBER_QUEUE` and leave it (a queued name can still carry a wrong count).
+- **Long-running nohup jobs die silently** (block-buffered stdout; 2026-06-10). Pattern:
+  `nohup sh -c 'PYTHONUNBUFFERED=1 … ; echo "EXIT $?"' >> log 2>&1 &`; watch log mtime, not contents.
+- **Newbuilds valued at delivered market LESS remaining commitment** (NOT sunk cost; §3.1/§9.6),
+  PV-discounted `1.11^(−years_to_delivery)` per vessel (defaults 0 = on the water).
+- **`use_transaction_anchored` is DEFAULT-ON** (2026-06-09). Txn-anchored marks ARE the headline; k_broker
+  reads as the broker premium over transaction levels (~1.12-1.14 crude). 8 classes have own fits
+  (VLCC/Suezmax/Aframax/LR2/MR/Cape/Pana/Supra-Ultra) — **don't add classes without a comparable sample**
+  (§9.9); exclude aggregate prints only when no per-vessel split is disclosed (no back-solve).
+- **When new transaction prints land, that IS the drift gate** (2026-06-09) — re-run, read
+  `outputs/transaction_anchor_comparison.md`, annotate every name whose txn-anchored EV moved >2pp / band flipped.
+- **Don't back-solve validator marks to broker NAV** (2026-06-09, SBLK) — a wide validator gap is a
+  methodology question (txn-anchor per §9.9, or accept as documented mark-driven), not a license to tune.
+- **Dry-bulk manifest `dwt` is LOAD-BEARING** (§11.7.10) — Cape/Pana/Supra-Ultra curves are `dwt_scaled`
+  (value ∝ dwt/baseline: Cape 180k / Pana 82k / Supra-Ultra 62k), so a rough dwt mis-values a hull; use
+  the issuer's exact per-vessel dwt, split mixed cohorts by sub-class. (Crude/product/lng/container stay
+  flat-per-class.) KNOWN LIMIT: the Pana curve over-values old Post-Panamax — dedicated sub-class pending.
+- **Two structural framework limits are codified:** §12 (high-payout pure-plays at peak — tool
+  UNDERvalues; NAT archetype) and §15 (governance/value-trap — tool OVERvalues; `governance_discount_pct`
+  applied at blend + strip terminal but NOT to `compute_nav`; TEN archetype). The haircut is judgmental —
+  store it auditably per-name with a rationale.
+- **An output column must not encode a NAV-relative read as a trade signal** (2026-06-30). A §12
+  cycle-rich position is RELABELED ("rich · cycle position (not a short)"); a number derived off a
+  CONTRADICTED figure is VOIDED in the output (not just its FV); a wide/provisional tier carries a
+  **sub-reason = resolution path**. Registry in `provenance.py` (`POSITION_CYCLE_RELABEL`,
+  `POSITION_UNRELIABLE`, `NAV_DERIVED_VOID`, `TIER_SUBREASON`), no-drift-tested.
+- **Weight-set names are sector-namespaced** ("Crude Set A", "LNG Set B-revised"). A cross-sector "Set B"
+  without a prefix is a methodology error.
 - **ECO sale-leaseback is in "borrowings"** — no separate operating-lease line; don't double-count.
-- **Frontline's SWS yard is Chinese**, not Korean.
-- **TC anchors, not spot.** `historical_tce_means.yaml` is TC-anchored; VIE
-  multipliers are spot-anchored — they don't numerically compose. (§10.)
-- **Dry-bulk manifest `dwt` is LOAD-BEARING** (since 2026-06-27, §11.7.10). The
-  Cape/Pana/Supra-Ultra curves are `dwt_scaled` — value scales by `dwt/baseline`
-  (Cape 180k / Pana 82k / Supra-Ultra 62k), so a placeholder/rough dwt silently
-  mis-values a bulk vessel. Use the issuer's exact per-vessel dwt; split mixed
-  built-year cohorts by sub-class. (Crude/product/lng/container stay flat-per-class.)
-  KNOWN LIMIT: the Pana class collapses 74k Panamax → 96k Post-Panamax onto one 82k
-  curve and over-values old Post-Panamax — a dedicated Post-Panamax sub-class is the
-  pending refinement (SB exercises it most; see PLAN.md "Open threads").
-- **EDGAR needs a contact UA.** `scripts/fetch_pdf.py` now sends an SEC-compliant
-  contact User-Agent (was 403 on `Mozilla/5.0`); www.sec.gov is allowlisted, so the
-  fetcher works for 6-K/20-F pulls. (2026-06-26.)
-- **Weight-set names are sector-namespaced** ("Crude Set A", "LNG Set B-revised").
-  A cross-sector "Set B" without a prefix is a methodology error.
-- **`use_transaction_anchored` is DEFAULT-ON** (2026-06-09 owner decision).
-  Transaction-validated marks ARE the headline marks; pass `False` for the
-  un-anchored baseline. k_broker reads as the broker premium over transaction
-  levels (~1.12-1.14 on crude pure-plays). Eight classes have own fits
-  (VLCC/Suezmax/Aframax/LR2/MR/Cape/Pana/Supra-Ultra) — don't add classes
-  without a comparable sample (§9.9). Exclude aggregate prints only when no
-  per-vessel split is disclosed (no-back-solve).
-- **When new transaction prints land, that IS the drift gate** (2026-06-09):
-  re-run, read `outputs/transaction_anchor_comparison.md`, annotate the log of
-  every name whose txn-anchored EV moved >2pp or whose band flipped.
-- **Two structural framework limits are codified**: §12 (high-payout pure-plays
-  at peak — tool UNDERvalues; NAT archetype) and §15 (governance/value-trap — tool
-  OVERvalues; `governance_discount_pct` knob, applied at blend + strip terminal
-  but NOT to `compute_nav`; TEN archetype). The haircut is judgmental — store it
-  auditably per-name with a rationale.
-- **An output column must not encode a NAV-relative read as a trade signal**
-  (2026-06-30). The verdict's Position column printed "TRIM/SHORT" for crude/product
-  names that are rich only by §12 cycle position (RONAV is through-cycle while price
-  embeds the near-peak rate) — a skim reads the column, not the footnote, and shorts a
-  tanker into a cycle the model is bearish on *by construction*. The whole book's 8
-  TRIM/SHORT positions were cycle/unreliable/void — **zero** name-specific shorts. Rule:
-  a cycle-rich position is RELABELED ("rich · cycle position (not a short)"); a number
-  derived off a CONTRADICTED figure is VOIDED in the output, not just its FV (NAT's
-  NAV+gap rest on the contradicted $17M advance → print `void`); a "wide/provisional"
-  tier carries a **sub-reason = resolution path** so it isn't a junk drawer. Registry in
-  `provenance.py` (`POSITION_CYCLE_RELABEL`, `POSITION_UNRELIABLE`, `NAV_DERIVED_VOID`,
-  `TIER_SUBREASON`), no-drift-tested. The label, not just the number, must be un-misreadable.
-- **Don't back-solve validator marks to broker NAV** (2026-06-09, SBLK). A wide
-  validator gap is a methodology question (transaction-anchor per §9.9, or accept
-  as documented mark-driven), NOT a license to tune marks. See sblk_log.
+- **Frontline's SWS yard is Chinese**, not Korean. **TC anchors, not spot** — `historical_tce_means` is
+  TC-anchored, VIE multipliers spot-anchored; they don't numerically compose (§10).
 
-## Workflows (see WORKFLOWS.md for the full steps)
+## Workflows (full steps in WORKFLOWS.md)
 
-- **Onboarding a new ticker** — `/add-ticker` scaffold → fill manifest/balance
-  sheet/cost/dividend from the latest filing → `sp_scan --names <TICKER>` Pareto
-  sweep → §15 governance screen → watchlist row → pipeline + tests +
-  `/reconcile`. SANITY=OK closes the log baseline; SANITY=FAIL → **stop and
-  investigate.** The `--names` sweep is also a quarterly-refresh habit.
-- **Report-day refresh** — pull the 6-K/10-Q (trust report counts, not the fleet
-  page) → update balance sheet → issuer-report S&P sweep → rebase the watchlist
-  vintage TOGETHER (price + pnav + fwd_pe from the same daily) → `sp_scan --names`
-  → pipeline + `/reconcile` → drift gate.
-- **Onboarding a new sector** — methodology decision doc FIRST (time-boxed one
-  session) → YAML structure + routing → first validator + reconcile → second
-  validator + locked-weights test → `/reconcile --calibration-lock`.
+- **Onboarding a ticker / report-day refresh / onboarding a sector** — the multi-step procedures live in
+  WORKFLOWS.md. Load-bearing discipline: SANITY=OK closes the log baseline, **SANITY=FAIL → stop and
+  investigate**; trust the report counts (not the fleet page); rebase the watchlist vintage TOGETHER
+  (price + pnav + fwd_pe from the same daily); a new sector gets its methodology decision doc FIRST.
 
 ## What NOT to do
 
-- Don't change locked weights (Crude Set A, LNG Set B-revised, Product Set B v2)
-  without a §11.x revision and a new lock test.
-- **Don't widen `.claude/settings.json` permission rules casually** (2026-06-12;
-  rationale in `PERMISSIONS_PROPOSAL.md`). Every `sp_scan` mode is local-only BY
-  CONSTRUCTION (network download lives in `fetch_links`, which asks); watchlist /
-  transactions / FFA-curve edits ask because promotion is human-only; `git push`
-  asks because pushing is deliberate. Bash rules are PREFIX matchers (a network
-  flag on an allowed module leaks when flags are reordered — that's why
-  fetch_links is its own module, keep it that way), and file-rules govern only the
-  agent's file tools, not `cat`/`sed` via Bash. Per-machine "don't ask again" goes
-  in `.claude/settings.local.json` (gitignored), never the tracked file.
-- Don't add classes to the transaction-anchored pipeline without a comparable
-  sample (§9.9 scope discipline).
-- Don't bulk-update market data from VIE — directional cross-check only.
-- Don't fix a wide tool↔broker spread by tweaking marks. Document the divergence
-  in §6 if it's a real call.
-- Don't run pipeline against state you didn't author. `state/last_run.json` is
-  gitignored and quarter-specific.
-- Don't add error handling for cases that can't happen, or comments explaining
-  what the code does. METHODOLOGY.md carries the why.
-- **Don't drop credential files in the repo.** Secrets (Rocket.Chat PATs, API
-  tokens, broker creds) live in `~/.config/crude-tanker-fv.env` — the launchd
-  wrapper sources it. `.gitignore` blocks `*_token*`, `*_credentials*`,
-  `*_secret*`, `*.rtf`, `.env*` defensively, but the gate is discipline.
-  (Caught 2026-06-09: a stray `rocketchat_token.rtf` at repo root.)
+- **Don't change locked weights** (Crude Set A, LNG Set B-revised, Product Set B v2) without a §11.x
+  revision and a new lock test.
+- **Don't widen `.claude/settings.json` permission rules casually** (2026-06-12; rationale +
+  full detail in PERMISSIONS_PROPOSAL.md). `sp_scan` is local-only by construction (network lives in
+  `fetch_links`, which asks); watchlist / transactions / FFA-curve edits + `git push` ask because
+  promotion/pushing is human-only. Bash rules are PREFIX matchers (keep `fetch_links` its own module).
+  Per-machine "don't ask again" → `.claude/settings.local.json` (gitignored), never the tracked file.
+- **Don't run the pipeline against state you didn't author** — `state/last_run.json` is gitignored and
+  quarter-specific.
+- **Don't add error handling for cases that can't happen, or comments explaining what the code does** —
+  METHODOLOGY.md carries the why.
+- **Don't drop credential files in the repo.** Secrets (Rocket.Chat PATs, API tokens, broker creds) live
+  in `~/.config/crude-tanker-fv.env` (the launchd wrapper sources it). `.gitignore` blocks `*_token*`,
+  `*_credentials*`, `*_secret*`, `*.rtf`, `.env*` defensively — but the gate is discipline. (Caught
+  2026-06-09: a stray `rocketchat_token.rtf` at repo root.)
+- *(Also see, above/companions: don't fix wide spreads toward Pareto [philosophy]; don't add classes
+  without a comparable sample [gotchas §9.9]; don't bulk-update from VIE/MB [data sources].)*
 
-## Week-close checklist (codified 2026-06-11, owner decision)
+## Week-close checklist + the compounding-knowledge habit
 
-Work is organised in sprints called "Weeks". At the END of each Week, before
-handoff, run this checklist — documentation accretes seams during a sprint and
-this is where they get smoothed:
-
-1. **Documentation audit.** METHODOLOGY.md: relocate misfiled content, fix stale
-   counts/k_brokers/positions, verify cross-references, write the Week's Appendix
-   A entry. CLAUDE.md: rules current; TICKER_NOTES.md reconciled against the
-   latest delta report; README.md + LIMITATIONS.md refreshed (closed limitations
-   marked closed, not deleted). Fan out read-only audit agents; apply fixes in
-   the main session.
-2. **Verification gate.** Full pytest green; pipeline runs clean; `/reconcile
-   --all` SANITY column all OK/n-a-APPROX.
-3. **PLAN.md rewritten** for the next Week (theme, steps, standing threads,
-   definition of done).
-4. **Clean git state** — everything committed with the Week-close CHANGELOG.md
-   entry; no untracked strays (check for credential-shaped files).
-5. **Push to GitHub** (`git push origin main`) — at Week close at minimum;
-   mid-week pushes after significant commits are fine too.
-
-## The compounding-knowledge habit
-
-Anytime the agent makes a mistake that wasn't caught by these rules, append a
-dated rule to the relevant section here, and the narrative to CHANGELOG.md.
-Ruthlessly edit until the mistake rate visibly drops. This file is checked into
-git; rules survive sessions.
+- **Week-close checklist** (doc audit → verification gate → PLAN.md rewrite → clean git → push) →
+  WORKFLOWS.md §Week-close.
+- **The compounding-knowledge habit — self-limiting BY DESIGN** (so it stops re-bloating this file, the
+  way it grew to 357 lines / ~6.2k tokens before the 2026-07-01 restructure). Compounding is monotonic —
+  accretion needs a paired eviction policy or the always-loaded router degrades every session. When a
+  mistake wasn't caught, add the guard in this order:
+  1. **Prefer a GUARD/TEST over prose.** A test enforces the rule forever at ZERO context cost (it isn't
+     read into the prompt); the durable artifact is the guard, not the sentence. Codify what's codifiable,
+     then make the CLAUDE.md line a one-line pointer at the test — or drop it.
+  2. **On the Nth instance of a pattern, GENERALIZE and DELETE the specifics** — never append a 4th
+     instance-rule; merge into one field-general rule + guard (as the four provenance catches collapsed).
+  3. **One-liner only; the narrative goes to CHANGELOG.md** (read on demand, not every session); any
+     detail past a line migrates to a companion (WORKFLOWS/METHODOLOGY) with a pointer left behind.
+  4. **Hard budget:** `tests/test_docs_stay_lean.py` reds the build if CLAUDE.md exceeds ~16k chars
+     (~4k tokens). At the cap you EVICT / MIGRATE / GENERALIZE — you do NOT raise the cap to fit a rule.
+  5. **Compact at Week-close** — sweep for rules now subsumed by a guard, obsolete, or duplicated, and
+     graduate them out. Accretion + eviction = a router that stays a router. (Git-tracked; rules survive.)

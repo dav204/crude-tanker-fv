@@ -119,3 +119,93 @@ MB is a **cross-check, not a calibration input** (VIE discipline) — promotion 
 assessments against the curves; a promotable per-vessel print goes through the normal §9.9
 drift-gate path; rate/anchor disagreements are logged (§6 footnote), never auto-applied. The
 LNG feed feeds the FLNG/CCEC cross-check (`outputs/mb_lng_crosscheck_*.md`).
+
+## Runbook — the command reference (migrated from CLAUDE.md 2026-07-01)
+
+The daily essentials (tests / pipeline / reconcile / drift gate / fetch_pdf / two-venvs) also
+sit in CLAUDE.md; the full list lives here.
+
+- **Tests:** `PYTHONPATH=src .venv/bin/python -m pytest -q` (174 baseline 2026-06-05; should only
+  ever grow). Never bare `pytest` — the package isn't installed.
+- **Pipeline:** `python -m crude_tanker_fv.pipeline <QUARTER>` (e.g. `2026-Q1`).
+- **Pre-flight (what's stale / missing):** `python -m crude_tanker_fv.refresh` — its §0 consumes
+  `inputs/earnings_calendar.yaml` (hand-maintained; update on sight when the weekly digest flags a
+  newly-announced date).
+- **Reconcile a name:** `python -m crude_tanker_fv.reconcile <TICKER>` (or `/reconcile <TICKER>`).
+- **Drift gate (committed, Pareto-free):** `python -m crude_tanker_fv.drift_gate` — compares current
+  pipeline outputs vs the tracked `baselines/reconcile_baseline.yaml` (EV% / tool NAV / position band /
+  k_broker on its *second difference*); exit 1 on UNEXPLAINED drift. `tests/test_drift_gate.py` runs it
+  as a build gate. Re-anchor ONLY via `./scripts/ratify_baseline.sh "<cause>"` (mandatory cause; human
+  commits) — **never hand-edit the numbers.**
+- **S&P print scan (incremental):** `python -m crude_tanker_fv.sp_scan` — scans Pareto dailies newer
+  than the cursor, writes the review queue to `outputs/sp_print_candidates.md`. Human-classified into
+  `transactions/<class>.yaml`; **never auto-promote.** Every `sp_scan` mode is local-only BY
+  CONSTRUCTION (network download lives in `fetch_links`).
+- **Daily price refresh:** `python -m crude_tanker_fv.price_refresh` — fetches watchlist closes (Yahoo)
+  into the automation-writable `prices_daily.yaml`; launchd 18:30 daily. Pipeline values at the live
+  close; watchlist statics stay as the consensus_pnav/fwd_pe vintage anchors. Flagged quotes (>15% day
+  move, >30% vs static) are written but never applied.
+- **Flush automation drift:** `./scripts/commit_drift.sh` — stages + commits (one step) the 8
+  automation-written files the launchd jobs churn. COMMIT-ONLY (push stays manual). Decision logs +
+  per-name pipeline outputs EXCLUDED — commit those deliberately with their annotations.
+- **Weekly news pull (mechanical):** `scripts/news_pull_cron.sh` — launchd Sat 08:00, chains RC ingest
+  → `sp_scan` → `--links` → `fetch_links` → `pareto_archive --build-manifest` → `ffa_ocr`. The download
+  step is its own module `crude_tanker_fv.fetch_links` so every `sp_scan` mode stays local-only.
+- **FFA widget OCR (incremental):** `python -m crude_tanker_fv.ffa_ocr` — parses the daily 3-panel
+  Cape/Pmax/Smax screenshot into `state/ffa_ocr_curves.json` + review queue; `--staleness` exits 1 if
+  the feed is >7 days quiet. Promotion to `inputs/market_data/ffa_forward_curve.yaml` is HUMAN-ONLY.
+  Scratch under `state/ffa_scratch/` — tesseract can't read /tmp in the agent sandbox.
+- **Weekly news pull (agent-judgment):** `/news-pull` — web-sweeps watchlist names (weighted to APPROX
+  + live-event names) into a dated digest. Review-only; promotion is human-only.
+- **PDFs:** the `.venv/` has `pypdf`. `.venv/bin/python scripts/fetch_pdf.py <url>` (WebFetch fails on
+  many FlateDecode PDFs). Raw `curl` works but prompts.
+- **Two venvs:** the engine + all `crude_tanker_fv` code + the 315-test suite run on `.venv` (Python
+  **3.9.6**). The vendored `shipping_harvester` (broker-weekly parser for the Test 1 backfill) requires
+  **3.10+**, so a dedicated `.venv310` (Python 3.12, gitignored, provisioned via `uv`) is used ONLY for
+  it: `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python -m pytest -q` (57 tests). Never run
+  the engine/tests on `.venv310` or the harvester on `.venv`. Its **source is tracked** (2026-06-23 —
+  Test 1 depends on its parsers); only `shipping_harvester/data/` (crawl cache + broker PDFs) is gitignored.
+- **Test 1 (engine EV% ex-post) backtest:** harness `backtest/run_engine_test1.py` (runs on `.venv`)
+  reads vintages from `backtest/vintages/`. Method + input spec: `backtest/PRE_REGISTRATION_TEST1.md` +
+  `backtest/DATA_CONTRACT_TEST1.md`.
+
+## Data sources — per-source fetch mechanics (migrated from CLAUDE.md 2026-07-01)
+
+The *discipline* rules (trust the report not the fleet page; Pareto = the consensus_pnav source with
+NAT/ASC/CCEC APPROX; VIE/MB are cross-checks, not calibration) live in CLAUDE.md. The per-source fetch
+quirks live here:
+
+- **WebFetch fails on many IR PDFs** (FlateDecode binary). Pattern: `.venv/bin/python scripts/fetch_pdf.py
+  <url>` (downloads to /tmp, validates the host against `inputs/data_sources.yaml` — add new sources
+  THERE, not to the script), then parse with pypdf.
+- **ECO's domain TLS chain fails WebFetch entirely** — use fetch_pdf.py, which carries the one audited
+  TLS-verification exception for that host.
+- **EDGAR needs a contact User-Agent** — fetch_pdf.py sends an SEC-compliant contact string (was 403 on
+  `Mozilla/5.0`); www.sec.gov is allowlisted. (2026-06-26.)
+- **Compass Maritime weekly URL changes every week** — pattern
+  `compassmar.com/wp-content/uploads/YYYY/MM/Compass-Weekly-Report-MMM-DD-YY.pdf`.
+- **The Pareto dailies carry hyperlinks to Pareto's detailed research** as PDF annotations —
+  `extract_text()` NEVER sees them (they live in /Annots). Harvest: `sp_scan --links` → `fetch_links`
+  → `pareto_archive --build-manifest`. Full NAV breakdowns/estimates, far richer than the daily prose.
+  Part of weekly/quarterly ingest.
+- **MB Shipbrokers weeklies** — email tables are IMAGES; the PDF behind the "Download report" flexmail
+  link is the artifact (harvest from Gmail read-only, fetch with `fetch_pdf.py`, cdn.flxml.eu
+  allowlisted; archive `inputs/research_mb/<feed>/YYYY/`). Full steps in the MB workflow above.
+
+## Week-close checklist (migrated from CLAUDE.md 2026-07-01; codified 2026-06-11, owner decision)
+
+Work is organised in sprints ("Weeks"). At the END of each Week, before handoff, run this — docs accrete
+seams during a sprint and this is where they get smoothed:
+
+1. **Documentation audit.** METHODOLOGY.md: relocate misfiled content, fix stale counts/k_brokers/
+   positions, verify cross-references, write the Week's Appendix A entry. CLAUDE.md: rules current;
+   TICKER_NOTES.md reconciled against the latest delta report; README.md + LIMITATIONS.md refreshed
+   (closed limitations marked closed, not deleted). Fan out read-only audit agents; apply fixes in the
+   main session.
+2. **Verification gate.** Full pytest green; pipeline runs clean; `/reconcile --all` SANITY column all
+   OK/n-a-APPROX.
+3. **PLAN.md rewritten** for the next Week (theme, steps, standing threads, definition of done).
+4. **Clean git state** — everything committed with the Week-close CHANGELOG.md entry; no untracked strays
+   (check for credential-shaped files).
+5. **Push to GitHub** (`git push origin main`) — at Week close at minimum; mid-week pushes after
+   significant commits are fine too.
