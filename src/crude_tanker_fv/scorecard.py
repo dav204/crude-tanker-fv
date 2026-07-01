@@ -295,7 +295,8 @@ def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation
       f"list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.\n")
     w("**Reading the labels:** the tier cell carries a **sub-reason = resolution path** "
       "(`structural-class` needs a new data regime; `pending-anchor` is sourceable now; `newbuild-heavy` "
-      "resolves as hulls deliver; `read-flips` needs the §18.5 gate data; `void` = a derived number rests "
+      "resolves as hulls deliver; `newbuild-indeterminate` = a newbuild parked at $0 pending a filed "
+      "price; `read-flips` needs the §18.5 gate data; `void` = a derived number rests "
       "on a contradicted figure). A **`cycle position`** in Position is a NAV-relative read (§12), NOT a "
       "directional short. A **void** row prints no derived numbers — they are known-suspect, not data.\n")
     w("| Ticker | Sector | **Tier · why** | Price | Model FV | Upside | Position | NAV/sh | "

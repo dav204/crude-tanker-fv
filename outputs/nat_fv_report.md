@@ -2,39 +2,39 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $5.78
-- **Model fair value:** $2.51
+- **Model fair value:** $3.09
 - **Analyst target:** $6.00
 
 ## NAV breakdown
 
 | Item | $M |
 |---|---:|
-| Fleet value — Suezmax | 875.0 |
-| + Cash & equivalents | 75.0 |
-| + Working capital (net) | 25.0 |
-| − Total debt | 395.0 |
-| − Lease liabilities | 5.0 |
-| − Newbuild commitments | 153.0 |
-| + Newbuild advances | 17.0 |
-| **= NAV total** | **439.0** |
+| Fleet value — Suezmax | 807.5 |
+| + Cash & equivalents | 81.1 |
+| + Working capital (net) | 53.6 |
+| − Total debt | 415.4 |
+| − Lease liabilities | 0.3 |
+| − Newbuild commitments | 0.0 |
+| + Newbuild advances | 0.0 |
+| **= NAV total** | **591.5** |
 | Diluted shares | 211,750,663 |
-| **NAV / share** | **$2.07** |
+| **NAV / share** | **$2.79** |
 
 ## Dividend strip (r = 11%)
 
 | Quarter | FFA spot (Suezmax, $/day) | Blended TCE ($/day) | EPS | DPS | Disc. DPS |
 |---|---:|---:|---:|---:|---:|
-| Q1 | 81,500 | 71,000 | 0.406 | 0.406 | 0.395 |
-| Q2 | 99,000 | 83,600 | 0.500 | 0.500 | 0.474 |
-| Q3 | 92,000 | 78,560 | 0.462 | 0.462 | 0.427 |
-| Q4 | 67,500 | 60,920 | 0.331 | 0.331 | 0.298 |
-| Q5 | 60,000 | 55,520 | 0.290 | 0.290 | 0.255 |
-| Q6 | 78,000 | 68,480 | 0.387 | 0.387 | 0.331 |
-| Q7 | 81,500 | 71,000 | 0.406 | 0.406 | 0.338 |
-| Q8 | 56,500 | 53,000 | 0.272 | 0.272 | 0.221 |
-| Σ discounted DPS | | | | | 2.74 |
-| Terminal value (NAV, q9) | | | | 1.01 | 0.80 |
-| **DivStrip implied price** | | | | | **$3.54** |
+| Q1 | 81,500 | 69,781 | 0.347 | 0.347 | 0.338 |
+| Q2 | 99,000 | 81,812 | 0.427 | 0.427 | 0.405 |
+| Q3 | 92,000 | 77,000 | 0.395 | 0.395 | 0.365 |
+| Q4 | 67,500 | 60,156 | 0.283 | 0.283 | 0.255 |
+| Q5 | 60,000 | 55,000 | 0.249 | 0.249 | 0.219 |
+| Q6 | 78,000 | 67,375 | 0.331 | 0.331 | 0.283 |
+| Q7 | 81,500 | 69,781 | 0.347 | 0.347 | 0.289 |
+| Q8 | 56,500 | 52,594 | 0.233 | 0.233 | 0.189 |
+| Σ discounted DPS | | | | | 2.34 |
+| Terminal value (NAV, q9) | | | | 1.83 | 1.45 |
+| **DivStrip implied price** | | | | | **$3.79** |
 
 _FFA spot is the Suezmax forward curve that drives the strip cash flows; its 12-month average is **$85,000/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$61,250/day** — not this FFA average._
 
@@ -45,44 +45,44 @@ _FFA spot is the Suezmax forward curve that drives the strip cash flows; its 12-
 
 ## Blended fair value
 
-0.70 × $2.07 (NAV) + 0.30 × $3.54 (strip) = **$2.51**
+0.70 × $2.79 (NAV) + 0.30 × $3.79 (strip) = **$3.09**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $2.49 |
-| 95% | $2.51 |
-| 100% | $2.51 |
+| 80% | $3.08 |
+| 95% | $3.09 |
+| 100% | $3.09 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **4.68× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **4.56× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **397,445** | — |
-| 10-year mean | 27,747 | 14.32× |
-| 12-month FFA | 85,000 | 4.68× |
-| Current spot | 68,700 | 5.79× |
+| **Implied breakeven (blended)** | **387,687** | — |
+| 10-year mean | 27,747 | 13.97× |
+| 12-month FFA | 85,000 | 4.56× |
+| Current spot | 68,700 | 5.64× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $1.52 | $1.88 | $2.25 | $2.61 | $2.97 |
-| **-15%** | $1.66 | $2.02 | $2.38 | $2.74 | $3.10 |
-| **+0%** | $1.79 | $2.15 | $2.51 | $2.87 | $3.24 |
-| **+15%** | $1.92 | $2.28 | $2.65 | $3.01 | $3.37 |
-| **+30%** | $2.06 | $2.42 | $2.78 | $3.14 | $3.50 |
+| **-30%** | $2.20 | $2.53 | $2.87 | $3.20 | $3.54 |
+| **-15%** | $2.31 | $2.65 | $2.98 | $3.32 | $3.65 |
+| **+0%** | $2.42 | $2.76 | $3.09 | $3.43 | $3.76 |
+| **+15%** | $2.54 | $2.87 | $3.21 | $3.54 | $3.88 |
+| **+30%** | $2.65 | $2.99 | $3.32 | $3.65 | $3.99 |
 
 _Current price $5.78. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$2.51** is -56.5% vs the current price ($5.78) and -58.1% vs the analyst target ($6.00). The current price implies the fleet earning a value-weighted blended **$397,445/day** (4.68× the current forward) — 14.3× the value-weighted 10-yr mean ($27,747, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$3.09** is -46.5% vs the current price ($5.78) and -48.4% vs the analyst target ($6.00). The current price implies the fleet earning a value-weighted blended **$387,687/day** (4.56× the current forward) — 14.0× the value-weighted 10-yr mean ($27,747, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

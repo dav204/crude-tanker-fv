@@ -258,6 +258,30 @@ def test_compute_nav_missing_curve_raises(vlcc_curve):
         compute_nav(ci)
 
 
+def test_held_for_sale_adds_to_nav(vlcc_curve):
+    """A held_for_sale balance (agreed-sold vessels at contracted price) adds to NAV like a
+    near-cash current asset — dollar-for-dollar, and is echoed on the NavResult. (NAT, 2026-06-30.)"""
+    base = CompanyInputs(
+        fleet=FleetManifest(
+            ticker="TST", report_date="2026-Q1",
+            vessels=[Vessel(id="a", cls="VLCC", dwt=300_000, age=5, count=2)],
+        ),
+        balance_sheet=BalanceSheet(
+            ticker="TST", quarter="2026-Q1", cash_and_equivalents=0, working_capital_net=0,
+            total_debt=0, lease_liabilities=0, newbuild_capex_commitments=0,
+            newbuild_advances_paid=0, diluted_shares_outstanding=10 * M,
+        ),
+        dividend_policy=DividendPolicy(ticker="TST", policy_type="x", payout_ratio=1.0),
+        cost_structure=CostStructure(ticker="TST"),
+        market_data=MarketData(vessel_value_curves={"VLCC": vlcc_curve}),
+    )
+    r0 = compute_nav(base)
+    r1 = compute_nav(replace(base, balance_sheet=replace(base.balance_sheet, held_for_sale=65 * M)))
+    assert r1.held_for_sale == 65 * M
+    assert r1.nav_total - r0.nav_total == pytest.approx(65 * M)
+    assert r1.nav_per_share - r0.nav_per_share == pytest.approx(65 * M / (10 * M))
+
+
 def test_dht_integration():
     ci = load_company_inputs("DHT", "2026-Q1")
     assert len(ci.fleet.vessels) == 23   # 22 operating VLCCs + DHT Impala newbuild on the curve (§9.6, 2026-06-30)

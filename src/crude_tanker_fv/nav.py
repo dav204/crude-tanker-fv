@@ -66,6 +66,10 @@ class NavResult:
     # Off-curve shuttle / contract-anchored sleeve carried at NPV of contracted
     # cash flows (METHODOLOGY §11.6). Adds to NAV; defaults to 0.
     shuttle_contracted_book: float = 0.0
+    # Held-for-sale vessels at contracted/realizable value (§4.2). Adds to NAV;
+    # defaults to 0. Set when agreed-sold vessels are removed from the operating
+    # fleet manifest so the marks don't double-count them.
+    held_for_sale: float = 0.0
     # Governance / value-trap discount (METHODOLOGY §15). Exposed here for
     # transparency; the haircut is applied at the blend layer and on the
     # dividend strip's terminal value, NOT inside compute_nav (so the broker
@@ -114,6 +118,7 @@ def compute_nav(inputs: CompanyInputs) -> NavResult:
         + bs.newbuild_advances_paid
         - bs.preferred_equity              # preferred claim ahead of common (§4.2)
         + bs.shuttle_contracted_book       # off-curve shuttle NPV (§11.6)
+        + bs.held_for_sale                 # agreed-sold vessels at contracted price (§4.2)
     )
     nav_total = fleet_value + balance_sheet_net
     nav_per_share = nav_total / bs.diluted_shares_outstanding
@@ -135,5 +140,6 @@ def compute_nav(inputs: CompanyInputs) -> NavResult:
         nav_per_share_ex_yard_discount=nav_per_share_ex,
         preferred_equity=bs.preferred_equity,
         shuttle_contracted_book=bs.shuttle_contracted_book,
+        held_for_sale=bs.held_for_sale,
         governance_discount_pct=bs.governance_discount_pct,
     )

@@ -124,6 +124,7 @@ def load_balance_sheet(
         product_specific_debt=float(data.get("product_specific_debt") or 0.0),
         preferred_equity=float(data.get("preferred_equity") or 0.0),
         shuttle_contracted_book=float(data.get("shuttle_contracted_book") or 0.0),
+        held_for_sale=float(data.get("held_for_sale") or 0.0),
         governance_discount_pct=float(data.get("governance_discount_pct") or 0.0),
         **{f: float(_require(data, f, path)) for f in fields},
     )

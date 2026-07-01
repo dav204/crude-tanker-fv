@@ -1,33 +1,51 @@
 # Nordic American Tankers balance sheet — METHODOLOGY.md section 4.2
-# Source: NAT Q1 2026 ER (limited disclosure) + Dec 31 2025 20-F + Jan 2026
-# disposal proceeds applied. Several items are CONSTRUCTED from disclosed pieces
-# (Q1 net income, share count, dividend declared, opex per day, Jan vessel sale
-# $50M net) and clearly flagged; refine when the full Q1 6-K balance sheet is
-# pulled.
+# FULL RECONCILIATION 2026-06-30 (clears the P0 VOID). Every NAV-equation figure
+# is now sourced to a citation; see decisions/nat_reconciliation_prereg_2026-06-30.md.
+# Primary sources:
+#   - Q1-2026 6-K, acc 0000919574-26-003779 (filed 2026-06-01): CONSOLIDATED CONDENSED
+#     BALANCE SHEET at Mar-31-2026 (the 2026-Q1 quarter date). Source of record here.
+#   - FY2025 20-F, acc 0001140361-26-017809 (filed 2026-04-29): audited Dec-31-2025
+#     statements + Notes 13 (Commitments) / 15 (Subsequent Events).
 ticker: NAT
 quarter: 2026-Q1
 
-# CASH — Q1 not explicitly disclosed; NAT's pattern is to keep working cash modest
-# (~$50-100M) and pay out the rest. Mid-estimate post-Jan-sale of vessels.
-# Confirm against NAT's actual Q1 6-K balance sheet when available.
-cash_and_equivalents: 75000000      # APPROX — Q1 cash not disclosed in headline release
+# CASH — Q1-2026 6-K condensed balance sheet, Mar-31-2026. (Was $75M APPROX; actual higher.)
+cash_and_equivalents: 81120000        # 6-K acc 0000919574-26-003779, Mar-31-2026
 
-# Working capital: receivables + bunker inventory - payables. Constructed from
-# typical NAT pattern of ~$30M AR, ~$10M inventory, $15-20M payables; net ~$25M.
-working_capital_net: 25000000       # APPROX
+# WORKING CAPITAL (net, ex-cash / ex-debt / ex-held-for-sale) from the 6-K Mar-31-2026:
+#   current assets ex-cash ex-HFS = AR 23,183 + Prepaid 20,487 + Inventory 15,926
+#     + Voyages-in-Progress 23,014 + Other 538 = 83,148
+#   less current liabilities ex-debt = AP 5,654 + Accrued Voyage 14,585 + Other CL 9,340 = 29,579
+#   net = 53,569.  (Was $25M APPROX.)
+working_capital_net: 53569000         # 6-K acc 0000919574-26-003779, Mar-31-2026 (footed)
 
-# Total debt: $424.1M at Dec 31 2025 per 20-F. Jan 2026 vessel-sale proceeds of
-# $50M likely partially applied to debt paydown; estimate ~$390-400M at Mar 31.
-total_debt: 395000000               # APPROX (Dec 2025 $424.1M - ~$30M Jan sale paydown)
+# HELD FOR SALE — 2 Suezmaxes agreed-sold in Q1, both closing Q2-2026, carried at their
+# CONTRACTED sale price (realizable value, not depreciated book $30,639K): a 2003-build for
+# $25M (agreed Feb-9-2026) + a 2005-build for $40M (agreed Mar-17-2026). Both removed from the
+# operating fleet manifest (16 operating), so this is the only place their value enters NAV.
+held_for_sale: 65000000               # 20-F acc 0001140361-26-017809 Note 15 (R57): $25.0M + $40.0M
 
-# Operating leases (head office, etc.) — minimal for NAT.
-lease_liabilities: 5000000
+# TOTAL DEBT — Q1-2026 6-K Mar-31-2026: current portion 35,404 + non-current 379,990 = 415,394.
+# Gross facilities 418.8M (CLMG/Beal senior secured 140.9M on 7 vessels + Ocean Yield 277.9M on
+# 8 vessels) less 3.4M deferred finance costs. (Was $395M — a fabricated Jan-paydown; corrected.)
+total_debt: 415394000                 # 6-K acc 0000919574-26-003779, Mar-31-2026
 
-# 2 Suezmax newbuilds firm-contracted Jan 2026 (delivery 2028). Each ~$85M;
-# total commitment ~$170M with first ~10% advance paid in Q1.
-newbuild_capex_commitments: 153000000   # ~$170M total - $17M advances paid
-newbuild_advances_paid: 17000000
+# LEASE / other non-current liabilities — NAT breaks out no separate operating-lease line; the
+# lease sits inside "Other Non-Current Liabilities" $343K at Mar-31 (ROU asset was $738K at
+# Dec-31 per the 20-F). Immaterial. (Was $5M — a 10x overstatement; corrected.)
+lease_liabilities: 343000             # 6-K acc 0000919574-26-003779, Mar-31-2026 Other Non-Current Liab
 
-# Per Q1 2026 ER income statement: NI $46.3M / EPS basic ~$0.22 -> ~210.45M shares.
-# Latest disclosed share count 211,750,663 (Dec 31 2025). Use that.
+# NEWBUILDS — PARKED at $0 net NAV (owner decision 2026-06-30). Two Suezmax newbuildings,
+# contracts signed Jan-2026, delivery H2-2028. NAT discloses the ORDER (20-F Note 15 / R57) but
+# NOT the contract price, advance, or commitment $ — the XBRL prices the $25M/$40M vessel sales
+# and the $35.9M dividend in the SAME table yet tags the newbuild with no price element. The only
+# price anywhere is a broker LOI: Pareto Shipping Daily 2025-11-04 "NAT orders suezmaxes at $86m
+# with H2'28 delivery" (~$172M total). That is an LOI-stage broker estimate, NOT a filed figure,
+# so it is NOT out of the figure-provenance queue and the §9.6 on-curve mark is unauthorized
+# (CLAUDE.md). Both legs (delivered-value AND commitment) are parked -> the NAV is independent of
+# the one number that can't be sourced. Un-park onto the §9.6 curve only when NAT files a price.
+newbuild_capex_commitments: 0         # parked pending a filed price (Pareto 2025-11-04 LOI ~$172M, not filed)
+newbuild_advances_paid: 0             # was $17M -- CONTRADICTED (FY25 & Q1-26 6-K cash flow show no advance outflow)
+
+# Latest disclosed share count 211,750,663 (20-F R5 parenthetical + 6-K income-statement footer).
 diluted_shares_outstanding: 211750663

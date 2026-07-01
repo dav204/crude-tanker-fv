@@ -4,9 +4,9 @@
 
 FV vs current price, position, and the broker-NAV bug-gate on the **same row** as the confidence tier — **the single handoff surface** (per-gate detail is the matrix below, same file).
 
-**What this says about the opportunity set:** of 22 names, the validated-and-actionable-long surface is **2 (SB, SBLK — dry bulk, cheap on both NAV bases)**. 10 are directional-only (GOVERNED-WIDE); 7 are not yet trustworthy enough to act on (PROVISIONAL ⛔). TNK is VALIDATED-TIGHT and BUY but reads *rich* — a near-peak-earnings long, cycle-dependent, not a clean value long. And **every one of the book's TRIM/SHORT positions is cycle-position, unreliable-read, or void — not one is a name-specific short.** The thin actionable list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.
+**What this says about the opportunity set:** of 22 names, the validated-and-actionable-long surface is **2 (SB, SBLK — dry bulk, cheap on both NAV bases)**. 11 are directional-only (GOVERNED-WIDE); 6 are not yet trustworthy enough to act on (PROVISIONAL ⛔). TNK is VALIDATED-TIGHT and BUY but reads *rich* — a near-peak-earnings long, cycle-dependent, not a clean value long. And **every one of the book's TRIM/SHORT positions is cycle-position, unreliable-read, or void — not one is a name-specific short.** The thin actionable list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.
 
-**Reading the labels:** the tier cell carries a **sub-reason = resolution path** (`structural-class` needs a new data regime; `pending-anchor` is sourceable now; `newbuild-heavy` resolves as hulls deliver; `read-flips` needs the §18.5 gate data; `void` = a derived number rests on a contradicted figure). A **`cycle position`** in Position is a NAV-relative read (§12), NOT a directional short. A **void** row prints no derived numbers — they are known-suspect, not data.
+**Reading the labels:** the tier cell carries a **sub-reason = resolution path** (`structural-class` needs a new data regime; `pending-anchor` is sourceable now; `newbuild-heavy` resolves as hulls deliver; `newbuild-indeterminate` = a newbuild parked at $0 pending a filed price; `read-flips` needs the §18.5 gate data; `void` = a derived number rests on a contradicted figure). A **`cycle position`** in Position is a NAV-relative read (§12), NOT a directional short. A **void** row prints no derived numbers — they are known-suspect, not data.
 
 | Ticker | Sector | **Tier · why** | Price | Model FV | Upside | Position | NAV/sh | Broker NAV | Gap | SANITY | Handoff |
 |---|---|---|--:|--:|--:|:--|--:|--:|--:|:--|:--|
@@ -18,6 +18,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $12.73 | $16.03 | +26% | BUY (undervalued) | $15.49 | $19.00 | -18% | OK | ready |
 | CMBT | crude | GOVERNED-WIDE · structural-class | $14.08 | $15.26 | +8% | BUY (undervalued) | $15.87 | $19.03 | -17% | OK | ready |
 | INSW | crude | GOVERNED-WIDE · pending-anchor | $77.81 | $38.63 | -50% | rich · cycle position (not a short) | $52.59 | $79.40 | -34% | OK | ready |
+| NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $5.78 | $3.09 | -46% | rich · cycle position (not a short) | $2.79 | $6.80 (apx) | -59% | n-a | ready |
 | TEN | crude | GOVERNED-WIDE · mixed | $35.76 | $61.29 | +71% | BUY (undervalued) | $88.70 | $105.18 (apx) | -16% | n-a | ready |
 | CMDB | dry_bulk | GOVERNED-WIDE · read-flips | $17.99 | $20.43 | +14% | BUY (undervalued) | $31.33 | $29.02 (apx) | +8% | n-a | ready |
 | GNK | dry_bulk | GOVERNED-WIDE · read-flips | $24.39 | $23.99 | -2% | HOLD (fairly valued) | $24.69 | $28.03 | -12% | OK | ready |
@@ -27,7 +28,6 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | MPCC | containerships | GOVERNED-WIDE · structural-class | $2.62 | $2.19 | -16% | unreliable read (not a short) | $2.02 | $2.52 (apx) | -20% | n-a | ready |
 | BRUT | crude | PROVISIONAL · uncited-figure ⛔ | $5.21 | $9.84 | +89% | BUY (undervalued) | $9.40 | $6.95 | +35% | OK | **NO** |
 | ECO | crude | PROVISIONAL · off-curve ⛔ | $49.60 | $37.33 | -25% | rich · cycle position (not a short) | $34.56 | $40.99 | -16% | OK | **NO** |
-| NAT | crude | PROVISIONAL · void ⛔ | $5.78 | _void_ | _void_ | _void — pending reconciliation_ | _void_ | _void_ | _void_ | _void_ | **NO** |
 | ASC | product | PROVISIONAL · uncited-figure ⛔ | $16.00 | $15.09 | -6% | rich · cycle position (not a short) | $15.93 | $21.33 (apx) | -25% | n-a | **NO** |
 | HAFN | product | PROVISIONAL · uncited-figure ⛔ | $6.86 | $5.66 | -17% | rich · cycle position (not a short) | $5.22 | $7.22 | -28% | OK | **NO** |
 | STNG | product | PROVISIONAL · uncited-figure ⛔ | $70.09 | $78.93 | +13% | BUY (undervalued) | $80.35 | $100.13 | -20% | OK | **NO** |
@@ -50,7 +50,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | ECO | crude | PROVISIONAL ⛔ | resale-uniform | 1.38× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | FRO | crude | VALIDATED-TIGHT | resale-uniform | 1.42× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | INSW | crude | GOVERNED-WIDE | pending-sourceable | 1.48× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
-| NAT | crude | PROVISIONAL ⛔ | resale-uniform | 2.51× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| NAT | crude | GOVERNED-WIDE | resale-uniform | 1.86× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | TEN | crude | GOVERNED-WIDE | structural-unavailable | 0.42× | no anchor→cheap | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
 | TNK | crude | VALIDATED-TIGHT | resale-uniform | 0.91× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | ASC | product | PROVISIONAL ⛔ | unverified-no-current-xclusiv-line | 1.00× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: unverified-no-current-xclusiv-line |
@@ -72,9 +72,9 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 
 **Read robustness (parity↔historical):** flips 2, n/a 13, robust 7.
 
-**Confidence tier (handoff):** GOVERNED-WIDE 10, PROVISIONAL 7, VALIDATED-TIGHT 5.
+**Confidence tier (handoff):** GOVERNED-WIDE 11, PROVISIONAL 6, VALIDATED-TIGHT 5.
 
-**⛔ NOT handoff-ready (PROVISIONAL — do NOT pass a governed FV):** ASC, BRUT, ECO, HAFN, NAT, STNG, TRMD. Each carries a NAV-driving figure that is uncited or off-basis (figure-provenance / off-convention queue); flag, don't pass, until it traces.
+**⛔ NOT handoff-ready (PROVISIONAL — do NOT pass a governed FV):** ASC, BRUT, ECO, HAFN, STNG, TRMD. Each carries a NAV-driving figure that is uncited or off-basis (figure-provenance / off-convention queue); flag, don't pass, until it traces.
 
 **Both §18.5 gates are registered-PENDING book-wide** — no Baltic $/day series (§18.5a) or orderbook ratios (§18.5b) in-repo; see `backtest/DATA_CONTRACT_NORMAL_RATES.md`. So no name is *fully* validated yet; the resale-uniform names are comparable and parity-banded, awaiting only the two data-gated gates.
 

@@ -39,7 +39,7 @@ from .loaders import INPUTS_DIR
 # FIXABLE names whose newbuilds have a curve mark but are not yet on-curve §9.6 (NAV on the wrong
 # basis) + structural names pending commitment-net. (SB/SBLK/DHT have left; the structural CCEC/CMBT
 # are handled via STRUCTURAL_NB_NAMES below, not as PROVISIONAL.)
-OFF_CONVENTION_QUEUE = {"ASC", "CMBT", "ECO", "HAFN", "NAT", "STNG", "TEN", "TRMD"}
+OFF_CONVENTION_QUEUE = {"ASC", "CMBT", "ECO", "HAFN", "STNG", "TEN", "TRMD"}  # NAT left 2026-06-30: newbuilds PARKED at $0 (no wired NB), see NEWBUILD_PRICE_PENDING
 SCRUBBER_UNVERIFIED_QUEUE: set[str] = set()   # NEWBUILD-value scrubber flag unverified (now empty)
 
 # --- Operating-scrubber audit (test_scrubber_provenance) ---------------------------------------
@@ -50,7 +50,7 @@ OPERATING_SCRUBBER_QUEUE = {
 
 # --- NAV-equation figure provenance (test_manifest_provenance) ----------------------------------
 # Names with an uncited estimate on a NAV-equation figure (lowercase, as the scan emits).
-NAV_FIGURE_ESTIMATE_QUEUE = {"asc", "brut", "cmbt", "flng", "hafn", "nat", "stng", "ten", "trmd"}
+NAV_FIGURE_ESTIMATE_QUEUE = {"asc", "brut", "cmbt", "flng", "hafn", "stng", "ten", "trmd"}  # nat left 2026-06-30: newbuild figures PARKED out of the NAV equation, rest fully sourced
 
 # Operating-scrubber materiality: max possible FV error as a fraction of NAV above which an uncited
 # operating-scrubber surface widens the tier. Below it, the surface is a tracked-but-immaterial
@@ -67,10 +67,12 @@ OPERATING_SCRUBBER_MATERIAL_PCT = 0.10
 
 # Derived NAV + broker gap are VOID (not merely unverified): a NAV-driving figure is CONTRADICTED
 # by the name's OWN filing, so anything computed off it is known-suspect — struck in the verdict
-# like the FV, and the position direction is void too. NAT: the ~$17M advance is contradicted by
-# the Q1-2026 cash flow (+$38K inflow, no outflow); the ~$153M commitment ties to no disclosure
-# (nat_log.md). Verified UNIQUE among the 7 PROVISIONAL names (the other 6 are uncited, not disproven).
-NAV_DERIVED_VOID = {"NAT"}
+# like the FV, and the position direction is void too. The verdict-rendering path (scorecard.py)
+# stays as defensive coverage for the NEXT contradicted-figure name.
+# NAT was here (the ~$17M advance was contradicted by the Q1-2026 cash flow) — DE-VOIDED 2026-06-30
+# once the full 20-F/6-K reconciliation set advances->0 and sourced the balance sheet; the newbuild
+# price (the only remaining unsourced number) is PARKED, not contradicted (see NEWBUILD_PRICE_PENDING).
+NAV_DERIVED_VOID: set[str] = set()
 
 # Position relabel — a TRIM/SHORT (or rich) position that is NOT an actionable directional short:
 #   cycle-position : rich because §17 RONAV is through-cycle while price embeds the near-peak rate
@@ -78,8 +80,17 @@ NAV_DERIVED_VOID = {"NAT"}
 #   unreliable-read: an artifact of a newbuild-heavy / PV-haircut read that can't be trusted either
 #                    way (MPCC — the tanker method applied to a containership's forward-committed book).
 # Of the book's 8 TRIM/SHORT positions, ALL 8 are here or void — not one is a name-specific short.
-POSITION_CYCLE_RELABEL = {"DHT", "FRO", "ECO", "INSW", "ASC", "HAFN"}
+POSITION_CYCLE_RELABEL = {"DHT", "FRO", "ECO", "INSW", "ASC", "HAFN", "NAT"}  # NAT: the §12 archetype (de-voided 2026-06-30)
 POSITION_UNRELIABLE = {"MPCC"}
+
+# Newbuild carried at $0 NAV pending a FILED contract price — the name discloses the order but not the
+# price, and the only price is a broker LOI (not out of the figure-provenance queue), so the §9.6
+# on-curve mark is unauthorized (CLAUDE.md). Both newbuild legs are PARKED, so the NAV rests entirely
+# on sourced figures with the uncited number out of the equation. This is NOT a contradicted figure
+# (not void) and NOT an uncited figure IN the NAV equation (not figure-PROVISIONAL) — it is a known,
+# flagged indeterminate that makes the name a directional anchor, GOVERNED-WIDE, never TIGHT, until a
+# filed price lets the newbuild go on-curve. NAT (owner decision 2026-06-30). Tier: newbuild-indeterminate.
+NEWBUILD_PRICE_PENDING = {"NAT"}
 
 # Tier sub-reason — why the band is wide / why PROVISIONAL, and thus the resolution PATH. Surfaced
 # in the verdict's tier cell so GOVERNED-WIDE / PROVISIONAL aren't junk drawers.
@@ -88,6 +99,7 @@ POSITION_UNRELIABLE = {"MPCC"}
 #   pending-anchor   : a sleeve's mark is unsourced but SOURCEABLE now (Thread 1A) — resolvable
 #   mixed            : two of the above (TEN: structural LNGC sleeve + pending-anchor Handy/LR1)
 #   read-flips       : read flips cheap<->fair across the §17 bases — needs the §18.5 gate data
+#   newbuild-indeterminate : newbuild parked at $0 pending a FILED price (NEWBUILD_PRICE_PENDING) — GOVERNED-WIDE
 #   void / uncited-figure / off-curve : the PROVISIONAL reasons (contradicted / uncited estimate / off the §9.6 curve)
 TIER_SUBREASON = {
     "GSL": "structural-class", "CCEC": "structural-class", "FLNG": "structural-class",
@@ -96,7 +108,7 @@ TIER_SUBREASON = {
     "INSW": "pending-anchor",
     "TEN": "mixed",
     "CMDB": "read-flips", "GNK": "read-flips",
-    "NAT": "void",
+    "NAT": "newbuild-indeterminate",
     "BRUT": "uncited-figure", "ASC": "uncited-figure", "HAFN": "uncited-figure",
     "STNG": "uncited-figure", "TRMD": "uncited-figure",
     "ECO": "off-curve",
@@ -130,6 +142,12 @@ def confidence_tier(
     fixable_off_curve = (t in OFF_CONVENTION_QUEUE) and not structural
     if figure_uncited or fixable_off_curve or t in SCRUBBER_UNVERIFIED_QUEUE:
         return "PROVISIONAL"
+
+    # 1b. NEWBUILD-INDETERMINATE — a newbuild parked at $0 pending a filed price. The NAV rests on
+    # sourced figures (the uncited number is OUT of the equation), so it is not PROVISIONAL; but the
+    # parked newbuild is a known indeterminate, so it is a directional anchor, never TIGHT.
+    if t in NEWBUILD_PRICE_PENDING:
+        return "GOVERNED-WIDE"
 
     # 2. VALIDATED-TIGHT — traced + strong (two-basis robust) internal corroboration + immaterial gap.
     traced = nav_basis == "resale-uniform"

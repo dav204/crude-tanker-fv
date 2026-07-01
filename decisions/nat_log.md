@@ -7,6 +7,42 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-01T01:56:33+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.78
+- Single-point FV: $3.09
+- Scenario PW FV: $3.33 (EV -42.4%)
+- NAV / share: $2.79
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +63.0pp (k_broker 2.05)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.24 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.9pp
+
+**Decision:** _P0 FULL BALANCE-SHEET RECONCILIATION — NAT DE-VOIDED (2026-06-30). A methodology/data
+correction, NOT a market move. The prior FV was VOID (the $17M newbuild advance was contradicted by
+the Q1-2026 cash flow; the $153M commitment tied to no disclosure). Pulled the FY2025 20-F (acc
+0001140361-26-017809) + Q1-2026 6-K (acc 0000919574-26-003779) from EDGAR, adversarially verified
+(5-agent workflow), pre-registered the NAV band $2.72-2.86 (committed df2c616) AHEAD of recompute.
+Corrections, all sourced: cash $75M→$81.1M; working capital $25M→$53.6M; total debt $395M→$415.4M;
+leases $5M→$0.34M; newbuild advances $17M→$0 (contradicted); newbuild commitment $153M→$0 (PARKED —
+firm price undisclosed by NAT, only a Pareto 2025-11-04 LOI ~$86M/ship exists, so the §9.6 on-curve
+mark is unauthorized per CLAUDE.md); operating fleet 18→16 (2 oldest reclassed held-for-sale, booked
+at the $65M contracted price via the new `held_for_sale` model field). NAV/sh $2.07→$2.79 (+34.8%),
+landed IN the pre-registered band. Owner decisions (2026-06-30): park newbuilds at $0 net (NAV
+independent of the one unsourced number); HFS at contracted $65M (realizable, not depreciated book).
+Tier: PROVISIONAL·void ⛔ → **GOVERNED-WIDE · newbuild-indeterminate** (de-voided; directional-only,
+NOT tight; newbuild price stays a tracked open item via NEWBUILD_PRICE_PENDING). NAT reads "rich ·
+cycle position (not a short)" (§12) — NOT a new actionable long; the actionable-long surface stays
+SB+SBLK. SANITY n/a-APPROX (Pareto publishes no NAT P/NAV; the wide tool<broker gap is the §12
+archetype and NARROWED with the fix). This run is at the committed price vintage (isolating the NAT
+change from the 2026-06-30 daily price refresh, handled separately). Baseline re-ratified for NAT.
+Full record: decisions/nat_reconciliation_prereg_2026-06-30.md._
+
+---
+
 ## 2026-06-30T17:56:31+00:00 — Pipeline run (auto)
 
 **Model state:**

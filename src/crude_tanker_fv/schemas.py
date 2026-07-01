@@ -95,6 +95,14 @@ class BalanceSheet:
     # belongs to whichever sleeve carries the shuttle vessels in the carveout
     # split (treat as a corporate-stack item if shuttle is its own sleeve).
     shuttle_contracted_book: float = 0.0
+    # Vessels classified held-for-sale, carried at their contracted/realizable
+    # sale value (NOT depreciated book) — a near-cash current asset that adds to
+    # NAV like working_capital_net. Used when a name has agreed-but-not-yet-
+    # delivered vessel sales that are removed from the operating fleet manifest
+    # (so the age-curve marks don't double-count them): book the contracted
+    # proceeds here instead. Defaults to 0. (NAT: 2 Suezmaxes agreed-sold
+    # $25M + $40M, Q2-2026 close, per the FY2025 20-F Note 15.)
+    held_for_sale: float = 0.0
     # Governance / structural-NAV-trap discount as a fraction in [0, 1]
     # (METHODOLOGY §15). Captures the persistent P/NAV compression the
     # market applies to controlled-FPI / low-payout / related-party

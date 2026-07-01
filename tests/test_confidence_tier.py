@@ -15,7 +15,7 @@ def test_archetypes_from_scorecard():
     tiers = {r.ticker: r.confidence_tier for r in compute_scorecard("2026-Q1")}
     assert tiers["SB"] == "VALIDATED-TIGHT"      # traced + robust (internal two-basis), op-scrubber immaterial
     assert tiers["CMBT"] == "GOVERNED-WIDE"      # structural-unavailable container class breaks the second basis
-    assert tiers["NAT"] == "PROVISIONAL"         # uncited newbuild commitment — not handoff-ready
+    assert tiers["NAT"] == "GOVERNED-WIDE"       # de-voided 2026-06-30; newbuild parked at $0 pending a filed price
 
 
 def test_provisional_is_never_handoff_ready():
@@ -41,8 +41,11 @@ def test_material_operating_scrubber_surface_widens_but_immaterial_does_not():
 
 
 def test_decision_tree_edges():
-    # uncited figure (in the figure-provenance queue, non-structural) -> PROVISIONAL
-    assert confidence_tier("NAT", "resale-uniform", "robust") == "PROVISIONAL"
+    # newbuild parked at $0 pending a filed price (NEWBUILD_PRICE_PENDING) -> GOVERNED-WIDE, never TIGHT.
+    # The NAV rests on sourced figures with the uncited number out of the equation, so not PROVISIONAL.
+    assert confidence_tier("NAT", "resale-uniform", "robust") == "GOVERNED-WIDE"
+    # an uncited figure IN the NAV equation (figure-provenance queue, non-structural) -> PROVISIONAL
+    assert confidence_tier("HAFN", "resale-uniform", "robust") == "PROVISIONAL"
     # structural-unavailable input -> GOVERNED-WIDE, never PROVISIONAL (figure is cited; issue is structural)
     assert confidence_tier("CMBT", "structural-unavailable", "n/a") == "GOVERNED-WIDE"
     # traced but the read flips between bases (no internal corroboration) -> GOVERNED-WIDE

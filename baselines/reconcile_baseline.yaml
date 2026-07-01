@@ -2,10 +2,10 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-06-30T15:35:07+00:00'
-  ratified_commit: fa3df47
+  ratified_at: '2026-07-01T01:56:33+00:00'
+  ratified_commit: df2c616
   quarter: 2026-Q1
-  cause: 'DHT §9.6 on-curve: DHT Impala newbuild, +6% toward broker'
+  cause: NAT P0 balance-sheet reconciliation — de-void, NAV $2.07->$2.79 (owner-directed 2026-06-30)
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -118,10 +118,10 @@ names:
     sector: containerships
   NAT:
     pnav_basis: approx
-    ev_pct: -51.88
-    tool_nav: 2.07
+    ev_pct: -42.39
+    tool_nav: 2.79
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 2.14
+    k_broker: 2.05
     sector: crude
   SB:
     pnav_basis: approx

@@ -142,13 +142,16 @@ def test_write_scorecard_emits_consolidated_verdict_when_valuation_present(tmp_p
     assert "validated-and-actionable-long surface is **2 (SB, SBLK" in text
 
 
-def test_verdict_applies_owner_label_corrections(tmp_path, rows):
-    """The three owner corrections (2026-06-30): (1) a cycle-rich position is relabeled away from
-    TRIM/SHORT; (2) the tier cell carries a sub-reason / resolution path; (3) a name whose derived
-    NAV rests on a contradicted figure (NAT) prints `void`, not numbers."""
+def test_verdict_applies_owner_label_corrections(tmp_path, rows, monkeypatch):
+    """The owner label corrections render: (1) cycle-rich positions are relabeled away from TRIM/SHORT
+    (DHT, and NAT — the §12 archetype, de-voided 2026-06-30); (2) the tier cell carries a sub-reason /
+    resolution path, incl. NAT's `newbuild-indeterminate`; (3) the void-rendering path strikes all
+    derived numbers for any name in NAV_DERIVED_VOID — exercised here with a stand-in, since NAT
+    de-voided and the live set is now empty (kept as coverage for the next contradicted-figure name)."""
+    import crude_tanker_fv.scorecard as sc_mod
     from crude_tanker_fv.scorecard import _Valuation
 
-    # give the relabel/void candidates their real (overvalued) position so the relabel is visible
+    # give the relabel candidates their real (overvalued) position so the relabel is visible
     val = {
         r.ticker: _Valuation(
             price=10.0, fv=8.0, upside_pct=-20.0, position="TRIM/SHORT (overvalued)",
@@ -156,21 +159,27 @@ def test_verdict_applies_owner_label_corrections(tmp_path, rows):
         )
         for r in rows
     }
-    text = write_scorecard(rows, outputs_dir=tmp_path, valuation=val).read_text()
-    verdict = text.split("## Validation matrix")[0]   # only the Verdict section
+    verdict = write_scorecard(rows, outputs_dir=tmp_path, valuation=val).read_text().split("## Validation matrix")[0]
 
-    # (1) cycle-position relabel: DHT's row says cycle position, never TRIM/SHORT
-    dht = next(ln for ln in verdict.splitlines() if ln.startswith("| DHT |"))
-    assert "cycle position" in dht and "TRIM/SHORT" not in dht
+    # (1) cycle-position relabel: DHT and NAT say cycle position, never TRIM/SHORT
+    for t in ("DHT", "NAT"):
+        ln = next(x for x in verdict.splitlines() if x.startswith(f"| {t} |"))
+        assert "cycle position" in ln and "TRIM/SHORT" not in ln
     mpcc = next(ln for ln in verdict.splitlines() if ln.startswith("| MPCC |"))
     assert "unreliable read" in mpcc and "TRIM/SHORT" not in mpcc
-    # (2) tier sub-reasons present
+    # (2) tier sub-reasons present, incl. NAT's newbuild-indeterminate (de-voided -> GOVERNED-WIDE, real numbers)
     assert "GOVERNED-WIDE · structural-class" in verdict
-    assert "GOVERNED-WIDE · newbuild-heavy" in verdict     # CAPT
-    assert "PROVISIONAL · void" in verdict                 # NAT
-    # (3) NAT's derived numbers are voided, not printed
+    assert "GOVERNED-WIDE · newbuild-heavy" in verdict            # CAPT
+    assert "GOVERNED-WIDE · newbuild-indeterminate" in verdict    # NAT
     nat = next(ln for ln in verdict.splitlines() if ln.startswith("| NAT |"))
-    assert "void" in nat and "-25%" not in nat and "$9.00" not in nat
+    assert "$9.00" in nat                                         # NAT now prints REAL numbers (de-voided)
+
+    # (3) the void-rendering path strikes all derived numbers for a name in NAV_DERIVED_VOID (mechanism
+    # coverage via a stand-in — the live set is empty after NAT de-voided).
+    monkeypatch.setattr(sc_mod, "NAV_DERIVED_VOID", {"GSL"})
+    v2 = write_scorecard(rows, outputs_dir=tmp_path, valuation=val).read_text().split("## Validation matrix")[0]
+    gsl = next(ln for ln in v2.splitlines() if ln.startswith("| GSL |"))
+    assert "void" in gsl and "$9.00" not in gsl
 
 
 def test_verdict_label_registry_tracks_the_tiers_no_drift():

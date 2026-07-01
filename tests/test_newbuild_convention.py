@@ -29,8 +29,8 @@ QUARTER = "2026-Q1"
 # pre-registered fix. strict xfail. (SB+SBLK are removed by the pass-1 wiring commit.)
 # DHT converted to on-curve §9.6 2026-06-30 (1 VLCC, DHT Impala) — removed from the queue.
 OFF_CONVENTION_QUEUE = {
-    "ASC", "CMBT", "ECO", "HAFN", "NAT", "STNG", "TEN", "TRMD",
-}
+    "ASC", "CMBT", "ECO", "HAFN", "STNG", "TEN", "TRMD",
+}  # NAT left 2026-06-30: newbuilds parked at $0 (no wired NB rows -> not parametrized here)
 
 
 def _structural_exempt() -> dict[str, str]:

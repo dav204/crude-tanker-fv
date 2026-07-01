@@ -107,8 +107,8 @@ _MONEY_RE = _re.compile(r"\$\s?[\d,]+|\b\d+(?:\.\d+)?\s?(?:M\b|bn\b|million|bill
 # a name can't leave by deleting the figure. THIS GATES THE CONVENTION QUEUE: a name here has an
 # uncited NAV-driver, so wiring its newbuilds on-curve (§9.6) would build the move on sand.
 NAV_FIGURE_ESTIMATE_QUEUE = {
-    "asc", "brut", "cmbt", "flng", "hafn", "nat", "stng", "ten", "trmd",
-}
+    "asc", "brut", "cmbt", "flng", "hafn", "stng", "ten", "trmd",
+}  # nat left 2026-06-30: newbuild figures parked out of the NAV equation; balance sheet fully sourced
 
 
 def _nav_figure_estimate_flagged(path: str) -> bool:
