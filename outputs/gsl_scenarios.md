@@ -1,9 +1,9 @@
 # GSL — Scenario Fair Value (Container Set A (disruption-led))
 
-- **Current price:** $37.74
+- **Current price:** $37.60
 - **Analyst target:** $52.04
 - **NAV / share (reference, unflexed):** $38.59 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $40.59 (+7.6% vs price)
+- **Probability-weighted fair value:** $40.59 (+8.0% vs price)
 - **Breakeven TCE (scenario-invariant):** $0/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** BUY (undervalued)
 
@@ -21,9 +21,9 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $+6.71
-- **Downside (worst scenario − price):** $-1.56
-- **Expected value vs current** (weighted FV − price): $+2.85 (+7.6%)
+- **Upside (best scenario − price):** $+6.85
+- **Downside (worst scenario − price):** $-1.42
+- **Expected value vs current** (weighted FV − price): $+2.99 (+8.0%)
 - **Position:** BUY (undervalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

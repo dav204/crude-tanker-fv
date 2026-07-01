@@ -8,7 +8,7 @@ The **earnings-leg analog of the broker-NAV sweep** (METHODOLOGY §9.11 / §9.9)
 
 | Name | Sector | Price | Cons. fwd P/E | Cons. fwd EPS | Tool fwd EPS | Tool impl. P/E | EPS gap | Cons. earn. yld | Cycle (band) | w_earn | Read |
 |---|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|---|
-| NAT | crude | $5.20 | 17.2× | $0.30 | $1.70 | 3.1× | +462% | 5.8% | 2.21× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| NAT | crude | $5.20 | 17.2× | $0.30 | $1.45 | 3.6× | +380% | 5.8% | 2.21× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | BRUT | crude | $5.40 | 22.0× | $0.25 | $1.00 | 5.4× | +307% | 4.5% | 2.79× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | CAPT | crude | $12.20 | 11.1× | $1.10 | $3.60 | 3.4× | +228% | 9.0% | 2.45× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | TRMD | product | $28.20 | 9.5× | $2.97 | $9.50 | 3.0× | +220% | 10.5% | 1.69× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |

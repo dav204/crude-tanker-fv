@@ -8,7 +8,7 @@ one-way bullish override — audit E-3.)
 
 | Name | Gated | price/NAV | gap $ | Q* | H | Resolution |
 |---|:--:|--:|--:|:--:|--:|---|
-| NAT | Y | 2.51× | +3.13 | >strip | 8.0 | TRIM stands (value trap) |
+| NAT | Y | 1.86× | +2.41 | >strip | 8.0 | TRIM stands (value trap) |
 | ASC | · | 1.00× | +0.07 | — | 8.0 | n/a (gate) |
 | BRUT | · | 0.57× | -4.00 | — | 8.0 | n/a (gate) |
 | CAPT | · | 0.79× | -3.29 | — | 8.0 | n/a (gate) |

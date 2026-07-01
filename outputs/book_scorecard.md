@@ -12,28 +12,28 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 
 | Ticker | Sector | **Tier · why** | Price | Model FV | Upside | Position | NAV/sh | Broker NAV | Gap | SANITY | Handoff |
 |---|---|---|--:|--:|--:|:--|--:|--:|--:|:--|:--|
-| DHT | crude | VALIDATED-TIGHT | $17.08 | $14.95 | -12% | rich · cycle position (not a short) | $13.88 | $15.67 | -11% | OK | ready |
-| FRO | crude | VALIDATED-TIGHT | $35.44 | $26.54 | -25% | rich · cycle position (not a short) | $24.22 | $29.53 | -18% | OK | ready |
-| TNK | crude | VALIDATED-TIGHT | $65.99 | $79.42 | +20% | BUY (undervalued) | $77.51 | $86.83 | -11% | OK | ready |
-| SB | dry_bulk | VALIDATED-TIGHT | $6.36 | $10.17 | +60% | BUY (undervalued) | $10.47 | $7.23 (apx) | +45% | n-a | ready |
-| SBLK | dry_bulk | VALIDATED-TIGHT | $24.64 | $28.34 | +15% | BUY (undervalued) | $29.34 | $30.05 | -2% | OK | ready |
-| CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $12.73 | $16.03 | +26% | BUY (undervalued) | $15.49 | $19.00 | -18% | OK | ready |
-| CMBT | crude | GOVERNED-WIDE · structural-class | $14.08 | $15.26 | +8% | BUY (undervalued) | $15.87 | $19.03 | -17% | OK | ready |
-| INSW | crude | GOVERNED-WIDE · pending-anchor | $77.81 | $38.63 | -50% | rich · cycle position (not a short) | $52.59 | $79.40 | -34% | OK | ready |
-| NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $5.78 | $3.09 | -46% | rich · cycle position (not a short) | $2.79 | $6.80 (apx) | -59% | n-a | ready |
-| TEN | crude | GOVERNED-WIDE · mixed | $35.76 | $61.29 | +71% | BUY (undervalued) | $88.70 | $105.18 (apx) | -16% | n-a | ready |
-| CMDB | dry_bulk | GOVERNED-WIDE · read-flips | $17.99 | $20.43 | +14% | BUY (undervalued) | $31.33 | $29.02 (apx) | +8% | n-a | ready |
-| GNK | dry_bulk | GOVERNED-WIDE · read-flips | $24.39 | $23.99 | -2% | HOLD (fairly valued) | $24.69 | $28.03 | -12% | OK | ready |
-| CCEC | lng | GOVERNED-WIDE · structural-class | $20.87 | $32.08 | +54% | BUY (undervalued) | $28.10 | $23.19 (apx) | +21% | n-a | ready |
-| FLNG | lng | GOVERNED-WIDE · structural-class | $29.29 | $28.16 | -4% | HOLD (fairly valued) | $28.45 | $21.38 | +33% | OK | ready |
-| GSL | containerships | GOVERNED-WIDE · structural-class | $37.74 | $43.00 | +14% | BUY (undervalued) | $38.59 | $50.32 (apx) | -23% | n-a | ready |
-| MPCC | containerships | GOVERNED-WIDE · structural-class | $2.62 | $2.19 | -16% | unreliable read (not a short) | $2.02 | $2.52 (apx) | -20% | n-a | ready |
+| DHT | crude | VALIDATED-TIGHT | $16.40 | $14.95 | -9% | rich · cycle position (not a short) | $13.88 | $15.05 | -8% | OK | ready |
+| FRO | crude | VALIDATED-TIGHT | $34.50 | $26.54 | -23% | rich · cycle position (not a short) | $24.22 | $28.75 | -16% | OK | ready |
+| TNK | crude | VALIDATED-TIGHT | $70.80 | $79.42 | +12% | BUY (undervalued) | $77.51 | $93.16 | -17% | OK | ready |
+| SB | dry_bulk | VALIDATED-TIGHT | $6.31 | $10.17 | +61% | BUY (undervalued) | $10.47 | $7.17 (apx) | +46% | n-a | ready |
+| SBLK | dry_bulk | VALIDATED-TIGHT | $24.97 | $28.34 | +13% | BUY (undervalued) | $29.34 | $30.45 | -4% | OK | ready |
+| CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $12.58 | $16.03 | +27% | BUY (undervalued) | $15.49 | $18.78 | -17% | OK | ready |
+| CMBT | crude | GOVERNED-WIDE · structural-class | $13.99 | $15.26 | +9% | BUY (undervalued) | $15.87 | $18.91 | -16% | OK | ready |
+| INSW | crude | GOVERNED-WIDE · pending-anchor | $76.59 | $38.63 | -50% | rich · cycle position (not a short) | $52.59 | $78.15 | -33% | OK | ready |
+| NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $5.54 | $3.09 | -44% | rich · cycle position (not a short) | $2.79 | $6.52 (apx) | -57% | n-a | ready |
+| TEN | crude | GOVERNED-WIDE · mixed | $35.37 | $61.29 | +73% | BUY (undervalued) | $88.70 | $104.03 (apx) | -15% | n-a | ready |
+| CMDB | dry_bulk | GOVERNED-WIDE · read-flips | $17.56 | $20.43 | +16% | BUY (undervalued) | $31.33 | $28.32 (apx) | +11% | n-a | ready |
+| GNK | dry_bulk | GOVERNED-WIDE · read-flips | $24.78 | $23.99 | -3% | HOLD (fairly valued) | $24.69 | $28.48 | -13% | OK | ready |
+| CCEC | lng | GOVERNED-WIDE · structural-class | $21.35 | $32.08 | +50% | BUY (undervalued) | $28.10 | $23.72 (apx) | +18% | n-a | ready |
+| FLNG | lng | GOVERNED-WIDE · structural-class | $28.06 | $28.16 | +0% | BUY (undervalued) | $28.45 | $20.48 | +39% | OK | ready |
+| GSL | containerships | GOVERNED-WIDE · structural-class | $37.60 | $43.00 | +14% | BUY (undervalued) | $38.59 | $50.13 (apx) | -23% | n-a | ready |
+| MPCC | containerships | GOVERNED-WIDE · structural-class | $2.55 | $2.19 | -14% | unreliable read (not a short) | $2.02 | $2.45 (apx) | -18% | n-a | ready |
 | BRUT | crude | PROVISIONAL · uncited-figure ⛔ | $5.21 | $9.84 | +89% | BUY (undervalued) | $9.40 | $6.95 | +35% | OK | **NO** |
-| ECO | crude | PROVISIONAL · off-curve ⛔ | $49.60 | $37.33 | -25% | rich · cycle position (not a short) | $34.56 | $40.99 | -16% | OK | **NO** |
+| ECO | crude | PROVISIONAL · off-curve ⛔ | $50.12 | $37.33 | -26% | rich · cycle position (not a short) | $34.56 | $41.42 | -17% | OK | **NO** |
 | ASC | product | PROVISIONAL · uncited-figure ⛔ | $16.00 | $15.09 | -6% | rich · cycle position (not a short) | $15.93 | $21.33 (apx) | -25% | n-a | **NO** |
-| HAFN | product | PROVISIONAL · uncited-figure ⛔ | $6.86 | $5.66 | -17% | rich · cycle position (not a short) | $5.22 | $7.22 | -28% | OK | **NO** |
-| STNG | product | PROVISIONAL · uncited-figure ⛔ | $70.09 | $78.93 | +13% | BUY (undervalued) | $80.35 | $100.13 | -20% | OK | **NO** |
-| TRMD | product | PROVISIONAL · uncited-figure ⛔ | $26.31 | $26.35 | +0% | HOLD (fairly valued) | $25.43 | $31.70 | -20% | OK | **NO** |
+| HAFN | product | PROVISIONAL · uncited-figure ⛔ | $6.64 | $5.66 | -15% | rich · cycle position (not a short) | $5.22 | $6.99 | -25% | OK | **NO** |
+| STNG | product | PROVISIONAL · uncited-figure ⛔ | $75.60 | $78.93 | +4% | BUY (undervalued) | $80.35 | $108.00 | -26% | OK | **NO** |
+| TRMD | product | PROVISIONAL · uncited-figure ⛔ | $26.06 | $26.35 | +1% | HOLD (fairly valued) | $25.43 | $31.40 | -19% | OK | **NO** |
 
 ## Validation matrix — per-gate detail
 

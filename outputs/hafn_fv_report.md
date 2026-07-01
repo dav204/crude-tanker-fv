@@ -1,7 +1,7 @@
 # HAFN — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $6.86
+- **Current price:** $6.64
 - **Model fair value:** $5.66
 - **Analyst target:** $10.00
 
@@ -66,21 +66,21 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **1.78× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **1.64× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **83,976** | — |
-| 10-year mean | 20,965 | 4.01× |
-| 12-month FFA | 47,221 | 1.78× |
-| Current spot | 20,190 | 4.16× |
+| **Implied breakeven (blended)** | **77,221** | — |
+| 10-year mean | 20,965 | 3.68× |
+| 12-month FFA | 47,221 | 1.64× |
+| Current spot | 20,190 | 3.82× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| MR (48% of fleet value) | 44,014 | 2.75× |
-| LR1 (25% of fleet value) | 137,378 | 4.98× |
-| LR2 (17% of fleet value) | 137,378 | 4.98× |
-| Handysize (10% of fleet value) | 44,014 | 2.75× |
+| MR (48% of fleet value) | 40,474 | 2.53× |
+| LR1 (25% of fleet value) | 126,328 | 4.58× |
+| LR2 (17% of fleet value) | 126,328 | 4.58× |
+| Handysize (10% of fleet value) | 40,474 | 2.53× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -92,11 +92,11 @@ The current price requires the fleet to run at **1.78× the current forward curv
 | **+15%** | $4.72 | $5.31 | $5.89 | $6.48 | $7.07 |
 | **+30%** | $4.95 | $5.54 | $6.12 | $6.71 | $7.30 |
 
-_Current price $6.86. Cycle weights held at base across the grid._
+_Current price $6.64. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$5.66** is -17.5% vs the current price ($6.86) and -43.4% vs the analyst target ($10.00). The current price implies the fleet earning a value-weighted blended **$83,976/day** (1.78× the current forward) — 4.0× the value-weighted 10-yr mean ($20,965, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$5.66** is -14.7% vs the current price ($6.64) and -43.4% vs the analyst target ($10.00). The current price implies the fleet earning a value-weighted blended **$77,221/day** (1.64× the current forward) — 3.7× the value-weighted 10-yr mean ($20,965, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

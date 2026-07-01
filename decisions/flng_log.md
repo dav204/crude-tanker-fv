@@ -7,6 +7,31 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-01T02:12:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.06
+- Single-point FV: $28.16
+- Scenario PW FV: $30.67 (EV +9.3%)
+- NAV / share: $28.45
+- Position: **BUY (undervalued)**
+- Broker spread: -26.4pp (k_broker 0.85)
+- Sector: lng
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- Δprice: -1.23 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -4.0pp
+
+**Decision:** _PRICE-DRIVEN BAND FLIP, reviewed + accepted (2026-07-01 price refresh). HOLD→BUY is a
+−4.2% price drop ($29.29→$28.06) on a broad shipping down day — scenario FV unchanged ($30.67), NAV
+unchanged ($28.45); EV moved +4.7%→+9.3%. NOT a high-conviction signal: FLNG is GOVERNED-WIDE ·
+structural-class (LNGC has no clean resale curve, NAV basis structural-unavailable), so its FV/EV are
+directional-only with a wide band — a boundary-crossing there is mechanical, not a name call. Absorbed
+via the daily-refresh baseline re-ratify; no methodology/NAV change. (Watch only if it persists +
+widens materially at the next refresh.)_
+
+---
+
 ## 2026-06-30T17:56:31+00:00 — Pipeline run (auto)
 
 **Model state:**

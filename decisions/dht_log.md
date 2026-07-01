@@ -7,6 +7,30 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-01T02:12:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.40
+- Single-point FV: $14.95
+- Scenario PW FV: $15.77 (EV -3.9%)
+- NAV / share: $13.88
+- Position: **HOLD (fairly valued)**
+- Broker spread: +6.5pp (k_broker 1.07)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position TRIM/SHORT (overvalued) → HOLD (fairly valued)
+- Δprice: -0.68 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -3.1pp
+
+**Decision:** _PRICE-DRIVEN BAND FLIP, reviewed + accepted (2026-07-01 price refresh). TRIM/SHORT→HOLD
+is purely a −4% price drop ($17.08→$16.40) on a broad shipping down day — scenario FV unchanged
+($15.77), NAV unchanged ($13.88); EV moved −7.7%→−3.9%, a shallow ~2pp crossing of the TRIM/HOLD edge.
+NOT a name signal: DHT's crude position is a §12 cycle-position read anyway (relabeled "rich · cycle
+position" in the verdict), so "fairly valued" just means the near-peak richness compressed with the
+price. Absorbed via the daily-refresh baseline re-ratify; no methodology/NAV change._
+
+---
+
 ## 2026-06-30T17:56:31+00:00 — Pipeline run (auto)
 
 **Model state:**
