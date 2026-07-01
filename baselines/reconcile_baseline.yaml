@@ -2,11 +2,11 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-07-01T18:24:03+00:00'
-  ratified_commit: 48b3956
+  ratified_at: '2026-07-01T19:50:47+00:00'
+  ratified_commit: 21d75f9
   quarter: 2026-Q1
-  cause: ASC reconciliation — NAV 15.96->17.80 (April-2026 Handysize newbuild excluded as Q1 subsequent
-    event; phantom Patriot removed; chem-Handies to 20-F carrying floor)
+  cause: BRUT reconciliation — NAV 9.40->8.80 (4 figures issuer-traced; cash booked at $66M conservative
+    floor, stays cash-pending until H1-2026 report 2026-08-13)
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -21,10 +21,10 @@ names:
     sector: product
   BRUT:
     pnav_basis: pareto
-    ev_pct: 107.42
-    tool_nav: 9.4
+    ev_pct: 96.56
+    tool_nav: 8.8
     position_band: BUY (undervalued)
-    k_broker: 0.92
+    k_broker: 0.94
     sector: crude
   CAPT:
     pnav_basis: pareto
