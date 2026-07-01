@@ -5,6 +5,28 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-06-30 — NAT DE-VOIDED: P0 full balance-sheet reconciliation (the first PROVISIONAL name cleared).**
+  NAT's headline FV was VOID — the $17M newbuild advance was contradicted by the Q1-2026 cash flow and the
+  $153M commitment traced to nothing. Pulled the **FY2025 20-F** (acc 0001140361-26-017809, filed 2026-04-29)
+  + **Q1-2026 6-K** (acc 0000919574-26-003779) from EDGAR and reconciled the whole balance sheet; a 5-agent
+  adversarial-verification workflow confirmed every figure before a NAV band ($2.72–2.86) was **pre-registered
+  and committed (df2c616) AHEAD of the recompute** (landed $2.79, in band). Sourced (Mar-31-2026): cash
+  $75M→$81.1M; working capital $25M→$53.6M; total debt $395M→$415.4M; leases $5M→$0.34M; **advances $17M→$0
+  (contradicted)**; **newbuild commitment $153M→$0 PARKED** — NAT discloses the 2-Suezmax order (delivery
+  H2-2028) but NOT the price (the 20-F/6-K/XBRL are silent while pricing the $25M/$40M vessel sales in the
+  same note); the only figure is a Pareto 2025-11-04 LOI (~$86M/ship), which is not out of the figure-provenance
+  queue, so the §9.6 on-curve mark is UNAUTHORIZED (owner decision — park both legs so NAV is independent of the
+  unsourced number). Operating fleet 18→16 (2 oldest reclassified held-for-sale, booked at the **$65M contracted
+  price** via a NEW `held_for_sale` model field — schema/nav/loader/test). Owner-directed tier mechanics: NAT
+  leaves `NAV_DERIVED_VOID` (de-voided) and `NAV_FIGURE_ESTIMATE_QUEUE` + `OFF_CONVENTION_QUEUE` (newbuild parked
+  out of the equation), gains `NEWBUILD_PRICE_PENDING` → **GOVERNED-WIDE·newbuild-indeterminate** (directional-only,
+  NOT tight; newbuild price stays a tracked open item) and `POSITION_CYCLE_RELABEL` (reads "rich · cycle position
+  (not a short)", §12). NAT is NOT a new actionable long — the surface stays SB+SBLK. Suite 435→438 passed /
+  28→26 xfailed. Committed ISOLATED from the day's price refresh (owner: don't launder incidental market drift —
+  incl. DHT/FLNG band flips — through a sourcing commit); the daily price drift is a SEPARATE deliberate re-ratify.
+  Baseline re-ratified for NAT only. Record: `decisions/nat_reconciliation_prereg_2026-06-30.md`; commits
+  df2c616 (pre-reg) + b44c3c4 (fix). **Reusable pattern for the queue's park-at-$0 newbuild names.**
+
 - **2026-06-23 — POWERED multi-cycle P/B reversion test DEFLATES the one-cycle engine result → no edge.**
   Ran the Test-2 within-name reversion estimand on the deep Sharadar P/B proxy (`run_proxy_timeseries.py`,
   2008–2025, **72 quarters, 14 names, 804 name-quarters** — GFC + 2011–16 depression + COVID + 2021–22

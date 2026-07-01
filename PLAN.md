@@ -5,10 +5,11 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-06-30):** **22 watchlist names across 5 sectors**; **435 main
-tests green, 28 xfailed** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester
-via `.venv310`); drift gate **0 unexplained** (headline FV untouched all arc); pipeline
-clean; pushed to `origin/main`. The recent arc hardened **provenance + handoff**, not the
+**Current state (2026-06-30):** **22 watchlist names across 5 sectors**; **438 main
+tests green, 26 xfailed** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester
+via `.venv310`); drift gate **0 unexplained** (NAT re-ratified after its reconciliation); pipeline
+clean. **NAT DE-VOIDED 2026-06-30** — the P0 reconciliation cleared the first name off the queue
+(NAV $2.07→$2.79, now GOVERNED-WIDE·newbuild-indeterminate; see below). The recent arc hardened **provenance + handoff**, not the
 numbers — every change below is a guard, a tier, or a presentation join; none moved a mark.
 
 **THE consolidated handoff output is `outputs/book_scorecard.md`** (2026-06-30). One file,
@@ -27,9 +28,10 @@ trade signal (crude AND product near peak; MPCC → "unreliable read"); **all 8 
 TRIM/SHORT positions are cycle/unreliable/void — not one is a name-specific short**; (2) the
 tier cell carries a **sub-reason = resolution path** (`structural-class` / `newbuild-heavy` /
 `pending-anchor` / `mixed` / `read-flips` / `void` / `uncited-figure` / `off-curve`) so
-GOVERNED-WIDE / PROVISIONAL aren't junk drawers; (3) **NAT's derived NAV + gap are voided** (not
-just its FV) — they rest on the contradicted $17M-advance figure, so they print `void`, verified
-UNIQUE among the 7 PROVISIONAL names. The verdict header states the **opportunity-set finding**:
+GOVERNED-WIDE / PROVISIONAL aren't junk drawers; (3) NAT's derived NAV + gap WERE voided (they
+rested on the contradicted $17M-advance figure) — **NAT was DE-VOIDED 2026-06-30** by the P0
+reconciliation (advance sourced to $0, whole balance sheet re-sourced); the void-rendering path is
+retained as coverage for the next contradicted-figure name (`NAV_DERIVED_VOID` now empty). The verdict header states the **opportunity-set finding**:
 of 22 names the validated-actionable-long surface is **2 (SB, SBLK)** — the tool refusing to
 manufacture conviction, not a gap.
 
@@ -50,8 +52,9 @@ source of truth (imported by both the guards and the tier, so they can't drift):
 
 **Confidence tier (governance handoff, `provenance.confidence_tier`)** — read from the existing
 validation state, NOT a new model: **VALIDATED-TIGHT** (5: DHT, FRO, SB, SBLK, TNK — traced +
-robust two-basis), **GOVERNED-WIDE** (10 — traces but structural-unavailable input or read flips),
-**PROVISIONAL** (7: ASC, BRUT, ECO, HAFN, NAT, STNG, TRMD — a NAV-driving figure is uncited /
+robust two-basis), **GOVERNED-WIDE** (11 — traces but structural-unavailable input, read flips, or
+newbuild parked at $0 pending a filed price: **NAT**, `newbuild-indeterminate`, `NEWBUILD_PRICE_PENDING`),
+**PROVISIONAL** (6: ASC, BRUT, ECO, HAFN, STNG, TRMD — a NAV-driving figure is uncited /
 off-basis; **NOT handoff-ready, flag don't pass**). APPROX-pnav does NOT demote a robust name
 (SB's two-basis corroboration substitutes for the missing broker check); an immaterial uncited
 operating-scrubber surface does not either (materiality-gated at 10% of NAV). Emitted in the
@@ -80,17 +83,21 @@ in `CHANGELOG.md`; per-name detail in `decisions/<t>_log.md`.
 ## Open threads (prioritized — start here)
 
 **P0 — reconciliation queue: clear PROVISIONAL → handoff-ready (owner-directed, START HERE).**
-The 7 PROVISIONAL names each carry a NAV-driving figure that is uncited or off the §9.6 curve;
+The PROVISIONAL names each carry a NAV-driving figure that is uncited or off the §9.6 curve;
 each clears ONLY by sourcing the figure to a citation in a **full balance-sheet reconciliation**
 (newbuild commitment + debt + cash + working capital), NOT a single-figure plug. Discipline:
 pre-register the predicted bands AHEAD, commit, then recompute; halt on a miss and investigate
 the INPUT; never source mid-recompute.
-   - **NAT first** — it is a *pending-correction-of-an-existing-error*, not a fresh sourcing:
-     pull the FY2025 20-F (Oslo Børs NewsWeb / EDGAR), reconcile the whole balance sheet. The
-     +39% prediction is VOID and the $17M advance is contradicted by the cash flow — the current
-     NAT FV must not be passed. Then ASC, BRUT, ECO, HAFN, STNG, TRMD (the rest of
-     `NAV_FIGURE_ESTIMATE_QUEUE` ∩ PROVISIONAL); then the `OFF_CONVENTION_QUEUE` fixable names
-     onto the §9.6 curve. Clearing a name flips its tier and lets it hand off a governed FV.
+   - **NAT — DONE (2026-06-30).** Full reconciliation vs the FY2025 20-F (acc 0001140361-26-017809)
+     + Q1-2026 6-K (acc 0000919574-26-003779): advance $17M→$0 (contradicted); commitment PARKED at
+     $0 (firm price undisclosed by NAT — only a Pareto LOI; §9.6 on-curve unauthorized); operating
+     fleet 18→16 + a new `held_for_sale` field ($65M contracted). NAV $2.07→$2.79, de-voided,
+     GOVERNED-WIDE·newbuild-indeterminate. Reusable pattern: `held_for_sale` model field +
+     `NEWBUILD_PRICE_PENDING` (park-at-$0-pending-filed-price → GOVERNED-WIDE not TIGHT). Record:
+     `decisions/nat_reconciliation_prereg_2026-06-30.md` (commits df2c616 pre-reg, b44c3c4 fix).
+   - **NEXT: ASC, BRUT, ECO, HAFN, STNG, TRMD** (the rest of `NAV_FIGURE_ESTIMATE_QUEUE` ∩
+     PROVISIONAL); then the `OFF_CONVENTION_QUEUE` fixable names onto the §9.6 curve. Same
+     discipline. Clearing a name flips its tier and lets it hand off a governed FV.
 
 **P1 normal-rate / justified-leg follow-ons** (the §18 layer is diagnostic-only; these
 harden it and the OTHER names — none affect the durable SB-cheap finding, which rests on the
@@ -143,6 +150,13 @@ rates — landed this push-block; removed from this list.
 - **TEN (Sep, H1):** TCM fee-load (§15 anchor); ten_log Q2 kit deltas. **CMDB:** Astros sale.
 
 ### Standing threads
+- **Daily price-refresh re-ratify pending (deferred 2026-06-30).** The 2026-06-30 close refresh
+  moved 9 names' EV vs the baseline (ΔNAV 0% — pure price), incl. two price-driven BAND FLIPS
+  (DHT TRIM/SHORT→HOLD +3.8pp, FLNG HOLD→BUY +4.6pp). It was kept OUT of the NAT reconciliation
+  commit (owner: don't launder market drift through a sourcing commit) and reverted from the tree
+  to isolate NAT. Handle as its OWN deliberate re-ratify on the next refresh: accept the 7 pure-EV
+  drifts as routine, but **eyeball whether the DHT/FLNG flips are trivial boundary-crossings or real
+  position signals before absorbing them** — don't batch-accept a band flip.
 - **FFA feed DORMANT since 2026-06-12** (source-side — the single poster stopped). Only the
   ffa_vs_strip diagnostic is stale; no live valuation input affected. Action is upstream.
 - **Weekly /news-pull** — resume the Saturday cadence.
