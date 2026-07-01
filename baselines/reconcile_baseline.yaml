@@ -2,11 +2,11 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-07-01T14:24:37+00:00'
-  ratified_commit: bc33ca9
+  ratified_at: '2026-07-01T18:24:03+00:00'
+  ratified_commit: 48b3956
   quarter: 2026-Q1
-  cause: SB date-consistency + scrubber correction — NAV $10.47->$10.12 (audit vs 20-F/6-K; scrubber set
-    traced, leaves OPERATING_SCRUBBER_QUEUE)
+  cause: ASC reconciliation — NAV 15.96->17.80 (April-2026 Handysize newbuild excluded as Q1 subsequent
+    event; phantom Patriot removed; chem-Handies to 20-F carrying floor)
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -14,10 +14,10 @@ thresholds:
 names:
   ASC:
     pnav_basis: approx
-    ev_pct: -5.33
-    tool_nav: 15.93
-    position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.33
+    ev_pct: 5.2
+    tool_nav: 17.8
+    position_band: BUY (undervalued)
+    k_broker: 1.23
     sector: product
   BRUT:
     pnav_basis: pareto
