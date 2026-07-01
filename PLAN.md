@@ -5,12 +5,15 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-06-30):** **22 watchlist names across 5 sectors**; **438 main
-tests green, 26 xfailed** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester
-via `.venv310`); drift gate **0 unexplained** (NAT re-ratified after its reconciliation); pipeline
-clean. **NAT DE-VOIDED 2026-06-30** — the P0 reconciliation cleared the first name off the queue
-(NAV $2.07→$2.79, now GOVERNED-WIDE·newbuild-indeterminate; see below). The recent arc hardened **provenance + handoff**, not the
-numbers — every change below is a guard, a tier, or a presentation join; none moved a mark.
+**Current state (2026-07-01):** **22 watchlist names across 5 sectors**; **440 main
+tests green, 25 xfailed** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester
+via `.venv310`); drift gate **0 unexplained**; pipeline clean; SANITY 14 OK / 8 n-a-APPROX / 0 FAIL;
+all pushed to `origin/main`. Two P0 names cleared this arc: **NAT DE-VOIDED** (2026-06-30, NAV
+$2.07→$2.79, now GOVERNED-WIDE·newbuild-indeterminate) and **SB corrected** (2026-07-01 audit — a
+date-mix + the CAPT blanket-scrubber bug on the headline actionable name; NAV $10.47→$10.12, still
+~0.63×, scrubber set now traced → OPERATING_SCRUBBER_VERIFIED). CLAUDE.md was also restructured to a
+lean ~3.8k-token router (357→189 lines) with a build-enforced size cap. These hardened
+**provenance + handoff + hygiene**, not the thesis — SB stays cheap on every version of its numbers.
 
 **THE consolidated handoff output is `outputs/book_scorecard.md`** (2026-06-30). One file,
 two sections: a **Verdict** table on top (per name: confidence tier · FV vs current price ·
@@ -39,8 +42,8 @@ The xfail-strict guard queues ARE the visible work queue — `provenance.py` is 
 source of truth (imported by both the guards and the tier, so they can't drift):
 1. **§9.6 newbuild on-curve convention** (`test_newbuild_convention`) — newbuilds valued at
    delivered-market PV − remaining commitment, advances→0. SB/SBLK/DHT/CAPT are on-curve;
-   `OFF_CONVENTION_QUEUE` (ASC/CMBT/ECO/HAFN/NAT/STNG/TEN/TRMD) is the remaining xfail-strict
-   queue. CCEC/CMBT are STRUCTURAL (Group-B, commitment-net not on-curve).
+   `OFF_CONVENTION_QUEUE` (ASC/CMBT/ECO/HAFN/STNG/TEN/TRMD — 7; NAT left, newbuilds parked at $0)
+   is the remaining xfail-strict queue. CCEC/CMBT are STRUCTURAL (Group-B, commitment-net not on-curve).
 2. **Operating-scrubber provenance gradient** (`test_scrubber_provenance`) — contradicted→hard-
    fail; untraced-newbuild→hard-fail; untraced-operating→xfail-strict. `OPERATING_SCRUBBER_VERIFIED
    = {CAPT:5, SB:20}` (SB traced to the FY2025 20-F 2026-07-01 — see the SB audit); `OPERATING_SCRUBBER_QUEUE`
@@ -49,7 +52,7 @@ source of truth (imported by both the guards and the tier, so they can't drift):
    equation (debt/cash/leases/commitment/advances/preferred/shuttle/working-capital) that rests
    on an estimate marker (a tilde, `[ESTIMATE]`, `approx`) without a citation is a red. Plus the
    claims half: a `(confirmed)`/`verified` assertion must cite a source. `NAV_FIGURE_ESTIMATE_QUEUE`
-   = asc/brut/cmbt/flng/hafn/nat/stng/ten/trmd (9). "Present but uncited" fails like "absent".
+   = asc/brut/cmbt/flng/hafn/stng/ten/trmd (8; nat left — de-voided). "Present but uncited" fails like "absent".
 
 **Confidence tier (governance handoff, `provenance.confidence_tier`)** — read from the existing
 validation state, NOT a new model: **VALIDATED-TIGHT** (5: DHT, FRO, SB, SBLK, TNK — traced +
@@ -62,24 +65,31 @@ operating-scrubber surface does not either (materiality-gated at 10% of NAV). Em
 scorecard Verdict + the `/add-ticker` handoff (a PROVISIONAL name may not hand off a governed FV).
 
 **A NEW AGENT: read CLAUDE.md, then this file.** The lead open thread is the **reconciliation
-queue** (below) — clearing PROVISIONAL names to handoff-ready, NAT first. Per-change chronology
-in `CHANGELOG.md`; per-name detail in `decisions/<t>_log.md`.
+queue** (below) — clearing PROVISIONAL names to handoff-ready. NAT + SB are done; **ASC is next.**
+Per-change chronology in `CHANGELOG.md`; per-name detail in `decisions/<t>_log.md`.
 
-## Recent arc — convention + provenance + handoff (2026-06-29 → 06-30)
+## Recent arc — convention + provenance + handoff + hygiene (2026-06-29 → 07-01)
 
 - **§9.6 newbuild convention standardized** (SB/SBLK first, then DHT/CAPT) — newbuilds were
-  inconsistently valued book-wide (12 names off); the 3-clause guard + per-name pre-registered
-  sourcing put the worked names on-curve and made the rest a visible xfail-strict queue.
-- **Provenance turned from attention-dependent to ENFORCED.** Four catches (xclusiv resale
-  mislabel → crude age-0 → DHT scrubber `(confirmed)` that the 6-K never says → NAT newbuild
-  figure that the cash flow contradicts) showed provenance was sourced only when someone was
-  forced to verify. Generalized to the field-GENERAL guard above: any NAV-moving manifest
-  field must trace to a citation; a tilde/`(confirmed)`/`[ESTIMATE]` is a red.
-- **NAT HALTED, correctly** — verification found its newbuild figures unsourced AND the $17M
-  advance / commitment contradicted by the cash flow. Per owner: fix the guard's SCOPE (the
-  class) before sourcing the one number. NAT's headline FV is **VOID** until reconciled.
-- **Confidence tier + consolidated Verdict output** (this session) — the handoff surface above.
-- **Toolchain:** `scripts/fetch_pdf.py` UA is an SEC-compliant contact string — EDGAR works.
+  inconsistently valued book-wide; the 3-clause guard + per-name pre-registered sourcing put the
+  worked names on-curve and made the rest a visible xfail-strict queue.
+- **Provenance turned from attention-dependent to ENFORCED.** Four catches (xclusiv resale mislabel
+  → crude age-0 → DHT scrubber `(confirmed)` → NAT newbuild figure the cash flow contradicts) →
+  the field-GENERAL guard: any NAV-moving manifest field must trace to a citation; a tilde/`[ESTIMATE]`
+  is a red. Two more instances landed on the SB audit (below), both now guarded.
+- **NAT reconciled + DE-VOIDED** (2026-06-30) — advance $17M→$0 (contradicted), newbuild parked at
+  $0 (undisclosed price), fleet 18→16 + a `held_for_sale` field; NAV $2.07→$2.79,
+  GOVERNED-WIDE·newbuild-indeterminate. (Was HALTED-as-VOID; the reconciliation cleared it.)
+- **SB corrected** (2026-07-01) — an audit of the headline actionable name found a date-mix (the
+  manifest was the June-12 fleet on the 3/31 balance sheet: Katerina double-counted, Michalis H the
+  one HFS, Xenia/Ped.Commander mis-bucketed) AND the CAPT blanket-scrubber bug (29 flagged vs 20
+  disclosed). NAV $10.47→$10.12 (still ~0.63×); scrubber set traced to the 20-F → cleared to
+  OPERATING_SCRUBBER_VERIFIED. Two new CLAUDE.md rules + the post-mortem in CHANGELOG.
+- **CLAUDE.md restructured to a lean router** (2026-07-01, 357→189 lines / ~6.2k→~3.8k tokens) —
+  gotchas compressed to one-liners, runbook/fetch-mechanics/week-close migrated to WORKFLOWS.md;
+  the compounding-knowledge habit made self-limiting with a build-enforced size cap
+  (`tests/test_docs_stay_lean.py`). Verified lossless by an independent audit.
+- **Confidence tier + consolidated Verdict output** — the handoff surface above.
 
 ## Open threads (prioritized — start here)
 
@@ -185,8 +195,8 @@ HYPOTHESIS — pre-registered out-of-sample/multi-cycle confirmation runs at +8q
 a paid feed. Net: not a name-ranker (Test 1 null), plausibly a cycle/value timer (Test 2), unproven.
 
 ## Verification gate (run before any handoff / Week-close)
-- `PYTHONPATH=src .venv/bin/python -m pytest -q` — main suite, **435 passed / 28 xfailed** at
-  2026-06-30 (includes the Phase 2 drift gate, which can legitimately go red on accepted drift —
+- `PYTHONPATH=src .venv/bin/python -m pytest -q` — main suite, **440 passed / 25 xfailed** at
+  2026-07-01 (includes the Phase 2 drift gate, which can legitimately go red on accepted drift —
   annotate + re-ratify; and the xfail-strict provenance queues — an xfail CLEARING is the work).
 - `PYTHONPATH=. .venv/bin/python -m pytest backtest/ -q` — backtest (**13**; separate).
 - (optional) `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python -m pytest -q` — **57**.
