@@ -510,19 +510,18 @@ def test_asc_pure_product_uses_product_class_map():
 # weight settle (post-Hormuz resolution). Band re-based 2026-06-11 from the
 # Set-B-v2 $14.24 pin to the Jun-9-v3 $15.07: ±5% → [14.32, 15.82].
 def test_asc_whole_company_fv_in_expected_band():
-    """ASC probability-weighted FV pinned in $13.5-$14.9 band (rebased
-    2026-06-03 for Product Set B v2 weight lock — was [$13.0, $14.2] under
-    Set A). Q1 2026 inputs under Product Set B produce $14.24 (EV −23.0%,
-    TRIM/SHORT) — vs Set A $13.59 (EV −26.5%, TRIM/SHORT). The +$0.65 lift
-    reflects the constructive reweighting (+5pp refinery_squeeze, +10pp
-    moderate_correction, −5pp glut_base, −10pp demand_softening per
-    METHODOLOGY §11.5 v2 + Catlin VIE June 2026 driver). Position stays
-    TRIM/SHORT — EV still well below the −5% HOLD threshold.
+    """ASC probability-weighted FV pinned in the $16.35-$17.35 band, REBASED
+    2026-07-01 for the full balance-sheet reconciliation (was $14.32-$15.82
+    under Product Set B v2). Corrected 2026-Q1 inputs produce ~$16.85 (NAV/sh
+    $17.82). The +$1.86 NAV lift vs the prior $15.96 is: the April-2026 Handysize
+    newbuild EXCLUDED from Q1 (a subsequent event — +$2.15, it was wrongly loaded
+    as a −$88.8M commitment-only drag); phantom `Ardmore_Patriot` removed (−$0.90);
+    the 4 chemical Handies re-marked to a cited 20-F carrying-value floor (+$0.58);
+    balance sheet re-sourced to the 3/31 6-K (net small). See the reconciliation
+    pre-reg decisions/asc_reconciliation_prereg_2026-07-01.md.
 
-    A larger drift means: an input changed (likely OK), the MR / LR1 / LR2
-    forward curves shifted (review), or the product-sector class routing
-    regressed (NOT OK). The band is ±5% around $14.24 to mirror the FLNG /
-    CCEC band convention.
+    A larger drift means: an input changed (likely OK), the MR / LR1 / LR2 forward
+    curves shifted (review), or the product-sector class routing regressed (NOT OK).
     """
     from crude_tanker_fv.pipeline import _run_scenarios_for_ticker, _load_all_sectors
     from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
@@ -534,12 +533,13 @@ def test_asc_whole_company_fv_in_expected_band():
     headline, _, _ = _run_scenarios_for_ticker(
         "ASC", ci, asc["current_price"], asc["analyst_target"], docs, watchlist,
     )
-    assert 14.32 < headline.probability_weighted_fv < 15.82
-    # Position remains TRIM/SHORT under Set B (EV still well below -5% HOLD
-    # threshold). If this flips to HOLD it means either the rate environment
-    # shifted enough to warrant another lock review, or Set B itself was
-    # over-tilted constructively — investigate.
-    assert "TRIM/SHORT" in headline.position_recommendation
+    assert 16.35 < headline.probability_weighted_fv < 17.35
+    # The reconciliation corrected the overvalued read away (removed the
+    # erroneously Q1-loaded April newbuild drag). Position is no longer TRIM/SHORT;
+    # ASC now reads fair-to-slightly-cheap on corrected NAV (rich only vs the
+    # near-peak product rate — §12 cycle position). A revert to TRIM/SHORT ⇒ an
+    # input regressed; investigate.
+    assert "TRIM/SHORT" not in headline.position_recommendation
 
 
 def test_product_weights_sum_to_one(product_doc):
@@ -693,19 +693,20 @@ def test_trmd_whole_company_fv_in_expected_band_set_b():
 
 
 def test_asc_fleet_loads_mr_plus_handysize():
-    """ASC's on-curve fleet: 19 MRs + (as of 2026-06-05) 2 clean-product
-    Handysize hulls (Defender/Dauntless, moved on-curve via the new Handysize
-    class). The 4 × 25k stainless chemical Handies stay OFF-curve. Pins the
-    loader's class-agnostic behaviour incl. the Handysize class.
+    """ASC's on-curve fleet: 18 MRs + 2 clean-product Handysize hulls
+    (Defender/Dauntless, on-curve via the Handysize class). The 4 × 25k stainless
+    chemical Handies stay OFF-curve. Pins the loader's class-agnostic behaviour
+    incl. the Handysize class. (18 MRs, not 19 — the phantom `Ardmore_Patriot` was
+    removed 2026-07-01: never an Ardmore vessel, 0 mentions in the 6-K/20-F.)
     """
     ci = load_company_inputs("ASC", "2026-Q1")
     classes = {v.cls for v in ci.fleet.vessels}
     assert classes == {"MR", "Handysize"}, f"ASC fleet should be MR+Handysize, got {classes}"
-    assert len(ci.fleet.vessels) == 20, f"ASC rows should be 20 (19 MR + 1 Handysize), got {len(ci.fleet.vessels)}"
+    assert len(ci.fleet.vessels) == 19, f"ASC rows should be 19 (18 MR + 1 Handysize), got {len(ci.fleet.vessels)}"
     # MR + Handysize rows with eco: true. 5 × 2013 MRs are eco: false (pre-2014
     # Eco-Mod); the 2 product Handies (2015) are eco: true.
     eco_count = sum(1 for v in ci.fleet.vessels if v.eco)
-    assert eco_count == 15, f"ASC eco rows should be 15 (14 eco MR + 1 eco Handysize), got {eco_count}"
+    assert eco_count == 14, f"ASC eco rows should be 14 (13 eco MR + 1 eco Handysize), got {eco_count}"
     # Zero scrubbers fleet-wide — Ardmore's strategy is Eco-design + biofuel,
     # not scrubber retrofit.
     assert sum(1 for v in ci.fleet.vessels if v.scrubber) == 0

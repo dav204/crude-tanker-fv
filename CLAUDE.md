@@ -98,12 +98,13 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   `consensus_pnav` / `consensus_fwd_pe` from the same vintage (broker NAV = price/pnav drifts otherwise).
 - **Cross-foot the manifest vs the issuer table AND the `fleet_summary` block before shipping** (2026-06-11,
   TEN). Machine-enforced by `test_fleet_summary_totals_cross_foot_against_vessel_rows`.
-- **The fleet snapshot MUST match the NAV/balance-sheet date** (2026-07-01, SB). A results 6-K reports the
-  quarter's FINANCIALS but its fleet/employment table is as-of the FILING date (often months post-quarter).
-  Reconcile every delivery/sale between quarter-end and filing; build the fleet AS-OF the NAV date from the
-  closest-to-quarter-end filing (often the 20-F / prior-quarter 6-K), not the newest fleet page. The "fleet
-  didn't change" intuition is the trap — the core fleet is stable, but the quarter-boundary transactions are
-  exactly what a stale snapshot gets wrong.
+- **The snapshot MUST match the NAV/balance-sheet date — fleet AND every balance-sheet figure** (2026-07-01,
+  SB fleet + ASC newbuild). A results 6-K's fleet table is as-of the FILING date, and its **Subsequent Events
+  note is where post-quarter events hide** — a delivery/sale/newbuild ORDER dated after quarter-end does NOT
+  belong in the snapshot (ASC's April-2026 Handysize order was wrongly loaded as a −$88.8M Q1 commitment; SB
+  was the fleet-table version). **Audit the subsequent-events note FIRST** on every reconciliation; build
+  AS-OF the NAV date from the closest-to-quarter filing (20-F / prior 6-K), not the newest page. The "nothing
+  changed" intuition is the trap — the quarter-boundary transactions are what a stale snapshot gets wrong.
 - **Cross-foot the OPERATING-scrubber COUNT vs the issuer's disclosed aggregate at onboarding** (2026-07-01,
   SB) — a blanket per-class `scrubber:true` is the CAPT peer-borrowed-flag bug. Scrubber is a static
   value-adding flag with no build-year rule; source it per-vessel — its sum MUST equal the issuer's

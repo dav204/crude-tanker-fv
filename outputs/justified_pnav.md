@@ -18,7 +18,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 
 | Ticker | Sector | NAV/sh | Price | P/NAV (mkt) | RONAV (par) | Just P/NAV (par) | RONAV (hist) | Just P/NAV (hist) | Read: par → hist | Robust? |
 |---|---|--:|--:|--:|--:|--:|--:|--:|---|---|
-| SB | dry_bulk | $10.47 | $6.39 | 0.610× | 14.3% | 1.332× | 9.6% | 0.858× | cheap → cheap | robust |
+| SB | dry_bulk | $10.12 | $6.39 | 0.632× | 15.1% | 1.415× | 10.1% | 0.913× | cheap → cheap | robust |
 | SBLK | dry_bulk | $29.34 | $27.20 | 0.927× | 13.3% | 1.234× | 11.2% | 1.022× | cheap → cheap | robust |
 | GNK | dry_bulk | $24.69 | $24.00 | 0.972× | 12.3% | 1.132× | 11.2% | 1.017× | cheap → fair | flips (cheap/fair) |
 | CMDB | dry_bulk | $31.33 | $17.25 | 0.551× | 8.1% | 0.709× | 6.7% | 0.572× | cheap → fair | flips (cheap/fair) |
@@ -33,7 +33,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | STNG | product | $80.35 | $75.60 | 0.941× | n/a | — | 4.9% | 0.387× | no anchor → rich | n/a |
 | HAFN | product | $5.22 | $7.70 | 1.476× | n/a | — | 14.2% | 1.320× | no anchor → rich | n/a |
 | TRMD | product | $25.43 | $28.20 | 1.109× | n/a | — | 8.6% | 0.763× | no anchor → rich | n/a |
-| ASC | product | $15.93 | $16.00 | 1.004× | n/a | — | 4.8% | 0.378× | no anchor → rich | n/a |
+| ASC | product | $17.80 | $16.00 | 0.899× | n/a | — | 3.9% | 0.290× | no anchor → rich | n/a |
 | TEN **(WHOLE-CO)** | crude | $88.70 | $37.14 | 0.419× | n/a | — | 13.2% | 1.219× | no anchor → cheap | n/a |
 | CAPT | crude | $15.49 | $12.20 | 0.787× | 11.1% | — | 10.7% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | MPCC | containerships | $2.02 | $2.78 | 1.374× | n/a | — | 50.0% | — | no anchor → newbuild-heavy (unreliable) | n/a |
@@ -45,7 +45,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 
 | Sector | Median Just P/NAV (parity) | Median (historical) | n |
 |---|--:|--:|--:|
-| dry_bulk | 1.183× | 0.938× | 4 |
+| dry_bulk | 1.183× | 0.965× | 4 |
 | crude | 0.880× | 0.839× | 5 |
 
 _The two columns ARE the signal: where parity ≫ historical, the sector reads cheaper under replacement economics than under its (boom/firm-window-biased) historical anchor — the §18 under-ordering. The §17.6 anchor-bias caveats apply to the historical column only; parity is independent of those biases (it is built from newbuild cost, not a rate-history window)._

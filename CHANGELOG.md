@@ -5,6 +5,45 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-01 — ASC RECONCILED: a Q2 newbuild was posted against a Q1 snapshot; PROVISIONAL → GOVERNED-WIDE.**
+  Third P0 reconciliation (pre-reg `decisions/asc_reconciliation_prereg_2026-07-01.md`; band $17.70-17.95
+  committed, landed $17.80; NAV $15.96→$17.80). Sourced to the Q1-2026 6-K (acc 0001104659-26-056715),
+  FY2025 20-F (acc 0001104659-26-024690), and the 2013 order 6-K (acc 0000919574-13-005339). **Three errors
+  + a re-source:**
+  1. **The newbuild was a Q2 subsequent event loaded into Q1 (the big one, +$2.15/sh).** The 2×40,500 DWT
+     Handysize contracts were signed **April 2026** (6-K Note 8), AFTER the 3/31 date — so at the snapshot
+     there was no commitment (no commitments note, no vessels-under-construction line), no advance (the
+     $1,024k Q1 vessel capex is existing-fleet deposits, mislabelled "~$1M advances"), no asset. The YAML
+     carried a −$88.8M commitment-ONLY drag — the SB date-mixing bug in pure form AND a §9.6 violation
+     (commitment with no offsetting asset). EXCLUDED from Q1 (not parked like NAT — NAT's order EXISTED at
+     its snapshot; ASC's did not); to be wired on-curve in Q2 (§9.6, issuer-announced $44.9M/ship, a citable
+     price). ASC left `OFF_CONVENTION_QUEUE` (no 3/31 newbuild to place on-curve).
+  2. **Phantom vessel (−$0.90/sh).** The 6-K's 2017 cohort is exactly 3 MRs (Gibraltar/Pursuit/Persistence);
+     the manifest invented a 4th, `Ardmore_Patriot` (age-9 MR) — 0 mentions in the 6-K AND the 20-F, never
+     an Ardmore vessel (the author appears to have added a hull to represent "4 product TCs"). Removed. The
+     actual owned fleet is 25: 18 operating MRs + Engineer (HFS) + 2 product + 4 chemical Handies.
+  3. **Chemical Handies re-marked to a cited carrying-value floor (+$0.58/sh).** The 4×25.2k stainless
+     Fukuoka hulls (no clean resale curve, §11.5) carried an uncited ~$13M/hull estimate — the last figure
+     gating ASC's provenance queue. Re-marked at CARRYING VALUE, cited to the 20-F "24 of 25 vessels' market
+     > carrying" disclosure (a conservative floor). Reconstructed from cited inputs: cost $29.5M (2013 order,
+     $118M/4) − straight-line dep (25-yr life, $400/LWT residual; 20-F) over ~10.4-11.2 yrs ≈ $18.3M/hull,
+     ~$73M total. Validation: the same method on the on-curve product Handies gives ~$20.0M carrying vs their
+     $24.57M market mark (carrying ~19% below market) — so $18.3M is a floor below implied market, and the old
+     $13M was simply too low. NOT the product-Handy curve (wrong class = fabrication). Basis flagged
+     `carrying-value-floor · §11.5 structural` → ASC lands GOVERNED-WIDE·structural-class, not TIGHT.
+  Also re-sourced cash/debt/leases/WC/shares to the 3/31 face; HFS Ardmore Engineer ($35.5M agreed, June-2026
+  delivery, HFS effective 3/31) relocated to the dedicated `held_for_sale` field; Series A preferred confirmed
+  fully redeemed (Oct-2025) → preferred_equity 0. **Read FLIPPED:** ASC moves TRIM/SHORT → BUY +5.2% — the
+  overvalued read was partly the erroneous newbuild drag. It is now mildly CHEAP on corrected NAV (price
+  0.90× NAV; −16.6% to APPROX broker, SANITY n/a-OK), so it LEFT `POSITION_CYCLE_RELABEL` (no longer rich).
+  The §12 product-cycle caveat still applies to the EARNINGS leg (the strip embeds near-peak product rates;
+  the Q2 newbuild on-curve will trim NAV ~$0.49), but that is not a rich-NAV read. NOT a new VALIDATED-TIGHT
+  actionable long (GOVERNED-WIDE · structural-class) — the tight-actionable surface stays SB/SBLK. **LESSON (owner-directed):** the CLAUDE.md date-consistency
+  rule GENERALIZED beyond the fleet to any balance-sheet figure, with the tactic **audit the subsequent-events
+  note FIRST** on every reconciliation (it's where post-quarter events hide). ASC drift annotated + explained;
+  ASC-only baseline re-ratify pending (owner action). Guards: ASC left NAV_FIGURE_ESTIMATE_QUEUE +
+  OFF_CONVENTION_QUEUE (test copies synced); 2 ASC scenario tests rebased; 440 pass / 23 xfail, drift 0 unexplained.
+
 - **2026-07-01 — SB CORRECTED + POST-MORTEM: the audit found the CAPT bug + a date-mix on the headline name.**
   An audit of SB (the book's single most important actionable name) vs the Q1-2026 earnings deck + the
   6-K (acc 0001317861-26-000033) + FY2025 20-F (acc 0001628280-26-014408) found **two NAV-inflating

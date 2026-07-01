@@ -7,6 +7,69 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-01T18:24:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.00
+- Single-point FV: $16.75
+- Scenario PW FV: $16.83 (EV +5.2%)
+- NAV / share: $17.80
+- Position: **BUY (undervalued)**
+- Broker spread: +19.4pp (k_broker 1.23)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-01) no-change re-run to regenerate outputs after the ASC read-flip fix — ASC left
+`POSITION_CYCLE_RELABEL`, so the scorecard now shows raw **BUY**, not the stale "rich · cycle position" label
+(that label described the pre-reconciliation overvalued state; corrected NAV $17.80 > price = 0.90× makes it
+mildly cheap). The reconciliation itself is annotated on the 18:08:59 entry below (NAV $15.96→$17.80,
+PROVISIONAL → GOVERNED-WIDE·structural-class; drift vs baseline explained there; ASC-only re-ratify pending — owner).
+
+---
+
+## 2026-07-01T18:08:59+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.00
+- Single-point FV: $16.75
+- Scenario PW FV: $16.83 (EV +5.2%)
+- NAV / share: $17.80
+- Position: **BUY (undervalued)**
+- Broker spread: +19.4pp (k_broker 1.23)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position TRIM/SHORT (overvalued) → BUY (undervalued)
+- ⚑ single-point FV +11.0%
+- ⚑ scenario PW FV +11.1%
+- ⚑ broker spread -10.2pp
+- ⚑ NAV/sh +11.7%
+- Δprice: no change | Δsingle FV: +11.0% | Δscenario FV: +11.1% | ΔNAV: +11.7% | Δspread: -10.2pp
+
+**Decision:** (2026-07-01) full balance-sheet reconciliation — ASC cleared PROVISIONAL → GOVERNED-WIDE.
+The +11.7% NAV move + TRIM/SHORT→BUY band flip are EXPLAINED and INTENDED — the P0 reconciliation
+(pre-reg: `decisions/asc_reconciliation_prereg_2026-07-01.md`), sourced to the Q1-2026 6-K
+(acc 0001104659-26-056715), FY2025 20-F (acc …024690), and the 2013 order 6-K (acc 0000919574-13-005339).
+Drivers of NAV $15.96→$17.80: (1) the 2×40,500 DWT Handysize newbuild was EXCLUDED from Q1 — the
+contracts were signed **April 2026** (6-K Note 8 subsequent event), so the −$88.8M commitment-only drag
+did not exist at 3/31 (+$2.15; also a §9.6 violation — commitment with no offsetting asset); (2) phantom
+`Ardmore_Patriot` removed (never an Ardmore vessel, 0 mentions in 6-K/20-F; −$0.90); (3) the 4 chemical
+Handies re-marked from an uncited ~$13M/hull estimate to a cited **20-F carrying-value floor** (~$18.3M/hull,
++$0.58); (4) balance sheet re-sourced (cash/debt/leases/WC/shares; net small). HFS Ardmore Engineer ($35.5M,
+agreed sale, June-2026 delivery) relocated to the dedicated `held_for_sale` field. ASC leaves
+`NAV_FIGURE_ESTIMATE_QUEUE` + `OFF_CONVENTION_QUEUE` → tier PROVISIONAL → **GOVERNED-WIDE** (structural-class:
+chemical-Handy carrying-value floor, no clean resale curve). **READ FLIPPED:** position moved TRIM/SHORT →
+**BUY (+5.2%)** — the overvalued read was partly the erroneous newbuild drag. ASC is now mildly CHEAP on
+corrected NAV (price 0.90× NAV; −16.6% to APPROX broker, SANITY n/a-OK), so it LEFT `POSITION_CYCLE_RELABEL`
+(no longer rich). The §12 product-cycle caveat still applies to the EARNINGS leg (the strip embeds near-peak
+product rates; the Q2 newbuild on-curve will trim NAV ~$0.49), but that is not a rich-NAV read. NOT a new
+VALIDATED-TIGHT actionable long (GOVERNED-WIDE · structural-class). Newbuild to be wired on-curve in Q2
+(§9.6, issuer-announced $44.9M/ship). **Baseline re-ratify (ASC-only) recommended** — owner action.
+
+---
+
 ## 2026-07-01T02:12:47+00:00 — Pipeline run (auto)
 
 **Model state:**

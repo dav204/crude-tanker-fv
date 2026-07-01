@@ -9,7 +9,7 @@ one-way bullish override — audit E-3.)
 | Name | Gated | price/NAV | gap $ | Q* | H | Resolution |
 |---|:--:|--:|--:|:--:|--:|---|
 | NAT | Y | 1.86× | +2.41 | >strip | 8.0 | TRIM stands (value trap) |
-| ASC | · | 1.00× | +0.07 | — | 8.0 | n/a (gate) |
+| ASC | · | 0.90× | -1.80 | — | 8.0 | n/a (gate) |
 | BRUT | · | 0.57× | -4.00 | — | 8.0 | n/a (gate) |
 | CAPT | · | 0.79× | -3.29 | — | 8.0 | n/a (gate) |
 | CCEC | · | 0.78× | -6.20 | — | 0.8 | n/a (gate) |
@@ -24,7 +24,7 @@ one-way bullish override — audit E-3.)
 | HAFN | · | 1.48× | +2.48 | — | 8.0 | n/a (gate) |
 | INSW | · | 2.23× | +43.03 | — | 8.0 | n/a (gate) |
 | MPCC | · | 1.37× | +0.76 | — | 7.2 | n/a (gate) |
-| SB | · | 0.61× | -4.08 | — | 8.0 | n/a (gate) |
+| SB | · | 0.63× | -3.73 | — | 8.0 | n/a (gate) |
 | SBLK | · | 0.93× | -2.14 | — | 6.8 | n/a (gate) |
 | STNG | · | 0.94× | -4.75 | — | 8.0 | n/a (gate) |
 | TEN | · | 0.42× | -51.56 | — | 7.1 | n/a (gate) |

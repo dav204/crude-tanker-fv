@@ -1,60 +1,64 @@
 # Ardmore Shipping (ASC / NYSE:ASC) balance sheet snapshot — METHODOLOGY.md §4.2, §11.5
-# Source: Ardmore Q1 2026 results, 6-K filed 2026-05-07, balance sheet as of
-# 2026-03-31. USD.
+# Source of record: Ardmore Q1 2026 6-K, EDGAR acc 0001104659-26-056715
+# (asc-20260331x6k.htm), unaudited interim condensed financials AS OF 2026-03-31. USD.
+# Full reconciliation: decisions/asc_reconciliation_prereg_2026-07-01.md (2026-07-01).
 #
-# Figures are reconciled to avoid double-counting against the NAV formula,
-# which adds cash and subtracts total_debt SEPARATELY. So working_capital_net
-# below excludes cash and excludes the current portion of debt.
+# Figures avoid double-counting against the NAV formula, which adds cash and
+# subtracts total_debt/leases SEPARATELY. So working_capital_net below excludes
+# cash, the current portion of the operating lease, and held-for-sale.
 ticker: ASC
 quarter: 2026-Q1
 
-cash_and_equivalents: 47200000        # "Cash and cash equivalents" (Q1 2026 6-K)
+cash_and_equivalents: 47214000        # BS face "Cash and cash equivalents" (2026-03-31)
 
-# working_capital_net composition (§11.5 — off-curve fleet adjustment):
+# working_capital_net = OPERATING working capital + the OFF-CURVE chemical-Handy sleeve (§11.5).
 #
-#   1. OPERATING working capital (non-cash, non-debt, non-HFS):
-#      AR 52,800 + inventories 13,000 + other current assets 10,300 (prepaids
-#      + capitalized voyage exp + derivatives, derived from total current
-#      assets 146,200 less cash 47,200 less AR 52,800 less inventories 13,000
-#      less HFS 22,900) − total current liabilities 30,000 = +46,100 ($k).
+#   1. OPERATING working capital (ex-cash, ex-HFS, ex-debt, ex-operating-lease):
+#        Current assets ex-cash ex-HFS = 146,185 − 47,214 − 22,944 = 76,027
+#          (= AR 52,780 + Prepaid 4,660 + Advances&deposits 5,548 + Inventories 13,039)
+#        Current liabilities ex-current-lease = 30,028 − 585 = 29,443
+#          (= AP 12,249 + Accrued 15,742 + Deferred revenue 1,452; NO current debt portion)
+#        Operating WC = 76,027 − 29,443 = +46,584 ($k).
+#      (The 585 current operating-lease is subtracted once, via lease_liabilities below.)
 #
-#   2. Ardmore Engineer held-for-sale at AGREED SALE PRICE:
-#      Balance sheet carries HFS at 22,900 ($k); the agreed sale price is
-#      $35.5M (delivery ~Jun 2026). NAV uses the realisable $35.5M.
-#      → adds +35,500 ($k).
+#   2. OFF-CURVE CHEMICAL-HANDY sleeve — 4 × 25,217 DWT stainless Fukuoka (Japan) chemical
+#      tankers (Chippewa/Chinook/Cheyenne/Cherokee, 2015; §11.5 gap — no clean 25k-stainless
+#      resale curve, a 38k product curve would over-value). Marked at CARRYING VALUE as a
+#      conservative floor, cited to the 20-F (acc 0001104659-26-024690) "24 of 25 vessels'
+#      market values exceeded carrying value" → worth ≥ carrying. Reconstructed from cited
+#      inputs: cost $29.5M each (2013 order 6-K, acc 0000919574-13-005339: $118.0M / 4) −
+#      straight-line dep (25-yr life, $400/LWT residual ≈ $3.6M; 20-F policy) over ~10.4–11.2
+#      yrs since delivery ≈ $18.3M/hull → +73,100 ($k). Base-vessel only (excl capitalized
+#      drydock) → conservative. Basis: carrying-value-floor · §11.5 structural, NOT resale-uniform.
 #
-#   3. OFF-CURVE CHEMICAL Handy sleeve — 4 vessels (NARROWED 2026-06-05). The
-#      2 × 37k Korea-built product Handies (Defender/Dauntless) moved ON-CURVE
-#      via the new Handysize class (fleet_manifests/asc.yaml; ~$24.6M each at
-#      age 11). Remaining off-curve = the 4 × 25k DWT Japan-built STAINLESS
-#      CHEMICAL hulls (Chippewa/Chinook/Cheyenne/Cherokee, 2015, age 11):
-#        • ~$13M each = $52M (25k chem; a 38k product curve would overvalue
-#          these smaller stainless hulls — they stay off-curve as a narrower
-#          "chemical Handy" residual tied to the chemical-sector gap, §11.5 /
-#          LIMITATIONS §2).
-#        • Apply 5% liquidity/marketability discount → $49.4M ≈ $49,400 ($k).
-#      → adds +49,400 ($k).  (was +91,000 before the 2 product Handies moved
-#        on-curve.)
-#
-#   Total: 46,100 + 35,500 + 49,400 = 131,000 ($k).
-#
-# Narrowed from the prior $91M Handysize/chem sleeve: the clean-product portion
-# is now curve-valued; only the 25k stainless chemical hulls remain off-curve.
-working_capital_net: 131000000
+#   Total working_capital_net = 46,584 + 73,100 = 119,684 ($k).
+working_capital_net: 119684000
 
-total_debt: 103400000                # "Long-term debt" (all non-current; current portion $0)
+# Ardmore Engineer (2014 MR) — agreed sold for $35.5M, delivery June 2026; classified
+# held-for-sale EFFECTIVE 2026-03-31 (6-K MD&A "Vessel Sale"). Enters NAV at the realisable
+# sale price via the dedicated held_for_sale field (was folded into working_capital_net;
+# relocated 2026-07-01, identical additive NAV effect). Delivery is a Q2 cash event (not yet
+# in EDGAR as of 2026-07-01; confirm on the Q2 6-K, ~late July).
+held_for_sale: 35500000
 
-# Operating-lease liabilities (vessel + office) — Q1 2026 6-K reported
-# $0.6M current + $1.2M non-current = $1.8M. Suggests SLB obligations
-# have been refinanced into bank debt; no material finance leases remain.
-lease_liabilities: 1800000
+total_debt: 103359000                # "Non-current portion of long-term debt"; NO current portion
 
-# Newbuild lines: 2 × Handysize product/chemical (40,500 DWT each, late-2028
-# delivery, $44.9M each = $89.8M committed). Q1 cash outflow on vessels under
-# construction was ~$1M (cumulative advances paid). Remaining instalments
-# = $89.8M − $1M = $88.8M.
-newbuild_capex_commitments: 88800000   # remaining instalments
-newbuild_advances_paid: 1000000        # cumulative advances at 2026-03-31
+# Operating-lease liabilities (office): 585 current + 1,161 non-current = 1,746 ($k).
+# No material finance/SLB leases (bank-financed fleet).
+lease_liabilities: 1746000
 
-# 40.8M common shares O/S at period-end; 40.9M weighted-avg diluted Q1.
-diluted_shares_outstanding: 40900000
+# NEWBUILDS: EXCLUDED from the 2026-Q1 snapshot. The 2 × 40,500 DWT Handysize newbuild
+# contracts ($44.9M/ship, Wuhu, delivery "from late 2028") were signed IN APRIL 2026 — a
+# subsequent event (6-K Note 8), AFTER the 3/31 reporting date. At 2026-03-31 there was no
+# commitment (no commitments note, no vessels-under-construction line), no advance (the $1,024k
+# Q1 vessel capex is existing-fleet deposits), and no asset → the order is absent from Q1, not
+# parked. TO BE WIRED ON-CURVE IN Q2 (§9.6, delivered-market PV − commitment) using the
+# issuer-announced $44.9M/ship. See the reconciliation pre-reg for the date-scoped rationale.
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+# Series A Preferred fully redeemed 2026-10-31 (all 30,000 sh, $30.6M) → no preferred claim
+# at quarter-end (preferred_equity defaults to 0).
+
+# Q1 2026 weighted-average diluted shares (income statement); period-end O/S ≈ 40.77M.
+diluted_shares_outstanding: 40857533
