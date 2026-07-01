@@ -23,7 +23,13 @@ vessels:
   - {id: SMX_2018, class: Suezmax, dwt: 157000, age: 8,  scrubber: true, eco: true, yard: Hyundai, count: 2}
   - {id: SMX_2020, class: Suezmax, dwt: 157000, age: 6,  scrubber: true, eco: true, yard: Hyundai Samho, count: 2}
   - {id: SMX_2026_jan, class: Suezmax, dwt: 157000, age: 0, scrubber: true, eco: true, yard: Daehan, count: 2}  # Piperi, Serifopoula
-  - {id: SMX_nb, class: Suezmax, dwt: 157000, age: 0, scrubber: true, eco: true, yard: Daehan, count: 2}        # Tigani, Vous (NB)
+  # 2 Suezmax NEWBUILDS on the §9.6 curve: delivered-market value PV-discounted 1.11^(-years_to_delivery)
+  # from the 3/31 snapshot (Tigani delivers May-2026, Vous Jul-2026 — Q1-2026 6-K acc 0001104659-26-060273).
+  # scrubber=FALSE on the NEWBUILDS (conservative): the 6-Ks' only scrubber statements are existing-fleet-
+  # scoped ("eight scrubber-fitted Suezmax + eight scrubber-fitted VLCC" = the 16 on-water), never
+  # newbuild-specific — so the premium is not claimed for the NBs (the SB peer-default trap). See newbuild_specs.yaml.
+  - {id: SMX_nb_tigani, class: Suezmax, dwt: 157000, age: 0, scrubber: false, eco: true, yard: Daehan, count: 1, years_to_delivery: 0.12}   # Nissos Tigani, May-2026
+  - {id: SMX_nb_vous,   class: Suezmax, dwt: 157000, age: 0, scrubber: false, eco: true, yard: Daehan, count: 1, years_to_delivery: 0.29}   # Nissos Vous, Jul-2026
 spot_coverage_pct:
   VLCC: 0.88      # all-spot except Nissos Nikouria (1 of 8 VLCCs on TC)
   Suezmax: 1.00   # fully spot

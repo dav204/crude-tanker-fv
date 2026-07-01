@@ -24,7 +24,7 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | DHT | 1.09× | 1.07 | -3.9% | -0.6% | +2.7% | HOLD→HOLD | $260,972→$184,868 | +7 | narrow-spread |
 | MPCC | 1.04× | 1.12 | -17.4% | -10.6% | -3.8% | TRIM/SHORT→HOLD | $140,273→$46,859 | +14 | wide-spread |
 | FRO | 1.20× | 1.12 | -16.5% | -10.4% | -4.4% | TRIM/SHORT→HOLD | $316,083→$221,830 | +12 | wide-spread |
-| ECO | 1.21× | 1.14 | -19.9% | -13.5% | -7.2% | TRIM/SHORT→TRIM/SHORT | $299,354→$213,281 | +13 | wide-spread |
+| ECO | 1.21× | 1.14 | -20.2% | -13.7% | -7.2% | TRIM/SHORT→TRIM/SHORT | $301,800→$212,954 | +13 | wide-spread |
 | FLNG | 1.37× | 0.85 | +9.3% | -3.9% | -17.1% | BUY→TRIM/SHORT | $57,631→$428,722 | -26 | wide-spread |
 
 _**(WHOLE-CO)** = hybrid name valued via crude + product sleeve carve-outs aggregated against the whole-company tape price (METHODOLOGY 6 v2). The breakeven shown is the crude-sleeve breakeven (proxy)._

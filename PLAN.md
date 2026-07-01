@@ -8,7 +8,7 @@ its per-name reads — not by a cross-sectional backtest.
 **Current state (2026-07-01):** **22 watchlist names across 5 sectors**; **440 main
 tests green, 23 xfailed** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester
 via `.venv310`); drift gate **0 unexplained** (BRUT explained); pipeline clean; SANITY 14 OK / 8
-n-a-APPROX / 0 FAIL. FOUR P0 names worked this arc: **NAT DE-VOIDED** (2026-06-30, NAV $2.07→$2.79,
+n-a-APPROX / 0 FAIL. FIVE P0 names worked this arc: **NAT DE-VOIDED** (2026-06-30, NAV $2.07→$2.79,
 GOVERNED-WIDE·newbuild-indeterminate), **SB corrected** (date-mix + CAPT blanket-scrubber bug; NAV
 $10.47→$10.12, ~0.63×), **ASC reconciled** (April-2026 newbuild wrongly loaded as a −$88.8M Q1
 commitment [subsequent event] + phantom `Ardmore_Patriot` removed + chem-Handies → cited 20-F
@@ -16,7 +16,11 @@ carrying-value floor; NAV $15.96→$17.80, PROVISIONAL → GOVERNED-WIDE, BUY +5
 (2026-07-01 — a DIFFERENT outcome: the reconciliation VALIDATES the model [commitment $1,373.1M ≈ Pareto
 $1,370M; debt $0; shares 61.9M all now issuer-traced] but BRUT STAYS PROVISIONAL — cash booked at a $66M
 conservative floor keeps it flagged `cash-pending-H1-report`; also fixed a fabricated governance block +
-flagged going-concern doubt; NAV $9.40→$8.80; NOT actionable — going-concern-doubtful, max-torque).
+flagged going-concern doubt; NAV $9.40→$8.80; NOT actionable — going-concern-doubtful, max-torque), and
+**ECO cleared to VALIDATED-TIGHT** (2026-07-01 — the first TIGHT of the arc; figures all verified vs the
+Q1-2026 6-K, the 2 Suezmax NBs wired on-curve §9.6 + 16 scrubbers verified; the value-flag guard caught a
+peer-default and the NBs were booked scrubber=false; NAV $34.56→$34.35 [sub-threshold]. But ECO is
+validated-but-RICH [rich · cycle position, ~1.39× NAV] — NOT a new long).
 CLAUDE.md was also restructured to a lean ~3.8k-token router with a build-enforced size cap. These
 hardened **provenance + handoff + hygiene**, not the thesis — SB stays cheap on every version of its numbers.
 
@@ -47,13 +51,13 @@ The xfail-strict guard queues ARE the visible work queue — `provenance.py` is 
 source of truth (imported by both the guards and the tier, so they can't drift):
 1. **§9.6 newbuild on-curve convention** (`test_newbuild_convention`) — newbuilds valued at
    delivered-market PV − remaining commitment, advances→0. SB/SBLK/DHT/CAPT are on-curve;
-   `OFF_CONVENTION_QUEUE` (CMBT/ECO/HAFN/STNG/TEN/TRMD — 6; NAT left [parked at $0], ASC left
-   [newbuild an April-2026 subsequent event, excluded from Q1]) is the remaining xfail-strict queue.
-   CCEC/CMBT are STRUCTURAL (Group-B, commitment-net not on-curve).
+   `OFF_CONVENTION_QUEUE` (CMBT/HAFN/STNG/TEN/TRMD — 5; NAT left [parked], ASC left [April subsequent
+   event], ECO left 2026-07-01 [2 Suezmax NBs wired on-curve via years_to_delivery]) is the remaining
+   xfail-strict queue. CCEC/CMBT are STRUCTURAL (Group-B, commitment-net not on-curve).
 2. **Operating-scrubber provenance gradient** (`test_scrubber_provenance`) — contradicted→hard-
    fail; untraced-newbuild→hard-fail; untraced-operating→xfail-strict. `OPERATING_SCRUBBER_VERIFIED
-   = {CAPT:5, SB:20}` (SB traced to the FY2025 20-F 2026-07-01 — see the SB audit); `OPERATING_SCRUBBER_QUEUE`
-   = 10 names.
+   = {CAPT:5, SB:20, ECO:16}` (SB → FY2025 20-F; ECO → Q1-2026 6-K "all scrubber-fitted", both 2026-07-01);
+   `OPERATING_SCRUBBER_QUEUE` = 9 names.
 3. **NAV-figure provenance** (`test_manifest_provenance`) — field-GENERAL: any figure in the NAV
    equation (debt/cash/leases/commitment/advances/preferred/shuttle/working-capital) that rests
    on an estimate marker (a tilde, `[ESTIMATE]`, `approx`) without a citation is a red. Plus the
@@ -62,19 +66,19 @@ source of truth (imported by both the guards and the tier, so they can't drift):
    "Present but uncited" fails like "absent".
 
 **Confidence tier (governance handoff, `provenance.confidence_tier`)** — read from the existing
-validation state, NOT a new model: **VALIDATED-TIGHT** (5: DHT, FRO, SB, SBLK, TNK — traced +
-robust two-basis), **GOVERNED-WIDE** (12 — traces but structural-unavailable input, read flips, or
-newbuild parked/absent: **NAT** `newbuild-indeterminate`; **ASC** `structural-class` (chem-Handy
-carrying-value floor, no clean resale curve) — cleared 2026-07-01),
-**PROVISIONAL** (5: ECO, HAFN, STNG, TRMD — a NAV-driving figure uncited/off-basis; + **BRUT**
-`cash-pending` — 4/5 figures issuer-traced 2026-07-01, only cash flagged pending the H1-2026 report,
-a WAITING state not a broken one; **NOT handoff-ready, flag don't pass**). APPROX-pnav does NOT demote a robust name
+validation state, NOT a new model: **VALIDATED-TIGHT** (6: DHT, FRO, SB, SBLK, TNK, **ECO** — traced +
+robust two-basis; ECO cleared 2026-07-01 via the §9.6 on-curve fix + scrubber verification, but is
+validated-but-RICH [rich · cycle position], NOT a new long), **GOVERNED-WIDE** (12 — traces but
+structural-unavailable input, read flips, or newbuild parked/absent: **NAT** `newbuild-indeterminate`;
+**ASC** `structural-class`), **PROVISIONAL** (4: HAFN, STNG, TRMD — a NAV-driving figure uncited/off-basis;
++ **BRUT** `cash-pending` — 4/5 figures issuer-traced, only cash flagged pending the H1-2026 report;
+**NOT handoff-ready, flag don't pass**). APPROX-pnav does NOT demote a robust name
 (SB's two-basis corroboration substitutes for the missing broker check); an immaterial uncited
 operating-scrubber surface does not either (materiality-gated at 10% of NAV). Emitted in the
 scorecard Verdict + the `/add-ticker` handoff (a PROVISIONAL name may not hand off a governed FV).
 
 **A NEW AGENT: read CLAUDE.md, then this file.** The lead open thread is the **reconciliation
-queue** (below) — clearing PROVISIONAL names to handoff-ready. NAT + SB + ASC + BRUT done; **ECO is next.**
+queue** (below) — clearing PROVISIONAL names to handoff-ready. NAT+SB+ASC+BRUT+ECO done; **HAFN is next.**
 Per-change chronology in `CHANGELOG.md`; per-name detail in `decisions/<t>_log.md`.
 
 ## Recent arc — convention + provenance + handoff + hygiene (2026-06-29 → 07-01)
@@ -139,9 +143,20 @@ the INPUT; never source mid-recompute.
      provisional). Record: `decisions/brut_reconciliation_prereg_2026-07-01.md`. Baseline re-ratify
      (BRUT-only) pending — owner. **NEW PATTERN: a reconciliation can VALIDATE + still not clear** (sourced
      except one figure with a known resolution date → `cash-pending`, distinct from `void`/`uncited`).
-   - **NEXT: ECO, HAFN, STNG, TRMD** (the rest of `NAV_FIGURE_ESTIMATE_QUEUE` ∩ PROVISIONAL);
-     then the `OFF_CONVENTION_QUEUE` fixable names onto the §9.6 curve. Same discipline (subsequent-events
-     note first). Clearing a name flips its tier and lets it hand off a governed FV.
+   - **ECO — DONE (2026-07-01), → VALIDATED-TIGHT (first TIGHT of the arc), the CLEANEST (no forks).**
+     ECO (Okeanis) was PROVISIONAL only on `OFF_CONVENTION` (2 Suezmax NBs at delivered market with no
+     `years_to_delivery`). ALL figures verified vs the Q1-2026 6-K (acc 0001104659-26-060273): debt $683.1M
+     (incl. SLB), cash $176.5M, advances $39.74M → commitment $158.86M, NBs $99.3M each (Tigani May-26, Vous
+     Jul-26), shares 39,044,655, 8 VLCC + 8 Suezmax (no phantoms). FIX: split the NB row + set years_to_delivery
+     (0.12 / 0.29) → on-curve, leaves `OFF_CONVENTION_QUEUE`; verified 16 on-water scrubbers → leaves
+     `OPERATING_SCRUBBER_QUEUE` (`{ECO:16}`). PROVENANCE CATCH: the value-flag guard blocked defaulting
+     scrubber=true on the NBs (6-Ks' scrubber statements are existing-fleet-scoped — the SB trap), so the NBs are
+     booked **scrubber=false** (conservative, `newbuild_specs.yaml`). NAV $34.56→$34.35 (−0.6%, sub-threshold —
+     gate stable, no re-ratify needed). Record: `decisions/eco_reconciliation_prereg_2026-07-01.md`. **ECO is
+     validated-but-RICH (rich · cycle position, ~1.39× NAV) — NOT a new actionable long.**
+   - **NEXT: HAFN, STNG, TRMD** (the rest of `NAV_FIGURE_ESTIMATE_QUEUE` ∩ PROVISIONAL); then the remaining
+     `OFF_CONVENTION_QUEUE` fixable names onto the §9.6 curve. Same discipline (subsequent-events note first).
+     Clearing a name flips its tier and lets it hand off a governed FV.
 
 **P1 normal-rate / justified-leg follow-ons** (the §18 layer is diagnostic-only; these
 harden it and the OTHER names — none affect the durable SB-cheap finding, which rests on the

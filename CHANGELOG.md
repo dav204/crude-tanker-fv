@@ -5,6 +5,30 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-01 — ECO CLEARED to VALIDATED-TIGHT: the first TIGHT of the reconciliation arc, and the cleanest.**
+  Fifth P0 name (Okeanis Eco Tankers). ECO was PROVISIONAL for ONE reason — `OFF_CONVENTION_QUEUE`: its 2
+  Suezmax newbuilds (Tigani, Vous) sat in the manifest at delivered market with NO `years_to_delivery`, so they
+  classified "commitment-net" not "on-curve". Its figures were already issuer-cited, so the §9.6 on-curve fix was
+  authorized. Pre-reg `decisions/eco_reconciliation_prereg_2026-07-01.md`. All figures VERIFIED vs the Q1-2026
+  6-K (EDGAR acc 0001104659-26-060273, Exhibit 99.1): debt $683.1M (incl. sale-leasebacks, no separate lease
+  line), cash $176.5M, advances $39,737,420 → remaining commitment $158.86M, 2 Suezmax NBs $99.3M each (MOA
+  Jan-2026, delivery May & July 2026), shares 39,044,655, fleet 8 VLCC + 8 Suezmax (avg age 5.8y — no phantoms).
+  The $90M NB financing facility was signed April-30-2026 (subsequent event, correctly not in the 3/31 sheet).
+  FIX: split the NB row into Tigani (`years_to_delivery: 0.12`) + Vous (`0.29`) → PV-discounted on the §9.6 curve
+  → ECO leaves `OFF_CONVENTION_QUEUE`. Also verified the 16 on-water scrubbers ("eight scrubber-fitted Suezmax +
+  eight scrubber-fitted VLCC", 6-K) → `OPERATING_SCRUBBER_VERIFIED{ECO:16}`, leaves `OPERATING_SCRUBBER_QUEUE`.
+  **PROVENANCE CATCH (the SB trap, live):** wiring the NBs on-curve triggered the value-flag guard, which blocked
+  defaulting `scrubber=true` from the existing fleet — the 6-Ks' only scrubber statements are existing-fleet-scoped,
+  never newbuild-specific, and the NBs are described only as "resale newbuilding Suezmaxes". So the NBs are booked
+  **scrubber=false** (conservative, registered in `newbuild_specs.yaml`, upgradeable on a delivery-6-K disclosure) —
+  the guard doing exactly its job. NAV $34.56→$34.35 (−0.6%: §9.6 PV discount + conservative NB scrubber) — BELOW
+  the 2pp drift threshold, so the gate stayed stable with no re-ratify required. **Tier PROVISIONAL →
+  VALIDATED-TIGHT** (traced resale-uniform + robust two-basis; op-scrubber surface immaterial at 2.2% AND now
+  verified). But ECO trades RICH (~1.39× NAV; price ~$50 vs NAV $34.35) → position stays **rich · cycle position
+  (not a short)**: VALIDATED-TIGHT means the NAV is SOLID, NOT that ECO is cheap — it is validated-but-RICH, **NOT
+  a new actionable long.** Five reconciliations (NAT/SB/ASC/BRUT/ECO), still zero new tight actionable *longs* —
+  the tight-actionable surface stays SB + SBLK. 442 pass / 21 xfail; drift 0 unexplained; SANITY OK.
+
 - **2026-07-01 — BRUT TRACED: the reconciliation VALIDATES the model, and the name still doesn't clear.**
   Fourth P0 reconciliation, and the first with a DIFFERENT shape — no ASC-style errors. BRUT (Bruton Ltd) is a
   pre-operational Euronext-Oslo VLCC-newbuild vehicle that reports HALF-YEARLY (first issuer report H1-2026, due

@@ -39,13 +39,13 @@ from .loaders import INPUTS_DIR
 # FIXABLE names whose newbuilds have a curve mark but are not yet on-curve §9.6 (NAV on the wrong
 # basis) + structural names pending commitment-net. (SB/SBLK/DHT have left; the structural CCEC/CMBT
 # are handled via STRUCTURAL_NB_NAMES below, not as PROVISIONAL.)
-OFF_CONVENTION_QUEUE = {"CMBT", "ECO", "HAFN", "STNG", "TEN", "TRMD"}  # NAT left 2026-06-30 (newbuilds parked, NEWBUILD_PRICE_PENDING); ASC left 2026-07-01 (newbuild an April-2026 subsequent event -> excluded from Q1; no 3/31 NB to place on-curve)
+OFF_CONVENTION_QUEUE = {"CMBT", "HAFN", "STNG", "TEN", "TRMD"}  # NAT left 2026-06-30 (parked, NEWBUILD_PRICE_PENDING); ASC left 2026-07-01 (April subsequent event, no 3/31 NB); ECO left 2026-07-01 (2 Suezmax NBs wired on-curve §9.6 via years_to_delivery, figures issuer-verified)
 SCRUBBER_UNVERIFIED_QUEUE: set[str] = set()   # NEWBUILD-value scrubber flag unverified (now empty)
 
 # --- Operating-scrubber audit (test_scrubber_provenance) ---------------------------------------
-OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "SB": 20}   # name -> audited operating scrubber-fitted count
-OPERATING_SCRUBBER_QUEUE = {   # SB left 2026-07-01: scrubber set traced to the FY2025 20-F (ftn-15), 20 operating
-    "DHT", "ECO", "FRO", "GNK", "HAFN", "INSW", "SBLK", "STNG", "TEN", "TRMD",
+OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "SB": 20, "ECO": 16}   # name -> audited operating scrubber-fitted count
+OPERATING_SCRUBBER_QUEUE = {   # SB left 2026-07-01 (20-F ftn-15, 20); ECO left 2026-07-01 (Q1-2026 6-K "all scrubber-fitted", 16 on-water)
+    "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "STNG", "TEN", "TRMD",
 }
 
 # --- NAV-equation figure provenance (test_manifest_provenance) ----------------------------------
@@ -116,8 +116,7 @@ TIER_SUBREASON = {
     "NAT": "newbuild-indeterminate",
     "BRUT": "cash-pending", "HAFN": "uncited-figure",
     "STNG": "uncited-figure", "TRMD": "uncited-figure",
-    "ECO": "off-curve",
-}
+}  # ECO left 2026-07-01: §9.6 on-curve + scrubbers verified -> VALIDATED-TIGHT (no sub-reason)
 
 
 def _structural_nb_names(inputs_dir: Path = INPUTS_DIR) -> set[str]:

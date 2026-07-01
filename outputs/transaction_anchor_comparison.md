@@ -186,8 +186,8 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | HAFN | $5.34→$5.22 | -2.2% | -9.4%→-11.0% | -1.5 | TRIM/SHORT→TRIM/SHORT |
 | FRO | $28.47→$24.22 | -14.9% | -4.5%→-16.5% | -12.0 | HOLD→TRIM/SHORT ⚠️ |
 | MPCC | $2.02→$2.02 | +0.0% | -17.4%→-17.4% | +0.0 | TRIM/SHORT→TRIM/SHORT |
-| ECO | $40.61→$34.56 | -14.9% | -8.4%→-19.9% | -11.4 | TRIM/SHORT→TRIM/SHORT |
 | INSW **(WHOLE-CO)** | $57.91→$52.59 | -9.2% | -13.6%→-19.9% | -6.3 | TRIM/SHORT→TRIM/SHORT |
+| ECO | $40.40→$34.35 | -15.0% | -8.7%→-20.2% | -11.4 | TRIM/SHORT→TRIM/SHORT |
 | NAT | $3.32→$2.79 | -15.8% | -31.4%→-39.9% | -8.4 | TRIM/SHORT→TRIM/SHORT |
 
 _Δ% = (txn − base) / base. Names with no exposure to a recalibrated class show Δ ≈ 0 — useful as a control. ⚠️ flags a position-call flip._

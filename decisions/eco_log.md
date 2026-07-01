@@ -7,6 +7,39 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-01T21:16:11+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $50.12
+- Single-point FV: $37.18
+- Scenario PW FV: $40.02 (EV -20.2%)
+- NAV / share: $34.35
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +13.0pp (k_broker 1.14)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -0.4% | Δscenario FV: -0.4% | ΔNAV: -0.6% | Δspread: +0.4pp
+
+**Decision:** (2026-07-01) §9.6 on-curve fix + operating-scrubber verification — ECO CLEARED PROVISIONAL →
+**VALIDATED-TIGHT** (the first TIGHT of the reconciliation arc). Fifth P0 name, and the cleanest — no forks.
+Pre-reg `decisions/eco_reconciliation_prereg_2026-07-01.md`. ALL figures VERIFIED vs the Q1-2026 6-K (EDGAR
+acc 0001104659-26-060273, Exhibit 99.1): debt $683.1M (incl. sale-leasebacks), cash $176.5M, advances
+$39,737,420 → commitment $158.86M, 2 Suezmax NBs $99.3M each (Tigani May-2026, Vous Jul-2026), shares
+39,044,655, fleet 8 VLCC + 8 Suezmax (no phantoms). The ONLY issue was OFF_CONVENTION: the 2 Suezmax NBs sat
+at delivered market with no `years_to_delivery`. FIX: split into Tigani (0.12) + Vous (0.29) so they PV-discount
+on the §9.6 curve → ECO leaves `OFF_CONVENTION_QUEUE`. Also verified the 16 on-water scrubbers ("all
+scrubber-fitted", 6-K L76) → `OPERATING_SCRUBBER_VERIFIED{ECO:16}`, leaves `OPERATING_SCRUBBER_QUEUE`.
+PROVENANCE CATCH: the guard blocked defaulting scrubber=true on the NBs — the 6-Ks' scrubber statements are
+existing-fleet-scoped, never newbuild-specific (the SB trap), so the NBs are booked **scrubber=false**
+(conservative, registered in newbuild_specs.yaml; upgradeable on a delivery-6-K disclosure). NAV $34.56→$34.35
+(−0.6%, §9.6 PV discount + conservative NB scrubber) — BELOW the drift threshold (gate stable, no re-ratify
+required). ECO stays **rich · cycle position (not a short)** (price ~1.39× NAV) — VALIDATED-TIGHT means the NAV
+is SOLID, NOT that ECO is cheap: it is validated-but-RICH, **NOT a new actionable long. Tight-actionable surface
+stays SB + SBLK.** SANITY OK (−12.9% to Pareto NAV). Five reconciliations, still zero new tight actionable longs.
+
+---
+
 ## 2026-07-01T19:50:47+00:00 — Pipeline run (auto)
 
 **Model state:**
