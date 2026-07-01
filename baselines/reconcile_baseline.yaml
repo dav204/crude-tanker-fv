@@ -2,11 +2,11 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-07-01T19:50:47+00:00'
-  ratified_commit: 21d75f9
+  ratified_at: '2026-07-01T23:28:11+00:00'
+  ratified_commit: 8c8f100
   quarter: 2026-Q1
-  cause: BRUT reconciliation — NAV 9.40->8.80 (4 figures issuer-traced; cash booked at $66M conservative
-    floor, stays cash-pending until H1-2026 report 2026-08-13)
+  cause: HAFN reconciliation — NAV 5.22->5.57 (3-Apr subsequent-event newbuild excluded; debt/lease to
+    Note 2/4 split; TORM lower-of-cost; operating WC pool-gross-up floor)
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -63,8 +63,8 @@ names:
     sector: crude
   ECO:
     pnav_basis: pareto
-    ev_pct: -19.85
-    tool_nav: 34.56
+    ev_pct: -20.16
+    tool_nav: 34.35
     position_band: TRIM/SHORT (overvalued)
     k_broker: 1.14
     sector: crude
@@ -98,10 +98,10 @@ names:
     sector: containerships
   HAFN:
     pnav_basis: pareto
-    ev_pct: -10.96
-    tool_nav: 5.22
+    ev_pct: -6.2
+    tool_nav: 5.57
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.27
+    k_broker: 1.22
     sector: product
   INSW:
     pnav_basis: pareto
