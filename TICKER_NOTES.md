@@ -14,8 +14,14 @@ quick-ref price unless the note itself is being updated.)
   Trust the report counts, not the fleet page.
 - **ECO** — all-spot, modern fleet; sale-leaseback in borrowings; TLS chain
   fails WebFetch.
-- **NAT** — §12 archetype: high-payout pure-play; tool reads as "rich" at
-  peak. Treat tool FV as NAV floor. APPROX consensus_pnav.
+- **NAT** — §12 archetype: high-payout pure-play; tool reads "rich" at peak
+  (treat tool FV as NAV floor). APPROX consensus_pnav. **Reconciled 2026-06-30
+  (de-voided):** NAV $2.79; fleet 16 operating + 2 held-for-sale booked at the
+  $65M contracted price (`held_for_sale` field); 2 Suezmax NB (H2-2028) PARKED
+  at $0 — NAT discloses the order but not the price (only a Pareto LOI), so §9.6
+  on-curve is unauthorized → `NEWBUILD_PRICE_PENDING`, tier GOVERNED-WIDE·newbuild-
+  indeterminate. Un-park onto the curve only when NAT files a contract price.
+  See nat_log + decisions/nat_reconciliation_prereg_2026-06-30.md.
 - **INSW** — mark-driven (k_broker 1.52 post txn-anchor flip, ~1.6 at live
   prices; was 1.37 pre-flip); hybrid crude+product carve-out. Pareto
   BUY→HOLD 2026-05-18 (valuation-driven, TP raised).

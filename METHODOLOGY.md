@@ -141,6 +141,11 @@ NAV/share = (Σ vessel_market_values
             / diluted_shares_outstanding
 ```
 
+The balance-sheet net also carries the **optional §4.2 terms** when present (all default to 0):
+− `preferred_equity` (creditor-like claim ahead of common), + `shuttle_contracted_book` (off-curve
+contracted-book NPV, §11.6), + `held_for_sale` (agreed-sold vessels removed from the fleet manifest,
+carried at their contracted/realizable price so the marks don't double-count them — NAT, 2026-06-30).
+
 > **Newbuild treatment — value at market for material orderbooks (revised, decision 9.6).** The face-value form above (advances paid − remaining commitment) treats committed newbuildings at sunk cost. For names with a material orderbook in a market where newbuild contract prices sit below resale values (e.g. FRO's 9 Hemen VLCCs), this materially *understates* NAV by the embedded value of cheaply-contracted ships. In that case, include the committed newbuilds in the fleet at their **delivered market value** (curve value at age 0, with yard/eco/scrubber adjustments) and subtract only the **remaining commitment**; the advances are then embedded in that market value (set the advances term to 0 to avoid double-counting). For a single trivial newbuild (e.g. DHT) the face-value form is fine.
 
 **Vessel market values** are looked up from a market value table keyed by (vessel class, age). Curve construction (revised):
@@ -269,6 +274,15 @@ diluted_shares_outstanding: 222_600_000
 # TEN is the only current user (Series E $118.6M + F $168.7M);
 # the other 16 names carry 0.
 preferred_equity: 0
+# Optional. Vessels classified HELD-FOR-SALE, carried at their contracted /
+# realizable sale price (NOT depreciated book) — a near-cash current asset that
+# ADDS to NAV like working_capital_net. Use when a name has agreed-but-not-yet-
+# delivered vessel sales that have been REMOVED from the operating fleet manifest
+# (so the age-curve marks don't double-count them): book the contracted proceeds
+# here instead. Defaults to 0. Added 2026-06-30 for NAT (2 Suezmaxes agreed-sold
+# $25M + $40M = $65M, Q2-2026 close, per the FY2025 20-F Note 15). Pro-rates by
+# sleeve in hybrid carve-outs the same way working capital does.
+held_for_sale: 0
 ```
 
 ### 4.3 Dividend policy (`inputs/dividend_policies/{ticker}.yaml`)
