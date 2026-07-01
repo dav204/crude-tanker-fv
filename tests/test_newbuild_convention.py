@@ -29,8 +29,8 @@ QUARTER = "2026-Q1"
 # pre-registered fix. strict xfail. (SB+SBLK are removed by the pass-1 wiring commit.)
 # DHT converted to on-curve §9.6 2026-06-30 (1 VLCC, DHT Impala) — removed from the queue.
 OFF_CONVENTION_QUEUE = {
-    "CMBT", "HAFN", "STNG", "TEN", "TRMD",
-}  # NAT left 2026-06-30 (parked); ASC left 2026-07-01 (April subsequent event); ECO left 2026-07-01 (2 Suezmax NBs on-curve §9.6 via years_to_delivery)
+    "CMBT", "STNG", "TEN", "TRMD",
+}  # NAT parked; ASC/HAFN April-2026 subsequent-event newbuilds (excluded from Q1); ECO on-curve §9.6 via years_to_delivery — all left 2026-06-30/07-01
 
 
 def _structural_exempt() -> dict[str, str]:

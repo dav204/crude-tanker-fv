@@ -7,6 +7,62 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-01T23:28:11+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.64
+- Single-point FV: $5.99
+- Scenario PW FV: $6.23 (EV -6.2%)
+- NAV / share: $5.57
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +18.7pp (k_broker 1.22)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.08 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +0.9pp
+
+**Decision:** (2026-07-01) full balance-sheet reconciliation — EXPLAINED, INTENDED (drift is vs the baseline;
+the +6.7% NAV move $5.22→$5.57 headline). Sixth P0 name, the most consequential (pre-reg
+`decisions/hafn_reconciliation_prereg_2026-07-01.md`), workflow-sourced + independently read vs the Q1-2026 6-K
+(EDGAR acc 0001140361-26-022910). Recurring theme: **balance-sheet-literal ≠ NAV-economic**, three times.
+Corrections: (1) the 8 MR HHI newbuild EXCLUDED from Q1 — signed **3-Apr-2026** (Note 7 subsequent event), so
+the −$405M commitment + $40M phantom advance was the ASC double-anachronism (+$365M; HAFN leaves
+`OFF_CONVENTION_QUEUE`). (2) `total_debt` $943.5M→$953.9M (Note 2/4 bank borrowings; the model matched no line)
++ `lease_liabilities` $35.9M→$71.6M (the model dropped the $35.7M sale-leaseback) (−$46M). (3) TORM 13.97% stake
+→ **$277.2M lower-of-cost** (Hafnia's OWN NAV method, for comparability to its $8.09 NAV/sh — NOT $395M market;
+−$117.8M). Precedent: a marketable equity stake in NAV takes the issuer's disclosed method, not fair value.
+(4) operating WC — the balance-sheet-literal is $335.9M but the $670M receivables carry **pool custodial
+gross-up** (Hafnia runs the world's largest product pool); the 6-K doesn't break out pool vs own-account, so
+booked at a conservative **$85.7M floor** (own-account inventory), rejecting the gross. HAFN STAYS PROVISIONAL
+on WC → new sub-reason **`pool-gross-up-pending`**. Precedent: for a pool operator, gross pool receivables are
+custodial, not NAV-economic. (5) shares → 505.3M. NAV $5.22→$5.57 headline; SANITY OK; the gap to broker is a
+wide, documented tool↔broker spread. **NOT actionable** (directional, rich to the tool's conservative marks) —
+tight surface stays SB + SBLK. **Incidental daily price-refresh (5 names CCEC/CMDB/FLNG/MPCC/STNG, EV-only) was
+REVERTED from the tree to isolate this sourcing commit** (per feedback_isolate_commit_from_price_drift); handle
+it as a separate deliberate price re-ratify. **Baseline re-ratify (HAFN-only) recommended — owner.**
+
+---
+
+## 2026-07-01T23:26:22+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.56
+- Single-point FV: $5.99
+- Scenario PW FV: $6.23 (EV -5.1%)
+- NAV / share: $5.57
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +17.8pp (k_broker 1.20)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ broker spread -5.5pp
+- ⚑ NAV/sh +6.7%
+- Δprice: -0.08 | Δsingle FV: +5.8% | Δscenario FV: +5.4% | ΔNAV: +6.7% | Δspread: -5.5pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-01T21:16:11+00:00 — Pipeline run (auto)
 
 **Model state:**

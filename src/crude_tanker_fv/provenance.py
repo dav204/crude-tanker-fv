@@ -39,7 +39,7 @@ from .loaders import INPUTS_DIR
 # FIXABLE names whose newbuilds have a curve mark but are not yet on-curve §9.6 (NAV on the wrong
 # basis) + structural names pending commitment-net. (SB/SBLK/DHT have left; the structural CCEC/CMBT
 # are handled via STRUCTURAL_NB_NAMES below, not as PROVISIONAL.)
-OFF_CONVENTION_QUEUE = {"CMBT", "HAFN", "STNG", "TEN", "TRMD"}  # NAT left 2026-06-30 (parked, NEWBUILD_PRICE_PENDING); ASC left 2026-07-01 (April subsequent event, no 3/31 NB); ECO left 2026-07-01 (2 Suezmax NBs wired on-curve §9.6 via years_to_delivery, figures issuer-verified)
+OFF_CONVENTION_QUEUE = {"CMBT", "STNG", "TEN", "TRMD"}  # NAT/ASC/ECO left (see below); HAFN left 2026-07-01 (8 MR HHI order signed 3-Apr-2026 = subsequent event -> excluded from Q1, no 3/31 NB) — NAT parked, ASC/HAFN April subsequent events, ECO on-curve via years_to_delivery
 SCRUBBER_UNVERIFIED_QUEUE: set[str] = set()   # NEWBUILD-value scrubber flag unverified (now empty)
 
 # --- Operating-scrubber audit (test_scrubber_provenance) ---------------------------------------
@@ -105,6 +105,9 @@ NEWBUILD_PRICE_PENDING = {"NAT"}
 #   newbuild-indeterminate : newbuild parked at $0 pending a FILED price (NEWBUILD_PRICE_PENDING) — GOVERNED-WIDE
 #   cash-pending : PROVISIONAL but sourced EXCEPT one NAV figure pending a known future issuer report
 #                  (BRUT: cash → H1-2026 report 2026-08-13) — a well-specified "waiting" state, not "broken"
+#   pool-gross-up-pending : PROVISIONAL — every figure sourced/decided EXCEPT operating WC, booked at a
+#                  conservative floor because pool custodial receivables gross-up can't be netted from the
+#                  filing (HAFN, pool operator); resolves when a filing discloses the pool net
 #   void / uncited-figure / off-curve : the PROVISIONAL reasons (contradicted / uncited estimate / off the §9.6 curve)
 TIER_SUBREASON = {
     "GSL": "structural-class", "CCEC": "structural-class", "FLNG": "structural-class",
@@ -114,7 +117,7 @@ TIER_SUBREASON = {
     "TEN": "mixed",
     "CMDB": "read-flips", "GNK": "read-flips",
     "NAT": "newbuild-indeterminate",
-    "BRUT": "cash-pending", "HAFN": "uncited-figure",
+    "BRUT": "cash-pending", "HAFN": "pool-gross-up-pending",
     "STNG": "uncited-figure", "TRMD": "uncited-figure",
 }  # ECO left 2026-07-01: §9.6 on-curve + scrubbers verified -> VALIDATED-TIGHT (no sub-reason)
 

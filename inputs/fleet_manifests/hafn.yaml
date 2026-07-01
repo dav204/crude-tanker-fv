@@ -19,9 +19,9 @@
 #   - 7 MR  (time-charter-in)
 #   - 1 Handy (bareboat)
 #
-# Newbuild orderbook (entered via newbuild_capex_commitments):
-#   - 8 firm + 2 optional MR newbuilds at Hyundai Heavy Industries
-#     ($405M total firm value, delivery Q3 2028 - Q2 2029)
+# Newbuild orderbook: 8 firm + 2 optional MR at Hyundai Heavy Industries (~$405M firm, delivery
+#   Q3-2028→Q2-2029). SIGNED 3 APRIL 2026 — a SUBSEQUENT EVENT (6-K Note 7), so EXCLUDED from the
+#   2026-Q1 (3/31) snapshot entirely (newbuild_capex_commitments = 0). To be wired on-curve in Q2 (§9.6).
 #
 # Per-vessel detail is in the Hafnia Q1 2026 investor presentation PDF
 # (s201.q4cdn.com/891122012/...). Aggregated here by class × build-year

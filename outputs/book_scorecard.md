@@ -31,7 +31,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | GSL | containerships | GOVERNED-WIDE · structural-class | $37.60 | $43.00 | +14% | BUY (undervalued) | $38.59 | $50.13 (apx) | -23% | n-a | ready |
 | MPCC | containerships | GOVERNED-WIDE · structural-class | $2.55 | $2.19 | -14% | unreliable read (not actionable) | $2.02 | $2.45 (apx) | -18% | n-a | ready |
 | BRUT | crude | PROVISIONAL · cash-pending ⛔ | $5.21 | $9.27 | +78% | unreliable read (not actionable) | $8.80 | $6.95 | +27% | OK | **NO** |
-| HAFN | product | PROVISIONAL · uncited-figure ⛔ | $6.64 | $5.66 | -15% | rich · cycle position (not a short) | $5.22 | $6.99 | -25% | OK | **NO** |
+| HAFN | product | PROVISIONAL · pool-gross-up-pending ⛔ | $6.64 | $5.99 | -10% | rich · cycle position (not a short) | $5.57 | $6.99 | -20% | OK | **NO** |
 | STNG | product | PROVISIONAL · uncited-figure ⛔ | $75.60 | $78.93 | +4% | BUY (undervalued) | $80.35 | $108.00 | -26% | OK | **NO** |
 | TRMD | product | PROVISIONAL · uncited-figure ⛔ | $26.06 | $26.35 | +1% | HOLD (fairly valued) | $25.43 | $31.40 | -19% | OK | **NO** |
 
@@ -56,7 +56,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | TEN | crude | GOVERNED-WIDE | structural-unavailable | 0.42× | no anchor→cheap | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
 | TNK | crude | VALIDATED-TIGHT | resale-uniform | 0.91× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | ASC | product | GOVERNED-WIDE | unverified-no-current-xclusiv-line | 0.90× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: unverified-no-current-xclusiv-line |
-| HAFN | product | PROVISIONAL ⛔ | pending-sourceable | 1.48× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
+| HAFN | product | PROVISIONAL ⛔ | pending-sourceable | 1.38× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | STNG | product | PROVISIONAL ⛔ | pending-sourceable | 0.94× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | TRMD | product | PROVISIONAL ⛔ | pending-sourceable | 1.11× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | CMDB | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.55× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |

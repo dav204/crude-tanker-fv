@@ -5,6 +5,42 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-01 — HAFN RECONCILED: the most consequential — three ways "balance-sheet-literal ≠ NAV-economic," + 2 precedents.**
+  Sixth P0 name (Hafnia), and the one where "just source the number" fails most completely — nearly every figure
+  needed a judgment about what the number economically MEANS, not just a citation. Workflow-sourced (12 agents) +
+  independent read vs the Q1-2026 6-K (EDGAR acc 0001140361-26-022910, IFRS). Pre-reg
+  `decisions/hafn_reconciliation_prereg_2026-07-01.md`. Hafnia's own disclosed NAV/sh $8.09 was the sanity anchor.
+  1. **The 8 MR HHI newbuild was a SUBSEQUENT EVENT (the ASC pattern again).** The ~$405M order was signed
+     **3 April 2026** (Note 7), after quarter-end — so the model's −$405M commitment + $40M phantom advance was
+     the same "double-anachronism" as ASC (a commitment that didn't exist + an advance that couldn't have been
+     paid). Excluded from Q1 (+$365M); HAFN leaves `OFF_CONVENTION_QUEUE`; wire on-curve in Q2. The
+     "audit the subsequent-events note first" rule caught it (Note 7).
+  2. **`total_debt` and `lease_liabilities` both understated.** Note 2/4 give bank borrowings **$953.9M** +
+     lease liabilities **$71.6M** (SLB $35.7M + IFRS-16 $35.9M) = $1,025.5M total borrowings. The model's
+     total_debt $943.5M matched no primary line (~$10.4M light) and lease_liabilities $35.9M captured ONLY the
+     chartered-in piece, dropping the $35.7M sale-leaseback. Corrected (−$46M NAV).
+  3. **TORM 13.97% stake → $277.2M lower-of-cost, NOT $395M market — NEW PRECEDENT.** The stake is $395M market /
+     $394.954M IFRS FVTPL carry / ~$277.2M lower-of-cost. Hafnia's OWN NAV method is "the lower of the market value
+     or purchase price" → $277.2M. Owner rule: **a marketable equity stake inside a shipping NAV takes the ISSUER's
+     own disclosed NAV-method basis (lower-of-cost) when available, not fair value** — fair value injects market
+     volatility and breaks comparability to the issuer's published NAV. First cross-holding hit; sets the precedent.
+  4. **Operating WC → conservative $85.7M pool floor, NOT the gross $335.9M — NEW PRECEDENT.** The balance-sheet
+     operating WC is $335.9M (receivables $670M + inventory $86M − payables $420M), but Hafnia runs the world's
+     largest product-tanker POOL, so the $670M receivables carry **custodial pass-through gross-up** (revenue
+     collected on behalf of other pool owners — not a NAV-economic asset; Hafnia's own $8.09 NAV nets it too). The
+     6-K doesn't break out pool vs own-account, so booked at a conservative floor ≈ the clean own-account inventory
+     ($85.7M), rejecting the gross. HAFN STAYS PROVISIONAL on WC → new tier sub-reason **`pool-gross-up-pending`**.
+     Owner rule: **for a pool operator, gross pool receivables are custodial, not NAV-economic — net the gross-up
+     out, or book the conservative floor and flag it.** `sourced ≠ economic` — the same wedge as NAT's contradicted
+     advance and ASC's date-wrong newbuild, here as pool gross-up.
+  Also: shares → 505.3M (EPS table). NAV $5.22→$5.57 headline (newbuild +$365M · TORM −$118M · debt/lease −$46M);
+  SANITY OK; gap to broker a wide, documented tool↔broker spread (txn-anchored < broker). HAFN is **NOT actionable**
+  (directional, rich to the tool's conservative marks) — rich · cycle position. **An incidental daily price-refresh
+  (5 names CCEC/CMDB/FLNG/MPCC/STNG, EV-only) landed mid-session and was REVERTED from the tree to isolate this
+  sourcing commit** (per `feedback_isolate_commit_from_price_drift`) — handle as a separate deliberate price
+  re-ratify. **Six reconciliations, still zero new tight actionable longs** — even the hardest one lands "cleaner,
+  still directional." Tight-actionable surface stays SB + SBLK. 442 pass / 20 xfail; drift 0 unexplained (HAFN annotated).
+
 - **2026-07-01 — ECO CLEARED to VALIDATED-TIGHT: the first TIGHT of the reconciliation arc, and the cleanest.**
   Fifth P0 name (Okeanis Eco Tankers). ECO was PROVISIONAL for ONE reason — `OFF_CONVENTION_QUEUE`: its 2
   Suezmax newbuilds (Tigani, Vous) sat in the manifest at delivered market with NO `years_to_delivery`, so they

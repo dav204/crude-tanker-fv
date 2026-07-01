@@ -1,74 +1,52 @@
-# Hafnia Limited (HAFN) balance sheet snapshot — METHODOLOGY §4.2, §11.5
-# Source: Hafnia Q1 2026 6-K (filed 2026-05-27); balance sheet as of 2026-03-31. USD.
-# Reporting standard: IFRS (first IFRS-reporting name on watchlist alongside Oslo
-# TRMD A). Reconciled to avoid double-counting against the NAV formula.
+# Hafnia Limited (HAFN) balance sheet snapshot — METHODOLOGY §4.2, §11.5. IFRS. USD.
+# Source of record: Hafnia Q1-2026 6-K, EDGAR acc 0001140361-26-022910 (Ex 99.1 interim financials +
+# Ex 99.2 press release), as-of 2026-03-31. Full reconciliation: decisions/hafn_reconciliation_prereg_2026-07-01.md
+# (2026-07-01, workflow-sourced). Hafnia's OWN disclosed NAV/sh = $8.09 (the sanity anchor).
 ticker: HAFN
 quarter: 2026-Q1
 
-cash_and_equivalents: 146500000          # "Cash and cash equivalents" per Q1 release
-                                          # Liquidity also includes $550M undrawn RCF capacity
-                                          # (total $715M facility signed July 2025) — not in NAV
+cash_and_equivalents: 146457000          # BS "Cash at bank and on hand" 146,457 (Note 4 cross-check). Excludes
+                                          # the $88.8M pool cash + $17.5M FFA-restricted (both genuinely restricted).
 
-# working_capital_net composition (§11.5 — three off-curve adjustments):
+# working_capital_net = operating-WC FLOOR + the TORM stake (§11.5). Two components:
 #
-#   1. OPERATING working capital (non-cash, non-debt, non-HFS): not separately
-#      itemised in the Q1 press-release summary. [ESTIMATE ~$80M based on
-#      typical ratios for a $300M+/quarter revenue shipping company.] Refresh
-#      from Q1 6-K balance sheet detail when pulled.
+#   1. OPERATING working capital — POOL-GROSS-UP-PENDING conservative FLOOR. The balance-sheet-literal
+#      operating WC is $335.9M (receivables 670,185 + inventories 85,684 − payables 419,987), BUT Hafnia
+#      runs the world's largest product-tanker POOL, so the $670M receivables carry custodial pass-through
+#      gross-up (revenue collected on behalf of OTHER pool owners — not a NAV-economic asset). The 6-K does
+#      NOT break out pool vs own-account receivables/payables, so a clean net is not computable. Per the
+#      owner (2026-07-01): reject the gross $335.9M; book the conservative floor ≈ the clean own-account
+#      INVENTORY 85,684 (pool-grossed receivables/payables netted to ~0). [ESTIMATE] floor ~$85.7M —
+#      pool-gross-up-pending; resolves if a filing discloses the pool net. This keeps HAFN PROVISIONAL on WC.
 #
-#   2. PENDING VESSEL SALES (4 LR1 + 2 MR + 4 Handy = 10 hulls, broker prints
-#      indicate >$200M aggregate; Hafnia included these vessels at on-curve
-#      values in the fleet manifest, so to avoid double-counting we DO NOT
-#      add HFS-at-sale-price here — they'll show up in next quarter's NAV
-#      via the actual cash proceeds. Net working capital adjustment: $0.
+#   2. TORM 13.97% stake at $277.2M — Hafnia's OWN lower-of-market-or-cost NAV basis (Q1-2026 6-K press
+#      release: NAV computed using "the lower of the market value or purchase price of the Torm investment").
+#      NOT $395.0M market / $408.5M IFRS fair value — the issuer's own NAV-method basis preserves comparability
+#      to Hafnia's $8.09 NAV/sh (a marketable equity stake in NAV takes the issuer's disclosed method, not
+#      fair value). Derived: market $395.0M − Q1 unrealized FV gain $117.8M. Level-3 non-TORM ($13.55M) excluded.
 #
-#   3. Handysize sleeve — 22 owned hulls. NOW ON-CURVE as of 2026-06-05
-#      (Handysize class added to vessel_value_curves.yaml). These hulls moved
-#      INTO fleet_manifests/hafn.yaml (age-18 cohort, ~$14.5M/vessel via the
-#      Handysize curve ≈ $320M) and OUT of working_capital_net. The prior
-#      off-curve estimate ($330M nominal less 10% wind-down haircut = $300M)
-#      is retired; the small (~$20M / ~$0.04/sh) uplift from dropping the
-#      wind-down liquidity haircut is documented in §6/§11.5 (the framework has
-#      no on-curve liquidity-discount mechanism).
-#      → working_capital_net Handy line REMOVED (was +300,000 $k).
-#
-#   4. TORM equity investment ($395M Q1 mgmt-disclosed value; Hafnia owns a
-#      meaningful TRMD position generating $9.9M Q1 dividend income).
-#      Schema decision (§11.5 + §6 HAFN footnote): no dedicated
-#      `marketable_equity_investments` line in current YAML schema; rolled
-#      into working_capital_net at full disclosed value per Hafnia mgmt
-#      NAV calculation. (Alternative: add a new schema line — deferred as
-#      a follow-up methodology decision; impact bounded at $395M / 500M
-#      shares ≈ $0.79/sh of NAV.)
-#      → adds +395,000 ($k).
-#
-#   Total: 80,000 + 395,000 = 475,000 ($k).  (was 775,000 before Handysize
-#   moved on-curve 2026-06-05.)
-working_capital_net: 475000000
+#   Total working_capital_net = 85.684 + 277.2 = 362.884 ($m).
+working_capital_net: 362884000
 
-# Total debt: net debt $797M + cash $146.5M = gross ~$943M interest-bearing.
-# Includes IFRS 16 vessel finance lease obligations (the $35.9M chartered-in
-# lease liability is separately broken out below). Hafnia historically had
-# material ICBC / Japanese KS sale-leaseback structures peak ~2022; those
-# have largely amortised or been refinanced into the $715M RCF.
-total_debt: 943500000
+# Total interest-bearing BANK borrowings (ex-lease), Note 2 (219,536 current + 734,396 non-current) =
+# 953,932; independently confirmed by the Note 4 fair-value table "Bank borrowings 953,932". The prior
+# model $943.5M matched no primary line (~$10.4M light) — corrected. Ties: bank 953.9 + lease 71.6 =
+# 1,025.5 total borrowings (Note 2). Disjoint from lease_liabilities below (no double-count).
+total_debt: 953932000
 
-# Operating lease liability for 12 chartered-in vessels (4 LR1: 2 BB + 2 TC;
-# 7 MR TC; 1 Handy BB). Small ($35.9M) — Hafnia is NOT currently sale-leaseback-
-# heavy unlike 2022-peak TORM. Treated as separate-line per schema convention.
-lease_liabilities: 35900000
+# Sale-and-leaseback (35,730) + other IFRS-16 lease liabilities (35,867), current + non-current, Note 2;
+# Note 4 aggregate "Sale and leaseback liabilities and other lease liabilities 71,597" ties. The prior
+# model $35.9M captured ONLY the chartered-in ("other lease") piece and DROPPED the $35.7M SLB financing.
+lease_liabilities: 71597000
 
-# Newbuild lines: 8 firm MR newbuilds at Hyundai Heavy Industries.
-# Source-disclosed total: $405M firm for 8 firm vessels (~$50.6M each — at
-# the high end of MR NB contracting reflecting late-2025 ordering window).
-# Plus 2 option vessels at ~$50.6M each = $101M option value (not committed).
-# Deliveries Q3 2028 - Q2 2029 — past the 8-quarter dividend strip horizon
-# (no Q-by-Q earnings impact in scenarios; valued newbuild-at-market per §3.1).
-newbuild_capex_commitments: 405000000       # 8 firm × ~$50.6M; options excluded
-newbuild_advances_paid: 40000000             # [ESTIMATE] typical 10% deposit on contract value
+# NEWBUILDS: EXCLUDED from the 2026-Q1 snapshot. The 8 firm MR (+2 option) HHI order (~$405M) was signed
+# 3 APRIL 2026 — a subsequent event (Note 7), AFTER the 3/31 date. At 2026-03-31 there was no commitment
+# (no capital commitment in Note 3), no advance (no vessels-under-construction line in PP&E), no asset.
+# Excluded (the ASC rule); to be wired on-curve in Q2 (§9.6, delivery Q3-2028→Q2-2029). The prior model's
+# −$405M commitment + $40M advance was a double-anachronism (commitment that didn't exist + advance that
+# couldn't have been paid). See the reconciliation pre-reg.
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
 
-# Diluted shares outstanding: implied from Q1 DPS $0.2877 + total distribution
-# $143.8M = ~500M shares. BW Group owns 44.18% (controlling-but-not-majority);
-# free float ~55%. Dual-listed NYSE (HAFN) + Oslo (HAFNI via Norwegian deposit
-# receipts). [ESTIMATE — refresh from Q1 6-K when share count line pulled.]
-diluted_shares_outstanding: 500000000
+# Q1-2026 diluted weighted-average shares (6-K EPS table); basic 498,567,216; dividend-implied ~499.85M.
+diluted_shares_outstanding: 505321911

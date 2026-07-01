@@ -596,27 +596,23 @@ def test_hafn_full_three_class_product_loads_and_routes():
 # weight settle (post-Hormuz resolution). Band re-based 2026-06-11 from the
 # Set-B-v2 $5.35 pin to the Jun-9-v3 $5.87: ±5% → [5.58, 6.16].
 def test_hafn_whole_company_fv_in_expected_band_set_b():
-    """HAFN probability-weighted FV pinned in $5.0-$5.8 band under Product
-    Set B v2 (locked 2026-06-03). Q1 2026 inputs produce $5.35 (EV −33.5%
-    TRIM/SHORT — deeply below the −5% HOLD threshold).
+    """HAFN probability-weighted FV pinned in the $6.10-$6.55 band, REBASED
+    2026-07-01 for the full balance-sheet reconciliation (was $5.58-$6.16).
+    Corrected Q1-2026 inputs produce ~$6.33 (base NAV/sh $5.69, up from $5.35).
+    The +$0.35 NAV lift is: the 8 MR HHI newbuild EXCLUDED from Q1 (signed
+    3-Apr-2026, a subsequent event — was a −$405M commitment-only drag + $40M
+    phantom advance, the ASC pattern: +$365M); TORM stake to Hafnia's own
+    lower-of-cost NAV basis $277.2M (−$117.8M vs the prior $395M market);
+    total_debt/lease corrected to the Note-2/4 split $953.9M + $71.6M (−$46M);
+    shares → 505.3M. Operating WC held at a conservative pool-gross-up floor
+    ($85.7M, NOT the gross balance-sheet $335.9M — pool custodial receivables
+    are not NAV-economic). See decisions/hafn_reconciliation_prereg_2026-07-01.md.
 
-    HAFN is the third product name where VIE Bullish ($9.00) opposes our
-    framework TRIM, after ASC and TRMD. The pattern is consistent across
-    the product sector — VIE is structurally more bullish on product than
-    our framework's scenario-weighted view. The TC-vs-spot baseline reframe
-    (METHODOLOGY §10) explains part of the cross-methodology gap; the
-    Product Set B v2 reweighting (§11.5) absorbed part of the empirical
-    case for tightness already. The residual VIE-Bullish vs Tool-TRIM gap
-    on HAFN is documented in §6 HAFN entry.
-
-    Methodology caveats reflected in the band:
-    - The $300M Handysize off-curve estimate (22 hulls × $15M × 0.9
-      liquidity discount) flexes the floor by ±$30M = ±$0.06/sh
-    - The $395M TORM equity stake rolled into working_capital_net is exact
-      per Hafnia mgmt-disclosed value; if Hafnia exits or trims the stake
-      the framework sees the cash directly
-    - The ~500M diluted share count is [ESTIMATE] from Q1 dividend math;
-      refresh from Q1 6-K when share-count line is pulled
+    HAFN stays TRIM/SHORT: price $7.70 is ~1.35× the tool's conservative
+    (txn-anchored) NAV. The verdict RELABELS this "rich · cycle position (not a
+    short)" (§12); the tool↔broker spread (−31% to broker $8.11) is a documented
+    feature (txn-anchored marks < broker resale), not an error. HAFN stays
+    PROVISIONAL · pool-gross-up-pending (WC floor) — NOT handoff-ready.
     """
     from crude_tanker_fv.pipeline import _run_scenarios_for_ticker, _load_all_sectors
     from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
@@ -628,7 +624,7 @@ def test_hafn_whole_company_fv_in_expected_band_set_b():
     headline, _, _ = _run_scenarios_for_ticker(
         "HAFN", ci, hafn["current_price"], hafn["analyst_target"], docs, watchlist,
     )
-    assert 5.58 < headline.probability_weighted_fv < 6.16
+    assert 6.10 < headline.probability_weighted_fv < 6.55
     assert "TRIM/SHORT" in headline.position_recommendation
     # Belt-and-suspenders per workflow verifier: assert sector explicitly so a
     # silent watchlist-typo regression (HAFN tagged as crude or lng) doesn't

@@ -8,7 +8,7 @@ its per-name reads — not by a cross-sectional backtest.
 **Current state (2026-07-01):** **22 watchlist names across 5 sectors**; **440 main
 tests green, 23 xfailed** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester
 via `.venv310`); drift gate **0 unexplained** (BRUT explained); pipeline clean; SANITY 14 OK / 8
-n-a-APPROX / 0 FAIL. FIVE P0 names worked this arc: **NAT DE-VOIDED** (2026-06-30, NAV $2.07→$2.79,
+n-a-APPROX / 0 FAIL. SIX P0 names worked this arc: **NAT DE-VOIDED** (2026-06-30, NAV $2.07→$2.79,
 GOVERNED-WIDE·newbuild-indeterminate), **SB corrected** (date-mix + CAPT blanket-scrubber bug; NAV
 $10.47→$10.12, ~0.63×), **ASC reconciled** (April-2026 newbuild wrongly loaded as a −$88.8M Q1
 commitment [subsequent event] + phantom `Ardmore_Patriot` removed + chem-Handies → cited 20-F
@@ -20,7 +20,12 @@ flagged going-concern doubt; NAV $9.40→$8.80; NOT actionable — going-concern
 **ECO cleared to VALIDATED-TIGHT** (2026-07-01 — the first TIGHT of the arc; figures all verified vs the
 Q1-2026 6-K, the 2 Suezmax NBs wired on-curve §9.6 + 16 scrubbers verified; the value-flag guard caught a
 peer-default and the NBs were booked scrubber=false; NAV $34.56→$34.35 [sub-threshold]. But ECO is
-validated-but-RICH [rich · cycle position, ~1.39× NAV] — NOT a new long).
+validated-but-RICH [rich · cycle position, ~1.39× NAV] — NOT a new long), and **HAFN reconciled**
+(2026-07-01 — the most consequential: an ASC-pattern 3-Apr-2026 subsequent-event newbuild removed [+$365M],
+debt/lease corrected to the Note-2/4 split [−$46M], the TORM stake to Hafnia's own lower-of-cost NAV basis
+[−$118M; precedent: marketable stakes take the issuer's method], and operating WC held at a conservative
+pool-gross-up floor [precedent: pool receivables are custodial, not NAV-economic]; NAV $5.22→$5.57, stays
+PROVISIONAL·pool-gross-up-pending, rich · cycle position — NOT actionable; price-refresh isolated out).
 CLAUDE.md was also restructured to a lean ~3.8k-token router with a build-enforced size cap. These
 hardened **provenance + handoff + hygiene**, not the thesis — SB stays cheap on every version of its numbers.
 
@@ -51,7 +56,7 @@ The xfail-strict guard queues ARE the visible work queue — `provenance.py` is 
 source of truth (imported by both the guards and the tier, so they can't drift):
 1. **§9.6 newbuild on-curve convention** (`test_newbuild_convention`) — newbuilds valued at
    delivered-market PV − remaining commitment, advances→0. SB/SBLK/DHT/CAPT are on-curve;
-   `OFF_CONVENTION_QUEUE` (CMBT/HAFN/STNG/TEN/TRMD — 5; NAT left [parked], ASC left [April subsequent
+   `OFF_CONVENTION_QUEUE` (CMBT/STNG/TEN/TRMD — 4; NAT parked, ASC+HAFN April-2026 subsequent-event
    event], ECO left 2026-07-01 [2 Suezmax NBs wired on-curve via years_to_delivery]) is the remaining
    xfail-strict queue. CCEC/CMBT are STRUCTURAL (Group-B, commitment-net not on-curve).
 2. **Operating-scrubber provenance gradient** (`test_scrubber_provenance`) — contradicted→hard-
@@ -70,15 +75,16 @@ validation state, NOT a new model: **VALIDATED-TIGHT** (6: DHT, FRO, SB, SBLK, T
 robust two-basis; ECO cleared 2026-07-01 via the §9.6 on-curve fix + scrubber verification, but is
 validated-but-RICH [rich · cycle position], NOT a new long), **GOVERNED-WIDE** (12 — traces but
 structural-unavailable input, read flips, or newbuild parked/absent: **NAT** `newbuild-indeterminate`;
-**ASC** `structural-class`), **PROVISIONAL** (4: HAFN, STNG, TRMD — a NAV-driving figure uncited/off-basis;
-+ **BRUT** `cash-pending` — 4/5 figures issuer-traced, only cash flagged pending the H1-2026 report;
-**NOT handoff-ready, flag don't pass**). APPROX-pnav does NOT demote a robust name
+**ASC** `structural-class`), **PROVISIONAL** (4: STNG, TRMD — a NAV-driving figure uncited/off-basis;
++ **BRUT** `cash-pending` — 4/5 issuer-traced, cash flagged pending the H1-2026 report; + **HAFN**
+`pool-gross-up-pending` — all figures sourced/decided except operating WC, held at a conservative floor
+because pool custodial receivables can't be netted from the filing; **NOT handoff-ready, flag don't pass**). APPROX-pnav does NOT demote a robust name
 (SB's two-basis corroboration substitutes for the missing broker check); an immaterial uncited
 operating-scrubber surface does not either (materiality-gated at 10% of NAV). Emitted in the
 scorecard Verdict + the `/add-ticker` handoff (a PROVISIONAL name may not hand off a governed FV).
 
 **A NEW AGENT: read CLAUDE.md, then this file.** The lead open thread is the **reconciliation
-queue** (below) — clearing PROVISIONAL names to handoff-ready. NAT+SB+ASC+BRUT+ECO done; **HAFN is next.**
+queue** (below) — clearing PROVISIONAL names to handoff-ready. NAT+SB+ASC+BRUT+ECO+HAFN done; **STNG is next.**
 Per-change chronology in `CHANGELOG.md`; per-name detail in `decisions/<t>_log.md`.
 
 ## Recent arc — convention + provenance + handoff + hygiene (2026-06-29 → 07-01)
@@ -154,7 +160,21 @@ the INPUT; never source mid-recompute.
      booked **scrubber=false** (conservative, `newbuild_specs.yaml`). NAV $34.56→$34.35 (−0.6%, sub-threshold —
      gate stable, no re-ratify needed). Record: `decisions/eco_reconciliation_prereg_2026-07-01.md`. **ECO is
      validated-but-RICH (rich · cycle position, ~1.39× NAV) — NOT a new actionable long.**
-   - **NEXT: HAFN, STNG, TRMD** (the rest of `NAV_FIGURE_ESTIMATE_QUEUE` ∩ PROVISIONAL); then the remaining
+   - **HAFN — DONE (2026-07-01), the MOST consequential (multiple errors + genuine forks); stays PROVISIONAL.**
+     Workflow-sourced (12 agents) + independent read vs the Q1-2026 6-K (acc 0001140361-26-022910). Recurring
+     theme: **balance-sheet-literal ≠ NAV-economic**, three times. (1) The 8 MR HHI newbuild EXCLUDED from Q1 —
+     signed **3-Apr-2026** (Note 7 subsequent event) → the −$405M commitment + $40M phantom advance was the ASC
+     double-anachronism (+$365M; HAFN leaves `OFF_CONVENTION_QUEUE`). (2) `total_debt` $943.5M→$953.9M (Note 2/4
+     bank borrowings) + `lease_liabilities` $35.9M→$71.6M (model dropped the $35.7M SLB) (−$46M). (3) TORM 13.97%
+     stake → **$277.2M lower-of-cost** (Hafnia's OWN NAV method, comparability to its $8.09 NAV — NOT $395M market;
+     **precedent: a marketable stake in NAV takes the issuer's disclosed method, not fair value**). (4) operating
+     WC — the gross balance-sheet $335.9M carries **pool custodial gross-up** (Hafnia runs the world's largest
+     product pool; the $670M receivables aren't NAV-economic); booked at a conservative **$85.7M floor** →
+     `pool-gross-up-pending` (**precedent: pool receivables are custodial, not NAV-economic**). (5) shares → 505.3M.
+     NAV $5.22→$5.57 headline; SANITY OK. Incidental daily price-refresh (5 names, EV-only) REVERTED to isolate the
+     commit. HAFN stays PROVISIONAL·pool-gross-up-pending, rich · cycle position — NOT actionable. Record:
+     `decisions/hafn_reconciliation_prereg_2026-07-01.md`. Baseline re-ratify (HAFN-only) pending — owner.
+   - **NEXT: STNG, TRMD** (the rest of `NAV_FIGURE_ESTIMATE_QUEUE` ∩ PROVISIONAL); then the remaining
      `OFF_CONVENTION_QUEUE` fixable names onto the §9.6 curve. Same discipline (subsequent-events note first).
      Clearing a name flips its tier and lets it hand off a governed FV.
 

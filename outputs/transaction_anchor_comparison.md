@@ -183,7 +183,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | TRMD | $26.74→$25.43 | -4.9% | +9.2%→+4.8% | -4.3 | BUY→HOLD ⚠️ |
 | GNK | $25.53→$24.69 | -3.3% | -0.0%→-2.9% | -2.9 | HOLD→HOLD |
 | DHT | $16.07→$13.88 | -13.7% | +8.7%→-3.9% | -12.5 | BUY→HOLD ⚠️ |
-| HAFN | $5.34→$5.22 | -2.2% | -9.4%→-11.0% | -1.5 | TRIM/SHORT→TRIM/SHORT |
+| HAFN | $5.69→$5.57 | -2.1% | -4.7%→-6.2% | -1.5 | HOLD→TRIM/SHORT ⚠️ |
 | FRO | $28.47→$24.22 | -14.9% | -4.5%→-16.5% | -12.0 | HOLD→TRIM/SHORT ⚠️ |
 | MPCC | $2.02→$2.02 | +0.0% | -17.4%→-17.4% | +0.0 | TRIM/SHORT→TRIM/SHORT |
 | INSW **(WHOLE-CO)** | $57.91→$52.59 | -9.2% | -13.6%→-19.9% | -6.3 | TRIM/SHORT→TRIM/SHORT |

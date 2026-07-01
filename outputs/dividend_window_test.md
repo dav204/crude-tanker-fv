@@ -21,7 +21,7 @@ one-way bullish override — audit E-3.)
 | FRO | · | 1.42× | +10.28 | — | 8.0 | n/a (gate) |
 | GNK | · | 0.97× | -0.69 | — | 6.5 | n/a (gate) |
 | GSL | · | 1.01× | +0.40 | — | 10.0 | n/a (gate) |
-| HAFN | · | 1.48× | +2.48 | — | 8.0 | n/a (gate) |
+| HAFN | · | 1.38× | +2.13 | — | 8.0 | n/a (gate) |
 | INSW | · | 2.23× | +43.03 | — | 8.0 | n/a (gate) |
 | MPCC | · | 1.37× | +0.76 | — | 7.2 | n/a (gate) |
 | SB | · | 0.63× | -3.73 | — | 8.0 | n/a (gate) |
