@@ -9,6 +9,38 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-01T14:24:37+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.31
+- Single-point FV: $9.87
+- Scenario PW FV: $9.68 (EV +53.4%)
+- NAV / share: $10.12
+- Position: **BUY (undervalued)**
+- Broker spread: -40.5pp (k_broker 0.82)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -2.9% | Δscenario FV: -2.9% | ΔNAV: -3.3% | Δspread: +4.8pp
+
+**Decision:** _DATE-CONSISTENCY + SCRUBBER CORRECTION (2026-07-01) — a data-integrity fix, NOT a market
+move. An audit vs the Q1-2026 earnings deck + primary filings found the manifest mixed two dates (fleet
+2026-06-12 vs the 3/31 balance sheet) and carried a BLANKET scrubber default (the CAPT peer-borrowed-flag
+bug) on the book's headline actionable name. Pre-registered the NAV band $10.05-10.18 (committed bc33ca9)
+AHEAD of recompute; landed $10.1157, IN band. One 2026-03-31 snapshot: (1) Katerina → newbuild only (it
+delivered April, 6-K line 292) — dropped a $47.7M operating double-count; (2) Michalis H (2012 Cape) = the
+ONE 3/31 HFS (6-K line 398), the $30.2M working-capital line relabeled; (3) Xenia + Pedhoulas Commander →
+operating (sales agreed May, subsequent, 6-K line 295); (4) scrubber set → the FY2025 20-F actual (acc
+0001628280-26-014408: "21 scrubbers, all 8 Capes"; ftn-15 per-vessel) = 20 operating (was a blanket 29:
+all 16 PPMX + 6 wrong Kamsarmax; only Pedhoulas Rose is scrubber-fitted). NAV $10.47→$10.12 (−$0.35;
+scrubber −$0.18, Katerina/HFS-swap net −$0.17). SB stays clearly cheap (~0.63× P/NAV vs $6.31) — thesis
+intact, VALIDATED-TIGHT. **SB CLEARED from OPERATING_SCRUBBER_QUEUE → OPERATING_SCRUBBER_VERIFIED{SB:20}**,
+which TIGHTENS its validated standing (the number is smaller but now traces to disclosure). SANITY n/a-APPROX
+(no Pareto NAV; P/BV proxy). Committed isolated at the committed price vintage; baseline re-ratified SB-only.
+Full record + the onboarding post-mortem: decisions/sb_reconciliation_prereg_2026-07-01.md._
+
+---
+
 ## 2026-07-01T02:12:47+00:00 — Pipeline run (auto)
 
 **Model state:**

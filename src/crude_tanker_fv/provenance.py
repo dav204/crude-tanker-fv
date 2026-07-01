@@ -43,9 +43,9 @@ OFF_CONVENTION_QUEUE = {"ASC", "CMBT", "ECO", "HAFN", "STNG", "TEN", "TRMD"}  # 
 SCRUBBER_UNVERIFIED_QUEUE: set[str] = set()   # NEWBUILD-value scrubber flag unverified (now empty)
 
 # --- Operating-scrubber audit (test_scrubber_provenance) ---------------------------------------
-OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5}      # name -> audited operating scrubber-fitted count
-OPERATING_SCRUBBER_QUEUE = {
-    "DHT", "ECO", "FRO", "GNK", "HAFN", "INSW", "SB", "SBLK", "STNG", "TEN", "TRMD",
+OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "SB": 20}   # name -> audited operating scrubber-fitted count
+OPERATING_SCRUBBER_QUEUE = {   # SB left 2026-07-01: scrubber set traced to the FY2025 20-F (ftn-15), 20 operating
+    "DHT", "ECO", "FRO", "GNK", "HAFN", "INSW", "SBLK", "STNG", "TEN", "TRMD",
 }
 
 # --- NAV-equation figure provenance (test_manifest_provenance) ----------------------------------

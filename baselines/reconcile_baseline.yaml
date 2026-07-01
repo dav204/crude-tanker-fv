@@ -2,11 +2,11 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-07-01T02:12:47+00:00'
-  ratified_commit: 24c533d
+  ratified_at: '2026-07-01T14:24:37+00:00'
+  ratified_commit: bc33ca9
   quarter: 2026-Q1
-  cause: 2026-06-30 daily price refresh (broad down day) — DHT TRIM/SHORT->HOLD and FLNG HOLD->BUY reviewed
-    as trivial price-driven boundary-crossings (see logs), all moves ΔNAV 0%
+  cause: SB date-consistency + scrubber correction — NAV $10.47->$10.12 (audit vs 20-F/6-K; scrubber set
+    traced, leaves OPERATING_SCRUBBER_QUEUE)
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -126,10 +126,10 @@ names:
     sector: crude
   SB:
     pnav_basis: approx
-    ev_pct: 58.01
-    tool_nav: 10.47
+    ev_pct: 53.38
+    tool_nav: 10.12
     position_band: BUY (undervalued)
-    k_broker: 0.8
+    k_broker: 0.82
     sector: dry_bulk
   SBLK:
     pnav_basis: pareto

@@ -19,10 +19,12 @@ def test_fleet_shape():
             nb += v.count
             continue
         counts[v.cls] = counts.get(v.cls, 0) + v.count
-    # Post-Panamax split out of Pana 2026-06-29 (§11.7.10): 20 Pana + 16 PPMX + 7 Cape.
-    assert counts == {"Pana": 20, "Post-Panamax": 16, "Cape": 7}   # 43 operating (2 HFS off-curve)
-    assert sum(counts.values()) == 43
-    # 8 Kamsarmax newbuilds on the curve at age-0 delivered PV (§9.6 convention, 2026-06-30).
+    # 2026-03-31 snapshot (date-consistency correction 2026-07-01): 20 Pana + 17 PPMX + 7 Cape.
+    # (Katerina is a newbuild at 3/31, not operating; Xenia + Pedhoulas Commander are operating —
+    # their sales were only agreed May-2026. Michalis H is the ONE HFS, off-curve.)
+    assert counts == {"Pana": 20, "Post-Panamax": 17, "Cape": 7}   # 44 operating (1 HFS off-curve)
+    assert sum(counts.values()) == 44
+    # 8 Kamsarmax newbuilds on the curve at age-0 delivered PV (§9.6; 6-K line 398 confirms 8 at 3/31).
     assert nb == 8
 
 
@@ -32,7 +34,7 @@ def test_dwt_is_populated_for_dwt_scaling():
     assert all(v.dwt and v.dwt > 0 for v in ci.fleet.vessels)
     # The 85-95.8k cohort is now its own Post-Panamax class (the §11.7.10 fix);
     # Pana tops out at the 82k Kamsarmax, the large hulls live in Post-Panamax.
-    assert max(v.dwt for v in ci.fleet.vessels if v.cls == "Pana") <= 82500
+    assert max(v.dwt for v in ci.fleet.vessels if v.cls == "Pana") <= 84000   # Kamsarmax tops ~84k (Pedhoulas Commander 83.7k)
     assert max(v.dwt for v in ci.fleet.vessels if v.cls == "Post-Panamax") >= 95000
 
 

@@ -15,7 +15,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | DHT | crude | VALIDATED-TIGHT | $16.40 | $14.95 | -9% | rich · cycle position (not a short) | $13.88 | $15.05 | -8% | OK | ready |
 | FRO | crude | VALIDATED-TIGHT | $34.50 | $26.54 | -23% | rich · cycle position (not a short) | $24.22 | $28.75 | -16% | OK | ready |
 | TNK | crude | VALIDATED-TIGHT | $70.80 | $79.42 | +12% | BUY (undervalued) | $77.51 | $93.16 | -17% | OK | ready |
-| SB | dry_bulk | VALIDATED-TIGHT | $6.31 | $10.17 | +61% | BUY (undervalued) | $10.47 | $7.17 (apx) | +46% | n-a | ready |
+| SB | dry_bulk | VALIDATED-TIGHT | $6.31 | $9.87 | +56% | BUY (undervalued) | $10.12 | $7.17 (apx) | +41% | n-a | ready |
 | SBLK | dry_bulk | VALIDATED-TIGHT | $24.97 | $28.34 | +13% | BUY (undervalued) | $29.34 | $30.45 | -4% | OK | ready |
 | CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $12.58 | $16.03 | +27% | BUY (undervalued) | $15.49 | $18.78 | -17% | OK | ready |
 | CMBT | crude | GOVERNED-WIDE · structural-class | $13.99 | $15.26 | +9% | BUY (undervalued) | $15.87 | $18.91 | -16% | OK | ready |
@@ -61,7 +61,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | TRMD | product | PROVISIONAL ⛔ | pending-sourceable | 1.11× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | CMDB | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.55× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
 | GNK | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.97× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
-| SB | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.61× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| SB | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.63× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | SBLK | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.93× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | CCEC | lng | GOVERNED-WIDE | structural-unavailable | 0.78× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | FLNG | lng | GOVERNED-WIDE | structural-unavailable | 1.04× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |

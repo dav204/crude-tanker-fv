@@ -8,12 +8,15 @@ quarter: 2026-Q1
 # Cash, cash equivalents, time deposits & current restricted cash (6-K, 2026-03-31).
 cash_and_equivalents: 171775000
 
-# working_capital_net = operating WC + non-current restricted cash + the 2 held-for-sale
-# vessels at carrying value (off-curve, DHT-Bauhinia):
+# working_capital_net = operating WC + non-current restricted cash + the 1 held-for-sale
+# vessel at carrying value (off-curve, DHT-Bauhinia):
 #   other current assets 47,395 − other current liabilities 26,349 − other non-current
 #     liabilities 6,866 = +14,180 (operating WC)
 #   + restricted cash non-current 9,375
-#   + assets held for sale 30,236 (Pedhoulas Commander + Xenia, agreed/carrying value)
+#   + assets held for sale 30,236 = Michalis H (2012 Capesize) — the ONE 3/31 HFS (6-K
+#     acc 0001317861-26-000033 line 398; sale agreed Feb-2026, $35.2M gross proceeds, delivered
+#     Apr-2026). CORRECTED 2026-07-01: was mislabeled Pedhoulas Commander + Xenia, whose sales
+#     were only agreed May-2026 (so operating at 3/31 — now on the curve in sb.yaml).
 #   = +53,791
 working_capital_net: 53791000
 

@@ -1,22 +1,27 @@
 # Safe Bulkers Inc. (NYSE: SB) fleet manifest — METHODOLOGY §4.1, §11.7
-# Source: Q1-2026 6-K (SEC CIK 1434754, filed 2026-06-17; fleet status 2026-06-12,
-# balance-sheet date 2026-03-31) + FY2025 20-F. 4th dry-bulk validator.
-# Onboarded 2026-06-27.
+# Source: Q1-2026 6-K (SEC CIK 1434754, acc 0001317861-26-000033) balance-sheet date 2026-03-31
+# + FY2025 20-F (acc 0001628280-26-014408). 4th dry-bulk validator. Onboarded 2026-06-27.
+# DATE-CONSISTENCY CORRECTION 2026-07-01: the whole manifest is now the 2026-03-31 snapshot (was
+# mixing the 2026-06-12 fleet status with the 3/31 balance sheet). See sb_reconciliation_prereg_2026-07-01.md.
 #
-# SCOPE = the 43 OWNED on-curve vessels (45 owned − 2 held-for-sale). The 2 HFS
-# (Pedhoulas Commander 2008 Kamsarmax + Xenia 2006 Post-Panamax) are OFF-curve at
-# the $30.2M assets-held-for-sale carrying value in working_capital_net (DHT-Bauhinia
-# convention). The 1 chartered-in Panamax (Arethousa) is EXCLUDED (not owned).
-# 7 "bareboat leaseback" vessels are OWNED (finance leases — vessel on the books,
-# liability in total_debt; ECO convention, do NOT also drop the hull).
+# SCOPE at 2026-03-31 = 44 OWNED on-curve operating vessels + 1 held-for-sale (Michalis H, 2012
+# Capesize) OFF-curve at the $30.2M assets-held-for-sale carrying value in working_capital_net
+# (DHT-Bauhinia convention). 6-K line 398: "As of March 31, 2026 … 45 vessels, one of which was
+# held for sale, and an orderbook of eight newbuilds." The 1 chartered-in Panamax (Arethousa) is
+# EXCLUDED (not owned). 7 "bareboat leaseback" vessels are OWNED (finance leases — hull on the
+# books, liability in total_debt; ECO convention).
+#   - Katerina (delivered April 2026) is a NEWBUILD at 3/31 (in the 8-NB orderbook), NOT operating.
+#   - Xenia (2006 PPMX) + Pedhoulas Commander (2008 Kamsarmax) are OPERATING at 3/31 (their sales
+#     were only agreed May 2026, subsequent — 6-K line 295).
 #
-# CLASS MAPPING (§11.7.1): Panamax + Kamsarmax (75-82k) → "Pana" (dwt-scaled off 82k);
-# Capesize → "Cape". Post-Panamax (85-95.8k) → its OWN "Post-Panamax" class as of
-# 2026-06-29 (§11.7.10), issuer-classified, on a FLAT value curve — closing the
-# documented over-valuation: SB's 6 large 92-95.8k hulls (Andreas K, Agios Spyridonas,
-# Venus Heritage/History/Horizon/Harmony) used to scale ~1.12-1.17× off the 82k Pana
-# baseline (old wide-beam PPMX should trade at a per-tonne DISCOUNT, not a premium).
-# dwt stays LOAD-BEARING for the still-dwt-scaled Pana + Cape classes.
+# SCRUBBERS = the 20-F ACTUAL set (acc 0001628280-26-014408): "Scrubbers on 21 of our vessels,
+# incl. all Capesize" → 20 operating at 3/31 (Michalis H, a scrubber Cape, is HFS). All 7 operating
+# Capes + 13 non-Cape (12 Post-Panamax + 1 Kamsarmax=Pedhoulas Rose), identified by the 20-F fleet
+# table footnote (15)/(16) "Scrubber benefit" (matches the disclosed aggregate exactly). Corrects
+# the prior blanket scrubber default (all 16 PPMX + 6 wrong Kamsarmax) — the peer-borrowed-flag bug.
+#
+# CLASS MAPPING (§11.7.1): Panamax + Kamsarmax (75-84k) → "Pana" (dwt-scaled off 82k); Capesize →
+# "Cape"; Post-Panamax (85-95.8k) → own "Post-Panamax" class (§11.7.10), FLAT curve.
 # Ages = 2026.25 − built. eco = built ≥ 2015.
 
 ticker: SB
@@ -34,22 +39,24 @@ vessels:
   - {id: SB_KyprosSky,     class: Pana, dwt: 77100, age: 11.25, scrubber: false, eco: true,  charter_status: time_charter, count: 1}   # BPI-index-linked (no fixed rate)
   - {id: SB_KyprosLoyalty, class: Pana, dwt: 78000, age: 11.25, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 18600, charter_end: 2026-12, count: 1}
   - {id: SB_KyprosSpirit,  class: Pana, dwt: 78000, age: 10.25, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 18000, charter_end: 2026-06, count: 1}
-  # ---- Kamsarmax (12, ~82k; excl. Pedhoulas Commander HFS) ----
-  - {id: SB_PedhoulasRose,   class: Pana, dwt: 82000, age: 9.25, scrubber: false, eco: true, charter_status: spot, count: 1}
-  - {id: SB_PedhoulasCedrus, class: Pana, dwt: 81800, age: 8.25, scrubber: true,  eco: true, charter_status: spot, count: 1}
-  - {id: SB_Vassos,          class: Pana, dwt: 82000, age: 4.25, scrubber: true,  eco: true, charter_status: time_charter, charter_rate: 16000, charter_end: 2026-09, count: 1}
-  - {id: SB_PedhoulasTrader, class: Pana, dwt: 82000, age: 3.25, scrubber: true,  eco: true, charter_status: time_charter, charter_rate: 18750, charter_end: 2026-09, count: 1}
+  # ---- Kamsarmax (12, ~82-84k) — scrubber TRUE only on Pedhoulas Rose (20-F ftn-15) ----
+  - {id: SB_PedhoulasRose,      class: Pana, dwt: 82000, age: 9.25, scrubber: true,  eco: true, charter_status: spot, count: 1}   # 20-F ftn-15 scrubber-fitted
+  - {id: SB_PedhoulasCommander, class: Pana, dwt: 83700, age: 18.25, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 17000, charter_end: 2026-07, count: 1}  # 2008; OPERATING at 3/31 (sale agreed May-2026)
+  - {id: SB_PedhoulasCedrus, class: Pana, dwt: 81800, age: 8.25, scrubber: false, eco: true, charter_status: spot, count: 1}
+  - {id: SB_Vassos,          class: Pana, dwt: 82000, age: 4.25, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 16000, charter_end: 2026-09, count: 1}
+  - {id: SB_PedhoulasTrader, class: Pana, dwt: 82000, age: 3.25, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 18750, charter_end: 2026-09, count: 1}
   - {id: SB_Morphou,         class: Pana, dwt: 82000, age: 3.25, scrubber: false, eco: true, charter_status: time_charter, count: 1}
-  - {id: SB_Rizokarpaso,     class: Pana, dwt: 82000, age: 3.25, scrubber: true,  eco: true, charter_status: time_charter, count: 1}
-  - {id: SB_Ammoxostos,      class: Pana, dwt: 82000, age: 2.25, scrubber: true,  eco: true, charter_status: spot, count: 1}
+  - {id: SB_Rizokarpaso,     class: Pana, dwt: 82000, age: 3.25, scrubber: false, eco: true, charter_status: time_charter, count: 1}
+  - {id: SB_Ammoxostos,      class: Pana, dwt: 82000, age: 2.25, scrubber: false, eco: true, charter_status: spot, count: 1}
   - {id: SB_Kerynia,         class: Pana, dwt: 82000, age: 2.25, scrubber: false, eco: true, charter_status: time_charter, count: 1}
-  - {id: SB_PedhoulasFarmer, class: Pana, dwt: 82500, age: 2.25, scrubber: true,  eco: true, charter_status: spot, count: 1}
+  - {id: SB_PedhoulasFarmer, class: Pana, dwt: 82500, age: 2.25, scrubber: false, eco: true, charter_status: spot, count: 1}
   - {id: SB_PedhoulasFighter, class: Pana, dwt: 82500, age: 2.25, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 17000, charter_end: 2026-09, count: 1}
   - {id: SB_Efrossini,       class: Pana, dwt: 82000, age: 1.25, scrubber: false, eco: true, charter_status: spot, count: 1}
-  - {id: SB_Katerina,        class: Pana, dwt: 82000, age: 0.25, scrubber: false, eco: true, charter_status: time_charter, count: 1}
-  # ---- Post-Panamax (16, ~85-95.8k; excl. Xenia HFS) — own class since 2026-06-29 (§11.7.10).
-  #      Issuer (Q1-2026 6-K) classifies these as "Post-Panamax". Flat value curve (no dwt
-  #      scale-up). charter_rate = disclosed gross $/day (6-K employment table, redelivery month). ----
+  # (Katerina delivered April-2026 → NEWBUILD at 3/31, see the orderbook rows below; NOT operating here.)
+  # ---- Post-Panamax (17, ~85-95.8k) — own class since 2026-06-29 (§11.7.10). Flat value curve.
+  #      scrubber TRUE = 12 (the older 2006-2016 retrofits, 20-F ftn-15); FALSE = Venus Harmony,
+  #      Troodos Oak, Climate Respect/Ethics/Justice (newer eco hulls, no ftn-15). ----
+  - {id: SB_Xenia,           class: Post-Panamax, dwt: 87000, age: 20.25, scrubber: true, eco: false, charter_status: spot, count: 1}  # 2006; OPERATING at 3/31 (sale agreed May-2026)
   - {id: SB_Marina,          class: Post-Panamax, dwt: 87000, age: 20.25, scrubber: true, eco: false, charter_status: time_charter, charter_rate: 16500, charter_end: 2026-07, count: 1}
   - {id: SB_Sophia,          class: Post-Panamax, dwt: 87000, age: 19.25, scrubber: true, eco: false, charter_status: spot, count: 1}
   - {id: SB_Eleni,           class: Post-Panamax, dwt: 87000, age: 18.25, scrubber: true, eco: false, charter_status: time_charter, charter_rate: 14000, charter_end: 2026-07, count: 1}
@@ -59,16 +66,16 @@ vessels:
   - {id: SB_VenusHeritage,   class: Post-Panamax, dwt: 95800, age: 16.25, scrubber: true, eco: false, charter_status: spot, count: 1}
   - {id: SB_VenusHistory,    class: Post-Panamax, dwt: 95800, age: 15.25, scrubber: true, eco: false, charter_status: spot, count: 1}
   - {id: SB_VenusHorizon,    class: Post-Panamax, dwt: 95800, age: 14.25, scrubber: true, eco: false, charter_status: time_charter, charter_rate: 16000, charter_end: 2026-06, count: 1}
-  - {id: SB_VenusHarmony,    class: Post-Panamax, dwt: 95700, age: 13.25, scrubber: true, eco: false, charter_status: time_charter, charter_rate: 17750, charter_end: 2026-09, count: 1}
+  - {id: SB_VenusHarmony,    class: Post-Panamax, dwt: 95700, age: 13.25, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 17750, charter_end: 2026-09, count: 1}
   - {id: SB_TroodosSun,      class: Post-Panamax, dwt: 85000, age: 10.25, scrubber: true, eco: true,  charter_status: time_charter, charter_rate: 19075, charter_end: 2026-08, count: 1}
   - {id: SB_TroodosAir,      class: Post-Panamax, dwt: 85000, age: 10.25, scrubber: true, eco: true,  charter_status: time_charter, charter_rate: 23000, charter_end: 2026-06, count: 1}
-  - {id: SB_TroodosOak,      class: Post-Panamax, dwt: 85000, age: 6.25,  scrubber: true, eco: true,  charter_status: time_charter, charter_rate: 23500, charter_end: 2026-07, count: 1}
-  - {id: SB_ClimateRespect,  class: Post-Panamax, dwt: 87000, age: 4.25,  scrubber: true, eco: true,  charter_status: time_charter, charter_rate: 20250, charter_end: 2026-06, count: 1}
-  - {id: SB_ClimateEthics,   class: Post-Panamax, dwt: 87000, age: 3.25,  scrubber: true, eco: true,  charter_status: spot, count: 1}
-  - {id: SB_ClimateJustice,  class: Post-Panamax, dwt: 87000, age: 3.25,  scrubber: true, eco: true,  charter_status: time_charter, charter_rate: 17600, charter_end: 2026-11, count: 1}
+  - {id: SB_TroodosOak,      class: Post-Panamax, dwt: 85000, age: 6.25,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 23500, charter_end: 2026-07, count: 1}
+  - {id: SB_ClimateRespect,  class: Post-Panamax, dwt: 87000, age: 4.25,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 20250, charter_end: 2026-06, count: 1}
+  - {id: SB_ClimateEthics,   class: Post-Panamax, dwt: 87000, age: 3.25,  scrubber: false, eco: true,  charter_status: spot, count: 1}
+  - {id: SB_ClimateJustice,  class: Post-Panamax, dwt: 87000, age: 3.25,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 17600, charter_end: 2026-11, count: 1}
 
   # ============================================================
-  # Cape class (7, ~176-181k; all scrubber-fitted)
+  # Cape class (7, ~176-181k; all scrubber-fitted per 20-F)
   # ============================================================
   - {id: SB_MountTroodos, class: Cape, dwt: 181400, age: 17.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
   - {id: SB_Kanaris,      class: Cape, dwt: 178100, age: 16.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
@@ -78,35 +85,28 @@ vessels:
   - {id: SB_LakeDespina,  class: Cape, dwt: 181400, age: 12.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
   - {id: SB_Maria,        class: Cape, dwt: 181300, age: 12.25, scrubber: true, eco: false, charter_status: time_charter, count: 1}
 
-  # Newbuild orderbook AT 2026-03-31 (the NAV quarter-end) — 8 Kamsarmax (Pana class),
-  # valued on the curve at age-0 DELIVERED-market PV less remaining commitment (§9.6,
-  # the BRUT/CAPT convention), NOT advances-only. Q1-2026 6-K (CIK 1434754, accession
-  # 0001317861-26-000033): "orderbook of eight newbuilds … $227.5M remaining capital
-  # expenditure requirements" as of 2026-03-31. (The 11-NB June-12 orderbook adds 4 Q2
-  # orders — 2 May + 1 June Kamsarmax + 1 June Capesize, all 2029 — and removes Katerina,
-  # delivered April; those post-quarter changes are NOT valued here.) See sb_log + NB pre-reg.
-  # eco: true = §3.1 post-2014 build rule (disclosed "IMO GHG Phase 3 - NOx Tier III"). scrubber:
-  # false = SB's 6-K discloses scrubbers ONLY on the existing 45-vessel fleet ("20 vessels, incl all
-  # Capesize"), NOT the Kamsarmax NBs (no scrubber column in the orderbook table); 2 are dual-fuel
-  # methanol (no scrubber). Adversarially verified vs the live 6-K 2026-06-30 — NOT a peer default.
+  # Newbuild orderbook AT 2026-03-31 (the NAV quarter-end) — 8 Kamsarmax (Pana class), valued on
+  # the curve at age-0 DELIVERED-market PV less remaining commitment (§9.6). 6-K (acc
+  # 0001317861-26-000033) line 398: "orderbook of eight newbuilds", $227.5M remaining capex at
+  # 3/31. INCLUDES Katerina (undelivered at 3/31, delivered April). eco: true = §3.1 post-2014
+  # rule; scrubber: false = SB's Kamsarmax NBs are not scrubber-disclosed (2 are dual-fuel methanol).
+  # (The 11-NB June-12 orderbook — +4 Q2 orders, −Katerina delivered — is post-quarter, NOT valued.)
   - {id: SB_NB_Katerina,  class: Pana, dwt: 82000, age: 0, scrubber: false, eco: true, count: 1, years_to_delivery: 0.04}   # delivered Apr-2026; NB at quarter-end
   - {id: SB_NB_2026,      class: Pana, dwt: 82000, age: 0, scrubber: false, eco: true, count: 3, years_to_delivery: 0.50}   # 3 × 2026 (within-year midpoint)
   - {id: SB_NB_2027,      class: Pana, dwt: 82000, age: 0, scrubber: false, eco: true, count: 2, years_to_delivery: 1.30}   # 2 × 2027
   - {id: SB_NB_2028Q3,    class: Pana, dwt: 82500, age: 0, scrubber: false, eco: true, count: 1, years_to_delivery: 2.38}   # Jan-2026 Chinese order, Q3-2028
   - {id: SB_NB_2029Q1,    class: Pana, dwt: 82500, age: 0, scrubber: false, eco: true, count: 1, years_to_delivery: 2.88}   # Jan-2026 Chinese order, Q1-2029
 
-# Share of fleet on spot, by class (feeds the strip, not NAV). 6-K employment table:
-# Pana 8 of 20 on spot (0.40); Post-Panamax 6 of 16 on spot (0.375); all 7 Cape on period.
+# Share of fleet on spot, by class (feeds the strip, not NAV). 6-K employment table (approx at 3/31).
 spot_coverage_pct:
   Pana: 0.40
-  Post-Panamax: 0.38
+  Post-Panamax: 0.41          # 7 spot of 17 (incl. Xenia)
   Cape: 0.0
-
 fleet_summary:
-  on_curve_total: 51          # MUST equal Σ ALL curve-valued rows: 43 operating + 8 NB (cross-foot gate)
-  newbuilds_committed: 8      # 8 Kamsarmax on the curve at age-0 delivered PV (§9.6); orderbook, not operating
-  Pana_count: 20              # 8 Panamax + 12 Kamsarmax (75-82k) — on-water only
-  Post-Panamax_count: 16      # 85-95.8k (§11.7.10, own class 2026-06-29)
+  on_curve_total: 52          # MUST equal Σ ALL curve-valued rows: 44 operating + 8 NB (cross-foot gate)
+  newbuilds_committed: 8      # 8 Kamsarmax on the curve at age-0 delivered PV (§9.6); orderbook at 3/31 (6-K line 398)
+  Pana_count: 20              # 8 Panamax + 12 Kamsarmax (75-84k) — operating at 3/31
+  Post-Panamax_count: 17      # 85-95.8k (§11.7.10); incl. Xenia (operating at 3/31)
   Cape_count: 7
-  held_for_sale: 2            # Pedhoulas Commander + Xenia → off-curve at $30.2M (working_capital_net)
+  held_for_sale: 1            # Michalis H (2012 Capesize) → off-curve at $30.2M (working_capital_net)
   chartered_in: 1             # Arethousa (excluded)
