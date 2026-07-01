@@ -1,8 +1,10 @@
 # Book-wide scorecard (Thread 4)
 
-## Verdict — the consolidated read (one row per name)
+This file lists each name **twice, by design** — once in the **Verdict** (the decision surface: FV vs price, position, tier) and once in the **Validation matrix** below (the per-gate evidence behind that tier). The Verdict is what you act on; the matrix is why. One row per name *within* each table.
 
-FV vs current price, position, and the broker-NAV bug-gate on the **same row** as the confidence tier — **the single handoff surface** (per-gate detail is the matrix below, same file).
+## Verdict — the consolidated read (the decision surface)
+
+FV vs current price, position, and the broker-NAV bug-gate on the **same row** as the confidence tier — **the single handoff surface** for a sizing decision. The per-gate evidence behind each tier is the Validation matrix below (same names, same file).
 
 **What this says about the opportunity set:** of 22 names, the validated-and-actionable-long surface is **2 (SB, SBLK — dry bulk, cheap on both NAV bases)**. 11 are directional-only (GOVERNED-WIDE); 6 are not yet trustworthy enough to act on (PROVISIONAL ⛔). TNK is VALIDATED-TIGHT and BUY but reads *rich* — a near-peak-earnings long, cycle-dependent, not a clean value long. And **every one of the book's TRIM/SHORT positions is cycle-position, unreliable-read, or void — not one is a name-specific short.** The thin actionable list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.
 

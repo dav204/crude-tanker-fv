@@ -283,9 +283,10 @@ def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation
     )
     n_wide = sum(1 for r in rows if r.confidence_tier == "GOVERNED-WIDE")
     n_prov = sum(1 for r in rows if r.confidence_tier == "PROVISIONAL")
-    w("## Verdict — the consolidated read (one row per name)\n")
+    w("## Verdict — the consolidated read (the decision surface)\n")
     w("FV vs current price, position, and the broker-NAV bug-gate on the **same row** as the confidence "
-      "tier — **the single handoff surface** (per-gate detail is the matrix below, same file).\n")
+      "tier — **the single handoff surface** for a sizing decision. The per-gate evidence behind each "
+      "tier is the Validation matrix below (same names, same file).\n")
     w(f"**What this says about the opportunity set:** of {len(rows)} names, the validated-and-actionable-"
       f"long surface is **{len(longs)} ({', '.join(longs)} — dry bulk, cheap on both NAV bases)**. "
       f"{n_wide} are directional-only (GOVERNED-WIDE); {n_prov} are not yet trustworthy enough to act on "
@@ -333,6 +334,10 @@ def write_scorecard(
     w("# Book-wide scorecard (Thread 4)\n")
 
     if valuation:
+        w("This file lists each name **twice, by design** — once in the **Verdict** (the decision "
+          "surface: FV vs price, position, tier) and once in the **Validation matrix** below (the "
+          "per-gate evidence behind that tier). The Verdict is what you act on; the matrix is why. "
+          "One row per name *within* each table.\n")
         _write_verdict(w, rows, valuation, order)
         w("## Validation matrix — per-gate detail\n")
 
