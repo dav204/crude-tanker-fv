@@ -1,20 +1,29 @@
+# 12-month time-charter assessments by class.
+#
+# PARTIAL REFRESH 2026-07-02 (audit F-5 / reweight vintage): the Pareto Shipping
+# Daily carries SPOT prints only — no 1-year T/C table — so the TANKER entries
+# below are the 2026-06-07 vintage HELD and explicitly flagged STALE (do not
+# invent a figure; refresh when the next TC assessment / Pareto weekly lands —
+# tracked via the refresh preflight market-data staleness check). DRY BULK is
+# refreshed from the 2-Jul FFA OCR widget (status ok, outputs/ffa_ocr_queue.md):
+# 12M TC proxy = mean of the Qn/Qf quarterly tenors.
 twelve_month_tc:
-  VLCC: 111500
-  Suezmax: 61250
-  Aframax: 56250
-  LR2: 56250
-  LR1: 56250
-  LNGC: 60000
-  MGC: 28000
-  MR: 22000
-  Handysize: 22000
-  Handymax: 22000
-  LR1_clean: 38000
-  LR2_clean: 45000
-  Cape: 27000
-  Pana: 17500
-  Post-Panamax: 17500     # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  Supra-Ultra: 16000
+  VLCC: 111500          # STALE Jun-7 war vintage — held, no 2-Jul TC print (see header)
+  Suezmax: 61250        # STALE Jun-7 — held
+  Aframax: 56250        # STALE Jun-7 — held
+  LR2: 56250            # STALE Jun-7 — held
+  LR1: 56250            # STALE Jun-7 — held
+  LNGC: 60000           # STALE Jun-7 — held
+  MGC: 28000            # STALE Jun-7 — held
+  MR: 22000             # STALE Jun-7 — held
+  Handysize: 22000      # STALE Jun-7 — held
+  Handymax: 22000       # STALE Jun-7 — held
+  LR1_clean: 38000      # STALE Jun-7 — held
+  LR2_clean: 45000      # STALE Jun-7 — held
+  Cape: 33100           # (32508 Qn + 33650 Qf)/2, FFA OCR 2-Jul (was 27000 Jun-9)
+  Pana: 18550           # (18983 + 18125)/2, FFA OCR 2-Jul (was 17500 Jun-9)
+  Post-Panamax: 18550   # shares the Pana freight basin (§11.7.10, 2026-06-29)
+  Supra-Ultra: 17900    # (18533 + 17300)/2, FFA OCR 2-Jul (was 16000 Jun-9)
   # Containerships (§11.8) — MB Apr-01-2026 TC assessments, class-collapsed
   # per §11.8.1 (frozen vintage; ctr_intermediate is the simple average
   # pending the A3 TEU-weighting at validator onboarding).

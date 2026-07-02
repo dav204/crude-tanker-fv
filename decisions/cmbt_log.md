@@ -9,6 +9,26 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-02T18:27:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $14.05
+- Single-point FV: $15.19
+- Scenario PW FV: $13.34 (EV -5.0%)
+- NAV / share: $15.87
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +18.2pp (k_broker 1.11)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → TRIM/SHORT (overvalued)
+- ⚑ scenario PW FV -14.3%
+- Δprice: no change | Δsingle FV: -0.5% | Δscenario FV: -14.3% | ΔNAV: no change | Δspread: -1.3pp
+
+**Decision (2026-07-02, vintage — band flip eyeballed):** ACCEPT BUY→TRIM/SHORT at face value but READ AS HOLD-BAND STRADDLE: EV −5.05%, five basis points past the −5% line, and the final push was the −$0.39 dry-bulk RATES nudge (2-Jul FFA promotion), not a judgment layer. Decomposition: $16.07→$13.34 = C-3 fix −$0.51 / crude+leg −$1.83 / rates −$0.39 (proposal §10). Post-stand-down vintage (2026-07-02): crude 0.10/0.20/0.45/0.25 + MoU-ineffective leg recalibrated (0.15-flare mixture) + product v2-restore + LNG v3-restore + F-5 rate refresh. Full attribution: decisions/crude_reweight_proposal_2026-07-02.md §10/§15 + the 2026-07-02 review sign-off chain. ΔNAV 0.0% — scenario/rate layer only. W-frag ⚠ already flags the name; treat the label as boundary noise until it clears ±2pp of the line. No trade.
+
+---
+
 ## 2026-07-02T16:43:15+00:00 — Pipeline run (auto)
 
 **Model state:**

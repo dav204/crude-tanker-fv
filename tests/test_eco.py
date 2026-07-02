@@ -54,4 +54,8 @@ def test_scenarios_overvalued(eco):
     # HOLD (EV ~-2%): Amendment B set Suezmax age-0 to xclusiv Resale $114.3M (> the
     # pre-Thread-1 $108M), lifting ECO's young-Suezmax NAV ~+2% and moving it from
     # TRIM/SHORT into the fairly-valued band. Read straight off the xclusiv curve.
-    assert r.position_recommendation.startswith("HOLD")
+    # Re-pinned 2026-07-02 (post-stand-down vintage: crude reweight 0.10/0.20/0.45/0.25
+    # + MoU-ineffective leg recalibration — decisions/crude_reweight_proposal_2026-07-02.md):
+    # removing the war premium drops PW FV to ~$30.2 vs $48.10 → TRIM/SHORT
+    # (§12 relabel applies downstream — cycle position, not a short).
+    assert r.position_recommendation.startswith("TRIM/SHORT")

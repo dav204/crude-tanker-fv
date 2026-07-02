@@ -7,6 +7,26 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-02T18:27:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.53
+- Single-point FV: $14.95
+- Scenario PW FV: $11.35 (EV -31.3%)
+- NAV / share: $13.88
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +5.5pp (k_broker 1.08)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- ⚑ scenario PW FV -28.0%
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: -28.0% | ΔNAV: no change | Δspread: -1.6pp
+
+**Decision (2026-07-02, vintage — band flip eyeballed):** ACCEPT HOLD→TRIM/SHORT (EV −4.6%→−31.3%). Post-stand-down vintage (2026-07-02): crude 0.10/0.20/0.45/0.25 + MoU-ineffective leg recalibrated (0.15-flare mixture) + product v2-restore + LNG v3-restore + F-5 rate refresh. Full attribution: decisions/crude_reweight_proposal_2026-07-02.md §10/§15 + the 2026-07-02 review sign-off chain. ΔNAV 0.0% — scenario/rate layer only. The flip is the war-premium leaving the weighted FV while the tape had already repriced; DHT remains in POSITION_CYCLE_RELABEL — the displayed position stays 'rich · cycle position (not a short)' (§12). Weight-robust TRIM across the §9.10 family under the new prior. No trade.
+
+---
+
 ## 2026-07-02T16:43:15+00:00 — Pipeline run (auto)
 
 **Model state:**

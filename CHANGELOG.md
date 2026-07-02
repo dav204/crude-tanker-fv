@@ -23,10 +23,21 @@ live rules distilled from it.
   un-anchored marks + static prices since Jun-9 with a stale "Set A" (look-back: no decision affected — the
   only citation predates the break); fixed, extended to all 10 crude-exposed names, machine-readable sidecar.
   (5) Sizing language struck from valuation outputs (reviewer correction: worth + trust only; sizing is the
-  governance repo's field). **PENDING (owner gates): the one-vintage execution** — crude 0.10/0.20/0.45/0.25
-  + MoU-ineffective leg recalibrated (0.15-flare mixture) + product v2-restore + LNG v3-restore + F-5 rate
-  refresh (Jul-2 Pareto: TD3C $285.5k, Brent $70.8) — scenario_inputs diff goes under the owner's eyes
-  before ratify. Six expected band flips, all pre-annotated in the proposal (§15).
+  governance repo's field). **THE VINTAGE EXECUTED same day (owner "Approved, option (i)" after the
+  Rider-3 diff review):** crude 0.10/0.20/0.45/0.25 + MoU-ineffective leg recalibrated (0.15-flare mixture;
+  `semantics_changed: 2026-07-02` machine marker) + product v2-restore + LNG v3-restore (§11.3/§11.5
+  revision notes; lock tests re-pinned per their own instructions) + F-5 refresh (spot_tce fully re-cited to
+  the 2-Jul Pareto — TD3C $285.5k, Brent $70.8; dry-bulk FFA/12M-TC promoted from the 2-Jul OCR; TANKER
+  forwards HELD at Jun-7, owner option (i) — no market print exists; trigger `tanker_forward_print_lands`
+  armed, scorecard Rate-basis header discloses). Gate: 18 UNEXPLAINED re-ratified with cause; six band flips
+  eyeballed + annotated (DHT HOLD→TRIM [cycle-relabeled], STNG BUY→HOLD [retracts the morning's
+  price-driven flip], FLNG BUY→HOLD [back to v3 history], CMBT BUY→TRIM [BOUNDARY-CROSS at −5.05% — the
+  −$0.39 dry-bulk rates nudge carried it over; read as HOLD-straddle], BRUT +98%→−40% and CAPT +37%→−19%
+  [the two genuine war-premium false-BUYs]). C-2 decomposition complete per-sector in the proposal §10;
+  tanker rate-effect exactly $0.00 (held forwards — understated as caveated). W-5 registered in brut_log
+  with the corrected epistemology: the governance layer (PROVISIONAL ⛔ + POSITION_UNRELIABLE) succeeded by
+  preventing the model from fighting a correct tape — BRUT fell 7.5% on Jun-30 vs the crude five's 15–22%;
+  the market never carried the model's war premium.
 
 - **2026-07-02 — EXTERNAL AUDIT RESPONSE: 12 findings verified (10 confirmed / 2 partial), 9 fixed same-day; the price band was WORSE than the audit said.**
   An independent clone-and-run audit of `6749362` landed 12 findings (`outputs/EXTERNAL_AUDIT_2026-07-02.md` —

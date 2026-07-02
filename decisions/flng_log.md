@@ -7,6 +7,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-02T18:27:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.62
+- Single-point FV: $28.16
+- Scenario PW FV: $29.19 (EV +2.0%)
+- NAV / share: $28.45
+- Position: **HOLD (fairly valued)**
+- Broker spread: -23.7pp (k_broker 0.86)
+- Sector: lng
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: -4.8% | ΔNAV: no change | Δspread: +0.8pp
+
+**Decision (2026-07-02, vintage — band flip eyeballed):** ACCEPT BUY→HOLD (EV +7.2%→+2.0%). Post-stand-down vintage (2026-07-02): crude 0.10/0.20/0.45/0.25 + MoU-ineffective leg recalibrated (0.15-flare mixture) + product v2-restore + LNG v3-restore + F-5 rate refresh. Full attribution: decisions/crude_reweight_proposal_2026-07-02.md §10/§15 + the 2026-07-02 review sign-off chain. ΔNAV 0.0% — scenario/rate layer only. Consistent with history: FLNG was TRIM under v3, lifted into HOLD/BUY only by the Jun-9 Hormuz-transit tilt; the v3 restore lands it back at HOLD. The Ras Laffan supply story (§14) is already in v3 — this is the transit layer leaving, nothing else. Lock tests re-pinned per their own re-pin instructions. No trade.
+
+---
+
 ## 2026-07-02T16:43:15+00:00 — Pipeline run (auto)
 
 **Model state:**

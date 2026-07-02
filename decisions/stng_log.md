@@ -7,6 +7,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-02T18:27:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $69.53
+- Single-point FV: $76.13
+- Scenario PW FV: $70.90 (EV +2.0%)
+- NAV / share: $77.47
+- Position: **HOLD (fairly valued)**
+- Broker spread: +25.5pp (k_broker 1.31)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: -8.1% | ΔNAV: no change | Δspread: -2.0pp
+
+**Decision (2026-07-02, vintage — band flip eyeballed):** ACCEPT BUY→HOLD (EV +10.9%→+2.0%). Post-stand-down vintage (2026-07-02): crude 0.10/0.20/0.45/0.25 + MoU-ineffective leg recalibrated (0.15-flare mixture) + product v2-restore + LNG v3-restore + F-5 rate refresh. Full attribution: decisions/crude_reweight_proposal_2026-07-02.md §10/§15 + the 2026-07-02 review sign-off chain. ΔNAV 0.0% — scenario/rate layer only. This RETRACTS the morning's price-driven HOLD→BUY flip: that flip was real at the tape but weight-dependent underneath (pre-surfaced in the proposal §15 before the run — not a surprise). PROVISIONAL·off-curve ⛔ regardless; the open §9.6 newbuild fork is still the name's real question. No trade.
+
+---
+
 ## 2026-07-02T16:43:15+00:00 — Pipeline run (auto)
 
 **Model state:**

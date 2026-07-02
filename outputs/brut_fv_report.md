@@ -7,7 +7,7 @@
 
 ## Data validation warnings
 
-- spot TCE VLCC: $388,300/day is 9.7x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
+- spot TCE VLCC: $285,500/day is 7.1x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
 
 ## NAV breakdown
 
@@ -70,7 +70,7 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 | **Implied breakeven (blended)** | **0** | — |
 | 10-year mean | 40,000 | 0.00× |
 | 12-month FFA | 155,000 | 0.00× |
-| Current spot | 388,300 | 0.00× |
+| Current spot | 285,500 | 0.00× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 

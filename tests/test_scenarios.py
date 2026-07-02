@@ -35,9 +35,12 @@ def test_scenarios_parse_and_weights_sum_to_one(doc):
     assert sum(doc["scenarios"][n]["weight"] for n in names) == pytest.approx(1.0)
     # BUG-5 (2026-06-22): pin the individual Crude Set A weights — sum-to-1 alone let a
     # silent weight edit pass (LNG/product weights were value-pinned, crude was not).
+    # Re-pinned 2026-07-02 (post-stand-down vintage: crude reweight 0.25/0.45/0.18/0.12
+    # → 0.10/0.20/0.45/0.25 + MoU-ineffective leg recalibration —
+    # decisions/crude_reweight_proposal_2026-07-02.md).
     assert {n: doc["scenarios"][n]["weight"] for n in names} == {
-        "escalation": pytest.approx(0.25), "pre_mou_baseline": pytest.approx(0.45),
-        "mou_base": pytest.approx(0.18), "mou_bear": pytest.approx(0.12),
+        "escalation": pytest.approx(0.10), "pre_mou_baseline": pytest.approx(0.20),
+        "mou_base": pytest.approx(0.45), "mou_bear": pytest.approx(0.25),
     }
     # Sector layer (METHODOLOGY §11): the default load returns the crude sub-doc
     # with its own cycle_anchors, and the sector name is stamped in.
@@ -98,6 +101,8 @@ def test_run_scenarios_weighted_average_identity(doc):
 # Point-in-time pin (Jun-9 weights + Jun-11 inputs); re-pin on weight settle
 # (post-Hormuz resolution). Re-pinned from skip 2026-06-11 (B3): a pin against
 # current intended state catches unintended drift; a skip catches nothing.
+# Re-pinned 2026-07-02 (post-stand-down vintage: crude reweight + MoU-ineffective
+# leg recalibration — decisions/crude_reweight_proposal_2026-07-02.md).
 def test_nav_flexes_with_scenario(doc):
     ci = load_company_inputs("DHT", "2026-Q1")
     r = run_scenarios(ci, 16.40, 16.00, doc)
@@ -109,8 +114,12 @@ def test_nav_flexes_with_scenario(doc):
     # probability-weighted NAV sits ABOVE today's NAV ($15.79 vs $15.29 at pin
     # time). The v1 assertion (wnav < base) encoded normalization-leaning
     # weights; the relationship is weight-set-dependent, not structural.
+    # DIRECTION REVERSED BACK at the 2026-07-02 re-pin: the post-stand-down set
+    # (0.10/0.20/0.45/0.25, normalization-leaning) plus the recalibrated
+    # MoU-ineffective pre_mou leg put the PW NAV back BELOW today's NAV
+    # ($12.40 vs $16.07 at pin time) — same weight-set-dependence as documented above.
     wnav = sum(s.weight * s.nav_per_share for s in r.scenarios)
-    assert wnav > r.base_nav_per_share
+    assert wnav < r.base_nav_per_share
 
 
 def test_per_scenario_range_brackets_base(doc):
@@ -129,7 +138,9 @@ def test_bear_softer_than_base(doc):
 
 
 # Point-in-time pin (Jun-9 weights + Jun-11 inputs); re-pin on weight settle
-# (post-Hormuz resolution).
+# (post-Hormuz resolution). Re-pinned 2026-07-02 (post-stand-down vintage:
+# crude reweight + MoU-ineffective leg recalibration —
+# decisions/crude_reweight_proposal_2026-07-02.md).
 def test_lr2_maps_to_clean_curve(doc):
     # FRO's LR2 sleeve uses the scenario lr2_clean curve (spike-sensitive), not
     # the static Aframax proxy. Sanity: the run completes with 3 classes priced.
@@ -139,7 +150,10 @@ def test_lr2_maps_to_clean_curve(doc):
     # the Thread-1 5yr-as-age-0, so FRO's static NAV returns to ~$28.5 and the
     # scenario PW FV sits back inside the HOLD band.) The LR2-clean mapping (this
     # test's actual subject) is unaffected; the run still prices 3 classes.
-    assert r.position_recommendation.startswith("HOLD")
+    # TRIM/SHORT at the 2026-07-02 re-pin: the post-stand-down reweight removes
+    # the war premium (PW FV ~$21.4 vs $34.50 at pin time). §12 relabel applies
+    # downstream — cycle position, not a short. LR2-clean mapping still the subject.
+    assert r.position_recommendation.startswith("TRIM/SHORT")
 
 
 def test_breakeven_is_scenario_invariant(doc):
@@ -184,12 +198,15 @@ def test_lng_sector_scenarios_load(lng_doc):
     #   -7pp glut_base, -3pp glut_intensifies — Hormuz contestation pulls weight
     #   toward tight_resurgence (Qatar LNG transits Hormuz). Re-lock when the
     #   US response to the Jun-8 helicopter downing resolves.
+    # Re-pinned 2026-07-02 (post-stand-down vintage: LNG v3 Set B-revised
+    #   {0.15, 0.25, 0.45, 0.15, 0.00} RESTORED — the Jun-9 v4 Hormuz tilt unwound
+    #   with the stand-down; decisions/crude_reweight_proposal_2026-07-02.md §15/C-4).
     active = ["tight_resurgence", "moderate_tightening", "glut_base", "glut_intensifies"]
     assert sum(lng_doc["scenarios"][n]["weight"] for n in active) == pytest.approx(1.0)
-    assert lng_doc["scenarios"]["tight_resurgence"]["weight"] == pytest.approx(0.25)
+    assert lng_doc["scenarios"]["tight_resurgence"]["weight"] == pytest.approx(0.15)
     assert lng_doc["scenarios"]["moderate_tightening"]["weight"] == pytest.approx(0.25)
-    assert lng_doc["scenarios"]["glut_base"]["weight"] == pytest.approx(0.38)
-    assert lng_doc["scenarios"]["glut_intensifies"]["weight"] == pytest.approx(0.12)
+    assert lng_doc["scenarios"]["glut_base"]["weight"] == pytest.approx(0.45)
+    assert lng_doc["scenarios"]["glut_intensifies"]["weight"] == pytest.approx(0.15)
     assert lng_doc["scenarios"]["structural_reset"]["weight"] == pytest.approx(0.0)
     # The structural_reset scenario carries a vessel_scale_multiplier (the -10%
     # accelerated-retirement haircut applied on top of the elasticity-derived flex).
@@ -333,6 +350,9 @@ def test_lng_weights_sum_to_one(lng_doc):
 # Point-in-time pin (Jun-9 v4 LNG weights + Jun-11 inputs); re-pin on weight
 # settle (post-Hormuz resolution). Band re-based 2026-06-11 from the v3 $26.45
 # pin to the Jun-9-v4 $29.63: ±5% → [28.15, 31.11]. EV +27.8% at pin time.
+# Re-pinned 2026-07-02 (post-stand-down vintage: LNG v3 Set B-revised restored —
+# decisions/crude_reweight_proposal_2026-07-02.md): $33.50, ±5% → [31.82, 35.17].
+# EV +44.5% at pin time — BUY holds.
 def test_ccec_v3_set_b_revised_fv_band_and_buy_flip(lng_doc):
     """v3 lock companion test — CCEC PW FV jumps from $22.94 (Set B HOLD)
     to $26.45 (Set B-revised BUY) under the reweighting. The flip is
@@ -351,7 +371,9 @@ def test_ccec_v3_set_b_revised_fv_band_and_buy_flip(lng_doc):
     # 2026-06-22 rebased for the cycle-conditional terminal + NET RETAINED EARNINGS
     # (§9.2): CCEC is low-payout LNG with high scenario torque, so retained earnings
     # lift PW FV ~$29 → ~$35.9 (BUY held, EV strengthens).
-    assert 34.0 < r.probability_weighted_fv < 38.0
+    # Re-pinned 2026-07-02 (post-stand-down vintage: LNG v3 restore pulls the Jun-9
+    # tight_resurgence tilt back out — PW FV ~$33.50, ±5%; BUY held at EV +44.5%).
+    assert 31.82 < r.probability_weighted_fv < 35.17
     # Position must be BUY at locked weights — flag if it shifts.
     ev_pct = r.expected_value_vs_current / r.current_price * 100
     assert ev_pct > 5.0, (
@@ -387,11 +409,14 @@ def test_product_sector_scenarios_load(product_doc):
     # (refinery_squeeze + moderate_correction). Source: Catlin VIE June 2026.
     # structural_decline weight 0 unchanged (energy-transition tail, applied as
     # qualitative overlay).
+    # Re-pinned 2026-07-02 (post-stand-down vintage: Product Set B v2
+    # {0.15, 0.25, 0.45, 0.15, 0.00} RESTORED — the Jun-9 Hormuz tilt unwound with
+    # the stand-down; decisions/crude_reweight_proposal_2026-07-02.md §15/C-4).
     active = ["refinery_squeeze", "moderate_correction", "glut_base", "demand_softening"]
     assert sum(product_doc["scenarios"][n]["weight"] for n in active) == pytest.approx(1.0)
-    assert product_doc["scenarios"]["refinery_squeeze"]["weight"] == pytest.approx(0.25)
-    assert product_doc["scenarios"]["moderate_correction"]["weight"] == pytest.approx(0.30)
-    assert product_doc["scenarios"]["glut_base"]["weight"] == pytest.approx(0.30)
+    assert product_doc["scenarios"]["refinery_squeeze"]["weight"] == pytest.approx(0.15)
+    assert product_doc["scenarios"]["moderate_correction"]["weight"] == pytest.approx(0.25)
+    assert product_doc["scenarios"]["glut_base"]["weight"] == pytest.approx(0.45)
     assert product_doc["scenarios"]["demand_softening"]["weight"] == pytest.approx(0.15)
     assert product_doc["scenarios"]["structural_decline"]["weight"] == pytest.approx(0.0)
     # Each scenario carries the three product-class forwards (mr, lr1_clean, lr2_clean).
@@ -423,6 +448,12 @@ def test_insw_whole_company_fv_preserved_through_product_sector_refactor():
     now the per-sleeve form: whole-co PW FV = crude sleeve PW FV + product
     sleeve PW FV, each ladder weighted by ITS OWN sector's probabilities
     (cross-sector independence).
+
+    Re-pinned 2026-07-02 (post-stand-down vintage: crude reweight 0.10/0.20/
+    0.45/0.25 + MoU-ineffective leg recalibration + product v2 restore —
+    decisions/crude_reweight_proposal_2026-07-02.md): PW FV ~$66.2 → ~$51.76;
+    band keeps the prior relative width (~±2.3%) → [50.6, 52.9]. The per-sleeve
+    identity assertions below are weight-agnostic and unchanged.
     """
     from crude_tanker_fv.pipeline import _run_scenarios_for_ticker, _load_all_sectors
     from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
@@ -436,7 +467,9 @@ def test_insw_whole_company_fv_preserved_through_product_sector_refactor():
     )
     # 2026-06-22: cycle-conditional terminal + net retained earnings (§9.2) lift
     # INSW PW FV ~$64.5 → ~$66.2 (TRIM/SHORT held).
-    assert 65.0 < headline.probability_weighted_fv < 68.0
+    # 2026-07-02: post-stand-down reweight removes the war premium → ~$51.76
+    # (TRIM/SHORT held; §12 relabel applies downstream).
+    assert 50.6 < headline.probability_weighted_fv < 52.9
     # Both sleeves should have valid prob-weighted FVs.
     assert crude_r is not None and product_r is not None
     assert crude_r.probability_weighted_fv > 0
@@ -529,6 +562,11 @@ def test_asc_whole_company_fv_in_expected_band():
 
     A larger drift means: an input changed (likely OK), the MR / LR1 / LR2 forward
     curves shifted (review), or the product-sector class routing regressed (NOT OK).
+
+    Re-pinned 2026-07-02 (post-stand-down vintage: product Set B v2 weights
+    {0.15/0.25/0.45/0.15} restored — decisions/crude_reweight_proposal_2026-07-02.md):
+    PW FV ~$16.85 → ~$16.30; band keeps the prior ±3% width → [15.81, 16.79].
+    Position at re-pin: HOLD (the TRIM/SHORT exclusion below still holds).
     """
     from crude_tanker_fv.pipeline import _run_scenarios_for_ticker, _load_all_sectors
     from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
@@ -540,7 +578,7 @@ def test_asc_whole_company_fv_in_expected_band():
     headline, _, _ = _run_scenarios_for_ticker(
         "ASC", ci, asc["current_price"], asc["analyst_target"], docs, watchlist,
     )
-    assert 16.35 < headline.probability_weighted_fv < 17.35
+    assert 15.81 < headline.probability_weighted_fv < 16.79
     # The reconciliation corrected the overvalued read away (removed the
     # erroneously Q1-loaded April newbuild drag). Position is no longer TRIM/SHORT;
     # ASC now reads fair-to-slightly-cheap on corrected NAV (rich only vs the
@@ -620,6 +658,11 @@ def test_hafn_whole_company_fv_in_expected_band_set_b():
     short)" (§12); the tool↔broker spread (−31% to broker $8.11) is a documented
     feature (txn-anchored marks < broker resale), not an error. HAFN stays
     PROVISIONAL · pool-gross-up-pending (WC floor) — NOT handoff-ready.
+
+    Re-pinned 2026-07-02 (post-stand-down vintage: product Set B v2 weights
+    {0.15/0.25/0.45/0.15} restored — decisions/crude_reweight_proposal_2026-07-02.md):
+    PW FV ~$6.33 → ~$5.70; band keeps the prior ±3.6% width → [5.50, 5.90].
+    TRIM/SHORT held at re-pin.
     """
     from crude_tanker_fv.pipeline import _run_scenarios_for_ticker, _load_all_sectors
     from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
@@ -631,7 +674,7 @@ def test_hafn_whole_company_fv_in_expected_band_set_b():
     headline, _, _ = _run_scenarios_for_ticker(
         "HAFN", ci, hafn["current_price"], hafn["analyst_target"], docs, watchlist,
     )
-    assert 6.10 < headline.probability_weighted_fv < 6.55
+    assert 5.50 < headline.probability_weighted_fv < 5.90
     assert "TRIM/SHORT" in headline.position_recommendation
     # Belt-and-suspenders per workflow verifier: assert sector explicitly so a
     # silent watchlist-typo regression (HAFN tagged as crude or lng) doesn't
@@ -682,6 +725,11 @@ def test_trmd_whole_company_fv_in_expected_band_set_b():
 
     If this band drifts: check (a) the sourced balance-sheet figures, (b) the 2 on-curve
     MR resales (years_to_delivery 0.12), (c) the LR1 cohort assumptions.
+
+    Re-pinned 2026-07-02 (post-stand-down vintage: product Set B v2 weights
+    {0.15/0.25/0.45/0.15} restored — decisions/crude_reweight_proposal_2026-07-02.md):
+    PW FV ~$33.03 → ~$29.68; band keeps the prior ±3% width → [28.78, 30.58].
+    Still BUY at re-pin.
     """
     from crude_tanker_fv.pipeline import _run_scenarios_for_ticker, _load_all_sectors
     from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
@@ -693,7 +741,7 @@ def test_trmd_whole_company_fv_in_expected_band_set_b():
     headline, _, _ = _run_scenarios_for_ticker(
         "TRMD", ci, trmd["current_price"], trmd["analyst_target"], docs, watchlist,
     )
-    assert 32.0 < headline.probability_weighted_fv < 34.0
+    assert 28.78 < headline.probability_weighted_fv < 30.58
 
 
 def test_asc_fleet_loads_mr_plus_handysize():
@@ -803,7 +851,11 @@ def test_stng_whole_company_fv_in_expected_band():
     # 2026-06-22: the cycle-conditional terminal's NET RETAINED EARNINGS (§9.2)
     # captures STNG's buyback/low-payout retention — the §12 buyback-channel
     # conservatism this test flags — lifting PW FV ~$73.6 → ~$83.2 (TRIM/SHORT → BUY).
-    assert 80.0 < headline.probability_weighted_fv < 86.0
+    # Re-pinned 2026-07-02 (post-stand-down vintage: product Set B v2 weights
+    # {0.15/0.25/0.45/0.15} restored — decisions/crude_reweight_proposal_2026-07-02.md):
+    # PW FV ~$83.2 → ~$73.81 (BUY → HOLD at re-pin); band keeps the prior ±3.6%
+    # width → [71.15, 76.47].
+    assert 71.15 < headline.probability_weighted_fv < 76.47
     # NAV per share check — $83.76 baseline, allow ±$5 for input flex.
     assert 78.0 < headline.base_nav_per_share < 90.0
 
@@ -812,6 +864,10 @@ def test_stng_whole_company_fv_in_expected_band():
 # Suezmax fix); re-pin on weight settle (post-Hormuz resolution). Bands
 # re-based 2026-06-11: asset NAV $95.95 → [92, 100]; PW FV $67.81 (static
 # watchlist price) → ±5% [64.4, 71.2].
+# Re-pinned 2026-07-02 (post-stand-down vintage: crude reweight + MoU-ineffective
+# leg recalibration + product v2/LNG v3 restore —
+# decisions/crude_reweight_proposal_2026-07-02.md): PW FV $55.15 → ±5%
+# [52.39, 57.91]; BUY holds (asset-NAV band [92, 100] weight-independent, unchanged).
 def test_ten_three_sleeve_integration_band():
     """TEN is the first **3-sleeve hybrid** on the watchlist (THREE_SLEEVE_TICKERS).
     The pipeline dispatches through crude_carve_out + product_carve_out +
@@ -830,6 +886,11 @@ def test_ten_three_sleeve_integration_band():
     Bands are generous to absorb minor input drift (TC rate updates, NB advance
     refreshes, governance-discount calibration); shrink the band after the
     second quarter of TEN observations.
+
+    Re-pinned 2026-07-02 (post-stand-down vintage: crude reweight + MoU-ineffective
+    leg recalibration + product v2/LNG v3 restore —
+    decisions/crude_reweight_proposal_2026-07-02.md): PW FV ~$67.81 → ~$55.15,
+    ±5% → [52.39, 57.91]; BUY holds; asset-NAV band unchanged ($96.95 at re-pin).
     """
     from crude_tanker_fv.pipeline import (
         THREE_SLEEVE_TICKERS, _load_all_sectors, _run_scenarios_for_ticker,
@@ -872,7 +933,7 @@ def test_ten_three_sleeve_integration_band():
     headline, crude_r, product_r = _run_scenarios_for_ticker(
         "TEN", ci, ten["current_price"], ten["analyst_target"], docs, watchlist,
     )
-    assert 64.4 < headline.probability_weighted_fv < 71.2, (
+    assert 52.39 < headline.probability_weighted_fv < 57.91, (
         f"PW FV out of band: ${headline.probability_weighted_fv:.2f}"
     )
     # Both sleeve reports returned (LNG sleeve consumed internally; per-sleeve

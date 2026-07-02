@@ -2,12 +2,12 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $14.05
-- **Model fair value:** $15.26
+- **Model fair value:** $15.19
 - **Analyst target:** $16.59
 
 ## Data validation warnings
 
-- spot TCE VLCC: $388,300/day is 9.7x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
+- spot TCE VLCC: $285,500/day is 7.1x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
 
 ## NAV breakdown
 
@@ -32,73 +32,73 @@
 
 | Quarter | FFA spot (Cape, $/day) | Blended TCE ($/day) | EPS | DPS | Disc. DPS |
 |---|---:|---:|---:|---:|---:|
-| Q1 | 31,200 | 31,200 | 0.954 | 0.477 | 0.465 |
-| Q2 | 31,450 | 31,450 | 1.075 | 0.537 | 0.510 |
-| Q3 | 28,500 | 28,500 | 0.928 | 0.464 | 0.429 |
-| Q4 | 27,000 | 27,000 | 0.719 | 0.359 | 0.324 |
-| Q5 | 25,500 | 25,500 | 0.626 | 0.313 | 0.275 |
-| Q6 | 25,000 | 25,000 | 0.725 | 0.362 | 0.310 |
-| Q7 | 24,500 | 24,500 | 0.738 | 0.369 | 0.307 |
-| Q8 | 24,000 | 24,000 | 0.550 | 0.275 | 0.223 |
-| Σ discounted DPS | | | | | 2.84 |
-| Terminal value (NAV, q9) | | | | 14.56 | 11.51 |
-| **DivStrip implied price** | | | | | **$14.35** |
+| Q1 | 32,500 | 32,500 | 0.967 | 0.484 | 0.471 |
+| Q2 | 33,650 | 33,650 | 1.112 | 0.556 | 0.528 |
+| Q3 | 29,500 | 29,500 | 0.947 | 0.473 | 0.438 |
+| Q4 | 28,500 | 28,500 | 0.748 | 0.374 | 0.337 |
+| Q5 | 27,500 | 27,500 | 0.667 | 0.334 | 0.293 |
+| Q6 | 26,500 | 26,500 | 0.753 | 0.377 | 0.322 |
+| Q7 | 26,000 | 26,000 | 0.768 | 0.384 | 0.320 |
+| Q8 | 25,500 | 25,500 | 0.580 | 0.290 | 0.235 |
+| Σ discounted DPS | | | | | 2.94 |
+| Terminal value (NAV, q9) | | | | 13.48 | 10.66 |
+| **DivStrip implied price** | | | | | **$13.60** |
 
-_FFA spot is the Cape forward curve that drives the strip cash flows; its 12-month average is **$29,538/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$27,000/day** — not this FFA average._
+_FFA spot is the Cape forward curve that drives the strip cash flows; its 12-month average is **$31,038/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$33,100/day** — not this FFA average._
 
 ## Cycle weighting
 
-- Cycle position = 12M TC (Compass) $27,000 / 10-yr mean $23,650 = **1.50×** → **elevated**
-- Weights: w_nav = 0.60, w_earn = 0.40
+- Cycle position = 12M TC (Compass) $33,100 / 10-yr mean $23,650 = **1.66×** → **late-cycle/peak**
+- Weights: w_nav = 0.70, w_earn = 0.30
 
 ## Blended fair value
 
-0.60 × $15.87 (NAV) + 0.40 × $14.35 (strip) = **$15.26**
+0.70 × $15.87 (NAV) + 0.30 × $13.60 (strip) = **$15.19**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $15.35 |
-| 95% | $15.39 |
-| 100% | $15.40 |
+| 80% | $15.25 |
+| 95% | $15.29 |
+| 100% | $15.30 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **0.67× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **0.60× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **32,362** | — |
-| 10-year mean | 24,709 | 1.31× |
-| 12-month FFA | 48,039 | 0.67× |
-| Current spot | 69,336 | 0.47× |
+| **Implied breakeven (blended)** | **29,270** | — |
+| 10-year mean | 24,709 | 1.18× |
+| 12-month FFA | 48,817 | 0.60× |
+| Current spot | 65,259 | 0.45× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Cape (60% of fleet value) | 19,898 | 0.84× |
-| Suezmax (16% of fleet value) | 57,261 | 2.06× |
-| Pana (12% of fleet value) | 12,425 | 1.04× |
-| VLCC (8% of fleet value) | 104,416 | 2.61× |
-| Ctr-Large (3% of fleet value) | 40,840 | 1.00× |
+| Cape (60% of fleet value) | 18,610 | 0.79× |
+| Suezmax (16% of fleet value) | 50,965 | 1.84× |
+| Pana (12% of fleet value) | 10,452 | 0.88× |
+| VLCC (8% of fleet value) | 92,937 | 2.32× |
+| Ctr-Large (3% of fleet value) | 36,350 | 0.89× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $9.46 | $11.80 | $14.15 | $16.49 | $18.84 |
-| **-15%** | $10.02 | $12.36 | $14.71 | $17.05 | $19.40 |
-| **+0%** | $10.57 | $12.92 | $15.26 | $17.61 | $19.95 |
-| **+15%** | $11.13 | $13.48 | $15.82 | $18.17 | $20.51 |
-| **+30%** | $11.69 | $14.03 | $16.38 | $18.72 | $21.07 |
+| **-30%** | $9.52 | $11.93 | $14.34 | $16.74 | $19.15 |
+| **-15%** | $9.94 | $12.35 | $14.76 | $17.17 | $19.58 |
+| **+0%** | $10.37 | $12.78 | $15.19 | $17.60 | $20.01 |
+| **+15%** | $10.80 | $13.21 | $15.62 | $18.03 | $20.44 |
+| **+30%** | $11.23 | $13.63 | $16.04 | $18.45 | $20.86 |
 
 _Current price $14.05. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$15.26** is +8.6% vs the current price ($14.05) and -8.0% vs the analyst target ($16.59). The current price implies the fleet earning a value-weighted blended **$32,362/day** (0.67× the current forward) — 1.3× the value-weighted 10-yr mean ($24,709, i.e. the market is pricing extended peak rates), and the market is below the forward curve.
+Tool fair value **$15.19** is +8.1% vs the current price ($14.05) and -8.4% vs the analyst target ($16.59). The current price implies the fleet earning a value-weighted blended **$29,270/day** (0.60× the current forward) — 1.2× the value-weighted 10-yr mean ($24,709, i.e. the market is pricing extended peak rates), and the market is below the forward curve.
 
 ## Modeling notes
 

@@ -9,6 +9,27 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-02T18:27:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $12.49
+- Single-point FV: $16.03
+- Scenario PW FV: $10.07 (EV -19.4%)
+- NAV / share: $15.49
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +18.5pp (k_broker 1.11)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → TRIM/SHORT (overvalued)
+- ⚑ scenario PW FV -41.3%
+- ⚑ broker spread -5.3pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: -41.3% | ΔNAV: no change | Δspread: -5.3pp
+
+**Decision (2026-07-02, vintage — band flip eyeballed):** ACCEPT BUY→TRIM/SHORT (EV +37.4%→−19.4%). Post-stand-down vintage (2026-07-02): crude 0.10/0.20/0.45/0.25 + MoU-ineffective leg recalibrated (0.15-flare mixture) + product v2-restore + LNG v3-restore + F-5 rate refresh. Full attribution: decisions/crude_reweight_proposal_2026-07-02.md §10/§15 + the 2026-07-02 review sign-off chain. ΔNAV 0.0% — scenario/rate layer only. CAPT is one of the TWO genuine war-premium false-BUYs (with BRUT): a newbuild-heavy torque book whose modeled margin was concentrated in the escalation/pre-MoU legs. GOVERNED-WIDE·newbuild-heavy; the crude TRIM read is cycle-adjacent — resolve as hulls deliver. No trade.
+
+---
+
 ## 2026-07-02T16:43:15+00:00 — Pipeline run (auto)
 
 **Model state:**

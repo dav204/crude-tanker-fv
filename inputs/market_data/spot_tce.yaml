@@ -1,19 +1,34 @@
+# Current spot TCE by class — feeds the breakeven-coverage diagnostic (breakeven.py /
+# report.py "Current spot" row) and validate.py's spot-sanity warning. Does NOT feed
+# the dividend strip (that runs off ffa_forward_curve.yaml).
+#
+# REFRESHED 2026-07-02 (audit F-5 / reweight vintage): the prior values were the
+# 2026-06-07 war-spike vintage, never refreshed (VLCC $388,300 = 9.7x the 10-yr mean).
+# Source of record: Pareto Shipping Daily 2 JUL 2026
+# (inputs/research_pareto/2026/07/2026-07-02_Periodical-ShippingDaily-2026-07-02-509255.pdf,
+# p.1 "Average of key routes", ECO no-scrubber column — the scrubber premium lives on
+# the VALUE side via per-vessel flags, not in the rate benchmark) except where noted.
 spot_tce:
-  VLCC: 388300
-  Suezmax: 68700
-  Aframax: 50500
-  LR2: 50500
-  LNGC: 40000
-  MGC: 25000
-  MR: 20000
-  Handysize: 20000
-  Handymax: 20000
-  LR1_clean: 35000
-  LR2_clean: 50000
-  Cape: 38000
-  Pana: 20500
-  Post-Panamax: 20500     # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  Supra-Ultra: 19500
+  VLCC: 285500          # TD3C eco (Pareto 2-Jul; -1.1% d/d). MEG-China war premium only
+                        # partially unwound (TD22 USG-China printed $127,600 same day).
+  Suezmax: 124800       # TD20 eco (Pareto 2-Jul; +4.7% d/d — WAFR supported)
+  Aframax: 42400        # Pareto 2-Jul (-8.2% d/d)
+  LR2: 42400            # crude-context LR2 proxies Aframax dirty (convention unchanged)
+  LNGC: 40000           # NO 2-Jul print in the daily — Jun-7 value HELD, flagged stale;
+                        # refresh when an LNG spot print lands (breakeven display only)
+  MGC: 25000            # as LNGC — held, stale
+  MR: 35600             # MR (East) eco (Pareto 2-Jul; +2.7% d/d). East basis matches the
+                        # §11.5 chem-Handy TCE validation range (STNG Q1/Q2 $32-36k);
+                        # MR (West) printed $18,800 same day.
+  Handysize: 35600      # clean-Handy proxies MR (convention unchanged, §11.5)
+  Handymax: 35600       # chem-Handy proxies MR (convention unchanged, §11.5)
+  LR1_clean: 71700      # LR1 eco (Pareto 2-Jul; +0.1% d/d)
+  LR2_clean: 89000      # LR2 eco (Pareto 2-Jul; -8.5% d/d)
+  Cape: 29981           # Capesize VLSFO (Pareto 2-Jul; -7.2% w/w)
+  Pana: 19591           # Panamax (Pareto 2-Jul; +1.1% d/d)
+  Post-Panamax: 19591   # shares the Pana freight basin (§11.7.10, 2026-06-29)
+  Supra-Ultra: 18500    # NO Smax spot print in the daily — proxied to the Smax FFA m1
+                        # (Jul-2 FFA OCR widget, status ok; outputs/ffa_ocr_queue.md 2026-07-02)
   # Containerships: NO spot market exists (TC-only); set = the 12M TC
   # assessment so the breakeven display has a current-rate reference.
   Ctr-Feeder: 20500

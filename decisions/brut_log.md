@@ -9,6 +9,29 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-02T18:27:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.17
+- Single-point FV: $9.27
+- Scenario PW FV: $3.12 (EV -39.7%)
+- NAV / share: $8.80
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: -27.7pp (k_broker 0.94)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → TRIM/SHORT (overvalued)
+- ⚑ scenario PW FV -69.5%
+- ⚑ broker spread +8.1pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: -69.5% | ΔNAV: no change | Δspread: +8.1pp
+
+**Decision (2026-07-02, vintage — band flip eyeballed + W-5 registration):** ACCEPT BUY→TRIM/SHORT (EV +98.1%→−39.7%; FV $10.24→$3.12 = crude weights −$5.33 / leg −$1.79 / rates $0.00). Post-stand-down vintage (2026-07-02): crude 0.10/0.20/0.45/0.25 + MoU-ineffective leg recalibrated (0.15-flare mixture) + product v2-restore + LNG v3-restore + F-5 rate refresh. Full attribution: decisions/crude_reweight_proposal_2026-07-02.md §10/§15 + the 2026-07-02 review sign-off chain. ΔNAV 0.0% — scenario/rate layer only.
+
+**W-5 — the case study, registered with corrected epistemology (reviewer-specified framing):** the reweight demonstrates a MODEL-INTERNAL fact: BRUT's modeled margin was concentrated in scenarios a model update removed. It is NOT out-of-sample proof the tier system beat the market: on Jun-30 BRUT fell ~7.5% while the crude five fell 15–22% — the market was never carrying the war premium the model was. The 0.61× P/NAV was the market correctly pricing scenario-dependence and going-concern risk, and the reweight moved the model's FV TOWARD a price the tape had already set. What worked was the GOVERNANCE LAYER: PROVISIONAL ⛔ (cash-pending-H1) + POSITION_UNRELIABLE prevented the model from fighting a correct tape. Same lesson as the null-IC finding, in miniature: a deep discount to model NAV is not, by itself, opportunity. No trade.
+
+---
+
 ## 2026-07-02T16:43:15+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -9,7 +9,7 @@
 
 ## Data validation warnings
 
-- spot TCE VLCC: $388,300/day is 9.7x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
+- spot TCE VLCC: $285,500/day is 7.1x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
 - Aframax FFA forward curve is CONSTRUCTED (no market anchor) — built from the 12M TC + spot, not a Baltic / $MT / Worldscale series. Treat its dividend-strip contribution as indicative.
 
 ## NAV breakdown
@@ -78,7 +78,7 @@ The current price requires the fleet to run at **2.37× the current forward curv
 | **Implied breakeven (blended)** | **262,407** | — |
 | 10-year mean | 33,353 | 7.87× |
 | 12-month FFA | 110,547 | 2.37× |
-| Current spot | 185,488 | 1.41× |
+| Current spot | 171,180 | 1.53× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|

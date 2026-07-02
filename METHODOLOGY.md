@@ -906,9 +906,20 @@ sectors:
 
 `inputs/watchlist.yaml` carries a `sector:` field per ticker; default `crude` if absent. `pipeline._resolve_sector` reads it and `_load_all_sectors` pre-loads all sector sub-docs ({crude, lng, product}) once per pipeline run. The hybrid INSW carve-out (METHODOLOGY §6 v2) routes its **crude sleeve through `sectors.crude`** and its **product sleeve through `sectors.product`** — see §11.5 for the product sector that closed the v2 INSW shortcut.
 
-### 11.3 LNG sector weight history — v1 → v2 (Set B) → v3 (Set B-revised)
+### 11.3 LNG sector weight history — v1 → v2 (Set B) → v3 (Set B-revised) → v4 (Jun-9 tilt) → v3 RESTORED (Jul-2)
 
-The LNG scenario weights have transitioned through three locks. The current production lock is **Set B-revised (v3, 2026-06-01)** — see the v3 sub-section below for the rationale tied to the 2026 supply environment. Earlier locks are preserved here as history.
+The LNG scenario weights have transitioned through the locks below. **The current production
+state (2026-07-02) is Set B-revised (v3) RESTORED**: the Jun-9-2026 point-in-time tilt
+(tight_resurgence 0.15→0.25, glut_base 0.45→0.38, glut_intensifies 0.15→0.12 — "Qatar LNG
+transits Hormuz") was reversed after the US–Iran stand-down (Jun-28) because v3 already
+prices the Ras Laffan supply damage (§14 — Trains 4&6 offline, NOT resolved by the
+stand-down); the Jun-9 tilt added only a Hormuz-TRANSIT layer, and only the transit layer
+resolved. §13.3 discipline; full decision chain in
+`decisions/crude_reweight_proposal_2026-07-02.md` §15 + the 2026-07-02 review sign-off.
+Impact: FLNG BUY→HOLD (+7.2%→+2.0% — consistent with v3 history), CCEC stays BUY
+(+65.6%→+54.5%, still the weight-driven torque name). Lock tests re-pinned per their own
+"re-pin on weight settle (post-Hormuz resolution)" instructions. Earlier locks preserved
+below as history.
 
 #### v1 (placeholder, ~2026-04) → v2 (Set B, 2026-06-01)
 
@@ -1039,6 +1050,17 @@ To onboard dry bulk (SBLK / GOGL), chemical tankers, or another sector:
 No engine changes are required for additional sectors — `run_scenarios` already takes the sub-doc as an opaque set of scenarios and anchors. The pre-existing v1 simplification (LNG curves carried under crude scenario names) is removed.
 
 ### 11.5 Product sector — formalised 2026-06-01
+
+**Weight-lock state (2026-07-02): Product Set B v2 RESTORED.** The Jun-9-2026
+point-in-time tilt (refinery_squeeze 0.15→0.25, moderate_correction 0.25→0.30, glut_base
+0.45→0.30 — "MEG product flows directly affected by Hormuz contestation") was reversed
+after the US–Iran stand-down per §13.3: the restore removes the TRANSIT layer only. NOTE
+THE PROVENANCE CAVEAT (review rider 1): v2 itself was calibrated DURING the crisis on
+observed-tightness evidence, so crisis-era empirical tightness remains in the curves —
+residual triggers `crude_day60_toll_cliff` (scope crude+product) and
+`product_glut_arrival_timing` in `inputs/reweight_triggers.yaml`. Impact: STNG BUY→HOLD
+(+10.9%→+2.0%), TRMD BUY holds (+21.5%→+9.1%), ASC BUY holds (+18.1%→+14.2%), HAFN TRIM
+deepens. Decision chain: `decisions/crude_reweight_proposal_2026-07-02.md` §15.
 
 The product sector was the third sector formalised, closing the v2 INSW shortcut: MR / LR1_clean / LR2_clean forwards previously lived under `sectors.crude.scenarios.<scenario>.mr` (and the LR2_clean entry was shared between crude dual-use LR2 and product LR2). After the refactor, all product-class forwards live cleanly under `sectors.product` and the INSW carve-out routes its **product sleeve through `sectors.product`** while keeping its **crude sleeve through `sectors.crude`**.
 
