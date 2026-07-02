@@ -1,77 +1,45 @@
-# Scorpio Tankers (STNG) balance sheet snapshot — METHODOLOGY.md §4.2, §11.5
-# Source: Scorpio Q1 2026 results (6-K, ex-99.1, filed 2026-05-05); balance
-# sheet as of 2026-03-31. USD.
+# Scorpio Tankers (STNG) balance sheet snapshot — METHODOLOGY.md §4.2, §11.5. USD.
+# Source of record: Scorpio Q1-2026 6-K, EDGAR acc 0001483934-26-000042 (Exhibit 99.1 earnings
+# release), balance sheet as-of 2026-03-31. Full reconciliation: decisions/stng_reconciliation_prereg_2026-07-01.md
+# (2026-07-01, per-vessel rebuild — fixed a $200M debt double-count + a fleet↔HFS double-count).
 #
-# Figures are reconciled to avoid double-counting against the NAV formula,
-# which adds cash and subtracts total_debt SEPARATELY. So working_capital_net
-# below excludes cash and excludes the current portion of debt.
-#
-# IMPORTANT — POST-QUARTER EVENTS (NOT INCLUDED HERE):
-# STNG completed material capital-structure transactions in April 2026 after
-# the 31-Mar snapshot: $375M convertible 2031 issuance + ~$300M of share
-# buybacks + new NB LOIs lifting orderbook from $572.8M to $641.5M. These
-# DO NOT enter this Q1 BS — the snapshot is point-in-time at 2026-03-31 to
-# stay consistent with the dividend strip's Q1 EPS anchor. Q2 results will
-# update the picture; the wide pro-forma net-cash position ($1.4B by 1-May)
-# will be reflected then.
+# POST-QUARTER (excluded, subsequent events): the April-2026 $375M convertible 2031, ~$300M buybacks,
+# +2 MR newbuild LOIs, and the April Park/Sloane/Madison LR2 sale ($195M). Not in this 3/31 snapshot.
 ticker: STNG
 quarter: 2026-Q1
 
-cash_and_equivalents: 984300000      # "Cash and cash equivalents" (Q1 2026 6-K)
-                                     # Massive net-cash position; pro-forma $1.4B by 1-May after convert.
+cash_and_equivalents: 984321000      # BS "Cash and cash equivalents" (L217). Net cash $395.3M vs gross debt $589.1M.
 
-# working_capital_net composition (§11.5 — two adjustments stacked, as of
-# 2026-06-05; the Handymax sleeve previously here moved on-curve):
-#
-#   1. OPERATING working capital (non-cash, non-debt, non-HFS):
-#      AR 225,200 + inventories 10,900 + prepaids 9,200 − accounts payable
-#      37,500 = +207,800 ($k). Q1 6-K balance sheet line items; clean.
-#
-#   2. NINE vessels held-for-sale at AGREED SALE PRICES:
-#      Balance sheet carries HFS at 215,000 ($k); aggregate agreed sale prices
-#      ~$395M (4 LR2: STI Broadway/Condotti/Winnie/Lauren @ $285.8M; STI
-#      Kingsway 1 LR2 $57.5M; STI Lavender 1 LR2 ~$30M est; STI Solidarity
-#      1 LR2 ~$15M est; STI Seneca 1 MR ~$7M est). NAV uses realisable $395M.
-#      → adds +395,000 ($k). Same treatment as DHT Bauhinia and ASC Engineer.
-#      Q2 2026 will recognise the $200M gain when these close.
-#
-#   Total: 207,800 + 395,000 = 602,800 ($k).
-#
-# Previously included a third entry: the 14 Handymax IMO-II chemical sleeve at
-# +200,000 ($k), bringing the total to 802,800. As of 2026-06-05 those 14
-# vessels migrated on-curve via the new Handymax class (vessel_value_curves.yaml
-# + scenarios.py product class map; METHODOLOGY §11.5). The Handymax curve
-# anchored at 10yr $20M / scrap_25 $4M reproduces STNG's $14.3M/vessel mark at
-# the cohort's avg age 15 — on-curve NAV ≈ off-curve $200M within ~$5M, plus
-# the sleeve now responds to scenario rate forwards (MR-proxy TCEs validated
-# by STNG's disclosed Q1+Q2 Handymax rates ≈ MR).
-working_capital_net: 602800000
+# OPERATING working capital ONLY (the HFS + TORM-style items are separate lines):
+#   AR 225,245 + inventories 10,897 + prepaid 9,188 − accounts payable 37,454 − accrued expenses 44,603
+#   = +163,273 ($k). (Excludes cash, HFS, and the current portion of debt 21,280 — that's in total_debt.)
+#   NOTE: the prior model's $207,800 OMITTED accrued expenses ($44.6M) — corrected here.
+working_capital_net: 163273000
 
-# Total debt: $589.1M secured bank + $200M unsecured senior notes 2030 (7.5%).
-# Both are interest-bearing; both subtract from NAV (METHODOLOGY §2.1). Lease
-# liabilities are SEPARATELY zero (see below) — STNG fully repurchased its
-# remaining sale-leaseback obligations during Q1 2026, a material change from
-# the multi-billion SLB book that peaked in 2022. This is a clean balance sheet.
-total_debt: 789100000
+# 8 vessels held-for-sale at 2026-03-31 (the March-2026 agreement), agreed sale prices $305M (Solidarity
+# LR2 $60M + Seneca/Osceola/Brooklyn/Black Hawk 4 MRs $140M + Aqua/Regina/Opera 3 MRs $105M; L40), carrying
+# $215.0M (BS "Assets held for sale"). NAV uses the realisable $305M. The 6 in-manifest MRs were REMOVED
+# from the on-curve fleet (fleet_manifests/stng.yaml) to avoid the double-count. The prior model's $395M HFS
+# list was WRONG (it counted operating LR2s Broadway/Condotti/Winnie/Lauren + the Q1-sold STI Lavender).
+held_for_sale: 305000000
 
-# Finance/operating lease liabilities — ZERO at 2026-03-31. STNG repurchased
-# its remaining sale-leaseback obligations during Q1 (material change vs the
-# 2022 peak). Office leases are immaterial; we treat as zero.
+# Total interest-bearing debt = STNG's own "Gross debt outstanding, March 31, 2026 = $589,056K" (L90:
+# secured bank $389.1M + Unsecured Senior Notes 2030 $200M). The prior model's $789.1M DOUBLE-COUNTED the
+# $200M notes (it took the $589.1M TOTAL as bank-only and added the notes again). Corrected. (BS carrying
+# net of issuance costs $581.2M; the $589.056M gross is what STNG reports + ties to net cash $395.3M.)
+total_debt: 589056000
+
+# Sale-leaseback / lease liabilities — ZERO at 2026-03-31 (STNG repurchased its remaining SLB obligations
+# during Q1; BS "Lease liability - sale and leaseback vessels — "). Office leases immaterial.
 lease_liabilities: 0
 
-# Newbuild lines: at 2026-03-31, 10-vessel orderbook with $572.8M remaining
-# commitments. Mix: 4 MR (2026-2027 delivery, Korean + Chinese yards), 4 LR2
-# (Dalian SBI $70.8M ea; 2027 + 2029), 2 VLCC (Hanwha Ocean Korea, 2H 2028 —
-# STNG's first crude exposure). Newbuild advances paid estimated ~$90M
-# (cumulative deposits across the 10 vessels; not separately disclosed in
-# press release — refresh from 6-K notes when available).
-newbuild_capex_commitments: 572800000   # remaining instalments at 2026-03-31
-newbuild_advances_paid: 90000000        # estimated cumulative advances paid
+# 10-vessel newbuild orderbook (4 MR + 4 LR2 + 2 VLCC), $572.8M remaining commitment at 3/31. Advances
+# paid = the BS "Vessels under construction" line, $69.069M (L225), sourced (replacing a prior model figure).
+# OFF-CURVE (OFF_CONVENTION_QUEUE): carried commitment-only (a §9.6 violation) — the on-curve wiring (which
+# would add ~+$481M NAV) is a flagged separate decision, complicated by the 2 VLCC (STNG's first crude exposure).
+newbuild_capex_commitments: 572800000
+newbuild_advances_paid: 69069000
 
-# Diluted shares: Q1 2026 weighted-average diluted = 50.03M; common shares
-# outstanding at 4-May-2026 = 50.42M. Used the weighted-avg figure for the
-# Q1 snapshot consistency with the dividend strip's EPS anchor.
-# Notable: STNG has reduced share count from ~78M (2022 peak) to ~50M today
-# via aggressive buybacks (~35% retirement); $500M auth refresh announced
-# with Q1 results.
-diluted_shares_outstanding: 50030000
+# Q1-2026 diluted weighted-average shares (EPS table, L206); basic 47,192,867. STNG has retired ~35% of
+# its share count (~78M 2022 peak → ~50M) via buybacks; $500M authorization refreshed with Q1 results.
+diluted_shares_outstanding: 50025865

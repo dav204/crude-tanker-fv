@@ -7,6 +7,52 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-02T00:21:02+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $75.60
+- Single-point FV: $76.13
+- Scenario PW FV: $77.13 (EV +2.0%)
+- NAV / share: $77.47
+- Position: **HOLD (fairly valued)**
+- Broker spread: +35.4pp (k_broker 1.43)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: no change | Δsingle FV: -3.5% | Δscenario FV: -3.6% | ΔNAV: -3.6% | Δspread: +3.4pp
+
+**Decision:** ACCEPT the −3.6% correction and the BUY→HOLD flip — this is the seventh P0
+reconciliation (full per-vessel rebuild, 2026-07-01; pre-reg decisions/stng_reconciliation_prereg_2026-07-01.md),
+NOT a market move. The prior state carried **two large errors pointing opposite ways that nearly cancelled**,
+so the model reported a plausible-but-wrong NAV:
+1. **`total_debt` $789.1M double-counted the $200M 2030 notes.** STNG's own "Gross debt outstanding
+   3/31 = $589,056K" (Q1-2026 6-K, EDGAR acc 0001483934-26-000042, L90: bank $389.1M + notes $200M;
+   ties to net cash $395.3M) — the model took the $589.1M TOTAL as bank-only and added the notes AGAIN.
+   → $789.1M → **$589.056M** (+$200M NAV).
+2. **The $395M held-for-sale line double-counted operating hulls + was a wrong list.** The real 3/31 HFS
+   is the **March 8-vessel agreement** ($305M agreed / $215M carrying — the BS "Assets held for sale");
+   6 of those 8 (Aqua/Regina/Opera 2014 MRs + Osceola/Brooklyn/Black Hawk 2015 MRs) were ALSO on-curve in
+   the manifest (the exhibit's 87-row table marks them "(22)"=agreed-to-sell). Removed from the fleet
+   (MR 41→35, on-curve 87→81) and re-booked via the new `held_for_sale: $305M` field. The prior list wrongly
+   counted operating LR2s (Broadway/Condotti/Winnie/Lauren) + the Q1-CLOSED STI Lavender (−$280M net NAV).
+Also sourced this run: operating WC $207.8M→**$163.3M** (the prior figure OMITTED $44.6M accrued expenses);
+newbuild advances $90M[est]→**$69.069M** (BS "Vessels under construction", L225); cash $984.321M, diluted
+shares 50,025,865, lease liabilities 0 — all verified to the 6-K. **Net: base NAV $83.87→$80.97, headline
+$80.35→$77.47** (the offsets nearly cancel: debt +$200M · HFS/fleet −$280M · advances −$21M · opWC −$44.5M).
+Landed in the pre-registered halt band ($80.5–81.5 base / $77.2–77.8 headline). SANITY=OK (−28.3% to broker
+$108, a wide DOCUMENTED tool↔broker spread — feature, not a bug). Tier: STNG **leaves NAV_FIGURE_ESTIMATE_QUEUE**
+(advances now sourced; no uncited estimate left) but **stays PROVISIONAL · off-curve** (OFF_CONVENTION_QUEUE).
+
+**FLAGGED, separate owner decision (out of this rebuild's scope):** the 10-vessel newbuild order book
+(4 MR + 4 LR2 + **2 VLCC** — STNG's first crude exposure) is off-curve, carried as a −$504M commitment-only
+drag (advances $69M − commitment $573M, no offsetting delivered-market asset — a §9.6 violation). These are
+REAL 3/31 commitments; wiring them on-curve per §9.6 would add **~+$481M NAV (~+$9.6/sh)**, flipping the read
+materially. Deferred because the 2 VLCC NBs are cross-sector (the tool's crude curve, not product) and warrant
+their own methodology decision. Re-ratifying the baseline now to accept the correction.
+
+---
+
 ## 2026-07-01T23:28:11+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -5,10 +5,10 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-07-01):** **22 watchlist names across 5 sectors**; **440 main
-tests green, 23 xfailed** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester
-via `.venv310`); drift gate **0 unexplained** (BRUT explained); pipeline clean; SANITY 14 OK / 8
-n-a-APPROX / 0 FAIL. SIX P0 names worked this arc: **NAT DE-VOIDED** (2026-06-30, NAV $2.07→$2.79,
+**Current state (2026-07-01):** **22 watchlist names across 5 sectors**; **442 main
+tests green, 19 xfailed** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester
+via `.venv310`); drift gate **0 unexplained** (STNG explained); pipeline clean; SANITY 14 OK / 8
+n-a-APPROX / 0 FAIL. SEVEN P0 names worked this arc: **NAT DE-VOIDED** (2026-06-30, NAV $2.07→$2.79,
 GOVERNED-WIDE·newbuild-indeterminate), **SB corrected** (date-mix + CAPT blanket-scrubber bug; NAV
 $10.47→$10.12, ~0.63×), **ASC reconciled** (April-2026 newbuild wrongly loaded as a −$88.8M Q1
 commitment [subsequent event] + phantom `Ardmore_Patriot` removed + chem-Handies → cited 20-F
@@ -25,7 +25,15 @@ validated-but-RICH [rich · cycle position, ~1.39× NAV] — NOT a new long), an
 debt/lease corrected to the Note-2/4 split [−$46M], the TORM stake to Hafnia's own lower-of-cost NAV basis
 [−$118M; precedent: marketable stakes take the issuer's method], and operating WC held at a conservative
 pool-gross-up floor [precedent: pool receivables are custodial, not NAV-economic]; NAV $5.22→$5.57, stays
-PROVISIONAL·pool-gross-up-pending, rich · cycle position — NOT actionable; price-refresh isolated out).
+PROVISIONAL·pool-gross-up-pending, rich · cycle position — NOT actionable; price-refresh isolated out), and
+**STNG reconciled** (2026-07-01 — the most TANGLED: two large errors pointing OPPOSITE ways that nearly
+cancelled, so the model reported a plausible-but-wrong NAV. `total_debt` $789.1M DOUBLE-COUNTED the $200M
+2030 notes [→$589.1M, +$200M]; the $395M held-for-sale line double-counted 6 operating-manifest MRs AND
+listed the wrong hulls [→ real March 8-vessel agreement $305M, fleet MR 41→35 / on-curve 87→81, −$280M];
+plus opWC $207.8M→$163.3M [omitted accrued] and NB advances $90M[est]→$69.069M. NAV $83.87→$80.97 base /
+$80.35→$77.47 headline, BUY→HOLD; leaves `NAV_FIGURE_ESTIMATE_QUEUE`, stays PROVISIONAL·off-curve. FLAGGED
+separately: the 10-vessel NB [incl. 2 VLCC — first crude exposure] off-curve carries a −$504M commitment
+drag; §9.6 on-curve wiring would add ~+$481M NAV [~+$9.6/sh] — a cross-sector methodology decision, deferred).
 CLAUDE.md was also restructured to a lean ~3.8k-token router with a build-enforced size cap. These
 hardened **provenance + handoff + hygiene**, not the thesis — SB stays cheap on every version of its numbers.
 
@@ -67,7 +75,8 @@ source of truth (imported by both the guards and the tier, so they can't drift):
    equation (debt/cash/leases/commitment/advances/preferred/shuttle/working-capital) that rests
    on an estimate marker (a tilde, `[ESTIMATE]`, `approx`) without a citation is a red. Plus the
    claims half: a `(confirmed)`/`verified` assertion must cite a source. `NAV_FIGURE_ESTIMATE_QUEUE`
-   = brut/cmbt/flng/hafn/stng/ten/trmd (7; nat left — de-voided; asc left — full 3/31 reconciliation).
+   = brut/cmbt/flng/hafn/ten/trmd (6; nat left — de-voided; asc left — full 3/31 reconciliation;
+   stng left 2026-07-01 — advances sourced, HFS/debt/WC rebuilt, stays OFF_CONVENTION only).
    "Present but uncited" fails like "absent".
 
 **Confidence tier (governance handoff, `provenance.confidence_tier`)** — read from the existing
@@ -75,7 +84,8 @@ validation state, NOT a new model: **VALIDATED-TIGHT** (6: DHT, FRO, SB, SBLK, T
 robust two-basis; ECO cleared 2026-07-01 via the §9.6 on-curve fix + scrubber verification, but is
 validated-but-RICH [rich · cycle position], NOT a new long), **GOVERNED-WIDE** (12 — traces but
 structural-unavailable input, read flips, or newbuild parked/absent: **NAT** `newbuild-indeterminate`;
-**ASC** `structural-class`), **PROVISIONAL** (4: STNG, TRMD — a NAV-driving figure uncited/off-basis;
+**ASC** `structural-class`), **PROVISIONAL** (4: **STNG** `off-curve` — all figures now sourced to the
+Q1-2026 6-K [2026-07-01 rebuild], but the 10-vessel NB stays off the §9.6 curve; **TRMD** `uncited-figure`;
 + **BRUT** `cash-pending` — 4/5 issuer-traced, cash flagged pending the H1-2026 report; + **HAFN**
 `pool-gross-up-pending` — all figures sourced/decided except operating WC, held at a conservative floor
 because pool custodial receivables can't be netted from the filing; **NOT handoff-ready, flag don't pass**). APPROX-pnav does NOT demote a robust name
@@ -84,7 +94,7 @@ operating-scrubber surface does not either (materiality-gated at 10% of NAV). Em
 scorecard Verdict + the `/add-ticker` handoff (a PROVISIONAL name may not hand off a governed FV).
 
 **A NEW AGENT: read CLAUDE.md, then this file.** The lead open thread is the **reconciliation
-queue** (below) — clearing PROVISIONAL names to handoff-ready. NAT+SB+ASC+BRUT+ECO+HAFN done; **STNG is next.**
+queue** (below) — clearing PROVISIONAL names to handoff-ready. NAT+SB+ASC+BRUT+ECO+HAFN+STNG done; **TRMD is next.**
 Per-change chronology in `CHANGELOG.md`; per-name detail in `decisions/<t>_log.md`.
 
 ## Recent arc — convention + provenance + handoff + hygiene (2026-06-29 → 07-01)
@@ -174,9 +184,40 @@ the INPUT; never source mid-recompute.
      NAV $5.22→$5.57 headline; SANITY OK. Incidental daily price-refresh (5 names, EV-only) REVERTED to isolate the
      commit. HAFN stays PROVISIONAL·pool-gross-up-pending, rich · cycle position — NOT actionable. Record:
      `decisions/hafn_reconciliation_prereg_2026-07-01.md`. Baseline re-ratify (HAFN-only) pending — owner.
-   - **NEXT: STNG, TRMD** (the rest of `NAV_FIGURE_ESTIMATE_QUEUE` ∩ PROVISIONAL); then the remaining
-     `OFF_CONVENTION_QUEUE` fixable names onto the §9.6 curve. Same discipline (subsequent-events note first).
-     Clearing a name flips its tier and lets it hand off a governed FV.
+   - **STNG — DONE (2026-07-01), the MOST TANGLED (two large offsetting errors); leaves the figure queue,
+     stays PROVISIONAL·off-curve.** Owner-directed FULL per-vessel rebuild vs the Q1-2026 6-K (acc
+     0001483934-26-000042). Two errors pointing OPPOSITE ways nearly cancelled, so a half-fix would report a
+     wildly wrong intermediate: (1) `total_debt` $789.1M **double-counted the $200M 2030 notes** — STNG's own
+     "Gross debt outstanding 3/31 $589,056K" (bank $389.1M + notes $200M; ties to net cash $395.3M) → $589.1M
+     (+$200M). (2) The $395M held-for-sale line **double-counted 6 operating-manifest MRs AND listed wrong hulls**
+     (it counted operating LR2s Broadway/Condotti/Winnie/Lauren + the Q1-CLOSED STI Lavender); the real 3/31 HFS
+     is the March 8-vessel agreement **$305M** (Solidarity LR2 + 7 MRs; $215M carrying). Removed the 6 double-counted
+     MRs from the fleet (**MR 41→35, on-curve 87→81**) + re-booked HFS via a new `held_for_sale` field (−$280M net).
+     Also: opWC $207.8M→**$163.3M** (omitted $44.6M accrued), NB advances $90M[est]→**$69.069M** (BS "Vessels under
+     construction"), cash $984.321M, shares 50,025,865, leases 0 — all 6-K-verified. **NAV $83.87→$80.97 base /
+     $80.35→$77.47 headline, BUY→HOLD** (in the pre-reg band); SANITY OK (−28.3% to broker $108, documented spread).
+     STNG **leaves `NAV_FIGURE_ESTIMATE_QUEUE`** (advances sourced) but **stays `OFF_CONVENTION_QUEUE` →
+     PROVISIONAL·off-curve**. Record: `decisions/stng_reconciliation_prereg_2026-07-01.md`.
+     **§9.6 NEWBUILD — DEFERRED as its own pre-registered step (owner decision 2026-07-01), NOT wired with the
+     rebuild.** The 10-vessel NB (2 MR + 4 LR2 + **2 VLCC**) off-curve is a −$504M commitment drag; full on-curve
+     wiring would add **~+$481M NAV (~+$9.6/sh → base ~$90.6)** and flip the read toward BUY. Deferred because it is
+     a reconciliation-sized methodology move, not a flag-flip, and it must NOT be bundled with a data correction
+     (attributable-step discipline) or import unresolved crude-level uncertainty onto a product name:
+       · **The 2 VLCC portion is BLOCKED on thread (d)** — STNG's VLCCs would mark on the CRUDE age-0 curve, whose
+         RESALE-basis level is itself provisional (thread (d), `curve.newbuild` basis inconsistency). Wiring them now
+         imports that quarantined crude-level uncertainty onto STNG's clean product NAV. **Thread (d) now gates the
+         VLCC portion of STNG too — not just the crude names / BRUT.**
+       · **Likely future structure (pre-register separately):** wire the **6 product hulls (2 MR + 4 LR2) on-curve**
+         (within-sector, settled product curve; ~+$7/sh) and **park the 2 VLCCs off-curve pending thread (d)**.
+         Source per-hull delivered marks + the delivery schedule, predict bands AHEAD, gate the move as its OWN
+         attributable re-ratify (a +$7–9.6/sh headline move cannot be a footnote).
+       · **Classification:** even fully wired at ~$90.6 (a deep nominal BUY vs price $75.60), the cheapness would rest
+         partly on the provisional VLCC resale mark → **GOVERNED-WIDE at best, not TIGHT**. So the §9.6 wiring does
+         NOT manufacture a clean tight long either — same arc finding. Baseline re-ratify (STNG-only) pending — owner.
+   - **NEXT: TRMD** (the last of `NAV_FIGURE_ESTIMATE_QUEUE` ∩ PROVISIONAL); then the remaining
+     `OFF_CONVENTION_QUEUE` fixable names (CMBT/STNG-NB/TEN) onto the §9.6 curve. Same discipline (subsequent-events
+     note first). Clearing a name flips its tier and lets it hand off a governed FV. **STNG's VLCC-NB wiring is
+     itself gated on thread (d)** — record it there too.
 
 **P1 normal-rate / justified-leg follow-ons** (the §18 layer is diagnostic-only; these
 harden it and the OTHER names — none affect the durable SB-cheap finding, which rests on the
@@ -198,6 +239,10 @@ harden it and the OTHER names — none affect the durable SB-cheap finding, whic
       crude (VLCC $175M, plausibly stale-high even as resale), so cross-sector NAV comparisons
       inherit the inconsistency — upstream of crude P/NAV on both bases. Separate P2-style NAV
       curve-refresh (would move headline crude NAV → delta-review + re-ratify). See §18 close.
+      **NEW gate (2026-07-01): this thread now also gates the VLCC portion of STNG's §9.6 newbuild
+      wiring** — STNG's 2 VLCC NBs can't go on-curve until the crude age-0 RESALE level is resolved
+      (else STNG's product NAV inherits the provisional crude mark). Wire STNG's 6 product hulls
+      first; park the 2 VLCCs here. (Same open item that most moves BRUT + the crude names.)
    e. **P3 presentation guards** (no number changes): suppress the non-composable LNG/container
       medians from the headline vector; "rich-near-peak" caveat on crude; §15 governance dual-read
       for TEN/CMDB (clean-NAV-justified ≠ haircut basis). Lowest-stakes; timebox.

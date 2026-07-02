@@ -8,7 +8,7 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | BRUT | 0.75× | 0.94 | +96.6% | +79.3% | +62.0% | BUY→BUY | NAV>px→NAV>px | -35 | wide-spread |
 | CAPT | 0.67× | 1.12 | +36.4% | +48.7% | +61.1% | BUY→BUY | NAV>px→NAV>px | +25 | wide-spread |
 | CCEC | 0.90× | 0.96 | +68.2% | +58.6% | +48.9% | BUY→BUY | NAV>px→NAV>px | -19 | wide-spread |
-| STNG | 0.70× | 1.37 | +5.8% | +21.8% | +37.9% | BUY→BUY | $38,043→NAV>px | +32 | wide-spread |
+| STNG | 0.70× | 1.43 | +2.0% | +19.7% | +37.4% | HOLD→BUY | $53,301→NAV>px | +35 | wide-spread |
 | CMBT **(WHOLE-CO)** | 0.74× | 1.11 | +14.9% | +24.6% | +34.4% | BUY→BUY | $39,378→NAV>px | +19 | wide-spread |
 | GSL | 0.75× | 1.24 | +8.0% | +20.0% | +32.0% | BUY→BUY | NAV>px→NAV>px | +24 | wide-spread |
 | TNK | 0.76× | 1.34 | +12.4% | +22.1% | +31.8% | BUY→BUY | $10,261→NAV>px | +19 | wide-spread |

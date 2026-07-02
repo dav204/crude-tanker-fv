@@ -5,6 +5,36 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-01 — STNG RECONCILED: the most TANGLED — two large errors pointing OPPOSITE ways that nearly cancelled.**
+  Seventh P0 name (Scorpio Tankers), and the one where a half-fix is most dangerous: the prior state carried a
+  debt double-count (NAV too LOW) and a held-for-sale double-count (NAV too HIGH) that roughly offset, so the
+  model reported a plausible-but-wrong headline NAV ($80.35). Fixing either error alone would have swung NAV by
+  ~$4/sh in the wrong direction. Owner-directed FULL per-vessel rebuild vs the Q1-2026 6-K (EDGAR acc
+  0001483934-26-000042, Ex-99.1, as-of 3/31). Pre-reg `decisions/stng_reconciliation_prereg_2026-07-01.md`.
+  1. **`total_debt` $789.1M double-counted the $200M 2030 notes.** STNG's own reconciliation gives "Gross debt
+     outstanding, March 31, 2026 = **$589,056K**" (secured bank $389.1M + Unsecured Senior Notes 2030 $200M; ties
+     to reported net cash $395.3M). The model took the $589.1M TOTAL as bank-only and added the $200M notes AGAIN.
+     → **$589.056M** (+$200M NAV).
+  2. **The $395M held-for-sale line double-counted operating hulls AND was the wrong list.** The exhibit's 87-row
+     fleet table marks 8 vessels "(22)" = agreed-to-sell (the **March 8-vessel agreement**: Solidarity LR2 $60M +
+     7 MRs $245M = **$305M** agreed / $215M carrying = the BS "Assets held for sale"). But 6 of those 8 (Aqua/
+     Regina/Opera 2014 MRs + Osceola/Brooklyn/Black Hawk 2015 MRs) were ALSO counted on-curve in the manifest, and
+     the model's HFS *list* wrongly named operating LR2s (Broadway/Condotti/Winnie/Lauren) + the Q1-CLOSED STI
+     Lavender. Fixed both ways: removed the 6 from the fleet (**MR 41→35, on-curve 87→81**) and re-booked HFS via a
+     new dedicated `held_for_sale: $305M` field, replacing the wrong $395M in working_capital_net (−$280M net NAV).
+  3. **Operating WC omitted accrued expenses.** $207.8M → **$163.3M** (AR 225,245 + inv 10,897 + prepaid 9,188 −
+     AP 37,454 − accrued **44,603**; the prior figure dropped the $44.6M accrued line). NB advances $90M[est] →
+     **$69.069M** (BS "Vessels under construction"). Cash $984.321M, diluted shares 50,025,865, leases 0 — all verified.
+  - **Net: NAV $83.87→$80.97 base / $80.35→$77.47 headline, position BUY→HOLD** (landed in the pre-registered halt
+    band $80.5–81.5 base / $77.2–77.8 headline). SANITY OK (−28.3% to broker $108 — a wide, DOCUMENTED tool↔broker
+    spread, a feature). STNG **leaves `NAV_FIGURE_ESTIMATE_QUEUE`** (advances sourced; no uncited estimate left) but
+    **stays `OFF_CONVENTION_QUEUE` → PROVISIONAL·off-curve** (sub-reason `uncited-figure`→`off-curve`).
+  - **FLAGGED, separate owner decision (out of scope):** the 10-vessel newbuild order book (4 MR + 4 LR2 + **2
+    VLCC** — STNG's first crude exposure) is off-curve, carried as a −$504M commitment-only drag (a §9.6 violation).
+    These are REAL 3/31 commitments; wiring on-curve per §9.6 would add **~+$481M NAV (~+$9.6/sh)**, flipping the
+    read materially. Deferred: the 2 VLCC NBs are cross-sector (need the crude curve) and warrant their own
+    methodology decision. The arc holds seven-for-seven: cleaner + still directional, no new tight actionable long.
+
 - **2026-07-01 — HAFN RECONCILED: the most consequential — three ways "balance-sheet-literal ≠ NAV-economic," + 2 precedents.**
   Sixth P0 name (Hafnia), and the one where "just source the number" fails most completely — nearly every figure
   needed a judgment about what the number economically MEANS, not just a citation. Workflow-sourced (12 agents) +

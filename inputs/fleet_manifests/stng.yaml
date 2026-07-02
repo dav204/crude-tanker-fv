@@ -3,18 +3,19 @@
 # against the public IR fleet page (`STNG-Fleet-as-of-5-Jan-26.xlsx`, IR site).
 # Balance sheet date: 2026-03-31.
 #
-# Scope = the **87 on-curve product tankers** as of 2026-03-31:
+# Scope = the **81 on-curve product tankers** as of 2026-03-31 (2026-07-01 rebuild;
+# was 87 — 6 held-for-sale MRs were double-counted on-curve AND in HFS, now removed):
 #   - 32 LR2 (~109-115k DWT, valued via the LR2/Aframax-equivalent curve)
-#   - 41 MR  (~50k DWT, valued via the MR curve)
+#   - 35 MR  (~50k DWT, valued via the MR curve)
 #   - 14 Handymax (~38k DWT IMO-II coated, valued via the dedicated Handymax
 #     curve — added 2026-06-05; reproduces STNG's $14.3M/vessel mark @ avg-age 15)
 #
-# Two off-manifest groups remain on the balance sheet (NAV input via
-# working_capital_net), NOT via this fleet manifest:
-#   1. **9 vessels held for sale** at 2026-03-31 (~$395M aggregate agreed sale
-#      price; ~$215M carrying; $200M gain pending in Q2) — entered in NAV via
-#      working_capital_net at the REALISABLE sale price. Same pattern as DHT
-#      Bauhinia and ASC Engineer.
+# Two off-manifest groups remain on the balance sheet, NOT via this fleet manifest:
+#   1. **8 vessels held for sale** at 2026-03-31 (the March 8-vessel agreement:
+#      $305M agreed / $215M carrying) — entered in NAV via the dedicated
+#      `held_for_sale` field at the REALISABLE $305M (balance_sheets/stng_2026-Q1.yaml).
+#      6 of these 8 were previously double-counted here on-curve — now removed (see
+#      the MR cohort notes below). Seneca + Solidarity closed April (not at 3/31).
 #   2. **10-vessel newbuild order book** ($572.8M remaining at 2026-03-31; rose
 #      to $641.5M post-April with 2 additional MR LOIs and convert funding).
 #      Includes 4× MR + 4× LR2 + **2× VLCC NBs (2H 2028 delivery — STNG's first
@@ -62,11 +63,14 @@ vessels:
   # ============================================================
   # ---- 2013 builds (age 13) — 5 MR; eco: false per §3.1 definition; scrubber ----
   - {id: STNG_MR_2013,      class: MR, dwt: 50000,  age: 13, scrubber: true,  eco: false, charter_status: spot, count: 5}
-  # ---- 2014 builds (age 12) — 10 MR; 8 scrubber + 2 non-scrubber ----
-  - {id: STNG_MR_2014_scr,  class: MR, dwt: 50000,  age: 12, scrubber: true,  eco: true,  charter_status: spot, count: 8}
-  - {id: STNG_MR_2014_nscr, class: MR, dwt: 50000,  age: 12, scrubber: false, eco: true,  charter_status: spot, count: 2}
-  # ---- 2015 builds (age 11) — 10 MR; all scrubber ----
-  - {id: STNG_MR_2015,      class: MR, dwt: 50000,  age: 11, scrubber: true,  eco: true,  charter_status: spot, count: 10}
+  # ---- 2014 builds (age 12) — 7 operating MR (was 10; 3 removed to HFS 2026-07-01:
+  # STI Aqua/Regina 2×scrubber + STI Opera 1×non-scrubber, all in the March 8-vessel
+  # sale agreement, held_for_sale field — they were double-counted on-curve AND in HFS) ----
+  - {id: STNG_MR_2014_scr,  class: MR, dwt: 50000,  age: 12, scrubber: true,  eco: true,  charter_status: spot, count: 6}
+  - {id: STNG_MR_2014_nscr, class: MR, dwt: 50000,  age: 12, scrubber: false, eco: true,  charter_status: spot, count: 1}
+  # ---- 2015 builds (age 11) — 7 operating MR (was 10; 3 removed to HFS 2026-07-01:
+  # STI Osceola/Brooklyn/Black Hawk, March sale agreement — double-counted) ----
+  - {id: STNG_MR_2015,      class: MR, dwt: 50000,  age: 11, scrubber: true,  eco: true,  charter_status: spot, count: 7}
   # ---- 2017 builds (age 9) — 8 MR; all scrubber; 1 bareboat-out (Bosphorus
   # $13.15k/d through 2037) carried at spot econ since the rate is below-market ----
   - {id: STNG_MR_2017,      class: MR, dwt: 50000,  age: 9,  scrubber: true,  eco: true,  charter_status: spot, count: 8}
@@ -103,11 +107,11 @@ spot_coverage_pct:
   MR:  1.00         # not enough disclosure to split TC vessels by class; treated all spot
   Handymax: 1.00    # Q1 disclosure does not split Handymax TC vs spot; treated all spot
 fleet_summary:
-  LR2_count: 32
-  MR_count: 41
-  Handymax_count: 14                   # on-curve as of 2026-06-05 (was off-curve $200M)
-  on_curve_total: 87
-  held_for_sale_count: 9               # off-curve via working_capital_net at $395M
+  LR2_count: 32                        # 29 operating + 3 April-agreed (Madison/Park/Sloane, subsequent event — operating at 3/31)
+  MR_count: 35                         # was 41; 6 double-counted HFS MRs removed 2026-07-01 (see above)
+  Handymax_count: 14
+  on_curve_total: 81                   # 32 LR2 + 35 MR + 14 Handymax (was 87 — the 6 HFS MRs were double-counted)
+  held_for_sale_count: 8               # off-curve via the held_for_sale field at $305M (March 8-vessel agreement)
   newbuild_orders_q1: 10               # 4 MR + 4 LR2 + 2 VLCC (post-April: +2 MR LOI = 12)
   avg_age_LR2_approx: 9.7
   avg_age_MR_approx: 10.2

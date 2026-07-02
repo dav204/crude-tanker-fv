@@ -50,7 +50,7 @@ OPERATING_SCRUBBER_QUEUE = {   # SB left 2026-07-01 (20-F ftn-15, 20); ECO left 
 
 # --- NAV-equation figure provenance (test_manifest_provenance) ----------------------------------
 # Names with an uncited estimate on a NAV-equation figure (lowercase, as the scan emits).
-NAV_FIGURE_ESTIMATE_QUEUE = {"brut", "cmbt", "flng", "hafn", "stng", "ten", "trmd"}  # nat left 2026-06-30 (newbuild figures parked, rest sourced); asc left 2026-07-01 (full 3/31 reconciliation; chem-Handy sleeve -> cited 20-F carrying-value floor)
+NAV_FIGURE_ESTIMATE_QUEUE = {"brut", "cmbt", "flng", "hafn", "ten", "trmd"}  # nat/asc left; stng left 2026-07-01 (advances sourced to the BS $69.069M + HFS/debt/WC rebuilt — stays OFF_CONVENTION only)
 
 # Operating-scrubber materiality: max possible FV error as a fraction of NAV above which an uncited
 # operating-scrubber surface widens the tier. Below it, the surface is a tracked-but-immaterial
@@ -118,7 +118,7 @@ TIER_SUBREASON = {
     "CMDB": "read-flips", "GNK": "read-flips",
     "NAT": "newbuild-indeterminate",
     "BRUT": "cash-pending", "HAFN": "pool-gross-up-pending",
-    "STNG": "uncited-figure", "TRMD": "uncited-figure",
+    "STNG": "off-curve", "TRMD": "uncited-figure",
 }  # ECO left 2026-07-01: §9.6 on-curve + scrubbers verified -> VALIDATED-TIGHT (no sub-reason)
 
 

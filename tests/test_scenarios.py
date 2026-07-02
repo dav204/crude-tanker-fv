@@ -736,9 +736,10 @@ def test_handysize_class_on_curve_and_routes():
 
 
 def test_stng_multi_class_product_loads_and_routes():
-    """STNG is the first multi-class pure-product name (32 LR2 + 41 MR on-curve
-    + 14 Handymax on-curve [migrated 2026-06-05 — METHODOLOGY §11.5] + 9 HFS
-    off-curve). Exercises three branches of the PRODUCT_SCENARIO_CLASS_MAP
+    """STNG is the first multi-class pure-product name (32 LR2 + 35 MR on-curve
+    + 14 Handymax on-curve [migrated 2026-06-05 — METHODOLOGY §11.5] + 8 HFS
+    off-curve [2026-07-01 rebuild: 6 HFS MRs were double-counted, now removed;
+    41→35 MR, 87→81 on-curve]). Exercises three branches of the PRODUCT_SCENARIO_CLASS_MAP
     simultaneously — MR → mr, LR2 → lr2_clean, Handymax → mr — and confirms the
     routing doesn't crash with a multi-class manifest.
     """
