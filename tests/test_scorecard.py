@@ -314,6 +314,34 @@ def test_weight_fragility_flag_renders_and_reaches_the_json(tmp_path, rows):
     assert by["DHT"]["weight_sign_stable"] is None
 
 
+def test_rate_basis_note_reaches_scorecard_and_json(tmp_path, rows):
+    """Reviewer condition 2026-07-02: a held rate anchor must announce itself
+    in the OUTPUTS (the mtime-based preflight can't see a held VALUE). The
+    note is data-driven from ffa_forward_curve.yaml's vintage_notes — no
+    hardcoded dates in code (the F-8 lesson)."""
+    import json
+
+    import yaml
+
+    from crude_tanker_fv.scorecard import rate_basis_notes
+
+    (tmp_path / "market_data").mkdir()
+    (tmp_path / "market_data" / "ffa_forward_curve.yaml").write_text(yaml.safe_dump({
+        "vintage_notes": ["Tanker forwards HELD at 2026-06-07 vintage — test note."],
+        "ffa_forward_curve": {"VLCC": [1, 2]},
+    }))
+    notes = rate_basis_notes(tmp_path)
+    assert notes == ["Tanker forwards HELD at 2026-06-07 vintage — test note."]
+
+    text = write_scorecard(rows, outputs_dir=tmp_path, valuation=_synthetic_valuation(rows),
+                           rate_basis=notes).read_text()
+    assert "> **Rate basis:** Tanker forwards HELD at 2026-06-07 vintage" in text
+    doc = json.loads((tmp_path / "book_scorecard.json").read_text())
+    assert doc["rate_basis"] == notes
+    # The live inputs file must actually carry the note while the hold stands.
+    assert any("HELD" in n for n in rate_basis_notes())
+
+
 def test_verdict_label_registry_tracks_the_tiers_no_drift():
     """provenance.py is the single source: the tier sub-reason map must cover EXACTLY the
     GOVERNED-WIDE + PROVISIONAL names, and the position-relabel / void sets must sit inside the

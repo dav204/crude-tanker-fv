@@ -241,7 +241,13 @@ F-5 refresh:
 
 4. **New weights + new rates** — the rate-effect completes each name's decomposition
    ("BRUT $10.24 → $3.12: fix $0.00, crude weights −$5.33, leg −$1.79, product/LNG
-   $0.00, rates —").
+   $0.00, rates —"). **CAVEAT (reviewer condition, 2026-07-02): the TANKER rate-effect
+   in this layer is UNDERSTATED pending a market forward print** — the tanker
+   ffa_forward_curve / 12M-TC lines are held at the 2026-06-07 vintage (owner decision,
+   option (i): no tanker forward print exists; a re-anchor off a single spot print the
+   week spot fell 33 % would manufacture an anchor). The dry-bulk rate-effect is
+   complete (2-Jul FFA OCR). Standing trigger `tanker_forward_print_lands` re-runs this
+   layer when a print lands; the scorecard's Rate-basis header discloses the hold.
 
 ## 11. Completed work items (review conditions W-1..W-4 + sequencing)
 

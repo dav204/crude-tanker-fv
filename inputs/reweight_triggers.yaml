@@ -104,6 +104,24 @@ crude_brent_reopening:
   status: armed
   added: 2026-07-02
 
+tanker_forward_print_lands:
+  sector: crude+product
+  due: null
+  observable: >
+    Standing event-watch (reviewer condition, 2026-07-02): any tanker FFA or
+    1-year T/C forward print landing in the dailies/weeklies. The tanker
+    forward curves + 12M TC lines are HELD at the 2026-06-07 vintage (owner
+    decision, option (i) — no market forward print existed at the Jul-2
+    refresh; a re-anchor off a single spot print the week spot fell 33% would
+    manufacture an anchor). The hold must not go stale silently — the
+    mtime-based preflight staleness check cannot see a held VALUE.
+  action: >
+    Refresh the ffa_forward_curve + twelve_month_tc tanker lines from the
+    print, rerun the C-2 rates layer (the Jul-2 decomposition's tanker
+    rate-effect is understated pending this), record in decisions/.
+  status: armed
+  added: 2026-07-02
+
 all_sectors_quarterly_staleness_floor:
   sector: all
   due: 2026-10-02

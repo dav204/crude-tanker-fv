@@ -17,7 +17,14 @@ and a ≥3-name simultaneous trip is treated as a market event (prices applied +
 rejected. **OPEN from the audit: F-2 (crude scenario reweight — §13.3 owner trigger MET by the
 US–Iran stand-down, proposal drafted in `decisions/`, decision is the owner's) and F-5 (all three
 rate files — `spot_tce` / `ffa_forward_curve` / `twelve_month_tc` — carry unrefreshed 2026-06-07
-war-spike vintage; needs a dated Pareto refresh, pairs with the F-2 re-run).** **The P0 reconciliation queue (`NAV_FIGURE_ESTIMATE_QUEUE ∩ PROVISIONAL`) is CLEARED —
+war-spike vintage; needs a dated Pareto refresh, pairs with the F-2 re-run).**
+
+**Follow-ups from the 2026-07-02 review chain (non-blocking):** (1) drift-gate CLI needs
+`state/last_run.json` — add a from-inputs recompute mode so a clean clone can run the gate
+(clean-clone verifiability is an audit-noted strength); (2) tanker forward curves held at the
+Jun-7 vintage pending a market print (trigger `tanker_forward_print_lands`; scorecard Rate-basis
+header discloses); (3) LNG comparison script shares the missing-anchoring pattern (harmless —
+no LNGC txn fits — but align it when next touched). **The P0 reconciliation queue (`NAV_FIGURE_ESTIMATE_QUEUE ∩ PROVISIONAL`) is CLEARED —
 EIGHT names done: NAT/SB/ASC/BRUT/ECO/HAFN/STNG/TRMD.** EIGHT P0 names worked this arc: **NAT DE-VOIDED** (2026-06-30, NAV $2.07→$2.79,
 GOVERNED-WIDE·newbuild-indeterminate), **SB corrected** (date-mix + CAPT blanket-scrubber bug; NAV
 $10.47→$10.12, ~0.63×), **ASC reconciled** (April-2026 newbuild wrongly loaded as a −$88.8M Q1

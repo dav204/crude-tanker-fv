@@ -306,6 +306,20 @@ def _fragility_cell(ticker: str, fragility: dict[str, bool]) -> str:
     return "stable" if fragility[ticker] else "**⚠ sign flips**"
 
 
+def rate_basis_notes(inputs_dir: Path = INPUTS_DIR) -> list[str]:
+    """`vintage_notes` from ffa_forward_curve.yaml — rate-anchor staleness the
+    mtime-based preflight check cannot see (a held VALUE keeps a fresh mtime).
+    Reviewer condition 2026-07-02: a held anchor must announce itself in the
+    OUTPUTS, not only in a YAML comment."""
+    import yaml
+
+    path = inputs_dir / "market_data" / "ffa_forward_curve.yaml"
+    if not path.exists():
+        return []
+    doc = yaml.safe_load(path.read_text()) or {}
+    return [" ".join(str(n).split()) for n in (doc.get("vintage_notes") or [])]
+
+
 def _verdict_position(ticker: str, raw: str) -> str:
     """Displayed position — a cycle-rich or unreliable read is relabeled away from TRIM/SHORT so a
     skim can't read a NAV-relative cycle signal as a directional short (owner 2026-06-30, §12)."""
@@ -422,6 +436,7 @@ def write_scorecard(
     price_basis: Optional[dict] = None,
     quarter: Optional[str] = None,
     fragility: Optional[dict[str, bool]] = None,
+    rate_basis: Optional[list[str]] = None,
 ) -> Path:
     outputs_dir.mkdir(parents=True, exist_ok=True)
     out: list[str] = []
@@ -442,6 +457,9 @@ def write_scorecard(
             names = ", ".join(price_basis["market_event_review"])
             w(f"> **Market-event review:** {names} — the day-band circuit breaker applied fresh "
               f"prices on a multi-name repricing; eyeball these moves before acting.\n")
+
+    for note in (rate_basis or []):
+        w(f"> **Rate basis:** {note}\n")
 
     if valuation:
         w("This file lists each name **twice, by design** — once in the **Verdict** (the decision "
@@ -518,7 +536,8 @@ def write_scorecard(
     md_path = outputs_dir / "book_scorecard.md"
     md_path.write_text("\n".join(out))
     if valuation is not None:
-        _write_handoff_json(rows, valuation, outputs_dir, price_basis, quarter, fragility)
+        _write_handoff_json(rows, valuation, outputs_dir, price_basis, quarter, fragility,
+                            rate_basis)
     return md_path
 
 
@@ -535,6 +554,7 @@ def _write_handoff_json(
     price_basis: Optional[dict],
     quarter: Optional[str],
     fragility: Optional[dict[str, bool]] = None,
+    rate_basis: Optional[list[str]] = None,
 ) -> Path:
     """The machine-readable half of the handoff surface (audit 2026-07-02, F-4).
 
@@ -582,6 +602,7 @@ def _write_handoff_json(
         "schema_version": 1,
         "quarter": quarter,
         "price_basis": price_basis,
+        "rate_basis": rate_basis or [],
         "names": names,
     }
     path = outputs_dir / "book_scorecard.json"
@@ -601,12 +622,15 @@ def run_scorecard_xref(
     valuation = None
     price_basis = None
     fragility = None
+    rate_basis = None
     if fv_reports is not None and scenario_reports is not None and broker_rows is not None:
         valuation = valuation_index(fv_reports, scenario_reports, broker_rows)
         price_basis = price_basis_summary(inputs_dir)
         fragility = load_weight_fragility(outputs_dir)
+        rate_basis = rate_basis_notes(inputs_dir)
     if rows:
-        path = write_scorecard(rows, outputs_dir, valuation, price_basis, quarter, fragility)
+        path = write_scorecard(rows, outputs_dir, valuation, price_basis, quarter, fragility,
+                               rate_basis)
         n_uniform = sum(1 for r in rows if r.nav_basis == "resale-uniform")
         n_ready = sum(1 for r in rows if is_handoff_ready(r.confidence_tier))
         tag = "CONSOLIDATED verdict+matrix" if valuation else "validation matrix"
