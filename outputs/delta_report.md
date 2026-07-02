@@ -1,17 +1,15 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-07-02T04:32:17+00:00
-- **Previous run:** 2026-07-02T00:21:02+00:00
+- **This run:** 2026-07-02T14:44:16+00:00
+- **Previous run:** 2026-07-02T04:32:17+00:00
 
 ## Headline changes (material moves)
 
-- **TRMD:** position HOLD (fairly valued) → BUY (undervalued); single-point FV +17.5%; scenario PW FV +16.8%; broker spread -16.6pp; NAV/sh +19.3%
+- **No material changes.** All tickers within thresholds (|ΔFV%|≤10%, |Δspread|≤5pp, |ΔNAV%|≤5%) and no position flips.
 
 ## Input files changed since last run
 
-- `inputs/balance_sheets/trmd_2026-Q1.yaml` (modified)
-- `inputs/fleet_manifests/trmd.yaml` (modified)
-- `inputs/market_data/newbuild_specs.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 
@@ -27,7 +25,7 @@
 | CCEC | $21.35 (no change) | $32.08 (no change) | $35.91 (no change) | $28.10 (no change) | BUY (undervalued) | -19.2pp (no change) |
 | STNG | $75.60 (no change) | $76.13 (no change) | $77.13 (no change) | $77.47 (no change) | HOLD (fairly valued) | +35.4pp (no change) |
 | HAFN | $6.64 (no change) | $5.99 (no change) | $6.23 (no change) | $5.57 (no change) | TRIM/SHORT (overvalued) | +18.7pp (no change) |
-| TRMD ⚑ | $26.06 (no change) | $30.97 (+17.5%) | $31.90 (+16.8%) | $30.34 (+19.3%) | BUY (undervalued) ⟵ | +3.5pp (-16.6pp) |
+| TRMD | $26.06 (no change) | $30.97 (no change) | $31.90 (no change) | $30.34 (no change) | BUY (undervalued) | +3.5pp (no change) |
 | ASC | $16.00 (no change) | $16.75 (no change) | $16.83 (no change) | $17.80 (no change) | BUY (undervalued) | +19.4pp (no change) |
 | TEN | $35.37 (no change) | $61.29 (no change) | $65.49 (no change) | $88.70 (no change) | BUY (undervalued) | +27.6pp (no change) |
 | CMDB | $17.56 (no change) | $20.43 (no change) | $20.43 (no change) | $31.33 (no change) | BUY (undervalued) | -10.3pp (no change) |

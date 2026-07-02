@@ -1,5 +1,7 @@
 # Book-wide scorecard (Thread 4)
 
+> **Price basis: 5 of 22 prices are STATIC-FALLBACK** (oldest as-of 2026-06-04): ASC, DHT, FRO, STNG, TNK. Those rows value the book at watchlist statics, not the tape — treat their Price/Upside as stale.
+
 This file lists each name **twice, by design** — once in the **Verdict** (the decision surface: FV vs price, position, tier) and once in the **Validation matrix** below (the per-gate evidence behind that tier). The Verdict is what you act on; the matrix is why. One row per name *within* each table.
 
 ## Verdict — the consolidated read (the decision surface)
@@ -24,7 +26,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $5.54 | $3.09 | -44% | rich · cycle position (not a short) | $2.79 | $6.52 (apx) | -57% | n-a | ready |
 | TEN | crude | GOVERNED-WIDE · mixed | $35.37 | $61.29 | +73% | BUY (undervalued) | $88.70 | $104.03 (apx) | -15% | n-a | ready |
 | ASC | product | GOVERNED-WIDE · structural-class | $16.00 | $16.75 | +5% | BUY (undervalued) | $17.80 | $21.33 (apx) | -17% | n-a | ready |
-| TRMD | product | GOVERNED-WIDE | $26.06 | $30.97 | +19% | BUY (undervalued) | $30.34 | $31.40 | -3% | OK | ready |
+| TRMD | product | GOVERNED-WIDE · basis-pending | $26.06 | $30.97 | +19% | BUY (undervalued) | $30.34 | $31.40 | -3% | OK | ready |
 | CMDB | dry_bulk | GOVERNED-WIDE · read-flips | $17.56 | $20.43 | +16% | BUY (undervalued) | $31.33 | $28.32 (apx) | +11% | n-a | ready |
 | GNK | dry_bulk | GOVERNED-WIDE · read-flips | $24.78 | $23.99 | -3% | HOLD (fairly valued) | $24.69 | $28.48 | -13% | OK | ready |
 | CCEC | lng | GOVERNED-WIDE · structural-class | $21.35 | $32.08 | +50% | BUY (undervalued) | $28.10 | $23.72 (apx) | +18% | n-a | ready |
