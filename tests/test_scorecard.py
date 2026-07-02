@@ -182,6 +182,105 @@ def test_verdict_applies_owner_label_corrections(tmp_path, rows, monkeypatch):
     assert "void" in gsl and "$9.00" not in gsl
 
 
+def _synthetic_valuation(rows, position="BUY (undervalued)", fv=12.0, upside=20.0):
+    from crude_tanker_fv.scorecard import _Valuation
+
+    return {
+        r.ticker: _Valuation(
+            price=10.0, fv=fv, upside_pct=upside, position=position,
+            nav_ps=11.0, broker_nav=11.5, gap_pct=-4.3, sanity="OK", approx=False,
+        )
+        for r in rows
+    }
+
+
+def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
+    """The machine-readable handoff (audit F-4): schema-versioned, same objects
+    as the Verdict table — tier, sub-reason, handoff-ready, position — so the
+    governance repo ingests a contract, not a rendered table."""
+    import json
+
+    import crude_tanker_fv.provenance as prov
+    from crude_tanker_fv.scorecard import is_handoff_ready
+
+    pb = {"total": len(rows), "static_fallback": {}, "oldest_static_as_of": None,
+          "market_event_review": {}}
+    write_scorecard(rows, outputs_dir=tmp_path, valuation=_synthetic_valuation(rows),
+                    price_basis=pb, quarter=QUARTER)
+    doc = json.loads((tmp_path / "book_scorecard.json").read_text())
+    assert doc["schema_version"] == 1
+    assert doc["quarter"] == QUARTER
+    assert doc["price_basis"]["total"] == len(rows)
+    assert len(doc["names"]) == len(rows)
+    by_row = {r.ticker: r for r in rows}
+    for n in doc["names"]:
+        r = by_row[n["ticker"]]
+        assert n["confidence_tier"] == r.confidence_tier
+        assert n["tier_subreason"] == prov.TIER_SUBREASON.get(r.ticker)
+        assert n["handoff_ready"] == is_handoff_ready(r.confidence_tier)
+        assert n["nav_basis"] == r.nav_basis
+        assert n["fv"] == 12.0 and n["price"] == 10.0
+        # relabeled positions carry through to the JSON exactly as displayed
+        if r.ticker in prov.POSITION_CYCLE_RELABEL:
+            assert n["position"] == "rich · cycle position (not a short)"
+
+
+def test_handoff_json_voids_derived_numbers_and_rejects_nan(tmp_path, rows, monkeypatch):
+    import json
+
+    import crude_tanker_fv.scorecard as sc_mod
+
+    monkeypatch.setattr(sc_mod, "NAV_DERIVED_VOID", {"GSL"})
+    val = _synthetic_valuation(rows)
+    val["DHT"] = val["DHT"].__class__(**{**val["DHT"].__dict__, "fv": float("nan"),
+                                         "upside_pct": float("nan")})
+    write_scorecard(rows, outputs_dir=tmp_path, valuation=val)
+    doc = json.loads((tmp_path / "book_scorecard.json").read_text())
+    gsl = next(n for n in doc["names"] if n["ticker"] == "GSL")
+    assert gsl["void"] and gsl["fv"] is None and gsl["ev_pct"] is None
+    assert gsl["handoff_ready"] is False
+    assert gsl["position"] == "void — pending reconciliation"
+    dht = next(n for n in doc["names"] if n["ticker"] == "DHT")
+    assert dht["fv"] is None                       # NaN -> null, never bare NaN in the file
+    assert "NaN" not in (tmp_path / "book_scorecard.json").read_text()
+
+
+def test_price_basis_header_announces_static_fallbacks(tmp_path, rows):
+    """A stale-price scorecard must say so in its header (audit F-1: five names
+    silently valued on June-4 statics on decision day)."""
+    pb = {"total": 22,
+          "static_fallback": {"ASC": {"as_of": "2026-06-04", "reason": "day move -21.7%"},
+                              "DHT": {"as_of": "2026-06-04", "reason": "day move -17.2%"}},
+          "oldest_static_as_of": "2026-06-04",
+          "market_event_review": {"TNK": "day move -15.7% exceeds ±15% band"}}
+    text = write_scorecard(rows, outputs_dir=tmp_path, valuation=_synthetic_valuation(rows),
+                           price_basis=pb).read_text()
+    assert "2 of 22 prices are STATIC-FALLBACK" in text
+    assert "oldest as-of 2026-06-04" in text and "ASC, DHT" in text
+    assert "Market-event review:" in text and "TNK" in text
+
+
+def test_verdict_prose_is_derived_not_hardwired(tmp_path, rows):
+    """Audit F-8: the opportunity-set narrative must follow the rows. A raw
+    TRIM/SHORT outside the relabel/unreliable/void registries is a name-specific
+    short and the prose must SAY so — never assert 'not one is a name-specific
+    short' from a hand-written literal."""
+    val = _synthetic_valuation(rows)
+    # GNK: dry-bulk name in no position registry — force a raw short on it.
+    val["GNK"] = val["GNK"].__class__(**{**val["GNK"].__dict__,
+                                         "position": "TRIM/SHORT (overvalued)"})
+    verdict = write_scorecard(rows, outputs_dir=tmp_path, valuation=val)\
+        .read_text().split("## Validation matrix")[0]
+    assert "Name-specific shorts: GNK" in verdict
+    assert "not one is a name-specific short" not in verdict
+    # The rich-long sentence is derived from the rows: with this synthetic
+    # all-BUY valuation, every VALIDATED-TIGHT name reading rich historically
+    # (DHT, ECO, FRO, TNK) is named — nothing hardwired to TNK.
+    rich_line = next(ln for ln in verdict.splitlines() if "read *rich*" in ln)
+    for t in ("DHT", "ECO", "FRO", "TNK"):
+        assert t in rich_line
+
+
 def test_verdict_label_registry_tracks_the_tiers_no_drift():
     """provenance.py is the single source: the tier sub-reason map must cover EXACTLY the
     GOVERNED-WIDE + PROVISIONAL names, and the position-relabel / void sets must sit inside the

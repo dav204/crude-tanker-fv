@@ -22,6 +22,7 @@ Definition of done per name (the grading standard this scorecard reports against
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
@@ -257,6 +258,29 @@ def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Va
     return out
 
 
+def price_basis_summary(inputs_dir: Path = INPUTS_DIR) -> dict:
+    """Which names' prices are live vs static-fallback, for the scorecard header
+    and the JSON handoff. A stale-price scorecard must ANNOUNCE itself: on
+    2026-06-30 five names silently fell back to June-4 statics on the one day
+    fresh prices mattered most, and nothing in the output said so (audit F-1)."""
+    wl = load_watchlist(inputs_dir, live_prices=True)
+    static = {t: e for t, e in sorted(wl.items()) if "price_as_of" not in e}
+    return {
+        "total": len(wl),
+        "static_fallback": {
+            t: {"as_of": str(e.get("as_of")),
+                "reason": e.get("price_fallback", "no fresh daily quote")}
+            for t, e in static.items()
+        },
+        "oldest_static_as_of": min(
+            (str(e.get("as_of")) for e in static.values() if e.get("as_of")), default=None
+        ),
+        "market_event_review": {
+            t: e["price_review"] for t, e in sorted(wl.items()) if e.get("price_review")
+        },
+    }
+
+
 def _verdict_position(ticker: str, raw: str) -> str:
     """Displayed position — a cycle-rich or unreliable read is relabeled away from TRIM/SHORT so a
     skim can't read a NAV-relative cycle signal as a directional short (owner 2026-06-30, §12)."""
@@ -276,6 +300,7 @@ def _verdict_tier(ticker: str, tier: str) -> str:
 def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation"], order: dict) -> None:
     """The consolidated Verdict table — one row per name, the single handoff surface. Carries the
     owner's three corrections: cycle-position relabel, tier sub-reasons, and voided derived numbers."""
+    by = {r.ticker: r for r in rows}
     longs = sorted(
         r.ticker for r in rows
         if r.confidence_tier == "VALIDATED-TIGHT" and r.read_hist == "cheap"
@@ -283,16 +308,50 @@ def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation
     )
     n_wide = sum(1 for r in rows if r.confidence_tier == "GOVERNED-WIDE")
     n_prov = sum(1 for r in rows if r.confidence_tier == "PROVISIONAL")
+    # Every name-specific sentence below is DERIVED from the rows, never hand-written:
+    # a literal claim ("TNK ... reads rich") goes stale silently the day the state
+    # changes, and this file is the decision surface (audit 2026-07-02, F-8).
+    long_color = ""
+    if longs:
+        sectors = ", ".join(sorted({by[t].sector.replace("_", " ") for t in longs}))
+        both = all(by[t].read_par == "cheap" for t in longs)
+        long_color = f" — {sectors}" + (", cheap on both NAV bases" if both else "")
+    rich_longs = sorted(
+        r.ticker for r in rows
+        if r.confidence_tier == "VALIDATED-TIGHT" and r.read_hist == "rich"
+        and valuation.get(r.ticker) and valuation[r.ticker].position.startswith("BUY")
+    )
+    if len(rich_longs) == 1:
+        rich_sentence = (f"{rich_longs[0]} is VALIDATED-TIGHT and BUY but reads *rich* — a "
+                         f"near-peak-earnings long, cycle-dependent, not a clean value long. ")
+    elif rich_longs:
+        rich_sentence = (f"{', '.join(rich_longs)} are VALIDATED-TIGHT and BUY but read *rich* — "
+                         f"near-peak-earnings longs, cycle-dependent, not clean value longs. ")
+    else:
+        rich_sentence = ""
+    raw_shorts = sorted(
+        r.ticker for r in rows
+        if valuation.get(r.ticker) and valuation[r.ticker].position.startswith("TRIM/SHORT")
+    )
+    named_shorts = [t for t in raw_shorts
+                    if t not in POSITION_CYCLE_RELABEL and t not in POSITION_UNRELIABLE
+                    and t not in NAV_DERIVED_VOID]
+    if raw_shorts and not named_shorts:
+        shorts_sentence = ("And **every one of the book's TRIM/SHORT positions is cycle-position, "
+                           "unreliable-read, or void — not one is a name-specific short.** ")
+    elif named_shorts:
+        shorts_sentence = (f"**Name-specific shorts: {', '.join(named_shorts)}** — every other "
+                           f"TRIM/SHORT row is cycle-position, unreliable-read, or void. ")
+    else:
+        shorts_sentence = ""
     w("## Verdict — the consolidated read (the decision surface)\n")
     w("FV vs current price, position, and the broker-NAV bug-gate on the **same row** as the confidence "
       "tier — **the single handoff surface** for a sizing decision. The per-gate evidence behind each "
       "tier is the Validation matrix below (same names, same file).\n")
     w(f"**What this says about the opportunity set:** of {len(rows)} names, the validated-and-actionable-"
-      f"long surface is **{len(longs)} ({', '.join(longs)} — dry bulk, cheap on both NAV bases)**. "
+      f"long surface is **{len(longs)} ({', '.join(longs)}{long_color})**. "
       f"{n_wide} are directional-only (GOVERNED-WIDE); {n_prov} are not yet trustworthy enough to act on "
-      f"(PROVISIONAL ⛔). TNK is VALIDATED-TIGHT and BUY but reads *rich* — a near-peak-earnings long, "
-      f"cycle-dependent, not a clean value long. And **every one of the book's TRIM/SHORT positions is "
-      f"cycle-position, unreliable-read, or void — not one is a name-specific short.** The thin actionable "
+      f"(PROVISIONAL ⛔). {rich_sentence}{shorts_sentence}The thin actionable "
       f"list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.\n")
     w("**Reading the labels:** the tier cell carries a **sub-reason = resolution path** "
       "(`structural-class` needs a new data regime; `pending-anchor` is sourceable now; `newbuild-heavy` "
@@ -326,12 +385,28 @@ def write_scorecard(
     rows: list[ScorecardRow],
     outputs_dir: Path = OUTPUTS_DIR,
     valuation: Optional[dict[str, "_Valuation"]] = None,
+    price_basis: Optional[dict] = None,
+    quarter: Optional[str] = None,
 ) -> Path:
     outputs_dir.mkdir(parents=True, exist_ok=True)
     out: list[str] = []
     w = out.append
     order = {"crude": 0, "product": 1, "dry_bulk": 2, "lng": 3, "containerships": 4}
     w("# Book-wide scorecard (Thread 4)\n")
+
+    if price_basis:
+        n_static = len(price_basis["static_fallback"])
+        if n_static:
+            names = ", ".join(price_basis["static_fallback"])
+            w(f"> **Price basis: {n_static} of {price_basis['total']} prices are STATIC-FALLBACK** "
+              f"(oldest as-of {price_basis['oldest_static_as_of']}): {names}. Those rows value the "
+              f"book at watchlist statics, not the tape — treat their Price/Upside as stale.\n")
+        else:
+            w(f"> **Price basis:** all {price_basis['total']} prices live.\n")
+        if price_basis.get("market_event_review"):
+            names = ", ".join(price_basis["market_event_review"])
+            w(f"> **Market-event review:** {names} — the day-band circuit breaker applied fresh "
+              f"prices on a multi-name repricing; eyeball these moves before acting.\n")
 
     if valuation:
         w("This file lists each name **twice, by design** — once in the **Verdict** (the decision "
@@ -407,7 +482,72 @@ def write_scorecard(
             w(f"- **{r.ticker}** — {r.nav_basis_detail}")
     md_path = outputs_dir / "book_scorecard.md"
     md_path.write_text("\n".join(out))
+    if valuation is not None:
+        _write_handoff_json(rows, valuation, outputs_dir, price_basis, quarter)
     return md_path
+
+
+def _num(x: Optional[float], nd: int = 2) -> Optional[float]:
+    """Round for the JSON handoff; NaN (a name missing from fv_reports) -> null —
+    json.dumps would otherwise emit bare NaN, which is not valid JSON."""
+    return None if x is None or x != x else round(x, nd)
+
+
+def _write_handoff_json(
+    rows: list[ScorecardRow],
+    valuation: dict[str, "_Valuation"],
+    outputs_dir: Path,
+    price_basis: Optional[dict],
+    quarter: Optional[str],
+) -> Path:
+    """The machine-readable half of the handoff surface (audit 2026-07-02, F-4).
+
+    The Verdict table is rendered markdown — format-fragile for the governance
+    repo's ingestion (a column reorder silently mis-maps a field). This JSON is
+    the CONTRACT: schema-versioned, same underlying objects as the table (tiers,
+    sub-reasons, positions, void striking), locked by test_scorecard. Bump
+    schema_version on any breaking field change; the ingesting side must assert
+    it. No wall-clock stamp — the temporal anchor is price_basis, so an
+    unchanged book regenerates byte-identical (the audit's reproducibility
+    property, F-10)."""
+    names = []
+    torder = {"VALIDATED-TIGHT": 0, "GOVERNED-WIDE": 1, "PROVISIONAL": 2}
+    sorder = {"crude": 0, "product": 1, "dry_bulk": 2, "lng": 3, "containerships": 4}
+    for r in sorted(rows, key=lambda r: (torder.get(r.confidence_tier, 9),
+                                         sorder.get(r.sector, 9), r.ticker)):
+        v = valuation.get(r.ticker)
+        void = r.ticker in NAV_DERIVED_VOID
+        names.append({
+            "ticker": r.ticker,
+            "sector": r.sector,
+            "confidence_tier": r.confidence_tier,
+            "tier_subreason": TIER_SUBREASON.get(r.ticker),
+            "handoff_ready": is_handoff_ready(r.confidence_tier) and not void,
+            "nav_basis": r.nav_basis,
+            "void": void,
+            "sanity": v.sanity if v else None,
+            "price": _num(v.price) if v else None,
+            # Void striking mirrors the md table: a number derived off a
+            # contradicted figure is not data and must not reach the consumer.
+            "position": (None if v is None else
+                         ("void — pending reconciliation" if void
+                          else _verdict_position(r.ticker, v.position))),
+            "fv": None if (v is None or void) else _num(v.fv),
+            "ev_pct": None if (v is None or void) else _num(v.upside_pct, 1),
+            "nav_per_share": None if (v is None or void) else _num(v.nav_ps),
+            "broker_nav": None if (v is None or void) else _num(v.broker_nav),
+            "gap_pct": None if (v is None or void) else _num(v.gap_pct, 1),
+            "governance_discount_pct": r.governance_discount_pct,
+        })
+    doc = {
+        "schema_version": 1,
+        "quarter": quarter,
+        "price_basis": price_basis,
+        "names": names,
+    }
+    path = outputs_dir / "book_scorecard.json"
+    path.write_text(json.dumps(doc, indent=2, allow_nan=False) + "\n")
+    return path
 
 
 def run_scorecard_xref(
@@ -420,10 +560,12 @@ def run_scorecard_xref(
     standalone (no reports) it emits the validation matrix only — backward compatible."""
     rows = compute_scorecard(quarter, inputs_dir)
     valuation = None
+    price_basis = None
     if fv_reports is not None and scenario_reports is not None and broker_rows is not None:
         valuation = valuation_index(fv_reports, scenario_reports, broker_rows)
+        price_basis = price_basis_summary(inputs_dir)
     if rows:
-        path = write_scorecard(rows, outputs_dir, valuation)
+        path = write_scorecard(rows, outputs_dir, valuation, price_basis, quarter)
         n_uniform = sum(1 for r in rows if r.nav_basis == "resale-uniform")
         n_ready = sum(1 for r in rows if is_handoff_ready(r.confidence_tier))
         tag = "CONSOLIDATED verdict+matrix" if valuation else "validation matrix"
