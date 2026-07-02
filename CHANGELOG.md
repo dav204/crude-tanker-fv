@@ -5,6 +5,30 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-02 — EXTERNAL AUDIT RESPONSE: 12 findings verified (10 confirmed / 2 partial), 9 fixed same-day; the price band was WORSE than the audit said.**
+  An independent clone-and-run audit of `6749362` landed 12 findings (`outputs/EXTERNAL_AUDIT_2026-07-02.md` —
+  register + disposition). Every finding re-verified locally by an 18-agent workflow (adversarial re-checks on all
+  P0/P1s; all upheld). Three things the audit couldn't see from a clone: (1) **the ±15% "day move" band was actually
+  a ~5-session trailing move** — `chartPreviousClose` on a `range=5d` request is the close before the WINDOW (proven:
+  June-30 prev_close values sat 12-21% above the June-26 committed closes mid-slide), so the June-30 repricing would
+  have held ASC/TNK on statics ~5 trading days, not 1; (2) **the July-1 price cron fired and its output was
+  discarded** — reverted ~1h later by the HAFN session's price-drift isolation, and the deferred re-ratify never
+  happened (vintage survives only in `state/price_refresh.log`); the discipline is amended: revert → **drift commit
+  in the SAME session**; (3) F-5's plumbing is inverted — `spot_tce` never feeds the strip; the strip's war-vintage
+  exposure is `ffa_forward_curve.yaml` (VLCC q1 3.7× mean, UNDER the 5× warning bar) + `twelve_month_tc.yaml`, both
+  unrefreshed since 2026-06-07. **Fixed same-day** (six commits, each finding-attributed): F-1 (true prior-day close
+  + ≥3-name market-event circuit breaker + loader fallback recording + scorecard price-basis header), F-3/F-10
+  (breakeven exact-zero sentinel; SIX docs carried 1e29 ratios, not 3 — now "price justified by NAV alone" / "n/a",
+  guarded by `test_outputs_hygiene`), F-4 (`outputs/book_scorecard.json` — schema_version 1, void-striking, NaN→null,
+  lock-tested; the governance seam is now a contract), F-6 (quarter regex + abort-before-state-writes; an all-skip
+  run used to touch `decisions/*.md`), F-7 (regen; TRMD `· basis-pending` — the staleness was intra-commit b5019cf),
+  F-8 (verdict prose derived from rows, never hand-written literals), F-9 (README 22 tickers / 460+ tests, counts
+  guarded vs watchlist.yaml — the audit's own 440 was miscounted), F-12 (shares ≤ 0 hard-fails at load). Gate loop
+  clean: 464 passed + 16 xfailed, drift gate 0 UNEXPLAINED (regen at the committed price vintage — zero price drift
+  bundled). **OPEN:** F-2 (crude reweight = §13.3 owner trigger — proposal drafted, decision Dan's), F-5 (dated rate
+  refresh, pairs with F-2's re-run), July-1 price recovery (staged as its own re-ratify), F-11 (optional YAML
+  migration — noting the queues are ALSO duplicated in guard-test literals, double the audit's stated surface).
+
 - **2026-07-02 — TRMD RECONCILED: the estimate-heaviest name, the FIRST to move NAV UP, and it CLEARS the P0 queue.**
   Eighth and LAST P0 name (TORM plc) — the reconciliation queue (`NAV_FIGURE_ESTIMATE_QUEUE ∩ PROVISIONAL`) is now
   CLEARED (NAT/SB/ASC/BRUT/ECO/HAFN/STNG/TRMD). TRMD's prior balance sheet was the estimate-heaviest in the book —

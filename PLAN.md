@@ -5,10 +5,19 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-07-02):** **22 watchlist names across 5 sectors**; **444 main
+**Current state (2026-07-02, post-audit-response):** **22 watchlist names across 5 sectors**; **464 main
 tests green, 16 xfailed** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester
 via `.venv310`); drift gate **0 unexplained** (TRMD explained); pipeline clean; SANITY 14 OK / 8
-n-a-APPROX / 0 FAIL. **The P0 reconciliation queue (`NAV_FIGURE_ESTIMATE_QUEUE ∩ PROVISIONAL`) is CLEARED —
+n-a-APPROX / 0 FAIL. **An external clone-and-run audit landed 2026-07-02; 9 of 12 findings fixed
+same-day** (register + disposition: `outputs/EXTERNAL_AUDIT_2026-07-02.md`; narrative: CHANGELOG).
+New standing facts: the scorecard header now DISCLOSES its price basis; `outputs/book_scorecard.json`
+(schema_version 1) is the machine half of the governance handoff — bump the version on any breaking
+field change, the ingesting side must assert it; the ±15% price band now measures TRUE day-over-day
+and a ≥3-name simultaneous trip is treated as a market event (prices applied + review marker), not
+rejected. **OPEN from the audit: F-2 (crude scenario reweight — §13.3 owner trigger MET by the
+US–Iran stand-down, proposal drafted in `decisions/`, decision is the owner's) and F-5 (all three
+rate files — `spot_tce` / `ffa_forward_curve` / `twelve_month_tc` — carry unrefreshed 2026-06-07
+war-spike vintage; needs a dated Pareto refresh, pairs with the F-2 re-run).** **The P0 reconciliation queue (`NAV_FIGURE_ESTIMATE_QUEUE ∩ PROVISIONAL`) is CLEARED —
 EIGHT names done: NAT/SB/ASC/BRUT/ECO/HAFN/STNG/TRMD.** EIGHT P0 names worked this arc: **NAT DE-VOIDED** (2026-06-30, NAV $2.07→$2.79,
 GOVERNED-WIDE·newbuild-indeterminate), **SB corrected** (date-mix + CAPT blanket-scrubber bug; NAV
 $10.47→$10.12, ~0.63×), **ASC reconciled** (April-2026 newbuild wrongly loaded as a −$88.8M Q1
