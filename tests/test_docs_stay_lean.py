@@ -27,6 +27,38 @@ ROOT = Path(__file__).resolve().parents[1]
 CLAUDE_MD_CHAR_CAP = 16_000
 
 
+def test_readme_status_counts_match_the_watchlist():
+    """The README Status block is a hand-maintained counter — exactly the kind
+    that rots (said 20 tickers / 378 tests while the repo held 22 / 460; audit
+    2026-07-02, F-9). Assert the ticker headline and per-sector split against
+    inputs/watchlist.yaml so the block can never silently drift again."""
+    import re
+
+    import yaml
+
+    wl = yaml.safe_load((ROOT / "inputs" / "watchlist.yaml").read_text())
+    entries = {t: e for t, e in wl.items() if isinstance(e, dict)}
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+
+    m = re.search(r"\*\*(\d+) tickers\*\* across (\d+) sectors", readme)
+    assert m, "README Status block lost its '**N tickers** across S sectors' line"
+    assert int(m.group(1)) == len(entries), (
+        f"README says {m.group(1)} tickers; watchlist has {len(entries)}")
+    sectors = {str(e.get("sector") or "crude") for e in entries.values()}
+    assert int(m.group(2)) == len(sectors)
+
+    counts: dict[str, int] = {}
+    for e in entries.values():
+        s = str(e.get("sector") or "crude")
+        counts[s] = counts.get(s, 0) + 1
+    status = readme.split("## Status", 1)[1]
+    for label, key in (("crude", "crude"), ("LNG", "lng"), ("product", "product"),
+                       ("dry bulk", "dry_bulk"), ("containerships", "containerships")):
+        sm = re.search(rf"{label} \((\d+)", status)
+        assert sm and int(sm.group(1)) == counts[key], (
+            f"README sector count for {key} does not match the watchlist ({counts[key]})")
+
+
 def test_claude_md_stays_a_lean_router():
     text = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
     n = len(text)

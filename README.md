@@ -36,12 +36,14 @@ significance needs a pre-2024 backfill
 [outputs/epistemic_soundness_memo_2026-06-22.md](outputs/epistemic_soundness_memo_2026-06-22.md)).
 Use the reads as one disciplined input to a position call, sized accordingly.
 
-## Status (2026-06-22)
+## Status (2026-07-02)
 
-- **20 tickers** across 5 sectors: crude (9, incl. **TEN** the 3-sleeve hybrid,
-  **CAPT** the first Oslo/NOK listing, and **BRUT** the pure-play VLCC newbuild
-  vehicle), LNG (2), product (4), dry bulk (3), containerships (2)
-- **378 tests passing** end-to-end
+- **22 tickers** across 5 sectors: crude (10, incl. **TEN** the 3-sleeve hybrid,
+  **CAPT** the first Oslo/NOK listing, **BRUT** the pure-play VLCC newbuild
+  vehicle, and **CMBT** the multi-sleeve), LNG (2), product (4), dry bulk (4,
+  incl. **SB** added 2026-07-01), containerships (2)
+- **460+ tests passing** end-to-end (the ticker count and sector split are
+  guarded against `inputs/watchlist.yaml` by `tests/test_docs_stay_lean.py`)
 - **8 output families** regenerated per pipeline run + 5 standalone diagnostics
   (LNG weight robustness, crude weight robustness, VIE coverage universe xref,
   VIE market rates xref, terminal-value sensitivity)
