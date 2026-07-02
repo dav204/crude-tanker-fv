@@ -7,6 +7,36 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-02T14:53:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $69.53
+- Single-point FV: $76.13
+- Scenario PW FV: $77.13 (EV +10.9%)
+- NAV / share: $77.47
+- Position: **BUY (undervalued)**
+- Broker spread: +27.5pp (k_broker 1.31)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- ⚑ broker spread -7.9pp
+- Δprice: -6.07 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -7.9pp
+
+**Decision (2026-07-02, band-flip eyeball per the drift discipline):** the HOLD→BUY flip is
+PRICE-vintage only — FV/NAV did not move; the price basis advanced from the stale June-4 static
+$75.60 to the recovered July-1 close $69.53 (the June-30 sector-wide repricing had tripped the
+old ±15% band and held STNG on the static; vintage recovered from `state/price_refresh.log`
+after the audit F-1 follow-up — see `outputs/EXTERNAL_AUDIT_2026-07-02.md`). EV +2.0% → +10.9%
+is a genuine re-entry into the BUY band at the real tape, not boundary noise — but STNG remains
+**PROVISIONAL · off-curve ⛔, NOT handoff-ready** (the 10-vessel newbuild off-curve question,
+incl. the 2 VLCCs, is the open methodology fork), so the flip changes no actionable position.
+Accepted into the baseline via the July-1 price-vintage re-ratify. No trade.
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-02T14:44:16+00:00 — Pipeline run (auto)
 
 **Model state:**
