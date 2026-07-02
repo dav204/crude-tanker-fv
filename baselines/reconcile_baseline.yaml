@@ -2,14 +2,14 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-07-02T00:21:02+00:00'
-  ratified_commit: fd6fc9e
+  ratified_at: '2026-07-02T04:32:17+00:00'
+  ratified_commit: b5019cf
   quarter: 2026-Q1
-  cause: 'STNG P0 reconciliation — full per-vessel rebuild vs Q1-2026 6-K (acc 0001483934-26-000042):
-    total_debt double-count fixed $789.1M->$589.056M (+$200M), held-for-sale double-count fixed (6 operating
-    MRs removed, real March 8-vessel agreement $305M, -$280M), opWC omitted-accrued $207.8M->$163.3M,
-    advances sourced $90M->$69.069M. Headline NAV $80.35->$77.47, BUY->HOLD. STNG leaves NAV_FIGURE_ESTIMATE_QUEUE,
-    stays PROVISIONAL.off-curve; §9.6 newbuild deferred (thread (d) gated).'
+  cause: 'TRMD P0 reconciliation (8th, clears the queue) — full sourcing vs Q1-2026 6-K (acc 0000919574-26-003082),
+    8-agent workflow-verified: newbuild commitment $360M->$31.2M (6 MR resales were a subsequent event),
+    opWC $110M->$254.9M, debt $1089.6M->$1081.8M, leases $5M->$0. Owner forks: 2 MR resales on-curve §9.6
+    (leaves OFF_CONVENTION), scrubbers->85 (leaves OPERATING_SCRUBBER). Headline NAV $25.43->$30.34, HOLD->BUY,
+    k_broker 1.17->1.03. -> GOVERNED-WIDE.basis-pending.'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -164,8 +164,8 @@ names:
     sector: crude
   TRMD:
     pnav_basis: pareto
-    ev_pct: 4.84
-    tool_nav: 25.43
-    position_band: HOLD (fairly valued)
-    k_broker: 1.17
+    ev_pct: 22.41
+    tool_nav: 30.34
+    position_band: BUY (undervalued)
+    k_broker: 1.03
     sector: product
