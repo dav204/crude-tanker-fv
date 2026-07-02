@@ -1,0 +1,127 @@
+weight_sets:
+  Crude Set A (current locked, Jun-9):
+    escalation: 0.25
+    pre_mou_baseline: 0.45
+    mou_base: 0.18
+    mou_bear: 0.12
+  Crude Set B (Catlin-leaning, slow normalization):
+    escalation: 0.1
+    pre_mou_baseline: 0.25
+    mou_base: 0.45
+    mou_bear: 0.2
+  Crude Set C (bullish, extended Phase 1):
+    escalation: 0.15
+    pre_mou_baseline: 0.3
+    mou_base: 0.4
+    mou_bear: 0.15
+  Crude Set D (bearish, deep normalization):
+    escalation: 0.05
+    pre_mou_baseline: 0.1
+    mou_base: 0.55
+    mou_bear: 0.3
+  Crude Set E (Jul-2 post-stand-down proposal):
+    escalation: 0.1
+    pre_mou_baseline: 0.2
+    mou_base: 0.45
+    mou_bear: 0.25
+names:
+  DHT:
+    ev_min_pct: -32.3
+    ev_max_pct: -4.6
+    ev_sign_stable: true
+    positions:
+    - HOLD
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+  ECO:
+    ev_min_pct: -49.4
+    ev_max_pct: -19.9
+    ev_sign_stable: true
+    positions:
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+  FRO:
+    ev_min_pct: -48.6
+    ev_max_pct: -16.9
+    ev_sign_stable: true
+    positions:
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+  INSW:
+    ev_min_pct: -37.1
+    ev_max_pct: -22.6
+    ev_sign_stable: true
+    positions:
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+  TNK:
+    ev_min_pct: 4.3
+    ev_max_pct: 23.7
+    ev_sign_stable: true
+    positions:
+    - BUY
+    - BUY
+    - BUY
+    - HOLD
+    - BUY
+  NAT:
+    ev_min_pct: -59.9
+    ev_max_pct: -40.1
+    ev_sign_stable: true
+    positions:
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+  TEN:
+    ev_min_pct: 46.4
+    ev_max_pct: 81.9
+    ev_sign_stable: true
+    positions:
+    - BUY
+    - BUY
+    - BUY
+    - BUY
+    - BUY
+  CMBT:
+    ev_min_pct: -2.7
+    ev_max_pct: 10.7
+    ev_sign_stable: false
+    positions:
+    - BUY
+    - HOLD
+    - HOLD
+    - HOLD
+    - HOLD
+  BRUT:
+    ev_min_pct: -43.1
+    ev_max_pct: 98.1
+    ev_sign_stable: false
+    positions:
+    - BUY
+    - BUY
+    - BUY
+    - TRIM/SHORT
+    - HOLD
+  CAPT:
+    ev_min_pct: -20.8
+    ev_max_pct: 37.4
+    ev_sign_stable: false
+    positions:
+    - BUY
+    - HOLD
+    - BUY
+    - TRIM/SHORT
+    - TRIM/SHORT

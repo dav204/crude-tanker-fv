@@ -107,8 +107,9 @@ def _whole_company_basis(crude_share: float) -> str:
     return (
         f"WHOLE-COMPANY = crude sleeve ({crude_share:.1%} of vessel value) + product "
         f"sleeve ({1 - crude_share:.1%}) AGGREGATED. Compared to the WHOLE-COMPANY tape "
-        f"price (not the crude-allocated proxy). Per-sleeve FVs flow through the same "
-        f"scenario set (METHODOLOGY 6 v2)."
+        f"price (not the crude-allocated proxy). Each sleeve is probability-weighted by "
+        f"its OWN sector's scenario weights (cross-sector independence; METHODOLOGY 6 v2, "
+        f"rank-1 pairing removed 2026-07-02)."
     )
 
 
@@ -120,56 +121,17 @@ def _aggregate_hybrid_report(
 ) -> ScenarioReport:
     """Sum the two sleeve ScenarioReports into a single whole-company report.
 
-    Both inputs use the same shares-outstanding denominator (the carve-outs only
-    pro-rate balance-sheet items, NOT shares), so per-share values add directly.
-    The aggregate compares against ``whole_price`` (the tape, not the carved
-    proxy). Breakeven inherits from the crude sleeve as a single-sleeve proxy.
+    Delegates to ``_aggregate_multi_sleeve_report`` (2026-07-02, review C-3):
+    each sleeve's ladder is weighted by ITS OWN sector's probabilities. The
+    prior index-pairing applied crude weights to the product sleeve — correct
+    only while the two families carried identical weights, which the Jun-9
+    crude reweight silently broke.
     """
-    # Position-matched aggregation (METHODOLOGY §6 v2 / §11.5). Crude and product
-    # sectors now have DIFFERENT scenario names (e.g. crude `escalation` vs
-    # product `refinery_squeeze`); we pair by INDEX, treating crude scenario N as
-    # the joint counterpart to product scenario N. Both sector scenario lists
-    # are ordered by decreasing optimism with currently-identical weights at each
-    # index ({0.10, 0.15, 0.50, 0.25}); the product 5th `structural_decline` at
-    # weight 0 is dropped from the joint aggregation. The implicit assumption is
-    # perfect correlation between crude scenario N and product scenario N —
-    # acceptable for INSW (both sleeves respond to the same macro environment);
-    # revisit if sector weights diverge structurally.
-    n = min(len(crude_report.scenarios), len(product_report.scenarios))
-    agg: list[ScenarioFV] = []
-    for i in range(n):
-        c = crude_report.scenarios[i]
-        p = product_report.scenarios[i]
-        agg.append(ScenarioFV(
-            name=c.name,                            # crude name in the display table
-            weight=c.weight,                        # paired (currently identical to product[i].weight)
-            fair_value=c.fair_value + p.fair_value,
-            fair_value_low=c.fair_value_low + p.fair_value_low,
-            fair_value_high=c.fair_value_high + p.fair_value_high,
-            nav_per_share=c.nav_per_share + p.nav_per_share,
-            vessel_scale=c.vessel_scale,            # crude side (informational)
-            divstrip_npv=c.divstrip_npv + p.divstrip_npv,
-            cycle_position=c.cycle_position,        # crude side; sleeves can differ
-            w_nav=c.w_nav,
-            assumed_tce=c.assumed_tce * crude_share + p.assumed_tce * product_share,
-        ))
-    total_w = sum(s.weight for s in agg)
-    pw_fv = sum(s.weight * s.fair_value for s in agg) / total_w
-    ev = pw_fv - whole_price
-    return ScenarioReport(
-        ticker=ticker,
-        current_price=whole_price,
-        analyst_target=whole_target,
-        base_nav_per_share=crude_report.base_nav_per_share + product_report.base_nav_per_share,
-        breakeven_tce=crude_report.breakeven_tce,
-        scenarios=agg,
-        probability_weighted_fv=pw_fv,
-        upside_best=max(s.fair_value for s in agg) - whole_price,
-        downside_worst=min(s.fair_value for s in agg) - whole_price,
-        expected_value_vs_current=ev,
-        position_recommendation=position_recommendation(ev / whole_price * 100.0),
+    return _aggregate_multi_sleeve_report(
+        [(crude_report, crude_share), (product_report, product_share)],
+        ticker=ticker, whole_price=whole_price, whole_target=whole_target,
+        sectors=["crude", "product"],
         basis=_whole_company_basis(crude_share),
-        sector=crude_report.sector,    # both sleeves share the same sector for v2
     )
 
 
@@ -182,37 +144,9 @@ def _aggregate_three_sleeve_report(
 ) -> ScenarioReport:
     """3-sleeve analog of ``_aggregate_hybrid_report`` (METHODOLOGY §11.6).
 
-    Pairs scenarios across the three sleeve sectors by INDEX (assuming the
-    sector scenario lists are equal-length and pre-aligned by macro
-    optimism). The implicit assumption is perfect correlation across the
-    three macro environments — defensible for a single-name aggregate but
-    revisit if sector weight families diverge structurally (e.g. crude
-    Set D vs LNG Set B-revised tail).
+    Delegates to ``_aggregate_multi_sleeve_report`` (2026-07-02, review C-3):
+    per-sleeve sector weights, rank-1 index pairing removed.
     """
-    n = min(len(crude_report.scenarios), len(product_report.scenarios), len(lng_report.scenarios))
-    agg: list[ScenarioFV] = []
-    for i in range(n):
-        c = crude_report.scenarios[i]
-        p = product_report.scenarios[i]
-        l = lng_report.scenarios[i]
-        agg.append(ScenarioFV(
-            name=c.name,                            # crude name in the display table
-            weight=c.weight,                        # paired across sleeves at this index
-            fair_value=c.fair_value + p.fair_value + l.fair_value,
-            fair_value_low=c.fair_value_low + p.fair_value_low + l.fair_value_low,
-            fair_value_high=c.fair_value_high + p.fair_value_high + l.fair_value_high,
-            nav_per_share=c.nav_per_share + p.nav_per_share + l.nav_per_share,
-            vessel_scale=c.vessel_scale,            # crude side (informational)
-            divstrip_npv=c.divstrip_npv + p.divstrip_npv + l.divstrip_npv,
-            cycle_position=c.cycle_position,        # crude side; sleeves can differ
-            w_nav=c.w_nav,
-            assumed_tce=(c.assumed_tce * crude_share
-                         + p.assumed_tce * product_share
-                         + l.assumed_tce * lng_share),
-        ))
-    total_w = sum(s.weight for s in agg)
-    pw_fv = sum(s.weight * s.fair_value for s in agg) / total_w
-    ev = pw_fv - whole_price
     basis = (
         f"WHOLE-COMPANY 3-SLEEVE = crude ({crude_share:.1%}) + product "
         f"({product_share:.1%}) + lng ({lng_share:.1%}) AGGREGATED (METHODOLOGY "
@@ -220,22 +154,12 @@ def _aggregate_three_sleeve_report(
         f"level (`shuttle_contracted_book`) and flows through NAV uniformly "
         f"across scenarios. Compared to the WHOLE-COMPANY tape price."
     )
-    return ScenarioReport(
-        ticker=ticker,
-        current_price=whole_price,
-        analyst_target=whole_target,
-        base_nav_per_share=(crude_report.base_nav_per_share
-                            + product_report.base_nav_per_share
-                            + lng_report.base_nav_per_share),
-        breakeven_tce=crude_report.breakeven_tce,
-        scenarios=agg,
-        probability_weighted_fv=pw_fv,
-        upside_best=max(s.fair_value for s in agg) - whole_price,
-        downside_worst=min(s.fair_value for s in agg) - whole_price,
-        expected_value_vs_current=ev,
-        position_recommendation=position_recommendation(ev / whole_price * 100.0),
+    return _aggregate_multi_sleeve_report(
+        [(crude_report, crude_share), (product_report, product_share),
+         (lng_report, lng_share)],
+        ticker=ticker, whole_price=whole_price, whole_target=whole_target,
+        sectors=["crude", "product", "lng"],
         basis=basis,
-        sector=crude_report.sector,
     )
 
 
@@ -263,17 +187,28 @@ def _multi_sleeve_basis(sectors: list[str], shares: list[float]) -> str:
 def _aggregate_multi_sleeve_report(
     sleeves: list[tuple[ScenarioReport, float]],
     *, ticker: str, whole_price: float, whole_target: float, sectors: list[str],
+    basis: str | None = None,
 ) -> ScenarioReport:
-    """N-sleeve generalisation of ``_aggregate_three_sleeve_report`` (METHODOLOGY §11.9).
+    """N-sleeve aggregation core (METHODOLOGY §11.9) — ALL hybrid aggregators
+    delegate here (2-sleeve INSW, 3-sleeve TEN, N-sleeve CMBT).
 
-    Pairs scenarios across an arbitrary list of sleeve reports by INDEX (the
-    sector scenario lists are pre-aligned by macro optimism; ``min`` length
-    governs, dropping any sleeve's tail scenarios — for CMBT all three sleeves
-    are 4-scenario, so n=4 cleanly). Per-sleeve strip horizons (8/8/10) are NOT
-    the aggregator's concern: each sleeve's ``run_scenarios`` already built its
-    own strip at its own horizon, so the aggregator only sums per-share FVs. The
-    first sleeve carries the display name/weight/cycle; ``assumed_tce`` is
-    value-share-weighted.
+    **Cross-sector independence assumed; rank-1 pairing removed (2026-07-02,
+    review C-3).** The headline probability-weighted FV is the SUM of each
+    sleeve's OWN probability-weighted FV — each sleeve's ladder weighted by its
+    own sector's probabilities. The prior form paired ladders by index and
+    applied the FIRST sleeve's weights to every sleeve, which was only correct
+    while the sector families carried identical weights at each index; the
+    Jun-9 crude reweight broke that silently (CMBT's dry-bulk sleeve — 72.7 %
+    of vessel value — was being probability-weighted by the Hormuz state).
+    Per-share sleeve FVs add directly (carve-outs pro-rate balance-sheet items,
+    never shares).
+
+    The per-scenario DISPLAY rows remain index-paired (lead sleeve's
+    name/weight/cycle shown) as an illustrative correlated slice — the footer
+    PW FV is deliberately NOT the weight-dot-product of those rows.
+    upside_best / downside_worst are independence envelopes (sum of per-sleeve
+    bests / worsts). Per-sleeve strip horizons are not the aggregator's
+    concern: each sleeve's ``run_scenarios`` built its own strip.
     """
     reports = [r for r, _ in sleeves]
     shares = [s for _, s in sleeves]
@@ -295,8 +230,7 @@ def _aggregate_multi_sleeve_report(
             w_nav=lead.w_nav,
             assumed_tce=sum(c.assumed_tce * sh for c, sh in zip(cells, shares)),
         ))
-    total_w = sum(s.weight for s in agg)
-    pw_fv = sum(s.weight * s.fair_value for s in agg) / total_w
+    pw_fv = sum(r.probability_weighted_fv for r in reports)
     ev = pw_fv - whole_price
     return ScenarioReport(
         ticker=ticker,
@@ -306,11 +240,11 @@ def _aggregate_multi_sleeve_report(
         breakeven_tce=reports[0].breakeven_tce,
         scenarios=agg,
         probability_weighted_fv=pw_fv,
-        upside_best=max(s.fair_value for s in agg) - whole_price,
-        downside_worst=min(s.fair_value for s in agg) - whole_price,
+        upside_best=sum(max(s.fair_value for s in r.scenarios) for r in reports) - whole_price,
+        downside_worst=sum(min(s.fair_value for s in r.scenarios) for r in reports) - whole_price,
         expected_value_vs_current=ev,
         position_recommendation=position_recommendation(ev / whole_price * 100.0),
-        basis=_multi_sleeve_basis(sectors, shares),
+        basis=(basis or _multi_sleeve_basis(sectors, shares)),
         sector=reports[0].sector,
     )
 

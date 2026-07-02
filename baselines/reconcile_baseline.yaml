@@ -2,13 +2,12 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-07-02T14:53:03+00:00'
+  ratified_at: '2026-07-02T15:56:41+00:00'
   ratified_commit: 2810c60
   quarter: 2026-Q1
-  cause: July-1 price-vintage recovery — the 18:30 cron's output was discarded by the HAFN session's drift
-    isolation (audit F-1 follow-up); prices advance June-4-statics/June-30 -> July-1 closes reconstructed
-    from state/price_refresh.log; ΔNAV 0.0% on all 22 names, pure price drift; STNG HOLD->BUY flip eyeballed
-    + annotated (PROVISIONAL, not actionable)
+  cause: C-3 multi-sleeve aggregation fix (review addendum 2026-07-02) — per-sleeve sector weights replace
+    rank-1 index pairing; CMBT -3.6pp / TEN -3.2pp / INSW -1.5pp EV, ΔNAV 0.0% all names, no band flips;
+    annotated in cmbt/ten logs; regression-tested
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -44,7 +43,7 @@ names:
     sector: lng
   CMBT:
     pnav_basis: pareto
-    ev_pct: 14.37
+    ev_pct: 10.74
     tool_nav: 15.87
     position_band: BUY (undervalued)
     k_broker: 1.11
@@ -107,7 +106,7 @@ names:
     sector: product
   INSW:
     pnav_basis: pareto
-    ev_pct: -21.13
+    ev_pct: -22.61
     tool_nav: 52.59
     position_band: TRIM/SHORT (overvalued)
     k_broker: 1.51
@@ -149,7 +148,7 @@ names:
     sector: product
   TEN:
     pnav_basis: approx
-    ev_pct: 85.17
+    ev_pct: 81.93
     tool_nav: 88.7
     position_band: BUY (undervalued)
     k_broker: 1.12

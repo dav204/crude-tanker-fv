@@ -24,7 +24,8 @@
       "nav_per_share": 13.88,
       "broker_nav": 15.17,
       "gap_pct": -8.5,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": true
     },
     {
       "ticker": "ECO",
@@ -42,7 +43,8 @@
       "nav_per_share": 34.35,
       "broker_nav": 41.27,
       "gap_pct": -16.8,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": true
     },
     {
       "ticker": "FRO",
@@ -60,7 +62,8 @@
       "nav_per_share": 24.22,
       "broker_nav": 28.92,
       "gap_pct": -16.2,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": true
     },
     {
       "ticker": "TNK",
@@ -78,7 +81,8 @@
       "nav_per_share": 77.51,
       "broker_nav": 84.64,
       "gap_pct": -8.4,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": true
     },
     {
       "ticker": "SB",
@@ -96,7 +100,8 @@
       "nav_per_share": 10.12,
       "broker_nav": 7.17,
       "gap_pct": 41.1,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": null
     },
     {
       "ticker": "SBLK",
@@ -114,7 +119,8 @@
       "nav_per_share": 29.34,
       "broker_nav": 30.26,
       "gap_pct": -3.0,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": null
     },
     {
       "ticker": "CAPT",
@@ -132,7 +138,8 @@
       "nav_per_share": 15.49,
       "broker_nav": 18.64,
       "gap_pct": -16.9,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": false
     },
     {
       "ticker": "CMBT",
@@ -150,7 +157,8 @@
       "nav_per_share": 15.87,
       "broker_nav": 18.99,
       "gap_pct": -16.4,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": false
     },
     {
       "ticker": "INSW",
@@ -168,7 +176,8 @@
       "nav_per_share": 52.59,
       "broker_nav": 79.37,
       "gap_pct": -33.7,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": true
     },
     {
       "ticker": "NAT",
@@ -186,7 +195,8 @@
       "nav_per_share": 2.79,
       "broker_nav": 6.54,
       "gap_pct": -57.3,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": true
     },
     {
       "ticker": "TEN",
@@ -204,7 +214,8 @@
       "nav_per_share": 88.7,
       "broker_nav": 104.03,
       "gap_pct": -14.7,
-      "governance_discount_pct": 0.3
+      "governance_discount_pct": 0.3,
+      "weight_sign_stable": true
     },
     {
       "ticker": "ASC",
@@ -222,7 +233,8 @@
       "nav_per_share": 17.8,
       "broker_nav": 19.0,
       "gap_pct": -6.3,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": null
     },
     {
       "ticker": "TRMD",
@@ -240,7 +252,8 @@
       "nav_per_share": 30.34,
       "broker_nav": 31.63,
       "gap_pct": -4.1,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": null
     },
     {
       "ticker": "CMDB",
@@ -258,7 +271,8 @@
       "nav_per_share": 31.33,
       "broker_nav": 29.37,
       "gap_pct": 6.7,
-      "governance_discount_pct": 0.3
+      "governance_discount_pct": 0.3,
+      "weight_sign_stable": null
     },
     {
       "ticker": "GNK",
@@ -276,7 +290,8 @@
       "nav_per_share": 24.69,
       "broker_nav": 28.34,
       "gap_pct": -12.9,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": null
     },
     {
       "ticker": "CCEC",
@@ -294,7 +309,8 @@
       "nav_per_share": 28.1,
       "broker_nav": 24.09,
       "gap_pct": 16.6,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": null
     },
     {
       "ticker": "FLNG",
@@ -312,7 +328,8 @@
       "nav_per_share": 28.45,
       "broker_nav": 20.89,
       "gap_pct": 36.2,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": null
     },
     {
       "ticker": "GSL",
@@ -330,7 +347,8 @@
       "nav_per_share": 38.59,
       "broker_nav": 50.37,
       "gap_pct": -23.4,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": null
     },
     {
       "ticker": "MPCC",
@@ -348,7 +366,8 @@
       "nav_per_share": 2.02,
       "broker_nav": 2.33,
       "gap_pct": -13.1,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": null
     },
     {
       "ticker": "BRUT",
@@ -366,7 +385,8 @@
       "nav_per_share": 8.8,
       "broker_nav": 6.89,
       "gap_pct": 27.6,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": false
     },
     {
       "ticker": "HAFN",
@@ -384,7 +404,8 @@
       "nav_per_share": 5.57,
       "broker_nav": 6.91,
       "gap_pct": -19.3,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": null
     },
     {
       "ticker": "STNG",
@@ -402,7 +423,8 @@
       "nav_per_share": 77.47,
       "broker_nav": 99.33,
       "gap_pct": -22.0,
-      "governance_discount_pct": 0.0
+      "governance_discount_pct": 0.0,
+      "weight_sign_stable": null
     }
   ]
 }

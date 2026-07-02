@@ -5,6 +5,29 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-02 — REVIEW ARC: reweight proposal approved through 3 rounds; C-3 MULTI-SLEEVE AGGREGATION BUG fixed; §13.3 triggers operationalized; W-frag on the verdict row.**
+  The post-stand-down reweight proposal (`decisions/crude_reweight_proposal_2026-07-02.md`, v3) went through
+  review → addendum → C-4 sign-off same day. Landed: (1) **C-3 — all three hybrid aggregators applied the
+  LEAD sleeve's (crude's) probability weights to every sleeve** (rank-1 index pairing; the 2-sleeve
+  aggregator's own comment recorded the "currently-identical weights" assumption that the Jun-9 reweight
+  silently broke — CMBT's dry-bulk sleeve, 72.7% of vessel value, was probability-weighted by the Hormuz
+  state). Fixed to per-sleeve sector weights in one aggregation core; regression test (a worthless crude
+  sleeve is invariant under a crude-only reweight); the old INSW identity test asserted the bug's math and
+  was inverted. Own gate layer ratified: CMBT −3.6pp / TEN −3.2pp / INSW −1.5pp, ΔNAV 0.0%. Narrative
+  corrected: the reweight's false-BUY list is BRUT + CAPT; CMBT's downgrade was majority artifact.
+  (2) **§13.3 triggers → `inputs/reweight_triggers.yaml`** (7 dated/statused triggers incl. the Jul-17 MoU
+  implementation checkpoint, the Aug-16 toll cliff scoped crude+product, product glut-arrival-timing),
+  surfaced red by the refresh preflight — the prose trigger that fired Jun-17 and sat 15 days can't recur.
+  (3) **W-1 W-frag** — EV-sign stability across the §9.10 family on the verdict row + `weight_sign_stable`
+  in the JSON handoff (flags BRUT/CAPT/CMBT under the CURRENT weights). (4) The §9.10 diagnostic had run on
+  un-anchored marks + static prices since Jun-9 with a stale "Set A" (look-back: no decision affected — the
+  only citation predates the break); fixed, extended to all 10 crude-exposed names, machine-readable sidecar.
+  (5) Sizing language struck from valuation outputs (reviewer correction: worth + trust only; sizing is the
+  governance repo's field). **PENDING (owner gates): the one-vintage execution** — crude 0.10/0.20/0.45/0.25
+  + MoU-ineffective leg recalibrated (0.15-flare mixture) + product v2-restore + LNG v3-restore + F-5 rate
+  refresh (Jul-2 Pareto: TD3C $285.5k, Brent $70.8) — scenario_inputs diff goes under the owner's eyes
+  before ratify. Six expected band flips, all pre-annotated in the proposal (§15).
+
 - **2026-07-02 — EXTERNAL AUDIT RESPONSE: 12 findings verified (10 confirmed / 2 partial), 9 fixed same-day; the price band was WORSE than the audit said.**
   An independent clone-and-run audit of `6749362` landed 12 findings (`outputs/EXTERNAL_AUDIT_2026-07-02.md` —
   register + disposition). Every finding re-verified locally by an 18-agent workflow (adversarial re-checks on all

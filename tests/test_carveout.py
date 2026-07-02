@@ -225,6 +225,59 @@ def test_three_sleeve_aggregator_sums_per_scenario():
     assert "3-SLEEVE" in headline.basis
 
 
+def test_multi_sleeve_weights_each_sleeve_by_its_own_sector(monkeypatch):
+    """Review C-3 (2026-07-02): each sleeve's ladder is probability-weighted by
+    ITS OWN sector's weights. The old index-pairing applied the FIRST sleeve's
+    (crude's) weights to every sleeve — CMBT's dry-bulk sleeve (72.7% of vessel
+    value) was weighted by the Hormuz state. The killer case: a two-sleeve name
+    whose crude sleeve is WORTHLESS must show ZERO FV change under a crude-only
+    reweight; under the old form it moved."""
+    from crude_tanker_fv.pipeline import _aggregate_multi_sleeve_report
+    from crude_tanker_fv.scenarios import ScenarioFV, ScenarioReport
+
+    def _r(sector, fvs):
+        scenarios = [ScenarioFV(
+            name=f"{sector}_s{i}", weight=w, fair_value=fv,
+            fair_value_low=fv * 0.95, fair_value_high=fv * 1.05,
+            nav_per_share=fv * 1.1, vessel_scale=1.0,
+            divstrip_npv=fv * 0.4, cycle_position=1.5, w_nav=0.6,
+            assumed_tce=40000,
+        ) for i, (w, fv) in enumerate(fvs)]
+        return ScenarioReport(
+            ticker="X", current_price=0, analyst_target=0,
+            base_nav_per_share=1.0, breakeven_tce=20000, scenarios=scenarios,
+            probability_weighted_fv=sum(w * fv for w, fv in fvs),
+            upside_best=0, downside_worst=0, expected_value_vs_current=0,
+            position_recommendation="HOLD", basis="", sector=sector,
+        )
+
+    dry = _r("dry_bulk", [(0.20, 12.0), (0.40, 10.0), (0.25, 8.0), (0.15, 6.0)])
+    crude_old = _r("crude", [(0.25, 0.0), (0.45, 0.0), (0.18, 0.0), (0.12, 0.0)])
+    crude_new = _r("crude", [(0.10, 0.0), (0.20, 0.0), (0.45, 0.0), (0.25, 0.0)])
+
+    def _agg(crude):
+        return _aggregate_multi_sleeve_report(
+            [(crude, 0.0), (dry, 1.0)], ticker="MSH", whole_price=8.0,
+            whole_target=10.0, sectors=["crude", "dry_bulk"],
+        )
+
+    dry_pw = 0.20 * 12 + 0.40 * 10 + 0.25 * 8 + 0.15 * 6
+    before, after = _agg(crude_old), _agg(crude_new)
+    # The dry-bulk sleeve is weighted by ITS OWN weights…
+    assert before.probability_weighted_fv == pytest.approx(dry_pw)
+    # …and a crude-only reweight cannot move a name with a worthless crude sleeve.
+    assert after.probability_weighted_fv == pytest.approx(before.probability_weighted_fv)
+
+    # Mixed case: the aggregate PW FV is the SUM of per-sleeve PW FVs.
+    crude_live = _r("crude", [(0.10, 5.0), (0.20, 4.0), (0.45, 3.0), (0.25, 2.0)])
+    mixed = _aggregate_multi_sleeve_report(
+        [(crude_live, 0.3), (dry, 0.7)], ticker="MSH", whole_price=10.0,
+        whole_target=12.0, sectors=["crude", "dry_bulk"],
+    )
+    assert mixed.probability_weighted_fv == pytest.approx(
+        crude_live.probability_weighted_fv + dry_pw)
+
+
 def _cape_curve():
     return VesselValueCurve(cls="Cape", dwt=180_000, newbuild=75 * M,
                             five_year_benchmark=55 * M, ten_year_benchmark=38 * M, scrap_25yr=14 * M)

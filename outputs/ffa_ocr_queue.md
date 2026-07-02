@@ -7,6 +7,8 @@ automation never writes pipeline-loaded YAMLs.
 
 | Date | Status | Cape (m1/m2/Qn/Qf/Cal) | Pmax | Smax | Issues | Source |
 |---|---|---|---|---|---|---|
+| 2026-07-02 | ok | 32425/30975/32508/33650/28000 | 18850/19450/18983/18125/15700 | 18500/18975/18533/17300/13900 | — | inputs/ffa_drybulk/2026/07/2026-07-02_Clipboard - 2 juli 2026 09:16.png |
+| 2026-07-01 | flagged | 31975/30500/32083/33450/27875 | 19125/19625/19200/18125/15725 | 18925/19175/18816/17325/13900 | cape.jul: +11.9% vs previous curve (27250 -> 30500) exceeds ±10% | inputs/ffa_drybulk/2026/07/2026-07-01_Clipboard - 1 juli 2026 11:07.png |
 | 2026-06-26 | flagged | 27250/35625/31875/26725 | 18825/19625/18100/15525 | 17775/18850/13600 | incomplete grid {'cape': 4, 'pmax': 4, 'smax': 3} (expect 5 tenors/panel) | inputs/ffa_drybulk/2026/06/2026-06-26_Clipboard - 26 juni 2026 08:38.png |
 | 2026-06-25 | ok | 27875/35625/29975/32050/26950 | 19050/19625/19075/18275/15550 | 18075/18850/17625/16825/13600 | — | inputs/ffa_drybulk/2026/06/2026-06-25_Clipboard - 25 juni 2026 09:55.png |
 | 2026-06-24 | flagged | 29875/35875/31325/32725/27150 | 19125/19625/19175/18425/15550 | 18550/18850/17075/13600 | incomplete grid {'cape': 5, 'pmax': 5, 'smax': 4} (expect 5 tenors/panel) | inputs/ffa_drybulk/2026/06/2026-06-24_Clipboard - 24 juni 2026 09:22.png |

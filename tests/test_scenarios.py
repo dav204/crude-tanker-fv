@@ -412,18 +412,17 @@ def test_product_sector_scenarios_load(product_doc):
 # Point-in-time pin (Jun-9 weights + Jun-11 inputs); re-pin on weight settle
 # (post-Hormuz resolution).
 def test_insw_whole_company_fv_preserved_through_product_sector_refactor():
-    """HISTORY: this test originally pinned the 'INSW whole-co FV preserved
-    exactly through the product-sector refactor' invariant at $52.03. The
-    Jun-9 Issue #1 fix DELIBERATELY broke that invariant — it was preserving
-    a copy bug (product q3_2026 inherited the Phase-1 spike from
-    crude.mou_base). The structural property it documented still holds and
-    is still asserted below: `_aggregate_hybrid_report` uses CRUDE scenario
-    weights as the whole-co aggregation probability, so product weight
-    changes do not move INSW whole-co FV.
-
-    Re-pinned 2026-06-11 (B3) to the Jun-9-weights value $64.59, ±1% band
-    [63.9, 65.2] — tight, mirroring the original's intent of catching any
-    silent aggregation change.
+    """HISTORY: originally pinned the 'INSW whole-co FV preserved exactly
+    through the product-sector refactor' invariant at $52.03; the Jun-9
+    Issue #1 fix deliberately broke that (it preserved a copy bug); re-pinned
+    2026-06-11 (B3). THEN 2026-07-02 (review C-3) the aggregation identity
+    itself CHANGED: the old form applied CRUDE weights to both sleeves
+    (rank-1 index pairing — product weight changes could not move INSW
+    whole-co FV, which was the bug: INSW's product sleeve was being
+    probability-weighted by the Hormuz state). The identity asserted below is
+    now the per-sleeve form: whole-co PW FV = crude sleeve PW FV + product
+    sleeve PW FV, each ladder weighted by ITS OWN sector's probabilities
+    (cross-sector independence).
     """
     from crude_tanker_fv.pipeline import _run_scenarios_for_ticker, _load_all_sectors
     from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
@@ -442,18 +441,26 @@ def test_insw_whole_company_fv_preserved_through_product_sector_refactor():
     assert crude_r is not None and product_r is not None
     assert crude_r.probability_weighted_fv > 0
     assert product_r.probability_weighted_fv > 0
-    # Whole-co aggregation EQUALS sum_i w_crude_i × (fv_crude_i + fv_product_i),
-    # NOT crude_pw_fv + product_pw_fv (which would assume both sleeves use their
-    # own weights). Under Product Set A (the v1 placeholder) these two sums
-    # coincided numerically because product weights matched crude weights
-    # {0.10/0.15/0.50/0.25}; under Product Set B (v2 lock, 2026-06-03) they
-    # diverge because product weights are now {0.15/0.25/0.45/0.15}.
-    # The methodology equation below stays exact across both weight regimes.
-    expected_headline = sum(
-        c.weight * (c.fair_value + p.fair_value)
-        for c, p in zip(crude_r.scenarios, product_r.scenarios)
-    ) / sum(c.weight for c in crude_r.scenarios)
+    # C-3 identity (2026-07-02): whole-co aggregation EQUALS
+    # crude_pw_fv + product_pw_fv — each sleeve weighted by its own sector's
+    # probabilities. The old index-paired form (crude weights applied to the
+    # summed ladder) coincided with this only while the two families carried
+    # identical weights; the Jun-9 crude reweight broke that silently.
+    expected_headline = crude_r.probability_weighted_fv + product_r.probability_weighted_fv
     assert headline.probability_weighted_fv == pytest.approx(expected_headline, abs=0.01)
+    # And a product-weight change MUST now move the whole-co FV (the old form
+    # was invariant to it — that invariance was the bug).
+    import copy as _copy
+    docs2 = dict(docs)
+    docs2["product"] = _copy.deepcopy(docs["product"])
+    names = list(docs2["product"]["scenarios"])
+    docs2["product"]["scenarios"][names[0]]["weight"] += 0.10
+    docs2["product"]["scenarios"][names[2]]["weight"] -= 0.10
+    headline2, _, _ = _run_scenarios_for_ticker(
+        "INSW", ci, insw["current_price"], insw["analyst_target"], docs2, watchlist,
+    )
+    assert headline2.probability_weighted_fv != pytest.approx(
+        headline.probability_weighted_fv, abs=0.01)
 
 
 def test_crude_ticker_does_not_load_lng_doc():

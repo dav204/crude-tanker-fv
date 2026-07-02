@@ -36,6 +36,67 @@ preferred refinancing/redemption activity, any VIE stance change, the
 
 ---
 
+## 2026-07-02T16:43:15+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $35.37
+- Single-point FV: $61.29
+- Scenario PW FV: $64.35 (EV +81.9%)
+- NAV / share: $88.70
+- Position: **BUY (undervalued)**
+- Broker spread: +27.2pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-02T15:56:41+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $35.37
+- Single-point FV: $61.29
+- Scenario PW FV: $64.35 (EV +81.9%)
+- NAV / share: $88.70
+- Position: **BUY (undervalued)**
+- Broker spread: +27.2pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: -1.7% | ΔNAV: no change | Δspread: -0.4pp
+
+**Decision (2026-07-02, review C-3 — multi-sleeve aggregation fix):** ACCEPT the −3.2pp EV /
+−1.7% scenario-FV correction (PW FV $65.49→$64.35, BUY intact at +81.9%). Bug fix, not a market
+or weight move: the 3-sleeve aggregator applied the CRUDE sleeve's probability weights to TEN's
+product and LNG sleeves; fixed to per-sleeve sector weights (cross-sector independence,
+`pipeline._aggregate_multi_sleeve_report`, regression-tested). ΔNAV 0.0% — scenario-layer only.
+See `decisions/crude_reweight_proposal_2026-07-02.md` §14 + the 2026-07-02 review addendum. The
+pending post-stand-down vintage takes TEN to ~+44% (still BUY, §15 haircut applies downstream).
+No trade.
+
+---
+
+## 2026-07-02T15:34:42+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $35.37
+- Single-point FV: $61.29
+- Scenario PW FV: $65.49 (EV +85.2%)
+- NAV / share: $88.70
+- Position: **BUY (undervalued)**
+- Broker spread: +27.6pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-02T14:53:03+00:00 — Pipeline run (auto)
 
 **Model state:**

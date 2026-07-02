@@ -9,6 +9,71 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-02T16:43:15+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $14.05
+- Single-point FV: $15.26
+- Scenario PW FV: $15.56 (EV +10.7%)
+- NAV / share: $15.87
+- Position: **BUY (undervalued)**
+- Broker spread: +19.5pp (k_broker 1.11)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-02T15:56:41+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $14.05
+- Single-point FV: $15.26
+- Scenario PW FV: $15.56 (EV +10.7%)
+- NAV / share: $15.87
+- Position: **BUY (undervalued)**
+- Broker spread: +19.5pp (k_broker 1.11)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: -3.2% | ΔNAV: no change | Δspread: -0.4pp
+
+**Decision (2026-07-02, review C-3 — multi-sleeve aggregation fix):** ACCEPT the −3.6pp EV /
+−3.2% scenario-FV correction (PW FV $16.07→$15.56, stays BUY). This is a BUG FIX, not a market
+or weight move: the aggregator paired sleeve scenario ladders by index and applied the CRUDE
+sleeve's probability weights to ALL sleeves — CMBT's dry-bulk sleeve (72.7% of vessel value)
+was being probability-weighted by the Hormuz state, inflating it while crude weights sat
+war-heavy (0.25 escalation / 0.45 pre-MoU). Fixed to per-sleeve sector weights (cross-sector
+independence; `pipeline._aggregate_multi_sleeve_report`, regression-tested — a 100% dry-bulk
+sleeve is now invariant under a crude-only reweight). ΔNAV 0.0% — the fix is scenario-layer
+only. See `decisions/crude_reweight_proposal_2026-07-02.md` §14 and the 2026-07-02 review
+addendum. NOTE: the pending post-stand-down vintage (crude/product/LNG, awaiting owner
+sign-off) takes CMBT further, to ~−2.3% HOLD — the two effects are deliberately separate
+layers for attribution. No trade.
+
+---
+
+## 2026-07-02T15:34:42+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $14.05
+- Single-point FV: $15.26
+- Scenario PW FV: $16.07 (EV +14.4%)
+- NAV / share: $15.87
+- Position: **BUY (undervalued)**
+- Broker spread: +19.9pp (k_broker 1.11)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-02T14:53:03+00:00 — Pipeline run (auto)
 
 **Model state:**
