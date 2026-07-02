@@ -109,10 +109,12 @@ flag don't pass**). APPROX-pnav does NOT demote a robust name
 operating-scrubber surface does not either (materiality-gated at 10% of NAV). Emitted in the
 scorecard Verdict + the `/add-ticker` handoff (a PROVISIONAL name may not hand off a governed FV).
 
-**A NEW AGENT: read CLAUDE.md, then this file.** The lead open thread is the **reconciliation
-queue** (below) — clearing PROVISIONAL names to handoff-ready. **CLEARED 2026-07-02: all EIGHT done
-(NAT+SB+ASC+BRUT+ECO+HAFN+STNG+TRMD).** Next work is the remaining `OFF_CONVENTION_QUEUE` (CMBT/STNG-NB/TEN)
-+ the P1 product-basis thread (P1c). Per-change chronology in `CHANGELOG.md`; per-name detail in `decisions/<t>_log.md`.
+**A NEW AGENT: read CLAUDE.md, then this file.** The **reconciliation queue** (below) that was the lead
+thread — clearing PROVISIONAL names to handoff-ready — is now **CLEARED (2026-07-02: all EIGHT done,
+NAT+SB+ASC+BRUT+ECO+HAFN+STNG+TRMD).** The next open work is the remaining `OFF_CONVENTION_QUEUE`
+(CMBT / STNG's VLCC-NB [gated on thread (d)] / TEN) onto the §9.6 curve, and the **P1 product-basis thread
+(P1c)** — sourcing the product resale-curve marks would lift TRMD/ASC/STNG off `basis-pending` toward
+VALIDATED-TIGHT. Per-change chronology in `CHANGELOG.md`; per-name detail in `decisions/<t>_log.md`.
 
 ## Recent arc — convention + provenance + handoff + hygiene (2026-06-29 → 07-01)
 
