@@ -33,14 +33,15 @@ OPERATING_SCRUBBER_VERIFIED = {
     "CAPT": 5,   # full Pareto initiation 2026-04-20 per-vessel ledger (all 30 vessels) verified 2026-06-30
     "SB": 20,    # FY2025 20-F (acc 0001628280-26-014408) "21 scrubbers, all 8 Capes" ftn-15 per-vessel; 20 operating at 3/31 (Michalis H HFS). Verified 2026-07-01
     "ECO": 16,   # Q1-2026 6-K (acc 0001104659-26-060273) "eight scrubber-fitted Suezmax + eight scrubber-fitted VLCC"; all 16 on-water. Verified 2026-07-01
+    "TRMD": 85,  # FY2025 20-F (acc 0001628280-26-011954) "installed scrubbers on 85 of our vessels" = all 22 LR2 + all 63 MR (10 vintage LR1s none). Verified 2026-07-02
 }
 
 # Operating-scrubber audit queue: names whose operating-fleet scrubber=true is not yet traced to
 # the name's own filing. Each leaves ONLY by verifying it (and moving to OPERATING_SCRUBBER_VERIFIED).
 # Likely to clear fast — operating specs are settled public fact (surveys/sales/charters), not
 # copied forward-looking claims — but the guard enforces it rather than assuming it.
-OPERATING_SCRUBBER_QUEUE = {   # SB left 2026-07-01 (20-F ftn-15); ECO left 2026-07-01 (Q1-2026 6-K "all scrubber-fitted", 16)
-    "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "STNG", "TEN", "TRMD",
+OPERATING_SCRUBBER_QUEUE = {   # SB/ECO left 2026-07-01; TRMD left 2026-07-02 (20-F "85 of our vessels" = all 22 LR2 + all 63 MR)
+    "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "STNG", "TEN",
 }
 
 

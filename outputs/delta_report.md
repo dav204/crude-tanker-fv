@@ -1,16 +1,17 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-07-02T00:21:02+00:00
-- **Previous run:** 2026-07-01T23:28:11+00:00
+- **This run:** 2026-07-02T04:32:17+00:00
+- **Previous run:** 2026-07-02T00:21:02+00:00
 
 ## Headline changes (material moves)
 
-- **STNG:** position BUY (undervalued) → HOLD (fairly valued)
+- **TRMD:** position HOLD (fairly valued) → BUY (undervalued); single-point FV +17.5%; scenario PW FV +16.8%; broker spread -16.6pp; NAV/sh +19.3%
 
 ## Input files changed since last run
 
-- `inputs/balance_sheets/stng_2026-Q1.yaml` (modified)
-- `inputs/fleet_manifests/stng.yaml` (modified)
+- `inputs/balance_sheets/trmd_2026-Q1.yaml` (modified)
+- `inputs/fleet_manifests/trmd.yaml` (modified)
+- `inputs/market_data/newbuild_specs.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -24,9 +25,9 @@
 | NAT | $5.54 (no change) | $3.09 (no change) | $3.33 (no change) | $2.79 (no change) | TRIM/SHORT (overvalued) | +61.1pp (no change) |
 | FLNG | $28.06 (no change) | $28.16 (no change) | $30.67 (no change) | $28.45 (no change) | BUY (undervalued) | -26.4pp (no change) |
 | CCEC | $21.35 (no change) | $32.08 (no change) | $35.91 (no change) | $28.10 (no change) | BUY (undervalued) | -19.2pp (no change) |
-| STNG ⚑ | $75.60 (no change) | $76.13 (-3.5%) | $77.13 (-3.6%) | $77.47 (-3.6%) | HOLD (fairly valued) ⟵ | +35.4pp (+3.4pp) |
+| STNG | $75.60 (no change) | $76.13 (no change) | $77.13 (no change) | $77.47 (no change) | HOLD (fairly valued) | +35.4pp (no change) |
 | HAFN | $6.64 (no change) | $5.99 (no change) | $6.23 (no change) | $5.57 (no change) | TRIM/SHORT (overvalued) | +18.7pp (no change) |
-| TRMD | $26.06 (no change) | $26.35 (no change) | $27.32 (no change) | $25.43 (no change) | HOLD (fairly valued) | +20.1pp (no change) |
+| TRMD ⚑ | $26.06 (no change) | $30.97 (+17.5%) | $31.90 (+16.8%) | $30.34 (+19.3%) | BUY (undervalued) ⟵ | +3.5pp (-16.6pp) |
 | ASC | $16.00 (no change) | $16.75 (no change) | $16.83 (no change) | $17.80 (no change) | BUY (undervalued) | +19.4pp (no change) |
 | TEN | $35.37 (no change) | $61.29 (no change) | $65.49 (no change) | $88.70 (no change) | BUY (undervalued) | +27.6pp (no change) |
 | CMDB | $17.56 (no change) | $20.43 (no change) | $20.43 (no change) | $31.33 (no change) | BUY (undervalued) | -10.3pp (no change) |

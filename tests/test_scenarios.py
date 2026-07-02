@@ -660,20 +660,21 @@ def test_trmd_full_three_class_product_loads_and_routes():
 # weight settle (post-Hormuz resolution). Band re-based 2026-06-11 from the
 # Set-B-v2 $25.59 pin to the Jun-9-v3 $27.83: ±5% → [26.44, 29.22].
 def test_trmd_whole_company_fv_in_expected_band_set_b():
-    """TRMD probability-weighted FV pinned in $24-$27 band under Product
-    Set B v2 (locked 2026-06-03). Q1 2026 inputs produce $25.59 (EV −6.1%,
-    TRIM/SHORT — just below the −5% HOLD threshold).
+    """TRMD probability-weighted FV pinned in $32-$34 band under Product Set B v2
+    (locked 2026-06-03). Q1 2026 inputs produce ~$33.03 (EV +17%, BUY) at watchlist
+    price $28.20.
 
-    TRMD is the cleanest mark-validated TRIM in the product sector
-    (k_broker 1.01, +2pp spread — narrowest of any product name) but VIE
-    Coverage Universe carries it Bullish at $34.00 (third name where VIE
-    Bullish overrules tool + broker on direction, after ASC and CCEC).
-    See `outputs/vie_coverage_universe_xref.md` and §6 TRMD entry for the
-    soft-signal overlay.
+    REBASED 2026-07-02 by the eighth P0 reconciliation (full balance-sheet sourcing
+    to the Q1-2026 6-K, EDGAR acc 0000919574-26-003082, workflow-verified). The prior
+    band ($24-27, a TRIM) rested on six [ESTIMATE] figures that suppressed NAV: the
+    ~$360M newbuild commitment bundled 6 MR resales bought AFTER quarter-end (subsequent
+    event → real Q1 commitment $31.2M for the 2 in-Q1 resales), and operating WC was
+    estimated at $110M vs the sourced $254.9M. Base NAV $26.74→$31.65; the 2 MR resales
+    wired on-curve (§9.6) and scrubbers corrected to the disclosed 85 (owner forks).
+    TRMD → GOVERNED-WIDE·basis-pending (product nav_basis pending-sourceable, not TIGHT).
 
-    If this band drifts: check (a) operating WC estimate ($110M is flagged
-    as a [ESTIMATE] pending Q1 PDF detail; ±$30M would move FV ~$0.30/sh),
-    (b) NB capex commitments breakdown, (c) LR1 cohort assumptions.
+    If this band drifts: check (a) the sourced balance-sheet figures, (b) the 2 on-curve
+    MR resales (years_to_delivery 0.12), (c) the LR1 cohort assumptions.
     """
     from crude_tanker_fv.pipeline import _run_scenarios_for_ticker, _load_all_sectors
     from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
@@ -685,7 +686,7 @@ def test_trmd_whole_company_fv_in_expected_band_set_b():
     headline, _, _ = _run_scenarios_for_ticker(
         "TRMD", ci, trmd["current_price"], trmd["analyst_target"], docs, watchlist,
     )
-    assert 26.44 < headline.probability_weighted_fv < 29.22
+    assert 32.0 < headline.probability_weighted_fv < 34.0
 
 
 def test_asc_fleet_loads_mr_plus_handysize():

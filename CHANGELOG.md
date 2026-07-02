@@ -5,6 +5,46 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-02 — TRMD RECONCILED: the estimate-heaviest name, the FIRST to move NAV UP, and it CLEARS the P0 queue.**
+  Eighth and LAST P0 name (TORM plc) — the reconciliation queue (`NAV_FIGURE_ESTIMATE_QUEUE ∩ PROVISIONAL`) is now
+  CLEARED (NAT/SB/ASC/BRUT/ECO/HAFN/STNG/TRMD). TRMD's prior balance sheet was the estimate-heaviest in the book —
+  six `[ESTIMATE]` figures — and uniquely, two of them badly SUPPRESSED NAV, so this is the only reconciliation of
+  the arc that moves NAV materially UP (+19%). Every figure sourced to the Q1-2026 6-K (EDGAR acc
+  0000919574-26-003082, Ex-99.1) and independently confirmed by an 8-agent verification workflow (5 extractors + 3
+  adversarial verifiers, ALL verdicts agree — the WC verifier even caught the segment-vs-consolidated trap).
+  Pre-reg `decisions/trmd_reconciliation_prereg_2026-07-01.md`.
+  1. **The subsequent-event pattern, a THIRD time (after ASC + HAFN).** `newbuild_capex_commitments` $360M →
+     **$31.2M** (Note 10 "Second-hand vessels commitments: Total"). The $360M bundled the **6 MR resales TORM
+     bought "after the end of the quarter"** (Business Highlights + Note 11 subsequent events — deliveries 2027-28).
+     Only the 2 Q1-agreed MR resales (Dehradun/Dapitan, 2015-built, Q2-2026 delivery) are a real 31-Mar commitment.
+     (+$329M NAV.) The "audit the subsequent-events note FIRST" rule caught it before it touched the number.
+  2. **Operating WC was badly under-estimated.** `working_capital_net` $110M[est] → **$254.9M** (Inventories 82.5 +
+     Trade receivables 249.6 + Other receivables 32.7 + Prepayments 14.3 − Trade payables 67.2 − Other liab 53.2 −
+     Current tax 0.7 − Provisions 0.5 − Prepayments-from-customers 2.6; the CONSOLIDATED column). TORM carries
+     $249.6M trade receivables + $82.5M bunker inventory at a record-rate quarter-end. (+$145M NAV.)
+  3. **Debt + leases refined.** `total_debt` $1,089.6M → **$1,081.8M** (BS "Total borrowings"; Note 5 reconciles:
+     schedule 1,084.4 − borrowing costs 12.6 + ROU lease 10.0). `lease_liabilities` $5M → **$0** (the $10M ROU is
+     INSIDE borrowings — TORM bought out its sale-leasebacks in 2025, only the ROU remains). `newbuild_advances_paid`
+     $50M → **$0** (on-curve: the $38.9M "Prepayments on vessels" is embodied in the delivered value). Cash $196.4M,
+     shares 103.3M — all verified.
+  - **Three owner forks (all "completeness"), 2026-07-02:** (1) WC on the operating-current basis $254.9M (tool
+    convention; the $45.2M held-over-gains tax flagged as a book-wide omission). (2) The 2 MR resales **wired ON-CURVE
+    §9.6** — UNLIKE STNG's VLCCs, these are in-sector (product MR), near-immediate (2015-built secondhand, Q2 delivery,
+    no construction/PV/cross-sector issue), so wiring on-curve is clean → TRMD leaves `OFF_CONVENTION_QUEUE`. (3)
+    Scrubbers corrected to the disclosed **85** (FY2025 20-F "we successfully installed scrubbers on 85 of our vessels"
+    = all 22 LR2 + all 63 MR; the 10 vintage LR1s run compliant fuel) → leaves `OPERATING_SCRUBBER_QUEUE`, `{TRMD:85}`.
+    The 2 resale hulls booked scrubber=FALSE (no NB-specific statement — the SB peer-trap).
+  - **Net: base NAV $26.74→$31.65, headline $25.43→$30.34, HOLD→BUY (+17-22% EV).** SANITY OK; **k_broker 1.17→1.03 —
+    now the TIGHTEST tool↔broker spread in the book.** A TRIPLE corroboration: the tool headline $30.34 ≈ TORM's OWN
+    disclosed NAV/share $29.7 ≈ the price-consistent broker NAV $31.40. TRMD leaves `NAV_FIGURE_ESTIMATE_QUEUE` and all
+    three queues → **GOVERNED-WIDE·basis-pending** (a NEW sub-reason): NOT VALIDATED-TIGHT because the product
+    nav_basis is `pending-sourceable` — the product resale-curve marks are deferred (thread P1c), a book-wide product
+    limitation, not TRMD-specific (ECO reached TIGHT only because it's crude/resale-uniform).
+  - **The arc finding, one last time (eight-for-eight):** cleaner + still directional. TRMD is the arc's ONLY name
+    to get genuinely CHEAPER after sourcing (BUY +17%, k 1.03) — but it's a product tanker near cycle peak with a
+    ~10% dividend yield (§12 caveat) and it's GOVERNED-WIDE not TIGHT, so it's a directional BUY, not a tight
+    actionable long. The validated-tight-actionable-long surface stays SB + SBLK.
+
 - **2026-07-01 — STNG RECONCILED: the most TANGLED — two large errors pointing OPPOSITE ways that nearly cancelled.**
   Seventh P0 name (Scorpio Tankers), and the one where a half-fix is most dangerous: the prior state carried a
   debt double-count (NAV too LOW) and a held-for-sale double-count (NAV too HIGH) that roughly offset, so the

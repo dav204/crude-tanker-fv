@@ -98,3 +98,14 @@ ECO:
     Suezmaxes", never scrubber-fitted. Per the value-flag rule an existing-fleet scrubber statement is
     NOT evidence about the NBs (the SB trap), so the premium is not claimed pending a newbuild-specific
     disclosure (e.g. a delivery 6-K). Verified 2026-07-01.
+TRMD:
+  eco: true
+  scrubber: false
+  scrubber_verified: true
+  source: >
+    OFFICIAL: TORM plc Q1-2026 6-K (SEC CIK 0001655891, acc 0000919574-26-003082) Business Highlights +
+    Note 10/11. The 2 on-curve hulls are second-hand MR RESALES (TORM Dehradun / TORM Dapitan, 2015-built,
+    agreed in Q1, delivery Q2-2026); eco via §3.1 (post-2014 build). scrubber=FALSE (conservative): the
+    6-K's only scrubber statement is the existing-fleet program (the FY2025 20-F "85 vessels" — the
+    operating fleet); there is NO scrubber statement about these two resales, so per the value-flag rule
+    the premium is not claimed (the SB peer-default trap). Verified 2026-07-02.

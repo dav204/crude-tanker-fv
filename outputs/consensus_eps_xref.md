@@ -11,7 +11,7 @@ The **earnings-leg analog of the broker-NAV sweep** (METHODOLOGY §9.11 / §9.9)
 | NAT | crude | $5.20 | 17.2× | $0.30 | $1.45 | 3.6× | +380% | 5.8% | 2.21× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | BRUT | crude | $5.40 | 22.0× | $0.25 | $1.00 | 5.4× | +307% | 4.5% | 2.79× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | CAPT | crude | $12.20 | 11.1× | $1.10 | $3.60 | 3.4× | +228% | 9.0% | 2.45× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| TRMD | product | $28.20 | 9.5× | $2.97 | $9.50 | 3.0× | +220% | 10.5% | 1.69× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| TRMD | product | $28.20 | 9.5× | $2.97 | $9.61 | 2.9× | +224% | 10.5% | 1.69× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | CCEC | lng | $21.90 | 8.8× | $2.49 | $7.93 | 2.8× | +219% | 11.4% | 0.77× (below-mid) | 0.60 | earnings-driven (tool>cons) |
 | INSW **(WHOLE-CO)** | crude | $78.00 | 11.4× | $6.84 | $21.72 | 3.6× | +217% | 8.8% | 2.11× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | FRO | crude | $34.50 | 9.4× | $3.67 | $11.31 | 3.1× | +208% | 10.6% | 2.57× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |

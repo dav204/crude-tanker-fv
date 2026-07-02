@@ -39,18 +39,18 @@ from .loaders import INPUTS_DIR
 # FIXABLE names whose newbuilds have a curve mark but are not yet on-curve §9.6 (NAV on the wrong
 # basis) + structural names pending commitment-net. (SB/SBLK/DHT have left; the structural CCEC/CMBT
 # are handled via STRUCTURAL_NB_NAMES below, not as PROVISIONAL.)
-OFF_CONVENTION_QUEUE = {"CMBT", "STNG", "TEN", "TRMD"}  # NAT/ASC/ECO left (see below); HAFN left 2026-07-01 (8 MR HHI order signed 3-Apr-2026 = subsequent event -> excluded from Q1, no 3/31 NB) — NAT parked, ASC/HAFN April subsequent events, ECO on-curve via years_to_delivery
+OFF_CONVENTION_QUEUE = {"CMBT", "STNG", "TEN"}  # NAT/ASC/ECO/HAFN left; TRMD left 2026-07-02 (2 MR resales wired on-curve via years_to_delivery §9.6; the 6 MR resales were a subsequent event, excluded)
 SCRUBBER_UNVERIFIED_QUEUE: set[str] = set()   # NEWBUILD-value scrubber flag unverified (now empty)
 
 # --- Operating-scrubber audit (test_scrubber_provenance) ---------------------------------------
-OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "SB": 20, "ECO": 16}   # name -> audited operating scrubber-fitted count
-OPERATING_SCRUBBER_QUEUE = {   # SB left 2026-07-01 (20-F ftn-15, 20); ECO left 2026-07-01 (Q1-2026 6-K "all scrubber-fitted", 16 on-water)
-    "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "STNG", "TEN", "TRMD",
+OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "SB": 20, "ECO": 16, "TRMD": 85}   # name -> audited operating scrubber-fitted count
+OPERATING_SCRUBBER_QUEUE = {   # SB/ECO left 2026-07-01; TRMD left 2026-07-02 (FY2025 20-F "installed scrubbers on 85 of our vessels" = all 22 LR2 + all 63 MR)
+    "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "STNG", "TEN",
 }
 
 # --- NAV-equation figure provenance (test_manifest_provenance) ----------------------------------
 # Names with an uncited estimate on a NAV-equation figure (lowercase, as the scan emits).
-NAV_FIGURE_ESTIMATE_QUEUE = {"brut", "cmbt", "flng", "hafn", "ten", "trmd"}  # nat/asc left; stng left 2026-07-01 (advances sourced to the BS $69.069M + HFS/debt/WC rebuilt — stays OFF_CONVENTION only)
+NAV_FIGURE_ESTIMATE_QUEUE = {"brut", "cmbt", "flng", "hafn", "ten"}  # nat/asc/stng left; trmd left 2026-07-02 (all six [ESTIMATE] figures sourced to the Q1-2026 6-K, workflow-verified; also cleared OFF_CONVENTION + OPERATING_SCRUBBER)
 
 # Operating-scrubber materiality: max possible FV error as a fraction of NAV above which an uncited
 # operating-scrubber surface widens the tier. Below it, the surface is a tracked-but-immaterial
@@ -100,6 +100,9 @@ NEWBUILD_PRICE_PENDING = {"NAT"}
 #   structural-class : dominant class has no clean resale market (LNG/container Group-B) — not resolvable w/o a new data regime
 #   newbuild-heavy   : justified leg can't price it (NAV PV-haircut vs strip full-year) — resolves only as hulls deliver
 #   pending-anchor   : a sleeve's mark is unsourced but SOURCEABLE now (Thread 1A) — resolvable
+#   basis-pending    : figures all sourced + queues cleared, but the name's product resale-curve marks are
+#                  sourceable-but-pending (nav_basis 'pending-sourceable'; thread P1c product newbuild_contract
+#                  marks) — GOVERNED-WIDE not TIGHT until those land (TRMD; the product analog of resale-uniform)
 #   mixed            : two of the above (TEN: structural LNGC sleeve + pending-anchor Handy/LR1)
 #   read-flips       : read flips cheap<->fair across the §17 bases — needs the §18.5 gate data
 #   newbuild-indeterminate : newbuild parked at $0 pending a FILED price (NEWBUILD_PRICE_PENDING) — GOVERNED-WIDE
@@ -118,8 +121,10 @@ TIER_SUBREASON = {
     "CMDB": "read-flips", "GNK": "read-flips",
     "NAT": "newbuild-indeterminate",
     "BRUT": "cash-pending", "HAFN": "pool-gross-up-pending",
-    "STNG": "off-curve", "TRMD": "uncited-figure",
-}  # ECO left 2026-07-01: §9.6 on-curve + scrubbers verified -> VALIDATED-TIGHT (no sub-reason)
+    "STNG": "off-curve",
+    "TRMD": "basis-pending",
+}  # ECO left 2026-07-01 -> VALIDATED-TIGHT (crude, resale-uniform). TRMD 2026-07-02: all 3 queues cleared, but
+   # product nav_basis is pending-sourceable -> GOVERNED-WIDE·basis-pending (not TIGHT until the product marks land)
 
 
 def _structural_nb_names(inputs_dir: Path = INPUTS_DIR) -> set[str]:

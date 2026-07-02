@@ -32,7 +32,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | CCEC | lng | $28.10 | $21.90 | 0.779× | n/a | — | 27.5% | 2.835× | no anchor → cheap | n/a |
 | STNG | product | $77.47 | $75.60 | 0.976× | n/a | — | 4.6% | 0.363× | no anchor → rich | n/a |
 | HAFN | product | $5.57 | $7.70 | 1.382× | n/a | — | 13.2% | 1.216× | no anchor → rich | n/a |
-| TRMD | product | $25.43 | $28.20 | 1.109× | n/a | — | 8.6% | 0.763× | no anchor → rich | n/a |
+| TRMD | product | $30.34 | $28.20 | 0.929× | n/a | — | 7.4% | 0.641× | no anchor → rich | n/a |
 | ASC | product | $17.80 | $16.00 | 0.899× | n/a | — | 3.9% | 0.290× | no anchor → rich | n/a |
 | TEN **(WHOLE-CO)** | crude | $88.70 | $37.14 | 0.419× | n/a | — | 13.2% | 1.219× | no anchor → cheap | n/a |
 | CAPT | crude | $15.49 | $12.20 | 0.787× | 11.1% | — | 10.7% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
