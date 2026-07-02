@@ -281,6 +281,39 @@ def test_verdict_prose_is_derived_not_hardwired(tmp_path, rows):
         assert t in rich_line
 
 
+def test_weight_fragility_flag_renders_and_reaches_the_json(tmp_path, rows):
+    """Review 2026-07-02 W-1: EV-sign stability across the §9.10 weight family
+    must sit on the verdict row and in the handoff JSON — the mechanical form
+    of the BRUT lesson (BUY +98% under one prior, HOLD −5% under another)."""
+    import json
+
+    import yaml
+
+    from crude_tanker_fv.scorecard import load_weight_fragility
+
+    (tmp_path / "weight_robustness.yaml").write_text(yaml.safe_dump({
+        "weight_sets": {},
+        "names": {"BRUT": {"ev_min_pct": -5.0, "ev_max_pct": 98.1, "ev_sign_stable": False},
+                  "SB": {"ev_min_pct": 40.0, "ev_max_pct": 55.0, "ev_sign_stable": True}},
+    }))
+    frag = load_weight_fragility(tmp_path)
+    assert frag == {"BRUT": False, "SB": True}
+
+    text = write_scorecard(rows, outputs_dir=tmp_path, valuation=_synthetic_valuation(rows),
+                           fragility=frag).read_text()
+    brut = next(ln for ln in text.splitlines() if ln.startswith("| BRUT |"))
+    assert "⚠ sign flips" in brut
+    sb = next(ln for ln in text.splitlines() if ln.startswith("| SB |"))
+    assert "stable" in sb
+    dht = next(ln for ln in text.splitlines() if ln.startswith("| DHT |"))
+    assert dht.rstrip().endswith("| — |")          # not in the diagnostic
+    doc = json.loads((tmp_path / "book_scorecard.json").read_text())
+    by = {n["ticker"]: n for n in doc["names"]}
+    assert by["BRUT"]["weight_sign_stable"] is False
+    assert by["SB"]["weight_sign_stable"] is True
+    assert by["DHT"]["weight_sign_stable"] is None
+
+
 def test_verdict_label_registry_tracks_the_tiers_no_drift():
     """provenance.py is the single source: the tier sub-reason map must cover EXACTLY the
     GOVERNED-WIDE + PROVISIONAL names, and the position-relabel / void sets must sit inside the

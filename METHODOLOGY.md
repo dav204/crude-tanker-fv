@@ -2351,6 +2351,13 @@ The Set B → Set B-revised transition is the worked example: Set B's `glut_base
 
 ### 13.3 When to re-evaluate
 
+**The live trigger register is `inputs/reweight_triggers.yaml`, surfaced by the refresh
+preflight (`refresh.check_reweight_triggers`) — dated, statused, machine-checked.** This
+prose section is the rationale, NOT the watch-list: the "MoU signs" trigger below fired
+2026-06-17 and sat unnoticed for 15 days because it lived only in this file (external
+audit F-2 / review 2026-07-02). Add new triggers to the YAML with a `due` date or a
+standing-event-watch marker; a trigger that exists only as prose here is unwatched.
+
 A weight lock should be revisited when **at least one** of the following lands:
 
 - A multi-train LNG facility comes back online (Ras Laffan restart, Plaquemines Phase 2, Arctic LNG 2 resumption) materially changes capacity assumptions.

@@ -281,6 +281,31 @@ def price_basis_summary(inputs_dir: Path = INPUTS_DIR) -> dict:
     }
 
 
+def load_weight_fragility(outputs_dir: Path = OUTPUTS_DIR) -> dict[str, bool]:
+    """{ticker: ev_sign_stable} from the §9.10 diagnostic's sidecar
+    (outputs/weight_robustness.yaml, written by scripts/crude_weight_robustness.py).
+
+    Review 2026-07-02 W-1: whether a name's EV SIGN survives the defensible
+    weight family belongs on the verdict row — BRUT read BUY +98% under the
+    locked set and HOLD −5% under the post-stand-down set; that sensitivity is
+    the durable, mechanical form of the BRUT lesson and must be visible at the
+    handoff, not buried in a diagnostic file. Names absent from the sidecar
+    (non-crude, or the diagnostic hasn't run) render as un-flagged."""
+    import yaml
+
+    path = outputs_dir / "weight_robustness.yaml"
+    if not path.exists():
+        return {}
+    doc = yaml.safe_load(path.read_text()) or {}
+    return {t: bool(e.get("ev_sign_stable")) for t, e in (doc.get("names") or {}).items()}
+
+
+def _fragility_cell(ticker: str, fragility: dict[str, bool]) -> str:
+    if ticker not in fragility:
+        return "—"
+    return "stable" if fragility[ticker] else "**⚠ sign flips**"
+
+
 def _verdict_position(ticker: str, raw: str) -> str:
     """Displayed position — a cycle-rich or unreliable read is relabeled away from TRIM/SHORT so a
     skim can't read a NAV-relative cycle signal as a directional short (owner 2026-06-30, §12)."""
@@ -297,7 +322,8 @@ def _verdict_tier(ticker: str, tier: str) -> str:
     return tier + (f" · {sub}" if sub else "") + (" ⛔" if tier == "PROVISIONAL" else "")
 
 
-def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation"], order: dict) -> None:
+def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation"], order: dict,
+                   fragility: Optional[dict[str, bool]] = None) -> None:
     """The consolidated Verdict table — one row per name, the single handoff surface. Carries the
     owner's three corrections: cycle-position relabel, tier sub-reasons, and voided derived numbers."""
     by = {r.ticker: r for r in rows}
@@ -359,26 +385,34 @@ def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation
       "price; `read-flips` needs the §18.5 gate data; `void` = a derived number rests "
       "on a contradicted figure). A **`cycle position`** in Position is a NAV-relative read (§12), NOT a "
       "directional short. A **void** row prints no derived numbers — they are known-suspect, not data.\n")
+    fragility = fragility or {}
     w("| Ticker | Sector | **Tier · why** | Price | Model FV | Upside | Position | NAV/sh | "
-      "Broker NAV | Gap | SANITY | Handoff |")
-    w("|---|---|---|--:|--:|--:|:--|--:|--:|--:|:--|:--|")
+      "Broker NAV | Gap | SANITY | Handoff | W-frag |")
+    w("|---|---|---|--:|--:|--:|:--|--:|--:|--:|:--|:--|:--|")
     torder = {"VALIDATED-TIGHT": 0, "GOVERNED-WIDE": 1, "PROVISIONAL": 2}
     for r in sorted(rows, key=lambda r: (torder.get(r.confidence_tier, 9), order.get(r.sector, 9), r.ticker)):
         tier = _verdict_tier(r.ticker, r.confidence_tier)
         ready = "ready" if is_handoff_ready(r.confidence_tier) else "**NO**"
+        frag = _fragility_cell(r.ticker, fragility)
         v = valuation.get(r.ticker)
         if v is None:
-            w(f"| {r.ticker} | {r.sector} | {tier} | — | — | — | — | — | — | — | — | {ready} |")
+            w(f"| {r.ticker} | {r.sector} | {tier} | — | — | — | — | — | — | — | — | {ready} | {frag} |")
             continue
         if r.ticker in NAV_DERIVED_VOID:
             w(f"| {r.ticker} | {r.sector} | {tier} | ${v.price:.2f} | _void_ | _void_ "
-              f"| _void — pending reconciliation_ | _void_ | _void_ | _void_ | _void_ | **NO** |")
+              f"| _void — pending reconciliation_ | _void_ | _void_ | _void_ | _void_ | **NO** | {frag} |")
             continue
         bn = (f"${v.broker_nav:.2f}" + (" (apx)" if v.approx else "")) if v.broker_nav else ("apx" if v.approx else "—")
         gp = f"{v.gap_pct:+.0f}%" if v.gap_pct is not None else "—"
         w(f"| {r.ticker} | {r.sector} | {tier} | ${v.price:.2f} | ${v.fv:.2f} | {v.upside_pct:+.0f}% "
-          f"| {_verdict_position(r.ticker, v.position)} | ${v.nav_ps:.2f} | {bn} | {gp} | {v.sanity} | {ready} |")
+          f"| {_verdict_position(r.ticker, v.position)} | ${v.nav_ps:.2f} | {bn} | {gp} | {v.sanity} | {ready} | {frag} |")
     w("")
+    if fragility:
+        w("_W-frag = does the EV **sign** survive the §9.10 weight family "
+          "(`outputs/weight_robustness.yaml`)? **⚠ sign flips** = the direction of the call is a "
+          "weight-prior artifact, not a property of the name (the BRUT lesson, 2026-07-02) — a "
+          "trust qualifier on the FV, consumed downstream like the tier. '—' = not in "
+          "the diagnostic (non-crude family or not yet run)._\n")
 
 
 def write_scorecard(
@@ -387,6 +421,7 @@ def write_scorecard(
     valuation: Optional[dict[str, "_Valuation"]] = None,
     price_basis: Optional[dict] = None,
     quarter: Optional[str] = None,
+    fragility: Optional[dict[str, bool]] = None,
 ) -> Path:
     outputs_dir.mkdir(parents=True, exist_ok=True)
     out: list[str] = []
@@ -413,7 +448,7 @@ def write_scorecard(
           "surface: FV vs price, position, tier) and once in the **Validation matrix** below (the "
           "per-gate evidence behind that tier). The Verdict is what you act on; the matrix is why. "
           "One row per name *within* each table.\n")
-        _write_verdict(w, rows, valuation, order)
+        _write_verdict(w, rows, valuation, order, fragility)
         w("## Validation matrix — per-gate detail\n")
 
     w("Every covered name on ONE consistent, validated machine. **The product is the "
@@ -483,7 +518,7 @@ def write_scorecard(
     md_path = outputs_dir / "book_scorecard.md"
     md_path.write_text("\n".join(out))
     if valuation is not None:
-        _write_handoff_json(rows, valuation, outputs_dir, price_basis, quarter)
+        _write_handoff_json(rows, valuation, outputs_dir, price_basis, quarter, fragility)
     return md_path
 
 
@@ -499,6 +534,7 @@ def _write_handoff_json(
     outputs_dir: Path,
     price_basis: Optional[dict],
     quarter: Optional[str],
+    fragility: Optional[dict[str, bool]] = None,
 ) -> Path:
     """The machine-readable half of the handoff surface (audit 2026-07-02, F-4).
 
@@ -538,6 +574,9 @@ def _write_handoff_json(
             "broker_nav": None if (v is None or void) else _num(v.broker_nav),
             "gap_pct": None if (v is None or void) else _num(v.gap_pct, 1),
             "governance_discount_pct": r.governance_discount_pct,
+            # null = not in the §9.10 diagnostic; false = EV sign flips across
+            # the weight family (direction is a weight-prior artifact — W-1).
+            "weight_sign_stable": (fragility or {}).get(r.ticker),
         })
     doc = {
         "schema_version": 1,
@@ -561,11 +600,13 @@ def run_scorecard_xref(
     rows = compute_scorecard(quarter, inputs_dir)
     valuation = None
     price_basis = None
+    fragility = None
     if fv_reports is not None and scenario_reports is not None and broker_rows is not None:
         valuation = valuation_index(fv_reports, scenario_reports, broker_rows)
         price_basis = price_basis_summary(inputs_dir)
+        fragility = load_weight_fragility(outputs_dir)
     if rows:
-        path = write_scorecard(rows, outputs_dir, valuation, price_basis, quarter)
+        path = write_scorecard(rows, outputs_dir, valuation, price_basis, quarter, fragility)
         n_uniform = sum(1 for r in rows if r.nav_basis == "resale-uniform")
         n_ready = sum(1 for r in rows if is_handoff_ready(r.confidence_tier))
         tag = "CONSOLIDATED verdict+matrix" if valuation else "validation matrix"

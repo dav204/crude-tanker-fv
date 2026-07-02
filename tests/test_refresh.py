@@ -218,6 +218,65 @@ def test_build_checklist_and_write_smoke(tmp_path):
     assert "## 5. IR URL playbook" in content
 
 
+def test_reweight_triggers_due_fired_and_upcoming(tmp_path):
+    """§13.3 triggers (audit F-2: the 'MoU signs' prose trigger fired Jun-17
+    and sat 15 days unwatched). The preflight must red a due/overdue or FIRED
+    trigger, amber one due within the horizon, and pass armed-future /
+    standing-watch / done ones."""
+    import yaml
+
+    from crude_tanker_fv.refresh import check_reweight_triggers
+
+    (tmp_path / "reweight_triggers.yaml").write_text(yaml.safe_dump({
+        "overdue_one": {"sector": "crude", "due": date(2026, 7, 1),
+                        "observable": "x", "action": "y", "status": "armed"},
+        "fired_one": {"sector": "crude", "due": None,
+                      "observable": "x", "action": "y", "status": "fired"},
+        "soon_one": {"sector": "crude", "due": date(2026, 7, 10),
+                     "observable": "x", "action": "y", "status": "armed"},
+        "future_one": {"sector": "all", "due": date(2026, 10, 2),
+                       "observable": "x", "action": "y", "status": "armed"},
+        "watch_one": {"sector": "crude", "due": None,
+                      "observable": "x", "action": "y", "status": "armed"},
+        "done_one": {"sector": "crude", "due": date(2026, 6, 1),
+                     "observable": "x", "action": "y", "status": "done"},
+    }))
+    items = {i.label: i for i in check_reweight_triggers(tmp_path, today=date(2026, 7, 2))}
+    assert items["overdue_one"].status == "missing" and "DUE" in items["overdue_one"].detail
+    assert items["fired_one"].status == "missing" and "OWED" in items["fired_one"].detail
+    assert items["soon_one"].status == "warn"
+    assert items["future_one"].status == "ok"
+    assert items["watch_one"].status == "ok" and "event-watch" in items["watch_one"].detail
+    assert items["done_one"].status == "ok"
+
+
+def test_reweight_triggers_missing_file_warns(tmp_path):
+    from crude_tanker_fv.refresh import check_reweight_triggers
+
+    items = check_reweight_triggers(tmp_path, today=date(2026, 7, 2))
+    assert len(items) == 1 and items[0].status == "warn"
+
+
+def test_live_trigger_file_loads_and_renders():
+    """The committed inputs/reweight_triggers.yaml parses, every entry carries
+    the required fields, and the checklist renders the section."""
+    import yaml
+
+    from crude_tanker_fv.refresh import REWEIGHT_TRIGGERS_PATH, check_reweight_triggers
+
+    doc = yaml.safe_load(REWEIGHT_TRIGGERS_PATH.read_text())
+    assert doc, "trigger file empty"
+    for name, entry in doc.items():
+        for f in ("sector", "observable", "action", "status", "added"):
+            assert f in entry, f"{name} missing {f}"
+        assert "due" in entry, f"{name} missing due (use null for event-watch)"
+    items = check_reweight_triggers(today=date(2026, 7, 2))
+    assert len(items) == len(doc)
+    # The two dated 2026 checkpoints from the 2026-07-02 review must be present.
+    assert "crude_mou_implementation_check" in doc and doc["crude_mou_implementation_check"]["due"] == date(2026, 7, 17)
+    assert "crude_day60_toll_cliff" in doc and doc["crude_day60_toll_cliff"]["due"] == date(2026, 8, 16)
+
+
 def test_data_sources_covers_all_watchlist():
     """Every watchlist ticker must have a corresponding data_sources.yaml
     entry; otherwise the IR-playbook section renders ‘no data_sources entry’

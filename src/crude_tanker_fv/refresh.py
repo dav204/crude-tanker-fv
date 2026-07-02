@@ -114,6 +114,7 @@ class Checklist:
     market_data: list[CheckItem] = field(default_factory=list)
     watchlist: list[CheckItem] = field(default_factory=list)
     earnings: list[CheckItem] = field(default_factory=list)
+    reweight_triggers: list[CheckItem] = field(default_factory=list)
     per_ticker_ages: list[TickerFileAges] = field(default_factory=list)
     data_sources: dict = field(default_factory=dict)
 
@@ -137,6 +138,10 @@ class Checklist:
     def earnings_due_count(self) -> int:
         return sum(1 for c in self.earnings if c.status == "missing")
 
+    @property
+    def triggers_due_count(self) -> int:
+        return sum(1 for c in self.reweight_triggers if c.status == "missing")
+
 
 # ----------------------------------------------------------------------------
 # File-age helpers
@@ -151,6 +156,9 @@ def _days_since(path: Path, today: date) -> int | None:
 
 EARNINGS_UPCOMING_DAYS = 14      # "reports soon" warning horizon
 EARNINGS_CALENDAR_PATH = INPUTS_DIR / "earnings_calendar.yaml"
+
+TRIGGER_UPCOMING_DAYS = 14       # "trigger due soon" warning horizon
+REWEIGHT_TRIGGERS_PATH = INPUTS_DIR / "reweight_triggers.yaml"
 
 
 # ----------------------------------------------------------------------------
@@ -206,6 +214,51 @@ def check_earnings_calendar(
             items.append(CheckItem(
                 label=ticker, status="ok",
                 detail=f"{when} ({status_word}). {basis}"))
+    return items
+
+
+def check_reweight_triggers(
+    inputs_dir: Path = INPUTS_DIR, today: date | None = None,
+) -> list[CheckItem]:
+    """One CheckItem per trigger in inputs/reweight_triggers.yaml (§13.3
+    operationalized — audit F-2: the prose trigger fired Jun-17 and sat 15 days).
+
+    Statuses: "missing" = trigger DUE/overdue or FIRED (a §13.3 decision is
+    owed NOW); "warn" = due within TRIGGER_UPCOMING_DAYS; "ok" = armed with a
+    future date, a standing event-watch, or done/retired.
+    """
+    today = today or date.today()
+    path = inputs_dir / "reweight_triggers.yaml"
+    if not path.exists():
+        return [CheckItem(label="(triggers)", status="warn",
+                          detail="inputs/reweight_triggers.yaml missing — the §13.3 "
+                                 "triggers are unwatched (the Jun-17 miss, again)")]
+    doc = yaml.safe_load(path.read_text()) or {}
+    items: list[CheckItem] = []
+    for name, entry in doc.items():
+        if not isinstance(entry, dict):
+            continue
+        status = entry.get("status", "armed")
+        due = entry.get("due")
+        sector = entry.get("sector", "?")
+        obs = " ".join(str(entry.get("observable", "")).split())[:140]
+        if status == "fired":
+            items.append(CheckItem(label=name, status="missing",
+                                   detail=f"[{sector}] FIRED — §13.3 reweight decision OWED. {obs}"))
+        elif status in ("done", "retired"):
+            items.append(CheckItem(label=name, status="ok",
+                                   detail=f"[{sector}] {status}"))
+        elif due and today >= due:
+            items.append(CheckItem(label=name, status="missing",
+                                   detail=f"[{sector}] DUE {due} — check the observable and "
+                                          f"record the outcome. {obs}"))
+        elif due and 0 <= (due - today).days <= TRIGGER_UPCOMING_DAYS:
+            items.append(CheckItem(label=name, status="warn",
+                                   detail=f"[{sector}] due in {(due - today).days}d ({due}). {obs}"))
+        else:
+            when = f"due {due}" if due else "standing event-watch"
+            items.append(CheckItem(label=name, status="ok",
+                                   detail=f"[{sector}] {when}. {obs}"))
     return items
 
 
@@ -395,6 +448,7 @@ def build_checklist(
         market_data=check_market_data(inputs_dir, today),
         watchlist=check_watchlist_freshness(watchlist, today),
         earnings=check_earnings_calendar(target_quarter, watchlist, inputs_dir, today),
+        reweight_triggers=check_reweight_triggers(inputs_dir, today),
         per_ticker_ages=collect_per_ticker_ages(watchlist, target_quarter, inputs_dir, today),
         data_sources=sources,
     )
@@ -444,6 +498,23 @@ def _render_checklist_md(c: Checklist) -> str:
     lines.append(f"- {_check(not due)} **Earnings:** "
                  + (f"REFRESH DUE: {', '.join(due)}" if due else "no reports outstanding")
                  + (f" — upcoming/check: {', '.join(soon)}" if soon else ""))
+    t_due = [it.label for it in c.reweight_triggers if it.status == "missing"]
+    t_soon = [it.label for it in c.reweight_triggers if it.status == "warn"]
+    lines.append(f"- {_check(not t_due)} **§13.3 reweight triggers:** "
+                 + (f"DUE/FIRED: {', '.join(t_due)}" if t_due
+                    else "none due")
+                 + (f" — upcoming: {', '.join(t_soon)}" if t_soon else ""))
+    lines.append("")
+
+    # --- Section 0a: Scenario-weight triggers (§13.3 — audit F-2) ---
+    lines.append("## 0a. Scenario-weight re-evaluation triggers "
+                 "(`inputs/reweight_triggers.yaml`)\n")
+    lines.append("| Trigger | Status | Detail |")
+    lines.append("|---|---|---|")
+    torder = {"missing": 0, "warn": 1, "ok": 2}
+    for it in sorted(c.reweight_triggers, key=lambda i: (torder.get(i.status, 3), i.label)):
+        flag = {"missing": "🔴 DUE", "warn": "🟡", "ok": "—"}.get(it.status, "?")
+        lines.append(f"| {it.label} | {flag} | {it.detail} |")
     lines.append("")
 
     # --- Section 0: Earnings calendar ---

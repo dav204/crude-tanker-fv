@@ -1,0 +1,118 @@
+# Scenario-weight re-evaluation triggers — METHODOLOGY §13.3, operationalized.
+#
+# WHY A FILE: §13.3's prose trigger ("the MoU signs") fired Jun-17-2026 and sat
+# unnoticed for 15 days (external audit F-2 + review 2026-07-02). Prose cannot
+# page anyone; the refresh preflight (refresh.check_reweight_triggers) reads
+# THIS file and surfaces any due/overdue/fired trigger on every run.
+#
+# Fields per trigger: sector | due (date the observable must be checked; null =
+# standing event-watch, reviewed at every refresh) | observable (what to look
+# at, with sources) | action (what a firing obliges) | status | added.
+# Statuses: armed (watching) / fired (observed — reweight decision now OWED,
+# stays red until resolved) / done (decision recorded; point to the decisions/
+# note and re-arm or retire) / retired (superseded). Date every status change.
+
+crude_mou_implementation_check:
+  sector: crude
+  due: 2026-07-17
+  observable: >
+    Islamabad Memorandum 30-day implementation deadlines (signed Jun-17-2026):
+    blockade fully removed, Iranian demining complete, Hormuz traffic restored
+    to pre-war proportionality. Check transit counts / UKMTO-JMIC advisories /
+    war-risk premia. This checkpoint lands four weeks BEFORE the toll cliff.
+  action: >
+    Non-normalized traffic by the due date is direct evidence for the
+    MoU-ineffective leg (shift mass pre_mou-ward); normalized traffic
+    corroborates mou_base. Either way, record the check in decisions/.
+  status: armed
+  added: 2026-07-02
+
+crude_day60_toll_cliff:
+  sector: crude+product
+  due: 2026-08-16
+  observable: >
+    Islamabad Memorandum toll-free window expires (~Jun-17 + 60d; the released
+    text makes Hormuz toll-free for 60 days only — Iran asserts a fee right
+    after). Does Iran impose transit fees? Scope widened to PRODUCT (reviewer
+    rider 1, 2026-07-02): MEG product flows are as toll-exposed as crude —
+    fees would re-tilt refinery_squeeze/moderate_correction as well as the
+    crude MoU legs.
+  action: >
+    PRE-REGISTERED RE-WEIGHT DATE REGARDLESS OF OUTCOME — mou_base's weight is
+    conditional on this resolving benignly. Fees imposed: shift mou_base toward
+    mou_bear/pre_mou AND revisit the product family the same day. Toll-free
+    extended/waived: pre_mou toward 0. Rerun the §9.10 diagnostics, reweight,
+    annotate, ratify.
+  status: armed
+  added: 2026-07-02
+
+product_glut_arrival_timing:
+  sector: product
+  due: 2026-10-02
+  observable: >
+    The product family's central live uncertainty (reviewer rider 1): does the
+    clean-tonnage glut arrive on the 2027 schedule the glut_base leg assumes,
+    or does 2026 crisis-era tightness persist (real inventory drawdown ->
+    stockpile replenishment is a live cargo-mile driver)? Watch MR/LR2 rate
+    normalization vs the v2 curves, clean-product inventory builds, and the
+    newbuild delivery schedule. NOTE: the restored v2 weights were themselves
+    calibrated DURING the crisis on observed-tightness evidence — the restore
+    removed only the Jun-9 Hormuz-transit layer.
+  action: >
+    Tightness persisting into Q4-2026 at glut_base weights: shift mass back
+    toward refinery_squeeze/moderate_correction with a dated non-war rationale.
+    Glut arriving early: shift toward demand_softening. Either way §11.5
+    revision + lock-test re-pin.
+  status: armed
+  added: 2026-07-02
+
+crude_doha_talks_resumption:
+  sector: crude
+  due: 2026-07-10
+  observable: >
+    Doha technical talks resume after the Khamenei funeral processions
+    (Jul-4-9). Watch for collapse or any resumed strike.
+  action: >
+    Collapse or strikes: restore a Jun-9-shape risk-on weight set the SAME DAY.
+    Progress: no reweight; update this trigger's due to the next round's date.
+  status: armed
+  added: 2026-07-02
+
+crude_transit_normalization:
+  sector: crude
+  due: null
+  observable: >
+    Standing event-watch: mine-clearance confirmation / UKMTO-JMIC advisories
+    lifted / war-risk insurance premia normalize. Premia level currently
+    UNCONFIRMED (2026-07-02 research brief 403-blocked) — standing Saturday
+    news-pull item until a level is on file.
+  action: >
+    Sustained normalization corroborates mou_base; renewed advisories or a
+    premia spike is MoU-ineffective/escalation evidence.
+  status: armed
+  added: 2026-07-02
+
+crude_brent_reopening:
+  sector: crude
+  due: null
+  observable: >
+    Standing event-watch: Brent sustained above pre-war ($72.48, Feb-27-2026
+    reference) + $10/bbl — macro confirmation the stand-down is failing and
+    war premium is rebuilding.
+  action: >
+    Same-day §13.3 review; risk-on reweight if corroborated by tanker rates.
+  status: armed
+  added: 2026-07-02
+
+all_sectors_quarterly_staleness_floor:
+  sector: all
+  due: 2026-10-02
+  observable: >
+    Any sector's locked weight set older than one quarter (roll this due
+    forward to decision-date + 1 quarter on every reweight). Backstop, not the
+    standard — the Jun-9 crude set went materially stale in 23 days.
+  action: >
+    Forced §13.3 review of every sector's weight vintage; record even a
+    "reviewed, no change" outcome in decisions/.
+  status: armed
+  added: 2026-07-02

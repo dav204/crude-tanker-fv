@@ -105,6 +105,12 @@ def main():
         price = entry["current_price"]
         target = entry["analyst_target"]
         ci = load_company_inputs(ticker, "2026-Q1")
+        # Production-path parity (2026-07-02, same bug as crude_weight_robustness):
+        # product classes (MR/LR2) ARE transaction-anchored default-ON in the
+        # pipeline; without this the diagnostic runs on un-anchored marks.
+        from crude_tanker_fv.loaders import INPUTS_DIR
+        from crude_tanker_fv.pipeline import _maybe_apply_transactions
+        ci, _ = _maybe_apply_transactions(ci, INPUTS_DIR, True)
 
         rep_a = run_under_weights(ticker, ci, price, target, base_sector_docs, PRODUCT_SET_A)
         rep_b = run_under_weights(ticker, ci, price, target, base_sector_docs, PRODUCT_SET_B)

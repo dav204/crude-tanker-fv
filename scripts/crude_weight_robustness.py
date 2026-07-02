@@ -32,8 +32,12 @@ from pathlib import Path
 # Make src importable
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
-from crude_tanker_fv.pipeline import _load_all_sectors, _run_scenarios_for_ticker
+from crude_tanker_fv.loaders import INPUTS_DIR, load_company_inputs, load_watchlist
+from crude_tanker_fv.pipeline import (
+    _load_all_sectors,
+    _maybe_apply_transactions,
+    _run_scenarios_for_ticker,
+)
 
 # ----------------------------------------------------------------------------
 # Weight definitions (METHODOLOGY §9.10)
@@ -43,9 +47,12 @@ from crude_tanker_fv.pipeline import _load_all_sectors, _run_scenarios_for_ticke
 # bracket the "how fast does normalisation arrive" axis (the dominant
 # uncertainty for 2026 crude calls).
 CRUDE_WEIGHT_SETS = {
-    "Crude Set A (current locked)": {
-        "escalation": 0.10, "pre_mou_baseline": 0.15,
-        "mou_base":   0.50, "mou_bear":         0.25,
+    # Set A refreshed 2026-07-02 to the ACTUAL locked weights — it had silently
+    # kept the pre-Jun-9 v1 set after the Jun-9 escalation reweight, so the
+    # "current locked" column was not the production prior for three weeks.
+    "Crude Set A (current locked, Jun-9)": {
+        "escalation": 0.25, "pre_mou_baseline": 0.45,
+        "mou_base":   0.18, "mou_bear":         0.12,
     },
     "Crude Set B (Catlin-leaning, slow normalization)": {
         "escalation": 0.10, "pre_mou_baseline": 0.25,
@@ -59,12 +66,25 @@ CRUDE_WEIGHT_SETS = {
         "escalation": 0.05, "pre_mou_baseline": 0.10,
         "mou_base":   0.55, "mou_bear":         0.30,
     },
+    # Proposed 2026-07-02 (audit F-2 / §13.3 trigger — US–Iran stand-down):
+    # v1 prior restored, adjusted for one observed ceasefire failure (esc 0.10
+    # not 0.05) and no signed MoU yet (pre_mou 0.20 not 0.15).
+    "Crude Set E (Jul-2 post-stand-down proposal)": {
+        "escalation": 0.10, "pre_mou_baseline": 0.20,
+        "mou_base":   0.45, "mou_bear":         0.25,
+    },
 }
 
 for label, weights in CRUDE_WEIGHT_SETS.items():
     assert abs(sum(weights.values()) - 1.0) < 1e-9, f"{label} doesn't sum to 1"
 
-CRUDE_TICKERS = ["DHT", "ECO", "FRO", "INSW", "TNK", "NAT"]
+# Extended 2026-07-02 (review W-1) from the six pure names to EVERY
+# crude-exposed name — the hybrids/multi-sleeves (INSW/TEN/CMBT) route through
+# the production scenario path, and the newbuild-torque names (BRUT/CAPT) are
+# exactly where weight fragility bites hardest (BRUT: BUY +98% -> HOLD -5%
+# across the family in the Jul-2 proposal run).
+CRUDE_TICKERS = ["DHT", "ECO", "FRO", "INSW", "TNK", "NAT",
+                 "TEN", "CMBT", "BRUT", "CAPT"]
 
 
 # ----------------------------------------------------------------------------
@@ -104,6 +124,10 @@ def run_ticker_under_all_sets(ticker: str, watchlist: dict, base_sector_docs: di
     price = entry["current_price"]
     target = entry["analyst_target"]
     ci = load_company_inputs(ticker, "2026-Q1")
+    # Production path parity (fixed 2026-07-02): transaction-anchored marks are
+    # DEFAULT-ON in the pipeline; without this the diagnostic ran ~12% high on
+    # un-anchored marks for every name since 2026-06-09.
+    ci, _ = _maybe_apply_transactions(ci, INPUTS_DIR, True)
 
     results: dict[str, dict] = {}
     for set_label, weights in CRUDE_WEIGHT_SETS.items():
@@ -134,7 +158,8 @@ def classify_robustness(per_ticker: dict) -> tuple[str, list[str], str]:
     positions = [per_ticker["results"][s]["position"] for s in CRUDE_WEIGHT_SETS]
     unique_positions = set(positions)
     if len(unique_positions) == 1:
-        return "WEIGHT-ROBUST", positions, f"position {positions[0]} across all four weight sets"
+        return "WEIGHT-ROBUST", positions, (
+            f"position {positions[0]} across all {len(CRUDE_WEIGHT_SETS)} weight sets")
 
     # Weight-driven — describe the flip. Find the "majority" position then
     # name the dissenting set(s).
@@ -153,6 +178,10 @@ def classify_robustness(per_ticker: dict) -> tuple[str, list[str], str]:
 # ----------------------------------------------------------------------------
 # Output rendering
 # ----------------------------------------------------------------------------
+def set_short_defs() -> list[str]:
+    return [s.split("(")[0].strip().replace("Crude ", "") for s in CRUDE_WEIGHT_SETS]
+
+
 def render_markdown(analyses: list[dict]) -> str:
     lines: list[str] = []
     lines.append("# Crude Weight-Robustness Diagnostic\n")
@@ -172,41 +201,29 @@ def render_markdown(analyses: list[dict]) -> str:
                  "\"Set B-revised\" naming (METHODOLOGY §11.3). Cross-sector "
                  "conflation would be a methodology error.\n")
 
-    # Pre-computed key findings block — gives the reader the headline before
-    # the table. Hand-curated rather than auto-generated because the cross-
-    # reference to mark spreads is the interesting interpretive layer.
-    lines.append("## Key findings (combined mark + weight robustness)\n")
-    lines.append("Cross-referencing with the broker-NAV sweep "
-                 "(`outputs/broker_nav_sweep.md`):")
+    # Key findings — DERIVED from this run's analyses (the block was hand-
+    # curated until 2026-07-02, when a reweight run left it contradicting the
+    # generated table below it — the audit-F-8 pattern). The mark-spread
+    # dimension lives in outputs/broker_nav_sweep.md; read the two together.
+    lines.append("## Key findings (weight robustness, this run)\n")
+    lines.append("Mark-spread robustness is the OTHER dimension — cross-read "
+                 "with `outputs/broker_nav_sweep.md` before acting on any call.")
     lines.append("")
-    lines.append("| Ticker | Mark spread | Weight robustness | Combined conviction |")
-    lines.append("|---|---:|---|---|")
-    lines.append("| DHT  | −1pp  (mark-robust)  | ✓ robust | **HIGHEST** — TRIM survives both dimensions |")
-    lines.append("| ECO  | −1pp  (mark-robust)  | ✓ robust | **HIGHEST** — TRIM survives both dimensions |")
-    lines.append("| FRO  | −1pp  (mark-robust)  | ✓ robust | **HIGHEST** — TRIM survives both dimensions |")
-    lines.append("| INSW | +22pp (mark-driven)  | ✓ robust | MIXED — TRIM survives weights but depends on marks |")
-    lines.append("| TNK  | +10pp (mark-driven)  | ⚑ driven | **LOWEST** — call sensitive to BOTH dimensions |")
-    lines.append("| NAT  | +53pp (mark-driven)  | ✓ robust | **§12 archetype** — tool TRIM is structural (read NAV as floor, not call) |")
+    lines.append("| Ticker | Weight robustness | What drives the call |")
+    lines.append("|---|---|---|")
+    for a in analyses:
+        verdict, _, note = classify_robustness(a)
+        badge = "✓ robust" if verdict == "WEIGHT-ROBUST" else "⚑ driven"
+        lines.append(f"| {a['ticker']} | {badge} | {note} |")
     lines.append("")
-    lines.append("**Takeaway:** the three pure-VLCC / VLCC+Suezmax names "
-                 "(DHT/ECO/FRO) are the highest-conviction TRIM calls in the "
-                 "current crude watchlist — their TRIM signal survives both a "
-                 "reasonable mark perturbation AND a defensible reweighting "
-                 "toward Catlin's slow-normalisation view. **TNK is the only "
-                 "name where both judgemental dimensions matter** — and "
-                 "specifically, TNK flips to TRIM/SHORT only under the "
-                 "bearish Set D weighting; under the Catlin-leaning Set B "
-                 "TNK's EV is mildly positive (+0.8%). For TNK position "
-                 "decisions, the weight prior is the dominant uncertainty.\n")
-
     # Weight-set definitions table
     lines.append("## Weight sets compared\n")
-    lines.append("| Scenario | Set A (current) | Set B (Catlin) | Set C (bullish) | Set D (bearish) |")
-    lines.append("|---|--:|--:|--:|--:|")
+    lines.append("| Scenario | " + " | ".join(set_short_defs()) + " |")
+    lines.append("|---|" + "--:|" * len(CRUDE_WEIGHT_SETS))
     scen_order = ["escalation", "pre_mou_baseline", "mou_base", "mou_bear"]
     for scen in scen_order:
         vals = [CRUDE_WEIGHT_SETS[s][scen] for s in CRUDE_WEIGHT_SETS]
-        lines.append(f"| {scen} | {vals[0]:.2f} | {vals[1]:.2f} | {vals[2]:.2f} | {vals[3]:.2f} |")
+        lines.append(f"| {scen} | " + " | ".join(f"{v:.2f}" for v in vals) + " |")
     lines.append("")
     lines.append("Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp "
                  "from `mou_bear` into `pre_mou_baseline` — i.e. Phase 1 "
@@ -214,22 +231,20 @@ def render_markdown(analyses: list[dict]) -> str:
                  "bullish (15pp into Phase 1). Set D is more bearish (15pp "
                  "deeper into MoU phase).\n")
 
-    # Headline robustness table
+    # Headline robustness table — columns derived from CRUDE_WEIGHT_SETS so
+    # adding a set can never desynchronize header and cells (caught 2026-07-02
+    # when Set E made the rows 5 cells against a hardcoded 4-column header).
     lines.append("## Summary — per-name robustness\n")
-    lines.append("| Ticker | Set A EV | Set B EV | Set C EV | Set D EV | "
-                 "Robustness | Notes |")
-    lines.append("|---|--:|--:|--:|--:|---|---|")
+    set_short = [s.split("(")[0].strip().replace("Crude ", "") for s in CRUDE_WEIGHT_SETS]
+    lines.append("| Ticker | " + " | ".join(f"{s} EV" for s in set_short) +
+                 " | Robustness | Notes |")
+    lines.append("|---|" + "--:|" * len(set_short) + "---|---|")
     for a in analyses:
         r = a["results"]
         verdict, positions, note = classify_robustness(a)
-        cells = []
-        for s in CRUDE_WEIGHT_SETS:
-            ev = r[s]["ev_pct"]
-            pos = r[s]["position"]
-            cells.append(f"{ev:+.1f}% ({pos})")
+        cells = [f"{r[s]['ev_pct']:+.1f}% ({r[s]['position']})" for s in CRUDE_WEIGHT_SETS]
         badge = "✓ robust" if verdict == "WEIGHT-ROBUST" else "⚑ driven"
-        lines.append(f"| {a['ticker']} | {cells[0]} | {cells[1]} | "
-                     f"{cells[2]} | {cells[3]} | {badge} | {note} |")
+        lines.append(f"| {a['ticker']} | " + " | ".join(cells) + f" | {badge} | {note} |")
     lines.append("")
 
     # Per-name detail
@@ -307,11 +322,39 @@ def write_xlsx(analyses: list[dict], path: Path) -> None:
     wb.save(path)
 
 
+def render_sidecar_yaml(analyses: list[dict]) -> str:
+    """Machine-readable sidecar for the scorecard's weight-fragility flag
+    (review 2026-07-02, W-1). Per name: does the EV SIGN survive the whole
+    weight family? Sign-stability, not position-label stability — the reviewer's
+    definition — because a HOLD/BUY label flip inside a positive-EV range is
+    sizing noise, while a sign flip means the direction of the call is a weight
+    artifact. No timestamps (byte-stable regeneration); the vintage is the
+    weight-set list itself."""
+    import yaml as _yaml
+
+    doc = {
+        "weight_sets": {s: CRUDE_WEIGHT_SETS[s] for s in CRUDE_WEIGHT_SETS},
+        "names": {},
+    }
+    for a in analyses:
+        evs = [a["results"][s]["ev_pct"] for s in CRUDE_WEIGHT_SETS]
+        doc["names"][a["ticker"]] = {
+            "ev_min_pct": min(evs),
+            "ev_max_pct": max(evs),
+            "ev_sign_stable": (min(evs) > 0) == (max(evs) > 0) and 0 not in (min(evs), max(evs)),
+            "positions": [a["results"][s]["position"] for s in CRUDE_WEIGHT_SETS],
+        }
+    return _yaml.safe_dump(doc, sort_keys=False)
+
+
 # ----------------------------------------------------------------------------
 # Main
 # ----------------------------------------------------------------------------
 def main():
-    watchlist = load_watchlist()
+    # live_prices=True (2026-07-02): the diagnostic must value EV at the same
+    # tape the pipeline does — on statics its Set A column silently disagreed
+    # with the pipeline headline whenever the daily price had moved.
+    watchlist = load_watchlist(live_prices=True)
     base_sector_docs = _load_all_sectors()
 
     analyses = []
@@ -325,24 +368,25 @@ def main():
     project_root = Path(__file__).resolve().parents[1]
     out_md = project_root / "outputs" / "weight_robustness_diagnostic.md"
     out_xlsx = project_root / "outputs" / "weight_robustness_diagnostic.xlsx"
+    out_yaml = project_root / "outputs" / "weight_robustness.yaml"
 
     out_md.write_text(render_markdown(analyses))
     write_xlsx(analyses, out_xlsx)
+    out_yaml.write_text(render_sidecar_yaml(analyses))
 
     print(f"→ {out_md}")
     print(f"→ {out_xlsx}")
+    print(f"→ {out_yaml}")
     print()
 
-    # Compact terminal summary
-    print(f"{'Ticker':6s}  {'Set A':12s} {'Set B':12s} {'Set C':12s} {'Set D':12s}  Robustness")
-    print("-" * 80)
+    # Compact terminal summary — columns derive from CRUDE_WEIGHT_SETS
+    print(f"{'Ticker':6s}  " + " ".join(f"{s:12s}" for s in set_short_defs()) + "  Robustness")
+    print("-" * (10 + 13 * len(CRUDE_WEIGHT_SETS) + 14))
     for a in analyses:
         verdict, positions, _ = classify_robustness(a)
-        cells = []
-        for s in CRUDE_WEIGHT_SETS:
-            r = a["results"][s]
-            cells.append(f"{r['ev_pct']:+5.1f}% {r['position'][:4]}")
-        print(f"{a['ticker']:6s}  {cells[0]:12s} {cells[1]:12s} {cells[2]:12s} {cells[3]:12s}  {verdict}")
+        cells = [f"{a['results'][s]['ev_pct']:+5.1f}% {a['results'][s]['position'][:4]}"
+                 for s in CRUDE_WEIGHT_SETS]
+        print(f"{a['ticker']:6s}  " + " ".join(f"{c:12s}" for c in cells) + f"  {verdict}")
 
 
 if __name__ == "__main__":

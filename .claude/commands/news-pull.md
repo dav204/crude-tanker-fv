@@ -46,6 +46,13 @@ Hunt, per name, for items since the last digest (check
   announcements, extensions.
 - **For APPROX names only:** a fresher market price than the watchlist
   `as_of`.
+- **STANDING (added 2026-07-02, reviewer condition): war-risk insurance
+  premia for Gulf/Hormuz voyages** — current level + direction (Lloyd's
+  List, TradeWinds, insurer statements). Leading indicator for the §13.3
+  reweight triggers (`inputs/reweight_triggers.yaml`,
+  `crude_transit_normalization`); the level has been UNCONFIRMED since
+  2026-07-02. Also check each dated trigger in that file whose `due` falls
+  before the next Saturday and note the observable's state in the digest.
 
 ## 3. Write the digest — `outputs/news_digest_YYYY-MM-DD.md`
 
