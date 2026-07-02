@@ -16,9 +16,20 @@ only the EV/position layer reads the live price. Caught live on TEN
 broker-NAV anchor -16% had consensus_pnav not been rebased with it.
 
 Sanity bands: entries are always written, but flagged ones are NOT
-applied by the loader — day-over-day move >15%, or divergence from the
-watchlist static >30% (a wrong static is what the refresh exists to
-correct, so the band is deliberately wide: TEN's -16% clears it).
+applied by the loader — day-over-day move >15% (vs the TRUE prior-day
+close from the daily bars; meta.chartPreviousClose on a range=5d request
+is the close before the 5-day WINDOW, which held five names on statics
+for days after the 2026-06-30 sector repricing — audit F-1), or
+divergence from the watchlist static >30% (a wrong static is what the
+refresh exists to correct, so the band is deliberately wide: TEN's -16%
+clears it).
+
+Circuit breaker: the day-move band exists for single-name data glitches.
+When >= MARKET_EVENT_MIN_NAMES names trip it in the SAME run, that is a
+sector-wide repricing, not a glitch — exactly when fresh prices carry
+the most information. Those quotes are applied with a ``market_event``
+marker (the loader passes them through; the scorecard discloses the rows
+for review) instead of silently falling back to stale statics.
 
 Run: ``python -m crude_tanker_fv.price_refresh`` (daily via launchd,
 ``com.crude-tanker-fv.price-refresh``).
@@ -42,6 +53,7 @@ USER_AGENT = "Mozilla/5.0 (crude-tanker-fv price refresh)"
 
 DAY_MOVE_FLAG_PCT = 15.0
 VS_STATIC_FLAG_PCT = 30.0
+MARKET_EVENT_MIN_NAMES = 3  # >= this many day-move trips in one run = repricing, not glitches
 PRICE_FRESH_DAYS = 5  # covers weekends + a holiday; beyond this the loader falls back
 
 
@@ -53,8 +65,16 @@ def _fetch_chart(symbol: str) -> dict:
 
 
 def extract_quote(payload: dict) -> dict:
-    """Pull {price, prev_close, asof} out of a Yahoo v8 chart payload."""
-    meta = payload["chart"]["result"][0]["meta"]
+    """Pull {price, prev_close, asof} out of a Yahoo v8 chart payload.
+
+    prev_close is the TRUE prior-day close read from the daily bars.
+    meta.chartPreviousClose is the close before the requested range (~5
+    sessions back on range=5d), which turns the "day move" band into a
+    5-session trailing move — kept only as a fallback when the bar series
+    is unavailable.
+    """
+    result = payload["chart"]["result"][0]
+    meta = result["meta"]
     price = float(meta["regularMarketPrice"])
     asof = datetime.fromtimestamp(int(meta["regularMarketTime"]), tz=timezone.utc)
     quote = {
@@ -62,9 +82,18 @@ def extract_quote(payload: dict) -> dict:
         "asof": asof.isoformat(timespec="seconds"),
         "exchange": meta.get("exchangeName"),
     }
-    prev = meta.get("chartPreviousClose") or meta.get("previousClose")
+    closes = (result.get("indicators", {}).get("quote") or [{}])[0].get("close") or []
+    bars = [(t, c) for t, c in zip(result.get("timestamp") or [], closes) if c is not None]
+    prev = None
+    if len(bars) >= 2:
+        # If the last bar IS the current session, the prior close is one bar
+        # back; if the session hasn't printed a bar yet, it is the last bar.
+        last_bar_day = datetime.fromtimestamp(int(bars[-1][0]), tz=timezone.utc).date()
+        prev = bars[-2][1] if last_bar_day == asof.date() else bars[-1][1]
+    if prev is None:
+        prev = meta.get("chartPreviousClose") or meta.get("previousClose")
     if prev:
-        quote["prev_close"] = float(prev)
+        quote["prev_close"] = round(float(prev), 4)
         quote["day_change_pct"] = round((price / float(prev) - 1.0) * 100.0, 2)
     return quote
 
@@ -147,6 +176,21 @@ def run_refresh(inputs_dir: Path = INPUTS_DIR) -> tuple[int, int, int]:
         fetched += 1
         print(f"{ticker:6s} ${quote['price']:>8.2f}  {quote.get('day_change_pct', 0):+.2f}%"
               f"  {quote['asof']}" + (f"  ⚑ {flag}" if flag else ""))
+
+    # Circuit breaker (audit 2026-07-02, F-1): many names tripping the day-move
+    # band in ONE run is a sector repricing, not a batch of glitches — apply the
+    # prices and mark the rows for review instead of rejecting them (only THIS
+    # run's day-move flags count; entries carried over from a failed fetch keep
+    # their original flag).
+    tripped = sorted(t for t, q in prices.items()
+                     if (q.get("flag") or "").startswith("day move")
+                     and q is not previous.get(t))
+    if len(tripped) >= MARKET_EVENT_MIN_NAMES:
+        for t in tripped:
+            prices[t]["market_event"] = prices[t].pop("flag")
+        flagged -= len(tripped)
+        print(f"MARKET EVENT: {len(tripped)} names beyond the ±{DAY_MOVE_FLAG_PCT:.0f}% day "
+              f"band together ({', '.join(tripped)}) — prices APPLIED, rows marked for review")
 
     out = {
         "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),

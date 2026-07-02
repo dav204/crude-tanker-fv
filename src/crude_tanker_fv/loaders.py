@@ -117,7 +117,7 @@ def load_balance_sheet(
         "newbuild_advances_paid",
         "diluted_shares_outstanding",
     ]
-    return BalanceSheet(
+    bs = BalanceSheet(
         ticker=_require(data, "ticker", path),
         quarter=str(_require(data, "quarter", path)),
         crude_specific_debt=float(data.get("crude_specific_debt") or 0.0),
@@ -128,6 +128,15 @@ def load_balance_sheet(
         governance_discount_pct=float(data.get("governance_discount_pct") or 0.0),
         **{f: float(_require(data, f, path)) for f in fields},
     )
+    # Hard gate, not a validate.py warning: shares divide nav_per_share and the
+    # per-share strip, so a zero here must fail HERE (named file), not as a
+    # ZeroDivisionError deep in nav/dividend_strip (audit 2026-07-02, F-12).
+    if bs.diluted_shares_outstanding <= 0:
+        raise ValueError(
+            f"{path}: diluted_shares_outstanding must be > 0 "
+            f"(got {bs.diluted_shares_outstanding})"
+        )
+    return bs
 
 
 def load_dividend_policy(ticker: str, inputs_dir: Path = INPUTS_DIR) -> DividendPolicy:
@@ -310,15 +319,23 @@ def load_watchlist(inputs_dir: Path = INPUTS_DIR, live_prices: bool = False) -> 
             quote = daily.get(ticker)
             if quote is None:
                 continue
+            # The fallback reason lands on the entry (not just stderr) so the
+            # scorecard can DISCLOSE which rows sit on statics — 5 of 22 names
+            # silently priced at June-4 statics on decision day was audit F-1.
             if quote.get("flag"):
                 print(f"[watchlist] {ticker}: daily price flagged "
                       f"({quote['flag']}) — using static ${entry['current_price']}",
                       file=sys.stderr)
+                entry["price_fallback"] = quote["flag"]
                 continue
             if not is_fresh(quote["asof"]):
                 print(f"[watchlist] {ticker}: daily price stale ({quote['asof']}) "
                       f"— using static ${entry['current_price']}", file=sys.stderr)
+                entry["price_fallback"] = f"stale quote ({quote['asof']})"
                 continue
             entry["current_price"] = float(quote["price"])
             entry["price_as_of"] = quote["asof"]
+            if quote.get("market_event"):
+                # Circuit-breaker pass-through: price applied, row marked for review.
+                entry["price_review"] = quote["market_event"]
     return out

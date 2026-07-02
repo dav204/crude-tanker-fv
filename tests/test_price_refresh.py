@@ -19,13 +19,20 @@ from crude_tanker_fv.price_refresh import (
 )
 
 
-def _chart_payload(price, prev_close, epoch):
-    return {"chart": {"result": [{"meta": {
+def _chart_payload(price, prev_close, epoch, closes=None):
+    """Canned Yahoo v8 payload. `closes` (optional) adds a daily-bar series
+    ending at `epoch` (one bar per prior day), the way a range=5d response
+    carries it; without it extract_quote falls back to chartPreviousClose."""
+    result = {"meta": {
         "regularMarketPrice": price,
         "regularMarketTime": epoch,
         "chartPreviousClose": prev_close,
         "exchangeName": "NYQ",
-    }}]}}
+    }}
+    if closes is not None:
+        result["timestamp"] = [epoch - 86400 * (len(closes) - 1 - i) for i in range(len(closes))]
+        result["indicators"] = {"quote": [{"close": closes}]}
+    return {"chart": {"result": [result]}}
 
 
 def test_extract_quote():
@@ -60,6 +67,35 @@ def test_is_fresh_window():
     stale = (now - timedelta(days=PRICE_FRESH_DAYS + 1)).isoformat()
     assert is_fresh(fresh, now=now)
     assert not is_fresh(stale, now=now)
+
+
+def test_extract_quote_uses_true_prior_day_close():
+    """The day-move band must measure vs YESTERDAY's close, not
+    meta.chartPreviousClose (= the close before the 5d window). During the
+    2026-06-30 repricing the window-edge close overstated the move and held
+    five names on June-4 statics for days (audit F-1)."""
+    # Steady slide: window-edge close 25.00, yesterday 20.60, today 20.00.
+    q = extract_quote(_chart_payload(
+        20.0, 25.0, 1781121602, closes=[25.0, 23.5, 22.0, 20.6, 20.0]))
+    assert q["prev_close"] == 20.6
+    assert q["day_change_pct"] == -2.91          # vs 20.60, NOT -20% vs 25.00
+    assert sanity_flag(q, static_price=20.5) is None
+
+
+def test_extract_quote_prior_session_when_no_bar_today():
+    """Fetched before today's session prints a bar: the last bar IS the prior
+    close (don't reach one further back)."""
+    epoch = 1781121602
+    payload = _chart_payload(20.0, 25.0, epoch, closes=[25.0, 23.5, 20.6])
+    # Shift all bars back one day: the newest bar is the PRIOR session.
+    payload["chart"]["result"][0]["timestamp"] = [epoch - 86400 * i for i in (3, 2, 1)]
+    q = extract_quote(payload)
+    assert q["prev_close"] == 20.6
+
+
+def test_extract_quote_falls_back_without_bar_series():
+    q = extract_quote(_chart_payload(20.0, 19.8, 1781121602))
+    assert q["prev_close"] == 19.8
 
 
 def _write_fixture(tmp_path, quote):
@@ -99,6 +135,51 @@ def test_loader_skips_flagged_quote(tmp_path):
                               "flag": "day move +19.0% exceeds ±15% band"})
     wl = load_watchlist(tmp_path, live_prices=True)
     assert wl["DHT"]["current_price"] == 16.40
+    # The fallback is recorded on the entry so the scorecard can disclose it
+    # (stderr-only was audit F-1's silent-static failure).
+    assert "day move" in wl["DHT"]["price_fallback"]
+
+
+def test_loader_applies_market_event_quote(tmp_path):
+    """Circuit-breaker pass-through: a market_event quote is APPLIED (fresh
+    prices carry the most information during a repricing) and the row carries
+    the review marker."""
+    _write_fixture(tmp_path, {"price": 13.10, "asof": _now_iso(),
+                              "market_event": "day move -20.1% exceeds ±15% band"})
+    wl = load_watchlist(tmp_path, live_prices=True)
+    assert wl["DHT"]["current_price"] == 13.10
+    assert wl["DHT"]["as_of_price"] == 16.40
+    assert "day move" in wl["DHT"]["price_review"]
+
+
+def test_market_event_circuit_breaker(tmp_path, monkeypatch):
+    """>=3 names tripping the day band in ONE run = sector repricing: prices
+    applied with market_event markers, not rejected. Below the threshold the
+    per-name flag behaviour is unchanged (single-name glitch protection)."""
+    from crude_tanker_fv import price_refresh
+
+    def _setup(names):
+        (tmp_path / "market_data").mkdir(exist_ok=True)
+        (tmp_path / "watchlist.yaml").write_text(yaml.safe_dump({
+            t: {"current_price": 20.0, "analyst_target": 25.0} for t in names
+        }))
+
+    # Every fetch returns a -20% day move (25.0 -> 20.0) with a bar series.
+    payload = _chart_payload(20.0, 25.0, 1781121602,
+                             closes=[26.0, 25.5, 25.2, 25.0, 20.0])
+    monkeypatch.setattr(price_refresh, "_fetch_chart", lambda symbol: payload)
+
+    _setup(["AAA", "BBB", "CCC"])
+    fetched, flagged, failed = price_refresh.run_refresh(tmp_path)
+    assert (fetched, flagged, failed) == (3, 0, 0)
+    prices = yaml.safe_load((tmp_path / "market_data" / "prices_daily.yaml").read_text())["prices"]
+    assert all("market_event" in q and "flag" not in q for q in prices.values())
+
+    _setup(["AAA", "BBB"])
+    fetched, flagged, failed = price_refresh.run_refresh(tmp_path)
+    assert (fetched, flagged, failed) == (2, 2, 0)
+    prices = yaml.safe_load((tmp_path / "market_data" / "prices_daily.yaml").read_text())["prices"]
+    assert all("flag" in q and "market_event" not in q for q in prices.values())
 
 
 def test_loader_skips_stale_quote(tmp_path):

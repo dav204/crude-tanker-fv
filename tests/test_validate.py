@@ -2,7 +2,9 @@
 
 from dataclasses import replace
 
-from crude_tanker_fv.loaders import load_company_inputs
+import pytest
+
+from crude_tanker_fv.loaders import load_balance_sheet, load_company_inputs
 from crude_tanker_fv.validate import validate_inputs
 
 
@@ -29,6 +31,25 @@ def test_flags_nonpositive_shares():
         balance_sheet=replace(ci.balance_sheet, diluted_shares_outstanding=0),
     )
     assert any("shares outstanding" in w for w in validate_inputs(ci))
+
+
+def test_zero_shares_fails_at_load_not_in_nav(tmp_path):
+    """Shares divide nav_per_share and the strip; validate.py only WARNS (warnings
+    never stop a run), so a zero must hard-fail at load with the file named —
+    not surface as a ZeroDivisionError downstream (audit 2026-07-02, F-12)."""
+    import yaml
+
+    (tmp_path / "balance_sheets").mkdir()
+    doc = {
+        "ticker": "ZZZ", "quarter": "2026-Q1",
+        "cash_and_equivalents": 100.0, "working_capital_net": 0.0,
+        "total_debt": 0.0, "lease_liabilities": 0.0,
+        "newbuild_capex_commitments": 0.0, "newbuild_advances_paid": 0.0,
+        "diluted_shares_outstanding": 0.0,
+    }
+    (tmp_path / "balance_sheets" / "zzz_2026-Q1.yaml").write_text(yaml.safe_dump(doc))
+    with pytest.raises(ValueError, match="diluted_shares_outstanding must be > 0"):
+        load_balance_sheet("ZZZ", "2026-Q1", tmp_path)
 
 
 def test_fleet_summary_totals_cross_foot_against_vessel_rows():
