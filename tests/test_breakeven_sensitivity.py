@@ -50,6 +50,41 @@ def test_breakeven_increases_with_price():
     assert high > low
 
 
+def test_breakeven_degenerate_is_exact_zero():
+    """Price below NAV-alone coverage pins the bisection at the lower bound.
+
+    The result must be an EXACT zero — not the 50/2^101 ≈ 2e-29 residue, which
+    rendered as 29-digit Assumed/Breakeven ratios in six committed scenario
+    docs and leaked last-ULP float noise into regeneration diffs (external
+    audit 2026-07-02, F-3/F-10).
+    """
+    ci = load_company_inputs("DHT", "2026-Q1")
+    be = implied_breakeven_tce(ci, 1.00)
+    assert be.multiplier == 0.0
+    assert be.blended_breakeven_tce == 0.0
+    assert all(v == 0.0 for v in be.implied_breakeven_tce.values())
+
+
+def test_degenerate_scenario_doc_renders_na_ratio():
+    """A NAV-covered name's scenario doc renders 'n/a', never a giant ratio."""
+    import re
+
+    from crude_tanker_fv.scenarios import (
+        load_scenarios, render_scenario_markdown, run_scenarios,
+    )
+
+    ci = load_company_inputs("DHT", "2026-Q1")
+    doc = load_scenarios(sector="crude")
+    report = run_scenarios(ci, 1.00, 1.00, doc)
+    assert report.breakeven_tce == 0.0
+    text = render_scenario_markdown(report)
+    assert "price justified by NAV alone" in text
+    assert "| n/a |" in text
+    # No rendered Assumed/Breakeven ratio may exceed 100x (plausibility bound).
+    for m in re.finditer(r"([\d,]+\.\d{2})×", text):
+        assert float(m.group(1).replace(",", "")) <= 100.0, m.group(0)
+
+
 def test_sensitivity_grid_shape_and_base():
     ci = load_company_inputs("DHT", "2026-Q1")
     grid = compute_sensitivity(ci, 16.35)

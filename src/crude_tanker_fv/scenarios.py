@@ -572,24 +572,35 @@ def render_scenario_markdown(r: ScenarioReport) -> str:
       f"_(flexes per scenario via vessel-value elasticity — see table)_")
     w(f"- **Probability-weighted fair value:** ${r.probability_weighted_fv:,.2f} "
       f"({_pct(r.probability_weighted_fv, r.current_price):+.1f}% vs price)")
-    w(f"- **Breakeven TCE (scenario-invariant):** ${r.breakeven_tce:,.0f}/day — the value-"
-      f"weighted blended rate (fleet-mix-adjusted) that justifies the current price. The "
-      f"scenario sets the *probability* of clearing it, not the level.")
+    if r.breakeven_tce:
+        w(f"- **Breakeven TCE (scenario-invariant):** ${r.breakeven_tce:,.0f}/day — the value-"
+          f"weighted blended rate (fleet-mix-adjusted) that justifies the current price. The "
+          f"scenario sets the *probability* of clearing it, not the level.")
+    else:
+        w("- **Breakeven TCE (scenario-invariant):** $0/day — **price justified by NAV alone** "
+          "(blended FV clears the price even at zero rates; the entire earnings leg is "
+          "optionality on top of asset coverage).")
     w(f"- **Position (tool view):** {r.position_recommendation}\n")
 
     w("## Per-scenario fair value\n")
     w("| Scenario | Weight | Vessel× | NAV/sh | FV (base) | FV [low–high] | Cycle | w_nav | Strip NPV | Assumed TCE (12M) | Assumed / Breakeven |")
     w("|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|")
     for s in r.scenarios:
-        ratio = s.assumed_tce / r.breakeven_tce if r.breakeven_tce else float("nan")
+        ratio_txt = (f"{s.assumed_tce / r.breakeven_tce:.2f}×" if r.breakeven_tce
+                     else "n/a")
         w(f"| {_PRETTY.get(s.name, s.name)} | {s.weight:.0%} | {s.vessel_scale:.2f}× | "
           f"${s.nav_per_share:,.2f} | ${s.fair_value:,.2f} | "
           f"${s.fair_value_low:,.2f}–${s.fair_value_high:,.2f} | {s.cycle_position:.2f}× | "
-          f"{s.w_nav:.2f} | ${s.divstrip_npv:,.2f} | ${s.assumed_tce:,.0f} | {ratio:.2f}× |")
+          f"{s.w_nav:.2f} | ${s.divstrip_npv:,.2f} | ${s.assumed_tce:,.0f} | {ratio_txt} |")
     w(f"| **Probability-weighted** | | | | **${r.probability_weighted_fv:,.2f}** | | | | | | |\n")
-    w("_Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate "
-      "assumption, NOT a breakeven). Assumed/Breakeven < 1 ⇒ that scenario's rates fall "
-      "short of justifying the price; > 1 ⇒ they clear it._\n")
+    if r.breakeven_tce:
+        w("_Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate "
+          "assumption, NOT a breakeven). Assumed/Breakeven < 1 ⇒ that scenario's rates fall "
+          "short of justifying the price; > 1 ⇒ they clear it._\n")
+    else:
+        w("_Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate "
+          "assumption, NOT a breakeven). Assumed/Breakeven is n/a — the price clears at any "
+          "rate, so every scenario's rates trivially justify it._\n")
 
     w("## Decision signals\n")
     w(f"- **Upside (best scenario − price):** ${r.upside_best:+,.2f}")

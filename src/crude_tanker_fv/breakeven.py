@@ -94,7 +94,12 @@ def implied_breakeven_tce(inputs: CompanyInputs, current_price: float) -> Breake
             lo = mid
         else:
             hi = mid
-    multiplier = (lo + hi) / 2.0
+    # lo never moving means blended FV >= price even as the multiplier -> 0:
+    # the price is justified by NAV alone, with no earnings hurdle. Report an
+    # exact zero rather than the bisection residue (50/2^101 ≈ 2e-29), which
+    # otherwise renders as a 29-digit Assumed/Breakeven ratio downstream and
+    # leaks last-ULP float noise into committed docs.
+    multiplier = 0.0 if lo == 0.0 else (lo + hi) / 2.0
 
     per_class = {c: multiplier * ffa_12m[c] for c in priced}
 
