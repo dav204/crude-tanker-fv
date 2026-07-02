@@ -10,6 +10,7 @@ INSW.
 
 from __future__ import annotations
 
+import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -1048,7 +1049,19 @@ def _write_txn_comparison(
 def main() -> None:
     """Console entry point (see [project.scripts] in pyproject.toml)."""
     quarter = sys.argv[1] if len(sys.argv) > 1 else "2026-Q1"
+    # Fail fast on anything that isn't a quarter ('--help', a typo'd '2026-Q5'):
+    # a bogus quarter would skip every name on missing balance-sheet files yet
+    # still run scenarios/xrefs and OVERWRITE state/last_run.json + touch
+    # decisions/*.md (audit 2026-07-02, F-6).
+    if not re.fullmatch(r"\d{4}-Q[1-4]", quarter):
+        print(f"usage: python -m crude_tanker_fv.pipeline <QUARTER>  (e.g. 2026-Q1); "
+              f"got {quarter!r}", file=sys.stderr)
+        raise SystemExit(2)
     fv_reports = run_watchlist(quarter, live_prices=True)
+    if not fv_reports:
+        print(f"no ticker produced a report for {quarter} (inputs not populated?) — "
+              f"aborting before scenario/xref/state writes", file=sys.stderr)
+        raise SystemExit(1)
     print("--- scenarios ---")
     scenario_reports = run_scenarios_watchlist(quarter, live_prices=True)
     print("--- broker-NAV sweep ---")
