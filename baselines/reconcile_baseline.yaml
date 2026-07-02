@@ -2,11 +2,14 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-07-01T23:28:11+00:00'
-  ratified_commit: 8c8f100
+  ratified_at: '2026-07-02T00:21:02+00:00'
+  ratified_commit: fd6fc9e
   quarter: 2026-Q1
-  cause: HAFN reconciliation — NAV 5.22->5.57 (3-Apr subsequent-event newbuild excluded; debt/lease to
-    Note 2/4 split; TORM lower-of-cost; operating WC pool-gross-up floor)
+  cause: 'STNG P0 reconciliation — full per-vessel rebuild vs Q1-2026 6-K (acc 0001483934-26-000042):
+    total_debt double-count fixed $789.1M->$589.056M (+$200M), held-for-sale double-count fixed (6 operating
+    MRs removed, real March 8-vessel agreement $305M, -$280M), opWC omitted-accrued $207.8M->$163.3M,
+    advances sourced $90M->$69.069M. Headline NAV $80.35->$77.47, BUY->HOLD. STNG leaves NAV_FIGURE_ESTIMATE_QUEUE,
+    stays PROVISIONAL.off-curve; §9.6 newbuild deferred (thread (d) gated).'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -140,10 +143,10 @@ names:
     sector: dry_bulk
   STNG:
     pnav_basis: pareto
-    ev_pct: 5.8
-    tool_nav: 80.35
-    position_band: BUY (undervalued)
-    k_broker: 1.37
+    ev_pct: 2.02
+    tool_nav: 77.47
+    position_band: HOLD (fairly valued)
+    k_broker: 1.43
     sector: product
   TEN:
     pnav_basis: approx
