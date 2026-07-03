@@ -61,9 +61,12 @@ scratch/
 inputs/ffa_drybulk/
 
 # EDGAR filing staging (WO2 2.2) — primary docs are .htm so the blanket
-# *.pdf rule does NOT cover them; the whole tree is machine-local staging
+# *.pdf rule does NOT cover them; the staged docs are machine-local
 # (state/edgar_manifest.jsonl is the arrival record; promotion is human).
-inputs/filings/
+# The _manifest.json SNAPSHOT is tracked (commit_drift promotes it; the
+# Action's --pure FILING checks read it) — hence contents-not-dir ignore.
+inputs/filings/*
+!inputs/filings/_manifest.json
 
 # Vendored harvester tool (broker-weekly parser). SOURCE is tracked (2026-06-23 —
 # Test 1 actively depends on its parser code, so it must be versioned); it is NOT

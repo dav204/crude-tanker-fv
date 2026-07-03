@@ -19,6 +19,20 @@ set -eu
 PROJECT="${HOME}/Projects/crude-tanker-fv"
 cd "$PROJECT"
 
+# Promote the state-side EDGAR manifest to its tracked snapshot (WO2 2.3,
+# R-2): the Action's --pure FILING checks see pushed state only — coverage
+# lags to the last push by design; the local sentinel is the primary pager.
+if [[ -f state/edgar_manifest.jsonl ]]; then
+  ./.venv/bin/python - <<'PYEOF'
+import json, pathlib
+lines = [json.loads(l) for l in pathlib.Path("state/edgar_manifest.jsonl").read_text().splitlines() if l.strip()]
+out = pathlib.Path("inputs/filings/_manifest.json")
+out.parent.mkdir(parents=True, exist_ok=True)
+out.write_text(json.dumps(lines, indent=1) + "\n")
+print(f"commit_drift: promoted edgar manifest snapshot ({len(lines)} arrivals)")
+PYEOF
+fi
+
 # The recurring automation-written tracked files (the cron drifters).
 FILES=(
   inputs/market_data/prices_daily.yaml
@@ -29,6 +43,7 @@ FILES=(
   outputs/refresh_checklist.md
   outputs/ffa_ocr_queue.md
   outputs/pareto_daily_links.json
+  inputs/filings/_manifest.json
 )
 
 # Stage only those that exist AND actually changed (unstaged or staged).

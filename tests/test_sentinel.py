@@ -441,7 +441,61 @@ def test_pure_mode_flags_stale_head_in_open_window(tmp_path):
                    env={"GIT_AUTHOR_DATE": old, "GIT_COMMITTER_DATE": old,
                         "PATH": "/usr/bin:/bin"})
     flags = collect_flags(inputs, outputs, environ={}, pure=True)
-    assert len(flags) == 1 and "repo HEAD 5d old" in flags[0]
+    assert any("repo HEAD 5d old" in f for f in flags)
+    # (the same open window legitimately emits calendar flags for DHT — 2.3)
+    assert all(f.split()[0] in ("STALE-INPUT", "EARNINGS-DUE",
+                                "STALE-BALANCE-SHEET") for f in flags)
+
+
+def test_filing_events_landed_overdue_unseeded(tmp_path):
+    """WO2 2.3: fresh manifest arrivals page FILING-LANDED (+AMENDED); a
+    passed window with no arrival and no balance sheet pages FILING-OVERDUE
+    (the Oslo net); a watchlist name with no calendar entry is
+    CALENDAR-UNSEEDED; a landed balance sheet clears the overdue."""
+    from datetime import date as _date
+
+    inputs, outputs = _fixture(tmp_path)
+    state = tmp_path / "state"
+    state.mkdir(exist_ok=True)
+    now = datetime.now(timezone.utc)
+    old_end = _date.today() - timedelta(days=10)
+    (inputs / "earnings_calendar.yaml").write_text(yaml.safe_dump({
+        "quarter": "2026-Q2",
+        "DHT": {"window_start": old_end - timedelta(days=2), "window_end": old_end,
+                "status": "confirmed", "basis": "t"}}))
+
+    # Fresh arrival: FILING-LANDED pages, overdue is satisfied by the arrival.
+    (state / "edgar_manifest.jsonl").write_text(json.dumps({
+        "ts": now.isoformat(timespec="seconds"), "ticker": "DHT", "cik": "x",
+        "accession": "0001-26-000009", "form": "6-K/A",
+        "filed": _date.today().isoformat(), "staged_path": None,
+        "amended": True}) + "\n")
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    landed = [f for f in flags if f.startswith("FILING-LANDED")]
+    assert len(landed) == 1 and "6-K/A AMENDED" in landed[0]
+    assert not any(f.startswith("FILING-OVERDUE") for f in flags)
+    # STALE-BALANCE-SHEET rides the same calendar (report out, no Q2 sheet).
+    assert any(f.startswith("STALE-BALANCE-SHEET DHT") for f in flags)
+
+    # No arrival at all: FILING-OVERDUE pages; a landed balance sheet clears it.
+    (state / "edgar_manifest.jsonl").unlink()
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert any(f.startswith("FILING-OVERDUE DHT") for f in flags)
+    bs = inputs / "balance_sheets"
+    bs.mkdir()
+    (bs / "dht_2026-Q2.yaml").write_text("{}\n")
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert not any(f.startswith("FILING-OVERDUE") for f in flags)
+    assert not any(f.startswith("STALE-BALANCE-SHEET") for f in flags)
+
+    # A watchlist name missing from the calendar = CALENDAR-UNSEEDED.
+    (inputs / "watchlist.yaml").write_text(yaml.safe_dump({
+        "DHT": {"current_price": 16.5, "analyst_target": 18.0,
+                "as_of": str(_date.today())},
+        "CMBT": {"current_price": 10.0, "analyst_target": 12.0,
+                 "as_of": str(_date.today())}}))
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert any(f.startswith("CALENDAR-UNSEEDED CMBT") for f in flags)
 
 
 def test_meta_mode_suspends_content_checks_on_dirty_tree(tmp_path, monkeypatch, capsys):

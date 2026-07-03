@@ -181,6 +181,12 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
         else:
             flags.append("PRICE-BASIS prices file carries no fetched_at")
 
+    # Filings as events (WO2 2.3) — BOTH modes; the manifest source differs
+    # (state-side locally, the tracked snapshot on the Action — pushed-state
+    # lag is the documented caveat).
+    flags += _filing_event_flags(inputs_dir, watchlist,
+                                 _edgar_manifest_entries(inputs_dir, pure))
+
     if pure:
         # Pure-only: HEAD recency in an open earnings window. The Action reads
         # pushed state; a Mac dark or unpushed for days IN SEASON means the
@@ -446,6 +452,99 @@ def _business_days_between(a: date, b: date) -> int:
         if d.weekday() < 5:
             n += 1
     return n
+
+
+def _edgar_manifest_entries(inputs_dir: Path, pure: bool) -> list:
+    """Arrival records: the state-side jsonl locally (authoritative, R-2);
+    the tracked snapshot (commit_drift promotes it) for --pure / fallback."""
+    if not pure:
+        state_side = inputs_dir.parent / "state" / "edgar_manifest.jsonl"
+        if state_side.exists():
+            out = []
+            for line in state_side.read_text().splitlines():
+                try:
+                    out.append(json.loads(line))
+                except Exception:
+                    continue
+            return out
+    snapshot = inputs_dir / "filings" / "_manifest.json"
+    if snapshot.exists():
+        try:
+            return json.loads(snapshot.read_text())
+        except Exception:
+            return []
+    return []
+
+
+def _filing_event_flags(inputs_dir: Path, watchlist: dict,
+                        manifest_entries: list, now=None) -> list[str]:
+    """WO2 2.3 — filings as events, shared by both sentinel modes.
+
+    FILING-LANDED (page): manifest arrivals in the last 48h (+AMENDED marker).
+    STALE-BALANCE-SHEET / EARNINGS-DUE / CALENDAR-UNSEEDED (digest): the ONE
+    canonical calendar implementation (refresh.check_earnings_calendar) — the
+    F-13 rule, never a second copy.
+    FILING-OVERDUE (page): window_end + 3 business days passed, nothing
+    arrived, no balance sheet on file — also the Oslo trio's net (no EDGAR
+    poller; self-clears when the reconciliation lands the balance sheet).
+    """
+    from .refresh import check_earnings_calendar
+
+    import yaml
+
+    flags: list[str] = []
+    now = now or datetime.now(timezone.utc)
+    for e in manifest_entries:
+        try:
+            ts = datetime.fromisoformat(str(e.get("ts")))
+        except Exception:
+            continue
+        if (now - ts).total_seconds() <= 48 * 3600:
+            am = " AMENDED" if e.get("amended") else ""
+            flags.append(f"FILING-LANDED {e.get('ticker')}: {e.get('form')}{am} "
+                         f"{e.get('accession')} filed {e.get('filed')} -> "
+                         f"{e.get('staged_path') or 'manifest-only'}")
+
+    cal_path = inputs_dir / "earnings_calendar.yaml"
+    if not cal_path.exists() or not watchlist:
+        return flags
+    cal = yaml.safe_load(cal_path.read_text()) or {}
+    quarter = cal.get("quarter")
+    today = now.date()
+    for it in check_earnings_calendar(quarter, watchlist, inputs_dir, today=today):
+        if it.status == "missing":
+            flags.append(f"STALE-BALANCE-SHEET {it.label}: {it.detail}")
+        elif it.status == "warn":
+            tag = ("CALENDAR-UNSEEDED" if "no earnings date on file" in it.detail
+                   else "EARNINGS-DUE")
+            flags.append(f"{tag} {it.label}: {it.detail}")
+
+    by_ticker: dict = {}
+    for e in manifest_entries:
+        by_ticker.setdefault(e.get("ticker"), []).append(e)
+    for ticker, entry in cal.items():
+        if not isinstance(entry, dict) or "window_start" not in entry:
+            continue
+        end = entry.get("window_end") or entry["window_start"]
+        deadline, n = end, 0
+        while n < 3:
+            deadline += timedelta(days=1)
+            if deadline.weekday() < 5:
+                n += 1
+        if today <= deadline:
+            continue
+        bs = inputs_dir / "balance_sheets" / f"{ticker.lower()}_{quarter}.yaml"
+        if bs.exists():
+            continue
+        start = entry["window_start"]
+        arrived = any(str(e.get("filed", "")) >= start.isoformat()
+                      for e in by_ticker.get(ticker, []))
+        if not arrived:
+            flags.append(f"FILING-OVERDUE {ticker}: window ended {end}, +3bd "
+                         f"passed, no filing arrival and no {quarter} balance "
+                         "sheet — check the wire (Oslo names have no EDGAR "
+                         "poller; this IS their net)")
+    return flags
 
 
 def _load_state(path: Path) -> dict:
