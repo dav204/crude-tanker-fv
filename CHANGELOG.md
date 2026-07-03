@@ -5,6 +5,12 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-03 — RECORD NOTE (WO1-F3):** commit `afaa43c`'s message says "schema v3" — an
+  integer dev-iteration label that never shipped as a contract version. The handoff schema
+  went 2 (int) → "2.1" → "2.2" (strings, major-2 asserted by the consumer); the transient
+  int 3/4 states exist only inside the 2026-07-02 dev sequence. There is no phantom v3 to
+  hunt for. (History not rewritten post-push; this line is the correction of record.)
+
 - **2026-07-02 — F-13 (P0, same-day): verdict rows MIXED VALUATION BASES — blend FV next to scenario position; handoff re-based + coherence-guarded.**
   Post-vintage review caught `d1544b4` shipping self-contradictory rows ("CAPT +28% upside · TRIM/SHORT"):
   `valuation_index` took fv from the single-point BLEND while position came from the SCENARIO-weighted EV.

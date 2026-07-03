@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 # Daily watchlist price refresh (Yahoo chart API -> prices_daily.yaml).
 # Invoked by launchd via ~/Library/LaunchAgents/com.crude-tanker-fv.price-refresh.plist
 # (18:30 local, after the NYSE close). Writes ONLY the automation-writable

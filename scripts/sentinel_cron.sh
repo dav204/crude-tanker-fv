@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 # Daily read-only sentinel (WO1 V-2/V-3, 2026-07-02): trigger due/overdue,
 # input staleness, committed-surface coherence, price basis. Exit 0 = quiet.
 # Invoked by launchd via ~/Library/LaunchAgents/com.crude-tanker-fv.sentinel.plist
