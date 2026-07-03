@@ -257,3 +257,20 @@ def test_live_drift_gate_no_unexplained_drift():
         + ". Annotate decisions/<ticker>_log.md with the cause, or re-ratify the "
         "baseline if the move is accepted: scripts/ratify_baseline.sh \"<cause>\"."
     )
+
+
+def test_ratify_appends_log_row(tmp_path):
+    """WO1 Task 4: every ratify writes one markdown-table row to RATIFY_LOG.md
+    (header auto-created), so the consuming repo's monitor can learn of
+    re-bases. Pipes in the cause are neutralized (table integrity)."""
+    from crude_tanker_fv.drift_gate import append_ratify_log
+
+    log = tmp_path / "RATIFY_LOG.md"
+    append_ratify_log("test cause A | with a pipe", commit="abc1234", path=log)
+    text = log.read_text()
+    assert text.startswith("# Ratify log")
+    assert "| date | commit | cause |" in text
+    assert "| abc1234 | test cause A / with a pipe |" in text
+    append_ratify_log("second cause", commit="def5678", path=log)
+    lines = [ln for ln in log.read_text().splitlines() if ln.startswith("| 2")]
+    assert len(lines) == 2 and lines[1].endswith("| second cause |")

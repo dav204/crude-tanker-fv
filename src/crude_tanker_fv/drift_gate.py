@@ -155,6 +155,35 @@ def write_baseline(cause: str, *, state: Optional[dict] = None,
     return baseline
 
 
+RATIFY_LOG_PATH = ROOT / "RATIFY_LOG.md"
+_RATIFY_LOG_HEADER = (
+    "# Ratify log — one row per drift-gate baseline re-anchor (WO1 Task 4, 2026-07-02)\n"
+    "\n"
+    "Appended by `drift_gate --ratify`; read by the governance repo's weekly monitor to\n"
+    "learn the valuation surface re-based since its last run — the producer's page to\n"
+    "the consumer. The hash is HEAD at ratify time (the ratify commit lands one ahead).\n"
+    "\n"
+    "| date | commit | cause |\n"
+    "|---|---|---|\n"
+)
+
+
+def append_ratify_log(cause: str, *, commit: Optional[str] = None,
+                      path: Path = RATIFY_LOG_PATH) -> Path:
+    """One markdown-table row per ratify — creates the file with its header row
+    if absent. Lives HERE (not the shell wrapper) so it is testable and cannot
+    diverge from the ratify that actually happened."""
+    from datetime import datetime, timezone
+
+    if not path.exists():
+        path.write_text(_RATIFY_LOG_HEADER)
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    row = f"| {stamp} | {commit or _git_short_head()} | {cause.replace('|', '/')} |\n"
+    with path.open("a") as fh:
+        fh.write(row)
+    return path
+
+
 # ---------------------------------------------------------------------------
 # Decision-log annotation grep
 # ---------------------------------------------------------------------------
@@ -352,9 +381,11 @@ def main(argv: Optional[list[str]] = None) -> int:
             return 2
         baseline = write_baseline(args.cause.strip())
         n = len(baseline["names"])
+        log = append_ratify_log(args.cause.strip(),
+                                commit=baseline["meta"]["ratified_commit"])
         print(f"Ratified {n} names @ commit {baseline['meta']['ratified_commit']} "
               f"({baseline['meta']['quarter']}). Cause: {args.cause.strip()}")
-        print(f"Wrote {BASELINE_PATH.relative_to(ROOT)}")
+        print(f"Wrote {BASELINE_PATH.relative_to(ROOT)} (+ row in {log.name})")
         return 0
 
     if not BASELINE_PATH.exists():
