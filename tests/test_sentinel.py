@@ -407,6 +407,22 @@ def test_trigger_evidence_from_tanker_period_signals(tmp_path):
     assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
 
 
+def test_fleet_transaction_unreviewed_counter(tmp_path):
+    """WO2 3.2: cumulative candidates past the --mark-reviewed ack flag; a
+    full ack silences."""
+    inputs, outputs = _fixture(tmp_path)
+    tx = inputs / "market_data" / "transactions"
+    tx.mkdir(parents=True)
+    scan = tx / "_scan_state.json"
+
+    scan.write_text(json.dumps({"candidates_cumulative": 7, "candidates_reviewed": 4}))
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 1 and flags[0].startswith("FLEET-TRANSACTION 3 unreviewed")
+
+    scan.write_text(json.dumps({"candidates_cumulative": 7, "candidates_reviewed": 7}))
+    assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
+
+
 def test_pure_mode_keeps_content_checks_drops_machine_local(tmp_path):
     """WO2 0.4: --pure sees dated triggers + committed surfaces; machine-local
     signals (prices fetch age, notify env, heartbeats) are the Mac's job."""

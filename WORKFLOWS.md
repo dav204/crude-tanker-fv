@@ -192,6 +192,23 @@ quirks live here:
   link is the artifact (harvest from Gmail read-only, fetch with `fetch_pdf.py`, cdn.flxml.eu
   allowlisted; archive `inputs/research_mb/<feed>/YYYY/`). Full steps in the MB workflow above.
 
+## Consensus-pair recapture — the quarterly packet (added 2026-07-03, WO2 3.1)
+
+The consensus pair (`current_price` + `consensus_pnav` + `consensus_fwd_pe`) is valid only AS A
+PAIR from one vintage — the TEN $44 lesson. Trigger `all_sectors_consensus_pair_recapture`
+pages when due; the recapture is ONE sitting, one source:
+
+1. Pick ONE Pareto Shipping Daily (the newest with the full share-price/P/NAV/P/E table);
+   note its date — that date becomes every touched name's `as_of`.
+2. For every covered name: transcribe price, P/NAV, fwd P/E from THAT daily. Never mix days,
+   never keep an old pnav against a new price.
+3. APPROX names (NAT / ASC / CCEC — Pareto publishes no P/NAV): update price + fwd P/E from
+   the daily, keep the pnav flagged APPROX with its own basis note — flag, don't fake.
+4. Rebase `inputs/watchlist.yaml` in one commit; run the gate loop (pytest -> reconcile ->
+   drift annotate/ratify). Band flips from the price move follow the isolate-commit
+   discipline (memory: isolate commit from price drift).
+5. Re-arm the trigger to the next quarter boundary; record the sitting in decisions/.
+
 ## Week-close checklist (migrated from CLAUDE.md 2026-07-01; codified 2026-06-11, owner decision)
 
 Work is organised in sprints ("Weeks"). At the END of each Week, before handoff, run this — docs accrete

@@ -84,6 +84,12 @@ def send_email(subject: str, body: str, *, environ=os.environ,
             s.starttls()
             s.login(environ["CRUDE_FV_SMTP_USER"], environ["CRUDE_FV_SMTP_PASS"])
             s.send_message(msg)
+        # Send ledger (WO2 close): the acceptance compiler joins flags to
+        # SENT emails — a send that isn't ledgered didn't happen.
+        state_dir.mkdir(parents=True, exist_ok=True)
+        with (state_dir / "notify_sent.log").open("a") as fh:
+            fh.write(f"{datetime.now(timezone.utc).isoformat(timespec='seconds')} "
+                     f"SENT {subject}\n")
         return True
     except Exception as exc:
         record_down(f"send failed: {exc}", state_dir)

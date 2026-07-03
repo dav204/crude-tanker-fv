@@ -516,7 +516,19 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--links", action="store_true",
                     help="extract link annotations into outputs/pareto_daily_links.json "
                          "(downloads moved to: python -m crude_tanker_fv.fetch_links)")
+    ap.add_argument("--mark-reviewed", action="store_true",
+                    help="ack the S&P candidate queue (WO2 3.2): records the current "
+                         "cumulative count as reviewed; the sentinel flags "
+                         "FLEET-TRANSACTION only for candidates newer than this ack")
     args = ap.parse_args(argv)
+
+    if args.mark_reviewed:
+        prior = json.loads(STATE_PATH.read_text()) if STATE_PATH.exists() else {}
+        total = prior.get("candidates_cumulative", 0)
+        save_scan_state(prior.get("last_scanned_report_date") or "",
+                        extra={"candidates_reviewed": total})
+        print(f"marked reviewed at {total} cumulative candidates")
+        return 0
 
     if args.links:
         n = run_link_inventory(args.since)
@@ -550,7 +562,12 @@ def main(argv: list[str] | None = None) -> int:
     for sig in tanker_signals:
         merged[(sig["date"], sig["sentence"])] = sig
     kept = sorted(merged.values(), key=lambda h: h["date"])[-50:]
-    save_scan_state(newest, extra={"tanker_period_signals": {"hits": kept}})
+    save_scan_state(newest, extra={
+        "tanker_period_signals": {"hits": kept},
+        # WO2 3.2: cumulative candidate counter; --mark-reviewed acks it and
+        # the sentinel flags FLEET-TRANSACTION on the unreviewed excess.
+        "candidates_cumulative": prior.get("candidates_cumulative", 0) + n_hits,
+    })
     print(f"scanned {n_files} reports -> {n_hits} candidates -> {OUTPUT_PATH}")
     if tanker_signals:
         print(f"{len(tanker_signals)} tanker period-market signal(s) -> "

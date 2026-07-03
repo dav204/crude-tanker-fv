@@ -49,7 +49,7 @@ def test_real_routing_table_covers_every_live_sentinel_tag():
             "SIDECAR-STALE", "NOTIFY-UNCONFIGURED", "FETCH-FAILED",
             "UNINGESTED-PRINTS", "TRIGGER-EVIDENCE", "FILING-LANDED",
             "FILING-OVERDUE", "STALE-BALANCE-SHEET", "CALENDAR-UNSEEDED",
-            "EARNINGS-DUE", "DIRTY-TOO-LONG"}
+            "EARNINGS-DUE", "DIRTY-TOO-LONG", "FLEET-TRANSACTION"}
     assert live <= routed, f"unrouted sentinel tags: {live - routed}"
     overlap = set(routes["page"]) & set(routes["digest"])
     assert not overlap, f"tags routed both ways: {overlap}"
@@ -66,11 +66,14 @@ def test_route_flags_partition_and_unknown_pages():
     assert digest == ["STALE-INPUT spot_tce: 5d"]
 
 
-def test_send_email_happy_path():
-    ok = notify.send_email("s", "b", environ=FAKE_ENV, smtp_factory=FakeSMTP)
+def test_send_email_happy_path_and_ledgers(tmp_path):
+    ok = notify.send_email("s", "b", environ=FAKE_ENV, smtp_factory=FakeSMTP,
+                           state_dir=tmp_path)
     assert ok and len(FakeSMTP.sent) == 1
     msg = FakeSMTP.sent[0]
     assert msg["To"] == "owner@example.com" and msg["Subject"] == "s"
+    # WO2 close: the acceptance compiler joins flags to SENT lines.
+    assert "SENT s" in (tmp_path / "notify_sent.log").read_text()
 
 
 def test_send_unconfigured_records_down_and_returns_false(tmp_path):

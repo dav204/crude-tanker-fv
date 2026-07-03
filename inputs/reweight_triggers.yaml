@@ -139,6 +139,25 @@ container_mb_refresh:
   status: armed
   added: 2026-07-03
 
+all_sectors_consensus_pair_recapture:
+  sector: all
+  due: 2026-07-10
+  observable: >
+    Watchlist consensus vintages (as_of) are 23-72d old (BRUT worst) vs the
+    14d freshness threshold — the pure sentinel + the Action issue carry the
+    9-name list daily. The consensus pair (price + consensus_pnav + fwd_pe)
+    is only valid AS A PAIR from one vintage (the TEN $44 lesson: a price
+    never moves without rebasing consensus from the same daily).
+  action: >
+    Quarterly recapture as a packet procedure (WORKFLOWS §Consensus-pair
+    recapture): ONE Pareto daily supplies price + P/NAV + fwd P/E for every
+    covered name in the same sitting; APPROX names (NAT/ASC/CCEC) flagged not
+    faked; watchlist as_of rebased together; gate annotated. On completion
+    re-arm to the next quarter boundary and RESOLVE the threshold question
+    (14d nag vs quarterly cadence) with a dated decision.
+  status: armed
+  added: 2026-07-03
+
 all_sectors_quarterly_staleness_floor:
   sector: all
   due: 2026-10-02

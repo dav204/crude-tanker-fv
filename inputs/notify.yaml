@@ -29,6 +29,7 @@ routes:
                            # queue's daily reminder (the LANDED page already fired)
     - FETCH-FAILED        # override below: pages at 2 consecutive; promoted to
                           # PAGE immediately inside an open earnings window
+    - FLEET-TRANSACTION   # unreviewed S&P candidates (ack: sp_scan --mark-reviewed)
     - DISK-PRESSURE
   record_only:     # state log only, never mailed (delivery failure can't
                    # page through the channel that failed — the healthchecks

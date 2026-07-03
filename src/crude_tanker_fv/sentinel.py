@@ -365,6 +365,18 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
                              f"{len(fresh)} period-market signal(s) in the dailies "
                              f"since the {hold} hold (newest {newest_hit}) — review "
                              "outputs/sp_print_candidates.md §Tanker period-market signals")
+
+    # 10. FLEET-TRANSACTION (WO2 3.2) — S&P candidates scanned since the last
+    #     --mark-reviewed ack; the review queue must not silently accumulate.
+    if scan_state.exists():
+        sdoc = json.loads(scan_state.read_text())
+        total = sdoc.get("candidates_cumulative")
+        if total is not None:
+            unreviewed = total - sdoc.get("candidates_reviewed", 0)
+            if unreviewed > 0:
+                flags.append(f"FLEET-TRANSACTION {unreviewed} unreviewed S&P print "
+                             "candidate(s) — review outputs/sp_print_candidates.md, "
+                             "promote/dismiss, then sp_scan --mark-reviewed")
     return flags
 
 
