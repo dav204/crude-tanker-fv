@@ -76,3 +76,4 @@ backtest/vintages/*/
 backtest/vintages/_*.json
 
 backtest/vintages/_*.csv
+PAUSE

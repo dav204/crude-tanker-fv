@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.crude-tanker-fv.sentinel</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/dan_personal/Projects/crude-tanker-fv/scripts/sentinel_cron.sh</string>
+    </array>
+
+    <!-- Daily 18:30 local — after the NYSE close, so the file always holds
+         the same-day close on trading days (weekend runs re-fetch Friday's,
+         harmless). Keeps every watchlist price current to <=1 business day. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>8</integer>
+        <key>Minute</key>
+        <integer>15</integer>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/price_refresh.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/price_refresh.err</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>
