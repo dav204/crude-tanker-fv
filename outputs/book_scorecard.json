@@ -1,7 +1,7 @@
 {
   "schema_version": "2.2",
-  "generated_at": "2026-07-03T01:55:25+00:00",
-  "source_commit": "e74156d",
+  "generated_at": "2026-07-03T02:11:13+00:00",
+  "source_commit": "4f15a69",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 22,
@@ -12,6 +12,16 @@
   "rate_basis": [
     "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean) HELD at the 2026-06-07 vintage \u2014 no market forward print exists (owner decision 2026-07-02, option (i)); refresh on trigger tanker_forward_print_lands. The C-2 rates-layer tanker effect is understated pending the print."
   ],
+  "weight_family_basis": {
+    "status": "current",
+    "family_shas": {
+      "crude": "f57ba697a0ff",
+      "product": "f57ba697a0ff",
+      "lng": "f57ba697a0ff"
+    },
+    "current_sha": "f57ba697a0ff",
+    "lagging": []
+  },
   "sleeves_note": "sleeves[*].fv_contribution_per_share are per-share scenario-weighted FVs; sum(sleeves) == fv to the cent (C-3 per-sleeve identity). Corporate-level balance-sheet items (debt, working capital, preferred, shuttle contracted book) are pro-rated INTO the sleeve carve-outs (carveout.py), so nothing sits outside the per-sleeve lines.",
   "names": [
     {

@@ -1,3 +1,7 @@
+computed_against:
+  crude: f57ba697a0ff
+  product: f57ba697a0ff
+  lng: f57ba697a0ff
 weight_sets:
   crude:
     Crude Set A (Jun-9 war tilt, history bracket):
