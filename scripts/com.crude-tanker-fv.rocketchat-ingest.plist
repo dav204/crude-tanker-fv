@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.crude-tanker-fv.rocketchat-ingest</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/dan_personal/Projects/crude-tanker-fv/scripts/ingest_rocketchat_cron.sh</string>
+    </array>
+
+    <!-- Daily 07:00 local — Pareto PDFs + FFA screenshots + Baltic text land
+         overnight; ingesting before the 08:15 sentinel means the morning
+         digest reads today's arrivals. Ran uncommitted Jun-8..Jul-3 (defect
+         D-4) — committed at WO2 1.1; the inventory guard now pins it. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>7</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/rocketchat_ingest.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/rocketchat_ingest.err</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

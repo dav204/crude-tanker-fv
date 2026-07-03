@@ -69,8 +69,12 @@ def load_state() -> dict:
 
 
 def save_state(state: dict) -> None:
+    # Atomic (WO2 1.1, invariant 10): a half-written cursor after a crash is a
+    # silent-reset seed. Same temp+rename pattern as _write_csv below.
     STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
-    STATE_FILE.write_text(json.dumps(state, indent=2, sort_keys=True))
+    tmp = STATE_FILE.with_suffix(".json.part")
+    tmp.write_text(json.dumps(state, indent=2, sort_keys=True))
+    tmp.replace(STATE_FILE)
 
 
 def _senders_of(source: dict) -> list[str]:
@@ -245,6 +249,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--profile", type=int, metavar="DAYS")
     ap.add_argument("--inspect-sender", metavar="USERNAME")
     ap.add_argument("--days", type=int, default=14, help="With --inspect-sender (default 14).")
+    ap.add_argument("--max-messages", type=int, default=5000, metavar="N",
+                    help="Sanity cap on one walk (WO2 1.1): an incremental run "
+                         "hitting this means a blown cursor or a runaway walk — "
+                         "stop WITHOUT advancing cursors and exit 3. 0 = uncapped "
+                         "(deliberate backfills).")
     args = ap.parse_args(argv)
 
     config = load_config()
@@ -273,6 +282,17 @@ def main(argv: list[str] | None = None) -> int:
     # Decide the walk cursor: oldest of all involved sources' cursors,
     # or None if any source is fresh / --backfill / --since set.
     cursors = [state.get(s["name"], {}).get("last_seen_ts") for s in sources]
+    if not args.backfill and not args.since and state and None in cursors:
+        # WO2 1.1 cursor-reset guard: a plain incremental run with a known
+        # state file but a missing per-source cursor would silently re-crawl
+        # ALL history (oldest=None). A reset is an event, not a default —
+        # flag it and make the full walk a deliberate --backfill.
+        missing = [s["name"] for s in sources
+                   if not state.get(s["name"], {}).get("last_seen_ts")]
+        print(f"CURSOR-RESET: no cursor for {', '.join(missing)} in {STATE_FILE} — "
+              "refusing the implicit full-history walk. Re-run with --backfill "
+              "(deliberate) or --since <ISO> (bounded).", file=sys.stderr)
+        return 3
     if args.backfill or None in cursors:
         oldest = None
     elif args.since:
@@ -305,7 +325,14 @@ def main(argv: list[str] | None = None) -> int:
                 _write_csv(ts_state["path"], ts_state["rows"])
 
     total_seen = 0
+    capped = False
     for msg in iter_history(host, room_id, headers, oldest):
+        if args.max_messages and total_seen >= args.max_messages:
+            # The walk runs newest→oldest: a capped walk has NOT seen the
+            # older tail, so cursors must not advance (they'd skip it forever).
+            # Flush what landed, refuse the cursor, exit loud.
+            capped = True
+            break
         total_seen += 1
         ts = msg["ts"]
         username = (msg.get("u") or {}).get("username")
@@ -326,6 +353,13 @@ def main(argv: list[str] | None = None) -> int:
 
     # Final flush after the walk completes naturally.
     _flush_text_sources()
+
+    if capped:
+        print(f"MAX-MESSAGES: walk capped at {args.max_messages} without finishing — "
+              "cursors NOT advanced (downloads/CSV rows kept; idempotent re-run "
+              "is safe). Blown cursor, or raise --max-messages for a deliberate "
+              "backfill.", file=sys.stderr)
+        return 3
 
     # Persist cursors
     if not args.dry_run:

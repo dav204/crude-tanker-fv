@@ -8,8 +8,13 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPTS = [ROOT / "scripts" / "price_refresh_cron.sh",
-           ROOT / "scripts" / "sentinel_cron.sh"]
+# All four cron wrappers carry the PAUSE guard (WO2 1.1 added the two
+# staging-only fetchers); job name = heartbeat filename.
+JOBS = {"price_refresh_cron.sh": "price-refresh",
+        "sentinel_cron.sh": "sentinel",
+        "ingest_rocketchat_cron.sh": "rocketchat-ingest",
+        "news_pull_cron.sh": "news-pull"}
+SCRIPTS = [ROOT / "scripts" / name for name in sorted(JOBS)]
 
 
 def _tmp_repo(tmp_path: Path) -> Path:
@@ -41,7 +46,7 @@ def test_skips_on_pause_file(tmp_path, script):
     assert "SKIPPED: paused" in r.stdout
     # WO2 0.2 (invariant 1): a SKIP still heartbeats — a standing-down job is
     # alive; only silence is death. Ledger line carries the manual initiator.
-    job = "price-refresh" if "price" in script.name else "sentinel"
+    job = JOBS[script.name]
     hb = (repo / "state" / "heartbeat" / job).read_text()
     assert f"job={job}" in hb and "outcome=skipped-paused" in hb
     ledger = (repo / "state" / "automation_runs.log").read_text()

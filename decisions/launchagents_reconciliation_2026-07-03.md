@@ -44,8 +44,8 @@ jobs:
     schedule: "Sat 08:00"
     wrapper: news_pull_cron.sh
   com.crude-tanker-fv.rocketchat-ingest:
-    plist_committed: false   # D-4 — commit scheduled Phase 1.1 (flip this then)
-    installed: true
+    plist_committed: true    # D-4 closed 2026-07-03 (WO2 1.1); comment added
+    installed: true          # installed copy predates the comment — re-copy at next change
     schedule: "daily 07:00"
     wrapper: ingest_rocketchat_cron.sh
   com.crude-tanker-fv.sentinel:

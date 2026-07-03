@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 # Weekly news-pull runner — chains the existing scanners over whatever the
 # week's Rocket.Chat ingest delivered. Invoked by launchd via
 # ~/Library/LaunchAgents/com.crude-tanker-fv.news-pull.plist (Saturday 08:00,
@@ -6,6 +6,11 @@
 #
 # Chain: RC incremental ingest -> sp_scan (prints) -> sp_scan --links
 #        -> fetch_links -> pareto_archive --build-manifest
+#
+# /bin/sh + PAUSE-guarded + root-override (WO2 1.1). Staging-only writer
+# (invariant 3): PAUSE applies, the dirty-tree guard does NOT — the weekly
+# harvest must not silently vanish because a reconciliation left the tree
+# dirty overnight.
 #
 # Writes ONLY automation-writable trees (raw archives under inputs/, scan
 # cursors, outputs/ review queues) — never a pipeline-loaded YAML. Promotion
@@ -15,13 +20,13 @@
 
 set -eu
 
-PROJECT="${HOME}/Projects/crude-tanker-fv"
+PROJECT="${CRUDE_TANKER_FV_ROOT:-${HOME}/Projects/crude-tanker-fv}"
 SECRETS="${HOME}/.config/crude-tanker-fv.env"
 PY="${PROJECT}/.venv/bin/python"
 
-if [[ -f "$SECRETS" ]]; then
+if [ -f "$SECRETS" ]; then
   # shellcheck disable=SC1090
-  source "$SECRETS"
+  . "$SECRETS"
 fi
 
 cd "$PROJECT"
@@ -30,6 +35,12 @@ export PYTHONUNBUFFERED=1
 
 JOB=news-pull
 . "$(dirname "$0")/cron_lib.sh"
+
+if [ -f "$PROJECT/PAUSE" ]; then
+  CRON_OUTCOME=skipped-paused
+  echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') SKIPPED: paused"
+  exit 0
+fi
 
 step() {
   echo "=== [news-pull] $(date '+%Y-%m-%d %H:%M:%S') $1"
