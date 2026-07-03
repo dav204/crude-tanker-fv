@@ -1,5 +1,7 @@
 {
-  "schema_version": 3,
+  "schema_version": "2.1",
+  "generated_at": "2026-07-03T01:04:50+00:00",
+  "source_commit": "afaa43c-dirty",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 22,
@@ -10,6 +12,7 @@
   "rate_basis": [
     "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean) HELD at the 2026-06-07 vintage \u2014 no market forward print exists (owner decision 2026-07-02, option (i)); refresh on trigger tanker_forward_print_lands. The C-2 rates-layer tanker effect is understated pending the print."
   ],
+  "sleeves_note": "sleeves[*].fv_contribution_per_share are per-share scenario-weighted FVs; sum(sleeves) == fv to the cent (C-3 per-sleeve identity). Corporate-level balance-sheet items (debt, working capital, preferred, shuttle contracted book) are pro-rated INTO the sleeve carve-outs (carveout.py), so nothing sits outside the per-sleeve lines.",
   "names": [
     {
       "ticker": "DHT",
@@ -29,6 +32,7 @@
       "broker_nav": 15.76,
       "gap_pct": -12.0,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": true
     },
     {
@@ -49,6 +53,7 @@
       "broker_nav": 43.89,
       "gap_pct": -21.7,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": true
     },
     {
@@ -69,6 +74,7 @@
       "broker_nav": 30.62,
       "gap_pct": -20.9,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": true
     },
     {
@@ -89,6 +95,7 @@
       "broker_nav": 88.95,
       "gap_pct": -12.9,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": false
     },
     {
@@ -109,6 +116,7 @@
       "broker_nav": 7.27,
       "gap_pct": 39.1,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": null
     },
     {
@@ -129,6 +137,7 @@
       "broker_nav": 30.26,
       "gap_pct": -3.0,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": null
     },
     {
@@ -149,6 +158,7 @@
       "broker_nav": 19.82,
       "gap_pct": -21.8,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": true
     },
     {
@@ -169,6 +179,23 @@
       "broker_nav": 19.68,
       "gap_pct": -19.3,
       "governance_discount_pct": 0.0,
+      "sleeves": [
+        {
+          "sleeve": "crude",
+          "sector": "crude",
+          "fv_contribution_per_share": 2.58
+        },
+        {
+          "sleeve": "dry_bulk",
+          "sector": "dry_bulk",
+          "fv_contribution_per_share": 10.22
+        },
+        {
+          "sleeve": "containerships",
+          "sector": "containerships",
+          "fv_contribution_per_share": 0.54
+        }
+      ],
       "weight_sign_stable": true
     },
     {
@@ -189,6 +216,18 @@
       "broker_nav": 84.08,
       "gap_pct": -37.5,
       "governance_discount_pct": 0.0,
+      "sleeves": [
+        {
+          "sleeve": "crude",
+          "sector": "crude",
+          "fv_contribution_per_share": 29.5
+        },
+        {
+          "sleeve": "product",
+          "sector": "product",
+          "fv_contribution_per_share": 18.5
+        }
+      ],
       "weight_sign_stable": true
     },
     {
@@ -209,6 +248,7 @@
       "broker_nav": 6.84,
       "gap_pct": -59.1,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": true
     },
     {
@@ -229,6 +269,23 @@
       "broker_nav": 109.91,
       "gap_pct": -19.3,
       "governance_discount_pct": 30.0,
+      "sleeves": [
+        {
+          "sleeve": "crude",
+          "sector": "crude",
+          "fv_contribution_per_share": 32.63
+        },
+        {
+          "sleeve": "product",
+          "sector": "product",
+          "fv_contribution_per_share": 11.05
+        },
+        {
+          "sleeve": "lng",
+          "sector": "lng",
+          "fv_contribution_per_share": 7.24
+        }
+      ],
       "weight_sign_stable": true
     },
     {
@@ -249,6 +306,7 @@
       "broker_nav": 19.81,
       "gap_pct": -10.2,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": true
     },
     {
@@ -269,6 +327,7 @@
       "broker_nav": 33.37,
       "gap_pct": -9.1,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": false
     },
     {
@@ -289,6 +348,7 @@
       "broker_nav": 29.32,
       "gap_pct": 6.8,
       "governance_discount_pct": 30.0,
+      "sleeves": null,
       "weight_sign_stable": null
     },
     {
@@ -309,6 +369,7 @@
       "broker_nav": 28.16,
       "gap_pct": -12.3,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": null
     },
     {
@@ -329,6 +390,7 @@
       "broker_nav": 24.0,
       "gap_pct": 17.1,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": true
     },
     {
@@ -349,6 +411,7 @@
       "broker_nav": 21.38,
       "gap_pct": 33.1,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": false
     },
     {
@@ -369,6 +432,7 @@
       "broker_nav": 50.81,
       "gap_pct": -24.1,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": null
     },
     {
@@ -389,6 +453,7 @@
       "broker_nav": 2.35,
       "gap_pct": -13.8,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": null
     },
     {
@@ -409,6 +474,7 @@
       "broker_nav": 7.05,
       "gap_pct": 24.7,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": false
     },
     {
@@ -429,6 +495,7 @@
       "broker_nav": 7.39,
       "gap_pct": -24.6,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": true
     },
     {
@@ -449,6 +516,7 @@
       "broker_nav": 104.3,
       "gap_pct": -25.7,
       "governance_discount_pct": 0.0,
+      "sleeves": null,
       "weight_sign_stable": false
     }
   ]

@@ -233,6 +233,7 @@ class _Valuation:
     sanity: str                # OK / FAIL / n-a (APPROX) — the reconcile ±50% bug-gate
     approx: bool
     blend_fv: Optional[float] = None   # single-point blend (secondary, labeled column)
+    sleeve_fvs: Optional[dict] = None  # hybrid per-sleeve PW-FV contributions (WO1 V-1)
 
 
 def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Valuation"]:
@@ -265,6 +266,7 @@ def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Va
             position=s.position_recommendation,
             nav_ps=nav_ps, broker_nav=broker_nav, gap_pct=gap, sanity=sanity, approx=approx,
             blend_fv=blend_fv,
+            sleeve_fvs=(dict(getattr(s, "sleeve_fvs", {}) or {}) or None),
         )
     return out
 
@@ -339,6 +341,25 @@ def _fragility_cell(ticker: str, fragility: dict[str, bool]) -> str:
     if ticker not in fragility:
         return "—"
     return "stable" if fragility[ticker] else "**⚠ sign flips**"
+
+
+def handoff_coherence_flags(doc: dict) -> list[str]:
+    """Sign/label contradictions in a handoff document — the F-13 semantic
+    check, shared by the committed-surface test AND the sentinel (one
+    implementation; two callers asserting the same thing is how F-13 happened).
+    ±0.15pp edge tolerance absorbs the JSON's 1-dp rounding."""
+    flags = []
+    for n in doc.get("names", []):
+        ev, pos = n.get("ev_pct"), n.get("position") or ""
+        if n.get("void") or ev is None:
+            continue
+        if pos.startswith("BUY") and not ev > 5 - 0.15:
+            flags.append(f"{n['ticker']}: BUY at {ev:+.1f}%")
+        elif pos.startswith("TRIM/SHORT") and not ev < -5 + 0.15:
+            flags.append(f"{n['ticker']}: TRIM/SHORT at {ev:+.1f}%")
+        elif pos.startswith("HOLD") and not (-5 - 0.15 < ev < 5 + 0.15):
+            flags.append(f"{n['ticker']}: HOLD at {ev:+.1f}%")
+    return flags
 
 
 def rate_basis_notes(inputs_dir: Path = INPUTS_DIR) -> list[str]:
@@ -589,6 +610,37 @@ def _num(x: Optional[float], nd: int = 2) -> Optional[float]:
     return None if x is None or x != x else round(x, nd)
 
 
+def _vintage_stamp() -> dict:
+    """generated_at + source_commit for the handoff (WO1 V-1) — the vintage
+    stamp the governance repo's G-1 captures next to every figure it copies.
+    source_commit gets a '-dirty' suffix when the tree carries uncommitted
+    tracked changes (a mid-surgery export must say so). Semantics: the stamp is
+    the tree the run STARTED from — one behind the commit that ships this file
+    (outputs are committed with their generation), so '-dirty' in a committed
+    artifact is normal and means "generated together with the changes in this
+    very commit". A consumer wanting the exact reproducible vintage uses the
+    commit that CONTAINS the JSON; source_commit is for cross-repo drift
+    detection, not checkout. This deliberately trades the JSON's byte-stable
+    regeneration for consumer traceability; the markdown stays wall-clock-free."""
+    import subprocess
+    from datetime import datetime, timezone
+
+    try:
+        head = subprocess.run(["git", "rev-parse", "--short", "HEAD"],
+                              capture_output=True, text=True, timeout=5,
+                              cwd=Path(__file__).resolve().parents[2]).stdout.strip()
+        dirty = subprocess.run(["git", "diff", "--quiet", "HEAD"],
+                               capture_output=True, timeout=5,
+                               cwd=Path(__file__).resolve().parents[2]).returncode != 0
+        commit = (head + "-dirty" if dirty else head) if head else None
+    except Exception:
+        commit = None
+    return {
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "source_commit": commit,
+    }
+
+
 def _write_handoff_json(
     rows: list[ScorecardRow],
     valuation: dict[str, "_Valuation"],
@@ -644,21 +696,41 @@ def _write_handoff_json(
             # as 0.3% to a literal-minded consumer). Internal convention stays
             # fractional; the conversion lives at the seam.
             "governance_discount_pct": _num(r.governance_discount_pct * 100.0, 1),
+            # WO1 V-1: hybrid per-sleeve PW-FV contributions (per-share; sum ==
+            # fv by the C-3 identity) — lets the governance repo watch e.g.
+            # CMBT's dry-bulk sleeve instead of the whole-co proxy. null for
+            # pure-plays; suppressed for void rows like every derived number.
+            "sleeves": (None if (v is None or void or not v.sleeve_fvs) else
+                        [{"sleeve": sec, "sector": sec,
+                          "fv_contribution_per_share": _num(fv_c)}
+                         for sec, fv_c in v.sleeve_fvs.items()]),
             # null = not in the §9.10 diagnostic; false = EV sign flips across
             # the weight family (direction is a weight-prior artifact — W-1).
             "weight_sign_stable": (fragility or {}).get(r.ticker),
         })
     doc = {
-        # v2 (2026-07-02, F-13): fv/ev_pct re-based from the single-point blend
-        # to the SCENARIO-weighted FV (coherent with position); blend_fv added.
-        # v3 (2026-07-02, S-1/S-2): governance_discount_pct now in percentage
-        # POINTS (was a fraction — a units bug in a _pct-suffixed field);
-        # weight_sign_stable extended to the product + LNG families.
-        # Breaking field-meaning changes — the ingesting side must assert this.
-        "schema_version": 3,
+        # "2.1" (2026-07-02, WO1 Task 1 — string; the consumer asserts
+        # major == 2, so 2 -> 2.1 is non-breaking by design). Collapses the
+        # same-day dev iterations: F-13 fv re-basing to the scenario-weighted
+        # basis + blend_fv (was int 2); governance_discount_pct to percentage
+        # POINTS + weight_sign_stable for product/LNG (was int 3);
+        # generated_at/source_commit vintage stamp + hybrid sleeves (was int 4).
+        "schema_version": "2.1",
+        **_vintage_stamp(),
         "quarter": quarter,
         "price_basis": price_basis,
         "rate_basis": rate_basis or [],
+        # Hybrid sleeves: contributions are per-share scenario PW FVs and SUM
+        # TO fv EXACTLY (C-3 identity) — corporate-level items (debt, working
+        # capital, preferred, shuttle book) are PRO-RATED INTO the sleeves by
+        # carveout.py, not held outside them.
+        "sleeves_note": (
+            "sleeves[*].fv_contribution_per_share are per-share scenario-weighted FVs; "
+            "sum(sleeves) == fv to the cent (C-3 per-sleeve identity). Corporate-level "
+            "balance-sheet items (debt, working capital, preferred, shuttle contracted "
+            "book) are pro-rated INTO the sleeve carve-outs (carveout.py), so nothing "
+            "sits outside the per-sleeve lines."
+        ),
         "names": names,
     }
     path = outputs_dir / "book_scorecard.json"

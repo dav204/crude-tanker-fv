@@ -119,6 +119,30 @@ def test_valuation_index_uses_whole_company_spine_for_hybrids():
     assert v.position == "TRIM/SHORT (overvalued)"
 
 
+def test_handoff_sleeve_blocks_for_hybrids(tmp_path, rows):
+    """WO1 V-1: hybrid rows export per-sleeve PW-FV contributions summing to
+    the headline fv (the C-3 per-sleeve identity, now visible at the seam) —
+    the governance repo watches CMBT's dry-bulk sleeve, not the whole-co proxy.
+    Pure-play rows export null."""
+    import json
+
+    val = _synthetic_valuation(rows)
+    val["CMBT"] = val["CMBT"].__class__(**{**val["CMBT"].__dict__, "fv": 13.34,
+                                           "sleeve_fvs": {"crude": 3.64, "dry_bulk": 8.02,
+                                                          "containerships": 1.68}})
+    write_scorecard(rows, outputs_dir=tmp_path, valuation=val)
+    doc = json.loads((tmp_path / "book_scorecard.json").read_text())
+    by = {n["ticker"]: n for n in doc["names"]}
+    sleeves = by["CMBT"]["sleeves"]
+    assert [s["sector"] for s in sleeves] == ["crude", "dry_bulk", "containerships"]
+    assert all(s["sleeve"] == s["sector"] for s in sleeves)
+    # The documented reconciliation identity, to the cent (sleeves_note).
+    assert sum(s["fv_contribution_per_share"] for s in sleeves) == pytest.approx(
+        by["CMBT"]["fv"], abs=0.01)
+    assert "sum(sleeves) == fv" in doc["sleeves_note"]
+    assert by["DHT"]["sleeves"] is None                      # pure-play
+
+
 def test_f13_fv_and_position_share_one_basis():
     """F-13 hard-identity guard (2026-07-02): the verdict/JSON fv must equal the
     scenario report's probability-weighted FV to the cent, and the upside must
@@ -239,8 +263,17 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
     write_scorecard(rows, outputs_dir=tmp_path, valuation=_synthetic_valuation(rows),
                     price_basis=pb, quarter=QUARTER)
     doc = json.loads((tmp_path / "book_scorecard.json").read_text())
-    assert doc["schema_version"] == 3   # v2 = F-13 fv re-basing; v3 = S-1 units + S-2 coverage
+    # String "2.1" — the consumer asserts major == 2 (WO1 Task 1); minor bumps
+    # are additive, major bumps break.
+    assert doc["schema_version"] == "2.1"
+    assert doc["schema_version"].split(".")[0] == "2"
     assert doc["quarter"] == QUARTER
+    # Vintage stamp: ISO-8601 UTC + the HEAD hash ('-dirty' allowed).
+    import subprocess
+    assert doc["generated_at"].endswith("+00:00") and "T" in doc["generated_at"]
+    head = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True,
+                          text=True).stdout.strip()
+    assert doc["source_commit"] in (head, head + "-dirty")
     assert doc["price_basis"]["total"] == len(rows)
     assert len(doc["names"]) == len(rows)
     by_row = {r.ticker: r for r in rows}
@@ -254,10 +287,10 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
         # relabeled positions carry through to the JSON exactly as displayed
         if r.ticker in prov.POSITION_CYCLE_RELABEL:
             assert n["position"] == "rich · cycle position (not a short)"
-        # S-1 (schema v3): governance haircut in percentage POINTS like every
-        # other _pct field — TEN's 30% must export as 30.0, never 0.3.
+        # Units (WO1 Task 1.2): governance haircut in percentage POINTS like
+        # every other _pct field — TEN and CMDB export 30.0-scale, never 0.3.
         assert n["governance_discount_pct"] == pytest.approx(r.governance_discount_pct * 100.0)
-        if n["ticker"] == "TEN":
+        if n["ticker"] in ("TEN", "CMDB") and r.governance_discount_pct > 0:
             assert n["governance_discount_pct"] >= 1.0   # a real haircut reads in points
 
 

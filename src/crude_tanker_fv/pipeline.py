@@ -246,6 +246,9 @@ def _aggregate_multi_sleeve_report(
         position_recommendation=position_recommendation(ev / whole_price * 100.0),
         basis=(basis or _multi_sleeve_basis(sectors, shares)),
         sector=reports[0].sector,
+        # WO1 V-1: per-sleeve PW-FV contributions (per-share; sum == pw_fv by
+        # the C-3 per-sleeve identity) — the governance repo's sleeve watch.
+        sleeve_fvs={sec: r.probability_weighted_fv for sec, r in zip(sectors, reports)},
     )
 
 

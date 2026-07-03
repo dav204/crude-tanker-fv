@@ -205,6 +205,12 @@ class ScenarioReport:
     # Sector layer (METHODOLOGY §11) — `crude` or `lng` for v1. Drives the
     # framework label in the markdown title and the per-sector roll-up sheet.
     sector: str = "crude"
+    # Per-sleeve PW-FV contributions for hybrids (WO1 V-1, 2026-07-02):
+    # {sleeve_sector: pw_fv_per_share}, summing to probability_weighted_fv
+    # under the C-3 per-sleeve identity. Empty for pure-plays. Lets the
+    # governance repo watch a SLEEVE (e.g. CMBT's dry-bulk) instead of the
+    # whole-co proxy.
+    sleeve_fvs: dict = field(default_factory=dict)
 
 
 def load_scenarios(path: Path = SCENARIOS_PATH, sector: str = "crude") -> dict:
