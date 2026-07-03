@@ -50,7 +50,7 @@ CRUDE_WEIGHT_SETS = {
     # Set A refreshed 2026-07-02 to the ACTUAL locked weights — it had silently
     # kept the pre-Jun-9 v1 set after the Jun-9 escalation reweight, so the
     # "current locked" column was not the production prior for three weeks.
-    "Crude Set A (current locked, Jun-9)": {
+    "Crude Set A (Jun-9 war tilt, history bracket)": {
         "escalation": 0.25, "pre_mou_baseline": 0.45,
         "mou_base":   0.18, "mou_bear":         0.12,
     },
@@ -69,7 +69,7 @@ CRUDE_WEIGHT_SETS = {
     # Proposed 2026-07-02 (audit F-2 / §13.3 trigger — US–Iran stand-down):
     # v1 prior restored, adjusted for one observed ceasefire failure (esc 0.10
     # not 0.05) and no signed MoU yet (pre_mou 0.20 not 0.15).
-    "Crude Set E (Jul-2 post-stand-down proposal)": {
+    "Crude Set E (current locked, Jul-2 vintage)": {
         "escalation": 0.10, "pre_mou_baseline": 0.20,
         "mou_base":   0.45, "mou_bear":         0.25,
     },
@@ -322,29 +322,24 @@ def write_xlsx(analyses: list[dict], path: Path) -> None:
     wb.save(path)
 
 
-def render_sidecar_yaml(analyses: list[dict]) -> str:
-    """Machine-readable sidecar for the scorecard's weight-fragility flag
-    (review 2026-07-02, W-1). Per name: does the EV SIGN survive the whole
-    weight family? Sign-stability, not position-label stability — the reviewer's
-    definition — because a HOLD/BUY label flip inside a positive-EV range is
-    sizing noise, while a sign flip means the direction of the call is a weight
-    artifact. No timestamps (byte-stable regeneration); the vintage is the
-    weight-set list itself."""
-    import yaml as _yaml
-
-    doc = {
-        "weight_sets": {s: CRUDE_WEIGHT_SETS[s] for s in CRUDE_WEIGHT_SETS},
-        "names": {},
-    }
+def sidecar_entries(analyses: list[dict]) -> dict:
+    """Per name: does the EV SIGN survive the whole weight family (review
+    2026-07-02, W-1)? Sign-stability, not position-label stability — a HOLD/BUY
+    label flip inside a positive-EV range is magnitude sensitivity, while a sign
+    flip means the direction of the call is a weight artifact. No timestamps
+    (byte-stable regeneration); the vintage is the weight-set list itself.
+    Written via scorecard.update_weight_fragility_sidecar (MERGE — S-2: the old
+    whole-file write clobbered other families' entries)."""
+    out = {}
     for a in analyses:
         evs = [a["results"][s]["ev_pct"] for s in CRUDE_WEIGHT_SETS]
-        doc["names"][a["ticker"]] = {
+        out[a["ticker"]] = {
             "ev_min_pct": min(evs),
             "ev_max_pct": max(evs),
             "ev_sign_stable": (min(evs) > 0) == (max(evs) > 0) and 0 not in (min(evs), max(evs)),
             "positions": [a["results"][s]["position"] for s in CRUDE_WEIGHT_SETS],
         }
-    return _yaml.safe_dump(doc, sort_keys=False)
+    return out
 
 
 # ----------------------------------------------------------------------------
@@ -368,11 +363,12 @@ def main():
     project_root = Path(__file__).resolve().parents[1]
     out_md = project_root / "outputs" / "weight_robustness_diagnostic.md"
     out_xlsx = project_root / "outputs" / "weight_robustness_diagnostic.xlsx"
-    out_yaml = project_root / "outputs" / "weight_robustness.yaml"
 
     out_md.write_text(render_markdown(analyses))
     write_xlsx(analyses, out_xlsx)
-    out_yaml.write_text(render_sidecar_yaml(analyses))
+    from crude_tanker_fv.scorecard import update_weight_fragility_sidecar
+    out_yaml = update_weight_fragility_sidecar(
+        "crude", dict(CRUDE_WEIGHT_SETS), sidecar_entries(analyses))
 
     print(f"→ {out_md}")
     print(f"→ {out_xlsx}")

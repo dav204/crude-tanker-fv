@@ -239,7 +239,7 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
     write_scorecard(rows, outputs_dir=tmp_path, valuation=_synthetic_valuation(rows),
                     price_basis=pb, quarter=QUARTER)
     doc = json.loads((tmp_path / "book_scorecard.json").read_text())
-    assert doc["schema_version"] == 2   # v2 = F-13 re-basing (fv/ev_pct scenario-weighted)
+    assert doc["schema_version"] == 3   # v2 = F-13 fv re-basing; v3 = S-1 units + S-2 coverage
     assert doc["quarter"] == QUARTER
     assert doc["price_basis"]["total"] == len(rows)
     assert len(doc["names"]) == len(rows)
@@ -254,6 +254,11 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
         # relabeled positions carry through to the JSON exactly as displayed
         if r.ticker in prov.POSITION_CYCLE_RELABEL:
             assert n["position"] == "rich · cycle position (not a short)"
+        # S-1 (schema v3): governance haircut in percentage POINTS like every
+        # other _pct field — TEN's 30% must export as 30.0, never 0.3.
+        assert n["governance_discount_pct"] == pytest.approx(r.governance_discount_pct * 100.0)
+        if n["ticker"] == "TEN":
+            assert n["governance_discount_pct"] >= 1.0   # a real haircut reads in points
 
 
 def test_handoff_json_voids_derived_numbers_and_rejects_nan(tmp_path, rows, monkeypatch):

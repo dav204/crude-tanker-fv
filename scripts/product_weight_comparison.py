@@ -67,6 +67,57 @@ assert abs(sum(PRODUCT_SET_B.values()) - 1.0) < 1e-9
 # sleeve runs through sectors.product so it picks up the new weights too.
 AFFECTED_TICKERS = ["ASC", "STNG", "INSW"]
 
+# Post-vintage sign-stability family (S-2, 2026-07-02) — the C-4-reviewed
+# brackets: the restored v2 lock, the Jun-9 war tilt (history bracket), and the
+# bear bracket from the proposal §15. Evaluated for the PURE product names
+# (hybrids' flags come from the crude family sidecar).
+PRODUCT_FRAGILITY_SETS = {
+    "Product v2 (locked, Jul-2 restore)": {
+        "refinery_squeeze": 0.15, "moderate_correction": 0.25,
+        "glut_base": 0.45, "demand_softening": 0.15, "structural_decline": 0.00,
+    },
+    "Jun-9 war tilt (history bracket)": {
+        "refinery_squeeze": 0.25, "moderate_correction": 0.30,
+        "glut_base": 0.30, "demand_softening": 0.15, "structural_decline": 0.00,
+    },
+    "bear bracket": {
+        "refinery_squeeze": 0.10, "moderate_correction": 0.20,
+        "glut_base": 0.50, "demand_softening": 0.20, "structural_decline": 0.00,
+    },
+}
+PRODUCT_FRAGILITY_TICKERS = ["ASC", "STNG", "HAFN", "TRMD"]
+
+
+def write_fragility_sidecar(watchlist, base_sector_docs):
+    """EV-sign-stability across PRODUCT_FRAGILITY_SETS -> the shared sidecar
+    (scorecard W-frag column + JSON weight_sign_stable). S-2: the seam exported
+    null for product names whose diagnostics had run."""
+    from crude_tanker_fv.loaders import INPUTS_DIR
+    from crude_tanker_fv.pipeline import _maybe_apply_transactions
+    from crude_tanker_fv.scorecard import update_weight_fragility_sidecar
+
+    entries = {}
+    for ticker in PRODUCT_FRAGILITY_TICKERS:
+        if ticker not in watchlist:
+            continue
+        entry = watchlist[ticker]
+        ci = load_company_inputs(ticker, "2026-Q1")
+        ci, _ = _maybe_apply_transactions(ci, INPUTS_DIR, True)
+        evs, positions = [], []
+        for weights in PRODUCT_FRAGILITY_SETS.values():
+            rep = run_under_weights(ticker, ci, entry["current_price"],
+                                    entry["analyst_target"], base_sector_docs, weights)
+            evs.append(round(rep.expected_value_vs_current / entry["current_price"] * 100.0, 1))
+            positions.append(rep.position_recommendation)
+        entries[ticker] = {
+            "ev_min_pct": min(evs), "ev_max_pct": max(evs),
+            "ev_sign_stable": (min(evs) > 0) == (max(evs) > 0) and 0 not in (min(evs), max(evs)),
+            "positions": positions,
+        }
+    path = update_weight_fragility_sidecar(
+        "product", dict(PRODUCT_FRAGILITY_SETS), entries)
+    print(f"fragility sidecar (product) -> {path}")
+
 
 def doc_with_weights(base_doc: dict, weights: dict) -> dict:
     d = copy.deepcopy(base_doc)
@@ -94,8 +145,9 @@ def run_under_weights(ticker, ci, price, target, base_sector_docs, weights):
 
 
 def main():
-    watchlist = load_watchlist()
+    watchlist = load_watchlist(live_prices=True)
     base_sector_docs = _load_all_sectors()
+    write_fragility_sidecar(watchlist, base_sector_docs)
 
     rows = []
     for ticker in AFFECTED_TICKERS:

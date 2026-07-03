@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 22,
@@ -89,7 +89,7 @@
       "broker_nav": 88.95,
       "gap_pct": -12.9,
       "governance_discount_pct": 0.0,
-      "weight_sign_stable": true
+      "weight_sign_stable": false
     },
     {
       "ticker": "SB",
@@ -149,7 +149,7 @@
       "broker_nav": 19.82,
       "gap_pct": -21.8,
       "governance_discount_pct": 0.0,
-      "weight_sign_stable": false
+      "weight_sign_stable": true
     },
     {
       "ticker": "CMBT",
@@ -169,7 +169,7 @@
       "broker_nav": 19.68,
       "gap_pct": -19.3,
       "governance_discount_pct": 0.0,
-      "weight_sign_stable": false
+      "weight_sign_stable": true
     },
     {
       "ticker": "INSW",
@@ -228,7 +228,7 @@
       "nav_per_share": 88.7,
       "broker_nav": 109.91,
       "gap_pct": -19.3,
-      "governance_discount_pct": 0.3,
+      "governance_discount_pct": 30.0,
       "weight_sign_stable": true
     },
     {
@@ -249,7 +249,7 @@
       "broker_nav": 19.81,
       "gap_pct": -10.2,
       "governance_discount_pct": 0.0,
-      "weight_sign_stable": null
+      "weight_sign_stable": true
     },
     {
       "ticker": "TRMD",
@@ -269,7 +269,7 @@
       "broker_nav": 33.37,
       "gap_pct": -9.1,
       "governance_discount_pct": 0.0,
-      "weight_sign_stable": null
+      "weight_sign_stable": false
     },
     {
       "ticker": "CMDB",
@@ -288,7 +288,7 @@
       "nav_per_share": 31.33,
       "broker_nav": 29.32,
       "gap_pct": 6.8,
-      "governance_discount_pct": 0.3,
+      "governance_discount_pct": 30.0,
       "weight_sign_stable": null
     },
     {
@@ -329,7 +329,7 @@
       "broker_nav": 24.0,
       "gap_pct": 17.1,
       "governance_discount_pct": 0.0,
-      "weight_sign_stable": null
+      "weight_sign_stable": true
     },
     {
       "ticker": "FLNG",
@@ -349,7 +349,7 @@
       "broker_nav": 21.38,
       "gap_pct": 33.1,
       "governance_discount_pct": 0.0,
-      "weight_sign_stable": null
+      "weight_sign_stable": false
     },
     {
       "ticker": "GSL",
@@ -429,7 +429,7 @@
       "broker_nav": 7.39,
       "gap_pct": -24.6,
       "governance_discount_pct": 0.0,
-      "weight_sign_stable": null
+      "weight_sign_stable": true
     },
     {
       "ticker": "STNG",
@@ -449,7 +449,7 @@
       "broker_nav": 104.3,
       "gap_pct": -25.7,
       "governance_discount_pct": 0.0,
-      "weight_sign_stable": null
+      "weight_sign_stable": false
     }
   ]
 }

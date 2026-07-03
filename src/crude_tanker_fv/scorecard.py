@@ -292,6 +292,30 @@ def price_basis_summary(inputs_dir: Path = INPUTS_DIR) -> dict:
     }
 
 
+def update_weight_fragility_sidecar(
+    family: str, weight_sets: dict, names: dict, outputs_dir: Path = OUTPUTS_DIR,
+) -> Path:
+    """Merge one sector family's EV-sign-stability entries into the shared
+    sidecar (outputs/weight_robustness.yaml). MERGE, not overwrite — the crude
+    script used to rewrite the whole file, which is why product/LNG names could
+    never carry the flag (S-2, 2026-07-02): the seam exported null for names
+    whose diagnostics had run. weight_sets are namespaced per family."""
+    import yaml
+
+    path = outputs_dir / "weight_robustness.yaml"
+    doc = (yaml.safe_load(path.read_text()) or {}) if path.exists() else {}
+    ws = doc.get("weight_sets") or {}
+    if not (set(ws) <= {"crude", "product", "lng"}):
+        ws = {}   # pre-namespacing shape (crude-only): drop; each family rewrites its block
+    ws[family] = weight_sets
+    merged = doc.get("names") or {}
+    merged.update(names)
+    out = {"weight_sets": ws, "names": dict(sorted(merged.items()))}
+    outputs_dir.mkdir(parents=True, exist_ok=True)
+    path.write_text(yaml.safe_dump(out, sort_keys=False))
+    return path
+
+
 def load_weight_fragility(outputs_dir: Path = OUTPUTS_DIR) -> dict[str, bool]:
     """{ticker: ev_sign_stable} from the §9.10 diagnostic's sidecar
     (outputs/weight_robustness.yaml, written by scripts/crude_weight_robustness.py).
@@ -615,7 +639,11 @@ def _write_handoff_json(
             "nav_per_share": None if (v is None or void) else _num(v.nav_ps),
             "broker_nav": None if (v is None or void) else _num(v.broker_nav),
             "gap_pct": None if (v is None or void) else _num(v.gap_pct, 1),
-            "governance_discount_pct": r.governance_discount_pct,
+            # Percentage POINTS like every other _pct field (S-1, schema v3 —
+            # v2 exported the engine-internal fraction: TEN's 30% haircut read
+            # as 0.3% to a literal-minded consumer). Internal convention stays
+            # fractional; the conversion lives at the seam.
+            "governance_discount_pct": _num(r.governance_discount_pct * 100.0, 1),
             # null = not in the §9.10 diagnostic; false = EV sign flips across
             # the weight family (direction is a weight-prior artifact — W-1).
             "weight_sign_stable": (fragility or {}).get(r.ticker),
@@ -623,8 +651,11 @@ def _write_handoff_json(
     doc = {
         # v2 (2026-07-02, F-13): fv/ev_pct re-based from the single-point blend
         # to the SCENARIO-weighted FV (coherent with position); blend_fv added.
-        # Breaking field-meaning change — the ingesting side must assert this.
-        "schema_version": 2,
+        # v3 (2026-07-02, S-1/S-2): governance_discount_pct now in percentage
+        # POINTS (was a fraction — a units bug in a _pct-suffixed field);
+        # weight_sign_stable extended to the product + LNG families.
+        # Breaking field-meaning changes — the ingesting side must assert this.
+        "schema_version": 3,
         "quarter": quarter,
         "price_basis": price_basis,
         "rate_basis": rate_basis or [],

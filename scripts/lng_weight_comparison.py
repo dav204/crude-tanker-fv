@@ -304,9 +304,57 @@ def render(analyses: list[dict]) -> str:
     return "\n".join(out)
 
 
+LNG_FRAGILITY_SETS = {
+    # Post-vintage sign-stability family (S-2, 2026-07-02) — the C-4-reviewed
+    # brackets: the restored v3 lock, the Jun-9 transit tilt (history bracket),
+    # and the bear bracket from the proposal §15.
+    "LNG Set B-revised v3 (locked, Jul-2 restore)": {
+        "tight_resurgence": 0.15, "moderate_tightening": 0.25,
+        "glut_base": 0.45, "glut_intensifies": 0.15, "structural_reset": 0.00,
+    },
+    "Jun-9 transit tilt (history bracket)": {
+        "tight_resurgence": 0.25, "moderate_tightening": 0.25,
+        "glut_base": 0.38, "glut_intensifies": 0.12, "structural_reset": 0.00,
+    },
+    "bear bracket": {
+        "tight_resurgence": 0.10, "moderate_tightening": 0.20,
+        "glut_base": 0.50, "glut_intensifies": 0.20, "structural_reset": 0.00,
+    },
+}
+
+
+def write_fragility_sidecar(watchlist, base_doc):
+    """EV-sign-stability across LNG_FRAGILITY_SETS -> the shared sidecar
+    (scorecard W-frag + JSON weight_sign_stable). S-2 (2026-07-02): the seam
+    exported null for LNG names whose diagnostics had run. No txn-anchoring
+    step: LNGC/MGC carry no transaction fits (anchoring is a no-op)."""
+    from crude_tanker_fv.scorecard import update_weight_fragility_sidecar
+
+    entries = {}
+    for ticker in ("FLNG", "CCEC"):
+        if ticker not in watchlist:
+            continue
+        entry = watchlist[ticker]
+        ci = load_company_inputs(ticker, "2026-Q1")
+        evs, positions = [], []
+        for weights in LNG_FRAGILITY_SETS.values():
+            rep = run_under_weights(ticker, ci, entry["current_price"],
+                                    entry["analyst_target"], base_doc, weights)
+            evs.append(round(rep.expected_value_vs_current / entry["current_price"] * 100.0, 1))
+            positions.append(rep.position_recommendation)
+        entries[ticker] = {
+            "ev_min_pct": min(evs), "ev_max_pct": max(evs),
+            "ev_sign_stable": (min(evs) > 0) == (max(evs) > 0) and 0 not in (min(evs), max(evs)),
+            "positions": positions,
+        }
+    path = update_weight_fragility_sidecar("lng", dict(LNG_FRAGILITY_SETS), entries)
+    print(f"fragility sidecar (lng) -> {path}")
+
+
 def main():
-    watchlist = load_watchlist()
+    watchlist = load_watchlist(live_prices=True)
     base_doc = load_scenarios(sector="lng")
+    write_fragility_sidecar(watchlist, base_doc)
     analyses = []
     for t in ("FLNG", "CCEC"):
         if t in watchlist:

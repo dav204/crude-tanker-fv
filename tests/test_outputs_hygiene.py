@@ -25,7 +25,14 @@ def test_committed_handoff_sign_label_coherence():
 
     path = ROOT / "outputs" / "book_scorecard.json"
     doc = json.loads(path.read_text(encoding="utf-8"))
-    assert doc["schema_version"] == 2
+    assert doc["schema_version"] == 3
+    # S-2 coverage guard: every name in a reweighted family must CARRY the
+    # sign-stability flag — a null next to a run diagnostic was F-13 in
+    # miniature (narrative said '⚠', field said null).
+    uncovered = [n["ticker"] for n in doc["names"]
+                 if n["sector"] in ("crude", "product", "lng")
+                 and n["weight_sign_stable"] is None]
+    assert not uncovered, f"reweighted-family names missing weight_sign_stable: {uncovered}"
     offenders = []
     for n in doc["names"]:
         ev, pos = n.get("ev_pct"), n.get("position") or ""
