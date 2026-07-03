@@ -252,6 +252,43 @@ def test_fetch_failed_promotes_to_page_in_open_window(tmp_path, monkeypatch):
     assert len(pages) == 1 and "FETCH-FAILED price-refresh" in pages[0][1]
 
 
+def test_pure_mode_keeps_content_checks_drops_machine_local(tmp_path):
+    """WO2 0.4: --pure sees dated triggers + committed surfaces; machine-local
+    signals (prices fetch age, notify env, heartbeats) are the Mac's job."""
+    inputs, outputs = _fixture(tmp_path, trigger_due=True, fresh_prices=False)
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    _write_plist(scripts, "com.crude-tanker-fv.price-refresh")   # no heartbeat
+
+    normal = {f.split()[0] for f in collect_flags(inputs, outputs, environ={})}
+    assert normal == {"TRIGGER-DUE", "PRICE-BASIS", "NOTIFY-UNCONFIGURED",
+                      "FETCH-FAILED"}
+    pure = collect_flags(inputs, outputs, environ={}, pure=True)
+    assert [f.split()[0] for f in pure] == ["TRIGGER-DUE"]
+
+
+def test_pure_mode_flags_stale_head_in_open_window(tmp_path):
+    """0.4: in an open earnings window, a HEAD older than 3d means the Action
+    is watching a stale world — flag it on the backstop itself."""
+    import subprocess
+    from datetime import date
+
+    inputs, outputs = _fixture(tmp_path)
+    (inputs / "earnings_calendar.yaml").write_text(yaml.safe_dump({
+        "quarter": "2026-Q2",
+        "DHT": {"window_start": date.today(), "window_end": date.today(),
+                "status": "confirmed", "basis": "t"}}))
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
+    old = (datetime.now(timezone.utc) - timedelta(days=5)).isoformat()
+    subprocess.run(["git", "add", "-A"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "-c", "user.email=t@t", "-c", "user.name=t",
+                    "commit", "-qm", "old"], cwd=tmp_path, check=True,
+                   env={"GIT_AUTHOR_DATE": old, "GIT_COMMITTER_DATE": old,
+                        "PATH": "/usr/bin:/bin"})
+    flags = collect_flags(inputs, outputs, environ={}, pure=True)
+    assert len(flags) == 1 and "repo HEAD 5d old" in flags[0]
+
+
 def test_meta_mode_suspends_content_checks_on_dirty_tree(tmp_path, monkeypatch, capsys):
     """Invariant 3: dirty tree → content checks suspended (a trigger that
     would flag doesn't), digest still goes out, rc 0."""

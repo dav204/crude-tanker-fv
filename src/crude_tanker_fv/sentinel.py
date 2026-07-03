@@ -77,7 +77,14 @@ def _scenario_doc_pw_fv(outputs_dir: Path, ticker: str):
 
 
 def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR,
-                  environ=None) -> list[str]:
+                  environ=None, pure: bool = False) -> list[str]:
+    """pure=True (WO2 0.4) keeps only checks answerable from REPO CONTENT —
+    what a clean clone can see: dated triggers, content-dated watchlist
+    vintages, committed-surface coherence, sidecar vintage, price-basis
+    disclosures. Dropped as machine-local: market-data mtimes, prices
+    fetched_at age (the clone lags pushes by design — the documented Action
+    caveat), notify env, heartbeats. Added: HEAD-recency inside an open
+    earnings window (a dark/unpushed Mac in season blinds the backstop)."""
     import os
 
     if environ is None:
@@ -91,9 +98,11 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
             flags.append(f"TRIGGER-DUE {it.label}: {it.detail}")
 
     # 2. Input staleness — the per-type thresholds (refresh preflight logic).
-    for it in check_market_data(inputs_dir):
-        if it.status in ("stale", "missing"):
-            flags.append(f"STALE-INPUT {it.label}: {it.detail}")
+    #    mtime-based, machine-local — dropped in pure mode.
+    if not pure:
+        for it in check_market_data(inputs_dir):
+            if it.status in ("stale", "missing"):
+                flags.append(f"STALE-INPUT {it.label}: {it.detail}")
     try:
         watchlist = load_watchlist(inputs_dir)
     except Exception as exc:
@@ -146,7 +155,7 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
     prices = inputs_dir / "market_data" / "prices_daily.yaml"
     if not prices.exists():
         flags.append("PRICE-BASIS prices_daily.yaml missing")
-    else:
+    elif not pure:
         import yaml
 
         pdoc = yaml.safe_load(prices.read_text()) or {}
@@ -157,6 +166,24 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
                 flags.append(f"PRICE-BASIS fetch is {age.days}d old ({fetched}) — cron missed?")
         else:
             flags.append("PRICE-BASIS prices file carries no fetched_at")
+
+    if pure:
+        # Pure-only: HEAD recency in an open earnings window. The Action reads
+        # pushed state; a Mac dark or unpushed for days IN SEASON means the
+        # backstop is watching a stale world — say so on the backstop itself.
+        if _in_earnings_window(inputs_dir):
+            import subprocess
+
+            out = subprocess.run(["git", "-C", str(inputs_dir.parent), "log", "-1",
+                                  "--format=%ct"], capture_output=True, text=True)
+            if out.returncode == 0 and out.stdout.strip():
+                head_age = (datetime.now(timezone.utc) - datetime.fromtimestamp(
+                    int(out.stdout.strip()), tz=timezone.utc)).days
+                if head_age >= 3:
+                    flags.append(f"STALE-INPUT repo HEAD {head_age}d old inside an "
+                                 "open earnings window — Mac dark or unpushed; this "
+                                 "backstop only sees pushed state")
+        return flags
 
     # 5. Notification config (WO2 0.1) — a page that routes nowhere is the
     #    watcher being inaudible; nags daily until the env file carries creds.
@@ -276,6 +303,9 @@ def main(argv: list[str] | None = None) -> int:
                          "and required sends succeeded (invariant 2)")
     ap.add_argument("--state", type=Path, default=Path("state/sentinel_state.json"),
                     help="run-over-run state (digest streaks, dark gap, dirty-since)")
+    ap.add_argument("--pure", action="store_true",
+                    help="repo-content checks only (the GitHub Action's clean-clone "
+                         "mode); no state, no meta-mode, no machine-local checks")
     args = ap.parse_args(argv)
 
     now = datetime.now(timezone.utc)
@@ -284,7 +314,9 @@ def main(argv: list[str] | None = None) -> int:
 
     meta_note = None
     dirty_since = None
-    if _tree_dirty(INPUTS_DIR.parent):
+    if args.pure:
+        flags = collect_flags(INPUTS_DIR, OUTPUTS_DIR, pure=True)
+    elif _tree_dirty(INPUTS_DIR.parent):
         # META-MODE (invariant 3): content checks read half-finished surgery —
         # suspend them; liveness (heartbeat/digest/ping) must keep running.
         dirty_since = state.get("dirty_since") or now.isoformat()

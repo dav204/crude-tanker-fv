@@ -1,0 +1,88 @@
+# Sentinel-lite (WO2 0.4) — the off-machine backstop. Runs the repo-pure
+# sentinel checks daily against PUSHED state: coverage lags to the last push
+# (documented caveat — the Mac-local sentinel is the primary pager; this one
+# exists so a dark Mac cannot silence the dated triggers). Notification is a
+# single open 'sentinel'-labeled issue — created/updated on flags, closed on a
+# quiet run; GitHub's own issue notifications carry it to the owner's email.
+# Its own healthchecks check (repo secret SENTINEL_LITE_HC_URL) makes the
+# backstop's death detectable too — no unwatched watcher.
+#
+# The ci job doubles as the clean-clone guarantee (plan §7): the suite must
+# be green from nothing but a checkout + the pinned deps.
+name: sentinel-lite
+
+on:
+  schedule:
+    - cron: "45 12 * * *"   # daily 12:45 UTC — after the Mac's 08:15 local run
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  sentinel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml openpyxl
+      - name: run pure sentinel
+        id: run
+        shell: bash
+        run: |
+          set +e -o pipefail
+          PYTHONPATH=src python -m crude_tanker_fv.sentinel --pure | tee flags.txt
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+      - name: reconcile the single sentinel issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const flags = fs.readFileSync('flags.txt', 'utf8').trim();
+            const rc = '${{ steps.run.outputs.rc }}';
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const {owner, repo} = context.repo;
+            try {
+              await github.rest.issues.getLabel({owner, repo, name: 'sentinel'});
+            } catch {
+              await github.rest.issues.createLabel({owner, repo, name: 'sentinel', color: 'd93f0b'});
+            }
+            const {data: open} = await github.rest.issues.listForRepo({
+              owner, repo, state: 'open', labels: 'sentinel'});
+            if (rc !== '0') {
+              const n = flags ? flags.split('\n').length : 0;
+              const title = `sentinel: ${n} flag(s) on pushed state`;
+              const body = `Pure-sentinel flags, ${new Date().toISOString()}:\n\n` +
+                           '```\n' + flags + '\n```\n\n' +
+                           `Coverage lags to the last push — the Mac-local sentinel is primary. [run](${runUrl})`;
+              if (open.length) {
+                await github.rest.issues.update({owner, repo, issue_number: open[0].number, title, body});
+              } else {
+                await github.rest.issues.create({owner, repo, title, body, labels: ['sentinel']});
+              }
+            } else {
+              for (const i of open) {
+                await github.rest.issues.createComment({owner, repo, issue_number: i.number,
+                  body: `Quiet run — closing. [run](${runUrl})`});
+                await github.rest.issues.update({owner, repo, issue_number: i.number, state: 'closed'});
+              }
+            }
+      - name: dead-man ping (the backstop's own healthchecks check)
+        env:
+          HC: ${{ secrets.SENTINEL_LITE_HC_URL }}
+        run: |
+          if [ -n "$HC" ]; then curl -fsS --retry 3 "$HC" > /dev/null && echo "PING-SENT"; else echo "SENTINEL_LITE_HC_URL unset — ping skipped"; fi
+
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest pyyaml openpyxl pillow pypdf requests
+      - name: full suite on a clean clone
+        run: PYTHONPATH=src python -m pytest -q
