@@ -244,9 +244,9 @@ def test_fetch_failed_promotes_to_page_in_open_window(tmp_path, monkeypatch):
     scripts.mkdir()
     _write_plist(scripts, "com.crude-tanker-fv.price-refresh")   # no heartbeat → FETCH-FAILED
     (inputs / "earnings_calendar.yaml").write_text(yaml.safe_dump({
-        "quarter": "2026-Q2",
-        "DHT": {"window_start": date.today(), "window_end": date.today(),
-                "status": "confirmed", "basis": "t"}}))
+        "meta": {"quarter": "2026-Q2"},
+        "names": {"DHT": {"window_start": date.today(), "window_end": date.today(),
+                          "status": "confirmed", "basis": "t"}}}))
     assert s.main(["--notify", "--state", st]) == 1
     pages = [x for x in sent if " PAGE:" in x[0]]
     assert len(pages) == 1 and "FETCH-FAILED price-refresh" in pages[0][1]
@@ -430,9 +430,9 @@ def test_pure_mode_flags_stale_head_in_open_window(tmp_path):
 
     inputs, outputs = _fixture(tmp_path)
     (inputs / "earnings_calendar.yaml").write_text(yaml.safe_dump({
-        "quarter": "2026-Q2",
-        "DHT": {"window_start": date.today(), "window_end": date.today(),
-                "status": "confirmed", "basis": "t"}}))
+        "meta": {"quarter": "2026-Q2"},
+        "names": {"DHT": {"window_start": date.today(), "window_end": date.today(),
+                          "status": "confirmed", "basis": "t"}}}))
     subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
     old = (datetime.now(timezone.utc) - timedelta(days=5)).isoformat()
     subprocess.run(["git", "add", "-A"], cwd=tmp_path, check=True)
@@ -460,9 +460,10 @@ def test_filing_events_landed_overdue_unseeded(tmp_path):
     now = datetime.now(timezone.utc)
     old_end = _date.today() - timedelta(days=10)
     (inputs / "earnings_calendar.yaml").write_text(yaml.safe_dump({
-        "quarter": "2026-Q2",
-        "DHT": {"window_start": old_end - timedelta(days=2), "window_end": old_end,
-                "status": "confirmed", "basis": "t"}}))
+        "meta": {"quarter": "2026-Q2"},
+        "names": {"DHT": {"window_start": old_end - timedelta(days=2),
+                          "window_end": old_end,
+                          "status": "confirmed", "basis": "t"}}}))
 
     # Fresh arrival: FILING-LANDED pages, overdue is satisfied by the arrival.
     (state / "edgar_manifest.jsonl").write_text(json.dumps({
@@ -527,9 +528,9 @@ def test_dirty_too_long_pages_at_36h_and_12h_in_window(tmp_path, monkeypatch, ca
 
     # Inside an open window the limit tightens to 12h.
     (inputs / "earnings_calendar.yaml").write_text(yaml.safe_dump({
-        "quarter": "2026-Q2",
-        "DHT": {"window_start": date.today(), "window_end": date.today(),
-                "status": "confirmed", "basis": "t"}}))
+        "meta": {"quarter": "2026-Q2"},
+        "names": {"DHT": {"window_start": date.today(), "window_end": date.today(),
+                          "status": "confirmed", "basis": "t"}}}))
     Path(st).write_text(_json.dumps({
         "dirty_since": (datetime.now(timezone.utc) - timedelta(hours=13)).isoformat()}))
     assert s.main(["--state", st]) == 1

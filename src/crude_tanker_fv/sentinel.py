@@ -382,19 +382,15 @@ def _in_earnings_window(inputs_dir: Path) -> bool:
     """True when any name's reporting window (start−1d .. end+3d, the overdue
     tail) spans today — tightens DIRTY-TOO-LONG to 12h and promotes
     FETCH-FAILED to a page: a blind fetch layer in season is an incident."""
-    from datetime import date, timedelta
+    from .refresh import load_earnings_calendar
 
-    import yaml
-
-    path = inputs_dir / "earnings_calendar.yaml"
-    if not path.exists():
-        return False
-    cal = yaml.safe_load(path.read_text()) or {}
+    _, names = load_earnings_calendar(inputs_dir)
     today = date.today()
-    for v in cal.values():
+    for v in names.values():
         if not isinstance(v, dict) or "window_start" not in v:
-            continue   # the top-level quarter key (restructured out in 2.1/R-5)
-        if v["window_start"] - timedelta(days=1) <= today <= v["window_end"] + timedelta(days=3):
+            continue
+        end = v.get("window_end") or v["window_start"]
+        if v["window_start"] - timedelta(days=1) <= today <= end + timedelta(days=3):
             return True
     return False
 
@@ -488,9 +484,7 @@ def _filing_event_flags(inputs_dir: Path, watchlist: dict,
     arrived, no balance sheet on file — also the Oslo trio's net (no EDGAR
     poller; self-clears when the reconciliation lands the balance sheet).
     """
-    from .refresh import check_earnings_calendar
-
-    import yaml
+    from .refresh import check_earnings_calendar, load_earnings_calendar
 
     flags: list[str] = []
     now = now or datetime.now(timezone.utc)
@@ -505,12 +499,24 @@ def _filing_event_flags(inputs_dir: Path, watchlist: dict,
                          f"{e.get('accession')} filed {e.get('filed')} -> "
                          f"{e.get('staged_path') or 'manifest-only'}")
 
-    cal_path = inputs_dir / "earnings_calendar.yaml"
-    if not cal_path.exists() or not watchlist:
+    meta, cal = load_earnings_calendar(inputs_dir)
+    if not cal or not watchlist:
         return flags
-    cal = yaml.safe_load(cal_path.read_text()) or {}
-    quarter = cal.get("quarter")
+    quarter = meta.get("quarter")
     today = now.date()
+
+    # Quarter rollover (WO2 2.1): a calendar still on last season's quarter
+    # ~3.5 months after that quarter ended is an unseeded NEXT season.
+    if quarter:
+        import re as _re
+
+        m = _re.match(r"(\d{4})-Q([1-4])", str(quarter))
+        if m:
+            q_end = date(int(m.group(1)), int(m.group(2)) * 3, 1) + timedelta(days=31)
+            q_end = q_end.replace(day=1) - timedelta(days=1)
+            if today > q_end + timedelta(days=105):
+                flags.append(f"CALENDAR-UNSEEDED (meta): calendar still on {quarter} "
+                             f"(quarter ended {q_end}) — seed the next season's windows")
     for it in check_earnings_calendar(quarter, watchlist, inputs_dir, today=today):
         if it.status == "missing":
             flags.append(f"STALE-BALANCE-SHEET {it.label}: {it.detail}")

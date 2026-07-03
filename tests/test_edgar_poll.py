@@ -34,12 +34,29 @@ def _fake_fetch(payload, doc_body=b"<html>filing</html>", status=200):
     return fetch
 
 
-def test_covered_ciks_has_all_edgar_names_including_eco():
+# Every CIK verified against SEC company_tickers.json 2026-07-03 (WO2 2.2).
+# The sweep caught THREE wrong CIKs that had sat in data_sources.yaml: FLNG
+# pointed at a Form-D fund, CCEC at Blackstone's BXSL, INSW at nothing — three
+# names whose filings the poller would have silently missed all season. This
+# pin is the two-surfaces rule: re-verify against SEC before changing a value.
+VERIFIED_CIKS = {
+    "ASC": "0001577437", "CCEC": "0001392326", "CMBT": "0001604481",
+    "CMDB": "0002033535", "DHT": "0001331284", "ECO": "0001964954",
+    "FLNG": "0001772253", "FRO": "0000913290", "GNK": "0001326200",
+    "GSL": "0001430725", "HAFN": "0001815779", "INSW": "0001679049",
+    "NAT": "0001000177", "SB": "0001434754", "SBLK": "0001386716",
+    "STNG": "0001483934", "TEN": "0001166663", "TNK": "0001419945",
+    "TRMD": "0001655891",
+}
+
+
+def test_covered_ciks_match_the_verified_pin():
     ciks = covered_ciks()
-    assert len(ciks) == 19, sorted(ciks)   # 22 - the 3 Oslo names
-    assert ciks["ECO"] == "0001964954"     # resolved 2026-07-03 from company_tickers.json
+    assert ciks == VERIFIED_CIKS, (
+        f"diff: {set(ciks.items()) ^ set(VERIFIED_CIKS.items())} — a CIK change "
+        "must be re-verified against SEC company_tickers.json and re-pinned")
     for oslo in ("BRUT", "CAPT", "MPCC"):
-        assert oslo not in ciks
+        assert oslo not in ciks   # Oslo names: no SEC filings by design
 
 
 def test_bootstrap_is_quiet_and_sticky(tmp_path, monkeypatch):

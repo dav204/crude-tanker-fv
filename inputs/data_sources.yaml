@@ -101,7 +101,7 @@ FRO:
 INSW:
   ir_home: https://www.intlseas.com/investors/
   press_releases: https://www.intlseas.com/press-releases/
-  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001650044&type=10-Q
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001679049&type=10-Q  # CIK CORRECTED 2026-07-03 (WO2 2.2 sweep): was 0001650044 (resolves to nothing on EDGAR) — 1679049 = International Seaways per company_tickers.json + live submissions JSON
   fleet_page: https://www.intlseas.com/fleet/
   reporting_pattern: Q-end results typically early second month of following quarter (Q1 ≈ early May; Q4 ≈ early March with 10-K)
   notes: Marshall Islands-domiciled but DOMESTIC ISSUER on NYSE (files 10-Q not 6-K). Hybrid crude + product operator — when refreshing, confirm both sleeves' fleet counts unchanged or flag re-allocation per §6.
@@ -125,7 +125,7 @@ NAT:
 FLNG:
   ir_home: https://www.flexlng.com/investors/
   press_releases: https://www.flexlng.com/press-releases/
-  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001738202&type=6-K
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001772253&type=6-K  # CIK CORRECTED 2026-07-03 (WO2 2.2 sweep): was 0001738202 = Carmenta Capital Fund SPV (a Form-D filer, NOT Flex LNG) — 1772253 = Flex LNG Ltd per company_tickers.json; also independently caught by the Q2 calendar vet (FLNG's Q2-2025 6-K sits under 1772253)
   fleet_page: https://www.flexlng.com/our-fleet/
   reporting_pattern: Q-end results typically mid-second month of following quarter (Q1 ≈ mid-May; Q1 2026 was 2026-05-13)
   notes: Bermuda-domiciled FPI dual-listed NYSE + Oslo. TC backlog table on the IR site is the source for charter coverage refresh (separate from fleet table).
@@ -133,7 +133,7 @@ FLNG:
 CCEC:
   ir_home: https://www.capclnenrg.com/investors/
   press_releases: https://www.capclnenrg.com/news/
-  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001736035&type=6-K
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001392326&type=6-K  # CIK CORRECTED 2026-07-03 (WO2 2.2 sweep): was 0001736035 = Blackstone Secured Lending Fund (BXSL!) — 1392326 = Capital Clean Energy Carriers Corp (the legacy CPLP root) per company_tickers.json
   fleet_page: https://www.capclnenrg.com/fleet/
   reporting_pattern: Q-end results typically mid-second month of following quarter (Q1 ≈ mid-May)
   notes: Marshall Islands-domiciled FPI. Active NB delivery schedule ($2.25B program) — refresh the newbuild_capex_commitments + newbuild_advances_paid every quarter against the disclosed remaining commitments.

@@ -164,6 +164,17 @@ REWEIGHT_TRIGGERS_PATH = INPUTS_DIR / "reweight_triggers.yaml"
 # ----------------------------------------------------------------------------
 # Per-section checks
 # ----------------------------------------------------------------------------
+def load_earnings_calendar(inputs_dir: Path = INPUTS_DIR) -> "tuple[dict, dict]":
+    """THE calendar reader (WO2 2.1/R-5) — every consumer goes through here;
+    nobody special-cases the quarter key anymore. Returns (meta, names);
+    missing file -> ({}, {})."""
+    path = inputs_dir / "earnings_calendar.yaml"
+    if not path.exists():
+        return {}, {}
+    doc = yaml.safe_load(path.read_text()) or {}
+    return doc.get("meta") or {}, doc.get("names") or {}
+
+
 def check_earnings_calendar(
     target_quarter: str, watchlist: dict, inputs_dir: Path = INPUTS_DIR,
     today: date | None = None,
@@ -177,13 +188,12 @@ def check_earnings_calendar(
     in the future, nothing to do yet.
     """
     today = today or date.today()
-    path = inputs_dir / "earnings_calendar.yaml"
-    if not path.exists():
+    meta, cal = load_earnings_calendar(inputs_dir)
+    if not meta and not cal:
         return [CheckItem(label="(calendar)", status="warn",
                           detail="inputs/earnings_calendar.yaml missing — "
                                  "build it before earnings season")]
-    cal = yaml.safe_load(path.read_text()) or {}
-    cal_quarter = cal.pop("quarter", None)
+    cal_quarter = meta.get("quarter")
     items: list[CheckItem] = []
     for ticker in watchlist:
         entry = cal.get(ticker)

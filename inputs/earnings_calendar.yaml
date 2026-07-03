@@ -1,117 +1,176 @@
-# Earnings calendar — next-report dates per watchlist ticker.
-# Read by the refresh preflight (refresh.check_earnings_calendar): flags names
-# whose report is OUT but whose target-quarter balance sheet is missing, and
-# names reporting within the next 14 days.
+# Earnings calendar — next-report windows per watchlist ticker.
+# Read ONLY via refresh.load_earnings_calendar (WO2 2.1/R-5: file metadata
+# lives in `meta:`, names under `names:` — no consumer special-cases the
+# quarter key anymore). check_earnings_calendar flags report-out-no-balance-
+# sheet + reports-soon; the sentinel derives FILING-OVERDUE / EARNINGS-DUE /
+# CALENDAR-UNSEEDED / STALE-BALANCE-SHEET from the same single implementation.
 #
-# Maintained by hand; the weekly /news-pull digest flags newly-announced dates
-# (US issuers typically announce 1-3 weeks ahead). status: confirmed = company
-# financial calendar or dated announcement; expected = cadence-derived window
-# (Q1-2026 + Q2-2025 reporting dates). Swept + verified 2026-06-11.
-#
-# Notable cadence facts: TEN reports Q2 in SEPTEMBER (H1 reporter), not
-# August. FLNG's calendar slot is Aug-28 but the 2025 release came a week
-# early (Aug-20) — expect the announced date to move up. FRO/NAT/TRMD/HAFN
-# are late-August reporters; the early cluster is Jul-28 → Aug-6.
+# FULL Q2 VET 2026-07-03 (owner-ordered re-verification of every window, not
+# gap-fill): evidence per name in decisions/earnings_calendar_vet_2026-07-03.md.
+# status: confirmed = company-announced date with citable source; expected =
+# cadence-derived (last year's Q2 + this year's Q1 release dates).
+# disclosure_type notes: TNK is a 6-K FPI (NOT 10-Q — zero 10-Qs on its CIK;
+# the old assumption was wrong); ECO/CAPT/BRUT/MPCC deliver Q2 inside an
+# Oslo-convention half-yearly report; TEN reports Q2 in SEPTEMBER (H1).
+# Cadence facts: FLNG's 2025 release came a week early (Aug-20 vs Aug-28
+# slot) — expect the announced date to move up. Early cluster Jul-28 → Aug-6.
 
-quarter: 2026-Q2
+meta:
+  quarter: 2026-Q2
+  vetted: 2026-07-03
 
-DHT:
-  window_start: 2026-08-05
-  window_end: 2026-08-06
-  status: expected
-  basis: "Q1-26 May-5; Q2-25 Aug-6 (announced Jul-23)"
-ECO:
-  window_start: 2026-08-04
-  window_end: 2026-08-04
-  status: confirmed
-  basis: "company financial calendar (half-yearly 04.08.2026; Q1 slot matched actual)"
-FRO:
-  window_start: 2026-08-26
-  window_end: 2026-08-31
-  status: expected
-  basis: "Q1-26 May-22; Q2-25 Aug-29 (last Friday of Aug)"
-INSW:
-  window_start: 2026-08-04
-  window_end: 2026-08-07
-  status: expected
-  basis: "Q1-26 May-7; Q2-25 Aug-6"
-TNK:
-  window_start: 2026-07-29
-  window_end: 2026-07-31
-  status: expected
-  basis: "Q2-25 released Jul-30 after close, call next morning; announces ~8d ahead"
-NAT:
-  window_start: 2026-08-26
-  window_end: 2026-08-31
-  status: expected
-  basis: "Q1-26 May-28; Q2-25 Aug-28; nat.bm calendar has no Q2 date yet"
-FLNG:
-  window_start: 2026-08-20
-  window_end: 2026-08-28
-  status: confirmed
-  basis: "calendar slot 28.08.2026, but 2025 release came Aug-20 — window opened accordingly"
-CCEC:
-  window_start: 2026-07-29
-  window_end: 2026-08-06
-  status: expected
-  basis: "Q1-26 May-7; Q2-25 Jul-31"
-STNG:
-  window_start: 2026-07-28
-  window_end: 2026-07-30
-  status: expected
-  basis: "Q1-26 May-5; Q2-25 Jul-30 (announced Jul-18)"
-HAFN:
-  window_start: 2026-08-28
-  window_end: 2026-08-28
-  status: confirmed
-  basis: "published 2025-2027 financial calendar (Q1-26 slot matched actual)"
-TRMD:
-  window_start: 2026-08-26
-  window_end: 2026-08-26
-  status: confirmed
-  basis: "TORM Financial Calendar 2026 company announcement"
-ASC:
-  window_start: 2026-07-28
-  window_end: 2026-07-30
-  status: expected
-  basis: "Q1-26 May-7; Q2-25 Jul-30 (announced ~2wk ahead)"
-TEN:
-  window_start: 2026-09-08
-  window_end: 2026-09-17
-  status: expected
-  basis: "H1 reporter — Q2/H1-25 reported Sep-10; Q1-26 May-21. September, NOT August."
-CMDB:
-  window_start: 2026-08-04
-  window_end: 2026-08-10
-  status: expected
-  basis: "Q1-26 release May-13; H1-25 Aug-8; announces ~1-2wk ahead"
-SBLK:
-  window_start: 2026-08-05
-  window_end: 2026-08-05
-  status: confirmed
-  basis: "starbulk.com financial calendar (Q1 May-20 slot matched actual)"
-GNK:
-  window_start: 2026-08-04
-  window_end: 2026-08-06
-  status: expected
-  basis: "Q1-26 May-6; Q2-25 Aug-6 (announced Jul-21). Diana tender deadline Jun-26 precedes."
-CAPT:
-  window_start: 2026-08-17
-  window_end: 2026-08-31
-  status: expected
-  basis: "First-ever results (Q1-26) came May-27; Oslo H1-report cadence implies late Aug. No published calendar yet — watch the dailies."
-MPCC:
-  window_start: 2026-08-26
-  window_end: 2026-08-26
-  status: confirmed
-  basis: "company financial calendar (fetched 2026-06-12): Q2 26.08.2026, Q3 25.11.2026"
-GSL:
-  window_start: 2026-08-04
-  window_end: 2026-08-06
-  status: expected
-  basis: "Q2-25 Aug-5 pre-market; Q1-26 followed 10-day-notice pattern (notice May-12, release May-22)"
-BRUT:
-  window_start: 2026-08-13
-  window_end: 2026-08-13
-  status: confirmed
-  basis: "HALF-YEARLY reporter (owner-confirmed): H1-2026 earnings 2026-08-13. No Q1/Q3 interims — this is the first issuer report to confirm the Pareto-derived onboarding inputs."
+names:
+  DHT:
+    window_start: 2026-08-05
+    window_end: 2026-08-06
+    status: expected
+    basis: "Q2-25 Wed Aug-6 (GlobeNewswire); Q1-26 May-5; no Q2-26 announcement yet (checked 2026-07-03)"
+    disclosure_type: 6-K
+    venue: NYSE
+  ECO:
+    window_start: 2026-08-04
+    window_end: 2026-08-04
+    status: confirmed
+    basis: "company financial calendar (announced 2025-12-19): half-yearly report 04.08.2026 after NYSE close; Q1 slot matched actual"
+    disclosure_type: 6-K (half-yearly report, Oslo convention)
+    venue: NYSE + Oslo (OET)
+  FRO:
+    window_start: 2026-08-31
+    window_end: 2026-08-31
+    status: confirmed
+    basis: "frontlineplc.cy/calendar (announced 2026-05-22): Q2-2026 report Aug-31; narrowed from the expected Aug-26..31 window"
+    disclosure_type: 6-K
+    venue: NYSE + Oslo
+  INSW:
+    window_start: 2026-08-04
+    window_end: 2026-08-07
+    status: expected
+    basis: "Q2-25 Wed Aug-6 pre-market (8-K ex-99.1); Q1-26 May-7; no Q2-26 announcement yet (checked 2026-07-03)"
+    disclosure_type: 10-Q
+    venue: NYSE
+  TNK:
+    window_start: 2026-07-29
+    window_end: 2026-08-05
+    status: expected
+    basis: "Q2-25 Wed Jul-30 after close (GlobeNewswire, set 2025-07-22); widened +3bd from ..Jul-31 per the 2026-07-03 vet. 6-K FPI — zero 10-Qs on CIK 1419945"
+    disclosure_type: 6-K
+    venue: NYSE
+  NAT:
+    window_start: 2026-08-26
+    window_end: 2026-08-31
+    status: expected
+    basis: "Q2-25 Thu Aug-28 (nat.bm quarterly reports); Q1-26 Thu May-28; late-Aug reporter"
+    disclosure_type: 6-K
+    venue: NYSE
+  FLNG:
+    window_start: 2026-08-28
+    window_end: 2026-08-28
+    status: confirmed
+    basis: "flexlng.com financial calendar: half-yearly report Aug-28-2026; NOTE 2025 release came a week EARLY (Aug-20) — expect the announced date to move up"
+    disclosure_type: 6-K (half-yearly report)
+    venue: NYSE + Oslo
+  CCEC:
+    window_start: 2026-07-29
+    window_end: 2026-08-06
+    status: expected
+    basis: "cadence window re-verified 2026-07-03; no company announcement yet"
+    disclosure_type: 6-K
+    venue: NASDAQ
+  STNG:
+    window_start: 2026-07-28
+    window_end: 2026-07-30
+    status: expected
+    basis: "Q2-25 Jul-30 (date announced Jul-18 via 6-K); Q1-26 May-5; expect the sets-date PR ~10d ahead"
+    disclosure_type: 6-K
+    venue: NYSE
+  HAFN:
+    window_start: 2026-08-28
+    window_end: 2026-08-28
+    status: confirmed
+    basis: "Hafnia Financial Calendar 2025-2027 (IR PDF): Q2-26 Aug-28; calendar adherence validated on the Q1-26 slot (May-27 = actual)"
+    disclosure_type: 6-K
+    venue: NYSE (+ Oslo NDRs)
+  TRMD:
+    window_start: 2026-08-26
+    window_end: 2026-08-26
+    status: confirmed
+    basis: "TORM 'Financial Calendar 2026' announcement (2025-12-19): Q2 Aug-26; adherence validated on Q1 (May-13 = actual)"
+    disclosure_type: 6-K
+    venue: NASDAQ NY + Copenhagen
+  ASC:
+    window_start: 2026-07-28
+    window_end: 2026-07-30
+    status: expected
+    basis: "Q2-25 Jul-30 (PRNewswire); Q1-26 May-6; early-cluster reporter"
+    disclosure_type: 6-K
+    venue: NYSE
+  TEN:
+    window_start: 2026-09-08
+    window_end: 2026-09-17
+    status: expected
+    basis: "H1 SEPTEMBER reporter (never August): H1-25 released mid-Sep-2025; re-verified vs tenn.gr earnings-releases 2026-07-03"
+    disclosure_type: 6-K (H1 report)
+    venue: NYSE
+  CMDB:
+    window_start: 2026-08-04
+    window_end: 2026-08-14
+    status: expected
+    basis: "H1-25 6-K filed 2025-08-08 (acc 0001171843-25-005203); widened to Aug-14 per the 2026-07-03 vet (young listing, thin cadence history)"
+    disclosure_type: 6-K (H1/six-month report)
+    venue: NYSE
+  SBLK:
+    window_start: 2026-08-05
+    window_end: 2026-08-05
+    status: confirmed
+    basis: "starbulk.com financial calendar: Q2-2026 statements Aug-5 (re-fetched 2026-07-03)"
+    disclosure_type: 6-K
+    venue: NASDAQ
+  GNK:
+    window_start: 2026-08-04
+    window_end: 2026-08-06
+    status: expected
+    basis: "Q2-25 Wed Aug-6 after close (set Jul-21, GlobeNewswire); Q1-26 May-6"
+    disclosure_type: 10-Q
+    venue: NYSE
+  CAPT:
+    window_start: 2026-09-01
+    window_end: 2026-09-01
+    status: confirmed
+    basis: "Oslo Bors Newspoint financial calendar (published 2026-03-12): HALF-YEARLY report Sep-1-2026 — the Jun-11 sweep missed this calendar; replaces the expected Aug-17..31 window"
+    disclosure_type: Oslo newsweb (half-yearly)
+    venue: Euronext Growth Oslo
+  MPCC:
+    window_start: 2026-08-26
+    window_end: 2026-08-26
+    status: confirmed
+    basis: "MFN financial calendar announcement (2025-12-30): half-yearly/Q2 report 26.08.2026"
+    disclosure_type: Oslo newsweb/MFN (half-yearly)
+    venue: Euronext Oslo
+  GSL:
+    window_start: 2026-08-04
+    window_end: 2026-08-06
+    status: expected
+    basis: "Q2-25 Tue Aug-5 pre-market (GlobeNewswire, set Jul-22); Q1-26 May-6"
+    disclosure_type: 6-K
+    venue: NYSE
+  BRUT:
+    window_start: 2026-08-13
+    window_end: 2026-08-13
+    status: confirmed
+    basis: "Oslo NewsWeb 'Financial calendar' (issuerSign BRUT): half-yearly report Aug-13-2026; re-verified 2026-07-03"
+    disclosure_type: Oslo newsweb (half-yearly)
+    venue: Euronext Growth Oslo
+  CMBT:
+    window_start: 2026-08-27
+    window_end: 2026-08-27
+    status: confirmed
+    basis: "CMB.TECH PR (GlobeNewswire 2026-06-29): Q2-2026 announcement Aug-27; SEEDED 2026-07-03 (was absent from the Jun-11 sweep)"
+    disclosure_type: 6-K
+    venue: NYSE + Euronext Brussels
+  SB:
+    window_start: 2026-07-28
+    window_end: 2026-07-31
+    status: expected
+    basis: "Q2-25 Tue Jul-29 after close (GlobeNewswire, set Jul-22); SEEDED 2026-07-03 (was absent from the Jun-11 sweep); expect the sets-date PR ~1wk ahead"
+    disclosure_type: 6-K
+    venue: NYSE

@@ -317,9 +317,9 @@ def _cal_fixture(tmp_path, window_start, window_end):
     inputs = tmp_path / "inputs"
     (inputs / "balance_sheets").mkdir(parents=True)
     (inputs / "earnings_calendar.yaml").write_text(yaml.safe_dump({
-        "quarter": "2026-Q2",
-        "DHT": {"window_start": window_start, "window_end": window_end,
-                "status": "expected", "basis": "test"},
+        "meta": {"quarter": "2026-Q2"},
+        "names": {"DHT": {"window_start": window_start, "window_end": window_end,
+                          "status": "expected", "basis": "test"}},
     }))
     return inputs
 

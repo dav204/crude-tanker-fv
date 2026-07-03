@@ -72,16 +72,15 @@ def covered_ciks(inputs_dir: Path = INPUTS) -> "dict[str, str]":
 
 
 def _in_window(ticker: str, inputs_dir: Path, today=None) -> bool:
-    path = inputs_dir / "earnings_calendar.yaml"
-    if not path.exists():
-        return False
-    cal = yaml.safe_load(path.read_text()) or {}
-    e = cal.get(ticker)
+    from .refresh import load_earnings_calendar
+
+    _, names = load_earnings_calendar(inputs_dir)
+    e = names.get(ticker)
     if not isinstance(e, dict) or "window_start" not in e:
         return False
     today = today or date.today()
-    return (e["window_start"] - timedelta(days=1) <= today
-            <= e["window_end"] + timedelta(days=3))
+    end = e.get("window_end") or e["window_start"]
+    return e["window_start"] - timedelta(days=1) <= today <= end + timedelta(days=3)
 
 
 def _load_state() -> dict:
