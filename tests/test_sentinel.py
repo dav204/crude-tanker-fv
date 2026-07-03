@@ -9,6 +9,11 @@ import yaml
 
 from crude_tanker_fv.sentinel import collect_flags, main
 
+# Check 5 (NOTIFY-UNCONFIGURED) reads the environ — configured here so the
+# content-check tests stay isolated from the machine's real env.
+FAKE_ENV = {"CRUDE_FV_SMTP_HOST": "smtp.example.com", "CRUDE_FV_SMTP_USER": "u",
+            "CRUDE_FV_SMTP_PASS": "p", "CRUDE_FV_SMTP_TO": "owner@example.com"}
+
 
 def _fixture(tmp_path: Path, *, trigger_due=False, stale_watchlist=False,
              incoherent=False, static_fallback=False, fresh_prices=True,
@@ -62,23 +67,32 @@ def _fixture(tmp_path: Path, *, trigger_due=False, stale_watchlist=False,
 
 def test_quiet_when_clean(tmp_path):
     inputs, outputs = _fixture(tmp_path)
-    assert collect_flags(inputs, outputs) == []
+    assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
 
 
 def test_one_flag_per_class_with_stable_tags(tmp_path):
     inputs, outputs = _fixture(tmp_path, trigger_due=True, stale_watchlist=True,
                                incoherent=True, static_fallback=True, sidecar_stale=True)
-    flags = collect_flags(inputs, outputs)
+    flags = collect_flags(inputs, outputs, environ={})
     tags = {f.split()[0] for f in flags}
     assert tags == {"TRIGGER-DUE", "STALE-INPUT", "SURFACE-INCOHERENT",
-                    "PRICE-BASIS", "SIDECAR-STALE"}
+                    "PRICE-BASIS", "SIDECAR-STALE", "NOTIFY-UNCONFIGURED"}
+
+
+def test_notify_unconfigured_flag_alone(tmp_path):
+    """WO2 0.1: an otherwise-clean tree with no SMTP env pages nowhere — the
+    sentinel nags until ~/.config/crude-tanker-fv.env carries the creds."""
+    inputs, outputs = _fixture(tmp_path)
+    flags = collect_flags(inputs, outputs, environ={})
+    assert len(flags) == 1 and flags[0].startswith("NOTIFY-UNCONFIGURED")
+    assert "CRUDE_FV_SMTP_HOST" in flags[0]
 
 
 def test_sidecar_stale_flag_alone(tmp_path):
     """WO1-F4: a fragility sidecar lagging scenario_inputs.yaml pages on its
     own — the mechanism behind the Jul-2 ⚠-list churn (field lagged engine)."""
     inputs, outputs = _fixture(tmp_path, sidecar_stale=True)
-    flags = collect_flags(inputs, outputs)
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
     assert len(flags) == 1 and flags[0].startswith("SIDECAR-STALE")
     assert "crude" in flags[0]
 
@@ -94,6 +108,8 @@ def test_fv_identity_scan_catches_surface_divergence(tmp_path):
 def test_exit_codes_and_log_format(tmp_path, monkeypatch):
     import crude_tanker_fv.sentinel as s
 
+    for k, v in FAKE_ENV.items():
+        monkeypatch.setenv(k, v)
     inputs, outputs = _fixture(tmp_path)
     monkeypatch.setattr(s, "INPUTS_DIR", inputs)
     monkeypatch.setattr(s, "OUTPUTS_DIR", outputs)

@@ -15,6 +15,8 @@ the F-13 rule):
   3. Committed-surface coherence — sign/label contradictions in the shipped
      handoff (scorecard.handoff_coherence_flags) + schema presence.
   4. Price basis — prices_daily.yaml fetch age and band-flagged quote count.
+  5. Notification config (WO2 0.1) — the email channel's env vars present
+     (notify.smtp_status); unconfigured means pages route nowhere.
 
 Exit 0 = quiet. Nonzero = one status line per flag on stdout. Designed for
 cron via scripts/sentinel_cron.sh (which adds the dirty-tree/PAUSE guard —
@@ -58,7 +60,12 @@ def _scenario_doc_pw_fv(outputs_dir: Path, ticker: str):
     return float(m.group(1).replace(",", "")) if m else None
 
 
-def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR) -> list[str]:
+def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR,
+                  environ=None) -> list[str]:
+    import os
+
+    if environ is None:
+        environ = os.environ
     flags: list[str] = []
 
     # 1. Trigger register — armed-and-due/overdue, or FIRED (the Jun-17 trigger
@@ -134,6 +141,16 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
                 flags.append(f"PRICE-BASIS fetch is {age.days}d old ({fetched}) — cron missed?")
         else:
             flags.append("PRICE-BASIS prices file carries no fetched_at")
+
+    # 5. Notification config (WO2 0.1) — a page that routes nowhere is the
+    #    watcher being inaudible; nags daily until the env file carries creds.
+    from .notify import smtp_status
+
+    st = smtp_status(environ)
+    if not st["configured"]:
+        flags.append("NOTIFY-UNCONFIGURED email channel missing env: "
+                     f"{', '.join(st['missing'])} (~/.config/crude-tanker-fv.env; "
+                     "run notify --doctor)")
     return flags
 
 

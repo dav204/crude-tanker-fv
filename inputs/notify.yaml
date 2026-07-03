@@ -1,0 +1,34 @@
+# Notification routing (WO2 §3.1, 2026-07-03) — email-only, owner-only.
+#
+# Secrets NEVER live here: SMTP creds + the recipient are env vars
+# (CRUDE_FV_SMTP_HOST / PORT / USER / PASS / TO) in ~/.config/crude-tanker-fv.env
+# (chmod 600), sourced by the cron wrappers. Nothing ever posts to Rocket.Chat
+# or any group channel — RC stays read-only ingest.
+#
+# Change-control: every tag lands with a route entry AND a fixture test; an
+# UNKNOWN tag routes to PAGE (fail loud, never silent).
+subject_prefix: "[crude-fv]"
+routes:
+  page:            # immediate email
+    - TRIGGER-DUE
+    - SURFACE-INCOHERENT
+    - FILING-LANDED       # AMENDED marker travels in the flag body
+    - FILING-OVERDUE
+    - DIRTY-TOO-LONG
+  digest:          # one daily status email — sent on OK days too (the
+                   # unconditional send is what makes notifier death detectable)
+    - STALE-INPUT
+    - SIDECAR-STALE
+    - PRICE-BASIS
+    - NOTIFY-UNCONFIGURED
+    - UNINGESTED-PRINTS
+    - TRIGGER-EVIDENCE
+    - CALENDAR-UNSEEDED
+    - EARNINGS-DUE
+    - FETCH-FAILED        # escalates to PAGE at 2 consecutive / in open windows (0.2)
+    - DISK-PRESSURE
+  record_only:     # state log only, never mailed (delivery failure can't
+                   # page through the channel that failed — the healthchecks
+                   # ping-withhold is its pager)
+    - NOTIFY-DOWN
+escalate_after: 3  # a DIGEST tag present N consecutive runs pages ONCE (0.3)
