@@ -98,8 +98,10 @@ def test_write_scorecard_emits_matrix(tmp_path, rows):
 
 def test_valuation_index_uses_whole_company_spine_for_hybrids():
     """Regression: a hybrid (INSW) renders as a single SLEEVE in fv_reports with a sleeve-allocated
-    price/NAV. The verdict MUST take price/NAV/position from the scenario spine (whole company),
-    matching the delta-report headline — never the sleeve. Caught 2026-06-30."""
+    price/NAV. The verdict MUST take price/NAV/FV/position from the scenario spine (whole company),
+    matching the delta-report headline — never the sleeve. Caught 2026-06-30.
+    RE-BASED 2026-07-02 (F-13): fv is now the SCENARIO-weighted FV (same basis as position);
+    the single-point blend moves to the labeled secondary blend_fv."""
     from types import SimpleNamespace as NS
 
     from crude_tanker_fv.scorecard import valuation_index
@@ -107,12 +109,41 @@ def test_valuation_index_uses_whole_company_spine_for_hybrids():
     fv = [NS(ticker="INSW", blended=NS(fair_value_per_share=38.63),
              nav=NS(nav_per_share=34.97), current_price=50.91)]            # crude SLEEVE
     sc = [NS(ticker="INSW", current_price=77.81, base_nav_per_share=52.59,  # WHOLE company
+             probability_weighted_fv=51.76,
              position_recommendation="TRIM/SHORT (overvalued)")]
     bk = [NS(ticker="INSW", consensus_pnav=0.98)]
     v = valuation_index(fv, sc, bk)["INSW"]
     assert v.price == 77.81 and v.nav_ps == 52.59          # whole-company spine, not the sleeve
-    assert v.fv == 38.63                                   # single-point FV from the CompanyReport
+    assert v.fv == 51.76                                   # SCENARIO-weighted FV (F-13 headline basis)
+    assert v.blend_fv == 38.63                             # blend demoted to the secondary column
     assert v.position == "TRIM/SHORT (overvalued)"
+
+
+def test_f13_fv_and_position_share_one_basis():
+    """F-13 hard-identity guard (2026-07-02): the verdict/JSON fv must equal the
+    scenario report's probability-weighted FV to the cent, and the upside must
+    be computed from it — never from the blend. The two bases agreed
+    incidentally under the Jun-9 war weights; the vintage separated them and
+    the scorecard shipped '+28% upside · TRIM/SHORT' rows. Third instance today
+    of an incidental identity treated as an invariant — surfaces assumed to
+    agree get a test that they agree."""
+    import json
+
+    from types import SimpleNamespace as NS
+
+    from crude_tanker_fv.scorecard import valuation_index
+
+    fv = [NS(ticker="CAPT", blended=NS(fair_value_per_share=16.03),
+             nav=NS(nav_per_share=15.49), current_price=12.49)]
+    sc = [NS(ticker="CAPT", current_price=12.49, base_nav_per_share=15.49,
+             probability_weighted_fv=10.07,
+             position_recommendation="TRIM/SHORT (overvalued)")]
+    bk = [NS(ticker="CAPT", consensus_pnav=0.67)]
+    v = valuation_index(fv, sc, bk)["CAPT"]
+    assert v.fv == pytest.approx(10.07, abs=0.005)                 # to the cent
+    assert v.upside_pct == pytest.approx((10.07 / 12.49 - 1) * 100, abs=0.01)
+    assert v.upside_pct < 0 and v.position.startswith("TRIM/SHORT")  # coherent sign
+    assert v.blend_fv == pytest.approx(16.03)
 
 
 def test_write_scorecard_emits_consolidated_verdict_when_valuation_present(tmp_path, rows):
@@ -208,7 +239,7 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
     write_scorecard(rows, outputs_dir=tmp_path, valuation=_synthetic_valuation(rows),
                     price_basis=pb, quarter=QUARTER)
     doc = json.loads((tmp_path / "book_scorecard.json").read_text())
-    assert doc["schema_version"] == 1
+    assert doc["schema_version"] == 2   # v2 = F-13 re-basing (fv/ev_pct scenario-weighted)
     assert doc["quarter"] == QUARTER
     assert doc["price_basis"]["total"] == len(rows)
     assert len(doc["names"]) == len(rows)

@@ -5,6 +5,22 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-02 — F-13 (P0, same-day): verdict rows MIXED VALUATION BASES — blend FV next to scenario position; handoff re-based + coherence-guarded.**
+  Post-vintage review caught `d1544b4` shipping self-contradictory rows ("CAPT +28% upside · TRIM/SHORT"):
+  `valuation_index` took fv from the single-point BLEND while position came from the SCENARIO-weighted EV.
+  The two bases agreed incidentally under the Jun-9 war weights; the vintage separated them — the THIRD
+  same-day instance of an incidental identity treated as an invariant (after C-3's rank-1 pairing and the
+  "identical weights at each index" comment). Fix: headline fv/ev_pct in the scorecard + JSON are now the
+  SCENARIO-weighted FV (one basis with position, the proposal tables, and the C-2 decomposition); the blend
+  survives as the labeled secondary `blend_fv` (a large Blend-vs-Model gap IS the scenario-dependence
+  signal — BRUT $9.27 vs $3.12); **schema_version 2** (ingesting side must assert). Guards close the class:
+  hard identity (`test_f13_fv_and_position_share_one_basis`) + committed-surface sign/label coherence under
+  the one canonical ±5% band (`test_committed_handoff_sign_label_coherence`). Gate: 0 UNEXPLAINED (dNAV/dEV
+  0.0 — snapshot EVs were always scenario-based; the defect was rendering-only), re-ratified with cause for
+  the record. The tanker rows' blend staleness is partly the DISCLOSED option-(i) rate hold — the disclosure
+  was working; the column basis was the defect. Field-general rule added to CLAUDE.md: two surfaces assumed
+  to agree need a test asserting they agree.
+
 - **2026-07-02 — REVIEW ARC: reweight proposal approved through 3 rounds; C-3 MULTI-SLEEVE AGGREGATION BUG fixed; §13.3 triggers operationalized; W-frag on the verdict row.**
   The post-stand-down reweight proposal (`decisions/crude_reweight_proposal_2026-07-02.md`, v3) went through
   review → addendum → C-4 sign-off same day. Landed: (1) **C-3 — all three hybrid aggregators applied the

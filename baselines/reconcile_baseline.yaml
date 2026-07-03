@@ -2,13 +2,12 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-07-02T18:27:44+00:00'
-  ratified_commit: 94b7e8f
+  ratified_at: '2026-07-02T23:59:38+00:00'
+  ratified_commit: d1544b4
   quarter: 2026-Q1
-  cause: post-stand-down vintage (owner-approved, option (i)) — crude 0.10/0.20/0.45/0.25 + MoU-ineffective
-    leg recalibrated (0.15-flare) + product v2-restore + LNG v3-restore + F-5 rates (tanker forwards HELD,
-    trigger armed); 18 UNEXPLAINED all pre-annotated in decisions/crude_reweight_proposal_2026-07-02.md;
-    six band flips eyeballed + annotated per-name; dNAV 0.0% all names
+  cause: F-13 rendering fix — verdict/JSON fv re-based from single-point blend to the scenario-weighted
+    FV (coherent with position); dNAV 0.0%, dEV 0.0 (snapshot EVs were already scenario-based; printed
+    FV changes large); schema_version 2; coherence guards added
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0

@@ -486,6 +486,15 @@ surface rotates from crude-war names to product/dry-bulk value — which is what
 stand-down SHOULD do. (Sizing is the governance repo's field; this surface states worth
 and trust only — reviewer correction 2026-07-02.)
 
+**Table-basis note (F-13 reconciliation):** every EV/FV in THIS document is the
+SCENARIO-weighted basis. The §15 tables are the new-weights + OLD-rates layer; the final
+shipped numbers (adding the dry-bulk rates layer) are §10's completion — CMBT is the one
+label that moves between them (−2.3 % HOLD → −5.05 % TRIM, the annotated boundary-cross).
+The scorecard/JSON headline fv/ev_pct now carry this same basis (schema_version 2,
+F-13 fix 2026-07-02); the single-point blend is the labeled secondary `blend_fv`. One
+band, one source: `scenarios.position_recommendation` (±5 %), guarded by
+`test_committed_handoff_sign_label_coherence`.
+
 **F-5 scope extension (per the addendum):** the same rate refresh covers LR2/MR product
 spot and LNG spot inputs — all carry the 2026-06-07 war vintage.
 

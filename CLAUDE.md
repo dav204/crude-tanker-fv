@@ -136,6 +136,10 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   CONTRADICTED figure is VOIDED in the output (not just its FV); a wide/provisional tier carries a
   **sub-reason = resolution path**. Registry in `provenance.py` (`POSITION_CYCLE_RELABEL`,
   `POSITION_UNRELIABLE`, `NAV_DERIVED_VOID`, `TIER_SUBREASON`), no-drift-tested.
+- **An incidental identity is NOT an invariant — two surfaces assumed to agree need a TEST that they
+  agree** (2026-07-02, 3× same day: C-3 rank-1 sleeve pairing; F-13 blend-FV printed beside
+  scenario-position = "+28% upside · SHORT". Guards: test_scorecard F-13 identity,
+  test_outputs_hygiene sign/label coherence, test_carveout sleeve invariance).
 - **Weight-set names are sector-namespaced** ("Crude Set A", "LNG Set B-revised"). A cross-sector "Set B"
   without a prefix is a methodology error.
 - **ECO sale-leaseback is in "borrowings"** — no separate operating-lease line; don't double-count.

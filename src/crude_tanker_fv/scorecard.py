@@ -214,26 +214,35 @@ def compute_scorecard(quarter: str, inputs_dir: Path = INPUTS_DIR) -> list[Score
 class _Valuation:
     """The valuation half of one name's verdict — joined from the pipeline's in-scope objects
     (fv / scenario / broker sweep), so the scorecard carries FV-vs-price + position + broker NAV
-    on the same row as tier + validation state. ONE consolidated output, not three to cross-join."""
+    on the same row as tier + validation state. ONE consolidated output, not three to cross-join.
+
+    BASIS (F-13, 2026-07-02): ``fv`` / ``upside_pct`` are the SCENARIO-WEIGHTED FV — the
+    same basis as ``position``, the proposal tables, and the C-2 decomposition. The prior
+    form took fv from the single-point blend while position came from the scenario EV; the
+    two bases agreed incidentally under the Jun-9 war weights and the vintage separated
+    them, printing "+28% upside · TRIM/SHORT" rows. The blend survives as the explicitly
+    labeled secondary ``blend_fv`` (NAV+strip at CURRENT market forwards — for tankers the
+    held Jun-7 curves, see the Rate-basis header)."""
     price: float
-    fv: float                  # single-point blended FV (report.blended.fair_value_per_share)
-    upside_pct: float          # (fv / price − 1) × 100
+    fv: float                  # scenario probability-weighted FV (the headline basis)
+    upside_pct: float          # (fv / price − 1) × 100 — same basis as position
     position: str
     nav_ps: float              # tool NAV/share
     broker_nav: Optional[float]
     gap_pct: Optional[float]   # (nav_ps − broker_nav) / broker_nav × 100
     sanity: str                # OK / FAIL / n-a (APPROX) — the reconcile ±50% bug-gate
     approx: bool
+    blend_fv: Optional[float] = None   # single-point blend (secondary, labeled column)
 
 
 def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Valuation"]:
     """Join the pipeline's per-name objects into the verdict's valuation half, keyed by ticker.
 
-    The **scenario report is the whole-company spine** for price / NAV / position — same as
-    delta.snapshot_current_run. This matters for hybrid carve-outs (INSW, CMBT): the CompanyReport
-    in fv_reports is a single SLEEVE (INSW = crude sleeve, price/NAV sleeve-allocated), so reading
-    price off it understates the whole. Only the single-point FV is read from the CompanyReport
-    (matching the delta report's headline FV). So this row equals the decision-log / delta headline."""
+    The **scenario report is the whole-company spine** for price / NAV / FV / position —
+    same as delta.snapshot_current_run. This matters for hybrid carve-outs (INSW, CMBT):
+    the CompanyReport in fv_reports is a single SLEEVE (INSW = crude sleeve, price/NAV
+    sleeve-allocated), so reading price off it understates the whole. The single-point
+    blend is carried only as the labeled secondary ``blend_fv`` (F-13)."""
     fv_by = {r.ticker: r for r in fv_reports}
     bk = {r.ticker: r for r in broker_rows}
     out: dict[str, _Valuation] = {}
@@ -241,8 +250,9 @@ def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Va
         t = s.ticker
         price = s.current_price
         nav_ps = s.base_nav_per_share
+        fv = s.probability_weighted_fv
         f = fv_by.get(t)
-        fv = f.blended.fair_value_per_share if f else float("nan")
+        blend_fv = f.blended.fair_value_per_share if f else None
         b = bk.get(t)
         broker_nav = (price / b.consensus_pnav) if (b and b.consensus_pnav) else None
         gap = ((nav_ps - broker_nav) / broker_nav * 100.0) if broker_nav else None
@@ -254,6 +264,7 @@ def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Va
             price=price, fv=fv, upside_pct=(fv / price - 1.0) * 100.0 if price else 0.0,
             position=s.position_recommendation,
             nav_ps=nav_ps, broker_nav=broker_nav, gap_pct=gap, sanity=sanity, approx=approx,
+            blend_fv=blend_fv,
         )
     return out
 
@@ -400,9 +411,9 @@ def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation
       "on a contradicted figure). A **`cycle position`** in Position is a NAV-relative read (§12), NOT a "
       "directional short. A **void** row prints no derived numbers — they are known-suspect, not data.\n")
     fragility = fragility or {}
-    w("| Ticker | Sector | **Tier · why** | Price | Model FV | Upside | Position | NAV/sh | "
-      "Broker NAV | Gap | SANITY | Handoff | W-frag |")
-    w("|---|---|---|--:|--:|--:|:--|--:|--:|--:|:--|:--|:--|")
+    w("| Ticker | Sector | **Tier · why** | Price | Model FV | Upside | Position | Blend FV† | "
+      "NAV/sh | Broker NAV | Gap | SANITY | Handoff | W-frag |")
+    w("|---|---|---|--:|--:|--:|:--|--:|--:|--:|--:|:--|:--|:--|")
     torder = {"VALIDATED-TIGHT": 0, "GOVERNED-WIDE": 1, "PROVISIONAL": 2}
     for r in sorted(rows, key=lambda r: (torder.get(r.confidence_tier, 9), order.get(r.sector, 9), r.ticker)):
         tier = _verdict_tier(r.ticker, r.confidence_tier)
@@ -410,17 +421,24 @@ def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation
         frag = _fragility_cell(r.ticker, fragility)
         v = valuation.get(r.ticker)
         if v is None:
-            w(f"| {r.ticker} | {r.sector} | {tier} | — | — | — | — | — | — | — | — | {ready} | {frag} |")
+            w(f"| {r.ticker} | {r.sector} | {tier} | — | — | — | — | — | — | — | — | — | {ready} | {frag} |")
             continue
         if r.ticker in NAV_DERIVED_VOID:
             w(f"| {r.ticker} | {r.sector} | {tier} | ${v.price:.2f} | _void_ | _void_ "
-              f"| _void — pending reconciliation_ | _void_ | _void_ | _void_ | _void_ | **NO** | {frag} |")
+              f"| _void — pending reconciliation_ | _void_ | _void_ | _void_ | _void_ | _void_ | **NO** | {frag} |")
             continue
         bn = (f"${v.broker_nav:.2f}" + (" (apx)" if v.approx else "")) if v.broker_nav else ("apx" if v.approx else "—")
         gp = f"{v.gap_pct:+.0f}%" if v.gap_pct is not None else "—"
+        bl = f"${v.blend_fv:.2f}" if (v.blend_fv is not None and v.blend_fv == v.blend_fv) else "—"
         w(f"| {r.ticker} | {r.sector} | {tier} | ${v.price:.2f} | ${v.fv:.2f} | {v.upside_pct:+.0f}% "
-          f"| {_verdict_position(r.ticker, v.position)} | ${v.nav_ps:.2f} | {bn} | {gp} | {v.sanity} | {ready} | {frag} |")
+          f"| {_verdict_position(r.ticker, v.position)} | {bl} | ${v.nav_ps:.2f} | {bn} | {gp} | {v.sanity} | {ready} | {frag} |")
     w("")
+    w("_Model FV / Upside = the SCENARIO-probability-weighted FV — the same basis as Position "
+      "and every proposal/decomposition table (F-13, 2026-07-02: the two columns previously mixed "
+      "bases and printed '+28% upside · TRIM/SHORT' rows the day the bases diverged). "
+      "Blend FV† = the single-point NAV+strip blend at CURRENT market forwards — for tanker "
+      "classes the HELD Jun-7 curves (see Rate basis above); a large Blend-vs-Model gap IS the "
+      "scenario-dependence signal, not a discrepancy._\n")
     if fragility:
         w("_W-frag = does the EV **sign** survive the §9.10 weight family "
           "(`outputs/weight_robustness.yaml`)? **⚠ sign flips** = the direction of the call is a "
@@ -588,8 +606,12 @@ def _write_handoff_json(
             "position": (None if v is None else
                          ("void — pending reconciliation" if void
                           else _verdict_position(r.ticker, v.position))),
+            # fv/ev_pct = SCENARIO-weighted basis, same as position (F-13 —
+            # schema_version 2; v1 exported the single-point blend here, which
+            # produced "+28% upside, SHORT" rows once the bases diverged).
             "fv": None if (v is None or void) else _num(v.fv),
             "ev_pct": None if (v is None or void) else _num(v.upside_pct, 1),
+            "blend_fv": None if (v is None or void) else _num(v.blend_fv),
             "nav_per_share": None if (v is None or void) else _num(v.nav_ps),
             "broker_nav": None if (v is None or void) else _num(v.broker_nav),
             "gap_pct": None if (v is None or void) else _num(v.gap_pct, 1),
@@ -599,7 +621,10 @@ def _write_handoff_json(
             "weight_sign_stable": (fragility or {}).get(r.ticker),
         })
     doc = {
-        "schema_version": 1,
+        # v2 (2026-07-02, F-13): fv/ev_pct re-based from the single-point blend
+        # to the SCENARIO-weighted FV (coherent with position); blend_fv added.
+        # Breaking field-meaning change — the ingesting side must assert this.
+        "schema_version": 2,
         "quarter": quarter,
         "price_basis": price_basis,
         "rate_basis": rate_basis or [],
