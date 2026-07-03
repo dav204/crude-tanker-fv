@@ -18,13 +18,17 @@
 
 CRON_START_TS=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
 if [ -z "${CRON_INITIATOR:-}" ]; then
-  if [ -n "${XPC_SERVICE_NAME:-}" ]; then
-    CRON_INITIATOR="$XPC_SERVICE_NAME"
-  else
-    cron_tty=$(tty 2>/dev/null || echo notty)
-    case "$cron_tty" in /dev/*) cron_tty=${cron_tty#/dev/} ;; *) cron_tty=notty ;; esac
-    CRON_INITIATOR="manual:$(id -un)@${cron_tty}"
-  fi
+  # Only OUR labels count as launchd: interactive macOS shells carry
+  # XPC_SERVICE_NAME=0 (Terminal sets application.* / 0) — caught live 2026-07-03
+  # by the ctxprobe; a bare $XPC_SERVICE_NAME test would stamp manual runs "0".
+  case "${XPC_SERVICE_NAME:-}" in
+    com.crude-tanker-fv.*)
+      CRON_INITIATOR="$XPC_SERVICE_NAME" ;;
+    *)
+      cron_tty=$(tty 2>/dev/null || echo notty)
+      case "$cron_tty" in /dev/*) cron_tty=${cron_tty#/dev/} ;; *) cron_tty=notty ;; esac
+      CRON_INITIATOR="manual:$(id -un)@${cron_tty}" ;;
+  esac
 fi
 CRON_OUTCOME="error"
 CRON_NOTE=""

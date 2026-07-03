@@ -25,9 +25,11 @@ def _tmp_repo(tmp_path: Path) -> Path:
 
 
 def _run(script: Path, repo: Path) -> subprocess.CompletedProcess:
+    # XPC_SERVICE_NAME=0 mimics an interactive macOS shell — the ledger must
+    # still stamp these manual (only com.crude-tanker-fv.* labels are launchd).
     return subprocess.run([str(script)], capture_output=True, text=True,
                           env={"CRUDE_TANKER_FV_ROOT": str(repo), "PATH": "/usr/bin:/bin",
-                               "HOME": str(repo)})
+                               "HOME": str(repo), "XPC_SERVICE_NAME": "0"})
 
 
 @pytest.mark.parametrize("script", SCRIPTS, ids=lambda s: s.name)
