@@ -1,161 +1,116 @@
-fetched_at: '2026-07-01T22:30:03+00:00'
+fetched_at: '2026-07-02T22:52:27+00:00'
 prices:
   ASC:
-    asof: '2026-07-01T20:00:03+00:00'
-    day_change_pct: 1.71
+    asof: '2026-07-02T20:00:03+00:00'
+    day_change_pct: 4.28
     exchange: NYQ
-    prev_close: 14.01
-    price: 14.25
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 14.25
+    price: 14.86
   BRUT:
-    asof: '2026-07-01T14:16:57+00:00'
-    day_change_pct: -0.77
+    asof: '2026-07-02T14:14:01+00:00'
+    day_change_pct: 1.56
     exchange: OSL
     native_currency: NOK
-    prev_close: 5.21
-    price: 5.17
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    native_price: 52.0
+    prev_close: 5.2
+    price: 5.29
+    usd_per_unit_fx: 0.101644
   CAPT:
-    asof: '2026-07-01T14:25:09+00:00'
-    day_change_pct: -0.72
+    asof: '2026-07-02T14:27:30+00:00'
+    day_change_pct: 5.57
     exchange: OSL
     native_currency: NOK
+    native_price: 130.68
     prev_close: 12.58
-    price: 12.49
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    price: 13.28
+    usd_per_unit_fx: 0.101644
   CCEC:
-    asof: '2026-07-01T20:00:00+00:00'
-    day_change_pct: 1.55
+    asof: '2026-07-02T20:00:00+00:00'
+    day_change_pct: -0.37
     exchange: NMS
-    prev_close: 21.35
-    price: 21.68
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 21.68
+    price: 21.6
   CMBT:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: 0.43
+    asof: '2026-07-02T20:00:03+00:00'
+    day_change_pct: 3.63
     exchange: NYQ
-    prev_close: 13.99
-    price: 14.05
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 14.05
+    price: 14.56
   CMDB:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: 3.7
+    asof: '2026-07-02T20:00:02+00:00'
+    day_change_pct: -0.16
     exchange: NYQ
-    prev_close: 17.56
-    price: 18.21
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 18.21
+    price: 18.18
   DHT:
-    asof: '2026-07-01T20:00:03+00:00'
-    day_change_pct: 0.0
+    asof: '2026-07-02T20:00:03+00:00'
+    day_change_pct: 3.93
     exchange: NYQ
     prev_close: 16.53
-    price: 16.53
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    price: 17.18
   ECO:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: -0.36
+    asof: '2026-07-02T20:00:02+00:00'
+    day_change_pct: 6.35
     exchange: NYQ
-    prev_close: 50.12
-    price: 49.94
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 49.94
+    price: 53.11
   FLNG:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: 2.0
+    asof: '2026-07-02T20:00:03+00:00'
+    day_change_pct: 2.34
     exchange: NYQ
-    prev_close: 28.06
-    price: 28.62
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 28.62
+    price: 29.29
   FRO:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: -0.26
+    asof: '2026-07-02T20:00:03+00:00'
+    day_change_pct: 5.91
     exchange: NYQ
-    prev_close: 34.79
-    price: 34.7
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 34.7
+    price: 36.75
   GNK:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: -0.48
+    asof: '2026-07-02T20:00:03+00:00'
+    day_change_pct: -0.65
     exchange: NYQ
-    prev_close: 24.78
-    price: 24.66
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 24.66
+    price: 24.5
   GSL:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: 0.48
+    asof: '2026-07-02T20:00:02+00:00'
+    day_change_pct: 0.87
     exchange: NYQ
-    prev_close: 37.6
-    price: 37.78
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 37.78
+    price: 38.11
   HAFN:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: -1.2
+    asof: '2026-07-02T20:00:02+00:00'
+    day_change_pct: 7.01
     exchange: NYQ
-    prev_close: 6.64
-    price: 6.56
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 6.56
+    price: 7.02
   INSW:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: 1.55
+    asof: '2026-07-02T20:00:03+00:00'
+    day_change_pct: 5.94
     exchange: NYQ
-    prev_close: 76.59
-    price: 77.78
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 77.78
+    price: 82.4
   MPCC:
-    asof: '2026-07-01T14:28:52+00:00'
-    day_change_pct: -5.1
+    asof: '2026-07-02T14:26:49+00:00'
+    day_change_pct: 0.33
     exchange: OSL
     native_currency: NOK
-    prev_close: 2.55
-    price: 2.42
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    native_price: 24.03
+    prev_close: 2.43
+    price: 2.44
+    usd_per_unit_fx: 0.101644
   NAT:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: 0.36
+    asof: '2026-07-02T20:00:03+00:00'
+    day_change_pct: 4.5
     exchange: NYQ
-    prev_close: 5.54
-    price: 5.56
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 5.56
+    price: 5.81
   SB:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: 0.0
+    asof: '2026-07-02T20:00:02+00:00'
+    day_change_pct: 1.43
     exchange: NYQ
     prev_close: 6.31
-    price: 6.31
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    price: 6.4
   SBLK:
     asof: '2026-07-01T20:00:00+00:00'
     day_change_pct: -0.64
@@ -166,40 +121,27 @@ prices:
       reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
       close, day move recomputed day-over-day per the fixed band
   STNG:
-    asof: '2026-07-01T20:00:03+00:00'
-    day_change_pct: 0.39
+    asof: '2026-07-02T20:00:02+00:00'
+    day_change_pct: 5.01
     exchange: NYQ
-    prev_close: 69.26
-    price: 69.53
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 69.53
+    price: 73.01
   TEN:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: 0.0
+    asof: '2026-07-02T20:00:02+00:00'
+    day_change_pct: 5.65
     exchange: NYQ
     prev_close: 35.37
-    price: 35.37
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    price: 37.37
   TNK:
-    asof: '2026-07-01T20:00:02+00:00'
-    day_change_pct: -0.83
+    asof: '2026-07-02T20:00:02+00:00'
+    day_change_pct: 5.08
     exchange: NYQ
-    prev_close: 64.87
-    price: 64.33
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 64.33
+    price: 67.6
   TRMD:
-    asof: '2026-07-01T20:00:00+00:00'
-    day_change_pct: 0.73
+    asof: '2026-07-02T20:00:01+00:00'
+    day_change_pct: 5.52
     exchange: NMS
-    prev_close: 26.06
-    price: 26.25
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
-source: "yahoo-chart-v8 (reconstructed from state/price_refresh.log \u2014 see per-quote\
-  \ note)"
+    prev_close: 26.25
+    price: 27.7
+source: yahoo-chart-v8

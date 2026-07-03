@@ -7,6 +7,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-03T00:10:42+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $67.60
+- Single-point FV: $79.42
+- Scenario PW FV: $67.61 (EV +0.0%)
+- NAV / share: $77.51
+- Position: **HOLD (fairly valued)**
+- Broker spread: +11.7pp (k_broker 1.25)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: +3.27 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +4.0pp
+
+**Decision (2026-07-02 evening, July-2 close — band flip eyeballed):** ACCEPT BUY→HOLD. PURE PRICE DRIFT: $64.33→$67.60 (+5.1% on the day, the post-stand-down rally); FV/NAV unchanged (scenario PW FV $67.61 — price closed the gap to the CENT: EV +5.1%→+0.0%). Genuine information, not boundary noise: the tape converged onto the vintage FV within hours of the reweight. TNK remains the rich-read cycle long it was labeled — the vintage left it a band-edge BUY and one session of normalization-rally consumed the margin. Isolated price-drift re-ratify (the F-13 rendering fix was committed separately at the July-1 vintage per the drift discipline). No trade.
+
+---
+
 ## 2026-07-02T23:59:38+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -7,6 +7,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-03T00:10:42+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.70
+- Single-point FV: $30.97
+- Scenario PW FV: $28.65 (EV +3.4%)
+- NAV / share: $30.34
+- Position: **HOLD (fairly valued)**
+- Broker spread: +8.9pp (k_broker 1.08)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: +1.45 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +4.9pp
+
+**Decision (2026-07-02 evening, July-2 close — band flip eyeballed):** ACCEPT BUY→HOLD. PURE PRICE DRIFT: $26.25→$27.70 (+5.5% on the day); FV/NAV unchanged (scenario PW FV $28.65, EV +9.1%→+3.4%). The day-old reconciliation BUY (2026-07-02 morning, NAV $25.43→$30.34) survived the vintage reweight at +9.1% and was then compressed by the tape rallying toward the tool's own number — the reconciliation call aging normally, not being falsified. GOVERNED-WIDE·basis-pending unchanged; the product resale-basis sourcing item is still the promotion path. Isolated price-drift re-ratify. No trade.
+
+---
+
 ## 2026-07-02T23:59:38+00:00 — Pipeline run (auto)
 
 **Model state:**

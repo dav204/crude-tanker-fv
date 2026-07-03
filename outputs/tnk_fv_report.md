@@ -1,7 +1,7 @@
 # TNK — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $64.33
+- **Current price:** $67.60
 - **Model fair value:** $79.42
 - **Analyst target:** $75.00
 
@@ -68,7 +68,7 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-**NAV alone covers the price.** NAV/share **$77.51** ≥ price **$64.33** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
+**NAV alone covers the price.** NAV/share **$77.51** ≥ price **$67.60** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
@@ -93,11 +93,11 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 | **+15%** | $72.82 | $76.86 | $80.89 | $84.93 | $88.97 |
 | **+30%** | $74.29 | $78.33 | $82.36 | $86.40 | $90.44 |
 
-_Current price $64.33. Cycle weights held at base across the grid._
+_Current price $67.60. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$79.42** is +23.5% vs the current price ($64.33) and +5.9% vs the analyst target ($75.00). NAV alone covers the price (NAV/sh $77.51 ≥ $64.33); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
+Tool fair value **$79.42** is +17.5% vs the current price ($67.60) and +5.9% vs the analyst target ($75.00). NAV alone covers the price (NAV/sh $77.51 ≥ $67.60); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
 
 ## Modeling notes
 
