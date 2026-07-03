@@ -28,11 +28,15 @@ cd "$PROJECT"
 export PYTHONPATH=src
 export PYTHONUNBUFFERED=1
 
+JOB=news-pull
+. "$(dirname "$0")/cron_lib.sh"
+
 step() {
   echo "=== [news-pull] $(date '+%Y-%m-%d %H:%M:%S') $1"
 }
 
-trap 'rc=$?; echo "=== [news-pull] EXIT CODE ${rc} at step: ${CURRENT_STEP:-unknown}"; exit $rc' EXIT
+# Composes with cron_lib's heartbeat (traps don't stack — one trap, two duties).
+trap 'rc=$?; echo "=== [news-pull] EXIT CODE ${rc} at step: ${CURRENT_STEP:-unknown}"; CRON_NOTE="step=${CURRENT_STEP:-unknown}"; cron_exit $rc' EXIT
 
 CURRENT_STEP="rocketchat ingest"
 step "$CURRENT_STEP"
@@ -67,4 +71,5 @@ if ! "$PY" -m crude_tanker_fv.ffa_ocr --staleness; then
 fi
 
 CURRENT_STEP="done"
+CRON_OUTCOME=ok
 step "chain complete — review queues: outputs/sp_print_candidates.md, outputs/ffa_ocr_queue.md, outputs/pareto_daily_links.json"

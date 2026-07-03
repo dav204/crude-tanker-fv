@@ -17,6 +17,14 @@ the F-13 rule):
   4. Price basis — prices_daily.yaml fetch age and band-flagged quote count.
   5. Notification config (WO2 0.1) — the email channel's env vars present
      (notify.smtp_status); unconfigured means pages route nowhere.
+  6. Job liveness (WO2 0.2, invariant 1) — heartbeat age/outcome per committed
+     plist (cadence read from the plist: Weekday key = weekly). Heartbeats
+     only, never wrapper logs — a missing/stale/errored heartbeat is the
+     fetch layer failing silently (the D-2/D-3 class).
+
+With --notify, PAGE-routed flags email the owner (notify.py); with --ping,
+the healthchecks dead-man ping fires ONLY after a completed run whose
+required sends succeeded (invariant 2 — notifier death pages by absence).
 
 Exit 0 = quiet. Nonzero = one status line per flag on stdout. Designed for
 cron via scripts/sentinel_cron.sh (which adds the dirty-tree/PAUSE guard —
@@ -151,13 +159,69 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
         flags.append("NOTIFY-UNCONFIGURED email channel missing env: "
                      f"{', '.join(st['missing'])} (~/.config/crude-tanker-fv.env; "
                      "run notify --doctor)")
+
+    # 6. Job liveness (WO2 0.2) — every committed plist's job must have a
+    #    fresh, non-errored heartbeat. Cadence from the plist itself (one
+    #    source of truth); daily jobs get 2d, weekly 9d (coalesced-wake slack).
+    import plistlib
+
+    hb_dir = inputs_dir.parent / "state" / "heartbeat"
+    now = datetime.now(timezone.utc)
+    for plist in sorted((inputs_dir.parent / "scripts").glob("com.crude-tanker-fv.*.plist")):
+        pdoc = plistlib.loads(plist.read_bytes())
+        job = pdoc["Label"].replace("com.crude-tanker-fv.", "")
+        limit = 9 if "Weekday" in (pdoc.get("StartCalendarInterval") or {}) else 2
+        hb = hb_dir / job
+        if not hb.exists():
+            flags.append(f"FETCH-FAILED {job}: no heartbeat — job has never run "
+                         "(launchd job not installed, or heartbeats just landed)")
+            continue
+        age = (now - datetime.fromtimestamp(hb.stat().st_mtime, tz=timezone.utc)).days
+        if age >= limit:
+            flags.append(f"FETCH-FAILED {job}: heartbeat {age}d old "
+                         f"(cadence limit {limit}d) — launchd stopped firing?")
+        elif "outcome=error" in hb.read_text():
+            flags.append(f"FETCH-FAILED {job}: last run errored "
+                         f"({hb.read_text().strip()})")
     return flags
+
+
+_urlopen = None   # stdlib bound lazily; module attr so tests can stub it
+
+
+def _ping(sends_ok: bool) -> None:
+    """Invariant 2: the dead-man ping asserts 'checks ran AND pages reached
+    the owner' — withheld on a failed send so healthchecks pages by absence
+    (its own channel; the recursion stops there)."""
+    import os
+    import urllib.request
+
+    global _urlopen
+    if _urlopen is None:
+        _urlopen = urllib.request.urlopen
+    url = os.environ.get("CRUDE_FV_HEALTHCHECK_URL")
+    if not url:
+        print("PING-SKIPPED: CRUDE_FV_HEALTHCHECK_URL unset")
+        return
+    if not sends_ok:
+        print("PING-WITHHELD: a required send failed — healthchecks will page")
+        return
+    try:
+        _urlopen(url, timeout=10)
+        print("PING-SENT")
+    except Exception as exc:
+        print(f"PING-FAILED: {exc} — healthchecks will page by absence")
 
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="read-only owner-attention sentinel")
     ap.add_argument("--log", type=Path, default=None,
                     help="append one dated status line to this file")
+    ap.add_argument("--notify", action="store_true",
+                    help="email PAGE-routed flags to the owner (notify.py routes)")
+    ap.add_argument("--ping", action="store_true",
+                    help="fire the healthchecks dead-man ping if the run completed "
+                         "and required sends succeeded (invariant 2)")
     args = ap.parse_args(argv)
 
     flags = collect_flags(INPUTS_DIR, OUTPUTS_DIR)   # module-attr lookup at call time (testable)
@@ -171,6 +235,22 @@ def main(argv: list[str] | None = None) -> int:
                 fh.write(f"{stamp} FLAG {len(flags)}: " + " | ".join(flags) + "\n")
             else:
                 fh.write(f"{stamp} OK\n")
+
+    sends_ok = True
+    if args.notify and flags:
+        from . import notify
+
+        routes = notify.load_routes(INPUTS_DIR)
+        page, digest = notify.route_flags(flags, routes)
+        if page:
+            body = "PAGE-class flags:\n" + "\n".join(f"  {f}" for f in page)
+            if digest:
+                body += ("\n\nDigest-class also present (detail rides the daily "
+                         "digest):\n" + "\n".join(f"  {f}" for f in digest))
+            sends_ok = notify.send_email(
+                f"{routes['subject_prefix']} PAGE: {len(page)} flag(s)", body)
+    if args.ping:
+        _ping(sends_ok)
     return 1 if flags else 0
 
 

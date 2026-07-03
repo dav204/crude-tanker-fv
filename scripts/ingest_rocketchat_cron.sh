@@ -20,6 +20,9 @@ fi
 cd "$PROJECT"
 export PYTHONPATH=src
 
+JOB=rocketchat-ingest
+. "$(dirname "$0")/cron_lib.sh"
+
 # Daily Rocket.Chat ingest (Pareto PDFs + FFA screenshots + Baltic indexes).
 # Tolerate a non-fatal ingest hiccup (e.g. a transient TLS read) so the scan
 # below still runs over whatever dailies did land.
@@ -33,4 +36,9 @@ ingest_rc=0
 # news_pull_cron.sh.
 ./.venv/bin/python -m crude_tanker_fv.sp_scan
 
+if [ "$ingest_rc" -eq 0 ]; then
+  CRON_OUTCOME=ok
+else
+  CRON_NOTE="ingest_rc=$ingest_rc"
+fi
 exit "$ingest_rc"

@@ -62,7 +62,23 @@ def _fixture(tmp_path: Path, *, trigger_due=False, stale_watchlist=False,
     # Matching scenario doc so the fv-identity scan has its counterpart surface.
     (outputs / "dht_scenarios.md").write_text(
         "- **Probability-weighted fair value:** $18.00 (+9.1% vs price)\n")
+    # Routing table for main(--notify) paths.
+    (inputs / "notify.yaml").write_text(yaml.safe_dump({
+        "subject_prefix": "[crude-fv]",
+        "routes": {"page": ["TRIGGER-DUE"], "digest": ["STALE-INPUT", "FETCH-FAILED"],
+                   "record_only": ["NOTIFY-DOWN"]}}))
     return inputs, outputs
+
+
+def _write_plist(scripts: Path, label: str, weekly=False):
+    import plistlib
+
+    cal = {"Hour": 8, "Minute": 0}
+    if weekly:
+        cal["Weekday"] = 6
+    (scripts / f"{label}.plist").write_bytes(plistlib.dumps({
+        "Label": label, "ProgramArguments": ["/x.sh"], "StartCalendarInterval": cal,
+        "StandardOutPath": "/tmp/x.log", "StandardErrorPath": "/tmp/x.err"}))
 
 
 def test_quiet_when_clean(tmp_path):
@@ -103,6 +119,90 @@ def test_fv_identity_scan_catches_surface_divergence(tmp_path):
         "- **Probability-weighted fair value:** $9.27 (+79.0% vs price)\n")
     flags = collect_flags(inputs, outputs)
     assert any(f.startswith("SURFACE-INCOHERENT DHT: JSON fv") for f in flags)
+
+
+def test_fetch_failed_from_heartbeats(tmp_path):
+    """WO2 0.2 (invariant 1): job health reads ONLY heartbeats — missing,
+    stale-past-cadence, and outcome=error each flag; a fresh ok/skip is quiet."""
+    import os
+    import time
+
+    inputs, outputs = _fixture(tmp_path)
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    _write_plist(scripts, "com.crude-tanker-fv.price-refresh")
+
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 1 and "FETCH-FAILED price-refresh: no heartbeat" in flags[0]
+
+    hb_dir = tmp_path / "state" / "heartbeat"
+    hb_dir.mkdir(parents=True)
+    hb = hb_dir / "price-refresh"
+    hb.write_text("ts=x job=price-refresh outcome=ok rc=0 note=\n")
+    assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
+
+    hb.write_text("ts=x job=price-refresh outcome=skipped-dirty rc=0 note=\n")
+    assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []   # a skip is alive
+
+    hb.write_text("ts=x job=price-refresh outcome=error rc=2 note=\n")
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 1 and "last run errored" in flags[0]
+
+    hb.write_text("ts=x job=price-refresh outcome=ok rc=0 note=\n")
+    old = time.time() - 3 * 86400
+    os.utime(hb, (old, old))
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 1 and "heartbeat 3d old" in flags[0]
+
+    # Weekly cadence tolerates a 3d-old heartbeat (9d limit).
+    _write_plist(scripts, "com.crude-tanker-fv.news-pull", weekly=True)
+    (hb_dir / "news-pull").write_text("ts=x job=news-pull outcome=ok rc=0 note=\n")
+    os.utime(hb_dir / "news-pull", (old, old))
+    hb.touch()
+    assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
+
+
+def test_notify_pages_and_ping_withholds_on_send_failure(tmp_path, monkeypatch, capsys):
+    """Invariant 2: PAGE flags email via notify; a failed send withholds the
+    dead-man ping (healthchecks pages by absence)."""
+    import crude_tanker_fv.notify as notify
+    import crude_tanker_fv.sentinel as s
+
+    for k, v in FAKE_ENV.items():
+        monkeypatch.setenv(k, v)
+    monkeypatch.setenv("CRUDE_FV_HEALTHCHECK_URL", "https://hc.example/ping")
+    inputs, outputs = _fixture(tmp_path, trigger_due=True)
+    monkeypatch.setattr(s, "INPUTS_DIR", inputs)
+    monkeypatch.setattr(s, "OUTPUTS_DIR", outputs)
+
+    sent = []
+    monkeypatch.setattr(notify, "send_email", lambda subj, body, **kw:
+                        sent.append((subj, body)) or False)   # send FAILS
+    pings = []
+    monkeypatch.setattr(s, "_urlopen", lambda url, timeout=None: pings.append(url))
+
+    assert s.main(["--notify", "--ping"]) == 1
+    assert len(sent) == 1 and "PAGE: 1 flag(s)" in sent[0][0]
+    assert "TRIGGER-DUE" in sent[0][1]
+    assert not pings
+    assert "PING-WITHHELD" in capsys.readouterr().out
+
+
+def test_ping_fires_on_quiet_run(tmp_path, monkeypatch, capsys):
+    import crude_tanker_fv.sentinel as s
+
+    for k, v in FAKE_ENV.items():
+        monkeypatch.setenv(k, v)
+    monkeypatch.setenv("CRUDE_FV_HEALTHCHECK_URL", "https://hc.example/ping")
+    inputs, outputs = _fixture(tmp_path)
+    monkeypatch.setattr(s, "INPUTS_DIR", inputs)
+    monkeypatch.setattr(s, "OUTPUTS_DIR", outputs)
+    pings = []
+    monkeypatch.setattr(s, "_urlopen", lambda url, timeout=None: pings.append(url))
+
+    assert s.main(["--notify", "--ping"]) == 0
+    assert pings == ["https://hc.example/ping"]
+    assert "PING-SENT" in capsys.readouterr().out
 
 
 def test_exit_codes_and_log_format(tmp_path, monkeypatch):

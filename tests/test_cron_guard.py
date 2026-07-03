@@ -37,6 +37,13 @@ def test_skips_on_pause_file(tmp_path, script):
     r = _run(script, repo)
     assert r.returncode == 0
     assert "SKIPPED: paused" in r.stdout
+    # WO2 0.2 (invariant 1): a SKIP still heartbeats — a standing-down job is
+    # alive; only silence is death. Ledger line carries the manual initiator.
+    job = "price-refresh" if "price" in script.name else "sentinel"
+    hb = (repo / "state" / "heartbeat" / job).read_text()
+    assert f"job={job}" in hb and "outcome=skipped-paused" in hb
+    ledger = (repo / "state" / "automation_runs.log").read_text()
+    assert "initiator=manual:" in ledger and f"job={job}" in ledger
 
 
 @pytest.mark.parametrize("script", SCRIPTS, ids=lambda s: s.name)
@@ -46,3 +53,6 @@ def test_skips_on_dirty_tree(tmp_path, script):
     r = _run(script, repo)
     assert r.returncode == 0
     assert "SKIPPED: dirty-tree" in r.stdout
+    job = "price-refresh" if "price" in script.name else "sentinel"
+    hb = (repo / "state" / "heartbeat" / job).read_text()
+    assert "outcome=skipped-dirty" in hb
