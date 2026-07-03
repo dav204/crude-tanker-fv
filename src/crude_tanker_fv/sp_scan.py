@@ -100,6 +100,24 @@ PRICE_PATTERN = re.compile(r"\$\s*\d{1,3}(?:\.\d+)?\s*[mM]\b|USD\s*\d{1,3}(?:\.\
 # separately) but worth surfacing in their own bucket for the scrap anchor.
 DEMOLITION_PATTERN = re.compile(r"\b(demolition|scrap(?:ped|ping)?|recycl)", re.IGNORECASE)
 
+# Tanker PERIOD-market signals (WO2 1.4) — evidence for the armed
+# tanker_forward_print_lands trigger (the Jun-7 forward hold). Candidate
+# SENTENCES only, never parsed rates — this module ships review queues, not
+# data (auto-parsing would silently mis-file prints). A signal = tanker class
+# + a $/day amount + either a 1-yr/12-mo period-charter phrase or a tanker
+# FFA/route marker. The daily spot table has amounts without period phrases.
+TANKER_CLASS_PATTERN = re.compile(
+    r"\bVLCC[s]?\b|\bsuezmax(?:es)?\b|\baframax(?:es)?\b|\bLR[12][s]?\b"
+    r"|\bMR[s]?\b|\bproduct tanker[s]?\b|\bcrude tanker[s]?\b", re.IGNORECASE)
+TC_PERIOD_PATTERN = re.compile(
+    r"(?:\b(?:1|one)[-\s]?(?:year|yr)\b|\b12[-\s]?month[s]?\b).{0,60}?"
+    r"\b(?:t/?c|time[-\s]?charter|period|charter)\b"
+    r"|\b(?:t/?c|time[-\s]?charter|period)\b.{0,60}?"
+    r"(?:\b(?:1|one)[-\s]?(?:year|yr)\b|\b12[-\s]?month[s]?\b)", re.IGNORECASE)
+TANKER_FFA_PATTERN = re.compile(r"\btanker FFA[s]?\b|\bTD3C?\b|\bTC[0-9]{1,2}\b")
+DAY_RATE_PATTERN = re.compile(r"\$?\s*\d{2,3},\d{3}\s*(?:/|per\s*)\s*d(?:ay)?\b",
+                              re.IGNORECASE)
+
 MIN_SENT, MAX_SENT = 50, 700
 
 # Name-mention scan: per-ticker alias patterns. Pareto's dailies mix US
@@ -184,6 +202,26 @@ def extract_sp_candidates(text: str) -> list[tuple[str, str, bool]]:
     return out
 
 
+def extract_tanker_period_signals(text: str) -> list[tuple[str, str]]:
+    """Pull (kind, sentence) period-market candidates from one report's text;
+    kind = 'period-tc' (1-yr/12-mo charter phrase) or 'tanker-ffa' (FFA/route
+    marker). Same sentence discipline as extract_sp_candidates."""
+    out: list[tuple[str, str]] = []
+    for sent in re.split(r"(?<=[.!?\n])\s+", text):
+        if not DAY_RATE_PATTERN.search(sent):
+            continue
+        s = re.sub(r"\s+", " ", sent).strip()
+        if not (MIN_SENT < len(s) < MAX_SENT):
+            continue
+        if TANKER_CLASS_PATTERN.search(sent) and TC_PERIOD_PATTERN.search(sent):
+            out.append(("period-tc", s))
+        elif TANKER_FFA_PATTERN.search(sent):
+            # A tanker route/paper marker (TD3C, TC2...) IS the class signal —
+            # FFA prose often names the route, not the vessel class.
+            out.append(("tanker-ffa", s))
+    return out
+
+
 def load_scan_state(path: Path = STATE_PATH) -> str | None:
     """Return the cursor date (YYYY-MM-DD) or None if no scan has run."""
     if not path.exists():
@@ -191,11 +229,15 @@ def load_scan_state(path: Path = STATE_PATH) -> str | None:
     return json.loads(path.read_text()).get("last_scanned_report_date")
 
 
-def save_scan_state(report_date: str, path: Path = STATE_PATH) -> None:
-    path.write_text(json.dumps({
-        "last_scanned_report_date": report_date,
-        "updated_at": datetime.now(timezone.utc).isoformat(),
-    }, indent=2) + "\n")
+def save_scan_state(report_date: str, path: Path = STATE_PATH,
+                    extra: dict | None = None) -> None:
+    """Merge-write (WO2 1.4): the state carries additive keys now (tanker
+    period signals) — a cursor-only save must not clobber them."""
+    prior = json.loads(path.read_text()) if path.exists() else {}
+    prior.update(extra or {})
+    prior["last_scanned_report_date"] = report_date
+    prior["updated_at"] = datetime.now(timezone.utc).isoformat()
+    path.write_text(json.dumps(prior, indent=2) + "\n")
 
 
 def select_files(manifest: dict, since: str | None) -> list[dict]:
@@ -208,17 +250,19 @@ def select_files(manifest: dict, since: str | None) -> list[dict]:
 
 
 def run_scan(since: str | None, manifest_path: Path = MANIFEST_PATH,
-             output_path: Path = OUTPUT_PATH) -> tuple[int, int, str | None]:
+             output_path: Path = OUTPUT_PATH
+             ) -> tuple[int, int, str | None, list[dict]]:
     """Scan PDFs after `since`; write the review queue. Returns
-    (n_files_scanned, n_candidates, newest_report_date)."""
+    (n_files_scanned, n_candidates, newest_report_date, tanker_signals)."""
     from pypdf import PdfReader   # deferred: keeps module import light for tests
 
     manifest = json.loads(manifest_path.read_text())
     files = select_files(manifest, since)
     if not files:
-        return 0, 0, None
+        return 0, 0, None, []
 
     hits: dict[str, list[tuple[str, str, bool]]] = {cls: [] for cls in CLASS_KEYWORDS}
+    tanker_signals: list[dict] = []
     newest = since
     for f in files:
         path = ROOT / f["path"]
@@ -230,6 +274,9 @@ def run_scan(since: str | None, manifest_path: Path = MANIFEST_PATH,
             continue   # corrupt/unparseable PDF: skip, do not advance past silently
         for cls, sent, demo in extract_sp_candidates(text):
             hits[cls].append((f["report_date"], sent, demo))
+        for kind, sent in extract_tanker_period_signals(text):
+            tanker_signals.append({"date": f["report_date"], "kind": kind,
+                                   "sentence": sent})
         if newest is None or f["report_date"] > newest:
             newest = f["report_date"]
 
@@ -254,8 +301,18 @@ def run_scan(since: str | None, manifest_path: Path = MANIFEST_PATH,
             tag = " **[DEMOLITION]**" if demo else ""
             lines.append(f"- `{date}`{tag} {sent}")
         lines.append("")
+    if tanker_signals:
+        lines.append(f"## Tanker period-market signals ({len(tanker_signals)})")
+        lines.append("")
+        lines.append("Evidence for trigger `tanker_forward_print_lands` (the Jun-7")
+        lines.append("forward hold) — review, then work the register entry; these are")
+        lines.append("candidate sentences, never auto-ingested rates.")
+        lines.append("")
+        for sig in tanker_signals:
+            lines.append(f"- `{sig['date']}` [{sig['kind']}] {sig['sentence']}")
+        lines.append("")
     output_path.write_text("\n".join(lines))
-    return len(files), n, newest
+    return len(files), n, newest, tanker_signals
 
 
 def extract_name_mentions(text: str, tickers: list[str]) -> list[tuple[str, str]]:
@@ -479,12 +536,25 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     since = None if args.full else (args.since or load_scan_state())
-    n_files, n_hits, newest = run_scan(since)
+    n_files, n_hits, newest, tanker_signals = run_scan(since)
     if n_files == 0:
         print(f"nothing to scan (cursor at {since})")
         return 0
-    save_scan_state(newest)
+    # Accumulate tanker period signals in the state (WO2 1.4) — dedup by
+    # (date, sentence), keep the newest 50; the sentinel reads these as
+    # TRIGGER-EVIDENCE for tanker_forward_print_lands (flag-only — the owner
+    # flips the register, automation never writes reweight_triggers.yaml).
+    prior = json.loads(STATE_PATH.read_text()) if STATE_PATH.exists() else {}
+    merged = {(h["date"], h["sentence"]): h
+              for h in (prior.get("tanker_period_signals") or {}).get("hits", [])}
+    for sig in tanker_signals:
+        merged[(sig["date"], sig["sentence"])] = sig
+    kept = sorted(merged.values(), key=lambda h: h["date"])[-50:]
+    save_scan_state(newest, extra={"tanker_period_signals": {"hits": kept}})
     print(f"scanned {n_files} reports -> {n_hits} candidates -> {OUTPUT_PATH}")
+    if tanker_signals:
+        print(f"{len(tanker_signals)} tanker period-market signal(s) -> "
+              "TRIGGER-EVIDENCE (tanker_forward_print_lands)")
     print(f"cursor advanced to {newest}")
     return 0
 

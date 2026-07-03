@@ -373,6 +373,40 @@ def test_harvester_silence_and_marks_trail(tmp_path):
     assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
 
 
+def test_trigger_evidence_from_tanker_period_signals(tmp_path):
+    """WO2 1.4: scanned period-market signals newer than the tanker hold flag
+    TRIGGER-EVIDENCE; signals predating the hold (or no hold left) are quiet."""
+    from datetime import date as _date
+
+    inputs, outputs = _fixture(tmp_path)
+    (inputs / "market_data" / "ffa_forward_curve.yaml").write_text(yaml.safe_dump({
+        "as_of": {"default": _date(2026, 7, 2), "VLCC": _date(2026, 6, 7),
+                  "Ctr-Feeder": _date(2026, 4, 1)},
+        "ffa_forward_curve": {"VLCC": [1], "Ctr-Feeder": [1]}}))
+    tx = inputs / "market_data" / "transactions"
+    tx.mkdir(parents=True)
+    scan = tx / "_scan_state.json"
+
+    scan.write_text(json.dumps({"tanker_period_signals": {"hits": [
+        {"date": "2026-06-30", "kind": "period-tc", "sentence": "a VLCC fixed..."}]}}))
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 1
+    assert flags[0].startswith("TRIGGER-EVIDENCE tanker_forward_print_lands")
+    assert "since the 2026-06-07 hold" in flags[0]
+
+    scan.write_text(json.dumps({"tanker_period_signals": {"hits": [
+        {"date": "2026-06-01", "kind": "period-tc", "sentence": "pre-hold noise"}]}}))
+    assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
+
+    # Hold resolved (no tanker overrides) — evidence lane retires itself.
+    (inputs / "market_data" / "ffa_forward_curve.yaml").write_text(yaml.safe_dump({
+        "as_of": {"default": _date(2026, 7, 20), "Ctr-Feeder": _date(2026, 4, 1)},
+        "ffa_forward_curve": {"VLCC": [1], "Ctr-Feeder": [1]}}))
+    scan.write_text(json.dumps({"tanker_period_signals": {"hits": [
+        {"date": "2026-07-10", "kind": "tanker-ffa", "sentence": "TD3C FFA..."}]}}))
+    assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
+
+
 def test_pure_mode_keeps_content_checks_drops_machine_local(tmp_path):
     """WO2 0.4: --pure sees dated triggers + committed surfaces; machine-local
     signals (prices fetch age, notify env, heartbeats) are the Mac's job."""

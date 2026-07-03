@@ -332,6 +332,33 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
                              f"through {newest_issue} vs newest promoted print "
                              f"{tx_newest} ({(newest_issue - tx_newest).days}d) — "
                              "triage the weeklies or record why nothing promotes")
+
+    # 9. TRIGGER-EVIDENCE (WO2 1.4) — tanker period-market signals scanned
+    #    from the dailies while a tanker forward hold is in place: evidence
+    #    FOR the armed tanker_forward_print_lands trigger. Flag-only; the
+    #    owner works the register (automation never writes it). Auto-clears
+    #    when the hold resolves (no tanker as_of overrides left).
+    TANKER_CLASSES = {"VLCC", "Suezmax", "Aframax", "LR1", "LR2", "MR",
+                      "Handysize", "Handymax", "LR1_clean", "LR2_clean"}
+    scan_state = inputs_dir / "market_data" / "transactions" / "_scan_state.json"
+    ffa_file = inputs_dir / "market_data" / "ffa_forward_curve.yaml"
+    if scan_state.exists() and ffa_file.exists():
+        import yaml
+
+        a = (yaml.safe_load(ffa_file.read_text()) or {}).get("as_of") or {}
+        tanker_holds = [v for k, v in a.items() if k in TANKER_CLASSES]
+        hits = ((json.loads(scan_state.read_text()).get("tanker_period_signals")
+                 or {}).get("hits") or [])
+        if tanker_holds and hits:
+            hold = min(tanker_holds)
+            fresh = [h for h in hits if h.get("date")
+                     and date.fromisoformat(str(h["date"])[:10]) > hold]
+            if fresh:
+                newest_hit = max(str(h["date"])[:10] for h in fresh)
+                flags.append(f"TRIGGER-EVIDENCE tanker_forward_print_lands: "
+                             f"{len(fresh)} period-market signal(s) in the dailies "
+                             f"since the {hold} hold (newest {newest_hit}) — review "
+                             "outputs/sp_print_candidates.md §Tanker period-market signals")
     return flags
 
 

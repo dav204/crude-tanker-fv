@@ -4,6 +4,7 @@ from crude_tanker_fv.sp_scan import (
     NAME_ALIASES,
     extract_name_mentions,
     extract_sp_candidates,
+    extract_tanker_period_signals,
     load_scan_state,
     save_scan_state,
     select_files,
@@ -48,6 +49,39 @@ def test_scan_state_round_trip(tmp_path):
     assert load_scan_state(state) is None
     save_scan_state("2026-06-08", state)
     assert load_scan_state(state) == "2026-06-08"
+
+
+def test_scan_state_merge_preserves_additive_keys(tmp_path):
+    """WO2 1.4: a cursor-only save must not clobber the tanker-signal hits."""
+    import json
+
+    state = tmp_path / "_scan_state.json"
+    save_scan_state("2026-06-08", state,
+                    extra={"tanker_period_signals": {"hits": [{"date": "2026-06-08"}]}})
+    save_scan_state("2026-06-09", state)   # cursor-only follow-up
+    doc = json.loads(state.read_text())
+    assert doc["last_scanned_report_date"] == "2026-06-09"
+    assert doc["tanker_period_signals"]["hits"] == [{"date": "2026-06-08"}]
+
+
+def test_tanker_period_signal_extraction():
+    """WO2 1.4: 1-yr TC / tanker-FFA prose hits; spot-table noise stays out."""
+    tc = ("Brokers report a modern VLCC was fixed on a 1-year time charter at "
+          "$52,500/day to an oil major, the first period fixture since the ceasefire.")
+    assert [k for k, _ in extract_tanker_period_signals(tc)] == ["period-tc"]
+
+    ffa = ("Tanker FFAs firmed with TD3C paper for Q4 changing hands around "
+           "$48,000/day as period interest returned to the crude space broadly.")
+    assert [k for k, _ in extract_tanker_period_signals(ffa)] == ["tanker-ffa"]
+
+    spot_table = ("Tanker spot rates Scrubber Average of key routes: Yesterday "
+                  "change % VLCC USD/day $285,500 -1.1% Suezmax $124,800 +4.7% "
+                  "Aframax $42,400 -8.2% MR $35,600 +2.7% Market indicators here.")
+    assert extract_tanker_period_signals(spot_table) == []
+
+    dry = ("A capesize was fixed on a 1-year period at $28,000/day yesterday, "
+           "reflecting the firmer FFA curve into the fourth quarter this year.")
+    assert extract_tanker_period_signals(dry) == []
 
 
 def test_name_mentions_alias_aware():
