@@ -1,7 +1,7 @@
 {
   "schema_version": "2.2",
-  "generated_at": "2026-07-03T02:11:13+00:00",
-  "source_commit": "4f15a69",
+  "generated_at": "2026-07-03T13:42:34+00:00",
+  "source_commit": "9755ba3",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 22,
@@ -10,7 +10,8 @@
     "market_event_review": {}
   },
   "rate_basis": [
-    "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean) HELD at the 2026-06-07 vintage \u2014 no market forward print exists (owner decision 2026-07-02, option (i)); refresh on trigger tanker_forward_print_lands. The C-2 rates-layer tanker effect is understated pending the print."
+    "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean) HELD at the 2026-06-07 vintage \u2014 no market forward print exists (owner decision 2026-07-02, option (i)); refresh on trigger tanker_forward_print_lands. The C-2 rates-layer tanker effect is understated pending the print.",
+    "Container TC/value curves (Ctr-Feeder/Ctr-Intermediate/Ctr-Large, here + in twelve_month_tc + vessel_value_curves) FROZEN at the MB Shipbrokers 2026-04-01 vintage; June MB weeklies are staged unparsed in inputs/research_mb/; refresh pending as a cited \u00a711.8 ingest event (trigger container_mb_refresh, due 2026-07-04). Disclosed 2026-07-03 (WO2 R-6a) \u2014 same class as the tanker hold."
   ],
   "weight_family_basis": {
     "status": "current",

@@ -4,6 +4,8 @@
 
 > **Rate basis:** Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean) HELD at the 2026-06-07 vintage — no market forward print exists (owner decision 2026-07-02, option (i)); refresh on trigger tanker_forward_print_lands. The C-2 rates-layer tanker effect is understated pending the print.
 
+> **Rate basis:** Container TC/value curves (Ctr-Feeder/Ctr-Intermediate/Ctr-Large, here + in twelve_month_tc + vessel_value_curves) FROZEN at the MB Shipbrokers 2026-04-01 vintage; June MB weeklies are staged unparsed in inputs/research_mb/; refresh pending as a cited §11.8 ingest event (trigger container_mb_refresh, due 2026-07-04). Disclosed 2026-07-03 (WO2 R-6a) — same class as the tanker hold.
+
 This file lists each name **twice, by design** — once in the **Verdict** (the decision surface: FV vs price, position, tier) and once in the **Validation matrix** below (the per-gate evidence behind that tier). The Verdict is what you act on; the matrix is why. One row per name *within* each table.
 
 ## Verdict — the consolidated read (the decision surface)
