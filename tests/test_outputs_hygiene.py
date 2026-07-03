@@ -26,6 +26,13 @@ def test_committed_handoff_sign_label_coherence():
     path = ROOT / "outputs" / "book_scorecard.json"
     doc = json.loads(path.read_text(encoding="utf-8"))
     assert str(doc["schema_version"]).split(".")[0] == "2"
+    # WO1-F1: the COMMITTED decision surface never points at a state that is
+    # no commit — dirty stamps are for local scratch surfaces only. (The stamp
+    # scopes 'dirty' to the run's determinants, src/ + inputs/; regenerate
+    # from a clean tree before committing outputs.)
+    assert not (doc.get("source_commit") or "").endswith("-dirty"), (
+        "committed book_scorecard.json carries a -dirty source_commit — "
+        "regenerate from clean HEAD before committing the surface")
     # S-2 coverage guard: every name in a reweighted family must CARRY the
     # sign-stability flag — a null next to a run diagnostic was F-13 in
     # miniature (narrative said '⚠', field said null).
