@@ -265,7 +265,7 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
     doc = json.loads((tmp_path / "book_scorecard.json").read_text())
     # String "2.1" — the consumer asserts major == 2 (WO1 Task 1); minor bumps
     # are additive, major bumps break.
-    assert doc["schema_version"] == "2.1"
+    assert doc["schema_version"] == "2.2"
     assert doc["schema_version"].split(".")[0] == "2"
     assert doc["quarter"] == QUARTER
     # Vintage stamp: ISO-8601 UTC + the HEAD hash ('-dirty' allowed).
@@ -366,7 +366,7 @@ def test_weight_fragility_flag_renders_and_reaches_the_json(tmp_path, rows):
                   "SB": {"ev_min_pct": 40.0, "ev_max_pct": 55.0, "ev_sign_stable": True}},
     }))
     frag = load_weight_fragility(tmp_path)
-    assert frag == {"BRUT": False, "SB": True}
+    assert frag["BRUT"]["ev_sign_stable"] is False and frag["SB"]["ev_sign_stable"] is True
 
     text = write_scorecard(rows, outputs_dir=tmp_path, valuation=_synthetic_valuation(rows),
                            fragility=frag).read_text()
@@ -381,6 +381,13 @@ def test_weight_fragility_flag_renders_and_reaches_the_json(tmp_path, rows):
     assert by["BRUT"]["weight_sign_stable"] is False
     assert by["SB"]["weight_sign_stable"] is True
     assert by["DHT"]["weight_sign_stable"] is None
+    # 2.2 (2026-07-03): the family RANGE is the seam datum — the boolean is
+    # derived from it, and the consumer derives its own magnitude judgment
+    # (CCEC: sign-stable BUY everywhere, sized against family_min, not the
+    # point estimate).
+    assert by["BRUT"]["ev_pct_family_min"] == -5.0 and by["BRUT"]["ev_pct_family_max"] == 98.1
+    assert by["SB"]["ev_pct_family_min"] == 40.0
+    assert by["DHT"]["ev_pct_family_min"] is None
 
 
 def test_rate_basis_note_reaches_scorecard_and_json(tmp_path, rows):

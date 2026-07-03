@@ -318,7 +318,7 @@ def update_weight_fragility_sidecar(
     return path
 
 
-def load_weight_fragility(outputs_dir: Path = OUTPUTS_DIR) -> dict[str, bool]:
+def load_weight_fragility(outputs_dir: Path = OUTPUTS_DIR) -> dict[str, dict]:
     """{ticker: ev_sign_stable} from the §9.10 diagnostic's sidecar
     (outputs/weight_robustness.yaml, written by scripts/crude_weight_robustness.py).
 
@@ -334,13 +334,22 @@ def load_weight_fragility(outputs_dir: Path = OUTPUTS_DIR) -> dict[str, bool]:
     if not path.exists():
         return {}
     doc = yaml.safe_load(path.read_text()) or {}
-    return {t: bool(e.get("ev_sign_stable")) for t, e in (doc.get("names") or {}).items()}
+    # Full entries (2026-07-03 seam decision): the RANGE is the datum — the
+    # boolean is derived from it, and the consumer derives its own
+    # magnitude-sensitivity judgment from the same range (a producer choosing
+    # the consumer's threshold is the S-1-class footgun). Sign-unstable →
+    # consumer conviction zero; sign-stable → consumer sizes against
+    # ev_pct_family_min, not the point estimate.
+    return {t: {"ev_sign_stable": bool(e.get("ev_sign_stable")),
+                "ev_min_pct": e.get("ev_min_pct"),
+                "ev_max_pct": e.get("ev_max_pct")}
+            for t, e in (doc.get("names") or {}).items()}
 
 
-def _fragility_cell(ticker: str, fragility: dict[str, bool]) -> str:
+def _fragility_cell(ticker: str, fragility: dict[str, dict]) -> str:
     if ticker not in fragility:
         return "—"
-    return "stable" if fragility[ticker] else "**⚠ sign flips**"
+    return "stable" if fragility[ticker]["ev_sign_stable"] else "**⚠ sign flips**"
 
 
 def handoff_coherence_flags(doc: dict) -> list[str]:
@@ -667,6 +676,7 @@ def _write_handoff_json(
                                          sorder.get(r.sector, 9), r.ticker)):
         v = valuation.get(r.ticker)
         void = r.ticker in NAV_DERIVED_VOID
+        frag = (fragility or {}).get(r.ticker) or {}
         names.append({
             "ticker": r.ticker,
             "sector": r.sector,
@@ -704,9 +714,14 @@ def _write_handoff_json(
                         [{"sleeve": sec, "sector": sec,
                           "fv_contribution_per_share": _num(fv_c)}
                          for sec, fv_c in v.sleeve_fvs.items()]),
-            # null = not in the §9.10 diagnostic; false = EV sign flips across
-            # the weight family (direction is a weight-prior artifact — W-1).
-            "weight_sign_stable": (fragility or {}).get(r.ticker),
+            # null = not in a §9.10 family diagnostic. weight_sign_stable is
+            # THE derived boolean ((min>0)==(max>0)); the family EV range is
+            # the underlying datum, exported so the consumer computes its own
+            # magnitude-sensitivity judgment (2026-07-03: sign-unstable →
+            # conviction zero; sign-stable → size against family_min).
+            "weight_sign_stable": frag.get("ev_sign_stable") if frag else None,
+            "ev_pct_family_min": frag.get("ev_min_pct"),
+            "ev_pct_family_max": frag.get("ev_max_pct"),
         })
     doc = {
         # "2.1" (2026-07-02, WO1 Task 1 — string; the consumer asserts
@@ -715,7 +730,9 @@ def _write_handoff_json(
         # basis + blend_fv (was int 2); governance_discount_pct to percentage
         # POINTS + weight_sign_stable for product/LNG (was int 3);
         # generated_at/source_commit vintage stamp + hybrid sleeves (was int 4).
-        "schema_version": "2.1",
+        # 2.2 (2026-07-03): + ev_pct_family_min/max — the family range as the
+        # seam datum; weight_sign_stable stays the one derived boolean.
+        "schema_version": "2.2",
         **_vintage_stamp(),
         "quarter": quarter,
         "price_basis": price_basis,

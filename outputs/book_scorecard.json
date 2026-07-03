@@ -1,7 +1,7 @@
 {
-  "schema_version": "2.1",
-  "generated_at": "2026-07-03T01:04:50+00:00",
-  "source_commit": "afaa43c-dirty",
+  "schema_version": "2.2",
+  "generated_at": "2026-07-03T01:14:31+00:00",
+  "source_commit": "f6a7ec0-dirty",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 22,
@@ -33,7 +33,9 @@
       "gap_pct": -12.0,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": true
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -38.0,
+      "ev_pct_family_max": -22.4
     },
     {
       "ticker": "ECO",
@@ -54,7 +56,9 @@
       "gap_pct": -21.7,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": true
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -55.7,
+      "ev_pct_family_max": -39.6
     },
     {
       "ticker": "FRO",
@@ -75,7 +79,9 @@
       "gap_pct": -20.9,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": true
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -55.0,
+      "ev_pct_family_max": -37.7
     },
     {
       "ticker": "TNK",
@@ -96,7 +102,9 @@
       "gap_pct": -12.9,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": false
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -2.8,
+      "ev_pct_family_max": 8.3
     },
     {
       "ticker": "SB",
@@ -117,7 +125,9 @@
       "gap_pct": 39.1,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null
+      "weight_sign_stable": null,
+      "ev_pct_family_min": null,
+      "ev_pct_family_max": null
     },
     {
       "ticker": "SBLK",
@@ -138,7 +148,9 @@
       "gap_pct": -3.0,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null
+      "weight_sign_stable": null,
+      "ev_pct_family_min": null,
+      "ev_pct_family_max": null
     },
     {
       "ticker": "CAPT",
@@ -159,7 +171,9 @@
       "gap_pct": -21.8,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": true
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -32.2,
+      "ev_pct_family_max": -1.1
     },
     {
       "ticker": "CMBT",
@@ -196,7 +210,9 @@
           "fv_contribution_per_share": 0.54
         }
       ],
-      "weight_sign_stable": true
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -10.3,
+      "ev_pct_family_max": -2.8
     },
     {
       "ticker": "INSW",
@@ -228,7 +244,9 @@
           "fv_contribution_per_share": 18.5
         }
       ],
-      "weight_sign_stable": true
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -43.8,
+      "ev_pct_family_max": -35.8
     },
     {
       "ticker": "NAT",
@@ -249,7 +267,9 @@
       "gap_pct": -59.1,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": true
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -64.0,
+      "ev_pct_family_max": -53.2
     },
     {
       "ticker": "TEN",
@@ -286,7 +306,9 @@
           "fv_contribution_per_share": 7.24
         }
       ],
-      "weight_sign_stable": true
+      "weight_sign_stable": true,
+      "ev_pct_family_min": 31.3,
+      "ev_pct_family_max": 50.8
     },
     {
       "ticker": "ASC",
@@ -307,7 +329,9 @@
       "gap_pct": -10.2,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": true
+      "weight_sign_stable": true,
+      "ev_pct_family_min": 6.6,
+      "ev_pct_family_max": 13.3
     },
     {
       "ticker": "TRMD",
@@ -328,7 +352,9 @@
       "gap_pct": -9.1,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": false
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -4.4,
+      "ev_pct_family_max": 15.2
     },
     {
       "ticker": "CMDB",
@@ -349,7 +375,9 @@
       "gap_pct": 6.8,
       "governance_discount_pct": 30.0,
       "sleeves": null,
-      "weight_sign_stable": null
+      "weight_sign_stable": null,
+      "ev_pct_family_min": null,
+      "ev_pct_family_max": null
     },
     {
       "ticker": "GNK",
@@ -370,7 +398,9 @@
       "gap_pct": -12.3,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null
+      "weight_sign_stable": null,
+      "ev_pct_family_min": null,
+      "ev_pct_family_max": null
     },
     {
       "ticker": "CCEC",
@@ -391,7 +421,9 @@
       "gap_pct": 17.1,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": true
+      "weight_sign_stable": true,
+      "ev_pct_family_min": 44.9,
+      "ev_pct_family_max": 66.2
     },
     {
       "ticker": "FLNG",
@@ -412,7 +444,9 @@
       "gap_pct": 33.1,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": false
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -4.9,
+      "ev_pct_family_max": 4.7
     },
     {
       "ticker": "GSL",
@@ -433,7 +467,9 @@
       "gap_pct": -24.1,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null
+      "weight_sign_stable": null,
+      "ev_pct_family_min": null,
+      "ev_pct_family_max": null
     },
     {
       "ticker": "MPCC",
@@ -454,7 +490,9 @@
       "gap_pct": -13.8,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null
+      "weight_sign_stable": null,
+      "ev_pct_family_min": null,
+      "ev_pct_family_max": null
     },
     {
       "ticker": "BRUT",
@@ -475,7 +513,9 @@
       "gap_pct": 24.7,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": false
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -61.4,
+      "ev_pct_family_max": 17.3
     },
     {
       "ticker": "HAFN",
@@ -496,7 +536,9 @@
       "gap_pct": -24.6,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": true
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -26.0,
+      "ev_pct_family_max": -11.3
     },
     {
       "ticker": "STNG",
@@ -517,7 +559,9 @@
       "gap_pct": -25.7,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": false
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -8.6,
+      "ev_pct_family_max": 5.6
     }
   ]
 }
