@@ -60,6 +60,11 @@ scratch/
 # git; only derived/parsed artifacts are committed. (2026-06-10)
 inputs/ffa_drybulk/
 
+# EDGAR filing staging (WO2 2.2) — primary docs are .htm so the blanket
+# *.pdf rule does NOT cover them; the whole tree is machine-local staging
+# (state/edgar_manifest.jsonl is the arrival record; promotion is human).
+inputs/filings/
+
 # Vendored harvester tool (broker-weekly parser). SOURCE is tracked (2026-06-23 —
 # Test 1 actively depends on its parser code, so it must be versioned); it is NOT
 # integrated into src/ and runs only on .venv310 (its own deps). Only the crawl

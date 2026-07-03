@@ -41,14 +41,18 @@ def test_log_paths_unique_and_job_named():
 
 
 def test_comment_states_the_actual_schedule():
-    """D-1 class: the human-facing schedule comment must contain the HH:MM the
-    StartCalendarInterval actually encodes (the sentinel plist said 18:30 and
-    fired at 08:15)."""
+    """D-1 class: the human-facing schedule comment must contain the schedule
+    the StartCalendarInterval actually encodes (the sentinel plist said 18:30
+    and fired at 08:15). Hourly jobs (no Hour key) must say 'hourly' + :MM."""
     for path in PLISTS:
         cal = _load(path)["StartCalendarInterval"]
-        hhmm = f"{cal['Hour']:02d}:{cal['Minute']:02d}"
         comments = " ".join(re.findall(r"<!--(.*?)-->", path.read_text(), re.S))
-        assert hhmm in comments, f"{path.name}: comment omits schedule {hhmm}"
+        if "Hour" in cal:
+            hhmm = f"{cal['Hour']:02d}:{cal['Minute']:02d}"
+            assert hhmm in comments, f"{path.name}: comment omits schedule {hhmm}"
+        else:
+            assert "hourly" in comments and f":{cal['Minute']:02d}" in comments, \
+                f"{path.name}: comment omits 'hourly at :{cal['Minute']:02d}'"
 
 
 def test_wrapper_exists_and_committed():

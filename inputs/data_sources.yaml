@@ -85,7 +85,7 @@ DHT:
 ECO:
   ir_home: https://www.okeanisecotankers.com/investors/
   press_releases: https://www.okeanisecotankers.com/news/
-  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=okeanis&type=20-F
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001964954&type=6-K  # CIK resolved 2026-07-03 (WO2 2.2) from SEC company_tickers.json — was a name-search URL
   fleet_page: https://www.okeanisecotankers.com/our-fleet/
   reporting_pattern: Q-end results typically mid-second month of following quarter (Q1 ≈ mid-May; FY ≈ late March)
   notes: Dual-listed Oslo + NYSE; FPI on NYSE. Primary disclosure is Oslo press release; NYSE 6-K follows. Annual 20-F instead of 10-K.
@@ -310,6 +310,7 @@ MPCC:
 GSL:
   ir_page: https://www.globalshiplease.com/investors
   fleet_page: https://www.globalshiplease.com/fleet/ships-contract-cover
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001430725&type=6-K  # CIK added 2026-07-03 (WO2 2.2) — cross-checked vs company_tickers.json AND the q1 PR archive URL below
   q1_2026_pr_sec: https://www.sec.gov/Archives/edgar/data/0001430725/000114036126022621/ef20074666_ex99-1.htm
   reporting_pattern: "NYSE FPI: 20-F annual (FY25 filed 2026-03-20) + 6-K
     quarterly PRs with the FULL 71-vessel charter table (name/TEU/lightweight/

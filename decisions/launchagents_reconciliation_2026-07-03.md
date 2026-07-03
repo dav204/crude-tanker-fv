@@ -58,6 +58,11 @@ jobs:
     installed: false         # owner install pending (same cp+load pattern)
     schedule: "Sat 09:00"
     wrapper: harvester_cron.sh
+  com.crude-tanker-fv.edgar-poll:
+    plist_committed: true    # added WO2 2.2 (2026-07-03)
+    installed: false         # owner install pending (same cp+load pattern)
+    schedule: "hourly :20"
+    wrapper: edgar_poll_cron.sh
 ```
 
 ## Owner install step (human-only, closes D-2)

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.crude-tanker-fv.edgar-poll</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/dan_personal/Projects/crude-tanker-fv/scripts/edgar_poll_cron.sh</string>
+    </array>
+
+    <!-- hourly at :20 — the poller's own cadence filter turns this into
+         2x/day per name off-season and every-run inside an open earnings
+         window (invariant 5: the calendar modulates cadence, never gates
+         detection). Coalesced wakes recover via per-CIK cursors. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Minute</key>
+        <integer>20</integer>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/edgar_poll.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/edgar_poll.err</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>
