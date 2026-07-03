@@ -164,6 +164,9 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   Per-machine "don't ask again" → `.claude/settings.local.json` (gitignored), never the tracked file.
 - **Don't run the pipeline against state you didn't author** — `state/last_run.json` is gitignored and
   quarter-specific.
+- **Headless agents are "constrained, unattended, zero authority"** (2026-07-03): drafts only
+  (`*prereg*.md`, `*.yaml.draft`), no Bash/git/web; ambiguity → "requires human", never silently
+  resolved. Full rules in `.claude/commands/filing-packet.md`.
 - **Don't add error handling for cases that can't happen, or comments explaining what the code does** —
   METHODOLOGY.md carries the why.
 - **Don't drop credential files in the repo.** Secrets (Rocket.Chat PATs, API tokens, broker creds) live
