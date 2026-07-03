@@ -219,6 +219,30 @@ python -m crude_tanker_fv.pipeline 2026-Q1  # → 8 output families
 #   and annotate decisions/{ticker}_log.md with your calls.
 ```
 
+### Operations (unattended watches)
+
+The read-only sentinel answers "does anything need the owner's eyes?" — trigger
+register due/overdue, input staleness, committed-surface coherence, price basis.
+Exit 0 = quiet; 1 = flags on stdout (tags: `TRIGGER-DUE`, `STALE-INPUT`,
+`SURFACE-INCOHERENT`, `PRICE-BASIS`), one log line per run in `state/sentinel.log`:
+
+```sh
+python -m crude_tanker_fv.sentinel --log state/sentinel.log
+```
+
+Daily launchd job (08:15 local, alongside the 18:30 price cron; installation is
+human-only):
+
+```sh
+cp scripts/com.crude-tanker-fv.sentinel.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.crude-tanker-fv.sentinel.plist
+```
+
+Both crons stand down (exit 0, `SKIPPED: dirty-tree|paused` in the log) when the
+working tree is dirty or a `PAUSE` file exists at the repo root — automation
+never runs through live surgery. Every drift-gate re-ratify appends a row to
+`RATIFY_LOG.md` (the consuming repo's monitor reads it).
+
 The 8 output families per pipeline run:
 
 | Output | What it answers |
