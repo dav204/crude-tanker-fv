@@ -23,16 +23,14 @@ export PYTHONUNBUFFERED=1
 JOB=sentinel
 . "$(dirname "$0")/cron_lib.sh"
 
-# Collision guard (WO1 Task 3): identical to the price cron's — automation
-# never runs through live surgery.
+# PAUSE guard (WO1 Task 3). The dirty-tree case is NOT a skip here (WO2 0.3,
+# invariant 3): the sentinel itself detects a dirty tree and runs in META-MODE
+# — content checks suspended, heartbeat/digest/ping still fire, DIRTY-TOO-LONG
+# pages at 36h (12h in an open earnings window). A dirty reconciliation week
+# must not look like death to the dead-man.
 if [ -f "$PROJECT/PAUSE" ]; then
   CRON_OUTCOME=skipped-paused
   echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') SKIPPED: paused"
-  exit 0
-fi
-if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
-  CRON_OUTCOME=skipped-dirty
-  echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') SKIPPED: dirty-tree"
   exit 0
 fi
 

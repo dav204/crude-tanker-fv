@@ -162,47 +162,132 @@ def test_fetch_failed_from_heartbeats(tmp_path):
     assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
 
 
-def test_notify_pages_and_ping_withholds_on_send_failure(tmp_path, monkeypatch, capsys):
-    """Invariant 2: PAGE flags email via notify; a failed send withholds the
-    dead-man ping (healthchecks pages by absence)."""
+def _notify_harness(tmp_path, monkeypatch, sends_succeed=True, **fixture_kw):
+    """Common main(--notify) setup: FAKE env, stubbed send_email, tmp state."""
     import crude_tanker_fv.notify as notify
     import crude_tanker_fv.sentinel as s
 
     for k, v in FAKE_ENV.items():
         monkeypatch.setenv(k, v)
     monkeypatch.setenv("CRUDE_FV_HEALTHCHECK_URL", "https://hc.example/ping")
-    inputs, outputs = _fixture(tmp_path, trigger_due=True)
+    inputs, outputs = _fixture(tmp_path, **fixture_kw)
     monkeypatch.setattr(s, "INPUTS_DIR", inputs)
     monkeypatch.setattr(s, "OUTPUTS_DIR", outputs)
-
     sent = []
     monkeypatch.setattr(notify, "send_email", lambda subj, body, **kw:
-                        sent.append((subj, body)) or False)   # send FAILS
+                        sent.append((subj, body)) or sends_succeed)
     pings = []
     monkeypatch.setattr(s, "_urlopen", lambda url, timeout=None: pings.append(url))
+    return s, inputs, outputs, sent, pings, str(tmp_path / "st.json")
 
-    assert s.main(["--notify", "--ping"]) == 1
-    assert len(sent) == 1 and "PAGE: 1 flag(s)" in sent[0][0]
-    assert "TRIGGER-DUE" in sent[0][1]
+
+def test_notify_pages_and_ping_withholds_on_send_failure(tmp_path, monkeypatch, capsys):
+    """Invariant 2: PAGE flags email via notify; a failed send withholds the
+    dead-man ping (healthchecks pages by absence)."""
+    s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch,
+                                             sends_succeed=False, trigger_due=True)
+    assert s.main(["--notify", "--ping", "--state", st]) == 1
+    assert "PAGE: 1 flag(s)" in sent[0][0] and "TRIGGER-DUE" in sent[0][1]
+    assert len(sent) == 2   # page + the unconditional digest
     assert not pings
     assert "PING-WITHHELD" in capsys.readouterr().out
 
 
-def test_ping_fires_on_quiet_run(tmp_path, monkeypatch, capsys):
-    import crude_tanker_fv.sentinel as s
-
-    for k, v in FAKE_ENV.items():
-        monkeypatch.setenv(k, v)
-    monkeypatch.setenv("CRUDE_FV_HEALTHCHECK_URL", "https://hc.example/ping")
-    inputs, outputs = _fixture(tmp_path)
-    monkeypatch.setattr(s, "INPUTS_DIR", inputs)
-    monkeypatch.setattr(s, "OUTPUTS_DIR", outputs)
-    pings = []
-    monkeypatch.setattr(s, "_urlopen", lambda url, timeout=None: pings.append(url))
-
-    assert s.main(["--notify", "--ping"]) == 0
+def test_ping_fires_on_quiet_run_with_ok_digest(tmp_path, monkeypatch, capsys):
+    """0.3: the digest goes out on an OK day too — the unconditional send is
+    what makes notifier death detectable — and the ping follows it."""
+    s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch)
+    assert s.main(["--notify", "--ping", "--state", st]) == 0
+    assert len(sent) == 1 and "daily digest — OK" in sent[0][0]
+    assert "All checks quiet." in sent[0][1]
     assert pings == ["https://hc.example/ping"]
     assert "PING-SENT" in capsys.readouterr().out
+
+
+def test_dark_period_prefix_after_gap(tmp_path, monkeypatch):
+    """0.3: first digest after a >48h gap says DARK <n> days — accumulated:."""
+    import json as _json
+
+    s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch)
+    assert s.main(["--notify", "--state", st]) == 0
+    doc = _json.loads(Path(st).read_text())
+    doc["last_run"] = (datetime.now(timezone.utc) - timedelta(hours=73)).isoformat()
+    Path(st).write_text(_json.dumps(doc))
+    sent.clear()
+    s.main(["--notify", "--state", st])
+    assert "DARK 3d" in sent[0][0]
+    assert sent[0][1].startswith("DARK 3 days — accumulated:")
+
+
+def test_digest_streak_escalates_once(tmp_path, monkeypatch):
+    """0.3: a digest tag present escalate_after (3) consecutive runs pages
+    ONCE, then stays quiet until the tag clears."""
+    s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch,
+                                             stale_watchlist=True)
+    for _ in range(2):
+        s.main(["--notify", "--state", st])
+    assert not [x for x in sent if "escalated" in x[0]]
+    s.main(["--notify", "--state", st])   # third consecutive run
+    esc = [x for x in sent if "escalated" in x[0]]
+    assert len(esc) == 1 and "STALE-INPUT" in esc[0][0]
+    s.main(["--notify", "--state", st])   # fourth — no re-page
+    assert len([x for x in sent if "escalated" in x[0]]) == 1
+
+
+def test_fetch_failed_promotes_to_page_in_open_window(tmp_path, monkeypatch):
+    """Taxonomy: FETCH-FAILED is digest-class off-season but a blind fetch
+    layer inside an open earnings window pages immediately."""
+    from datetime import date
+
+    s, inputs, outputs, sent, pings, st = _notify_harness(tmp_path, monkeypatch)
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    _write_plist(scripts, "com.crude-tanker-fv.price-refresh")   # no heartbeat → FETCH-FAILED
+    (inputs / "earnings_calendar.yaml").write_text(yaml.safe_dump({
+        "quarter": "2026-Q2",
+        "DHT": {"window_start": date.today(), "window_end": date.today(),
+                "status": "confirmed", "basis": "t"}}))
+    assert s.main(["--notify", "--state", st]) == 1
+    pages = [x for x in sent if " PAGE:" in x[0]]
+    assert len(pages) == 1 and "FETCH-FAILED price-refresh" in pages[0][1]
+
+
+def test_meta_mode_suspends_content_checks_on_dirty_tree(tmp_path, monkeypatch, capsys):
+    """Invariant 3: dirty tree → content checks suspended (a trigger that
+    would flag doesn't), digest still goes out, rc 0."""
+    import subprocess
+
+    s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch, trigger_due=True)
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)   # untracked fixture = dirty
+    assert s.main(["--notify", "--state", st]) == 0
+    out = capsys.readouterr().out
+    assert "META dirty-tree" in out and "TRIGGER-DUE" not in out
+    assert len(sent) == 1 and "daily digest — OK" in sent[0][0]
+    assert "META dirty-tree" in sent[0][1]
+
+
+def test_dirty_too_long_pages_at_36h_and_12h_in_window(tmp_path, monkeypatch, capsys):
+    import json as _json
+    import subprocess
+    from datetime import date
+
+    s, inputs, outputs, sent, pings, st = _notify_harness(tmp_path, monkeypatch,
+                                                          trigger_due=True)
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
+    Path(st).write_text(_json.dumps({
+        "dirty_since": (datetime.now(timezone.utc) - timedelta(hours=40)).isoformat()}))
+    assert s.main(["--state", st]) == 1
+    assert "DIRTY-TOO-LONG" in capsys.readouterr().out
+
+    # Inside an open window the limit tightens to 12h.
+    (inputs / "earnings_calendar.yaml").write_text(yaml.safe_dump({
+        "quarter": "2026-Q2",
+        "DHT": {"window_start": date.today(), "window_end": date.today(),
+                "status": "confirmed", "basis": "t"}}))
+    Path(st).write_text(_json.dumps({
+        "dirty_since": (datetime.now(timezone.utc) - timedelta(hours=13)).isoformat()}))
+    assert s.main(["--state", st]) == 1
+    assert "earnings window open" in capsys.readouterr().out
 
 
 def test_exit_codes_and_log_format(tmp_path, monkeypatch):

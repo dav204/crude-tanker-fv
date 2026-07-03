@@ -22,9 +22,17 @@ the F-13 rule):
      only, never wrapper logs — a missing/stale/errored heartbeat is the
      fetch layer failing silently (the D-2/D-3 class).
 
-With --notify, PAGE-routed flags email the owner (notify.py); with --ping,
-the healthchecks dead-man ping fires ONLY after a completed run whose
-required sends succeeded (invariant 2 — notifier death pages by absence).
+With --notify, PAGE-routed flags email the owner (notify.py) and every run
+sends the daily digest — on OK days too (the unconditional send is what makes
+notifier death detectable); digest tags present escalate_after consecutive
+runs page ONCE; the first digest after a >48h gap carries a DARK prefix.
+With --ping, the healthchecks dead-man ping fires ONLY after a completed run
+whose required sends succeeded (invariant 2 — notifier death pages by absence).
+
+Dirty-tree META-MODE (WO2 0.3, invariant 3): on a dirty tree the content
+checks are suspended (they'd read half-finished surgery), but heartbeat,
+digest, and ping still run — a dirty reconciliation week must not look like
+death. DIRTY-TOO-LONG pages at 36h (12h inside an open earnings window).
 
 Exit 0 = quiet. Nonzero = one status line per flag on stdout. Designed for
 cron via scripts/sentinel_cron.sh (which adds the dirty-tree/PAUSE guard —
@@ -186,6 +194,50 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
     return flags
 
 
+def _tree_dirty(root: Path) -> bool:
+    """git-porcelain dirtiness of the project tree. Not-a-repo reads as clean
+    (normal mode) — the tmp-dir tests and any bare checkout run content checks."""
+    import subprocess
+
+    out = subprocess.run(["git", "-C", str(root), "status", "--porcelain"],
+                         capture_output=True, text=True)
+    return out.returncode == 0 and bool(out.stdout.strip())
+
+
+def _in_earnings_window(inputs_dir: Path) -> bool:
+    """True when any name's reporting window (start−1d .. end+3d, the overdue
+    tail) spans today — tightens DIRTY-TOO-LONG to 12h and promotes
+    FETCH-FAILED to a page: a blind fetch layer in season is an incident."""
+    from datetime import date, timedelta
+
+    import yaml
+
+    path = inputs_dir / "earnings_calendar.yaml"
+    if not path.exists():
+        return False
+    cal = yaml.safe_load(path.read_text()) or {}
+    today = date.today()
+    for v in cal.values():
+        if not isinstance(v, dict) or "window_start" not in v:
+            continue   # the top-level quarter key (restructured out in 2.1/R-5)
+        if v["window_start"] - timedelta(days=1) <= today <= v["window_end"] + timedelta(days=3):
+            return True
+    return False
+
+
+def _load_state(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text())
+
+
+def _save_state(path: Path, state: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(json.dumps(state, indent=1))
+    tmp.replace(path)   # invariant 10: temp+rename, never a half-written cursor
+
+
 _urlopen = None   # stdlib bound lazily; module attr so tests can stub it
 
 
@@ -218,37 +270,106 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--log", type=Path, default=None,
                     help="append one dated status line to this file")
     ap.add_argument("--notify", action="store_true",
-                    help="email PAGE-routed flags to the owner (notify.py routes)")
+                    help="email PAGE-routed flags + the unconditional daily digest")
     ap.add_argument("--ping", action="store_true",
                     help="fire the healthchecks dead-man ping if the run completed "
                          "and required sends succeeded (invariant 2)")
+    ap.add_argument("--state", type=Path, default=Path("state/sentinel_state.json"),
+                    help="run-over-run state (digest streaks, dark gap, dirty-since)")
     args = ap.parse_args(argv)
 
-    flags = collect_flags(INPUTS_DIR, OUTPUTS_DIR)   # module-attr lookup at call time (testable)
+    now = datetime.now(timezone.utc)
+    state = _load_state(args.state)
+    in_window = _in_earnings_window(INPUTS_DIR)
+
+    meta_note = None
+    dirty_since = None
+    if _tree_dirty(INPUTS_DIR.parent):
+        # META-MODE (invariant 3): content checks read half-finished surgery —
+        # suspend them; liveness (heartbeat/digest/ping) must keep running.
+        dirty_since = state.get("dirty_since") or now.isoformat()
+        hours = (now - datetime.fromisoformat(dirty_since)).total_seconds() / 3600
+        limit = 12 if in_window else 36
+        flags = []
+        if hours >= limit:
+            flags.append(f"DIRTY-TOO-LONG tree dirty {hours:.0f}h (limit {limit}h"
+                         f"{', earnings window open' if in_window else ''}) — content "
+                         "checks suspended all this time; finish the surgery or PAUSE")
+        meta_note = (f"META dirty-tree: content checks suspended "
+                     f"(dirty since {dirty_since}, {hours:.0f}h)")
+        print(meta_note)
+    else:
+        flags = collect_flags(INPUTS_DIR, OUTPUTS_DIR)   # module-attr lookup at call time (testable)
     for f in flags:
         print(f)
     if args.log:
         args.log.parent.mkdir(parents=True, exist_ok=True)
-        stamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        stamp = now.isoformat(timespec="seconds")
+        mode = " META-DIRTY" if meta_note else ""
         with args.log.open("a") as fh:
             if flags:
-                fh.write(f"{stamp} FLAG {len(flags)}: " + " | ".join(flags) + "\n")
+                fh.write(f"{stamp}{mode} FLAG {len(flags)}: " + " | ".join(flags) + "\n")
             else:
-                fh.write(f"{stamp} OK\n")
+                fh.write(f"{stamp}{mode} OK\n")
 
     sends_ok = True
-    if args.notify and flags:
+    if args.notify:
         from . import notify
 
         routes = notify.load_routes(INPUTS_DIR)
         page, digest = notify.route_flags(flags, routes)
+        if in_window and any(f.startswith("FETCH-FAILED") for f in digest):
+            # A blind fetch layer in reporting season is an incident, not a digest line.
+            page += [f for f in digest if f.startswith("FETCH-FAILED")]
+            digest = [f for f in digest if not f.startswith("FETCH-FAILED")]
+        prefix = routes["subject_prefix"]
         if page:
             body = "PAGE-class flags:\n" + "\n".join(f"  {f}" for f in page)
             if digest:
                 body += ("\n\nDigest-class also present (detail rides the daily "
                          "digest):\n" + "\n".join(f"  {f}" for f in digest))
-            sends_ok = notify.send_email(
-                f"{routes['subject_prefix']} PAGE: {len(page)} flag(s)", body)
+            sends_ok = notify.send_email(f"{prefix} PAGE: {len(page)} flag(s)", body)
+
+        # Digest-streak escalation (0.3): a tag present escalate_after
+        # consecutive runs pages ONCE, then stays escalated until it clears.
+        streaks_prev = state.get("streaks") or {}
+        escalated = set(state.get("escalated") or [])
+        present = {f.split()[0] for f in digest}
+        streaks = {t: streaks_prev.get(t, 0) + 1 for t in present}
+        escalated &= present   # a cleared tag may escalate again after a new streak
+        overrides = routes.get("escalate_after_overrides") or {}
+        n_default = routes.get("escalate_after", 3)
+        due = sorted(t for t in present
+                     if streaks[t] >= overrides.get(t, n_default) and t not in escalated)
+        if due:
+            body = ("Digest-class tags at their consecutive-run limit "
+                    "(one-time escalation):\n" +
+                    "\n".join(f"  {f}" for f in digest if f.split()[0] in due))
+            if not notify.send_email(f"{prefix} PAGE (escalated): {', '.join(due)}", body):
+                sends_ok = False
+            escalated |= set(due)
+
+        # The unconditional daily digest — sent on OK days too. First run after
+        # a >48h gap carries the DARK prefix (the machine slept; say so).
+        dark_days = 0
+        if state.get("last_run"):
+            gap_h = (now - datetime.fromisoformat(state["last_run"])).total_seconds() / 3600
+            if gap_h > 48:
+                dark_days = int(gap_h // 24)
+        lines = []
+        if dark_days:
+            lines.append(f"DARK {dark_days} days — accumulated:")
+        if meta_note:
+            lines.append(meta_note)
+        lines += [f"  {f}" for f in flags] if flags else ["All checks quiet."]
+        subject = (f"{prefix} daily digest — "
+                   + (f"DARK {dark_days}d — " if dark_days else "")
+                   + (f"{len(flags)} flag(s)" if flags else "OK"))
+        if not notify.send_email(subject, "\n".join(lines)):
+            sends_ok = False
+        _save_state(args.state, {"last_run": now.isoformat(), "streaks": streaks,
+                                 "escalated": sorted(escalated),
+                                 "dirty_since": dirty_since})
     if args.ping:
         _ping(sends_ok)
     return 1 if flags else 0

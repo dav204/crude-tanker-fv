@@ -25,10 +25,13 @@ routes:
     - TRIGGER-EVIDENCE
     - CALENDAR-UNSEEDED
     - EARNINGS-DUE
-    - FETCH-FAILED        # escalates to PAGE at 2 consecutive / in open windows (0.2)
+    - FETCH-FAILED        # override below: pages at 2 consecutive; promoted to
+                          # PAGE immediately inside an open earnings window
     - DISK-PRESSURE
   record_only:     # state log only, never mailed (delivery failure can't
                    # page through the channel that failed — the healthchecks
                    # ping-withhold is its pager)
     - NOTIFY-DOWN
 escalate_after: 3  # a DIGEST tag present N consecutive runs pages ONCE (0.3)
+escalate_after_overrides:
+  FETCH-FAILED: 2  # a fetch layer down two days running is already an incident

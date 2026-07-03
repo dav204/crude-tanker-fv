@@ -46,13 +46,17 @@ def test_skips_on_pause_file(tmp_path, script):
     assert "initiator=manual:" in ledger and f"job={job}" in ledger
 
 
-@pytest.mark.parametrize("script", SCRIPTS, ids=lambda s: s.name)
+# Dirty-tree: price-refresh only. The sentinel deliberately does NOT skip on a
+# dirty tree (WO2 0.3, invariant 3) — it runs in META-MODE inside python
+# (content checks suspended, digest/ping alive, DIRTY-TOO-LONG at 36h/12h);
+# covered in tests/test_sentinel.py.
+@pytest.mark.parametrize("script", [s for s in SCRIPTS if "price" in s.name],
+                         ids=lambda s: s.name)
 def test_skips_on_dirty_tree(tmp_path, script):
     repo = _tmp_repo(tmp_path)
     (repo / "a.txt").write_text("modified\n")
     r = _run(script, repo)
     assert r.returncode == 0
     assert "SKIPPED: dirty-tree" in r.stdout
-    job = "price-refresh" if "price" in script.name else "sentinel"
-    hb = (repo / "state" / "heartbeat" / job).read_text()
+    hb = (repo / "state" / "heartbeat" / "price-refresh").read_text()
     assert "outcome=skipped-dirty" in hb
