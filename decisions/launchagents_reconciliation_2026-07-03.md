@@ -53,6 +53,11 @@ jobs:
     installed: false         # D-2 — owner install pending (commands below)
     schedule: "daily 08:15"
     wrapper: sentinel_cron.sh
+  com.crude-tanker-fv.harvester:
+    plist_committed: true    # added WO2 1.3 (2026-07-03)
+    installed: false         # owner install pending (same cp+load pattern)
+    schedule: "Sat 09:00"
+    wrapper: harvester_cron.sh
 ```
 
 ## Owner install step (human-only, closes D-2)

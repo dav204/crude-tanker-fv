@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.crude-tanker-fv.harvester</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/dan_personal/Projects/crude-tanker-fv/scripts/harvester_cron.sh</string>
+    </array>
+
+    <!-- Saturday 09:00 — after the 08:00 news-pull chain; broker weeklies hit
+         the free mirrors with a few days' latency, so a weekly Saturday crawl
+         keeps data/manifest.jsonl within the sentinel's 10d silence limit. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>6</integer>
+        <key>Hour</key>
+        <integer>9</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/harvester_cron.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/harvester_cron.err</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

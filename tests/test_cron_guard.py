@@ -13,7 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 JOBS = {"price_refresh_cron.sh": "price-refresh",
         "sentinel_cron.sh": "sentinel",
         "ingest_rocketchat_cron.sh": "rocketchat-ingest",
-        "news_pull_cron.sh": "news-pull"}
+        "news_pull_cron.sh": "news-pull",
+        "harvester_cron.sh": "harvester"}
 SCRIPTS = [ROOT / "scripts" / name for name in sorted(JOBS)]
 
 

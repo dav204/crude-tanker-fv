@@ -5,6 +5,15 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-03 — Xclusiv geometry confirmed on a live issue (WO2 1.3 landing condition):**
+  `cli inspect` on `data/pdfs/xclusiv/2026W26_0670764b.pdf` — pdfplumber detects the ruled
+  grids (newbuilding orders table 11×8; BC/tanker S&P sales tables 8-col with clean rows),
+  and the poppler text layer carries the production parser's section keys (`DRY SECONDHAND`
+  ×1, `TANKER SECONDHAND` ×1, `Resale` ×10, `5 Year` ×16 — parse/xclusiv.py:119 keys off
+  exactly these; WET SECONDHAND is the alternate label, correctly absent). The documented
+  parser caveat (xclusiv.py:18-20) is closed for the current issue format. Harvester UA
+  placeholder also fixed to a real contact (config.py:26, the fetch_pdf.py:54 precedent).
+
 - **2026-07-03 — RECORD NOTE (WO1-F3):** commit `afaa43c`'s message says "schema v3" — an
   integer dev-iteration label that never shipped as a contract version. The handoff schema
   went 2 (int) → "2.1" → "2.2" (strings, major-2 asserted by the consumer); the transient

@@ -341,6 +341,38 @@ def test_source_silence_per_feed(tmp_path):
     assert any("baltic_indexes" in f and "9d silent (limit 3d)" in f for f in flags)
 
 
+def test_harvester_silence_and_marks_trail(tmp_path):
+    """WO2 1.3: mirror silence >10d flags; broker issues staged >7d past the
+    newest PROMOTED transaction print flag the marks trail; fresh both = quiet."""
+    from datetime import date
+
+    inputs, outputs = _fixture(tmp_path)
+    sh = tmp_path / "shipping_harvester" / "data"
+    sh.mkdir(parents=True)
+    manifest = sh / "manifest.jsonl"
+
+    manifest.write_text(json.dumps(
+        {"published": (date.today() - timedelta(days=15)).isoformat()}) + "\n")
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 1 and flags[0].startswith("STALE-INPUT harvester")
+
+    manifest.write_text(
+        json.dumps({"published": (date.today() - timedelta(days=2)).isoformat()})
+        + "\nnot-json garbage line\n")
+    tx = inputs / "market_data" / "transactions"
+    tx.mkdir(parents=True)
+    (tx / "aframax.yaml").write_text(yaml.safe_dump({
+        "class": "Aframax",
+        "prints": [{"date": date.today() - timedelta(days=30),
+                    "sale_price_usd_m": 40.0}]}))
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 1 and flags[0].startswith("UNINGESTED-PRINTS marks-trail")
+
+    (tx / "aframax.yaml").write_text(yaml.safe_dump({
+        "prints": [{"date": date.today() - timedelta(days=1)}]}))
+    assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
+
+
 def test_pure_mode_keeps_content_checks_drops_machine_local(tmp_path):
     """WO2 0.4: --pure sees dated triggers + committed surfaces; machine-local
     signals (prices fetch age, notify env, heartbeats) are the Mac's job."""

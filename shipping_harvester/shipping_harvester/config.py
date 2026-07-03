@@ -23,7 +23,7 @@ FACTOR_PARQUET = DATA_ROOT / "factor_marks.parquet"  # resolved -> factor schema
 @dataclass(frozen=True)
 class RequestPolicy:
     user_agent: str = (
-        "shipping-harvester/0.1 (personal research; contact: you@example.com)"
+        "shipping-harvester/0.1 (personal research; contact: dav204@gmail.com)"
     )
     min_interval_s: float = 2.0   # min delay between requests to the SAME host
     timeout_s: float = 30.0

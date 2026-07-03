@@ -291,6 +291,47 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
             elif (today - newest).days > (10 if s["expect_cadence"] == "weekly" else 3):
                 flags.append(f"STALE-INPUT {s['name']}: newest artifact {newest} "
                              f"({(today - newest).days}d, cadence {s['expect_cadence']}){who}")
+
+    # Harvester lanes (WO2 1.3) — mirror silence (10d incl mirror latency) +
+    # the marks trail: broker weeklies staged newer than the newest PROMOTED
+    # transaction print by >7d means S&P sections are sitting untriaged.
+    manifest = inputs_dir.parent / "shipping_harvester" / "data" / "manifest.jsonl"
+    if manifest.exists():
+        pubs = []
+        for line in manifest.read_text().splitlines():
+            try:
+                p = json.loads(line).get("published")
+            except Exception:
+                continue
+            if p:
+                pubs.append(date.fromisoformat(str(p)[:10]))
+        if pubs:
+            newest_issue = max(pubs)
+            silent = (date.today() - newest_issue).days
+            if silent > 10:
+                flags.append(f"STALE-INPUT harvester: newest broker issue {newest_issue} "
+                             f"({silent}d; limit 10d incl mirror latency) — crawl "
+                             "missing or mirrors dry")
+            tx_newest = None
+            tx_dir = inputs_dir / "market_data" / "transactions"
+            if tx_dir.exists():
+                import yaml
+
+                for f in sorted(tx_dir.glob("[a-z]*.yaml")):
+                    if f.name == "_template.yaml":
+                        continue
+                    for val in (yaml.safe_load(f.read_text()) or {}).values():
+                        if isinstance(val, list):
+                            for p in val:
+                                if isinstance(p, dict) and p.get("date"):
+                                    d = date.fromisoformat(str(p["date"])[:10])
+                                    if tx_newest is None or d > tx_newest:
+                                        tx_newest = d
+            if tx_newest and (newest_issue - tx_newest).days > 7:
+                flags.append(f"UNINGESTED-PRINTS marks-trail: broker issues staged "
+                             f"through {newest_issue} vs newest promoted print "
+                             f"{tx_newest} ({(newest_issue - tx_newest).days}d) — "
+                             "triage the weeklies or record why nothing promotes")
     return flags
 
 
