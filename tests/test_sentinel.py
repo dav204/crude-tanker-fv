@@ -252,6 +252,95 @@ def test_fetch_failed_promotes_to_page_in_open_window(tmp_path, monkeypatch):
     assert len(pages) == 1 and "FETCH-FAILED price-refresh" in pages[0][1]
 
 
+def test_stuck_quote_flags_lagging_asof(tmp_path):
+    """WO2 1.2 (D-3): a per-ticker asof lagging the run stamp past any weekend
+    is a quote nobody is actually fetching — carried-over or Yahoo-static."""
+    inputs, outputs = _fixture(tmp_path)
+    fetched = datetime.now(timezone.utc)
+    (inputs / "market_data" / "prices_daily.yaml").write_text(yaml.safe_dump({
+        "fetched_at": fetched.isoformat(timespec="seconds"),
+        "prices": {
+            "DHT": {"price": 16.5, "asof": fetched.isoformat(timespec="seconds")},
+            "TEN": {"price": 20.0, "carried_over": True,
+                    "asof": (fetched - timedelta(days=6)).isoformat(timespec="seconds")}}}))
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 1
+    assert "TEN stuck quote" in flags[0] and "carried-over" in flags[0]
+
+
+def test_uningested_prints_pareto_lane(tmp_path):
+    """WO2 1.2: dailies staged >7d past spot_tce's as_of.default flag; held
+    classes live in overrides and never trip this lane."""
+    from datetime import date
+
+    inputs, outputs = _fixture(tmp_path)
+    staged = inputs / "research_pareto" / "2026" / "07"
+    staged.mkdir(parents=True)
+    (staged / f"{date.today().isoformat()}_Periodical-ShippingDaily.pdf").write_bytes(b"x")
+
+    (inputs / "market_data" / "spot_tce.yaml").write_text(yaml.safe_dump({
+        "as_of": {"default": date.today() - timedelta(days=20),
+                  "LNGC": date.today() - timedelta(days=40)},   # held — must not flag
+        "spot_tce": {"VLCC": 100000, "LNGC": 40000}}))
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 1 and flags[0].startswith("UNINGESTED-PRINTS spot_tce.yaml")
+
+    (inputs / "market_data" / "spot_tce.yaml").write_text(yaml.safe_dump({
+        "as_of": {"default": date.today() - timedelta(days=3)},
+        "spot_tce": {"VLCC": 100000}}))
+    assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
+
+
+def test_uningested_prints_ocr_lane(tmp_path):
+    from datetime import date
+
+    inputs, outputs = _fixture(tmp_path)
+    (inputs / "market_data" / "ffa_forward_curve.yaml").write_text(yaml.safe_dump({
+        "as_of": {"default": date.today() - timedelta(days=20)},
+        "ffa_forward_curve": {"Cape": [1, 2]}}))
+    state = tmp_path / "state"
+    state.mkdir(exist_ok=True)
+    (state / "ffa_ocr_curves.json").write_text(json.dumps(
+        {date.today().isoformat(): {"Cape": {}}, "not-a-date": {}}))
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 1 and flags[0].startswith("UNINGESTED-PRINTS ffa_forward_curve.yaml")
+
+
+def test_source_silence_per_feed(tmp_path):
+    """WO2 1.2: per-source silence off the staged artifacts themselves —
+    business-day aware for daily feeds, explicit silence_days respected."""
+    from datetime import date
+
+    inputs, outputs = _fixture(tmp_path)
+    (inputs / "rocketchat_sources.yaml").write_text(yaml.safe_dump({
+        "sources": [
+            {"name": "pareto_research", "kind": "file", "single_sender": True,
+             "dest_dir": "inputs/research_pareto", "expect_cadence": "business-daily"},
+            {"name": "baltic_indexes", "kind": "text", "silence_days": 3,
+             "dest_file": "inputs/market_data/baltic.csv",
+             "expect_cadence": "business-daily"}]}))
+
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 2 and all("no staged artifacts" in f for f in flags)
+
+    staged = inputs / "research_pareto" / "2026"
+    staged.mkdir(parents=True)
+    (staged / f"{date.today().isoformat()}_x.pdf").write_bytes(b"x")
+    (inputs / "market_data" / "baltic.csv").write_text(
+        f"date,BDI\n{date.today().isoformat()},2500\n")
+    assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
+
+    old = (date.today() - timedelta(days=9)).isoformat()
+    (staged / f"{date.today().isoformat()}_x.pdf").unlink()
+    (staged / f"{old}_x.pdf").write_bytes(b"x")
+    (inputs / "market_data" / "baltic.csv").write_text(f"date,BDI\n{old},2500\n")
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 2
+    pareto = next(f for f in flags if "pareto_research" in f)
+    assert "business days silent" in pareto and "single-sender" in pareto
+    assert any("baltic_indexes" in f and "9d silent (limit 3d)" in f for f in flags)
+
+
 def test_pure_mode_keeps_content_checks_drops_machine_local(tmp_path):
     """WO2 0.4: --pure sees dated triggers + committed surfaces; machine-local
     signals (prices fetch age, notify env, heartbeats) are the Mac's job."""

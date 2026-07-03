@@ -16,6 +16,27 @@
 # Structured staleness surface (read by scorecard.rate_basis_notes -> the
 # scorecard header + JSON handoff; the mtime-based preflight cannot see a held
 # VALUE behind a fresh file edit).
+# Machine vintage (WO2 1.2) — structured mirror of vintage_notes; read by the
+# sentinel's OCR->FFA UNINGESTED-PRINTS lane (newest parsed widget vs default).
+# Held classes carry their own trigger (tanker_forward_print_lands /
+# container_mb_refresh); agreement with vintage_notes is suite-tested.
+as_of:
+  default: 2026-07-02
+  VLCC: 2026-06-07
+  Suezmax: 2026-06-07
+  Aframax: 2026-06-07
+  LR2: 2026-06-07
+  LR1: 2026-06-07
+  MR: 2026-06-07
+  Handysize: 2026-06-07
+  Handymax: 2026-06-07
+  LR1_clean: 2026-06-07
+  LR2_clean: 2026-06-07
+  LNGC: 2026-06-07
+  MGC: 2026-06-07
+  Ctr-Feeder: 2026-04-01
+  Ctr-Intermediate: 2026-04-01
+  Ctr-Large: 2026-04-01
 vintage_notes:
   - "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean)
     HELD at the 2026-06-07 vintage — no market forward print exists (owner decision

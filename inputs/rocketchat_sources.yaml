@@ -9,24 +9,37 @@
 host: https://rc.seekingalpha.com
 group: value-investor-s-edge
 
+# Cadence keys (WO2 1.2) — read by the sentinel's source-silence check:
+#   expect_cadence: business-daily | daily | weekly (documentation + default
+#     silence threshold: 2 business days / 3 days / 10 days)
+#   silence_days: explicit calendar-day override of that default
+#   single_sender: the feed rides ONE person's posting habit — carried into
+#     the flag text so the digest says what actually broke.
 sources:
   - name: pareto_research
     kind: file
     sender: Immo.Schroeder
     accept: [pdf]
     dest_dir: inputs/research_pareto
+    expect_cadence: business-daily
+    single_sender: true
 
   - name: ffa_drybulk
     kind: file
     sender: Joeri.van.der.Sman
     accept: [image]
     dest_dir: inputs/ffa_drybulk
+    expect_cadence: business-daily
+    silence_days: 3
+    single_sender: true
 
   - name: baltic_indexes
     kind: text
     senders: [John.Pace, Chris.Palun]
     parser: baltic_indexes
     dest_file: inputs/market_data/baltic_indexes_daily.csv
+    expect_cadence: business-daily
+    silence_days: 3
     # When multiple senders post for the same date, higher priority wins.
     priority:
       John.Pace: 2

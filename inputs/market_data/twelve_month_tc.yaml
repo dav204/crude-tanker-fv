@@ -7,6 +7,26 @@
 # tracked via the refresh preflight market-data staleness check). DRY BULK is
 # refreshed from the 2-Jul FFA OCR widget (status ok, outputs/ffa_ocr_queue.md):
 # 12M TC proxy = mean of the Qn/Qf quarterly tenors.
+# Machine vintage (WO2 1.2) — structured mirror of the per-row comments; see
+# spot_tce.yaml's as_of block for semantics. The tanker holds are tracked by
+# trigger tanker_forward_print_lands; containers by container_mb_refresh.
+as_of:
+  default: 2026-07-02
+  VLCC: 2026-06-07
+  Suezmax: 2026-06-07
+  Aframax: 2026-06-07
+  LR2: 2026-06-07
+  LR1: 2026-06-07
+  LNGC: 2026-06-07
+  MGC: 2026-06-07
+  MR: 2026-06-07
+  Handysize: 2026-06-07
+  Handymax: 2026-06-07
+  LR1_clean: 2026-06-07
+  LR2_clean: 2026-06-07
+  Ctr-Feeder: 2026-04-01
+  Ctr-Intermediate: 2026-04-01
+  Ctr-Large: 2026-04-01
 twelve_month_tc:
   VLCC: 111500          # STALE Jun-7 war vintage — held, no 2-Jul TC print (see header)
   Suezmax: 61250        # STALE Jun-7 — held

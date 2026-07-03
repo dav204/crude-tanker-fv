@@ -8,6 +8,19 @@
 # (inputs/research_pareto/2026/07/2026-07-02_Periodical-ShippingDaily-2026-07-02-509255.pdf,
 # p.1 "Average of key routes", ECO no-scrubber column — the scrubber premium lives on
 # the VALUE side via per-vessel flags, not in the rate benchmark) except where noted.
+# Machine vintage (WO2 1.2) — the structured mirror of the per-row comments;
+# read by the sentinel's UNINGESTED-PRINTS lane (newest staged Pareto daily vs
+# default) + agreement-tested against the held-class comments. default = the
+# last deliberate refresh EVENT; overrides = classes deliberately held at an
+# older vintage (their staleness is tracked by their own trigger/note, not
+# by the lane). Top-level sibling key — invisible to loaders._scalar_map.
+as_of:
+  default: 2026-07-02
+  LNGC: 2026-06-07          # held — no LNG spot print in the 2-Jul daily
+  MGC: 2026-06-07           # held, as LNGC
+  Ctr-Feeder: 2026-04-01    # MB frozen vintage (trigger container_mb_refresh)
+  Ctr-Intermediate: 2026-04-01
+  Ctr-Large: 2026-04-01
 spot_tce:
   VLCC: 285500          # TD3C eco (Pareto 2-Jul; -1.1% d/d). MEG-China war premium only
                         # partially unwound (TD22 USG-China printed $127,600 same day).

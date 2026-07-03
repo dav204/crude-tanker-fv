@@ -165,7 +165,11 @@ def run_refresh(inputs_dir: Path = INPUTS_DIR) -> tuple[int, int, int]:
             failed += 1
             print(f"{ticker:6s} FETCH FAILED ({exc}); keeping previous entry", file=sys.stderr)
             if ticker in previous:
-                prices[ticker] = previous[ticker]
+                # Mark the carry (WO2 1.2, D-3): a re-served old quote must be
+                # distinguishable from a fresh one — the sentinel's stuck-quote
+                # check reads this + the asof lag. Cleared on the next success
+                # (the whole entry is replaced).
+                prices[ticker] = dict(previous[ticker], carried_over=True)
             continue
         static = entry.get("current_price")
         flag = sanity_flag(quote, float(static) if static else None)

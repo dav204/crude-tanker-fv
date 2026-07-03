@@ -44,7 +44,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from .loaders import INPUTS_DIR, load_watchlist
@@ -164,6 +164,20 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
             age = datetime.now(timezone.utc) - datetime.fromisoformat(str(fetched))
             if age.days >= PRICE_FETCH_STALE_DAYS:
                 flags.append(f"PRICE-BASIS fetch is {age.days}d old ({fetched}) — cron missed?")
+            # Per-ticker stuck quote (WO2 1.2, D-3): a carried-over failure or a
+            # Yahoo static keeps its old asof — an asof lagging the run stamp
+            # past any weekend is a quote nobody is actually fetching. Date
+            # arithmetic on the date parts (asof carries an exchange offset).
+            fetched_d = date.fromisoformat(str(fetched)[:10])
+            for t, q in sorted((pdoc.get("prices") or {}).items()):
+                asof = q.get("asof") if isinstance(q, dict) else None
+                if not asof:
+                    continue
+                lag = (fetched_d - date.fromisoformat(str(asof)[:10])).days
+                if lag > 4:
+                    carried = " (carried-over failure)" if q.get("carried_over") else ""
+                    flags.append(f"PRICE-BASIS {t} stuck quote: asof {str(asof)[:10]} "
+                                 f"lags the {fetched_d} fetch by {lag}d{carried}")
         else:
             flags.append("PRICE-BASIS prices file carries no fetched_at")
 
@@ -218,6 +232,65 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
         elif "outcome=error" in hb.read_text():
             flags.append(f"FETCH-FAILED {job}: last run errored "
                          f"({hb.read_text().strip()})")
+
+    # 7. UNINGESTED-PRINTS (WO2 1.2) — staged material more than 7d newer than
+    #    a determinant's last deliberate refresh EVENT (as_of.default). Held
+    #    classes are excluded by construction: they live in as_of overrides
+    #    and are tracked by their own named trigger, not this lane.
+    pareto_newest = _newest_dated_file(inputs_dir / "research_pareto")
+    if pareto_newest:
+        for fname in ("spot_tce.yaml", "twelve_month_tc.yaml"):
+            a = _as_of_default(inputs_dir, fname)
+            if a and (pareto_newest - a).days > 7:
+                flags.append(f"UNINGESTED-PRINTS {fname}: Pareto dailies staged through "
+                             f"{pareto_newest} vs as_of {a} ({(pareto_newest - a).days}d) "
+                             "— promote from the newest daily or annotate the hold")
+    curves = inputs_dir.parent / "state" / "ffa_ocr_curves.json"
+    if curves.exists():
+        import re as _re
+
+        dates = [k for k in json.loads(curves.read_text() or "{}")
+                 if _re.match(r"\d{4}-\d{2}-\d{2}$", str(k))]
+        a = _as_of_default(inputs_dir, "ffa_forward_curve.yaml")
+        if dates and a:
+            ocr_newest = date.fromisoformat(max(dates))
+            if (ocr_newest - a).days > 7:
+                flags.append(f"UNINGESTED-PRINTS ffa_forward_curve.yaml: OCR widget "
+                             f"parsed {ocr_newest} vs as_of {a} "
+                             f"({(ocr_newest - a).days}d) — review outputs/ffa_ocr_queue.md")
+
+    # 8. Source-silence (WO2 1.2) — per-source cadence from rocketchat_sources
+    #    (the mtime file check can't see WHICH feed went quiet; this reads the
+    #    staged artifacts themselves).
+    rc_cfg = inputs_dir / "rocketchat_sources.yaml"
+    if rc_cfg.exists():
+        import yaml
+
+        today = date.today()
+        for s in (yaml.safe_load(rc_cfg.read_text()) or {}).get("sources", []):
+            if "expect_cadence" not in s:
+                continue
+            if s.get("dest_dir"):
+                newest = _newest_dated_file(inputs_dir.parent / s["dest_dir"])
+            else:
+                newest = _newest_csv_date(inputs_dir.parent / s["dest_file"])
+            who = " — single-sender feed, check the channel" if s.get("single_sender") else ""
+            if newest is None:
+                flags.append(f"STALE-INPUT {s['name']}: no staged artifacts at all{who}")
+                continue
+            silence = s.get("silence_days")
+            if silence is not None:
+                if (today - newest).days > silence:
+                    flags.append(f"STALE-INPUT {s['name']}: newest artifact {newest}, "
+                                 f"{(today - newest).days}d silent (limit {silence}d){who}")
+            elif s["expect_cadence"] == "business-daily":
+                bd = _business_days_between(newest, today)
+                if bd > 2:
+                    flags.append(f"STALE-INPUT {s['name']}: newest artifact {newest}, "
+                                 f"{bd} business days silent (limit 2){who}")
+            elif (today - newest).days > (10 if s["expect_cadence"] == "weekly" else 3):
+                flags.append(f"STALE-INPUT {s['name']}: newest artifact {newest} "
+                             f"({(today - newest).days}d, cadence {s['expect_cadence']}){who}")
     return flags
 
 
@@ -250,6 +323,61 @@ def _in_earnings_window(inputs_dir: Path) -> bool:
         if v["window_start"] - timedelta(days=1) <= today <= v["window_end"] + timedelta(days=3):
             return True
     return False
+
+
+def _as_of_default(inputs_dir: Path, filename: str):
+    """The `as_of.default` of a market-data file (WO2 1.2) — the date of its
+    last deliberate refresh EVENT. None when the file carries no as_of block
+    (legacy fixtures, other files) — lanes stay silent rather than guess."""
+    import yaml
+
+    path = inputs_dir / "market_data" / filename
+    if not path.exists():
+        return None
+    doc = yaml.safe_load(path.read_text()) or {}
+    a = doc.get("as_of")
+    return a.get("default") if isinstance(a, dict) else None
+
+
+def _newest_dated_file(root: Path):
+    """Newest ISO-date filename prefix under a staging tree, at any depth."""
+    import re
+
+    best = None
+    if not root.exists():
+        return None
+    for p in root.rglob("*"):
+        m = re.match(r"(\d{4}-\d{2}-\d{2})", p.name)
+        if m:
+            d = date.fromisoformat(m.group(1))
+            if best is None or d > best:
+                best = d
+    return best
+
+
+def _newest_csv_date(path: Path):
+    """Max value of a leading ISO-date column in a date-keyed CSV."""
+    if not path.exists():
+        return None
+    best = None
+    for line in path.read_text().splitlines()[1:]:
+        head = line.split(",", 1)[0]
+        try:
+            d = date.fromisoformat(head)
+        except ValueError:
+            continue
+        if best is None or d > best:
+            best = d
+    return best
+
+
+def _business_days_between(a: date, b: date) -> int:
+    n, d = 0, a
+    while d < b:
+        d += timedelta(days=1)
+        if d.weekday() < 5:
+            n += 1
+    return n
 
 
 def _load_state(path: Path) -> dict:
