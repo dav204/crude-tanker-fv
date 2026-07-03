@@ -33,6 +33,11 @@ def test_committed_handoff_sign_label_coherence():
     assert not (doc.get("source_commit") or "").endswith("-dirty"), (
         "committed book_scorecard.json carries a -dirty source_commit — "
         "regenerate from clean HEAD before committing the surface")
+    # WO1-F4: the committed surface's family fields match their determinants —
+    # a stale/unstamped sidecar may never ship as current.
+    assert (doc.get("weight_family_basis") or {}).get("status") == "current", (
+        "committed surface shipped with a non-current weight-family sidecar — "
+        "re-run the family diagnostics against the current scenario_inputs.yaml")
     # S-2 coverage guard: every name in a reweighted family must CARRY the
     # sign-stability flag — a null next to a run diagnostic was F-13 in
     # miniature (narrative said '⚠', field said null).

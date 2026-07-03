@@ -36,7 +36,7 @@ from .refresh import (
     check_watchlist_freshness,
 )
 from .report import OUTPUTS_DIR
-from .scorecard import handoff_coherence_flags
+from .scorecard import handoff_coherence_flags, weight_family_basis
 
 PRICE_FETCH_STALE_DAYS = 2   # daily cron: a fetch older than this means it missed
 
@@ -100,6 +100,16 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
             if pw is not None and abs(pw - n["fv"]) > 0.011:
                 flags.append(f"SURFACE-INCOHERENT {n['ticker']}: JSON fv {n['fv']} != "
                              f"scenario-doc PW FV {pw}")
+
+    # 3b. Sidecar vintage (WO1-F4) — the §9.10 fragility sidecar must be
+    #     computed against the CURRENT scenario_inputs.yaml; a lagging family
+    #     means the shipped W-frag/range fields are withheld and the family
+    #     scripts owe a re-run.
+    fb = weight_family_basis(outputs_dir, inputs_dir)
+    if fb["status"] != "current":
+        flags.append(f"SIDECAR-STALE weight-family sidecar {fb['status']} vs "
+                     f"scenario_inputs {fb['current_sha']} (lagging: "
+                     f"{', '.join(fb['lagging']) or 'all'}) — re-run the family diagnostics")
 
     # 4. Price basis — static fallbacks or pending market-event reviews in the
     #    shipped handoff, plus a missed daily fetch.

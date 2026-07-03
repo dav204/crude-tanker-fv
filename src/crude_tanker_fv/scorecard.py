@@ -294,8 +294,48 @@ def price_basis_summary(inputs_dir: Path = INPUTS_DIR) -> dict:
     }
 
 
+def scenario_inputs_sha(inputs_dir: Path = INPUTS_DIR) -> Optional[str]:
+    """Content hash (sha256[:12]) of scenario_inputs.yaml — the determinant the
+    weight-family diagnostics are computed against (WO1-F4)."""
+    import hashlib
+
+    path = inputs_dir / "scenario_inputs.yaml"
+    if not path.exists():
+        return None
+    return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+
+
+def weight_family_basis(outputs_dir: Path = OUTPUTS_DIR,
+                        inputs_dir: Path = INPUTS_DIR) -> dict:
+    """Is the fragility sidecar current against scenario_inputs.yaml?
+
+    WO1-F4: the sidecar sits outside the determinant scope and regenerates only
+    when the diagnostic scripts run — a regen after a weight change but before
+    re-running them would ship stale family fields under a clean source_commit
+    (the mechanism behind the Jul-2 ⚠-list churn). Every number in the handoff
+    either matches its determinants or says that it doesn't."""
+    import yaml
+
+    current = scenario_inputs_sha(inputs_dir)
+    path = outputs_dir / "weight_robustness.yaml"
+    if not path.exists():
+        return {"status": "absent", "family_shas": {}, "current_sha": current,
+                "lagging": []}
+    doc = yaml.safe_load(path.read_text()) or {}
+    stamps = {k: v for k, v in (doc.get("computed_against") or {}).items()
+              if k != "scenario_inputs_sha"}
+    families = set(doc.get("weight_sets") or {}) or set(stamps)
+    if not stamps or not families:
+        return {"status": "unstamped", "family_shas": stamps, "current_sha": current,
+                "lagging": sorted(families)}
+    lagging = sorted(f for f in families if stamps.get(f) != current)
+    return {"status": "current" if not lagging else "stale",
+            "family_shas": stamps, "current_sha": current, "lagging": lagging}
+
+
 def update_weight_fragility_sidecar(
     family: str, weight_sets: dict, names: dict, outputs_dir: Path = OUTPUTS_DIR,
+    inputs_dir: Path = INPUTS_DIR,
 ) -> Path:
     """Merge one sector family's EV-sign-stability entries into the shared
     sidecar (outputs/weight_robustness.yaml). MERGE, not overwrite — the crude
@@ -312,7 +352,18 @@ def update_weight_fragility_sidecar(
     ws[family] = weight_sets
     merged = doc.get("names") or {}
     merged.update(names)
-    out = {"weight_sets": ws, "names": dict(sorted(merged.items()))}
+    # WO1-F4 vintage stamp, PER FAMILY: the scenario_inputs.yaml content hash
+    # each family's entries were computed against — file-level stamping would
+    # let one re-run family vouch for the others. The scorecard refuses to
+    # present family fields as current when ANY family lags.
+    stamps = doc.get("computed_against") or {}
+    stamps.pop("scenario_inputs_sha", None)   # pre-per-family shape, if ever present
+    stamps[family] = scenario_inputs_sha(inputs_dir)
+    out = {
+        "computed_against": stamps,
+        "weight_sets": ws,
+        "names": dict(sorted(merged.items())),
+    }
     outputs_dir.mkdir(parents=True, exist_ok=True)
     path.write_text(yaml.safe_dump(out, sort_keys=False))
     return path
@@ -509,6 +560,7 @@ def write_scorecard(
     quarter: Optional[str] = None,
     fragility: Optional[dict[str, bool]] = None,
     rate_basis: Optional[list[str]] = None,
+    family_basis: Optional[dict] = None,
 ) -> Path:
     outputs_dir.mkdir(parents=True, exist_ok=True)
     out: list[str] = []
@@ -532,6 +584,14 @@ def write_scorecard(
 
     for note in (rate_basis or []):
         w(f"> **Rate basis:** {note}\n")
+
+    if family_basis and family_basis["status"] != "current":
+        w(f"> **Weight-family basis: {family_basis['status'].upper()}** — the §9.10 "
+          f"fragility sidecar was not computed against the current scenario_inputs.yaml "
+          f"({family_basis['current_sha']}); lagging: "
+          f"{', '.join(family_basis['lagging']) or 'all'}. W-frag / family-range fields "
+          f"are withheld (null), never silently current — re-run the family diagnostic "
+          f"scripts (WO1-F4).\n")
 
     if valuation:
         w("This file lists each name **twice, by design** — once in the **Verdict** (the decision "
@@ -609,7 +669,7 @@ def write_scorecard(
     md_path.write_text("\n".join(out))
     if valuation is not None:
         _write_handoff_json(rows, valuation, outputs_dir, price_basis, quarter, fragility,
-                            rate_basis)
+                            rate_basis, family_basis)
     return md_path
 
 
@@ -664,6 +724,7 @@ def _write_handoff_json(
     quarter: Optional[str],
     fragility: Optional[dict[str, bool]] = None,
     rate_basis: Optional[list[str]] = None,
+    family_basis: Optional[dict] = None,
 ) -> Path:
     """The machine-readable half of the handoff surface (audit 2026-07-02, F-4).
 
@@ -743,6 +804,10 @@ def _write_handoff_json(
         "quarter": quarter,
         "price_basis": price_basis,
         "rate_basis": rate_basis or [],
+        # WO1-F4: the family-fields' own vintage — status != "current" means
+        # weight_sign_stable / ev_pct_family_* are withheld (null) because the
+        # §9.10 sidecar lags scenario_inputs.yaml.
+        "weight_family_basis": family_basis,
         # Hybrid sleeves: contributions are per-share scenario PW FVs and SUM
         # TO fv EXACTLY (C-3 identity) — corporate-level items (debt, working
         # capital, preferred, shuttle book) are PRO-RATED INTO the sleeves by
@@ -774,14 +839,21 @@ def run_scorecard_xref(
     price_basis = None
     fragility = None
     rate_basis = None
+    family_basis = None
     if fv_reports is not None and scenario_reports is not None and broker_rows is not None:
         valuation = valuation_index(fv_reports, scenario_reports, broker_rows)
         price_basis = price_basis_summary(inputs_dir)
-        fragility = load_weight_fragility(outputs_dir)
+        family_basis = weight_family_basis(outputs_dir, inputs_dir)
+        # WO1-F4: a non-current sidecar is NO diagnostic — family fields go
+        # null (never silently current) and the basis marker says why. The
+        # committed-surface coverage guard then reds until the family scripts
+        # re-run against the new determinants.
+        fragility = load_weight_fragility(outputs_dir) \
+            if family_basis["status"] == "current" else {}
         rate_basis = rate_basis_notes(inputs_dir)
     if rows:
         path = write_scorecard(rows, outputs_dir, valuation, price_basis, quarter, fragility,
-                               rate_basis)
+                               rate_basis, family_basis)
         n_uniform = sum(1 for r in rows if r.nav_basis == "resale-uniform")
         n_ready = sum(1 for r in rows if is_handoff_ready(r.confidence_tier))
         tag = "CONSOLIDATED verdict+matrix" if valuation else "validation matrix"

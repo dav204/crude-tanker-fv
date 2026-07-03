@@ -418,6 +418,54 @@ def test_rate_basis_note_reaches_scorecard_and_json(tmp_path, rows):
     assert any("HELD" in n for n in rate_basis_notes())
 
 
+def test_weight_family_basis_and_stale_withholding(tmp_path, rows):
+    """WO1-F4: the fragility sidecar is stamped per family with the
+    scenario_inputs.yaml content hash it was computed against; a lagging
+    family withholds ALL family fields (null, never silently current) and the
+    basis marker says why on both surfaces."""
+    import json
+
+    import yaml
+
+    from crude_tanker_fv.scorecard import (
+        scenario_inputs_sha, update_weight_fragility_sidecar, weight_family_basis,
+    )
+
+    inputs = tmp_path / "inputs"
+    inputs.mkdir()
+    (inputs / "scenario_inputs.yaml").write_text("sectors: {a: 1}\n")
+    outputs = tmp_path / "outputs"
+
+    # Per-family stamps: one family re-running must not vouch for the others.
+    update_weight_fragility_sidecar(
+        "crude", {"SetX": {}}, {"BRUT": {"ev_sign_stable": False,
+                                         "ev_min_pct": -61.4, "ev_max_pct": 17.3}},
+        outputs_dir=outputs, inputs_dir=inputs)
+    sha1 = scenario_inputs_sha(inputs)
+    assert weight_family_basis(outputs, inputs)["status"] == "current"
+
+    (inputs / "scenario_inputs.yaml").write_text("sectors: {a: 2}\n")   # weights change
+    fb = weight_family_basis(outputs, inputs)
+    assert fb["status"] == "stale" and fb["lagging"] == ["crude"]
+    assert fb["family_shas"]["crude"] == sha1 != fb["current_sha"]
+
+    # Stale basis at generation: fields withheld + marker on both surfaces.
+    text = write_scorecard(rows, outputs_dir=outputs, valuation=_synthetic_valuation(rows),
+                           fragility={}, family_basis=fb).read_text()
+    assert "Weight-family basis: STALE" in text and "lagging: crude" in text
+    doc = json.loads((outputs / "book_scorecard.json").read_text())
+    assert doc["weight_family_basis"]["status"] == "stale"
+    assert all(n["weight_sign_stable"] is None and n["ev_pct_family_min"] is None
+               for n in doc["names"])
+
+    # Re-running the lagging family against the new determinants clears it.
+    update_weight_fragility_sidecar(
+        "crude", {"SetX": {}}, {"BRUT": {"ev_sign_stable": False,
+                                         "ev_min_pct": -60.0, "ev_max_pct": 15.0}},
+        outputs_dir=outputs, inputs_dir=inputs)
+    assert weight_family_basis(outputs, inputs)["status"] == "current"
+
+
 def test_verdict_label_registry_tracks_the_tiers_no_drift():
     """provenance.py is the single source: the tier sub-reason map must cover EXACTLY the
     GOVERNED-WIDE + PROVISIONAL names, and the position-relabel / void sets must sit inside the

@@ -11,11 +11,21 @@ from crude_tanker_fv.sentinel import collect_flags, main
 
 
 def _fixture(tmp_path: Path, *, trigger_due=False, stale_watchlist=False,
-             incoherent=False, static_fallback=False, fresh_prices=True):
+             incoherent=False, static_fallback=False, fresh_prices=True,
+             sidecar_stale=False):
+    from crude_tanker_fv.scorecard import scenario_inputs_sha
+
     inputs = tmp_path / "inputs"
     outputs = tmp_path / "outputs"
     (inputs / "market_data").mkdir(parents=True)
     outputs.mkdir()
+    (inputs / "scenario_inputs.yaml").write_text("sectors: {}\n")
+    sha = "000badc0ffee" if sidecar_stale else scenario_inputs_sha(inputs)
+    (outputs / "weight_robustness.yaml").write_text(yaml.safe_dump({
+        "computed_against": {"crude": sha},
+        "weight_sets": {"crude": {}},
+        "names": {"DHT": {"ev_sign_stable": True, "ev_min_pct": 8.0, "ev_max_pct": 20.0}},
+    }))
     (inputs / "reweight_triggers.yaml").write_text(yaml.safe_dump({
         "t1": {"sector": "crude", "due": date(2026, 6, 1) if trigger_due else date(2099, 1, 1),
                "observable": "x", "action": "y", "status": "armed", "added": date(2026, 7, 2)},
@@ -57,10 +67,20 @@ def test_quiet_when_clean(tmp_path):
 
 def test_one_flag_per_class_with_stable_tags(tmp_path):
     inputs, outputs = _fixture(tmp_path, trigger_due=True, stale_watchlist=True,
-                               incoherent=True, static_fallback=True)
+                               incoherent=True, static_fallback=True, sidecar_stale=True)
     flags = collect_flags(inputs, outputs)
     tags = {f.split()[0] for f in flags}
-    assert tags == {"TRIGGER-DUE", "STALE-INPUT", "SURFACE-INCOHERENT", "PRICE-BASIS"}
+    assert tags == {"TRIGGER-DUE", "STALE-INPUT", "SURFACE-INCOHERENT",
+                    "PRICE-BASIS", "SIDECAR-STALE"}
+
+
+def test_sidecar_stale_flag_alone(tmp_path):
+    """WO1-F4: a fragility sidecar lagging scenario_inputs.yaml pages on its
+    own — the mechanism behind the Jul-2 ⚠-list churn (field lagged engine)."""
+    inputs, outputs = _fixture(tmp_path, sidecar_stale=True)
+    flags = collect_flags(inputs, outputs)
+    assert len(flags) == 1 and flags[0].startswith("SIDECAR-STALE")
+    assert "crude" in flags[0]
 
 
 def test_fv_identity_scan_catches_surface_divergence(tmp_path):
