@@ -635,13 +635,19 @@ def _vintage_stamp() -> dict:
     from datetime import datetime, timezone
 
     try:
+        root = Path(__file__).resolve().parents[2]
         head = subprocess.run(["git", "rev-parse", "--short", "HEAD"],
                               capture_output=True, text=True, timeout=5,
-                              cwd=Path(__file__).resolve().parents[2]).stdout.strip()
-        dirty = subprocess.run(["git", "diff", "--quiet", "HEAD"],
-                               capture_output=True, timeout=5,
-                               cwd=Path(__file__).resolve().parents[2]).returncode != 0
-        commit = (head + "-dirty" if dirty else head) if head else None
+                              cwd=root).stdout.strip()
+        # 'dirty' means the run's DETERMINANTS (code + inputs) differ from
+        # HEAD — the pipeline's own output/decision-log writes mid-run are its
+        # products, not dirt (WO1-F1: an unscoped check stamped every normal
+        # run -dirty because earlier pipeline stages had already written
+        # outputs by the time the scorecard stamped).
+        porcelain = subprocess.run(["git", "status", "--porcelain", "--", "src", "inputs"],
+                                   capture_output=True, text=True, timeout=5,
+                                   cwd=root).stdout.strip()
+        commit = (head + "-dirty" if porcelain else head) if head else None
     except Exception:
         commit = None
     return {
