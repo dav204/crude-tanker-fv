@@ -122,6 +122,23 @@ tanker_forward_print_lands:
   status: armed
   added: 2026-07-02
 
+container_mb_refresh:
+  sector: containerships
+  due: 2026-07-04
+  observable: >
+    The container determinants (Ctr-* value curves, 12M TC) are FROZEN at the MB
+    Shipbrokers 2026-04-01 vintage while June MB weeklies sit staged unparsed in
+    inputs/research_mb/container_weekly/ — the "refresh on first MB-subscription
+    delivery" promise is ~3 weeks past due (verified 2026-07-03, WO2 planning).
+  action: >
+    Saturday-queue item (calendar-tied per R-8, NOT tied to the WO2 build): one-time
+    manual capture from the newest staged container weekly as a cited §11.8 ingest
+    event — value curves + 12M TC + machine as_of, point-in-time discipline, decisions/
+    note, gate annotation for MPCC/GSL moves. Needs no parser. Re-arm to the next
+    monthly-refresh date on completion.
+  status: armed
+  added: 2026-07-03
+
 all_sectors_quarterly_staleness_floor:
   sector: all
   due: 2026-10-02

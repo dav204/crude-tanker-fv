@@ -21,6 +21,11 @@ vintage_notes:
     HELD at the 2026-06-07 vintage — no market forward print exists (owner decision
     2026-07-02, option (i)); refresh on trigger tanker_forward_print_lands. The
     C-2 rates-layer tanker effect is understated pending the print."
+  - "Container TC/value curves (Ctr-Feeder/Ctr-Intermediate/Ctr-Large, here + in
+    twelve_month_tc + vessel_value_curves) FROZEN at the MB Shipbrokers 2026-04-01
+    vintage; June MB weeklies are staged unparsed in inputs/research_mb/; refresh
+    pending as a cited §11.8 ingest event (trigger container_mb_refresh, due
+    2026-07-04). Disclosed 2026-07-03 (WO2 R-6a) — same class as the tanker hold."
 ffa_forward_curve:
   VLCC:
   - 147500
