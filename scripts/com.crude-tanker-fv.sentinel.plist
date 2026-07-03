@@ -11,9 +11,9 @@
         <string>/Users/dan_personal/Projects/crude-tanker-fv/scripts/sentinel_cron.sh</string>
     </array>
 
-    <!-- Daily 18:30 local — after the NYSE close, so the file always holds
-         the same-day close on trading days (weekend runs re-fetch Friday's,
-         harmless). Keeps every watchlist price current to <=1 business day. -->
+    <!-- Daily 08:15 local — morning read-only surface check (triggers,
+         staleness, coherence, price basis) after the 07:00 RC ingest, before
+         the owner's day starts. Changes nothing; exit code carries the page. -->
     <key>StartCalendarInterval</key>
     <dict>
         <key>Hour</key>
@@ -26,10 +26,10 @@
     <string>/Users/dan_personal/Projects/crude-tanker-fv</string>
 
     <key>StandardOutPath</key>
-    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/price_refresh.log</string>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/sentinel_cron.log</string>
 
     <key>StandardErrorPath</key>
-    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/price_refresh.err</string>
+    <string>/Users/dan_personal/Projects/crude-tanker-fv/state/sentinel_cron.err</string>
 
     <key>RunAtLoad</key>
     <false/>
