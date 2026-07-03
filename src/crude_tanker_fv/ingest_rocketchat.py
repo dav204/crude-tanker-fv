@@ -113,6 +113,24 @@ def _handle_file_source(
             counters["would_download"] += 1
             continue
         if download(host, url_path, dest, headers):
+            # Arrival validation at staging (WO2 1.5, invariant 6): a PDF that
+            # isn't one moves to _quarantine/ + flags via the arrival ledger;
+            # identity = RC message id (invariant 4). Images pass through
+            # ledger-only (no PDF magic to check).
+            from .arrivals import record_arrival, stage_pdf
+
+            identity = f"rc:{msg.get('_id', 'unknown')}"
+            if kind == "pdf":
+                ok, final = stage_pdf(dest, source["name"], identity,
+                                      state_dir=ROOT / "state")
+                if not ok:
+                    print(f"[{source['name']}] QUARANTINED (not a valid pdf) → "
+                          f"{final.relative_to(ROOT)}")
+                    counters["quarantined"] = counters.get("quarantined", 0) + 1
+                    continue
+            else:
+                record_arrival(source["name"], identity, "staged", str(rel),
+                               state_dir=ROOT / "state")
             print(f"[{source['name']}] downloaded → {rel}")
             counters["downloaded"] += 1
         else:

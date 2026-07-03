@@ -221,27 +221,52 @@ python -m crude_tanker_fv.pipeline 2026-Q1  # → 8 output families
 
 ### Operations (unattended watches)
 
-The read-only sentinel answers "does anything need the owner's eyes?" — trigger
-register due/overdue, input staleness, committed-surface coherence, price basis.
-Exit 0 = quiet; 1 = flags on stdout (tags: `TRIGGER-DUE`, `STALE-INPUT`,
-`SURFACE-INCOHERENT`, `PRICE-BASIS`), one log line per run in `state/sentinel.log`:
-
-```sh
-python -m crude_tanker_fv.sentinel --log state/sentinel.log
-```
-
-Daily launchd job (08:15 local, alongside the 18:30 price cron; installation is
-human-only):
-
-```sh
-cp scripts/com.crude-tanker-fv.sentinel.plist ~/Library/LaunchAgents/
-launchctl load ~/Library/LaunchAgents/com.crude-tanker-fv.sentinel.plist
-```
-
-Both crons stand down (exit 0, `SKIPPED: dirty-tree|paused` in the log) when the
-working tree is dirty or a `PAUSE` file exists at the repo root — automation
-never runs through live surgery. Every drift-gate re-ratify appends a row to
+The read-only sentinel answers "does anything need the owner's eyes?" and, with
+`--notify`, emails the owner (PAGE for incidents, one unconditional daily digest
+otherwise — notifier death is detectable by the digest's absence and by the
+healthchecks dead-man ping, which fires only after a completed run whose sends
+succeeded). Tags: `TRIGGER-DUE`, `STALE-INPUT`, `SURFACE-INCOHERENT`,
+`PRICE-BASIS`, `SIDECAR-STALE`, `NOTIFY-UNCONFIGURED`, `FETCH-FAILED`,
+`UNINGESTED-PRINTS`, `TRIGGER-EVIDENCE` (+`DIRTY-TOO-LONG` in dirty meta-mode);
+routing in `inputs/notify.yaml`. On a dirty tree the sentinel runs META-MODE
+(content checks suspended, liveness alive); tracked-tree writers skip outright;
+staging-only fetchers keep fetching (`PAUSE` file stops everything). A GitHub
+Action (`sentinel-lite`) runs the repo-pure subset daily against pushed state
+as the off-machine backstop. Every drift-gate re-ratify appends a row to
 `RATIFY_LOG.md` (the consuming repo's monitor reads it).
+
+```sh
+python -m crude_tanker_fv.sentinel --log state/sentinel.log --notify --ping
+```
+
+Five launchd jobs (plists in `scripts/`, installation human-only — see
+`decisions/launchagents_reconciliation_2026-07-03.md`): RC ingest (daily
+07:00), sentinel (daily 08:15), price refresh (daily 18:30), news-pull chain
+(Sat 08:00), broker-marks harvester (Sat 09:00). Every wrapper heartbeats to
+`state/heartbeat/<job>` (even on SKIP) and ledgers to
+`state/automation_runs.log` with its initiator — launchd label vs
+`manual:user@tty` — the no-human-fetches instrument. launchd
+`StartCalendarInterval` COALESCES missed firings: N sleeps collapse to ONE run
+on wake (measured semantics: `decisions/ctxprobe_checklist_2026-07-03.md`);
+fetchers are cursor-based, so one coalesced run recovers the whole gap.
+
+#### Staging → ingest map (how data reaches a number)
+
+Fetching is automated; **ingestion of determinants is always a deliberate,
+cited, committed, gate-annotated human event.** Arrivals are validated at
+staging (PDF magic + opens + ≥1 page; failures → `_quarantine/` + flag) and
+ledgered to `state/arrivals.jsonl` with a stable identity (RC message-id /
+accession number).
+
+| Staging tree (gitignored) | Fetcher (schedule) | Cursor | Review surface | Determinant fed | Promotion rule |
+|---|---|---|---|---|---|
+| `inputs/research_pareto/` | RC ingest (daily 07:00) | `state/rocketchat_ingest.json` | `outputs/sp_print_candidates.md`, name sweeps, links | `spot_tce`/`twelve_month_tc` (+`transactions/*.yaml` prints) | human, cited, same-vintage rebase; `UNINGESTED-PRINTS` at >7d |
+| `inputs/ffa_drybulk/` | RC ingest + daily `ffa_ocr` | `state/ffa_ocr_state.json` | `outputs/ffa_ocr_queue.md` | `ffa_forward_curve` + dry-bulk 12M TC | human promotion of the OCR diff (owner eyeballs) |
+| `inputs/market_data/baltic_indexes_daily.csv` | RC ingest (text parse) | same RC cursor | — | **none — deliberately unconsumed** | blocked on a real $/day TC series (§18.5a contract; never scale index points) |
+| `shipping_harvester/data/` | harvester (Sat 09:00, `.venv310`) | `data/manifest.jsonl` | marks-trail flag → manual triage | `transactions/*.yaml`; Xclusiv Resale cross-checks | human per §9.9; `UNINGESTED-PRINTS marks-trail` at >7d |
+| `inputs/research_mb/<feed>/` | Gmail agent step + `scripts/mb_harvest.py` (Sat session, initiator `session:mb-batch`) | idempotent by filename | manual read of the weekly | container Ctr-* TC/values (§11.8 **source of record**) | cited §11.8 ingest event (trigger `container_mb_refresh`) |
+| `inputs/market_data/prices_daily.yaml` | price refresh (daily 18:30) | overwrite-per-run | `PRICE-BASIS` flags | watchlist `current_price` | never moves without rebasing consensus from the same vintage |
+| `inputs/filings/<ticker>/` | EDGAR poller (WO2 Phase 2) | `state/edgar_poll.json` | `/filing-packet` drafts | balance sheets, fleet manifests | human reconciliation; SANITY gate; subsequent-events note first |
 
 The 8 output families per pipeline run:
 
