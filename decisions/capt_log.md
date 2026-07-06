@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-06T18:40:58+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.68
+- Single-point FV: $16.03
+- Scenario PW FV: $10.07 (EV -26.4%)
+- NAV / share: $15.49
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +26.5pp (k_broker 1.18)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-06 — Price-vintage drift annotation (NOT the container ingest)
 
 - ΔEV −2.2pp (gate UNEXPLAINED breach), Δk second-difference +0.030 (under

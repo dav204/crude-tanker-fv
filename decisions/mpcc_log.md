@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-06T18:40:58+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.52
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -18.1%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.0pp (k_broker 1.11)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-06 — Container determinant refresh (MB W27 ingest; trigger container_mb_refresh)
 
 - Model state: NAV/share $2.02 → **$2.04** (+1.0%); scenario PW FV $2.06; EV −13.7pp → **−18.1%** (ΔEV −4.4pp, gate-annotated)
