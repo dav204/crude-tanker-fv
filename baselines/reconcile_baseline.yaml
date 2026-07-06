@@ -2,12 +2,10 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-07-03T00:10:42+00:00'
-  ratified_commit: 39ccfa6
+  ratified_at: '2026-07-06T18:18:04+00:00'
+  ratified_commit: 031d65a
   quarter: 2026-Q1
-  cause: 'July-2 close price drift (isolated layer; cron 22:52Z) — post-stand-down rally: TNK +5.1% and
-    TRMD +5.5% on the day compress both band-edge BUYs to HOLD (dNAV 0.0%, FVs unchanged — the tape converging
-    onto the vintage FVs; TNK to the cent); both flips eyeballed + annotated; 14 UNEXPLAINED all pure-price'
+  cause: container W27 ingest (MPCC) + Jul-3 price drift (CAPT)
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -22,17 +20,17 @@ names:
     sector: product
   BRUT:
     pnav_basis: pareto
-    ev_pct: -41.04
+    ev_pct: -41.37
     tool_nav: 8.8
     position_band: TRIM/SHORT (overvalued)
     k_broker: 0.94
     sector: crude
   CAPT:
     pnav_basis: pareto
-    ev_pct: -24.2
+    ev_pct: -26.42
     tool_nav: 15.49
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.15
+    k_broker: 1.18
     sector: crude
   CCEC:
     pnav_basis: approx
@@ -43,7 +41,7 @@ names:
     sector: lng
   CMBT:
     pnav_basis: pareto
-    ev_pct: -8.36
+    ev_pct: -8.34
     tool_nav: 15.87
     position_band: TRIM/SHORT (overvalued)
     k_broker: 1.14
@@ -92,7 +90,7 @@ names:
     sector: dry_bulk
   GSL:
     pnav_basis: approx
-    ev_pct: 6.52
+    ev_pct: 6.38
     tool_nav: 38.59
     position_band: BUY (undervalued)
     k_broker: 1.25
@@ -113,10 +111,10 @@ names:
     sector: crude
   MPCC:
     pnav_basis: approx
-    ev_pct: -13.71
-    tool_nav: 2.02
+    ev_pct: -18.1
+    tool_nav: 2.04
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.09
+    k_broker: 1.11
     sector: containerships
   NAT:
     pnav_basis: approx
@@ -134,10 +132,10 @@ names:
     sector: dry_bulk
   SBLK:
     pnav_basis: pareto
-    ev_pct: 13.61
+    ev_pct: 12.08
     tool_nav: 29.34
     position_band: BUY (undervalued)
-    k_broker: 1.03
+    k_broker: 1.04
     sector: dry_bulk
   STNG:
     pnav_basis: pareto

@@ -12,3 +12,4 @@ the consumer. The hash is HEAD at ratify time (the ratify commit lands one ahead
 | 2026-07-02T22:30:00Z | d1544b4 | post-stand-down vintage (owner-approved, option (i)) — crude + leg recalibration + product v2-restore + LNG v3-restore + F-5 rates; six band flips annotated — seeded |
 | 2026-07-02T23:40:00Z | 39ccfa6 | F-13 rendering fix — verdict/JSON fv re-based to the scenario-weighted FV; dNAV/dEV 0.0, printed-FV changes large — seeded |
 | 2026-07-03T00:13:19Z | 3281827 | July-2 close price drift (isolated layer) — TNK and TRMD band-edge BUYs compress to HOLD; dNAV 0.0% — seeded |
+| 2026-07-06T18:40:24Z | 031d65a | container W27 ingest (MPCC) + Jul-3 price drift (CAPT) |
