@@ -4,7 +4,7 @@
 
 > **Rate basis:** Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean) HELD at the 2026-06-07 vintage — no market forward print exists (owner decision 2026-07-02, option (i)); refresh on trigger tanker_forward_print_lands. The C-2 rates-layer tanker effect is understated pending the print.
 
-> **Rate basis:** Container TC/value curves (Ctr-Feeder/Ctr-Intermediate/Ctr-Large, here + in twelve_month_tc + vessel_value_curves) FROZEN at the MB Shipbrokers 2026-04-01 vintage; June MB weeklies are staged unparsed in inputs/research_mb/; refresh pending as a cited §11.8 ingest event (trigger container_mb_refresh, due 2026-07-04). Disclosed 2026-07-03 (WO2 R-6a) — same class as the tanker hold.
+> **Rate basis:** Container TC/value curves REFRESHED 2026-07-06 from MB Container Weekly 27 (assessments 2026-07-03) — the cited §11.8 ingest event closing trigger container_mb_refresh (decisions/container_ingest_2026-07-06.md; A3 re-derived on the combined validator fleets). The Apr-01 freeze disclosed 2026-07-03 is RESOLVED; trigger re-armed to the 2026-08-07 monthly boundary.
 
 This file lists each name **twice, by design** — once in the **Verdict** (the decision surface: FV vs price, position, tier) and once in the **Validation matrix** below (the per-gate evidence behind that tier). The Verdict is what you act on; the matrix is why. One row per name *within* each table.
 
@@ -23,9 +23,9 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | FRO | crude | VALIDATED-TIGHT | $36.75 | $18.17 | -51% | rich · cycle position (not a short) | $26.54 | $24.22 | $30.62 | -21% | OK | ready | stable |
 | TNK | crude | VALIDATED-TIGHT | $67.60 | $67.61 | +0% | HOLD (fairly valued) | $79.42 | $77.51 | $88.95 | -13% | OK | ready | **⚠ sign flips** |
 | SB | dry_bulk | VALIDATED-TIGHT | $6.40 | $9.82 | +53% | BUY (undervalued) | $9.75 | $10.12 | $7.27 (apx) | +39% | n-a | ready | — |
-| SBLK | dry_bulk | VALIDATED-TIGHT | $24.81 | $28.19 | +14% | BUY (undervalued) | $28.32 | $29.34 | $30.26 | -3% | OK | ready | — |
-| CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $13.28 | $10.07 | -24% | TRIM/SHORT (overvalued) | $16.03 | $15.49 | $19.82 | -22% | OK | ready | stable |
-| CMBT | crude | GOVERNED-WIDE · structural-class | $14.56 | $13.34 | -8% | TRIM/SHORT (overvalued) | $15.19 | $15.87 | $19.68 | -19% | OK | ready | stable |
+| SBLK | dry_bulk | VALIDATED-TIGHT | $25.15 | $28.19 | +12% | BUY (undervalued) | $28.32 | $29.34 | $30.67 | -4% | OK | ready | — |
+| CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $13.68 | $10.07 | -26% | TRIM/SHORT (overvalued) | $16.03 | $15.49 | $20.42 | -24% | OK | ready | stable |
+| CMBT | crude | GOVERNED-WIDE · structural-class | $14.56 | $13.35 | -8% | TRIM/SHORT (overvalued) | $15.19 | $15.87 | $19.68 | -19% | OK | ready | stable |
 | INSW | crude | GOVERNED-WIDE · pending-anchor | $82.40 | $48.00 | -42% | rich · cycle position (not a short) | $38.63 | $52.59 | $84.08 | -37% | OK | ready | stable |
 | NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $5.81 | $2.25 | -61% | rich · cycle position (not a short) | $3.09 | $2.79 | $6.84 (apx) | -59% | n-a | ready | stable |
 | TEN | crude | GOVERNED-WIDE · mixed | $37.37 | $50.92 | +36% | BUY (undervalued) | $61.29 | $88.70 | $109.91 (apx) | -19% | n-a | ready | stable |
@@ -35,9 +35,9 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | GNK | dry_bulk | GOVERNED-WIDE · read-flips | $24.50 | $23.56 | -4% | HOLD (fairly valued) | $23.85 | $24.69 | $28.16 | -12% | OK | ready | — |
 | CCEC | lng | GOVERNED-WIDE · structural-class | $21.60 | $33.50 | +55% | BUY (undervalued) | $32.08 | $28.10 | $24.00 (apx) | +17% | n-a | ready | stable |
 | FLNG | lng | GOVERNED-WIDE · structural-class | $29.29 | $29.19 | -0% | HOLD (fairly valued) | $28.16 | $28.45 | $21.38 | +33% | OK | ready | **⚠ sign flips** |
-| GSL | containerships | GOVERNED-WIDE · structural-class | $38.11 | $40.59 | +7% | BUY (undervalued) | $43.00 | $38.59 | $50.81 (apx) | -24% | n-a | ready | — |
-| MPCC | containerships | GOVERNED-WIDE · structural-class | $2.44 | $2.11 | -14% | unreliable read (not actionable) | $2.19 | $2.02 | $2.35 (apx) | -14% | n-a | ready | — |
-| BRUT | crude | PROVISIONAL · cash-pending ⛔ | $5.29 | $3.12 | -41% | unreliable read (not actionable) | $9.27 | $8.80 | $7.05 | +25% | OK | **NO** | **⚠ sign flips** |
+| GSL | containerships | GOVERNED-WIDE · structural-class | $38.11 | $40.54 | +6% | BUY (undervalued) | $43.06 | $38.59 | $50.81 (apx) | -24% | n-a | ready | — |
+| MPCC | containerships | GOVERNED-WIDE · structural-class | $2.52 | $2.06 | -18% | unreliable read (not actionable) | $2.21 | $2.04 | $2.42 (apx) | -16% | n-a | ready | — |
+| BRUT | crude | PROVISIONAL · cash-pending ⛔ | $5.32 | $3.12 | -41% | unreliable read (not actionable) | $9.27 | $8.80 | $7.09 | +24% | OK | **NO** | **⚠ sign flips** |
 | HAFN | product | PROVISIONAL · pool-gross-up-pending ⛔ | $7.02 | $5.61 | -20% | rich · cycle position (not a short) | $5.99 | $5.57 | $7.39 | -25% | OK | **NO** | stable |
 | STNG | product | PROVISIONAL · off-curve ⛔ | $73.01 | $70.90 | -3% | HOLD (fairly valued) | $76.13 | $77.47 | $104.30 | -26% | OK | **NO** | **⚠ sign flips** |
 
@@ -76,7 +76,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | CCEC | lng | GOVERNED-WIDE | structural-unavailable | 0.78× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | FLNG | lng | GOVERNED-WIDE | structural-unavailable | 1.04× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | GSL | containerships | GOVERNED-WIDE | structural-unavailable | 1.01× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
-| MPCC | containerships | GOVERNED-WIDE | structural-unavailable | 1.37× | no anchor→newbuild-heavy (unreliable) | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
+| MPCC | containerships | GOVERNED-WIDE | structural-unavailable | 1.36× | no anchor→newbuild-heavy (unreliable) | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 
 ## Summary
 

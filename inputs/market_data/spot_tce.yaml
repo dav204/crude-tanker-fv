@@ -15,12 +15,24 @@
 # older vintage (their staleness is tracked by their own trigger/note, not
 # by the lane). Top-level sibling key — invisible to loaders._scalar_map.
 as_of:
-  default: 2026-07-02
+  default: 2026-07-03       # containers refreshed 2026-07-06 from MB W27 (Jul-3
+                            # assessments); non-container classes below carry
+                            # their own prior-event dates
+  VLCC: 2026-07-02
+  Suezmax: 2026-07-02
+  Aframax: 2026-07-02
+  LR2: 2026-07-02
+  MR: 2026-07-02
+  Handysize: 2026-07-02
+  Handymax: 2026-07-02
+  LR1_clean: 2026-07-02
+  LR2_clean: 2026-07-02
+  Cape: 2026-07-02
+  Pana: 2026-07-02
+  Post-Panamax: 2026-07-02
+  Supra-Ultra: 2026-07-02
   LNGC: 2026-06-07          # held — no LNG spot print in the 2-Jul daily
   MGC: 2026-06-07           # held, as LNGC
-  Ctr-Feeder: 2026-04-01    # MB frozen vintage (trigger container_mb_refresh)
-  Ctr-Intermediate: 2026-04-01
-  Ctr-Large: 2026-04-01
 spot_tce:
   VLCC: 285500          # TD3C eco (Pareto 2-Jul; -1.1% d/d). MEG-China war premium only
                         # partially unwound (TD22 USG-China printed $127,600 same day).
@@ -44,6 +56,7 @@ spot_tce:
                         # (Jul-2 FFA OCR widget, status ok; outputs/ffa_ocr_queue.md 2026-07-02)
   # Containerships: NO spot market exists (TC-only); set = the 12M TC
   # assessment so the breakeven display has a current-rate reference.
-  Ctr-Feeder: 20500
-  Ctr-Intermediate: 43400   # A3 TEU-weighted 2026-06-12
-  Ctr-Large: 62500
+  # Refreshed 2026-07-06 from MB W27 (Jul-3) — see twelve_month_tc.yaml.
+  Ctr-Feeder: 23750
+  Ctr-Intermediate: 46350   # A3 TEU-weighted, re-derived 2026-07-06
+  Ctr-Large: 63000

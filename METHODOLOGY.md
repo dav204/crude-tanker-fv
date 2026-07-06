@@ -2016,11 +2016,20 @@ FY2021-2025 annual averages per band, embedding a full cycle (covid boom
 2021-22, trough 2023, disruption boom 2024-25). v1 anchor = mean of
 FY2021-25 band averages, collapsed to class:
 
-| Class | v1 cycle anchor (USD/day) | Apr-01-2026 class rate | Cycle position |
+| Class | v1 cycle anchor (USD/day) | Current class rate (2026-07-03) | Cycle position |
 |---|---:|---:|:---:|
-| `ctr_feeder` | **$20,850** | $20,500 | 0.98x |
-| `ctr_intermediate` | **$33,700** | $43,400 | 1.29x |
-| `ctr_large` | **$41,000** | $62,500 | 1.53x |
+| `ctr_feeder` | **$20,850** | $23,750 | 1.14x |
+| `ctr_intermediate` | **$33,700** | $46,350 | 1.38x |
+| `ctr_large` | **$41,000** | $63,000 | 1.54x |
+
+*(Revision 2026-07-06 — first monthly MB re-capture (W27, assessments
+Jul-3), closing the Apr-01 freeze (trigger `container_mb_refresh`;
+decisions/container_ingest_2026-07-06.md): feeder 20,500→23,750 (the
+1,700 assessment ticked to 30,000 in W27), intermediate A3 re-derived on
+the live combined validator fleets 43,400→46,350 (72 intermediates,
+bucket TEU shares 2500: 11.5% / 2700: 21.8% / 3500: 25.3% / 4250: 41.4%),
+large 62,500→63,000. Feeder 10-yr mark 28.0→29.0 $M — the only 2nd-hand
+assessment that moved since Apr-01. Apr-01 row retained in git history.)*
 
 *(ctr_intermediate updated 2026-06-12 at validator onboarding — A3
 TEU-weighting applied on the combined MPCC+GSL intermediate fleets;

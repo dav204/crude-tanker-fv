@@ -21,7 +21,7 @@
 # Held classes carry their own trigger (tanker_forward_print_lands /
 # container_mb_refresh); agreement with vintage_notes is suite-tested.
 as_of:
-  default: 2026-07-02
+  default: 2026-07-03       # containers re-synthesized 2026-07-06 from MB W27
   VLCC: 2026-06-07
   Suezmax: 2026-06-07
   Aframax: 2026-06-07
@@ -34,19 +34,20 @@ as_of:
   LR2_clean: 2026-06-07
   LNGC: 2026-06-07
   MGC: 2026-06-07
-  Ctr-Feeder: 2026-04-01
-  Ctr-Intermediate: 2026-04-01
-  Ctr-Large: 2026-04-01
+  Cape: 2026-07-02
+  Pana: 2026-07-02
+  Post-Panamax: 2026-07-02
+  Supra-Ultra: 2026-07-02
 vintage_notes:
   - "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean)
     HELD at the 2026-06-07 vintage — no market forward print exists (owner decision
     2026-07-02, option (i)); refresh on trigger tanker_forward_print_lands. The
     C-2 rates-layer tanker effect is understated pending the print."
-  - "Container TC/value curves (Ctr-Feeder/Ctr-Intermediate/Ctr-Large, here + in
-    twelve_month_tc + vessel_value_curves) FROZEN at the MB Shipbrokers 2026-04-01
-    vintage; June MB weeklies are staged unparsed in inputs/research_mb/; refresh
-    pending as a cited §11.8 ingest event (trigger container_mb_refresh, due
-    2026-07-04). Disclosed 2026-07-03 (WO2 R-6a) — same class as the tanker hold."
+  - "Container TC/value curves REFRESHED 2026-07-06 from MB Container Weekly 27
+    (assessments 2026-07-03) — the cited §11.8 ingest event closing trigger
+    container_mb_refresh (decisions/container_ingest_2026-07-06.md; A3 re-derived
+    on the combined validator fleets). The Apr-01 freeze disclosed 2026-07-03 is
+    RESOLVED; trigger re-armed to the 2026-08-07 monthly boundary."
 ffa_forward_curve:
   VLCC:
   - 147500
@@ -193,42 +194,45 @@ ffa_forward_curve:
   - 12700
   - 12400
   # Containerships (§11.8) — NO FFA exists; synthesised current-market
-  # forward per the synthesised-from-spot convention: starts at the MB
-  # Apr-01-2026 TC assessment, mean-reverts toward the FY21-25 anchor
-  # (between disruption_persists and gradual_normalization). 10 elements
-  # (strip_horizon: 10, q3_2026 → q4_2028, §11.8.6.4). Frozen vintage;
-  # refresh on first MB-subscription delivery. Added at sector wire-up
-  # (Week 4 Step 2, owner-ratified) — NOT an OCR promotion.
+  # forward per the synthesised-from-spot convention: starts at the MB TC
+  # assessment, mean-reverts toward the FY21-25 anchor (between
+  # disruption_persists and gradual_normalization). 10 elements
+  # (strip_horizon: 10, q3_2026 → q4_2028, §11.8.6.4).
+  # RE-SYNTHESIZED 2026-07-06 from MB W27 (Jul-3): new starts (23,750 /
+  # 46,350 A3 / 63,000), SAME wire-up terminals (19,000 / 37,200 / 48,000 —
+  # the anchored end is the convention; owner-ratified at wire-up), linear
+  # decay between. Alternative shape-preserving scaling documented in the
+  # ingest note's forks.
   Ctr-Feeder:
+  - 23750
+  - 23250
+  - 22750
+  - 22250
+  - 21750
+  - 21000
   - 20500
-  - 20250
-  - 20250
   - 20000
-  - 20000
-  - 19750
   - 19500
-  - 19500
-  - 19250
   - 19000
   Ctr-Intermediate:
-  - 43375
-  - 42875
-  - 42350
-  - 41325
-  - 40800
-  - 39775
-  - 39250
-  - 38750
-  - 37700
+  - 46350
+  - 45325
+  - 44325
+  - 43300
+  - 42275
+  - 41275
+  - 40250
+  - 39225
+  - 38225
   - 37200
   Ctr-Large:
-  - 62500
+  - 63000
   - 61500
-  - 60000
-  - 58500
-  - 57000
-  - 55500
-  - 54000
-  - 52000
-  - 50000
+  - 59500
+  - 58000
+  - 56500
+  - 54500
+  - 53000
+  - 51500
+  - 49500
   - 48000

@@ -153,7 +153,7 @@ classes:
     dwt: 23500
     newbuild: 32000000          # MB 1,800 TEU China
     five_year_benchmark: 30000000
-    ten_year_benchmark: 28000000  # MB 1,700 TEU 10yr
+    ten_year_benchmark: 29000000  # MB 1,700 TEU 10yr (W27 2026-07-03; was 28.0 at the Apr-01 freeze)
     scrap_25yr: 4000000           # ~8,500 LDT ESTIMATE
     scrubber_premium: 0
     eco_premium_pct: 0.05

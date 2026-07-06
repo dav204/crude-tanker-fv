@@ -7,6 +7,48 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-06 — Container determinant refresh (MB W27 ingest; trigger container_mb_refresh)
+
+- Model state: NAV/share $2.02 → **$2.04** (+1.0%); scenario PW FV $2.06; EV −13.7pp → **−18.1%** (ΔEV −4.4pp, gate-annotated)
+- Position: **TRIM/SHORT (unchanged)**
+
+**Cause (both legs of the move are the ingest, not price):** (1) NAV +1.0% —
+MB feeder 10-yr assessment 28.0→29.0 ($M, the only mark that moved since the
+Apr-01 freeze; matches the pre-registered +0.92% prediction in
+decisions/container_ingest_prep_2026-07-03.md). (2) EV −4.4pp — the 12M TC
+refresh (feeder +15.9%, A3 intermediate 43,400→46,350, large +0.8%) lifts the
+CURRENT-rate read, which RICHENS the cycle position; with ~99% of 2026 days
+already contracted the strip lift barely flows near-term, while the
+cycle-conditional terminal multiple and blend weights tighten — the designed
+§2.3/§10 mechanics: better spot ≠ better value for a fully-covered name at an
+elevated position. Direction and split cross-checked against the prep note's
+prediction (rate story, not marks story).
+
+**Decision:** Accept the move with the ingest; TRIM/SHORT stands. Watch item:
+the A3 re-derivation (46,350) now weights the live combined fleets (72
+intermediates, 41.4% of TEU in the 4,250 bucket) — re-derive at each monthly
+re-capture if either validator's intermediate mix shifts.
+
+---
+
+## 2026-07-06T18:18:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.52
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -18.1%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.0pp (k_broker 1.11)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.08 | Δsingle FV: +0.9% | Δscenario FV: -2.4% | ΔNAV: +1.0% | Δspread: +1.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-03T13:42:41+00:00 — Pipeline run (auto)
 
 **Model state:**
@@ -1139,4 +1181,3 @@ the conservative §11.8.5(b) marks; the company-implied NAV and Pareto's
 EV/EBITDA HOLD both sit ABOVE the tool. Calibration counter starts here.
 
 ---
-

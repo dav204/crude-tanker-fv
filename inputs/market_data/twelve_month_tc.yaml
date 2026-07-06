@@ -8,10 +8,13 @@
 # refreshed from the 2-Jul FFA OCR widget (status ok, outputs/ffa_ocr_queue.md):
 # 12M TC proxy = mean of the Qn/Qf quarterly tenors.
 # Machine vintage (WO2 1.2) — structured mirror of the per-row comments; see
-# spot_tce.yaml's as_of block for semantics. The tanker holds are tracked by
-# trigger tanker_forward_print_lands; containers by container_mb_refresh.
+# spot_tce.yaml's as_of block for semantics (default = newest deliberate
+# refresh event; older overrides = held/prior-event classes). The tanker
+# holds are tracked by trigger tanker_forward_print_lands. Containers
+# REFRESHED 2026-07-06 from MB Container Weekly 27 (assessments 2026-07-03)
+# — the §11.8 ingest event closing trigger container_mb_refresh.
 as_of:
-  default: 2026-07-02
+  default: 2026-07-03
   VLCC: 2026-06-07
   Suezmax: 2026-06-07
   Aframax: 2026-06-07
@@ -24,9 +27,10 @@ as_of:
   Handymax: 2026-06-07
   LR1_clean: 2026-06-07
   LR2_clean: 2026-06-07
-  Ctr-Feeder: 2026-04-01
-  Ctr-Intermediate: 2026-04-01
-  Ctr-Large: 2026-04-01
+  Cape: 2026-07-02
+  Pana: 2026-07-02
+  Post-Panamax: 2026-07-02
+  Supra-Ultra: 2026-07-02
 twelve_month_tc:
   VLCC: 111500          # STALE Jun-7 war vintage — held, no 2-Jul TC print (see header)
   Suezmax: 61250        # STALE Jun-7 — held
@@ -44,9 +48,11 @@ twelve_month_tc:
   Pana: 18550           # (18983 + 18125)/2, FFA OCR 2-Jul (was 17500 Jun-9)
   Post-Panamax: 18550   # shares the Pana freight basin (§11.7.10, 2026-06-29)
   Supra-Ultra: 17900    # (18533 + 17300)/2, FFA OCR 2-Jul (was 16000 Jun-9)
-  # Containerships (§11.8) — MB Apr-01-2026 TC assessments, class-collapsed
-  # per §11.8.1 (frozen vintage; ctr_intermediate is the simple average
-  # pending the A3 TEU-weighting at validator onboarding).
-  Ctr-Feeder: 20500
-  Ctr-Intermediate: 43400   # A3 TEU-weighted 2026-06-12
-  Ctr-Large: 62500
+  # Containerships (§11.8) — MB Container Weekly 27 assessments (2026-07-03),
+  # class-collapsed per §11.8.1; ingested 2026-07-06 (trigger
+  # container_mb_refresh; decisions/container_ingest_2026-07-06.md).
+  Ctr-Feeder: 23750         # avg(1,100: 17,500 / 1,700: 30,000) — 1,700 ticked +1,000 in W27
+  Ctr-Intermediate: 46350   # A3 TEU-weighted on the combined MPCC+GSL intermediate
+                            # fleets, RE-DERIVED 2026-07-06 (72 vessels, 256k TEU;
+                            # buckets 2500: 11.5% / 2700: 21.8% / 3500: 25.3% / 4250: 41.4%)
+  Ctr-Large: 63000          # avg(5,500: 60,000 / 6,500: 66,000); 5,400 WB excluded (design premium)

@@ -27,8 +27,8 @@ The **earnings-leg analog of the broker-NAV sweep** (METHODOLOGY §9.11 / §9.9)
 | CMDB | dry_bulk | $17.25 | 10.5× | $1.64 | $3.87 | 4.5× | +136% | 9.5% | 1.37× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | ASC | product | $16.00 | 14.2× | $1.13 | $2.22 | 7.2× | +97% | 7.0% | 1.37× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | FLNG | lng | $29.70 | 14.5× | $2.05 | $3.74 | 7.9× | +83% | 6.9% | 0.71× (below-mid) | 0.60 | earnings-driven (tool>cons) |
-| MPCC | containerships | $2.78 | 8.0× | $0.35 | $0.54 | 5.2× | +55% | 12.5% | 1.21× (elevated) | 0.40 | earnings-driven (tool>cons) |
-| GSL | containerships | $38.99 | 3.8× | $10.26 | $14.04 | 2.8× | +37% | 26.3% | 1.45× (elevated) | 0.40 | earnings-driven (tool>cons) |
+| MPCC | containerships | $2.78 | 8.0× | $0.35 | $0.54 | 5.1× | +56% | 12.5% | 1.31× (elevated) | 0.40 | earnings-driven (tool>cons) |
+| GSL | containerships | $38.99 | 3.8× | $10.26 | $14.08 | 2.8× | +37% | 26.3% | 1.49× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | SBLK | dry_bulk | $27.20 | 6.9× | $3.94 | $5.30 | 5.1× | +35% | 14.5% | 1.41× (elevated) | 0.40 | earnings-driven (tool>cons) |
 
 _**(WHOLE-CO)** = hybrid name; the tool forward EPS here is the whole-company FFA strip (a proxy — the headline FV uses the crude+product carve-out aggregation)._

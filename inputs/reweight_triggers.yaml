@@ -124,20 +124,21 @@ tanker_forward_print_lands:
 
 container_mb_refresh:
   sector: containerships
-  due: 2026-07-04
+  due: 2026-08-07
   observable: >
-    The container determinants (Ctr-* value curves, 12M TC) are FROZEN at the MB
-    Shipbrokers 2026-04-01 vintage while June MB weeklies sit staged unparsed in
-    inputs/research_mb/container_weekly/ — the "refresh on first MB-subscription
-    delivery" promise is ~3 weeks past due (verified 2026-07-03, WO2 planning).
+    Monthly re-capture of the container determinants (Ctr-* TC + value
+    assessments) from the newest staged MB Container Weekly — the §11.8
+    source-of-record cadence. (Original Apr-01 freeze RESOLVED 2026-07-06:
+    ingested MB W27/Jul-3 assessments — feeder 12M +15.9%, A3 intermediate
+    re-derived 46,350, feeder 10yr mark 28→29; the due-Jul-4 firing ran
+    2 days late because the Saturday session didn't happen — the flag
+    worked, the human was away. decisions/container_ingest_2026-07-06.md.)
   action: >
-    Saturday-queue item (calendar-tied per R-8, NOT tied to the WO2 build): one-time
-    manual capture from the newest staged container weekly as a cited §11.8 ingest
-    event — value curves + 12M TC + machine as_of, point-in-time discipline, decisions/
-    note, gate annotation for MPCC/GSL moves. Needs no parser. Re-arm to the next
-    monthly-refresh date on completion.
+    Same §11.8 ingest procedure: newest weekly, class-collapse per §11.8.1
+    (A3 re-weight if the validator fleets changed), machine as_of, decisions/
+    note, gate annotation for MPCC/GSL moves. Re-arm monthly on completion.
   status: armed
-  added: 2026-07-03
+  added: 2026-07-03  # re-armed 2026-07-06 after the first ingest
 
 all_sectors_consensus_pair_recapture:
   sector: all

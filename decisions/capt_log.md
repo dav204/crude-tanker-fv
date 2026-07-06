@@ -9,6 +9,41 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-06 — Price-vintage drift annotation (NOT the container ingest)
+
+- ΔEV −2.2pp (gate UNEXPLAINED breach), Δk second-difference +0.030 (under
+  the 0.05 bar), NAV unchanged, band **TRIM/SHORT (unchanged)**
+
+**Cause:** incidental daily price drift only — the 2026-07-06 pipeline regen
+was the first since the drift-guard fix and therefore picked up the Friday
+Jul-3 close (committed in the 80c0b93 automation-drift flush). CAPT is a
+crude name; the container ingest sharing this regen touches nothing it
+reads. Per the isolate-commit discipline the price data was flushed in its
+own commit; this annotation carries the gate breach so the container ratify
+cause can name both movers explicitly.
+
+**Decision:** No action — market drift, band stable, k within bar.
+
+---
+
+## 2026-07-06T18:18:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.68
+- Single-point FV: $16.03
+- Scenario PW FV: $10.07 (EV -26.4%)
+- NAV / share: $15.49
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +26.5pp (k_broker 1.18)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.40 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.6pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-03T13:42:41+00:00 — Pipeline run (auto)
 
 **Model state:**
