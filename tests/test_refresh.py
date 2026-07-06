@@ -183,7 +183,9 @@ ALPHA:
     monkeypatch.setattr("crude_tanker_fv.refresh.INPUTS_DIR", inputs)
     watchlist = {"ALPHA": {"as_of": date(2026, 5, 1)}}
     items = check_watchlist_freshness(watchlist, today=date(2026, 6, 1))
-    assert items[0].status == "stale"   # 31 days old
+    assert items[0].status == "ok"      # 31d — inside the 42d threshold (owner 2026-07-06)
+    items = check_watchlist_freshness(watchlist, today=date(2026, 6, 15))
+    assert items[0].status == "stale"   # 45d — beyond it
 
 
 # ----------------------------------------------------------------------------

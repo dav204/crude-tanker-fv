@@ -41,10 +41,13 @@ def test_broker_sweep_discriminates_hybrid(tmp_path):
         assert lo < k < hi
     assert max(pure_ks) - min(pure_ks) < TXN_PURE_PLAY_K_UNIFORMITY
     # INSW: marks uncertain (hybrid carve-out) -> premium far above the
-    # pure-play band ceiling (1.25; INSW 1.52 at the Jun-2026 static),
-    # wide spread, EV materially better at broker marks.
-    assert by["INSW"].k_broker > 1.4
-    assert by["INSW"].spread > 25
+    # pure-play band ceiling (1.25), wide spread, EV materially better at
+    # broker marks. Re-pinned 2026-07-06 (consensus-pair recapture): Pareto's
+    # INSW pnav 0.98 -> 1.11 pulled broker NAV toward the tool — k 1.52 ->
+    # 1.41, spread 25+ -> 20.4; the DISCRIMINATION property (hybrid k above
+    # the ceiling, double-digit spread) is what this test pins, not a vintage.
+    assert by["INSW"].k_broker > 1.35
+    assert by["INSW"].spread > 15
     assert by["INSW"].ev_broker > by["INSW"].ev_tool
     assert (tmp_path / "broker_nav_sweep.md").exists()
     assert (tmp_path / "broker_nav_sweep.xlsx").exists()

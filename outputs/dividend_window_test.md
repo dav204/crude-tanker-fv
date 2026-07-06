@@ -8,27 +8,27 @@ one-way bullish override — audit E-3.)
 
 | Name | Gated | price/NAV | gap $ | Q* | H | Resolution |
 |---|:--:|--:|--:|:--:|--:|---|
-| NAT | Y | 1.86× | +2.41 | >strip | 8.0 | TRIM stands (value trap) |
-| ASC | · | 0.90× | -1.80 | — | 8.0 | n/a (gate) |
-| BRUT | · | 0.61× | -3.40 | — | 8.0 | n/a (gate) |
-| CAPT | · | 0.79× | -3.29 | — | 8.0 | n/a (gate) |
-| CCEC | · | 0.78× | -6.20 | — | 0.8 | n/a (gate) |
-| CMBT | · | 0.94× | -0.97 | — | 8.1 | n/a (gate) |
+| NAT | Y | 2.08× | +3.01 | >strip | 8.0 | TRIM stands (value trap) |
+| ASC | · | 0.84× | -2.90 | — | 8.0 | n/a (gate) |
+| BRUT | · | 0.60× | -3.50 | — | 8.0 | n/a (gate) |
+| CAPT | · | 0.86× | -2.18 | — | 8.0 | n/a (gate) |
+| CCEC | · | 0.77× | -6.50 | — | 0.8 | n/a (gate) |
+| CMBT | · | 0.92× | -1.27 | — | 8.1 | n/a (gate) |
 | CMDB | · | 0.55× | -14.08 | — | 6.2 | n/a (gate) |
-| DHT | · | 1.18× | +2.52 | — | 8.0 | n/a (gate) |
-| ECO | · | 1.39× | +13.35 | — | 8.0 | n/a (gate) |
-| FLNG | · | 1.04× | +1.25 | — | 0.0 | n/a (gate) |
-| FRO | · | 1.42× | +10.28 | — | 8.0 | n/a (gate) |
-| GNK | · | 0.97× | -0.69 | — | 6.5 | n/a (gate) |
+| DHT | · | 1.24× | +3.32 | — | 8.0 | n/a (gate) |
+| ECO | · | 1.55× | +18.75 | — | 8.0 | n/a (gate) |
+| FLNG | · | 1.03× | +0.85 | — | 0.0 | n/a (gate) |
+| FRO | · | 1.52× | +12.58 | — | 8.0 | n/a (gate) |
+| GNK | · | 0.99× | -0.19 | — | 6.5 | n/a (gate) |
 | GSL | · | 1.01× | +0.40 | — | 10.0 | n/a (gate) |
-| HAFN | · | 1.38× | +2.13 | — | 8.0 | n/a (gate) |
-| INSW | · | 2.23× | +43.03 | — | 8.0 | n/a (gate) |
-| MPCC | · | 1.36× | +0.74 | — | 8.9 | n/a (gate) |
+| HAFN | · | 1.26× | +1.43 | — | 8.0 | n/a (gate) |
+| INSW | · | 2.36× | +47.43 | — | 8.0 | n/a (gate) |
+| MPCC | · | 1.20× | +0.40 | — | 8.9 | n/a (gate) |
 | SB | · | 0.63× | -3.73 | — | 8.0 | n/a (gate) |
-| SBLK | · | 0.93× | -2.14 | — | 6.8 | n/a (gate) |
-| STNG | · | 0.98× | -1.87 | — | 8.0 | n/a (gate) |
+| SBLK | · | 0.86× | -4.14 | — | 6.8 | n/a (gate) |
+| STNG | · | 0.94× | -4.47 | — | 8.0 | n/a (gate) |
 | TEN | · | 0.42× | -51.56 | — | 7.1 | n/a (gate) |
-| TNK | · | 0.91× | -6.71 | — | 8.0 | n/a (gate) |
-| TRMD | · | 0.93× | -2.14 | — | 8.0 | n/a (gate) |
+| TNK | · | 0.87× | -9.91 | — | 8.0 | n/a (gate) |
+| TRMD | · | 0.91× | -2.64 | — | 8.0 | n/a (gate) |
 
 **Gated** (high-payout single-class names at peak with a large market premium): NAT.

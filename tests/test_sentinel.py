@@ -35,8 +35,8 @@ def _fixture(tmp_path: Path, *, trigger_due=False, stale_watchlist=False,
         "t1": {"sector": "crude", "due": date(2026, 6, 1) if trigger_due else date(2099, 1, 1),
                "observable": "x", "action": "y", "status": "armed", "added": date(2026, 7, 2)},
     }))
-    as_of = (date.today() - timedelta(days=40)).isoformat() if stale_watchlist \
-        else date.today().isoformat()
+    as_of = (date.today() - timedelta(days=50)).isoformat() if stale_watchlist \
+        else date.today().isoformat()   # 50d > the 42d threshold (owner 2026-07-06)
     (inputs / "watchlist.yaml").write_text(yaml.safe_dump({
         "DHT": {"current_price": 16.5, "analyst_target": 18.0, "as_of": as_of},
     }))

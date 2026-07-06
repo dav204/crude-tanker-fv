@@ -29,102 +29,102 @@
 # inputs/scenario_inputs.yaml (LNG glut-cycle scenarios). Future sectors: product,
 # dry_bulk.
 DHT:
-  current_price: 16.40     # Pareto 4 Jun 2026 (P/E 8.8x consensus)
+  current_price: 17.20    # Pareto 3 Jul 2026
   analyst_target: 16.00
-  consensus_pnav: 1.09     # Pareto 4 Jun 2026 (was 1.09 — confirmed exact)
-  consensus_fwd_pe: 8.8    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
-  as_of: 2026-06-04
+  consensus_pnav: 1.14    # Pareto 3 Jul 2026
+  consensus_fwd_pe: 9.3    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-07-03
 ECO:
-  current_price: 47.70     # Pareto 4 Jun 2026 (P/E 8.4x consensus)
+  current_price: 53.10    # Pareto 3 Jul 2026
   analyst_target: 45.00
-  consensus_pnav: 1.21     # Pareto 4 Jun 2026 (was 1.22 — confirmed)
-  consensus_fwd_pe: 8.4    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
-  as_of: 2026-06-04
+  consensus_pnav: 1.35    # Pareto 3 Jul 2026
+  consensus_fwd_pe: 9.4    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-07-03
 FRO:
-  current_price: 34.50     # Pareto 4 Jun 2026 (P/E 9.4x consensus)
+  current_price: 36.80    # Pareto 3 Jul 2026
   analyst_target: 30.50
-  consensus_pnav: 1.20     # Pareto 4 Jun 2026 (was 1.21 — confirmed)
-  consensus_fwd_pe: 9.4    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
-  as_of: 2026-06-04
+  consensus_pnav: 1.37    # Pareto 3 Jul 2026
+  consensus_fwd_pe: 9.4    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-07-03
 INSW:
-  current_price: 78.00     # Pareto 4 Jun 2026 (P/E 11.4x consensus). HYBRID:
+  current_price: 82.40    # Pareto 3 Jul 2026
   analyst_target: 79.50    # crude carve-out compares vs the crude-ALLOCATED price (x crude_share).
-  consensus_pnav: 0.98     # Pareto 4 Jun 2026 whole-company P/NAV (broker NAV = 78.00/0.98 = $79.59)
-  consensus_fwd_pe: 11.4    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
-  as_of: 2026-06-04
+  consensus_pnav: 1.11    # Pareto 3 Jul 2026
+  consensus_fwd_pe: 12.0    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-07-03
 TNK:
-  current_price: 70.80     # Pareto 4 Jun 2026; Teekay Tankers (Atlantic crude, ~half Aframax)
+  current_price: 67.60    # Pareto 3 Jul 2026
   analyst_target: 75.00
-  consensus_pnav: 0.76     # Pareto 4 Jun 2026 (was 0.76 — confirmed exact); genuinely cheap vs broker NAV (= 70.80/0.76 = $93.16)
-  consensus_fwd_pe: 8.7    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
-  as_of: 2026-06-04
+  consensus_pnav: 0.73    # Pareto 3 Jul 2026
+  consensus_fwd_pe: 8.4    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-07-03
 NAT:
-  current_price: 5.20      # Pareto 4 Jun 2026; Nordic American Tankers (pure Suezmax, full-payout)
+  current_price: 5.80    # Pareto 3 Jul 2026
   analyst_target: 6.00     # consensus analyst target (public sources)
-  consensus_pnav: 0.85     # APPROX -- Pareto does NOT publish a P/NAV for NAT (shown as "-" 4 Jun);
+  consensus_pnav: 0.85    # APPROX retained (no Pareto P/NAV); px + P/E rebased 3 Jul 2026
                            # kept at midpoint of NAT's historical 0.7-1.0x P/NAV band. Genuinely unanchored.
-  consensus_fwd_pe: 17.2    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
-  as_of: 2026-06-04
+  consensus_fwd_pe: 19.2    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-07-03
 FLNG:
-  current_price: 29.70     # Pareto 4 Jun 2026; Flex LNG (13x modern 174k cbm LNGCs)
+  current_price: 29.30    # Pareto 3 Jul 2026
   analyst_target: 25.00    # analyst consensus (modest bearish; rate normalisation theme)
-  consensus_pnav: 1.37     # Pareto 4 Jun 2026 (was 1.42 APPROX); implied broker NAV = 29.70 / 1.37 = $21.68/sh
+  consensus_pnav: 1.35    # Pareto 3 Jul 2026
   sector: lng              # valued through sectors.lng scenarios (METHODOLOGY §11)
-  consensus_fwd_pe: 14.5    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
-  as_of: 2026-06-04
+  consensus_fwd_pe: 14.1    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-07-03
 CCEC:
-  current_price: 21.90     # Pareto 4 Jun 2026; Capital Clean Energy Carriers (12 in-water + 9 NB LNG/Cs)
+  current_price: 21.60    # Pareto 3 Jul 2026
   analyst_target: 25.17    # analyst consensus
-  consensus_pnav: 0.90     # APPROX -- Pareto does NOT publish a P/NAV for CCEC (shown as "-" 4 Jun);
+  consensus_pnav: 0.90    # APPROX retained (no Pareto P/NAV); px + P/E rebased 3 Jul 2026
                            # kept at ~book. Genuinely unanchored.
   sector: lng              # valued through sectors.lng scenarios (METHODOLOGY §11)
-  consensus_fwd_pe: 8.8    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
-  as_of: 2026-06-04
+  consensus_fwd_pe: 8.1    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-07-03
 STNG:
-  current_price: 75.60     # Pareto 4 Jun 2026 (was 79.00 APPROX 29-May). Net-cash
+  current_price: 73.00    # Pareto 3 Jul 2026
                            # name; outperformed on 3-Jun per Pareto commentary.
   analyst_target: 94.00    # median of ~6 active analysts (BofA $76 / Jefferies $90 /
                            # Evercore ISI $96 / BTIG $100); Strong Buy consensus
-  consensus_pnav: 0.70     # Pareto 4 Jun 2026 — CORRECTED from 0.87 APPROX (was too HIGH
+  consensus_pnav: 0.69    # Pareto 3 Jul 2026
                            # by 0.17). Real Pareto P/NAV 0.70x → broker NAV = 75.60 / 0.70
                            # = $108.0/sh. STNG is far more mark-driven than the stale APPROX
                            # implied; broker NAV now ABOVE VIE NAV ($103.62). See vie_nav_xref.md.
   sector: product          # valued through sectors.product scenarios (METHODOLOGY §11.5)
-  consensus_fwd_pe: 11.4    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
-  as_of: 2026-06-04
+  consensus_fwd_pe: 11.1    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-07-03
 HAFN:
-  current_price: 7.70      # Pareto 4 Jun 2026 (Hafnia Ltd. US line; was 8.05 29-May).
+  current_price: 7.00    # Pareto 3 Jul 2026
                            # Pareto price is the US-listed line, 4-Jun print.
   analyst_target: 10.00    # Median 3-broker Wall Street consensus.
                            # Pareto (Haavaldsen): Hold $8.50. MarketBeat $10.00.
-  consensus_pnav: 0.95     # Pareto 4 Jun 2026 — CORRECTED from 1.00 APPROX (was high by
+  consensus_pnav: 0.86    # Pareto 3 Jul 2026
                            # 0.05). Real Pareto P/NAV 0.95x → broker NAV = 7.70 / 0.95
                            # = $8.11/sh. ≈ VIE NAV ($8.55). HAFN now a real Pareto print.
   sector: product          # valued through sectors.product (METHODOLOGY §11.5)
-  consensus_fwd_pe: 9.8    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
-  as_of: 2026-06-04
+  consensus_fwd_pe: 8.7    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-07-03
 TRMD:
-  current_price: 28.20     # Pareto 4 Jun 2026 (TORM US line; was 27.25 29-May).
+  current_price: 27.70    # Pareto 3 Jul 2026
   analyst_target: 25.00    # Median of public coverage range $17-34:
                            # Public.com avg $23.33, Evercore raised to $34
                            # (Outperform post-Q1), Yahoo/TipRanks median ~$25
-  consensus_pnav: 0.83     # Pareto 4 Jun 2026 — CORRECTED from 1.00 APPROX (was too HIGH
+  consensus_pnav: 0.82    # Pareto 3 Jul 2026
                            # by 0.17). Real Pareto P/NAV 0.83x → broker NAV = 28.20 / 0.83
                            # = $33.98/sh. TRMD far more mark-driven than the stale APPROX
                            # implied; broker NAV now ABOVE VIE NAV ($30.83). See vie_nav_xref.md.
   sector: product          # valued through sectors.product (METHODOLOGY §11.5)
-  consensus_fwd_pe: 9.5    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
-  as_of: 2026-06-04
+  consensus_fwd_pe: 9.3    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-07-03
 ASC:
-  current_price: 16.00     # Pareto 4 Jun 2026 (Ardmore; was 18.50 APPROX 13-May —
+  current_price: 14.90    # Pareto 3 Jul 2026
                            # the stale price was materially too high; -2% on the week per Pareto).
   analyst_target: 17.95    # median of 9 analysts (range $14.90-$21.00); Public.com / MarketBeat
-  consensus_pnav: 0.75     # APPROX -- Pareto does NOT publish a P/NAV for ASC (shown as "-"
+  consensus_pnav: 0.75    # APPROX retained (no Pareto P/NAV); px + P/E rebased 3 Jul 2026
                            # 4 Jun). Kept at ~75% per aggregator commentary; broker NAV implied
                            # = 16.00 / 0.75 = $21.33/sh. Genuinely unanchored to a Pareto print.
   sector: product          # valued through sectors.product scenarios (METHODOLOGY §11.5)
-  consensus_fwd_pe: 14.2    # Pareto Shipping Daily 4 Jun 2026 (consensus 1Y FWD P/E)
-  as_of: 2026-06-04
+  consensus_fwd_pe: 13.2    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
+  as_of: 2026-07-03
 TEN:
   current_price: 37.14     # NYSE close 10 Jun 2026 (Yahoo + stockanalysis.com agree;
                            # prior close $36.92). CORRECTS the $44.00 input error — Q1 6-K
@@ -168,19 +168,19 @@ CMDB:
   as_of: 2026-06-10
 
 SBLK:
-  current_price: 27.20         # Pareto Shipping Daily Jun 5 2026
+  current_price: 25.20    # Pareto 3 Jul 2026
   analyst_target: 34.50        # VIE Coverage Universe (Catlin / Mintzmyer) Bullish $34.50
                                # → 26.8% upside vs price (cross-checks with Pareto P/NAV
                                # implied: $27.20 / 0.82 = $33.17 broker NAV, close to VIE).
-  consensus_pnav: 0.82         # Pareto Shipping Daily Jun 5 2026 (anchored series; SBLK
+  consensus_pnav: 0.78    # Pareto 3 Jul 2026
                                # is one of three Pareto-anchored dry bulk validators per
                                # METHODOLOGY §11.7.2 — SBLK / GNK / HSHP).
-  consensus_fwd_pe: 6.9        # Pareto consensus 1Y FWD P/E Jun 5 2026
+  consensus_fwd_pe: 6.4    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
   sector: dry_bulk
-  as_of: 2026-06-05
+  as_of: 2026-07-03
 
 GNK:
-  current_price: 24.00         # Pareto Shipping Daily Jun 4 2026
+  current_price: 24.50    # Pareto 3 Jul 2026
   analyst_target: 24.80        # Diana Shipping LIVE CASH TENDER $24.80/sh (raised from
                                # $23.50 on May 27 2026; deadline Jun 26 2026; board
                                # rejected; proxy fight at Jun-18 AGM). The most concrete
@@ -189,51 +189,51 @@ GNK:
                                # cross-checks exactly). DEAL CAVEAT: price is pinned to
                                # tender odds, NOT NAV — EV-vs-price readings carry deal
                                # noise until the tender resolves. See decisions/gnk_log.md.
-  consensus_pnav: 0.87         # Pareto Shipping Daily Jun 4 2026 (anchored series; GNK is
+  consensus_pnav: 0.89    # Pareto 3 Jul 2026
                                # the second of three Pareto-anchored dry bulk validators
                                # per METHODOLOGY §11.7.2 — SBLK / GNK / HSHP).
-  consensus_fwd_pe: 13.9       # Pareto consensus 1Y FWD P/E Jun 4 2026
+  consensus_fwd_pe: 14.2    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
   sector: dry_bulk
-  as_of: 2026-06-04
+  as_of: 2026-07-03
 
 CAPT:
-  current_price: 12.20         # NOK 116.2 (Pareto Shipping Daily Jun 10 2026) / USDNOK
+  current_price: 13.31    # Pareto 3 Jul 2026 (kr 130.7 x 0.101838 Jul-3 FX)
                                # 9.5221 (Yahoo NOK=X, Jun-10). OSLO-LISTED, NOK-quoted —
                                # watchlist carries USD for cross-name comparability; the
                                # daily refresh fetches CAPT.OL and converts (yahoo_symbol
                                # + quote_currency below). 17th name, onboarded 2026-06-11.
   analyst_target: 18.90        # Pareto TP NOK 180 (= YE'26 NAV; BUY since Apr-19
                                # initiation, reiterated May-27 review) / 9.5221.
-  consensus_pnav: 0.67         # Pareto Shipping Daily Jun 10 2026 (same-vintage as price;
+  consensus_pnav: 0.69    # Pareto 3 Jul 2026
                                # implied broker NAV = 12.20/0.67 = $18.21 ≈ NOK 173 —
                                # consistent with Pareto's published NAV path 158 (Apr-19)
                                # → 166 (May-27), rising as newbuilds near delivery).
-  consensus_fwd_pe: 11.1       # Pareto Shipping Daily Jun 10 2026 P/E column.
+  consensus_fwd_pe: 15.5    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
   sector: crude                # pure crude+LR2 (LR2 crude-routed, FRO precedent §9.3).
   yahoo_symbol: CAPT.OL        # bare "CAPT" on Yahoo is Captivision (Nasdaq) — wrong issuer.
   quote_currency: NOK          # price_refresh converts via NOK=X to USD.
-  as_of: 2026-06-10
+  as_of: 2026-07-03
 
 MPCC:
-  current_price: 2.78          # NOK 26.42 (Yahoo MPCC.OL, Jun-12) / USDNOK 9.5106.
+  current_price: 2.44    # Pareto 3 Jul 2026 (kr 24.0 x 0.101838 Jul-3 FX)
                                # OSLO-LISTED, NOK-quoted — USD carried for cross-name
                                # comparability (CAPT machinery). Onboarded 2026-06-12.
   analyst_target: 2.63         # Pareto TP NOK 25 (2026-05-28 quarterly review, HOLD,
                                # up from SELL/18; values on EV/EBITDA ~5.5x NOT NAV)
                                # / 9.5106. Real research target, not a NAV statement.
-  consensus_pnav: 1.04         # APPROX — NO Pareto/broker NAV exists for containers
+  consensus_pnav: 1.04    # APPROX retained (no Pareto P/NAV); px + P/E rebased 3 Jul 2026
                                # (§11.8.2, verified in Pareto's own liner table).
                                # Basis: MPCC's OWN Jul-2025 statement that 1,300-TEU
                                # divestments "imply NAV of NOK 25-26 per share" — a
                                # company-implied NAV (~NOK 25.5), 11 months stale,
                                # pre-dating the 2026 charter market. WEAK anchor;
                                # /reconcile treats as n/a-APPROX and downweights.
-  consensus_fwd_pe: 8.0        # Pareto 2026-05-28 ("we are 7% ahead of cons. seeing
+  consensus_fwd_pe: 7.7    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
                                # MPC at P/E 8x").
   sector: containerships
   yahoo_symbol: MPCC.OL
   quote_currency: NOK
-  as_of: 2026-06-12
+  as_of: 2026-07-03
 
 GSL:
   current_price: 38.99         # Yahoo GSL close Jun-11-2026 (chart API).
@@ -253,45 +253,45 @@ GSL:
   as_of: 2026-06-12
 
 BRUT:
-  current_price: 5.40          # NOK 50 (Pareto initiation 2026-04-22) / USDNOK ~9.26
+  current_price: 5.30    # Pareto 3 Jul 2026 (kr 52.0 x 0.101838 Jul-3 FX)
                                # (report-implied). OSLO-LISTED, NOK-quoted — watchlist
                                # carries USD for cross-name comparability; the daily
                                # refresh fetches BRUT.OL and converts (yahoo_symbol +
                                # quote_currency below). 20th name, onboarded 2026-06-22.
   analyst_target: 7.13         # Pareto TP NOK 66 (= current NAV; BUY since the 2026-04-22
                                # initiation) / 9.26.
-  consensus_pnav: 0.75         # Pareto initiation 2026-04-22 (same-vintage as price;
+  consensus_pnav: 0.72    # Pareto 3 Jul 2026
                                # implied broker NAV = 5.40/0.75 = $7.20 ≈ NOK 66.7 ≈
                                # Pareto's published NAV NOK 66). Real Pareto coverage —
                                # a genuine broker NAV, not a placeholder/proxy anchor. Series
                                # in pareto_share_prices.csv (0.73-0.79x).
-  consensus_fwd_pe: 22.0       # Pareto NTM P/E (Apr-2026 vintage). HIGH / not meaningful —
+  consensus_fwd_pe: 19.0    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
                                # pre-operational (first vessel delivers Jul-2026); EPS-xref
                                # reads as noise for BRUT until vessels are on the water.
   sector: crude                # pure-play VLCC newbuild vehicle (12x firm NB).
   yahoo_symbol: BRUT.OL        # bare "BRUT" on Yahoo is the wrong issuer — use BRUT.OL.
   quote_currency: NOK          # refresh converts NOK close → USD via NOK=X.
-  as_of: 2026-04-22            # Pareto initiation vintage (no Q1 report; H1-2026 due Aug-13).
+  as_of: 2026-07-03
 
 # CMB.TECH NV (ex-Euronav) — first crude+dry_bulk+containerships MULTI-SLEEVE
 # hybrid (METHODOLOGY §11.9; MULTI_SLEEVE_TICKERS). Onboarded 2026-06-26.
 CMBT:
-  current_price: 14.90         # Pareto Shipping Daily 11 JUN 2026 (CMB.TECH US line, USD) —
+  current_price: 14.60    # Pareto 3 Jul 2026
                                # matched price + P/NAV from the same report (TEN-gotcha discipline).
   analyst_target: 16.59        # Consensus PT (MarketBeat ~14 analysts, Jun-2026). Pareto rates it
                                # "deep value" and pegs NAV ~$20/sh (NOK 189) — the bull/NAV anchor.
-  consensus_pnav: 0.74         # Pareto Shipping Daily 11 JUN 2026 — REAL Pareto print (CORRECTED
+  consensus_pnav: 0.73    # Pareto 3 Jul 2026
                                # from a 0.90 APPROX placeholder set at onboarding; CMBT is genuinely
                                # Pareto-covered, the onboarding "no broker NAV" read was wrong).
                                # broker NAV = 14.90/0.74 = $20.14 ≈ Pareto's stated "$20/share" NAV.
                                # Pareto: "sub-0.75x NAV, the lowest priced name in our drybulk
                                # coverage" (tracked monthly: 0.62x Dec-25 → 0.77x May → 0.74x Jun-26).
-  consensus_fwd_pe: 9.7        # Pareto Shipping Daily 11 JUN 2026 (consensus 1Y FWD P/E).
+  consensus_fwd_pe: 8.9    # Pareto Shipping Daily 3 Jul 2026 (consensus 1Y FWD P/E)
   sector: crude                # LEAD sleeve (drives the watchlist default lookup + strip horizon).
                                # Actual valuation = crude + dry_bulk + containerships MULTI-SLEEVE
                                # (MULTI_SLEEVE_TICKERS dispatch, METHODOLOGY §11.9). Chemical /
                                # offshore / FSO / HFS / newbuild book held off-curve.
-  as_of: 2026-06-24
+  as_of: 2026-07-03
 
 # Safe Bulkers Inc. (NYSE: SB) — 4th dry-bulk validator. Onboarded 2026-06-27.
 SB:

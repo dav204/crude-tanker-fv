@@ -45,7 +45,11 @@ DATA_SOURCES_PATH = INPUTS_DIR / "data_sources.yaml"
 # Staleness thresholds (locked 2026-06-01)
 # ----------------------------------------------------------------------------
 MARKET_DATA_STALE_DAYS = 30      # spot / 12M TC / FFA / vessel value curves
-WATCHLIST_STALE_DAYS = 14        # current_price / analyst_target / consensus_pnav
+WATCHLIST_STALE_DAYS = 42        # consensus-pair vintage (owner 2026-07-06 at the
+                                 # first recapture sitting: 14d guaranteed standing
+                                 # flags between sittings; 42d = monthly rhythm +
+                                 # slack, with the quarterly recapture trigger and
+                                 # the staleness-floor trigger as hard backstops)
 FLEET_STALE_DAYS = 90            # fleet manifest (vessels enter / exit)
 COST_DIVIDEND_STALE_DAYS = 180   # cost structure / dividend policy
 

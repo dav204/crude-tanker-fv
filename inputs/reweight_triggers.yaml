@@ -142,7 +142,7 @@ container_mb_refresh:
 
 all_sectors_consensus_pair_recapture:
   sector: all
-  due: 2026-07-10
+  due: 2026-10-02
   observable: >
     Watchlist consensus vintages (as_of) are 23-72d old (BRUT worst) vs the
     14d freshness threshold — the pure sentinel + the Action issue carry the
@@ -157,7 +157,10 @@ all_sectors_consensus_pair_recapture:
     re-arm to the next quarter boundary and RESOLVE the threshold question
     (14d nag vs quarterly cadence) with a dated decision.
   status: armed
-  added: 2026-07-03
+  added: 2026-07-03  # first sitting completed 2026-07-06 (4 days early, Pareto
+                     # 3-Jul daily): 18 pairs rebased, TEN/SB/GSL/CMDB absent
+                     # from that edition and left at their documented vintages;
+                     # re-armed quarterly. decisions/consensus_recapture_2026-07-06.md
 
 all_sectors_quarterly_staleness_floor:
   sector: all

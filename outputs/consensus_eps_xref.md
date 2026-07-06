@@ -8,28 +8,28 @@ The **earnings-leg analog of the broker-NAV sweep** (METHODOLOGY §9.11 / §9.9)
 
 | Name | Sector | Price | Cons. fwd P/E | Cons. fwd EPS | Tool fwd EPS | Tool impl. P/E | EPS gap | Cons. earn. yld | Cycle (band) | w_earn | Read |
 |---|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|---|
-| NAT | crude | $5.20 | 17.2× | $0.30 | $1.45 | 3.6× | +380% | 5.8% | 2.21× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| BRUT | crude | $5.40 | 22.0× | $0.25 | $1.00 | 5.4× | +307% | 4.5% | 2.79× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| CAPT | crude | $12.20 | 11.1× | $1.10 | $3.60 | 3.4× | +228% | 9.0% | 2.45× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| TRMD | product | $28.20 | 9.5× | $2.97 | $9.61 | 2.9× | +224% | 10.5% | 1.69× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| CCEC | lng | $21.90 | 8.8× | $2.49 | $7.93 | 2.8× | +219% | 11.4% | 0.77× (below-mid) | 0.60 | earnings-driven (tool>cons) |
-| INSW **(WHOLE-CO)** | crude | $78.00 | 11.4× | $6.84 | $21.72 | 3.6× | +217% | 8.8% | 2.11× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| FRO | crude | $34.50 | 9.4× | $3.67 | $11.31 | 3.1× | +208% | 10.6% | 2.57× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| HAFN | product | $7.70 | 9.8× | $0.79 | $2.39 | 3.2× | +205% | 10.2% | 1.66× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| DHT | crude | $16.40 | 8.8× | $1.86 | $5.51 | 3.0× | +196% | 11.4% | 2.79× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| ECO | crude | $47.70 | 8.4× | $5.68 | $15.30 | 3.1× | +169% | 11.9% | 2.51× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| NAT | crude | $5.80 | 19.2× | $0.30 | $1.45 | 4.0× | +381% | 5.2% | 2.21× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| CAPT | crude | $13.31 | 15.5× | $0.86 | $3.60 | 3.7× | +319% | 6.5% | 2.45× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| BRUT | crude | $5.30 | 19.0× | $0.28 | $1.00 | 5.3× | +258% | 5.3% | 2.79× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| TRMD | product | $27.70 | 9.3× | $2.98 | $9.61 | 2.9× | +223% | 10.8% | 1.69× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| INSW **(WHOLE-CO)** | crude | $82.40 | 12.0× | $6.87 | $21.72 | 3.8× | +216% | 8.3% | 2.11× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| DHT | crude | $17.20 | 9.3× | $1.85 | $5.51 | 3.1× | +198% | 10.8% | 2.79× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| HAFN | product | $7.00 | 8.7× | $0.80 | $2.39 | 2.9× | +198% | 11.5% | 1.66× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| CCEC | lng | $21.60 | 8.1× | $2.67 | $7.93 | 2.7× | +198% | 12.3% | 0.77× (below-mid) | 0.60 | earnings-driven (tool>cons) |
+| FRO | crude | $36.80 | 9.4× | $3.91 | $11.31 | 3.3× | +189% | 10.6% | 2.57× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| ECO | crude | $53.10 | 9.4× | $5.65 | $15.30 | 3.5× | +171% | 10.6% | 2.51× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | SB | dry_bulk | $6.39 | 8.0× | $0.80 | $2.11 | 3.0× | +164% | 12.5% | 1.53× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| GNK | dry_bulk | $24.00 | 13.9× | $1.73 | $4.49 | 5.3× | +160% | 7.2% | 1.35× (elevated) | 0.40 | earnings-driven (tool>cons) |
-| TNK | crude | $70.80 | 8.7× | $8.14 | $21.13 | 3.4× | +160% | 11.5% | 1.91× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| TNK | crude | $67.60 | 8.4× | $8.05 | $21.13 | 3.2× | +163% | 11.9% | 1.91× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| GNK | dry_bulk | $24.50 | 14.2× | $1.73 | $4.49 | 5.5× | +160% | 7.0% | 1.35× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | TEN | crude | $37.14 | 4.6× | $8.07 | $20.53 | 1.8× | +154% | 21.7% | 1.81× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| STNG | product | $75.60 | 11.4× | $6.63 | $16.66 | 4.5× | +151% | 8.8% | 1.78× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| CMBT | crude | $14.90 | 9.7× | $1.54 | $3.77 | 3.9× | +146% | 10.3% | 1.68× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| STNG | product | $73.00 | 11.1× | $6.58 | $16.66 | 4.4× | +153% | 9.0% | 1.78× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | CMDB | dry_bulk | $17.25 | 10.5× | $1.64 | $3.87 | 4.5× | +136% | 9.5% | 1.37× (elevated) | 0.40 | earnings-driven (tool>cons) |
-| ASC | product | $16.00 | 14.2× | $1.13 | $2.22 | 7.2× | +97% | 7.0% | 1.37× (elevated) | 0.40 | earnings-driven (tool>cons) |
-| FLNG | lng | $29.70 | 14.5× | $2.05 | $3.74 | 7.9× | +83% | 6.9% | 0.71× (below-mid) | 0.60 | earnings-driven (tool>cons) |
-| MPCC | containerships | $2.78 | 8.0× | $0.35 | $0.54 | 5.1× | +56% | 12.5% | 1.31× (elevated) | 0.40 | earnings-driven (tool>cons) |
+| CMBT | crude | $14.60 | 8.9× | $1.64 | $3.77 | 3.9× | +130% | 11.2% | 1.68× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| ASC | product | $14.90 | 13.2× | $1.13 | $2.22 | 6.7× | +97% | 7.6% | 1.37× (elevated) | 0.40 | earnings-driven (tool>cons) |
+| FLNG | lng | $29.30 | 14.1× | $2.08 | $3.74 | 7.8× | +80% | 7.1% | 0.71× (below-mid) | 0.60 | earnings-driven (tool>cons) |
+| MPCC | containerships | $2.44 | 7.7× | $0.32 | $0.54 | 4.5× | +71% | 13.0% | 1.31× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | GSL | containerships | $38.99 | 3.8× | $10.26 | $14.08 | 2.8× | +37% | 26.3% | 1.49× (elevated) | 0.40 | earnings-driven (tool>cons) |
-| SBLK | dry_bulk | $27.20 | 6.9× | $3.94 | $5.30 | 5.1× | +35% | 14.5% | 1.41× (elevated) | 0.40 | earnings-driven (tool>cons) |
+| SBLK | dry_bulk | $25.20 | 6.4× | $3.94 | $5.30 | 4.8× | +35% | 15.6% | 1.41× (elevated) | 0.40 | earnings-driven (tool>cons) |
 
 _**(WHOLE-CO)** = hybrid name; the tool forward EPS here is the whole-company FFA strip (a proxy — the headline FV uses the crude+product carve-out aggregation)._
 

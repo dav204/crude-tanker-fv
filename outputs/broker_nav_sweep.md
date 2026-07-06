@@ -7,25 +7,25 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | TEN | 0.34× | 1.16 | +36.3% | +51.2% | +66.1% | BUY→BUY | NAV>px→NAV>px | +30 | wide-spread |
 | CCEC | 0.90× | 0.96 | +55.1% | +46.5% | +37.9% | BUY→BUY | NAV>px→NAV>px | -17 | wide-spread |
 | GSL | 0.75× | 1.25 | +6.4% | +18.9% | +31.5% | BUY→BUY | NAV>px→NAV>px | +25 | wide-spread |
-| STNG | 0.70× | 1.38 | -2.9% | +12.0% | +26.9% | HOLD→BUY | $39,551→NAV>px | +30 | wide-spread |
+| STNG | 0.69× | 1.40 | -2.9% | +12.9% | +28.6% | HOLD→BUY | $39,551→NAV>px | +32 | wide-spread |
+| SBLK | 0.78× | 1.08 | +12.1% | +17.1% | +22.0% | BUY→BUY | $9,650→NAV>px | +10 | narrow-spread |
 | ASC | 0.75× | 1.13 | +9.6% | +15.3% | +21.1% | BUY→BUY | $7,407→NAV>px | +12 | wide-spread |
-| SBLK | 0.82× | 1.04 | +12.1% | +14.4% | +16.6% | BUY→BUY | $9,650→NAV>px | +5 | narrow-spread |
+| TNK | 0.73× | 1.33 | +0.0% | +7.8% | +15.5% | HOLD→BUY | NAV>px→NAV>px | +15 | wide-spread |
+| CMBT **(WHOLE-CO)** | 0.73× | 1.15 | -8.3% | +3.1% | +14.6% | TRIM/SHORT→BUY | $52,880→NAV>px | +23 | wide-spread |
 | SB | 0.88× | 0.83 | +53.4% | +34.0% | +14.5% | BUY→BUY | NAV>px→NAV>px | -39 | wide-spread |
-| CMBT **(WHOLE-CO)** | 0.74× | 1.14 | -8.3% | +2.4% | +13.1% | TRIM/SHORT→BUY | $52,880→NAV>px | +21 | wide-spread |
-| TRMD | 0.83× | 1.08 | +3.4% | +7.9% | +12.4% | HOLD→BUY | $24,799→NAV>px | +9 | narrow-spread |
-| TNK | 0.76× | 1.25 | +0.0% | +5.9% | +11.7% | HOLD→BUY | NAV>px→NAV>px | +12 | wide-spread |
-| GNK | 0.87× | 1.11 | -3.9% | +2.2% | +8.3% | HOLD→BUY | $29,692→$10,595 | +12 | wide-spread |
+| TRMD | 0.82× | 1.09 | +3.4% | +8.5% | +13.6% | HOLD→BUY | $24,799→NAV>px | +10 | wide-spread |
+| HAFN | 0.86× | 1.39 | -20.1% | -5.1% | +9.9% | TRIM/SHORT→BUY | $79,286→$8,086 | +30 | wide-spread |
+| GNK | 0.89× | 1.09 | -3.9% | +1.1% | +6.1% | HOLD→BUY | $29,692→$14,076 | +10 | narrow-spread |
 | CMDB | 0.62× | 0.93 | +11.9% | +8.6% | +5.3% | BUY→BUY | $7,207→$14,814 | -7 | narrow-spread |
-| HAFN | 0.95× | 1.28 | -20.1% | -9.6% | +0.9% | TRIM/SHORT→HOLD | $79,286→$29,561 | +21 | wide-spread |
-| CAPT | 0.67× | 1.18 | -26.4% | -13.2% | +0.0% | TRIM/SHORT→HOLD | $6,063→NAV>px | +26 | wide-spread |
+| CAPT | 0.69× | 1.15 | -26.4% | -14.8% | -3.1% | TRIM/SHORT→HOLD | $6,063→NAV>px | +23 | wide-spread |
 | MPCC | 1.04× | 1.11 | -18.1% | -12.1% | -6.1% | TRIM/SHORT→TRIM/SHORT | $132,543→$47,330 | +12 | wide-spread |
 | NAT | 0.85× | 2.06 | -61.2% | -36.3% | -11.5% | TRIM/SHORT→TRIM/SHORT | $391,067→NAV>px | +50 | wide-spread |
-| INSW **(WHOLE-CO)** | 0.98× | 1.60 | -41.8% | -26.9% | -12.1% | TRIM/SHORT→TRIM/SHORT | $299,845→$73,615 | +30 | wide-spread |
-| FLNG | 1.37× | 0.87 | -0.4% | -11.2% | -22.0% | HOLD→TRIM/SHORT | $124,006→$453,302 | -22 | wide-spread |
-| DHT | 1.09× | 1.12 | -33.9% | -30.1% | -26.2% | TRIM/SHORT→TRIM/SHORT | $318,149→$195,482 | +8 | narrow-spread |
-| FRO | 1.20× | 1.17 | -50.6% | -44.3% | -38.1% | TRIM/SHORT→TRIM/SHORT | $368,638→$235,378 | +12 | wide-spread |
-| ECO | 1.21× | 1.19 | -51.6% | -45.1% | -38.6% | TRIM/SHORT→TRIM/SHORT | $343,913→$224,009 | +13 | wide-spread |
-| BRUT | 0.75× | 0.94 | -41.4% | -53.4% | -65.5% | TRIM/SHORT→TRIM/SHORT | NAV>px→NAV>px | -24 | wide-spread |
+| FLNG | 1.35× | 0.87 | -0.4% | -10.7% | -21.0% | HOLD→TRIM/SHORT | $124,006→$438,558 | -21 | wide-spread |
+| INSW **(WHOLE-CO)** | 1.11× | 1.41 | -41.8% | -31.6% | -21.4% | TRIM/SHORT→TRIM/SHORT | $299,845→$144,354 | +20 | wide-spread |
+| DHT | 1.14× | 1.08 | -33.9% | -31.5% | -29.0% | TRIM/SHORT→TRIM/SHORT | $318,149→$240,463 | +5 | narrow-spread |
+| ECO | 1.35× | 1.10 | -51.6% | -48.2% | -44.8% | TRIM/SHORT→TRIM/SHORT | $343,913→$281,217 | +7 | narrow-spread |
+| FRO | 1.37× | 1.07 | -50.6% | -48.0% | -45.5% | TRIM/SHORT→TRIM/SHORT | $368,638→$314,436 | +5 | narrow-spread |
+| BRUT | 0.72× | 0.95 | -41.4% | -51.3% | -61.3% | TRIM/SHORT→TRIM/SHORT | NAV>px→NAV>px | -20 | wide-spread |
 
 _**(WHOLE-CO)** = hybrid name valued via crude + product sleeve carve-outs aggregated against the whole-company tape price (METHODOLOGY 6 v2). The breakeven shown is the crude-sleeve breakeven (proxy)._
 
