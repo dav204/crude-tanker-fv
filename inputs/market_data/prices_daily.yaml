@@ -1,4 +1,4 @@
-fetched_at: '2026-07-02T22:52:27+00:00'
+fetched_at: '2026-07-03T22:30:07+00:00'
 prices:
   ASC:
     asof: '2026-07-02T20:00:03+00:00'
@@ -7,23 +7,23 @@ prices:
     prev_close: 14.25
     price: 14.86
   BRUT:
-    asof: '2026-07-02T14:14:01+00:00'
-    day_change_pct: 1.56
+    asof: '2026-07-03T14:15:20+00:00'
+    day_change_pct: 0.38
     exchange: OSL
     native_currency: NOK
-    native_price: 52.0
-    prev_close: 5.2
-    price: 5.29
-    usd_per_unit_fx: 0.101644
+    native_price: 52.2
+    prev_close: 5.3
+    price: 5.32
+    usd_per_unit_fx: 0.101838
   CAPT:
-    asof: '2026-07-02T14:27:30+00:00'
-    day_change_pct: 5.57
+    asof: '2026-07-03T14:25:05+00:00'
+    day_change_pct: 2.79
     exchange: OSL
     native_currency: NOK
-    native_price: 130.68
-    prev_close: 12.58
-    price: 13.28
-    usd_per_unit_fx: 0.101644
+    native_price: 134.32
+    prev_close: 13.31
+    price: 13.68
+    usd_per_unit_fx: 0.101838
   CCEC:
     asof: '2026-07-02T20:00:00+00:00'
     day_change_pct: -0.37
@@ -91,14 +91,14 @@ prices:
     prev_close: 77.78
     price: 82.4
   MPCC:
-    asof: '2026-07-02T14:26:49+00:00'
-    day_change_pct: 0.33
+    asof: '2026-07-03T14:27:45+00:00'
+    day_change_pct: 3.0
     exchange: OSL
     native_currency: NOK
-    native_price: 24.03
-    prev_close: 2.43
-    price: 2.44
-    usd_per_unit_fx: 0.101644
+    native_price: 24.75
+    prev_close: 2.45
+    price: 2.52
+    usd_per_unit_fx: 0.101838
   NAT:
     asof: '2026-07-02T20:00:03+00:00'
     day_change_pct: 4.5
@@ -112,14 +112,11 @@ prices:
     prev_close: 6.31
     price: 6.4
   SBLK:
-    asof: '2026-07-01T20:00:00+00:00'
-    day_change_pct: -0.64
+    asof: '2026-07-02T20:00:00+00:00'
+    day_change_pct: 1.37
     exchange: NMS
-    prev_close: 24.97
-    price: 24.81
-    reconstructed: from state/price_refresh.log 2026-07-01 18:30 run (original file
-      reverted 2026-07-01T19:27, audit F-1 follow-up); prev_close = June-30 committed
-      close, day move recomputed day-over-day per the fixed band
+    prev_close: 24.81
+    price: 25.15
   STNG:
     asof: '2026-07-02T20:00:02+00:00'
     day_change_pct: 5.01
