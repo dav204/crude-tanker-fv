@@ -381,13 +381,27 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
 
 
 def _tree_dirty(root: Path) -> bool:
-    """git-porcelain dirtiness of the project tree. Not-a-repo reads as clean
-    (normal mode) — the tmp-dir tests and any bare checkout run content checks."""
+    """git-porcelain dirtiness of the project tree, IGNORING dirt confined to
+    the automation-drift list (scripts/drift_files.txt — the daily RC ingest
+    writes tracked files every morning; drift-only dirt is routine, not
+    surgery, and must not put the sentinel in META-MODE all week — live
+    lesson 2026-07-04/05). Not-a-repo reads as clean; no drift list means
+    ALL dirt counts (safe default for bare checkouts)."""
     import subprocess
 
     out = subprocess.run(["git", "-C", str(root), "status", "--porcelain"],
                          capture_output=True, text=True)
-    return out.returncode == 0 and bool(out.stdout.strip())
+    if out.returncode != 0 or not out.stdout.strip():
+        return False
+    drift_list = root / "scripts" / "drift_files.txt"
+    drift = set()
+    if drift_list.exists():
+        drift = {ln.strip() for ln in drift_list.read_text().splitlines()
+                 if ln.strip() and not ln.startswith("#")}
+    for line in out.stdout.splitlines():
+        if line[3:] not in drift:
+            return True
+    return False
 
 
 def _in_earnings_window(inputs_dir: Path) -> bool:

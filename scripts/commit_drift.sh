@@ -33,18 +33,10 @@ print(f"commit_drift: promoted edgar manifest snapshot ({len(lines)} arrivals)")
 PYEOF
 fi
 
-# The recurring automation-written tracked files (the cron drifters).
-FILES=(
-  inputs/market_data/prices_daily.yaml
-  inputs/market_data/baltic_indexes_daily.csv
-  inputs/market_data/transactions/_scan_state.json
-  inputs/research_pareto/_manifest.json
-  outputs/sp_print_candidates.md
-  outputs/refresh_checklist.md
-  outputs/ffa_ocr_queue.md
-  outputs/pareto_daily_links.json
-  inputs/filings/_manifest.json
-)
+# The recurring automation-written tracked files — read from the ONE
+# canonical list (scripts/drift_files.txt, WO2 2026-07-06; the price-cron
+# guard and sentinel meta-mode read the same file).
+FILES=("${(@f)$(grep -v '^#' scripts/drift_files.txt | grep -v '^$')}")
 
 # Stage only those that exist AND actually changed (unstaged or staged).
 to_add=()

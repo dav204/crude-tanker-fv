@@ -17,17 +17,30 @@ JOB=price-refresh
 
 # Collision guard (WO1 Task 3, 2026-07-02): no automation through live surgery.
 # The 18:52 Jul-2 fetch landed mid-F-13-fix and had to be hand-separated into
-# its own commit; the cron now stands down when a PAUSE file exists or the
-# working tree is dirty (git status --porcelain non-empty), and says so in the
-# log. The skipped fetch self-heals the next day.
+# its own commit. Re-scoped 2026-07-06 (owner-approved): dirt confined to the
+# automation-drift list (scripts/drift_files.txt — the daily RC ingest writes
+# tracked files every morning) is ROUTINE, not surgery; the guard starved the
+# price fetch two nights running behind it. Skip only on non-drift dirt.
 if [ -f "$PROJECT/PAUSE" ]; then
   CRON_OUTCOME=skipped-paused
   echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') SKIPPED: paused"
   exit 0
 fi
-if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
+non_drift=""
+while IFS= read -r line; do
+  [ -z "$line" ] && continue
+  p=${line#???}
+  if ! grep -qxF "$p" "$(dirname "$0")/drift_files.txt" 2>/dev/null; then
+    non_drift="$p"
+    break
+  fi
+done <<PORCELAIN
+$(git status --porcelain 2>/dev/null)
+PORCELAIN
+if [ -n "$non_drift" ]; then
   CRON_OUTCOME=skipped-dirty
-  echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') SKIPPED: dirty-tree"
+  CRON_NOTE="non_drift=$non_drift"
+  echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') SKIPPED: dirty-tree ($non_drift)"
   exit 0
 fi
 

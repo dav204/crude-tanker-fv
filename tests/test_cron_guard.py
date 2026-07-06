@@ -65,6 +65,34 @@ def test_skips_on_dirty_tree(tmp_path, script):
     (repo / "a.txt").write_text("modified\n")
     r = _run(script, repo)
     assert r.returncode == 0
-    assert "SKIPPED: dirty-tree" in r.stdout
+    assert "SKIPPED: dirty-tree" in r.stdout and "a.txt" in r.stdout
     hb = (repo / "state" / "heartbeat" / "price-refresh").read_text()
-    assert "outcome=skipped-dirty" in hb
+    assert "outcome=skipped-dirty" in hb and "non_drift=a.txt" in hb
+
+
+@pytest.mark.parametrize("script", [s for s in SCRIPTS if "price" in s.name],
+                         ids=lambda s: s.name)
+def test_drift_only_dirt_does_not_skip(tmp_path, script):
+    """Guard re-scope (2026-07-06): the daily RC ingest dirties tracked drift
+    files every morning — that starved the price fetch two nights running.
+    Dirt confined to scripts/drift_files.txt passes the guard (the run then
+    fails on the tmp repo's missing venv, which PROVES it got past the skip);
+    drift + surgery together still skips."""
+    repo = _tmp_repo(tmp_path)
+    drift_file = "inputs/market_data/baltic_indexes_daily.csv"
+    (repo / drift_file).parent.mkdir(parents=True)
+    (repo / drift_file).write_text("date,BDI\n")
+    subprocess.run(["git", "add", drift_file], cwd=repo, check=True)
+    subprocess.run(["git", "-c", "user.email=t@t", "-c", "user.name=t",
+                    "commit", "-qm", "seed"], cwd=repo, check=True)
+    (repo / drift_file).write_text("date,BDI\n2026-07-06,2500\n")
+
+    r = _run(script, repo)
+    assert "SKIPPED: dirty-tree" not in r.stdout
+    assert r.returncode != 0   # proceeded to the (absent) venv — guard passed
+    hb = (repo / "state" / "heartbeat" / "price-refresh").read_text()
+    assert "outcome=error" in hb   # the trap still recorded the real failure
+
+    (repo / "a.txt").write_text("surgery\n")
+    r = _run(script, repo)
+    assert r.returncode == 0 and "SKIPPED: dirty-tree (a.txt)" in r.stdout

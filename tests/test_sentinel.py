@@ -529,6 +529,32 @@ def test_meta_mode_suspends_content_checks_on_dirty_tree(tmp_path, monkeypatch, 
     assert "META dirty-tree" in sent[0][1]
 
 
+def test_drift_only_dirt_stays_in_normal_mode(tmp_path, monkeypatch, capsys):
+    """Guard re-scope (2026-07-06): dirt confined to scripts/drift_files.txt
+    must NOT put the sentinel in META-MODE — content checks keep running."""
+    import subprocess
+
+    s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch, trigger_due=True)
+    scripts = tmp_path / "scripts"
+    scripts.mkdir(exist_ok=True)
+    (scripts / "drift_files.txt").write_text("inputs/watchlist.yaml\n")
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "add", "-A"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "-c", "user.email=t@t", "-c", "user.name=t",
+                    "commit", "-qm", "seed"], cwd=tmp_path, check=True)
+    (tmp_path / "inputs" / "watchlist.yaml").write_text(
+        (tmp_path / "inputs" / "watchlist.yaml").read_text() + "# drift\n")
+
+    assert s.main(["--state", st]) == 1   # content checks RAN: trigger flags
+    out = capsys.readouterr().out
+    assert "META dirty-tree" not in out and "TRIGGER-DUE" in out
+
+    # drift-list file itself is untracked (= dirt beyond the list) → META.
+    (tmp_path / "surgery.py").write_text("x\n")
+    assert s.main(["--state", st]) == 0
+    assert "META dirty-tree" in capsys.readouterr().out
+
+
 def test_dirty_too_long_pages_at_36h_and_12h_in_window(tmp_path, monkeypatch, capsys):
     import json as _json
     import subprocess

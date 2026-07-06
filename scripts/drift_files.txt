@@ -1,0 +1,18 @@
+# The automation-drift file list — THE canonical enumeration of tracked files
+# that launchd jobs legitimately write (WO2 guard re-scope, 2026-07-06).
+# Consumers (two-surfaces rule — one list, three readers):
+#   scripts/commit_drift.sh        stages exactly these
+#   scripts/price_refresh_cron.sh  dirty-tree guard IGNORES dirt confined to these
+#   sentinel._tree_dirty           META-MODE ignores dirt confined to these
+# Live lesson 2026-07-04/05: the daily RC ingest dirties these every morning,
+# which starved the nightly price refresh behind the WO1 dirty-tree guard two
+# nights running. Drift-only dirt is routine, not surgery.
+inputs/market_data/prices_daily.yaml
+inputs/market_data/baltic_indexes_daily.csv
+inputs/market_data/transactions/_scan_state.json
+inputs/research_pareto/_manifest.json
+outputs/sp_print_candidates.md
+outputs/refresh_checklist.md
+outputs/ffa_ocr_queue.md
+outputs/pareto_daily_links.json
+inputs/filings/_manifest.json

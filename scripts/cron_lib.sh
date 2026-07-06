@@ -16,6 +16,13 @@
 # Wrappers set CRON_OUTCOME before exiting: ok | flags | skipped-paused |
 # skipped-dirty. The default is error — an unmanaged exit IS an error.
 
+# launchd PATH is bare (/usr/bin:/bin:...) — Homebrew tools are invisible to
+# cron jobs. Caught live 2026-07-04: the Saturday news-pull died at ffa_ocr
+# on FileNotFoundError('tesseract') while every interactive run worked. One
+# fix here covers every wrapper.
+PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+export PATH
+
 CRON_START_TS=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
 if [ -z "${CRON_INITIATOR:-}" ]; then
   # Only OUR labels count as launchd: interactive macOS shells carry
