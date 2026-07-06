@@ -377,6 +377,39 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
                 flags.append(f"FLEET-TRANSACTION {unreviewed} unreviewed S&P print "
                              "candidate(s) — review outputs/sp_print_candidates.md, "
                              "promote/dismiss, then sp_scan --mark-reviewed")
+
+    # 11. MB weekly lanes (WO2 1.6 — landed AFTER the Apr-01 instance was
+    #     fixed, per R-6: these exist to make the NEXT freeze impossible).
+    #     Per-feed source silence + the container UNINGESTED lane: containers
+    #     are the one class whose SOURCE OF RECORD is the MB weekly (§11.8).
+    mb_root = inputs_dir / "research_mb"
+    if mb_root.exists():
+        today = date.today()
+        for feed in ("container_weekly", "tanker_weekly",
+                     "dry_bulk_weekly", "lng_weekly"):
+            newest = _newest_dated_file(mb_root / feed)
+            if newest is None:
+                flags.append(f"STALE-INPUT mb:{feed}: no staged weeklies at all "
+                             "— run the Saturday Gmail step (session:mb-batch)")
+            elif (today - newest).days > 10:
+                flags.append(f"STALE-INPUT mb:{feed}: newest {newest} "
+                             f"({(today - newest).days}d; weekly cadence, 10d "
+                             "grace incl the Gmail session step)")
+        cw_newest = _newest_dated_file(mb_root / "container_weekly")
+        tc_file = inputs_dir / "market_data" / "twelve_month_tc.yaml"
+        if cw_newest and tc_file.exists():
+            import yaml
+
+            a = (yaml.safe_load(tc_file.read_text()) or {}).get("as_of") or {}
+            if isinstance(a, dict) and a.get("default"):
+                ctr_vintage = min(a.get(c, a["default"]) for c in
+                                  ("Ctr-Feeder", "Ctr-Intermediate", "Ctr-Large"))
+                if (cw_newest - ctr_vintage).days > 7:
+                    flags.append(f"UNINGESTED-PRINTS containers: MB weekly staged "
+                                 f"{cw_newest} vs Ctr vintage {ctr_vintage} "
+                                 f"({(cw_newest - ctr_vintage).days}d) — the §11.8 "
+                                 "source of record has a fresher assessment set; "
+                                 "work trigger container_mb_refresh")
     return flags
 
 

@@ -373,6 +373,50 @@ def test_harvester_silence_and_marks_trail(tmp_path):
     assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
 
 
+def test_mb_lanes_silence_and_container_uningested(tmp_path):
+    """WO2 1.6 (post-R-6): per-feed MB silence + the container lane — the
+    class whose source of record IS the MB weekly must never silently freeze
+    again. Fresh weekly + fresh Ctr vintage = quiet."""
+    from datetime import date as _date
+
+    inputs, outputs = _fixture(tmp_path)
+    mb = inputs / "research_mb"
+    fresh = _date.today() - timedelta(days=3)
+    for feed in ("container_weekly", "tanker_weekly", "dry_bulk_weekly", "lng_weekly"):
+        d = mb / feed / "2026"
+        d.mkdir(parents=True)
+        (d / f"{fresh.isoformat()}_x_Weekly_27_2026.pdf").write_bytes(b"x")
+    (inputs / "market_data" / "twelve_month_tc.yaml").write_text(yaml.safe_dump({
+        "as_of": {"default": fresh},
+        "twelve_month_tc": {"Ctr-Feeder": 23750}}))
+    assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
+
+    # One feed goes silent 12d -> STALE-INPUT names the feed.
+    lng = mb / "lng_weekly" / "2026"
+    for f in lng.iterdir():
+        f.unlink()
+    old = (_date.today() - timedelta(days=12)).isoformat()
+    (lng / f"{old}_LNG_Weekly_25_2026.pdf").write_bytes(b"x")
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 1 and flags[0].startswith("STALE-INPUT mb:lng_weekly")
+
+    # Container weekly staged fresh but Ctr vintage frozen 30d back -> the
+    # April-freeze class, now detected.
+    (lng / f"{old}_LNG_Weekly_25_2026.pdf").unlink()
+    (lng / f"{fresh.isoformat()}_LNG_Weekly_27_2026.pdf").write_bytes(b"x")
+    (inputs / "market_data" / "twelve_month_tc.yaml").write_text(yaml.safe_dump({
+        "as_of": {"default": fresh,
+                  "Ctr-Feeder": fresh - timedelta(days=30),
+                  "Ctr-Intermediate": fresh - timedelta(days=30),
+                  "Ctr-Large": fresh - timedelta(days=30)},
+        "twelve_month_tc": {"Ctr-Feeder": 20500, "Ctr-Intermediate": 43400,
+                            "Ctr-Large": 62500}}))
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert len(flags) == 1
+    assert flags[0].startswith("UNINGESTED-PRINTS containers")
+    assert "container_mb_refresh" in flags[0]
+
+
 def test_trigger_evidence_from_tanker_period_signals(tmp_path):
     """WO2 1.4: scanned period-market signals newer than the tanker hold flag
     TRIGGER-EVIDENCE; signals predating the hold (or no hold left) are quiet."""
