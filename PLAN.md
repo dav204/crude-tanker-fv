@@ -23,6 +23,11 @@ surface is SB/SBLK + ASC/TRMD (product value) + TNK (band edge) + TEN (governed)
 `crude_mou_implementation_check` Jul-17, `crude_day60_toll_cliff` Aug-16 (pre-registered reweight),
 Doha-resumption check ~Jul-10 — all in `inputs/reweight_triggers.yaml`, surfaced by the preflight.**
 
+**WO3 ISSUED 2026-07-06 — LPG/VLGC sector onboarding (charter-funded):** see `WO3_LPG_ONBOARDING.md`.
+Consumer-side authority: portfolio-governance sector charter (verdict `fd0277f`) — 50% of the cycle's
+validation labor; VLGC-first (Dorian LPG + BWLP validators); NOT a supply call (charter B-4); kill-switches:
+VLGC orderbook >38% voids the half, charter expires 2026-12-26. Phase 0 (methodology decision doc) first.
+
 **Follow-ups from the 2026-07-02 review chain (non-blocking):** (1) drift-gate CLI needs
 `state/last_run.json` — add a from-inputs recompute mode so a clean clone can run the gate
 (clean-clone verifiability is an audit-noted strength); (2) tanker forward curves held at the
