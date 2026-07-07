@@ -5,6 +5,22 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-07 — WO3 LPG Phase 0 ratified + a known-failure-mode flag.** LPG/VLGC sector methodology
+  doc ratified (decisions/lpg_methodology_2026-07-07.md): VLGC-only; §11.8.6 coverage reuse; §15
+  BW-bloc screen; scenario weights **0.15/0.35/0.35/0.15** (overhang co-weighted with base — LPG is
+  the supply-heavy/demand-soft mirror of dry bulk, not its shape). Cycle anchor = **~$40,000/day
+  10-yr through-cycle VLGC realized TCE** (as_of 2026-07-07, annual-review trigger
+  `lpg_anchor_annual_review`) — realized-TCE basis is CORRECT for an 85-99%-spot validator pair, not
+  a compromise; 1-yr TC ~$60k is a documented cross-check; cycle multiple is realized-vs-realized
+  ~1.5-1.6× (war-elevated), never mixed-basis. Triangulated from Dorian's complete FY2016-26 10-K
+  TCE series + BW LPG + Clarksons "in line with long-run averages" + Dorian's own trailing-10yr
+  impairment concept. **KNOWN FAILURE MODE flagged (owner, 3× now):** web-heavy source-agent fleets
+  keep stalling the stream watchdog; each salvage worked (the Dorian series was recovered straight
+  from a frozen agent's jsonl) but cost a manual synthesis pass. On the WO2 board as its own line
+  (PLAN.md, task #32); interim rule: source sweeps run single-threaded until web-research agents get
+  the fetchers' watchdog-and-restart. "Salvageable by hand each time" is the manual step the
+  automation exists to retire.
+
 - **2026-07-03 — Xclusiv geometry confirmed on a live issue (WO2 1.3 landing condition):**
   `cli inspect` on `data/pdfs/xclusiv/2026W26_0670764b.pdf` — pdfplumber detects the ruled
   grids (newbuilding orders table 11×8; BC/tanker S&P sales tables 8-col with clean rows),

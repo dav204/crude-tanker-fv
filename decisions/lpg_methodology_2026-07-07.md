@@ -1,8 +1,9 @@
 # LPG/VLGC sector — methodology decision doc (WO3 Phase 0) — DRAFT FOR RATIFICATION
 
 **Authority:** WO3_LPG_ONBOARDING.md · charter Part-B verdict `fd0277f` (50% LPG, VLGC-first).
-**Status:** DRAFT — forks 1/3/4/5 RATIFIED 2026-07-07 (see Ratification log at end); Fork 2 anchor
-SOURCED, one basis decision pending. Phase 1+ (any YAML) does NOT begin until that clears.
+**Status:** ALL FORKS RATIFIED 2026-07-07 (see Ratification log at end) — Fork 2 anchor accepted
+(~$40k realized-TCE, basis correct-not-compromise), Fork 3 vector confirmed 0.15/0.35/0.35/0.15.
+**Phase 1 is GO.**
 This is the methodology-doc-first gate (WORKFLOWS §Onboarding-a-sector); it records DECISIONS,
 so open forks are a decision *request*, not a spec. Prospective home: METHODOLOGY §11.10.
 
@@ -144,18 +145,23 @@ cycle-spanning:
 - Trough (FY17-19 ~$22k Dorian / 2018 ~$17.3k market Lloyd's List) and peak (2023-24 $50-66k;
   Sept-2023 all-time-high spot; 1-yr TC ~$2.6M/mo ≈ $85.5k/day at the peak) both captured.
 
-**Reconciled anchor: ~$40,000/day, 10-yr through-cycle VLGC TCE — SPOT-REALIZED basis (NOT 1-yr TC).**
-Implied cycle position: current 1-yr TC ~$60k → 1.50×; recent realized ex-war-spike ~$52-55k → 1.31-1.38×
-→ **"elevated / late-cycle-peak"** — honest against the ~30% orderbook (a peak read into a heavy
-delivery wall is exactly the adverse setup the charter's B-4 flagged; the engine is reading, not endorsing).
+**RATIFIED ANCHOR (owner, 2026-07-07): ~$40,000/day, 10-yr through-cycle VLGC realized TCE.**
+The realized-TCE basis is the **CORRECT** anchor for an 85-99%-spot validator pair (Dorian/BW LPG
+are ~80-99% spot) — **not a compromise or a fallback**. The clean 1-yr TC (~$60k, BW Pampero) is
+**demoted to a documented cross-check**, not the anchor.
 
-**PENDING OWNER DECISION (the last gate):** accept the **~$40k spot-realized-TCE** anchor as PASS
-(documented basis-caveat; numerator kept same-basis = recent realized, not the war-spiked BLPG1 spot,
-per §10 spirit) — OR hold to the letter of "1-yr TC" → the series is unsourceable on that exact basis →
-PROVISIONAL with cycle-position suppressed. **Producer recommendation: PASS on spot-realized basis** —
-it is better-sourced (11 SEC-primary fiscal years + two-issuer + broker corroboration) than several
-anchors already live in the book, and for an ~80%-spot sector realized-TCE-through-cycle is the more
-honest "normal" than a thin 1-yr TC print.
+**Cycle multiple is realized-vs-realized** (same basis both sides — never mix TC numerator with
+realized denominator): current *realized* TCE ~$60-64k (Dorian Q1-2026 $63,615, war-elevated) ÷ $40k
+mean ≈ **1.5-1.6× → "late-cycle/peak, war-elevated"**. (The prior 1.3-1.5× reading was mixed-basis —
+VOID.) The war premium will normalize; the multiple is elevated by the Hormuz spike on top of an
+already-late-cycle level, against the ~30% orderbook — exactly the adverse setup the charter's B-4
+flagged. The engine is reading, not endorsing.
+
+**as_of + annual-review discipline (owner instruction, 2026-07-07):** the ~$40k is a TRAILING 10-yr
+average — Dorian itself recomputes it yearly for impairment, so it DRIFTS (drops the oldest fiscal
+year, adds the newest each cycle). It is NOT a constant. When Phase 1 writes it, it carries
+`as_of: 2026-07-07` and is on an **annual-review trigger** (`lpg_anchor_annual_review`, register) —
+re-derived each year off Dorian's + BW LPG's latest 10-K/20-F, like any other dated determinant.
 
 ### Fork 3 — proposed EVIDENCE-FIRST weight vector (not the dry-bulk shape)
 Grounded cell-by-cell in the Part-A + Phase-0 evidence, deliberately overhang-tilted vs a generic
@@ -168,8 +174,8 @@ base-heavy default:
 | arb_collapse (tail) | **0.15** | US-Asia arb close + Panama normalization ton-mile give-back |
 
 Contrast the dry-bulk 0.20/0.40/0.25/0.15 (base-heavy, supply-scarce): LPG's evidence is the mirror
-(supply-heavy, demand-soft), so mass shifts from bull+base toward overhang. The from-birth §9.10
-weight-robustness family will test this vector's fragility; **owner ratifies the vector before Phase 1
-writes it.**
+(supply-heavy, demand-soft), so mass shifts from bull+base toward overhang. **RATIFIED (owner,
+2026-07-07): 0.15/0.35/0.35/0.15 — overhang co-weighted with base on hardened two-sided evidence.**
+The from-birth §9.10 weight-robustness family will test its fragility.
 
-### On ratification of the two open items (Fork-2 basis + Fork-3 vector), Phase 1 proceeds.
+### Both gate items RATIFIED — Phase 1 proceeds: sectors.lpg + weight family + the ~$40k anchor (as_of 2026-07-07, annual-review trigger) → Phase 2 marks → Phase 3 rates → Phase 4 validators → Phase 5 lock.

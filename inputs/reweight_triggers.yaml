@@ -162,6 +162,28 @@ all_sectors_consensus_pair_recapture:
                      # from that edition and left at their documented vintages;
                      # re-armed quarterly. decisions/consensus_recapture_2026-07-06.md
 
+lpg_anchor_annual_review:
+  sector: lpg
+  due: 2027-06-30
+  observable: >
+    The VLGC 10-yr through-cycle TCE anchor (~$40,000/day, as_of 2026-07-07,
+    WO3 decisions/lpg_methodology_2026-07-07.md) is a TRAILING 10-yr average —
+    Dorian LPG recomputes it yearly for impairment testing, so it DRIFTS each
+    cycle (drops the oldest fiscal year, adds the newest). It is a dated
+    determinant, not a constant (owner instruction 2026-07-06). Due date is
+    after both FY-end filings land (Dorian 10-K + BW LPG 20-F, Mar-31 FYs →
+    ~mid-year). NOTE: armed now, but activates once WO3 Phase 1 writes the
+    anchor into the determinant layer.
+  action: >
+    Re-derive the trailing-10yr VLGC realized-TCE mean off Dorian's + BW LPG's
+    latest 10-K/20-F year-by-year TCE series (the FY2016-26 series is in the
+    methodology doc); update the anchor value + as_of; re-run the LPG cycle
+    layer; gate-annotate; re-arm +1yr. Realized-TCE basis is correct for the
+    85-99%-spot validator pair — do NOT switch to 1-yr TC (that stays a
+    documented cross-check only).
+  status: armed
+  added: 2026-07-07
+
 all_sectors_quarterly_staleness_floor:
   sector: all
   due: 2026-10-02

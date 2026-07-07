@@ -36,7 +36,21 @@ header discloses); (3) LNG comparison script shares the missing-anchoring patter
 no LNGC txn fits — but align it when next touched); (4) the drift gate's
 `decision_log_annotated_since` matches only the literal `**Decision:**` prefix
 (drift_gate.py:203) — dated prefixes like `**Decision (2026-07-02, …):**` are invisible to
-it (caught at the vintage re-pin, 2026-07-02); widen the matcher + add a test. **The P0 reconciliation queue (`NAV_FIGURE_ESTIMATE_QUEUE ∩ PROVISIONAL`) is CLEARED —
+it (caught at the vintage re-pin, 2026-07-02); widen the matcher + add a test.
+
+**WO2 BOARD — web-research agent watchdog failure (owner-flagged 2026-07-07, NOW A KNOWN FAILURE MODE,
+3× occurrences):** parallel web-heavy source agents (WebSearch/WebFetch fleets) have stalled on the
+stream watchdog three times — the standalone VLGC sourcing agent, then the 3-agent VLGC-anchor
+workflow (both source phases), each salvageable by hand from the frozen jsonl but costing a manual
+synthesis pass every time. This is producer-tooling debt, not an incident: the fetchers (price/RC/
+harvester/edgar) get FETCH-FAILED-class heartbeat-and-restart, but the RESEARCH agents don't. Fix =
+give web-research sweeps the same watchdog-and-auto-restart, OR a hard rule that source sweeps run
+SINGLE-THREADED (one web agent at a time, no parallel() fleets of fetch-heavy agents). **INTERIM RULE
+adopted 2026-07-07 until the fix lands: no parallel() fleets of web-fetch-heavy agents — run source
+sweeps single-threaded, or accept the salvage tax knowingly.** "Salvageable by hand each time" is
+exactly the load-bearing manual step the automation push exists to retire.
+
+**The P0 reconciliation queue (`NAV_FIGURE_ESTIMATE_QUEUE ∩ PROVISIONAL`) is CLEARED —
 EIGHT names done: NAT/SB/ASC/BRUT/ECO/HAFN/STNG/TRMD.** EIGHT P0 names worked this arc: **NAT DE-VOIDED** (2026-06-30, NAV $2.07→$2.79,
 GOVERNED-WIDE·newbuild-indeterminate), **SB corrected** (date-mix + CAPT blanket-scrubber bug; NAV
 $10.47→$10.12, ~0.63×), **ASC reconciled** (April-2026 newbuild wrongly loaded as a −$88.8M Q1
