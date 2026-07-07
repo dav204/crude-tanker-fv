@@ -28,6 +28,14 @@ Consumer-side authority: portfolio-governance sector charter (verdict `fd0277f`)
 validation labor; VLGC-first (Dorian LPG + BWLP validators); NOT a supply call (charter B-4); kill-switches:
 VLGC orderbook >38% voids the half, charter expires 2026-12-26. Phase 0 (methodology decision doc) first.
 
+**WO4 ISSUED 2026-07-07 — dry-bulk weight-robustness family (§9.10) extension (charter-funded):** see
+`WO4_DRYBULK_WEIGHT_FAMILY.md`. Consumer-side authority: same charter (verdict `fd0277f`) — the dry-bulk
+deepening half; unblocks the consumer's Gate E (drybulk rubric commit `f54e797`), whose "sign-flip at desk
+depth = FAIL" reads `weight_sign_stable`. Write `scripts/dry_bulk_weight_comparison.py` (mirror crude) +
+a `test_dry_bulk_locked_weights` pin; the scorecard seam already emits the family fields — dry bulk is null
+only for lack of a sidecar entry. DIAGNOSTIC ONLY: Bulk Set A stays locked; §11.7.10 dwt-scaling /
+Post-Panamax / FFA-OCR are frozen. Kill-switches: dry-bulk orderbook >16% voids the half, charter expires 2026-12-26.
+
 **Follow-ups from the 2026-07-02 review chain (non-blocking):** (1) drift-gate CLI needs
 `state/last_run.json` — add a from-inputs recompute mode so a clean clone can run the gate
 (clean-clone verifiability is an audit-noted strength); (2) tanker forward curves held at the
