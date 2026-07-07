@@ -1,7 +1,8 @@
 # LPG/VLGC sector — methodology decision doc (WO3 Phase 0) — DRAFT FOR RATIFICATION
 
 **Authority:** WO3_LPG_ONBOARDING.md · charter Part-B verdict `fd0277f` (50% LPG, VLGC-first).
-**Status:** DRAFT. Phase 1+ (any YAML) does NOT begin until the owner ratifies the forks below.
+**Status:** DRAFT — forks 1/3/4/5 RATIFIED 2026-07-07 (see Ratification log at end); Fork 2 anchor
+SOURCED, one basis decision pending. Phase 1+ (any YAML) does NOT begin until that clears.
 This is the methodology-doc-first gate (WORKFLOWS §Onboarding-a-sector); it records DECISIONS,
 so open forks are a decision *request*, not a spec. Prospective home: METHODOLOGY §11.10.
 
@@ -45,6 +46,10 @@ sector honestly; it does not justify the allocation.
   *Recommend VLGC-only — smallest honest surface, matches both validators.*
 
 ### 2. Cycle-anchor basis — **THE REAL FORK** (blocks Phase 1)
+> **SUPERSEDED by the Ratification Log (below):** the owner REJECTED the proxy option (b) and set a
+> hard-gate sourcing requirement; the anchor was then sourced (~$40k spot-realized, triangulated).
+> This section is preserved as the original request; read the Ratification Log for the live decision.
+
 The book is TC-anchored, not spot-scaled (§10). A VLGC needs a **12M-TC series + a 10-yr mean**.
 - **Current 12M-TC anchor: ~$60,000/day** is cleanly sourced (BW Pampero, arm's-length, Aug-2026).
 - **10-yr mean: `INSUFFICIENT`** — the sourcing agent did not retrieve a citable 10-yr TC average
@@ -108,3 +113,63 @@ re-verified vs company_tickers.json per the FLNG/CCEC/INSW lesson) → Phase 5 (
 
 **Kill-switches live:** R-2 (VLGC orderbook >38% units → LPG half VOID); R-5 (charter expires
 2026-12-26).
+
+---
+
+## RATIFICATION LOG + ANCHOR RESOLUTION (2026-07-07)
+
+**Owner ratification (this session):**
+- **Fork 1 — RATIFIED as proposed.** VLGC-only v1; NVGS/GASS census-noted, not onboarded; no MGC.
+- **Fork 4 — RATIFIED as proposed.** Reuse the §11.8.6 coverage-schedule machinery.
+- **Fork 5 — RATIFIED as proposed.** §15 screen on BW LPG's BW-Group bloc; no pre-assumed haircut; Dorian no flag.
+- **Fork 3 — names RATIFIED** (arb_wide / absorption_base / overhang / arb_collapse); **weights DEFERRED
+  to an evidence-first vector — explicitly NOT the dry-bulk shape.** Proposed vector below.
+- **Fork 2 — RESOLVED (method):** source a proper through-cycle 10-yr mean spanning the 2023 peak as a
+  HARD Phase-1 gate; **proxy REJECTED**; if unsourceable → ship PROVISIONAL with cycle-position suppressed.
+
+### Fork 2 — anchor SOURCED (triangulated; one basis decision pending)
+The clean **1-yr TC** 10-yr series is NOT freely sourceable (Clarksons SIN paywalled; issuer history
+charts are images — confirmed independently by two source agents). What IS sourced, SEC-primary and
+cycle-spanning:
+
+**Dorian LPG realized fleet TCE, $/day, FY ending Mar-31 (10-Ks — complete series):**
+| FY | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| TCE | 55,087 | 22,037 | 21,966 | 21,746 | 42,798 | 39,606 | 34,669 | 50,462 | 65,986 | 39,778 | 52,238 |
+
+- Dorian trailing-10yr mean (FY16-25) **$39,414**; (FY17-26) $39,129; full 11-yr $40,579.
+- BW LPG realized (2018 $18,400 · 2019 $35,000 · 2023 $61,630 · 2024 $47,390 · 2025 $43,220) → subset $41,128.
+- Clarksons: 2024 ~$42k **"in line with long-run averages"**; and Dorian's 10-K itself uses a
+  **"trailing 10-year historical average spot market rate"** for impairment — the concept is issuer-native.
+- Trough (FY17-19 ~$22k Dorian / 2018 ~$17.3k market Lloyd's List) and peak (2023-24 $50-66k;
+  Sept-2023 all-time-high spot; 1-yr TC ~$2.6M/mo ≈ $85.5k/day at the peak) both captured.
+
+**Reconciled anchor: ~$40,000/day, 10-yr through-cycle VLGC TCE — SPOT-REALIZED basis (NOT 1-yr TC).**
+Implied cycle position: current 1-yr TC ~$60k → 1.50×; recent realized ex-war-spike ~$52-55k → 1.31-1.38×
+→ **"elevated / late-cycle-peak"** — honest against the ~30% orderbook (a peak read into a heavy
+delivery wall is exactly the adverse setup the charter's B-4 flagged; the engine is reading, not endorsing).
+
+**PENDING OWNER DECISION (the last gate):** accept the **~$40k spot-realized-TCE** anchor as PASS
+(documented basis-caveat; numerator kept same-basis = recent realized, not the war-spiked BLPG1 spot,
+per §10 spirit) — OR hold to the letter of "1-yr TC" → the series is unsourceable on that exact basis →
+PROVISIONAL with cycle-position suppressed. **Producer recommendation: PASS on spot-realized basis** —
+it is better-sourced (11 SEC-primary fiscal years + two-issuer + broker corroboration) than several
+anchors already live in the book, and for an ~80%-spot sector realized-TCE-through-cycle is the more
+honest "normal" than a thin 1-yr TC print.
+
+### Fork 3 — proposed EVIDENCE-FIRST weight vector (not the dry-bulk shape)
+Grounded cell-by-cell in the Part-A + Phase-0 evidence, deliberately overhang-tilted vs a generic
+base-heavy default:
+| Scenario | Wt | Evidence basis |
+|---|---|---|
+| arb_wide (bull) | **0.15** | needs firm Asian PDH pull, but China PDH is SOFT (~70% util, "slightly" rising) — the bull requires a demand sink that isn't there |
+| absorption_base (base) | **0.35** | US export growth roughly matches fleet growth; central case |
+| overhang (bear) | **0.35** | the ~30% orderbook delivering 2026-28 into soft PDH margins — the single best-evidenced leg; weighted equal to base, NOT subordinate |
+| arb_collapse (tail) | **0.15** | US-Asia arb close + Panama normalization ton-mile give-back |
+
+Contrast the dry-bulk 0.20/0.40/0.25/0.15 (base-heavy, supply-scarce): LPG's evidence is the mirror
+(supply-heavy, demand-soft), so mass shifts from bull+base toward overhang. The from-birth §9.10
+weight-robustness family will test this vector's fragility; **owner ratifies the vector before Phase 1
+writes it.**
+
+### On ratification of the two open items (Fork-2 basis + Fork-3 vector), Phase 1 proceeds.
