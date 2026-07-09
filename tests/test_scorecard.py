@@ -264,8 +264,8 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
                     price_basis=pb, quarter=QUARTER)
     doc = json.loads((tmp_path / "book_scorecard.json").read_text())
     # String "2.1" — the consumer asserts major == 2 (WO1 Task 1); minor bumps
-    # are additive, major bumps break.
-    assert doc["schema_version"] == "2.2"
+    # are additive, major bumps break. 2.3 (2026-07-09): + mark_wide_nodes.
+    assert doc["schema_version"] == "2.3"
     assert doc["schema_version"].split(".")[0] == "2"
     assert doc["quarter"] == QUARTER
     # Vintage stamp: ISO-8601 UTC + the HEAD hash ('-dirty' allowed).
@@ -464,6 +464,28 @@ def test_weight_family_basis_and_stale_withholding(tmp_path, rows):
                                          "ev_min_pct": -60.0, "ev_max_pct": 15.0}},
         outputs_dir=outputs, inputs_dir=inputs)
     assert weight_family_basis(outputs, inputs)["status"] == "current"
+
+
+def test_mark_wide_nodes_reach_the_handoff_json(tmp_path, rows):
+    """F-1 (owner review 2026-07-09), the seam half: a name exposed to a §9.9
+    wide node carries mark_wide_nodes in book_scorecard.json (null when clean) —
+    the registry/exposure halves live in test_lpg_sector. Today's book has no
+    LPG names, so the exposed row is synthesized by replace()."""
+    import json
+    from dataclasses import replace
+
+    exposed = [replace(rows[0], mark_wide_nodes=("VLGC@five_year",))] + list(rows[1:])
+    pb = {"total": len(rows), "static_fallback": {}, "oldest_static_as_of": None,
+          "market_event_review": {}}
+    write_scorecard(exposed, outputs_dir=tmp_path, valuation=_synthetic_valuation(exposed),
+                    price_basis=pb, quarter=QUARTER)
+    doc = json.loads((tmp_path / "book_scorecard.json").read_text())
+    by = {n["ticker"]: n for n in doc["names"]}
+    assert by[rows[0].ticker]["mark_wide_nodes"] == ["VLGC@five_year"]
+    assert all(by[r.ticker]["mark_wide_nodes"] is None for r in rows[1:])
+    # And the markdown surfaces it next to the NAV-basis flags.
+    md = (tmp_path / "book_scorecard.md").read_text()
+    assert "§9.9 wide-node exposure" in md and "VLGC@five_year" in md
 
 
 def test_sidecar_merge_preserves_all_other_families(tmp_path):

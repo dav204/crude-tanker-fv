@@ -46,7 +46,12 @@ $92M / 10yr $80M / age-25 $42M; record `decisions/vlgc_marks_2026-07-09.md`. Pha
 `twelve_month_tc.VLGC` 63,615 REALIZED basis [ratified — never a TC numerator over the realized
 anchor; cycle 1.59× war-elevated] + `ffa_forward_curve.VLGC` = absorption_base path under a
 documented rule [war-spiked dailies NOT promoted] + standing trigger `vlgc_realized_tce_refresh`;
-END-TO-END verified on a synthetic pure-VLGC name — no engine gaps left). **Phase 4 =
+END-TO-END verified on a synthetic pure-VLGC name — no engine gaps left. **Pre-Phase-4 hardening
+2026-07-09, owner review — all four findings closed:** age-5 WIDE flag machine-readable
+[`MARK_WIDE_NODES` → `mark_wide_nodes` in the JSON, schema 2.3]; the synthetic e2e committed as
+`tests/test_lpg_sector.py` incl. the ffa==absorption_base identity; realized-basis numerator pinned
+[`rate_basis` stamp + basis-agreement test]; METHODOLOGY §11.10 written — pointers live).
+**Phase 4 =
 `/add-ticker` Dorian LPG (CIK 1596993) + BW LPG (CIK 1649313)** — CIKs **VERIFIED 2026-07-09**
 against SEC company_tickers.json (LPG → 1596993 "DORIAN LPG LTD."; BWLP → 1649313 "BW LPG Ltd" —
 exact match both, the FLNG/CCEC/INSW wrong-CIK class ruled out); per-vessel manifests with every NAV-moving

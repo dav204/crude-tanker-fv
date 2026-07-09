@@ -5,6 +5,23 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-09 — pre-Phase-4 hardening: the four owner-review findings closed (documented → ENFORCED).**
+  (F-1) The age-5 WIDE flag is machine-readable: `provenance.MARK_WIDE_NODES` registry (VLGC
+  five_year, band $89.7-95.9M, ≥50%-sensitivity age window 2.5-7.5) → `scorecard._mark_wide_exposure`
+  → per-name `mark_wide_nodes` in `book_scorecard.json` (**schema 2.2→2.3**, additive) + a
+  wide-node block in the markdown — BW LPG's 2019-21 hulls can no longer print age-5-dependent NAV
+  unmarked. (F-2) The synthetic pure-VLGC end-to-end is a COMMITTED artifact:
+  `tests/test_lpg_sector.py::test_synthetic_pure_vlgc_end_to_end` (cycle 1.59× realized-vs-realized,
+  w_nav 0.70, FV ordering, PW identity, absorption_base vessel_scale 1.00) plus the two-surfaces
+  identity `test_ffa_base_forward_equals_absorption_base_path` (the Phase-3 derivation rule is now an
+  asserted identity, per the 2026-07-02 rule). (F-3) The realized-basis numerator is machine-pinned:
+  `twelve_month_tc.yaml` gains a `rate_basis` block (default tc_assessment; VLGC realized_tce) and
+  `test_cycle_numerator_basis_agrees_with_anchor_basis` asserts set-equality between realized_tce
+  stamps and the classes of realized-anchored sectors — pasting a 1-yr-TC print into VLGC now has to
+  falsify a diffed stamp to stay green. (F-4) **METHODOLOGY §11.10 written** (scope / LPG Set A /
+  realized anchor / marks incl. the wide node / rates plumbing / v1 lock target) — the lock tests'
+  §11.10.x remediation pointer is live; "prospective §11.10" comments de-staled. Suite 550→558.
+
 - **2026-07-09 — WO3 Phase 3 LANDED: VLGC rates plumbing (realized basis, war-spike NOT promoted).**
   `twelve_month_tc.VLGC = 63,615` — Dorian Q1-2026 REALIZED fleet TCE (disclosure-cluster vintage
   2026-06-02, held), the DELIBERATE basis: the ratified LPG cycle multiple is realized-vs-realized

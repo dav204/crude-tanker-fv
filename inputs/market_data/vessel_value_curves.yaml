@@ -83,7 +83,7 @@ classes:
     scrap_25yr: 10000000
     scrubber_premium: 0
     eco_premium_pct: 0.0
-  # VLGC (WO3 Phase 2, 2026-07-09; prospective §11.10). FLAT class, ~84k cbm
+  # VLGC (WO3 Phase 2, 2026-07-09; §11.10). FLAT class, ~84k cbm
   # reference hull. Mid-age anchors set AT the §9.9 fit (transactions/vlgc.yaml,
   # 7 in-window prints: age-10 $80.3M stable under every exclusion cut; age-5
   # $92.3M EXTRAPOLATED — no 5-yr print exists — FLAGGED WIDE $89.7-95.9M).

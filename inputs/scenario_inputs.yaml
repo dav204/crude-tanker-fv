@@ -1482,7 +1482,7 @@ sectors:
   # ===========================================================================
   # LPG / VLGC — LPG Set A (US-export-arb) — WO3 Phase 1 (2026-07-08).
   # Methodology: decisions/lpg_methodology_2026-07-07.md (ALL FORKS RATIFIED
-  # 2026-07-07); prospective METHODOLOGY home §11.10. Charter authority
+  # 2026-07-07); METHODOLOGY §11.10. Charter authority
   # fd0277f — B-4 carried verbatim: the allocation is NOT a supply call on
   # VLGCs; market cells adverse (~30% orderbook, avg age 11.7y, no scrappage
   # lever). The engine reads the sector honestly.

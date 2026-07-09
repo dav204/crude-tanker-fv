@@ -87,7 +87,7 @@ SCENARIO_CLASS_MAP_BY_SECTOR: dict[str, dict[str, str]] = {
         "Supra-Ultra": "supra_ultra",  # collapsed Supramax + Ultramax per §11.7.1
                                         # (Pareto reclassified the benchmark Sep 2025)
     },
-    "lpg": {                        # NEW 2026-07-08 — WO3 Phase 1 (prospective §11.10)
+    "lpg": {                        # NEW 2026-07-08 — WO3 Phase 1 (§11.10)
         # v1 is VLGC-only (Fork 1, decisions/lpg_methodology_2026-07-07.md):
         # both validators (Dorian LPG / BW LPG) are pure-VLGC fleets. MGC stays
         # in sectors.lng where it lives today; NVGS/GASS are census-only.
@@ -548,7 +548,7 @@ _PRETTY = {
     "gradual_normalization": "Gradual normalization (base)",
     "normalization_plus_overhang": "Normalization + orderbook overhang",
     "demand_recession": "Demand recession",
-    # lpg (LPG Set A — US-export-arb, WO3 2026-07-08, prospective §11.10)
+    # lpg (LPG Set A — US-export-arb, WO3 2026-07-08, §11.10)
     "arb_wide": "Arb wide (US-export bull)",
     "absorption_base": "Absorption base",
     "overhang": "Orderbook overhang",

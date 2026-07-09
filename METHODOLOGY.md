@@ -2289,6 +2289,83 @@ control is concentrated but fee-light, pro-minority, and equal-price-tested thro
 Euronav saga). Full record: `decisions/cmbt_log.md`,
 `outputs/cmbt_multisleeve_methodology_2026-06-26.md`, `outputs/pareto_mentions_cmbt.md`.
 
+### 11.10 LPG / VLGC sector — formalised 2026-07-08/09 (WO3)
+
+Charter-funded (portfolio-governance sector charter, verdict `fd0277f` — 50% of the cycle's
+validation labor, VLGC-first). **Charter B-4 carried verbatim: the allocation is NOT a supply
+call on VLGCs** — the market cells are adverse (~30% orderbook, avg age 11.7y, no scrappage
+lever) and the engine's job is to read the sector honestly. Phase-0 methodology decision doc
+(all five forks ratified 2026-07-07): `decisions/lpg_methodology_2026-07-07.md`. Kill-switches:
+R-2 VLGC orderbook >38% (units) voids the half; R-5 charter expires 2026-12-26.
+
+#### 11.10.1 Scope & classes
+v1 values **VLGC only** (~78-93k cbm; reference hull 84k cbm / 54k dwt, flat class — no dwt
+scaling). Both v1 validators (Dorian LPG `LPG` CIK 1596993, BW LPG `BWLP` CIK 1649313 — both
+SEC-verified 2026-07-09) are pure-VLGC. NVGS (midsize/ethane) and GASS (small pressurized) are
+census-noted, NOT onboarded; MGC stays in `sectors.lng` where it lives.
+
+#### 11.10.2 Scenario family — LPG Set A (US-export-arb), locked 2026-07-07
+Axis: **US-export ton-mile growth × China-PDH absorption**, with the ~30% orderbook as the
+supply overhang every scenario carries (deliberately NOT a dry-bulk China clone). Scenarios ×
+weights (evidence-first, **overhang co-weighted with base** — LPG's evidence is the mirror of
+dry bulk's supply-scarce shape): `arb_wide` 0.15 / `absorption_base` 0.35 / `overhang` 0.35 /
+`arb_collapse` 0.15. Locked by `test_lpg_locked_weights_and_anchor`; a reweight is a §11.10.x
+revision with a new lock test, never a silent edit. §11.8.6 coverage-schedule machinery reused
+(Fork 4). §9.10 weight family shipped from birth: `scripts/lpg_weight_comparison.py` (LPG Set B
+arb-bull / Set C deep-overhang brackets live in the script only).
+
+#### 11.10.3 Cycle anchor — realized-TCE basis (ratified; NOT a compromise)
+Anchor = **$40,000/day 10-yr through-cycle VLGC REALIZED TCE**, `as_of 2026-07-07`, from
+Dorian's complete FY2016-26 10-K realized series (trailing-10yr $39,414; FY17-26 $39,129)
+triangulated vs BW LPG's realized subset ($41,128) and Clarksons commentary. The realized basis
+is CORRECT for an 85-99%-spot validator pair; the clean 1-yr TC (~$60k BW Pampero) is a
+**documented cross-check, never the anchor**. `anchor_basis: realized_tce_10yr_mean` is a
+FOURTH basis token — it does NOT compose with `tc_10yr_mean` / `archive_22mo_median` /
+`fy_calendar_avg`; cross-sector views trip MIXED-ANCHOR-BASIS (§10; test-pinned). **Cycle
+multiples are realized-vs-realized** — the numerator (`twelve_month_tc.VLGC = 63,615`, Dorian
+Q1-2026 realized) carries a machine-readable `rate_basis: realized_tce` stamp that must agree
+with the anchor basis (`test_cycle_numerator_basis_agrees_with_anchor_basis`; a TC numerator
+over the realized denominator is the VOIDED mixed-basis read). Current read 1.59× =
+late-cycle/peak, WAR-ELEVATED (Hormuz spike on an already-late level). The anchor is a
+TRAILING average and drifts — annual re-derivation under `lpg_anchor_annual_review`; the
+numerator refreshes per validator disclosure under `vlgc_realized_tce_refresh`.
+
+#### 11.10.4 Marks — the VLGC curve (9th §9.9 transaction-anchored class)
+`transactions/vlgc.yaml` (7 in-window prints ages 9-17 + 3 documentation rows) from the
+classified hunt sample `decisions/sec99_print_hunt_2026-07-06.md`; full decision record
+`decisions/vlgc_marks_2026-07-09.md`. Curve statics (locked, `test_vlgc_curve_statics_locked`):
+**NB $117.5M** (NEWBUILD-PARITY age-0 — no broker gas resale line exists; AGE0_BASIS exception,
+`basis_status: pending-sourceable`, re-wire on the first VLGC resale print) / **5yr $92M** /
+**10yr $80M** / **age-25 VALUE anchor $42M** (LNGC convention, not demolition ~$12M — the old
+leg reproduces the 18yr/$57M and 23yr/$48M out-of-window prints within $2-3M; the
+no-scrappage-lever cell priced). Fit: n=7, slope −$2.40M/yr; **age-10 is the STRONG node**
+($80.3M, stable under every exclusion cut); **age-5 is EXTRAPOLATED** (zero 5-yr prints) —
+**flagged WIDE $89.7-95.9M**, machine-readable via `provenance.MARK_WIDE_NODES` → per-name
+`mark_wide_nodes` in `book_scorecard.json` (schema 2.3) for tonnage aged 2.5-7.5 (the ≥50%
+node-sensitivity window). Related-party prints (BW Chinook/Pampero) downweighted mechanically
+by recency; the BW Yushi purchase-OPTION strike is documentation only, never fit. Sample watch
+items: Dorian trio per-vessel splits (Q4-26 filings), Advanced full-year re-harvest.
+
+#### 11.10.5 Rates plumbing
+The `vlgc_me_asia`/`vlgc_usgom_asia` Pareto dailies are **spot context only — war-distorted,
+never promoted** (Phase-0 convention). Base forward = the **absorption_base base path** (starts
+at current realized ~$62k, decays along the observed backwardation — 1-yr $60k → 3-5yr
+low-$40ks — to the $40k anchor by q8); this row doubles as the scenario engine's
+vessel-elasticity reference so absorption_base carries vessel_scale 1.00. The two surfaces are
+identity-tested (`test_ffa_base_forward_equals_absorption_base_path`) — re-derive BOTH together
+on refresh. End-to-end committed check: `test_synthetic_pure_vlgc_end_to_end`.
+
+#### 11.10.6 v1 lock target & status
+New-sector bar (CLAUDE.md): **v1 lock = ≥70% of validators within ±10% of broker NAV at
+lock-time** (2 validators ⇒ both, or document the miss and hold PROVISIONAL). Pareto prints
+P/NAV for both (BWLP 1.02 / LPG 1.01) — consensus pairs rebase together, same-vintage. §15
+screen on the BW-Group bloc in BWLP (no pre-assumed haircut); Dorian widely-held, no flag
+expected. k_broker reads on TXN-ANCHORED semantics from birth (expect below the crude
+1.12-1.14 premium — the fitted age-10 sits ~+11% ABOVE Pareto's generic quote). **Status
+(2026-07-09): Phases 1-3 landed (scenario family / marks / rates); Phase 4 (validator
+onboarding) next; names land PROVISIONAL by definition until reconciled — a PROVISIONAL or ⚠
+read is a legitimate outcome (charter B-4).**
+
 ## 12. Framework limitation — high-payout pure-plays at cycle peak
 
 For a high-payout single-asset-class equity at a cycle peak the model can **diverge from the market price**, reading a high market P/NAV as "rich" (TRIM). Whether that TRIM is a *correct through-cycle fair-value read* (the market is overpaying for a spot-driven dividend that won't persist — a value trap) or a genuine *undervaluation* (the priced near-term dividend window is rate-supported) is **resolved per name by the §12.6 break-even-dividend-window test**, not assumed. *(Reframed 2026-06-22 — `outputs/peak_cycle_high_payout_resolution_2026-06-22.md`. The earlier blanket "systematically undervalues / treat as a NAV floor / do not act on the TRIM" framing was a one-way bullish override — audit finding E-3, `outputs/METHODOLOGY_AUDIT_2026-06-22.md` — replaced by the §12.5–§12.7 gate + falsifiable test. Active applications registered in the overlay ledger, §16.)*

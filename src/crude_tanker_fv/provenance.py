@@ -95,6 +95,28 @@ POSITION_UNRELIABLE = {"MPCC", "BRUT"}  # BRUT 2026-07-01: the position cell mus
 # filed price lets the newbuild go on-curve. NAT (owner decision 2026-06-30). Tier: newbuild-indeterminate.
 NEWBUILD_PRICE_PENDING = {"NAT"}
 
+# §9.9 WIDE curve nodes — a FITTED mid-age anchor whose value is EXTRAPOLATED (no prints at the
+# node), machine-readable so age-node-dependent NAV can't print unmarked to the consumer (owner
+# review 2026-07-09, finding 1: the flag lived only in YAML comments/prose while BW LPG's 2019-21
+# hulls sit right on the node). Registry, not detection: an entry is placed by the marks decision
+# record and removed when a print lands at the node (then the band is FIT, not extrapolated).
+# age_window = fleet ages whose interpolated value has >=50% sensitivity to the node's anchor
+# (linear interp: value(a) on [0,5] has d/d(5yr) = a/5, on [5,10] = (10-a)/5 -> [2.5, 7.5] for a
+# five_year node). scorecard._mark_wide_exposure maps a fleet against this; the JSON emits
+# mark_wide_nodes per name (schema 2.3).
+MARK_WIDE_NODES = {
+    "VLGC": {
+        "node": "five_year",
+        "age_window": (2.5, 7.5),
+        "band_usd_m": (89.7, 95.9),      # fit 92.3; range across single-source exclusion cuts
+        "reason": "age-5 anchor EXTRAPOLATED — zero 5-yr prints in the §9.9 sample "
+                  "(only the BW Yushi option strike, a floor); slope carried by the "
+                  "17-yr BW pair",
+        "record": "decisions/vlgc_marks_2026-07-09.md",
+        "added": "2026-07-09",
+    },
+}
+
 # Tier sub-reason — why the band is wide / why PROVISIONAL, and thus the resolution PATH. Surfaced
 # in the verdict's tier cell so GOVERNED-WIDE / PROVISIONAL aren't junk drawers.
 #   structural-class : dominant class has no clean resale market (LNG/container Group-B) — not resolvable w/o a new data regime

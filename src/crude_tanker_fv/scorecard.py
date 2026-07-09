@@ -37,6 +37,7 @@ from .normal_rates import (
     orderbook_crosscheck_table,
 )
 from .provenance import (
+    MARK_WIDE_NODES,
     NAV_DERIVED_VOID,
     OPERATING_SCRUBBER_QUEUE,
     POSITION_CYCLE_RELABEL,
@@ -92,6 +93,9 @@ class ScorecardRow:
     verdict: str
     governance_discount_pct: float = 0.0   # §15 haircut (>0 only TEN/CMDB); read is clean-NAV
     confidence_tier: str = "PROVISIONAL"   # VALIDATED-TIGHT / GOVERNED-WIDE / PROVISIONAL (handoff)
+    # §9.9 wide-node exposure ("VLGC@five_year"): tonnage whose interpolated value materially
+    # rests on an EXTRAPOLATED fitted anchor (MARK_WIDE_NODES registry). Empty = none.
+    mark_wide_nodes: tuple = ()
 
 
 def _nav_basis_composite(classes: list[str], status: dict[str, str]) -> tuple[str, str]:
@@ -109,6 +113,22 @@ def _nav_basis_composite(classes: list[str], status: dict[str, str]) -> tuple[st
         if cls_in:
             parts.append(f"{st}: {', '.join(cls_in)}")
     return worst, " | ".join(parts)
+
+
+def _mark_wide_exposure(vessels) -> tuple:
+    """Which §9.9 wide nodes this fleet's value materially rests on (owner review
+    2026-07-09, F-1). A vessel exposes a node when its class is registered in
+    MARK_WIDE_NODES and its age sits inside the node's >=50%-sensitivity window
+    (the registry documents the window derivation). Sorted, deduped."""
+    hits = set()
+    for v in vessels:
+        entry = MARK_WIDE_NODES.get(v.cls)
+        if entry is None:
+            continue
+        lo, hi = entry["age_window"]
+        if lo <= v.age <= hi:
+            hits.add(f"{v.cls}@{entry['node']}")
+    return tuple(sorted(hits))
 
 
 def _parity_band_status(classes: list[str], parity: dict[str, Optional[float]]) -> str:
@@ -206,6 +226,7 @@ def compute_scorecard(quarter: str, inputs_dir: Path = INPUTS_DIR) -> list[Score
                              _parity_band_status(held, parity)),
             governance_discount_pct=(jr.governance_discount_pct if jr else 0.0),
             confidence_tier=tier,
+            mark_wide_nodes=_mark_wide_exposure(ci.fleet.vessels),
         ))
     return rows
 
@@ -672,6 +693,15 @@ def write_scorecard(
         w("\n**NAV-basis-flagged (not yet comparable to the resale-uniform set):**")
         for r in sorted(flagged, key=lambda r: r.ticker):
             w(f"- **{r.ticker}** — {r.nav_basis_detail}")
+    wide = [r for r in rows if r.mark_wide_nodes]
+    if wide:
+        w("\n**§9.9 wide-node exposure (fitted anchor EXTRAPOLATED at the node — a flagged-wide "
+          "band, not a tight mark; registry `provenance.MARK_WIDE_NODES`):**")
+        for r in sorted(wide, key=lambda r: r.ticker):
+            nodes = ", ".join(r.mark_wide_nodes)
+            recs = "; ".join(sorted({MARK_WIDE_NODES[n.split("@")[0]]["record"]
+                                     for n in r.mark_wide_nodes}))
+            w(f"- **{r.ticker}** — {nodes} ({recs})")
     md_path = outputs_dir / "book_scorecard.md"
     md_path.write_text("\n".join(out))
     if valuation is not None:
@@ -796,6 +826,10 @@ def _write_handoff_json(
             "weight_sign_stable": frag.get("ev_sign_stable") if frag else None,
             "ev_pct_family_min": frag.get("ev_min_pct"),
             "ev_pct_family_max": frag.get("ev_max_pct"),
+            # 2.3: §9.9 wide-node exposure — null = none; else ["VLGC@five_year", ...]
+            # (the name's NAV rests materially on an EXTRAPOLATED fitted anchor;
+            # band + record in provenance.MARK_WIDE_NODES).
+            "mark_wide_nodes": list(r.mark_wide_nodes) or None,
         })
     doc = {
         # "2.1" (2026-07-02, WO1 Task 1 — string; the consumer asserts
@@ -806,7 +840,10 @@ def _write_handoff_json(
         # generated_at/source_commit vintage stamp + hybrid sleeves (was int 4).
         # 2.2 (2026-07-03): + ev_pct_family_min/max — the family range as the
         # seam datum; weight_sign_stable stays the one derived boolean.
-        "schema_version": "2.2",
+        # 2.3 (2026-07-09): + mark_wide_nodes — §9.9 wide-node exposure per name
+        # (owner review F-1: the extrapolated-anchor flag must be machine-readable
+        # before age-5-dependent VLGC NAV prints to the consumer).
+        "schema_version": "2.3",
         **_vintage_stamp(),
         "quarter": quarter,
         "price_basis": price_basis,

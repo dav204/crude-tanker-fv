@@ -13,6 +13,15 @@
 # holds are tracked by trigger tanker_forward_print_lands. Containers
 # REFRESHED 2026-07-06 from MB Container Weekly 27 (assessments 2026-07-03)
 # — the §11.8 ingest event closing trigger container_mb_refresh.
+# rate_basis (owner review 2026-07-09, F-3) — the machine-readable BASIS of each
+# numerator, so the cycle ratio's numerator/denominator basis agreement is
+# suite-testable (test_lpg_sector: any class whose sector cycle anchor is
+# realized_tce_10yr_mean MUST carry realized_tce here — pasting a 1-yr-TC print
+# into VLGC would recreate the VOIDED §10 mixed-basis read with the suite green).
+# default = tc_assessment (the file's native semantics for every other class).
+rate_basis:
+  default: tc_assessment
+  VLGC: realized_tce
 as_of:
   default: 2026-07-03
   VLGC: 2026-06-02
