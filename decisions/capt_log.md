@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-09T02:47:37+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.31
+- Single-point FV: $16.03
+- Scenario PW FV: $10.07 (EV -24.4%)
+- NAV / share: $15.49
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +21.0pp (k_broker 1.14)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.37 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -2.3pp
+
+**Decision:** (2026-07-08, agent annotation — EXPLAIN, not accept) EV%-only drift (+2.1pp), ΔNAV 0.0%, band unchanged (TRIM/SHORT): stale daily feed (last 2026-07-03) → static-price fallback shifted the EV denominator vs the 2026-07-06 baseline. Same price-vintage artifact as PLAN.md PENDING OWNER DECISION #1; re-ratify is the owner's. Surfaced during WO3 Phase 1 verification (no LPG names; 0 material moves).
+
+---
+
 ## 2026-07-06T19:23:45+00:00 — Pipeline run (auto)
 
 **Model state:**

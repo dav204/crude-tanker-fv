@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-09T02:47:37+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.25
+- Single-point FV: $20.43
+- Scenario PW FV: $20.34 (EV +17.9%)
+- NAV / share: $31.33
+- Position: **BUY (undervalued)**
+- Broker spread: -12.2pp (k_broker 0.87)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-08, agent annotation — EXPLAIN, not accept) EV%-only drift, ΔNAV 0.0%: stale daily feed (last 2026-07-02) → static-price fallback (Pareto 3-Jul vintage) shifted the EV denominator vs the 2026-07-06 baseline. Pre-recorded in PLAN.md PENDING OWNER DECISION #1 (CMDB EV +6.0pp, still BUY — no band change). Re-ratify is the owner's; annotation explains the gate breach only. Surfaced during WO3 Phase 1 verification (no LPG names; 0 material moves).
+
+---
+
 ## 2026-07-06T19:23:45+00:00 — Pipeline run (auto)
 
 **Model state:**

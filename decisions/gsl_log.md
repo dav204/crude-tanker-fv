@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-09T02:47:37+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $38.99
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV +4.0%)
+- NAV / share: $38.59
+- Position: **HOLD (fairly valued)**
+- Broker spread: +26.9pp (k_broker 1.28)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-08, agent annotation — EXPLAIN, not accept) EV%-only drift, ΔNAV 0.0%: the daily price feed is stale (last print 2026-07-02), so this run fell back to the static watchlist price ($38.99, Pareto 3-Jul consensus-pair vintage), shifting the EV denominator vs the 2026-07-06-ratified baseline. This is the pre-recorded committed-price drift of PLAN.md PENDING OWNER DECISION #1 — GSL is its position-relevant case: the regen moves NO FV (byte-identical) but the band reads BUY→HOLD (+4.0% EV at this vintage). The band call and the re-ratify remain the OWNER's; this annotation only explains the gate breach. Surfaced during WO3 Phase 1 verification (LPG scenario family; zero LPG names; delta report 0 material).
+
+---
+
 ## 2026-07-06T19:23:45+00:00 — Pipeline run (auto)
 
 **Model state:**
