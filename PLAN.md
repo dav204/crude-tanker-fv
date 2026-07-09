@@ -38,18 +38,23 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
 3. **WO2 residue:** drill 2.5 (blocked on #2), acceptance window Jul-28→Aug-6
    (`close_acceptance.py` ready), task #32 web-agent watchdog (interim single-threaded rule below).
 
-**NEXT BIG BLOCK — WO3 Phase 3 (rates plumbing), then Phase 4 (validators).** Phases 1-2 LANDED
-(Phase 1 2026-07-08: `sectors.lpg` + §9.10 family; Phase 2 2026-07-09: VLGC marks — §9.9
-transaction-ANCHORED, 9th fitted class: `transactions/vlgc.yaml` 7 in-window prints, fit age-10
-$80.3M strong / age-5 $92.3M extrapolated-FLAGGED-WIDE; curve NB $117.5M NB-parity age-0
-[AGE0_BASIS exception + basis_status pending-sourceable] / 5yr $92M / 10yr $80M / age-25 anchor
-$42M fitted to the old prints; record `decisions/vlgc_marks_2026-07-09.md`). Phase 3 = promote the
-existing `vlgc_me_asia`/`vlgc_usgom_asia` daily columns into `twelve_month_tc.yaml` under a
-DOCUMENTED tenor rule (the dry-bulk 2-Jul FFA promotion precedent; spot→TC dampening per §11.8.6;
-note the dailies are war-spiked — the $60k BW Pampero 1-yr TC is the cross-check). Phase 4 =
-`/add-ticker` Dorian LPG (CIK 1596993) + BW LPG (CIK 1649313) — re-verify CIKs vs
-company_tickers.json FIRST (the FLNG/CCEC/INSW lesson); same-vintage consensus pairs (Pareto
-prints BWLP 1.02 / LPG 1.01). Phase 5 lock ≥70%/±10%.
+**NEXT BIG BLOCK — WO3 Phase 4 (validators), then Phase 5 (lock).** Phases 1-3 LANDED (Phase 1
+2026-07-08: `sectors.lpg` + §9.10 family. Phase 2 2026-07-09: VLGC marks — §9.9 txn-ANCHORED, 9th
+fitted class: 7 in-window prints, age-10 $80.3M strong / age-5 $92.3M extrapolated-FLAGGED-WIDE;
+curve NB $117.5M NB-parity age-0 [AGE0_BASIS exception, basis_status pending-sourceable] / 5yr
+$92M / 10yr $80M / age-25 $42M; record `decisions/vlgc_marks_2026-07-09.md`. Phase 3 2026-07-09:
+`twelve_month_tc.VLGC` 63,615 REALIZED basis [ratified — never a TC numerator over the realized
+anchor; cycle 1.59× war-elevated] + `ffa_forward_curve.VLGC` = absorption_base path under a
+documented rule [war-spiked dailies NOT promoted] + standing trigger `vlgc_realized_tce_refresh`;
+END-TO-END verified on a synthetic pure-VLGC name — no engine gaps left). **Phase 4 =
+`/add-ticker` Dorian LPG (CIK 1596993) + BW LPG (CIK 1649313)** — re-verify CIKs vs
+company_tickers.json FIRST (the FLNG/CCEC/INSW lesson); per-vessel manifests with every NAV-moving
+figure cited (figure-provenance rule; audit the subsequent-events note FIRST); balance sheets from
+the latest filings (Dorian 10-K FY-end Mar-31; BWLP 20-F + Q1-2026); same-vintage consensus pairs
+(Pareto prints BWLP 1.02 / LPG 1.01); §15 screen on the BW-Group bloc (no pre-assumed haircut).
+Names land PROVISIONAL by definition until reconciled. Phase 5 lock: ≥70% of validators within
+±10% of broker NAV at lock-time (2 validators ⇒ both, or document the miss and hold PROVISIONAL).
+Kill-switches live: R-2 VLGC orderbook >38% voids the half; R-5 charter expires 2026-12-26.
 
 **WO3 ISSUED 2026-07-06 — LPG/VLGC sector onboarding (charter-funded):** see `WO3_LPG_ONBOARDING.md`.
 Consumer-side authority: portfolio-governance sector charter (verdict `fd0277f`) — 50% of the cycle's

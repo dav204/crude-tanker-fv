@@ -15,6 +15,7 @@
 # — the §11.8 ingest event closing trigger container_mb_refresh.
 as_of:
   default: 2026-07-03
+  VLGC: 2026-06-02
   VLCC: 2026-06-07
   Suezmax: 2026-06-07
   Aframax: 2026-06-07
@@ -44,6 +45,17 @@ twelve_month_tc:
   Handymax: 22000       # STALE Jun-7 — held
   LR1_clean: 38000      # STALE Jun-7 — held
   LR2_clean: 45000      # STALE Jun-7 — held
+  # VLGC (WO3 Phase 3, 2026-07-09) — REALIZED-TCE basis, DELIBERATE (ratified
+  # 2026-07-07): the LPG cycle multiple is realized-vs-realized (this numerator
+  # ÷ the $40k realized anchor = 1.59×, the ratified late-cycle/peak
+  # war-elevated read; a 1-yr-TC numerator over the realized anchor is the
+  # mixed-basis read the ratification VOIDED). Value = Dorian Q1-2026 realized
+  # fleet TCE per the ratified Phase-0 evidence table; the BW Pampero 1-yr TC
+  # ~$60k (Q1-2026 call) is the documented CROSS-CHECK (0.94× — coherent). The
+  # war-spiked vlgc_* spot dailies (usgom ~$155k, me_asia route-dislocated,
+  # last parsed 2026-06-11) are NOT promoted — Phase-0 convention. Refresh on
+  # trigger vlgc_realized_tce_refresh (each validator quarterly disclosure).
+  VLGC: 63615           # Dorian Q1-2026 realized TCE — disclosure-cluster vintage 2026-06-02 (held)
   Cape: 33100           # (32508 Qn + 33650 Qf)/2, FFA OCR 2-Jul (was 27000 Jun-9)
   Pana: 18550           # (18983 + 18125)/2, FFA OCR 2-Jul (was 17500 Jun-9)
   Post-Panamax: 18550   # shares the Pana freight basin (§11.7.10, 2026-06-29)

@@ -184,6 +184,27 @@ lpg_anchor_annual_review:
   status: armed
   added: 2026-07-07
 
+vlgc_realized_tce_refresh:
+  sector: lpg
+  due: null
+  observable: >
+    Standing event-watch (WO3 Phase 3, 2026-07-09): any new VLGC realized-TCE
+    disclosure (Dorian / BW LPG quarterly reports — next cluster ~Aug-2026) or
+    a fresh VLGC 1-yr TC fixture / broker TC assessment print. The VLGC 12M-TC
+    line (63,615 realized, disclosure-cluster vintage 2026-06-02) and the
+    derived base forward curve are HELD — the war-spiked vlgc_* spot dailies
+    are never promoted (Phase-0 convention), and a held VALUE is invisible to
+    the mtime staleness preflight (the tanker-hold lesson).
+  action: >
+    Refresh twelve_month_tc.VLGC (realized basis — NEVER a TC numerator over
+    the realized anchor, the voided mixed-basis read) + re-derive the
+    ffa_forward_curve VLGC row (absorption_base-path rule, or the observed
+    term structure if fixtures land); watch the war-premium decay — the 1.59×
+    cycle read is Hormuz-elevated; record in decisions/, gate-annotate any
+    LPG-name move (none until Phase 4 validators onboard).
+  status: armed
+  added: 2026-07-09
+
 all_sectors_quarterly_staleness_floor:
   sector: all
   due: 2026-10-02

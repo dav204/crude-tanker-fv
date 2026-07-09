@@ -5,6 +5,23 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-09 — WO3 Phase 3 LANDED: VLGC rates plumbing (realized basis, war-spike NOT promoted).**
+  `twelve_month_tc.VLGC = 63,615` — Dorian Q1-2026 REALIZED fleet TCE (disclosure-cluster vintage
+  2026-06-02, held), the DELIBERATE basis: the ratified LPG cycle multiple is realized-vs-realized
+  (63,615 ÷ 40,000 = **1.59×**, the late-cycle/peak war-elevated read; a 1-yr-TC numerator was the
+  VOIDED mixed-basis read — the BW Pampero ~$60k TC stays a cross-check, 0.94× coherent).
+  `ffa_forward_curve.VLGC` = the absorption_base scenario base path under a DOCUMENTED derivation
+  rule (starts at current realized ~$62k, decays along the observed backwardation [1-yr $60k →
+  3-5yr low-$40ks] to the $40k anchor by q8) — the war-spiked `vlgc_*` spot dailies (usgom ~$155k)
+  are NOT promoted, per the Phase-0 convention. This row doubles as the scenario engine's
+  vessel-elasticity reference, so absorption_base carries vessel_scale 1.00 (marks struck at
+  today's market, where the §9.9 prints are). New standing trigger `vlgc_realized_tce_refresh`
+  (due null — each validator quarterly disclosure; the held-VALUE-invisible-to-mtime lesson).
+  END-TO-END VERIFIED: a synthetic pure-VLGC 4-hull name runs the full NAV+cycle+strip+scenario
+  stack (fleet $343M off the fitted curve; cycle 1.59× → w_nav 0.70; scenario FVs $20.00-32.80) —
+  Phase 4 onboarding has no engine gaps left. Gate-neutral (zero LPG names; suite 550 green;
+  drift gate 0 UNEXPLAINED).
+
 - **2026-07-09 — WO3 Phase 2 LANDED: VLGC marks — §9.9 transaction-anchored, the 9th fitted class.**
   `transactions/vlgc.yaml` (7 in-window prints from the sec99 hunt sample, ages 9-17 under the
   repo's sale_year−build_year convention, + 3 documentation rows incl. the BW Yushi OPTION strike —

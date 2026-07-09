@@ -22,6 +22,7 @@
 # container_mb_refresh); agreement with vintage_notes is suite-tested.
 as_of:
   default: 2026-07-03       # containers re-synthesized 2026-07-06 from MB W27
+  VLGC: 2026-06-02
   VLCC: 2026-06-07
   Suezmax: 2026-06-07
   Aframax: 2026-06-07
@@ -157,6 +158,24 @@ ffa_forward_curve:
   - 30000
   - 28000
   - 22000
+  # VLGC (WO3 Phase 3, 2026-07-09) — NO VLGC forward-print feed exists; the
+  # war-spiked vlgc_* spot dailies are NOT promoted (Phase-0 convention).
+  # Derivation rule (documented): base forward = the absorption_base scenario's
+  # base path (sectors.lpg central case) — starts at current realized ~$62k,
+  # decays along the OBSERVED backwardated term structure (1-yr TC ~$60k → 3-5yr
+  # fixtures low-$40ks, BW Q1-2026 call) to the $40k anchor by q8. This is also
+  # the scenario engine's vessel-elasticity reference (forward_ref), so
+  # absorption_base carries vessel_scale 1.0 — marks struck at today's market,
+  # where the §9.9 prints were. Refresh on trigger vlgc_realized_tce_refresh.
+  VLGC:
+  - 62000
+  - 55000
+  - 48000
+  - 45000
+  - 43000
+  - 42000
+  - 41000
+  - 40000
   Cape:              # FFA OCR 2-Jul: Qn 32508 / Qf 33650 / Cal-27 28000 (was Jun-9 vintage)
   - 32500
   - 33650
