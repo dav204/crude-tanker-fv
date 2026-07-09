@@ -35,6 +35,15 @@ depth = FAIL" reads `weight_sign_stable`. Write `scripts/dry_bulk_weight_compari
 a `test_dry_bulk_locked_weights` pin; the scorecard seam already emits the family fields — dry bulk is null
 only for lack of a sidecar entry. DIAGNOSTIC ONLY: Bulk Set A stays locked; §11.7.10 dwt-scaling /
 Post-Panamax / FFA-OCR are frozen. Kill-switches: dry-bulk orderbook >16% voids the half, charter expires 2026-12-26.
+**WO4 LANDED 2026-07-07** (`scripts/dry_bulk_weight_comparison.py` + `test_dry_bulk_locked_weights_position`):
+sidecar `outputs/weight_robustness.yaml` carries a current-SHA dry_bulk block (SBLK/GNK/CMDB/SB
+`ev_sign_stable` all True) — the field Gate E reads; seam emits it to `book_scorecard.json` on regen.
+Findings: SB/CMDB weight-robust BUY; SBLK sign-stable-positive but label position-driven (BUY→HOLD at the
+property-drag bracket); GNK sign-stable-negative. Bulk Set A byte-locked, gate-neutral. **Standing thread
+made concrete:** the WO4 regen surfaced pre-existing committed-price drift (FVs byte-identical; only EV%
+denominators moved vs the Jul-6 book — CMDB EV +6.0pp, **GSL band BUY→HOLD**) — the overdue daily
+price-refresh re-ratify, deliberately NOT bundled into WO4; needs its own owner-aware re-ratify (GSL flip
+is position-relevant).
 
 **Follow-ups from the 2026-07-02 review chain (non-blocking):** (1) drift-gate CLI needs
 `state/last_run.json` — add a from-inputs recompute mode so a clean clone can run the gate

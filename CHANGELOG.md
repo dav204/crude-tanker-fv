@@ -5,6 +5,21 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-07 — WO4: dry-bulk weight-robustness family (§9.10) shipped (charter dry-bulk half; unblocks
+  consumer Gate E).** `scripts/dry_bulk_weight_comparison.py` (mirrors crude) runs SBLK/GNK/CMDB/SB under
+  locked Bulk Set A + two defensible ±~10pp China-demand brackets (Bulk Set B China-bull / Set C
+  property-drag; sets live in the SCRIPT, production untouched). Findings: **SB & CMDB weight-robust BUY;
+  SBLK sign-stable-positive but LABEL position-driven (BUY→HOLD at the drag bracket); GNK
+  sign-stable-negative.** The sidecar (`outputs/weight_robustness.yaml`) now carries a current-SHA
+  dry_bulk block with `ev_sign_stable`/min/max for all four — the field the consumer's Gate E reads;
+  the schema-2.2 seam emits them into `book_scorecard.json` on regen (proven by
+  `test_weight_fragility_flag_renders_and_reaches_the_json`). `test_dry_bulk_locked_weights_position`
+  pins Bulk Set A + SBLK's BUY so a future reweight surfaces deliberately. DIAGNOSTIC ONLY — Bulk Set A
+  byte-unchanged, gate-neutral (no NAV/EV/mark/weight move). **Separate finding surfaced (NOT WO4):**
+  regen exposed pre-existing committed-price drift — FVs byte-identical but EV% denominators moved vs the
+  Jul-6 book snapshot (CMDB EV +6.0pp, GSL band BUY→HOLD) — the overdue daily-price-refresh re-ratify
+  thread; deliberately not bundled into WO4, teed up for its own owner-aware re-ratify.
+
 - **2026-07-07 — WO3 LPG Phase 0 ratified + a known-failure-mode flag.** LPG/VLGC sector methodology
   doc ratified (decisions/lpg_methodology_2026-07-07.md): VLGC-only; §11.8.6 coverage reuse; §15
   BW-bloc screen; scenario weights **0.15/0.35/0.35/0.15** (overhang co-weighted with base — LPG is

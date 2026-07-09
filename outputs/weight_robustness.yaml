@@ -2,6 +2,7 @@ computed_against:
   crude: f57ba697a0ff
   product: f57ba697a0ff
   lng: f57ba697a0ff
+  dry_bulk: f57ba697a0ff
 weight_sets:
   crude:
     Crude Set A (Jun-9 war tilt, history bracket):
@@ -67,6 +68,22 @@ weight_sets:
       glut_base: 0.5
       glut_intensifies: 0.2
       structural_reset: 0.0
+  dry_bulk:
+    Bulk Set A (locked 2026-06-09, FFA-calibrated prior):
+      china_acceleration: 0.2
+      moderate_growth: 0.4
+      china_property_drag: 0.25
+      coordinated_slowdown: 0.15
+    Bulk Set B (China-bull / Simandou super-cycle bracket):
+      china_acceleration: 0.3
+      moderate_growth: 0.4
+      china_property_drag: 0.18
+      coordinated_slowdown: 0.12
+    Bulk Set C (China-property-drag bracket):
+      china_acceleration: 0.12
+      moderate_growth: 0.33
+      china_property_drag: 0.35
+      coordinated_slowdown: 0.2
 names:
   ASC:
     ev_min_pct: 6.6
@@ -114,6 +131,14 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
+  CMDB:
+    ev_min_pct: 14.0
+    ev_max_pct: 21.5
+    ev_sign_stable: true
+    positions:
+    - BUY
+    - BUY
+    - BUY
   DHT:
     ev_min_pct: -38.0
     ev_max_pct: -22.4
@@ -152,6 +177,14 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
+  GNK:
+    ev_min_pct: -8.3
+    ev_max_pct: 0.1
+    ev_sign_stable: false
+    positions:
+    - HOLD
+    - HOLD
+    - TRIM/SHORT
   HAFN:
     ev_min_pct: -26.0
     ev_max_pct: -11.3
@@ -180,6 +213,22 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
+  SB:
+    ev_min_pct: 46.5
+    ev_max_pct: 60.4
+    ev_sign_stable: true
+    positions:
+    - BUY
+    - BUY
+    - BUY
+  SBLK:
+    ev_min_pct: 7.1
+    ev_max_pct: 16.2
+    ev_sign_stable: true
+    positions:
+    - BUY
+    - BUY
+    - BUY
   STNG:
     ev_min_pct: -8.6
     ev_max_pct: 5.6

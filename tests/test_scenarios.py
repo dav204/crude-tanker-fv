@@ -9,6 +9,7 @@ import pytest
 from crude_tanker_fv.loaders import load_company_inputs
 from crude_tanker_fv.scenarios import (
     ANCHOR_BASIS_LABELS,
+    SCENARIO_CLASS_MAP_BY_SECTOR,
     all_sector_anchor_bases,
     detect_mixed_anchor_basis,
     load_scenarios,
@@ -324,6 +325,40 @@ def test_ccec_position_under_locked_weights(lng_doc):
         f"CCEC position should be BUY under Set B-revised; got "
         f"{r.position_recommendation!r}"
     )
+
+
+@pytest.fixture(scope="module")
+def dry_bulk_doc():
+    return load_scenarios(sector="dry_bulk")
+
+
+def test_dry_bulk_locked_weights_position(dry_bulk_doc):
+    """WO4 §9.10 lock: pin the locked Bulk Set A weights AND SBLK's position
+    under them, so a future dry-bulk reweight surfaces as a deliberate
+    methodology choice, not a silent regression (analogue of
+    test_flng_v3_locked_weights_position).
+
+    Fixed price (25.20/34.50, the 2026-07-03 consensus vintage) makes this a
+    pure weight-lock guard, immune to daily price drift. SBLK is the canonical
+    VALIDATED-TIGHT dry-bulk validator; at the static vintage it is BUY +13.3%,
+    comfortably above the +5% threshold. The §9.10 diagnostic
+    (scripts/dry_bulk_weight_comparison.py) shows the LABEL is position-driven
+    at deeper China-property-drag brackets, but the EV SIGN is stable-positive
+    across the whole family — which is the field the consumer's Gate E reads."""
+    names = ["china_acceleration", "moderate_growth",
+             "china_property_drag", "coordinated_slowdown"]
+    assert {n: dry_bulk_doc["scenarios"][n]["weight"] for n in names} == {
+        "china_acceleration": pytest.approx(0.20),
+        "moderate_growth": pytest.approx(0.40),
+        "china_property_drag": pytest.approx(0.25),
+        "coordinated_slowdown": pytest.approx(0.15),
+    }, "Bulk Set A weights moved — reweighting is a §11.7.x revision, not silent"
+    ci = load_company_inputs("SBLK", "2026-Q1")
+    r = run_scenarios(ci, 25.20, 34.50, dry_bulk_doc,
+                      scenario_class_map=SCENARIO_CLASS_MAP_BY_SECTOR["dry_bulk"])
+    assert "BUY" in r.position_recommendation, (
+        f"SBLK should be BUY under locked Bulk Set A at the pinned vintage; "
+        f"got {r.position_recommendation!r}")
 
 
 def test_lng_weights_sum_to_one(lng_doc):
