@@ -83,6 +83,27 @@ classes:
     scrap_25yr: 10000000
     scrubber_premium: 0
     eco_premium_pct: 0.0
+  # VLGC (WO3 Phase 2, 2026-07-09; prospective §11.10). FLAT class, ~84k cbm
+  # reference hull. Mid-age anchors set AT the §9.9 fit (transactions/vlgc.yaml,
+  # 7 in-window prints: age-10 $80.3M stable under every exclusion cut; age-5
+  # $92.3M EXTRAPOLATED — no 5-yr print exists — FLAGGED WIDE $89.7-95.9M).
+  # Age-0 = NEWBUILD PARITY $115-120M mid (sec99 print hunt 2026-07-06): no
+  # broker gas resale line exists in the corpus (xclusiv/Intermodal/Banchero
+  # print bulker+tanker only) — registered AGE0_BASIS exception + basis_status
+  # pending-sourceable, NOT resale-uniform. Cross-check: age-5/NB 0.79 = the
+  # VLCC curve's ratio. scrap_25yr $42M is the age-25 VALUE anchor (LNGC
+  # convention, NOT demolition ~$12M): fitted against the out-of-window old
+  # prints — curve reads $59.7M@18 vs Hampshire $57M, $47.1M@23 vs Lycaste
+  # Peace $48M (no-scrappage-lever sector; old VLGCs trade far above demo).
+  # Full decision record: decisions/vlgc_marks_2026-07-09.md.
+  VLGC:
+    dwt: 54000
+    newbuild: 117500000
+    five_year_benchmark: 92000000
+    ten_year_benchmark: 80000000
+    scrap_25yr: 42000000
+    scrubber_premium: 0            # no sourced VLGC scrubber premium — conservative 0
+    eco_premium_pct: 0.0           # no sourced VLGC eco/dual-fuel premium print — 0 until evidenced
   # dwt-scaled (METHODOLOGY §11.7.x): anchors are at the 180k STANDARD-Capesize
   # baseline; per-vessel value scales by dwt/180000, so a 210k Newcastlemax marks
   # ~1.17x a 180k Capesize (same $/dwt, size only). The 5yr/10yr are overridden by

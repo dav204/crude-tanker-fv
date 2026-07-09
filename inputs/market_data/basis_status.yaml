@@ -31,3 +31,7 @@ basis_status:
   Ctr-Feeder: structural-unavailable
   Ctr-Intermediate: structural-unavailable
   Ctr-Large: structural-unavailable
+  VLGC: pending-sourceable   # WO3 Phase 2 (2026-07-09): a REAL S&P market exists (7-print §9.9 fit) but no
+                             # broker RESALE (age-0) line — corpus gas tables don't print an age curve; age-0
+                             # is NB-parity $115-120M (sec99 hunt). Group A: resolve on first VLGC resale
+                             # print / Advanced full-year re-harvest, then re-wire toward resale-uniform.

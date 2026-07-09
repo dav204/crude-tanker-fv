@@ -5,6 +5,24 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-09 — WO3 Phase 2 LANDED: VLGC marks — §9.9 transaction-anchored, the 9th fitted class.**
+  `transactions/vlgc.yaml` (7 in-window prints from the sec99 hunt sample, ages 9-17 under the
+  repo's sale_year−build_year convention, + 3 documentation rows incl. the BW Yushi OPTION strike —
+  never fit) + a VLGC curve block (flat, 54k dwt/84k cbm ref): **NB $117.5M (NB-parity age-0,
+  registered AGE0_BASIS exception — no broker gas resale line exists; basis_status
+  pending-sourceable) · 5yr $92M · 10yr $80M · age-25 VALUE anchor $42M** (LNGC convention, NOT
+  demo ~$12M — the old leg reproduces Hampshire 18yr/$57M and Lycaste Peace 23yr/$48M within $2-3M;
+  the no-scrappage-lever cell priced). Fit: n=7, slope −$2.40M/yr, **age-10 $80.3M stable under
+  every exclusion cut (the strong node); age-5 $92.3M EXTRAPOLATED, flagged WIDE $89.7-95.9M**
+  (zero 5-yr prints; cross-checks: age-5/NB 0.79 = the VLCC ratio; option strike $70M below it);
+  ex-ALL-BW degenerates and the solver correctly falls back (slope guard). Related-party downweight
+  (BW Chinook/Pampero) delivered via recency weights (~0.45), not a guessed quality uplift. Broker
+  cross-read recorded: fitted age-10 sits ~+11% over Pareto's $72M generic-2016 quote (their own
+  "10%+ beat" comment on Sinogas) — LPG now reads on txn-anchored k_broker semantics. Record:
+  `decisions/vlgc_marks_2026-07-09.md`. Gate-neutral (zero LPG names; suite 550 green; drift gate
+  0 UNEXPLAINED). Watch: Dorian trio per-vessel splits (Q4-26 filings), Advanced full-year
+  re-harvest (highest-value sample upgrade).
+
 - **2026-07-08 — WO3 Phase 1 LANDED: `sectors.lpg` scenario family live (LPG Set A, US-export-arb).**
   Per the ratified Phase-0 doc (decisions/lpg_methodology_2026-07-07.md): 4 scenarios
   arb_wide/absorption_base/overhang/arb_collapse at **0.15/0.35/0.35/0.15**, VLGC 8-quarter curves

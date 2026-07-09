@@ -122,6 +122,10 @@ AGE0_BASIS = {
     "Ctr-Feeder": "exception:container sector, MB China yard basis",
     "Ctr-Intermediate": "exception:container sector, MB China yard basis",
     "Ctr-Large": "exception:container sector, MB China yard basis",
+    "VLGC": "exception:LPG sector (WO3 Phase 2, 2026-07-09) — no broker gas resale line in corpus "
+            "(xclusiv/Intermodal/Banchero print bulker+tanker only; Advanced prints gas S&P but no age "
+            "curve); age-0 = NB-parity $115-120M mid (sec99 print hunt 2026-07-06). Resolve on first "
+            "VLGC resale print or the Advanced full-year re-harvest.",
 }
 
 

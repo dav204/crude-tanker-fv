@@ -38,15 +38,18 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
 3. **WO2 residue:** drill 2.5 (blocked on #2), acceptance window Jul-28→Aug-6
    (`close_acceptance.py` ready), task #32 web-agent watchdog (interim single-threaded rule below).
 
-**NEXT BIG BLOCK — WO3 Phase 2 (VLGC marks).** Phase 1 LANDED 2026-07-08 (see WO3 block below):
-`sectors.lpg` live (LPG Set A 0.15/0.35/0.35/0.15; $40k realized-TCE anchor as_of 2026-07-07 under the
-new `realized_tce_10yr_mean` basis token — trips MIXED-ANCHOR-BASIS vs TC sectors, test-pinned; §9.10
-family registered from birth, `scripts/lpg_weight_comparison.py`). Phase 2 = the VLGC age-value curve in
-`vessel_value_curves.yaml` + the §9.9 txn-anchored decision off the print sample
-(`decisions/sec99_print_hunt_2026-07-06.md` — 10-yr node strong, 5-yr flagged wide; if insufficient,
-ship on-curve UN-anchored, documented — the LNG precedent; NO back-solve). Then Phase 3 (promote
-`vlgc_*` dailies under a tenor rule), Phase 4 validators (Dorian CIK 1596993 / BWLP CIK 1649313 —
-re-verify vs company_tickers.json first), Phase 5 lock ≥70%/±10%.
+**NEXT BIG BLOCK — WO3 Phase 3 (rates plumbing), then Phase 4 (validators).** Phases 1-2 LANDED
+(Phase 1 2026-07-08: `sectors.lpg` + §9.10 family; Phase 2 2026-07-09: VLGC marks — §9.9
+transaction-ANCHORED, 9th fitted class: `transactions/vlgc.yaml` 7 in-window prints, fit age-10
+$80.3M strong / age-5 $92.3M extrapolated-FLAGGED-WIDE; curve NB $117.5M NB-parity age-0
+[AGE0_BASIS exception + basis_status pending-sourceable] / 5yr $92M / 10yr $80M / age-25 anchor
+$42M fitted to the old prints; record `decisions/vlgc_marks_2026-07-09.md`). Phase 3 = promote the
+existing `vlgc_me_asia`/`vlgc_usgom_asia` daily columns into `twelve_month_tc.yaml` under a
+DOCUMENTED tenor rule (the dry-bulk 2-Jul FFA promotion precedent; spot→TC dampening per §11.8.6;
+note the dailies are war-spiked — the $60k BW Pampero 1-yr TC is the cross-check). Phase 4 =
+`/add-ticker` Dorian LPG (CIK 1596993) + BW LPG (CIK 1649313) — re-verify CIKs vs
+company_tickers.json FIRST (the FLNG/CCEC/INSW lesson); same-vintage consensus pairs (Pareto
+prints BWLP 1.02 / LPG 1.01). Phase 5 lock ≥70%/±10%.
 
 **WO3 ISSUED 2026-07-06 — LPG/VLGC sector onboarding (charter-funded):** see `WO3_LPG_ONBOARDING.md`.
 Consumer-side authority: portfolio-governance sector charter (verdict `fd0277f`) — 50% of the cycle's

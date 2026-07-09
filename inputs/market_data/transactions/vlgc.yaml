@@ -1,0 +1,138 @@
+# VLGC secondhand sale prints — METHODOLOGY §3.1, §9.9 (WO3 Phase 2, 2026-07-09).
+# Source of the classified sample: decisions/sec99_print_hunt_2026-07-06.md
+# (4 parallel hunters over the broker-weekly corpus + open web + 190 Pareto
+# dailies; every print cited; aggregates without per-vessel splits excluded
+# per the no-back-solve rule). Verdict there: v1-PROVISIONAL — 10-yr node
+# strong, 5-yr node EMPTY (the age-5 anchor is extrapolated; see below).
+#
+# Age convention: sale_year − build_year (the repo-wide transactions-file
+# convention — cape.yaml Atlantic Lion 2020-built sold Dec-2025 = age 5).
+#
+# SAMPLE SHAPE (fit run 2026-07-09):
+#   - 10-yr node STRONG: 5 prints ages 9-11 ($75-84M); fitted age-10 $80.3M
+#     is stable at $80.3M under every single-print exclusion cut.
+#   - old node: BW Lord (17, $61M) + BW Cedar (17, $65M — signed Nov-2024,
+#     borderline hunt window; recency weight ~0.40 handles the staleness).
+#     Dropping either one individually leaves the fit standing.
+#   - 5-yr node EMPTY: age-5 is EXTRAPOLATED through the 9-17 cluster —
+#     fitted $92.3M, spanning $89.7-95.9M across exclusion cuts. FLAGGED
+#     WIDE. Cross-checks: age-5/NB parity = 0.79 (= the VLCC curve's
+#     138/175 ratio); BW Yushi 2020-built purchase-OPTION strike ~$70M
+#     sits below it as an option strike should.
+#   - Excluding ALL FOUR BW prints leaves only the 9-11yr cluster and the
+#     solver correctly falls back (slope turns positive) — the BW prints
+#     are load-bearing for the slope; documented, not hidden.
+#
+# RELATED-PARTY treatment (BW Chinook / BW Pampero, 52%-owned JV): the memo
+# says DOWNWEIGHT, and the fit's recency weighting delivers it mechanically —
+# both prints are Mar-2025 vintage and carry w≈0.45 vs ~0.85 for the fresh
+# arm's-length cluster. Kept quality_flag: standard (no evidence the JV price
+# was off-market in a known direction; the +5% financing uplift would GUESS
+# a direction).
+#
+# WATCH ITEMS (complete the sample): Dorian trio per-vessel splits (filings,
+# by Q4-26 delivery — then drop Cobra's broker-reported price for the filed
+# one); Jag Vishnu (2002) if a price surfaces; full-year Advanced re-harvest
+# (the corpus is quarterly-sampled — true 2025 print counts likely 3-10x).
+class: VLGC
+as_of: 2026-07-09
+prints:
+  # ---- IN-WINDOW (drive the fit), sorted by age ----
+  - date: 2025-12-12
+    vessel_age_at_sale: 9
+    sale_price_usd_m: 80.0
+    source: Pareto Shipping Daily 2025-12-12 — broker S&P column
+    quality_flag: standard
+    notes: >
+      Sinogas VLGC (2016-built, Jiangnan). Pre-survey sale; Pareto's own
+      comment called it a "10%+ beat vs our $72m generic-2016 quote" —
+      the independent age-10 cross-check in the sec99 memo.
+  - date: 2026-03-15
+    vessel_age_at_sale: 10
+    sale_price_usd_m: 84.0
+    source: Riviera Maritime (broker-reported), ~Mar-2026 — sec99 print hunt 2026-07-06
+    quality_flag: standard
+    notes: >
+      Pacific Dongying (2016-built). AUCTION sale — competitive-tension
+      price, kept standard (auction ≠ distressed here; broker-reported).
+      Day-of-month approximate (month-precision citation).
+  - date: 2026-04-15
+    vessel_age_at_sale: 11
+    sale_price_usd_m: 83.5
+    source: sec99 print hunt 2026-07-06 — broker-reported (Dorian disposal)
+    quality_flag: standard
+    notes: >
+      Cobra (2015-built, ex-Dorian). $83-84M reported, midpoint used; buyer
+      unconfirmed and LIKELY INSIDE Dorian's $256M 3-vessel exit — NEVER
+      also add the trio's other hulls from the aggregate (no back-solve;
+      replace this row with the filed per-vessel split when the Q4-26
+      delivery filings land). Day-of-month approximate.
+  - date: 2025-03-15
+    vessel_age_at_sale: 10
+    sale_price_usd_m: 75.0
+    source: BW LPG disclosure, Mar-2025 — sec99 print hunt 2026-07-06
+    quality_flag: standard
+    notes: >
+      BW Chinook (2015-built). RELATED-PARTY — sold into a 52%-owned JV;
+      memo says downweight, delivered via the ~0.45 recency weight (see
+      header). Day-of-month approximate.
+  - date: 2025-03-15
+    vessel_age_at_sale: 10
+    sale_price_usd_m: 75.0
+    source: BW LPG disclosure, Mar-2025 — sec99 print hunt 2026-07-06
+    quality_flag: standard
+    notes: >
+      BW Pampero (2015-built). RELATED-PARTY, same 52% JV transaction as
+      Chinook — same treatment. (Same hull later fixed the 1-yr TC at
+      "high $60,000/day" on the Q1-2026 call — the LPG cycle-anchor
+      cross-check vessel.) Day-of-month approximate.
+  - date: 2025-09-15
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 61.0
+    source: BW LPG company announcement, Sep-2025 — sec99 print hunt 2026-07-06
+    quality_flag: standard
+    notes: >
+      BW Lord (2008-built). Company-announced sale; one of the two prints
+      carrying the old node / fit slope. Day-of-month approximate.
+  - date: 2024-11-15
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 65.0
+    source: sec99 print hunt 2026-07-06 — broker-reported; delivered Feb-2025
+    quality_flag: standard
+    notes: >
+      BW Cedar (2007-built). Signed Nov-2024, delivered Feb-2025 —
+      BORDERLINE the hunt's ~Jan-2025+ window; dated at signing so the
+      recency weight (~0.40) prices the staleness. Second old-node print.
+  # ---- OUT-OF-WINDOW / DOCUMENTATION ONLY (excluded from the fit) ----
+  - date: 2025-12-15
+    vessel_age_at_sale: 18
+    sale_price_usd_m: 57.0
+    source: Splash 24/7 (broker-reported), Dec-2025 — sec99 print hunt 2026-07-06
+    quality_flag: standard
+    in_fit: false
+    notes: >
+      Hampshire (2007-built). Age 18 > mid-age window [3,17] — anchors the
+      OLD-AGE leg instead: the curve's 10yr→25yr interpolation (scrap_25yr
+      $42M age-25 VALUE anchor) reads $59.7M at 18 vs this $57M.
+  - date: 2026-03-27
+    vessel_age_at_sale: 23
+    sale_price_usd_m: 48.0
+    source: Advanced Shipping & Trading W13/2026 gas S&P table (corpus)
+    quality_flag: standard
+    in_fit: false
+    notes: >
+      Lycaste Peace (2003-built). Age 23, out of window — the deep old-age
+      anchor: curve reads $47.1M at 23 vs this $48M. Evidence for the $42M
+      age-25 VALUE anchor (VLGCs trade far above demolition — the sector's
+      no-scrappage-lever cell; demo value would be ~$12M at ~21k LDT).
+  - date: 2026-06-02
+    vessel_age_at_sale: 6
+    sale_price_usd_m: 70.0
+    source: BW LPG Q1-2026 call — BW Yushi purchase OPTION strike
+    quality_flag: standard
+    in_fit: false
+    notes: >
+      NOT A SALE — the ONLY ~5-yr-node observable: a purchase-option
+      STRIKE on the 2020-built BW Yushi. Strikes sit below market, so this
+      is a FLOOR consistent with (not evidence for) the extrapolated age-5
+      ~$92M. Documentation only; never fit an option strike.
