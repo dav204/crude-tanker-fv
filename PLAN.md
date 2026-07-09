@@ -5,23 +5,45 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-07-02, post-audit-response):** **22 watchlist names across 5 sectors**; **464 main
-tests green, 16 xfailed** (+13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester
-via `.venv310`); drift gate **0 unexplained** (TRMD explained); pipeline clean; SANITY 14 OK / 8
-n-a-APPROX / 0 FAIL. **An external clone-and-run audit landed 2026-07-02; 9 of 12 findings fixed
-same-day** (register + disposition: `outputs/EXTERNAL_AUDIT_2026-07-02.md`; narrative: CHANGELOG).
-New standing facts: the scorecard header now DISCLOSES its price basis; `outputs/book_scorecard.json`
-(schema_version 1) is the machine half of the governance handoff — bump the version on any breaking
-field change, the ingesting side must assert it; the ±15% price band now measures TRUE day-over-day
-and a ≥3-name simultaneous trip is treated as a market event (prices applied + review marker), not
-rejected. **F-2 + F-5 CLOSED 2026-07-02 (the post-stand-down vintage, owner-approved through a 3-round
-review chain):** crude 0.10/0.20/0.45/0.25 + recalibrated MoU-ineffective leg + product v2-restore +
-LNG v3-restore + rate refresh (tanker forwards HELD at Jun-7 pending a market print — trigger
-`tanker_forward_print_lands`; scorecard Rate-basis header discloses). Post-vintage book: the long
-surface is SB/SBLK + ASC/TRMD (product value) + TNK (band edge) + TEN (governed) + CCEC
-(weight-driven ⚠); BRUT/CAPT are the cleared war-premium false-BUYs. NEXT DATED GATES:
-`crude_mou_implementation_check` Jul-17, `crude_day60_toll_cliff` Aug-16 (pre-registered reweight),
-Doha-resumption check ~Jul-10 — all in `inputs/reweight_triggers.yaml`, surfaced by the preflight.**
+**Current state (2026-07-08, handoff-refreshed):** **22 watchlist names across 5 valued sectors** (LPG =
+6th, Phase-1-pending); **suite 544 green + 16 xfailed** (3 machine-local skips on clean clones; +13
+backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester via `.venv310`); **drift gate 0 UNEXPLAINED
+at HEAD** (baseline ratified 2026-07-06 post-recapture); handoff = `outputs/book_scorecard.json`
+**schema 2.2** (consumer asserts major 2) with four-basis stamps (price/rate/weight-family/source-commit)
++ per-name `weight_sign_stable`/`ev_pct_family_min/max` now populated for **crude, product, LNG, AND
+dry bulk** (WO4). **The WO2 watch layer is LIVE:** sentinel (10 check families) + email notify/digest/
+ping-withholding + dirty META-MODE + GitHub Action backstop (`sentinel-lite`) + heartbeats/run-ledger on
+all wrappers + EDGAR poller (19 CIKs, all SEC-verified after the FLNG/CCEC/INSW wrong-CIK catch) +
+arrival validation/quarantine + drift-aware guards (`scripts/drift_files.txt`). **Vintages:** consensus
+pairs rebased to the Pareto 3-Jul daily (18 names; TEN/SB/GSL/CMDB absent that edition, at their own
+documented vintages; threshold 42d, owner 2026-07-06); containers REFRESHED from MB W27 (Jul-3
+assessments; A3 intermediate 46,350); tanker forwards still HELD at Jun-7 (trigger
+`tanker_forward_print_lands`); dry bulk at the 2-Jul FFA OCR. Long surface (Jul-6 book): SB +53 T /
+SBLK +14 T (both now weight-sign-stable per WO4) + CMDB +12 GW + TEN +36 GW + CCEC +55 GW + ASC +9.6 GW
++ GSL +6.4 GW (but see PENDING — GSL flips to HOLD at current prices). **NEXT DATED GATES:**
+`crude_doha_talks_resumption` ~Jul-10 · `crude_mou_implementation_check` Jul-17 ·
+`crude_day60_toll_cliff` Aug-16 (pre-registered reweight) · `container_mb_refresh` Aug-7 ·
+`all_sectors_consensus_pair_recapture` + staleness floor Oct-2 · `lpg_anchor_annual_review` 2027-06-30 —
+all in `inputs/reweight_triggers.yaml`, sentinel-paged.
+
+**PENDING OWNER DECISIONS (do not act unilaterally; recorded 2026-07-08):**
+1. **Committed-price re-ratify (GSL band flip).** The committed book (source_commit `329a835`, Jul-6
+   prices) lags HEAD's committed prices: regen at current prices moves NO FV (byte-identical) but the
+   EV% denominators shift — CMDB EV +6.0pp (still BUY), **GSL BUY→HOLD**. Needs its own owner-aware
+   regen + annotate + ratify commit (also lands the WO4 dry-bulk family fields in the COMMITTED book).
+2. **Owner install checklist STILL OUTSTANDING** (gates the WO2 drill 2.5 + Phase-0 acceptance):
+   SMTP creds + healthchecks + GitHub secret + six plists + ctxprobe —
+   `decisions/owner_install_checklist_2026-07-08.md`. Until done: no digests/pages, D-2 open.
+3. **WO2 residue:** drill 2.5 (blocked on #2), acceptance window Jul-28→Aug-6
+   (`close_acceptance.py` ready), task #32 web-agent watchdog (interim single-threaded rule below).
+
+**NEXT BIG BLOCK — WO3 Phase 1 (ideal fresh-agent task, fully specified, zero ambient context):**
+`sectors.lpg` scenario family per the RATIFIED `decisions/lpg_methodology_2026-07-07.md` — scenarios
+arb_wide/absorption_base/overhang/arb_collapse at **0.15/0.35/0.35/0.15** ("LPG Set A (US-export-arb)");
+cycle anchor **$40,000/day realized-TCE, as_of 2026-07-07** (basis is CORRECT not compromise; 1-yr TC
+$60k = cross-check only; multiples realized-vs-realized); §11.8.6 coverage reuse; weight-robustness
+family from birth; then Phases 2-5 per `WO3_LPG_ONBOARDING.md` (§9.9 print sample:
+`decisions/sec99_print_hunt_2026-07-06.md`; verify Dorian/BWLP CIKs vs company_tickers.json first).
 
 **WO3 ISSUED 2026-07-06 — LPG/VLGC sector onboarding (charter-funded):** see `WO3_LPG_ONBOARDING.md`.
 Consumer-side authority: portfolio-governance sector charter (verdict `fd0277f`) — 50% of the cycle's
