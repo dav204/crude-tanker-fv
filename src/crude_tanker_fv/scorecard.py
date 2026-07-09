@@ -347,8 +347,15 @@ def update_weight_fragility_sidecar(
     path = outputs_dir / "weight_robustness.yaml"
     doc = (yaml.safe_load(path.read_text()) or {}) if path.exists() else {}
     ws = doc.get("weight_sets") or {}
-    if not (set(ws) <= {"crude", "product", "lng"}):
-        ws = {}   # pre-namespacing shape (crude-only): drop; each family rewrites its block
+    # Pre-namespacing shape detection BY KEY SHAPE, not a family whitelist: the
+    # old crude-only file keyed weight_sets by set LABEL ("Crude Set A (locked
+    # …)"); namespaced keys are sector tokens (lowercase identifiers). The
+    # prior hardcoded {crude, product, lng} whitelist wiped every OTHER
+    # family's sets the first time a new sector family (dry_bulk, WO4) was
+    # already present — and the wipe also narrowed weight_family_basis's
+    # staleness scope to the caller. Caught 2026-07-08 wiring the lpg family.
+    if not all(k.isidentifier() and k == k.lower() for k in ws):
+        ws = {}   # pre-namespacing shape (set-label keys): drop; each family rewrites its block
     ws[family] = weight_sets
     merged = doc.get("names") or {}
     merged.update(names)

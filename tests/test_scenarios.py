@@ -17,7 +17,7 @@ from crude_tanker_fv.scenarios import (
     run_scenarios,
 )
 
-SECTORS = ("crude", "lng", "product", "dry_bulk", "containerships")
+SECTORS = ("crude", "lng", "product", "dry_bulk", "containerships", "lpg")
 
 
 @pytest.fixture(scope="module")
@@ -359,6 +359,59 @@ def test_dry_bulk_locked_weights_position(dry_bulk_doc):
     assert "BUY" in r.position_recommendation, (
         f"SBLK should be BUY under locked Bulk Set A at the pinned vintage; "
         f"got {r.position_recommendation!r}")
+
+
+@pytest.fixture(scope="module")
+def lpg_doc():
+    return load_scenarios(sector="lpg")
+
+
+def test_lpg_locked_weights_and_anchor(lpg_doc):
+    """WO3 Phase 1 lock (2026-07-08): pin the ratified LPG Set A
+    (US-export-arb) weights AND the ratified cycle anchor, so a future LPG
+    reweight or anchor move surfaces as a deliberate §11.10.x revision, not a
+    silent regression. Ratification record: decisions/lpg_methodology_2026-07-07.md
+    (all five forks closed 2026-07-07 — weights evidence-first overhang-tilted,
+    anchor ~$40k 10-yr through-cycle REALIZED TCE, as_of-dated with an annual
+    re-derivation trigger `lpg_anchor_annual_review`).
+
+    No position pin yet — the Phase-4 validators (Dorian LPG / BW LPG) are not
+    onboarded; add the SBLK-style position pin when the first validator lands.
+    """
+    names = ["arb_wide", "absorption_base", "overhang", "arb_collapse"]
+    assert list(lpg_doc["scenarios"]) == names
+    assert {n: lpg_doc["scenarios"][n]["weight"] for n in names} == {
+        "arb_wide": pytest.approx(0.15),
+        "absorption_base": pytest.approx(0.35),
+        "overhang": pytest.approx(0.35),
+        "arb_collapse": pytest.approx(0.15),
+    }, "LPG Set A weights moved — reweighting is a §11.10.x revision, not silent"
+    assert sum(lpg_doc["scenarios"][n]["weight"] for n in names) == pytest.approx(1.0)
+
+    # Ratified anchor: $40k realized-TCE, TRAILING (drifts) → as_of-dated.
+    anchor = lpg_doc["cycle_anchors"]["vlgc"]
+    assert anchor["ten_year_mean"] == 40000
+    assert anchor["anchor_basis"] == "realized_tce_10yr_mean"
+    assert str(anchor["as_of"]) == "2026-07-07", (
+        "the LPG anchor is a trailing 10-yr average and must stay as_of-dated "
+        "(re-derived annually under lpg_anchor_annual_review)")
+
+    # v1 routing: VLGC-only (Fork 1) — no MGC in this sector.
+    assert SCENARIO_CLASS_MAP_BY_SECTOR["lpg"] == {"VLGC": "vlgc"}
+    # Every scenario carries the full 8-quarter vlgc curve.
+    for n in names:
+        assert len(lpg_doc["scenarios"][n]["vlgc"]) == 8
+
+
+def test_lpg_realized_tce_basis_does_not_compose_with_tc_means():
+    """The realized-TCE anchor basis (ratified 2026-07-07: correct for an
+    85-99%-spot validator pair, NOT a compromise) is a FOURTH basis — a
+    cross-sector view mixing lpg with the TC-anchored sectors must trip the
+    MIXED-ANCHOR-BASIS flag rather than silently comparing cycle ratios."""
+    mix = detect_mixed_anchor_basis(["crude", "lpg"])
+    assert mix is not None
+    assert mix["realized_tce_10yr_mean"] == ["lpg"]
+    assert "crude" in mix["tc_10yr_mean"]
 
 
 def test_lng_weights_sum_to_one(lng_doc):

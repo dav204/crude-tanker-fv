@@ -21,7 +21,7 @@ Comparison reference: Set B (v2, prior lock, same day).
 | glut_intensifies | 0.20 | 0.15 | -0.05 |
 | structural_reset | 0.00 | 0.00 | +0.00 |
 
-## FLNG — at price $29.29, target $25.00
+## FLNG — at price $29.30, target $25.00
 
 **Per-scenario FV (identical under both weight sets — only weights change, scenario forwards unchanged):**
 
@@ -38,13 +38,13 @@ Comparison reference: Set B (v2, prior lock, same day).
 | Metric | Set B | Set B-revised | Δ |
 |---|--:|--:|--:|
 | PW FV | $27.50 | $29.19 | $+1.69 (+6.2%) |
-| EV% | -6.1% | -0.4% | +5.8pp |
+| EV% | -6.2% | -0.4% | +5.8pp |
 | Position | TRIM/SHORT | HOLD | **FLIP** |
 
 **Threshold analysis** (alpha = 0: Set B; alpha = 1: Set B-revised; FV is linear in weights so the convex combination is exact):
 
-- HOLD threshold (FV ≥ $27.83, EV ≥ -5%): alpha ≥ **0.20**
-- BUY threshold (FV ≥ $30.75, EV ≥ +5%): _not reachable on the [Set B → Set B-revised] line_
+- HOLD threshold (FV ≥ $27.84, EV ≥ -5%): alpha ≥ **0.20**
+- BUY threshold (FV ≥ $30.77, EV ≥ +5%): _not reachable on the [Set B → Set B-revised] line_
 
 **Weights at the minimum HOLD threshold (alpha = 0.20):**
 

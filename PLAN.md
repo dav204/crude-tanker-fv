@@ -5,9 +5,10 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-07-08, handoff-refreshed):** **22 watchlist names across 5 valued sectors** (LPG =
-6th, Phase-1-pending); **suite 544 green + 16 xfailed** (3 machine-local skips on clean clones; +13
-backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester via `.venv310`); **drift gate 0 UNEXPLAINED
+**Current state (2026-07-08, WO3-Phase-1 refresh):** **22 watchlist names across 5 valued sectors**
+(LPG = 6th: **Phase 1 LANDED 2026-07-08** — `sectors.lpg` scenario family + routing + §9.10 family
+live; validators pending Phase 4); **suite 547 green + 16 xfailed** (3 machine-local skips on clean
+clones; +13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester via `.venv310`); **drift gate 0 UNEXPLAINED
 at HEAD** (baseline ratified 2026-07-06 post-recapture); handoff = `outputs/book_scorecard.json`
 **schema 2.2** (consumer asserts major 2) with four-basis stamps (price/rate/weight-family/source-commit)
 + per-name `weight_sign_stable`/`ev_pct_family_min/max` now populated for **crude, product, LNG, AND
@@ -37,18 +38,34 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
 3. **WO2 residue:** drill 2.5 (blocked on #2), acceptance window Jul-28→Aug-6
    (`close_acceptance.py` ready), task #32 web-agent watchdog (interim single-threaded rule below).
 
-**NEXT BIG BLOCK — WO3 Phase 1 (ideal fresh-agent task, fully specified, zero ambient context):**
-`sectors.lpg` scenario family per the RATIFIED `decisions/lpg_methodology_2026-07-07.md` — scenarios
-arb_wide/absorption_base/overhang/arb_collapse at **0.15/0.35/0.35/0.15** ("LPG Set A (US-export-arb)");
-cycle anchor **$40,000/day realized-TCE, as_of 2026-07-07** (basis is CORRECT not compromise; 1-yr TC
-$60k = cross-check only; multiples realized-vs-realized); §11.8.6 coverage reuse; weight-robustness
-family from birth; then Phases 2-5 per `WO3_LPG_ONBOARDING.md` (§9.9 print sample:
-`decisions/sec99_print_hunt_2026-07-06.md`; verify Dorian/BWLP CIKs vs company_tickers.json first).
+**NEXT BIG BLOCK — WO3 Phase 2 (VLGC marks).** Phase 1 LANDED 2026-07-08 (see WO3 block below):
+`sectors.lpg` live (LPG Set A 0.15/0.35/0.35/0.15; $40k realized-TCE anchor as_of 2026-07-07 under the
+new `realized_tce_10yr_mean` basis token — trips MIXED-ANCHOR-BASIS vs TC sectors, test-pinned; §9.10
+family registered from birth, `scripts/lpg_weight_comparison.py`). Phase 2 = the VLGC age-value curve in
+`vessel_value_curves.yaml` + the §9.9 txn-anchored decision off the print sample
+(`decisions/sec99_print_hunt_2026-07-06.md` — 10-yr node strong, 5-yr flagged wide; if insufficient,
+ship on-curve UN-anchored, documented — the LNG precedent; NO back-solve). Then Phase 3 (promote
+`vlgc_*` dailies under a tenor rule), Phase 4 validators (Dorian CIK 1596993 / BWLP CIK 1649313 —
+re-verify vs company_tickers.json first), Phase 5 lock ≥70%/±10%.
 
 **WO3 ISSUED 2026-07-06 — LPG/VLGC sector onboarding (charter-funded):** see `WO3_LPG_ONBOARDING.md`.
 Consumer-side authority: portfolio-governance sector charter (verdict `fd0277f`) — 50% of the cycle's
 validation labor; VLGC-first (Dorian LPG + BWLP validators); NOT a supply call (charter B-4); kill-switches:
 VLGC orderbook >38% voids the half, charter expires 2026-12-26. Phase 0 (methodology decision doc) first.
+**WO3 PHASE 1 LANDED 2026-07-08:** `sectors.lpg` in scenario_inputs.yaml (4 scenarios, LPG Set A
+(US-export-arb) 0.15/0.35/0.35/0.15; VLGC 8q curves, PW front-4 $48.6k = 1.22× anchor, PW end-strip
+$34.3k below mean — overhang tilt priced); anchor $40k realized-TCE `as_of 2026-07-07` under NEW basis
+token `realized_tce_10yr_mean` (4th basis, MIXED-ANCHOR-BASIS-tripping, pinned by
+`test_lpg_realized_tce_basis_does_not_compose_with_tc_means`); routing wired (VLGC→vlgc, VLGC-only);
+§9.10 family from birth (`scripts/lpg_weight_comparison.py`, Set B arb-bull / Set C deep-overhang
+brackets; sidecar block registered, names populate at Phase 4); locks
+`test_lpg_locked_weights_and_anchor`. Gate-neutral (zero LPG names; delta 0 material; drift gate 0
+UNEXPLAINED). **Also fixed en route:** the sidecar merge's pre-namespacing whitelist would have wiped
+all other families' weight_sets on the first post-WO4 merge (scorecard.py; now key-shape detection +
+`test_sidecar_merge_preserves_all_other_families`); all four legacy families re-stamped against the new
+scenario_inputs sha — no `ev_sign_stable`/position changes. The verification pipeline run surfaced the
+KNOWN pending-decision-#1 price drift as 4 EV%-only gate rows (CAPT/CMDB/GSL/MPCC) — ANNOTATED as
+explain-not-accept in their logs; re-ratify + the GSL band call stay with the owner.
 
 **WO4 ISSUED 2026-07-07 — dry-bulk weight-robustness family (§9.10) extension (charter-funded):** see
 `WO4_DRYBULK_WEIGHT_FAMILY.md`. Consumer-side authority: same charter (verdict `fd0277f`) — the dry-bulk

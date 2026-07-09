@@ -32,7 +32,10 @@ ALLOWED_CLASSES = {"VLCC", "Suezmax", "Aframax", "LR2", "LR1", "MR", "Handymax",
                    "Cape", "Pana", "Post-Panamax", "Supra-Ultra",
                    # containerships classes added 2026-06-12 (METHODOLOGY §11.8.1):
                    # Feeder ≤2,000 TEU / Intermediate 2,000-5,500 / Large >5,500
-                   "Ctr-Feeder", "Ctr-Intermediate", "Ctr-Large"}
+                   "Ctr-Feeder", "Ctr-Intermediate", "Ctr-Large",
+                   # lpg VLGC added 2026-07-08 (WO3 Phase 1, prospective §11.10);
+                   # v1 is VLGC-only — MGC already exists above under lng.
+                   "VLGC"}
 
 
 def _read_yaml(path: Path) -> dict:

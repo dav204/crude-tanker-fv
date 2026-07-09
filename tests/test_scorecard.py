@@ -466,6 +466,52 @@ def test_weight_family_basis_and_stale_withholding(tmp_path, rows):
     assert weight_family_basis(outputs, inputs)["status"] == "current"
 
 
+def test_sidecar_merge_preserves_all_other_families(tmp_path):
+    """Regression (2026-07-08, caught wiring the lpg family): the merge's
+    pre-namespacing guard was a hardcoded {crude, product, lng} whitelist, so
+    the FIRST call after a new sector family landed (dry_bulk, WO4) wiped every
+    other family's weight_sets — and, because weight_family_basis scopes its
+    staleness check to set(weight_sets), silently NARROWED the staleness guard
+    to the caller. Shape detection (set-label keys vs family tokens) replaced
+    the whitelist; this pins N-family preservation for any future sector."""
+    import yaml
+
+    from crude_tanker_fv.scorecard import update_weight_fragility_sidecar, weight_family_basis
+
+    inputs = tmp_path / "inputs"
+    inputs.mkdir()
+    (inputs / "scenario_inputs.yaml").write_text("sectors: {a: 1}\n")
+    outputs = tmp_path / "outputs"
+
+    for fam in ("crude", "product", "lng", "dry_bulk", "lpg"):
+        update_weight_fragility_sidecar(
+            fam, {f"{fam.title()} Set A": {"s": 1.0}}, {},
+            outputs_dir=outputs, inputs_dir=inputs)
+
+    doc = yaml.safe_load((outputs / "weight_robustness.yaml").read_text())
+    assert set(doc["weight_sets"]) == {"crude", "product", "lng", "dry_bulk", "lpg"}
+    assert set(doc["computed_against"]) == {"crude", "product", "lng", "dry_bulk", "lpg"}
+    # The staleness guard covers ALL families, not just the last caller.
+    (inputs / "scenario_inputs.yaml").write_text("sectors: {a: 2}\n")
+    update_weight_fragility_sidecar("lpg", {"LPG Set A": {"s": 1.0}}, {},
+                                    outputs_dir=outputs, inputs_dir=inputs)
+    fb = weight_family_basis(outputs, inputs)
+    assert fb["status"] == "stale"
+    assert fb["lagging"] == ["crude", "dry_bulk", "lng", "product"]
+
+    # The TRUE pre-namespacing shape (set-label keys, no family tokens) is
+    # still detected and dropped rather than merged as junk families.
+    legacy = outputs / "weight_robustness.yaml"
+    legacy.write_text(yaml.safe_dump({
+        "weight_sets": {"Crude Set A (locked 2026-06-09)": {"s": 1.0}},
+        "names": {},
+    }))
+    update_weight_fragility_sidecar("crude", {"Crude Set A": {"s": 1.0}}, {},
+                                    outputs_dir=outputs, inputs_dir=inputs)
+    doc = yaml.safe_load(legacy.read_text())
+    assert set(doc["weight_sets"]) == {"crude"}
+
+
 def test_verdict_label_registry_tracks_the_tiers_no_drift():
     """provenance.py is the single source: the tier sub-reason map must cover EXACTLY the
     GOVERNED-WIDE + PROVISIONAL names, and the position-relabel / void sets must sit inside the

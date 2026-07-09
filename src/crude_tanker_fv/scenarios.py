@@ -87,6 +87,12 @@ SCENARIO_CLASS_MAP_BY_SECTOR: dict[str, dict[str, str]] = {
         "Supra-Ultra": "supra_ultra",  # collapsed Supramax + Ultramax per §11.7.1
                                         # (Pareto reclassified the benchmark Sep 2025)
     },
+    "lpg": {                        # NEW 2026-07-08 — WO3 Phase 1 (prospective §11.10)
+        # v1 is VLGC-only (Fork 1, decisions/lpg_methodology_2026-07-07.md):
+        # both validators (Dorian LPG / BW LPG) are pure-VLGC fleets. MGC stays
+        # in sectors.lng where it lives today; NVGS/GASS are census-only.
+        "VLGC": "vlgc",
+    },
     "containerships": {             # NEW 2026-06-12 — METHODOLOGY §11.8.1
         # 3-class collapse aligned to MB Shipbrokers' rate-table banding:
         # Feeder ≤2,000 TEU / Intermediate 2,000-5,500 / Large >5,500.
@@ -252,6 +258,10 @@ ANCHOR_BASIS_LABELS = {
     "tc_10yr_mean": "TC-anchored 10-year mean",
     "archive_22mo_median": "22-month archive median",
     "fy_calendar_avg": "FY2021-2025 calendar average",
+    # lpg (WO3, 2026-07-08): realized fleet TCE, the correct basis for an
+    # 85-99%-spot validator pair (ratified 2026-07-07 — NOT a TC mean; cycle
+    # multiples are realized-vs-realized, never TC-over-realized).
+    "realized_tce_10yr_mean": "realized-TCE 10-year through-cycle mean",
 }
 
 
@@ -538,6 +548,11 @@ _PRETTY = {
     "gradual_normalization": "Gradual normalization (base)",
     "normalization_plus_overhang": "Normalization + orderbook overhang",
     "demand_recession": "Demand recession",
+    # lpg (LPG Set A — US-export-arb, WO3 2026-07-08, prospective §11.10)
+    "arb_wide": "Arb wide (US-export bull)",
+    "absorption_base": "Absorption base",
+    "overhang": "Orderbook overhang",
+    "arb_collapse": "Arb collapse",
 }
 
 _SECTOR_FRAMEWORK_LABEL = {
@@ -546,6 +561,7 @@ _SECTOR_FRAMEWORK_LABEL = {
     "product": "product margin / glut framework",
     "dry_bulk": "Bulk Set A (China-driven)",
     "containerships": "Container Set A (disruption-led)",
+    "lpg": "LPG Set A (US-export-arb)",
 }
 
 

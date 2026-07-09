@@ -20,7 +20,7 @@
 
 | Ticker | Set A PW FV | Set B PW FV | Δ FV | Set A EV | Set B EV | Position change |
 |---|--:|--:|--:|--:|--:|---|
-| ASC | $15.62 | **$16.28** | $+0.66 (+4.2%) | +5.1% (BUY) | +9.6% (**BUY**) | unchanged |
+| ASC | $15.62 | **$16.28** | $+0.66 (+4.2%) | +4.8% (HOLD) | +9.3% (**BUY**) | **FLIP** |
 | STNG | $64.76 | **$70.90** | $+6.13 (+9.5%) | -11.3% (TRIM/SHORT) | -2.9% (**HOLD**) | **FLIP** |
 | INSW | $46.61 | **$48.00** | $+1.39 (+3.0%) | -43.4% (TRIM/SHORT) | -41.8% (**TRIM/SHORT**) | unchanged |
 

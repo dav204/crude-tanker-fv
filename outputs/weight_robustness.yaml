@@ -1,8 +1,9 @@
 computed_against:
-  crude: f57ba697a0ff
-  product: f57ba697a0ff
-  lng: f57ba697a0ff
-  dry_bulk: f57ba697a0ff
+  crude: 3dd55107c7da
+  product: 3dd55107c7da
+  lng: 3dd55107c7da
+  dry_bulk: 3dd55107c7da
+  lpg: 3dd55107c7da
 weight_sets:
   crude:
     Crude Set A (Jun-9 war tilt, history bracket):
@@ -84,10 +85,26 @@ weight_sets:
       moderate_growth: 0.33
       china_property_drag: 0.35
       coordinated_slowdown: 0.2
+  lpg:
+    LPG Set A (locked 2026-07-07, evidence-first overhang-tilted):
+      arb_wide: 0.15
+      absorption_base: 0.35
+      overhang: 0.35
+      arb_collapse: 0.15
+    LPG Set B (arb-bull / PDH-recovery bracket):
+      arb_wide: 0.25
+      absorption_base: 0.35
+      overhang: 0.28
+      arb_collapse: 0.12
+    LPG Set C (deep-overhang bracket):
+      arb_wide: 0.1
+      absorption_base: 0.28
+      overhang: 0.45
+      arb_collapse: 0.17
 names:
   ASC:
-    ev_min_pct: 6.6
-    ev_max_pct: 13.3
+    ev_min_pct: 6.3
+    ev_max_pct: 13.0
     ev_sign_stable: true
     positions:
     - BUY (undervalued)
@@ -95,7 +112,7 @@ names:
     - BUY (undervalued)
   BRUT:
     ev_min_pct: -61.4
-    ev_max_pct: 17.3
+    ev_max_pct: 17.1
     ev_sign_stable: false
     positions:
     - BUY
@@ -104,8 +121,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   CAPT:
-    ev_min_pct: -32.2
-    ev_max_pct: -1.1
+    ev_min_pct: -32.4
+    ev_max_pct: -1.3
     ev_sign_stable: true
     positions:
     - HOLD
@@ -122,8 +139,8 @@ names:
     - BUY (undervalued)
     - BUY (undervalued)
   CMBT:
-    ev_min_pct: -10.3
-    ev_max_pct: -2.8
+    ev_min_pct: -10.5
+    ev_max_pct: -3.1
     ev_sign_stable: true
     positions:
     - HOLD
@@ -168,7 +185,7 @@ names:
     - HOLD (fairly valued)
     - HOLD (fairly valued)
   FRO:
-    ev_min_pct: -55.0
+    ev_min_pct: -55.1
     ev_max_pct: -37.7
     ev_sign_stable: true
     positions:
@@ -186,8 +203,8 @@ names:
     - HOLD
     - TRIM/SHORT
   HAFN:
-    ev_min_pct: -26.0
-    ev_max_pct: -11.3
+    ev_min_pct: -25.8
+    ev_max_pct: -11.0
     ev_sign_stable: true
     positions:
     - TRIM/SHORT (overvalued)
@@ -204,7 +221,7 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   NAT:
-    ev_min_pct: -64.0
+    ev_min_pct: -63.9
     ev_max_pct: -53.2
     ev_sign_stable: true
     positions:
@@ -231,15 +248,15 @@ names:
     - BUY
   STNG:
     ev_min_pct: -8.6
-    ev_max_pct: 5.6
+    ev_max_pct: 5.7
     ev_sign_stable: false
     positions:
     - HOLD (fairly valued)
     - BUY (undervalued)
     - TRIM/SHORT (overvalued)
   TEN:
-    ev_min_pct: 31.3
-    ev_max_pct: 50.8
+    ev_min_pct: 32.1
+    ev_max_pct: 51.7
     ev_sign_stable: true
     positions:
     - BUY

@@ -48,6 +48,12 @@ metadata:
       - Flex LNG Q1 2026 earnings & 12-month TC commentary
       - Affinity LNG / Fearnleys weekly LNG carrier rate reports
       - Clarksons modern 174k cbm LNGC 10yr mean (2016-2025, incl. 2022-23 spike)
+    lpg:
+      - Dorian LPG 10-K realized fleet TCE series FY2016-2026 (anchor basis)
+      - BW LPG Q1-2026 call (BW Pampero 1-yr TC high-$60ks; 3-5yr low-$40ks backwardated; FY26 coverage 42%)
+      - Clarksons VLGC spot commentary (2025 avg $49,669; 2024 ~$42k "in line with long-run averages")
+      - Pareto Shipping Daily vlgc_me_asia / vlgc_usgom_asia columns (spot context only — war-distorted, not an anchor)
+      - decisions/lpg_methodology_2026-07-07.md (WO3 Phase 0, all forks ratified)
 
 # =============================================================================
 # SECTORS
@@ -1472,6 +1478,154 @@ sectors:
         ten_year_mean: 41000
         source: MB Container Weekly FY21-25 average, band 5,500-7,000 (softest-validated leg — §11.8.5)
         anchor_basis: fy_calendar_avg
+
+  # ===========================================================================
+  # LPG / VLGC — LPG Set A (US-export-arb) — WO3 Phase 1 (2026-07-08).
+  # Methodology: decisions/lpg_methodology_2026-07-07.md (ALL FORKS RATIFIED
+  # 2026-07-07); prospective METHODOLOGY home §11.10. Charter authority
+  # fd0277f — B-4 carried verbatim: the allocation is NOT a supply call on
+  # VLGCs; market cells adverse (~30% orderbook, avg age 11.7y, no scrappage
+  # lever). The engine reads the sector honestly.
+  #
+  # v1 scope: VLGC only (Fork 1) — both validators (Dorian LPG, BW LPG) are
+  # pure-VLGC. NVGS/GASS census-noted, not onboarded; no MGC in this sector
+  # (the existing sectors.lng MGC class stays where it is).
+  #
+  # Scenario axis (Fork 3): US-export ton-mile growth × China-PDH absorption,
+  # with the ~30% orderbook as the supply overhang every scenario carries.
+  # NOT a dry-bulk China clone. Weights are EVIDENCE-FIRST, overhang-tilted
+  # (ratified 2026-07-07): the bull leg needs a China PDH demand sink that the
+  # evidence says is soft (~70% utilization), while the bear leg (orderbook
+  # delivering 2026-28 into soft PDH margins) is the best-evidenced cell —
+  # so overhang is co-weighted WITH base, not subordinate to it.
+  #
+  # Rate levels grounded in the Phase-0 evidence table: current realized TCE
+  # ~$60-64k/day (Dorian Q1-2026 $63,615, WAR-ELEVATED by the Hormuz spike;
+  # BLPG1 spot prints are crisis-distorted and NOT used); 1-yr TC ~$60k
+  # (BW Pampero, Aug-2026) with the multi-year term structure BACKWARDATED
+  # (3-5yr fixtures low-$40ks); 10-yr through-cycle realized mean ~$40k;
+  # trough FY17-19 ~$22k. The probability-weighted front quarter sits ≈$60k
+  # (current realized); the weighted end-strip sits BELOW the $40k mean —
+  # the overhang tilt, priced not asserted.
+  # ===========================================================================
+  lpg:
+
+    g: 0.01   # justified-P/NAV growth (METHODOLOGY §17) — conservative, matches
+              # dry_bulk; the ~30% orderbook grows the fleet, not per-share NAV.
+
+    scenarios:
+
+      # ---------------------------------------------------------------------
+      # arb_wide (w=0.15) — bull
+      # ---------------------------------------------------------------------
+      arb_wide:
+        weight: 0.15
+        description: >
+          US export capacity (Enterprise end-2026, ET Nederland H1-2027, Targa
+          Q3-2027) ramps into FIRM Asian PDH pull; ton-miles + episodic Panama
+          premium outrun the orderbook deliveries. Rates hold well above mean
+          through the strip (~1.3-1.75x anchor) — the 2023-24 realized band
+          ($50-66k) sustained. Requires the China PDH demand sink to firm from
+          ~70% utilization, which current evidence does NOT show — hence 0.15.
+        vlgc:
+          q3_2026: [59500, 70000, 80500]
+          q4_2026: [57800, 68000, 78200]
+          q1_2027: [52700, 62000, 71300]
+          q2_2027: [49300, 58000, 66700]
+          q3_2027: [46750, 55000, 63250]
+          q4_2027: [47600, 56000, 64400]
+          q1_2028: [44200, 52000, 59800]
+          q2_2028: [42500, 50000, 57500]
+
+      # ---------------------------------------------------------------------
+      # absorption_base (w=0.35) — base
+      # ---------------------------------------------------------------------
+      absorption_base:
+        weight: 0.35
+        description: >
+          US export growth roughly matches fleet growth; China PDH stays ~70%
+          utilized. The Hormuz war premium decays and rates glide from current
+          realized ~$62k toward the $40k through-cycle mean by end-strip —
+          classic mean reversion, ending AT the anchor (not above it: the
+          orderbook denies a scarcity premium at the horizon).
+        vlgc:
+          q3_2026: [52700, 62000, 71300]
+          q4_2026: [46750, 55000, 63250]
+          q1_2027: [40800, 48000, 55200]
+          q2_2027: [38250, 45000, 51750]
+          q3_2027: [36550, 43000, 49450]
+          q4_2027: [35700, 42000, 48300]
+          q1_2028: [34850, 41000, 47150]
+          q2_2028: [34000, 40000, 46000]
+
+      # ---------------------------------------------------------------------
+      # overhang (w=0.35) — bear, co-weighted with base (ratified)
+      # ---------------------------------------------------------------------
+      overhang:
+        weight: 0.35
+        description: >
+          The ~30% orderbook delivers 2026-28 into soft PDH margins; the war
+          premium unwinds fast and rates fall THROUGH the mean to ~0.7x anchor
+          by end-strip ($28k — above the FY17-19 trough, below the mean). The
+          single best-evidenced leg (orderbook is contracted, PDH softness is
+          observed) — weighted equal to base, NOT subordinate.
+        vlgc:
+          q3_2026: [49300, 58000, 66700]
+          q4_2026: [39100, 46000, 52900]
+          q1_2027: [32300, 38000, 43700]
+          q2_2027: [28900, 34000, 39100]
+          q3_2027: [27200, 32000, 36800]
+          q4_2027: [25500, 30000, 34500]
+          q1_2028: [24650, 29000, 33350]
+          q2_2028: [23800, 28000, 32200]
+
+      # ---------------------------------------------------------------------
+      # arb_collapse (w=0.15) — tail
+      # ---------------------------------------------------------------------
+      arb_collapse:
+        weight: 0.15
+        description: >
+          The US-Asia arb closes (tariff/price shock) while Panama normalizes
+          (LoTSA 2.0 auction premium unwinds) — ton-mile give-back on top of
+          the orderbook. Rates retrace to the FY17-19 trough band (~$20-22k)
+          and sit there; floor is well above VLGC opex but ~0.5x anchor.
+        vlgc:
+          q3_2026: [42500, 50000, 57500]
+          q4_2026: [30600, 36000, 41400]
+          q1_2027: [23800, 28000, 32200]
+          q2_2027: [20400, 24000, 27600]
+          q3_2027: [18700, 22000, 25300]
+          q4_2027: [17850, 21000, 24150]
+          q1_2028: [17000, 20000, 23000]
+          q2_2028: [17000, 20000, 23000]
+
+    # =======================================================================
+    # LPG — CYCLE ANCHOR (ratified 2026-07-07, owner)
+    # ~$40,000/day 10-yr THROUGH-CYCLE VLGC REALIZED TCE. The realized-TCE
+    # basis is the CORRECT anchor for an 85-99%-spot validator pair (Dorian /
+    # BW LPG) — not a compromise. The clean 1-yr TC (~$60k BW Pampero) is a
+    # documented CROSS-CHECK, not the anchor. Cycle multiples are computed
+    # realized-vs-realized — never a TC numerator over this denominator.
+    #
+    # anchor_basis (B5/§10) = realized_tce_10yr_mean: a FOURTH basis that does
+    # NOT numerically compose with tc_10yr_mean (crude/product/lng),
+    # archive_22mo_median (dry_bulk), or fy_calendar_avg (containerships).
+    #
+    # TRAILING average — it DRIFTS (Dorian recomputes it yearly for
+    # impairment). as_of 2026-07-07; annual re-derivation off Dorian's + BW
+    # LPG's latest 10-K/20-F under the `lpg_anchor_annual_review` trigger
+    # (inputs/reweight_triggers.yaml, due 2027-06-30).
+    # =======================================================================
+    cycle_anchors:
+      vlgc:
+        ten_year_mean: 40000
+        as_of: 2026-07-07
+        source: >
+          Dorian LPG 10-K realized fleet TCE series FY2016-2025 (trailing-10yr
+          mean $39,414; FY17-26 $39,129; 11-yr $40,579), triangulated vs BW LPG
+          realized subset ($41,128) and Clarksons 2024 ~$42k "in line with
+          long-run averages". decisions/lpg_methodology_2026-07-07.md.
+        anchor_basis: realized_tce_10yr_mean
 
 
 # =============================================================================

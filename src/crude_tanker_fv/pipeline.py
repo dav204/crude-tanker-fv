@@ -79,11 +79,11 @@ MULTI_SLEEVE_TICKERS: dict[str, list[str]] = {
 def _load_all_sectors(inputs_dir: Path = INPUTS_DIR) -> dict[str, dict]:
     """Pre-load all sector scenario sub-docs once per pipeline run.
 
-    Currently {crude, lng, product, dry_bulk}. Pipeline picks the right doc
-    per ticker (and per sleeve, for hybrid INSW carve-outs: crude sleeve runs
-    through sectors.crude, product sleeve through sectors.product). dry_bulk
-    added 2026-06-09 per METHODOLOGY §11.7; no names route through it until
-    CMDB / SBLK / GNK onboard later this week.
+    Currently {crude, lng, product, dry_bulk, containerships, lpg}. Pipeline
+    picks the right doc per ticker (and per sleeve, for hybrid INSW carve-outs:
+    crude sleeve runs through sectors.crude, product sleeve through
+    sectors.product). lpg added 2026-07-08 (WO3 Phase 1); no names route
+    through it until the Phase-4 validators (Dorian LPG / BW LPG) onboard.
     """
     from .scenarios import SCENARIOS_PATH
     path = inputs_dir / "scenario_inputs.yaml" if inputs_dir != INPUTS_DIR else SCENARIOS_PATH
@@ -93,6 +93,7 @@ def _load_all_sectors(inputs_dir: Path = INPUTS_DIR) -> dict[str, dict]:
         "product": load_scenarios(path, "product"),
         "dry_bulk": load_scenarios(path, "dry_bulk"),
         "containerships": load_scenarios(path, "containerships"),
+        "lpg": load_scenarios(path, "lpg"),
     }
 
 
@@ -167,7 +168,7 @@ def _class_map_for_sector(sector: str):
     """Scenario class map for a sleeve sector (None ⇒ the crude/lng default map)."""
     if sector == "product":
         return PRODUCT_SCENARIO_CLASS_MAP
-    if sector in ("dry_bulk", "containerships"):
+    if sector in ("dry_bulk", "containerships", "lpg"):
         return SCENARIO_CLASS_MAP_BY_SECTOR[sector]
     return None
 
@@ -310,7 +311,7 @@ def _run_scenarios_for_ticker(
         # dry_bulk: Cape/Pana/Supra-Ultra route via the dry_bulk sector map.
         if sector == "product":
             kwargs = {"scenario_class_map": PRODUCT_SCENARIO_CLASS_MAP}
-        elif sector in ("dry_bulk", "containerships"):
+        elif sector in ("dry_bulk", "containerships", "lpg"):
             from .scenarios import SCENARIO_CLASS_MAP_BY_SECTOR
             kwargs = {"scenario_class_map": SCENARIO_CLASS_MAP_BY_SECTOR[sector]}
         else:

@@ -21,3 +21,7 @@ historical_tce_means:
   Ctr-Feeder: 20850
   Ctr-Intermediate: 33700   # A3 TEU-weighted 2026-06-12
   Ctr-Large: 41000
+  # LPG (WO3 Phase 1, 2026-07-08) — anchor basis: 10-yr through-cycle VLGC
+  # REALIZED TCE (Dorian 10-K series, ratified as_of 2026-07-07; annual-review
+  # trigger lpg_anchor_annual_review). NOT a TC mean — realized-vs-realized only.
+  VLGC: 40000

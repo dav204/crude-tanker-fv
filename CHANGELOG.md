@@ -5,6 +5,34 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-08 — WO3 Phase 1 LANDED: `sectors.lpg` scenario family live (LPG Set A, US-export-arb).**
+  Per the ratified Phase-0 doc (decisions/lpg_methodology_2026-07-07.md): 4 scenarios
+  arb_wide/absorption_base/overhang/arb_collapse at **0.15/0.35/0.35/0.15**, VLGC 8-quarter curves
+  (±15% bands) grounded in the Phase-0 evidence cells — PW front-4 ≈ $48.6k (1.22× anchor), PW
+  end-strip $34.3k (the overhang tilt priced, below the mean). Cycle anchor **$40,000/day 10-yr
+  through-cycle REALIZED TCE, `as_of: 2026-07-07`**, under a NEW anchor-basis token
+  `realized_tce_10yr_mean` — a FOURTH basis that trips MIXED-ANCHOR-BASIS vs the TC-anchored sectors
+  (test-pinned) instead of silently composing. Routing wired (scenarios/pipeline/loaders/add_ticker
+  already knew lpg; VLGC → `vlgc`, VLGC-only per Fork 1). **§9.10 weight family shipped from birth:**
+  `scripts/lpg_weight_comparison.py` (LPG Set A locked + Set B arb-bull / Set C deep-overhang ±~10pp
+  brackets, sets live in the script) — family registered in the sidecar now; per-name entries populate
+  when the Phase-4 validators (Dorian LPG CIK 1596993 / BW LPG CIK 1649313) onboard.
+  `test_lpg_locked_weights_and_anchor` pins weights + anchor + as_of. Gate-neutral: zero LPG names,
+  delta report 0 material, drift gate 0 UNEXPLAINED, suite 547+ green.
+  **BUG found & fixed in the sidecar seam** (scorecard.py `update_weight_fragility_sidecar`): the
+  pre-namespacing guard was a hardcoded `{crude, product, lng}` whitelist, so the FIRST merge after
+  WO4's `dry_bulk` block landed would have WIPED every other family's `weight_sets` — and silently
+  narrowed `weight_family_basis`'s staleness scope to the caller. Replaced with key-shape detection
+  (set-label keys vs lowercase family tokens); `test_sidecar_merge_preserves_all_other_families` pins
+  N-family preservation. All four legacy families re-run to re-stamp against the new
+  scenario_inputs.yaml hash (required by WO1-F4): entries numerically stable, **no `ev_sign_stable`
+  flips, no position changes** — only ±0.1-0.9pp EV wobble from the stale-feed static-price fallback.
+  **Drift-gate note (explain, not accept):** the verification pipeline run surfaced the KNOWN
+  committed-price drift (PLAN pending owner decision #1) as 4 UNEXPLAINED EV%-only rows
+  (CAPT/CMDB/GSL/MPCC, ΔNAV 0.0%) — annotated in their decision logs as price-vintage artifacts
+  (stale daily feed since Jul-2/3 → static-price fallback); the re-ratify AND the GSL BUY→HOLD band
+  call remain the owner's.
+
 - **2026-07-07 — WO4: dry-bulk weight-robustness family (§9.10) shipped (charter dry-bulk half; unblocks
   consumer Gate E).** `scripts/dry_bulk_weight_comparison.py` (mirrors crude) runs SBLK/GNK/CMDB/SB under
   locked Bulk Set A + two defensible ±~10pp China-demand brackets (Bulk Set B China-bull / Set C
