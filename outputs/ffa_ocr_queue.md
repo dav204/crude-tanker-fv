@@ -7,6 +7,7 @@ automation never writes pipeline-loaded YAMLs.
 
 | Date | Status | Cape (m1/m2/Qn/Qf/Cal) | Pmax | Smax | Issues | Source |
 |---|---|---|---|---|---|---|
+| 2026-07-07 | flagged | 35500/36250/35833/35300/28700 | 19725/20000/18900/15925 | 19000/19100/17750/14100 | incomplete grid {'cape': 5, 'pmax': 4, 'smax': 4} (expect 5 tenors/panel) | inputs/ffa_drybulk/2026/07/2026-07-07_Clipboard - 7 juli 2026 09:20.png |
 | 2026-07-06 | ok | 34075/33750/34275/34550/28375 | 19150/19675/19283/18425/15800 | 18800/18975/18691/17475/14000 | — | inputs/ffa_drybulk/2026/07/2026-07-06_Clipboard - 6 juli 2026 09:15.png |
 | 2026-07-02 | ok | 32425/30975/32508/33650/28000 | 18850/19450/18983/18125/15700 | 18500/18975/18533/17300/13900 | — | inputs/ffa_drybulk/2026/07/2026-07-02_Clipboard - 2 juli 2026 09:16.png |
 | 2026-07-01 | flagged | 31975/30500/32083/33450/27875 | 19125/19625/19200/18125/15725 | 18925/19175/18816/17325/13900 | cape.jul: +11.9% vs previous curve (27250 -> 30500) exceeds ±10% | inputs/ffa_drybulk/2026/07/2026-07-01_Clipboard - 1 juli 2026 11:07.png |
