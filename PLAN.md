@@ -47,8 +47,9 @@ $92M / 10yr $80M / age-25 $42M; record `decisions/vlgc_marks_2026-07-09.md`. Pha
 anchor; cycle 1.59× war-elevated] + `ffa_forward_curve.VLGC` = absorption_base path under a
 documented rule [war-spiked dailies NOT promoted] + standing trigger `vlgc_realized_tce_refresh`;
 END-TO-END verified on a synthetic pure-VLGC name — no engine gaps left). **Phase 4 =
-`/add-ticker` Dorian LPG (CIK 1596993) + BW LPG (CIK 1649313)** — re-verify CIKs vs
-company_tickers.json FIRST (the FLNG/CCEC/INSW lesson); per-vessel manifests with every NAV-moving
+`/add-ticker` Dorian LPG (CIK 1596993) + BW LPG (CIK 1649313)** — CIKs **VERIFIED 2026-07-09**
+against SEC company_tickers.json (LPG → 1596993 "DORIAN LPG LTD."; BWLP → 1649313 "BW LPG Ltd" —
+exact match both, the FLNG/CCEC/INSW wrong-CIK class ruled out); per-vessel manifests with every NAV-moving
 figure cited (figure-provenance rule; audit the subsequent-events note FIRST); balance sheets from
 the latest filings (Dorian 10-K FY-end Mar-31; BWLP 20-F + Q1-2026); same-vintage consensus pairs
 (Pareto prints BWLP 1.02 / LPG 1.01); §15 screen on the BW-Group bloc (no pre-assumed haircut).
