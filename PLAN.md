@@ -5,10 +5,15 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-07-08, WO3-Phase-1 refresh):** **22 watchlist names across 5 valued sectors**
-(LPG = 6th: **Phase 1 LANDED 2026-07-08** — `sectors.lpg` scenario family + routing + §9.10 family
-live; validators pending Phase 4); **suite 547 green + 16 xfailed** (3 machine-local skips on clean
-clones; +13 backtest via `PYTHONPATH=. pytest backtest/`; +57 harvester via `.venv310`); **drift gate 0 UNEXPLAINED
+**Current state (2026-07-10, WO3-Phases-1-3 + hardening refresh):** **22 watchlist names across 5
+valued sectors** (LPG = 6th: **Phases 1-3 LANDED 2026-07-08/09 + the four owner-review hardening
+findings closed 2026-07-09** — `sectors.lpg` + §9.10 family + VLGC marks [9th §9.9-anchored class]
++ rates plumbing all live and guard-tested; ONLY Phase 4 validators + Phase 5 lock remain);
+**suite 558 green + 16 xfailed** (3 machine-local skips on clean clones; +13 backtest via
+`PYTHONPATH=. pytest backtest/`; +57 harvester via `.venv310`); **handoff JSON schema 2.3**
+(+ `mark_wide_nodes`); **the daily price feed RESUMED 2026-07-09** after the Jul-2/3 stall —
+pending owner decision #1 (committed-price re-ratify, GSL band flip) is now actionable on live
+prices; **drift gate 0 UNEXPLAINED
 at HEAD** (baseline ratified 2026-07-06 post-recapture); handoff = `outputs/book_scorecard.json`
 **schema 2.2** (consumer asserts major 2) with four-basis stamps (price/rate/weight-family/source-commit)
 + per-name `weight_sign_stable`/`ev_pct_family_min/max` now populated for **crude, product, LNG, AND
