@@ -5,6 +5,15 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-10 (later still) — owner decision #1b RESOLVED: v1 lock ruling = option (a), WO3 Phase 5
+  CLOSED.** The 0/2 lock miss accepted as documented; lpg holds PROVISIONAL·v1-lock-miss
+  (`SECTOR_V1_UNLOCKED`) until an owner-reviewed lock RE-RUN off the Dorian trio per-vessel splits —
+  registered as sentinel-paged trigger `lpg_v1_lock_rerun` (due 2026-11-13; R-5 charter expiry
+  2026-12-26 noted in its action). Precedent context recorded: dry bulk's v1 lock was 1/2
+  FAIL-with-explanation (pre-WO3-letter, no cap); containers N/A-by-construction (GOVERNED-WIDE
+  cap). WO3's definition-of-done is met on the "miss documented + sector held PROVISIONAL" branch —
+  the charter's LPG half is delivered as an HONEST validation surface (charter B-4: a PROVISIONAL
+  read is a legitimate outcome). Still open from the onboarding: the BWLP NCI convention review.
 - **2026-07-10 (later) — owner decision #1 RESOLVED: baseline re-ratified ("accept both").** The
   Jul-6→Jul-10 price-vintage drift (12 names, ΔNAV 0.0% everywhere) accepted; LPG/BWLP added to the
   baseline (the last red test clears). Both band flips eyeballed individually per the

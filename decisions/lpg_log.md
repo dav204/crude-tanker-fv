@@ -9,6 +9,20 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-10 — v1 LOCK RULING: option (a) ACCEPTED by owner (PLAN decision #1b)
+
+**Decision:** _Owner ruled 2026-07-10 ("let's go with (a)"): the 0/2 v1 lock miss is accepted
+as documented — the lpg sector HOLDS at PROVISIONAL·v1-lock-miss (SECTOR_V1_UNLOCKED),
+handoff NO, per the WO3 pre-registered letter. This closes WO3 Phase 5 on the
+"miss documented" branch of its definition-of-done. Re-run path registered as trigger
+`lpg_v1_lock_rerun` (due 2026-11-13, sentinel-paged): trio per-vessel splits → §9.9 re-fit
+→ re-run `/reconcile --calibration-lock lpg` → readout back to the owner. If the re-fit
+still misses on the residual broker premium (~−15%/−12% sketch), the GOVERNED-WIDE question
+returns WITH evidence as a logged amendment. No tuning toward Pareto at any step._
+
+---
+
+
 ## 2026-07-10T20:34:37+00:00 — Pipeline run (auto)
 
 **Model state:**

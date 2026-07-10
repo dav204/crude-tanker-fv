@@ -9,6 +9,17 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-10 — v1 LOCK RULING: option (a) ACCEPTED by owner (PLAN decision #1b)
+
+**Decision:** _Owner ruled 2026-07-10: sector-level lock miss accepted as documented;
+BWLP holds at PROVISIONAL·v1-lock-miss (handoff NO) until the lock re-runs off the Dorian
+trio splits (trigger `lpg_v1_lock_rerun`, due 2026-11-13). Full rationale in lpg_log
+(same ruling). BWLP-specific: the NCI-via-preferred_equity convention ($199.0M) remains a
+SEPARATE open owner-review item (onboarding entry, item #1) — not covered by this ruling._
+
+---
+
+
 ## 2026-07-10T20:34:37+00:00 — Pipeline run (auto)
 
 **Model state:**

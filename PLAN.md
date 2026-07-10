@@ -47,17 +47,21 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
    stng_log 2026-07-10). The k_broker +0.07 was the same price event seen through the pinned
    Jul-3 P/NAV. Watch item: if either name recrosses its boundary on a later vintage, that is a
    NEW eyeball, not noise.
-1b. **WO3 Phase 5 — the v1 lock ruling (NEW 2026-07-10).** The lock read **0/2 within ±10%**
-   (LPG −20.4% / BWLP −17.2% — consistent direction; txn-anchored VLGC curve vs Pareto's May-2026
-   raised quotes, k_broker ~1.2). Per the WO3 letter the sector is HELD at
-   **PROVISIONAL·v1-lock-miss** (`SECTOR_V1_UNLOCKED{"lpg"}` caps the tier; not handoff-ready).
-   Owner options: (a) accept the documented miss — sector stays PROVISIONAL, consumer reads
-   flag-don't-pass; (b) wait for the Dorian trio per-vessel splits (delivery filings, by Q4-26) to
-   re-fit the curve and re-run the lock (recent prints — Cobra $81.9M filed age-11, $84M age-10
-   auction, trio ~$85.3M avg "3% above Pareto quotes" — say the fit's old end is LIGHT; the
-   no-tuning rule stands, the splits are the sanctioned path). ALSO staged for review: the BWLP
-   **NCI-via-preferred_equity convention** ($199.0M NAV-basis derivation, marks-dependent —
-   decisions/bwlp_log.md item #1).
+1b. **RESOLVED 2026-07-10 — v1 lock ruling: OPTION (a), the WO3 letter (owner: "let's go with (a)").**
+   The 0/2 lock miss (LPG −20.4% / BWLP −17.2%, consistent direction — txn-anchored curve vs
+   Pareto's May-2026 raised quotes, k_broker ~1.2) is ACCEPTED AS DOCUMENTED: the sector holds
+   **PROVISIONAL·v1-lock-miss** (`SECTOR_V1_UNLOCKED{"lpg"}`, handoff NO, consumer reads
+   flag-don't-pass). **This closes WO3 Phase 5 on the "miss documented" branch of its
+   definition-of-done — the charter's LPG half is DELIVERED** (honest validation surface: 2 names,
+   SANITY-OK, weight-robust, PROVISIONAL — charter B-4 explicitly blesses this outcome). Re-run
+   path REGISTERED: trigger `lpg_v1_lock_rerun` (due 2026-11-13, sentinel-paged) — trio per-vessel
+   splits → §9.9 re-fit → re-run the lock → back to the owner; precedent context: dry bulk's v1
+   lock was 1/2 FAIL-with-explanation (no cap, pre-WO3-letter), containers N/A-by-construction
+   (GOVERNED-WIDE·structural-class cap). A rough re-fit sketch says the gaps land ~−15%/−12% —
+   possibly STILL outside ±10% on the residual broker premium; if so, the GOVERNED-WIDE question
+   returns WITH evidence as a logged amendment, not blind loosening. STILL OPEN from the
+   onboarding: the BWLP **NCI-via-preferred_equity convention** ($199.0M NAV-basis derivation,
+   marks-dependent — decisions/bwlp_log.md item #1) awaits owner review.
 2. **Owner install checklist STILL OUTSTANDING** (gates the WO2 drill 2.5 + Phase-0 acceptance):
    SMTP creds + healthchecks + GitHub secret + six plists + ctxprobe —
    `decisions/owner_install_checklist_2026-07-08.md`. Until done: no digests/pages, D-2 open.

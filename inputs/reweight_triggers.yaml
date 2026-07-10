@@ -217,3 +217,27 @@ all_sectors_quarterly_staleness_floor:
     "reviewed, no change" outcome in decisions/.
   status: armed
   added: 2026-07-02
+
+lpg_v1_lock_rerun:
+  sector: lpg
+  due: 2026-11-13
+  observable: >
+    Dorian trio per-vessel sale splits (Corsair 2014 + two unnamed 2015-built
+    VLGCs, $256M en bloc agreed Jun-23-2026, deliveries "by" Q4-2026). Watch
+    every Dorian filing from now — delivery/closing 8-Ks and the FQ2-2027 10-Q
+    (~early Nov) are the likely disclosure points; the due date is the hard
+    check after that 10-Q window. Splits are the SANCTIONED §9.9 re-fit path
+    (transactions/vlgc.yaml watch item) — never back-solve the en-bloc number.
+  action: >
+    When the splits land: promote the per-vessel prints to transactions/
+    vlgc.yaml, re-fit (prints->rerun->drift loop, annotate moves), then re-run
+    `/reconcile --calibration-lock lpg` and put the readout to the OWNER — the
+    2026-07-10 ruling (option (a), PLAN decision #1b) holds the sector at
+    PROVISIONAL·v1-lock-miss (SECTOR_V1_UNLOCKED) until that re-run; if the
+    re-fit still misses on the residual broker premium, the GOVERNED-WIDE
+    question returns to the owner WITH evidence (logged amendment, not blind
+    loosening). If the splits have not been filed by the due date, record the
+    check and re-arm toward the FQ3 10-Q (~Feb-2027) — NOTE R-5: the charter
+    expires 2026-12-26; work past it needs a new charter.
+  status: armed
+  added: 2026-07-10

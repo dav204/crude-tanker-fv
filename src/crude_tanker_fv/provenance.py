@@ -168,11 +168,13 @@ TIER_SUBREASON = {
 # validators within +/-10% of broker NAV at lock-time). While a sector sits here its names
 # are capped at PROVISIONAL — the WO3 letter ("document the miss and hold PROVISIONAL"):
 # an unlocked sector may not hand off a governed FV regardless of per-name validation state.
-# Leaves ONLY via the owner's lock ratification (a documented-miss acceptance is the owner's
-# call, not the agent's). lpg added 2026-07-10: v1 lock 0/2 within +/-10% (LPG -20.4%, BWLP
-# -17.2% — consistent direction; txn-anchored curve vs Pareto's May-2026 raised quotes,
-# k_broker ~1.2; do NOT tune marks toward Pareto — the trio per-vessel splits are the
-# sanctioned re-fit path, transactions/vlgc.yaml watch item).
+# lpg: v1 lock 0/2 within +/-10% (LPG -20.4%, BWLP -17.2% — consistent direction;
+# txn-anchored curve vs Pareto's May-2026 raised quotes, k_broker ~1.2). OWNER RULED
+# 2026-07-10 (PLAN decision #1b, option (a)): documented miss ACCEPTED, sector holds here
+# until the lock RE-RUNS off the Dorian trio per-vessel splits (trigger lpg_v1_lock_rerun,
+# due 2026-11-13) — do NOT tune marks toward Pareto; the splits are the sanctioned re-fit
+# path. lpg leaves ONLY via that owner-reviewed re-run (or a logged GOVERNED-WIDE amendment
+# made WITH the re-fit evidence — never a blind loosening).
 SECTOR_V1_UNLOCKED = {"lpg"}
 
 
