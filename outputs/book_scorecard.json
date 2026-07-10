@@ -1,7 +1,7 @@
 {
   "schema_version": "2.3",
-  "generated_at": "2026-07-10T20:29:46+00:00",
-  "source_commit": "d71c208",
+  "generated_at": "2026-07-10T20:34:29+00:00",
+  "source_commit": "cd944f7",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 24,
@@ -23,21 +23,16 @@
     "Container TC/value curves REFRESHED 2026-07-06 from MB Container Weekly 27 (assessments 2026-07-03) \u2014 the cited \u00a711.8 ingest event closing trigger container_mb_refresh (decisions/container_ingest_2026-07-06.md; A3 re-derived on the combined validator fleets). The Apr-01 freeze disclosed 2026-07-03 is RESOLVED; trigger re-armed to the 2026-08-07 monthly boundary."
   ],
   "weight_family_basis": {
-    "status": "stale",
+    "status": "current",
     "family_shas": {
-      "crude": "3dd55107c7da",
-      "product": "3dd55107c7da",
-      "lng": "3dd55107c7da",
-      "dry_bulk": "3dd55107c7da",
+      "crude": "4733f31061ef",
+      "product": "4733f31061ef",
+      "lng": "4733f31061ef",
+      "dry_bulk": "4733f31061ef",
       "lpg": "4733f31061ef"
     },
     "current_sha": "4733f31061ef",
-    "lagging": [
-      "crude",
-      "dry_bulk",
-      "lng",
-      "product"
-    ]
+    "lagging": []
   },
   "sleeves_note": "sleeves[*].fv_contribution_per_share are per-share scenario-weighted FVs; sum(sleeves) == fv to the cent (C-3 per-sleeve identity). Corporate-level balance-sheet items (debt, working capital, preferred, shuttle contracted book) are pro-rated INTO the sleeve carve-outs (carveout.py), so nothing sits outside the per-sleeve lines.",
   "names": [
@@ -60,9 +55,9 @@
       "gap_pct": -6.6,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -37.0,
+      "ev_pct_family_max": -21.2,
       "mark_wide_nodes": null
     },
     {
@@ -84,9 +79,9 @@
       "gap_pct": -11.2,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -55.0,
+      "ev_pct_family_max": -38.6,
       "mark_wide_nodes": null
     },
     {
@@ -108,9 +103,9 @@
       "gap_pct": -9.2,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -54.8,
+      "ev_pct_family_max": -37.3,
       "mark_wide_nodes": null
     },
     {
@@ -132,9 +127,9 @@
       "gap_pct": -18.3,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -5.2,
+      "ev_pct_family_max": 5.6,
       "mark_wide_nodes": null
     },
     {
@@ -156,9 +151,9 @@
       "gap_pct": 32.9,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": 39.7,
+      "ev_pct_family_max": 53.0,
       "mark_wide_nodes": null
     },
     {
@@ -180,9 +175,9 @@
       "gap_pct": -11.6,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": 4.3,
+      "ev_pct_family_max": 13.1,
       "mark_wide_nodes": null
     },
     {
@@ -204,9 +199,9 @@
       "gap_pct": -18.1,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -31.1,
+      "ev_pct_family_max": 0.6,
       "mark_wide_nodes": null
     },
     {
@@ -244,9 +239,9 @@
           "fv_contribution_per_share": 0.54
         }
       ],
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -12.5,
+      "ev_pct_family_max": -5.2,
       "mark_wide_nodes": null
     },
     {
@@ -279,9 +274,9 @@
           "fv_contribution_per_share": 18.5
         }
       ],
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -44.2,
+      "ev_pct_family_max": -36.2,
       "mark_wide_nodes": null
     },
     {
@@ -303,9 +298,9 @@
       "gap_pct": -59.8,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -64.5,
+      "ev_pct_family_max": -54.0,
       "mark_wide_nodes": null
     },
     {
@@ -343,9 +338,9 @@
           "fv_contribution_per_share": 7.24
         }
       ],
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": 28.3,
+      "ev_pct_family_max": 47.5,
       "mark_wide_nodes": null
     },
     {
@@ -367,9 +362,9 @@
       "gap_pct": -12.9,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": 3.4,
+      "ev_pct_family_max": 9.9,
       "mark_wide_nodes": null
     },
     {
@@ -391,9 +386,9 @@
       "gap_pct": -11.3,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -5.7,
+      "ev_pct_family_max": 13.7,
       "mark_wide_nodes": null
     },
     {
@@ -415,9 +410,9 @@
       "gap_pct": 1.8,
       "governance_discount_pct": 30.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": 3.1,
+      "ev_pct_family_max": 9.8,
       "mark_wide_nodes": null
     },
     {
@@ -439,9 +434,9 @@
       "gap_pct": -9.6,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -7.5,
+      "ev_pct_family_max": 0.9,
       "mark_wide_nodes": null
     },
     {
@@ -463,9 +458,9 @@
       "gap_pct": 12.4,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": 39.2,
+      "ev_pct_family_max": 59.6,
       "mark_wide_nodes": null
     },
     {
@@ -487,9 +482,9 @@
       "gap_pct": 31.7,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -4.5,
+      "ev_pct_family_max": 5.2,
       "mark_wide_nodes": null
     },
     {
@@ -559,9 +554,9 @@
       "gap_pct": 11.9,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -63.9,
+      "ev_pct_family_max": 9.6,
       "mark_wide_nodes": null
     },
     {
@@ -583,9 +578,9 @@
       "gap_pct": -31.7,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -26.0,
+      "ev_pct_family_max": -11.3,
       "mark_wide_nodes": null
     },
     {
@@ -607,9 +602,9 @@
       "gap_pct": -29.9,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -12.5,
+      "ev_pct_family_max": 1.2,
       "mark_wide_nodes": null
     },
     {
@@ -631,9 +626,9 @@
       "gap_pct": -17.2,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -24.4,
+      "ev_pct_family_max": -18.8,
       "mark_wide_nodes": [
         "VLGC@five_year"
       ]
@@ -657,9 +652,9 @@
       "gap_pct": -20.4,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -17.8,
+      "ev_pct_family_max": -11.8,
       "mark_wide_nodes": [
         "VLGC@five_year"
       ]

@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-10T20:34:37+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $69.27
+- Single-point FV: $79.42
+- Scenario PW FV: $67.61 (EV -2.4%)
+- NAV / share: $77.51
+- Position: **HOLD (fairly valued)**
+- Broker spread: +17.4pp (k_broker 1.38)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** EV%-only drift explained, NOT accepted (2026-07-10, WO3 Phase-4 clean-HEAD regen): FV/NAV unchanged; EV denominators at live Jul-9/10 prices vs the Jul-6-committed baseline — the KNOWN price-vintage drift, PENDING OWNER DECISION #1 (PLAN.md). Re-ratify stays with the owner.
+
+---
+
 ## 2026-07-10T20:29:54+00:00 — Pipeline run (auto)
 
 **Model state:**
