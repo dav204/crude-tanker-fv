@@ -5,6 +5,15 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-10 (later) — owner decision #1 RESOLVED: baseline re-ratified ("accept both").** The
+  Jul-6→Jul-10 price-vintage drift (12 names, ΔNAV 0.0% everywhere) accepted; LPG/BWLP added to the
+  baseline (the last red test clears). Both band flips eyeballed individually per the
+  don't-batch-accept rule (the DHT/FLNG 2026-07-01 precedent): GSL BUY→HOLD accepted as a shallow
+  price crossing (unheld; Q2 FV rebuild due ~Aug-5 with the $917M NB order); STNG HOLD→TRIM/SHORT
+  accepted as a price-position ARTIFACT, not a short thesis (PROVISIONAL·off-curve, handoff NO,
+  weight-fragile −12.5…+1.2, +$9.6/sh un-wired §9.6 leg — full rationale in stng_log). Also fixed
+  the stale provenance.py comment ("not one is a name-specific short" — CAPT/CMBT/STNG have printed
+  as name-specific since the 2026-07-02 rework). Ratify row in RATIFY_LOG.md; human commit.
 - **2026-07-10 — WO3 Phase 4 LANDED: Dorian LPG (`LPG`) + BW LPG (`BWLP`) onboarded; v1 lock MISSED
   0/2 → sector held PROVISIONAL (`SECTOR_V1_UNLOCKED`, a NEW tier cap).** Full four-YAML sourcing:
   Dorian off the FY2026 10-K (acc 0001596993-26-000025; fiscal 3/31 year-end = the 2026-Q1 snapshot,

@@ -12,7 +12,7 @@ sourcing off the FY2026 10-K / Q1-2026 6-K + 20-F, both SANITY=OK [gaps −20.4%
 cycle position"; **the v1 LOCK MISSED 0/2 within ±10% → sector HELD PROVISIONAL·v1-lock-miss via
 `SECTOR_V1_UNLOCKED` [new tier cap, guard-tested], handoff_ready=False — Phase 5 = the OWNER's
 lock ruling**; Cobra's FILED $81.9M print replaced the broker row [watch-item executed]; suite
-564 green + 16 xfailed except the two DESIGNED reds below);
+FULLY green after the 2026-07-10 owner ratify [decision #1 RESOLVED — see below] + 16 xfailed);
 **suite 558 green + 16 xfailed** (3 machine-local skips on clean clones; +13 backtest via
 `PYTHONPATH=. pytest backtest/`; +57 harvester via `.venv310`); **handoff JSON schema 2.3**
 (+ `mark_wide_nodes`); **the daily price feed RESUMED 2026-07-09** after the Jul-2/3 stall —
@@ -37,15 +37,16 @@ SBLK +14 T (both now weight-sign-stable per WO4) + CMDB +12 GW + TEN +36 GW + CC
 all in `inputs/reweight_triggers.yaml`, sentinel-paged.
 
 **PENDING OWNER DECISIONS (do not act unilaterally; recorded 2026-07-08, extended 2026-07-10):**
-1. **Committed-price re-ratify (GSL band flip — now also STNG).** The committed BASELINE still
-   carries Jul-6 prices: the Phase-4 runs at live Jul-9/10 prices moved NO FV (delta report: every
-   FV "no change") but 12 names' EV% denominators drifted — ALL ANNOTATED explain-not-accept
-   2026-07-10 (decisions/*_log.md). Band flips for the owner to eyeball (never batch-accept):
-   **GSL BUY→HOLD** (decision #1 as recorded) and now **STNG HOLD→TRIM/SHORT** ($76.25 vs headline
-   NAV $77.47 — price-driven boundary crossing + k_broker second-difference at the 0.05 threshold).
-   The same ratify must ADD LPG/BWLP to the baseline (`test_committed_baseline_covers_live_state`
-   red at HEAD by design): `./scripts/ratify_baseline.sh "WO3 Phase-4 LPG+BWLP onboarding + accept
-   Jul-10 price-vintage EV drift"` once the flips are eyeballed — one owner-aware ratify covers both.
+1. **RESOLVED 2026-07-10 — committed-price re-ratify EXECUTED (owner: "accept both").** The 12
+   EV%-only price-vintage drifts (ΔNAV 0.0% on every name) were accepted and the baseline
+   re-ratified at the 2026-07-10T20:34 state (adds LPG/BWLP; `test_committed_baseline_covers_live_state`
+   green). Both band flips were eyeballed INDIVIDUALLY per the don't-batch-accept rule and accepted
+   as price-mechanical: **GSL BUY→HOLD** (shallow crossing, unheld, Q2 FV rebuild due — gsl_log
+   2026-07-10) and **STNG HOLD→TRIM/SHORT** (accepted as a PRICE-POSITION ARTIFACT, NOT a short
+   thesis — PROVISIONAL·off-curve/handoff-NO/⚠sign-flips + the known +$9.6/sh un-wired §9.6 leg;
+   stng_log 2026-07-10). The k_broker +0.07 was the same price event seen through the pinned
+   Jul-3 P/NAV. Watch item: if either name recrosses its boundary on a later vintage, that is a
+   NEW eyeball, not noise.
 1b. **WO3 Phase 5 — the v1 lock ruling (NEW 2026-07-10).** The lock read **0/2 within ±10%**
    (LPG −20.4% / BWLP −17.2% — consistent direction; txn-anchored VLGC curve vs Pareto's May-2026
    raised quotes, k_broker ~1.2). Per the WO3 letter the sector is HELD at

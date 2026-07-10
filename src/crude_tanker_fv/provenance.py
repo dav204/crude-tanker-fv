@@ -89,7 +89,9 @@ NAV_DERIVED_VOID: set[str] = set()
 #                    NAV built on stacked structural uncertainties (BRUT — a 0.59x "BUY" resting on a cash
 #                    floor pending H1, a level-provisional VLCC resale mark, AND going-concern doubt; the
 #                    eye-catching discount and the untrustworthiness are the SAME max-torque fact).
-# Of the book's TRIM/SHORT positions, ALL are here or void — not one is a name-specific short.
+# Names NOT in either set print their raw TRIM/SHORT as a name-specific read (CAPT/CMBT/STNG at
+# 2026-07-10) — the tier cell (⛔/sub-reason), handoff flag, and W-frag marker carry their caveats.
+# (Was "not one is a name-specific short" — stale since the 2026-07-02 relabel rework; fixed 2026-07-10.)
 POSITION_CYCLE_RELABEL = {"DHT", "FRO", "ECO", "INSW", "HAFN", "NAT",  # NAT: the §12 archetype (de-voided 2026-06-30). ASC left 2026-07-01: the reconciliation lifted NAV $15.96->$17.80, so it reads mildly CHEAP (0.90x), not rich -> raw BUY; the product-cycle caveat on the near-peak earnings/strip leg lives in asc_log, not a rich-relabel
                           "LPG", "BWLP"}  # 2026-07-10 (WO3 Phase-4 onboarding): both VLGC validators read rich AT a 1.59x war-elevated cycle (w_nav 0.70) — the same §12 late-cycle shape as DHT/FRO/ECO, not name-specific shorts; charter B-4 (read the sector honestly) cuts BOTH ways — no flattering tier, and no fake short signal either
 POSITION_UNRELIABLE = {"MPCC", "BRUT"}  # BRUT 2026-07-01: the position cell must reflect the untrustworthiness, not the 0.59x discount, so it can't sit as a raw BUY next to PROVISIONAL⛔NO (the ASC "rich·cycle" holdover lesson)

@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-10 — PRICE-DRIVEN BAND FLIP (HOLD→TRIM/SHORT), reviewed + ACCEPTED by owner
+
+**Decision:** _PRICE-DRIVEN BAND FLIP, reviewed + accepted (owner, 2026-07-10; decision #1).
+HOLD→TRIM/SHORT is purely the +4.4% price move $73.01→$76.25 against a byte-identical
+FV/NAV (PW FV $70.90, headline NAV $77.47): EV −2.89%→−7.02%, from 2.11pp inside HOLD to
+2.02pp past the −5% boundary; the k_broker breach (1.40→1.47, +0.07) is the SAME event seen
+twice (P/NAV pinned at the Jul-3 0.69 while price rose → implied broker NAV up against a
+static tool NAV). ACCEPTED AS A PRICE-POSITION ARTIFACT, NOT A SHORT THESIS: the verdict
+prints STNG among the name-specific shorts, but the row is PROVISIONAL·off-curve ⛔ /
+handoff NO / ⚠ sign-flips (family EV span −12.5%…+1.2% — the sign goes positive under an
+alternative weight set), and the model carries a known conservative leg — wiring the
+10-vessel NB on-curve would add ~+$9.6/sh and flip the read toward BUY (2 VLCCs blocked on
+thread (d)). Nothing downstream can act on the label (handoff NO). Absorbed via the
+2026-07-10 baseline re-ratify; no methodology/NAV change._
+
+---
+
+
 ## 2026-07-10T20:34:37+00:00 — Pipeline run (auto)
 
 **Model state:**

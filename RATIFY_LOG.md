@@ -14,3 +14,4 @@ the consumer. The hash is HEAD at ratify time (the ratify commit lands one ahead
 | 2026-07-03T00:13:19Z | 3281827 | July-2 close price drift (isolated layer) — TNK and TRMD band-edge BUYs compress to HOLD; dNAV 0.0% — seeded |
 | 2026-07-06T18:40:24Z | 031d65a | container W27 ingest (MPCC) + Jul-3 price drift (CAPT) |
 | 2026-07-06T19:23:20Z | 6314357 | consensus-pair recapture (Pareto 3-Jul daily): 18 pairs rebased; 5 k_broker moves accepted (INSW/FRO/ECO/HAFN/TNK), SANITY OK |
+| 2026-07-10T21:57:05Z | c530714 | WO3 Phase-4 LPG+BWLP added; Jul-10 price-vintage EV drift accepted (dNAV 0.0 all names); GSL BUY-HOLD + STNG HOLD-TRIM flips eyeballed + accepted by owner 2026-07-10 |

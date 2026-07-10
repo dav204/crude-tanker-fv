@@ -7,6 +7,20 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-10 — PRICE-DRIVEN BAND FLIP (BUY→HOLD), reviewed + ACCEPTED by owner
+
+**Decision:** _PRICE-DRIVEN BAND FLIP, reviewed + accepted (owner, 2026-07-10; decision #1).
+BUY→HOLD is purely the +3.5% price drift $38.11→$39.44 against a byte-identical FV/NAV
+(PW FV $40.54, NAV $38.59 — zero model change): EV moved +6.38%→+2.79%, a shallow crossing
+from 1.38pp above to 2.21pp below the +5% BUY boundary. NOT a name signal — GSL is unheld,
+its broker anchor is an APPROX P/B proxy that moves with price, and the FV gets rebuilt at
+the ~Aug-5 Q2 refresh regardless (the $917M 10-ship NB order enters §9.6 with its charter
+attachments; Series B pref count verify). Same class as the DHT 2026-07-01 accept.
+Absorbed via the 2026-07-10 baseline re-ratify; no methodology/NAV change._
+
+---
+
+
 ## 2026-07-10T20:34:37+00:00 — Pipeline run (auto)
 
 **Model state:**
