@@ -13,6 +13,42 @@ the same matcher-shape family as PLAN follow-up #4.)
 
 ---
 
+## 2026-07-10T20:29:54+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $38.22
+- Single-point FV: $61.29
+- Scenario PW FV: $50.92 (EV +33.2%)
+- NAV / share: $88.70
+- Position: **BUY (undervalued)**
+- Broker spread: +32.6pp (k_broker 1.18)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** EV%-only drift explained, NOT accepted (2026-07-10, WO3 Phase-4 clean-HEAD regen): FV/NAV unchanged; EV denominators at live Jul-9/10 prices vs the Jul-6-committed baseline — the KNOWN price-vintage drift, PENDING OWNER DECISION #1 (PLAN.md). Re-ratify stays with the owner.
+
+---
+
+## 2026-07-10T20:27:58+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $38.22
+- Single-point FV: $61.29
+- Scenario PW FV: $50.92 (EV +33.2%)
+- NAV / share: $88.70
+- Position: **BUY (undervalued)**
+- Broker spread: +32.6pp (k_broker 1.18)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** EV%-only drift explained, NOT accepted (2026-07-10, WO3 Phase-4 clean-HEAD regen): FV/NAV unchanged; EV denominators at live Jul-9/10 prices vs the Jul-6-committed baseline — the KNOWN price-vintage drift, PENDING OWNER DECISION #1 (PLAN.md). Re-ratify stays with the owner.
+
+---
+
 ## 2026-07-10T20:20:47+00:00 — Pipeline run (auto)
 
 **Model state:**

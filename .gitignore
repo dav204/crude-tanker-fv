@@ -85,3 +85,6 @@ backtest/vintages/_*.json
 
 backtest/vintages/_*.csv
 PAUSE
+# Issuer-filing caches (10-K/20-F/6-K HTML + extracted text) — local working
+# artifacts; the durable record is the accession-cited YAMLs. (2026-07-10)
+inputs/research_issuer/
