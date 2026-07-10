@@ -1,5 +1,36 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-07-10 — EV%-only drift annotation (explain-not-accept)
+
+**Decision:** EV%-only drift explained, NOT accepted (2026-07-10, WO3 Phase-4
+onboarding run): FV/NAV unchanged (delta report: every FV "no change"); the EV
+denominator moved with live Jul-9/10 prices vs the Jul-6-committed book — the
+KNOWN price-vintage drift already recorded as PENDING OWNER DECISION #1
+(PLAN.md). Explain-not-accept: the committed-price re-ratify stays with the
+owner. (Prepended as a dated non-auto header because this log's 2026-06-11 §15
+entry sits above the auto entries and the gate reads the first dated header —
+the same matcher-shape family as PLAN follow-up #4.)
+
+---
+
+## 2026-07-10T20:20:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $38.22
+- Single-point FV: $61.29
+- Scenario PW FV: $50.92 (EV +33.2%)
+- NAV / share: $88.70
+- Position: **BUY (undervalued)**
+- Broker spread: +32.6pp (k_broker 1.18)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-06-11 — §15 haircut recalibration review (§15.7 retro screen): HOLD at 30%
 
 First formal recalibration since the haircut was set at onboarding
@@ -33,6 +64,60 @@ haircut-sensitive inside the band.
 consecutive raise → consider 25%; a cut → move to the VIE anchor 36%),
 preferred refinancing/redemption activity, any VIE stance change, the
 20-F fee-load computation landing outside ~1%/yr of GAV.
+
+---
+
+## 2026-07-10T20:12:11+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $38.22
+- Single-point FV: $61.29
+- Scenario PW FV: $50.92 (EV +33.2%)
+- NAV / share: $88.70
+- Position: **BUY (undervalued)**
+- Broker spread: +32.6pp (k_broker 1.18)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** EV%-only drift explained, NOT accepted (2026-07-10, WO3 Phase-4 onboarding run): FV/NAV unchanged (delta report: every FV 'no change'); the EV denominator moved with live Jul-9/10 prices vs the Jul-6-committed book — the KNOWN price-vintage drift already recorded as PENDING OWNER DECISION #1 (PLAN.md). Explain-not-accept: the committed-price re-ratify stays with the owner.
+
+---
+
+## 2026-07-10T20:06:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $38.22
+- Single-point FV: $61.29
+- Scenario PW FV: $50.92 (EV +33.2%)
+- NAV / share: $88.70
+- Position: **BUY (undervalued)**
+- Broker spread: +32.6pp (k_broker 1.18)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-10T20:04:32+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $38.22
+- Single-point FV: $61.29
+- Scenario PW FV: $50.92 (EV +33.2%)
+- NAV / share: $88.70
+- Position: **BUY (undervalued)**
+- Broker spread: +32.6pp (k_broker 1.18)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +1.08 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +3.6pp
+
+**Decision:** _[pending annotation]_
 
 ---
 

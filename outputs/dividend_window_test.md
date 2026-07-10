@@ -11,6 +11,7 @@ one-way bullish override — audit E-3.)
 | NAT | Y | 2.08× | +3.01 | >strip | 8.0 | TRIM stands (value trap) |
 | ASC | · | 0.84× | -2.90 | — | 8.0 | n/a (gate) |
 | BRUT | · | 0.60× | -3.50 | — | 8.0 | n/a (gate) |
+| BWLP | · | 1.17× | +2.72 | — | 7.0 | n/a (gate) |
 | CAPT | · | 0.86× | -2.18 | — | 8.0 | n/a (gate) |
 | CCEC | · | 0.77× | -6.50 | — | 0.8 | n/a (gate) |
 | CMBT | · | 0.92× | -1.27 | — | 8.1 | n/a (gate) |
@@ -23,6 +24,7 @@ one-way bullish override — audit E-3.)
 | GSL | · | 1.01× | +0.40 | — | 10.0 | n/a (gate) |
 | HAFN | · | 1.26× | +1.43 | — | 8.0 | n/a (gate) |
 | INSW | · | 2.36× | +47.43 | — | 8.0 | n/a (gate) |
+| LPG | · | 1.06× | +1.89 | — | 7.0 | n/a (gate) |
 | MPCC | · | 1.20× | +0.40 | — | 8.9 | n/a (gate) |
 | SB | · | 0.63× | -3.73 | — | 8.0 | n/a (gate) |
 | SBLK | · | 0.86× | -4.14 | — | 6.8 | n/a (gate) |

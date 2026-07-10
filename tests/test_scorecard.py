@@ -52,8 +52,8 @@ def rows():
 
 
 def test_scorecard_covers_whole_book(rows):
-    assert len(rows) == 22
-    assert {r.ticker for r in rows} >= {"DHT", "SB", "BRUT", "TEN", "FLNG", "MPCC"}
+    assert len(rows) == 24  # 22 + the WO3 Phase-4 LPG validators (LPG, BWLP; 2026-07-10)
+    assert {r.ticker for r in rows} >= {"DHT", "SB", "BRUT", "TEN", "FLNG", "MPCC", "LPG", "BWLP"}
 
 
 def test_eleven_resale_uniform_comparable_set(rows):
@@ -469,20 +469,22 @@ def test_weight_family_basis_and_stale_withholding(tmp_path, rows):
 def test_mark_wide_nodes_reach_the_handoff_json(tmp_path, rows):
     """F-1 (owner review 2026-07-09), the seam half: a name exposed to a §9.9
     wide node carries mark_wide_nodes in book_scorecard.json (null when clean) —
-    the registry/exposure halves live in test_lpg_sector. Today's book has no
-    LPG names, so the exposed row is synthesized by replace()."""
+    the registry/exposure halves live in test_lpg_sector. Since the WO3 Phase-4
+    onboarding (2026-07-10) the book carries REAL exposed rows: both VLGC
+    validators own hulls on the extrapolated age-5 node (Dorian: Captain Markos
+    age 3; BWLP: Avior/Rigel/Capella/Polaris/Yushi/Kizoku ages 3-7)."""
     import json
-    from dataclasses import replace
 
-    exposed = [replace(rows[0], mark_wide_nodes=("VLGC@five_year",))] + list(rows[1:])
     pb = {"total": len(rows), "static_fallback": {}, "oldest_static_as_of": None,
           "market_event_review": {}}
-    write_scorecard(exposed, outputs_dir=tmp_path, valuation=_synthetic_valuation(exposed),
+    write_scorecard(rows, outputs_dir=tmp_path, valuation=_synthetic_valuation(rows),
                     price_basis=pb, quarter=QUARTER)
     doc = json.loads((tmp_path / "book_scorecard.json").read_text())
     by = {n["ticker"]: n for n in doc["names"]}
-    assert by[rows[0].ticker]["mark_wide_nodes"] == ["VLGC@five_year"]
-    assert all(by[r.ticker]["mark_wide_nodes"] is None for r in rows[1:])
+    assert by["LPG"]["mark_wide_nodes"] == ["VLGC@five_year"]
+    assert by["BWLP"]["mark_wide_nodes"] == ["VLGC@five_year"]
+    assert all(by[r.ticker]["mark_wide_nodes"] is None
+               for r in rows if r.ticker not in ("LPG", "BWLP"))
     # And the markdown surfaces it next to the NAV-basis flags.
     md = (tmp_path / "book_scorecard.md").read_text()
     assert "§9.9 wide-node exposure" in md and "VLGC@five_year" in md

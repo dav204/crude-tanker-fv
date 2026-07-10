@@ -1,7 +1,7 @@
 # SB — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $6.40
+- **Current price:** $6.70
 - **Model fair value:** $9.75
 - **Analyst target:** $7.10
 
@@ -61,7 +61,7 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-**NAV alone covers the price.** NAV/share **$10.12** ≥ price **$6.40** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
+**NAV alone covers the price.** NAV/share **$10.12** ≥ price **$6.70** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
@@ -86,12 +86,12 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 | **+15%** | $6.93 | $8.41 | $9.88 | $11.35 | $12.83 |
 | **+30%** | $7.06 | $8.53 | $10.01 | $11.48 | $12.95 |
 
-_Current price $6.40. Cycle weights held at base across the grid._
+_Current price $6.70. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$9.75** is +52.4% vs the current price ($6.40) and +37.3% vs the analyst target ($7.10). NAV alone covers the price (NAV/sh $10.12 ≥ $6.40); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
+Tool fair value **$9.75** is +45.5% vs the current price ($6.70) and +37.3% vs the analyst target ($7.10). NAV alone covers the price (NAV/sh $10.12 ≥ $6.70); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
 
 ## Modeling notes
 
-- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $63.1M (+2%) / 10yr $46.0M (+2%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $35.5M (+11%) / 10yr $25.8M (+8%) [n=5], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $29.3M (-11%) / 10yr $22.4M (-10%) [n=22], VLCC 5yr $113.2M (-18%) / 10yr $92.5M (-17%) [n=10]. Newbuild + old-age anchors unchanged.
+- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $63.1M (+2%) / 10yr $46.0M (+2%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $35.5M (+11%) / 10yr $25.8M (+8%) [n=5], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $29.3M (-11%) / 10yr $22.4M (-10%) [n=22], VLCC 5yr $113.2M (-18%) / 10yr $92.5M (-17%) [n=10], VLGC 5yr $91.9M (-0%) / 10yr $80.0M (-0%) [n=7]. Newbuild + old-age anchors unchanged.

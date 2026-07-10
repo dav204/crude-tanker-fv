@@ -1,0 +1,25 @@
+# Dorian LPG Ltd. cost structure — METHODOLOGY.md section 4.4 (WO3 Phase 4)
+# Source: FY2026 10-K (acc 0001596993-26-000025), year ended 2026-03-31 (USD).
+# Real FY2026 figures used as forward run-rate proxies.
+ticker: LPG
+
+opex_per_day:
+  # Issuer-disclosed "Daily vessel operating expenses" FY2026 = $10,557
+  # (vessel opex $81,037,349 over 7,676 calendar days — owned/bareboat fleet;
+  # chartered-in hulls sit in charter hire expense, not opex).
+  VLGC: 10557
+
+# G&A FY2026 = $53,024,971 (income statement). Elevated vs FY2025 $42.6M —
+# includes cash/stock incentive compensation; used as-is (conservative).
+annual_G_and_A: 53000000
+
+# Interest and finance costs FY2026 = $29,249,142 on average indebtedness of
+# $535.5M (Item 5). Debt at 3/31/2026 $565.8M is near the average and the
+# Apr-2026 $16.5M Cobra prepayment nets against a full year of the Areion
+# Facility — FY2026 actual is a fair forward run-rate.
+annual_interest_expense: 29250000
+
+# Marshall Islands incorporation; no income tax line in the consolidated
+# statements of operations (FY2026 net income $193.7M reported pre/post-tax
+# identical). Section 883 exemption discussed in Item 1 (Tax Considerations).
+effective_tax_rate: 0.0

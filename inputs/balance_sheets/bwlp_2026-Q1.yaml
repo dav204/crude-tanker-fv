@@ -1,0 +1,82 @@
+# BW LPG Limited balance sheet snapshot — METHODOLOGY.md section 4.2 (WO3 Phase 4)
+# Source: Q1-2026 interim report (6-K filed 2026-06-03, acc 0001213900-26-064314),
+# Condensed Consolidated Balance Sheet as of 31 March 2026 (US$'000; IFRS, unaudited);
+# composition cross-checks to the FY2025 20-F notes (acc 0001104659-26-037215).
+# Subsequent events audited FIRST and kept OUT: the 30-May-2026 8-hull ~$940M Panamax-VLGC
+# newbuild contract and the 3-Jun-2026 Confidence Petroleum stake exit — both post-quarter.
+ticker: BWLP
+quarter: 2026-Q1
+
+cash_and_equivalents: 273076000      # "Cash and cash equivalents" per the balance sheet.
+                                     # NOTE: includes US$96.9M margin account held with
+                                     # brokers (cash-flow-statement reconciliation) —
+                                     # posted collateral for Product Services hedge
+                                     # positions whose fair values are separately netted
+                                     # in working capital below; recoverable as positions
+                                     # settle, so counted (not the BRUT doubtful-cash case).
+
+# working_capital_net = current, non-cash, non-debt (US$'000):
+#   assets: inventories 106,912 (LPG trading cargo) + trade and other receivables 178,123
+#     + derivative financial instruments 283,411 (Product Services hedges, current asset
+#       leg) + finance lease receivables 7,329 + equity financial assets FVOCI 12,890
+#     + equity financial assets FVPL 1,597 (Confidence Petroleum stake at the issuer's
+#       own 3/31 marks; exited 3-Jun post-quarter)
+#     = 590,262
+#   liabilities: trade and other payables 203,838 + derivative financial instruments
+#     190,647 (hedge liability leg — the big gross derivative books net to +92.8M)
+#     + current income tax liabilities 19,170
+#     = 413,655
+#   net = 176,607.
+# EXCLUDED conservatively (non-current, small): intangibles 296, JV 301, derivatives
+# 2,342, other receivables 3,345, finance lease receivables 8,451, deferred tax 279.
+working_capital_net: 176607000
+
+# Borrowings, current 100,823 + non-current 663,100 = 763,923 (balance sheet captions).
+# Composition (FY2025 20-F borrowings note): bank borrowings + "Lease financing
+# arrangement" (the BW Capella / BW Polaris / BW Kyoto bareboat financings — hulls in
+# the manifest, financing HERE, not in lease_liabilities: the Dorian-Japanese-financing
+# pattern) + trust receipts (Product Services trade finance) + interest payable.
+total_debt: 763923000
+
+# Lease liabilities, current 72,641 + non-current 61,267 = 133,908 — the capitalized
+# CHARTERED-IN book (RoU assets (vessels) 114,785 not added; hulls not in the manifest).
+# CMDB/SBLK convention: liability subtracts, RoU excluded.
+lease_liabilities: 133908000
+
+# NO newbuild commitments at 2026-03-31: the 8×90'cbm Panamax VLGC order (~US$940M,
+# deliveries 2029 -> Q2-2030) was SIGNED 30-MAY-2026 — a subsequent event (the ASC/
+# HAFN/TRMD pattern): no commitment, no advance, no vessel-under-construction line on
+# the 3/31 balance sheet. Wire on-curve §9.6 at the Q2 refresh, when it will appear
+# in the Q2 report with its first instalment.
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 151814600  # 159,282.0k issued − 7,467.4k treasury at
+                                       # 31-Mar-2026 (Q1 report "Other information").
+                                       # Q1 weighted: basic 151.5M / diluted 151.8M.
+
+# NON-CONTROLLING INTERESTS deduction (there is no NCI field in the schema; this field
+# subtracts ahead of common, which is exactly what the minority claim needs — the ONLY
+# preferred-like claim BWLP carries). Book NCI at 3/31/2026 = US$118.5M, but book
+# UNDERSTATES the minority's claim on a marked-to-curve NAV. NAV-basis derivation
+# (decisions/bwlp_log.md, owner-review item #1):
+#   BW LPG India (52% owned; 48% NCI): 8 hulls at VLGC curve marks (ages 11,11,15,18,
+#     18,18,19,19 -> 2×77.5 + 67.3 + 3×59.7 + 2×57.2 ≈ US$515.9M) + current assets 46.5
+#     − current liabilities 33.4 − non-current borrowings 173.6 ≈ sub-NAV US$355.4M
+#     -> 48% ≈ US$170.6M.
+#   BW Product Services (81% owned; 19% NCI): trading net assets at book US$149.5M
+#     (sub-balance-sheet, Q1 note) -> 19% ≈ US$28.4M.
+#   Total ≈ US$199.0M. MARKS-DEPENDENT: re-derive when the VLGC curve re-fits (drift
+#   gate catches the move); scenario vessel_scale does not flex this static input —
+#   documented as a known second-order limit (India ≈ 13% of fleet value).
+preferred_equity: 199000000
+
+shuttle_contracted_book: 0
+
+# §15 screen run at onboarding (decisions/bwlp_log.md): BW Group Limited holds 31.99%
+# (48,407,126 shares, 20-F Item 7 — Sohmen family); NOT majority control; BWLP trades
+# ~1.0x P/NAV (Pareto 1.02) — the §15.7 median-P/NAV gate records N/A (no evidence of
+# realisation impairment to price). Related-party vessel sales into the 52%-owned India
+# subsidiary (BW Chinook/BW Pampero, Mar-2025 ~$75M each) noted as TRIPWIRES, not a
+# haircut — prices were within broker marks (see transactions/vlgc.yaml treatment).
+governance_discount_pct: 0

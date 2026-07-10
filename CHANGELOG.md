@@ -5,6 +5,34 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-10 — WO3 Phase 4 LANDED: Dorian LPG (`LPG`) + BW LPG (`BWLP`) onboarded; v1 lock MISSED
+  0/2 → sector held PROVISIONAL (`SECTOR_V1_UNLOCKED`, a NEW tier cap).** Full four-YAML sourcing:
+  Dorian off the FY2026 10-K (acc 0001596993-26-000025; fiscal 3/31 year-end = the 2026-Q1 snapshot,
+  22 owned/bareboat hulls incl Cobra [sold 5/6 post-quarter, filed $81.9M net REPLACED the broker
+  $83.5M print — the pre-registered vlgc.yaml watch item; the Jun-23 8-K trio (Corsair+2×2015,
+  $256M en bloc, no split → no back-solve) corrected the old "Cobra inside the trio" note]; Japanese
+  SLB financings INSIDE Note-10 debt $565.8M; the $148.7M chartered-in operating-lease book carried
+  per the CMDB/SBLK convention — largest in the model, flagged); BWLP off the Q1-2026 6-K (acc
+  0001213900-26-064314) + FY2025 20-F (39 hulls = 28 parent + 3 lease-financed [borrowings' "Lease
+  financing arrangement" line — the Dorian-JP pattern] + 8 BW LPG India; the 30-May 8×Panamax-VLGC
+  ~$940M order EXCLUDED as a subsequent event — the ASC/HAFN/TRMD pattern's 4TH instance; **NCI
+  handled via preferred_equity $199.0M on a NAV-basis derivation** [India 48% at curve marks + PS
+  19% at book] — no schema field existed; owner-review item, marks-dependent). Both reconciled
+  **SANITY=OK** (−20.4% / −17.2% vs broker, k_broker ~1.2) but the **v1 calibration lock read 0/2
+  within ±10% → per the WO3 letter the sector HOLDS at PROVISIONAL·v1-lock-miss**: new
+  `SECTOR_V1_UNLOCKED` registry caps an unlocked sector's names at PROVISIONAL in
+  `confidence_tier` (guard `test_sector_v1_lock_caps_tier_at_provisional`); both names also joined
+  `POSITION_CYCLE_RELABEL` (1.59× war-elevated cycle → "rich · cycle position (not a short)") and
+  `OPERATING_SCRUBBER_VERIFIED` ({LPG:16, BWLP:12} — per-vessel issuer columns at onboarding, the
+  work-the-queue-at-onboarding rule). §9.10 family populated (both WEIGHT-ROBUST). §15 on the BW
+  Group bloc (31.99%, Sohmen): N/A-gated at ~1.0x P/NAV, drop-down tripwires recorded, no haircut.
+  Same-vintage Jul-3 Pareto pairs (LPG $36.00/0.84/9.3 + TP $54 BUY; BWLP kr181.9→$18.52/0.97/9.9)
+  — the Jul-3 LPG rows were MISSING from `pareto_share_prices.csv` (parser gap, re-extracted from
+  the PDF; fix at the next harvest pass). EDGAR poller pins +LPG/BWLP (CIKs re-confirmed against
+  SEC submissions JSONs). 12 names' EV%-only price-vintage drift annotated explain-not-accept
+  (owner decision #1; STNG's price-driven HOLD→TRIM/SHORT band flip joins GSL's for owner eyeball).
+  At HEAD two DESIGNED reds: baseline-covers-live-state (LPG/BWLP await the owner ratify) +
+  committed-scorecard vintage (clears at the ratify commit). Phase 5 = the owner's lock ruling.
 - **2026-07-09 — pre-Phase-4 hardening: the four owner-review findings closed (documented → ENFORCED).**
   (F-1) The age-5 WIDE flag is machine-readable: `provenance.MARK_WIDE_NODES` registry (VLGC
   five_year, band $89.7-95.9M, ≥50%-sensitivity age window 2.5-7.5) → `scorecard._mark_wide_exposure`

@@ -1,0 +1,29 @@
+# BW LPG Limited cost structure — METHODOLOGY.md section 4.4 (WO3 Phase 4)
+# Sources: FY2025 20-F (acc 0001104659-26-037215) KPI table + income statement;
+# Q1-2026 interim report (acc 0001213900-26-064314) for the forward cross-checks. USD.
+ticker: BWLP
+
+opex_per_day:
+  # Issuer-disclosed "Vessel operating expenses per calendar day (owned)" FY2025 =
+  # $8,800 (opex $126,299k / 14,431 owned calendar days, 20-F KPI table). Q1-2026
+  # implies ~$8,130/day (28,536k over ~3,510 owned days) — consistent; FY figure kept
+  # (fuller drydock/repair cycle).
+  VLGC: 8800
+
+# G&A FY2025 = $76,496k (20-F income statement; Q1-2026 $18.5M annualizes to ~$74M).
+# WHOLE-GROUP figure — includes the Product Services trading division's G&A while the
+# scenario strip models SHIPPING earnings only: deliberately conservative (costs kept,
+# trading profits not modeled). Documented in decisions/bwlp_log.md.
+annual_G_and_A: 76500000
+
+# Interest: Q1-2026 interest expense 8,801 + other finance expenses 623 = 9,424k
+# -> ~$37.7M annualized. FY2025 was $55.0M on higher average borrowings ($942M start,
+# incl. the since-repaid shareholder loan); borrowings at 3/31/2026 are $763.9M and
+# fell through Q1 — the Q1-annualized run-rate is the honest forward figure.
+annual_interest_expense: 38000000
+
+# Tax: shipping is effectively untaxed (tonnage/exempt regimes) — Q1-2026 group tax
+# $24.3M sits almost entirely in Product Services ($23.9M, Singapore trading) + India
+# ($40k); the SHIPPING leg pays ~$0.4M on ~$113M shipping PBT ≈ 0.3-0.5%. The strip
+# models shipping earnings, so the shipping rate applies.
+effective_tax_rate: 0.005

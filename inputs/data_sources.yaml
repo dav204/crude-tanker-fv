@@ -356,3 +356,36 @@ SB:
     + 7 Cape. 11 NB (10 Kamsarmax + 1 Cape). 8.00% Series C/D preferred = $100M. NO Pareto/VIE
     public NAV → APPROX P/BV anchor. §15: declined haircut + tripwires (fee load). NOTE: SB's
     6 large Post-Panamax (92-95.8k) exercise the §11.7.10 dwt-scaling over-valuation risk."
+LPG:
+  ir_home: https://ir.dorianlpg.com/
+  press_releases: https://ir.dorianlpg.com/news-events/press-releases
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001596993&type=10-K
+  fleet_page: https://www.dorianlpg.com/fleet
+  reporting_pattern: "NYSE US DOMESTIC filer (Marshall Islands inc., Connecticut HQ) — 10-K/10-Q,
+    NOT 6-K/20-F; fiscal year ends MAR-31 (the FY2026 10-K, filed 2026-05-27, acc
+    0001596993-26-000025, IS the 2026-Q1 calendar snapshot — audited 3/31 balance sheet +
+    Item 4 fleet table + Item 5 per-vessel carrying values). Quarterly 10-Qs for fiscal
+    Q1-Q3; earnings 8-Ks with the release."
+  notes: "Onboarded 2026-07-10 (WO3 Phase 4, 1st LPG/VLGC validator). CIK 1596993. Pure-play
+    VLGC: 22 owned/bareboat at 3/31/2026 (incl Areion 93k-cbm VLAC delivered 2026-03-20; Cobra
+    sold 2026-05-06 post-quarter $81.9M net -> filed §9.9 print) + 6 TC-in excluded. All owned
+    hulls in the Helios Pool (pool receivable = due-from-related-parties, NAV-economic).
+    Watch: the Jun-23-2026 trio sale (Corsair + 2x2015-built, $256M, delivery by Q4-26) goes
+    HFS at the Q2 refresh; no NB orderbook. Japanese SLB financings INSIDE total debt."
+BWLP:
+  ir_home: https://www.bwlpg.com/investors/
+  press_releases: https://www.bwlpg.com/media/press-releases/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001649313&type=6-K
+  fleet_page: https://www.bwlpg.com/fleet/
+  reporting_pattern: "NYSE FPI + Oslo primary (Bermuda inc., Singapore HQ) — 20-F annual
+    (FY2025 filed 2026-03-31, acc 0001104659-26-037215) + quarterly 6-K interim reports
+    (Q1-2026: acc 0001213900-26-064314, ex99-2 is the full IFRS interim report with the
+    India/Product-Services sub-balance-sheets). Oslo announcements mirror to 6-Ks."
+  notes: "Onboarded 2026-07-10 (WO3 Phase 4, 2nd LPG/VLGC validator). CIK 1649313. 39
+    economically-owned VLGCs (28 parent + 3 lease-financed [inside borrowings] + 8 via
+    52%-owned BW LPG India — 48% NCI deducted via preferred_equity, NAV-basis derivation in
+    the balance-sheet YAML); chartered-in book excluded. Product Services (81%-owned trading
+    arm) = WC-heavy, earnings outside the strip (conservative known limit). §15: BW Group
+    (Sohmen) 31.99% bloc — screen run, N/A-gated at ~1.0x P/NAV, tripwires not haircut.
+    Watch: 8x90cbm Panamax-VLGC NB (~$940M, signed 2026-05-30) enters §9.6 at the Q2 refresh;
+    R-2 kill-switch (VLGC orderbook >38%) sensitivity."

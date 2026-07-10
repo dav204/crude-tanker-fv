@@ -5,10 +5,14 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-07-10, WO3-Phases-1-3 + hardening refresh):** **22 watchlist names across 5
-valued sectors** (LPG = 6th: **Phases 1-3 LANDED 2026-07-08/09 + the four owner-review hardening
-findings closed 2026-07-09** — `sectors.lpg` + §9.10 family + VLGC marks [9th §9.9-anchored class]
-+ rates plumbing all live and guard-tested; ONLY Phase 4 validators + Phase 5 lock remain);
+**Current state (2026-07-10 EOD, WO3-Phase-4 LANDED):** **24 watchlist names across 6 valued
+sectors** (LPG validators **Dorian `LPG` + BW LPG `BWLP` ONBOARDED 2026-07-10** — full four-YAML
+sourcing off the FY2026 10-K / Q1-2026 6-K + 20-F, both SANITY=OK [gaps −20.4% / −17.2%, k_broker
+~1.2], §9.10 family populated [both WEIGHT-ROBUST, sign-stable TRIM], cycle-relabeled "rich ·
+cycle position"; **the v1 LOCK MISSED 0/2 within ±10% → sector HELD PROVISIONAL·v1-lock-miss via
+`SECTOR_V1_UNLOCKED` [new tier cap, guard-tested], handoff_ready=False — Phase 5 = the OWNER's
+lock ruling**; Cobra's FILED $81.9M print replaced the broker row [watch-item executed]; suite
+564 green + 16 xfailed except the two DESIGNED reds below);
 **suite 558 green + 16 xfailed** (3 machine-local skips on clean clones; +13 backtest via
 `PYTHONPATH=. pytest backtest/`; +57 harvester via `.venv310`); **handoff JSON schema 2.3**
 (+ `mark_wide_nodes`); **the daily price feed RESUMED 2026-07-09** after the Jul-2/3 stall —
@@ -32,18 +36,42 @@ SBLK +14 T (both now weight-sign-stable per WO4) + CMDB +12 GW + TEN +36 GW + CC
 `all_sectors_consensus_pair_recapture` + staleness floor Oct-2 · `lpg_anchor_annual_review` 2027-06-30 —
 all in `inputs/reweight_triggers.yaml`, sentinel-paged.
 
-**PENDING OWNER DECISIONS (do not act unilaterally; recorded 2026-07-08):**
-1. **Committed-price re-ratify (GSL band flip).** The committed book (source_commit `329a835`, Jul-6
-   prices) lags HEAD's committed prices: regen at current prices moves NO FV (byte-identical) but the
-   EV% denominators shift — CMDB EV +6.0pp (still BUY), **GSL BUY→HOLD**. Needs its own owner-aware
-   regen + annotate + ratify commit (also lands the WO4 dry-bulk family fields in the COMMITTED book).
+**PENDING OWNER DECISIONS (do not act unilaterally; recorded 2026-07-08, extended 2026-07-10):**
+1. **Committed-price re-ratify (GSL band flip — now also STNG).** The committed BASELINE still
+   carries Jul-6 prices: the Phase-4 runs at live Jul-9/10 prices moved NO FV (delta report: every
+   FV "no change") but 12 names' EV% denominators drifted — ALL ANNOTATED explain-not-accept
+   2026-07-10 (decisions/*_log.md). Band flips for the owner to eyeball (never batch-accept):
+   **GSL BUY→HOLD** (decision #1 as recorded) and now **STNG HOLD→TRIM/SHORT** ($76.25 vs headline
+   NAV $77.47 — price-driven boundary crossing + k_broker second-difference at the 0.05 threshold).
+   The same ratify must ADD LPG/BWLP to the baseline (`test_committed_baseline_covers_live_state`
+   red at HEAD by design): `./scripts/ratify_baseline.sh "WO3 Phase-4 LPG+BWLP onboarding + accept
+   Jul-10 price-vintage EV drift"` once the flips are eyeballed — one owner-aware ratify covers both.
+1b. **WO3 Phase 5 — the v1 lock ruling (NEW 2026-07-10).** The lock read **0/2 within ±10%**
+   (LPG −20.4% / BWLP −17.2% — consistent direction; txn-anchored VLGC curve vs Pareto's May-2026
+   raised quotes, k_broker ~1.2). Per the WO3 letter the sector is HELD at
+   **PROVISIONAL·v1-lock-miss** (`SECTOR_V1_UNLOCKED{"lpg"}` caps the tier; not handoff-ready).
+   Owner options: (a) accept the documented miss — sector stays PROVISIONAL, consumer reads
+   flag-don't-pass; (b) wait for the Dorian trio per-vessel splits (delivery filings, by Q4-26) to
+   re-fit the curve and re-run the lock (recent prints — Cobra $81.9M filed age-11, $84M age-10
+   auction, trio ~$85.3M avg "3% above Pareto quotes" — say the fit's old end is LIGHT; the
+   no-tuning rule stands, the splits are the sanctioned path). ALSO staged for review: the BWLP
+   **NCI-via-preferred_equity convention** ($199.0M NAV-basis derivation, marks-dependent —
+   decisions/bwlp_log.md item #1).
 2. **Owner install checklist STILL OUTSTANDING** (gates the WO2 drill 2.5 + Phase-0 acceptance):
    SMTP creds + healthchecks + GitHub secret + six plists + ctxprobe —
    `decisions/owner_install_checklist_2026-07-08.md`. Until done: no digests/pages, D-2 open.
 3. **WO2 residue:** drill 2.5 (blocked on #2), acceptance window Jul-28→Aug-6
    (`close_acceptance.py` ready), task #32 web-agent watchdog (interim single-threaded rule below).
 
-**NEXT BIG BLOCK — WO3 Phase 4 (validators), then Phase 5 (lock).** Phases 1-3 LANDED (Phase 1
+**NEXT BIG BLOCK — WO3 Phase 5 (the lock ruling — OWNER) + the Q2-refresh LPG carry-forwards.**
+**Phase 4 LANDED 2026-07-10** (both validators onboarded + reconciled SANITY=OK; the two designed
+reds at HEAD are the baseline-ratify + the committed-scorecard vintage — both resolve at owner
+decision #1/#1b). Q2-refresh carry-forwards created by Phase 4: **Dorian** — Cobra LEAVES the
+fleet (sold 5/6), the Corsair+2×2015 trio goes `held_for_sale` ($256M; per-vessel splits →
+transactions/vlgc.yaml re-fit, the lock's re-run path), FQ1 report ~Jul-30/Aug-6; **BWLP** — the
+8×90'cbm Panamax-VLGC order (~$940M, deliveries 2029→Q2-2030) goes §9.6 on-curve with its first
+instalment, Q2 report ~Aug-25/28, NCI re-derivation if the curve moved, R-2 orderbook re-read
+(order adds 8 hulls toward the 38% void bar). Phases 1-3 history: (Phase 1
 2026-07-08: `sectors.lpg` + §9.10 family. Phase 2 2026-07-09: VLGC marks — §9.9 txn-ANCHORED, 9th
 fitted class: 7 in-window prints, age-10 $80.3M strong / age-5 $92.3M extrapolated-FLAGGED-WIDE;
 curve NB $117.5M NB-parity age-0 [AGE0_BASIS exception, basis_status pending-sourceable] / 5yr

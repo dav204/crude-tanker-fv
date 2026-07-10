@@ -1,0 +1,88 @@
+# BWLP — Fair Value Report
+
+- **Report date:** 2026-Q1
+- **Current price:** $18.52
+- **Model fair value:** $15.43
+- **Analyst target:** $17.52
+
+## NAV breakdown
+
+| Item | $M |
+|---|---:|
+| Fleet value — VLGC | 3,046.4 |
+| + Cash & equivalents | 273.1 |
+| + Working capital (net) | 176.6 |
+| − Total debt | 763.9 |
+| − Lease liabilities | 133.9 |
+| − Newbuild commitments | 0.0 |
+| + Newbuild advances | 0.0 |
+| **= NAV total** | **2,399.2** |
+| Diluted shares | 151,814,600 |
+| **NAV / share** | **$15.80** |
+
+## Dividend strip (r = 11%)
+
+| Quarter | FFA spot (VLGC, $/day) | Blended TCE ($/day) | EPS | DPS | Disc. DPS |
+|---|---:|---:|---:|---:|---:|
+| Q1 | 62,000 | 62,000 | 1.024 | 0.768 | 0.748 |
+| Q2 | 55,000 | 55,000 | 0.864 | 0.648 | 0.615 |
+| Q3 | 48,000 | 48,000 | 0.704 | 0.528 | 0.488 |
+| Q4 | 45,000 | 45,000 | 0.636 | 0.477 | 0.430 |
+| Q5 | 43,000 | 43,000 | 0.590 | 0.443 | 0.388 |
+| Q6 | 42,000 | 42,000 | 0.567 | 0.425 | 0.364 |
+| Q7 | 41,000 | 41,000 | 0.544 | 0.408 | 0.340 |
+| Q8 | 40,000 | 40,000 | 0.521 | 0.391 | 0.317 |
+| Σ discounted DPS | | | | | 3.69 |
+| Terminal value (NAV, q9) | | | | 13.76 | 10.88 |
+| **DivStrip implied price** | | | | | **$14.57** |
+
+_FFA spot is the VLGC forward curve that drives the strip cash flows; its 12-month average is **$52,500/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$63,615/day** — not this FFA average._
+
+## Cycle weighting
+
+- Cycle position = 12M TC (Compass) $63,615 / 10-yr mean $40,000 = **1.59×** → **late-cycle/peak**
+- Weights: w_nav = 0.70, w_earn = 0.30
+
+## Blended fair value
+
+0.70 × $15.80 (NAV) + 0.30 × $14.57 (strip) = **$15.43**
+
+## Payout sensitivity
+
+| Dividend payout | Fair value |
+|---|---:|
+| 80% | $15.44 |
+| 95% | $15.47 |
+| 100% | $15.48 |
+
+_80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
+
+## Implied breakeven TCE
+
+The current price requires the fleet to run at **2.37× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+
+| Benchmark (value-weighted blended) | $/day | vs breakeven |
+|---|---:|---:|
+| **Implied breakeven (blended)** | **124,605** | — |
+| 10-year mean | 40,000 | 3.12× |
+| 12-month FFA | 52,500 | 2.37× |
+
+## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
+
+| TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
+|---|---:|---:|---:|---:|---:|
+| **-30%** | $11.16 | $12.96 | $14.76 | $16.56 | $18.36 |
+| **-15%** | $11.50 | $13.30 | $15.10 | $16.90 | $18.70 |
+| **+0%** | $11.83 | $13.63 | $15.43 | $17.23 | $19.03 |
+| **+15%** | $12.17 | $13.97 | $15.77 | $17.57 | $19.37 |
+| **+30%** | $12.51 | $14.31 | $16.11 | $17.91 | $19.71 |
+
+_Current price $18.52. Cycle weights held at base across the grid._
+
+## Divergence diagnosis
+
+Tool fair value **$15.43** is -16.7% vs the current price ($18.52) and -11.9% vs the analyst target ($17.52). The current price implies the fleet earning a value-weighted blended **$124,605/day** (2.37× the current forward) — 3.1× the value-weighted 10-yr mean ($40,000, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+
+## Modeling notes
+
+- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $63.1M (+2%) / 10yr $46.0M (+2%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $35.5M (+11%) / 10yr $25.8M (+8%) [n=5], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $29.3M (-11%) / 10yr $22.4M (-10%) [n=22], VLCC 5yr $113.2M (-18%) / 10yr $92.5M (-17%) [n=10], VLGC 5yr $91.9M (-0%) / 10yr $80.0M (-0%) [n=7]. Newbuild + old-age anchors unchanged.

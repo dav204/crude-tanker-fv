@@ -1,0 +1,62 @@
+# Dorian LPG Ltd. balance sheet snapshot — METHODOLOGY.md section 4.2 (WO3 Phase 4)
+# Source: FY2026 10-K (acc 0001596993-26-000025), Consolidated Balance Sheets as of
+# March 31, 2026 (audited; USD). Snapshot IS the NAV date — fiscal year-end 3/31/2026 =
+# the 2026-Q1 calendar snapshot, no date-mix.
+# Subsequent events (Note 25) audited FIRST and kept OUT: Apr-20 $16.5M debt prepayment,
+# May-6 Cobra sale ($81.9M net), May-7 $1.00/sh dividend ($42.8M) — all post-3/31.
+ticker: LPG
+quarter: 2026-Q1
+
+cash_and_equivalents: 327409120      # "Cash and cash equivalents". Excludes the small
+                                     # non-current restricted cash ($79,835).
+
+# working_capital_net = operating working capital (non-cash, non-debt, current):
+#   (trade receivables net + accrued revenues 2,037,495
+#    + due from related parties 97,037,584   <- Dorian's OWN earned share receivable
+#      from the Helios Pool (Dorian does NOT consolidate the pool; this is its
+#      pro-rata pool distribution receivable — NAV-economic, NOT the HAFN custodial
+#      pool gross-up pattern, which arises only for a consolidating pool MANAGER)
+#    + inventories 2,441,578
+#    + prepaid expenses and other current assets 21,324,303)
+#   - (trade accounts payable 7,990,868 + accrued expenses 11,327,406
+#      + due to related parties 0 + deferred income 1,981,719
+#      + dividends payable 700,366)
+#   = 122,840,960 - 22,000,359 = 100,840,601.
+# EXCLUDED conservatively: "Due from related parties—non-current" $26.4M (the pool
+# working-capital advance — long-dated, recovery timing undisclosed) and the small
+# non-current derivative asset $2.34M. Deferred drydock charges ($24.99M) excluded —
+# the age curve prices the hull, not its docking position.
+working_capital_net: 100840601
+
+# Note 10 "Total debt obligations" GROSS of deferred financing fees ($5,419,502):
+#   2023 A&R Debt Facility 165,000,000 + Areion Facility 62,900,531 (K-sure/Citi/
+#   Nordea, drawn at the Mar-2026 Areion delivery) + BALCAP Facility 49,891,595
+#   + Japanese Financings 288,022,069 (Corsair/Cresques/Cratis/Copernicus/Chaparral/
+#   Caravelle/Cougar/Captain Markos bareboat SLB financings — INSIDE total debt,
+#   NOT double-counted in lease_liabilities; the ECO/GSL gotcha).
+total_debt: 565814195
+
+# Operating lease liabilities, current 46,661,757 + long-term 102,061,784 (balance
+# sheet 3/31/2026). Substance: the capitalized TIME-CHARTERED-IN VLGCs (HLS Citrine,
+# HLS Diamond, Cristobal long TCs with purchase options; + short TC-ins) + the small
+# Denmark office lease. Convention (CMDB/SBLK charter-in treatment): the liability
+# subtracts from NAV; the matching RoU asset ($148.7M) is NOT added — the six
+# chartered-in vessels aren't owned and aren't in the manifest. NOTE MAGNITUDE: at
+# ~$3.5/sh this is the largest charter-in book in the model — flagged in
+# decisions/lpg_log.md as a convention-sensitivity item (at-market charter-in is
+# economically ~a wash; the book convention is deliberately conservative).
+lease_liabilities: 148723541
+
+# Note 20 Commitments: NO newbuild commitments at 2026-03-31 (only $6.2M <1yr of
+# time-charter-in commitments + $63k office lease). Areion (the only hull that was
+# under construction) DELIVERED 2026-03-20; balance sheet "Vessel under
+# construction" = $0 at 3/31/2026 (vs $37.3M at 3/31/2025).
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 42782681 # common shares outstanding (net of treasury) at
+                                     # 2026-03-31, balance-sheet equity caption
+                                     # (54,647,868 issued − 11,865,187 treasury).
+                                     # FY2026 weighted diluted was 42,613,805.
+
+preferred_equity: 0                  # "Preferred stock ... none issued nor outstanding"

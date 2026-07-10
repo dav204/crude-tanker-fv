@@ -1,0 +1,16 @@
+# BW LPG Limited dividend policy — METHODOLOGY.md section 4.3 (WO3 Phase 4)
+# Source: FY2025 20-F Item 8.A "Dividend Policy" (acc 0001104659-26-037215) — a FORMAL
+# stated policy: quarterly payout, "annual payout ratio of 50% of Shipping NPAT, which
+# may be enhanced to 75% and 100% of Shipping NPAT when the net leverage ratio is below
+# 30% and 20%, respectively." Shipping NPAT = profit attributable to equity holders
+# minus BW LPG's share of Product Services NPAT.
+# Applied: net leverage 26.3% at Q1-2026 (report KPI) -> the 75% tier. The engine's
+# modeled EPS is shipping-only by construction (the strip prices fleet TCE), so
+# payout_ratio 0.75 OF MODELED (SHIPPING) EPS matches the policy's own base. Recent
+# actual declarations ran ABOVE guideline (Q1-2026 $0.67/sh = 120% of Shipping NPAT;
+# 62% of total attributable) — the guideline tier is kept, not the one-quarter overshoot.
+ticker: BWLP
+policy_type: variable
+payout_ratio: 0.75
+base_dividend_per_share: 0.0   # no committed floor; Board discretion each quarter
+floor: 0.0

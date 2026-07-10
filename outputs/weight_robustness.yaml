@@ -3,7 +3,7 @@ computed_against:
   product: 3dd55107c7da
   lng: 3dd55107c7da
   dry_bulk: 3dd55107c7da
-  lpg: 3dd55107c7da
+  lpg: 4733f31061ef
 weight_sets:
   crude:
     Crude Set A (Jun-9 war tilt, history bracket):
@@ -120,6 +120,14 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
+  BWLP:
+    ev_min_pct: -24.4
+    ev_max_pct: -18.8
+    ev_sign_stable: true
+    positions:
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
   CAPT:
     ev_min_pct: -32.4
     ev_max_pct: -1.3
@@ -217,6 +225,14 @@ names:
     positions:
     - TRIM/SHORT
     - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+  LPG:
+    ev_min_pct: -17.8
+    ev_max_pct: -11.8
+    ev_sign_stable: true
+    positions:
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT

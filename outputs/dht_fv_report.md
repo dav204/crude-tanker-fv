@@ -1,7 +1,7 @@
 # DHT — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $17.18
+- **Current price:** $16.93
 - **Model fair value:** $14.95
 - **Analyst target:** $16.00
 
@@ -63,14 +63,14 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **2.05× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **1.93× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **318,149** | — |
-| 10-year mean | 40,000 | 7.95× |
-| 12-month FFA | 155,000 | 2.05× |
-| Current spot | 285,500 | 1.11× |
+| **Implied breakeven (blended)** | **299,823** | — |
+| 10-year mean | 40,000 | 7.50× |
+| 12-month FFA | 155,000 | 1.93× |
+| Current spot | 285,500 | 1.05× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -82,12 +82,12 @@ The current price requires the fleet to run at **2.05× the current forward curv
 | **+15%** | $12.45 | $13.86 | $15.27 | $16.68 | $18.09 |
 | **+30%** | $12.77 | $14.18 | $15.59 | $17.00 | $18.41 |
 
-_Current price $17.18. Cycle weights held at base across the grid._
+_Current price $16.93. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$14.95** is -13.0% vs the current price ($17.18) and -6.5% vs the analyst target ($16.00). The current price implies the fleet earning a value-weighted blended **$318,149/day** (2.05× the current forward) — 8.0× the value-weighted 10-yr mean ($40,000, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$14.95** is -11.7% vs the current price ($16.93) and -6.5% vs the analyst target ($16.00). The current price implies the fleet earning a value-weighted blended **$299,823/day** (1.93× the current forward) — 7.5× the value-weighted 10-yr mean ($40,000, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 
-- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $63.1M (+2%) / 10yr $46.0M (+2%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $35.5M (+11%) / 10yr $25.8M (+8%) [n=5], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $29.3M (-11%) / 10yr $22.4M (-10%) [n=22], VLCC 5yr $113.2M (-18%) / 10yr $92.5M (-17%) [n=10]. Newbuild + old-age anchors unchanged.
+- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $63.1M (+2%) / 10yr $46.0M (+2%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $35.5M (+11%) / 10yr $25.8M (+8%) [n=5], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $29.3M (-11%) / 10yr $22.4M (-10%) [n=22], VLCC 5yr $113.2M (-18%) / 10yr $92.5M (-17%) [n=10], VLGC 5yr $91.9M (-0%) / 10yr $80.0M (-0%) [n=7]. Newbuild + old-age anchors unchanged.

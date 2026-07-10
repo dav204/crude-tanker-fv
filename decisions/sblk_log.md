@@ -9,6 +9,78 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-10T20:20:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.88
+- Single-point FV: $28.32
+- Scenario PW FV: $28.19 (EV +8.9%)
+- NAV / share: $29.34
+- Position: **BUY (undervalued)**
+- Broker spread: +12.8pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-10T20:12:11+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.88
+- Single-point FV: $28.32
+- Scenario PW FV: $28.19 (EV +8.9%)
+- NAV / share: $29.34
+- Position: **BUY (undervalued)**
+- Broker spread: +12.8pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** EV%-only drift explained, NOT accepted (2026-07-10, WO3 Phase-4 onboarding run): FV/NAV unchanged (delta report: every FV 'no change'); the EV denominator moved with live Jul-9/10 prices vs the Jul-6-committed book — the KNOWN price-vintage drift already recorded as PENDING OWNER DECISION #1 (PLAN.md). Explain-not-accept: the committed-price re-ratify stays with the owner.
+
+---
+
+## 2026-07-10T20:06:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.88
+- Single-point FV: $28.32
+- Scenario PW FV: $28.19 (EV +8.9%)
+- NAV / share: $29.34
+- Position: **BUY (undervalued)**
+- Broker spread: +12.8pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-10T20:04:32+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.88
+- Single-point FV: $28.32
+- Scenario PW FV: $28.19 (EV +8.9%)
+- NAV / share: $29.34
+- Position: **BUY (undervalued)**
+- Broker spread: +12.8pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.68 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-06T19:23:45+00:00 — Pipeline run (auto)
 
 **Model state:**

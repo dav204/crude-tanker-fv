@@ -43,7 +43,14 @@ OFF_CONVENTION_QUEUE = {"CMBT", "STNG", "TEN"}  # NAT/ASC/ECO/HAFN left; TRMD le
 SCRUBBER_UNVERIFIED_QUEUE: set[str] = set()   # NEWBUILD-value scrubber flag unverified (now empty)
 
 # --- Operating-scrubber audit (test_scrubber_provenance) ---------------------------------------
-OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "SB": 20, "ECO": 16, "TRMD": 85}   # name -> audited operating scrubber-fitted count
+OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "SB": 20, "ECO": 16, "TRMD": 85,   # name -> audited operating scrubber-fitted count
+                               # LPG/BWLP verified AT onboarding (2026-07-10, WO3 Phase 4) — per-vessel
+                               # issuer columns, not blanket flags: Dorian FY2026 10-K Item 4 fleet-table
+                               # "Scrubber Equipped and/or Dual-Fuel" ("S" flags; 16 of 22 owned hulls);
+                               # BW LPG FY2025 20-F fleet-table propulsion column ("Scrubber"; 10 parent
+                               # + BW Kyoto + BW Loyalty = 12 of 39). Value-NEUTRAL for VLGC (scrubber
+                               # premium 0, §11.10) — classified for the provenance gate, not for value.
+                               "LPG": 16, "BWLP": 12}
 OPERATING_SCRUBBER_QUEUE = {   # SB/ECO left 2026-07-01; TRMD left 2026-07-02 (FY2025 20-F "installed scrubbers on 85 of our vessels" = all 22 LR2 + all 63 MR)
     "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "STNG", "TEN",
 }
@@ -83,7 +90,8 @@ NAV_DERIVED_VOID: set[str] = set()
 #                    floor pending H1, a level-provisional VLCC resale mark, AND going-concern doubt; the
 #                    eye-catching discount and the untrustworthiness are the SAME max-torque fact).
 # Of the book's TRIM/SHORT positions, ALL are here or void — not one is a name-specific short.
-POSITION_CYCLE_RELABEL = {"DHT", "FRO", "ECO", "INSW", "HAFN", "NAT"}  # NAT: the §12 archetype (de-voided 2026-06-30). ASC left 2026-07-01: the reconciliation lifted NAV $15.96->$17.80, so it reads mildly CHEAP (0.90x), not rich -> raw BUY; the product-cycle caveat on the near-peak earnings/strip leg lives in asc_log, not a rich-relabel
+POSITION_CYCLE_RELABEL = {"DHT", "FRO", "ECO", "INSW", "HAFN", "NAT",  # NAT: the §12 archetype (de-voided 2026-06-30). ASC left 2026-07-01: the reconciliation lifted NAV $15.96->$17.80, so it reads mildly CHEAP (0.90x), not rich -> raw BUY; the product-cycle caveat on the near-peak earnings/strip leg lives in asc_log, not a rich-relabel
+                          "LPG", "BWLP"}  # 2026-07-10 (WO3 Phase-4 onboarding): both VLGC validators read rich AT a 1.59x war-elevated cycle (w_nav 0.70) — the same §12 late-cycle shape as DHT/FRO/ECO, not name-specific shorts; charter B-4 (read the sector honestly) cuts BOTH ways — no flattering tier, and no fake short signal either
 POSITION_UNRELIABLE = {"MPCC", "BRUT"}  # BRUT 2026-07-01: the position cell must reflect the untrustworthiness, not the 0.59x discount, so it can't sit as a raw BUY next to PROVISIONAL⛔NO (the ASC "rich·cycle" holdover lesson)
 
 # Newbuild carried at $0 NAV pending a FILED contract price — the name discloses the order but not the
@@ -145,8 +153,25 @@ TIER_SUBREASON = {
     "BRUT": "cash-pending", "HAFN": "pool-gross-up-pending",
     "STNG": "off-curve",
     "TRMD": "basis-pending",
+    "LPG": "v1-lock-miss", "BWLP": "v1-lock-miss",
 }  # ECO left 2026-07-01 -> VALIDATED-TIGHT (crude, resale-uniform). TRMD 2026-07-02: all 3 queues cleared, but
    # product nav_basis is pending-sourceable -> GOVERNED-WIDE·basis-pending (not TIGHT until the product marks land)
+   # LPG/BWLP 2026-07-10 (WO3 Phase 4): figures fully cited at onboarding (per-name state would read
+   # GOVERNED-WIDE·basis-pending — AGE0_BASIS pending-sourceable + the extrapolated age-5 node), but the
+   # SECTOR v1 lock read 0/2 within +/-10% -> SECTOR_V1_UNLOCKED caps both at PROVISIONAL·v1-lock-miss;
+   # resolution = the owner's Phase-5 lock ruling (accept the documented miss or re-fit off the trio splits)
+
+
+# Sectors whose v1 calibration lock has NOT passed (CLAUDE.md: new sectors ship >=70% of
+# validators within +/-10% of broker NAV at lock-time). While a sector sits here its names
+# are capped at PROVISIONAL — the WO3 letter ("document the miss and hold PROVISIONAL"):
+# an unlocked sector may not hand off a governed FV regardless of per-name validation state.
+# Leaves ONLY via the owner's lock ratification (a documented-miss acceptance is the owner's
+# call, not the agent's). lpg added 2026-07-10: v1 lock 0/2 within +/-10% (LPG -20.4%, BWLP
+# -17.2% — consistent direction; txn-anchored curve vs Pareto's May-2026 raised quotes,
+# k_broker ~1.2; do NOT tune marks toward Pareto — the trio per-vessel splits are the
+# sanctioned re-fit path, transactions/vlgc.yaml watch item).
+SECTOR_V1_UNLOCKED = {"lpg"}
 
 
 def _structural_nb_names(inputs_dir: Path = INPUTS_DIR) -> set[str]:
@@ -162,6 +187,7 @@ def confidence_tier(
     robust: str,
     *,
     op_scrubber_error_pct: float = 0.0,
+    sector: str = "",
     inputs_dir: Path = INPUTS_DIR,
 ) -> str:
     """Compute the tier from the existing validation state (no new model).
@@ -170,6 +196,11 @@ def confidence_tier(
     (premium x uncited hulls / NAV)."""
     t = ticker.upper()
     structural = (t in _structural_nb_names(inputs_dir)) or (nav_basis == "structural-unavailable")
+
+    # 0. Sector v1 lock cap — an unlocked sector's names hold at PROVISIONAL (WO3 Phase 5:
+    # "document the miss and hold PROVISIONAL"); the per-name state below can't lift it.
+    if sector in SECTOR_V1_UNLOCKED:
+        return "PROVISIONAL"
 
     # 1. PROVISIONAL — an FV-material figure that does not trace, or NAV on the wrong basis.
     figure_uncited = (t.lower() in NAV_FIGURE_ESTIMATE_QUEUE) and not structural

@@ -1,7 +1,7 @@
 # FRO — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $36.75
+- **Current price:** $36.56
 - **Model fair value:** $26.54
 - **Analyst target:** $30.50
 
@@ -68,20 +68,20 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **2.83× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **2.80× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **368,638** | — |
-| 10-year mean | 35,805 | 10.30× |
-| 12-month FFA | 130,041 | 2.83× |
-| Current spot | 218,887 | 1.68× |
+| **Implied breakeven (blended)** | **364,200** | — |
+| 10-year mean | 35,805 | 10.17× |
+| 12-month FFA | 130,041 | 2.80× |
+| Current spot | 218,887 | 1.66× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| VLCC (66% of fleet value) | 439,391 | 10.98× |
-| Suezmax (20% of fleet value) | 240,957 | 8.68× |
-| LR2 (14% of fleet value) | 218,987 | 7.93× |
+| VLCC (66% of fleet value) | 434,102 | 10.85× |
+| Suezmax (20% of fleet value) | 238,056 | 8.58× |
+| LR2 (14% of fleet value) | 216,351 | 7.84× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -93,15 +93,15 @@ The current price requires the fleet to run at **2.83× the current forward curv
 | **+15%** | $20.82 | $24.10 | $27.37 | $30.64 | $33.92 |
 | **+30%** | $21.66 | $24.93 | $28.21 | $31.48 | $34.75 |
 
-_Current price $36.75. Cycle weights held at base across the grid._
+_Current price $36.56. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$26.54** is -27.8% vs the current price ($36.75) and -13.0% vs the analyst target ($30.50). The current price implies the fleet earning a value-weighted blended **$368,638/day** (2.83× the current forward) — 10.3× the value-weighted 10-yr mean ($35,805, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$26.54** is -27.4% vs the current price ($36.56) and -13.0% vs the analyst target ($30.50). The current price implies the fleet earning a value-weighted blended **$364,200/day** (2.80× the current forward) — 10.2× the value-weighted 10-yr mean ($35,805, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 
-- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $63.1M (+2%) / 10yr $46.0M (+2%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $35.5M (+11%) / 10yr $25.8M (+8%) [n=5], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $29.3M (-11%) / 10yr $22.4M (-10%) [n=22], VLCC 5yr $113.2M (-18%) / 10yr $92.5M (-17%) [n=10]. Newbuild + old-age anchors unchanged.
+- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $63.1M (+2%) / 10yr $46.0M (+2%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $35.5M (+11%) / 10yr $25.8M (+8%) [n=5], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $29.3M (-11%) / 10yr $22.4M (-10%) [n=22], VLCC 5yr $113.2M (-18%) / 10yr $92.5M (-17%) [n=10], VLGC 5yr $91.9M (-0%) / 10yr $80.0M (-0%) [n=7]. Newbuild + old-age anchors unchanged.
 - Earning fleet varies over the strip per the manifest fleet_schedule (e.g. newbuild deliveries / sales); NAV is anchored at the report date.
 - Vessel values carry a yard-quality discount (Chinese / ex-Hanjin-Subic yards); NAV is shown with and without it.
 - LR2/Aframax vessels modeled as Aframax-equivalent (crude/dirty proxy) for v1; true clean-LR2 product rates would differ (v2: max of Aframax-crude and LR2-product).

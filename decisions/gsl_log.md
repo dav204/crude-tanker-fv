@@ -7,6 +7,78 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-10T20:20:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.44
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV +2.8%)
+- NAV / share: $38.59
+- Position: **HOLD (fairly valued)**
+- Broker spread: +27.8pp (k_broker 1.29)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-10T20:12:11+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.44
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV +2.8%)
+- NAV / share: $38.59
+- Position: **HOLD (fairly valued)**
+- Broker spread: +27.8pp (k_broker 1.29)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** EV%-only drift explained, NOT accepted (2026-07-10, WO3 Phase-4 onboarding run): FV/NAV unchanged (delta report: every FV 'no change'); the EV denominator moved with live Jul-9/10 prices vs the Jul-6-committed book — the KNOWN price-vintage drift already recorded as PENDING OWNER DECISION #1 (PLAN.md). Explain-not-accept: the committed-price re-ratify stays with the owner. Band BUY→HOLD is the flagged position-relevant flip of decision #1 — owner call, not batch-accepted.
+
+---
+
+## 2026-07-10T20:06:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.44
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV +2.8%)
+- NAV / share: $38.59
+- Position: **HOLD (fairly valued)**
+- Broker spread: +27.8pp (k_broker 1.29)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-10T20:04:32+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.44
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV +2.8%)
+- NAV / share: $38.59
+- Position: **HOLD (fairly valued)**
+- Broker spread: +27.8pp (k_broker 1.29)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.45 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +0.9pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-09T02:47:37+00:00 — Pipeline run (auto)
 
 **Model state:**

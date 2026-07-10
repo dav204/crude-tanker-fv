@@ -6,10 +6,6 @@ Diagnostic (METHODOLOGY §9.10) — does NOT change the locked LPG Set A weights
 
 **Naming namespace:** labels are LPG families ("LPG Set …"); crude, LNG, and dry bulk each use "Set A/B" for their own — a bare unprefixed label would be a methodology error.
 
-## No LPG names onboarded yet
-
-The Phase-4 validators (Dorian LPG `LPG`, BW LPG `BWLP`) are not on the watchlist. The weight family is registered in `outputs/weight_robustness.yaml`; re-run this script after Phase 4 onboarding to populate per-name entries.
-
 ## Weight sets compared
 
 | Scenario | Set A | Set B | Set C |
@@ -18,5 +14,43 @@ The Phase-4 validators (Dorian LPG `LPG`, BW LPG `BWLP`) are not on the watchlis
 | absorption_base | 0.35 | 0.35 | 0.28 |
 | overhang | 0.35 | 0.28 | 0.45 |
 | arb_collapse | 0.15 | 0.12 | 0.17 |
+
+## Key findings (weight robustness, this run)
+
+Mark-spread robustness is the OTHER dimension — cross-read with `outputs/broker_nav_sweep.md` before acting on any call.
+
+| Ticker | Weight robustness | What drives the call |
+|---|---|---|
+| LPG | ✓ robust | position TRIM/SHORT across all 3 weight sets |
+| BWLP | ✓ robust | position TRIM/SHORT across all 3 weight sets |
+
+## Summary — per-name robustness
+
+| Ticker | Set A EV | Set B EV | Set C EV | Robustness | Notes |
+|---|--:|--:|--:|---|---|
+| LPG | -15.1% (TRIM/SHORT) | -11.8% (TRIM/SHORT) | -17.8% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
+| BWLP | -21.9% (TRIM/SHORT) | -18.8% (TRIM/SHORT) | -24.4% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
+
+## Per-name detail
+
+### LPG — price $36.00, target $54.00
+
+**Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 3 weight sets.
+
+| Weight set | PW FV | EV % | Position |
+|---|--:|--:|---|
+| LPG Set A (locked 2026-07-07, evidence-first overhang-tilted) | $30.55 | -15.1% | TRIM/SHORT |
+| LPG Set B (arb-bull / PDH-recovery bracket) | $31.75 | -11.8% | TRIM/SHORT |
+| LPG Set C (deep-overhang bracket) | $29.58 | -17.8% | TRIM/SHORT |
+
+### BWLP — price $18.52, target $17.52
+
+**Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 3 weight sets.
+
+| Weight set | PW FV | EV % | Position |
+|---|--:|--:|---|
+| LPG Set A (locked 2026-07-07, evidence-first overhang-tilted) | $14.46 | -21.9% | TRIM/SHORT |
+| LPG Set B (arb-bull / PDH-recovery bracket) | $15.04 | -18.8% | TRIM/SHORT |
+| LPG Set C (deep-overhang bracket) | $14.00 | -24.4% | TRIM/SHORT |
 
 See METHODOLOGY §9.9 (mark robustness) and §9.10 (weight robustness). This is the §9.10 output for the LPG sector; crude / LNG / dry-bulk analogues live in `outputs/weight_robustness_diagnostic.md` / `outputs/lng_weight_robustness.md` / `outputs/dry_bulk_weight_robustness.md`.

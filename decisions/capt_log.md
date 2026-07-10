@@ -9,6 +9,78 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-10T20:20:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.06
+- Single-point FV: $16.03
+- Scenario PW FV: $10.07 (EV -22.9%)
+- NAV / share: $15.49
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +19.3pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-10T20:12:11+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.06
+- Single-point FV: $16.03
+- Scenario PW FV: $10.07 (EV -22.9%)
+- NAV / share: $15.49
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +19.3pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** EV%-only drift explained, NOT accepted (2026-07-10, WO3 Phase-4 onboarding run): FV/NAV unchanged (delta report: every FV 'no change'); the EV denominator moved with live Jul-9/10 prices vs the Jul-6-committed book — the KNOWN price-vintage drift already recorded as PENDING OWNER DECISION #1 (PLAN.md). Explain-not-accept: the committed-price re-ratify stays with the owner.
+
+---
+
+## 2026-07-10T20:06:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.06
+- Single-point FV: $16.03
+- Scenario PW FV: $10.07 (EV -22.9%)
+- NAV / share: $15.49
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +19.3pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-10T20:04:32+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.06
+- Single-point FV: $16.03
+- Scenario PW FV: $10.07 (EV -22.9%)
+- NAV / share: $15.49
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +19.3pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.25 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -1.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-09T02:47:37+00:00 — Pipeline run (auto)
 
 **Model state:**

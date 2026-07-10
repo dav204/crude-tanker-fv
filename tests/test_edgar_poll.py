@@ -47,6 +47,11 @@ VERIFIED_CIKS = {
     "NAT": "0001000177", "SB": "0001434754", "SBLK": "0001386716",
     "STNG": "0001483934", "TEN": "0001166663", "TNK": "0001419945",
     "TRMD": "0001655891",
+    # LPG validators (WO3 Phase 4): verified against SEC company_tickers.json
+    # 2026-07-09 (LPG -> "DORIAN LPG LTD.", BWLP -> "BW LPG Ltd", exact match
+    # both — the FLNG/CCEC/INSW wrong-CIK class ruled out) and re-confirmed
+    # 2026-07-10 by pulling both submissions JSONs at onboarding.
+    "LPG": "0001596993", "BWLP": "0001649313",
 }
 
 

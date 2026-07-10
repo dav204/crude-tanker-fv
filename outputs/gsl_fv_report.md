@@ -1,7 +1,7 @@
 # GSL — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $38.11
+- **Current price:** $39.44
 - **Model fair value:** $43.06
 - **Analyst target:** $52.04
 
@@ -62,19 +62,19 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-**NAV alone covers the price.** NAV/share **$38.59** ≥ price **$38.11** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
+The current price requires the fleet to run at **0.09× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **0** | — |
-| 10-year mean | 38,795 | 0.00× |
-| 12-month FFA | 55,764 | 0.00× |
-| Current spot | 57,970 | 0.00× |
+| **Implied breakeven (blended)** | **4,829** | — |
+| 10-year mean | 38,795 | 0.12× |
+| 12-month FFA | 55,764 | 0.09× |
+| Current spot | 57,970 | 0.08× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Ctr-Large (70% of fleet value) | 0 | 0.00× |
-| Ctr-Intermediate (30% of fleet value) | 0 | 0.00× |
+| Ctr-Large (70% of fleet value) | 5,239 | 0.13× |
+| Ctr-Intermediate (30% of fleet value) | 3,882 | 0.12× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -86,12 +86,12 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 | **+15%** | $33.77 | $37.87 | $41.97 | $46.08 | $50.18 |
 | **+30%** | $34.13 | $38.23 | $42.33 | $46.43 | $50.54 |
 
-_Current price $38.11. Cycle weights held at base across the grid._
+_Current price $39.44. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$43.06** is +13.0% vs the current price ($38.11) and -17.3% vs the analyst target ($52.04). NAV alone covers the price (NAV/sh $38.59 ≥ $38.11); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
+Tool fair value **$43.06** is +9.2% vs the current price ($39.44) and -17.3% vs the analyst target ($52.04). The current price implies the fleet earning a value-weighted blended **$4,829/day** (0.09× the current forward) — 0.1× the value-weighted 10-yr mean ($38,795, i.e. the market is pricing distress), and the market is below the forward curve.
 
 ## Modeling notes
 
-- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $63.1M (+2%) / 10yr $46.0M (+2%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $35.5M (+11%) / 10yr $25.8M (+8%) [n=5], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $29.3M (-11%) / 10yr $22.4M (-10%) [n=22], VLCC 5yr $113.2M (-18%) / 10yr $92.5M (-17%) [n=10]. Newbuild + old-age anchors unchanged.
+- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $63.1M (+2%) / 10yr $46.0M (+2%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $35.5M (+11%) / 10yr $25.8M (+8%) [n=5], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $29.3M (-11%) / 10yr $22.4M (-10%) [n=22], VLCC 5yr $113.2M (-18%) / 10yr $92.5M (-17%) [n=10], VLGC 5yr $91.9M (-0%) / 10yr $80.0M (-0%) [n=7]. Newbuild + old-age anchors unchanged.

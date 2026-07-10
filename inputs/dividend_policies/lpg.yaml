@@ -1,0 +1,15 @@
+# Dorian LPG Ltd. dividend policy — METHODOLOGY.md section 4.3 (WO3 Phase 4)
+# Source: FY2026 10-K (acc 0001596993-26-000025), Item 5 dividends + Note 25.
+# Dorian pays IRREGULAR cash dividends — no committed formula or stated payout
+# target. Declared during FY2026 (fiscal year ended 3/31/2026): $0.50 (May-25)
+# + $0.60 (Aug-25) + $0.65 (Nov-25) + $0.70 (Jan-26) = $2.45/sh vs diluted EPS
+# $4.54 -> realized FY2026 payout ~54%. The May-7-2026 declaration stepped up
+# to $1.00/sh (subsequent event; trailing-four-declarations payout ~65%).
+# Modeled payout_ratio 0.60 = midpoint of the realized FY2026 (0.54) and the
+# trailing-declaration (0.65) reads [ESTIMATE — no issuer formula exists; the
+# strip, not NAV, is the only consumer; revisit at the FY-Q1 refresh].
+ticker: LPG
+policy_type: variable
+payout_ratio: 0.60
+base_dividend_per_share: 0.0    # "irregular" — no committed floor
+floor: 0.0

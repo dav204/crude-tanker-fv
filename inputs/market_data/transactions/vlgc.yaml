@@ -30,12 +30,13 @@
 # was off-market in a known direction; the +5% financing uplift would GUESS
 # a direction).
 #
-# WATCH ITEMS (complete the sample): Dorian trio per-vessel splits (filings,
-# by Q4-26 delivery — then drop Cobra's broker-reported price for the filed
-# one); Jag Vishnu (2002) if a price surfaces; full-year Advanced re-harvest
-# (the corpus is quarterly-sampled — true 2025 print counts likely 3-10x).
+# WATCH ITEMS (complete the sample): Dorian trio REMAINING per-vessel splits
+# (Cobra's filed $81.9M landed from the FY2026 10-K, 2026-07-10; the other
+# hulls stay un-filed — watch the FY-Q1/Q2 filings); Jag Vishnu (2002) if a
+# price surfaces; full-year Advanced re-harvest (the corpus is
+# quarterly-sampled — true 2025 print counts likely 3-10x).
 class: VLGC
-as_of: 2026-07-09
+as_of: 2026-07-10
 prints:
   # ---- IN-WINDOW (drive the fit), sorted by age ----
   - date: 2025-12-12
@@ -56,17 +57,23 @@ prints:
       Pacific Dongying (2016-built). AUCTION sale — competitive-tension
       price, kept standard (auction ≠ distressed here; broker-reported).
       Day-of-month approximate (month-precision citation).
-  - date: 2026-04-15
+  - date: 2026-05-06
     vessel_age_at_sale: 11
-    sale_price_usd_m: 83.5
-    source: sec99 print hunt 2026-07-06 — broker-reported (Dorian disposal)
+    sale_price_usd_m: 81.9
+    source: Dorian FY2026 10-K Note 25 (acc 0001596993-26-000025) — filed figure
     quality_flag: standard
     notes: >
-      Cobra (2015-built, ex-Dorian). $83-84M reported, midpoint used; buyer
-      unconfirmed and LIKELY INSIDE Dorian's $256M 3-vessel exit — NEVER
-      also add the trio's other hulls from the aggregate (no back-solve;
-      replace this row with the filed per-vessel split when the Q4-26
-      delivery filings land). Day-of-month approximate.
+      Cobra (2015-built, ex-Dorian). FILED per-vessel figure replaces the
+      broker-reported $83-84M midpoint (the pre-registered watch item,
+      executed 2026-07-10 at the WO3 Phase-4 onboarding): sale COMPLETED
+      2026-05-06, "proceeds net of commissions and fees of $81.9 million"
+      (FY2026 10-K Note 25) — NET basis, slightly conservative vs gross
+      broker prints. Date updated to the filed completion date.
+      TRIO COMPOSITION CORRECTED: Cobra was NOT inside the $256M trio —
+      the 2026-06-23 8-K / Pareto 6-24 daily identify the trio as Corsair
+      (2014) + TWO UNNAMED 2015-builts, delivery "by" Q4-2026 ($256M en
+      bloc, ~3% above Pareto quotes; NO per-vessel split disclosed -> no
+      back-solve, no prints). Watch the delivery filings for the splits.
   - date: 2025-03-15
     vessel_age_at_sale: 10
     sale_price_usd_m: 75.0

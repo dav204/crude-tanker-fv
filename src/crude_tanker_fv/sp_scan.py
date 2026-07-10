@@ -163,6 +163,12 @@ NAME_ALIASES: dict[str, list[re.Pattern]] = {
     # Safe Bulkers (NYSE: SB). Require the full name — bare "SB" collides with "SBLK"
     # and generic prose. "Hajioannou"/"Pedhoulas"/"Kypros" are SB-specific vessel/owner cues.
     "SB": [re.compile(r"\bSafe Bulker", re.IGNORECASE), re.compile(r"\bHajioannou\b", re.IGNORECASE)],
+    # LPG validators (WO3 Phase 4, 2026-07-10). Bare "LPG" is the commodity in
+    # every daily — require "Dorian" for the Dorian LPG ticker. BW LPG: require
+    # the two-word form or the Oslo/NYSE ticker BWLP (bare "BW" collides with
+    # BW Group / BW Epic / BW Offshore mentions).
+    "LPG": [re.compile(r"\bDorian\b", re.IGNORECASE)],
+    "BWLP": [re.compile(r"\bBWLP\b"), re.compile(r"\bBW LPG\b", re.IGNORECASE)],
 }
 # A name mention is interesting when it carries valuation / stance / action
 # context — bare ticker drops in rate tables and peer lists are noise.

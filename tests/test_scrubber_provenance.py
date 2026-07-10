@@ -34,6 +34,8 @@ OPERATING_SCRUBBER_VERIFIED = {
     "SB": 20,    # FY2025 20-F (acc 0001628280-26-014408) "21 scrubbers, all 8 Capes" ftn-15 per-vessel; 20 operating at 3/31 (Michalis H HFS). Verified 2026-07-01
     "ECO": 16,   # Q1-2026 6-K (acc 0001104659-26-060273) "eight scrubber-fitted Suezmax + eight scrubber-fitted VLCC"; all 16 on-water. Verified 2026-07-01
     "TRMD": 85,  # FY2025 20-F (acc 0001628280-26-011954) "installed scrubbers on 85 of our vessels" = all 22 LR2 + all 63 MR (10 vintage LR1s none). Verified 2026-07-02
+    "LPG": 16,   # FY2026 10-K (acc 0001596993-26-000025) Item 4 fleet-table "Scrubber Equipped and/or Dual-Fuel" per-vessel "S" flags; 16 of 22 owned at 3/31 (Cobra unlisted->false). Verified AT onboarding 2026-07-10
+    "BWLP": 12,  # FY2025 20-F (acc 0001104659-26-037215) fleet-table propulsion column "Scrubber" per-vessel: 10 parent + BW Kyoto + BW Loyalty (India). Verified AT onboarding 2026-07-10
 }
 
 # Operating-scrubber audit queue: names whose operating-fleet scrubber=true is not yet traced to

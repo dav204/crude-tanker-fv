@@ -307,3 +307,36 @@ SB:
   consensus_fwd_pe: 8.0        # APPROX — price / annualised Q1-26 EPS ($0.20 × 4 = $0.80).
   sector: dry_bulk
   as_of: 2026-06-26
+
+# Dorian LPG Ltd. (NYSE: LPG) — 1st LPG/VLGC validator (WO3 Phase 4). Onboarded 2026-07-10.
+LPG:
+  current_price: 36.00         # Pareto Shipping Daily 3 Jul 2026 share-price table
+                               # "Dorian LPG $36.0" (USD, NYSE). Same-vintage pair below.
+                               # NOTE: the 3-Jul row was missing from pareto_share_prices.csv
+                               # (parser gap — CSV's last LPG row is Jun-11); re-extracted
+                               # from the PDF at onboarding.
+  analyst_target: 54.00        # Pareto TP $54 ("55 ex-div"), BUY, 3 Jul 2026 research note
+                               # ("Recent weakness offers attractive entry at 0.8x NAV";
+                               # ~1.1x YE NAV). Supersedes the Nov-2025 HOLD/TP $30.
+  consensus_pnav: 0.84         # Pareto 3 Jul 2026, same daily as price (0.84x)
+  consensus_fwd_pe: 9.3        # Pareto 3 Jul 2026, same daily (1Y FWD P/E)
+  sector: lpg
+  as_of: 2026-07-03
+
+# BW LPG Limited (Oslo primary BWLP, NYSE secondary) — 2nd LPG/VLGC validator (WO3 Phase 4).
+# Onboarded 2026-07-10. Oslo NOK-quoted; USD carried (MPCC/BRUT convention).
+BWLP:
+  current_price: 18.52         # Pareto Shipping Daily 3 Jul 2026 "BW LPG kr 181.9"
+                               # x 0.101838 (the repo's Jul-3 NOK->USD FX, same vintage
+                               # as the MPCC/BRUT Jul-3 rebase). NYSE line cross-check:
+                               # $19.06 close Jul-9 (Yahoo) — consistent.
+  analyst_target: 17.52        # Pareto TP NOK 172 (BUY, 2025-09-02 — STALE, latest explicit
+                               # TP in the corpus) x 0.101838. Pareto NAV re-pegged NOK 171
+                               # on 2026-05-13; no fresher TP print found at onboarding —
+                               # refresh at the next BWLP research note.
+  consensus_pnav: 0.97         # Pareto 3 Jul 2026, same daily as price (0.97x)
+  consensus_fwd_pe: 9.9        # Pareto 3 Jul 2026, same daily (1Y FWD P/E)
+  sector: lpg
+  yahoo_symbol: BWLP.OL        # daily feed reads the Oslo line...
+  quote_currency: NOK          # ...and price_refresh converts via NOK=X to USD.
+  as_of: 2026-07-03

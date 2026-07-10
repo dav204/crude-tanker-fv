@@ -154,6 +154,26 @@ def test_vlgc_fit_fires_and_lands_in_documented_bands(anchored_md):
 # F-1 — the wide-node registry + fleet-exposure mapping (the JSON-seam half is
 # in test_scorecard).
 # ---------------------------------------------------------------------------
+def test_sector_v1_lock_caps_tier_at_provisional():
+    """WO3 Phase 5 (2026-07-10): the lpg v1 calibration lock read 0/2 within
+    ±10% (LPG −20.4% / BWLP −17.2% vs broker) — an unlocked sector's names hold
+    at PROVISIONAL (never handoff-ready) regardless of per-name validation
+    state, until the OWNER rules on the lock. Leaves with SECTOR_V1_UNLOCKED."""
+    from crude_tanker_fv.provenance import (
+        SECTOR_V1_UNLOCKED,
+        confidence_tier,
+        is_handoff_ready,
+    )
+
+    assert "lpg" in SECTOR_V1_UNLOCKED  # remove ONLY via the owner's lock ruling
+    tier = confidence_tier("LPG", "pending-sourceable", "n/a", sector="lpg")
+    assert tier == "PROVISIONAL"
+    assert not is_handoff_ready(tier)
+    # The cap is the SECTOR lock, not the name: the same state in a locked
+    # sector reads GOVERNED-WIDE.
+    assert confidence_tier("LPG", "pending-sourceable", "n/a", sector="") == "GOVERNED-WIDE"
+
+
 def test_mark_wide_nodes_registry_sane():
     curves = load_market_data().vessel_value_curves
     root = Path(__file__).resolve().parents[1]

@@ -7,6 +7,79 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-10T20:20:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $76.25
+- Single-point FV: $76.13
+- Scenario PW FV: $70.90 (EV -7.0%)
+- NAV / share: $77.47
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +35.2pp (k_broker 1.47)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-10T20:12:11+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $76.25
+- Single-point FV: $76.13
+- Scenario PW FV: $70.90 (EV -7.0%)
+- NAV / share: $77.47
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +35.2pp (k_broker 1.47)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** EV%-only drift explained, NOT accepted (2026-07-10, WO3 Phase-4 onboarding run): FV/NAV unchanged (delta report: every FV 'no change'); the EV denominator moved with live Jul-9/10 prices vs the Jul-6-committed book — the KNOWN price-vintage drift already recorded as PENDING OWNER DECISION #1 (PLAN.md). Explain-not-accept: the committed-price re-ratify stays with the owner. Band HOLD→TRIM/SHORT is a PRICE-driven boundary crossing ($76.25 vs headline NAV $77.47, reconciled 2026-07-01) + k_broker second-difference at the 0.05 threshold from the same price-vintage cause. Owner to eyeball per the don't-batch-accept-a-band-flip rule (the DHT/FLNG 2026-06-30 precedent) before any ratify.
+
+---
+
+## 2026-07-10T20:06:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $76.25
+- Single-point FV: $76.13
+- Scenario PW FV: $70.90 (EV -7.0%)
+- NAV / share: $77.47
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +35.2pp (k_broker 1.47)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-10T20:04:32+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $76.25
+- Single-point FV: $76.13
+- Scenario PW FV: $70.90 (EV -7.0%)
+- NAV / share: $77.47
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +35.2pp (k_broker 1.47)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: +3.25 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +3.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-06T19:23:45+00:00 — Pipeline run (auto)
 
 **Model state:**

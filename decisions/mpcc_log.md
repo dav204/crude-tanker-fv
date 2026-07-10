@@ -7,6 +7,78 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-10T20:20:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.49
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -17.1%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +11.2pp (k_broker 1.10)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-10T20:12:11+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.49
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -17.1%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +11.2pp (k_broker 1.10)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-10T20:06:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.49
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -17.1%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +11.2pp (k_broker 1.10)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-10T20:04:32+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.49
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -17.1%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +11.2pp (k_broker 1.10)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.05 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-09T02:47:37+00:00 — Pipeline run (auto)
 
 **Model state:**

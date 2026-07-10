@@ -206,7 +206,8 @@ def compute_scorecard(quarter: str, inputs_dir: Path = INPUTS_DIR) -> list[Score
         robust = jr.robust if jr else "n/a"
         # Operating-scrubber surface is only uncited (and so tier-relevant) for queued names.
         op_err = _op_scrubber_error_pct(ci) if ticker.upper() in OPERATING_SCRUBBER_QUEUE else 0.0
-        tier = confidence_tier(ticker, nav_basis, robust, op_scrubber_error_pct=op_err, inputs_dir=inputs_dir)
+        tier = confidence_tier(ticker, nav_basis, robust, op_scrubber_error_pct=op_err,
+                               sector=entry.get("sector", "crude"), inputs_dir=inputs_dir)
         rows.append(ScorecardRow(
             ticker=ticker,
             sector=entry.get("sector", "crude"),
