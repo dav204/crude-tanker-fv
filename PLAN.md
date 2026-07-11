@@ -469,9 +469,21 @@ rates — landed this push-block; removed from this list.
   to isolate NAT. Handle as its OWN deliberate re-ratify on the next refresh: accept the 7 pure-EV
   drifts as routine, but **eyeball whether the DHT/FLNG flips are trivial boundary-crossings or real
   position signals before absorbing them** — don't batch-accept a band flip.
-- **FFA feed DORMANT since 2026-06-12** (source-side — the single poster stopped). Only the
-  ffa_vs_strip diagnostic is stale; no live valuation input affected. Action is upstream.
-- **Weekly /news-pull** — resume the Saturday cadence.
+- **FFA feed LIVE again — the "DORMANT since 2026-06-12" note was STALE (probed 2026-07-10 at
+  owner prompt).** Ground truth from the archive + curves.json: the poster genuinely went quiet
+  Jun-13→Jun-21 (zero images — the dormancy call was right when made), RESUMED Jun-22, near-daily
+  parses since (the Jul-2 promotion already used the resumed feed). The OCR leg separately broke
+  Jul-4→Jul-6 (launchd bare-PATH/tesseract, fixed 1dba1d1) and now runs daily at 07:00 via the
+  ingest wrapper — today's widget parsed clean, staleness alarm quiet (0 days). **PENDING OWNER
+  PROMOTION (human-only):** the pipeline dry-bulk curve sits at the Jul-2 vintage while the Jul-10
+  parse reads Cape Qn +9.2% / Qf +4.5% / Cal27 +2.5% (Pana +3.3/+5.8/+2.9) — a MATERIAL front-end
+  move on the held-name sector (SB/SBLK strips); promote via the normal promote→rerun→drift loop.
+  LESSON for the WO2 install: the sentinel's source-silence check (cadence keys already in
+  rocketchat_sources.yaml) would have paged the go-quiet AND cleared on resume — stale prose notes
+  like this one retire when checklist item 4 lands.
+- **Weekly /news-pull** — Saturday cadence AUTO-RESUMES tomorrow (Jul-11 08:00): the Jul-4 failure
+  was the same launchd-PATH bug, fixed 1dba1d1; the five harvest steps before ffa_ocr completed
+  even on Jul-4, so nothing was lost.
 - **OWNER ACTION pending:** ratify-or-revise the A1 horizon (10 strip quarters = end-2028).
 - **MB weeklies:** container current-rate refresh (owner-gated); Pana anchor flagged
   structurally low; LNG weekly not yet delivered.
