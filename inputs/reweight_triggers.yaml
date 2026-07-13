@@ -75,7 +75,15 @@ crude_doha_talks_resumption:
   action: >
     Collapse or strikes: restore a Jun-9-shape risk-on weight set the SAME DAY.
     Progress: no reweight; update this trigger's due to the next round's date.
-  status: armed
+  status: fired   # 2026-07-12 check (owner-prompted): the STRIKE leg fired Jul-7/8 —
+                  # Iran hit 3 vessels near Hormuz (Al Rekayat LNG evacuated afire,
+                  # Wedyan VLCC, +1 within 24h); US re-imposed the MoU-lifted oil
+                  # sanctions + CENTCOM retaliatory strikes; transit threat 'severe'.
+                  # Caught 5 days late (watch layer mute during install week — the
+                  # sentinel's FIRST run surfaced this trigger as due). Reweight
+                  # decision OWED: restore = 'Crude Set A (Jun-9 war tilt)' in the
+                  # §9.10 family (0.25/0.45/0.18/0.12) — record + per-name deltas in
+                  # decisions/doha_check_2026-07-12.md. Stays red until resolved.
   added: 2026-07-02
 
 crude_transit_normalization:
