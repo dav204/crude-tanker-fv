@@ -259,6 +259,21 @@ Set B-revised).
 
 ### Per-ticker
 
+- **BWLP India NCI — strip attribution leak (documented 2026-07-13, NCI-ruling
+  rider (b)).** The NAV deducts the 48% minority claim on the India sub at
+  marked-to-curve (`preferred_equity` $199.0M, guard `tests/test_bwlp_nci.py`),
+  but the dividend strip's EPS runs over all 39 hulls with NO NCI deduction —
+  ~48% of India's shipping earnings (India ≈ 8/39 hulls ≈ 20% of fleet TCE →
+  **~10% of shipping EPS**) is over-attributed to common, the anti-conservative
+  direction. Quantified: strip is the 0.30 blend leg at the current 1.59× cycle,
+  so the leak ≈ +$0.10/sh ≈ +0.7% of FV — second-order, and offset by actual
+  payouts running above the modeled 75% tier (Q1-2026 declared 120% of Shipping
+  NPAT). Deliberately documented rather than re-engineered; revisit at the Q2
+  refresh (~Aug-2026) if it compounds with the 8×90'cbm newbuild wiring, or if
+  NCI names multiply (then the §11.9 multi-sleeve question returns). Two further
+  documented sub-limits: `preferred_equity` is STATIC under scenario
+  `vessel_scale` (≈±1-2% of NAV at ±20% extremes) and static under the strip's
+  terminal-NAV aging (same class of approximation).
 - **MR curve eco/scrubber treatment.** The MR curve is "eco-inclusive
   modern-spec" with both premiums = 0. Older / non-eco MRs (ASC's 5×2013
   Eco-Mod hulls, STNG's 5×2013 MRs) are valued at the modern-spec curve and

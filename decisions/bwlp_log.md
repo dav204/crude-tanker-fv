@@ -23,7 +23,7 @@ where you annotate what you actually did and why.
 **Deltas since last run:** _(no material moves)_
 - Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
 
-**Decision:** _[pending annotation]_
+**Decision:** **NCI CONVENTION RATIFIED (owner, 2026-07-13) — item #1 CLOSED, with riders.** The NAV-basis NCI-via-preferred_equity convention ($199.0M) is ratified as wired. Review basis: derivation independently re-verified (all legs tie; the 8 India hull marks are exact interpolations on the live post-txn-anchor curve — derived $198.91M vs wired $199.0M, −$0.09M rounding); ruling shown DECISION-NEUTRAL (book NCI $118.5M would read NAV $16.33, gap −14.5% — still a lock miss, no band change; no tuning incentive either way). RIDER (a) EXECUTED: curve↔NCI agreement guard `tests/test_bwlp_nci.py` — a VLGC re-fit now REDS until this YAML is re-derived (mechanizes the MARKS-DEPENDENT promise; two-surfaces rule). RIDER (b) EXECUTED: the India strip-attribution leak (~48% of India earnings → ~10% of shipping EPS over-attributed to common; ≈ +0.7% of FV at the 0.30 blend leg, offset by actual payouts above the modeled 75% tier) documented in LIMITATIONS.md §3 — documented, not re-engineered; revisit at the Q2 refresh with the newbuild wiring. Remaining BWLP owner items: none from onboarding; the EV% drift on this name (−3.7pp, ΔNAV 0.0%) is Jul-10→13 price-vintage and rides pending decision #0 (the batch ratify).
 
 ---
 

@@ -72,9 +72,14 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
    lock was 1/2 FAIL-with-explanation (no cap, pre-WO3-letter), containers N/A-by-construction
    (GOVERNED-WIDE·structural-class cap). A rough re-fit sketch says the gaps land ~−15%/−12% —
    possibly STILL outside ±10% on the residual broker premium; if so, the GOVERNED-WIDE question
-   returns WITH evidence as a logged amendment, not blind loosening. STILL OPEN from the
-   onboarding: the BWLP **NCI-via-preferred_equity convention** ($199.0M NAV-basis derivation,
-   marks-dependent — decisions/bwlp_log.md item #1) awaits owner review.
+   returns WITH evidence as a logged amendment, not blind loosening. The BWLP
+   **NCI-via-preferred_equity convention — RESOLVED 2026-07-13 (owner: "ratify with riders a
+   and b")**: the $199.0M NAV-basis derivation ratified as wired (shown decision-neutral: book
+   NCI would still miss the lock); rider (a) = curve↔NCI agreement guard `tests/test_bwlp_nci.py`
+   (a VLGC re-fit now REDS until the YAML is re-derived — the Nov-13 lock re-run will trip it
+   by design); rider (b) = the India strip-attribution leak (~10% of shipping EPS over-attributed
+   to common, ≈+0.7% FV, offset by above-tier actual payouts) documented in LIMITATIONS.md §3.
+   Record: bwlp_log 2026-07-13 entry.
 2. **Owner install checklist — COMPLETE 2026-07-13** (residual cleared: uuid ping URL re-copied,
    sentinel **PING-SENT** 09:52 ET — the dead-man is ARMED; receipts seeded in
    decisions/wo2_acceptance_receipts.yaml; the three Phase-0 drills are owner-timed). (detail + fix log in

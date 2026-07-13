@@ -59,16 +59,21 @@ diluted_shares_outstanding: 151814600  # 159,282.0k issued − 7,467.4k treasury
 # subtracts ahead of common, which is exactly what the minority claim needs — the ONLY
 # preferred-like claim BWLP carries). Book NCI at 3/31/2026 = US$118.5M, but book
 # UNDERSTATES the minority's claim on a marked-to-curve NAV. NAV-basis derivation
-# (decisions/bwlp_log.md, owner-review item #1):
+# (decisions/bwlp_log.md item #1 — OWNER-RATIFIED 2026-07-13 with riders: the
+# curve↔NCI agreement is GUARDED by tests/test_bwlp_nci.py [reds on any VLGC
+# re-fit until this figure is re-derived]; the India strip-attribution leak is
+# a documented known limit, LIMITATIONS.md §3):
 #   BW LPG India (52% owned; 48% NCI): 8 hulls at VLGC curve marks (ages 11,11,15,18,
 #     18,18,19,19 -> 2×77.5 + 67.3 + 3×59.7 + 2×57.2 ≈ US$515.9M) + current assets 46.5
 #     − current liabilities 33.4 − non-current borrowings 173.6 ≈ sub-NAV US$355.4M
 #     -> 48% ≈ US$170.6M.
 #   BW Product Services (81% owned; 19% NCI): trading net assets at book US$149.5M
 #     (sub-balance-sheet, Q1 note) -> 19% ≈ US$28.4M.
-#   Total ≈ US$199.0M. MARKS-DEPENDENT: re-derive when the VLGC curve re-fits (drift
-#   gate catches the move); scenario vessel_scale does not flex this static input —
-#   documented as a known second-order limit (India ≈ 13% of fleet value).
+#   Total ≈ US$199.0M. MARKS-DEPENDENT: re-derive when the VLGC curve re-fits —
+#   ENFORCED by tests/test_bwlp_nci.py (live-curve rederivation ±$2M; update the
+#   test statics and this figure in the same commit at quarterly re-derivations);
+#   scenario vessel_scale does not flex this static input — documented as a known
+#   second-order limit (India ≈ 13% of fleet value; LIMITATIONS.md §3).
 preferred_equity: 199000000
 
 shuttle_contracted_book: 0
