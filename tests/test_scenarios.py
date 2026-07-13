@@ -39,9 +39,13 @@ def test_scenarios_parse_and_weights_sum_to_one(doc):
     # Re-pinned 2026-07-02 (post-stand-down vintage: crude reweight 0.25/0.45/0.18/0.12
     # → 0.10/0.20/0.45/0.25 + MoU-ineffective leg recalibration —
     # decisions/crude_reweight_proposal_2026-07-02.md).
+    # Re-pinned 2026-07-12 (Jun-9 war tilt RESTORED 0.10/0.20/0.45/0.25 →
+    # 0.25/0.45/0.18/0.12): trigger crude_doha_talks_resumption FIRED — Jul-7/8
+    # Hormuz strikes + sanctions re-imposition; the pre-registered restore executed
+    # at owner go. decisions/doha_check_2026-07-12.md.
     assert {n: doc["scenarios"][n]["weight"] for n in names} == {
-        "escalation": pytest.approx(0.10), "pre_mou_baseline": pytest.approx(0.20),
-        "mou_base": pytest.approx(0.45), "mou_bear": pytest.approx(0.25),
+        "escalation": pytest.approx(0.25), "pre_mou_baseline": pytest.approx(0.45),
+        "mou_base": pytest.approx(0.18), "mou_bear": pytest.approx(0.12),
     }
     # Sector layer (METHODOLOGY §11): the default load returns the crude sub-doc
     # with its own cycle_anchors, and the sector name is stamped in.
@@ -119,6 +123,12 @@ def test_nav_flexes_with_scenario(doc):
     # (0.10/0.20/0.45/0.25, normalization-leaning) plus the recalibrated
     # MoU-ineffective pre_mou leg put the PW NAV back BELOW today's NAV
     # ($12.40 vs $16.07 at pin time) — same weight-set-dependence as documented above.
+    # 2026-07-12 re-pin (Jun-9 war-tilt WEIGHTS restored, doha trigger fired): the
+    # direction does NOT reverse back — the Jul-2 semantic recalibration repriced the
+    # pre_mou leg (now MoU-INEFFECTIVE, well below the old Jun-9 war-baseline path),
+    # so even war-tilt weights leave PW NAV below base ($14.21 vs $16.07 at pin
+    # time). Direction depends on weights AND scenario paths, not weights alone.
+    # decisions/doha_check_2026-07-12.md.
     wnav = sum(s.weight * s.nav_per_share for s in r.scenarios)
     assert wnav < r.base_nav_per_share
 
@@ -557,7 +567,10 @@ def test_insw_whole_company_fv_preserved_through_product_sector_refactor():
     # INSW PW FV ~$64.5 → ~$66.2 (TRIM/SHORT held).
     # 2026-07-02: post-stand-down reweight removes the war premium → ~$51.76
     # (TRIM/SHORT held; §12 relabel applies downstream).
-    assert 50.6 < headline.probability_weighted_fv < 52.9
+    # 2026-07-12: Jun-9 war tilt RESTORED (doha trigger fired,
+    # decisions/doha_check_2026-07-12.md) → ~$57.15; ±2.5% band. TRIM/SHORT still
+    # holds at $82.98 (the war premium narrows the read, doesn't flip it).
+    assert 55.7 < headline.probability_weighted_fv < 58.6
     # Both sleeves should have valid prob-weighted FVs.
     assert crude_r is not None and product_r is not None
     assert crude_r.probability_weighted_fv > 0
@@ -979,6 +992,11 @@ def test_ten_three_sleeve_integration_band():
     leg recalibration + product v2/LNG v3 restore —
     decisions/crude_reweight_proposal_2026-07-02.md): PW FV ~$67.81 → ~$55.15,
     ±5% → [52.39, 57.91]; BUY holds; asset-NAV band unchanged ($96.95 at re-pin).
+
+    Re-pinned 2026-07-12 (Jun-9 crude war tilt RESTORED — doha trigger fired,
+    decisions/doha_check_2026-07-12.md): PW FV ~$61.09 (crude sleeve lifts;
+    product/LNG sleeves un-reweighted), ±5% → [58.04, 64.14]; BUY holds;
+    asset-NAV band weight-independent, unchanged.
     """
     from crude_tanker_fv.pipeline import (
         THREE_SLEEVE_TICKERS, _load_all_sectors, _run_scenarios_for_ticker,
@@ -1021,7 +1039,7 @@ def test_ten_three_sleeve_integration_band():
     headline, crude_r, product_r = _run_scenarios_for_ticker(
         "TEN", ci, ten["current_price"], ten["analyst_target"], docs, watchlist,
     )
-    assert 52.39 < headline.probability_weighted_fv < 57.91, (
+    assert 58.04 < headline.probability_weighted_fv < 64.14, (
         f"PW FV out of band: ${headline.probability_weighted_fv:.2f}"
     )
     # Both sleeve reports returned (LNG sleeve consumed internally; per-sleeve

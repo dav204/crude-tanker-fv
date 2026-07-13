@@ -73,12 +73,17 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
 3. **WO2 residue:** Phase-0 acceptance demonstrations + drill 2.5 UNBLOCKED once the ping URL
    residual clears; acceptance window Jul-28→Aug-6 (`close_acceptance.py` ready), task #32
    web-agent watchdog (interim single-threaded rule below).
-3b. **NEW (sentinel first-run finds, 2026-07-12):** (i) `crude_doha_talks_resumption` trigger DUE
-   since Jul-10 — check the observable, record the outcome (reweight_triggers.yaml); (ii)
-   **pareto_research SILENT since Jul-3** — 5+ business days, single-sender feed (the FFA lane from
-   the same channel IS flowing, so it's sender-side or lane-specific — check the channel Monday;
-   consensus pairs age against the 42d threshold meanwhile); (iii) LPG jumped to $40.05 close
-   (+11% vs its Jul-3 pair vintage) — expect EV%-drift gate rows at the next pipeline run.
+3b. **Sentinel first-run finds (2026-07-12) — ALL THREE RESOLVED SAME NIGHT:** (i) the doha
+   trigger check found the STRIKE leg had FIRED Jul-7/8 (3 vessels hit near Hormuz, US re-imposed
+   the MoU-lifted sanctions + CENTCOM retaliation, threat 'severe') → **the pre-registered
+   Jun-9-war-tilt restore EXECUTED at owner go 2026-07-12** (crude 0.25/0.45/0.18/0.12; test
+   re-pins; decisions/doha_check_2026-07-12.md; follow-up trigger `crude_doha_round2_outcome` due
+   Jul-15; NOTE the Jul-17 MoU check is largely pre-empted). **LNG/product NOT re-tilted — the
+   trigger was crude-only; a Qatari LNG carrier was among the vessels hit, so the LNG-Hormuz
+   re-tilt question (Jun-9 v4 shape) is FLAGGED as a new owner decision, not pre-registered.**
+   (ii) pareto_research silence = SEASONAL (owner intel via RC: no daily printing Jul/Aug) —
+   silence_days: 14 override until ~Sep-1; prices never depended on it (Yahoo feed 24/24 after
+   the BWLPG.OL fix). (iii) the LPG/BWLP price jumps land in the post-reweight regen + ratify.
 
 **NEXT BIG BLOCK — WO3 Phase 5 (the lock ruling — OWNER) + the Q2-refresh LPG carry-forwards.**
 **Phase 4 LANDED 2026-07-10** (both validators onboarded + reconciled SANITY=OK; the two designed

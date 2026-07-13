@@ -5,6 +5,20 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-12 — HORMUZ RE-ESCALATION: pre-registered crude war-tilt RESTORED (trigger fired
+  Jul-7/8, executed at owner go).** The sentinel's FIRST live run surfaced `crude_doha_talks_resumption`
+  as overdue; the check found the strike leg had fired five days earlier — Iran hit 3 vessels near
+  Hormuz Jul-7/8 (incl. the Qatari LNG carrier Al Rekayat), the US RE-IMPOSED the Islamabad-MoU-lifted
+  oil sanctions + CENTCOM retaliation, transit threat 'severe' (decisions/doha_check_2026-07-12.md,
+  sourced). Crude weights restored to the Jun-9 shape {escalation .25, pre_mou .45, mou_base .18,
+  mou_bear .12} per the trigger's letter ("restore ... the SAME DAY" — 5 days late, the watch-layer
+  install gap; the layer's first catch was its own blind week). Test re-pins: crude weights dict;
+  INSW whole-co ~$57.15; TEN 3-sleeve ~$61.09; the DHT wnav-direction pin did NOT flip back (the
+  Jul-2 semantic recalibration keeps PW NAV below base even war-tilted — direction depends on paths
+  AND weights, documented). LNG/product deliberately NOT re-tilted (crude-only pre-registration; the
+  LNG-Hormuz question flagged to the owner). Follow-up trigger `crude_doha_round2_outcome` armed
+  (Jul-15). Same session: pareto_research silence identified as SEASONAL (silence_days 14 override,
+  owner RC intel); WO2 install items 1-4 completed (D-2 closed) with NBSP/var-name/BWLPG.OL fixes.
 - **2026-07-10 (later still) — owner decision #1b RESOLVED: v1 lock ruling = option (a), WO3 Phase 5
   CLOSED.** The 0/2 lock miss accepted as documented; lpg holds PROVISIONAL·v1-lock-miss
   (`SECTOR_V1_UNLOCKED`) until an owner-reviewed lock RE-RUN off the Dorian trio per-vessel splits —

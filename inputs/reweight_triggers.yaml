@@ -75,16 +75,34 @@ crude_doha_talks_resumption:
   action: >
     Collapse or strikes: restore a Jun-9-shape risk-on weight set the SAME DAY.
     Progress: no reweight; update this trigger's due to the next round's date.
-  status: fired   # 2026-07-12 check (owner-prompted): the STRIKE leg fired Jul-7/8 —
-                  # Iran hit 3 vessels near Hormuz (Al Rekayat LNG evacuated afire,
-                  # Wedyan VLCC, +1 within 24h); US re-imposed the MoU-lifted oil
-                  # sanctions + CENTCOM retaliatory strikes; transit threat 'severe'.
-                  # Caught 5 days late (watch layer mute during install week — the
-                  # sentinel's FIRST run surfaced this trigger as due). Reweight
-                  # decision OWED: restore = 'Crude Set A (Jun-9 war tilt)' in the
-                  # §9.10 family (0.25/0.45/0.18/0.12) — record + per-name deltas in
-                  # decisions/doha_check_2026-07-12.md. Stays red until resolved.
+  status: done    # FIRED 2026-07-07/08 (strike leg: 3 vessels hit near Hormuz, US
+                  # re-imposed MoU-lifted sanctions + CENTCOM retaliation, threat
+                  # 'severe'); caught 2026-07-12 (watch-layer install gap — the
+                  # sentinel's FIRST run surfaced it). RESOLVED 2026-07-12: the
+                  # pre-registered restore EXECUTED at owner go — crude weights back
+                  # to the Jun-9 shape 0.25/0.45/0.18/0.12. Record + per-name deltas:
+                  # decisions/doha_check_2026-07-12.md. Follow-up round watched by
+                  # crude_doha_round2_outcome below.
   added: 2026-07-02
+
+crude_doha_round2_outcome:
+  sector: crude
+  due: 2026-07-15
+  observable: >
+    The post-funeral Doha technical round (reported scheduled Tue Jul-14;
+    timetable "unclear" amid the Jul-7/8 strikes + sanctions re-imposition).
+    Did it convene, and with what outcome?
+  action: >
+    Any de-escalation outcome (round convenes + sanctions relief path or strike
+    stand-down): NO pre-registered reweight — put a re-normalization proposal to
+    the OWNER (the Jul-12 war tilt is the standing set; unwinding it is a new
+    decision, per the Jul-2 stand-down precedent). Collapse/no-show or further
+    strikes: weights already war-tilted — record the check, re-arm toward the
+    next credible diplomatic date. Interplay: crude_mou_implementation_check
+    (Jul-17) is largely pre-empted by the sanctions re-imposition — keep for the
+    record; crude_day60_toll_cliff (Aug-16) stands.
+  status: armed
+  added: 2026-07-12
 
 crude_transit_normalization:
   sector: crude

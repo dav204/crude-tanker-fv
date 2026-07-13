@@ -134,7 +134,12 @@ sectors:
         # over the valuation horizon, not event frequency — fast-reverting flare-ups
         # inside a holding framework are evidence for the MoU-ineffective leg (raised to
         # 0.20 over v1's 0.15 for exactly that reason), not for sustained war economics.
-        weight: 0.10
+        # RESTORED 0.25 (2026-07-12, Jun-9 shape): trigger crude_doha_talks_resumption
+        # FIRED — Jul-7/8 Iran struck 3 vessels near Hormuz, US re-imposed the
+        # MoU-lifted sanctions + CENTCOM retaliation, transit threat 'severe'. The
+        # pre-registered action restores the war-tilt SAME DAY (executed at owner go,
+        # 5 days late — watch-layer install gap). decisions/doha_check_2026-07-12.md.
+        weight: 0.25
         description: >
           Conflict escalates beyond current intensity (third-party strike, wider
           MEG closure, no MoU). MEG-loading VLCC/LR2 sustain $400k+ near-term;
@@ -199,7 +204,10 @@ sectors:
         # block comment; machine marker below (backtests must detect the break without
         # reading comments). Higher than v1's 0.15 because the toll cliff (~Aug-16) and
         # mine question are real, dated, unresolved (inputs/reweight_triggers.yaml).
-        weight: 0.20
+        # RESTORED 0.45 (2026-07-12, Jun-9 shape): the MoU-ineffective leg IS now the
+        # observed state — sanctions re-imposed, strikes resumed inside the framework
+        # (doha trigger fired; decisions/doha_check_2026-07-12.md).
+        weight: 0.45
         semantics_changed: 2026-07-02
         description: >
           MoU-INEFFECTIVE (semantic shift 2026-07-02; key name kept to avoid YAML/
@@ -264,7 +272,9 @@ sectors:
         # Aug-16 is a PRE-REGISTERED re-weight date regardless of outcome
         # (inputs/reweight_triggers.yaml crude_day60_toll_cliff). Not unconditional
         # confidence with a known binary inside the horizon.
-        weight: 0.45
+        # RESTORED 0.18 (2026-07-12, Jun-9 shape; doha trigger fired — the benign-path
+        # mass moves back to the war/ineffective legs. decisions/doha_check_2026-07-12.md).
+        weight: 0.18
         description: >
           MoU signs, three-phase path materializes: ~30 days of Phase 1 backlog
           clearance (MEG-loading routes spike on fixture scramble) followed by
@@ -326,7 +336,9 @@ sectors:
         # Weight 0.25 (Jul-2-2026 POINT-IN-TIME; was 0.12 Jun-9; v1 level restored).
         # Framework holds but normalization disappoints — tolls imposed post-day-60,
         # phased/partial reopening, Iran export ramp underdelivers.
-        weight: 0.25
+        # RESTORED 0.12 (2026-07-12, Jun-9 shape; doha trigger fired — 'framework holds'
+        # variants shrink together. decisions/doha_check_2026-07-12.md).
+        weight: 0.12
         description: >
           MoU signs but Iran fails to ramp exports (sanctions infrastructure too
           degraded, buyers reluctant, or political pushback). No Phase 1 backlog
