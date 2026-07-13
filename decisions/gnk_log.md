@@ -9,6 +9,18 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-13 — Diana tender EXTENDED to 2026-07-24 (scheduled outcome check, branch (c) muddle)
+
+**Decision:** _No model action. The 2026-07-10 deadline produced no resolution: Diana extended the
+tender to **2026-07-24** (Form 425 filed 2026-07-13, acc 0001104659-26-082927); 29.7% of non-Diana
+shares tendered as of 07-10 (vs 28.4% at 06-26) — far short of control with the board still not
+consenting. GNK stays a normal on-curve name: no HFS, no deal accounting, no manifest event (the
+SBLK 16-vessel conditional stays inactive). Consumer side: GNK/DSX remain P-1 PENDING, zero Stage-2
+packet labor, floor re-tests deferred while tender distortion is live. Watch: GNK is currently
+weight-sign-UNSTABLE in the §9.10 family (price-driven, annotated 2026-07-12). Next check 2026-07-24._
+
+---
+
 ## 2026-07-13T13:00:20+00:00 — Pipeline run (auto)
 
 **Model state:**

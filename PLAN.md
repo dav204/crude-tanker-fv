@@ -462,9 +462,10 @@ rates — landed this push-block; removed from this list.
 3. **SB open items** (in `sb_log.md`): refresh `consensus_pnav` if a VIE SB NAV is obtained
    (currently P/BV common-book proxy); confirm the finance-lease current/non-current split,
    the exact €950/day + €5.0M mgmt-fee figures, and the buyback authorization from the raw 20-F.
-4. **GNK/Diana tender** — the $24.80/sh cash-tender deadline was 2026-06-26 (now PAST). Verify
-   the scheduled `gnk-diana-tender-jun26-check` fired and the outcome (deal vs lapse → revert to
-   NAV-discount) is captured in `gnk_log.md`; re-frame GNK if not.
+4. **GNK/Diana tender — EXTENDED to 2026-07-24** (checks fired: Jun-26 → extended to Jul-10;
+   Jul-13 scheduled check → extended AGAIN to Jul-24, 29.7% tendered, branch-(c) muddle —
+   gnk_log 2026-07-13). GNK stays a normal on-curve name; SBLK's conditional 16-vessel purchase
+   inactive; consumer P-1 PENDING holds. Next outcome check 2026-07-24.
 
 ## Standing operational threads (carry forward)
 
