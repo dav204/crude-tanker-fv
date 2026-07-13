@@ -82,7 +82,12 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
    re-pins; decisions/doha_check_2026-07-12.md; follow-up trigger `crude_doha_round2_outcome` due
    Jul-15; NOTE the Jul-17 MoU check is largely pre-empted). **LNG/product NOT re-tilted — the
    trigger was crude-only; a Qatari LNG carrier was among the vessels hit, so the LNG-Hormuz
-   re-tilt question (Jun-9 v4 shape) is FLAGGED as a new owner decision, not pre-registered.**
+   re-tilt question (Jun-9 v4 shape) is FLAGGED as a new owner decision, not pre-registered.
+   → PROPOSAL PREPARED 2026-07-13 (owner: "prep it"): decisions/hormuz_retilt_proposal_2026-07-13.md
+   — restore shapes for BOTH remaining Jun-9 legs (LNG v4 + product war), scratch per-name deltas
+   (STNG flips HOLD→BUY, TRMD +11.3% FV, CCEC extends to +66% EV; dry bulk/containers/LPG/crude
+   untouched, no held name affected), test re-pin inventory, three-option decision cell. RULING
+   STAGED for the round-2 outcome (trigger due Jul-15) — one coherent call, not churn.**
    (ii) pareto_research silence = SEASONAL (owner intel via RC: no daily printing Jul/Aug) —
    silence_days: 14 override until ~Sep-1; prices never depended on it (Yahoo feed 24/24 after
    the BWLPG.OL fix). (iii) the LPG/BWLP price jumps land in the post-reweight regen + ratify.
