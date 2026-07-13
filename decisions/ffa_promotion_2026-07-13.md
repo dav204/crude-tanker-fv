@@ -94,6 +94,8 @@ labels are honest. (Compounding-knowledge rule: guard over prose.)
    HOLD→TRIM/SHORT (−6.1pp; the flip was already present pre-FFA at the 13:00
    state on price alone, and GNK's price is tender-pinned to Jul-24 — read
    through the deal lens, gnk_log).
-2. **The `fmt()` chronological-sort fix + test** (above).
-3. **Spot-basis reversion trigger** — when Pareto dailies resume (~Sep-1), the
-   dry-bulk spot rows revert from FFA-front-month proxy to daily prints.
+2. ~~The `fmt()` chronological-sort fix + test~~ — **DONE same session** at
+   `3a77235` (fix + regression test incl. the Dec→Jan wrap; queue regenerated).
+3. ~~Spot-basis reversion trigger~~ — **REGISTERED same session**:
+   `drybulk_spot_daily_resumes` (due 2026-09-01, sentinel-paged) in
+   `inputs/reweight_triggers.yaml`.

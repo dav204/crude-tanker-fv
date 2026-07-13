@@ -267,3 +267,22 @@ lpg_v1_lock_rerun:
     expires 2026-12-26; work past it needs a new charter.
   status: armed
   added: 2026-07-10
+
+drybulk_spot_daily_resumes:
+  sector: dry_bulk
+  due: 2026-09-01
+  observable: >
+    Pareto Shipping Daily resumes printing after the Jul/Aug seasonal silence
+    (owner intel via RC 2026-07-12; silence_days:14 sentinel override expires
+    ~Sep-1). First resumed daily carrying dry-bulk spot prints (Capesize VLSFO /
+    Panamax "Average of key routes" rows).
+  action: >
+    Revert the spot_tce.yaml dry-bulk rows (Cape/Pana/Post-Panamax/Supra-Ultra)
+    from the 13-Jul FFA front-month proxy basis back to the daily's spot
+    prints, restamp their as_of from the same edition, and drop the proxy
+    header note (decisions/ffa_promotion_2026-07-13.md surface 3). Supra keeps
+    the FFA-proxy fallback ONLY on editions with no Smax spot row (the 2-Jul
+    precedent). Diagnostic surface — no strip impact; annotate only if a band
+    moves.
+  status: armed
+  added: 2026-07-13

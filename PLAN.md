@@ -28,7 +28,10 @@ arrival validation/quarantine + drift-aware guards (`scripts/drift_files.txt`). 
 pairs rebased to the Pareto 3-Jul daily (18 names; TEN/SB/GSL/CMDB absent that edition, at their own
 documented vintages; threshold 42d, owner 2026-07-06); containers REFRESHED from MB W27 (Jul-3
 assessments; A3 intermediate 46,350); tanker forwards still HELD at Jun-7 (trigger
-`tanker_forward_print_lands`); dry bulk at the 2-Jul FFA OCR. Long surface (Jul-6 book): SB +53 T /
+`tanker_forward_print_lands`); dry bulk PROMOTED to the 13-Jul FFA OCR (all three classes, three
+surfaces — strips + 12M TC + spot-as-FFA-front-month-proxy during the Pareto seasonal silence;
+owner-ratified, `decisions/ffa_promotion_2026-07-13.md`; Cape front BACKWARDATED q3>q4; reversion
+trigger `drybulk_spot_daily_resumes` ~Sep-1). Long surface (Jul-6 book): SB +53 T /
 SBLK +14 T (both now weight-sign-stable per WO4) + CMDB +12 GW + TEN +36 GW + CCEC +55 GW + ASC +9.6 GW
 + GSL +6.4 GW (but see PENDING — GSL flips to HOLD at current prices). **NEXT DATED GATES:**
 `crude_doha_talks_resumption` ~Jul-10 · `crude_mou_implementation_check` Jul-17 ·
@@ -36,7 +39,17 @@ SBLK +14 T (both now weight-sign-stable per WO4) + CMDB +12 GW + TEN +36 GW + CC
 `all_sectors_consensus_pair_recapture` + staleness floor Oct-2 · `lpg_anchor_annual_review` 2027-06-30 —
 all in `inputs/reweight_triggers.yaml`, sentinel-paged.
 
-**PENDING OWNER DECISIONS (do not act unilaterally; recorded 2026-07-08, extended 2026-07-10):**
+**PENDING OWNER DECISIONS (do not act unilaterally; recorded 2026-07-08, extended 2026-07-13):**
+0. **NEW 2026-07-13 — baseline ratify ruling after the 13-Jul FFA promotion.** The live drift
+   gate holds **15 UNEXPLAINED, all Jul-10→13 price-vintage (ΔNAV 0.0% on every row)** — same
+   class as resolved decision #1 — plus the FFA-annotated dry-bulk five (SB/SBLK/GNK explained,
+   CMDB/CMBT stable). Band flips needing INDIVIDUAL eyeballs per the don't-batch-accept rule:
+   **BRUT** TRIM/SHORT→BUY (+56.1pp, biggest mover) · **CAPT** TRIM/SHORT→HOLD (+24.0pp) ·
+   **ASC** BUY→HOLD (−6.9pp) · **GNK** HOLD→TRIM/SHORT (−6.1pp; flip was price-led PRE-FFA,
+   tender-pinned to Jul-24 — deal lens, gnk_log). On accept: `./scripts/ratify_baseline.sh
+   "<cause>"` + human commit; the suite's single red (`test_live_drift_gate`) clears there.
+   Also note: STNG/GSL did NOT recross their 7/10 boundaries (watch item quiet). Full context
+   `decisions/ffa_promotion_2026-07-13.md`.
 1. **RESOLVED 2026-07-10 — committed-price re-ratify EXECUTED (owner: "accept both").** The 12
    EV%-only price-vintage drifts (ΔNAV 0.0% on every name) were accepted and the baseline
    re-ratified at the 2026-07-10T20:34 state (adds LPG/BWLP; `test_committed_baseline_covers_live_state`
