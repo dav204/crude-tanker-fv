@@ -1,144 +1,159 @@
-fetched_at: '2026-07-09T22:30:08+00:00'
+fetched_at: '2026-07-13T01:08:47+00:00'
 prices:
   ASC:
-    asof: '2026-07-09T20:00:03+00:00'
-    day_change_pct: -4.19
+    asof: '2026-07-10T20:00:03+00:00'
+    day_change_pct: 6.98
     exchange: NYQ
-    prev_close: 15.99
-    price: 15.32
+    prev_close: 15.32
+    price: 16.39
   BRUT:
-    asof: '2026-07-09T14:25:26+00:00'
-    day_change_pct: 3.38
+    asof: '2026-07-10T14:26:09+00:00'
+    day_change_pct: -0.73
     exchange: OSL
     native_currency: NOK
-    native_price: 55.0
-    prev_close: 5.48
-    price: 5.66
-    usd_per_unit_fx: 0.102934
+    native_price: 54.6
+    prev_close: 5.62
+    price: 5.58
+    usd_per_unit_fx: 0.102139
+  BWLP:
+    asof: '2026-07-10T14:25:12+00:00'
+    day_change_pct: 2.59
+    exchange: OSL
+    native_currency: NOK
+    native_price: 190.4
+    prev_close: 18.96
+    price: 19.45
+    usd_per_unit_fx: 0.102139
   CAPT:
-    asof: '2026-07-09T14:25:18+00:00'
-    day_change_pct: -3.89
+    asof: '2026-07-10T14:25:27+00:00'
+    day_change_pct: 0.33
     exchange: OSL
     native_currency: NOK
-    native_price: 126.86
-    prev_close: 13.59
-    price: 13.06
-    usd_per_unit_fx: 0.102934
+    native_price: 127.28
+    prev_close: 12.96
+    price: 13.0
+    usd_per_unit_fx: 0.102139
   CCEC:
-    asof: '2026-07-09T20:00:01+00:00'
-    day_change_pct: 1.49
+    asof: '2026-07-10T20:00:00+00:00'
+    day_change_pct: -0.8
     exchange: NMS
-    prev_close: 22.16
-    price: 22.49
+    prev_close: 22.49
+    price: 22.31
   CMBT:
-    asof: '2026-07-09T20:00:03+00:00'
-    day_change_pct: -3.68
+    asof: '2026-07-10T20:00:02+00:00'
+    day_change_pct: 4.29
     exchange: NYQ
-    prev_close: 15.5
-    price: 14.93
+    prev_close: 14.93
+    price: 15.57
   CMDB:
-    asof: '2026-07-09T20:00:02+00:00'
-    day_change_pct: 0.74
+    asof: '2026-07-10T20:00:02+00:00'
+    day_change_pct: -0.05
     exchange: NYQ
-    prev_close: 18.94
-    price: 19.08
+    prev_close: 19.08
+    price: 19.07
   DHT:
-    asof: '2026-07-09T20:00:03+00:00'
-    day_change_pct: -4.46
+    asof: '2026-07-10T20:00:03+00:00'
+    day_change_pct: 4.9
     exchange: NYQ
-    prev_close: 17.72
-    price: 16.93
+    prev_close: 16.93
+    price: 17.76
   ECO:
-    asof: '2026-07-09T20:00:02+00:00'
-    day_change_pct: -5.11
+    asof: '2026-07-10T20:00:02+00:00'
+    day_change_pct: 5.19
     exchange: NYQ
-    prev_close: 55.04
-    price: 52.23
+    prev_close: 52.23
+    price: 54.94
   FLNG:
-    asof: '2026-07-09T20:00:02+00:00'
-    day_change_pct: -6.08
+    asof: '2026-07-10T20:00:03+00:00'
+    day_change_pct: 2.88
     exchange: NYQ
-    prev_close: 31.06
-    price: 29.17
+    prev_close: 29.17
+    price: 30.01
   FRO:
-    asof: '2026-07-09T20:00:03+00:00'
-    day_change_pct: -4.94
+    asof: '2026-07-10T20:00:03+00:00'
+    day_change_pct: 4.29
     exchange: NYQ
-    prev_close: 38.46
-    price: 36.56
+    prev_close: 36.56
+    price: 38.13
   GNK:
-    asof: '2026-07-09T20:00:03+00:00'
-    day_change_pct: -3.38
+    asof: '2026-07-10T20:00:03+00:00'
+    day_change_pct: 4.94
     exchange: NYQ
-    prev_close: 25.16
-    price: 24.31
+    prev_close: 24.31
+    price: 25.51
   GSL:
-    asof: '2026-07-09T20:00:02+00:00'
-    day_change_pct: -1.0
+    asof: '2026-07-10T20:00:02+00:00'
+    day_change_pct: 1.57
     exchange: NYQ
-    prev_close: 39.84
-    price: 39.44
+    prev_close: 39.44
+    price: 40.06
   HAFN:
-    asof: '2026-07-09T20:00:02+00:00'
-    day_change_pct: -3.57
+    asof: '2026-07-10T20:00:02+00:00'
+    day_change_pct: 3.56
     exchange: NYQ
-    prev_close: 7.28
-    price: 7.02
+    prev_close: 7.02
+    price: 7.27
   INSW:
-    asof: '2026-07-09T20:00:02+00:00'
-    day_change_pct: -5.92
+    asof: '2026-07-10T20:00:02+00:00'
+    day_change_pct: 6.63
     exchange: NYQ
-    prev_close: 88.2
-    price: 82.98
+    prev_close: 82.98
+    price: 88.48
+  LPG:
+    asof: '2026-07-10T20:00:03+00:00'
+    day_change_pct: 3.62
+    exchange: NYQ
+    prev_close: 38.65
+    price: 40.05
   MPCC:
-    asof: '2026-07-09T14:28:34+00:00'
-    day_change_pct: -3.93
+    asof: '2026-07-10T14:25:12+00:00'
+    day_change_pct: -1.07
     exchange: OSL
     native_currency: NOK
-    native_price: 24.19
-    prev_close: 2.59
-    price: 2.49
-    usd_per_unit_fx: 0.102934
+    native_price: 23.93
+    prev_close: 2.47
+    price: 2.44
+    usd_per_unit_fx: 0.102139
   NAT:
-    asof: '2026-07-09T20:00:02+00:00'
-    day_change_pct: -2.64
+    asof: '2026-07-10T20:00:02+00:00'
+    day_change_pct: 4.58
     exchange: NYQ
-    prev_close: 6.06
-    price: 5.9
+    prev_close: 5.9
+    price: 6.17
   SB:
-    asof: '2026-07-09T20:00:02+00:00'
-    day_change_pct: -1.47
+    asof: '2026-07-10T20:00:02+00:00'
+    day_change_pct: 2.99
     exchange: NYQ
-    prev_close: 6.8
-    price: 6.7
+    prev_close: 6.7
+    price: 6.9
   SBLK:
-    asof: '2026-07-09T20:00:00+00:00'
-    day_change_pct: -2.19
+    asof: '2026-07-10T20:00:00+00:00'
+    day_change_pct: 1.82
     exchange: NMS
-    prev_close: 26.46
-    price: 25.88
+    prev_close: 25.88
+    price: 26.35
   STNG:
-    asof: '2026-07-09T20:00:02+00:00'
-    day_change_pct: -1.4
+    asof: '2026-07-10T20:00:02+00:00'
+    day_change_pct: 4.03
     exchange: NYQ
-    prev_close: 77.33
-    price: 76.25
+    prev_close: 76.25
+    price: 79.32
   TEN:
-    asof: '2026-07-09T20:00:02+00:00'
-    day_change_pct: -2.48
+    asof: '2026-07-10T20:00:02+00:00'
+    day_change_pct: 3.77
     exchange: NYQ
-    prev_close: 39.19
-    price: 38.22
+    prev_close: 38.22
+    price: 39.66
   TNK:
-    asof: '2026-07-09T20:00:02+00:00'
-    day_change_pct: -3.38
+    asof: '2026-07-10T20:00:02+00:00'
+    day_change_pct: 4.59
     exchange: NYQ
-    prev_close: 71.69
-    price: 69.27
+    prev_close: 69.27
+    price: 72.45
   TRMD:
-    asof: '2026-07-09T20:00:00+00:00'
-    day_change_pct: -3.37
+    asof: '2026-07-10T20:00:00+00:00'
+    day_change_pct: 5.06
     exchange: NMS
-    prev_close: 29.04
-    price: 28.06
+    prev_close: 28.06
+    price: 29.48
 source: yahoo-chart-v8

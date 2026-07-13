@@ -337,6 +337,8 @@ BWLP:
   consensus_pnav: 0.97         # Pareto 3 Jul 2026, same daily as price (0.97x)
   consensus_fwd_pe: 9.9        # Pareto 3 Jul 2026, same daily (1Y FWD P/E)
   sector: lpg
-  yahoo_symbol: BWLP.OL        # daily feed reads the Oslo line...
+  yahoo_symbol: BWLPG.OL       # daily feed reads the Oslo line (Oslo ticker is
+                               # BWLPG, not the NYSE's BWLP — fixed 2026-07-12
+                               # after 3 runs of FETCH-FAILED on BWLP.OL 404s)...
   quote_currency: NOK          # ...and price_refresh converts via NOK=X to USD.
   as_of: 2026-07-03

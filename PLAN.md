@@ -62,11 +62,23 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
    returns WITH evidence as a logged amendment, not blind loosening. STILL OPEN from the
    onboarding: the BWLP **NCI-via-preferred_equity convention** ($199.0M NAV-basis derivation,
    marks-dependent — decisions/bwlp_log.md item #1) awaits owner review.
-2. **Owner install checklist STILL OUTSTANDING** (gates the WO2 drill 2.5 + Phase-0 acceptance):
-   SMTP creds + healthchecks + GitHub secret + six plists + ctxprobe —
-   `decisions/owner_install_checklist_2026-07-08.md`. Until done: no digests/pages, D-2 open.
-3. **WO2 residue:** drill 2.5 (blocked on #2), acceptance window Jul-28→Aug-6
-   (`close_acceptance.py` ready), task #32 web-agent watchdog (interim single-threaded rule below).
+2. **Owner install checklist — ITEMS 1–4 DONE 2026-07-12/13, ONE RESIDUAL** (detail + fix log in
+   `decisions/owner_install_checklist_2026-07-08.md`): all 8 launchd rows LIVE (D-2 CLOSED), email
+   channel verified (test mail SENT after the agent scrubbed NBSPs from the pasted app password),
+   GitHub secret set, governance healthcheck wired (next Fri monitor → PING-SENT). **RESIDUAL: the
+   crude sentinel's ping URL is the wrong link type (HTTP 400, 4-segment path, not the plain
+   uuid form) — owner re-copies it, then sentinel re-run for the PING-SENT receipt.** First live
+   sentinel run 2026-07-12 exercised all check families; bonus catches: BWLP Oslo symbol fixed
+   (BWLPG.OL, was 404) — feed 24/24; pareto_research 5-business-day silence flagged (see below).
+3. **WO2 residue:** Phase-0 acceptance demonstrations + drill 2.5 UNBLOCKED once the ping URL
+   residual clears; acceptance window Jul-28→Aug-6 (`close_acceptance.py` ready), task #32
+   web-agent watchdog (interim single-threaded rule below).
+3b. **NEW (sentinel first-run finds, 2026-07-12):** (i) `crude_doha_talks_resumption` trigger DUE
+   since Jul-10 — check the observable, record the outcome (reweight_triggers.yaml); (ii)
+   **pareto_research SILENT since Jul-3** — 5+ business days, single-sender feed (the FFA lane from
+   the same channel IS flowing, so it's sender-side or lane-specific — check the channel Monday;
+   consensus pairs age against the 42d threshold meanwhile); (iii) LPG jumped to $40.05 close
+   (+11% vs its Jul-3 pair vintage) — expect EV%-drift gate rows at the next pipeline run.
 
 **NEXT BIG BLOCK — WO3 Phase 5 (the lock ruling — OWNER) + the Q2-refresh LPG carry-forwards.**
 **Phase 4 LANDED 2026-07-10** (both validators onboarded + reconciled SANITY=OK; the two designed

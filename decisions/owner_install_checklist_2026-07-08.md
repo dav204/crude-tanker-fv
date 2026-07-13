@@ -1,8 +1,27 @@
 # Owner install checklist — WO2 activation (persisted from session, 2026-07-08)
 
-**Status: OUTSTANDING.** Delivered in-session 2026-07-03; not yet executed. Until done the watch
-layer is built but mute: no digests, no pages, no dead-man — and the WO2 drill (2.5) + Phase-0
-acceptance demonstrations are blocked on it. Items 1–4 ≈ 20 minutes total.
+**Status: ITEMS 1–4 DONE (2026-07-12/13), one residual.** Executed by owner + agent-verified:
+- **1 EMAIL ✅** — `notify --doctor: ok`; test email **SENT** (agent fixed 3 invisible NBSPs from
+  Google's app-password display that were crashing SMTP auth with an ascii-codec error).
+- **2 DEAD-MAN ~✅** — governance URL correct (its file); the crude sentinel URL was (a) misfiled
+  under the governance var name in crude-tanker-fv.env (agent renamed to `CRUDE_FV_HEALTHCHECK_URL`)
+  and (b) is the WRONG LINK TYPE — 4 path segments, not the plain `hc-ping.com/<36-char-uuid>` form;
+  first sentinel run got **PING-FAILED HTTP 400**. **RESIDUAL: owner re-copies the crude-fv-sentinel
+  check's plain ping URL into the env** (compare: the governance one is the correct shape).
+- **3 GITHUB SECRET ✅** — `SENTINEL_LITE_HC_URL` set 2026-07-13T00:57Z (write-only; the Phase-0
+  drill proves it points at the right check).
+- **4 PLISTS ✅** — all 8 launchd rows live 2026-07-12 (agent staged files; owner ran the loads —
+  the "Load failed: 5: I/O error" on retry = already-loaded, benign); ctxprobe probe line landing.
+- First live sentinel run (manual, 2026-07-12 21:06 ET): check families all exercised — flags were
+  real (doha trigger due; pareto_research 5-business-day silence; heartbeat self-resolving noise
+  for the just-installed jobs; price-basis vintage artifacts) + the HTTP-400 ping above. BONUS
+  catches on install night: BWLP's Oslo Yahoo symbol fixed (BWLPG.OL, was 404ing), price feed
+  verified 24/24.
+- **5 NEXT** — once the ping URL is re-copied: re-run sentinel (PING-SENT receipt), then the Phase-0
+  acceptance demonstrations + drill 2.5 (receipts → `decisions/wo2_acceptance_receipts.yaml`),
+  before the Jul-28 earnings cluster.
+
+*(Original checklist below for the record.)*
 
 ## 1. Email channel (~5 min) — first
 

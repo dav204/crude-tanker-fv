@@ -50,17 +50,17 @@ jobs:
     wrapper: ingest_rocketchat_cron.sh
   com.crude-tanker-fv.sentinel:
     plist_committed: true
-    installed: false         # D-2 — owner install pending (commands below)
+    installed: true          # 2026-07-12 — owner loaded (launchctl list verified, 8 rows); D-2 CLOSED
     schedule: "daily 08:15"
     wrapper: sentinel_cron.sh
   com.crude-tanker-fv.harvester:
     plist_committed: true    # added WO2 1.3 (2026-07-03)
-    installed: false         # owner install pending (same cp+load pattern)
+    installed: true          # 2026-07-12 — owner loaded (launchctl list verified)
     schedule: "Sat 09:00"
     wrapper: harvester_cron.sh
   com.crude-tanker-fv.edgar-poll:
     plist_committed: true    # added WO2 2.2 (2026-07-03)
-    installed: false         # owner install pending (same cp+load pattern)
+    installed: true          # 2026-07-12 — owner loaded (launchctl list verified)
     schedule: "hourly :20"
     wrapper: edgar_poll_cron.sh
 ```
