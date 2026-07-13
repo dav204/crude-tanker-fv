@@ -40,16 +40,17 @@ SBLK +14 T (both now weight-sign-stable per WO4) + CMDB +12 GW + TEN +36 GW + CC
 all in `inputs/reweight_triggers.yaml`, sentinel-paged.
 
 **PENDING OWNER DECISIONS (do not act unilaterally; recorded 2026-07-08, extended 2026-07-13):**
-0. **NEW 2026-07-13 — baseline ratify ruling after the 13-Jul FFA promotion.** The live drift
-   gate holds **15 UNEXPLAINED, all Jul-10→13 price-vintage (ΔNAV 0.0% on every row)** — same
-   class as resolved decision #1 — plus the FFA-annotated dry-bulk five (SB/SBLK/GNK explained,
-   CMDB/CMBT stable). Band flips needing INDIVIDUAL eyeballs per the don't-batch-accept rule:
-   **BRUT** TRIM/SHORT→BUY (+56.1pp, biggest mover) · **CAPT** TRIM/SHORT→HOLD (+24.0pp) ·
-   **ASC** BUY→HOLD (−6.9pp) · **GNK** HOLD→TRIM/SHORT (−6.1pp; flip was price-led PRE-FFA,
-   tender-pinned to Jul-24 — deal lens, gnk_log). On accept: `./scripts/ratify_baseline.sh
-   "<cause>"` + human commit; the suite's single red (`test_live_drift_gate`) clears there.
-   Also note: STNG/GSL did NOT recross their 7/10 boundaries (watch item quiet). Full context
-   `decisions/ffa_promotion_2026-07-13.md`.
+0. **RESOLVED 2026-07-13 — baseline ratify EXECUTED (owner: "accept all four + ratify").**
+   The 14 UNEXPLAINED decomposed to three owner-traceable causes (Jul-12 war-tilt regen
+   [owner-executed] + Jul-10→13 price vintage + the 13-Jul FFA promotion; ΔNAV 0.0% on every
+   row). All four flips eyeballed INDIVIDUALLY: **BRUT** T/S→BUY +56.1pp = war-tilt FV-side,
+   handoff already voids the read (PROVISIONAL, sign-unstable −63.4/+11.2, "not actionable") ·
+   **CAPT** T/S→HOLD +24pp = pre-approved in the 7/12 doha_check table · **ASC** BUY→HOLD =
+   shallow price-crossing (+7% tape; NOTE the staged product re-tilt [Jul-15 ruling] may flip
+   it back — NEW eyeball then) · **GNK** HOLD→T/S = price-led pre-FFA + FFA deepening,
+   sign-stable, tender-pinned (census Jul-24). STNG/GSL recross watch: quiet. Baseline
+   re-ratified @ 1f6f2f2 (RATIFY_LOG 2026-07-13T17:30Z — pages the governance monitor);
+   **drift gate 0 UNEXPLAINED, suite 569 fully green.**
 1. **RESOLVED 2026-07-10 — committed-price re-ratify EXECUTED (owner: "accept both").** The 12
    EV%-only price-vintage drifts (ΔNAV 0.0% on every name) were accepted and the baseline
    re-ratified at the 2026-07-10T20:34 state (adds LPG/BWLP; `test_committed_baseline_covers_live_state`
