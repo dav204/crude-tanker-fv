@@ -12,7 +12,11 @@
 # healthchecks firing = a 2-day ping gap, i.e., intentionally silencing the watcher):
 
 healthchecks_firing_demonstrated: null   # 2-day ping gap → healthchecks pages by absence; record date + page screenshot ref
-action_issue_demonstrated: null          # sentinel-lite GitHub Action test issue fires + self-closes; record run URL
+action_issue_demonstrated: "2026-07-13 workflow_dispatch run 29255810164 (jobs sentinel+ci green);
+  created issue #5 'sentinel: 1 flag(s) on pushed state' (the doha TRIGGER-DUE — correctly read from
+  the PUSHED state, which lagged local resolution; self-closes on the next quiet run after push).
+  Lite healthcheck pinged by the Action run — paired-check identity confirmed vs the env-pinged
+  sentinel check.
 page_ack_demonstrated: null              # one PAGE → owner ack latency demo (NOT a standing SLA); record timestamps
 clean_clone_suite: null                  # fresh-clone pytest transcript ref (known 3 machine-local skips)
 attestation: null                        # owner sign-off line, dated
