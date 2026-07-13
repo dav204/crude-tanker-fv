@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-13T15:44:45+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.51
+- Single-point FV: $23.98
+- Scenario PW FV: $23.15 (EV -9.2%)
+- NAV / share: $24.69
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +13.1pp (k_broker 1.13)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** 13-Jul dry-bulk FFA promotion (owner-ratified, all three classes; `decisions/ffa_promotion_2026-07-13.md`; promoted at dd6a0a2, this entry = the clean-HEAD handoff regen — model state identical to the 15:31 run). Scenario-FV −1.7% at the promotion = the FFA component; NAV untouched (SANITY=OK −10.3%, Δ 0.0pp stable). **Band context: the HOLD→TRIM/SHORT flip vs the 7/10 baseline (−3.1 → −9.2) occurred at the 13:00 pre-FFA state on price alone (−6.4); the re-anchor deepened it −6.4→−9.2. Price is tender-pinned to the Jul-24 census — read through the deal lens. Flip ACCEPTANCE is staged for the owner's individual eyeball at the baseline ratify, per the don't-batch-accept rule — this annotation explains, it does not accept.**
+
+---
+
 ## 2026-07-13T15:31:38+00:00 — Pipeline run (auto)
 
 **Model state:**

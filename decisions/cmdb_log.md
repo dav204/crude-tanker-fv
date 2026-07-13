@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-13T15:44:45+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $19.07
+- Single-point FV: $20.52
+- Scenario PW FV: $20.10 (EV +5.4%)
+- NAV / share: $31.33
+- Position: **BUY (undervalued)**
+- Broker spread: -1.8pp (k_broker 0.98)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** 13-Jul dry-bulk FFA promotion (owner-ratified, all three classes; `decisions/ffa_promotion_2026-07-13.md`; promoted at dd6a0a2, this entry = the clean-HEAD handoff regen — model state identical to the 15:31 run). Scenario-FV −1.2% at the promotion = the FFA component; NAV untouched (reconcile n/a-APPROX, gap +12.6%, Δ 0.0pp stable). Band BUY unchanged; drift-gate self-consistency under threshold, stable. No position action.
+
+---
+
 ## 2026-07-13T15:31:38+00:00 — Pipeline run (auto)
 
 **Model state:**
