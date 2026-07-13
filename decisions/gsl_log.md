@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-13T13:00:20+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $40.06
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV +1.2%)
+- NAV / share: $38.59
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.9pp (k_broker 1.30)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.62 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-10 — PRICE-DRIVEN BAND FLIP (BUY→HOLD), reviewed + ACCEPTED by owner
 
 **Decision:** _PRICE-DRIVEN BAND FLIP, reviewed + accepted (owner, 2026-07-10; decision #1).

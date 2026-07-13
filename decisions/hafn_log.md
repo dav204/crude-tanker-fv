@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-13T13:00:20+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.27
+- Single-point FV: $5.99
+- Scenario PW FV: $5.61 (EV -22.9%)
+- NAV / share: $5.57
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +32.3pp (k_broker 1.44)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.25 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.3pp
+
+**Decision:** Drift explained (2026-07-12): Friday-close price vintage only — FV/NAV byte-identical (the doha reweight touched crude weights only; this name's sector is un-reweighted). k_broker rows where present = the pinned-P/NAV mechanical artifact of the price move. Ratify staged pending the owner's flip eyeball.
+
+---
+
 ## 2026-07-10T20:34:37+00:00 — Pipeline run (auto)
 
 **Model state:**

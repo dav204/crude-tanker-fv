@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-13T13:00:20+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $19.45
+- Single-point FV: $15.43
+- Scenario PW FV: $14.46 (EV -25.6%)
+- NAV / share: $15.80
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +18.2pp (k_broker 1.21)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.93 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +3.4pp
+
+**Decision:** Drift explained (2026-07-12): Friday-close price vintage only — FV/NAV byte-identical (the doha reweight touched crude weights only; this name's sector is un-reweighted). k_broker rows where present = the pinned-P/NAV mechanical artifact of the price move. Ratify staged pending the owner's flip eyeball.
+
+---
+
 ## 2026-07-10 — v1 LOCK RULING: option (a) ACCEPTED by owner (PLAN decision #1b)
 
 **Decision:** _Owner ruled 2026-07-10: sector-level lock miss accepted as documented;

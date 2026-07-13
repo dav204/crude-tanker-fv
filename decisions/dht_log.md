@@ -7,6 +7,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-13T13:00:20+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.76
+- Single-point FV: $14.95
+- Scenario PW FV: $13.34 (EV -24.9%)
+- NAV / share: $13.88
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +7.6pp (k_broker 1.11)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ scenario PW FV +17.5%
+- Δprice: +0.83 | Δsingle FV: no change | Δscenario FV: +17.5% | ΔNAV: no change | Δspread: +3.5pp
+
+**Decision:** Drift explained (2026-07-12): the pre-registered Jun-9 war-tilt RESTORE — trigger crude_doha_talks_resumption fired Jul-7/8, executed at owner go (decisions/doha_check_2026-07-12.md; commit precedes this run). Crude PW-FVs re-weighted UP; NAV unchanged (weights never touch asset NAV). Plus the Friday-close price vintage in the EV denominator. Ratify staged pending the owner's flip eyeball.
+
+---
+
 ## 2026-07-10T20:34:37+00:00 — Pipeline run (auto)
 
 **Model state:**

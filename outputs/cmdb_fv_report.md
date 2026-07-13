@@ -1,7 +1,7 @@
 # CMDB — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $19.08
+- **Current price:** $19.07
 - **Model fair value:** $20.43
 - **Analyst target:** $27.98
 
@@ -65,16 +65,16 @@ The current price requires the fleet to run at **0.60× the current forward curv
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **12,866** | — |
+| **Implied breakeven (blended)** | **12,804** | — |
 | 10-year mean | 16,680 | 0.77× |
 | 12-month FFA | 21,325 | 0.60× |
 | Current spot | 22,491 | 0.57× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Supra-Ultra (46% of fleet value) | 9,782 | 0.70× |
-| Cape (33% of fleet value) | 18,726 | 0.79× |
-| Pana (21% of fleet value) | 10,517 | 0.88× |
+| Supra-Ultra (46% of fleet value) | 9,734 | 0.70× |
+| Cape (33% of fleet value) | 18,635 | 0.79× |
+| Pana (21% of fleet value) | 10,466 | 0.88× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -86,11 +86,11 @@ The current price requires the fleet to run at **0.60× the current forward curv
 | **+15%** | $17.66 | $19.30 | $20.93 | $22.57 | $24.21 |
 | **+30%** | $18.17 | $19.80 | $21.44 | $23.08 | $24.72 |
 
-_Current price $19.08. Cycle weights held at base across the grid._
+_Current price $19.07. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$20.43** is +7.0% vs the current price ($19.08) and -27.0% vs the analyst target ($27.98). The current price implies the fleet earning a value-weighted blended **$12,866/day** (0.60× the current forward) — 0.8× the value-weighted 10-yr mean ($16,680, i.e. the market is pricing distress), and the market is below the forward curve.
+Tool fair value **$20.43** is +7.1% vs the current price ($19.07) and -27.0% vs the analyst target ($27.98). The current price implies the fleet earning a value-weighted blended **$12,804/day** (0.60× the current forward) — 0.8× the value-weighted 10-yr mean ($16,680, i.e. the market is pricing distress), and the market is below the forward curve.
 
 ## Modeling notes
 

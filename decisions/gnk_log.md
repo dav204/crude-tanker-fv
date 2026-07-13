@@ -9,6 +9,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-13T13:00:20+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.51
+- Single-point FV: $23.85
+- Scenario PW FV: $23.56 (EV -7.7%)
+- NAV / share: $24.69
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +13.3pp (k_broker 1.13)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: +1.20 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +4.1pp
+
+**Decision:** Drift explained (2026-07-12): Friday-close price vintage only — FV/NAV byte-identical (the doha reweight touched crude weights only; this name's sector is un-reweighted). k_broker rows where present = the pinned-P/NAV mechanical artifact of the price move. Ratify staged pending the owner's flip eyeball. BAND FLIP HOLD→TRIM/SHORT (−4.6pp EV, NAV flat): PRICE-driven (Friday close), NOT the reweight (dry-bulk weights untouched). NEW flip — owner eyeball required before ratify per the don't-batch-accept rule. GNK remains P-1 PENDING (Diana tender) on the consumer side and weight-sign-UNSTABLE in the §9.10 family.
+
+---
+
 ## 2026-07-10T20:34:37+00:00 — Pipeline run (auto)
 
 **Model state:**

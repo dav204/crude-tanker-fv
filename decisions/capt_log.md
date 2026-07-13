@@ -9,6 +9,26 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-13T13:00:20+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.00
+- Single-point FV: $16.03
+- Scenario PW FV: $13.14 (EV +1.1%)
+- NAV / share: $15.49
+- Position: **HOLD (fairly valued)**
+- Broker spread: +21.3pp (k_broker 1.12)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position TRIM/SHORT (overvalued) → HOLD (fairly valued)
+- ⚑ scenario PW FV +30.5%
+- Δprice: -0.06 | Δsingle FV: no change | Δscenario FV: +30.5% | ΔNAV: no change | Δspread: +2.0pp
+
+**Decision:** Drift explained (2026-07-12): the pre-registered Jun-9 war-tilt RESTORE — trigger crude_doha_talks_resumption fired Jul-7/8, executed at owner go (decisions/doha_check_2026-07-12.md; commit precedes this run). Crude PW-FVs re-weighted UP; NAV unchanged (weights never touch asset NAV). Plus the Friday-close price vintage in the EV denominator. Ratify staged pending the owner's flip eyeball. BAND FLIP TRIM/SHORT→HOLD (+24pp): REWEIGHT-driven — this exact flip was in the pre-execution table the owner approved (doha_check doc: CAPT +0.6% HOLD under the war tilt).
+
+---
+
 ## 2026-07-10T20:34:37+00:00 — Pipeline run (auto)
 
 **Model state:**
