@@ -141,3 +141,39 @@ def test_classifier_requires_all_three_signatures():
     assert is_ffa_widget(good)
     assert not is_ffa_widget(good.replace("Cal27", "2027"))
     assert not is_ffa_widget("Cape Town container report Cal27")
+
+
+def test_queue_month_columns_are_chronological(tmp_path, monkeypatch):
+    """The m1/m2 queue columns must be calendar-ordered, not alphabetical —
+    the alphabetical sort put AUG before JUL and the 2-Jul Supra spot proxy
+    took the wrong month off the queue (decisions/ffa_promotion_2026-07-13.md).
+    Covers the Dec→Jan year wrap too."""
+    from crude_tanker_fv import ffa_ocr
+    from crude_tanker_fv.ffa_ocr import _tenor_sort_key, _write_queue
+
+    monkeypatch.setattr(ffa_ocr, "QUEUE_PATH", tmp_path / "queue.md")
+    db = {
+        "2026-07-13": {
+            "status": "ok", "issues": [], "source": "img-jul.png",
+            "curves": {"cape": {"aug": 34625, "cal27": 28600, "jul": 36000,
+                                "q3": 35416, "q4": 35200},
+                       "pmax": {}, "smax": {}},
+        },
+        "2026-12-15": {
+            "status": "ok", "issues": [], "source": "img-dec.png",
+            "curves": {"cape": {"jan": 21000, "dec": 20000,
+                                "q1": 20500, "cal27": 18000},
+                       "pmax": {}, "smax": {}},
+        },
+    }
+    _write_queue(db)
+    text = (tmp_path / "queue.md").read_text()
+    jul_row = next(l for l in text.splitlines() if "2026-07-13" in l)
+    dec_row = next(l for l in text.splitlines() if "2026-12-15" in l)
+    assert "36000/34625/35416/35200/28600" in jul_row   # jul before aug
+    assert "20000/21000/20500/18000" in dec_row          # dec before jan (wrap)
+
+    assert _tenor_sort_key("jul", 7) < _tenor_sort_key("aug", 7)
+    assert _tenor_sort_key("dec", 12) < _tenor_sort_key("jan", 12)
+    assert _tenor_sort_key("aug", 7) < _tenor_sort_key("q3", 7) \
+        < _tenor_sort_key("cal27", 7)

@@ -280,6 +280,22 @@ def days_since_last_widget(curves_db: dict | None = None) -> int | None:
     return (date.today() - date.fromisoformat(max(hits))).days
 
 
+_MONTH_ORDER = ["jan", "feb", "mar", "apr", "may", "jun",
+                "jul", "aug", "sep", "oct", "nov", "dec"]
+
+
+def _tenor_sort_key(tenor: str, print_month: int) -> tuple:
+    """Chronological queue order: months (from the print month, Dec→Jan
+    wraps), then quarters, then Cal. The naive alphabetical sort put AUG
+    before JUL, so the queue's m1/m2 header lied — the 2-Jul Supra spot
+    proxy took the wrong month off it (decisions/ffa_promotion_2026-07-13.md)."""
+    if tenor in _MONTH_ORDER:
+        return (0, (_MONTH_ORDER.index(tenor) + 1 - print_month) % 12)
+    if tenor.startswith("q") and tenor[1:].isdigit():
+        return (1, int(tenor[1:]))
+    return (2, tenor)
+
+
 def _write_queue(curves_db: dict) -> None:
     lines = [
         "# FFA-OCR review queue — dry-bulk forward curves",
@@ -296,11 +312,12 @@ def _write_queue(curves_db: dict) -> None:
         e = curves_db[iso]
         if e.get("status") == "no_widget":
             continue
+        print_month = int(iso[5:7])
+
         def fmt(panel):
             c = e["curves"].get(panel, {})
             return "/".join(str(v) for _, v in sorted(
-                c.items(), key=lambda kv: (kv[0].startswith("cal"),
-                                           kv[0].startswith("q"), kv[0])))
+                c.items(), key=lambda kv: _tenor_sort_key(kv[0], print_month)))
         lines.append(f"| {iso} | {e['status']} | {fmt('cape')} | {fmt('pmax')} "
                      f"| {fmt('smax')} | {'; '.join(e['issues']) or '—'} "
                      f"| {e['source']} |")
