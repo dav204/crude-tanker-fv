@@ -111,6 +111,14 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
    silence_days: 14 override until ~Sep-1; prices never depended on it (Yahoo feed 24/24 after
    the BWLPG.OL fix). (iii) the LPG/BWLP price jumps land in the post-reweight regen + ratify.
 
+**STAGE-3 INTAKE (governance dry-bulk funnel, cycle closed 2026-07-13 — `../portfolio-governance/
+funnels/drybulk_2026H2/stage2_verdicts_2026-07-13.md`):** two survivors handed off for PROVISIONAL
+onboarding when the owner schedules the labor (competes with the Q2-refresh block): **Pacific Basin
+(2343 · HKEX)** — PRECONDITION: the HKEX light-adapter (venue-annex commitment, governance trigger
+F-3; Gate-D PASS is conditional on it) — and **PANL (Nasdaq)** — carries a §9.9 **Handy-curve
+decision** (comparable-sample question; its D2 deviation) + an E2 breakeven that completes on THIS
+repo's basis at reconciliation. Neither started; owner schedules.
+
 **NEXT BIG BLOCK — WO3 Phase 5 (the lock ruling — OWNER) + the Q2-refresh LPG carry-forwards.**
 **Phase 4 LANDED 2026-07-10** (both validators onboarded + reconciled SANITY=OK; the two designed
 reds at HEAD are the baseline-ratify + the committed-scorecard vintage — both resolve at owner
