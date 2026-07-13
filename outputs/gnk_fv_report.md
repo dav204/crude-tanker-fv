@@ -2,7 +2,7 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $25.51
-- **Model fair value:** $23.85
+- **Model fair value:** $23.98
 - **Analyst target:** $24.80
 
 ## NAV breakdown
@@ -25,70 +25,70 @@
 
 | Quarter | FFA spot (Cape, $/day) | Blended TCE ($/day) | EPS | DPS | Disc. DPS |
 |---|---:|---:|---:|---:|---:|
-| Q1 | 32,500 | 32,700 | 1.233 | 1.233 | 1.201 |
-| Q2 | 33,650 | 33,792 | 1.244 | 1.244 | 1.181 |
-| Q3 | 29,500 | 29,850 | 1.033 | 1.033 | 0.955 |
-| Q4 | 28,500 | 28,900 | 0.982 | 0.982 | 0.885 |
-| Q5 | 27,500 | 27,950 | 0.931 | 0.931 | 0.817 |
-| Q6 | 26,500 | 27,000 | 0.880 | 0.880 | 0.753 |
-| Q7 | 26,000 | 26,525 | 0.855 | 0.855 | 0.712 |
-| Q8 | 25,500 | 26,050 | 0.830 | 0.830 | 0.673 |
-| Σ discounted DPS | | | | | 7.18 |
+| Q1 | 35,400 | 35,455 | 1.344 | 1.344 | 1.309 |
+| Q2 | 35,200 | 35,265 | 1.314 | 1.314 | 1.248 |
+| Q3 | 30,100 | 30,420 | 1.061 | 1.061 | 0.982 |
+| Q4 | 29,100 | 29,470 | 1.011 | 1.011 | 0.910 |
+| Q5 | 28,100 | 28,520 | 0.960 | 0.960 | 0.842 |
+| Q6 | 27,100 | 27,570 | 0.909 | 0.909 | 0.777 |
+| Q7 | 26,600 | 27,095 | 0.883 | 0.883 | 0.736 |
+| Q8 | 26,100 | 26,620 | 0.858 | 0.858 | 0.696 |
+| Σ discounted DPS | | | | | 7.50 |
 | Terminal value (NAV, q9) | | | | 19.48 | 15.40 |
-| **DivStrip implied price** | | | | | **$22.58** |
+| **DivStrip implied price** | | | | | **$22.90** |
 
-_FFA spot is the Cape forward curve that drives the strip cash flows; its 12-month average is **$31,038/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$33,100/day** — not this FFA average._
+_FFA spot is the Cape forward curve that drives the strip cash flows; its 12-month average is **$32,450/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$35,300/day** — not this FFA average._
 
 ## Cycle weighting
 
-- Cycle position = 12M TC (Compass) $33,100 / 10-yr mean $23,650 = **1.36×** → **elevated**
+- Cycle position = 12M TC (Compass) $35,300 / 10-yr mean $23,650 = **1.43×** → **elevated**
 - Weights: w_nav = 0.60, w_earn = 0.40
 
 ## Blended fair value
 
-0.60 × $24.69 (NAV) + 0.40 × $22.58 (strip) = **$23.85**
+0.60 × $24.69 (NAV) + 0.40 × $22.90 (strip) = **$23.98**
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $23.78 |
-| 95% | $23.83 |
-| 100% | $23.85 |
+| 80% | $23.90 |
+| 95% | $23.96 |
+| 100% | $23.98 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **1.42× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **1.37× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **36,132** | — |
-| 10-year mean | 20,033 | 1.80× |
-| 12-month FFA | 25,521 | 1.42× |
-| Current spot | 25,709 | 1.41× |
+| **Implied breakeven (blended)** | **36,393** | — |
+| 10-year mean | 20,033 | 1.82× |
+| 12-month FFA | 26,535 | 1.37× |
+| Current spot | 25,709 | 1.42× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Cape (63% of fleet value) | 43,943 | 1.86× |
-| Supra-Ultra (37% of fleet value) | 22,954 | 1.65× |
+| Cape (63% of fleet value) | 44,505 | 1.88× |
+| Supra-Ultra (37% of fleet value) | 22,707 | 1.63× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $17.36 | $20.00 | $22.65 | $25.29 | $27.93 |
-| **-15%** | $17.96 | $20.60 | $23.25 | $25.89 | $28.53 |
-| **+0%** | $18.56 | $21.20 | $23.85 | $26.49 | $29.13 |
-| **+15%** | $19.16 | $21.80 | $24.45 | $27.09 | $29.73 |
-| **+30%** | $19.76 | $22.40 | $25.05 | $27.69 | $30.33 |
+| **-30%** | $17.45 | $20.09 | $22.74 | $25.38 | $28.02 |
+| **-15%** | $18.07 | $20.71 | $23.36 | $26.00 | $28.64 |
+| **+0%** | $18.69 | $21.33 | $23.98 | $26.62 | $29.26 |
+| **+15%** | $19.31 | $21.95 | $24.59 | $27.24 | $29.88 |
+| **+30%** | $19.93 | $22.57 | $25.21 | $27.86 | $30.50 |
 
 _Current price $25.51. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$23.85** is -6.5% vs the current price ($25.51) and -3.8% vs the analyst target ($24.80). The current price implies the fleet earning a value-weighted blended **$36,132/day** (1.42× the current forward) — 1.8× the value-weighted 10-yr mean ($20,033, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$23.98** is -6.0% vs the current price ($25.51) and -3.3% vs the analyst target ($24.80). The current price implies the fleet earning a value-weighted blended **$36,393/day** (1.37× the current forward) — 1.8× the value-weighted 10-yr mean ($20,033, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

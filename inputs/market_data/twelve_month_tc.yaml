@@ -4,9 +4,10 @@
 # Daily carries SPOT prints only — no 1-year T/C table — so the TANKER entries
 # below are the 2026-06-07 vintage HELD and explicitly flagged STALE (do not
 # invent a figure; refresh when the next TC assessment / Pareto weekly lands —
-# tracked via the refresh preflight market-data staleness check). DRY BULK is
-# refreshed from the 2-Jul FFA OCR widget (status ok, outputs/ffa_ocr_queue.md):
-# 12M TC proxy = mean of the Qn/Qf quarterly tenors.
+# tracked via the refresh preflight market-data staleness check). DRY BULK
+# refreshed 2026-07-13 from the 13-Jul FFA OCR widget (status ok,
+# outputs/ffa_ocr_queue.md; owner-ratified promotion, all three classes):
+# 12M TC proxy = mean of the Qn/Qf quarterly tenors, rounded to nearest 50.
 # Machine vintage (WO2 1.2) — structured mirror of the per-row comments; see
 # spot_tce.yaml's as_of block for semantics (default = newest deliberate
 # refresh event; older overrides = held/prior-event classes). The tanker
@@ -23,7 +24,9 @@ rate_basis:
   default: tc_assessment
   VLGC: realized_tce
 as_of:
-  default: 2026-07-03
+  default: 2026-07-13       # dry bulk promoted from the 13-Jul FFA OCR widget
+                            # (owner ratify 2026-07-13); prior default event
+                            # (containers, MB W27) now an explicit hold below
   VLGC: 2026-06-02
   VLCC: 2026-06-07
   Suezmax: 2026-06-07
@@ -37,10 +40,9 @@ as_of:
   Handymax: 2026-06-07
   LR1_clean: 2026-06-07
   LR2_clean: 2026-06-07
-  Cape: 2026-07-02
-  Pana: 2026-07-02
-  Post-Panamax: 2026-07-02
-  Supra-Ultra: 2026-07-02
+  Ctr-Feeder: 2026-07-03
+  Ctr-Intermediate: 2026-07-03
+  Ctr-Large: 2026-07-03
 twelve_month_tc:
   VLCC: 111500          # STALE Jun-7 war vintage — held, no 2-Jul TC print (see header)
   Suezmax: 61250        # STALE Jun-7 — held
@@ -65,10 +67,10 @@ twelve_month_tc:
   # last parsed 2026-06-11) are NOT promoted — Phase-0 convention. Refresh on
   # trigger vlgc_realized_tce_refresh (each validator quarterly disclosure).
   VLGC: 63615           # Dorian Q1-2026 realized TCE — disclosure-cluster vintage 2026-06-02 (held)
-  Cape: 33100           # (32508 Qn + 33650 Qf)/2, FFA OCR 2-Jul (was 27000 Jun-9)
-  Pana: 18550           # (18983 + 18125)/2, FFA OCR 2-Jul (was 17500 Jun-9)
-  Post-Panamax: 18550   # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  Supra-Ultra: 17900    # (18533 + 17300)/2, FFA OCR 2-Jul (was 16000 Jun-9)
+  Cape: 35300           # (35416 Qn + 35200 Qf)/2, FFA OCR 13-Jul (was 33100 2-Jul)
+  Pana: 19500           # (19716 + 19250)/2, FFA OCR 13-Jul (was 18550 2-Jul)
+  Post-Panamax: 19500   # shares the Pana freight basin (§11.7.10, 2026-06-29)
+  Supra-Ultra: 18350    # (18800 + 17875)/2, FFA OCR 13-Jul (was 17900 2-Jul)
   # Containerships (§11.8) — MB Container Weekly 27 assessments (2026-07-03),
   # class-collapsed per §11.8.1; ingested 2026-07-06 (trigger
   # container_mb_refresh; decisions/container_ingest_2026-07-06.md).

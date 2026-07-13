@@ -1,11 +1,16 @@
 # Current-market forward curves (8 quarters q3_2026 -> q2_2028 unless noted).
 # Drives the dividend strip + cycle position.
 #
-# DRY BULK refreshed 2026-07-02 from the 2-Jul FFA OCR widget (status ok,
-# outputs/ffa_ocr_queue.md; human promotion per the OCR rule — owner reviews this
-# diff pre-ratify). Mapping rule (documented, replaces the Jun-9 tenor+judgment
-# mix): q1=Qn, q2=Qf tenors exactly; the four 2027 quarters decay linearly and
-# AVERAGE to the Cal-27 tenor; 2028 extrapolates the same slope.
+# DRY BULK refreshed 2026-07-13 from the 13-Jul FFA OCR widget (status ok,
+# outputs/ffa_ocr_queue.md; human promotion per the OCR rule — owner ratified
+# 2026-07-13, all three classes). Mapping rule (documented, replaces the Jun-9
+# tenor+judgment mix): q1=Qn (rounded to nearest 50), q2=Qf tenors exactly; the
+# four 2027 quarters decay linearly and AVERAGE to the Cal-27 tenor; 2028
+# extrapolates each class's flattened tail (deltas preserved per-class from the
+# 2-Jul wiring: Cape −500/−500, Pana −400/−300, Supra −300/−300) so the ONLY
+# inputs that move at a re-anchor are the three market tenors. NOTE 13-Jul:
+# the Cape front flipped to BACKWARDATION (q3 > q4) — near-dated C5TC spike
+# (same move that fired the governance tranche-2 add), Cal-27 barely moved.
 #
 # TANKER curves are the 2026-06-07 war vintage HELD PENDING OWNER DECISION
 # (2026-07-02, F-5): the Pareto daily carries no tanker FFA/forward prints, so a
@@ -21,7 +26,10 @@
 # Held classes carry their own trigger (tanker_forward_print_lands /
 # container_mb_refresh); agreement with vintage_notes is suite-tested.
 as_of:
-  default: 2026-07-03       # containers re-synthesized 2026-07-06 from MB W27
+  default: 2026-07-13       # dry bulk promoted from the 13-Jul FFA OCR widget
+                            # (owner ratify 2026-07-13); the prior default event
+                            # (containers, MB W27 Jul-3 assessments) is now an
+                            # explicit hold below
   VLGC: 2026-06-02
   VLCC: 2026-06-07
   Suezmax: 2026-06-07
@@ -35,15 +43,18 @@ as_of:
   LR2_clean: 2026-06-07
   LNGC: 2026-06-07
   MGC: 2026-06-07
-  Cape: 2026-07-02
-  Pana: 2026-07-02
-  Post-Panamax: 2026-07-02
-  Supra-Ultra: 2026-07-02
+  Ctr-Feeder: 2026-07-03
+  Ctr-Intermediate: 2026-07-03
+  Ctr-Large: 2026-07-03
 vintage_notes:
   - "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean)
     HELD at the 2026-06-07 vintage — no market forward print exists (owner decision
     2026-07-02, option (i)); refresh on trigger tanker_forward_print_lands. The
     C-2 rates-layer tanker effect is understated pending the print."
+  - "Dry-bulk curves (Cape/Pana/Post-Panamax/Supra-Ultra) RE-ANCHORED 2026-07-13
+    from the 13-Jul FFA OCR widget (status ok; owner-ratified promotion, all
+    three classes; decisions/ffa_promotion_2026-07-13.md). Cape front flipped
+    to BACKWARDATION (q3 > q4) — near-dated C5TC spike, Cal-27 barely moved."
   - "Container TC/value curves REFRESHED 2026-07-06 from MB Container Weekly 27
     (assessments 2026-07-03) — the cited §11.8 ingest event closing trigger
     container_mb_refresh (decisions/container_ingest_2026-07-06.md; A3 re-derived
@@ -176,42 +187,42 @@ ffa_forward_curve:
   - 42000
   - 41000
   - 40000
-  Cape:              # FFA OCR 2-Jul: Qn 32508 / Qf 33650 / Cal-27 28000 (was Jun-9 vintage)
-  - 32500
-  - 33650
-  - 29500
-  - 28500
-  - 27500
-  - 26500
-  - 26000
-  - 25500
-  Pana:              # FFA OCR 2-Jul: Qn 18983 / Qf 18125 / Cal-27 15700
-  - 19000
-  - 18125
-  - 16600
-  - 16000
-  - 15400
-  - 14800
-  - 14400
-  - 14100
+  Cape:              # FFA OCR 13-Jul: Qn 35416 / Qf 35200 / Cal-27 28600 (was 2-Jul; front BACKWARDATED)
+  - 35400
+  - 35200
+  - 30100
+  - 29100
+  - 28100
+  - 27100
+  - 26600
+  - 26100
+  Pana:              # FFA OCR 13-Jul: Qn 19716 / Qf 19250 / Cal-27 16200
+  - 19700
+  - 19250
+  - 17100
+  - 16500
+  - 15900
+  - 15300
+  - 14900
+  - 14600
   Post-Panamax:     # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  - 19000
-  - 18125
-  - 16600
-  - 16000
-  - 15400
-  - 14800
-  - 14400
-  - 14100
-  Supra-Ultra:       # FFA OCR 2-Jul: Qn 18533 / Qf 17300 / Cal-27 13900
-  - 18550
-  - 17300
-  - 14800
-  - 14200
-  - 13600
-  - 13000
-  - 12700
-  - 12400
+  - 19700
+  - 19250
+  - 17100
+  - 16500
+  - 15900
+  - 15300
+  - 14900
+  - 14600
+  Supra-Ultra:       # FFA OCR 13-Jul: Qn 18800 / Qf 17875 / Cal-27 14175 (75s: avg-to-Cal identity)
+  - 18800
+  - 17875
+  - 15075
+  - 14475
+  - 13875
+  - 13275
+  - 12975
+  - 12675
   # Containerships (§11.8) — NO FFA exists; synthesised current-market
   # forward per the synthesised-from-spot convention: starts at the MB TC
   # assessment, mean-reverts toward the FY21-25 anchor (between

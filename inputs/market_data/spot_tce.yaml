@@ -8,6 +8,14 @@
 # (inputs/research_pareto/2026/07/2026-07-02_Periodical-ShippingDaily-2026-07-02-509255.pdf,
 # p.1 "Average of key routes", ECO no-scrubber column — the scrubber premium lives on
 # the VALUE side via per-vessel flags, not in the rate benchmark) except where noted.
+# DRY BULK re-proxied 2026-07-13 to the 13-Jul FFA OCR front-month (jul) tenor —
+# no Pareto daily exists (seasonal silence to ~Sep-1, PLAN 3b-ii); extends the
+# 2-Jul Supra-Ultra FFA-proxy precedent to Cape/Pana for the silence window.
+# Revert to the daily's spot prints when the dailies resume. NOTE: the 2-Jul
+# Supra proxy (18500) had taken the queue's first month column, which the
+# queue's alphabetical tenor sort made AUG (true front month jul was 18975) —
+# see decisions/ffa_promotion_2026-07-13.md; today's proxies use the true
+# front month from state/ffa_ocr_curves.json.
 # Machine vintage (WO2 1.2) — the structured mirror of the per-row comments;
 # read by the sentinel's UNINGESTED-PRINTS lane (newest staged Pareto daily vs
 # default) + agreement-tested against the held-class comments. default = the
@@ -15,9 +23,9 @@
 # older vintage (their staleness is tracked by their own trigger/note, not
 # by the lane). Top-level sibling key — invisible to loaders._scalar_map.
 as_of:
-  default: 2026-07-03       # containers refreshed 2026-07-06 from MB W27 (Jul-3
-                            # assessments); non-container classes below carry
-                            # their own prior-event dates
+  default: 2026-07-13       # dry bulk re-proxied from the 13-Jul FFA OCR widget
+                            # (owner ratify 2026-07-13); all other classes below
+                            # carry their own prior-event dates
   VLCC: 2026-07-02
   Suezmax: 2026-07-02
   Aframax: 2026-07-02
@@ -27,12 +35,11 @@ as_of:
   Handymax: 2026-07-02
   LR1_clean: 2026-07-02
   LR2_clean: 2026-07-02
-  Cape: 2026-07-02
-  Pana: 2026-07-02
-  Post-Panamax: 2026-07-02
-  Supra-Ultra: 2026-07-02
   LNGC: 2026-06-07          # held — no LNG spot print in the 2-Jul daily
   MGC: 2026-06-07           # held, as LNGC
+  Ctr-Feeder: 2026-07-03    # containers refreshed 2026-07-06 from MB W27
+  Ctr-Intermediate: 2026-07-03
+  Ctr-Large: 2026-07-03
 spot_tce:
   VLCC: 285500          # TD3C eco (Pareto 2-Jul; -1.1% d/d). MEG-China war premium only
                         # partially unwound (TD22 USG-China printed $127,600 same day).
