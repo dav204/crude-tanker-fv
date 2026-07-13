@@ -1,6 +1,12 @@
 # Owner install checklist — WO2 activation (persisted from session, 2026-07-08)
 
-**Status: ITEMS 1–4 DONE (2026-07-12/13), one residual.** Executed by owner + agent-verified:
+**Status: COMPLETE 2026-07-13 — all four items done, residual cleared.** The re-copied uuid-form
+ping URL verified (1 segment / 36 chars) and the sentinel's 09:52 ET run returned **PING-SENT**
+(first successful dead-man ping; flags emailed the same run — the SMTP join is live). Phase-0
+demonstrations now scheduled via `decisions/wo2_acceptance_receipts.yaml` (seeded; the three
+drills are owner-timed). Original status narrative below for the record.
+
+**(superseded)** Items 1–4 done (2026-07-12/13), one residual. Executed by owner + agent-verified:
 - **1 EMAIL ✅** — `notify --doctor: ok`; test email **SENT** (agent fixed 3 invisible NBSPs from
   Google's app-password display that were crashing SMTP auth with an ascii-codec error).
 - **2 DEAD-MAN ~✅** — governance URL correct (its file); the crude sentinel URL was (a) misfiled

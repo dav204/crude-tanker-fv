@@ -62,7 +62,9 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
    returns WITH evidence as a logged amendment, not blind loosening. STILL OPEN from the
    onboarding: the BWLP **NCI-via-preferred_equity convention** ($199.0M NAV-basis derivation,
    marks-dependent — decisions/bwlp_log.md item #1) awaits owner review.
-2. **Owner install checklist — ITEMS 1–4 DONE 2026-07-12/13, ONE RESIDUAL** (detail + fix log in
+2. **Owner install checklist — COMPLETE 2026-07-13** (residual cleared: uuid ping URL re-copied,
+   sentinel **PING-SENT** 09:52 ET — the dead-man is ARMED; receipts seeded in
+   decisions/wo2_acceptance_receipts.yaml; the three Phase-0 drills are owner-timed). (detail + fix log in
    `decisions/owner_install_checklist_2026-07-08.md`): all 8 launchd rows LIVE (D-2 CLOSED), email
    channel verified (test mail SENT after the agent scrubbed NBSPs from the pasted app password),
    GitHub secret set, governance healthcheck wired (next Fri monitor → PING-SENT). **RESIDUAL: the
