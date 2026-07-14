@@ -25,6 +25,7 @@ The **earnings-leg analog of the broker-NAV sweep** (METHODOLOGY §9.11 / §9.9)
 | STNG | product | $73.00 | 11.1× | $6.58 | $16.66 | 4.4× | +153% | 9.0% | 1.78× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | CMDB | dry_bulk | $17.25 | 10.5× | $1.64 | $4.15 | 4.2× | +153% | 9.5% | 1.43× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | CMBT | crude | $14.60 | 8.9× | $1.64 | $3.93 | 3.7× | +139% | 11.2% | 1.74× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| 2343 | dry_bulk | $0.39 | 13.0× | $0.03 | $0.07 | 5.7× | +129% | 7.7% | 1.23× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | ASC | product | $14.90 | 13.2× | $1.13 | $2.22 | 6.7× | +97% | 7.6% | 1.37× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | FLNG | lng | $29.30 | 14.1× | $2.08 | $3.74 | 7.8× | +80% | 7.1% | 0.71× (below-mid) | 0.60 | earnings-driven (tool>cons) |
 | BWLP | lpg | $18.52 | 9.9× | $1.87 | $3.23 | 5.7× | +73% | 10.1% | 1.59× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |

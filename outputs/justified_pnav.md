@@ -19,9 +19,10 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | Ticker | Sector | NAV/sh | Price | P/NAV (mkt) | RONAV (par) | Just P/NAV (par) | RONAV (hist) | Just P/NAV (hist) | Read: par → hist | Robust? |
 |---|---|--:|--:|--:|--:|--:|--:|--:|---|---|
 | SB | dry_bulk | $10.12 | $6.39 | 0.632× | 15.1% | 1.415× | 10.1% | 0.913× | cheap → cheap | robust |
-| SBLK | dry_bulk | $29.34 | $25.20 | 0.859× | 13.3% | 1.234× | 11.2% | 1.022× | cheap → cheap | robust |
-| CMDB | dry_bulk | $31.33 | $17.25 | 0.551× | 8.1% | 0.709× | 6.7% | 0.572× | cheap → fair | flips (cheap/fair) |
-| GNK | dry_bulk | $24.69 | $24.50 | 0.992× | 12.3% | 1.132× | 11.2% | 1.017× | cheap → fair | flips (cheap/fair) |
+| SBLK | dry_bulk | $29.34 | $25.20 | 0.859× | 13.3% | 1.231× | 11.2% | 1.022× | cheap → cheap | robust |
+| CMDB | dry_bulk | $31.33 | $17.25 | 0.551× | 8.0% | 0.705× | 6.7% | 0.572× | cheap → fair | flips (cheap/fair) |
+| GNK | dry_bulk | $24.69 | $24.50 | 0.992× | 12.3% | 1.128× | 11.2% | 1.017× | cheap → fair | flips (cheap/fair) |
+| 2343 | dry_bulk | $0.39 | $0.39 | 1.012× | 12.4% | 1.140× | 13.0% | 1.200× | cheap → cheap | robust |
 | TNK | crude | $77.51 | $67.60 | 0.872× | 7.4% | 0.638× | 8.8% | 0.782× | rich → rich | robust |
 | DHT | crude | $13.88 | $17.20 | 1.240× | 9.8% | 0.880× | 9.2% | 0.817× | rich → rich | robust |
 | FRO | crude | $24.22 | $36.80 | 1.519× | 10.5% | 0.951× | 9.6% | 0.860× | rich → rich | robust |
@@ -47,7 +48,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 
 | Sector | Median Just P/NAV (parity) | Median (historical) | n |
 |---|--:|--:|--:|
-| dry_bulk | 1.183× | 0.965× | 4 |
+| dry_bulk | 1.140× | 1.017× | 5 |
 | crude | 0.880× | 0.839× | 5 |
 
 _The two columns ARE the signal: where parity ≫ historical, the sector reads cheaper under replacement economics than under its (boom/firm-window-biased) historical anchor — the §18 under-ordering. The §17.6 anchor-bias caveats apply to the historical column only; parity is independent of those biases (it is built from newbuild cost, not a rate-history window)._
@@ -67,13 +68,13 @@ _The headline vector covers the COMPOSABLE sectors only (crude / product / dry_b
 | 9.8% | 0.89× | 0.88× | 0.87× |
 | 11.8% | 1.07× | 1.08× | 1.09× |
 
-**dry_bulk** (base RONAV_norm 12.8%)
+**dry_bulk** (base RONAV_norm 12.4%)
 
 | RONAV_norm \ g | g=0% | g=1% | g=2% |
 |---|--:|--:|--:|
-| 10.8% | 0.98× | 0.98× | 0.98× |
-| 12.8% | 1.17× | 1.18× | 1.20× |
-| 14.8% | 1.35× | 1.38× | 1.43× |
+| 10.4% | 0.95× | 0.94× | 0.93× |
+| 12.4% | 1.13× | 1.14× | 1.16× |
+| 14.4% | 1.31× | 1.34× | 1.38× |
 
 _**(WHOLE-CO)** = hybrid (INSW / TEN / CMBT) valued whole-company: whole-company normalized EPS ÷ whole-company NAV, with the lead-sleeve `g` (the watchlist sector tag). Value-weighted `g` is the intended v2 refinement._
 
