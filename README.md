@@ -36,13 +36,14 @@ significance needs a pre-2024 backfill
 [outputs/epistemic_soundness_memo_2026-06-22.md](outputs/epistemic_soundness_memo_2026-06-22.md)).
 Use the reads as one disciplined input to a position call, sized accordingly.
 
-## Status (2026-07-10)
+## Status (2026-07-14)
 
-- **24 tickers** across 6 sectors: crude (10, incl. **TEN** the 3-sleeve hybrid,
+- **25 tickers** across 6 sectors: crude (10, incl. **TEN** the 3-sleeve hybrid,
   **CAPT** the first Oslo/NOK listing, **BRUT** the pure-play VLCC newbuild
-  vehicle, and **CMBT** the multi-sleeve), LNG (2), product (4), dry bulk (4,
-  incl. **SB** added 2026-07-01), containerships (2), LPG (2, **LPG** Dorian +
-  **BWLP** BW LPG — the WO3 Phase-4 validators, added 2026-07-10)
+  vehicle, and **CMBT** the multi-sleeve), LNG (2), product (4), dry bulk (5,
+  incl. **2343** Pacific Basin — the first HKEX/HKD listing and the first
+  Handy-Bulk carrier, Stage-3 intake 2026-07-14), containerships (2), LPG (2,
+  the WO3 Phase-4 validators)
 - **460+ tests passing** end-to-end (the ticker count and sector split are
   guarded against `inputs/watchlist.yaml` by `tests/test_docs_stay_lean.py`)
 - **8 output families** regenerated per pipeline run + 5 standalone diagnostics

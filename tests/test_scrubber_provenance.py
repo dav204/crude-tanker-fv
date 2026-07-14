@@ -44,6 +44,9 @@ OPERATING_SCRUBBER_VERIFIED = {
 # copied forward-looking claims — but the guard enforces it rather than assuming it.
 OPERATING_SCRUBBER_QUEUE = {   # SB/ECO left 2026-07-01; TRMD left 2026-07-02 (20-F "85 of our vessels" = all 22 LR2 + all 63 MR)
     "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "STNG", "TEN",
+    # 2343 deliberately NOT queued (2026-07-14): zero scrubber=true flags — the disclosed
+    # 35-Supramax aggregate is an ECO-NB-style conservative omission (all-false), not an
+    # untraced true flag. See provenance.py's registry comment for the resolution path.
 }
 
 

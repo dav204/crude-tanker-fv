@@ -66,7 +66,13 @@ DRIFT_ALERT_PP = 2.0           # Per-quarter gap-pct move that warrants a note.
 # `pnav_basis: approx` field on the watchlist row so the loader carries it
 # through. Keeping the hardcode for Week 0 to avoid a watchlist-schema
 # refactor; promote to a field in Q3.
-APPROX_PNAV_TICKERS = {"NAT", "ASC", "CCEC", "TEN", "CMDB", "MPCC", "GSL", "SB"}
+APPROX_PNAV_TICKERS = {"NAT", "ASC", "CCEC", "TEN", "CMDB", "MPCC", "GSL", "SB", "2343"}
+# 2343 (Pacific Basin) added 2026-07-14 (Stage-3 intake): NO Pareto coverage (the
+# share-price table carries no HK names). Its APPROX basis is the strongest of the
+# class — the ISSUER-COMPOSITE anchor (AR2025 publishes per-class composite broker
+# fleet values; watchlist comment carries the derivation) — but the value vintage is
+# 31-Dec-2025 vs a live price, so SANITY reads self-consistency-plus-vintage, not a
+# Pareto-anchored validator.
 # SB (Safe Bulkers) added 2026-06-27: NO Pareto coverage (verified — 0 mentions in 135
 # 2026 dailies) and no public VIE NAV; consensus_pnav is a P/BV proxy (common book),
 # so SANITY is a self-consistency read, not a Pareto-anchored validator (CMDB convention).

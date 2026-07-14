@@ -92,15 +92,17 @@ def test_handy_bulk_rate_surfaces():
     assert basis["basis_status"]["Handy-Bulk"] == "resale-uniform"
 
 
-def test_handy_bulk_gate_neutral_no_live_name_routes_it():
-    """Wiring must be inert: no committed fleet manifest carries the class today.
-    When 2343/PANL onboard, DELETE this test (its job is done) — the prereg's
-    band checks take over as the class's validation surface."""
+def test_handy_bulk_routed_only_by_2343():
+    """The gate-neutrality test retired at the 2343 onboarding (2026-07-14) per its
+    own docstring; its successor pins the class's ONLY live carrier — a second
+    carrier (PANL) is expected and updates this pin deliberately at ITS onboarding."""
     manifests = Path(INPUTS_DIR / "fleet_manifests").glob("*.yaml")
-    carriers = []
+    carriers = set()
     for m in manifests:
         doc = yaml.safe_load(open(m)) or {}
         for v in doc.get("vessels", []) or []:
             if isinstance(v, dict) and v.get("class") == "Handy-Bulk":
-                carriers.append(m.name)
-    assert not carriers, f"Handy-Bulk routed by live manifests {carriers} — no longer gate-neutral"
+                carriers.add(m.name)
+    assert carriers == {"2343.yaml"}, (
+        f"Handy-Bulk carriers {carriers} != {{2343.yaml}} — a new carrier updates "
+        "this pin deliberately (PANL expected post-Q2)")

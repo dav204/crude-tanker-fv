@@ -1,0 +1,191 @@
+# Pacific Basin Shipping (HKEX: 2343) fleet manifest — METHODOLOGY §4.1, §11.7, §11.7.11
+# Stage-3 intake survivor (governance dry-bulk funnel, stage2_verdicts 2026-07-13).
+# Onboarded 2026-07-14. First HKEX name (hkex_poll.py F-3 adapter; no SEC filings).
+#
+# SNAPSHOT = 31-Dec-2025 (the audited AR2025 balance sheet — HK SEMI-ANNUAL reporter;
+# next balance sheet at the 2026 Interim ~Aug-2026). KNOWN LIMIT: the rest of the book
+# snapshots 2026-03-31; 2343's vintage lags one quarter (CMBT chemical/Windcat precedent).
+#
+# SOURCES: per-vessel list = pacificbasin.com/en/fleet/fleet.php as-at 30-Jun-2026
+# (fetched 2026-07-14; the AR2025 carries NO per-vessel list — Note 28 lists SPC names
+# only). RECONCILIATION to 31-Dec-2025: the 30-Jun owned set (58 HS / 48 SM / 1 Cape,
+# dwt 2,042,971 / 2,833,598 / 115,461) matches the AR2025 fleet-table counts EXACTLY
+# (AR p.6: 58 / 48 / 1; its rounded class dwt 2.2M/3.1M INCLUDES the newbuilds on order:
+# HS 2.043+4x0.0405=2.205 ~ 2.2; SM 2.834+4x0.064=3.090 ~ 3.1); the Q1-26 trading update
+# (16-Apr-2026, on disk) names ZERO owned-fleet movements; the Jan-2026 Ultramax delivery
+# (AR p.30 purchase-option exercise) reads as the LT-CHARTERED Agatti Island per the fleet
+# page. RESIDUAL RISK (documented): offsetting intra-H1-26 add+disposal pairs cannot be
+# excluded from public sources — re-verify the set at the Interim (F-1 re-test window).
+# Subsequent-events note audited FIRST (AR Note 27, p.118): Caravel shareholder agreement
+# 16-Feb-2026 only — NO fleet/balance-sheet events.
+#
+# SCRUBBERS: AR2025 p.26 discloses an AGGREGATE — "Scrubbers fitted to our 35 core
+# Supramax vessels" — but NO per-vessel identification exists anywhere public (fleet page
+# has no scrubber column; sole AR mention). Per the cross-foot rule the flags below are
+# ALL false (conservative; the CAPT blanket-flag bug in reverse is not licensed) and the
+# name sits in OPERATING_SCRUBBER_QUEUE with count 35. NAV understated ~$52.5M
+# (35 x $1.5M Supra-Ultra premium) = ~2.5% of NAV — inside the 10% materiality gate.
+# Resolve via IR query or the Interim's ESG tables.
+#
+# CLASS MAPPING: Handysize (28.2-40.0k) -> "Handy-Bulk" (§11.7.11, dwt-scaled off 38k —
+# the class wired 2026-07-14 for exactly this fleet); Supramax/Ultramax (46.5-64.0k) ->
+# "Supra-Ultra" (dwt-scaled off 62k); the one Capesize is a 115,461 dwt 2011 Jiangnan
+# MINI-CAPE (bareboat-out long-term, rate undisclosed, FY2025 contribution $1.7M — AR
+# p.25) -> "Cape" dwt-scaled 0.64x; KNOWN LIMIT: the Cape curve over-marks baby-capes
+# (per-tonne discount not modeled) and the strip's scenario margin overstates the fixed
+# bareboat contribution — 1 hull, ~1% of fleet NBV, accepted.
+# Ages = 2026.0 − built (the 31-Dec-2025 snapshot). eco = built >= 2015 (§3.1).
+# Gear/features (logs-fitted, open-hatch — the parcelling niche premium) NOT value-flagged:
+# no priced basis; lives in the ~+9-10% TCE outperformance instead (cost_structures note).
+
+ticker: "2343"
+report_date: 2026-Q1     # pipeline quarter; balance-sheet vintage 2025-12-31 (see header)
+vessels:
+  # ============================================================
+  # Handy-Bulk (58 owned, 2,042,971 dwt, avg age ~13.0y) — fleet page 30-Jun-2026
+  # ============================================================
+  - {id: PB_SandyBay,  class: Handy-Bulk, dwt: 40020, age: 6.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_StanleyBay,  class: Handy-Bulk, dwt: 40020, age: 6.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_GullholmenIsland,  class: Handy-Bulk, dwt: 38309, age: 15.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_NeptuneIsland,  class: Handy-Bulk, dwt: 38191, age: 14.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_IpswichBay,  class: Handy-Bulk, dwt: 38190, age: 12.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_IonaIsland,  class: Handy-Bulk, dwt: 38180, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_IrvineBay,  class: Handy-Bulk, dwt: 37920, age: 12.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_PortPirie,  class: Handy-Bulk, dwt: 37918, age: 10.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_IwagiIsland,  class: Handy-Bulk, dwt: 37657, age: 7.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_JamaicaBay,  class: Handy-Bulk, dwt: 37633, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_JamesBay,  class: Handy-Bulk, dwt: 37633, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_JerichoBeach,  class: Handy-Bulk, dwt: 37633, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_JiangmenTrader,  class: Handy-Bulk, dwt: 37633, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_JulesPoint,  class: Handy-Bulk, dwt: 37633, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_JervisBay,  class: Handy-Bulk, dwt: 37629, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_KandaLogger,  class: Handy-Bulk, dwt: 37613, age: 10.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_KeyWest,  class: Handy-Bulk, dwt: 37599, age: 9.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_KodiakIsland,  class: Handy-Bulk, dwt: 37581, age: 9.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_KultusCove,  class: Handy-Bulk, dwt: 37574, age: 10.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_IkuchiIsland,  class: Handy-Bulk, dwt: 37561, age: 8.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_IsabelaIsland,  class: Handy-Bulk, dwt: 37528, age: 9.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_IllovoRiver,  class: Handy-Bulk, dwt: 37516, age: 10.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_IndigoLake,  class: Handy-Bulk, dwt: 37507, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_IncePoint,  class: Handy-Bulk, dwt: 37503, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_IpanemaBeach,  class: Handy-Bulk, dwt: 37503, age: 12.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_IncheonBay,  class: Handy-Bulk, dwt: 37501, age: 9.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_IndianOcean,  class: Handy-Bulk, dwt: 37490, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_ImabariLogger,  class: Handy-Bulk, dwt: 37478, age: 12.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_ImpressionBay,  class: Handy-Bulk, dwt: 37470, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_MountSeymour,  class: Handy-Bulk, dwt: 36833, age: 10.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_MountAso,  class: Handy-Bulk, dwt: 36766, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_SaldanhaBay,  class: Handy-Bulk, dwt: 35947, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_SealIsland,  class: Handy-Bulk, dwt: 35947, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_MatakanaIsland,  class: Handy-Bulk, dwt: 33557, age: 21.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_BellBay,  class: Handy-Bulk, dwt: 33541, age: 20.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_CorioBay,  class: Handy-Bulk, dwt: 33529, age: 20.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_LongviewLogger,  class: Handy-Bulk, dwt: 33527, age: 19.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_LuzonStrait,  class: Handy-Bulk, dwt: 33517, age: 19.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_PugetSound,  class: Handy-Bulk, dwt: 33517, age: 19.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_MountTaranaki,  class: Handy-Bulk, dwt: 33510, age: 17.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_PortAlberni,  class: Handy-Bulk, dwt: 33499, age: 18.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_SantiagoBasin,  class: Handy-Bulk, dwt: 33443, age: 18.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_DiamondHarbour,  class: Handy-Bulk, dwt: 33376, age: 18.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_DarlingRiver,  class: Handy-Bulk, dwt: 33365, age: 17.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_SilverLake,  class: Handy-Bulk, dwt: 33361, age: 18.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_PortPhillip,  class: Handy-Bulk, dwt: 33354, age: 18.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_OlympiaLogger,  class: Handy-Bulk, dwt: 33263, age: 16.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_ShakespeareBay,  class: Handy-Bulk, dwt: 33256, age: 15.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_MaipoRiver,  class: Handy-Bulk, dwt: 33157, age: 17.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_MountHikurangi,  class: Handy-Bulk, dwt: 33030, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_JumeirahBeach,  class: Handy-Bulk, dwt: 32352, age: 12.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_TampaBay,  class: Handy-Bulk, dwt: 29671, age: 19.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_TaihuaStar,  class: Handy-Bulk, dwt: 28456, age: 19.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_PortAngeles,  class: Handy-Bulk, dwt: 28448, age: 19.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_KoombanaBay,  class: Handy-Bulk, dwt: 28381, age: 17.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_MountOwen,  class: Handy-Bulk, dwt: 28333, age: 18.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_EsperanceBay,  class: Handy-Bulk, dwt: 28217, age: 16.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_EasternCape,  class: Handy-Bulk, dwt: 28195, age: 14.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  # ============================================================
+  # Supra-Ultra (48 owned, 2,833,598 dwt, avg age ~13.0y)
+  # ============================================================
+  - {id: PB_OlangoIsland,  class: Supra-Ultra, dwt: 64012, age: 9.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_GoodwynIsland,  class: Supra-Ultra, dwt: 63907, age: 8.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_PearlIsland,  class: Supra-Ultra, dwt: 63878, age: 8.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_TurtleIsland,  class: Supra-Ultra, dwt: 63562, age: 8.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_ChathamIsland,  class: Supra-Ultra, dwt: 61671, age: 14.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_NootkaIsland,  class: Supra-Ultra, dwt: 61593, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_NightingaleIsland,  class: Supra-Ultra, dwt: 61587, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_SkomerIsland,  class: Supra-Ultra, dwt: 61510, age: 16.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_SokoIsland,  class: Supra-Ultra, dwt: 61498, age: 14.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_FortuneIsland,  class: Supra-Ultra, dwt: 61484, age: 16.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_PalmIsland,  class: Supra-Ultra, dwt: 61470, age: 14.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_TexelIsland,  class: Supra-Ultra, dwt: 61453, age: 14.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_BlockIsland,  class: Supra-Ultra, dwt: 61442, age: 14.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_SilhouetteIsland,  class: Supra-Ultra, dwt: 61412, age: 15.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_PittIsland,  class: Supra-Ultra, dwt: 61395, age: 14.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_AlbatrossIsland,  class: Supra-Ultra, dwt: 61322, age: 16.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_ShelterIsland,  class: Supra-Ultra, dwt: 61322, age: 15.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_SharpIsland,  class: Supra-Ultra, dwt: 61193, age: 10.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_ScrubIsland,  class: Supra-Ultra, dwt: 61181, age: 10.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_NobleIsland,  class: Supra-Ultra, dwt: 61115, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_NorthIsland,  class: Supra-Ultra, dwt: 61105, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_MarawahIsland,  class: Supra-Ultra, dwt: 60280, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_PaquetaIsland,  class: Supra-Ultra, dwt: 58632, age: 17.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_DiscoveryBay,  class: Supra-Ultra, dwt: 58112, age: 10.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_BadgerIsland,  class: Supra-Ultra, dwt: 58086, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_BonnyIsland,  class: Supra-Ultra, dwt: 58044, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_ChiloeIsland,  class: Supra-Ultra, dwt: 58044, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_ZhoushanIsland,  class: Supra-Ultra, dwt: 58044, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_DiskoIsland,  class: Supra-Ultra, dwt: 58032, age: 14.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_LibertyIsland,  class: Supra-Ultra, dwt: 58032, age: 14.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_SharkIsland,  class: Supra-Ultra, dwt: 58026, age: 15.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_PenguinIsland,  class: Supra-Ultra, dwt: 58024, age: 15.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_GrandeIsland,  class: Supra-Ultra, dwt: 58018, age: 17.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_GharapuriIsland,  class: Supra-Ultra, dwt: 57978, age: 16.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_BarrowIsland,  class: Supra-Ultra, dwt: 57960, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_CooperIsland,  class: Supra-Ultra, dwt: 57905, age: 12.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_PelicanIsland,  class: Supra-Ultra, dwt: 57905, age: 12.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_BarracudaIsland,  class: Supra-Ultra, dwt: 57631, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_CramondIsland,  class: Supra-Ultra, dwt: 57315, age: 9.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_HoneyIsland,  class: Supra-Ultra, dwt: 57315, age: 10.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_ColumbiaRiver,  class: Supra-Ultra, dwt: 55922, age: 20.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_OakBay,  class: Supra-Ultra, dwt: 55845, age: 13.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_OysterBay,  class: Supra-Ultra, dwt: 55100, age: 10.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_OliveBay,  class: Supra-Ultra, dwt: 55093, age: 11.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_OsakaBay,  class: Supra-Ultra, dwt: 55092, age: 9.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_OtagoBay,  class: Supra-Ultra, dwt: 55092, age: 9.0, scrubber: false, eco: true , charter_status: spot, count: 1}
+  - {id: PB_WhiteBay,  class: Supra-Ultra, dwt: 52423, age: 22.0, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: PB_AstoriaBay,  class: Supra-Ultra, dwt: 46536, age: 21.0, scrubber: false, eco: false, charter_status: spot, count: 1}  # ============================================================
+  # Capesize (1) — 115,461 dwt 2011 Jiangnan mini-cape, bareboat-OUT long-term
+  # (rate/expiry undisclosed; AR p.6 fn.3). time_charter status, no rate (SB_KyprosSky
+  # convention — engine falls back to scenario rates; overstatement noted in header).
+  # ============================================================
+  - {id: PB_EasternGlamour,  class: Cape, dwt: 115461, age: 15.0, scrubber: false, eco: false, charter_status: time_charter, count: 1}
+  # ============================================================
+  # Newbuild orderbook AT 31-Dec-2025 (§9.6 on-curve: age-0 delivered-market PV less
+  # remaining commitment; commitment US$284,926k aggregate in balance_sheets, advances -> 0).
+  # 4 x 40,000 dwt Handysize (agreed Dec-2025, US$119.2M aggregate = $29.8M/hull, delivery
+  # 1H2028 — AR pp.2/17/36) + 4 x 64,000 dwt DUAL-FUEL Ultramax LEVs (Nihon Shipyard; AR
+  # p.56; delivery years ABSENT from the AR — schedule below = the fleet page's 2H2028/1H2029
+  # windows, disclosed post-conversion; PV-discount input only). SUBSEQUENT (16-Apr-2026,
+  # NOT in this snapshot): Ultramax order converted 4 dual-fuel -> 4 conventional (+2 DF
+  # options); JNS Handysize 4 -> 6. Enters at the Interim refresh with the new commitments
+  # figure — governance F-1 orderbook re-test (14.5% was at the bar).
+  # years_to_delivery from the 2025-12-31 snapshot date. eco: true (§3.1); scrubber: false.
+  # ============================================================
+  - {id: PB_NB_HS_1H2028,   class: Handy-Bulk,  dwt: 40000, age: 0, scrubber: false, eco: true, count: 4, years_to_delivery: 2.25}
+  - {id: PB_NB_SM_2H2028,   class: Supra-Ultra, dwt: 64000, age: 0, scrubber: false, eco: true, count: 2, years_to_delivery: 2.75}
+  - {id: PB_NB_SM_1H2029,   class: Supra-Ultra, dwt: 64000, age: 0, scrubber: false, eco: true, count: 2, years_to_delivery: 3.25}
+
+# Share of fleet on spot, by class (feeds the strip, not NAV). Basis: FY2026 cover as at
+# early-Feb-2026 — 41% Handysize / 56% Supramax days covered at $11,370 / $14,050 (AR p.19;
+# chart p.26; Handysize cover "backhaul heavy"). Cape 0.0 (bareboat-out, fully fixed).
+spot_coverage_pct:
+  Handy-Bulk: 0.59
+  Supra-Ultra: 0.44
+  Cape: 0.0
+fleet_summary:
+  total_vessels: 107          # owned on-water at 31-Dec-2025 (AR p.6: 58+48+1)
+  newbuilds_committed: 8      # 4 HS + 4 SM on the curve at age-0 delivered PV (§9.6); Dec-31 orderbook (AR p.6 fn.5)
+  Handy-Bulk_count: 58
+  Supra-Ultra_count: 48
+  Cape_count: 1
+  held_for_sale: 0            # no AHS line at 31-Dec-2025 (AR balance sheet)
+  chartered_in: 147           # excluded: 13 long-term (9 HS + 4 SM; 12 with purchase options) + ~134 short-term (30-Jun-26 page counts; P&L-only per the CMDB/CBI convention)

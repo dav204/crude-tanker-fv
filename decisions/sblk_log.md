@@ -9,6 +9,43 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-14T15:34:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $26.54
+- Single-point FV: $28.50
+- Scenario PW FV: $27.69 (EV +4.3%)
+- NAV / share: $29.34
+- Position: **HOLD (fairly valued)**
+- Broker spread: +15.0pp (k_broker 1.13)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-14T15:30:31+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $26.54
+- Single-point FV: $28.50
+- Scenario PW FV: $27.69 (EV +4.3%)
+- NAV / share: $29.34
+- Position: **HOLD (fairly valued)**
+- Broker spread: +15.0pp (k_broker 1.13)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: +0.19 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +0.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-13T15:44:45+00:00 — Pipeline run (auto)
 
 **Model state:**
@@ -1980,3 +2017,11 @@ in a new session with the §9.9 transaction-anchored layer build per the
 **Decision:** _[pending — fill in the four input YAMLs + watchlist row, then
 run `python -m crude_tanker_fv.pipeline {QUARTER}`. After the first run, the
 pipeline prepends a structured model-state entry above this line.]_
+
+## 2026-07-14 — price-vintage band flip (eyeballed individually at the 2343 onboarding run)
+
+**Decision:** SBLK BUY→HOLD is a PRICE-ONLY boundary crossing — FV/PW-FV/NAV byte-unchanged
+(delta report 2026-07-14); price +$0.19 to $26.54 on the 7/14 tape put EV +4.3% (was +5.7%),
+just under the BUY band. Shallow crossing on a rising dry tape, NOT a thesis event; SBLK
+stays weight-sign-stable-positive per WO4. Explain-not-accept: absorbed at the owner's
+baseline ratify (2343 onboarding cause). Recross watch armed (the GSL/STNG rule).

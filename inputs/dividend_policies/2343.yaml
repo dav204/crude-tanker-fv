@@ -1,0 +1,19 @@
+# Pacific Basin Shipping (2343) dividend policy — METHODOLOGY §4.3.
+# Source: AR2025 pp.13/16/84 + Note 9 p.101. Onboarded 2026-07-14.
+#
+# Policy AMENDED from 2026 (p.13/p.84): pay out 50% of annual net profit EXCLUDING
+# vessel disposal gains, INCREASING UP TO 100% (excl. disposal gains) when the company
+# is in a NET CASH position at year end; Board may supplement with specials and/or
+# buybacks. PB was net cash US$134M at 31-Dec-2025 (4 of the last 5 year-ends) → the
+# 100% arm governs while net cash holds. FY2025 actual: HK1.6¢ interim + HK6.0¢ final
+# = HK7.6¢ / US$50.5M = 100% of net profit excl. disposal gains (stated, p.13/16);
+# total FY2025 distributions incl. the US$40M buyback = US$90.5M ≈ 179%. A third
+# consecutive US$40M buyback programme is approved for 2026 (p.16) — buybacks NOT
+# modeled in the strip (conservative).
+ticker: "2343"
+policy_type: variable
+payout_ratio: 1.00             # the net-cash arm (100% of net profit excl. disposal gains);
+                               # falls to 0.50 if the balance sheet flips to net debt —
+                               # re-read at each Interim/Annual (semi-annual cadence)
+base_dividend_per_share: 0     # no fixed base; interim + final, HK cents, board-set
+floor: 0

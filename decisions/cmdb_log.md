@@ -9,6 +9,43 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-14T15:34:47+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $19.56
+- Single-point FV: $20.52
+- Scenario PW FV: $20.10 (EV +2.8%)
+- NAV / share: $31.33
+- Position: **HOLD (fairly valued)**
+- Broker spread: +0.7pp (k_broker 1.01)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-14T15:30:31+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $19.56
+- Single-point FV: $20.52
+- Scenario PW FV: $20.10 (EV +2.8%)
+- NAV / share: $31.33
+- Position: **HOLD (fairly valued)**
+- Broker spread: +0.7pp (k_broker 1.01)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: +0.49 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.5pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-13T15:44:45+00:00 — Pipeline run (auto)
 
 **Model state:**
@@ -1638,3 +1675,12 @@ for drift.
 validator; Week 2 dry-bulk onboarding sequence complete. Position signal
 BUY (+64.2%) explicitly NOT endorsed pending the §15 sizing decision —
 the same NAV-vs-realisation question that produced TEN's 30% haircut._
+
+## 2026-07-14 — price-vintage band flip (eyeballed individually at the 2343 onboarding run)
+
+**Decision:** CMDB BUY→HOLD is a PRICE-ONLY boundary crossing — FV/PW-FV/NAV byte-unchanged
+(delta report 2026-07-14: "no change" all three columns); price +$0.49 to $19.56 on the
+7/14 tape put EV +2.8%, under the BUY band. Shallow crossing, NOT a thesis event
+(the read-flips sub-reason already documents CMDB's band sensitivity). Explain-not-accept:
+absorbed only at the owner's baseline ratify (2343 onboarding cause). Recross watch armed —
+a later-vintage recross is a NEW eyeball per the 2026-07-10 rule.

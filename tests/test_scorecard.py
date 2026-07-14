@@ -52,15 +52,19 @@ def rows():
 
 
 def test_scorecard_covers_whole_book(rows):
-    assert len(rows) == 24  # 22 + the WO3 Phase-4 LPG validators (LPG, BWLP; 2026-07-10)
+    assert len(rows) == 25  # 22 + LPG validators (2026-07-10) + 2343 (Stage-3 intake, 2026-07-14)
     assert {r.ticker for r in rows} >= {"DHT", "SB", "BRUT", "TEN", "FLNG", "MPCC", "LPG", "BWLP"}
 
 
 def test_eleven_resale_uniform_comparable_set(rows):
     uniform = {r.ticker for r in rows if r.nav_basis == "resale-uniform"}
-    # the 11 fully-corrected names (Thread 1 + Amendment B)
+    # the 11 fully-corrected names (Thread 1 + Amendment B) + 2343 (2026-07-14:
+    # every class age-0 on the xclusiv Resale basis incl. Handy-Bulk via
+    # alias:Handysize; NOTE the basis rollup is age-0 only — 2343's tier is
+    # nonetheless capped GOVERNED-WIDE·pending-anchor by UNANCHORED_VALUE_CLASS_CAP,
+    # the §11.7.11 un-anchored mid-age cap)
     assert uniform == {"DHT", "ECO", "FRO", "NAT", "TNK", "BRUT", "CAPT",
-                       "CMDB", "GNK", "SB", "SBLK"}
+                       "CMDB", "GNK", "SB", "SBLK", "2343"}
 
 
 def test_both_185_gates_pending_book_wide(rows):

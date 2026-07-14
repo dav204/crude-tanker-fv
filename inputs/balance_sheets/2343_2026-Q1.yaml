@@ -1,0 +1,67 @@
+# Pacific Basin Shipping (2343) balance sheet snapshot — METHODOLOGY §4.2. USD.
+# Source: AR2025 audited consolidated balance sheet, 31-Dec-2025 column (printed p.90;
+# PwC unqualified opinion 3-Mar-2026, no going-concern language, pp.123-126). HK
+# SEMI-ANNUAL reporter — this is the NEWEST balance sheet; next at the 2026 Interim
+# (~Aug-2026). VINTAGE LIMIT (documented, manifest header): one quarter older than the
+# book's 3/31 snapshots. Subsequent-events note audited FIRST (Note 27 p.118: Caravel
+# shareholder agreement 16-Feb-2026 only — no balance-sheet events). KNOWN post-snapshot
+# cash outflows NOT accrued here (12/31 IFRS basis): FY25 final dividend US$39.8M paid
+# 12-May-2026 (Note 9 p.101; proposed at 12/31 = still in equity) + 2026 buyback
+# programme up to US$40M (p.16; ~1.5M shares cancelled YTD per the MR-Jun26 count).
+# Onboarded 2026-07-14 (Stage-3 intake).
+
+ticker: "2343"
+quarter: 2026-Q1
+
+# "Cash and deposits" line (p.90; Note 17 p.111): cash at bank/hand 95,438 + term
+# deposits <=3mo 153,917 + term deposits >3mo 21,204. No restricted cash at 12/31.
+# FX: US$264.9M USD-denominated. PB is NET CASH (cash 270.6 vs borrowings 136.5).
+cash_and_equivalents: 270559000
+
+# Operating WC (all p.90 + notes pp.110/114/106, US$'000):
+#   + trade & other receivables current 148,103 (trade 93,998 / other 27,471 / prepay 26,634)
+#   + non-current receivables 3,206 (vessel prepayments)
+#   + inventories 96,527 (bunkers 80,827 + lube/other 15,700 — voyage consumables, NAV-economic)
+#   + derivative assets 1,550
+#   − trade payables & other liabilities 216,716 (trade 82,182 / accruals+other 82,700 /
+#     receipts in advance 51,834, of which US$51.1M cargo contracts)
+#   − derivative liabilities 6,308 (bunker swaps 5,863 the bulk)
+#   = +26,362. GOODWILL 25,256 EXCLUDED (not NAV-economic). No assets-held-for-sale line.
+working_capital_net: 26362000
+
+# Borrowings (Note 19 p.113): 100% secured bank loans — current 66,583 + non-current
+# 69,938. Convertible bonds NIL (US$27.8M principal converted at HK$1.35, remainder
+# redeemed/cancelled 14-Aug-2025 — pp.31/76/112). Avg effective rate 5.8% hedged;
+# 59% fixed. Undrawn committed facilities US$485.5M (available committed liquidity
+# US$756.1M, p.30) — not on the balance sheet, noted for survivability context.
+total_debt: 136521000
+
+# Chartered-in IFRS-16 lease liabilities (p.90: current 28,937 + non-current 64,963).
+# The matching RoU assets (91,028) are NOT added to NAV — chartered-in hulls aren't
+# owned and aren't in the manifest (CMDB/SBLK charter-in convention, verbatim).
+lease_liabilities: 93900000
+
+# Newbuild book (§9.6 on-curve): 8 hulls (4 HS + 4 dual-fuel Ultramax) valued on the
+# curve at age-0 delivered PV (manifest NB rows); the REMAINING commitment is Note 23(a)
+# p.116 — "contracts for newbuildings and vessel acquisition US$284,926k", a single
+# unsplit line (per-order split ABSENT; aggregate is all §9.6 needs). Advances -> 0
+# (the US$39,600k vessels-under-construction balance, Note 11 p.102, is sunk into the
+# on-curve delivered value — SB/BRUT/CAPT convention).
+newbuild_capex_commitments: 284926000
+newbuild_advances_paid: 0
+
+# Denominator: MR-Jun26 issued count (HKEXnews Monthly Return, 30-Jun-2026 — the
+# fresher surface; hkex_poll watches it monthly). AR 12/31 count was 5,166,725,803;
+# delta −1,478,000 = 2026-programme buyback cancellations YTD. No treasury shares
+# (p.76); SAS trustee holds 3,938,000 lapsed-award shares (Note 18 p.111).
+diluted_shares_outstanding: 5165247803
+
+preferred_equity: 0
+
+# §15 governance screen (run at onboarding, packet Gate C the evidence base): NO
+# haircut — the funnel cycle's CLEANEST wrapper (nil connected transactions x5 ARs,
+# float 66.5%, single class, internally managed, 7/11 INEDs incl. the Chairman,
+# buybacks 3 consecutive years, 5-yr share CAGR +1.53%). governance_discount_pct: 0.
+# TRIPWIRES: Caravel/Banga 18.12% bloc NEW in 2025 + 2 NED seats via the 16-Feb-2026
+# shareholder agreement (Note 27) — accumulation toward 35% re-opens Gate C.1
+# (governance F-2-style watch; monitor SFO filings / Monthly Returns via hkex_poll).

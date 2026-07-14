@@ -5,6 +5,23 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-14 (later) — 2343 (Pacific Basin) ONBOARDED — 25th name, first HKEX listing, first
+  Handy-Bulk carrier (Stage-3 intake, owner-scheduled "before q2").** Four-YAML sourcing off the
+  AR2025 audited 31-Dec-2025 snapshot (subsequent-events note FIRST — Note 27: Caravel agreement
+  only) + the fleet page's per-vessel list RECONCILED to the AR class table exactly (58/48/1;
+  zero 2026 owned-fleet movements; the AR's rounded class dwt includes NBs — resolved, manifest
+  header). PRE-REGISTERED bands all passed first-run (2343_log): NAV $0.39 (band 0.36-0.44),
+  SANITY −2.0% vs the ISSUER-COMPOSITE APPROX anchor (AR-published per-class broker values —
+  the strongest APPROX basis in the book), k_broker 1.03, HOLD. Tier GOVERNED-WIDE·pending-anchor
+  via the NEW `UNANCHORED_VALUE_CLASS_CAP` (a resale-uniform age-0 rollup must not over-grade an
+  un-anchored mid-age class to TIGHT — registry empties at the class re-fit). Scrubber: AR
+  aggregate "35 core Supramax" with no public per-vessel identification → all flags FALSE, a
+  documented conservative omission (~2.5% NAV; deliberately NOT the untraced-true queue —
+  XPASS-strict taught the distinction). Onboarding was provably inert on the book: every
+  existing name's FV/NAV printed "no change"; the CMDB/SBLK BUY→HOLD flips were 7/14 tape
+  boundary-crossings, eyeballed individually. Baseline ratify (2343 new + 10 EV%-only price
+  rows) STAGED for the owner — Phase-4 designed-reds pattern. PANL deferred (owner; B3 email
+  first, possibly post-Q2-block).
 - **2026-07-14 — STAGE-3 INTAKE PREP + Handy-Bulk class (§11.7.11, Option B, owner-ratified).**
   Two blocks, same day. (1) **HKEX light-adapter DELIVERED (governance F-3 → met):** `hkex_poll.py`
   mirrors edgar_poll's invariants against the HKEXnews JSON index (stockId 7703 pinned; arrivals →

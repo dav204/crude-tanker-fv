@@ -54,6 +54,20 @@ OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "SB": 20, "ECO": 16, "TRMD": 85,   # n
 OPERATING_SCRUBBER_QUEUE = {   # SB/ECO left 2026-07-01; TRMD left 2026-07-02 (FY2025 20-F "installed scrubbers on 85 of our vessels" = all 22 LR2 + all 63 MR)
     "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "STNG", "TEN",
 }
+# 2343 is deliberately NOT queued (2026-07-14): the queue tracks UNTRACED scrubber=TRUE flags;
+# 2343 carries NONE — its AR2025 p.26 aggregate ("scrubbers fitted to our 35 core Supramax
+# vessels") has no public per-vessel identification, so all flags are FALSE (the ECO-NB
+# conservative-omission pattern, NOT the CAPT blanket-flag pattern). NAV understated ~$52.5M
+# ≈ 2.5% (< the 10% gate). On per-vessel identification (IR query / Interim ESG tables):
+# flip the 35 flags true and register VERIFIED{"2343": 35}.
+
+# --- Un-anchored value-class cap (§11.7.11 Option B, 2026-07-14) --------------------------------
+# Names with a MATERIAL sleeve marking on a class that has NO §9.9 transaction fit (broker-static
+# curve). Their age-0 basis can be resale-uniform while the mid-age level is un-anchored, so the
+# basis rollup alone would over-grade the tier to VALIDATED-TIGHT. confidence_tier caps these at
+# GOVERNED-WIDE (sub-reason pending-anchor). An entry is REMOVED when its class's re-fit trigger
+# fires and the §9.9 fit lands (2343: handy_bulk_txn_refit — Handy-Bulk is 51% of its hulls).
+UNANCHORED_VALUE_CLASS_CAP = {"2343"}
 
 # --- NAV-equation figure provenance (test_manifest_provenance) ----------------------------------
 # Names with an uncited estimate on a NAV-equation figure (lowercase, as the scan emits).
@@ -145,6 +159,8 @@ MARK_WIDE_NODES = {
 #                  filing (HAFN, pool operator); resolves when a filing discloses the pool net
 #   void / uncited-figure / off-curve : the PROVISIONAL reasons (contradicted / uncited estimate / off the §9.6 curve)
 TIER_SUBREASON = {
+    "2343": "pending-anchor",   # Handy-Bulk sleeve (51% of hulls) un-anchored (§11.7.11);
+                                # resolves at the handy_bulk_txn_refit §9.9 fit
     "GSL": "structural-class", "CCEC": "structural-class", "FLNG": "structural-class",
     "CMBT": "structural-class", "MPCC": "structural-class", "ASC": "structural-class",
     "CAPT": "newbuild-heavy",
@@ -216,6 +232,12 @@ def confidence_tier(
     # sourced figures (the uncited number is OUT of the equation), so it is not PROVISIONAL; but the
     # parked newbuild is a known indeterminate, so it is a directional anchor, never TIGHT.
     if t in NEWBUILD_PRICE_PENDING:
+        return "GOVERNED-WIDE"
+
+    # 1c. Un-anchored value-class cap (§11.7.11) — a material sleeve on a class with no §9.9
+    # fit can carry a resale-uniform age-0 while its mid-age level is un-anchored; the rollup
+    # alone would over-grade to TIGHT. Capped until the class's re-fit lands (registry above).
+    if t in UNANCHORED_VALUE_CLASS_CAP:
         return "GOVERNED-WIDE"
 
     # 2. VALIDATED-TIGHT — traced + strong (two-basis robust) internal corroboration + immaterial gap.

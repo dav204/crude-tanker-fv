@@ -342,3 +342,33 @@ BWLP:
                                # after 3 runs of FETCH-FAILED on BWLP.OL 404s)...
   quote_currency: NOK          # ...and price_refresh converts via NOK=X to USD.
   as_of: 2026-07-03
+
+# Pacific Basin Shipping (HKEX: 2343) — 5th dry-bulk name; Stage-3 intake survivor
+# (governance dry-bulk funnel). Onboarded 2026-07-14. FIRST HKEX name (hkex_poll F-3
+# adapter; semi-annual reporter — balance-sheet vintage 31-Dec-2025, manifest header).
+"2343":
+  current_price: 0.390         # Yahoo 2343.HK close 2026-07-14 HK$3.06 x 0.12759
+                               # (HKDUSD=X same day). HKD-quoted; USD carried
+                               # (CAPT/MPCC/BRUT convention). Mkt cap ~US$2.02B.
+  analyst_target: 0.443        # stockanalysis.com avg target HK$3.47 (7 analysts,
+                               # updated 2026-06-12, consensus Buy; range 3.25-3.80)
+                               # x 0.12759. Aggregator-consensus, not Pareto.
+  consensus_pnav: 0.98         # APPROX — NO Pareto coverage (share-price table carries
+                               # no HK names; archive CSV 0 rows). Basis: ISSUER-COMPOSITE
+                               # NAV — the AR2025 publishes per-class composite broker
+                               # fleet values (US$1,958.3M, 31-Dec-2025, p.6) ->
+                               # NAV = 1,958.3 fleet + 39.6 VUC + 270.6 cash + 26.4 WC
+                               # − 136.5 debt − 93.9 leases = US$2,064.5M / 5,165.2M sh
+                               # = $0.400/sh (~HK$3.13); pnav = 0.390/0.400. STRONGER
+                               # anchor class than the CMDB/SB P/BV proxies (broker-
+                               # composite, issuer-published) but VALUE VINTAGE Dec-2025
+                               # vs a Jul-2026 price — dry values +10-14% YTD (xclusiv/
+                               # Pareto), so the true current pnav runs LOWER (~0.87-0.9).
+                               # Re-derive at the 2026 Interim. /reconcile downweights.
+  consensus_fwd_pe: 13.0       # APPROX — price $0.390 / FY2026 consensus EPS US$0.03
+                               # (stockanalysis, S&P Global-sourced, 7 analysts, 2-dp
+                               # precision only; accessed 2026-07-14).
+  sector: dry_bulk
+  yahoo_symbol: 2343.HK        # HKEX line; daily feed converts via HKD=X
+  quote_currency: HKD
+  as_of: 2026-07-14

@@ -109,3 +109,16 @@ TRMD:
     6-K's only scrubber statement is the existing-fleet program (the FY2025 20-F "85 vessels" — the
     operating fleet); there is NO scrubber statement about these two resales, so per the value-flag rule
     the premium is not claimed (the SB peer-default trap). Verified 2026-07-02.
+
+"2343":
+  eco: true
+  scrubber: false
+  scrubber_verified: true
+  source: >
+    AR2025 (audited, 3-Mar-2026). eco: all 8 NBs deliver 2028-2029 (post-2014 => §3.1 rule);
+    affirmatively corroborated — the 4 Handysize are "latest fuel-efficient" open-hatch
+    logs-fitted design (p.17) and the 4 Ultramax are "dual-fuel... LEVs of the newest and
+    most fuel-efficient design" (p.56). scrubber=FALSE: the AR's ONLY scrubber statement is
+    existing-fleet-scoped ("scrubbers fitted to our 35 core Supramax vessels", p.26 — the SB
+    trap); no NB scrubber disclosure exists, so the premium is not claimed. Registered at
+    onboarding 2026-07-14.

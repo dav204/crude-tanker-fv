@@ -1,0 +1,30 @@
+# Pacific Basin Shipping (2343) cost structure — METHODOLOGY §4.4. USD.
+# Source: AR2025 vessel-costs chart (printed p.28, FY2025 daily figures) + Note 5(b)
+# p.97 + Note 7/8 pp.99-100. Onboarded 2026-07-14.
+
+ticker: "2343"
+
+opex_per_day:                 # owned-fleet daily opex by class (AR p.28, 2025)
+  Handy-Bulk: 4720            # Handysize owned opex (2024: 4,600)
+  Supra-Ultra: 4850           # Supramax owned opex (2024: 4,940)
+  Cape: 0                     # bareboat-OUT — charterer bears opex/crewing (AR p.6 fn.3).
+                              # The strip's scenario-rate margin on this hull overstates
+                              # the fixed US$1.7M/yr bareboat contribution (AR p.25) —
+                              # 1 hull, accepted (manifest header).
+
+# Annual G&A — the ADJUSTED total G&A overheads US$82.0M / US$870 per ship-day across
+# the ~250-ship OPERATED fleet (AR p.28; statutory split: 74,101 direct-in-COS + 6,982
+# indirect = 81,083, Note 5(b) p.97). CONSERVATIVE KNOWN LIMIT: the full operated-book
+# overhead is charged against the OWNED fleet's strip while the offsetting chartered-in/
+# operating margin (US$340/day over 6,240 operating days in 1Q26 alone, TU p.6) is NOT
+# modeled — the CMDB/CBI P&L-only convention.
+annual_G_and_A: 82000000
+
+# Net finance: Note 7 p.99 — finance costs 21,536 − finance income 11,108 = net 10,428.
+# PB is net cash; deposit income offsets roughly half the gross finance charge.
+annual_interest_expense: 10400000
+
+# Tax: international shipping income "either not subject to or exempt from income tax"
+# (Note 8 p.100); FY2025 charge 653k on PBT 58,825k ≈ 1.1%; Pillar Two exposure
+# insignificant (shipping income excluded).
+effective_tax_rate: 0.01

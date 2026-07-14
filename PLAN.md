@@ -149,13 +149,28 @@ still owner-scheduled (competes with the Q2-refresh block).** What landed:
   share-price table carries NEITHER name → both consensus pairs will be APPROX per §11.7.2
   (CMDB/SB precedent; re-verify on the newest daily at pair capture); PANL B3 IR-query DRAFT
   staged governance-side (`funnels/drybulk_2026H2/panl_b3_ir_query_draft.md` — owner sends).
-- **Still open before /add-ticker can run (Handy ruling now CLEARED — labor is the only gate):**
-  per-name four-YAML sourcing (subsequent-events-note-first; PANL: SSI-merger vessel cohort +
-  Note-9 SLB structures + NBHC 2/3 VIE; 2343: 107-hull manifest off the fleet page + AR2025
-  [now on disk: `inputs/research_issuer/2026-03_2343_annual_report_2025.pdf`], semi-annual
-  balance-sheet vintage discipline), §15 screens (PANL SSI 29% bloc + F-2 wrapper watch; 2343
-  Caravel 18.12%), and PANL E2 breakeven completion on this repo's basis at reconciliation.
-  Handy-heavy sleeves cap at GOVERNED-WIDE·pending-anchor until the txn re-fit (§11.7.11).
+- **2343 ONBOARDED 2026-07-14 (owner: "onboard 2343 before q2") — PROVISIONAL-at-birth read:
+  GOVERNED-WIDE·pending-anchor · HOLD (EV −3.2% live) · SANITY −2.0% (n/a-APPROX,
+  issuer-composite basis) · k_broker 1.03 · handoff-ready.** All four PRE-REGISTERED bands
+  passed (decisions/2343_log.md — NAV/sh $0.39 vs band 0.36-0.44; no re-tuning). 25th name,
+  first HKEX/HKD listing (yahoo_symbol 2343.HK enters the daily feed tonight; STATIC-FALLBACK
+  flagged until then), first Handy-Bulk carrier (58 hulls = 51%; UNANCHORED_VALUE_CLASS_CAP
+  holds the tier until handy_bulk_txn_refit). Snapshot = 31-Dec-2025 audited (semi-annual
+  reporter — known one-quarter vintage lag vs the book, manifest header; next BS at the ~Aug
+  Interim = the F-1 orderbook re-test + post-April NB conversion ingest). Carried-at-birth
+  limits: 35-Supramax scrubber aggregate as documented conservative omission (~2.5% NAV,
+  ECO-NB pattern, not queued); chartered-in book (13 LT + ~134 ST) excluded with full $82M
+  operated-book G&A charged (CMDB/CBI convention); bareboat mini-cape rate unmodeled.
+  **PENDING OWNER: baseline ratify** (cause: 2343 onboarding + the 7/14 price vintage — 2343
+  `new` + 10 EV%-only rows all ΔNAV +0.0%, incl. two shallow price-band flips eyeballed
+  individually: CMDB BUY→HOLD +$0.49 / SBLK BUY→HOLD +$0.19, cmdb_log/sblk_log 2026-07-14).
+  The two drift-gate reds at HEAD are the Phase-4-style designed reds; they clear at ratify.
+- **PANL: onboarding DEFERRED (owner 2026-07-14) — potentially after the Q2-refresh block.**
+  Owner sends the B3 IR query (draft staged governance-side). When scheduled: four-YAML
+  sourcing (subsequent-events-note-first; SSI-merger vessel cohort + Note-9 SLB structures +
+  NBHC 2/3 VIE), §15 screen (SSI 29% bloc + F-2 wrapper watch), E2 breakeven completion at
+  reconciliation, Handy sleeve (23.5% dwt) on the §11.7.11 curve, update the
+  test_handy_bulk_routed_only_by_2343 pin deliberately.
   Timing note: 2343's Interim (~Aug) publishes the post-April commitments figure (governance F-1
   orderbook re-test) — onboarding off the AR2025 snapshot before it is legitimate (AS-OF
   discipline) but the F-1 re-test lands mid-reconciliation either way.
