@@ -192,3 +192,26 @@ names:
       SEEDED 2026-07-10 at the WO3 Phase-4 onboarding"
     disclosure_type: 6-K (quarterly interim report)
     venue: Oslo (primary) + NYSE
+  # ---- Stage-3 intake seeds (2026-07-14) — NOT yet watchlist names. The
+  # calendar checker only iterates the watchlist, so these rows are inert for
+  # the sentinel; they exist to put the pollers (edgar_poll / hkex_poll) on
+  # in-window hourly cadence when the windows open. Vet dates at onboarding.
+  PANL:
+    window_start: 2026-08-04
+    window_end: 2026-08-14
+    status: expected
+    basis: "Q2-2026 10-Q: cadence-derived ONLY (Q1-26 10-Q filed 2026-05-11, FY25 10-K
+      2026-03-16; prior-year Q2 filings land early-mid Aug). UNVETTED estimate at Stage-3
+      prep — confirm via the sets-date PR before relying on it"
+    disclosure_type: 10-Q (US domestic filer)
+    venue: Nasdaq
+  "2343":
+    window_start: 2026-07-27
+    window_end: 2026-08-14
+    status: expected
+    basis: "2026 Interim Results (HK semi-annual): historically late-Jul/early-Aug; the
+      Stage-2 packet pins the Interim Report ~Aug-2026 (carries the post-April newbuild
+      commitments figure — governance F-1 re-test). UNVETTED estimate at Stage-3 prep;
+      HKEX names announce the board-meeting date ~2wk ahead via an announcement"
+    disclosure_type: HKEX Interim Results announcement + Interim Report (hkex_poll)
+    venue: HKEX

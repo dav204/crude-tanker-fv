@@ -52,6 +52,11 @@ VERIFIED_CIKS = {
     # both — the FLNG/CCEC/INSW wrong-CIK class ruled out) and re-confirmed
     # 2026-07-10 by pulling both submissions JSONs at onboarding.
     "LPG": "0001596993", "BWLP": "0001649313",
+    # Stage-3 intake prep (2026-07-14): PANL verified against SEC
+    # company_tickers.json same day (1606909 -> "Pangaea Logistics Solutions
+    # Ltd.", exact match). Entry added at Stage-3 PREP so the poller watches
+    # filings pre-onboarding; 2343 is HKEX (sec_edgar: null, hkex_poll.py).
+    "PANL": "0001606909",
 }
 
 

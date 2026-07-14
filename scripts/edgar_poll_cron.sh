@@ -28,5 +28,8 @@ fi
 
 echo "=== [edgar-poll] $(date '+%Y-%m-%d %H:%M:%S')"
 ./.venv/bin/python -m crude_tanker_fv.edgar_poll
+# HKEX light adapter (F-3, 2026-07-14) rides the same hourly row — its own
+# 12h off-season cadence + politeness live in the module; same PAUSE gate.
+./.venv/bin/python -m crude_tanker_fv.hkex_poll
 CRON_OUTCOME=ok
 echo "=== [edgar-poll] done"

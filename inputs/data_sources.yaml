@@ -389,3 +389,49 @@ BWLP:
     (Sohmen) 31.99% bloc — screen run, N/A-gated at ~1.0x P/NAV, tripwires not haircut.
     Watch: 8x90cbm Panamax-VLGC NB (~$940M, signed 2026-05-30) enters §9.6 at the Q2 refresh;
     R-2 kill-switch (VLGC orderbook >38%) sensitivity."
+
+# Stage-3 intake — governance dry-bulk funnel survivors (handed off 2026-07-13,
+# stage2_verdicts). Entries added 2026-07-14 as onboarding PREP: the pollers
+# start watching filings now (quiet bootstrap); full /add-ticker onboarding
+# (four-YAML sourcing + watchlist row) is a separate owner-scheduled block.
+"2343":
+  ir_home: https://www.pacificbasin.com/en/ir/
+  press_releases: https://www.pacificbasin.com/en/ir/news.php
+  sec_edgar: null   # HKEX sole listing — no SEC filings; polled via hkex_poll.py (F-3 light adapter)
+  hkex_stockid: 7703   # VERIFIED 2026-07-09 (venue annex: prefix.do?name=2343 -> stockId 7703 "PACIFIC BASIN"); pinned in tests/test_hkex_poll.py
+  hkex_filings: https://www1.hkexnews.hk/search/titleSearchServlet.do?stockId=7703   # JSON index; PDFs under www1.hkexnews.hk/listedco/...
+  fleet_page: https://www.pacificbasin.com/en/fleet/fleet.php
+  reporting_pattern: "HKEX SEMI-ANNUAL reporter — Annual Results early Mar (AR published
+    mid-Mar; AR2025 press release 2026-03-03), Interim Results late Jul/early Aug (2026
+    Interim ~Aug-2026 carries the post-April newbuild commitments figure — the F-1
+    orderbook re-test). Quarterly trading updates (Apr/Oct) are webcast scripts on the IR
+    site, not HKEX filings. Monthly Returns file ~last business day (share count source)."
+  notes: "Pacific Basin Shipping — Stage-3 survivor, NOT yet onboarded. Bermuda-inc,
+    HKEX 2343 (listed 2004), Handysize/Supramax pure-play: 107 owned (58 Handy 2.2M dwt +
+    48 Supra/Ultra 3.1M dwt + 1 Cape bareboat-out) at 31-Dec-2025, avg age 13y, NET CASH
+    US$134M, float 66.5%, largest holder Caravel/Banga 18.12% (new 2025 — watch item).
+    Broker-composite fleet value US$1,958.3M (AR2025 p.7). Gate-D PASS was CONDITIONAL on
+    the HKEX light-adapter (F-3) — delivered with hkex_poll.py. ONBOARDING BLOCKERS:
+    §9.9 Handy-curve decision (40.7% of dwt is Handysize — no shipped Handy fit); no
+    Pareto P/NAV expected (7 analysts on aggregators — likely APPROX pair per §11.7.2
+    CMDB precedent). Consensus-anchor counts verified 2026-07-08 (venue annex)."
+
+PANL:
+  ir_home: https://www.pangaeals.com/investor-relations/
+  press_releases: https://www.pangaeals.com/press-releases/
+  sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001606909&type=10-K  # CIK VERIFIED 2026-07-14 against SEC company_tickers.json (1606909 -> "Pangaea Logistics Solutions Ltd.", exact match — FLNG/CCEC/INSW wrong-CIK class ruled out)
+  fleet_page: https://www.pangaeals.com/fleet/
+  reporting_pattern: "Nasdaq US DOMESTIC filer (Bermuda inc., Newport RI HQ) — 10-K/10-Q/8-K,
+    calendar FY. FY2025 10-K filed 2026-03-16 (acc 0001606909-26-000010); Q1'26 10-Q filed
+    2026-05-11 (acc 0001628280-26-033658); Q2 10-Q expected ~mid-Aug."
+  notes: "Pangaea Logistics — Stage-3 survivor, NOT yet onboarded. 39 owned dry-bulk
+    vessels 2.3M dwt (14 Handy / 8 Supra / 4 Ultra / 9 Pana / 4 Post-Pana Ice-1A), avg age
+    11y, world's largest ice-class 1A fleet >60k dwt; COA-driven book (spot/COA day split
+    UNDISCLOSED — packet open item B3, IR query pending). Desk net LTV ~39%; zero orderbook.
+    Consolidated VIEs: NBHC 2/3 (6 Pana Ice-1A), deck-barge sub 50%. Related party: MTM Ship
+    Management (Handysize technical mgmt, ~$2.2M/yr). WRAPPER WATCH (F-2): SSI/Strategic 29%
+    bloc (13D/A acc 0001315863-25-000860), 2026-06-07 three-director removal, AGM slate.
+    ONBOARDING NOTES: §9.9 Handy-curve decision (23.5% of dwt Handy; issuer's own 10-K
+    carries 2012-Handy prints at $10.0M x2 + 2006-Pana $9.6M — sample candidates); E2
+    breakeven completes on producer basis at reconciliation; 3 analysts on aggregators,
+    Pareto coverage unverified."

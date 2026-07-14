@@ -191,6 +191,14 @@ quirks live here:
 - **MB Shipbrokers weeklies** — email tables are IMAGES; the PDF behind the "Download report" flexmail
   link is the artifact (harvest from Gmail read-only, fetch with `fetch_pdf.py`, cdn.flxml.eu
   allowlisted; archive `inputs/research_mb/<feed>/YYYY/`). Full steps in the MB workflow above.
+- **HKEXnews (2343 / any future HKEX name)** — `python -m crude_tanker_fv.hkex_poll` (F-3 light
+  adapter, 2026-07-14; rides the hourly edgar-poll launchd row). Per-company JSON index
+  `titleSearchServlet.do?stockId=<id>` (stockIds from `hkex_stockid:` keys in data_sources.yaml,
+  pinned in `tests/test_hkex_poll.py`); the servlet's `result` field is a JSON-encoded STRING;
+  filings are English PDFs under `www1.hkexnews.hk/listedco/...` (fetch_pdf-allowlisted via the
+  data_sources URLs). Arrivals land in `state/edgar_manifest.jsonl` with `source: "hkexnews"` —
+  sentinel FILING-LANDED + draft queue work unchanged. HK cadence is SEMI-ANNUAL (Annual ~Mar,
+  Interim ~Jul/Aug) + Monthly Returns (share count).
 
 ## Consensus-pair recapture — the quarterly packet (added 2026-07-03, WO2 3.1)
 

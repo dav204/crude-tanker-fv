@@ -112,12 +112,36 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
    the BWLPG.OL fix). (iii) the LPG/BWLP price jumps land in the post-reweight regen + ratify.
 
 **STAGE-3 INTAKE (governance dry-bulk funnel, cycle closed 2026-07-13 — `../portfolio-governance/
-funnels/drybulk_2026H2/stage2_verdicts_2026-07-13.md`):** two survivors handed off for PROVISIONAL
-onboarding when the owner schedules the labor (competes with the Q2-refresh block): **Pacific Basin
-(2343 · HKEX)** — PRECONDITION: the HKEX light-adapter (venue-annex commitment, governance trigger
-F-3; Gate-D PASS is conditional on it) — and **PANL (Nasdaq)** — carries a §9.9 **Handy-curve
-decision** (comparable-sample question; its D2 deviation) + an E2 breakeven that completes on THIS
-repo's basis at reconciliation. Neither started; owner schedules.
+funnels/drybulk_2026H2/stage2_verdicts_2026-07-13.md`): PREP LANDED 2026-07-14; onboarding proper
+still owner-scheduled (competes with the Q2-refresh block).** What landed:
+- **HKEX light-adapter (F-3) DELIVERED** — `hkex_poll.py` (edgar_poll invariants: politeness/quiet
+  bootstrap/staging-only; arrivals land in `state/edgar_manifest.jsonl` with `source: "hkexnews"`,
+  so sentinel FILING-LANDED + draft queue work unchanged), 8 tests incl. the stockId 7703 pin,
+  rides the hourly edgar-poll launchd row; live-verified (bootstrap 56 filings, watermark
+  2026-06-30 = the June Monthly Return). **2343's conditional Gate-D PASS is now unconditional**;
+  governance register F-3 updated. Fetch mechanics in WORKFLOWS.md §Data-sources.
+- **§9.9 Handy-curve decision PREPARED, OWNER-PENDING** — `decisions/handy_curve_decision_2026-07-14.md`.
+  Load-bearing for BOTH survivors (2343 40.7% Handy dwt / PANL 23.5%). Full-archive `sp_scan --full`
+  hunt: ONE real print (Baltic Sapphire/Swift pair, age ~15-16, $17.1M each ≈ Pareto's $17.4M
+  generic within 2%) → txn-anchored fit NOT supportable; recommendation = Option B (static
+  broker-quote curve, un-anchored LNGC-style, validated against 2343's issuer-published $1,958.3M
+  broker-composite; Handy-heavy names cap at GOVERNED-WIDE·pending-anchor until a real fit).
+  NOTHING WIRED — sourcing is its own pre-registered step after the ruling.
+- **Onboarding scaffolds:** data_sources.yaml entries ("2343" quoted-key + PANL; PANL CIK
+  0001606909 VERIFIED vs company_tickers.json 2026-07-14, pinned in test_edgar_poll); earnings
+  calendar seeds (PANL Q2 10-Q ~Aug-4/14, 2343 Interim ~Jul-27/Aug-14 — both UNVETTED estimates,
+  inert for the sentinel until watchlisted, but they arm the pollers' in-window cadence); Pareto
+  share-price table carries NEITHER name → both consensus pairs will be APPROX per §11.7.2
+  (CMDB/SB precedent; re-verify on the newest daily at pair capture); PANL B3 IR-query DRAFT
+  staged governance-side (`funnels/drybulk_2026H2/panl_b3_ir_query_draft.md` — owner sends).
+- **Still open before /add-ticker can run:** the owner's Handy ruling (above), then per-name
+  four-YAML sourcing (subsequent-events-note-first; PANL: SSI-merger vessel cohort + Note-9 SLB
+  structures + NBHC 2/3 VIE; 2343: 107-hull manifest off the fleet page + AR2025, semi-annual
+  balance-sheet vintage discipline), §15 screens (PANL SSI 29% bloc + F-2 wrapper watch; 2343
+  Caravel 18.12%), and PANL E2 breakeven completion on this repo's basis at reconciliation.
+  Timing note: 2343's Interim (~Aug) publishes the post-April commitments figure (governance F-1
+  orderbook re-test) — onboarding off the AR2025 snapshot before it is legitimate (AS-OF
+  discipline) but the F-1 re-test lands mid-reconciliation either way.
 
 **NEXT BIG BLOCK — WO3 Phase 5 (the lock ruling — OWNER) + the Q2-refresh LPG carry-forwards.**
 **Phase 4 LANDED 2026-07-10** (both validators onboarded + reconciled SANITY=OK; the two designed
