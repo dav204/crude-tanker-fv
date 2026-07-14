@@ -98,7 +98,18 @@ off-curve — §11.5 / LIMITATIONS §2). Offshore. (Containerships shipped
 Fair Value per share = w_nav × NAV/share + w_earn × DivStrip_implied_price
 ```
 
-Two independent valuation lenses are computed, then blended. The blending weight is determined by cycle position, not picked manually per name.
+Two valuation lenses are computed, then blended. The blending weight is determined by cycle position, not picked manually per name.
+
+**Effective structure (methodology review 2026-07-14, M-1):** the two lenses are NOT
+independent — the strip's terminal is itself aged NAV (§9.2), so the blend's effective
+asset-value content is `w_nav + w_earn × (terminal share of strip)` ≈ 0.65–0.85 across the
+band range, not the nominal `w_nav`. The honest reading: the strip contributes **timing
+information** — 8–10 quarters of contracted/forward cash and the fleet schedule — layered
+on an asset-value chassis. Consequence for effort allocation: marks/curve provenance work
+carries roughly 5× the FV leverage of strip-side rate refreshes (a 25% error in the entire
+dividend leg moves a peak-weighted name ~4–5%; a 5% marks error moves FV at near-full
+strength through both legs). Every fv_report renders this decomposition as the standing
+"FV attribution" block.
 
 ### 2.2 Why blend NAV and dividend strip for crude tankers
 
@@ -125,6 +136,23 @@ The weight on each lens flexes with current cycle position, measured as the rati
 Current cycle position as of model build (Q2 2026): VLCC spot rates running well above 10-year mean → late-cycle / peak weighting expected.
 
 For multi-class operators (FRO, ECO, INSW), cycle weighting is computed at the **fleet-weighted-average** level using each class's own TC / 10yr ratio, weighted by class share of vessel value.
+
+**Denominator provenance (methodology review 2026-07-14, M-3 interim — the incomparability
+made visible at the point of use; the per-class YAML comments remain the source of truth):**
+the "10-yr mean" denominator is NOT one statistic across sectors, so cross-sector cycle
+ratios are NOT numerically commensurable and the band thresholds above are implicitly
+tanker-calibrated. Nominal (uninflated) means additionally bias long-window ratios high.
+A parity-basis alternative (§18 — inflation-consistent by construction) is staged as an
+owner-gated A/B (`outputs/METHODOLOGY_REVIEW_2026-07-14.md` D-M3 / Appendix A).
+
+| Sector / class | Window & statistic | Bias direction (file's own caveat) |
+|---|---|---|
+| Crude (VLCC/Suez/Afra) | genuine ~10-yr TC-anchored means | nominal → ratio biased HIGH (DHT prints 2.79×) |
+| Product (MR etc.) | ~10-yr TC means (approximate) | nominal, as crude |
+| Dry bulk (Cape/Pana/Supra) | 22-month Pareto archive medians (2024-08→2026-06) | "biased ELEVATED vs a true long-run mean" (§11.7.5) → ratio biased LOW |
+| Handy-Bulk | 9-obs xclusiv BHSI spot median 2024Q3→2026Q3 | same ELEVATED caveat (§11.7.11) → ratio biased LOW |
+| Containers | MB FY2021-2025 calendar average | "boom-tilted, NOT a 10-year TC mean" (§11.8.5) → ratio biased LOW |
+| LPG (VLGC) | 10-yr REALIZED-TCE mean (ratified basis) | realized-vs-realized only; never compose with TC bases (§11.10) |
 
 ## 3. Component Methodology
 

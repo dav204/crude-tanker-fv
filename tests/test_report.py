@@ -73,3 +73,29 @@ def test_watchlist_loader_reads_dht():
     assert wl["FRO"]["analyst_target"] == pytest.approx(30.50)
     assert wl["ECO"]["analyst_target"] == pytest.approx(45.00)
     assert wl["INSW"]["analyst_target"] == pytest.approx(79.50)   # hybrid, modeled via carve-out
+
+
+def test_fv_attribution_block_foots_to_blend_fv(dht_report, tmp_path):
+    """M-1 (methodology review 2026-07-14): the FV attribution rows must sum to the
+    blend FV exactly, and the effective asset-value share must equal
+    w_nav + w_earn x (discounted terminal / strip) — the decomposition that makes
+    the marks-vs-rates effort gradient legible. Rendering-only: no FV changes."""
+    r = dht_report
+    md = write_company_report(r, outputs_dir=tmp_path).read_text()
+    assert "### FV attribution" in md
+    assert "Effective asset-value share" in md
+
+    shares = r.nav.diluted_shares_outstanding
+    fleet_ps = r.nav.fleet_value / shares
+    bs_net_ps = r.nav.nav_per_share - fleet_ps
+    dps_pv = r.strip.implied_price - r.strip.discounted_terminal_value
+    haircut_ps = r.blended.nav_per_share_effective - r.nav.nav_per_share
+    total = (r.cycle.w_nav * (fleet_ps + bs_net_ps + haircut_ps)
+             + r.cycle.w_earn * (dps_pv + r.strip.discounted_terminal_value))
+    assert total == pytest.approx(r.blended.fair_value_per_share, abs=1e-9)
+
+    asset_share = (r.cycle.w_nav
+                   + r.cycle.w_earn * r.strip.discounted_terminal_value / r.strip.implied_price)
+    assert 0.0 < asset_share < 1.0
+    # DHT at peak weighting: the memo's ~0.84 effective asset share reproduces.
+    assert asset_share == pytest.approx(0.84, abs=0.03)

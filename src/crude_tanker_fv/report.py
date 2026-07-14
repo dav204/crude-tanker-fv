@@ -199,6 +199,41 @@ def _render_markdown(report: CompanyReport) -> str:
       f"{cyc.w_earn:.2f} × ${strip.implied_price:,.2f} (strip) = "
       f"**${fv.fair_value_per_share:,.2f}**\n")
 
+    # FV attribution (methodology review 2026-07-14, M-1): decompose the blend into its
+    # effective terms so the data-effort gradient is legible — the strip's terminal IS
+    # aged NAV (§9.2), so the blend's asset-value content is w_nav + w_earn x (terminal
+    # share of strip), not w_nav. Rows foot to the blend FV (lock-tested). The fifth
+    # M-1 term (scenario-weight delta = Model PW FV − this blend) lives per name in
+    # book_scorecard.json (blend vs scenario columns) — not re-derived here.
+    shares = nav.diluted_shares_outstanding
+    fleet_ps = nav.fleet_value / shares if shares else 0.0
+    bs_net_ps = nav.nav_per_share - fleet_ps
+    haircut_ps = fv.nav_per_share_effective - nav.nav_per_share   # §15 (0 for most names)
+    dps_pv = strip.implied_price - strip.discounted_terminal_value
+    terms = [
+        ("Vessel marks", cyc.w_nav * fleet_ps),
+        ("Balance-sheet net", cyc.w_nav * bs_net_ps),
+        ("Discounted DPS (strip, 8-10q)", cyc.w_earn * dps_pv),
+        ("Discounted terminal (aged NAV)", cyc.w_earn * strip.discounted_terminal_value),
+    ]
+    if abs(haircut_ps) > 1e-9:
+        terms.insert(2, ("§15 governance haircut", cyc.w_nav * haircut_ps))
+    w("### FV attribution\n")
+    w("| Term | $/sh | share of FV |")
+    w("|---|---:|---:|")
+    total_fv = fv.fair_value_per_share or 1.0
+    for label, val in terms:
+        w(f"| {label} | {val:,.2f} | {val / total_fv:.0%} |")
+    w(f"| **Blend FV** | **{fv.fair_value_per_share:,.2f}** | 100% |")
+    strip_total = strip.implied_price or 1.0
+    asset_share = cyc.w_nav + cyc.w_earn * (strip.discounted_terminal_value / strip_total)
+    w(f"\n_Effective asset-value share = w_nav + w_earn × (terminal/strip) = "
+      f"{cyc.w_nav:.2f} + {cyc.w_earn:.2f} × {strip.discounted_terminal_value / strip_total:.2f} "
+      f"= **{asset_share:.0%}** — the strip contributes timing information (near-quarter "
+      f"contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve "
+      f"provenance work carries proportionally more FV leverage than strip-side rate "
+      f"refreshes._\n")
+
     if report.payout_sensitivity:
         w("## Payout sensitivity\n")
         w("| Dividend payout | Fair value |")

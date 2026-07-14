@@ -39,7 +39,20 @@ SBLK +14 T (both now weight-sign-stable per WO4) + CMDB +12 GW + TEN +36 GW + CC
 `all_sectors_consensus_pair_recapture` + staleness floor Oct-2 · `lpg_anchor_annual_review` 2027-06-30 —
 all in `inputs/reweight_triggers.yaml`, sentinel-paged.
 
-**PENDING OWNER DECISIONS (do not act unilaterally; recorded 2026-07-08, extended 2026-07-13):**
+**PENDING OWNER DECISIONS (do not act unilaterally; recorded 2026-07-08, extended 2026-07-14):**
+-1. **NEW 2026-07-14 — methodology review memo (`outputs/METHODOLOGY_REVIEW_2026-07-14.md`),
+   FOUR decision blocks, all reserved:** **D-M2** discount rate (flat 11% ratify vs
+   leverage-adjusted r_e Option B [reviewer-recommended] vs B′ + coverage-quarter split) ·
+   **D-M3** cycle denominator (stage the Appendix-A parity A/B pre-registration vs decline;
+   D1-gated) · **D-M4** open decision 9.1 band steps (continuous ramp vs logistic vs
+   ratify-as-is; D1-gated — pairs with D-M3 in one cycle.py round) · **D-M5** verdict FV
+   interval + interval-exit flip rule (scenario min/max vs 5×5 basis vs decline; schema
+   bump; would retire most shallow-flip eyeballs). The memo's mechanical no-ruling items
+   are EXECUTED (M-1 FV-attribution block in every fv_report + §2.1 effective-structure
+   paragraph; M-3-interim §2.3 denominator-provenance table). M-6a (scrap-anchor dated
+   provenance — value-touching, bands-ahead discipline) + M-6b (offhire_schedule optional
+   field) registered for the next quarterly anchor refresh. Also flagged by the memo:
+   the Thread-1A product-Handysize queue item (prereg §0.2) remains open.
 0. **RESOLVED 2026-07-13 — baseline ratify EXECUTED (owner: "accept all four + ratify").**
    The 14 UNEXPLAINED decomposed to three owner-traceable causes (Jul-12 war-tilt regen
    [owner-executed] + Jul-10→13 price vintage + the 13-Jul FFA promotion; ΔNAV 0.0% on every

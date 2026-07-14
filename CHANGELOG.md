@@ -5,6 +5,20 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-14 (evening, second memo) — METHODOLOGY REVIEW (companion to the ops audit;
+  `outputs/METHODOLOGY_REVIEW_2026-07-14.md`): M-1 + M-3-interim EXECUTED, four decisions
+  STAGED to the owner.** The memo's core finding (arithmetic verified against the committed
+  DHT report before acting): the blend's EFFECTIVE asset-value content is ~0.65-0.85, not
+  w_nav — the strip terminal IS aged NAV — so marks/provenance work carries ~5x the FV
+  leverage of strip-side rate refreshes. Executed (the memo's own no-ruling class): the
+  standing **FV attribution** block in every fv_report (foots to blend FV, lock-tested,
+  DHT effective-asset-share 0.84 reproduces) + §2.1 effective-structure paragraph +
+  §2.3 cycle-denominator provenance table (the M-3 incomparability made visible at the
+  point of use). RESERVED to the owner (PLAN decision block −1): D-M2 leverage-adjusted
+  discount rate · D-M3 parity-denominator A/B (D1) · D-M4 continuous-ramp bands (D1,
+  open decision 9.1) · D-M5 verdict FV interval + interval-exit flip rule (the one that
+  retires shallow-flip eyeball load). M-6a/b registered for the next anchor refresh
+  (M-6a is value-touching — bands-ahead discipline, not a same-day edit).
 - **2026-07-14 (evening) — EXTERNAL AUDIT (clean-clone re-review @ 1d3db14): CLEAN, nothing
   above P2; all seven findings dispositioned same-day.** The audit verified from a cold clone
   on Python 3.12/pandas 3.0: 580 green, byte-identical pipeline regen, drift 0 UNEXPLAINED,
