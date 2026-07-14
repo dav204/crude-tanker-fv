@@ -21,7 +21,7 @@ Comparison reference: Set B (v2, prior lock, same day).
 | glut_intensifies | 0.20 | 0.15 | -0.05 |
 | structural_reset | 0.00 | 0.00 | +0.00 |
 
-## FLNG — at price $30.01, target $25.00
+## FLNG — at price $30.14, target $25.00
 
 **Per-scenario FV (identical under both weight sets — only weights change, scenario forwards unchanged):**
 
@@ -38,27 +38,27 @@ Comparison reference: Set B (v2, prior lock, same day).
 | Metric | Set B | Set B-revised | Δ |
 |---|--:|--:|--:|
 | PW FV | $27.50 | $29.19 | $+1.69 (+6.2%) |
-| EV% | -8.4% | -2.7% | +5.6pp |
+| EV% | -8.8% | -3.2% | +5.6pp |
 | Position | TRIM/SHORT | HOLD | **FLIP** |
 
 **Threshold analysis** (alpha = 0: Set B; alpha = 1: Set B-revised; FV is linear in weights so the convex combination is exact):
 
-- HOLD threshold (FV ≥ $28.51, EV ≥ -5%): alpha ≥ **0.60**
-- BUY threshold (FV ≥ $31.51, EV ≥ +5%): _not reachable on the [Set B → Set B-revised] line_
+- HOLD threshold (FV ≥ $28.63, EV ≥ -5%): alpha ≥ **0.67**
+- BUY threshold (FV ≥ $31.65, EV ≥ +5%): _not reachable on the [Set B → Set B-revised] line_
 
-**Weights at the minimum HOLD threshold (alpha = 0.60):**
+**Weights at the minimum HOLD threshold (alpha = 0.67):**
 
 | Scenario | Weight at HOLD threshold | vs Set B |
 |---|--:|--:|
-| tight_resurgence | 0.130 | +0.030 |
-| moderate_tightening | 0.210 | +0.060 |
-| glut_base | 0.490 | -0.060 |
-| glut_intensifies | 0.170 | -0.030 |
+| tight_resurgence | 0.134 | +0.034 |
+| moderate_tightening | 0.217 | +0.067 |
+| glut_base | 0.483 | -0.067 |
+| glut_intensifies | 0.166 | -0.034 |
 | structural_reset | 0.000 | +0.000 |
 
 ---
 
-## CCEC — at price $22.31, target $25.17
+## CCEC — at price $22.38, target $25.17
 
 **Per-scenario FV (identical under both weight sets — only weights change, scenario forwards unchanged):**
 
@@ -75,12 +75,12 @@ Comparison reference: Set B (v2, prior lock, same day).
 | Metric | Set B | Set B-revised | Δ |
 |---|--:|--:|--:|
 | PW FV | $30.67 | $33.50 | $+2.83 (+9.2%) |
-| EV% | +37.5% | +50.2% | +12.7pp |
+| EV% | +37.0% | +49.7% | +12.6pp |
 | Position | BUY | BUY | unchanged |
 
 **Threshold analysis** (alpha = 0: Set B; alpha = 1: Set B-revised; FV is linear in weights so the convex combination is exact):
 
-- HOLD threshold (FV ≥ $21.19, EV ≥ -5%): _not reachable on the [Set B → Set B-revised] line_
-- BUY threshold (FV ≥ $23.43, EV ≥ +5%): _not reachable on the [Set B → Set B-revised] line_
+- HOLD threshold (FV ≥ $21.26, EV ≥ -5%): _not reachable on the [Set B → Set B-revised] line_
+- BUY threshold (FV ≥ $23.50, EV ≥ +5%): _not reachable on the [Set B → Set B-revised] line_
 
 ---
