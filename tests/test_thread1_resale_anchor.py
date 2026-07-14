@@ -115,7 +115,13 @@ AGE0_BASIS = {
     "Post-Panamax": "alias:Pana",        # = Kamsarmax Resale; no xclusiv PPMX line
     "MR": "exception:no current xclusiv secondhand line (dropped after 2023Q4, last $52.8M); $54M unverified",
     "LR1": "exception:Group A; MB Tanker 2026-06-26 LR1 NB $64M/5yr $58M (col order verified vs crude inversion), NO Resale line; tool age-0 $59M within ~8% of MB NB (cross-check OK). Kept cross-check NOT wired — MB->calibration is owner-gated + immaterial (no LR1-heavy name).",
-    "Handysize": "xclusiv-resale",      # Thread 1A: wired to xclusiv Resale $36M
+    "Handysize": "xclusiv-resale",      # Thread 1A: wired to xclusiv Resale $36M. BASIS FLAG
+                                        # 2026-07-14: that row is the xclusiv BULK section
+                                        # (handy_curve_sourcing_prereg §0.2) — product re-source
+                                        # is an owner queue item; entry stands as-ratified.
+    "Handy-Bulk": "alias:Handysize",    # §11.7.11 (2026-07-14): dry-bulk Handysize reads the
+                                        # SAME committed xclusiv row (which IS the bulk row,
+                                        # correctly labeled on this side of the alias).
     "Handymax": "exception:no broker tabulates product-Handymax secondhand; Group A, needs chem-tanker source",
     "LNGC": "exception:non-tanker/dry-bulk sector, own basis",
     "MGC": "exception:non-tanker/dry-bulk sector, own basis",

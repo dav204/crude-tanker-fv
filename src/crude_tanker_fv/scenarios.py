@@ -86,6 +86,10 @@ SCENARIO_CLASS_MAP_BY_SECTOR: dict[str, dict[str, str]] = {
         "Post-Panamax": "pana",
         "Supra-Ultra": "supra_ultra",  # collapsed Supramax + Ultramax per §11.7.1
                                         # (Pareto reclassified the benchmark Sep 2025)
+        "Handy-Bulk": "handy_bulk",    # §11.7.11 (2026-07-14, Stage-3 intake): own scenario
+                                        # key with a DERIVED deck (= supra_ultra x 0.90 locked
+                                        # basis, identity guard-tested) — NOT a supra rate proxy
+                                        # (Handy earns ~10% under Supra on every spot basis).
     },
     "lpg": {                        # NEW 2026-07-08 — WO3 Phase 1 (§11.10)
         # v1 is VLGC-only (Fork 1, decisions/lpg_methodology_2026-07-07.md):

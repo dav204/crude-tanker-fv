@@ -46,6 +46,9 @@ as_of:
   Ctr-Feeder: 2026-07-03
   Ctr-Intermediate: 2026-07-03
   Ctr-Large: 2026-07-03
+  Handy-Bulk: 2026-07-10    # own cadence (MB Dry Bulk weekly) — NO Handy FFA exists at any
+                            # tenor; its curve row below is DERIVED (= Supra-Ultra x 0.90,
+                            # §11.7.11 locked basis), regenerated with any supra promotion
 vintage_notes:
   - "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean)
     HELD at the 2026-06-07 vintage — no market forward print exists (owner decision
@@ -60,6 +63,10 @@ vintage_notes:
     container_mb_refresh (decisions/container_ingest_2026-07-06.md; A3 re-derived
     on the combined validator fleets). The Apr-01 freeze disclosed 2026-07-03 is
     RESOLVED; trigger re-armed to the 2026-08-07 monthly boundary."
+  - "Handy-Bulk (§11.7.11, added 2026-07-14): NO market FFA at any tenor — its curve
+    row + scenario deck are both DERIVED = supra x 0.90 (locked basis, identity
+    guard-tested; regenerate BOTH with any supra promotion). as_of 2026-07-10 = the
+    MB Dry Bulk Weekly 28 vintage (own cadence, not a hold awaiting a print)."
 ffa_forward_curve:
   VLCC:
   - 147500
@@ -223,6 +230,15 @@ ffa_forward_curve:
   - 13275
   - 12975
   - 12675
+  Handy-Bulk:      # DERIVED = Supra-Ultra x 0.90 (§11.7.11 locked basis; same guard family as the scenario deck)
+  - 16920
+  - 16090
+  - 13570
+  - 13030
+  - 12490
+  - 11950
+  - 11680
+  - 11410
   # Containerships (§11.8) — NO FFA exists; synthesised current-market
   # forward per the synthesised-from-spot convention: starts at the MB TC
   # assessment, mean-reverts toward the FY21-25 anchor (between

@@ -32,7 +32,7 @@ LNG_CLASSES = {"LNGC", "MGC"}
 # container multi-sleeve hybrid (CMBT, METHODOLOGY §11.9). Before this, every
 # dry_bulk/container class fell through to the crude sleeve (a latent bug that
 # only mattered once a name carried those classes through a carve-out).
-DRY_BULK_CLASSES = {"Cape", "Pana", "Post-Panamax", "Supra-Ultra"}
+DRY_BULK_CLASSES = {"Cape", "Pana", "Post-Panamax", "Supra-Ultra", "Handy-Bulk"}
 CONTAINER_CLASSES = {"Ctr-Feeder", "Ctr-Intermediate", "Ctr-Large"}
 
 

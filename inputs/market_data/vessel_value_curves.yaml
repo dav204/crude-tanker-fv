@@ -159,6 +159,23 @@ classes:
     scrap_25yr: 6500000
     scrubber_premium: 1500000
     eco_premium_pct: 0.05
+  # Handy-Bulk (dry-bulk Handysize, §11.7.11 — Option B static broker curve, owner-ratified
+  # 2026-07-14; decisions/handy_curve_sourcing_prereg_2026-07-14.md). UN-ANCHORED: no §9.9
+  # fit exists (zero classified prints); nodes = xclusiv 2026-06-22 committed vintage (the
+  # BULK Handysize row — the same row Thread-1A mislabeled product; see prereg §0.2), multi-
+  # broker corroborated Jul-2026 (Compass/MB/Intermodal/AST/Baltic-S&P within ±4%). dwt-scaled
+  # at the 38k assessment baseline (2343 avg 35.4k → ~0.93x; PANL 38.7k → ~1.02x). Validation:
+  # Dec-2025-vintage construction lands +3.1% on 2343's own per-class composite (prereg Band 1).
+  # NOT the product-tanker Handysize class (distinct market, distinct curve).
+  Handy-Bulk:
+    dwt: 38000
+    dwt_scaled: true
+    newbuild: 36000000           # prompt resale = xclusiv Resale 2026-06-22 (AGE0_BASIS alias:Handysize)
+    five_year_benchmark: 29500000
+    ten_year_benchmark: 23300000
+    scrap_25yr: 4500000          # [ESTIMATE] LDT convention ~8.5-9.5k t x ~$480/LDT; refine on classified demo print
+    scrubber_premium: 0          # no sourced Handy scrubber premium (rare fitment) — conservative 0
+    eco_premium_pct: 0.0         # eco premium visible in prints but unquantified — conservative 0 until the fit
   # ---------------------------------------------------------------------
   # Containerships (METHODOLOGY §11.8.5) — fit to MB Shipbrokers Apr-01-2026
   # assessments (FROZEN VINTAGE; refresh on first MB-subscription delivery).

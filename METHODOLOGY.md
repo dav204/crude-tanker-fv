@@ -1871,6 +1871,40 @@ wide outliers (e.g. SBLK's ~9 "Pana"-class Post-Panamaxes at 92-107k, which scal
 is the refinement if that book grows. The NMax newbuild level (~$86M = 74M × 210/180)
 should be confirmed against a current NMax-newbuild quote on refresh.
 
+#### 11.7.11 Handy-Bulk class — Option B static broker curve (added 2026-07-14, Stage-3 intake)
+
+Fourth dry-bulk value class, added for the governance funnel's Stage-3 survivors (2343:
+40.7% of dwt Handysize; PANL: 23.5%). Owner-ratified **Option B** (2026-07-14, decision +
+sourcing prereg in `decisions/handy_curve_decision_2026-07-14.md` /
+`handy_curve_sourcing_prereg_2026-07-14.md`): the class is **UN-ANCHORED** — zero classified
+dry-Handy prints existed at wiring (the Pareto dailies carry no Handysize column and no
+tabulated dry secondhand values; the archive's one keyword hit was a product-tanker pair) —
+so it runs a **static broker-quote curve** on LNGC/container §9.9 semantics (k_broker =
+broker premium over OUR curve; no txn fit).
+
+- **Nodes** (xclusiv 2026-06-22 committed vintage, the family's Thread-1 basis; the xclusiv
+  "Handysize" row is the BULK section — `AGE0_BASIS: alias:Handysize`): age-0 $36.0M / 5yr
+  $29.5M / 10yr $23.3M / scrap $4.5M [LDT-convention ESTIMATE]; dwt-scaled at 38k. Multi-
+  broker corroboration within ±4% (MB weekly, Compass, Intermodal, AST, Baltic S&P
+  assessment) + **2343's own Dec-2025 JNS 40k-Handy contract $29.8M/hull vs the $30.5M NB
+  node**. Validation at birth: a Dec-2025-vintage construction reproduces 2343's issuer-
+  published per-class composite ($927.5M, 58 hulls, age 13) to **+3.1%** (and its Supramax
+  sleeve to −5.8%) — the only issuer that publishes the answer.
+- **Rates:** scenario deck **DERIVED = supra_ultra × 0.90** (locked spot-basis ratio;
+  observed BHSI/BSI cluster 0.87–0.92; the ~0.75–0.79 PERIOD-market ratio is deliberately
+  not the basis — strips are realized-TCE paths). Identity guard-tested
+  (`test_handy_bulk_deck_is_supra_times_basis`): a supra promotion that forgets handy REDS.
+  12M TC $14.5k (MB weekly, 38k net, own cadence — no Handy FFA panel exists); anchor
+  $12.85k (xclusiv BHSI spot series median 2024Q3→2026Q3, `archive_22mo_median` window-class,
+  same elevated-bias caveat as §11.7.5).
+- **Exit path:** trigger `handy_bulk_txn_refit` — ≥10 classified in-window prints spanning
+  ≥3 age nodes incl. ≤6yr → §9.9 dwt-normalized fit (the MB Dry Bulk weekly reports ~3
+  sub-45k prints/week; expected fit direction: 5yr/10yr DOWN toward prints, the standard
+  broker-premium signature — do not "fix" interim reads toward Pareto).
+- **Tier consequence:** a Handy-heavy name's valuation sleeve is un-anchored →
+  GOVERNED-WIDE·pending-anchor cap until the fit lands (consistent with "PROVISIONAL by
+  definition until reconciled").
+
 ### 11.8 Containerships sector — formalised 2026-06-11 (Week 4)
 
 Fifth sector. Container tonnage providers (the names we value) lease

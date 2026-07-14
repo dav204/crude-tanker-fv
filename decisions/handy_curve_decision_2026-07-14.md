@@ -17,6 +17,20 @@ records a recommendation.
 
 ## 1. The comparable-sample hunt (performed 2026-07-14)
 
+> **CORRECTION (2026-07-14, same day, post-ruling — the Option-B execution sweep re-read the
+> source dailies):** the "one real print" below is MISCLASSIFIED. The 2025-06-13 daily's section
+> is **"Tankers:"** — Baltic Sapphire/Baltic Swift are Handysize **PRODUCT tankers** (their
+> generic reference was $30M en-bloc ≈ $15M each; the $17.4M generic attaches to 15Y **MRs** in
+> the same bullet). The sp_scan Handy keyword matched tanker-section prose. **True dry-bulk
+> Handysize print count from the Pareto archive: ZERO** — the sample was even thinner than this
+> doc stated, which strengthens the Option-B conclusion and voids the "$17.1M ≈ $17.4M within
+> 2%" corroboration claim. **Separately, the execution sweep found the print flow this doc
+> thought absent: the MB Dry Bulk weekly reports ~3 dry-Handy S&P prints/week (16 prints across
+> issues 24-28 alone, ages 8-23)** — the ruling's "when/if we get more transaction prints"
+> branch is likely to arm within a quarter, not years. Sample inventory + re-fit arming
+> condition now live in `handy_curve_sourcing_prereg_2026-07-14.md`. The Pareto-archive scan
+> methodology below stands; only the classification of its single hit was wrong.
+
 Full `sp_scan --full` rescan of the entire Pareto Shipping Daily archive (2024-09 → 2026-07-03,
 the same archive that yielded 19-38 candidates per anchored class). The scanner's `Handy` class
 keyword (`handymax|handysize`) has been live since the 2026-06-10 retro-harvest, so the result is
@@ -112,9 +126,13 @@ validation surface the crude sectors never had) AHEAD of computing, then run the
 loop. The 2343 broker-composite cross-check is the strongest argument this static curve can be
 honest: it gives the un-anchored class an independent aggregate validator at birth.
 
-**Owner decision:** [ ] Option A · [ ] **Option B** · [ ] Option C · [ ] Option D ·
+**Owner decision:** [ ] Option A · [x] **Option B** · [ ] Option C · [ ] Option D ·
 [ ] other/amend: ____
-**Rationale (owner):** ____
+**Rationale (owner, verbatim 2026-07-14):** "go with Option B, only realistic solution until
+when/if we get more transaction prints in the future."
+**Execution:** sourcing prereg + wiring proceed as the doc's own pre-registered step —
+`decisions/handy_curve_sourcing_prereg_2026-07-14.md` (bands ahead of wiring), re-fit trigger
+registered at wiring. Class stays un-anchored until the print sample supports a §9.9 fit.
 
 ---
 *Records touched if B is ratified: vessel_value_curves.yaml + scenario_inputs.yaml +

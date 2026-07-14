@@ -29,7 +29,9 @@ ALLOWED_CLASSES = {"VLCC", "Suezmax", "Aframax", "LR2", "LR1", "MR", "Handymax",
                    # dry_bulk classes added 2026-06-09 with SBLK onboarding (METHODOLOGY §11.7.1);
                    # Post-Panamax split out 2026-06-29 (§11.7.10 — SB's 16 old/large 85-95.8k hulls
                    # were over-marked on the dwt-scaled 82k Pana curve; issuer classifies them PPMX).
-                   "Cape", "Pana", "Post-Panamax", "Supra-Ultra",
+                   # Handy-Bulk added 2026-07-14 (§11.7.11 Option B, Stage-3 intake — the
+                   # 2343/PANL Handysize sleeves; distinct from product-tanker "Handysize").
+                   "Cape", "Pana", "Post-Panamax", "Supra-Ultra", "Handy-Bulk",
                    # containerships classes added 2026-06-12 (METHODOLOGY §11.8.1):
                    # Feeder ≤2,000 TEU / Intermediate 2,000-5,500 / Large >5,500
                    "Ctr-Feeder", "Ctr-Intermediate", "Ctr-Large",

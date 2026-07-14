@@ -5,6 +5,28 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-14 — STAGE-3 INTAKE PREP + Handy-Bulk class (§11.7.11, Option B, owner-ratified).**
+  Two blocks, same day. (1) **HKEX light-adapter DELIVERED (governance F-3 → met):** `hkex_poll.py`
+  mirrors edgar_poll's invariants against the HKEXnews JSON index (stockId 7703 pinned; arrivals →
+  `edgar_manifest.jsonl` `source: hkexnews`, so sentinel/draft-queue/commit_drift work unchanged);
+  rides the hourly edgar-poll launchd row; live bootstrap 56 filings. 2343's conditional Gate-D
+  PASS is now unconditional. Scaffolds: data_sources "2343"(quoted key)+PANL (CIK 0001606909
+  verified vs company_tickers.json), calendar seeds (sentinel-inert), PANL B3 IR-query draft
+  (governance-side, owner sends). (2) **Handy-Bulk wired gate-neutral** (2343 40.7% / PANL 23.5%
+  Handy dwt): owner ruled Option B — static broker curve, un-anchored — after the print hunt found
+  the Pareto archive holds ZERO dry-Handy prints (the sp_scan "one print" was a PRODUCT-tanker
+  pair, corrected same day; the keyword matched tanker-section prose). Nodes = xclusiv 2026-06-22
+  committed vintage (36/29.5/23.3/4.5 @38k dwt-scaled), 5-broker corroboration ±4%, 2343's own JNS
+  contract $29.8M ≈ the NB node; **bands registered AHEAD and PASSED** (Dec-2025-vintage
+  construction = 2343's issuer-published Handy composite +3.1%, Supra sleeve −5.8% — prereg
+  `handy_curve_sourcing_prereg_2026-07-14.md`). Deck + ffa row + 12M TC: three derived/own-cadence
+  surfaces, identity guard-tested (= supra × 0.90 locked; MB weekly TC 14.5k own vintage — the
+  vintage-agreement guards caught BOTH integration gaps on the first run, working as designed).
+  Re-fit trigger `handy_bulk_txn_refit` armed: the MB Dry Bulk weekly reports ~3 sub-45k prints/wk
+  (22-print candidate table in the prereg) — Option A may arm by Q3; promotion owner-run.
+  **FLAGGED, not acted:** Thread-1A wired this same xclusiv BULK row to the PRODUCT Handysize
+  age-0 ($36M vs ASC's actual product-Handy NB $44.9M) — owner queue item, basis flags left in
+  place, live NAV impact ≈ 0. Suite 583 green / 16 xfailed; drift 0 UNEXPLAINED.
 - **2026-07-12 — HORMUZ RE-ESCALATION: pre-registered crude war-tilt RESTORED (trigger fired
   Jul-7/8, executed at owner go).** The sentinel's FIRST live run surfaced `crude_doha_talks_resumption`
   as overdue; the check found the strike leg had fired five days earlier — Iran hit 3 vessels near

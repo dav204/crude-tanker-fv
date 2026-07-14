@@ -24,7 +24,14 @@ basis_status:
   Supra-Ultra: resale-uniform
   Post-Panamax: resale-uniform
   LR1: pending-sourceable
-  Handysize: resale-uniform   # Thread 1A: wired to xclusiv Resale $36M (2026-06-22)
+  Handysize: resale-uniform   # Thread 1A: wired to xclusiv Resale $36M (2026-06-22). BASIS FLAG
+                              # 2026-07-14: that xclusiv row is the BULK section (prereg §0.2,
+                              # handy_curve_sourcing_prereg) — product re-source is an owner queue
+                              # item; status left as-ratified pending the ruling.
+  Handy-Bulk: resale-uniform  # §11.7.11 Option B (2026-07-14): age-0 = xclusiv dry-Handysize Resale
+                              # $36M (2026-06-22, the bulk row, correctly labeled; AGE0_BASIS
+                              # alias:Handysize). Mid-age broker-static, un-anchored until the
+                              # handy_bulk_txn_refit trigger arms (§9.9 fit pending print sample).
   Handymax: pending-sourceable
   LNGC: structural-unavailable
   MGC: structural-unavailable

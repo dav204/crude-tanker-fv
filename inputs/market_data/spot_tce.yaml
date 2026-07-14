@@ -40,6 +40,7 @@ as_of:
   Ctr-Feeder: 2026-07-03    # containers refreshed 2026-07-06 from MB W27
   Ctr-Intermediate: 2026-07-03
   Ctr-Large: 2026-07-03
+  Handy-Bulk: 2026-07-10    # BHSI week-close print (no FFA panel, no Pareto column)
 spot_tce:
   VLCC: 285500          # TD3C eco (Pareto 2-Jul; -1.1% d/d). MEG-China war premium only
                         # partially unwound (TD22 USG-China printed $127,600 same day).
@@ -61,6 +62,11 @@ spot_tce:
   Post-Panamax: 19591   # shares the Pana freight basin (§11.7.10, 2026-06-29)
   Supra-Ultra: 18500    # NO Smax spot print in the daily — proxied to the Smax FFA m1
                         # (Jul-2 FFA OCR widget, status ok; outputs/ffa_ocr_queue.md 2026-07-02)
+  Handy-Bulk: 16466     # §11.7.11 (2026-07-14): BHSI 38k 7TC avg earnings, week-close
+                        # 10-Jul-2026 (Baltic Exchange via xclusiv W28 p.1; 13-Jul print
+                        # 16,445 corroborates). Gross basis like the dry family rows; no
+                        # Handy FFA panel and no Pareto Handysize column exist — refreshes
+                        # on the Baltic weekly print (Pacific Basin IR republishes).
   # Containerships: NO spot market exists (TC-only); set = the 12M TC
   # assessment so the breakeven display has a current-rate reference.
   # Refreshed 2026-07-06 from MB W27 (Jul-3) — see twelve_month_tc.yaml.

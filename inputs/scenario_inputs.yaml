@@ -1057,6 +1057,15 @@ sectors:
           benchmark from Supramax to Ultramax in Sep 2025; we treat as one
           class per METHODOLOGY §11.7.
         basin_exposure: Minor bulk (bauxite, fertilisers, scrap, cement)
+      handy_bulk:
+        primary_route: BHSI 7TC (38k tonnage-adjusted)
+        description: >
+          Dry-bulk Handysize (§11.7.11, Option B 2026-07-14). NO Handy FFA
+          exists at any tenor and the Pareto dailies carry no Handysize
+          column — scenario curves are DERIVED = supra_ultra x 0.90 (locked
+          spot-basis ratio; observed BHSI/BSI cluster 0.87-0.92, prereg §2),
+          guard-tested so a supra promotion cannot leave handy behind.
+        basin_exposure: Minor bulk / logs / parcelling (backhaul-heavy trades)
 
     # -----------------------------------------------------------------------
     # Confidence levels — FFA market liquidity drops sharply past Cal27.
@@ -1073,6 +1082,10 @@ sectors:
       supra_ultra:
         front_4q: medium     # Smax FFA materially less liquid
         cal_2027: low
+        cal_2028: very_low
+      handy_bulk:
+        front_4q: low        # no Handy FFA at ANY tenor; derived deck (x0.90 basis)
+        cal_2027: very_low
         cal_2028: very_low
 
     scenarios:
@@ -1114,6 +1127,15 @@ sectors:
           q4_2027: [13600, 16000, 18400]
           q1_2028: [12750, 15000, 17250]
           q2_2028: [11900, 14000, 16100]
+        handy_bulk:   # DERIVED = supra_ultra x 0.90 (§11.7.11 locked basis; guard-tested identity)
+          q3_2026: [16830, 19800, 22770]
+          q4_2026: [17600, 20700, 23800]
+          q1_2027: [16830, 19800, 22770]
+          q2_2027: [15300, 18000, 20700]
+          q3_2027: [13000, 15300, 17600]
+          q4_2027: [12240, 14400, 16560]
+          q1_2028: [11480, 13500, 15520]
+          q2_2028: [10710, 12600, 14490]
 
       # ---------------------------------------------------------------------
       # moderate_growth (w=0.4)
@@ -1151,6 +1173,15 @@ sectors:
           q4_2027: [11500, 13500, 15500]
           q1_2028: [11050, 13000, 14950]
           q2_2028: [10600, 12500, 14350]
+        handy_bulk:   # DERIVED = supra_ultra x 0.90 (§11.7.11 locked basis; guard-tested identity)
+          q3_2026: [14130, 16650, 19170]
+          q4_2026: [13410, 15750, 18090]
+          q1_2027: [12600, 14850, 17100]
+          q2_2027: [11880, 13950, 16020]
+          q3_2027: [10710, 12600, 14490]
+          q4_2027: [10350, 12150, 13950]
+          q1_2028: [9940, 11700, 13460]
+          q2_2028: [9540, 11250, 12920]
 
       # ---------------------------------------------------------------------
       # china_property_drag (w=0.25)
@@ -1188,6 +1219,15 @@ sectors:
           q4_2027: [10900, 13000, 15100]
           q1_2028: [10500, 12500, 14500]
           q2_2028: [10050, 12000, 13950]
+        handy_bulk:   # DERIVED = supra_ultra x 0.90 (§11.7.11 locked basis; guard-tested identity)
+          q3_2026: [13000, 15300, 17600]
+          q4_2026: [12240, 14400, 16560]
+          q1_2027: [11880, 13950, 16020]
+          q2_2027: [11070, 13050, 15030]
+          q3_2027: [10170, 12150, 14130]
+          q4_2027: [9810, 11700, 13590]
+          q1_2028: [9450, 11250, 13050]
+          q2_2028: [9040, 10800, 12560]
 
       # ---------------------------------------------------------------------
       # coordinated_slowdown (w=0.15)
@@ -1226,6 +1266,15 @@ sectors:
           q4_2027: [8500, 10000, 11500]
           q1_2028: [8100, 9500, 10900]
           q2_2028: [7650, 9000, 10350]
+        handy_bulk:   # DERIVED = supra_ultra x 0.90 (§11.7.11 locked basis; guard-tested identity)
+          q3_2026: [11480, 13500, 15520]
+          q4_2026: [9940, 11700, 13460]
+          q1_2027: [9180, 10800, 12420]
+          q2_2027: [8420, 9900, 11380]
+          q3_2027: [8010, 9450, 10840]
+          q4_2027: [7650, 9000, 10350]
+          q1_2028: [7290, 8550, 9810]
+          q2_2028: [6880, 8100, 9320]
 
     # =======================================================================
     # DRY BULK — CYCLE WEIGHTING ANCHORS
@@ -1250,6 +1299,13 @@ sectors:
       supra_ultra:
         ten_year_mean: 13930
         source: same — Pareto Shipping Daily median (Supramax pre-Sep-2025, Ultramax after)
+        anchor_basis: archive_22mo_median
+      handy_bulk:
+        ten_year_mean: 12850
+        source: >
+          xclusiv weekly BHSI-38k spot-earnings series median 2024Q3→2026Q3 (9 obs; the
+          Pareto dailies carry NO Handysize column — §11.7.11 Option B 2026-07-14, prereg
+          handy_curve_sourcing; cross-checks 0.92x supra anchor = 12,676 + BHSI index avgs)
         anchor_basis: archive_22mo_median
 
   # ===========================================================================

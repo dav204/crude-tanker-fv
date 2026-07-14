@@ -120,13 +120,28 @@ still owner-scheduled (competes with the Q2-refresh block).** What landed:
   rides the hourly edgar-poll launchd row; live-verified (bootstrap 56 filings, watermark
   2026-06-30 = the June Monthly Return). **2343's conditional Gate-D PASS is now unconditional**;
   governance register F-3 updated. Fetch mechanics in WORKFLOWS.md §Data-sources.
-- **§9.9 Handy-curve decision PREPARED, OWNER-PENDING** — `decisions/handy_curve_decision_2026-07-14.md`.
-  Load-bearing for BOTH survivors (2343 40.7% Handy dwt / PANL 23.5%). Full-archive `sp_scan --full`
-  hunt: ONE real print (Baltic Sapphire/Swift pair, age ~15-16, $17.1M each ≈ Pareto's $17.4M
-  generic within 2%) → txn-anchored fit NOT supportable; recommendation = Option B (static
-  broker-quote curve, un-anchored LNGC-style, validated against 2343's issuer-published $1,958.3M
-  broker-composite; Handy-heavy names cap at GOVERNED-WIDE·pending-anchor until a real fit).
-  NOTHING WIRED — sourcing is its own pre-registered step after the ruling.
+- **§9.9 Handy-curve decision RULED + EXECUTED 2026-07-14 (owner: Option B, verbatim in the
+  decision doc) — the Handy-Bulk class is WIRED (§11.7.11), gate-neutral.** Record chain:
+  `decisions/handy_curve_decision_2026-07-14.md` (ruling + a same-day CORRECTION: the "one
+  archive print" was a PRODUCT-tanker pair — true dry-Handy Pareto-archive count is ZERO) →
+  `handy_curve_sourcing_prereg_2026-07-14.md` (4-agent sweep `wf_bc3c20c5-68b`; nodes =
+  xclusiv 2026-06-22 committed vintage [the BULK Handysize row], 5-broker corroboration ±4%,
+  2343's own JNS contract $29.8M ≈ the $30.5M NB node; bands REGISTERED AND PASSED — the
+  Dec-2025-vintage construction reproduces 2343's issuer-published Handy composite to +3.1%).
+  Wired: Handy-Bulk curve (38k dwt-scaled, 36.0/29.5/23.3/4.5) + handy_bulk scenario deck
+  (= supra_ultra × 0.90 LOCKED, identity guard-tested — re-derive BOTH on any supra promotion)
+  + 12M TC 14.5k (MB DBW28, own cadence, NO FFA panel) + anchor 12.85k + BHSI spot + routing/
+  sleeve/AGE0_BASIS(alias:Handysize)/basis_status + `tests/test_handy_bulk_class.py` (incl. a
+  gate-neutrality test to DELETE at onboarding). **Re-fit path armed:** trigger
+  `handy_bulk_txn_refit` (≥10 classified in-window prints, ≥3 age nodes incl. ≤6yr) — the MB
+  Dry Bulk weekly runs ~3 sub-45k prints/week (22-print candidate table in prereg §4), so
+  Option A may arm by the Q3 refresh; promotion is owner-run, never auto.
+- **NEW OWNER QUEUE ITEM (flagged 2026-07-14, prereg §0.2 — NOT acted on):** Thread-1A wired
+  the xclusiv BULK Handysize row ($36M) to the PRODUCT-tanker Handysize age-0 (ASC's actual
+  product-Handy NB contract is $44.9M; the row's TC column is BHSI = bulk). Live NAV impact
+  ≈ 0 today (age-0 touches 0-5yr only; no young product-Handy on the books; ASC's NBs are
+  subsequent-event-excluded) but the product curve's basis label is wrong — needs its own
+  attributable re-source ruling. Flags left in basis_status/newbuild_contract_prices/AGE0_BASIS.
 - **Onboarding scaffolds:** data_sources.yaml entries ("2343" quoted-key + PANL; PANL CIK
   0001606909 VERIFIED vs company_tickers.json 2026-07-14, pinned in test_edgar_poll); earnings
   calendar seeds (PANL Q2 10-Q ~Aug-4/14, 2343 Interim ~Jul-27/Aug-14 — both UNVETTED estimates,
@@ -134,11 +149,13 @@ still owner-scheduled (competes with the Q2-refresh block).** What landed:
   share-price table carries NEITHER name → both consensus pairs will be APPROX per §11.7.2
   (CMDB/SB precedent; re-verify on the newest daily at pair capture); PANL B3 IR-query DRAFT
   staged governance-side (`funnels/drybulk_2026H2/panl_b3_ir_query_draft.md` — owner sends).
-- **Still open before /add-ticker can run:** the owner's Handy ruling (above), then per-name
-  four-YAML sourcing (subsequent-events-note-first; PANL: SSI-merger vessel cohort + Note-9 SLB
-  structures + NBHC 2/3 VIE; 2343: 107-hull manifest off the fleet page + AR2025, semi-annual
+- **Still open before /add-ticker can run (Handy ruling now CLEARED — labor is the only gate):**
+  per-name four-YAML sourcing (subsequent-events-note-first; PANL: SSI-merger vessel cohort +
+  Note-9 SLB structures + NBHC 2/3 VIE; 2343: 107-hull manifest off the fleet page + AR2025
+  [now on disk: `inputs/research_issuer/2026-03_2343_annual_report_2025.pdf`], semi-annual
   balance-sheet vintage discipline), §15 screens (PANL SSI 29% bloc + F-2 wrapper watch; 2343
   Caravel 18.12%), and PANL E2 breakeven completion on this repo's basis at reconciliation.
+  Handy-heavy sleeves cap at GOVERNED-WIDE·pending-anchor until the txn re-fit (§11.7.11).
   Timing note: 2343's Interim (~Aug) publishes the post-April commitments figure (governance F-1
   orderbook re-test) — onboarding off the AR2025 snapshot before it is legitimate (AS-OF
   discipline) but the F-1 re-test lands mid-reconciliation either way.

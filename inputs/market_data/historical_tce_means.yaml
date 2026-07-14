@@ -16,6 +16,11 @@ historical_tce_means:
   Post-Panamax: 11900     # shares the Panamax/Kamsarmax freight basin (§11.7.10, 2026-06-29):
                           # same day-rate anchor as Pana; only VALUE + opex differ.
   Supra-Ultra: 13930
+  Handy-Bulk: 12850       # §11.7.11 (2026-07-14): xclusiv BHSI-38k spot-earnings series median
+                          # 2024Q3→2026Q3 (9 obs, median 12,842) — same window-class + ELEVATED
+                          # bias caveat as the family's 22-month archive medians (§11.7.5; the
+                          # Pareto dailies carry NO Handysize column). Cross-checks: 0.92x supra
+                          # anchor = 12,676; BHSI index avgs 2024/2025 ≈ $12.7k/$11.9k. Refine at P1b.
   # Containerships (§11.8.5) — anchor basis: MB FY2021-2025 average (NOT a
   # 10-year TC mean; boom-tilted, see the §11.8.5 two-layer caveat).
   Ctr-Feeder: 20850

@@ -25,6 +25,10 @@ newbuild_contract:
   Post-Panamax: 37500000   # replacement-by-modern-equivalent: nobody orders 90-96k bulkers,
                            # so the replacement newbuild IS a Kamsarmax (xclusiv 37.5M). Own
                            # scrap/opex still apply. NOT a direct PPMX mark (none exists).
+  Handy-Bulk: 30500000     # xclusiv dry-Handysize NB 2026Q2 (2026-06-22, Chinese yard); corroborated
+                           # MB DBW 24-28 30.5 / Compass+Intermodal W28 31.0 / bancosta Jun 30.4 /
+                           # 2343's OWN Dec-2025 JNS 4x40k contract $29.8M per hull (AR2025 p.17).
+                           # §11.7.11 Option B (2026-07-14); prereg handy_curve_sourcing_prereg.
   # UNVALIDATED (no broker contract mark) — omitted so parity returns None:
   #   LR1, Handysize, Handymax (product — pending dated broker marks),
   #   LNGC, MGC, Ctr-Feeder, Ctr-Intermediate, Ctr-Large (boom + resale-inflated, A1.4)
@@ -45,4 +49,10 @@ prompt_resale:
   Pana: 46000000           # xclusiv Kamsarmax Resale 2026-06-22
   Supra-Ultra: 43000000    # xclusiv Ultramax Resale 2026-06-22
   Post-Panamax: 46000000   # = Kamsarmax Resale (replacement-equivalent; invariant ceiling)
-  Handysize: 36000000      # xclusiv Resale 2026-06-22 (Thread 1A)
+  Handysize: 36000000      # xclusiv Resale 2026-06-22 (Thread 1A). BASIS FLAG 2026-07-14: the
+                           # xclusiv Handysize row is the BULK-carrier section (its NB 30.6 = bulk
+                           # level vs ASC's actual product-Handy contract $44.9M) — wiring this to
+                           # the PRODUCT curve is a flagged owner queue item (handy_curve_sourcing_
+                           # prereg §0.2). Untouched pending the ruling; live NAV impact ~0.
+  Handy-Bulk: 36000000     # xclusiv dry-Handysize Resale 2026-06-22 (same bulk row, correctly
+                           # labeled; §11.7.11 Option B 2026-07-14). Invariant: contract 30.5 < 36.0 OK.

@@ -1,8 +1,64 @@
 {
   "last_scanned_report_date": "2026-07-03",
-  "updated_at": "2026-07-05T11:00:06.661962+00:00",
+  "updated_at": "2026-07-14T14:00:19.698121+00:00",
   "tanker_period_signals": {
-    "hits": []
+    "hits": [
+      {
+        "date": "2024-11-26",
+        "kind": "tanker-ffa",
+        "sentence": "MRs in the Atlantic are surging again though, with the TC6 ( Mediterranean) suddenly at ~$50,000/day \u2013 the highest since May (which was peak \u2018Red Sea disruption period \u2019 for the product tankers)."
+      },
+      {
+        "date": "2025-01-10",
+        "kind": "tanker-ffa",
+        "sentence": "Q2 FFAs are now closing in on $50,000/day for a scrubber -eco ship (TD3), a level we last saw in October (when the spot was materially higher and winter expectations were firm)."
+      },
+      {
+        "date": "2025-01-16",
+        "kind": "tanker-ffa",
+        "sentence": "\u2022 Spot rates: The benchmark TD3 was up further and rate s above $60,000/day for eco-scrubber ships both East and West."
+      },
+      {
+        "date": "2025-01-16",
+        "kind": "tanker-ffa",
+        "sentence": "LRs are surging, eco-scrubber TC1 should be above $50,000/day \u2013 and MRs also bouncing in both basins."
+      },
+      {
+        "date": "2025-04-25",
+        "kind": "tanker-ffa",
+        "sentence": "\u2022 Spot rates: Another day with positive tanker moves, the benchmark TD3 (MEG - China) is closing in on $60,000/day, while suezmaxes in the Atlantic continue to rally (and FFAs moved sharply higher yesterday)."
+      },
+      {
+        "date": "2025-06-26",
+        "kind": "tanker-ffa",
+        "sentence": "\u2022 Spot rates: TD3 back to just below $50,000/day for non-eco vessels, and July FFA also back to the level prior to the Israel \u2013 Iran hostilities."
+      },
+      {
+        "date": "2025-09-05",
+        "kind": "tanker-ffa",
+        "sentence": "\u2022 Spot rates: The positive VLCC momentum continues, with TD3 now closing in on $60,000/day for scrubber-eco ships."
+      },
+      {
+        "date": "2026-01-08",
+        "kind": "tanker-ffa",
+        "sentence": "FFAs fired on all cylinders, with Q2 now trading above $60,000/day (TD3)."
+      },
+      {
+        "date": "2026-01-26",
+        "kind": "tanker-ffa",
+        "sentence": "\u2022 Spot rates: VLCCs ended the week quieter, with TD3 again below $100,000/day."
+      },
+      {
+        "date": "2026-02-24",
+        "kind": "tanker-ffa",
+        "sentence": "\u2022 Spot rates: No end to the VLCC euphoria, with the TD3 up another 12% and rates closing in on $200,000/day for eco-scrubber ships."
+      },
+      {
+        "date": "2026-03-03",
+        "kind": "tanker-ffa",
+        "sentence": "The TD3 is at a record level, and importantly we are also seeing VLCC rates in the USGoM and WAFR far above $200,000/day."
+      }
+    ]
   },
-  "candidates_cumulative": 0
+  "candidates_cumulative": 219
 }

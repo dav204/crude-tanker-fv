@@ -43,6 +43,7 @@ as_of:
   Ctr-Feeder: 2026-07-03
   Ctr-Intermediate: 2026-07-03
   Ctr-Large: 2026-07-03
+  Handy-Bulk: 2026-07-10    # MB Dry Bulk Weekly 28 (own cadence — no Handy FFA panel)
 twelve_month_tc:
   VLCC: 111500          # STALE Jun-7 war vintage — held, no 2-Jul TC print (see header)
   Suezmax: 61250        # STALE Jun-7 — held
@@ -71,6 +72,12 @@ twelve_month_tc:
   Pana: 19500           # (19716 + 19250)/2, FFA OCR 13-Jul (was 18550 2-Jul)
   Post-Panamax: 19500   # shares the Pana freight basin (§11.7.10, 2026-06-29)
   Supra-Ultra: 18350    # (18800 + 17875)/2, FFA OCR 13-Jul (was 17900 2-Jul)
+  Handy-Bulk: 14500     # §11.7.11 (2026-07-14): MB Dry Bulk Weekly 28 (4-10 Jul) 1-yr TC,
+                        # 38k dwt modern Japanese, net of address comm (printed basis). NO
+                        # Handy FFA panel — refreshes on the MB weekly, NOT the FFA promote
+                        # loop. Corroboration: Intermodal W27 1yr 13,500 @32k (≈14.4-15k
+                        # dwt-scaled to 38k). The xclusiv "TC" column is BHSI spot earnings,
+                        # NOT a 1-yr TC (prereg §0.2) — deliberately not used here.
   # Containerships (§11.8) — MB Container Weekly 27 assessments (2026-07-03),
   # class-collapsed per §11.8.1; ingested 2026-07-06 (trigger
   # container_mb_refresh; decisions/container_ingest_2026-07-06.md).

@@ -286,3 +286,26 @@ drybulk_spot_daily_resumes:
     moves.
   status: armed
   added: 2026-07-13
+
+handy_bulk_txn_refit:
+  sector: dry_bulk
+  due: null
+  observable: >
+    Standing event-watch (§11.7.11 Option B, owner-ratified 2026-07-14): the
+    dry-Handysize classified print sample reaches >=10 human-classified
+    in-window prints spanning >=3 age nodes INCLUDING at least one <=6yr (the
+    age-4-7 hole is what blocks a §9.9 fit today). Sources feeding the sample:
+    MB Dry Bulk Weekly S&P tables (~3 sub-45k prints/week observed, issues
+    24-28), sp_scan Handy keyword, 2343's own disposal flow via hkex_poll,
+    PANL filings. Candidate inventory + starting 22-print table:
+    decisions/handy_curve_sourcing_prereg_2026-07-14.md §4.
+  action: >
+    Owner-run promotion: classify prints (eco/gear/TC-attached/survey
+    adjustments) into transactions/handy_bulk.yaml, run the §9.9 dwt-normalized
+    fit (38k baseline), predict bands AHEAD, re-run the drift-gate loop; the
+    class leaves un-anchored (LNGC-regime) k_broker semantics and
+    basis_status/handoff tiers upgrade accordingly. Expected fit direction:
+    5yr/10yr DOWN toward prints (prereg Band 3) — do not "fix" the interim
+    high-side reads toward Pareto meanwhile.
+  status: armed
+  added: 2026-07-14
