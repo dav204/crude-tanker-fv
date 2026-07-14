@@ -77,9 +77,12 @@ for label, weights in DRY_BULK_WEIGHT_SETS.items():
     assert abs(sum(weights.values()) - 1.0) < 1e-9, f"{label} doesn't sum to 1"
     assert set(weights) == set(SCEN_ORDER), f"{label} scenario keys mismatch"
 
-# The four VALUED dry-bulk names (inputs/watchlist.yaml). Census-only names
+# The VALUED dry-bulk names (inputs/watchlist.yaml). Census-only names
 # (SHIP / DSX / EDRY / PANL / HSHP) are not onboarded and get no read here.
-DRY_BULK_TICKERS = ["SBLK", "GNK", "CMDB", "SB"]
+# 2343 added 2026-07-14 (Stage-3 onboarding) — its sidecar row IS the binding
+# Gate-E W-frag read the Stage-2 packet deferred to this run (E.3: "the
+# definitive W-frag executes at Stage 3 onboarding").
+DRY_BULK_TICKERS = ["SBLK", "GNK", "CMDB", "SB", "2343"]
 
 
 # ----------------------------------------------------------------------------
