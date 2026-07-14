@@ -59,6 +59,19 @@ _FFA spot is the Aframax forward curve that drives the strip cash flows; its 12-
 
 0.70 × $62.09 (NAV) + 0.30 × $59.43 (strip) = **$61.29**
 
+### FV attribution
+
+| Term | $/sh | share of FV |
+|---|---:|---:|
+| Vessel marks | 90.74 | 148% |
+| Balance-sheet net | -28.65 | -47% |
+| §15 governance haircut | -18.63 | -30% |
+| Discounted DPS (strip, 8-10q) | 2.81 | 5% |
+| Discounted terminal (aged NAV) | 15.02 | 25% |
+| **Blend FV** | **61.29** | 100% |
+
+_Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 × 0.84 = **95%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
+
 ## Payout sensitivity
 
 | Dividend payout | Fair value |

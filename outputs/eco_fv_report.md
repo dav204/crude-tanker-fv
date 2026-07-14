@@ -52,6 +52,18 @@ _FFA spot is the Suezmax forward curve that drives the strip cash flows; its 12-
 
 0.70 × $34.35 (NAV) + 0.30 × $43.79 (strip) = **$37.18**
 
+### FV attribution
+
+| Term | $/sh | share of FV |
+|---|---:|---:|
+| Vessel marks | 34.42 | 93% |
+| Balance-sheet net | -10.37 | -28% |
+| Discounted DPS (strip, 8-10q) | 6.23 | 17% |
+| Discounted terminal (aged NAV) | 6.91 | 19% |
+| **Blend FV** | **37.18** | 100% |
+
+_Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 × 0.53 = **86%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
+
 ## Payout sensitivity
 
 | Dividend payout | Fair value |

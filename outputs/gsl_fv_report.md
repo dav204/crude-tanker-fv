@@ -50,6 +50,18 @@ _FFA spot is the Ctr-Large forward curve that drives the strip cash flows; its 1
 
 0.60 × $38.59 (NAV) + 0.40 × $49.78 (strip) = **$43.06**
 
+### FV attribution
+
+| Term | $/sh | share of FV |
+|---|---:|---:|
+| Vessel marks | 29.18 | 68% |
+| Balance-sheet net | -6.03 | -14% |
+| Discounted DPS (strip, 8-10q) | 2.17 | 5% |
+| Discounted terminal (aged NAV) | 17.74 | 41% |
+| **Blend FV** | **43.06** | 100% |
+
+_Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.60 + 0.40 × 0.89 = **96%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
+
 ## Payout sensitivity
 
 | Dividend payout | Fair value |

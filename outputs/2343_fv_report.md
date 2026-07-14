@@ -49,6 +49,18 @@ _FFA spot is the Handy-Bulk forward curve that drives the strip cash flows; its 
 
 0.60 × $0.39 (NAV) + 0.40 × $0.36 (strip) = **$0.38**
 
+### FV attribution
+
+| Term | $/sh | share of FV |
+|---|---:|---:|
+| Vessel marks | 0.26 | 68% |
+| Balance-sheet net | -0.03 | -7% |
+| Discounted DPS (strip, 8-10q) | 0.04 | 11% |
+| Discounted terminal (aged NAV) | 0.10 | 28% |
+| **Blend FV** | **0.38** | 100% |
+
+_Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.60 + 0.40 × 0.72 = **89%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
+
 ## Payout sensitivity
 
 | Dividend payout | Fair value |

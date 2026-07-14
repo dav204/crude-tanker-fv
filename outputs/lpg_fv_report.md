@@ -47,6 +47,18 @@ _FFA spot is the VLGC forward curve that drives the strip cash flows; its 12-mon
 
 0.70 × $34.11 (NAV) + 0.30 × $29.62 (strip) = **$32.76**
 
+### FV attribution
+
+| Term | $/sh | share of FV |
+|---|---:|---:|
+| Vessel marks | 28.56 | 87% |
+| Balance-sheet net | -4.68 | -14% |
+| Discounted DPS (strip, 8-10q) | 1.54 | 5% |
+| Discounted terminal (aged NAV) | 7.34 | 22% |
+| **Blend FV** | **32.76** | 100% |
+
+_Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 × 0.83 = **95%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
+
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
