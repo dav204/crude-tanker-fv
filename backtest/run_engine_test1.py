@@ -159,12 +159,12 @@ def main() -> int:
     lo, hi = block_bootstrap_ci(sn)
     nq = len([x for x in sn if x is not None])
     hits = [h for _, h in quarters if h is not None]
-    print(f"\n=== PRIMARY (Test 1): engine EV% sector-neutral pooled IC ===")
+    print("\n=== PRIMARY (Test 1): engine EV% sector-neutral pooled IC ===")
     print(f"mean IC {_fmt(m_sn)}   t {_fmt(t_sn, 2)}   Nq={nq}")
     print(f"quarter-block bootstrap 95% CI: [{_fmt(lo)}, {_fmt(hi)}]")
     print(f"VERDICT: {verdict(m_sn, t_sn)}")
     if hits:
-        print(f"=== SECONDARY: directional sign hit-rate ===")
+        print("=== SECONDARY: directional sign hit-rate ===")
         print(f"pooled hit-rate {sum(hits)/len(hits)*100:.0f}% over {len(hits)} quarters "
               f"(anti-predictive trip: ≤40%)")
     return 0

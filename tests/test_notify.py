@@ -3,7 +3,6 @@ send/record semantics, doctor. All network mocked; the REAL inputs/notify.yaml
 is the routing table under test (change-control: every tag lands with a route
 entry + a fixture test)."""
 
-from pathlib import Path
 
 from crude_tanker_fv import notify
 from crude_tanker_fv.loaders import INPUTS_DIR

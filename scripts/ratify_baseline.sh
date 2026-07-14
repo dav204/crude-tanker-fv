@@ -30,3 +30,12 @@ echo
 echo "Baseline rewritten (+ RATIFY_LOG.md row). Review the diff, then commit deliberately:"
 echo "  git add baselines/reconcile_baseline.yaml RATIFY_LOG.md"
 echo "  git commit -m \"baseline: re-ratify drift gate — ${cause}\""
+echo
+# Last-mile checklist (audit N-3, 2026-07-14): the ratify commit landed twice while the
+# PLAN pending-marker survived the session — a fresh agent then hunts for reds that no
+# longer exist (or re-ratifies). The marker dies IN THE SAME COMMIT as the baseline.
+if grep -q "PENDING OWNER: baseline ratify" PLAN.md 2>/dev/null; then
+  echo "  ⚠ PLAN.md still says 'PENDING OWNER: baseline ratify' — clear that marker in"
+  echo "    the SAME commit (the N-3 last-mile gap: stale pending-markers misdirect the"
+  echo "    next session's agent)."
+fi

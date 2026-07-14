@@ -4,7 +4,6 @@ Point-in-time pins at the frozen Apr-01-2026 MB marks vintage + Jun-12
 inputs; re-pin on the first MB-subscription marks refresh.
 """
 
-import pytest
 
 from crude_tanker_fv.loaders import load_company_inputs
 from crude_tanker_fv.pipeline import value_company

@@ -14,6 +14,10 @@ name: sentinel-lite
 on:
   schedule:
     - cron: "45 12 * * *"   # daily 12:45 UTC — after the Mac's 08:15 local run
+  push:
+    branches: [main]        # audit N-4 (2026-07-14): the clean-clone guarantee runs
+                            # at push time, not up-to-24h later (ci + harvester jobs
+                            # only — the sentinel job stays cron/manual, see its `if`)
   workflow_dispatch:
 
 permissions:
@@ -22,6 +26,9 @@ permissions:
 
 jobs:
   sentinel:
+    # Pager stays on its daily cadence — a push must not churn the sentinel issue
+    # (its semantics are "state of the PUSHED repo once a day", not per-commit).
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -83,6 +90,25 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pytest pyyaml openpyxl pillow pypdf requests
+      # audit N-1 (2026-07-14): install FROM the package metadata so pyproject's
+      # dependency list and the CI environment are one fact, not two hand copies.
+      - run: pip install -e ".[dev]"
+      - name: lint (audit N-6 — hold the line at zero new violations)
+        run: ruff check src tests backtest scripts
       - name: full suite on a clean clone
         run: PYTHONPATH=src python -m pytest -q
+
+  # audit N-5 (2026-07-14): the vendored harvester's parsers produce the §9.9
+  # transaction prints that anchor every mark — its 60-test suite now runs in CI
+  # instead of only when the owner remembers the .venv310 invocation locally.
+  harvester:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r shipping_harvester/requirements.txt pytest
+      - name: harvester suite
+        working-directory: shipping_harvester
+        run: PYTHONPATH=. python -m pytest -q

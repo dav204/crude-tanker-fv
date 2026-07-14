@@ -9,12 +9,16 @@ description = "Independent fair value estimator for crude tanker equities (NAV +
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "Proprietary" }
+# The REAL dependency surface (audit N-1, 2026-07-14): the engine is deliberately
+# pandas-free (stdlib + yaml is why it clean-clones onto any stack). pypdf = filing/
+# PDF paths; pillow = ffa_ocr; requests = rocketchat_api. CI installs `-e .[dev]`
+# so this list and the CI environment can never diverge again (single source).
 dependencies = [
-    "pandas>=2.0",
-    "numpy>=1.24",
     "pyyaml>=6.0",
     "openpyxl>=3.1",
-    "jupyter>=1.0",
+    "pypdf>=4.0",
+    "pillow>=10.0",
+    "requests>=2.31",
 ]
 
 [project.optional-dependencies]
@@ -36,3 +40,11 @@ pythonpath = ["src"]
 [tool.ruff]
 line-length = 100
 src = ["src", "tests"]
+
+[tool.ruff.lint]
+# audit N-6 (2026-07-14): the 37 auto-fixable violations were fixed; the 20 legacy
+# remainders (9 E741 ambiguous names, 7 E701/E702 one-liners, 4 F841 unused vars —
+# all cosmetic, in working valuation code) are accepted-as-is rather than churned.
+# CI now runs `ruff check` so NEW violations cannot accumulate; delete an ignore
+# here when its class is cleaned up.
+ignore = ["E741", "E701", "E702", "F841"]

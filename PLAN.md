@@ -161,10 +161,13 @@ still owner-scheduled (competes with the Q2-refresh block).** What landed:
   limits: 35-Supramax scrubber aggregate as documented conservative omission (~2.5% NAV,
   ECO-NB pattern, not queued); chartered-in book (13 LT + ~134 ST) excluded with full $82M
   operated-book G&A charged (CMDB/CBI convention); bareboat mini-cape rate unmodeled.
-  **PENDING OWNER: baseline ratify** (cause: 2343 onboarding + the 7/14 price vintage — 2343
-  `new` + 10 EV%-only rows all ΔNAV +0.0%, incl. two shallow price-band flips eyeballed
-  individually: CMDB BUY→HOLD +$0.49 / SBLK BUY→HOLD +$0.19, cmdb_log/sblk_log 2026-07-14).
-  The two drift-gate reds at HEAD are the Phase-4-style designed reds; they clear at ratify.
+  **Baseline RATIFIED at owner go 2026-07-14T16:41Z** (RATIFY_LOG @ 0aa4fba; review page
+  `decisions/ratify_review_2026-07-14.md`; cause: 2343 onboarding + the 7/14 price vintage —
+  2343 `new` + 10 EV%-only rows all ΔNAV +0.0%, incl. two shallow price-band flips eyeballed
+  individually: CMDB BUY→HOLD / SBLK BUY→HOLD, recross watches armed). **Suite fully green
+  584 + 16 xfailed, drift 0 UNEXPLAINED; pushed.** External audit same day
+  (`outputs/EXTERNAL_AUDIT_2026-07-14.md` — clean, nothing above P2; N-1..N-7 dispositioned,
+  see CHANGELOG 2026-07-14 audit entry).
 - **PANL: onboarding DEFERRED (owner 2026-07-14) — potentially after the Q2-refresh block.**
   Owner sends the B3 IR query (draft staged governance-side). When scheduled: four-YAML
   sourcing (subsequent-events-note-first; SSI-merger vessel cohort + Note-9 SLB structures +

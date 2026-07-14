@@ -113,18 +113,18 @@ def main() -> int:
     nq = len([x for x in sn if x is not None])
     lo, hi = block_bootstrap_ci(sn)
 
-    print(f"\n=== PRIMARY (Amendment 3, Sharadar P/B proxy): sector-neutral pooled IC ===")
+    print("\n=== PRIMARY (Amendment 3, Sharadar P/B proxy): sector-neutral pooled IC ===")
     print(f"mean IC {_fmt(m_sn)}   t {_fmt(t_sn, 2)}   Nq={nq}")
     print(f"quarter-block bootstrap 95% CI (block={BOOT_BLOCK}, B={BOOT_B}, seed={BOOT_SEED}): "
           f"[{_fmt(lo)}, {_fmt(hi)}]")
     print(f"VERDICT: {verdict(m_sn, t_sn)}")
 
-    print(f"\n=== SECONDARY: raw whole-panel IC (cross-sector confounded) ===")
+    print("\n=== SECONDARY: raw whole-panel IC (cross-sector confounded) ===")
     print(f"mean IC {_fmt(m_raw)}   t {_fmt(t_raw, 2)}   Nq={len([x for x in raw if x is not None])}")
 
     half = nq // 2
     e_m, e_t = mean_t(sn[:half]); l_m, l_t = mean_t(sn[half:])
-    print(f"\n=== EXPLORATORY: split-half stability ===")
+    print("\n=== EXPLORATORY: split-half stability ===")
     print(f"early half mean IC {_fmt(e_m)} t {_fmt(e_t, 2)} (Nq={half}); "
           f"late half mean IC {_fmt(l_m)} t {_fmt(l_t, 2)} (Nq={nq - half})")
     return 0

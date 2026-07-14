@@ -1,7 +1,6 @@
 """WO2 acceptance compiler: joins render honestly — ✅ on satisfied streams,
 ❌ rows (and a NOT ACCEPTED verdict) on failed joins. Synthetic state only."""
 
-import json
 from datetime import date
 from pathlib import Path
 

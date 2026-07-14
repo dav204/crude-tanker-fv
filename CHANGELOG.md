@@ -5,6 +5,18 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-14 (evening) — EXTERNAL AUDIT (clean-clone re-review @ 1d3db14): CLEAN, nothing
+  above P2; all seven findings dispositioned same-day.** The audit verified from a cold clone
+  on Python 3.12/pandas 3.0: 580 green, byte-identical pipeline regen, drift 0 UNEXPLAINED,
+  the 2343 reconcile reproducing −2.0%, secret hygiene clean across all 297 commits, and all
+  five prior P0/P1 fixes holding. Dispositions (`outputs/EXTERNAL_AUDIT_2026-07-14.md`
+  addendum): N-1 pyproject deps rewritten to the REAL five + CI installs `-e .[dev]` (single
+  source); N-4 push-trigger CI (sentinel job stays cron-only); N-5 harvester suite now a CI
+  job; N-2 converted quotes 4dp (the sub-$1 2343 quantization); N-3 stale PLAN
+  pending-ratify marker cleared + ratify_baseline.sh now greps for the marker (last-mile
+  guard); N-6 ruff: 37 auto-fixes applied, 20 legacy cosmetics config-accepted dated, CI
+  holds the line; N-7 README test count guarded by a census-band test (the F-9 class fully
+  covered). Residual: governance consumer asserts schema major==2 — confirmed as-designed.
 - **2026-07-14 (later) — 2343 (Pacific Basin) ONBOARDED — 25th name, first HKEX listing, first
   Handy-Bulk carrier (Stage-3 intake, owner-scheduled "before q2").** Four-YAML sourcing off the
   AR2025 audited 31-Dec-2025 snapshot (subsequent-events note FIRST — Note 27: Caravel agreement

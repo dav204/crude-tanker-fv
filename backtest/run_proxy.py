@@ -58,15 +58,15 @@ def main() -> int:
     m_sn, t_sn = mean_t(sn)
     m_raw, t_raw = mean_t(raw)
     nq = len([x for x in sn if x is not None])
-    print(f"\n=== PRIMARY (Amendment 2, P/B proxy): sector-neutral pooled IC ===")
+    print("\n=== PRIMARY (Amendment 2, P/B proxy): sector-neutral pooled IC ===")
     print(f"mean IC {_fmt(m_sn)}   t {_fmt(t_sn,2)}   Nq={nq}")
-    print(f"=== SECONDARY: raw whole-panel IC ===")
+    print("=== SECONDARY: raw whole-panel IC ===")
     print(f"mean IC {_fmt(m_raw)}   t {_fmt(t_raw,2)}   Nq={len([x for x in raw if x is not None])}")
 
     # exploratory: split-half stability (early vs late)
     half = nq // 2
     e_m, e_t = mean_t(sn[:half]); l_m, l_t = mean_t(sn[half:])
-    print(f"\n=== EXPLORATORY: stability ===")
+    print("\n=== EXPLORATORY: stability ===")
     print(f"early half mean IC {_fmt(e_m)} (Nq={half}); late half mean IC {_fmt(l_m)} (Nq={nq-half})")
     return 0
 

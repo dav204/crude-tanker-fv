@@ -44,8 +44,10 @@ Use the reads as one disciplined input to a position call, sized accordingly.
   incl. **2343** Pacific Basin — the first HKEX/HKD listing and the first
   Handy-Bulk carrier, Stage-3 intake 2026-07-14), containerships (2), LPG (2,
   the WO3 Phase-4 validators)
-- **460+ tests passing** end-to-end (the ticker count and sector split are
-  guarded against `inputs/watchlist.yaml` by `tests/test_docs_stay_lean.py`)
+- **590+ tests passing** end-to-end (ticker count, sector split, AND this test
+  count are guarded by `tests/test_docs_stay_lean.py` — the count asserts
+  against the suite's own test-function census within a tolerance band, audit
+  N-7 2026-07-14)
 - **8 output families** regenerated per pipeline run + 5 standalone diagnostics
   (LNG weight robustness, crude weight robustness, VIE coverage universe xref,
   VIE market rates xref, terminal-value sensitivity)

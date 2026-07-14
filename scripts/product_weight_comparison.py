@@ -39,7 +39,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
 from crude_tanker_fv.pipeline import _load_all_sectors, _run_scenarios_for_ticker
-from crude_tanker_fv.scenarios import position_recommendation
 
 # ----------------------------------------------------------------------------
 # Weight definitions

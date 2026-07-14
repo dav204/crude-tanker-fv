@@ -299,7 +299,7 @@ def scaffold(ticker: str, sector: str, quarter: str, force: bool, dry_run: bool)
         existing = [t.relative_to(ROOT) for t, _ in targets if t.exists()]
         if existing:
             sys.stderr.write(
-                f"Refusing to overwrite existing files (use --force to override):\n"
+                "Refusing to overwrite existing files (use --force to override):\n"
             )
             for p in existing:
                 sys.stderr.write(f"  - {p}\n")

@@ -158,9 +158,13 @@ def run_refresh(inputs_dir: Path = INPUTS_DIR) -> tuple[int, int, int]:
                 quote["native_price"] = quote["price"]
                 quote["native_currency"] = currency
                 quote["usd_per_unit_fx"] = round(1.0 / fx, 6)
-                quote["price"] = round(quote["price"] / fx, 2)
+                # 4dp on CONVERTED quotes (audit N-2, 2026-07-14): 2dp quantized
+                # sub-$1 listings — 2343 at ~$0.39 lost a whole HKD tick (0.33%)
+                # and carried ~1.3% price resolution, the same order as the ±2pp
+                # drift band. Display stays 2dp at render time; storage is 4dp.
+                quote["price"] = round(quote["price"] / fx, 4)
                 if "prev_close" in quote:
-                    quote["prev_close"] = round(quote["prev_close"] / fx, 2)
+                    quote["prev_close"] = round(quote["prev_close"] / fx, 4)
         except Exception as exc:
             failed += 1
             print(f"{ticker:6s} FETCH FAILED ({exc}); keeping previous entry", file=sys.stderr)

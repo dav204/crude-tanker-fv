@@ -30,7 +30,7 @@ from pathlib import Path
 from typing import Optional
 
 from .loaders import load_company_inputs, load_watchlist
-from .nav import NavResult, compute_nav
+from .nav import NavResult
 from .report import OUTPUTS_DIR
 
 # §12.5 trigger-gate thresholds.

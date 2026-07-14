@@ -1,12 +1,10 @@
 """Transaction-anchored curve recalibration tests (METHODOLOGY 3.1 / 9.9)."""
 
 from datetime import date
-from pathlib import Path
 
 import pytest
 
-from crude_tanker_fv.loaders import INPUTS_DIR, load_company_inputs, load_market_data
-from crude_tanker_fv.nav import compute_nav
+from crude_tanker_fv.loaders import INPUTS_DIR, load_market_data
 from crude_tanker_fv.pipeline import (
     run_transaction_anchored_comparison,
     value_company,

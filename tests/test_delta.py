@@ -9,16 +9,11 @@ Coverage targets:
   - Snapshot round-trip (save → load) is lossless.
 """
 
-import json
-from pathlib import Path
 
-import pytest
 
 from crude_tanker_fv.delta import (
-    DeltaReport,
     RunSnapshot,
     TickerSnapshot,
-    _classify_material,
     compute_deltas,
     load_previous_snapshot,
     prepend_decision_log_entries,

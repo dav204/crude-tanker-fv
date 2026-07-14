@@ -26,7 +26,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
-from crude_tanker_fv.scenarios import load_scenarios, position_recommendation, run_scenarios
+from crude_tanker_fv.scenarios import load_scenarios, run_scenarios
 
 # ----------------------------------------------------------------------------
 # Weight definitions

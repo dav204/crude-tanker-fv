@@ -8,7 +8,6 @@ convention. First reconcile: tool NAV $17.74 vs Pareto-implied $18.21
 (-2.6% gap, a real Pareto print) — bands below guard that baseline.
 """
 
-import pytest
 
 from crude_tanker_fv.loaders import load_company_inputs
 from crude_tanker_fv.nav import compute_nav

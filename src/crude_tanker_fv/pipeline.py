@@ -46,7 +46,6 @@ from .scenarios import (
 )
 from .sensitivity import compute_sensitivity, payout_sensitivity
 from .transactions import (
-    CurveFit,
     apply_transaction_anchored_curves,
     load_all_transactions,
 )

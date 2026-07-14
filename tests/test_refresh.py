@@ -13,15 +13,13 @@ Coverage targets:
 """
 
 import os
-from datetime import date, datetime, timedelta, timezone
-from pathlib import Path
+from datetime import date, datetime, timezone
 
 import pytest
 import yaml
 
 from crude_tanker_fv.refresh import (
     MARKET_DATA_FILES,
-    MARKET_DATA_STALE_DAYS,
     build_checklist,
     check_balance_sheets,
     check_market_data,

@@ -123,7 +123,7 @@ def _classify_by_content(text: str) -> tuple[str, str]:
         return "shipping_daily", f"content:{m.group(0)[:30]}"
     m = _CONTENT_CONTAINER_WEEKLY.search(text)
     if m:
-        return "container_weekly", f"content:Container Weekly"
+        return "container_weekly", "content:Container Weekly"
     m = _CONTENT_COMPANY_REPORT.search(text)
     if m:
         return "company_report", f"content:{m.group(0)[:30]}"

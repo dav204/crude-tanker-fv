@@ -373,7 +373,7 @@ def check_watchlist_freshness(
             detail = f"as_of {as_of} ({days}d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure"
         elif days is None:
             status = "warn"
-            detail = f"as_of missing or unparseable"
+            detail = "as_of missing or unparseable"
         elif days > threshold_days:
             status = "stale"
             detail = f"as_of {as_of} ({days}d ago, threshold {threshold_days}d)"
@@ -582,9 +582,9 @@ def _render_checklist_md(c: Checklist) -> str:
             badge = "⚠ stale" if it.status == "stale" else "✗ missing"
             lines.append(f"| `{it.label}` | {badge} | {it.detail} |")
         lines.append("")
-        lines.append(f"Refresh sources: spot TCE + 12M TC + FFA from Pareto "
-                     f"Shipping Daily / Baltic Exchange / Clarksons; vessel "
-                     f"value curves from VesselsValue / Clarksons SIN.\n")
+        lines.append("Refresh sources: spot TCE + 12M TC + FFA from Pareto "
+                     "Shipping Daily / Baltic Exchange / Clarksons; vessel "
+                     "value curves from VesselsValue / Clarksons SIN.\n")
 
     # --- Section 3: Watchlist freshness ---
     lines.append("## 3. Watchlist freshness\n")

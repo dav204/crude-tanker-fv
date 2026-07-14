@@ -70,3 +70,28 @@ def test_claude_md_stays_a_lean_router():
         f"specifics; (3) migrate detail to a companion (WORKFLOWS/METHODOLOGY/CHANGELOG) and leave "
         f"a pointer. The narrative NEVER goes in CLAUDE.md. Raise the cap only as a deliberate decision."
     )
+
+
+def test_readme_test_count_claim_tracks_the_suite():
+    """audit N-7 (2026-07-14): the '**N+ tests**' README claim is the exact counter
+    class whose rot motivated F-9, but it was the one number the F-9 guard didn't
+    cover (said 460+ while collection ran 600 — a 26% understatement). Assert the
+    claimed floor N against the suite's own static test-function census: N must be
+    >= the def-count (collection >= defs, so the claim stays a true floor) and
+    <= 1.25x the def-count (so it can't overstate). Adding tests eventually reds
+    this until the README floor is raised — by design."""
+    import re
+
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    m = re.search(r"\*\*(\d+)\+ tests passing\*\*", readme)
+    assert m, "README lost its '**N+ tests passing**' line"
+    claimed = int(m.group(1))
+    defs = sum(
+        len(re.findall(r"^def test_", p.read_text(encoding="utf-8"), re.MULTILINE))
+        for p in (ROOT / "tests").glob("*.py")
+    )
+    assert defs <= claimed <= int(defs * 1.25), (
+        f"README claims {claimed}+ tests; static census is {defs} defs "
+        f"(collection runs higher via parametrization). Keep the claim in "
+        f"[{defs}, {int(defs * 1.25)}] — update the README, not this band."
+    )

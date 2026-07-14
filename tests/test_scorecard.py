@@ -155,7 +155,6 @@ def test_f13_fv_and_position_share_one_basis():
     the scorecard shipped '+28% upside · TRIM/SHORT' rows. Third instance today
     of an incidental identity treated as an invariant — surfaces assumed to
     agree get a test that they agree."""
-    import json
 
     from types import SimpleNamespace as NS
 
@@ -429,7 +428,6 @@ def test_weight_family_basis_and_stale_withholding(tmp_path, rows):
     basis marker says why on both surfaces."""
     import json
 
-    import yaml
 
     from crude_tanker_fv.scorecard import (
         scenario_inputs_sha, update_weight_fragility_sidecar, weight_family_basis,

@@ -7,7 +7,6 @@ from pathlib import Path
 import pytest
 
 from crude_tanker_fv.justified_pnav import (
-    DEFAULT_G,
     JustifiedPnavRow,
     _g_by_sector,
     compute_justified_pnav_rows,
@@ -174,7 +173,6 @@ def test_normalized_eps_differs_from_ntm_strip():
 
 
 def test_normalized_eps_flags_missing_anchor():
-    from dataclasses import replace
     ci = load_company_inputs("DHT", QUARTER)
     nav = compute_nav(ci).nav_per_share
     cls = next(iter({v.cls for v in ci.fleet.vessels}))
