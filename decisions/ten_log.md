@@ -21,6 +21,24 @@ not executed.** Requested by the governance sizing analysis (gate ii).
 
 ---
 
+## 2026-07-15T19:42:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.75
+- Single-point FV: $59.66
+- Scenario PW FV: $56.46 (EV +42.0%)
+- NAV / share: $87.35
+- Position: **BUY (undervalued)**
+- Broker spread: +43.1pp (k_broker 1.24)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-15T19:24:44+00:00 — Pipeline run (auto)
 
 **Model state:**

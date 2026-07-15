@@ -279,8 +279,8 @@ names:
     - HOLD (fairly valued)
     - TRIM/SHORT (overvalued)
   TEN:
-    ev_min_pct: 26.6
-    ev_max_pct: 45.0
+    ev_min_pct: 25.2
+    ev_max_pct: 42.0
     ev_sign_stable: true
     positions:
     - BUY
