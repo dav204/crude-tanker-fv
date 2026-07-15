@@ -274,3 +274,41 @@ def test_ratify_appends_log_row(tmp_path):
     append_ratify_log("second cause", commit="def5678", path=log)
     lines = [ln for ln in log.read_text().splitlines() if ln.startswith("| 2")]
     assert len(lines) == 2 and lines[1].endswith("| second cause |")
+
+
+def test_band_flip_interval_triage_dm5(tmp_path):
+    """D-M5 (ruled 2026-07-15): a band flip with price INSIDE [fv_low, fv_high] is
+    band-mech (auto-classified, no annotation forced, gate stays green); an
+    interval-EXIT flip keeps the full eyeball requirement; missing interval data
+    (pre-2.4 state) falls back to the always-eyeball 'band' tag."""
+    import crude_tanker_fv.drift_gate as dg
+
+    base = {"meta": {"ratified_at": "2026-07-15T00:00:00Z", "ratified_commit": "x",
+                     "quarter": "2026-Q1"},
+            "thresholds": {"ev_pct_pp": 2.0, "nav_pct": 2.0, "k_broker_delta": 0.05},
+            "names": {
+                "AAA": {"pnav_basis": "approx", "ev_pct": 4.0, "tool_nav": 10.0,
+                        "position_band": "BUY (undervalued)", "k_broker": 1.0, "sector": "dry_bulk"},
+                "BBB": {"pnav_basis": "approx", "ev_pct": 4.0, "tool_nav": 10.0,
+                        "position_band": "BUY (undervalued)", "k_broker": 1.0, "sector": "dry_bulk"},
+                "CCC": {"pnav_basis": "approx", "ev_pct": 4.0, "tool_nav": 10.0,
+                        "position_band": "BUY (undervalued)", "k_broker": 1.0, "sector": "dry_bulk"},
+            }}
+    state = {"tickers": {
+        # flip, price inside interval -> band-mech, explained, no annotation
+        "AAA": {"current_price": 10.2, "ev_pct": 3.0, "nav_per_share": 10.0,
+                "position": "HOLD (fairly valued)", "k_broker": 1.0, "sector": "dry_bulk",
+                "fv_low": 9.0, "fv_high": 12.0},
+        # flip, price OUTSIDE interval -> band-EXIT, UNEXPLAINED (no annotation in tmp logs)
+        "BBB": {"current_price": 13.5, "ev_pct": 3.0, "nav_per_share": 10.0,
+                "position": "HOLD (fairly valued)", "k_broker": 1.0, "sector": "dry_bulk",
+                "fv_low": 9.0, "fv_high": 12.0},
+        # flip, NO interval fields (old snapshot) -> plain band, UNEXPLAINED
+        "CCC": {"current_price": 10.2, "ev_pct": 3.0, "nav_per_share": 10.0,
+                "position": "HOLD (fairly valued)", "k_broker": 1.0, "sector": "dry_bulk"},
+    }}
+    rows = {r.ticker: r for r in dg.evaluate(base, state, decisions_dir=tmp_path)}
+    assert rows["AAA"].breaches == ["band-mech"] and rows["AAA"].status == "explained"
+    assert rows["BBB"].breaches == ["band-EXIT"] and rows["BBB"].status == "UNEXPLAINED"
+    assert rows["CCC"].breaches == ["band"] and rows["CCC"].status == "UNEXPLAINED"
+    assert [r.ticker for r in dg.unexplained(dg.evaluate(base, state, decisions_dir=tmp_path))] == ["BBB", "CCC"]

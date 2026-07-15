@@ -268,7 +268,8 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
     doc = json.loads((tmp_path / "book_scorecard.json").read_text())
     # String "2.1" — the consumer asserts major == 2 (WO1 Task 1); minor bumps
     # are additive, major bumps break. 2.3 (2026-07-09): + mark_wide_nodes.
-    assert doc["schema_version"] == "2.3"
+    # 2.4 (2026-07-15, D-M5 ruled): + fv_low/fv_high (scenario min/max interval).
+    assert doc["schema_version"] == "2.4"
     assert doc["schema_version"].split(".")[0] == "2"
     assert doc["quarter"] == QUARTER
     # Vintage stamp: ISO-8601 UTC + the HEAD hash ('-dirty' allowed).

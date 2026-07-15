@@ -290,14 +290,33 @@ def evaluate(baseline: dict, state: dict,
         if abs(d_nav_pct) > th["nav_pct"]:
             breaches.append("NAV")
         if band_from != band_to:
-            breaches.append("band")
+            # D-M5 interval flip-triage (ruled 2026-07-15): a band flip with the
+            # price still INSIDE the name's scenario FV interval is price-mechanical
+            # BY RULE — tagged band-mech, does NOT by itself force an annotation
+            # (absorbed at the next routine ratify). An interval-EXIT flip keeps
+            # the full eyeball requirement. Missing interval data (pre-2.4 state)
+            # falls back to the old always-eyeball behavior.
+            price = t.get("current_price")
+            lo, hi = t.get("fv_low"), t.get("fv_high")
+            have = (price is not None and lo is not None and hi is not None
+                    and lo == lo and hi == hi)   # nan-safe
+            if have and float(lo) <= float(price) <= float(hi):
+                breaches.append("band-mech")
+            elif have:
+                breaches.append("band-EXIT")
+            else:
+                breaches.append("band")
         if basis != "approx" and abs(d_k) > th["k_broker_delta"]:
             breaches.append("k_broker")
 
         annotated = False
-        if breaches:
+        forcing = [b for b in breaches if b != "band-mech"]
+        if forcing:
             annotated = decision_log_annotated_since(ticker, ratified_at, decisions_dir)
             status = "explained" if annotated else "UNEXPLAINED"
+        elif breaches:
+            # band-mech only: auto-classified per the D-M5 rule — visible, not red.
+            status = "explained"
         else:
             status = "stable"
 

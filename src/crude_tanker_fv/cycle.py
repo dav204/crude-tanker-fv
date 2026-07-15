@@ -16,7 +16,13 @@ ratio selects the NAV vs. earnings blend weights via a step function:
 For multi-class operators the per-class ratio is combined at the
 fleet-weighted-average level, weighted by each class's share of vessel value.
 
-Open decision 9.1: step function vs. continuous logistic.
+Open decision 9.1 — RULED 2026-07-15 (owner, methodology memo D-M4, "Proceed as
+recommended"): **piecewise-linear continuous ramp** between the current band
+midpoints (w_nav AND terminal_multiple both interpolate; current values preserved
+at midpoints; zero new parameters). NOT yet wired — this module stays frozen (D1)
+until the shared adoption round with the D-M3 parity A/B outcome (~late Aug 2026:
+one cycle.py change, one regen, one ratify; book-wide small FV deltas eyeballed
+under the D-M5 interval rule). Until then the steps above remain the live mechanics.
 """
 
 from __future__ import annotations

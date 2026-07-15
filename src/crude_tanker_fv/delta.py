@@ -66,6 +66,12 @@ class TickerSnapshot:
     broker_spread_pp: float      # BrokerSweepRow.spread (broker - tool EV%)
     k_broker: float              # mark premium that lifts tool NAV to broker NAV
     sector: str                  # routing sector (crude / lng / product)
+    # D-M5 (ruled 2026-07-15): the scenario FV interval — min/max scenario FV over
+    # WEIGHT>0 scenarios (0-mass structural tails excluded; they carry no probability
+    # and would swamp the low end). Feeds the drift gate's interval flip-triage rule.
+    # Defaults keep pre-2.4 snapshots loadable (TickerSnapshot(**s) is strict-keys).
+    fv_low: float = float("nan")
+    fv_high: float = float("nan")
 
 
 @dataclass
@@ -106,6 +112,7 @@ def snapshot_current_run(
     for sr in scenario_reports:
         fv = fv_by.get(sr.ticker)
         bsw = bsw_by.get(sr.ticker)
+        active_fvs = [sc.fair_value for sc in (getattr(sr, "scenarios", None) or []) if sc.weight > 0]
         tickers[sr.ticker] = TickerSnapshot(
             current_price=round(sr.current_price, 2),
             single_point_fv=round(fv.blended.fair_value_per_share, 2) if fv else float("nan"),
@@ -117,6 +124,8 @@ def snapshot_current_run(
             broker_spread_pp=round(bsw.spread, 1) if bsw else 0.0,
             k_broker=round(bsw.k_broker, 2) if bsw else 1.0,
             sector=sr.sector or "crude",
+            fv_low=round(min(active_fvs), 2) if active_fvs else float("nan"),
+            fv_high=round(max(active_fvs), 2) if active_fvs else float("nan"),
         )
 
     return RunSnapshot(

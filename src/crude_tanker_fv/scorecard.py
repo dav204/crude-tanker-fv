@@ -256,6 +256,12 @@ class _Valuation:
     approx: bool
     blend_fv: Optional[float] = None   # single-point blend (secondary, labeled column)
     sleeve_fvs: Optional[dict] = None  # hybrid per-sleeve PW-FV contributions (WO1 V-1)
+    # D-M5 (ruled 2026-07-15): the VALUE interval — min/max scenario FV over WEIGHT>0
+    # scenarios (registered basis: scenario min/max; 0-mass structural tails excluded).
+    # The tier column encodes VALIDATION confidence; this encodes VALUE width — the
+    # governance flip-triage rule reads price-vs-interval, not point-FV precision.
+    fv_low: Optional[float] = None
+    fv_high: Optional[float] = None
 
 
 def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Valuation"]:
@@ -283,12 +289,15 @@ def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Va
         sanity = ("n-a" if approx else
                   ("OK" if (gap is not None and abs(gap) <= 50.0) else
                    ("FAIL" if gap is not None else "—")))
+        active_fvs = [sc.fair_value for sc in (getattr(s, "scenarios", None) or []) if sc.weight > 0]
         out[t] = _Valuation(
             price=price, fv=fv, upside_pct=(fv / price - 1.0) * 100.0 if price else 0.0,
             position=s.position_recommendation,
             nav_ps=nav_ps, broker_nav=broker_nav, gap_pct=gap, sanity=sanity, approx=approx,
             blend_fv=blend_fv,
             sleeve_fvs=(dict(getattr(s, "sleeve_fvs", {}) or {}) or None),
+            fv_low=min(active_fvs) if active_fvs else None,
+            fv_high=max(active_fvs) if active_fvs else None,
         )
     return out
 
@@ -545,9 +554,9 @@ def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation
       "on a contradicted figure). A **`cycle position`** in Position is a NAV-relative read (§12), NOT a "
       "directional short. A **void** row prints no derived numbers — they are known-suspect, not data.\n")
     fragility = fragility or {}
-    w("| Ticker | Sector | **Tier · why** | Price | Model FV | Upside | Position | Blend FV† | "
+    w("| Ticker | Sector | **Tier · why** | Price | Model FV | FV range | Upside | Position | Blend FV† | "
       "NAV/sh | Broker NAV | Gap | SANITY | Handoff | W-frag |")
-    w("|---|---|---|--:|--:|--:|:--|--:|--:|--:|--:|:--|:--|:--|")
+    w("|---|---|---|--:|--:|:--|--:|:--|--:|--:|--:|--:|:--|:--|:--|")
     torder = {"VALIDATED-TIGHT": 0, "GOVERNED-WIDE": 1, "PROVISIONAL": 2}
     for r in sorted(rows, key=lambda r: (torder.get(r.confidence_tier, 9), order.get(r.sector, 9), r.ticker)):
         tier = _verdict_tier(r.ticker, r.confidence_tier)
@@ -555,16 +564,18 @@ def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation
         frag = _fragility_cell(r.ticker, fragility)
         v = valuation.get(r.ticker)
         if v is None:
-            w(f"| {r.ticker} | {r.sector} | {tier} | — | — | — | — | — | — | — | — | — | {ready} | {frag} |")
+            w(f"| {r.ticker} | {r.sector} | {tier} | — | — | — | — | — | — | — | — | — | — | {ready} | {frag} |")
             continue
         if r.ticker in NAV_DERIVED_VOID:
-            w(f"| {r.ticker} | {r.sector} | {tier} | ${v.price:.2f} | _void_ | _void_ "
+            w(f"| {r.ticker} | {r.sector} | {tier} | ${v.price:.2f} | _void_ | _void_ | _void_ "
               f"| _void — pending reconciliation_ | _void_ | _void_ | _void_ | _void_ | _void_ | **NO** | {frag} |")
             continue
         bn = (f"${v.broker_nav:.2f}" + (" (apx)" if v.approx else "")) if v.broker_nav else ("apx" if v.approx else "—")
         gp = f"{v.gap_pct:+.0f}%" if v.gap_pct is not None else "—"
         bl = f"${v.blend_fv:.2f}" if (v.blend_fv is not None and v.blend_fv == v.blend_fv) else "—"
-        w(f"| {r.ticker} | {r.sector} | {tier} | ${v.price:.2f} | ${v.fv:.2f} | {v.upside_pct:+.0f}% "
+        rng = (f"{v.fv_low:.2f}–{v.fv_high:.2f}"
+               if (v.fv_low is not None and v.fv_high is not None) else "—")
+        w(f"| {r.ticker} | {r.sector} | {tier} | ${v.price:.2f} | ${v.fv:.2f} | {rng} | {v.upside_pct:+.0f}% "
           f"| {_verdict_position(r.ticker, v.position)} | {bl} | ${v.nav_ps:.2f} | {bn} | {gp} | {v.sanity} | {ready} | {frag} |")
     w("")
     w("_Model FV / Upside = the SCENARIO-probability-weighted FV — the same basis as Position "
@@ -831,6 +842,13 @@ def _write_handoff_json(
             # (the name's NAV rests materially on an EXTRAPOLATED fitted anchor;
             # band + record in provenance.MARK_WIDE_NODES).
             "mark_wide_nodes": list(r.mark_wide_nodes) or None,
+            # 2.4 (D-M5, ruled 2026-07-15): the VALUE interval — scenario min/max
+            # over weight>0 scenarios. Tier = validation confidence; this = value
+            # width. Governance flip triage: a band flip with price INSIDE
+            # [fv_low, fv_high] is price-mechanical by rule; only interval-exits
+            # owe an owner eyeball. Void rows suppress like every derived number.
+            "fv_low": None if (v is None or void) else _num(v.fv_low),
+            "fv_high": None if (v is None or void) else _num(v.fv_high),
         })
     doc = {
         # "2.1" (2026-07-02, WO1 Task 1 — string; the consumer asserts
@@ -844,7 +862,10 @@ def _write_handoff_json(
         # 2.3 (2026-07-09): + mark_wide_nodes — §9.9 wide-node exposure per name
         # (owner review F-1: the extrapolated-anchor flag must be machine-readable
         # before age-5-dependent VLGC NAV prints to the consumer).
-        "schema_version": "2.3",
+        # 2.4 (2026-07-15, D-M5 ruled): + fv_low/fv_high — the scenario min/max
+        # VALUE interval (weight>0 scenarios) + the interval flip-triage rule
+        # (drift_gate). Minor bump: additive, consumer asserts major == 2.
+        "schema_version": "2.4",
         **_vintage_stamp(),
         "quarter": quarter,
         "price_basis": price_basis,

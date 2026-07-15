@@ -228,14 +228,23 @@ name in committed outputs: the scenario deck (min/max scenario FV) and the 5×5 
 
 ## DECISION blocks (owner)
 
-- **D-M2 (discount rate):** ☐ Option A ratify flat 11% + documented limitation ·
-  ☐ Option B leverage-adjusted r_e · ☐ B′ = B + coverage-quarter rate split
-- **D-M3 (cycle denominator):** ☐ stage the Appendix-A pre-registration for the parity
-  A/B · ☐ decline (denominator stays historical_mean; provenance table still added)
-- **D-M4 (open decision 9.1):** ☐ continuous ramp (piecewise-linear) · ☐ logistic ·
-  ☐ keep step function (close 9.1 as ratified-as-is)
-- **D-M5 (verdict interval):** ☐ scenario min/max basis · ☐ 5×5 ±1-cell basis ·
-  ☐ decline
+- **D-M2 (discount rate):** ☐ Option A · ☑ **Option B leverage-adjusted r_e — RULED
+  2026-07-15 ("Proceed as recommended"); B′ deferred to the container refresh as a
+  rider; EXECUTION post-Stage-A (sweep memo gates adoption; flat-r sensitivity column
+  kept one quarter)** · ☐ B′ now
+- **D-M3 (cycle denominator):** ☑ **stage the Appendix-A pre-registration — RULED
+  2026-07-15; FROZEN as PRE_REGISTRATION_CYCLE_PARITY_DENOMINATOR.md; A/B RUNS
+  post-Stage-A; adoption needs the separate D1-unfreeze ruling** · ☐ decline
+- **D-M4 (open decision 9.1):** ☑ **continuous ramp (piecewise-linear) — RULED
+  2026-07-15; ADOPTION scheduled in ONE D1 round with D-M3's outcome (~late Aug: one
+  cycle.py change, one regen, one ratify); open decision 9.1 CLOSED as ruled** ·
+  ☐ logistic · ☐ keep steps
+- **D-M5 (verdict interval):** ☑ **scenario min/max basis — RULED 2026-07-15 and
+  EXECUTED SAME DAY** (fv_low/fv_high over weight>0 scenarios in the Verdict table +
+  book_scorecard.json schema 2.4; the interval flip-triage rule implemented in
+  drift_gate.evaluate: band-mech auto-classified inside the interval, band-EXIT keeps
+  the eyeball; guard-tested; the M-1 book-level attribution roll-up noted for the same
+  schema line at the next touch) · ☐ 5×5 basis · ☐ decline
 
 ---
 
