@@ -393,7 +393,9 @@ source of truth (imported by both the guards and the tier, so they can't drift):
    $88.76→$87.35 vs predicted $87.34]: advances $442.74M cited, WC composite $174.65M, debt $2,136.1M,
    +$45.95M Mare Success NCI netted, 4 not-owned hulls out of the manifest [Ulysses HFS + 3 true-sale
    SLBs — Arctic/Antarctic re-add owned at H1]; decisions/ten_reconciliation_prereg_2026-07-15.md;
-   re-ratify owner-gated**). The P0 reconciliation queue [figure-queue ∩ PROVISIONAL]
+   **four §6 forks RULED + baseline RE-RATIFIED 2026-07-15 (owner: "proceed as recommended.
+   TEN-only baseline ratify." — RATIFY_LOG @ 6145378, zero number movement; H1 revisits:
+   Ulysses gain/cash · Arctic/Antarctic re-add · WC components) — the TEN recon arc is CLOSED**). The P0 reconciliation queue [figure-queue ∩ PROVISIONAL]
    is CLEARED: brut + hafn were reconciled but stay in the figure-queue via a DELIBERATE conservative
    `[ESTIMATE]` floor (brut cash-pending, hafn pool-gross-up); cmbt/flng are structural/not-yet-worked.
    "Present but uncited" fails like "absent".
