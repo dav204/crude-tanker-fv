@@ -40,15 +40,18 @@ SBLK +14 T (both now weight-sign-stable per WO4) + CMDB +12 GW + TEN +36 GW + CC
 all in `inputs/reweight_triggers.yaml`, sentinel-paged.
 
 **PENDING OWNER DECISIONS (do not act unilaterally; recorded 2026-07-08, extended 2026-07-14):**
--2. **NEW 2026-07-14 EVE — tanker forward re-anchor (trigger `tanker_forward_print_lands`
-   FIRED, stays red until ruled):** DHT's Jul-13 business update delivered a REAL term
-   print — 3-yr VLCC TC $75,000/day (Jaguar, Sep-26 start) ~46% below the held war-vintage
-   curve average, plus Q3 bookings corroborating the curve FRONT ($139.7k spot QTD).
-   Options (i-continue ~3wks to the Q2 cluster / ii shape re-anchor / iii 12M-TC-only) in
-   `decisions/tanker_forward_print_2026-07-14.md`; agent rec = (i-continue). ALSO ripe:
-   the staged **Hormuz re-tilt ruling is UNBLOCKED** — the Doha round-2 outcome it waited
-   on is recorded (NO-SHOW/STALL branch, `decisions/doha_round2_check_2026-07-15.md`;
-   war tilt stands, round-3 watch armed due Jul-22; the Jul-17 MoU check stays pro-forma).
+-2. **2026-07-14 EVE — tanker forward re-anchor (trigger `tanker_forward_print_lands`
+   FIRED, stays red until ruled) — STILL OPEN:** DHT's Jul-13 business update delivered a
+   REAL term print — 3-yr VLCC TC $75,000/day (Jaguar, Sep-26 start) ~46% below the held
+   war-vintage curve average, plus Q3 bookings corroborating the curve FRONT ($139.7k spot
+   QTD). Options (i-continue ~3wks to the Q2 cluster / ii shape re-anchor / iii 12M-TC-only)
+   in `decisions/tanker_forward_print_2026-07-14.md`; agent rec = (i-continue).
+   **RESOLVED same evening — the Hormuz re-tilt RULING: RESTORE BOTH, EXECUTED @ fb00ede +
+   ratify (owner verbatim: "all three are affected by hormuz, so should all move together
+   coherently").** LNG v4 + product war shapes live; TRMD HOLD→BUY + STNG TRIM→HOLD
+   (ruled-FV flips, eyeballed); ASC boundary did NOT fire (+4.0%); CCEC extends to +60% EV;
+   the Jun-9→Jul-2→Jul-12 coherence gap is CLOSED — all three Hormuz sectors price one
+   state again. Round-3 watch due Jul-22; the Jul-17 MoU check stays pro-forma.
 -1. **NEW 2026-07-14 — methodology review memo (`outputs/METHODOLOGY_REVIEW_2026-07-14.md`),
    FOUR decision blocks, all reserved:** **D-M2** discount rate (flat 11% ratify vs
    leverage-adjusted r_e Option B [reviewer-recommended] vs B′ + coverage-quarter split) ·
