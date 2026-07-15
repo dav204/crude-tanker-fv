@@ -71,11 +71,20 @@ this doc) with any NEW price-driven flips eyeballed individually; 7. owner-aware
 
 ## Decision (owner) — rule AFTER the round-2 outcome lands (due Jul-15)
 
-- [ ] **RESTORE BOTH legs** (LNG v4 + product war shape) — the coherence default if round-2
-      collapses/no-shows or strikes persist.
+- [x] **RESTORE BOTH legs** (LNG v4 + product war shape) — the coherence default if round-2
+      collapses/no-shows or strikes persist. **OWNER RULED 2026-07-14 EVE (verbatim): "Yes, of
+      course, all three are affected by hormuz, so should all move together coherently. restore
+      both as coherence default." EXECUTED same evening — weights restored byte-exact, 7 pins
+      re-pinned (the scratch what-if reproduced TO THE CENT on all five bands: 35.905/16.853/
+      6.329/33.031/80.298), INSW + TEN bands survived as predicted; drift/ratify record in
+      RATIFY_LOG + the execution commit.**
 - [ ] **LNG only** (the carrier hit is LNG-specific evidence; product rides on rate mechanics
       that MB already documents — but this leaves product incoherent with crude; state why).
 - [ ] **NEITHER — document why crude-only stands** (e.g., round-2 de-escalates credibly enough
       to expect a full unwind imminently; then the pending question becomes unwinding CRUDE).
 
-**Round-2 evidence slot (fill from the Jul-15 check):** _pending._
+**Round-2 evidence slot (filled 2026-07-14 EVE):** NO-SHOW/STALL branch — no credible report
+the Jul-14 round convened (freshest coverage Jul-10: timetable "unclear", Iran reluctant
+amid ongoing strikes; sanctions re-imposition stands). Record:
+`decisions/doha_round2_check_2026-07-15.md`; successor watch `crude_doha_round3_watch`
+armed (due 2026-07-22). The de-escalation branch did NOT trigger.
