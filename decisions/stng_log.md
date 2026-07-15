@@ -2200,3 +2200,14 @@ lands −1.0% → HOLD. The proposal's flagged HOLD→BUY boundary case did NOT 
 walk-through's live-tape recompute anticipated this: +3.9% at the 7/14 morning tape,
 −1.0% tonight — both under the BUY line). STNG stays PROVISIONAL·off-curve regardless
 (§9.6 VLCC-NB gate, thread (d)) — the tier, not the band, remains the binding read.
+
+## 2026-07-15 — thread-(d) gate on the 2-VLCC §9.6 portion: CONFIRMED-CURRENT (un-gated in principle)
+
+**Decision:** the crude age-0 RESALE level is confirmed current on the 2026-07-13 xclusiv
+print (every crude class within the Thread-1B ±2%; VLCC exact —
+thread_d_crude_level_confirmation_2026-07-15.md, owner sign-off pending). The 2026-07-01
+deferral's cross-sector blocker ("provisional crude level") is closed; the 10-hull §9.6
+wiring (~+$9.6/sh) becomes its own pre-registered owner-ruled step, QUEUED post-Stage-A
+(one FV-moving event at a time, 2026-07-15 ruling). Classification unchanged even when
+wired: GOVERNED-WIDE at best (Handymax basis pending — no broker line, 07-15 sweep).
+STNG stays PROVISIONAL·off-curve until that step executes.

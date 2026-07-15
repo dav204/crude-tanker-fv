@@ -2009,3 +2009,14 @@ $29.68→$33.03 (+11.3%, the proposal's predicted delta to the cent); at tonight
 close EV lands +8.4% → BUY. This re-opens the BUY that the Jul-2 stand-down had trimmed;
 k_broker second +0.02 is the same move through the pinned pair. Accepted as the ruling's
 direct consequence.
+
+## 2026-07-15 — MR basis CLEARED; LR1 is now TRMD's LAST blocker to VALIDATED-TIGHT
+
+**Decision:** the P1c MR wiring (xclusiv MR2 secondhand line RESUMED 2026-07-13; age-0
+54→55.0, basis → resale-uniform — mr_secondhand_resumption_2026-07-15.md) removes MR from
+TRMD's non-uniform class list with ZERO TRMD movement (both resale MRs are age-11,
+age-0-insensitive). TRMD's nav_basis now pends on **LR1 alone** (10 hulls, ages 13-14 —
+also age-0-insensitive: the pending class contributes no age-0-sensitive NAV). The
+LR1 ruling (decisions/lr1_level_evidence_2026-07-15.md, owner fork incl. the
+resale-uniform taxonomy question) therefore decides whether TRMD's
+GOVERNED-WIDE·basis-pending can lift to VALIDATED-TIGHT on current broker coverage.
