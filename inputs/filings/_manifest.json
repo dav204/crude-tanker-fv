@@ -9,5 +9,16 @@
   "primary_doc": "form6k.htm",
   "staged_path": "inputs/filings/DHT/0000950157-26-000799_6-K_form6k.htm",
   "amended": false
+ },
+ {
+  "ts": "2026-07-15T02:24:24+00:00",
+  "ticker": "GSL",
+  "cik": "0001430725",
+  "accession": "0001140361-26-028451",
+  "form": "6-K",
+  "filed": "2026-07-14",
+  "primary_doc": "ef20077832_6k.htm",
+  "staged_path": "inputs/filings/GSL/0001140361-26-028451_6-K_ef20077832_6k.htm",
+  "amended": false
  }
 ]
