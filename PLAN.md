@@ -46,6 +46,17 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
    war-vintage curve average, plus Q3 bookings corroborating the curve FRONT ($139.7k spot
    QTD). Options (i-continue ~3wks to the Q2 cluster / ii shape re-anchor / iii 12M-TC-only)
    in `decisions/tanker_forward_print_2026-07-14.md`; agent rec = (i-continue).
+   **UPDATE 2026-07-15: a FULL RULING DRAFT + PRE-REGISTRATION now await the owner's
+   signature** — `decisions/tanker_forward_print_ruling_2026-07-14.md` (reviewer-drafted
+   (i-continue), two-stage: Stage A ≤ Aug-15 UNCONDITIONAL, Stage B true-up ≤ Sep-04
+   band-gated ±10%, four riders) + `PRE_REGISTRATION_TANKER_CLUSTER_REANCHOR.md`
+   (**freeze deadline 2026-07-27 EOD**, before the first cluster prints — else Stage A
+   runs the DHT-print fallback). Agent verification: arithmetic + calendar EXACT; ONE
+   dated correction appended (the draft's §3 predates the same-evening re-tilt — TRMD is
+   now BUY +8.4% and joins the Stage-A eyeball inventory; direction-safety survives,
+   qualified). Rider-1 truth-fix applied in ruling-NEUTRAL wording (headers now state
+   the print exists + ruling pending); the §6 verbatim annotations + the
+   fired-ruled-deferred trigger restatus apply AT signature, not before.
    **RESOLVED same evening — the Hormuz re-tilt RULING: RESTORE BOTH, EXECUTED @ fb00ede +
    ratify (owner verbatim: "all three are affected by hormuz, so should all move together
    coherently").** LNG v4 + product war shapes live; TRMD HOLD→BUY + STNG TRIM→HOLD
