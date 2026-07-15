@@ -72,7 +72,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | NAT | crude | GOVERNED-WIDE | resale-uniform | 2.08× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | TEN | crude | GOVERNED-WIDE | structural-unavailable | 0.42× | no anchor→cheap | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
 | TNK | crude | VALIDATED-TIGHT | resale-uniform | 0.87× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
-| ASC | product | GOVERNED-WIDE | unverified-no-current-xclusiv-line | 0.84× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: unverified-no-current-xclusiv-line |
+| ASC | product | GOVERNED-WIDE | pending-sourceable | 0.84× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | HAFN | product | PROVISIONAL ⛔ | pending-sourceable | 1.26× | no anchor→fair | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | STNG | product | PROVISIONAL ⛔ | pending-sourceable | 0.94× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | TRMD | product | GOVERNED-WIDE | pending-sourceable | 0.91× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
@@ -90,7 +90,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 
 ## Summary
 
-**NAV-basis (comparability boundary):** pending-sourceable 6, resale-uniform 12, structural-unavailable 6, unverified-no-current-xclusiv-line 1.
+**NAV-basis (comparability boundary):** pending-sourceable 7, resale-uniform 12, structural-unavailable 6.
 
 **Read robustness (parity↔historical):** flips 2, n/a 15, robust 8.
 
@@ -105,18 +105,18 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 **§15 governance dual-read:** CMDB (30%), TEN (30%) carry a realisation haircut applied downstream (blend + strip terminal), NOT in the clean-NAV reads above — their reads are clean-basis; the haircut basis scales NAV/FV by (1 − haircut).
 
 **NAV-basis-flagged (not yet comparable to the resale-uniform set):**
-- **ASC** — unverified-no-current-xclusiv-line: MR
+- **ASC** — pending-sourceable: Handysize | unverified-no-current-xclusiv-line: MR
 - **BWLP** — pending-sourceable: VLGC
 - **CCEC** — structural-unavailable: LNGC, MGC
 - **CMBT** — structural-unavailable: Ctr-Large
 - **FLNG** — structural-unavailable: LNGC
 - **GSL** — structural-unavailable: Ctr-Intermediate, Ctr-Large
-- **HAFN** — pending-sourceable: LR1 | unverified-no-current-xclusiv-line: MR
+- **HAFN** — pending-sourceable: Handysize, LR1 | unverified-no-current-xclusiv-line: MR
 - **INSW** — pending-sourceable: LR1 | unverified-no-current-xclusiv-line: MR
 - **LPG** — pending-sourceable: VLGC
 - **MPCC** — structural-unavailable: Ctr-Feeder, Ctr-Intermediate
 - **STNG** — pending-sourceable: Handymax | unverified-no-current-xclusiv-line: MR
-- **TEN** — structural-unavailable: LNGC | pending-sourceable: LR1 | unverified-no-current-xclusiv-line: MR
+- **TEN** — structural-unavailable: LNGC | pending-sourceable: Handysize, LR1 | unverified-no-current-xclusiv-line: MR
 - **TRMD** — pending-sourceable: LR1 | unverified-no-current-xclusiv-line: MR
 
 **§9.9 wide-node exposure (fitted anchor EXTRAPOLATED at the node — a flagged-wide band, not a tight mark; registry `provenance.MARK_WIDE_NODES`):**

@@ -1,7 +1,7 @@
 {
   "schema_version": "2.4",
-  "generated_at": "2026-07-15T15:45:21+00:00",
-  "source_commit": "41464fa",
+  "generated_at": "2026-07-15T16:48:13+00:00",
+  "source_commit": "58e56bd",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 25,
@@ -364,7 +364,7 @@
       "confidence_tier": "GOVERNED-WIDE",
       "tier_subreason": "structural-class",
       "handoff_ready": true,
-      "nav_basis": "unverified-no-current-xclusiv-line",
+      "nav_basis": "pending-sourceable",
       "void": false,
       "sanity": "n-a",
       "price": 16.18,
