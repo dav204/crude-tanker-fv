@@ -2,10 +2,12 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-07-15T14:33:38+00:00'
-  ratified_commit: 893002d
+  ratified_at: '2026-07-15T19:42:04+00:00'
+  ratified_commit: c6877ee
   quarter: 2026-Q1
-  cause: hormuz re-tilt RESTORE BOTH (owner ruling 2026-07-14 EVE) + same-evening price vintage
+  cause: 'TEN reconciliation ruled: four §6 forks ''proceed as recommended'' (NCI preferred_equity / Ulysses
+    carrying-in-WC / SLB steel excluded / WC composite) — headline 88.76->87.35 in band, TEN the sole
+    drifted row'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -167,10 +169,10 @@ names:
     sector: product
   TEN:
     pnav_basis: approx
-    ev_pct: 44.91
-    tool_nav: 88.7
+    ev_pct: 42.04
+    tool_nav: 87.35
     position_band: BUY (undervalued)
-    k_broker: 1.22
+    k_broker: 1.24
     sector: crude
   TNK:
     pnav_basis: pareto

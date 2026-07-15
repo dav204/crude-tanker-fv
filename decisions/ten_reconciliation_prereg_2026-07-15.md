@@ -113,7 +113,13 @@ Balance-sheet deltas ($K): WC **+146,654** · debt **+12,091** · advances **+42
   20-F/6-K (data-kit per-vessel callouts only; NB-program "Scrubber Fitted" tags cover Delos T/Dion).
   Nothing to cross-foot against; documented, not cleared.
 
-## §6 — OPEN FORKS (owner decision — presented after verification)
+## §6 — OPEN FORKS — **ALL FOUR RULED 2026-07-15 (owner verbatim: "rule the four forks —
+proceed as recommended. TEN-only baseline ratify.")** Each recommended option is the treatment
+already wired by the reconciliation, so the ruling ratifies with ZERO number movement:
+NCI = booked $45,954K via preferred_equity (BWLP convention) · Ulysses = carrying-inside-WC
+(gain + ~$83M cash land at H1) · SLB steel = excluded (ASC 842 true-sale; keep-at-curve would
+be a NEW convention) · WC = Mar-31 composite (component re-derive at H1, TRMD-fork-1 style).
+H1 (~September) re-visits: Ulysses gain/cash · Arctic/Antarctic re-add owned · WC components.
 
 1. **NCI basis.** Book $45,954 via `preferred_equity` (recommended — cited, BWLP convention) vs a
    NAV-basis derivation (49% × Mare-Success-level curve marks + sub cash − sub debt — NOT derivable:
