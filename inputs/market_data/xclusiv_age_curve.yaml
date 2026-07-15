@@ -27,7 +27,11 @@ resale:                 # age-0 NAV anchor source (the just-delivered / resale l
                         # curve by section-mislabel — corrected; the dry Handy-Bulk class reads it
                         # DIRECTLY now. No product-Handy resale line exists in this source.
   # Post-Panamax: = Kamsarmax Resale 46.0 (no xclusiv PPMX line; replacement-equivalent)
-  # MR: no xclusiv secondhand line (newbuild 52.0 only) — age-0 carries its own mark
+  MR: 55.0              # MR2 line RESUMED in the 2026-07-13 issue (dropped after 2023Q4) —
+                        # per-row vintage 2026-07-13 (2026W29 pdf / marks 2026Q3.json), a
+                        # deliberate mixed-vintage row in this 06-22 extract; full-file
+                        # refresh to the 07-13 issue rides the post-Stage-A anchor round.
+                        # decisions/mr_secondhand_resumption_2026-07-15.md.
 five_year:              # documentation + the Thread-1C divergence reference (NOT wired)
   VLCC: 145.0
   Suezmax: 96.7
@@ -36,6 +40,7 @@ five_year:              # documentation + the Thread-1C divergence reference (NO
   Pana: 38.0
   Supra-Ultra: 38.0
   Handy-Bulk: 29.5
+  MR: 50.0              # 2026-07-13 issue (see resale MR note)
 ten_year:
   VLCC: 115.0
   Suezmax: 81.7
@@ -44,6 +49,7 @@ ten_year:
   Pana: 29.5
   Supra-Ultra: 28.0
   Handy-Bulk: 23.3
+  MR: 40.0              # 2026-07-13 issue (see resale MR note)
 newbuild:               # xclusiv newbuild quote (parity uses Clarksons in newbuild_contract_prices.yaml)
   VLCC: 131.5
   Aframax: 75.0

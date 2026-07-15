@@ -91,6 +91,13 @@ partial factors), TEN ~+$4.6M (3 young Suezmax), 2343 ~+$1.5M PV'd (4 Ultra NBs)
 GNK ~+$0.2M. Deferred to the next anchor-refresh cycle per the one-FV-moving-event
 sequencing; restores single-issue vintage coherence for the whole extract.
 
-## OUTCOME (fill at the gate)
+## OUTCOME (2026-07-15) — landed exactly on §2, committed
 
-- [ ] pipeline + suite + drift gate results vs §2
+- **TEN the sole mover, +$0.06/sh (88.70 → 88.76 = the predicted +$1.94M), +0.1pp EV —
+  inside the +$1.8–2.1M band.** Scorecard JSON diff = TEN + header stamps only (24 lines).
+- Zero band flips, zero tier moves, zero nav_basis composite changes — as predicted.
+- Suite **588 passed / 16 xfailed** (incl. the two deliberate test flips); drift gate
+  **25 rows, 0 UNEXPLAINED** (TEN +0.1pp stable, sub-threshold — no annotation needed);
+  TEN reconcile SANITY n/a-APPROX, gap −18.7% (documented §6-style spread). **No re-ratify**
+  (baseline untouched — sub-bar move).
+- MR → `resale-uniform`; `XCLUSIV_WIRED` += MR; the AGE0_BASIS exception retired.

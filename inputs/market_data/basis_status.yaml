@@ -18,7 +18,10 @@ basis_status:
   Suezmax: resale-uniform
   Aframax: resale-uniform
   LR2: resale-uniform
-  MR: unverified-no-current-xclusiv-line   # xclusiv dropped MR secondhand after 2023Q4; $54M corroborated by allied/advanced 2023 Resale ~$52.5-53.5M but no CURRENT line — request allied/advanced (Thread 1A)
+  MR: resale-uniform   # CLEARED 2026-07-15: xclusiv RESUMED the MR2 secondhand line in the
+                       # 2026-07-13 issue (Resale $55.0M; the $54M exception mark confirmed −1.8%).
+                       # Age-0 re-anchored to the resumed line. mr_secondhand_resumption_2026-07-15.md.
+                       # (Advanced W28 prints MR Resale $60 — +9% house spread, recorded not blended.)
   Cape: resale-uniform
   Pana: resale-uniform
   Supra-Ultra: resale-uniform

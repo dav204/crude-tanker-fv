@@ -5,6 +5,26 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-15 (evening) — THREAD (d) CONFIRMED-CURRENT + P1c MR CLEARED TO RESALE-UNIFORM;
+  LR1 fork staged (three frozen packets, one NAV-neutral-scale wiring).** The 2026-07-13
+  xclusiv weekly (in-repo via the harvester) confirms every wired crude Resale anchor within
+  the Thread-1B ±2% (VLCC 175.0 EXACT — passes the BRUT ±0.5% carve-out; Suezmax +1.49%;
+  Aframax/LR2 0.0%), label-verified ("prompt delivery ex yard"), independently corroborated
+  by advanced W28 — thread (d) has NO remaining open question
+  (decisions/thread_d_crude_level_confirmation_2026-07-15.md, owner sign-off pending);
+  STNG's 2-VLCC §9.6 portion un-gates in principle, wiring queued post-Stage-A. Same issue
+  RESUMED the MR2 secondhand line (dropped since 2023Q4): the \$54M exception confirmed −1.8%,
+  age-0 re-anchored to the resumed Resale \$55.0M, **MR → resale-uniform** (XCLUSIV_WIRED +=
+  MR; exception retired). Prereg predicted TEN as the SOLE mover (+\$1.94M = +0.07%, 2 young
+  MRs) — landed to the cent, drift gate 25/0 UNEXPLAINED, suite 588+16x, no re-ratify
+  (decisions/mr_secondhand_resumption_2026-07-15.md). Consequence: **LR1 is now TRMD's (and
+  INSW's) LAST basis blocker**; the current intermodal W29 5yr (\$60.0M) exposes the wired LR1
+  curve's inversion (age-0 59 < dated 5yr 60 < dated NB 61) — owner fork (contract-floor /
+  uplift / hold) + the resale-uniform taxonomy question (whether TRMD can EVER reach
+  VALIDATED-TIGHT on current broker coverage) staged FV-moving post-Stage-A
+  (decisions/lr1_level_evidence_2026-07-15.md). Advanced W28 MR Resale \$60 (+9% house spread
+  vs xclusiv, 5yrs agree) recorded as a divergence footnote, not blended. Handymax: the 07-15
+  five-broker sweep re-confirms NO product-Handy/Handymax secondhand line exists anywhere.
 - **2026-07-15 (later) — THREAD-1A PRODUCT-HANDYSIZE CONTAMINATION CORRECTED (owner:
   "Execute"; zero-impact window beaten — ASC reports Jul-28).** The Thread-1A \$36M product
   age-0 was the xclusiv BULK row (section-mislabel; cache-proven). Source hunt exhausted:

@@ -30,7 +30,7 @@ one-way bullish override — audit E-3.)
 | SB | · | 0.63× | -3.73 | — | 8.0 | n/a (gate) |
 | SBLK | · | 0.86× | -4.14 | — | 6.8 | n/a (gate) |
 | STNG | · | 0.94× | -4.47 | — | 8.0 | n/a (gate) |
-| TEN | · | 0.42× | -51.56 | — | 7.1 | n/a (gate) |
+| TEN | · | 0.42× | -51.62 | — | 7.1 | n/a (gate) |
 | TNK | · | 0.87× | -9.91 | — | 8.0 | n/a (gate) |
 | TRMD | · | 0.91× | -2.64 | — | 8.0 | n/a (gate) |
 

@@ -32,7 +32,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | CMBT | crude | GOVERNED-WIDE · structural-class | $15.78 | $13.87 | 8.69–21.10 | -12% | TRIM/SHORT (overvalued) | $15.25 | $15.87 | $21.62 | -27% | OK | ready | stable |
 | INSW | crude | GOVERNED-WIDE · pending-anchor | $88.12 | $54.21 | 38.53–77.87 | -38% | rich · cycle position (not a short) | $38.63 | $52.59 | $79.39 | -34% | OK | ready | stable |
 | NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $6.29 | $2.72 | 1.85–4.48 | -57% | rich · cycle position (not a short) | $3.09 | $2.79 | $7.40 (apx) | -62% | n-a | ready | stable |
-| TEN | crude | GOVERNED-WIDE · mixed | $39.75 | $57.60 | 41.19–84.64 | +45% | BUY (undervalued) | $61.29 | $88.70 | $116.91 (apx) | -24% | n-a | ready | stable |
+| TEN | crude | GOVERNED-WIDE · mixed | $39.75 | $57.64 | 41.22–84.68 | +45% | BUY (undervalued) | $61.33 | $88.76 | $116.91 (apx) | -24% | n-a | ready | stable |
 | ASC | product | GOVERNED-WIDE · structural-class | $16.18 | $16.83 | 13.25–19.77 | +4% | HOLD (fairly valued) | $16.75 | $17.80 | $21.57 (apx) | -18% | n-a | ready | **⚠ sign flips** |
 | TRMD | product | GOVERNED-WIDE · basis-pending | $29.43 | $31.90 | 18.49–45.39 | +8% | BUY (undervalued) | $30.97 | $30.34 | $35.88 | -15% | OK | ready | **⚠ sign flips** |
 | 2343 | dry_bulk | GOVERNED-WIDE · pending-anchor | $0.39 | $0.38 | 0.31–0.44 | -3% | HOLD (fairly valued) | $0.38 | $0.39 | $0.40 (apx) | -3% | n-a | ready | stable |
@@ -105,19 +105,19 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 **§15 governance dual-read:** CMDB (30%), TEN (30%) carry a realisation haircut applied downstream (blend + strip terminal), NOT in the clean-NAV reads above — their reads are clean-basis; the haircut basis scales NAV/FV by (1 − haircut).
 
 **NAV-basis-flagged (not yet comparable to the resale-uniform set):**
-- **ASC** — pending-sourceable: Handysize | unverified-no-current-xclusiv-line: MR
+- **ASC** — pending-sourceable: Handysize
 - **BWLP** — pending-sourceable: VLGC
 - **CCEC** — structural-unavailable: LNGC, MGC
 - **CMBT** — structural-unavailable: Ctr-Large
 - **FLNG** — structural-unavailable: LNGC
 - **GSL** — structural-unavailable: Ctr-Intermediate, Ctr-Large
-- **HAFN** — pending-sourceable: Handysize, LR1 | unverified-no-current-xclusiv-line: MR
-- **INSW** — pending-sourceable: LR1 | unverified-no-current-xclusiv-line: MR
+- **HAFN** — pending-sourceable: Handysize, LR1
+- **INSW** — pending-sourceable: LR1
 - **LPG** — pending-sourceable: VLGC
 - **MPCC** — structural-unavailable: Ctr-Feeder, Ctr-Intermediate
-- **STNG** — pending-sourceable: Handymax | unverified-no-current-xclusiv-line: MR
-- **TEN** — structural-unavailable: LNGC | pending-sourceable: Handysize, LR1 | unverified-no-current-xclusiv-line: MR
-- **TRMD** — pending-sourceable: LR1 | unverified-no-current-xclusiv-line: MR
+- **STNG** — pending-sourceable: Handymax
+- **TEN** — structural-unavailable: LNGC | pending-sourceable: Handysize, LR1
+- **TRMD** — pending-sourceable: LR1
 
 **§9.9 wide-node exposure (fitted anchor EXTRAPOLATED at the node — a flagged-wide band, not a tight mark; registry `provenance.MARK_WIDE_NODES`):**
 - **BWLP** — VLGC@five_year (decisions/vlgc_marks_2026-07-09.md)

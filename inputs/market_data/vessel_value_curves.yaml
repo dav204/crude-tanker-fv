@@ -33,10 +33,10 @@ classes:
     eco_premium_pct: 0.05
   MR:
     dwt: 50000
-    newbuild: 54000000           # EXCEPTION (basis_status: unverified-no-current-xclusiv-line): xclusiv DROPPED MR
-                                 # secondhand after 2023Q4 (last resale $52.8M); $54M is UNVERIFIED vs a current line.
-                                 # Registered + guarded by the AGE0_BASIS registry (test_thread1_resale_anchor), NOT
-                                 # silently allowed. Resolve in Thread 1A. (No young MR in the book, but provenance ≠ weight.)
+    newbuild: 55000000           # age-0 = xclusiv MR2 Resale 2026-07-13 — the secondhand line RESUMED
+                                 # (was the registered $54M exception while xclusiv had dropped MR after
+                                 # 2023Q4; the old mark confirmed −1.8% vs the resumed line). Wired per
+                                 # decisions/mr_secondhand_resumption_2026-07-15.md; basis resale-uniform.
     five_year_benchmark: 46000000
     ten_year_benchmark: 34500000
     scrap_25yr: 5800000

@@ -77,14 +77,16 @@ def test_crude_production_depreciation_floor():
         )
 
 
-# Classes whose age-0 is wired to the xclusiv Resale line (Amendment B). MR has no
-# xclusiv secondhand line; Post-Panamax has no xclusiv PPMX (= Kamsarmax replacement);
-# Handysize/Handymax are Group-A pending (Thread 1A) — all excluded from this guard.
+# Classes whose age-0 is wired to the xclusiv Resale line (Amendment B). Post-Panamax
+# has no xclusiv PPMX (= Kamsarmax replacement); Handysize/Handymax are Group-A pending
+# (Thread 1A) — excluded from this guard.
 # 2026-07-15 (product_handysize_resource doc): product "Handysize" LEAVES the wired set —
 # its Thread-1A wiring asserted equality against what the harvester cache proved is the
 # xclusiv BULK row (the guard was enforcing the contamination). "Handy-Bulk" JOINS: the
 # renamed extract row is the bulk row, correctly labeled, read directly (alias retired).
-XCLUSIV_WIRED = ("VLCC", "Suezmax", "Aframax", "LR2", "Cape", "Pana", "Supra-Ultra", "Handy-Bulk")
+# 2026-07-15 (mr_secondhand_resumption doc): "MR" JOINS — xclusiv RESUMED the MR2
+# secondhand line in the 2026-07-13 issue; the no-current-line exception is retired.
+XCLUSIV_WIRED = ("VLCC", "Suezmax", "Aframax", "LR2", "MR", "Cape", "Pana", "Supra-Ultra", "Handy-Bulk")
 
 
 def test_curve_age0_equals_xclusiv_resale():
@@ -117,7 +119,7 @@ AGE0_BASIS = {
     "LR2": "xclusiv-resale", "Cape": "xclusiv-resale", "Pana": "xclusiv-resale",
     "Supra-Ultra": "xclusiv-resale",
     "Post-Panamax": "alias:Pana",        # = Kamsarmax Resale; no xclusiv PPMX line
-    "MR": "exception:no current xclusiv secondhand line (dropped after 2023Q4, last $52.8M); $54M unverified",
+    "MR": "xclusiv-resale",              # line RESUMED 2026-07-13 (mr_secondhand_resumption doc)
     "LR1": "exception:Group A; MB Tanker 2026-06-26 LR1 NB $64M/5yr $58M (col order verified vs crude inversion), NO Resale line; tool age-0 $59M within ~8% of MB NB (cross-check OK). Kept cross-check NOT wired — MB->calibration is owner-gated + immaterial (no LR1-heavy name).",
     "Handysize": "exception:RE-SOURCED 2026-07-15 (product_handysize_resource doc) — age-0 "
                  "$44.9M = ASC Q1-2026 6-K issuer CONTRACT (acc 0001104659-26-056715: two "
@@ -170,15 +172,13 @@ def test_every_curve_class_age0_basis_registered():
 
 def test_basis_status_covers_curve_classes():
     """basis_status is the single per-class source: every curve class has a valid
-    status; the corrected classes are resale-uniform; MR is the registered
-    unverified exception (no current xclusiv line), never silently resale-uniform."""
+    status; the corrected classes are resale-uniform. (MR's registered unverified
+    exception RETIRED 2026-07-15 — the flip is loud, via the dated
+    mr_secondhand_resumption prereg, not silent: xclusiv resumed the MR2 line.)"""
     status = load_basis_status()
     curves = load_market_data().vessel_value_curves
     for cls in curves:
         assert cls in status, f"{cls} missing a basis_status entry"
         assert status[cls] in VALID_BASIS_STATUS, f"{cls}: bad basis_status {status[cls]!r}"
     for cls in MARKED:
-        if cls == "MR":
-            assert status[cls] == "unverified-no-current-xclusiv-line", "MR must be the registered exception"
-            continue
         assert status[cls] == "resale-uniform", f"{cls} should be resale-uniform"

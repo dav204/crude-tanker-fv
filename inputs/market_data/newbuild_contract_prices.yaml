@@ -44,7 +44,8 @@ prompt_resale:
   Suezmax: 114300000       # xclusiv Resale 2026-06-22 (was 95M = the 5yr value)
   Aframax: 92500000        # xclusiv Resale 2026-06-22 (was 88.9M)
   LR2: 92500000            # = Aframax hull
-  MR: 54000000             # EXCEPTION: no xclusiv secondhand line — carries its own mark
+  MR: 55000000             # xclusiv MR2 Resale 2026-07-13 (line RESUMED; was the $54M no-current-line
+                           # exception — mr_secondhand_resumption_2026-07-15.md)
   Cape: 81500000           # xclusiv Capesize Resale 2026-06-22
   Pana: 46000000           # xclusiv Kamsarmax Resale 2026-06-22
   Supra-Ultra: 43000000    # xclusiv Ultramax Resale 2026-06-22
