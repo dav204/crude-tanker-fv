@@ -77,7 +77,11 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
    Sequencing principle: one FV-moving event in flight at a time — Stage A (≤ Aug-15)
    first, then D-M2 sweep, then the D1 round. Memo's mechanical items were already
    executed (M-1 attribution block; §2.3 provenance table); M-6a/b ride the next
-   quarterly anchor refresh; the Thread-1A product-Handysize queue item remains open.
+   quarterly anchor refresh. **Thread-1A product-Handysize queue item CLOSED 2026-07-15**
+   (owner "Execute"): age-0 re-sourced 36→44.9M on the ASC issuer-contract basis, xclusiv
+   row renamed Handy-Bulk, zero live movement verified — decisions/
+   product_handysize_resource_2026-07-15.md; the ASC Q2 NB entry books the ~+1.9%-NAV
+   correction at the refresh, attributed there.
 0. **RESOLVED 2026-07-13 — baseline ratify EXECUTED (owner: "accept all four + ratify").**
    The 14 UNEXPLAINED decomposed to three owner-traceable causes (Jul-12 war-tilt regen
    [owner-executed] + Jul-10→13 price vintage + the 13-Jul FFA promotion; ΔNAV 0.0% on every

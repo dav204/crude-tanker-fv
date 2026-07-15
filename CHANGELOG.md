@@ -5,6 +5,18 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-15 (later) — THREAD-1A PRODUCT-HANDYSIZE CONTAMINATION CORRECTED (owner:
+  "Execute"; zero-impact window beaten — ASC reports Jul-28).** The Thread-1A \$36M product
+  age-0 was the xclusiv BULK row (section-mislabel; cache-proven). Source hunt exhausted:
+  NO broker tabulates product-Handy secondhand (xclusiv/MB/Intermodal all stop at MR) →
+  age-0 re-sourced to the only real dated product-Handy mark: ASC's issuer-filed April-2026
+  contract \$44.9M/hull (acc 0001104659-26-056715). basis_status pending-sourceable;
+  AGE0_BASIS dated exception; product Handysize OUT of XCLUSIV_WIRED (the guard had been
+  enforcing the contamination); the xclusiv extract row RENAMED Handy-Bulk and read
+  directly by the dry class (alias retired — the mislabel is now impossible by
+  construction). Bands registered ahead + VERIFIED: zero live NAV movement (drift 25/0/
+  stable); forward: the ASC Q2 NB entry corrects ~+\$14M (~+1.9% ASC NAV) vs the
+  contaminated basis. Record: decisions/product_handysize_resource_2026-07-15.md.
 - **2026-07-15 — ALL FOUR METHODOLOGY DECISIONS RULED (owner: "Proceed as recommended") —
   D-M5 built same day; the rest sequenced behind Stage A.** D-M5 (the governance-load one):
   `fv_low`/`fv_high` = scenario min/max over weight>0 scenarios (0-mass tails excluded) in
