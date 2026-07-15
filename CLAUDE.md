@@ -173,8 +173,9 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   in `~/.config/crude-tanker-fv.env` (the launchd wrapper sources it). `.gitignore` blocks `*_token*`,
   `*_credentials*`, `*_secret*`, `*.rtf`, `.env*` defensively — but the gate is discipline. (Caught
   2026-06-09: a stray `rocketchat_token.rtf` at repo root.)
-- *(Also see, above/companions: don't fix wide spreads toward Pareto [philosophy]; don't add classes
-  without a comparable sample [gotchas §9.9]; don't bulk-update from VIE/MB [data sources].)*
+
+- **Owner navigation lives in README, not PLAN** (2026-07-15): if the owner must ask
+  "where does X live," add it to README the same day.
 
 ## Week-close checklist + the compounding-knowledge habit
 
