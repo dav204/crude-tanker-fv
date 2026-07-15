@@ -2065,3 +2065,16 @@ covers both._
 
 ---
 
+
+## 2026-07-14 — FILING-LANDED: 6-K business update (acc 0000950157-26-000799) — routed
+
+**Decision:** the Jul-13 business update is EARNINGS COLOR + ONE REAL FORWARD PRINT; no
+input file touched today (AS-OF discipline — Q2 figures enter at the Q2 refresh, DHT
+reports ~Aug-5/6). Contents: Q2-26 est. fleet TCE $126,700/day (spot VLCC $162,600 / TC
+$90,800; 2,012 revenue days); Q3 QTD 48% of spot days booked at $139,700; 74% of all
+days at $94,300; **NEW 3-yr TC — DHT Jaguar (2015) at $75,000/day from Sep-2026**. The
+Jaguar print FIRES `tanker_forward_print_lands` (the Jun-7 curve hold's exit condition):
+record + owner re-anchor options in `decisions/tanker_forward_print_2026-07-14.md` —
+curve promotion stays human-only; trigger sits fired/red until ruled. Q2-refresh notes:
+Jaguar joins the TC book Sep-2026 (charter fields then); the update's TCE splits are the
+Q2 preflight cross-check values.

@@ -101,8 +101,29 @@ crude_doha_round2_outcome:
     next credible diplomatic date. Interplay: crude_mou_implementation_check
     (Jul-17) is largely pre-empted by the sanctions re-imposition — keep for the
     record; crude_day60_toll_cliff (Aug-16) stands.
-  status: armed
+  status: done   # 2026-07-14 EVE — NO-SHOW/STALL branch: no credible report the Jul-14
+                 # round convened (freshest coverage Jul-10: timetable unclear, Iran
+                 # reluctant amid ongoing strikes). No reweight owed; war tilt stands.
+                 # Record: decisions/doha_round2_check_2026-07-15.md. Successor below.
   added: 2026-07-12
+
+crude_doha_round3_watch:
+  sector: crude
+  due: 2026-07-22
+  observable: >
+    Successor to crude_doha_round2_outcome (no-show recorded 2026-07-14): does a
+    Doha/Switzerland technical round convene within the week, or does the path
+    collapse into the toll-cliff track? Watch for a convening report, a formal
+    talks-off statement, or strait/toll policy statements.
+  action: >
+    Same branch logic as round-2 (pre-registered 2026-07-12): de-escalation ->
+    re-normalization PROPOSAL to the owner, never a unilateral reweight;
+    no-show/strikes -> record + re-arm. The mid-Aug MoU expiry/toll window is
+    covered separately by crude_day60_toll_cliff (Aug-16). NOTE: the staged
+    Hormuz re-tilt ruling (hormuz_retilt_proposal_2026-07-13.md) is UNBLOCKED
+    as of the round-2 no-show — owner decision cell, independent of this watch.
+  status: armed
+  added: 2026-07-14
 
 crude_transit_normalization:
   sector: crude
@@ -145,7 +166,14 @@ tanker_forward_print_lands:
     Refresh the ffa_forward_curve + twelve_month_tc tanker lines from the
     print, rerun the C-2 rates layer (the Jul-2 decomposition's tanker
     rate-effect is understated pending this), record in decisions/.
-  status: armed
+  status: fired   # 2026-07-14 — a REAL TERM PRINT LANDED: DHT 6-K (acc 0000950157-26-000799)
+                  # business update — 3-YEAR VLCC TC at $75,000/day (DHT Jaguar, 2015-built,
+                  # Sep-2026 start, global energy company) + Q3 QTD spot bookings $139,700/day
+                  # (48% of spot days) + 74% of total days at $94,300. The $75k term level sits
+                  # ~46% BELOW the held war-vintage curve average — the hold's staleness is now
+                  # EVIDENCED. Re-anchor is HUMAN-ONLY curve promotion: proposal staged in
+                  # decisions/tanker_forward_print_2026-07-14.md; stays fired/red until the
+                  # owner rules (option ii shape machinery now has an actual print).
   added: 2026-07-02
 
 container_mb_refresh:

@@ -1494,3 +1494,15 @@ starts here.
 ## 2026-06-22 — position flip: cycle-conditional terminal + net retained earnings (§9.2)
 
 **GSL: TRIM/SHORT → BUY** (EV @tool −16.2% → +7.1%). **Cause: methodology change, not a market/data move.** The new strip terminal carries NET RETAINED EARNINGS over the horizon (terminal cash += Σ(EPS−DPS)/share), capturing this low-payout/buyback name's earnings retention that the old flat 1.0× terminal dropped — the §12 buyback/low-payout conservatism. SANITY OK; NAV unchanged (the terminal moves the strip/FV, not compute_nav). Full record: CHANGELOG.md 2026-06-22 + outputs/terminal_value_options_memo.md §5.
+
+## 2026-07-14 — FILING-LANDED: 6-K restated articles (acc 0001140361-26-028451) — routed
+
+**Decision:** ADMINISTRATIVE, no valuation input touched. The 6-K files the Second
+Amended & Restated Articles of Incorporation (approved at the 2026-06-17 AGM; filed with
+the Marshall Islands registrar 2026-07-14; exhibit staged at
+`inputs/filings/GSL/0001140361-26-028451_ex3-1.htm`). Authorized capital per the new
+articles: 250,000,000 total = 249,000,000 Class A ($0.01 par) + 1,000,000 blank-check
+preferred. WATCH ITEM for the Q2 refresh (Aug-4/6, alongside the Series-B-post-ATM item
+already queued): diff the authorized-share headroom vs the PRIOR articles — if the
+restatement raised authorized Class A materially, that is dilution headroom context for
+the $917M NB order financing (not a NAV input; a §15-style wrapper fact).
