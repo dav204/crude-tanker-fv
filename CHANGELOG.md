@@ -5,6 +5,13 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-15 (close) — THREAD (d) SIGNED (owner verbatim: "sign thread (d) as confirmed") —
+  CLOSED.** §4 consequences executed: STNG's 2-VLCC §9.6 gate formally lifted (wiring = its own
+  prereg, post-Stage-A; stng_log annotated); the live "level-provisional" VLCC language retired
+  (provenance.py BRUT rationale now reads two remaining legs — cash-pending-H1 + going-concern;
+  historical records left as written); PLAN P1(d) marked signed. Zero numbers moved. With the
+  same-evening LR1 ruling this closes the day's arc: every P1c/thread-(d) decision is now either
+  EXECUTED (MR), SIGNED (thread d), or FROZEN-scheduled (LR1 + extract refresh, post-Stage-A).
 - **2026-07-15 (late evening) — LR1 FORK RULED (owner verbatim: "rule the LR1 fork — taxonomy
   (b) + contract-floor, post-Stage-A"); execution prereg FROZEN — TRMD → VALIDATED-TIGHT is now
   scheduled work.** Fork (i): LR1 age-0 → the dated xclusiv Panamax-tanker NB contract floor

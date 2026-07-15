@@ -2211,3 +2211,11 @@ wiring (~+$9.6/sh) becomes its own pre-registered owner-ruled step, QUEUED post-
 (one FV-moving event at a time, 2026-07-15 ruling). Classification unchanged even when
 wired: GOVERNED-WIDE at best (Handymax basis pending — no broker line, 07-15 sweep).
 STNG stays PROVISIONAL·off-curve until that step executes.
+
+## 2026-07-15 (late) — thread (d) SIGNED: the 2-VLCC gate is formally lifted
+
+**Decision:** the owner signed thread (d) as confirmed (verbatim: "sign thread (d) as
+confirmed" — thread_d_crude_level_confirmation_2026-07-15.md). The 07-01 deferral's
+cross-sector blocker is now formally closed, not just in-principle. The 10-hull §9.6
+wiring remains its own pre-registered owner-ruled step, post-Stage-A; STNG stays
+PROVISIONAL·off-curve until it executes (GOVERNED-WIDE at best after — Handymax pending).

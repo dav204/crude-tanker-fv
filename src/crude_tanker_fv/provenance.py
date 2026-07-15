@@ -101,7 +101,8 @@ NAV_DERIVED_VOID: set[str] = set()
 #   unreliable-read: a read that can't be trusted either way — a newbuild-heavy / PV-haircut method
 #                    mismatch (MPCC — the tanker method on a containership's forward-committed book), OR a
 #                    NAV built on stacked structural uncertainties (BRUT — a 0.59x "BUY" resting on a cash
-#                    floor pending H1, a level-provisional VLCC resale mark, AND going-concern doubt; the
+#                    floor pending H1 AND going-concern doubt; the VLCC resale level, formerly the third
+#                    leg, was CONFIRMED CURRENT 2026-07-15 [thread (d) signed] — two legs remain, and the
 #                    eye-catching discount and the untrustworthiness are the SAME max-torque fact).
 # Names NOT in either set print their raw TRIM/SHORT as a name-specific read (CAPT/CMBT/STNG at
 # 2026-07-10) — the tier cell (⛔/sub-reason), handoff flag, and W-frag marker carry their caveats.

@@ -1,9 +1,14 @@
-# Thread (d) — crude age-0 RESALE level: CONFIRMED CURRENT (close packet)
+# Thread (d) — crude age-0 RESALE level: CONFIRMED CURRENT — SIGNED, thread CLOSED
 
-**2026-07-15. Confirm-only — zero number movement.** Proposed status: thread (d)
-RESOLVED, pending owner sign-off. This packet documents a dated freshness check of
-the wired crude age-0 anchors against the newest in-repo xclusiv issue, per the
-Thread-1B protocol (PRE_REGISTRATION_CRUDE_RESALE_LEVEL.md §2–§4).
+**SIGNED 2026-07-15 (owner verbatim: "sign thread (d) as confirmed").** Thread (d) is
+CLOSED. §4 consequences executed same day: the STNG 2-VLCC §9.6 gate is formally lifted
+(wiring = its own prereg, post-Stage-A), the live "level-provisional" language retired
+(provenance.py BRUT rationale — historical records left as written), PLAN P1(d) marked
+signed. No numbers moved (confirm-only, as registered).
+
+**2026-07-15. Confirm-only — zero number movement.** This packet documents a dated
+freshness check of the wired crude age-0 anchors against the newest in-repo xclusiv
+issue, per the Thread-1B protocol (PRE_REGISTRATION_CRUDE_RESALE_LEVEL.md §2–§4).
 
 ## 0. What thread (d) still asked
 
@@ -82,4 +87,5 @@ With component 1 resolved by Amendment B and component 2 confirmed here, **threa
 - PLAN.md P1(d) text (which still carried pre-Amendment-B "VLCC $175M plausibly
   stale-high" prose) is rewritten to point here.
 
-**Owner sign-off line:** thread (d) closed as CONFIRMED — ______ (date / verbatim).
+**Owner sign-off line:** thread (d) closed as CONFIRMED — **2026-07-15, owner verbatim:
+"sign thread (d) as confirmed".**

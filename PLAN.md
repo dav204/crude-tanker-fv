@@ -599,7 +599,8 @@ harden it and the OTHER names — none affect the durable SB-cheap finding, whic
       needs a chem-specialist source; NEITHER qualifies for resale-corroborated (the status
       self-limits — no dated second-house 5yr exists for either). `newbuild_contract` LR1
       stays OMITTED (parity would be contract-vs-contract degenerate — prereg §2).
-   d. **NAV-layer thread — RESOLVED (2026-07-15, pending owner sign-off).** The basis
+   d. **NAV-layer thread — RESOLVED + SIGNED 2026-07-15 (owner: "sign thread (d) as
+      confirmed") — CLOSED.** The basis
       inconsistency was closed by Thread 1 + Amendment B (2026-06-29, all wired classes on the
       dated xclusiv Resale line); the remaining LEVEL-currency question is now CONFIRMED on the
       2026-07-13 xclusiv print (every crude class within the Thread-1B ±2%; VLCC exact, passing
