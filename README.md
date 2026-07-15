@@ -70,6 +70,29 @@ Use the reads as one disciplined input to a position call, sized accordingly.
   (Catlin / Mintzmyer) — full 10-of-10 overlap; CCEC / ASC / TRMD / HAFN
   direct opposite-direction signals documented in §6 footnotes
 
+## Where the official output lives (start here)
+
+**The producer's official output is the committed `outputs/book_scorecard.md` /
+`.json` pair at pushed HEAD.** Everything else in `outputs/` is evidence and
+decomposition behind it. (Added 2026-07-15 — owner feedback: this map took too
+long to find.)
+
+| Surface | What it is | Consumer |
+|---|---|---|
+| `outputs/book_scorecard.md` | **THE handoff** — Verdict table (tier·sub-reason, price, Model FV, FV range, upside, position, Blend FV, NAV/sh, broker NAV, gap, SANITY, handoff-ready, W-frag) + Validation matrix. Header discloses price basis, rate basis (incl. any held-curve state), weight-family vintage | Humans: the single surface a sizing decision reads |
+| `outputs/book_scorecard.json` | The same content as a **schema-versioned machine contract** (currently 2.4; consumer asserts major == 2). Adds `fv_low`/`fv_high`, `weight_sign_stable` + family EV ranges, `mark_wide_nodes`, hybrid sleeve FVs, vintage stamps (`generated_at`, `source_commit`) | The governance repo's monitor (its §4 seam check) |
+| `outputs/<ticker>_fv_report.md` / `.xlsx` | Per-name single-point build: NAV breakdown, dividend strip, cycle weighting, blend + FV attribution, breakeven, 5×5 grid, divergence diagnosis | Per-name deep dives |
+| `outputs/<ticker>_scenarios.md` | The scenario deck + probability-weighted FV that feeds the Verdict | Per-name deep dives |
+| `baselines/reconcile_baseline.yaml` + `RATIFY_LOG.md` | The accepted-state anchor + the dated, cause-carrying record of every ratify (the drift gate reds on unexplained moves against it) | The audit trail; the governance monitor reads RATIFY_LOG weekly |
+| `decisions/*.md` | Per-name logs + dated decision/ruling docs — the provenance trail | The "why" behind any number |
+| `outputs/weight_robustness.yaml`, `broker_nav_sweep.*`, `transaction_anchor_comparison.md`, `delta_report.md`, … | Diagnostics the scorecard summarizes | Inputs to judgment, not handoff surfaces |
+
+Trust markers on any copy: it is committed at HEAD, its `source_commit` stamp is
+clean (a `-dirty` stamp on a committed scorecard reds the suite), and the whole
+tree regenerates byte-identical from a cold clone (verified by both external
+audits). Handoff rule: a PROVISIONAL tier never hands off a governed FV —
+flag, don't pass; only VALIDATED-TIGHT and GOVERNED-WIDE are handoff-ready.
+
 ## What this tool does
 
 1. **Per-name fair value.** For each ticker on the watchlist, compute a tool
