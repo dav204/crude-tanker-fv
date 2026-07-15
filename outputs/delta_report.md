@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-07-15T17:46:11+00:00
-- **Previous run:** 2026-07-15T16:48:22+00:00
+- **This run:** 2026-07-15T19:23:37+00:00
+- **Previous run:** 2026-07-15T19:15:36+00:00
 
 ## Headline changes (material moves)
 
@@ -9,10 +9,7 @@
 
 ## Input files changed since last run
 
-- `inputs/market_data/basis_status.yaml` (modified)
-- `inputs/market_data/newbuild_contract_prices.yaml` (modified)
-- `inputs/market_data/vessel_value_curves.yaml` (modified)
-- `inputs/market_data/xclusiv_age_curve.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 
@@ -30,7 +27,7 @@
 | HAFN | $7.48 (no change) | $5.99 (no change) | $6.23 (no change) | $5.57 (no change) | TRIM/SHORT (overvalued) | +36.5pp (no change) |
 | TRMD | $29.43 (no change) | $30.97 (no change) | $31.90 (no change) | $30.34 (no change) | BUY (undervalued) | +16.5pp (no change) |
 | ASC | $16.18 (no change) | $16.75 (no change) | $16.83 (no change) | $17.80 (no change) | HOLD (fairly valued) | +20.5pp (no change) |
-| TEN | $39.75 (no change) | $61.33 (+0.1%) | $57.64 (+0.1%) | $88.76 (+0.1%) | BUY (undervalued) | +41.0pp (-0.1pp) |
+| TEN | $39.75 (no change) | $59.66 (no change) | $56.46 (no change) | $87.35 (no change) | BUY (undervalued) | +43.1pp (no change) |
 | CMDB | $19.94 (no change) | $20.52 (no change) | $20.10 (no change) | $31.33 (no change) | HOLD (fairly valued) | +2.5pp (no change) |
 | SBLK | $26.56 (no change) | $28.50 (no change) | $27.69 (no change) | $29.34 (no change) | HOLD (fairly valued) | +15.0pp (no change) |
 | GNK | $25.45 (no change) | $23.98 (no change) | $23.15 (no change) | $24.69 (no change) | TRIM/SHORT (overvalued) | +12.9pp (no change) |

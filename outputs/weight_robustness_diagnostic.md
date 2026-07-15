@@ -44,7 +44,7 @@ Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp from `mou_bear` into 
 | INSW | -38.5% (TRIM/SHORT) | -43.8% (TRIM/SHORT) | -42.0% (TRIM/SHORT) | -46.0% (TRIM/SHORT) | -44.1% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 5 weight sets |
 | TNK | +1.3% (HOLD) | -6.1% (TRIM/SHORT) | -3.6% (HOLD) | -9.1% (TRIM/SHORT) | -6.4% (TRIM/SHORT) | ⚑ driven | HOLD under Set A/Set C; TRIM/SHORT under Set B/Set D/Set E |
 | NAT | -56.8% (TRIM/SHORT) | -63.8% (TRIM/SHORT) | -61.5% (TRIM/SHORT) | -66.7% (TRIM/SHORT) | -64.2% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 5 weight sets |
-| TEN | +44.9% (BUY) | +31.8% (BUY) | +36.2% (BUY) | +26.5% (BUY) | +31.2% (BUY) | ✓ robust | position BUY across all 5 weight sets |
+| TEN | +45.0% (BUY) | +31.9% (BUY) | +36.3% (BUY) | +26.6% (BUY) | +31.3% (BUY) | ✓ robust | position BUY across all 5 weight sets |
 | CMBT | -12.1% (TRIM/SHORT) | -17.0% (TRIM/SHORT) | -15.4% (TRIM/SHORT) | -19.0% (TRIM/SHORT) | -17.2% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 5 weight sets |
 | BRUT | +11.3% (BUY) | -40.8% (TRIM/SHORT) | -23.5% (TRIM/SHORT) | -63.3% (TRIM/SHORT) | -44.0% (TRIM/SHORT) | ⚑ driven | BUY under Set A; TRIM/SHORT under Set B/Set C/Set D/Set E |
 | CAPT | -1.9% (HOLD) | -23.7% (TRIM/SHORT) | -16.5% (TRIM/SHORT) | -32.8% (TRIM/SHORT) | -24.9% (TRIM/SHORT) | ⚑ driven | HOLD under Set A; TRIM/SHORT under Set B/Set C/Set D/Set E |
@@ -61,7 +61,7 @@ Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp from `mou_bear` into 
 | Crude Set B (Catlin-leaning, slow normalization) | $11.46 | -37.0% | TRIM/SHORT |
 | Crude Set C (bullish, extended Phase 1) | $12.08 | -33.5% | TRIM/SHORT |
 | Crude Set D (bearish, deep normalization) | $10.66 | -41.4% | TRIM/SHORT |
-| Crude Set E (current locked, Jul-2 vintage) | $11.35 | -37.6% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $11.35 | -37.6% | TRIM/SHORT |
 
 ### ECO — price $56.73, target $45.00
 
@@ -73,7 +73,7 @@ Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp from `mou_bear` into 
 | Crude Set B (Catlin-leaning, slow normalization) | $26.06 | -54.1% | TRIM/SHORT |
 | Crude Set C (bullish, extended Phase 1) | $28.07 | -50.5% | TRIM/SHORT |
 | Crude Set D (bearish, deep normalization) | $23.52 | -58.5% | TRIM/SHORT |
-| Crude Set E (current locked, Jul-2 vintage) | $25.73 | -54.6% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $25.73 | -54.6% | TRIM/SHORT |
 
 ### FRO — price $38.38, target $30.50
 
@@ -85,7 +85,7 @@ Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp from `mou_bear` into 
 | Crude Set B (Catlin-leaning, slow normalization) | $18.43 | -52.0% | TRIM/SHORT |
 | Crude Set C (bullish, extended Phase 1) | $19.92 | -48.1% | TRIM/SHORT |
 | Crude Set D (bearish, deep normalization) | $16.53 | -56.9% | TRIM/SHORT |
-| Crude Set E (current locked, Jul-2 vintage) | $18.17 | -52.7% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $18.17 | -52.7% | TRIM/SHORT |
 
 ### INSW — price $88.12, target $79.50
 
@@ -97,7 +97,7 @@ Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp from `mou_bear` into 
 | Crude Set B (Catlin-leaning, slow normalization) | $49.52 | -43.8% | TRIM/SHORT |
 | Crude Set C (bullish, extended Phase 1) | $51.07 | -42.0% | TRIM/SHORT |
 | Crude Set D (bearish, deep normalization) | $47.58 | -46.0% | TRIM/SHORT |
-| Crude Set E (current locked, Jul-2 vintage) | $49.28 | -44.1% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $49.28 | -44.1% | TRIM/SHORT |
 
 ### TNK — price $72.27, target $75.00
 
@@ -109,7 +109,7 @@ Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp from `mou_bear` into 
 | Crude Set B (Catlin-leaning, slow normalization) | $67.88 | -6.1% | TRIM/SHORT |
 | Crude Set C (bullish, extended Phase 1) | $69.65 | -3.6% | HOLD |
 | Crude Set D (bearish, deep normalization) | $65.69 | -9.1% | TRIM/SHORT |
-| Crude Set E (current locked, Jul-2 vintage) | $67.61 | -6.4% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $67.61 | -6.4% | TRIM/SHORT |
 
 ### NAT — price $6.29, target $6.00
 
@@ -121,7 +121,7 @@ Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp from `mou_bear` into 
 | Crude Set B (Catlin-leaning, slow normalization) | $2.27 | -63.8% | TRIM/SHORT |
 | Crude Set C (bullish, extended Phase 1) | $2.42 | -61.5% | TRIM/SHORT |
 | Crude Set D (bearish, deep normalization) | $2.09 | -66.7% | TRIM/SHORT |
-| Crude Set E (current locked, Jul-2 vintage) | $2.25 | -64.2% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $2.25 | -64.2% | TRIM/SHORT |
 
 ### TEN — price $39.75, target $51.50
 
@@ -129,11 +129,11 @@ Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp from `mou_bear` into 
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Crude Set A (Jun-9 war tilt, history bracket) | $57.60 | +44.9% | BUY |
-| Crude Set B (Catlin-leaning, slow normalization) | $52.39 | +31.8% | BUY |
-| Crude Set C (bullish, extended Phase 1) | $54.14 | +36.2% | BUY |
-| Crude Set D (bearish, deep normalization) | $50.30 | +26.5% | BUY |
-| Crude Set E (current locked, Jul-2 vintage) | $52.16 | +31.2% | BUY |
+| Crude Set A (Jun-9 war tilt, history bracket) | $57.64 | +45.0% | BUY |
+| Crude Set B (Catlin-leaning, slow normalization) | $52.43 | +31.9% | BUY |
+| Crude Set C (bullish, extended Phase 1) | $54.18 | +36.3% | BUY |
+| Crude Set D (bearish, deep normalization) | $50.33 | +26.6% | BUY |
+| Crude Set E (Jul-2 stand-down vintage) | $52.20 | +31.3% | BUY |
 
 ### CMBT — price $15.78, target $16.59
 
@@ -145,7 +145,7 @@ Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp from `mou_bear` into 
 | Crude Set B (Catlin-leaning, slow normalization) | $13.10 | -17.0% | TRIM/SHORT |
 | Crude Set C (bullish, extended Phase 1) | $13.36 | -15.4% | TRIM/SHORT |
 | Crude Set D (bearish, deep normalization) | $12.78 | -19.0% | TRIM/SHORT |
-| Crude Set E (current locked, Jul-2 vintage) | $13.06 | -17.2% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $13.06 | -17.2% | TRIM/SHORT |
 
 ### BRUT — price $5.57, target $7.13
 
@@ -157,7 +157,7 @@ Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp from `mou_bear` into 
 | Crude Set B (Catlin-leaning, slow normalization) | $3.30 | -40.8% | TRIM/SHORT |
 | Crude Set C (bullish, extended Phase 1) | $4.26 | -23.5% | TRIM/SHORT |
 | Crude Set D (bearish, deep normalization) | $2.04 | -63.3% | TRIM/SHORT |
-| Crude Set E (current locked, Jul-2 vintage) | $3.12 | -44.0% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $3.12 | -44.0% | TRIM/SHORT |
 
 ### CAPT — price $13.40, target $18.90
 
@@ -169,7 +169,7 @@ Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp from `mou_bear` into 
 | Crude Set B (Catlin-leaning, slow normalization) | $10.23 | -23.7% | TRIM/SHORT |
 | Crude Set C (bullish, extended Phase 1) | $11.19 | -16.5% | TRIM/SHORT |
 | Crude Set D (bearish, deep normalization) | $9.00 | -32.8% | TRIM/SHORT |
-| Crude Set E (current locked, Jul-2 vintage) | $10.07 | -24.9% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $10.07 | -24.9% | TRIM/SHORT |
 
 ## Combined mark + weight robustness framework
 

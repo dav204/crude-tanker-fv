@@ -68,8 +68,12 @@ CRUDE_WEIGHT_SETS = {
     },
     # Proposed 2026-07-02 (audit F-2 / §13.3 trigger — US–Iran stand-down):
     # v1 prior restored, adjusted for one observed ceasefire failure (esc 0.10
-    # not 0.05) and no signed MoU yet (pre_mou 0.20 not 0.15).
-    "Crude Set E (current locked, Jul-2 vintage)": {
+    # not 0.05) and no signed MoU yet (pre_mou 0.20 not 0.15). Was labeled
+    # "current locked" — true Jul-2→Jul-14 only; the Hormuz re-tilt (RESTORE
+    # BOTH, owner ruling 2026-07-14 EVE) put production back on Set A. The
+    # label is data in the sidecar/outputs, so it must not claim "current";
+    # main() asserts which set the production prior actually is.
+    "Crude Set E (Jul-2 stand-down vintage)": {
         "escalation": 0.10, "pre_mou_baseline": 0.20,
         "mou_base":   0.45, "mou_bear":         0.25,
     },
@@ -327,7 +331,12 @@ def sidecar_entries(analyses: list[dict]) -> dict:
     2026-07-02, W-1)? Sign-stability, not position-label stability — a HOLD/BUY
     label flip inside a positive-EV range is magnitude sensitivity, while a sign
     flip means the direction of the call is a weight artifact. No timestamps
-    (byte-stable regeneration); the vintage is the weight-set list itself.
+    (byte-stable regeneration); the vintage is the weight-set list itself PLUS
+    the marks/tape the EVs were computed at — the WO1-F4 sha stamp can't see
+    the latter, so the scorecard withholds any name whose live point EV exits
+    the recorded range (containment guard, 2026-07-15: the MR age-0 re-anchor
+    moved TEN +44.9 → +45.0 with this sidecar held). A range whose family
+    includes the adopted set must contain the point, or it doesn't print.
     Written via scorecard.update_weight_fragility_sidecar (MERGE — S-2: the old
     whole-file write clobbered other families' entries)."""
     out = {}
@@ -351,6 +360,23 @@ def main():
     # with the pipeline headline whenever the daily price had moved.
     watchlist = load_watchlist(live_prices=True)
     base_sector_docs = _load_all_sectors()
+
+    # The family must INCLUDE the production prior — the scorecard's containment
+    # guard asserts every printed point EV sits inside the family range, which
+    # only holds if the adopted scenario_inputs.yaml weights are one of the sets
+    # above. An owner reweight to a set not in the family fails HERE with the
+    # cause, not downstream as an unexplained out-of-range withholding.
+    adopted = {name: sc.get("weight", 0.0)
+               for name, sc in base_sector_docs["crude"]["scenarios"].items()}
+    member = next((label for label, ws in CRUDE_WEIGHT_SETS.items()
+                   if all(abs(adopted.get(k, 0.0) - w) < 1e-9 for k, w in ws.items())),
+                  None)
+    if member is None:
+        sys.exit("adopted crude weights "
+                 f"{ {k: v for k, v in adopted.items() if v} } match no set in "
+                 "CRUDE_WEIGHT_SETS — add the production prior to the family "
+                 "before running the §9.10 diagnostic")
+    print(f"production prior = {member}")
 
     analyses = []
     for ticker in CRUDE_TICKERS:

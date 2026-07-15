@@ -442,15 +442,24 @@ def _fragility_cell(ticker: str, fragility: dict[str, dict]) -> str:
 
 
 def handoff_coherence_flags(doc: dict) -> list[str]:
-    """Sign/label contradictions in a handoff document — the F-13 semantic
-    check, shared by the committed-surface test AND the sentinel (one
-    implementation; two callers asserting the same thing is how F-13 happened).
-    ±0.15pp edge tolerance absorbs the JSON's 1-dp rounding."""
+    """Sign/label + family-range contradictions in a handoff document — the
+    F-13 semantic check, shared by the committed-surface test AND the sentinel
+    (one implementation; two callers asserting the same thing is how F-13
+    happened). ±0.15pp edge tolerance absorbs the JSON's 1-dp rounding on the
+    label checks. The family-containment check is EXACT: the §9.10 family
+    includes the adopted weight set and both sides share the 1-dp rounding, so
+    a printed range that fails to contain the printed point is vintage drift,
+    not rounding (2026-07-15: TEN +45.0 printed against family max +44.9 after
+    the MR mark re-anchor outdated the sidecar)."""
     flags = []
     for n in doc.get("names", []):
         ev, pos = n.get("ev_pct"), n.get("position") or ""
         if n.get("void") or ev is None:
             continue
+        fmin, fmax = n.get("ev_pct_family_min"), n.get("ev_pct_family_max")
+        if fmin is not None and fmax is not None and not fmin <= ev <= fmax:
+            flags.append(f"{n['ticker']}: ev_pct {ev:+.1f}% outside its weight-family "
+                         f"range [{fmin:+.1f}%, {fmax:+.1f}%]")
         if pos.startswith("BUY") and not ev > 5 - 0.15:
             flags.append(f"{n['ticker']}: BUY at {ev:+.1f}%")
         elif pos.startswith("TRIM/SHORT") and not ev < -5 + 0.15:
@@ -633,6 +642,37 @@ def write_scorecard(
           f"are withheld (null), never silently current — re-run the family diagnostic "
           f"scripts (WO1-F4).\n")
 
+    # WO1-F4 addendum (2026-07-15, TEN +45.0 vs family max +44.9): the sha stamp
+    # scopes only scenario_inputs.yaml, but marks and the tape move EVs too —
+    # the MR age-0 re-anchor (5ed418f) moved TEN's point EV after the sidecar's
+    # last run and the handoff printed a point OUTSIDE its own family range.
+    # The family always contains the adopted weight set, so containment of the
+    # emitted 1-dp values is exact when vintages match; a violation means the
+    # sidecar lags an EV-moving determinant the sha can't see. Withhold that
+    # name's family fields (null) + say why — the consumer sizes against
+    # ev_pct_family_min, and an out-of-range point breaks that read silently.
+    ev_lagging: list[str] = []
+    if valuation and fragility:
+        for r in rows:
+            v, frag = valuation.get(r.ticker), fragility.get(r.ticker)
+            if v is None or not frag or r.ticker in NAV_DERIVED_VOID:
+                continue
+            ev = _num(v.upside_pct, 1)
+            fmin, fmax = frag.get("ev_min_pct"), frag.get("ev_max_pct")
+            if None in (ev, fmin, fmax) or fmin <= ev <= fmax:
+                continue
+            ev_lagging.append(r.ticker)
+    if ev_lagging:
+        fragility = {t: e for t, e in fragility.items() if t not in ev_lagging}
+        if family_basis is not None:
+            family_basis = {**family_basis, "ev_lagging": ev_lagging}
+        w(f"> **Weight-family EV vintage: LAGGING for {', '.join(ev_lagging)}** — the live "
+          f"point EV sits outside the §9.10 sidecar's family range, so an EV-moving "
+          f"determinant outside the scenario_inputs.yaml stamp (marks / tape) changed "
+          f"after the diagnostic last ran. Family fields for these names are withheld "
+          f"(null), never printed out-of-range — re-run the family diagnostic scripts "
+          f"at the current tape.\n")
+
     if valuation:
         w("This file lists each name **twice, by design** — once in the **Verdict** (the decision "
           "surface: FV vs price, position, tier) and once in the **Validation matrix** below (the "
@@ -731,15 +771,18 @@ def _num(x: Optional[float], nd: int = 2) -> Optional[float]:
 def _vintage_stamp() -> dict:
     """generated_at + source_commit for the handoff (WO1 V-1) — the vintage
     stamp the governance repo's G-1 captures next to every figure it copies.
-    source_commit gets a '-dirty' suffix when the tree carries uncommitted
-    tracked changes (a mid-surgery export must say so). Semantics: the stamp is
-    the tree the run STARTED from — one behind the commit that ships this file
-    (outputs are committed with their generation), so '-dirty' in a committed
-    artifact is normal and means "generated together with the changes in this
-    very commit". A consumer wanting the exact reproducible vintage uses the
-    commit that CONTAINS the JSON; source_commit is for cross-repo drift
-    detection, not checkout. This deliberately trades the JSON's byte-stable
-    regeneration for consumer traceability; the markdown stays wall-clock-free."""
+    source_commit gets a '-dirty' suffix when the run's determinants (src/ +
+    inputs/) carry uncommitted tracked changes (a mid-surgery export must say
+    so). A '-dirty' stamp is for LOCAL scratch surfaces only — the COMMITTED
+    surface must stamp clean (WO1-F1 guard in test_outputs_hygiene): commit the
+    determinant changes first, then regenerate, then commit the outputs. (This
+    paragraph previously blessed '-dirty' in committed artifacts as "generated
+    together with this very commit" — that pre-WO1-F1 semantic contradicted the
+    guard and produced exactly the 2026-07-15 mid-work regen it exists to
+    catch.) A consumer wanting the exact reproducible vintage uses the commit
+    that CONTAINS the JSON; source_commit is for cross-repo drift detection,
+    not checkout. This deliberately trades the JSON's byte-stable regeneration
+    for consumer traceability; the markdown stays wall-clock-free."""
     import subprocess
     from datetime import datetime, timezone
 
@@ -830,11 +873,16 @@ def _write_handoff_json(
                         [{"sleeve": sec, "sector": sec,
                           "fv_contribution_per_share": _num(fv_c)}
                          for sec, fv_c in v.sleeve_fvs.items()]),
-            # null = not in a §9.10 family diagnostic. weight_sign_stable is
+            # null = not in a §9.10 family diagnostic, OR withheld because the
+            # sidecar's range no longer contains the live point EV (ev-vintage
+            # lag; see weight_family_basis.ev_lagging). weight_sign_stable is
             # THE derived boolean ((min>0)==(max>0)); the family EV range is
             # the underlying datum, exported so the consumer computes its own
             # magnitude-sensitivity judgment (2026-07-03: sign-unstable →
-            # conviction zero; sign-stable → size against family_min).
+            # conviction zero; sign-stable → size against family_min). The
+            # family includes the ADOPTED weight set, so a printed range
+            # CONTAINS the printed ev_pct — enforced above + by
+            # handoff_coherence_flags, never printed out-of-range.
             "weight_sign_stable": frag.get("ev_sign_stable") if frag else None,
             "ev_pct_family_min": frag.get("ev_min_pct"),
             "ev_pct_family_max": frag.get("ev_max_pct"),
@@ -865,7 +913,13 @@ def _write_handoff_json(
         # 2.4 (2026-07-15, D-M5 ruled): + fv_low/fv_high — the scenario min/max
         # VALUE interval (weight>0 scenarios) + the interval flip-triage rule
         # (drift_gate). Minor bump: additive, consumer asserts major == 2.
-        "schema_version": "2.4",
+        # 2.5 (2026-07-15): family-range CONTAINMENT enforced at the seam — a
+        # name whose live point EV exits its §9.10 family range (sidecar lags
+        # an EV-moving determinant outside the WO1-F4 sha scope: marks/tape)
+        # has its family fields withheld (null) and is named in
+        # weight_family_basis.ev_lagging. ev_pct ∈ [family_min, family_max]
+        # is now an invariant of every printed row.
+        "schema_version": "2.5",
         **_vintage_stamp(),
         "quarter": quarter,
         "price_basis": price_basis,

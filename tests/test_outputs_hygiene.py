@@ -20,7 +20,14 @@ def test_committed_handoff_sign_label_coherence():
     ±5%). No BUY below the band, no TRIM/SHORT above it — '+28% upside · SHORT'
     can never ship again. Relabeled rows ('cycle position', 'unreliable read')
     are explicitly non-directional and exempt; a ±0.15pp edge tolerance absorbs
-    the JSON's 1-dp rounding (CMBT sits at −5.05)."""
+    the JSON's 1-dp rounding (CMBT sits at −5.05).
+
+    + containment guard (2026-07-15): a printed §9.10 family range must CONTAIN
+    the printed point EV — the family includes the adopted weight set, so an
+    out-of-range point means the sidecar lags an EV-moving determinant outside
+    the WO1-F4 sha scope (TEN +45.0 printed against family max +44.9 after the
+    MR mark re-anchor). Remedy: re-run the family diagnostic scripts at the
+    current tape, then regenerate the surface from clean HEAD."""
     import json
 
     path = ROOT / "outputs" / "book_scorecard.json"

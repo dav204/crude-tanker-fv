@@ -1,7 +1,7 @@
 {
-  "schema_version": "2.4",
-  "generated_at": "2026-07-15T17:46:02+00:00",
-  "source_commit": "9869336-dirty",
+  "schema_version": "2.5",
+  "generated_at": "2026-07-15T19:23:28+00:00",
+  "source_commit": "4e0a9f3-dirty",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 25,
@@ -327,36 +327,36 @@
       "sanity": "n-a",
       "price": 39.75,
       "position": "BUY (undervalued)",
-      "fv": 57.64,
-      "ev_pct": 45.0,
-      "blend_fv": 61.33,
-      "nav_per_share": 88.76,
+      "fv": 56.46,
+      "ev_pct": 42.0,
+      "blend_fv": 59.66,
+      "nav_per_share": 87.35,
       "broker_nav": 116.91,
-      "gap_pct": -24.1,
+      "gap_pct": -25.3,
       "governance_discount_pct": 30.0,
       "sleeves": [
         {
           "sleeve": "crude",
           "sector": "crude",
-          "fv_contribution_per_share": 38.08
+          "fv_contribution_per_share": 36.37
         },
         {
           "sleeve": "product",
           "sector": "product",
-          "fv_contribution_per_share": 12.05
+          "fv_contribution_per_share": 12.37
         },
         {
           "sleeve": "lng",
           "sector": "lng",
-          "fv_contribution_per_share": 7.51
+          "fv_contribution_per_share": 7.72
         }
       ],
       "weight_sign_stable": true,
-      "ev_pct_family_min": 26.5,
-      "ev_pct_family_max": 44.9,
+      "ev_pct_family_min": 26.6,
+      "ev_pct_family_max": 45.0,
       "mark_wide_nodes": null,
-      "fv_low": 41.22,
-      "fv_high": 84.68
+      "fv_low": 41.45,
+      "fv_high": 81.91
     },
     {
       "ticker": "ASC",

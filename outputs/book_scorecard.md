@@ -32,7 +32,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | CMBT | crude | GOVERNED-WIDE · structural-class | $15.78 | $13.87 | 8.69–21.10 | -12% | TRIM/SHORT (overvalued) | $15.25 | $15.87 | $21.62 | -27% | OK | ready | stable |
 | INSW | crude | GOVERNED-WIDE · pending-anchor | $88.12 | $54.21 | 38.53–77.87 | -38% | rich · cycle position (not a short) | $38.63 | $52.59 | $79.39 | -34% | OK | ready | stable |
 | NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $6.29 | $2.72 | 1.85–4.48 | -57% | rich · cycle position (not a short) | $3.09 | $2.79 | $7.40 (apx) | -62% | n-a | ready | stable |
-| TEN | crude | GOVERNED-WIDE · mixed | $39.75 | $57.64 | 41.22–84.68 | +45% | BUY (undervalued) | $61.33 | $88.76 | $116.91 (apx) | -24% | n-a | ready | stable |
+| TEN | crude | GOVERNED-WIDE · mixed | $39.75 | $56.46 | 41.45–81.91 | +42% | BUY (undervalued) | $59.66 | $87.35 | $116.91 (apx) | -25% | n-a | ready | stable |
 | ASC | product | GOVERNED-WIDE · structural-class | $16.18 | $16.83 | 13.25–19.77 | +4% | HOLD (fairly valued) | $16.75 | $17.80 | $21.57 (apx) | -18% | n-a | ready | **⚠ sign flips** |
 | TRMD | product | GOVERNED-WIDE · basis-pending | $29.43 | $31.90 | 18.49–45.39 | +8% | BUY (undervalued) | $30.97 | $30.34 | $35.88 | -15% | OK | ready | **⚠ sign flips** |
 | 2343 | dry_bulk | GOVERNED-WIDE · pending-anchor | $0.39 | $0.38 | 0.31–0.44 | -3% | HOLD (fairly valued) | $0.38 | $0.39 | $0.40 (apx) | -3% | n-a | ready | stable |
@@ -70,7 +70,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | FRO | crude | VALIDATED-TIGHT | resale-uniform | 1.52× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | INSW | crude | GOVERNED-WIDE | pending-sourceable | 1.57× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | NAT | crude | GOVERNED-WIDE | resale-uniform | 2.08× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
-| TEN | crude | GOVERNED-WIDE | structural-unavailable | 0.42× | no anchor→cheap | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
+| TEN | crude | GOVERNED-WIDE | structural-unavailable | 0.43× | no anchor→cheap | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
 | TNK | crude | VALIDATED-TIGHT | resale-uniform | 0.87× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | ASC | product | GOVERNED-WIDE | pending-sourceable | 0.84× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | HAFN | product | PROVISIONAL ⛔ | pending-sourceable | 1.26× | no anchor→fair | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |

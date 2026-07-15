@@ -41,9 +41,13 @@ live rules distilled from it.
   `crude_weight_robustness.py` asserts the adopted scenario_inputs weights ARE a family member
   before running (the containment premise), and Set E's stale "current locked" label is
   corrected (production prior = Set A). Crude sidecar re-run at the current marks: TEN
-  26.5/44.9 → 26.6/45.0, every other name byte-identical. Consumer note (TRADE_PREREG #4 reads
-  these fields fresh): null family fields + `ev_lagging` = "re-run the family diagnostics before
-  sizing". Also caught in passing: the committed surface at 5ed418f stamps `9869336-dirty` —
+  26.5/44.9 → 26.6/45.0, every other name byte-identical. (The same-day TEN balance-sheet
+  reconciliation recompute then moved the point EV to +42.0 — INTERIOR to the range, so
+  containment holds; the guard fires on range exit, not interior drift. Fold a family-script
+  re-run into the post-reconciliation clean-HEAD regen so the recorded range re-anchors.)
+  Consumer note (TRADE_PREREG #4 reads these fields fresh): null family fields + `ev_lagging` =
+  "re-run the family diagnostics before sizing". Also caught in passing: the committed surface
+  at 5ed418f stamps `9869336-dirty` —
   it already reds the WO1-F1 guard (pre-existing; the `_vintage_stamp` docstring still blessed
   committed '-dirty' stamps and is now corrected); regenerate from clean HEAD at the next
   chore(outputs) round.

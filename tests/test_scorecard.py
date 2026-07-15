@@ -269,7 +269,9 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
     # String "2.1" — the consumer asserts major == 2 (WO1 Task 1); minor bumps
     # are additive, major bumps break. 2.3 (2026-07-09): + mark_wide_nodes.
     # 2.4 (2026-07-15, D-M5 ruled): + fv_low/fv_high (scenario min/max interval).
-    assert doc["schema_version"] == "2.4"
+    # 2.5 (2026-07-15): family-range containment — out-of-range family fields
+    # withhold (null) + weight_family_basis.ev_lagging names them.
+    assert doc["schema_version"] == "2.5"
     assert doc["schema_version"].split(".")[0] == "2"
     assert doc["quarter"] == QUARTER
     # Vintage stamp: ISO-8601 UTC + the HEAD hash ('-dirty' allowed).
@@ -372,7 +374,10 @@ def test_weight_fragility_flag_renders_and_reaches_the_json(tmp_path, rows):
     frag = load_weight_fragility(tmp_path)
     assert frag["BRUT"]["ev_sign_stable"] is False and frag["SB"]["ev_sign_stable"] is True
 
-    text = write_scorecard(rows, outputs_dir=tmp_path, valuation=_synthetic_valuation(rows),
+    # upside=45.0 sits inside BOTH synthetic family ranges — the containment
+    # guard (2026-07-15) withholds fields whose range excludes the point EV.
+    text = write_scorecard(rows, outputs_dir=tmp_path,
+                           valuation=_synthetic_valuation(rows, upside=45.0),
                            fragility=frag).read_text()
     brut = next(ln for ln in text.splitlines() if ln.startswith("| BRUT |"))
     assert "⚠ sign flips" in brut
@@ -392,6 +397,56 @@ def test_weight_fragility_flag_renders_and_reaches_the_json(tmp_path, rows):
     assert by["BRUT"]["ev_pct_family_min"] == -5.0 and by["BRUT"]["ev_pct_family_max"] == 98.1
     assert by["SB"]["ev_pct_family_min"] == 40.0
     assert by["DHT"]["ev_pct_family_min"] is None
+
+
+def test_family_range_must_contain_point_ev_or_withhold(tmp_path, rows):
+    """Containment guard (2026-07-15): the §9.10 family includes the ADOPTED
+    weight set, so a printed family range must CONTAIN the printed point EV.
+    The WO1-F4 sha stamp scopes only scenario_inputs.yaml — the MR age-0
+    re-anchor (5ed418f) moved TEN's point EV +44.9 → +45.0 with the sidecar
+    held, and the handoff printed a point OUTSIDE its own family range.
+    Out-of-range ⇒ that name's family fields withhold (null), the basis marker
+    names it, the banner says why; in-range names keep their fields."""
+    import json
+
+    frag = {"TEN": {"ev_sign_stable": True, "ev_min_pct": 26.5, "ev_max_pct": 44.9},
+            "SB": {"ev_sign_stable": True, "ev_min_pct": 40.0, "ev_max_pct": 55.0}}
+    fb = {"status": "current", "family_shas": {}, "current_sha": "abc123def456",
+          "lagging": []}
+    text = write_scorecard(rows, outputs_dir=tmp_path,
+                           valuation=_synthetic_valuation(rows, upside=45.0),
+                           fragility=frag, family_basis=fb).read_text()
+    assert "Weight-family EV vintage: LAGGING for TEN" in text
+    ten_row = next(ln for ln in text.splitlines() if ln.startswith("| TEN |"))
+    assert "stable" not in ten_row                       # withheld renders as "—"
+    doc = json.loads((tmp_path / "book_scorecard.json").read_text())
+    by = {n["ticker"]: n for n in doc["names"]}
+    assert by["TEN"]["weight_sign_stable"] is None
+    assert by["TEN"]["ev_pct_family_min"] is None and by["TEN"]["ev_pct_family_max"] is None
+    assert by["SB"]["ev_pct_family_min"] == 40.0         # in-range: kept
+    assert doc["weight_family_basis"]["ev_lagging"] == ["TEN"]
+    # The emitted surface itself satisfies the invariant — nothing for the
+    # coherence check to flag.
+    from crude_tanker_fv.scorecard import handoff_coherence_flags
+
+    assert not [f for f in handoff_coherence_flags(doc) if "weight-family" in f]
+
+
+def test_handoff_coherence_flags_family_containment():
+    """The shared checker (test + sentinel callers) flags a handoff doc whose
+    point EV escapes a printed family range — exact containment, no tolerance:
+    both sides share the 1-dp rounding, so a violation is vintage drift."""
+    from crude_tanker_fv.scorecard import handoff_coherence_flags
+
+    row = {"ticker": "TEN", "ev_pct": 45.0, "position": "BUY (undervalued)",
+           "ev_pct_family_min": 26.5, "ev_pct_family_max": 44.9}
+    flags = handoff_coherence_flags({"names": [row]})
+    assert flags == ["TEN: ev_pct +45.0% outside its weight-family range [+26.5%, +44.9%]"]
+    # Boundary is inside (the adopted set IS a family member), and null family
+    # fields (not in a diagnostic / withheld) have nothing to check.
+    assert not handoff_coherence_flags({"names": [{**row, "ev_pct_family_max": 45.0}]})
+    assert not handoff_coherence_flags({"names": [{**row, "ev_pct_family_min": None,
+                                                   "ev_pct_family_max": None}]})
 
 
 def test_rate_basis_note_reaches_scorecard_and_json(tmp_path, rows):

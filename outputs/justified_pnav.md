@@ -23,11 +23,11 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | CMDB | dry_bulk | $31.33 | $17.25 | 0.551× | 8.0% | 0.705× | 6.7% | 0.572× | cheap → fair | flips (cheap/fair) |
 | GNK | dry_bulk | $24.69 | $24.50 | 0.992× | 12.3% | 1.128× | 11.2% | 1.017× | cheap → fair | flips (cheap/fair) |
 | 2343 | dry_bulk | $0.39 | $0.39 | 1.012× | 12.4% | 1.140× | 13.0% | 1.200× | cheap → cheap | robust |
-| TNK | crude | $77.51 | $67.60 | 0.872× | 7.4% | 0.638× | 8.8% | 0.782× | rich → rich | robust |
+| TNK | crude | $77.51 | $67.60 | 0.872× | 7.4% | 0.637× | 8.8% | 0.782× | rich → rich | robust |
 | DHT | crude | $13.88 | $17.20 | 1.240× | 9.8% | 0.880× | 9.2% | 0.817× | rich → rich | robust |
-| FRO | crude | $24.22 | $36.80 | 1.519× | 10.5% | 0.951× | 9.6% | 0.860× | rich → rich | robust |
-| NAT | crude | $2.79 | $5.80 | 2.076× | 13.2% | 1.217× | 9.8% | 0.883× | rich → rich | robust |
-| ECO | crude | $34.35 | $53.10 | 1.546× | 7.7% | 0.670× | 6.4% | 0.540× | rich → rich | robust |
+| FRO | crude | $24.22 | $36.80 | 1.519× | 10.5% | 0.950× | 9.6% | 0.860× | rich → rich | robust |
+| NAT | crude | $2.79 | $5.80 | 2.076× | 13.1% | 1.214× | 9.8% | 0.883× | rich → rich | robust |
+| ECO | crude | $34.35 | $53.10 | 1.546× | 7.7% | 0.669× | 6.4% | 0.540× | rich → rich | robust |
 | INSW **(WHOLE-CO)** | crude | $52.59 | $82.40 | 1.567× | n/a | — | 9.9% | 0.888× | no anchor → rich | n/a |
 | FLNG | lng | $28.45 | $29.30 | 1.030× | n/a | — | 14.6% | 1.405× | no anchor → cheap | n/a |
 | CCEC | lng | $28.10 | $21.60 | 0.769× | n/a | — | 27.5% | 2.835× | no anchor → cheap | n/a |
@@ -35,8 +35,8 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | HAFN | product | $5.57 | $7.00 | 1.256× | n/a | — | 13.2% | 1.216× | no anchor → fair | n/a |
 | TRMD | product | $30.34 | $27.70 | 0.913× | n/a | — | 7.4% | 0.641× | no anchor → rich | n/a |
 | ASC | product | $17.80 | $14.90 | 0.837× | n/a | — | 3.9% | 0.290× | no anchor → rich | n/a |
-| TEN **(WHOLE-CO)** | crude | $88.76 | $37.14 | 0.418× | n/a | — | 13.2% | 1.218× | no anchor → cheap | n/a |
-| CAPT | crude | $15.49 | $13.31 | 0.859× | 11.1% | — | 10.7% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
+| TEN **(WHOLE-CO)** | crude | $87.35 | $37.14 | 0.425× | n/a | — | 12.2% | 1.118× | no anchor → cheap | n/a |
+| CAPT | crude | $15.49 | $13.31 | 0.859× | 11.0% | — | 10.7% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | MPCC | containerships | $2.04 | $2.44 | 1.195× | n/a | — | 49.5% | — | no anchor → newbuild-heavy (unreliable) | n/a |
 | GSL | containerships | $38.59 | $38.99 | 1.010× | n/a | — | 51.1% | 5.219× | no anchor → cheap | n/a |
 | BRUT | crude | $8.80 | $5.30 | 0.602× | 23.7% | — | 22.3% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
