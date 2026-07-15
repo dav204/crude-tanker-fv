@@ -388,10 +388,14 @@ source of truth (imported by both the guards and the tier, so they can't drift):
    equation (debt/cash/leases/commitment/advances/preferred/shuttle/working-capital) that rests
    on an estimate marker (a tilde, `[ESTIMATE]`, `approx`) without a citation is a red. Plus the
    claims half: a `(confirmed)`/`verified` assertion must cite a source. `NAV_FIGURE_ESTIMATE_QUEUE`
-   = brut/cmbt/flng/hafn/ten (5; nat/asc/stng left; **trmd left 2026-07-02 — all six [ESTIMATE] figures
-   sourced to the Q1-2026 6-K, workflow-verified). The P0 reconciliation queue [figure-queue ∩ PROVISIONAL]
-   is now CLEARED**: brut + hafn were reconciled but stay in the figure-queue via a DELIBERATE conservative
-   `[ESTIMATE]` floor (brut cash-pending, hafn pool-gross-up); cmbt/flng/ten are structural/not-yet-worked.
+   = brut/cmbt/flng/hafn (4; nat/asc/stng left; trmd left 2026-07-02; **ten left 2026-07-15 — FULL
+   reconciliation vs the Q1-2026 6-K condensed BS + FY2025 20-F, pre-registered bands HIT [headline
+   $88.76→$87.35 vs predicted $87.34]: advances $442.74M cited, WC composite $174.65M, debt $2,136.1M,
+   +$45.95M Mare Success NCI netted, 4 not-owned hulls out of the manifest [Ulysses HFS + 3 true-sale
+   SLBs — Arctic/Antarctic re-add owned at H1]; decisions/ten_reconciliation_prereg_2026-07-15.md;
+   re-ratify owner-gated**). The P0 reconciliation queue [figure-queue ∩ PROVISIONAL]
+   is CLEARED: brut + hafn were reconciled but stay in the figure-queue via a DELIBERATE conservative
+   `[ESTIMATE]` floor (brut cash-pending, hafn pool-gross-up); cmbt/flng are structural/not-yet-worked.
    "Present but uncited" fails like "absent".
 
 **Confidence tier (governance handoff, `provenance.confidence_tier`)** — read from the existing

@@ -1043,7 +1043,10 @@ def test_ten_three_sleeve_integration_band():
     # discount applies downstream (at blend + strip terminal).
     nav = compute_nav(ci)
     assert nav.shuttle_contracted_book == 453_100_000
-    assert nav.preferred_equity == 287_328_000
+    # 333,282 = 287,328 preferred (E+F liquidation) + 45,954 Mare Success NCI
+    # (2026-07-15 reconciliation — the BWLP NCI-via-preferred_equity convention;
+    # decisions/ten_reconciliation_prereg_2026-07-15.md §2).
+    assert nav.preferred_equity == 333_282_000
     assert nav.governance_discount_pct == pytest.approx(0.30)
     assert 92.0 < nav.nav_per_share < 100.0, f"NAV/sh out of band: ${nav.nav_per_share:.2f}"
 

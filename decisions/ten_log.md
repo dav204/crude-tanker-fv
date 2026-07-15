@@ -1,5 +1,26 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-07-15 — FULL BALANCE-SHEET RECONCILIATION (pre-registered @ ce65da4; bands HIT)
+
+**Decision:** TEN NAV move ACCEPTED-as-reconciliation (2026-07-15): headline NAV/sh
+$88.76 → $87.35 (−1.6%, predicted $87.34, band $86.8–87.9 HIT) / base $97.01 → $94.58
+(predicted $94.58 exact, band $94.0–95.2 HIT); PW FV −2.0% to $56.46 (scorecard basis),
+BUY intact (+42% EV at the $39.75 vintage price). All figures now cite the Q1-2026 6-K
+condensed BS (acc 0001193125-26-236934) + FY2025 20-F (acc 0001193125-26-144027):
+advances $400M[EST]→**$442.740M** · WC $28M→**$174.654M** (composite, basis validated at
+Dec-31: 27.9 ≈ 28.2) · debt $2,148.2M→**$2,136.109M** (BS net) · preferred +**$45.954M
+Mare Success NCI** (BWLP convention) · manifest −4 not-owned hulls (Ulysses HFS
+[MOA Jan-22, Note 17(c)]; Arctic/Antarctic/Sakura Princess ASC-842 true-sale SLBs —
+Arctic+Antarctic RE-ADD as owned at H1 after the Apr-7 repurchase). The STNG lesson
+re-ran: ±$244M of opposing errors netting to −$1.42/sh — the prior NAV was
+plausible-but-wrong. **ten LEAVES `NAV_FIGURE_ESTIMATE_QUEUE`; stays OFF_CONVENTION +
+OPERATING_SCRUBBER.** Owner forks (§6 of the prereg): NCI basis · Ulysses
+carrying-vs-contract · SLB exclusion convention · WC composite. Full record:
+`decisions/ten_reconciliation_prereg_2026-07-15.md`. **Baseline re-ratify OWNER-GATED —
+not executed.** Requested by the governance sizing analysis (gate ii).
+
+---
+
 ## 2026-07-10 — EV%-only drift annotation (explain-not-accept)
 
 **Decision:** EV%-only drift explained, NOT accepted (2026-07-10, WO3 Phase-4
@@ -10,6 +31,24 @@ KNOWN price-vintage drift already recorded as PENDING OWNER DECISION #1
 owner. (Prepended as a dated non-auto header because this log's 2026-06-11 §15
 entry sits above the auto entries and the gate reads the first dated header —
 the same matcher-shape family as PLAN follow-up #4.)
+
+---
+
+## 2026-07-15T19:15:36+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.75
+- Single-point FV: $59.66
+- Scenario PW FV: $56.46 (EV +42.0%)
+- NAV / share: $87.35
+- Position: **BUY (undervalued)**
+- Broker spread: +43.1pp (k_broker 1.24)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -2.7% | Δscenario FV: -2.0% | ΔNAV: -1.6% | Δspread: +2.1pp
+
+**Decision:** _[pending annotation]_
 
 ---
 

@@ -8,15 +8,24 @@
 # June-5 kit table where they diverged (dwt is schema-only, not in valuation).
 # Balance sheet date: 2026-03-31.
 #
-# Scope = the **60 on-curve in-water vessels** as of 2026-03-31:
-#   - Crude: 3 VLCC + 16 conventional Suezmax + 22 Aframax = 41 vessels
+# Scope = the **56 on-curve OWNED in-water vessels** as of 2026-03-31
+# (RECONCILED 2026-07-15 — decisions/ten_reconciliation_prereg_2026-07-15.md):
+#   - Crude: 2 VLCC + 14 conventional Suezmax + 21 Aframax = 37 vessels
 #   - Product: 4 Aframax LR + 9 Panamax LR1 + 2 MR + 2 Handysize = 17 vessels
 #   - LNG: 2 LNG carriers = 2 vessels
 #   - Shuttle: **EXCLUDED** (4 in-water DP2 shuttle tankers — Brasil 2014, Rio 2016,
 #     Athens 04, Paris 24 — handled OFF-CURVE via `shuttle_contracted_book`
 #     per METHODOLOGY §11.6, NOT in this manifest)
+#   - CHARTERED-IN, NOT OWNED (excluded from NAV per the 2343/CMDB convention;
+#     ASC 842 true-sale SLBs, 20-F leases note): Arctic + Antarctic (SLB
+#     Jun-2021, repurchase agreed Apr-7-2026 → re-add as OWNED at the H1
+#     refresh) and Sakura Princess (SLB Dec-2020, extended to ~Dec-2026).
+#   - HELD FOR SALE (excluded; carried at carrying value inside the balance
+#     sheet WC composite): VLCC Ulysses — sale MOA signed Jan-22-2026 (20-F
+#     Note 17(c)), completed May-20-2026 (~$83M free cash lands at H1).
 #
-# Total in-water fleet per data kit = 64 vessels (60 here + 4 shuttle off-curve).
+# Total in-water fleet per data kit / 6-K = 64 OPERATED vessels
+# (56 owned on-curve + 4 shuttle off-curve + 3 chartered-in + 1 HFS).
 #
 # Newbuild orderbook (19 vessels) is handled via balance sheet
 # `newbuild_capex_commitments` + `newbuild_advances_paid` lines:
@@ -41,12 +50,16 @@ vessels:
   # ============================================================
   # CRUDE SLEEVE — 41 vessels
   # ============================================================
-  # ---- VLCC (3 vessels, all scrubber-fitted modern) ----
+  # ---- VLCC (2 vessels) ----
+  # Ulysses REMOVED 2026-07-15: sale MOA signed Jan-22-2026 (20-F Note 17(c))
+  # -> held-for-sale at Mar-31, carried at carrying value inside the WC
+  # composite; sale completed May-20-2026.
   - {id: TEN_VLCC_Dias_I,      class: VLCC,    dwt: 299999, age: 6.2,  scrubber: true,  eco: true,  charter_status: time_charter, charter_rate: 42500,  count: 1}
   - {id: TEN_VLCC_Hercules_I,  class: VLCC,    dwt: 299011, age: 9.2,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 140000, count: 1}
-  - {id: TEN_VLCC_Ulysses,     class: VLCC,    dwt: 299011, age: 9.9,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 138000, count: 1}
 
-  # ---- Suezmax — 16 CONVENTIONAL vessels (shuttle tankers EXCLUDED) ----
+  # ---- Suezmax — 14 CONVENTIONAL OWNED vessels (shuttle tankers EXCLUDED;
+  #      Arctic + Antarctic chartered-in via the Jun-2021 SLB, removed
+  #      2026-07-15 — see header) ----
   # Modern post-2014 cohort (eco)
   - {id: TEN_SUEZ_DrIreneTsakos, class: Suezmax, dwt: 156838, age: 0.8, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 33000, count: 1}
   - {id: TEN_SUEZ_SiliaT,      class: Suezmax, dwt: 156838, age: 0.4,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 43750, count: 1}
@@ -62,12 +75,16 @@ vessels:
   - {id: TEN_SUEZ_SpyrosK,     class: Suezmax, dwt: 157648, age: 14.9, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 27000, count: 1}
   - {id: TEN_SUEZ_Decathlon,   class: Suezmax, dwt: 158475, age: 14.2, scrubber: false, eco: false, charter_status: spot, count: 1}
   # 2006-2007 ice-class 1A cohort (older but specialized; treat as ice-class premium implicit in TC rate)
-  - {id: TEN_SUEZ_Antarctic,   class: Suezmax, dwt: 163216, age: 19.0, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 30000, count: 1}
-  - {id: TEN_SUEZ_Arctic,      class: Suezmax, dwt: 163216, age: 19.2, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 40000, count: 1}
+  # Antarctic + Arctic REMOVED 2026-07-15: SLB'd Jun-21-2021 (pair net sale
+  # price $52,304K, ASC 842 TRUE SALE, op lease to ~Jun-2026 — 20-F leases
+  # note; RoU-not-vessel on the audited BS). Repurchase agreed Apr-7-2026
+  # (Q2 subsequent event) -> RE-ADD AS OWNED at the H1 refresh.
+  # (Alaska + Archangel were the 2024 buy-backs — owned again, stay in.)
   - {id: TEN_SUEZ_Alaska,      class: Suezmax, dwt: 163250, age: 20.1, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 50000, count: 1}
   - {id: TEN_SUEZ_Archangel,   class: Suezmax, dwt: 163216, age: 20.2, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 102000, count: 1}
 
-  # ---- Aframax — 22 vessels (incl. 4 DF LNG-powered NBs from 2023-24) ----
+  # ---- Aframax — 21 OWNED vessels (incl. 4 DF LNG-powered NBs from 2023-24;
+  #      Sakura Princess chartered-in via SLB, removed 2026-07-15) ----
   # Modern DF (dual-fuel LNG-powered) — eco premium applies
   - {id: TEN_AFRA_Aspen,       class: Aframax, dwt: 112460, age: 7.2,  scrubber: true,  eco: true,  charter_status: time_charter, charter_rate: 29900, count: 1}
   - {id: TEN_AFRA_Alpes,       class: Aframax, dwt: 112505, age: 8.0,  scrubber: true,  eco: true,  charter_status: time_charter, charter_rate: 27750, count: 1}
@@ -89,7 +106,9 @@ vessels:
   - {id: TEN_AFRA_ThomasZ,     class: Aframax, dwt: 113691, age: 9.6,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26000, count: 1}
   - {id: TEN_AFRA_EliasT,      class: Aframax, dwt: 113737, age: 9.8,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26000, count: 1}
   # 2007-2010 cohort (older Japan-built 105k princess cohort)
-  - {id: TEN_AFRA_SakuraP,     class: Aframax, dwt: 105365, age: 18.9, scrubber: false, eco: false, charter_status: spot, count: 1}
+  # Sakura Princess REMOVED 2026-07-15: SLB'd Dec-21-2020 (net sale price
+  # $24,527K, ASC 842 TRUE SALE, op lease extended Sep-2025 to ~Dec-2026 —
+  # 20-F leases note). Chartered-in, not owned.
   - {id: TEN_AFRA_MariaP,      class: Aframax, dwt: 105346, age: 17.5, scrubber: false, eco: false, charter_status: spot, count: 1}
   - {id: TEN_AFRA_AsahiP,      class: Aframax, dwt: 105372, age: 16.6, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 40000, count: 1}
   - {id: TEN_AFRA_SapporoP,    class: Aframax, dwt: 105354, age: 16.0, scrubber: false, eco: false, charter_status: spot, count: 1}
@@ -116,7 +135,10 @@ vessels:
   # ---- MR (2 vessels — Delos T + Dion, Q1 2026 deliveries) ----
   - {id: TEN_MR_DelosT, class: MR, dwt: 50479, age: 0.2, scrubber: true, eco: true, charter_status: time_charter, charter_rate: 24000, count: 1, sleeve: product}
   - {id: TEN_MR_Dion,   class: MR, dwt: 50396, age: 0.1, scrubber: true, eco: true, charter_status: time_charter, charter_rate: 25000, count: 1, sleeve: product}
-  # ---- Handysize (clean-product, 49% FLOPEC JV — counted at full per data kit) ----
+  # ---- Handysize (clean-product; Mare Success S.A. hulls — consolidated at
+  #      full, with the 49% Polaris/Flopec NCI netted at the corporate level
+  #      via preferred_equity since the 2026-07-15 reconciliation; Selini +
+  #      Salamina in the LR1 block are the other two Mare Success hulls) ----
   - {id: TEN_HANDY_Bosporos,  class: Handysize, dwt: 39589, age: 18.6, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
   - {id: TEN_HANDY_Byzantion, class: Handysize, dwt: 39589, age: 18.9, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
 
@@ -131,8 +153,8 @@ vessels:
 # Charter coverage — heavily TC-skewed (~85% TC + bareboat per data kit; ~15% spot)
 spot_coverage_pct:
   VLCC:     0.00              # 3 vessels all on TC
-  Suezmax:  0.125             # 2 of 16 spot (DimitrisP, Decathlon); ArtVoy/ApoVoy on bareboat (treated TC-economic)
-  Aframax:  0.182             # 4 of 22 spot (SakuraP, MariaP, SapporoP — princess cohort)
+  Suezmax:  0.143             # 2 of 14 spot (DimitrisP, Decathlon); ArtVoy/ApoVoy on bareboat (treated TC-economic)
+  Aframax:  0.143             # 3 of 21 spot post-SakuraP-removal (prior 0.182 = "4 of 22" but named only 3 — inherited inconsistency; re-derive employment mix at the H1 refresh)
   LR2:      0.50              # Promitheas + Propontis spot; 2 DF on TC
   LR1:      0.222             # Selecao + Socrates spot; 7 on TC
   MR:       0.00              # both on TC
@@ -141,13 +163,13 @@ spot_coverage_pct:
 
 # fleet_summary — informational; sleeve totals support the 3-sleeve aggregation
 fleet_summary:
-  on_curve_total: 60
+  on_curve_total: 56
   shuttle_off_curve_count: 4              # OFF-CURVE via shuttle_contracted_book (METHODOLOGY §11.6)
-  newbuild_orders_q1: 19                  # 10 shuttle + 5 panamax + 3 vlcc + 1 lng
-  crude_sleeve_count: 41                  # 3 VLCC + 16 conventional Suezmax + 22 Aframax
+  newbuild_orders_q1: 19                  # 10 shuttle + 5 panamax + 3 vlcc + 1 lng (Hull 3643 added Feb-25-2026)
+  crude_sleeve_count: 37                  # 2 VLCC + 14 conventional Suezmax + 21 Aframax
   product_sleeve_count: 17                # 4 LR2 + 9 LR1 + 2 MR + 2 Handy
   lng_sleeve_count: 2
-  avg_age_crude: 10.0
+  avg_age_crude: 9.3                      # recomputed post-removals (was 10.0 over 41)
   avg_age_product: 12.8
   avg_age_lng: 6.8
-  total_in_water_per_data_kit: 64         # 60 on-curve + 4 shuttle off-curve
+  total_in_water_per_data_kit: 64         # 56 owned on-curve + 4 shuttle off-curve + 3 chartered-in (excluded) + 1 HFS (excluded)

@@ -5,6 +5,48 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-15 — TEN FULL BALANCE-SHEET RECONCILIATION (ninth of the pattern; pre-registered @
+  ce65da4, both bands HIT).** Requested by the governance sizing analysis (TEN card gate ii).
+  The 6-K's OWN condensed Mar-31 balance sheet — which the 2026-06-05 onboarding log had already
+  extracted — had never been wired into the YAML (estimates shipped instead): advances
+  $400M[EST]→$442.740M (6-K BS line; the $128M 20-F-to-data-kit range resolved $42.7M ABOVE book) ·
+  WC $28M→$174.654M composite (basis validated at Dec-31: 27.9≈28.2 — the +$146.7M Q1 swing is real:
+  Ulysses HFS reclass, $36M securities, EUA/receivables) · debt $2,148.2M→$2,136.109M (BS net of
+  deferred finance costs). NEW: Mare Success NCI $45.954M netted via preferred_equity (49% Polaris/
+  Flopec, 20-F Note 11 — the manifest's dangling "49% FLOPEC JV counted at full" note finally
+  resolved; BWLP convention). MANIFEST: 4 not-owned hulls removed — Ulysses (sale MOA Jan-22-2026,
+  20-F Note 17(c); HFS at carrying inside the WC composite; $83M free cash lands H1),
+  Arctic/Antarctic/Sakura Princess (ASC-842 TRUE-SALE SLBs — RoU-not-vessel on the audited BS;
+  the prior YAML note "Antarctic expired during Q1" was wrong [term to ~Jun-2026]; Arctic+Antarctic
+  repurchase agreed Apr-7 → re-add OWNED at H1). Net: headline NAV $88.76→$87.35 (−1.6%), base
+  $97.01→$94.58, PW FV −2.0%, BUY intact — the STNG plausible-but-wrong pattern again (±$244M of
+  opposing errors netting small). ten LEAVES the figure queue; STAYS OFF_CONVENTION (19-hull NB
+  program on delivered=contract; §9.6 wiring = owner decision) + OPERATING_SCRUBBER (no issuer
+  aggregate to cross-foot — data-kit callouts only). Owner forks in the prereg §6 (NCI basis /
+  Ulysses value / SLB convention / WC composite). Deliberate re-pins: test_scenarios preferred
+  333,282; test_manifest_provenance + provenance.py queue sync. Baseline re-ratify OWNER-GATED,
+  not executed. Record: decisions/ten_reconciliation_prereg_2026-07-15.md + ten_log 2026-07-15.
+- **2026-07-15 — §9.10 FAMILY-RANGE CONTAINMENT GUARD (TEN ev_pct +45.0 printed against its own
+  family max +44.9).** The handoff printed a point EV OUTSIDE its weight-family range: the WO1-F4
+  basis stamp scopes only scenario_inputs.yaml, but the MR age-0 re-anchor (5ed418f) moved TEN's
+  PW FV $57.60 → $57.64 (+0.1pp EV) with the sidecar held at the prior marks. The family DOES
+  include the adopted set (Set A again since the 7/14 Hormuz restore), so containment is the
+  intended invariant and the out-of-range print was a vintage artifact, not rounding. Guards
+  (over prose): (1) the scorecard emit now WITHHOLDS a name's family fields when its live point
+  EV (1-dp, as printed) exits the sidecar range — null + `weight_family_basis.ev_lagging` +
+  banner, never silently out-of-range (schema 2.4 → 2.5, additive); the S-2 coverage guard then
+  reds until the family script re-runs at the current tape. (2) `handoff_coherence_flags` gains
+  the containment check — EXACT, no tolerance (both sides share the 1-dp rounding) — so the
+  committed-surface test AND the sentinel enforce it on every shipped artifact. (3)
+  `crude_weight_robustness.py` asserts the adopted scenario_inputs weights ARE a family member
+  before running (the containment premise), and Set E's stale "current locked" label is
+  corrected (production prior = Set A). Crude sidecar re-run at the current marks: TEN
+  26.5/44.9 → 26.6/45.0, every other name byte-identical. Consumer note (TRADE_PREREG #4 reads
+  these fields fresh): null family fields + `ev_lagging` = "re-run the family diagnostics before
+  sizing". Also caught in passing: the committed surface at 5ed418f stamps `9869336-dirty` —
+  it already reds the WO1-F1 guard (pre-existing; the `_vintage_stamp` docstring still blessed
+  committed '-dirty' stamps and is now corrected); regenerate from clean HEAD at the next
+  chore(outputs) round.
 - **2026-07-15 (close) — THREAD (d) SIGNED (owner verbatim: "sign thread (d) as confirmed") —
   CLOSED.** §4 consequences executed: STNG's 2-VLCC §9.6 gate formally lifted (wiring = its own
   prereg, post-Stage-A; stng_log annotated); the live "level-provisional" VLCC language retired

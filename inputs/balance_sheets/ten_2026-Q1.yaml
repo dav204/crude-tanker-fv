@@ -1,7 +1,11 @@
 # Tsakos Energy Navigation (TEN) balance sheet snapshot — METHODOLOGY §4.2, §11.6
-# Sources: Q1 2026 6-K (filed 2026-05-22, ex 99.1) + 2025 20-F audited financial
-# statements (filed 2026-04-06) rolled forward + data kit (May 11, 2026).
-# Balance sheet date: 2026-03-31. USD.
+# Sources: Q1 2026 6-K ex 99.1 condensed balance-sheet data (EDGAR acc
+# 0001193125-26-236934, filed 2026-05-22) + FY2025 20-F audited statements
+# (acc 0001193125-26-144027, filed 2026-04-06). Data kit (May 11, 2026) no
+# longer sources any NAV-driving figure. Balance sheet date: 2026-03-31. USD.
+# FULL RECONCILIATION 2026-07-15 — every NAV-equation figure below cites a
+# filing (decisions/ten_reconciliation_prereg_2026-07-15.md; bands committed
+# @ ce65da4 ahead of recompute).
 #
 # TEN is the first **3-sleeve hybrid** + first name with `shuttle_contracted_book`
 # populated (METHODOLOGY §11.6 off-curve-at-contracted-book convention).
@@ -12,41 +16,49 @@ quarter: 2026-Q1
 # Cash: 6-K explicit at Mar 31 = "$321.4 million" (cash reserves)
 cash_and_equivalents: 321416000
 
-# working_capital_net composition (derived from 2025 20-F audited balance sheet
-# rolled forward; ~minimal Q1 movement vs Dec 2025 = $28M):
-#   Current other assets (AR $41,079 + inventory $12,591 + prepaid $8,627 +
-#     prepaid/advances/other $19,461 + LT investments-current $30,635 +
-#     short-term receivable $12,767 + capitalized voyage $777 +
-#     margin/time deposits $9,270 + financial instruments-current $1,296)
-#     = $136,503K
-#   minus current other liabilities (payables $42,676 + related $3,170 +
-#     dividends payable $15,064 + accrued $68,117 + unearned $17,273 +
-#     financial instruments $1,987) = $148,287K
-#   plus non-current other assets (LT investments $25,233 + deferred charges
-#     $27,503) = $52,736K
-#   minus non-current other liabilities (TC attached $12,322 + financial inst LT $473)
-#     = $12,795K
-#   Total: 136,503 - 148,287 + 52,736 - 12,795 = $28,157K (Dec 2025).
-# Operating lease RoU asset and LT operating lease obligation are equal and
-# offset in NAV (both excluded above; framework treats op leases as net-zero).
+# working_capital_net = Mar-31-2026 COMPOSITE, cited to the Q1-2026 6-K
+# condensed balance sheet: Other assets $331,398K − Other liabilities
+# $156,744K = $174,654K. Basis validated at Dec-31-2025 against the prior
+# component build: 197,009 − 169,101 = $27,908K ≈ the $28,157K component sum
+# (RoU = lease obligation nets ~0 inside the composite), so this is the SAME
+# construction — the +$146.7M Q1 swing is real movement, not a basis change:
+#   Ulysses reclassified to held-for-sale INSIDE Other assets (MOA signed
+#     Jan-22-2026, 20-F Note 17(c); carried at CARRYING value here —
+#     conservative; sale completed May-20-2026, gain + ~$83M free cash land
+#     at the H1 refresh), ~$36M Q1 investments in bonds/debt securities
+#     (20-F Note 17 d/g/m/n/o), EUA/trade receivables growth, SLB seller's
+#     credits ($12.8M ST — Arctic/Antarctic $8,356K + Sakura $4,411K).
+# Operating lease RoU assets and obligations (3 SLB'd-out vessels; $7,770K
+# current at Dec-31) are equal-and-offsetting inside the composite.
 # Tenergy LNG sale-leaseback is a FINANCING arrangement (per 20-F note) — its
 # liability sits in total_debt, NOT lease_liabilities.
-working_capital_net: 28000000
+working_capital_net: 174654000
 
-# Total debt at 31-Mar-2026: per data kit "Expected outstanding debt at March 31,
-# 2026 = $2,148.2M" (Dec 2025 $1,930.4M + Q1 drawdowns $344.8M − repayments $127M).
-# Includes the Tenergy SL financing arrangement (~$130M remaining = ~$2.3M qly
-# × ~28 remaining instalments + $84M purchase obligation NPV).
-total_debt: 2148200000
+# Total debt at 31-Mar-2026: Q1-2026 6-K condensed BS "Debt and other
+# financial liabilities, net of deferred finance costs" = $2,136,109K
+# (Dec-31-2025 comparative $1,920,975K). BS-carrying convention per the TRMD
+# precedent; replaces the data-kit gross estimate $2,148.2M. Includes the
+# Tenergy SL financing arrangement (per 20-F note).
+total_debt: 2136109000
 
-# Lease liabilities = 0 — operating lease obligations (Sakura Princess, Arctic
-# extended; Antarctic expired during Q1) offset by RoU assets. Tenergy LNG SL
-# in total_debt above.
+# Lease liabilities = 0 — the 3 operating leases (leased-BACK vessels TEN
+# sold: Arctic + Antarctic [SLB Jun-2021, term to ~Jun-2026 — the prior note
+# "Antarctic expired during Q1" was WRONG; 20-F wtd-avg remaining term 0.48y
+# at Dec-31] and Sakura Princess [SLB Dec-2020, extended to ~Dec-2026]) carry
+# RoU = obligation, netting inside the working-capital composite above. The
+# three hulls are NOT owned (ASC 842 true sales) and are excluded from the
+# fleet manifest as of the 2026-07-15 reconciliation. Tenergy LNG SL in
+# total_debt above.
 lease_liabilities: 0
 
-# Newbuild orderbook (19 vessels per data kit, contract value $2,403M total):
-#   - Advances paid through Q1 2026: ~$400M (Dec 2025 20-F $301.9M + Q1 net
-#     drawdowns; estimate between 20-F $301.9M and data kit May $430M).
+# Newbuild orderbook: 19 vessels under construction at Mar-31-2026 (10 DP2
+# shuttle + 5 LR1 + 3 VLCC + 1 LNG [Hull 3643 contracted Feb-25-2026, 20-F
+# Note 17(j)]; the 2 MRs Delos T/Dion delivered Jan-12/Feb-12 per Note 17
+# b/h). 20-F Note 12 corroborates: $1,968,298K remaining at Dec-31 for the
+# then-20 hulls.
+#   - Advances paid at Mar-31-2026: $442,740K — Q1-2026 6-K condensed BS
+#     "Advances for vessels under construction" (Dec-31 comparative $301,868K
+#     ties to the audited 20-F). Resolves the prior ~$400M [ESTIMATE].
 #   - All 19 NBs treated as **delivered-value = contract-price** (DP2 shuttle
 #     per METHODOLOGY §11.6 — no observable resale market; conventional
 #     non-shuttle NBs per the conservative read of §3.1 in the current rate
@@ -61,21 +73,30 @@ lease_liabilities: 0
 # track NB vessels in the fleet manifest (and no Shuttle vessel class exists
 # to put them on a curve).
 newbuild_capex_commitments: 0
-newbuild_advances_paid: 400000000
+newbuild_advances_paid: 442740000
 
 # Diluted common shares outstanding: 30,127,603 per 20-F at Dec 31, 2025
 # (issued 30,805,776; treasury 678,173). No Q1 2026 buybacks/issuances disclosed.
 diluted_shares_outstanding: 30127603
 
-# Preferred equity (METHODOLOGY §4.2, ADDED 2026-06-05):
-# Two series outstanding per 20-F note + Q1 6-K Series E + F dividends confirm.
+# Preferred equity + NCI (METHODOLOGY §4.2; NCI added 2026-07-15 reconciliation):
+# Two preferred series outstanding per 20-F note + Q1 6-K Series E + F dividends confirm.
 #   - Series E: 4,745,947 shares × $25.00 redemption value = $118,649K
 #                9.25% coupon, dividends 28-Feb/May/Aug/Nov
 #   - Series F: 6,747,147 shares × $25.00 redemption value = $168,679K
 #                9.50% coupon, dividends 30-Jan/Apr/Jul/Oct
 #   Total liquidation preference: $287,328K
 # (Tsakos-affiliated entities hold 45,000 Series E + 100,000 Series F per 20-F.)
-preferred_equity: 287328000
+# PLUS non-controlling interest — the BWLP NCI-via-preferred_equity convention:
+#   49% of Mare Success S.A. (owns Selini, Salamina, Byzantion, Bosporos — all
+#   four consolidated at 100% in the fleet manifest) is held by Polaris Oil
+#   Shipping (Flopec affiliate), 20-F Note 11. Book basis: $43,529K at
+#   Dec-31-2025 (audited BS) + $2,425K Q1-2026 attributable income (6-K income
+#   statement; FY2025 showed zero distributions) = $45,954K at Mar-31-2026.
+#   NAV-basis derivation not disclosed-derivable (sub-level debt/cash unknown)
+#   — owner fork in decisions/ten_reconciliation_prereg_2026-07-15.md §6.1.
+#   287,328 + 45,954 = 333,282
+preferred_equity: 333282000
 
 # Governance / structural-NAV-trap discount (METHODOLOGY §15, NEW 2026-06-06):
 # TEN is the framework's first §15 case — a controlled FPI structure where
