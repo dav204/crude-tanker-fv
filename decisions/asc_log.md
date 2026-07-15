@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-15T14:33:38+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.18
+- Single-point FV: $16.75
+- Scenario PW FV: $16.83 (EV +4.0%)
+- NAV / share: $17.80
+- Position: **HOLD (fairly valued)**
+- Broker spread: +20.5pp (k_broker 1.25)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.35 | Δsingle FV: no change | Δscenario FV: +3.4% | ΔNAV: no change | Δspread: +2.8pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-14T21:24:16+00:00 — Pipeline run (auto)
 
 **Model state:**
@@ -2043,3 +2061,10 @@ ever curve it. Off-curve chemical-Handy residual treatment unchanged.
 
 ---
 
+
+## 2026-07-14 EVE — hormuz re-tilt boundary eyeball: NO flip
+
+**Decision:** the promised ASC eyeball at the re-tilt execution (the Jul-13 ratify note
+anticipated "the staged product re-tilt may flip it back"): PW FV $16.30→$16.85 as
+predicted, but at tonight's $16.18 close EV lands +4.0% — UNDER the BUY line. ASC stays
+HOLD; no flip fired; the anticipated re-eyeball is hereby closed without a band change.

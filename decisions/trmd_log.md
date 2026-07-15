@@ -7,6 +7,26 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-15T14:33:38+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $29.43
+- Single-point FV: $30.97
+- Scenario PW FV: $31.90 (EV +8.4%)
+- NAV / share: $30.34
+- Position: **BUY (undervalued)**
+- Broker spread: +16.5pp (k_broker 1.15)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- ⚑ scenario PW FV +11.3%
+- Δprice: +0.57 | Δsingle FV: no change | Δscenario FV: +11.3% | ΔNAV: no change | Δspread: +2.8pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-14T21:24:16+00:00 — Pipeline run (auto)
 
 **Model state:**
@@ -1908,3 +1928,12 @@ this annotation._
 
 ---
 
+
+## 2026-07-14 EVE — HOLD→BUY at the hormuz re-tilt (RULED-FV flip, eyeballed individually)
+
+**Decision:** TRMD HOLD→BUY is the RULED outcome, not tape noise — the product war-shape
+restore (owner ruling, hormuz_retilt_proposal_2026-07-13.md: RESTORE BOTH) lifts PW FV
+$29.68→$33.03 (+11.3%, the proposal's predicted delta to the cent); at tonight's $29.43
+close EV lands +8.4% → BUY. This re-opens the BUY that the Jul-2 stand-down had trimmed;
+k_broker second +0.02 is the same move through the pinned pair. Accepted as the ruling's
+direct consequence.

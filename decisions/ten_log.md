@@ -13,6 +13,24 @@ the same matcher-shape family as PLAN follow-up #4.)
 
 ---
 
+## 2026-07-15T14:33:38+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.75
+- Single-point FV: $61.29
+- Scenario PW FV: $57.60 (EV +44.9%)
+- NAV / share: $88.70
+- Position: **BUY (undervalued)**
+- Broker spread: +41.1pp (k_broker 1.22)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.92 | Δsingle FV: no change | Δscenario FV: +2.2% | ΔNAV: no change | Δspread: +3.6pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-14T21:24:16+00:00 — Pipeline run (auto)
 
 **Model state:**

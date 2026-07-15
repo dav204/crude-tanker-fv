@@ -7,6 +7,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-15T14:33:38+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $77.87
+- Single-point FV: $76.13
+- Scenario PW FV: $77.13 (EV -0.9%)
+- NAV / share: $77.47
+- Position: **HOLD (fairly valued)**
+- Broker spread: +39.8pp (k_broker 1.50)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position TRIM/SHORT (overvalued) → HOLD (fairly valued)
+- Δprice: +0.59 | Δsingle FV: no change | Δscenario FV: +8.8% | ΔNAV: no change | Δspread: +3.5pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-14T21:24:16+00:00 — Pipeline run (auto)
 
 **Model state:**
@@ -2100,3 +2119,12 @@ entry below covered by this annotation._
 ## 2026-06-22 — position flip: cycle-conditional terminal + net retained earnings (§9.2)
 
 **STNG: TRIM/SHORT → BUY** (EV @tool −9.2% → −0.7%; scenario PW FV ~$73.6 → ~$83.2). **Cause: methodology change, not a market/data move.** The new strip terminal carries NET RETAINED EARNINGS over the horizon (terminal cash += Σ(EPS−DPS)/share), capturing this low-payout/buyback name's earnings retention that the old flat 1.0× terminal dropped — the §12 buyback/low-payout conservatism. SANITY OK; NAV unchanged (the terminal moves the strip/FV, not compute_nav). Full record: CHANGELOG.md 2026-06-22 + outputs/terminal_value_options_memo.md §5.
+
+## 2026-07-14 EVE — TRIM/SHORT→HOLD at the hormuz re-tilt (RULED-FV flip, eyeballed individually)
+
+**Decision:** STNG TRIM/SHORT→HOLD is the RULED outcome — the product war-shape restore
+lifts PW FV $73.81→$80.30 (+8.8%, predicted to the cent); at tonight's $77.87 close EV
+lands −1.0% → HOLD. The proposal's flagged HOLD→BUY boundary case did NOT fire (the
+walk-through's live-tape recompute anticipated this: +3.9% at the 7/14 morning tape,
+−1.0% tonight — both under the BUY line). STNG stays PROVISIONAL·off-curve regardless
+(§9.6 VLCC-NB gate, thread (d)) — the tier, not the band, remains the binding read.

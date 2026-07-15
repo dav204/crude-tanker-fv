@@ -21,7 +21,7 @@ Comparison reference: Set B (v2, prior lock, same day).
 | glut_intensifies | 0.20 | 0.15 | -0.05 |
 | structural_reset | 0.00 | 0.00 | +0.00 |
 
-## FLNG — at price $30.14, target $25.00
+## FLNG — at price $30.81, target $25.00
 
 **Per-scenario FV (identical under both weight sets — only weights change, scenario forwards unchanged):**
 
@@ -38,27 +38,35 @@ Comparison reference: Set B (v2, prior lock, same day).
 | Metric | Set B | Set B-revised | Δ |
 |---|--:|--:|--:|
 | PW FV | $27.50 | $29.19 | $+1.69 (+6.2%) |
-| EV% | -8.8% | -3.2% | +5.6pp |
-| Position | TRIM/SHORT | HOLD | **FLIP** |
+| EV% | -10.8% | -5.3% | +5.5pp |
+| Position | TRIM/SHORT | TRIM/SHORT | unchanged |
 
 **Threshold analysis** (alpha = 0: Set B; alpha = 1: Set B-revised; FV is linear in weights so the convex combination is exact):
 
-- HOLD threshold (FV ≥ $28.63, EV ≥ -5%): alpha ≥ **0.67**
-- BUY threshold (FV ≥ $31.65, EV ≥ +5%): _not reachable on the [Set B → Set B-revised] line_
+- HOLD threshold (FV ≥ $29.27, EV ≥ -5%): _not reachable on the [Set B → Set B-revised] line_
+- BUY threshold (FV ≥ $32.35, EV ≥ +5%): _not reachable on the [Set B → Set B-revised] line_
 
-**Weights at the minimum HOLD threshold (alpha = 0.67):**
+**Set B → Set B-revised is NOT sufficient to flip FLNG to HOLD.** Extrapolating along the same direction (more aggressive constructive reweighting):
 
-| Scenario | Weight at HOLD threshold | vs Set B |
-|---|--:|--:|
-| tight_resurgence | 0.134 | +0.034 |
-| moderate_tightening | 0.217 | +0.067 |
-| glut_base | 0.483 | -0.067 |
-| glut_intensifies | 0.166 | -0.034 |
-| structural_reset | 0.000 | +0.000 |
+- alpha for HOLD = **1.05** (must extrapolate 5% beyond Set B-revised)
+- alpha for BUY = **2.87**
+
+**Extrapolated weights that would flip FLNG to HOLD (alpha = 1.05):**
+
+| Scenario | Weight at HOLD threshold | vs Set B | vs Set B-revised |
+|---|--:|--:|--:|
+| tight_resurgence | 0.152 | +0.052 | +0.002 |
+| moderate_tightening | 0.255 | +0.105 | +0.005 |
+| glut_base | 0.445 | -0.105 | -0.005 |
+| glut_intensifies | 0.148 | -0.052 | -0.002 |
+| structural_reset | 0.000 | +0.000 | +0.000 |
+
+**Constructive total (tight + moderate + glut_base) at the flip point: 85%**
+  (vs Set B: 80%; Set B-revised: 85%). Whether this is defensible depends on whether the Ras Laffan + winter view warrants a constructive environment lasting deep into 2027 with only 15% on the bear cases.
 
 ---
 
-## CCEC — at price $22.38, target $25.17
+## CCEC — at price $22.68, target $25.17
 
 **Per-scenario FV (identical under both weight sets — only weights change, scenario forwards unchanged):**
 
@@ -75,12 +83,12 @@ Comparison reference: Set B (v2, prior lock, same day).
 | Metric | Set B | Set B-revised | Δ |
 |---|--:|--:|--:|
 | PW FV | $30.67 | $33.50 | $+2.83 (+9.2%) |
-| EV% | +37.0% | +49.7% | +12.6pp |
+| EV% | +35.2% | +47.7% | +12.5pp |
 | Position | BUY | BUY | unchanged |
 
 **Threshold analysis** (alpha = 0: Set B; alpha = 1: Set B-revised; FV is linear in weights so the convex combination is exact):
 
-- HOLD threshold (FV ≥ $21.26, EV ≥ -5%): _not reachable on the [Set B → Set B-revised] line_
-- BUY threshold (FV ≥ $23.50, EV ≥ +5%): _not reachable on the [Set B → Set B-revised] line_
+- HOLD threshold (FV ≥ $21.55, EV ≥ -5%): _not reachable on the [Set B → Set B-revised] line_
+- BUY threshold (FV ≥ $23.82, EV ≥ +5%): _not reachable on the [Set B → Set B-revised] line_
 
 ---

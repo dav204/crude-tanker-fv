@@ -17,3 +17,4 @@ the consumer. The hash is HEAD at ratify time (the ratify commit lands one ahead
 | 2026-07-10T21:57:05Z | c530714 | WO3 Phase-4 LPG+BWLP added; Jul-10 price-vintage EV drift accepted (dNAV 0.0 all names); GSL BUY-HOLD + STNG HOLD-TRIM flips eyeballed + accepted by owner 2026-07-10 |
 | 2026-07-13T17:30:52Z | 1f6f2f2 | Jul-12 war-tilt regen (owner-executed) + Jul-10-13 price vintage + 13-Jul dry-bulk FFA promotion; 4 flips eyeballed individually - BRUT void-tier, CAPT pre-approved 7/12, ASC shallow price-crossing, GNK tender-pinned; owner accept-all 2026-07-13 |
 | 2026-07-14T16:41:26Z | 0aa4fba | 2343 onboarding + 2026-07-14 price vintage |
+| 2026-07-15T14:35:08Z | 893002d | hormuz re-tilt RESTORE BOTH (owner ruling 2026-07-14 EVE) + same-evening price vintage |
