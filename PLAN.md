@@ -63,19 +63,21 @@ all in `inputs/reweight_triggers.yaml`, sentinel-paged.
    (ruled-FV flips, eyeballed); ASC boundary did NOT fire (+4.0%); CCEC extends to +60% EV;
    the Jun-9→Jul-2→Jul-12 coherence gap is CLOSED — all three Hormuz sectors price one
    state again. Round-3 watch due Jul-22; the Jul-17 MoU check stays pro-forma.
--1. **NEW 2026-07-14 — methodology review memo (`outputs/METHODOLOGY_REVIEW_2026-07-14.md`),
-   FOUR decision blocks, all reserved:** **D-M2** discount rate (flat 11% ratify vs
-   leverage-adjusted r_e Option B [reviewer-recommended] vs B′ + coverage-quarter split) ·
-   **D-M3** cycle denominator (stage the Appendix-A parity A/B pre-registration vs decline;
-   D1-gated) · **D-M4** open decision 9.1 band steps (continuous ramp vs logistic vs
-   ratify-as-is; D1-gated — pairs with D-M3 in one cycle.py round) · **D-M5** verdict FV
-   interval + interval-exit flip rule (scenario min/max vs 5×5 basis vs decline; schema
-   bump; would retire most shallow-flip eyeballs). The memo's mechanical no-ruling items
-   are EXECUTED (M-1 FV-attribution block in every fv_report + §2.1 effective-structure
-   paragraph; M-3-interim §2.3 denominator-provenance table). M-6a (scrap-anchor dated
-   provenance — value-touching, bands-ahead discipline) + M-6b (offhire_schedule optional
-   field) registered for the next quarterly anchor refresh. Also flagged by the memo:
-   the Thread-1A product-Handysize queue item (prereg §0.2) remains open.
+-1. **ALL FOUR METHODOLOGY DECISIONS RULED 2026-07-15 (owner: "Proceed as recommended")
+   — no longer pending; now executed or scheduled:** **D-M5 EXECUTED @ 41464fa** (fv_low/
+   fv_high scenario-min/max interval in the Verdict + book_scorecard.json schema 2.4;
+   drift-gate interval flip-triage LIVE: band-mech auto-classified inside the interval,
+   band-EXIT keeps the eyeball — the Stage-A expected flips triage by rule). **D-M2
+   Option B RULED, execution POST-STAGE-A** (per-sector asset r_a + relever by debt/NAV;
+   sweep memo gates adoption; flat-r sensitivity column one quarter; B′ = container-refresh
+   rider). **D-M3 prereg FROZEN** (`PRE_REGISTRATION_CYCLE_PARITY_DENOMINATOR.md`; A/B
+   RUNS post-Stage-A; kill condition honest re newbuild_contract coverage). **D-M4 RULED
+   piecewise-linear; open decision 9.1 CLOSED as ruled** (cycle.py note; adoption in ONE
+   D1 round with D-M3's outcome ~late Aug; deltas eyeballed under the D-M5 rule).
+   Sequencing principle: one FV-moving event in flight at a time — Stage A (≤ Aug-15)
+   first, then D-M2 sweep, then the D1 round. Memo's mechanical items were already
+   executed (M-1 attribution block; §2.3 provenance table); M-6a/b ride the next
+   quarterly anchor refresh; the Thread-1A product-Handysize queue item remains open.
 0. **RESOLVED 2026-07-13 — baseline ratify EXECUTED (owner: "accept all four + ratify").**
    The 14 UNEXPLAINED decomposed to three owner-traceable causes (Jul-12 war-tilt regen
    [owner-executed] + Jul-10→13 price vintage + the 13-Jul FFA promotion; ΔNAV 0.0% on every

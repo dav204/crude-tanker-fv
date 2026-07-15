@@ -5,6 +5,19 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-15 — ALL FOUR METHODOLOGY DECISIONS RULED (owner: "Proceed as recommended") —
+  D-M5 built same day; the rest sequenced behind Stage A.** D-M5 (the governance-load one):
+  `fv_low`/`fv_high` = scenario min/max over weight>0 scenarios (0-mass tails excluded) in
+  the Verdict table + book_scorecard.json **schema 2.4** + TickerSnapshot; the INTERVAL
+  FLIP-TRIAGE RULE live in drift_gate.evaluate — a band flip with price inside the interval
+  auto-classifies band-mech (no eyeball owed, gate green, absorbed at next ratify); an
+  interval-EXIT keeps the full eyeball; pre-2.4 state falls back to always-eyeball.
+  Guard-tested 3-branch. D-M2: Option B (leverage-adjusted r_e) ruled — sweep memo +
+  adoption post-Stage-A; B′ deferred to the container refresh. D-M3: parity-denominator
+  A/B pre-registration FROZEN (runs post-Stage-A; kill condition may legitimately scope it
+  to txn-anchored sectors). D-M4: open decision 9.1 CLOSED — piecewise-linear ramp ruled;
+  cycle.py stays frozen until the shared D1 adoption round with D-M3 (~late Aug). One
+  FV-moving event in flight at a time: Stage A → D-M2 sweep → D1 round.
 - **2026-07-14 (evening, second memo) — METHODOLOGY REVIEW (companion to the ops audit;
   `outputs/METHODOLOGY_REVIEW_2026-07-14.md`): M-1 + M-3-interim EXECUTED, four decisions
   STAGED to the owner.** The memo's core finding (arithmetic verified against the committed

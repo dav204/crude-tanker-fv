@@ -1,7 +1,7 @@
 {
-  "schema_version": "2.3",
-  "generated_at": "2026-07-15T14:33:29+00:00",
-  "source_commit": "893002d",
+  "schema_version": "2.4",
+  "generated_at": "2026-07-15T15:45:21+00:00",
+  "source_commit": "41464fa",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 25,
@@ -10,7 +10,7 @@
     "market_event_review": {}
   },
   "rate_basis": [
-    "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean) HELD at the 2026-06-07 vintage \u2014 no market forward print exists (owner decision 2026-07-02, option (i)); refresh on trigger tanker_forward_print_lands. The C-2 rates-layer tanker effect is understated pending the print.",
+    "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean) HELD at the 2026-06-07 vintage \u2014 TERM PRINT EXISTS (DHT 6-K 2026-07-13: 3-yr VLCC TC $75k/day Sep-26 start; Q3 QTD bookings $139.7k corroborate the front within ~5%; back-half implied 40-55% below this vintage). Promotion deferred to the Q2-cluster re-anchor by owner ruling 2026-07-14, SIGNED 2026-07-15 (decisions/tanker_forward_print_ruling_2026-07-14.md): Stage A no later than 2026-08-15 (unconditional \u2014 DHT-print fallback if cluster basis insufficient), Stage B true-up \u22642026-09-04 band-gated. Estimated strip overhang while held: \u22123 to \u22124% FV on peak-weighted crude, direction-safe (can only make rich names richer; the one qualified case \u2014 TRMD's post-re-tilt BUY \u2014 is in the Stage-A eyeball inventory, ruling ADDENDUM). Method: PRE_REGISTRATION_TANKER_CLUSTER_REANCHOR.md (frozen at signature).",
     "Dry-bulk curves (Cape/Pana/Post-Panamax/Supra-Ultra) RE-ANCHORED 2026-07-13 from the 13-Jul FFA OCR widget (status ok; owner-ratified promotion, all three classes; decisions/ffa_promotion_2026-07-13.md). Cape front flipped to BACKWARDATION (q3 > q4) \u2014 near-dated C5TC spike, Cal-27 barely moved.",
     "Container TC/value curves REFRESHED 2026-07-06 from MB Container Weekly 27 (assessments 2026-07-03) \u2014 the cited \u00a711.8 ingest event closing trigger container_mb_refresh (decisions/container_ingest_2026-07-06.md; A3 re-derived on the combined validator fleets). The Apr-01 freeze disclosed 2026-07-03 is RESOLVED; trigger re-armed to the 2026-08-07 monthly boundary.",
     "Handy-Bulk (\u00a711.7.11, added 2026-07-14): NO market FFA at any tenor \u2014 its curve row + scenario deck are both DERIVED = supra x 0.90 (locked basis, identity guard-tested; regenerate BOTH with any supra promotion). as_of 2026-07-10 = the MB Dry Bulk Weekly 28 vintage (own cadence, not a hold awaiting a print)."
@@ -51,7 +51,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": -41.4,
       "ev_pct_family_max": -26.6,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 9.41,
+      "fv_high": 20.59
     },
     {
       "ticker": "ECO",
@@ -75,7 +77,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": -58.5,
       "ev_pct_family_max": -43.4,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 19.62,
+      "fv_high": 55.62
     },
     {
       "ticker": "FRO",
@@ -99,7 +103,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": -56.9,
       "ev_pct_family_max": -40.3,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 13.52,
+      "fv_high": 40.26
     },
     {
       "ticker": "TNK",
@@ -123,7 +129,9 @@
       "weight_sign_stable": false,
       "ev_pct_family_min": -9.1,
       "ev_pct_family_max": 1.3,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 62.29,
+      "fv_high": 94.77
     },
     {
       "ticker": "SB",
@@ -147,7 +155,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": 27.9,
       "ev_pct_family_max": 40.0,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 7.17,
+      "fv_high": 12.33
     },
     {
       "ticker": "SBLK",
@@ -171,7 +181,9 @@
       "weight_sign_stable": false,
       "ev_pct_family_min": -0.1,
       "ev_pct_family_max": 8.3,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 21.22,
+      "fv_high": 34.64
     },
     {
       "ticker": "CAPT",
@@ -195,7 +207,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": -32.8,
       "ev_pct_family_max": -1.9,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 7.2,
+      "fv_high": 24.41
     },
     {
       "ticker": "CMBT",
@@ -235,7 +249,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": -19.0,
       "ev_pct_family_max": -12.1,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 8.69,
+      "fv_high": 21.1
     },
     {
       "ticker": "INSW",
@@ -270,7 +286,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": -46.0,
       "ev_pct_family_max": -38.5,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 38.53,
+      "fv_high": 77.87
     },
     {
       "ticker": "NAT",
@@ -294,7 +312,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": -66.7,
       "ev_pct_family_max": -56.8,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 1.85,
+      "fv_high": 4.48
     },
     {
       "ticker": "TEN",
@@ -334,7 +354,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": 26.5,
       "ev_pct_family_max": 44.9,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 41.19,
+      "fv_high": 84.64
     },
     {
       "ticker": "ASC",
@@ -358,7 +380,9 @@
       "weight_sign_stable": false,
       "ev_pct_family_min": -2.1,
       "ev_pct_family_max": 4.0,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 13.25,
+      "fv_high": 19.77
     },
     {
       "ticker": "TRMD",
@@ -382,7 +406,9 @@
       "weight_sign_stable": false,
       "ev_pct_family_min": -10.1,
       "ev_pct_family_max": 8.4,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 18.49,
+      "fv_high": 45.39
     },
     {
       "ticker": "2343",
@@ -406,7 +432,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": -5.7,
       "ev_pct_family_max": -1.1,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 0.31,
+      "fv_high": 0.44
     },
     {
       "ticker": "CMDB",
@@ -430,7 +458,9 @@
       "weight_sign_stable": false,
       "ev_pct_family_min": -2.5,
       "ev_pct_family_max": 3.8,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 16.47,
+      "fv_high": 23.98
     },
     {
       "ticker": "GNK",
@@ -454,7 +484,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": -13.1,
       "ev_pct_family_max": -5.3,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 17.84,
+      "fv_high": 29.14
     },
     {
       "ticker": "CCEC",
@@ -478,7 +510,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": 38.0,
       "ev_pct_family_max": 58.3,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 18.18,
+      "fv_high": 49.7
     },
     {
       "ticker": "FLNG",
@@ -502,7 +536,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": -9.6,
       "ev_pct_family_max": -0.4,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 20.36,
+      "fv_high": 39.36
     },
     {
       "ticker": "GSL",
@@ -526,7 +562,9 @@
       "weight_sign_stable": null,
       "ev_pct_family_min": null,
       "ev_pct_family_max": null,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 36.14,
+      "fv_high": 44.39
     },
     {
       "ticker": "MPCC",
@@ -550,7 +588,9 @@
       "weight_sign_stable": null,
       "ev_pct_family_min": null,
       "ev_pct_family_max": null,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 1.69,
+      "fv_high": 2.21
     },
     {
       "ticker": "BRUT",
@@ -574,7 +614,9 @@
       "weight_sign_stable": false,
       "ev_pct_family_min": -63.3,
       "ev_pct_family_max": 11.3,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 0.07,
+      "fv_high": 17.17
     },
     {
       "ticker": "HAFN",
@@ -598,7 +640,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": -30.6,
       "ev_pct_family_max": -16.7,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 3.7,
+      "fv_high": 8.87
     },
     {
       "ticker": "STNG",
@@ -622,7 +666,9 @@
       "weight_sign_stable": true,
       "ev_pct_family_min": -14.4,
       "ev_pct_family_max": -1.0,
-      "mark_wide_nodes": null
+      "mark_wide_nodes": null,
+      "fv_low": 51.47,
+      "fv_high": 101.87
     },
     {
       "ticker": "BWLP",
@@ -648,7 +694,9 @@
       "ev_pct_family_max": -28.9,
       "mark_wide_nodes": [
         "VLGC@five_year"
-      ]
+      ],
+      "fv_low": 10.82,
+      "fv_high": 18.27
     },
     {
       "ticker": "LPG",
@@ -674,7 +722,9 @@
       "ev_pct_family_max": -23.7,
       "mark_wide_nodes": [
         "VLGC@five_year"
-      ]
+      ],
+      "fv_low": 23.06,
+      "fv_high": 38.5
     }
   ]
 }
