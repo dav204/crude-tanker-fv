@@ -5,6 +5,26 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-15 (late evening) — LR1 FORK RULED (owner verbatim: "rule the LR1 fork — taxonomy
+  (b) + contract-floor, post-Stage-A"); execution prereg FROZEN — TRMD → VALIDATED-TIGHT is now
+  scheduled work.** Fork (i): LR1 age-0 → the dated xclusiv Panamax-tanker NB contract floor
+  (~\$61.0M; the lower of the two current contract prints, MB \$64M the cross-check) + 5yr →
+  the dated intermodal mark (~\$60.0M) — marks re-dated at execution (freshness rule), method
+  frozen. Taxonomy (b): NEW scoped status **`resale-corroborated`** — class-level
+  qualification (no broker Resale line exists + dated contract floor + dated second-house 5yr,
+  both current) with a per-name honesty rule (uniform-equivalent iff every hull the name holds
+  in the class is age ≥10 — the wired nodes only touch ages <10; guard-tested so a young hull
+  arriving auto-degrades the name). LR1 is TODAY the only qualifying class (Handysize/Handymax/
+  VLGC all fail the two-mark requirement — the status self-limits). Predicted movers verified
+  through compute_nav AND hand interpolation (agree to the cent): INSW +\$7.80M (+0.27%, its 3
+  young hulls; nav_basis stays honestly pending), TEN +\$1.17M (+0.04%, the age-9.5/9.6 pair),
+  TRMD + HAFN **exact zero = the controls**. At the round: TIER_SUBREASON TRMD basis-pending
+  removed → **VALIDATED-TIGHT (the 7th)**, with two registered boundary checkpoints (LR1 sleeve
+  = 8.7% of fleet value vs 2343's 51% cap comparator — sub-material; the W-frag sign-instability
+  eyeball). `newbuild_contract` LR1 stays OMITTED (contract-vs-contract parity is degenerate;
+  not worth weakening the resale-invariant HALT — reverses the earlier PLAN note). Execution:
+  post-Stage-A anchor round, folded with the extract-refresh rider (one attributable step).
+  PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md; ruling annotated in lr1_level_evidence_2026-07-15.md.
 - **2026-07-15 (evening) — THREAD (d) CONFIRMED-CURRENT + P1c MR CLEARED TO RESALE-UNIFORM;
   LR1 fork staged (three frozen packets, one NAV-neutral-scale wiring).** The 2026-07-13
   xclusiv weekly (in-repo via the harvester) confirms every wired crude Resale anchor within

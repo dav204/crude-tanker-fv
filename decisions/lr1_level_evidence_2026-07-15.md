@@ -1,6 +1,12 @@
-# P1c — LR1 level evidence + decision packet (STAGED — owner fork, nothing wired)
+# P1c — LR1 level evidence + decision packet — RULED 2026-07-15
 
-**2026-07-15. Registered-pending: no numbers move in this step.** Thread-1A registered
+**RULED same day (owner verbatim: "rule the LR1 fork — taxonomy (b) + contract-floor,
+post-Stage-A") — fork (i) + taxonomy (b); execution pre-registration FROZEN at
+`PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md` (predicted bands verified through compute_nav;
+INSW +$7.80M / TEN +$1.17M / TRMD+HAFN exact zero; TRMD → VALIDATED-TIGHT at the
+post-Stage-A anchor round, boundary checkpoints registered). Nothing wired today.**
+
+**2026-07-15 (original packet below). Registered-pending: no numbers move in this step.** Thread-1A registered
 LR1's sourcing path ("intermodal weekly … a current issue gives an LR1 5yr mark; the
 Resale anchor is NOT tabulated"). The current issue has now landed, and it shows the
 wired LR1 curve is stale-low — with an internal inversion no single-node fix can clear.
@@ -82,4 +88,6 @@ wants TRMD (and INSW's basis leg) to ever clear on today's broker coverage, the 
 No recommendation is embedded in (b)'s availability; the packet only notes that (a)
 leaves TRMD's tier pinned by tonnage that cannot mathematically feel the missing mark.
 
-**Owner ruling line:** fork (i)/(ii)/(iii) + taxonomy (a)/(b): ______ (date / verbatim).
+**Owner ruling line:** fork **(i)** + taxonomy **(b)**, execution **post-Stage-A** —
+RULED 2026-07-15, owner verbatim: "rule the LR1 fork — taxonomy (b) + contract-floor,
+post-Stage-A". Execution spec: `PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md` (frozen same day).

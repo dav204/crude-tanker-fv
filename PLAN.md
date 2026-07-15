@@ -401,8 +401,10 @@ validated-but-RICH [rich · cycle position], NOT a new long), **GOVERNED-WIDE** 
 structural-unavailable input, read flips, or newbuild parked/absent: **NAT** `newbuild-indeterminate`;
 **ASC** `structural-class`; **TRMD** `basis-pending` — cleared 2026-07-02, all figures sourced + all 3 queues
 cleared, but product nav_basis is `pending-sourceable` [**LR1 the LAST non-uniform class** after the
-2026-07-15 MR clear — the LR1 ruling (`decisions/lr1_level_evidence_2026-07-15.md`) decides TRMD's
-path to TIGHT], so GOVERNED-WIDE not TIGHT; BUY, k_broker 1.03 — the tightest tool↔broker spread in the book), **PROVISIONAL**
+2026-07-15 MR clear — **LR1 RULED 2026-07-15: contract-floor + resale-corroborated; TRMD →
+VALIDATED-TIGHT scheduled at the post-Stage-A anchor round** (`PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md`,
+boundary checkpoints registered)], so GOVERNED-WIDE not TIGHT until that round; BUY, k_broker 1.03 —
+the tightest tool↔broker spread in the book), **PROVISIONAL**
 (3: **STNG** `off-curve` — all figures now sourced to the Q1-2026 6-K [2026-07-01 rebuild], but the 10-vessel
 NB stays off the §9.6 curve; + **BRUT** `cash-pending` — 4/5 issuer-traced, cash flagged pending the H1-2026
 report; + **HAFN** `pool-gross-up-pending` — all figures sourced/decided except operating WC, held at a
@@ -418,12 +420,13 @@ NAT+SB+ASC+BRUT+ECO+HAFN+STNG+TRMD).** The next open work is the remaining `OFF_
 (CMBT / STNG's 10-hull NB [thread-(d) gate CLEARED 2026-07-15, wiring queues post-Stage-A] / TEN) onto
 the §9.6 curve, and the **P1 product-basis thread (P1c)** — **2026-07-15 state: MR CLEARED to
 resale-uniform** (xclusiv resumed the MR2 line 07-13; TEN +0.07% the sole move, 0 unexplained —
-`decisions/mr_secondhand_resumption_2026-07-15.md`), so **LR1 is now TRMD's (and INSW's) LAST basis
-blocker** — dated LR1 evidence + the owner fork (incl. the taxonomy question that decides whether TRMD
-can EVER reach VALIDATED-TIGHT on current broker coverage) staged in
-`decisions/lr1_level_evidence_2026-07-15.md`; Handysize/Handymax stay structurally uncovered (no broker
-line — 07-15 sweep re-confirmed). Per-change chronology in `CHANGELOG.md`; per-name detail in
-`decisions/<t>_log.md`.
+`decisions/mr_secondhand_resumption_2026-07-15.md`), and **LR1 RULED the same evening** (owner:
+"taxonomy (b) + contract-floor, post-Stage-A") — execution prereg FROZEN
+(`PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md`): **TRMD → VALIDATED-TIGHT is now SCHEDULED WORK at the
+post-Stage-A anchor round** (with the extract-refresh rider; INSW +$7.80M / TEN +$1.17M predicted,
+TRMD+HAFN exact-zero controls); Handysize/Handymax stay structurally uncovered (no broker line —
+07-15 sweep re-confirmed; neither qualifies for the new scoped `resale-corroborated` status).
+Per-change chronology in `CHANGELOG.md`; per-name detail in `decisions/<t>_log.md`.
 
 ## Recent arc — convention + provenance + handoff + hygiene (2026-06-29 → 07-01)
 
@@ -577,19 +580,25 @@ harden it and the OTHER names — none affect the durable SB-cheap finding, whic
    b. **§18.5a Baltic mean-reversion data** — the historical_mean basis is v1 = current
       `historical_tce_means` (unvalidated); upgrade to a true $/day realized mean (BCI 5TC /
       BPI 4TC / BSI 10TC / New ConTex) and run the registered ≥70%-of-≥12q mean-reversion gate.
-   c. **Product LR1 / Handysize / Handymax marks (P1c)** — **PARTIALLY LANDED 2026-07-15.**
-      **MR: CLEARED to resale-uniform** (xclusiv RESUMED the MR2 secondhand line 2026-07-13,
-      Resale $55.0M; the $54M exception confirmed −1.8%, age-0 re-anchored to the resumed
-      line; TEN +0.07% the sole mover, drift gate 0 UNEXPLAINED, no re-ratify —
-      `decisions/mr_secondhand_resumption_2026-07-15.md`). **LR1: dated evidence LANDED**
-      (intermodal W29 5yr $60.0M current; xclusiv 07-13 Panamax-tanker NB $61.0M) exposing the
-      wired curve's inversion (age-0 59 < dated 5yr 60) — owner fork + the resale-uniform
-      taxonomy question staged in `decisions/lr1_level_evidence_2026-07-15.md`, FV-moving
-      (INSW's 3 young hulls), post-Stage-A. **Handysize/Handymax:** no broker tabulates product
-      secondhand (07-15 sweep re-confirmed: xclusiv/advanced/intermodal/banchero/fearnleys);
-      Handysize sits on the issuer-contract floor (07-15 re-source), Handymax needs a
-      chem-specialist source. `newbuild_contract` parity marks for the three classes remain
-      open (xclusiv 07-13 prints LR1 NB $61.0M — wire with the LR1 ruling).
+   c. **Product LR1 / Handysize / Handymax marks (P1c)** — **PARTIALLY LANDED 2026-07-15;
+      LR1 RULED same evening.** **MR: CLEARED to resale-uniform** (xclusiv RESUMED the MR2
+      secondhand line 2026-07-13, Resale $55.0M; the $54M exception confirmed −1.8%, age-0
+      re-anchored to the resumed line; TEN +0.07% the sole mover, drift gate 0 UNEXPLAINED,
+      no re-ratify — `decisions/mr_secondhand_resumption_2026-07-15.md`). **LR1: RULED
+      2026-07-15 (owner verbatim: "rule the LR1 fork — taxonomy (b) + contract-floor,
+      post-Stage-A")** — fork (i) contract-floor (age-0 → dated xclusiv Panamax-tanker NB
+      ~$61.0M; 5yr → dated intermodal ~$60.0M; marks re-dated at execution) + the NEW scoped
+      `resale-corroborated` status (uniform-equivalent per-name iff all the name's hulls in
+      the class are age ≥10; INSW's young hulls keep it honestly pending). Execution prereg
+      FROZEN `PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md`: post-Stage-A anchor round (with the
+      mr_secondhand §5 extract-refresh rider), predicted INSW +$7.80M / TEN +$1.17M /
+      TRMD+HAFN exact zero (compute_nav-verified), **TRMD → VALIDATED-TIGHT at that round**
+      (boundary checkpoints: 8.7%-of-fleet cap check + the W-frag sign-stability eyeball).
+      **Handysize/Handymax:** no broker tabulates product secondhand (07-15 sweep
+      re-confirmed); Handysize sits on the issuer-contract floor (07-15 re-source), Handymax
+      needs a chem-specialist source; NEITHER qualifies for resale-corroborated (the status
+      self-limits — no dated second-house 5yr exists for either). `newbuild_contract` LR1
+      stays OMITTED (parity would be contract-vs-contract degenerate — prereg §2).
    d. **NAV-layer thread — RESOLVED (2026-07-15, pending owner sign-off).** The basis
       inconsistency was closed by Thread 1 + Amendment B (2026-06-29, all wired classes on the
       dated xclusiv Resale line); the remaining LEVEL-currency question is now CONFIRMED on the

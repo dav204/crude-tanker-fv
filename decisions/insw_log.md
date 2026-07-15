@@ -2150,3 +2150,14 @@ further. Position TRIM/SHORT unchanged at both mark sets. Duplicate
 
 ---
 
+
+## 2026-07-15 (late) — LR1 ruling: INSW is the predicted mover; basis stays honestly pending
+
+**Decision:** the LR1 contract-floor ruling (owner, 2026-07-15) predicts INSW +$7.80M
+(+0.27% asset NAV, +$0.157/sh) at the post-Stage-A anchor round — its 3 young LR1s
+(Bonita age-0 +$2.0M; Alacran/Balboa age-1 +$2.9M each), compute_nav-verified, band
+recomputed mechanically at execution-date marks. INSW's nav_basis STAYS
+`pending-sourceable` by design: the new `resale-corroborated` status degrades to pending
+for any name holding age<10 hulls in the class (guard-tested) — the young hulls' NAV
+genuinely depends on the missing LR1 Resale line, so only a real broker Resale print
+upgrades INSW's basis. PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md.

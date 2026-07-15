@@ -2020,3 +2020,15 @@ also age-0-insensitive: the pending class contributes no age-0-sensitive NAV). T
 LR1 ruling (decisions/lr1_level_evidence_2026-07-15.md, owner fork incl. the
 resale-uniform taxonomy question) therefore decides whether TRMD's
 GOVERNED-WIDE·basis-pending can lift to VALIDATED-TIGHT on current broker coverage.
+
+## 2026-07-15 (late) — LR1 RULED: TRMD → VALIDATED-TIGHT is scheduled work (post-Stage-A)
+
+**Decision:** the owner ruled the LR1 fork same evening (verbatim: "rule the LR1 fork —
+taxonomy (b) + contract-floor, post-Stage-A"). Under the new scoped `resale-corroborated`
+status TRMD's LR1s (ages 13-14, all past the 10yr node, $342.3M = 8.7% of fleet value)
+count uniform-equivalent, and TRMD is a registered EXACT-ZERO CONTROL in the wiring
+(compute_nav-verified — any TRMD movement at the round is a halt). At the post-Stage-A
+anchor round: TIER_SUBREASON basis-pending removed → VALIDATED-TIGHT (the 7th), subject
+to two registered boundary checkpoints (sub-material cap check confirmed; the W-frag
+sign-instability [EV family −10.1/+8.4] prints beside the tier — owner eyeballs at the
+boundary). Execution spec: PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md.
