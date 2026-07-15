@@ -51,13 +51,17 @@ as_of:
                             # §11.7.11 locked basis), regenerated with any supra promotion
 vintage_notes:
   - "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean)
-    HELD at the 2026-06-07 vintage — A TERM PRINT NOW EXISTS (DHT 6-K 2026-07-13: 3-yr
-    VLCC TC $75k/day Sep-26 start; Q3 QTD bookings $139.7k corroborate the FRONT within
-    ~5%; the term level implies the held back-half 40-55% above market). Trigger
-    tanker_forward_print_lands FIRED 2026-07-14; promotion is HUMAN-ONLY — ruling draft
-    AWAITING OWNER SIGNATURE (decisions/tanker_forward_print_ruling_2026-07-14.md;
-    method PRE_REGISTRATION_TANKER_CLUSTER_REANCHOR.md, freeze due 2026-07-27). The
-    C-2 rates-layer tanker effect remains understated pending promotion."
+    HELD at the 2026-06-07 vintage — TERM PRINT EXISTS (DHT 6-K 2026-07-13: 3-yr VLCC
+    TC $75k/day Sep-26 start; Q3 QTD bookings $139.7k corroborate the front within ~5%;
+    back-half implied 40-55% below this vintage). Promotion deferred to the Q2-cluster
+    re-anchor by owner ruling 2026-07-14, SIGNED 2026-07-15
+    (decisions/tanker_forward_print_ruling_2026-07-14.md): Stage A no later than
+    2026-08-15 (unconditional — DHT-print fallback if cluster basis insufficient),
+    Stage B true-up ≤2026-09-04 band-gated. Estimated strip overhang while held: −3 to
+    −4% FV on peak-weighted crude, direction-safe (can only make rich names richer; the
+    one qualified case — TRMD's post-re-tilt BUY — is in the Stage-A eyeball inventory,
+    ruling ADDENDUM). Method: PRE_REGISTRATION_TANKER_CLUSTER_REANCHOR.md (frozen at
+    signature)."
   - "Dry-bulk curves (Cape/Pana/Post-Panamax/Supra-Ultra) RE-ANCHORED 2026-07-13
     from the 13-Jul FFA OCR widget (status ok; owner-ratified promotion, all
     three classes; decisions/ffa_promotion_2026-07-13.md). Cape front flipped

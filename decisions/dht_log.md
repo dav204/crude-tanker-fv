@@ -2096,3 +2096,15 @@ record + owner re-anchor options in `decisions/tanker_forward_print_2026-07-14.m
 curve promotion stays human-only; trigger sits fired/red until ruled. Q2-refresh notes:
 Jaguar joins the TC book Sep-2026 (charter fields then); the update's TCE splits are the
 Q2 preflight cross-check values.
+
+## 2026-07-15 — RULING SIGNED (tanker forward print) + the Jaguar company-input thread (§7)
+
+**Decision:** owner signed (i-continue) as specified — two-stage, Riders 1-4
+(decisions/tanker_forward_print_ruling_2026-07-14.md §8; prereg frozen same commit).
+The Jun-7 curve hold continues under a HARD exit: Stage A ≤ 2026-08-15 unconditional,
+Stage B ≤ 2026-09-04 band-gated ±10%; trigger now fired-ruled-deferred (AMBER, escalates
+red past the deadline). **§7 thread recorded so it cannot be lost:** the Jaguar 3-yr
+$75k/day charter (Sep-2026 start) is ALSO a DHT company input — it changes DHT's own
+spot_coverage / charter-rate blend and nudges the strip down through the coverage
+channel regardless of curve promotion. EXECUTE AT STAGE A with the curve regen (one DHT
+regen, not two), provenance = the 6-K (acc 0000950157-26-000799).

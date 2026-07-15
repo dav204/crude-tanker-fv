@@ -144,7 +144,8 @@ not exist in any post-Aug-15 state of the world.
 ## 9. Signature
 
 Owner sign-off (freezes §§1–8; amendments after 2026-07-27 only via a dated addendum
-that does not loosen §5 bands or §6/§7 dates): ________________ · Date: ________
+that does not loosen §5 bands or §6/§7 dates): **OWNER — SIGNED ("sign as specified",
+with the 2026-07-15 pre-freeze addendum included in the frozen text)** · Date: **2026-07-15**
 
 ---
 

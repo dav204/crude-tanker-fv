@@ -166,14 +166,19 @@ tanker_forward_print_lands:
     Refresh the ffa_forward_curve + twelve_month_tc tanker lines from the
     print, rerun the C-2 rates layer (the Jul-2 decomposition's tanker
     rate-effect is understated pending this), record in decisions/.
-  status: fired   # 2026-07-14 — a REAL TERM PRINT LANDED: DHT 6-K (acc 0000950157-26-000799)
-                  # business update — 3-YEAR VLCC TC at $75,000/day (DHT Jaguar, 2015-built,
-                  # Sep-2026 start, global energy company) + Q3 QTD spot bookings $139,700/day
-                  # (48% of spot days) + 74% of total days at $94,300. The $75k term level sits
-                  # ~46% BELOW the held war-vintage curve average — the hold's staleness is now
-                  # EVIDENCED. Re-anchor is HUMAN-ONLY curve promotion: proposal staged in
-                  # decisions/tanker_forward_print_2026-07-14.md; stays fired/red until the
-                  # owner rules (option ii shape machinery now has an actual print).
+  status: fired-ruled-deferred   # RULED 2026-07-15 (owner signature "sign as specified"):
+                  # (i-continue) two-stage per decisions/tanker_forward_print_ruling_2026-07-14.md.
+                  # The 2026-07-14 print: DHT 6-K (acc 0000950157-26-000799) — 3-yr VLCC TC
+                  # $75,000/day (Jaguar, Sep-26 start) + Q3 QTD bookings $139.7k (front
+                  # corroborated ~5%; back-half implied 40-55% below the held vintage).
+                  # Sentinel: AMBER-deferred (refresh.py) — surfaces every run with the
+                  # Stage-A date, ESCALATES red past the deadline (Rider 2 unconditional).
+                  # Rider 4: the original observable/action below stay LIVE — a dailies/
+                  # weeklies FFA or 12M TC print promotes immediately, superseding Stage A.
+  ruled: 2026-07-15
+  stage_a_deadline: 2026-08-15
+  stage_b_window: 2026-08-26..2026-09-04
+  ruling: decisions/tanker_forward_print_ruling_2026-07-14.md
   added: 2026-07-02
 
 container_mb_refresh:

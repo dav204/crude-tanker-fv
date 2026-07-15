@@ -259,6 +259,24 @@ def check_reweight_triggers(
         if status == "fired":
             items.append(CheckItem(label=name, status="missing",
                                    detail=f"[{sector}] FIRED — §13.3 reweight decision OWED. {obs}"))
+        elif status == "fired-ruled-deferred":
+            # Signed-ruling deferral (tanker_forward_print ruling §6, 2026-07-15):
+            # AMBER — stays visible every run WITHOUT demanding daily re-triage,
+            # then ESCALATES back to red the day the registered deadline passes
+            # unpromoted (Rider 2's "no extension exists in any state of the
+            # world" is enforced here, not by prose).
+            deadline = entry.get("stage_a_deadline")
+            if deadline and today > deadline:
+                items.append(CheckItem(label=name, status="missing",
+                                       detail=f"[{sector}] DEFERRED-RULING DEADLINE BREACHED — "
+                                              f"stage_a_deadline {deadline} passed without "
+                                              f"promotion (Rider 2 is unconditional; run the "
+                                              f"registered fallback TODAY). {obs}"))
+            else:
+                items.append(CheckItem(label=name, status="warn",
+                                       detail=f"[{sector}] fired-ruled-deferred — promotion "
+                                              f"scheduled (Stage A ≤ {deadline}; "
+                                              f"{entry.get('ruling', 'ruling on file')}). {obs}"))
         elif status in ("done", "retired"):
             items.append(CheckItem(label=name, status="ok",
                                    detail=f"[{sector}] {status}"))

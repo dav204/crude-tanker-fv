@@ -70,12 +70,12 @@ Independent of the curve question, the fixture is a disclosed 3-yr charter start
 
 ## 8. DECISION block (owner)
 
-* ☐ RULE (i-continue) as specified — two-stage, Riders 1–4, dates as written (Stage A ≤ 2026-08-15; Stage B window 2026-08-26..09-04; band ±10%)
+* ☑ **RULE (i-continue) as specified — two-stage, Riders 1–4, dates as written (Stage A ≤ 2026-08-15; Stage B window 2026-08-26..09-04; band ±10%) — SIGNED**
 * ☐ RULE (i-continue), dates amended to: Stage A ≤ ________ · Stage B ≤ ________ · band ±____%
 * ☐ RULE (ii-promote now) on the DHT print with the registered tenor decomposition (rejects §1 letter-analysis; single-fixture anchor accepted as documented assumption)
 * ☐ Other: ________________
 
-Signature/date: ________________ · On signature: apply §6 annotations, append RATIFY_LOG-style entry to decisions/dht_log.md (§7), commit ruling + prereg together.
+Signature/date: **OWNER, 2026-07-15 (verbatim: "sign as specified")** · Signature actions EXECUTED same day: §6 annotations applied verbatim (ffa_forward_curve vintage_notes + twelve_month_tc header + trigger restatus fired-ruled-deferred with stage_a_deadline 2026-08-15 / stage_b_window 2026-08-26..2026-09-04); the §6 sentinel treatment IMPLEMENTED in refresh.check_reweight_triggers (AMBER-deferred WARN with the Stage-A date, ESCALATING to red past the deadline — a bare novel status would have silently un-paged the item, the opposite of this ruling's intent; guard-tested); dht_log §7 entry appended; prereg §9 signed/frozen the same commit.
 
 Provenance: DHT 6-K filed 2026-07-13 (sentinel flag 2026-07-14); held-vintage figures from committed `outputs/dht_fv_report.md` (2026-Q1, commit `1d3db14`); verdict positions from `outputs/book_scorecard.md` (2026-07-14 vintage); earnings dates from `decisions/earnings_calendar_vet_2026-07-03.md`; trigger text from `inputs/reweight_triggers.yaml` @ `d1c702e`. Drafted by the external reviewer (same session as EXTERNAL_AUDIT_2026-07-14 / methodology_review_memo_2026-07-14); all promotion authority remains owner-only.
 

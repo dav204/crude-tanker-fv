@@ -367,3 +367,33 @@ def test_earnings_no_entry_warns(tmp_path):
     eco = next(i for i in items if i.label == "ECO")
     assert eco.status == "warn"
     assert "no earnings date" in eco.detail
+
+
+def test_reweight_trigger_fired_ruled_deferred_ambers_then_escalates(tmp_path):
+    """Signed-ruling deferral (tanker forward-print ruling §6, signed 2026-07-15):
+    fired-ruled-deferred must surface as WARN every run (AMBER — visible without
+    daily re-triage) while the stage_a_deadline holds, and ESCALATE to red the
+    day after it passes unpromoted (Rider 2's unconditional exit, enforced by
+    code not prose). A bare novel status would have fallen to the ok branch and
+    silently un-paged the item — the exact opposite of the ruling's intent."""
+    import yaml as _yaml
+
+    from crude_tanker_fv.refresh import check_reweight_triggers
+
+    (tmp_path / "reweight_triggers.yaml").write_text(_yaml.safe_dump({
+        "deferred_one": {"sector": "crude+product", "due": None,
+                         "observable": "x", "action": "y",
+                         "status": "fired-ruled-deferred",
+                         "stage_a_deadline": date(2026, 8, 15),
+                         "ruling": "decisions/tanker_forward_print_ruling_2026-07-14.md"},
+    }))
+    before = {i.label: i for i in check_reweight_triggers(tmp_path, today=date(2026, 7, 20))}
+    assert before["deferred_one"].status == "warn"
+    assert "Stage A" in before["deferred_one"].detail
+
+    on_deadline = {i.label: i for i in check_reweight_triggers(tmp_path, today=date(2026, 8, 15))}
+    assert on_deadline["deferred_one"].status == "warn"   # the deadline day itself is still execution day
+
+    after = {i.label: i for i in check_reweight_triggers(tmp_path, today=date(2026, 8, 16))}
+    assert after["deferred_one"].status == "missing"
+    assert "BREACHED" in after["deferred_one"].detail

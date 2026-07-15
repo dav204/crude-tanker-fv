@@ -2,12 +2,14 @@
 #
 # PARTIAL REFRESH 2026-07-02 (audit F-5 / reweight vintage): the Pareto Shipping
 # Daily carries SPOT prints only — no 1-year T/C table — so the TANKER entries
-# below are the 2026-06-07 vintage HELD and explicitly flagged STALE (do not
-# invent a figure). UPDATE 2026-07-15: a TERM print exists (DHT 6-K 2026-07-13,
-# 3-yr VLCC TC $75k — NOT a 12M TC print; setting a 12M line from a single 3-yr
-# fixture would require a tenor assumption). Trigger fired; ruling draft awaiting
-# owner signature (decisions/tanker_forward_print_ruling_2026-07-14.md). These
-# lines stay held until the owner-ruled promotion or a dailies/weeklies 12M print. DRY BULK
+# below are the 2026-06-07 vintage HELD. TERM PRINT EXISTS (DHT 6-K 2026-07-13:
+# 3-yr VLCC TC $75k/day; Q3 bookings corroborate the front). Promotion deferred
+# to the Q2-cluster re-anchor by owner ruling SIGNED 2026-07-15
+# (decisions/tanker_forward_print_ruling_2026-07-14.md): Stage A ≤ 2026-08-15
+# unconditional; Stage B ≤ 2026-09-04 band-gated; method
+# PRE_REGISTRATION_TANKER_CLUSTER_REANCHOR.md (frozen).
+# NOTE: the DHT 3-yr fixture is NOT a 12M TC print; this line stays held per
+# ruling §1 (letter) until Stage A or a dailies/weeklies 12M print (Rider 4). DRY BULK
 # refreshed 2026-07-13 from the 13-Jul FFA OCR widget (status ok,
 # outputs/ffa_ocr_queue.md; owner-ratified promotion, all three classes):
 # 12M TC proxy = mean of the Qn/Qf quarterly tenors, rounded to nearest 50.
