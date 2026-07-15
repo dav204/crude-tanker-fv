@@ -60,8 +60,15 @@ classes:
     eco_premium_pct: 0.0
   Handysize:
     dwt: 38000
-    newbuild: 36000000           # age-0 = xclusiv Resale 2026-06-22 (Thread 1A; was 40M). Mid-age
-                                 # left static (no transaction prints for Handysize) — see AGE0_BASIS.
+    newbuild: 44900000           # age-0 RE-SOURCED 2026-07-15 (was 36M = the xclusiv BULK row,
+                                 # Thread-1A section-mislabel; decisions/product_handysize_resource_
+                                 # 2026-07-15.md): ISSUER CONTRACT basis — ASC Q1-2026 6-K
+                                 # (acc 0001104659-26-056715): "two 40,500 dwt Handysize... at
+                                 # $44.9 million per vessel" (April-2026; Pareto 2026-04-30 echoes).
+                                 # Contract = a FLOOR for prompt resale (hot-market norm) —
+                                 # conservative. No broker tabulates product-Handy secondhand
+                                 # (xclusiv/MB/Intermodal all stop at MR — checked 2026-07-15).
+                                 # Mid-age left static (no product-Handy transaction prints).
     five_year_benchmark: 34000000
     ten_year_benchmark: 26000000
     scrap_25yr: 4500000
@@ -167,6 +174,8 @@ classes:
   # at the 38k assessment baseline (2343 avg 35.4k → ~0.93x; PANL 38.7k → ~1.02x). Validation:
   # Dec-2025-vintage construction lands +3.1% on 2343's own per-class composite (prereg Band 1).
   # NOT the product-tanker Handysize class (distinct market, distinct curve).
+  # 2026-07-15: reads the renamed xclusiv Handy-Bulk row DIRECTLY (alias retired;
+  # product_handysize_resource doc).
   Handy-Bulk:
     dwt: 38000
     dwt_scaled: true

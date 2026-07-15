@@ -80,7 +80,11 @@ def test_crude_production_depreciation_floor():
 # Classes whose age-0 is wired to the xclusiv Resale line (Amendment B). MR has no
 # xclusiv secondhand line; Post-Panamax has no xclusiv PPMX (= Kamsarmax replacement);
 # Handysize/Handymax are Group-A pending (Thread 1A) — all excluded from this guard.
-XCLUSIV_WIRED = ("VLCC", "Suezmax", "Aframax", "LR2", "Cape", "Pana", "Supra-Ultra", "Handysize")
+# 2026-07-15 (product_handysize_resource doc): product "Handysize" LEAVES the wired set —
+# its Thread-1A wiring asserted equality against what the harvester cache proved is the
+# xclusiv BULK row (the guard was enforcing the contamination). "Handy-Bulk" JOINS: the
+# renamed extract row is the bulk row, correctly labeled, read directly (alias retired).
+XCLUSIV_WIRED = ("VLCC", "Suezmax", "Aframax", "LR2", "Cape", "Pana", "Supra-Ultra", "Handy-Bulk")
 
 
 def test_curve_age0_equals_xclusiv_resale():
@@ -115,13 +119,15 @@ AGE0_BASIS = {
     "Post-Panamax": "alias:Pana",        # = Kamsarmax Resale; no xclusiv PPMX line
     "MR": "exception:no current xclusiv secondhand line (dropped after 2023Q4, last $52.8M); $54M unverified",
     "LR1": "exception:Group A; MB Tanker 2026-06-26 LR1 NB $64M/5yr $58M (col order verified vs crude inversion), NO Resale line; tool age-0 $59M within ~8% of MB NB (cross-check OK). Kept cross-check NOT wired — MB->calibration is owner-gated + immaterial (no LR1-heavy name).",
-    "Handysize": "xclusiv-resale",      # Thread 1A: wired to xclusiv Resale $36M. BASIS FLAG
-                                        # 2026-07-14: that row is the xclusiv BULK section
-                                        # (handy_curve_sourcing_prereg §0.2) — product re-source
-                                        # is an owner queue item; entry stands as-ratified.
-    "Handy-Bulk": "alias:Handysize",    # §11.7.11 (2026-07-14): dry-bulk Handysize reads the
-                                        # SAME committed xclusiv row (which IS the bulk row,
-                                        # correctly labeled on this side of the alias).
+    "Handysize": "exception:RE-SOURCED 2026-07-15 (product_handysize_resource doc) — age-0 "
+                 "$44.9M = ASC Q1-2026 6-K issuer CONTRACT (acc 0001104659-26-056715: two "
+                 "40,500 dwt Handysize at $44.9M/vessel, April-2026; Pareto 2026-04-30 echoes). "
+                 "No broker tabulates product-Handy secondhand (xclusiv/MB/Intermodal stop at "
+                 "MR, checked 2026-07-15); contract = prompt-resale FLOOR, conservative. The "
+                 "prior Thread-1A $36M was the xclusiv BULK row (section-mislabel, corrected).",
+    "Handy-Bulk": "xclusiv-resale",     # §11.7.11: reads the committed extract's Handy-Bulk row
+                                        # DIRECTLY (renamed from "Handysize" 2026-07-15 — it is
+                                        # and always was the bulk row; alias retired).
     "Handymax": "exception:no broker tabulates product-Handymax secondhand; Group A, needs chem-tanker source",
     "LNGC": "exception:non-tanker/dry-bulk sector, own basis",
     "MGC": "exception:non-tanker/dry-bulk sector, own basis",

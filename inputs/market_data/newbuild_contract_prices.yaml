@@ -49,10 +49,10 @@ prompt_resale:
   Pana: 46000000           # xclusiv Kamsarmax Resale 2026-06-22
   Supra-Ultra: 43000000    # xclusiv Ultramax Resale 2026-06-22
   Post-Panamax: 46000000   # = Kamsarmax Resale (replacement-equivalent; invariant ceiling)
-  Handysize: 36000000      # xclusiv Resale 2026-06-22 (Thread 1A). BASIS FLAG 2026-07-14: the
-                           # xclusiv Handysize row is the BULK-carrier section (its NB 30.6 = bulk
-                           # level vs ASC's actual product-Handy contract $44.9M) — wiring this to
-                           # the PRODUCT curve is a flagged owner queue item (handy_curve_sourcing_
-                           # prereg §0.2). Untouched pending the ruling; live NAV impact ~0.
-  Handy-Bulk: 36000000     # xclusiv dry-Handysize Resale 2026-06-22 (same bulk row, correctly
-                           # labeled; §11.7.11 Option B 2026-07-14). Invariant: contract 30.5 < 36.0 OK.
+  Handysize: 44900000      # RE-SOURCED 2026-07-15 (owner "Execute"; was 36M = the xclusiv BULK
+                           # row, Thread-1A mislabel): ISSUER CONTRACT basis — ASC Q1-2026 6-K
+                           # (acc 0001104659-26-056715) 2x40,500 dwt at $44.9M/vessel, April-2026.
+                           # Contract-floor label: prompt resale >= contract in this market.
+                           # decisions/product_handysize_resource_2026-07-15.md.
+  Handy-Bulk: 36000000     # xclusiv dry-Handysize Resale 2026-06-22 — the extract row now NAMED
+                           # Handy-Bulk (renamed 2026-07-15; §11.7.11 Option B). Invariant: 30.5 < 36.0 OK.

@@ -21,7 +21,11 @@ resale:                 # age-0 NAV anchor source (the just-delivered / resale l
   Cape: 81.5            # xclusiv Capesize
   Pana: 46.0           # xclusiv Kamsarmax
   Supra-Ultra: 43.0    # xclusiv Ultramax
-  Handysize: 36.0
+  Handy-Bulk: 36.0      # RENAMED from "Handysize" 2026-07-15 (product_handysize_resource doc):
+                        # this row IS the xclusiv BULK-carrier Handysize (tabulates with Cape/
+                        # Kamsarmax/Ultramax; TC column = BHSI). Thread-1A wired it to the PRODUCT
+                        # curve by section-mislabel — corrected; the dry Handy-Bulk class reads it
+                        # DIRECTLY now. No product-Handy resale line exists in this source.
   # Post-Panamax: = Kamsarmax Resale 46.0 (no xclusiv PPMX line; replacement-equivalent)
   # MR: no xclusiv secondhand line (newbuild 52.0 only) — age-0 carries its own mark
 five_year:              # documentation + the Thread-1C divergence reference (NOT wired)
@@ -31,7 +35,7 @@ five_year:              # documentation + the Thread-1C divergence reference (NO
   Cape: 72.0
   Pana: 38.0
   Supra-Ultra: 38.0
-  Handysize: 29.5
+  Handy-Bulk: 29.5
 ten_year:
   VLCC: 115.0
   Suezmax: 81.7
@@ -39,12 +43,12 @@ ten_year:
   Cape: 56.5
   Pana: 29.5
   Supra-Ultra: 28.0
-  Handysize: 23.3
+  Handy-Bulk: 23.3
 newbuild:               # xclusiv newbuild quote (parity uses Clarksons in newbuild_contract_prices.yaml)
   VLCC: 131.5
   Aframax: 75.0
   Cape: 75.5
   Pana: 37.5
   Supra-Ultra: 34.5
-  Handysize: 30.5
+  Handy-Bulk: 30.5
   MR: 52.0
