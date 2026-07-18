@@ -255,8 +255,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   SB:
-    ev_min_pct: 34.2
-    ev_max_pct: 46.9
+    ev_min_pct: 32.4
+    ev_max_pct: 45.0
     ev_sign_stable: true
     positions:
     - BUY

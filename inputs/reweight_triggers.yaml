@@ -348,3 +348,20 @@ handy_bulk_txn_refit:
     high-side reads toward Pareto meanwhile.
   status: armed
   added: 2026-07-14
+
+ppmx_txn_refit:
+  sector: dry_bulk
+  due: null
+  observable: >
+    Standing event-watch (PPMX §9.9 seed, owner-ruled 2026-07-18): the
+    Post-Panamax classified print sample reaches >=8 in-window prints
+    including >=2 at age <=12 (age-spread leverage for the extrapolated
+    nodes; the seed's 5 prints cluster at 15-16). MB/banchero print PPMX
+    regularly — plausible within a quarter.
+  action: >
+    Re-fit the PPMX anchors + re-derive the MARK_WIDE_NODES band; take the
+    old-age-overhang methodology fork to the owner (the scrap-anchored
+    [10,25] segment reads ~+28% above the seed's print cloud — steeper
+    terminal vs accept-as-documented). decisions/ppmx_fit_seed_prereg_2026-07-18.md.
+  status: armed
+  added: 2026-07-18

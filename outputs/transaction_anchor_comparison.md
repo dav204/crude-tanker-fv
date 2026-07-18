@@ -103,6 +103,12 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-06-05 • age 2 • $42.7M • Pareto Shipping Daily 2026-06-05 — broker reports
   - 2026-06-12 • age 21 • $12.1M • MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
   - 2026-07-06 • age 14 • $20.8M • xclusiv 7/06 + MB Dry W28 + banchero W28 (exact; advanced $21m)
+- **Post-Panamax** (5 prints, as_of 2026-07-18):
+  - 2026-07-13 • age 15 • $15.25M • banchero W28 + MB Dry W28 + xclusiv 7/13 + advanced W28 (exact, multi-house)
+  - 2026-07-10 • age 16 • $14.5M • MB Dry Weekly 28 (en-bloc pair, per-vessel prices printed)
+  - 2026-07-10 • age 15 • $14.3M • MB Dry Weekly 28 (en-bloc pair, per-vessel prices printed)
+  - 2026-07-10 • age 16 • $12.0M, tc_attached (+0%) • MB Dry W28 + banchero W28 + advanced W28
+  - 2026-06-29 • age 15 • $15.75M • xclusiv issue 2026-06-29 ("bss delivery Oct")
 - **Suezmax** (25 prints, as_of 2026-06-09):
   - 2026-05-15 • age 17 • $53.5M • TNK Q2 2026 ER (subsequent-events disclosure — disposal of 2009-built Suezmax)
   - 2025-08-15 • age 6 • $96.0M • trade press (Splash247 / TradeWinds S&P column, Aug 2025 — modern Suezmax market commentary)
@@ -193,7 +199,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 |---|--:|--:|--:|--:|---|
 | CCEC | $28.10→$28.10 | +0.0% | +61.8%→+61.8% | +0.0 | BUY→BUY |
 | TEN | $94.58→$87.57 | -7.4% | +61.2%→+50.4% | -10.9 | BUY→BUY |
-| SB | $9.72→$10.17 | +4.6% | +34.5%→+40.8% | +6.3 | BUY→BUY |
+| SB | $9.72→$10.02 | +3.1% | +34.5%→+38.9% | +4.4 | BUY→BUY |
 | SBLK | $29.77→$30.13 | +1.2% | +12.6%→+13.8% | +1.2 | BUY→BUY |
 | BRUT | $8.80→$8.80 | +0.0% | +14.8%→+12.8% | -2.0 | BUY→BUY |
 | TRMD | $31.65→$30.30 | -4.2% | +16.1%→+12.0% | -4.1 | BUY→BUY |

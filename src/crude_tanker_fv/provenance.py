@@ -140,6 +140,16 @@ MARK_WIDE_NODES = {
         "record": "decisions/vlgc_marks_2026-07-09.md",
         "added": "2026-07-09",
     },
+    "Post-Panamax": {
+        "node": "five_year+ten_year",
+        "age_window": (2.5, 17.5),
+        "band_usd_m": (18.1, 30.6),      # 10yr leave-one-out range; 5yr LOO 21.1-43.7
+        "reason": "seeded fit's prints CLUSTER at ages 15-16 — both anchors "
+                  "extrapolated with a wide leave-one-out band (one tc_attached "
+                  "print swings the 5yr +/-30%); refit trigger ppmx_txn_refit armed",
+        "record": "decisions/ppmx_fit_seed_prereg_2026-07-18.md",
+        "added": "2026-07-18",
+    },
 }
 
 # Tier sub-reason — why the band is wide / why PROVISIONAL, and thus the resolution PATH. Surfaced

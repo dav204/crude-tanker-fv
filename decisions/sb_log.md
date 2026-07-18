@@ -1,5 +1,20 @@
 # SB — Decision Log
 
+## 2026-07-18 (ppmx) — the holding card's PPMX falsifier CHECKPOINT executed: error REAL but SMALL
+
+**Decision:** the PPMX §9.9 fit SEEDED (owner ruling; ppmx_fit_seed_prereg_2026-07-18.md)
+IS the pre-registered secondary-falsifier checkpoint on the SB holding card ("a
+demonstrated NAV error — the model's known Post-Panamax over-valuation... checkpoint a
+transaction-anchored Post-Panamax mark"). RESULT: the over-valuation is REAL but SMALL
+at the anchors — 5yr 34.0→33.56, 10yr 26.0→24.33 (5 dated prints, ages 15-16) →
+**SB NAV −$14.9M = −1.5% (9.72→9.57), predicted to the cent, sub-drift-bar, BUY stands
+with wide margin. The falsifier did NOT fire** (thesis intact; the marks corrected, the
+discount did not invert). Honesty flags carried: MARK_WIDE both PPMX nodes (LOO 10yr
+18-31), old-age overhang residual ~+28% at ages 15-16 (curve-shape fork at the
+ppmx_txn_refit trigger), SB PPMX = 25.8% of fleet value / 42.7% of levered NAV —
+tier boundary call (flag-not-cap recommended) at the owner ratify. Governance
+holdings/sb.md gets the dated checkpoint line.
+
 ## 2026-07-18 (later) — RATIFIED 13-Jul spot re-proxy APPLIED (Week-close audit catch): dry-bulk FV-moving
 
 **Decision:** the ffa_promotion_2026-07-13.md §3 spot_tce values (Cape 36,000 / Pana+PPMX 20,000 / Supra-Ultra 19,050 — FFA front-month during the Pareto silence) were OWNER-RATIFIED 7/13 but never wired (items 1-2 landed; item 3 did not — the file kept the 2-Jul Pareto rows under a 7/13 as_of stamp). Applied 2026-07-18 at the Week-close audit. This MOVES dry-bulk FVs (ΔNAV 0.0 — spot feeds the cycle/blend leg, not marks). All flips auto-classify band-mech per D-M5 (price inside the fv interval — no eyeball owed; absorbed at the owner's next batch ratify, which now carries BOTH causes: the 7/17 price vintage AND this ratified-value application). Flips surfaced in the Week-close report regardless.
@@ -14,6 +29,24 @@ Auto-prepended sections capture model state; the `**Decision:**` line is
 where you annotate what you actually did and why.
 
 (METHODOLOGY §7.8 + decisions/README.md describe the auto-prepend convention.)
+
+---
+
+## 2026-07-18T20:21:53+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.82
+- Single-point FV: $9.69
+- Scenario PW FV: $9.47 (EV +38.9%)
+- NAV / share: $10.02
+- Position: **BUY (undervalued)**
+- Broker spread: -28.6pp (k_broker 0.86)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -1.3% | Δscenario FV: -1.4% | ΔNAV: -1.5% | Δspread: +1.9pp
+
+**Decision:** _[pending annotation]_
 
 ---
 

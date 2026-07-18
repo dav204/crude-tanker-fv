@@ -126,7 +126,7 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
 - **Dry-bulk manifest `dwt` is LOAD-BEARING** (§11.7.10) — Cape/Pana/Supra-Ultra/Handy-Bulk curves are
   `dwt_scaled` (value ∝ dwt/baseline: Cape 180k / Pana 82k / Supra-Ultra 62k / Handy 38k, §11.7.11), so a rough dwt mis-values a hull; use
   the issuer's exact per-vessel dwt, split mixed cohorts by sub-class. (Crude/product/lng/container stay
-  flat-per-class.) KNOWN LIMIT: the Pana curve over-values old Post-Panamax — dedicated sub-class pending.
+  flat-per-class.) PPMX §9.9 fit SEEDED 2026-07-18 (mark-wide both nodes, refit armed; overhang residual — ppmx prereg).
 - **Two structural framework limits are codified:** §12 (high-payout pure-plays at peak — tool
   UNDERvalues; NAT archetype) and §15 (governance/value-trap — tool OVERvalues; `governance_discount_pct`
   applied at blend + strip terminal but NOT to `compute_nav`; TEN archetype). The haircut is judgmental —

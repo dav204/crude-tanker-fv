@@ -1,0 +1,53 @@
+# Post-Panamax (~87-96k dwt overaged-Panamax bulkers) secondhand sale prints —
+# METHODOLOGY §9.9, §11.7.10; SEEDED 2026-07-18 (owner: "seed the PPMX §9.9 fit";
+# decisions/ppmx_fit_seed_prereg_2026-07-18.md + marks_trail_triage §D).
+#
+# SCOPE — 5 in-window prints, ages CLUSTERED 15-16 (the fragility): the fit's
+# extrapolated nodes carry a WIDE leave-one-out band (5yr 21.1-43.7, 10yr
+# 18.1-30.6) → class registered in provenance.MARK_WIDE_NODES; refit trigger
+# ppmx_txn_refit armed (>=8 classified prints incl >=2 at age <=12).
+#
+# KNOWN RESIDUAL (curve-shape, NOT fixed here): post-fit the scrap-anchored
+# [10,25] segment still reads ~+28% above the print cloud at ages 15-16 — the
+# old-age leg needs a steeper terminal (owner methodology fork at the refit).
+#
+# dwt recorded per print for documentation; the class is dwt_scaled: false
+# (flat at the ~90k shape), so prices enter the fit raw.
+class: Post-Panamax
+as_of: 2026-07-18
+prints:
+  - date: 2026-07-13
+    vessel_age_at_sale: 15
+    dwt: 92648
+    sale_price_usd_m: 15.25
+    source: banchero W28 + MB Dry W28 + xclusiv 7/13 + advanced W28 (exact, multi-house)
+    quality_flag: standard
+    notes: Ocean Rhea (2011 Jiangsu Jinling); buyer Chinese.
+  - date: 2026-07-10
+    vessel_age_at_sale: 16
+    dwt: 93361
+    sale_price_usd_m: 14.5
+    source: MB Dry Weekly 28 (en-bloc pair, per-vessel prices printed)
+    quality_flag: standard
+    notes: MBA Giovanni (2010 YZJ); seller Michele Bottiglieri Armatore, buyer European.
+  - date: 2026-07-10
+    vessel_age_at_sale: 15
+    dwt: 93326
+    sale_price_usd_m: 14.3
+    source: MB Dry Weekly 28 (en-bloc pair, per-vessel prices printed)
+    quality_flag: standard
+    notes: MBA Rosaria (2011 YZJ); en-bloc with Giovanni.
+  - date: 2026-07-10
+    vessel_age_at_sale: 16
+    dwt: 93217
+    sale_price_usd_m: 12.0
+    source: MB Dry W28 + banchero W28 + advanced W28
+    quality_flag: tc_attached
+    notes: Yangze 905 (2010 YZJ); TC attached to early-2027 at ~$12k/day (below market) — the LOW print; flag documents, price unadjusted.
+  - date: 2026-06-29
+    vessel_age_at_sale: 15
+    dwt: 93246
+    sale_price_usd_m: 15.75
+    source: xclusiv issue 2026-06-29 ("bss delivery Oct")
+    quality_flag: standard
+    notes: Cornelie Oldendorf (2011 Yangfan); buyer Greek.

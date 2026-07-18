@@ -26,7 +26,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | ECO | crude | VALIDATED-TIGHT | $53.88 | $32.10 | 19.63–55.63 | -40% | rich · cycle position (not a short) | $37.19 | $34.42 | $39.91 | -14% | OK | ready | stable |
 | FRO | crude | VALIDATED-TIGHT | $36.49 | $22.80 | 13.43–40.10 | -38% | rich · cycle position (not a short) | $26.41 | $24.11 | $26.64 | -9% | OK | ready | stable |
 | TNK | crude | VALIDATED-TIGHT | $70.07 | $73.35 | 62.43–95.01 | +5% | HOLD (fairly valued) | $79.61 | $77.73 | $95.99 | -19% | OK | ready | **⚠ sign flips** |
-| SB | dry_bulk | VALIDATED-TIGHT | $6.82 | $9.60 | 7.19–12.38 | +41% | BUY (undervalued) | $9.82 | $10.17 | $7.75 (apx) | +31% | n-a | ready | stable |
+| SB | dry_bulk | VALIDATED-TIGHT | $6.82 | $9.47 | 7.09–12.23 | +39% | BUY (undervalued) | $9.69 | $10.02 | $7.75 (apx) | +29% | n-a | ready | stable |
 | SBLK | dry_bulk | VALIDATED-TIGHT | $24.90 | $28.35 | 21.77–35.43 | +14% | BUY (undervalued) | $29.16 | $30.13 | $31.92 | -6% | OK | ready | stable |
 | CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $12.72 | $13.14 | 7.21–24.41 | +3% | HOLD (fairly valued) | $16.03 | $15.49 | $18.43 | -16% | OK | ready | **⚠ sign flips** |
 | CMBT | crude | GOVERNED-WIDE · structural-class | $14.96 | $14.09 | 8.87–21.38 | -6% | TRIM/SHORT (overvalued) | $15.48 | $16.12 | $20.49 | -21% | OK | ready | stable |
@@ -79,7 +79,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | 2343 | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.99× | cheap→cheap | robust | clears (+unvalidated) | pending | pending | comparable; §18.5 gates pending |
 | CMDB | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.54× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
 | GNK | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.96× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
-| SB | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.63× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| SB | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.64× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | SBLK | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.84× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | CCEC | lng | GOVERNED-WIDE | structural-unavailable | 0.77× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | FLNG | lng | GOVERNED-WIDE | structural-unavailable | 1.03× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
@@ -122,3 +122,4 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 **§9.9 wide-node exposure (fitted anchor EXTRAPOLATED at the node — a flagged-wide band, not a tight mark; registry `provenance.MARK_WIDE_NODES`):**
 - **BWLP** — VLGC@five_year (decisions/vlgc_marks_2026-07-09.md)
 - **LPG** — VLGC@five_year (decisions/vlgc_marks_2026-07-09.md)
+- **SB** — Post-Panamax@five_year+ten_year (decisions/ppmx_fit_seed_prereg_2026-07-18.md)
