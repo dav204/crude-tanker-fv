@@ -17,6 +17,42 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-18T19:36:59+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.90
+- Single-point FV: $28.50
+- Scenario PW FV: $27.69 (EV +11.2%)
+- NAV / share: $29.34
+- Position: **BUY (undervalued)**
+- Broker spread: +8.8pp (k_broker 1.07)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** Week-close clean-stamp regen (2026-07-18, family sidecar re-run at the current EV state) — same state as the dated 2026-07-18 annotation(s) below; no new movement.
+
+---
+
+## 2026-07-18T19:35:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.90
+- Single-point FV: $28.50
+- Scenario PW FV: $27.69 (EV +11.2%)
+- NAV / share: $29.34
+- Position: **BUY (undervalued)**
+- Broker spread: +8.8pp (k_broker 1.07)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** Week-close clean-stamp regen (2026-07-18) — identical state to the dated 2026-07-18 annotation(s) below; no new movement.
+
+---
+
 ## 2026-07-18T19:23:51+00:00 — Pipeline run (auto)
 
 **Model state:**

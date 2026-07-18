@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-07-18T19:23:51+00:00
-- **Previous run:** 2026-07-18T19:22:42+00:00
+- **This run:** 2026-07-18T19:36:59+00:00
+- **Previous run:** 2026-07-18T19:35:04+00:00
 
 ## Headline changes (material moves)
 
@@ -9,7 +9,7 @@
 
 ## Input files changed since last run
 
-- `inputs/market_data/spot_tce.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 
