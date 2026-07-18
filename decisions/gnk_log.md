@@ -21,6 +21,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-18T20:06:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.12
+- Single-point FV: $24.65
+- Scenario PW FV: $23.82 (EV -1.2%)
+- NAV / share: $25.48
+- Position: **HOLD (fairly valued)**
+- Broker spread: +5.6pp (k_broker 1.05)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** clean-stamp regen after the 2026-07-18 marks promotion — same state as the dated entry below; no new movement.
+
+---
+
 ## 2026-07-18T19:59:08+00:00 — Pipeline run (auto)
 
 **Model state:**
