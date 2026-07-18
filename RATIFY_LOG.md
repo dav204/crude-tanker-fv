@@ -19,3 +19,4 @@ the consumer. The hash is HEAD at ratify time (the ratify commit lands one ahead
 | 2026-07-14T16:41:26Z | 0aa4fba | 2343 onboarding + 2026-07-14 price vintage |
 | 2026-07-15T14:35:08Z | 893002d | hormuz re-tilt RESTORE BOTH (owner ruling 2026-07-14 EVE) + same-evening price vintage |
 | 2026-07-15T19:54:12Z | c6877ee | TEN reconciliation ruled: four §6 forks 'proceed as recommended' (NCI preferred_equity / Ulysses carrying-in-WC / SLB steel excluded / WC composite) — headline 88.76->87.35 in band, TEN the sole drifted row |
+| 2026-07-18T19:46:16Z | d1403e0 | batch absorb, two causes (owner: 'batch baseline ratify' 2026-07-18): (1) the 7/17-close price vintage — EV-only x16, dNAV 0.0 every row; (2) the ratified 13-Jul spot-reproxy §3 applied at the Week-close audit — dry-bulk band-mech flips SBLK HOLD->BUY, CMDB HOLD->BUY, GNK TRIM/SHORT->HOLD, all price-inside-interval per D-M5 |
