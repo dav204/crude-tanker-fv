@@ -17,6 +17,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-18T20:07:52+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.82
+- Single-point FV: $9.82
+- Scenario PW FV: $9.60 (EV +40.8%)
+- NAV / share: $10.17
+- Position: **BUY (undervalued)**
+- Broker spread: -30.5pp (k_broker 0.85)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** clean-stamp regen after the 2026-07-18 marks promotion + family re-run — same state as the dated entries below; no new movement.
+
+---
+
 ## 2026-07-18T20:06:13+00:00 — Pipeline run (auto)
 
 **Model state:**
