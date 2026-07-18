@@ -57,3 +57,16 @@ statement. (Fetched 2026-07-18; advisory PDFs verifiable at the UKMTO links.)
   evidence leans AGAINST the war-falsifier moving toward de-escalation (gate (i) likely clears
   on the war side; the Doha round-3 convening question is its own observable).
 - Day-60 toll cliff (Aug-16) stands pre-registered; nothing here alters it.
+
+## Addendum (2026-07-18 EVE) — second-chokepoint threat: further escalation-beyond-Jun-9 evidence
+
+Surfaced from the 7/16 channel images at the Baltic-image eyeball: Reuters-sourced
+reports (First Squawk / Walter Bloomberg / Staunovo screenshots, 2026-07-16) that
+**Iran has told Yemen's Houthis to prepare to close the Bab el-Mandeb Strait if the
+US strikes Iranian power infrastructure** — missiles/drones reportedly positioned near
+the Red Sea gateway. With Hormuz already shut, a second chokepoint threat covers both
+main MEG export routes. Status: THREAT REPORT, rumor-tier-plus (Reuters-sourced, no
+event fired) — no weight action; registered as the SECOND leg of the
+escalation-beyond-Jun-9 observation (after the 7/14 naval blockade) for the
+**7/22 round-3 watch** and the **Aug-16 toll-cliff reweight**. A fired closure event
+would be a same-day owner page, not a scheduled check.

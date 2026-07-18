@@ -48,15 +48,16 @@ sources:
     expect_cadence: business-daily
     silence_days: 10   # DATED OVERRIDE 2026-07-18 (Week-close probe, was 3): SOURCE-QUIET,
                        # not fetch-broken — John.Pace's full-panel lane dormant since 7/4
-                       # (1 msg/16d) and Chris.Palun's capesize lane switched text→IMAGE
-                       # posts after 7/13 (IMG_9078/9103/9147 — invisible to this text
-                       # parser). Fetch verified healthy (same-channel FFA image lane
-                       # flowing; 7/17 error was transient wake-DNS). FV impact LOW: no
-                       # engine input synthesizes from this CSV; dry-bulk spot rides the
-                       # ratified FFA front-month proxy to ~Sep-1. OWNER items: eyeball the
-                       # three images (index screenshots → hand-enter or add an image
-                       # sub-lane); REVISIT at the Sep-1 spot-daily reversion — drop back
-                       # to 3 then. Same pattern as the pareto_research summer override.
+                       # and Chris.Palun's index TEXT posts stopped after 7/13. IMAGE-DRIFT
+                       # THEORY RETIRED same day (owner eyeball): the 7/15-17 Palun images
+                       # are channel COMMENTARY (Himalaya 5TC chart, Clarksons ZIM note,
+                       # news tweets — one MATERIAL: the 7/16 Bab el-Mandeb closure-threat
+                       # report, routed to the MoU-check escalation observations), NOT
+                       # index screenshots — nothing to hand-enter, no image sub-lane
+                       # needed. Pure summer dormancy on the index panel, both senders.
+                       # Fetch healthy. FV impact LOW (nothing synthesizes from this CSV;
+                       # spot rides the ratified FFA proxy to ~Sep-1). REVISIT Sep-1 —
+                       # drop back to 3. Same pattern as the pareto_research override.
     # When multiple senders post for the same date, higher priority wins.
     priority:
       John.Pace: 2
