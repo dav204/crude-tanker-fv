@@ -541,8 +541,11 @@ def test_mark_wide_nodes_reach_the_handoff_json(tmp_path, rows):
     by = {n["ticker"]: n for n in doc["names"]}
     assert by["LPG"]["mark_wide_nodes"] == ["VLGC@five_year"]
     assert by["BWLP"]["mark_wide_nodes"] == ["VLGC@five_year"]
+    # 2026-07-18 (PPMX seed): SB joins — its Post-Panamax book sits on the
+    # freshly-seeded wide-node fit (ppmx_fit_seed_prereg_2026-07-18.md).
+    assert by["SB"]["mark_wide_nodes"] == ["Post-Panamax@five_year+ten_year"]
     assert all(by[r.ticker]["mark_wide_nodes"] is None
-               for r in rows if r.ticker not in ("LPG", "BWLP"))
+               for r in rows if r.ticker not in ("LPG", "BWLP", "SB"))
     # And the markdown surfaces it next to the NAV-basis flags.
     md = (tmp_path / "book_scorecard.md").read_text()
     assert "§9.9 wide-node exposure" in md and "VLGC@five_year" in md
