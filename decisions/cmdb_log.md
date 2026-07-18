@@ -1918,3 +1918,9 @@ the same NAV-vs-realisation question that produced TEN's 30% haircut._
 (the read-flips sub-reason already documents CMDB's band sensitivity). Explain-not-accept:
 absorbed only at the owner's baseline ratify (2343 onboarding cause). Recross watch armed —
 a later-vintage recross is a NEW eyeball per the 2026-07-10 rule.
+
+## 2026-07-18 — AGM NOTICE (6-K 0001171843-26-004745, filed 7/17)
+
+**Decision:** administrative — 2026 Annual Meeting of Shareholders announcement, no
+financial content. No input moves. The Astros-sale watch (clean age-8 Ultramax print,
+Q2 kit) stays open; H1 window 8/4-8/14 unchanged.

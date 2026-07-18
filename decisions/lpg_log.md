@@ -508,3 +508,13 @@ emitted in the scorecard. A PROVISIONAL name must NOT hand off a governed FV —
 **Decision:** _[pending — fill in the four input YAMLs + watchlist row, then
 run `python -m crude_tanker_fv.pipeline {QUARTER}`. After the first run, the
 pipeline prepends a structured model-state entry above this line.]_
+
+## 2026-07-18 — IRREGULAR DIVIDEND $1.00/sh DECLARED (8-K 0001596993-26-000031, filed 7/16, Item 7.01)
+
+**Decision:** informational — annotate, no input moves. Board declared an **irregular
+dividend of $1.00/share**, record 2026-07-27, payable ~2026-08-12 (~$42-43M on ~42.7M sh).
+Consistent with Dorian's irregular-dividend pattern (the §12 high-payout archetype the
+cycle-relabel already encodes — LPG prints "rich · cycle position", not a short). Cash
+leaves post-Q1-snapshot → lands at the FQ1-FY2027 refresh (window 7/30-8/6, calendar
+unchanged); dividend_policies/lpg.yaml payout characterization re-checked then. No
+tier/actionability consequence (PROVISIONAL·v1-lock-miss; lock re-run Nov-13).

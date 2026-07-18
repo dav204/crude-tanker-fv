@@ -184,12 +184,12 @@ names:
     disclosure_type: 10-Q (US domestic filer; fiscal year ends Mar-31)
     venue: NYSE
   BWLP:
-    window_start: 2026-08-25
+    window_start: 2026-08-28
     window_end: 2026-08-28
-    status: expected
-    basis: "Q2-2026: cadence-derived from the Q2-25 late-Aug slot; Q1-2026 pattern was
-      announce-then-release (May-19 PR -> Jun-2 report). Expect a sets-date PR ~2wk ahead;
-      SEEDED 2026-07-10 at the WO3 Phase-4 onboarding"
+    status: confirmed
+    basis: "Q2-2026 date CONFIRMED by the issuer: 6-K 0001213900-26-078478 ex-99.1 (7/16
+      Product Services pre-announcement) states 'the BW LPG Q2 2026 results ... will be
+      released on 28 August 2026'. (Was cadence-derived 8/25-8/28, seeded 2026-07-10.)"
     disclosure_type: 6-K (quarterly interim report)
     venue: Oslo (primary) + NYSE
   # ---- Stage-3 intake seeds (2026-07-14) — NOT yet watchlist names. The

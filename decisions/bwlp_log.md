@@ -518,3 +518,17 @@ emitted in the scorecard. A PROVISIONAL name must NOT hand off a governed FV —
 **Decision:** _[pending — fill in the four input YAMLs + watchlist row, then
 run `python -m crude_tanker_fv.pipeline {QUARTER}`. After the first run, the
 pipeline prepends a structured model-state entry above this line.]_
+
+## 2026-07-18 — Q2 Product Services PRE-ANNOUNCEMENT (6-K 0001213900-26-078478, filed 7/16)
+
+**Decision:** informational — annotate, no input moves. Exhibit 99.1 (fetched from EDGAR
+7/18; the poller staged only the 6-K cover): Q2-2026 Product Services gross trading result
+**−$19M** (realised +$127M vs unrealised MTM **−$146M** — the giveback off Q1's disclosed
+record-high forward-book valuation as the US/Asia arb narrowed); **net after G&A/tax −$31M**;
+avg VaR $17M (elevated on volatility); H1 realised combined ~+$117M. Impact ≈ **−1.3% of NAV
+base** (−$31M / 151.8M sh / $15.80) — sub-drift-bar, flows through book equity AT the Q2
+refresh. **Q2 results date CONFIRMED 2026-08-28** (calendar upgraded). No tier/actionability
+consequence (PROVISIONAL·v1-lock-miss caps regardless; lock re-run Nov-13). Watch item for
+the Q2 refresh: whether the MTM swing changes the working-capital/trading-book presentation
+the NCI riders assumed (riders a/b, decisions 2026-07-13) — expect NO (parent-level segment,
+BW India NCI untouched), verify at the refresh.
