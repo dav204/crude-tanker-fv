@@ -1,11 +1,51 @@
 # BWLP — Decision Log
 
+## 2026-07-18 — price-vintage drift (7/17 close row): EV-only, accepted at the Week-close gate
+
+**Decision:** price-vintage drift ACCEPTED-as-mechanical (2026-07-18 Week-close gate): the 2026-07-17 close row landed via the daily price-refresh — EV%-only move, **ΔNAV +0.0%** (no model input changed; the FV stands at the 7/15 regen basis). Baseline re-ratify NOT executed — the batch absorb is the owner's deliberate step (2026-06-30 standing-thread discipline); recross of any band on a later vintage = a NEW eyeball.
+
 Chronological record of model state at each pipeline run plus the investment
 decisions taken (or explicitly not taken). Newest entries appear at the top.
 Auto-prepended sections capture model state; the `**Decision:**` line is
 where you annotate what you actually did and why.
 
 (METHODOLOGY §7.8 + decisions/README.md describe the auto-prepend convention.)
+
+---
+
+## 2026-07-18T19:23:51+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $20.35
+- Single-point FV: $15.43
+- Scenario PW FV: $14.46 (EV -28.9%)
+- NAV / share: $15.80
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +21.1pp (k_broker 1.26)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-18T19:22:42+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $20.35
+- Single-point FV: $15.43
+- Scenario PW FV: $14.46 (EV -28.9%)
+- NAV / share: $15.80
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +21.1pp (k_broker 1.26)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
 
 ---
 

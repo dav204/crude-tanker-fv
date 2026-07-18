@@ -57,11 +57,15 @@ spot_tce:
   Handymax: 35600       # chem-Handy proxies MR (convention unchanged, §11.5)
   LR1_clean: 71700      # LR1 eco (Pareto 2-Jul; +0.1% d/d)
   LR2_clean: 89000      # LR2 eco (Pareto 2-Jul; -8.5% d/d)
-  Cape: 29981           # Capesize VLSFO (Pareto 2-Jul; -7.2% w/w)
-  Pana: 19591           # Panamax (Pareto 2-Jul; +1.1% d/d)
-  Post-Panamax: 19591   # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  Supra-Ultra: 18500    # NO Smax spot print in the daily — proxied to the Smax FFA m1
-                        # (Jul-2 FFA OCR widget, status ok; outputs/ffa_ocr_queue.md 2026-07-02)
+  Cape: 36000           # FFA front-month (jul) proxy per the RATIFIED 13-Jul promotion §3
+                        # (decisions/ffa_promotion_2026-07-13.md; Pareto seasonal silence to
+                        # ~Sep-1 — revert to daily spot prints when dailies resume). APPLIED
+                        # 2026-07-18 at the Week-close audit: the §3 values were ratified but
+                        # never wired (the audit's catch — as_of already claimed 7/13).
+  Pana: 20000           # FFA front-month (jul), same ratified record
+  Post-Panamax: 20000   # shares the Pana freight basin (§11.7.10, 2026-06-29)
+  Supra-Ultra: 19050    # FFA front-month (jul), same ratified record (extends the 2-Jul
+                        # Supra FFA-proxy precedent to the whole dry family for the silence)
   Handy-Bulk: 16466     # §11.7.11 (2026-07-14): BHSI 38k 7TC avg earnings, week-close
                         # 10-Jul-2026 (Baltic Exchange via xclusiv W28 p.1; 13-Jul print
                         # 16,445 corroborates). Gross basis like the dry family rows; no

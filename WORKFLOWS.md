@@ -217,6 +217,11 @@ pages when due; the recapture is ONE sitting, one source:
    discipline (memory: isolate commit from price drift).
 5. Re-arm the trigger to the next quarter boundary; record the sitting in decisions/.
 
+## Ops gotcha — long-running nohup jobs (migrated from CLAUDE.md 2026-07-18)
+
+Long-running nohup jobs die silently (block-buffered stdout; 2026-06-10). Pattern:
+`nohup sh -c 'PYTHONUNBUFFERED=1 … ; echo "EXIT $?"' >> log 2>&1 &`; watch log mtime, not contents.
+
 ## Week-close checklist (migrated from CLAUDE.md 2026-07-01; codified 2026-06-11, owner decision)
 
 Work is organised in sprints ("Weeks"). At the END of each Week, before handoff, run this — docs accrete

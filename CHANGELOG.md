@@ -51,6 +51,30 @@ live rules distilled from it.
   it already reds the WO1-F1 guard (pre-existing; the `_vintage_stamp` docstring still blessed
   committed '-dirty' stamps and is now corrected); regenerate from clean HEAD at the next
   chore(outputs) round.
+- **2026-07-18 — WEEK CLOSE (Jul-13 → Jul-18).** The 5-step checklist run end-to-end (owner
+  "Yes"): **(1) doc audit** — 5-agent read-only fan-out; fixes applied: METHODOLOGY (TEN §6
+  restated to the reconciled figures; §15.3/§15.7 vintage-flagged; §11.5 Handysize 44.9
+  restatements ×3; §9 decision-1 marked resolved-by-D-M4; schema pin → 2.5; Handy-Bulk alias
+  note; §18.2 LR1 no-parity split; §1 coverage → 25/6; §17.7 APPROX list synced; **Appendix A
+  Week entry added**), CLAUDE.md (Handy-Bulk dwt baseline added; two rotting counters dropped),
+  TICKER_NOTES (13 patches: TEN/GNK/TRMD restated, CAPT/CMDB/GSL/BRUT/MPCC/SB/CCEC/STNG/INSW
+  dated lines, 4 missing entries added [CMBT/2343/LPG/BWLP]), README (schema 2.5, tables +6 rows
+  + LPG table, B4 semantics, dead counters), LIMITATIONS (APPROX seven→nine, TEN vintage-flag,
+  MB-container (a) CLOSED, §4 restated post-P1c). **The audit's material catch: the RATIFIED
+  13-Jul spot re-proxy §3 was never wired** — applied (Cape 36,000 / Pana+PPMX 20,000 / Supra
+  19,050); dry-bulk band-mech flips CMDB HOLD→BUY · GNK TRIM/SHORT→HOLD · SBLK HOLD→BUY (all
+  price-inside-interval per D-M5, logs annotated with BOTH causes). **(2) verification gate** —
+  suite 587+3skip+15xf green · backtest 13 · pipeline clean · reconcile 25×SANITY-OK · drift
+  gate **0 UNEXPLAINED / 17 explained** (the 7/17 price vintage ×16 annotated EV-only ΔNAV 0.0;
+  batch baseline ratify = the owner's next deliberate step, now carrying both causes).
+  **(3) PLAN rewritten** (2026-07-18 state + the Week-of-7/20 theme: Q2 intake + Stage-A basis
+  accumulation). **(4) clean git** with this entry. Also: baltic_indexes staleness probed →
+  **SOURCE-QUIET + a text→image format drift** on the capesize lane (silence_days 3→10 dated
+  override, the pareto summer-override pattern; owner eyeballs the three images); the sentinel's
+  other 7/18 flags all dispositioned same-day (MoU check recorded; 3 filings triaged).
+  **Process catch for the rulebook: a "read-only" audit agent ran the suite in the shared tree
+  and stashed collateral, sweeping the session's annotations — recovered deterministically;
+  audit agents get worktree isolation or no state-mutating commands next time.**
 - **2026-07-15 (close) — THREAD (d) SIGNED (owner verbatim: "sign thread (d) as confirmed") —
   CLOSED.** §4 consequences executed: STNG's 2-VLCC §9.6 gate formally lifted (wiring = its own
   prereg, post-Stage-A; stng_log annotated); the live "level-provisional" VLCC language retired

@@ -124,7 +124,7 @@ width (`wide-spread`/`narrow-spread`); per-name classification lives in
 METHODOLOGY §6.
 
 Mark-driven snapshot below is the 4-Jun-2026 vintage (13 names, pre the
-txn-anchored default flip); the LIVE 19-name table with current k_broker
+txn-anchored default flip); the LIVE 25-name table with current k_broker
 values regenerates every run at `outputs/broker_nav_sweep.md` — trust that,
 not this list: TNK (+10pp), TRMD (+22pp), INSW (+22pp), STNG (+27pp),
 ASC (+29pp), HAFN (+31pp), NAT (+51pp), FLNG (-20pp), CCEC (-15pp).
@@ -219,7 +219,10 @@ Set B-revised).
   hybrid + first name with `shuttle_contracted_book` populated ($453.1M
   in-water NPV) + first §15 case (30% governance haircut). Post-§15 tool
   PW FV $49.37 vs price $44 (EV +12%, **BUY**) — consistent with VIE
-  Bullish $51.50. The shuttle convention is APPROX on the Brasil 2014 /
+  Bullish $51.50. *(Jun-6 vintage — the $44 price was corrected to $37.14
+  on 2026-06-10, and the 2026-07-15 FULL reconciliation closed: NAV
+  88.76→87.35, all figures 6-K-cited, forks ruled, baseline re-ratified,
+  TEN left `NAV_FIGURE_ESTIMATE_QUEUE`. Live: PW FV $56.46, EV +42%.)* The shuttle convention is APPROX on the Brasil 2014 /
   Rio 2016 extension rate ($60k/day estimate of the 6-K "increased rate"
   disclosure); refresh when actual rate disclosed.
 
@@ -288,14 +291,16 @@ Set B-revised).
 ### Per-input
 
 - **APPROX consensus_pnav entries** on **NAT, ASC, CCEC, TEN, CMDB, MPCC,
-  GSL** — no broker P/NAV print exists for these seven (NAT/ASC/CCEC shown
+  GSL + SB (0.88 P/BV proxy) + 2343 (0.98 issuer-composite — AR-published
+  per-class broker values, the strongest APPROX basis; added 2026-07-14)** —
+  no broker P/NAV print exists for these nine (NAT/ASC/CCEC shown
   as "-" in the Pareto daily; TEN/CMDB/GSL uncovered; MPCC covered on
-  EV/EBITDA only), so their broker NAVs remain unanchored estimates
+  EV/EBITDA only), so the first seven's broker NAVs remain unanchored estimates
   (NAT 0.85 band-midpoint, ASC 0.75 aggregator commentary, CCEC 0.90
   ~book, TEN 0.34 VIE-stale rebased 2026-06-10, CMDB 0.62 spinoff-book
   P/BV proxy, MPCC 1.04 company-implied NAV NOK ~25.5 of Jul-25, GSL
   0.75 depreciated-cost P/B proxy — WEAK). The broker-NAV sweep's EV @
-  broker columns for these seven carry meaningful uncertainty; that is
+  broker columns for these nine carry meaningful uncertainty; that is
   why the v1 containerships calibration lock is N/A-by-construction.
   *(STNG, TRMD, HAFN were APPROX until 2026-06-04; now real Pareto 4-Jun
   prints of 0.70 / 0.83 / 0.95 — the STNG/TRMD corrections reclassified
@@ -306,10 +311,11 @@ Set B-revised).
 - **Containership marks: stale vintage + conservative old-age tilt
   (§11.8.5, OPEN — added 2026-06-12).** Two layered biases, both
   documented in the §16 overlay ledger with active rows on MPCC and GSL:
-  (a) the MB Container Weekly feed (sole source for container cycle
-  anchors and age-curve marks) stopped arriving 2026-04-01, so the
-  anchor vintage is frozen ~10 weeks stale pending Dan's direct
-  MB Shipbrokers subscription; (b) tool old-age marks read 0–33% BELOW
+  (a) **CLOSED 2026-07-06:** the MB Container Weekly feed (stopped
+  2026-04-01) resumed via the direct MB subscription 2026-06-12; container
+  cycle anchors + Ctr-* 12M TCs REFRESHED from MB Container Weekly 27
+  (`decisions/container_ingest_2026-07-06.md`; next refresh trigger
+  `container_mb_refresh` 8/7); (b) tool old-age marks read 0–33% BELOW
   realized on MPCC's three disclosed sale prints — deliberate
   conservatism, but it tilts NAV down on old-fleet container names.
   Both validators' TRIM signals should be read with this tilt in mind;
@@ -381,9 +387,13 @@ Set B-revised).
   **DHT, ECO, FRO** (k_broker 0.99-1.00, tool→broker spread ≤1pp), confirming
   the tool's VLCC/Suezmax/Aframax curves are consistent with broker consensus.
   (STNG was previously listed here; the Pareto 4-Jun P/NAV check reclassified it
-  mark-driven at +27pp — see §1. No pure-product name is mark-validated: broker
-  and VIE both mark product ~25-50% above our curves, the §14.6.1 LR2 cargo-
-  switching option gap.)
+  mark-driven at +27pp — see §1. *(Restated 2026-07-18 on the B4
+  two-regime semantics: the ≤1pp figures are the pre-2026-06-09 regime —
+  live crude k's run 1.07-1.11. Post-P1c [MR resale-uniform 7/15] the
+  product complex has moved INSIDE the validated band: TRMD k 1.12 / ASC
+  1.18 — "no pure-product name is mark-validated" no longer holds as
+  written; TRMD's VALIDATED-TIGHT is scheduled at the post-Stage-A LR1
+  anchor round. The §14.6.1 LR2 cargo-switching gap note stands.)*
 
 ## 5. What the tool was NOT validated against
 

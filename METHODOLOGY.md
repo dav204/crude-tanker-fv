@@ -4,7 +4,7 @@
 
 This tool produces an **independent fair value estimate per share** for crude tanker equities, used to validate and stress-test existing target prices on the watchlist. It is not a buy/sell recommendation engine; it is a structured methodology applied consistently across names so that disagreements between the tool and analyst targets can be diagnosed (input differences vs. weighting differences vs. genuine methodology divergence).
 
-**Current coverage (19 names across 5 sectors as of 2026-06-12):** crude 8 (DHT, ECO, FRO, INSW, TNK, NAT, TEN-hybrid, CAPT) / LNG 2 (FLNG, CCEC) / product 5 (STNG, HAFN, TRMD, ASC + INSW's product sleeve) / dry bulk 3 (SBLK, GNK, CMDB) / containerships 2 (MPCC, GSL). The table below is the original crude v1 cohort; per-name detail for all 19 lives in §6 and the decision logs:
+**Current coverage (25 names across 6 valued sectors as of 2026-07-18):** crude 10 (DHT, ECO, FRO, INSW, TNK, NAT, TEN-hybrid, CAPT, BRUT, CMBT-hybrid) / LNG 2 (FLNG, CCEC) / product 5 (STNG, HAFN, TRMD, ASC + INSW's product sleeve) / dry bulk 5 (SBLK, GNK, CMDB, SB, 2343) / containerships 2 (MPCC, GSL) / LPG 2 (LPG, BWLP — sector PROVISIONAL·v1-lock-miss). The table below is the original crude v1 cohort; §6 covers through CAPT — newer names' quick-refs live in TICKER_NOTES.md and the decision logs:
 
 *Crude tanker sector (`sectors.crude` — three-phase MoU framework):*
 
@@ -575,10 +575,10 @@ The VIE Coverage Universe (Catlin / Mintzmyer, accessed 2026-06-03) carries TRMD
 
 ### TEN (Tsakos Energy Navigation, NYSE:TEN) — first 3-sleeve hybrid
 
-- Bermuda-incorporated FPI; **first name in `THREE_SLEEVE_TICKERS`** — crude (39 vessels) + product (17) + lng (2) sleeves split via `crude_carve_out` + `product_carve_out` + `lng_carve_out` against a single whole-company denominator. Onboarded 2026-06-06 (architecturally unblocked 2026-06-05 PM by §11.6).
+- Bermuda-incorporated FPI; **first name in `THREE_SLEEVE_TICKERS`** — crude (37 vessels — 2026-07-15 reconciliation; was 39 before the 4 not-owned hulls left) + product (17) + lng (2) sleeves split via `crude_carve_out` + `product_carve_out` + `lng_carve_out` against a single whole-company denominator. Onboarded 2026-06-06 (architecturally unblocked 2026-06-05 PM by §11.6).
 - **Shuttle sleeve OFF-CURVE** (4 in-water DP2 vessels — Brasil 2014, Rio 2016, Athens 04, Paris 24): per METHODOLOGY §11.6 off-curve-at-contracted-book convention. `shuttle_contracted_book = $453.1M` (NPV of disclosed TC rates + Suezmax-curve residual at expiry, discounted at WACC 11%, utilization 98.3%, daily opex $11,000/day). Brasil 2014 / Rio 2016 include the 5-year extension agreed Q2-2026 (data kit + 6-K April subsequent event) at an APPROX $60k/day rate — refresh when the actual rate is disclosed.
-- **Newbuild orderbook (19 vessels, $2,403M contract value):** treated as delivered-value = contract-price across the board (no hot-market markup). Convention: `newbuild_advances_paid = $400M` (the only NAV contribution from the NB program); `newbuild_capex_commitments = 0` (the future cash buys delivered vessels of equal value; net zero NAV impact). Equivalent to FRO-style "list NBs in fleet at delivered" when delivered = contract, but cleaner since we have no Shuttle vessel class to put 10 of the 19 NBs on. **Refresh per quarter** as advances grow and NBs deliver.
-- **Preferred equity $287.3M:** 4,745,947 Series E (9.25%, $25 par) + 6,747,147 Series F (9.50%, $25 par). Subtracted from NAV (METHODOLOGY §4.2). Tsakos-affiliated entities hold 0.95% Series E + 1.5% Series F per 20-F.
+- **Newbuild orderbook (19 vessels, $2,403M contract value):** treated as delivered-value = contract-price across the board (no hot-market markup). Convention: `newbuild_advances_paid = $442.740M` (Q1-2026 6-K BS-cited, 2026-07-15 — was $400M[EST]; the only NAV contribution from the NB program); `newbuild_capex_commitments = 0` (the future cash buys delivered vessels of equal value; net zero NAV impact). Equivalent to FRO-style "list NBs in fleet at delivered" when delivered = contract, but cleaner since we have no Shuttle vessel class to put 10 of the 19 NBs on. **Refresh per quarter** as advances grow and NBs deliver.
+- **Preferred equity $333.282M** (2026-07-15: $287.328M E+F + $45.954M Mare Success NCI netted via preferred_equity, the BWLP convention; pinned by test_scenarios): 4,745,947 Series E (9.25%, $25 par) + 6,747,147 Series F (9.50%, $25 par). Subtracted from NAV (METHODOLOGY §4.2). Tsakos-affiliated entities hold 0.95% Series E + 1.5% Series F per 20-F.
 - **Cycle position:** crude sleeve at 1.98× (late-cycle/peak; w_nav = 0.70, w_earn = 0.30) — drives the headline. Product and LNG sleeves carry their own cycle positions through the per-sleeve scenarios.
 - **Governance / value-trap haircut (§15, applied 2026-06-06):** TEN is the framework's **first §15 case** — `governance_discount_pct: 0.30` on the balance sheet. Drivers: controlled-shareholder structure (Tsakos family), related-party transactions (Tsakos Columbia management fees), low common payout (~19% of EPS in 2026), no buyback program, preferred-share structure with affiliated holders. The 30% haircut applies at the blend layer (NAV term) and on the strip's terminal value; broker-NAV sweep / k_broker continue operating on undiscounted asset NAV.
 - **Build output (2026-06-06, Q1 2026 inputs, post-§15 haircut):**
@@ -587,7 +587,7 @@ The VIE Coverage Universe (Catlin / Mintzmyer, accessed 2026-06-03) carries TRMD
   - Scenario PW FV: **$49.37** (EV +12.2%); pre-haircut would have been $68.16
   - **Position: BUY (undervalued)** — milder than pre-haircut; lands near **VIE Bullish $51.50** (independent external confirmation that the right anchor is ~$50 post-discount, not ~$68 pre-discount)
 - **Sources:** Q1 2026 6-K (filed 2026-05-22), 2025 20-F (filed 2026-04-06), TEN Data Kit (May 11, 2026). Per-vessel TC rates and NB schedule refresh from the **monthly data kit**; balance sheet detail from 6-K + 20-F. See `decisions/ten_log.md` for the full architectural-unblock history.
-- **APPROX flags / refresh items:** (1) Shuttle extension rate $60k/day APPROX from 6-K "increased rate" disclosure; (2) NB advances paid $400M estimated between 20-F Dec $301.9M and data kit May $430M; (3) Working capital $28M rolled forward from 20-F; (4) Common diluted shares 30,127,603 from 20-F at Dec 2025 (no Q1 2026 buyback disclosure). Refresh all when next quarter's 6-K lands.
+- **APPROX flags / refresh items (restated 2026-07-15 — the full reconciliation resolved (2)-(4)):** (1) Shuttle extension rate $60k/day APPROX from the 6-K "increased rate" disclosure — the ONE surviving flag; (2) advances RESOLVED $442.740M (6-K BS); (3) WC RESOLVED $174.654M composite (6-K, basis validated at Dec-31); (4) shares confirmed. **2026-07-15 reconciliation:** headline NAV 88.76→87.35 (bands hit), four §6 forks RULED ("proceed as recommended"), TEN-only baseline re-ratified, ten LEFT `NAV_FIGURE_ESTIMATE_QUEUE` (stays OFF_CONVENTION + OPERATING_SCRUBBER). H1 (~Sep) revisits: Ulysses gain + ~$83M cash; Arctic/Antarctic re-add owned; WC components.
 - **Status vs prior log:** the entire `decisions/ten_log.md` revisit-criteria checklist is **closed**. TEN is no longer a deferred candidate — it is the watchlist's 13th name and the first 3-sleeve hybrid.
 
 ### SBLK (Star Bulk Carriers, NASDAQ:SBLK) — first dry-bulk validator; mark-driven (added 2026-06-10, promoted from decisions/sblk_log.md)
@@ -811,7 +811,7 @@ These thresholds are tunable but treated as the standard sensitivity. Tighten th
 
 Decisions that should be revisited as the model matures or new data becomes available:
 
-1. **Cycle weighting curve shape** — currently a step function across five bands. Could be replaced with a continuous logistic, but step function is more interpretable. Revisit after first quarter of use.
+1. **Cycle weighting curve shape** — currently a step function across five bands. Could be replaced with a continuous logistic, but step function is more interpretable. — *resolved (D-M4, 2026-07-15): piecewise-linear ramp RULED; `cycle.py` frozen until the shared D1 adoption round (~late Aug).*
 2. **Terminal value multiple** — *resolved (B6): LOCKED at 1.0× (owner 2026-06-21), then **SUPERSEDED 2026-06-22 → CYCLE-CONDITIONAL + net retained earnings*** (owner, as part of the methodology-soundness audit — `outputs/METHODOLOGY_AUDIT_2026-06-22.md`). The terminal now (i) mean-reverts the aged **fleet** value by a cycle-conditional multiple — peak 0.90× / elevated 0.95× / mid 1.00× / below-mid 1.05× / trough 1.10×, on the §2.3 cycle bands via `cycle.terminal_multiple` (cash/debt are NOT reverted); and (ii) carries the balance sheet forward with **net retained earnings** over the strip — `terminal cash += Σ(EPS − DPS)/share` (flat for ~100%-payout names, rising for low-payout retainers — fixes the §12 buyback/low-payout undercount — falling only for names paying out more than they earn). This makes the engine honest against §10/§12.1, which described mean-reversion + dividend-extraction the old flat-1.0× terminal did not implement. Pinned by `test_terminal_multiple_cycle_conditional` + `test_terminal_retains_earnings_low_payout`; `TERMINAL_NAV_MULTIPLE = 1.0` remains the mid-cycle / no-cycle default. Full record + live book impact: **`outputs/terminal_value_options_memo.md` §5** (CCEC +31pp; GSL/TNK/STNG flip toward BUY; DHT 14.31→14.00 via 0.9×; SANITY 0 fail). *(Historical: the 2026-06-21 sweep that informed the since-superseded 1.0× lock — {0.85…1.15}, 12/19 names never flipped — is retained in the memo.)*
 3. **LR2 classification for FRO** — crude or product? Affects fleet weighting and rate inputs.
 4. **INSW allocation method** — *resolved (§6 v2)*: hybrid carve-out allocates by vessel **market value** (not count, not EBITDA), with vessel-secured debt assigned directly to its sleeve and corporate/unsecured debt pro-rated by sleeve vessel-value share. Dual-use LR1 split 30% crude / 70% product. **Both sleeves now run through the scenario engine and aggregate to a whole-company FV** (the v2 product strip — MR/LR1_clean/LR2_clean forward curves under the four MoU scenarios, with the product sleeve weighted MORE bearish than crude to reflect "product is leading the rate normalization" per the May-29 MR -52% / LR2 -28% w/w prints). The scenario report shows the per-sleeve breakdown plus the whole-company aggregate vs the actual tape price; the FV report (single-point detail) remains crude-sleeve.
@@ -1363,7 +1363,10 @@ unresolved residual, to be tested at the Q2 2026 product-print re-evaluation gat
 
 A **Handysize class** (~37-40k DWT clean-product) was added to
 `vessel_value_curves.yaml` (NB $40M / 5yr $34M / 10yr $26M / scrap $4.5M;
-eco-inclusive, premiums 0 — same convention as MR/LR1). Going deep into the
+eco-inclusive, premiums 0 — same convention as MR/LR1). *(Age-0 re-sourced
+2026-07-15 → **$44.9M**, the ASC issuer April-2026 contract floor — the
+Thread-1A $36M was the xclusiv BULK row, contamination corrected; mid-age
+nodes stay static. decisions/product_handysize_resource_2026-07-15.md.)* Going deep into the
 hulls showed the old blanket "no Handysize class" gap was really **three
 distinct problems wearing one label**, and the build addresses only the first:
 
@@ -1379,7 +1382,7 @@ distinct problems wearing one label**, and the build addresses only the first:
    STNG's 14 IMO-II chemical Handymax (~38k DWT Hyundai Mipo 2008-2014 builds)
    migrated to a dedicated **Handymax class** anchored on STNG's own disclosed
    marks ($14.3M/vessel at avg-age 15). Curve: NB $45M / 5yr $32M / 10yr $20M /
-   scrap_25 $4M — distinct from clean-product Handysize ($40 / $34 / $26 / $4.5),
+   scrap_25 $4M — distinct from clean-product Handysize ($44.9 [age-0 re-sourced 2026-07-15] / $34 / $26 / $4.5),
    reflecting the chemical discount that lives **on the value side**, not rates.
    Rate side empirically validated: STNG's Q1+Q2 2026 disclosed Handymax pool/
    spot rates ($34k Q1, $32k Q2) ran ≈ MR rates ($32k Q1, $36.5k Q2) — so the
@@ -1419,7 +1422,7 @@ divergence emerges.
 A **Handymax class** (38k DWT IMO-II coated chemical-capable) was added to
 `vessel_value_curves.yaml` (NB $45M / 5yr $32M / 10yr $20M / scrap_25 $4M;
 eco-inclusive, premiums 0). Distinct from the clean-product Handysize curve
-($40 / $34 / $26 / $4.5) — steeper depreciation reflects the narrower second-
+($44.9 [age-0 re-sourced 2026-07-15] / $34 / $26 / $4.5) — steeper depreciation reflects the narrower second-
 hand market for IMO-II coated hulls. **STNG's 14 Handymax (Hyundai Mipo 2008-
 2014, ages 12-18) migrated on-curve**; STNG `working_capital_net` $802.8M →
 $602.8M, on-curve fleet +$205M (vs prior $200M estimate), net NAV +$0.10/sh.
@@ -1911,7 +1914,7 @@ so it runs a **static broker-quote curve** on LNGC/container §9.9 semantics (k_
 broker premium over OUR curve; no txn fit).
 
 - **Nodes** (xclusiv 2026-06-22 committed vintage, the family's Thread-1 basis; the xclusiv
-  "Handysize" row is the BULK section — `AGE0_BASIS: alias:Handysize`): age-0 $36.0M / 5yr
+  "Handysize" row is the BULK section — renamed **Handy-Bulk** 2026-07-15 and read DIRECTLY; alias retired): age-0 $36.0M / 5yr
   $29.5M / 10yr $23.3M / scrap $4.5M [LDT-convention ESTIMATE]; dwt-scaled at 38k. Multi-
   broker corroboration within ±4% (MB weekly, Compass, Intermodal, AST, Baltic S&P
   assessment) + **2343's own Dec-2025 JNS 40k-Handy contract $29.8M/hull vs the $30.5M NB
@@ -2403,7 +2406,7 @@ leg reproduces the 18yr/$57M and 23yr/$48M out-of-window prints within $2-3M; th
 no-scrappage-lever cell priced). Fit: n=7, slope −$2.40M/yr; **age-10 is the STRONG node**
 ($80.3M, stable under every exclusion cut); **age-5 is EXTRAPOLATED** (zero 5-yr prints) —
 **flagged WIDE $89.7-95.9M**, machine-readable via `provenance.MARK_WIDE_NODES` → per-name
-`mark_wide_nodes` in `book_scorecard.json` (schema 2.3) for tonnage aged 2.5-7.5 (the ≥50%
+`mark_wide_nodes` in `book_scorecard.json` (schema 2.5 at 2026-07-15; consumers assert major==2) for tonnage aged 2.5-7.5 (the ≥50%
 node-sensitivity window). Related-party prints (BW Chinook/Pampero) downweighted mechanically
 by recency; the BW Yushi purchase-OPTION strike is documentation only, never fit. Sample watch
 items: Dorian trio per-vessel splits (Q4-26 filings), Advanced full-year re-harvest.
@@ -2708,7 +2711,9 @@ Currently on the watchlist:
   applies ~47% discount vs the unconstrained NAV. The framework's pre-
   haircut BUY signal at +55% EV would mislead a reader without explicit
   governance overlay. With the 30% haircut, the signal moderates to a
-  +12% EV BUY consistent with VIE.
+  +12% EV BUY consistent with VIE. *(Jun-6 vintage figures; 2026-07-15
+  reconciliation: PW FV $56.46, EV +42.0% at $39.75, BUY intact — and the
+  VIE $51.50 anchor is itself >1yr stale, revisit at the Sep H1.)*
 - **CMDB (Costamare Bulkers)** — second §15 case, haircut set 2026-06-10
   (owner decision: "roughly equivalent to TEN") at 30%. Drivers:
   related-party management/agency fees ($21.6M/yr to Costamare-affiliated
@@ -2853,7 +2858,7 @@ quantitative anchors now exist alongside the §15.4 banding:
   capitalized = $233-280M ≈ 30-36% of its $779M equity NAV — landing on
   the 30% haircut independently of the TEN-equivalence judgment.
 - **External-anchor implied discount**: 1 − (anchor target / tool NAV).
-  TEN: VIE Bullish $51.50 vs NAV $80.79 → ~36%.
+  TEN: VIE Bullish $51.50 vs NAV $80.79 → ~36% (Jun-11 vintage; at the 2026-07-15 reconciled NAV $87.35 the implied discount ≈ 41% — outside the 30-36 band this example recorded; the VIE anchor is stale, recompute at the Sep H1).
 The market's own persistent P/NAV is the FLOOR-side reference, never the
 calibration: haircutting to market ratifies the price and deletes the
 signal (§15.6). Size between the anchors; record the triangle
@@ -3026,7 +3031,7 @@ not all true long-run means (§10 anchor-basis machinery):
 Unlike the broker-NAV sweep (needs a Pareto P/NAV) and the consensus-EPS
 cross-check (needs a consensus forward P/E), this leg uses only the tool NAV and
 a normalized EPS — **no broker coverage**. So it gives the APPROX / no-Pareto
-names (SB, CMDB, GSL, MPCC, CCEC, NAT, ASC, TEN, CMBT) the independent NAV
+names (SB, CMDB, GSL, MPCC, CCEC, NAT, ASC, TEN, 2343 — synced 2026-07-18 to reconcile.APPROX_PNAV_TICKERS) the independent NAV
 benchmark they otherwise lack, and lets the subsector multiple structure (why
 dry bulk should earn a lower multiple than LNG) fall out of fundamentals rather
 than hand-set scenario weights. **Hybrids** (INSW/TEN/CMBT) use whole-company
@@ -3103,8 +3108,10 @@ level band can't catch: `HALT if newbuild_contract ≥ prompt_resale[class]` (a 
 or above resale is prima facie a resale-as-contract error) — it fires on the original
 $175M without anyone looking. Classes with no broker contract mark return **no parity**:
 LNG/container (boom-tilted historical AND resale-inflated parity — no validated rate on
-either basis, suppressed from the headline vector); product LR1/Handysize/Handymax
-(pending — deferred to a future amendment with bands set before computing); Post-Panamax
+either basis, suppressed from the headline vector); product Handysize/Handymax
+(pending — no dated broker contract marks exist); LR1 RULED no-parity 2026-07-15
+(`newbuild_contract` LR1 stays OMITTED — the contract-floor age-0 makes parity
+degenerate; PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md §2); Post-Panamax
 (registered on a flat Kamsarmax replacement-equivalent basis, Amendment 2 — nobody orders
 90k bulkers; flat not dwt-scaled, consistent with the §11.7.10 P2 per-tonne discount).
 
@@ -3146,6 +3153,18 @@ signal is not a result** until the orderbook data confirms it (§18.5b).
 ## Appendix A. Changelog
 
 Dated record of material framework changes. Lock dates use UTC.
+
+### 2026-07-18 — Week close (Jul-13 → Jul-18): 2343 + Handy-Bulk; crude war-tilt restored; forward-print ruling signed (Stage A ≤ Aug-15); D-M2/3/4/5 ruled; thread (d) / MR / LR1 basis arcs; TEN reconciliation (schema 2.5)
+
+- **2343 (Pacific Basin) onboarded** — 25th name, first HKEX listing, first Handy-Bulk carrier — off the AR2025 audited 31-Dec snapshot (subsequent-events note first). Pre-registered bands all passed first-run: NAV $0.39, SANITY −2.0% vs the issuer-composite APPROX anchor, k_broker 1.03, HOLD. New **§11.7.11 Handy-Bulk class** (Option B, owner-ratified 2026-07-14): static xclusiv 2026-06-22 broker curve ($36.0/$29.5/$23.3/$4.5 @38k, dwt-scaled), un-anchored (zero classified dry-Handy prints); rate deck = supra_ultra × 0.90 (identity-guarded); tier GOVERNED-WIDE·pending-anchor via the new `UNANCHORED_VALUE_CLASS_CAP`; re-fit trigger `handy_bulk_txn_refit` armed.
+- **Hormuz re-escalation — the pre-registered crude war-tilt RESTORED (2026-07-12)**, then the LNG v4 + product war shapes restored 2026-07-14 (owner: "restore both as coherence default") — 3-sector coherence back to the Jun-9 state. The `crude_mou_implementation_check` (due 7/17, run 7/18) FAILED all three observables (7/14 naval blockade = the reverse of removal; TSS mine area still published; transits ~8-11% of pre-crisis) and closed PRO-FORMA — the 7/12 restore already is the pre-registered shift. Escalation-beyond-Jun-9 observation registered for the 7/22 round-3 watch + the Aug-16 toll-cliff reweight.
+- **Tanker forward-print ruling SIGNED 2026-07-15** ("sign as specified"): the tanker FFA/12M-TC lines (held at the Jun-7 war vintage) re-anchor two-stage — **Stage A ≤ 2026-08-15 unconditional** (cluster basis per PRE_REGISTRATION_TANKER_CLUSTER_REANCHOR.md, DHT-print fallback), Stage B 8/26–9/04 band-gated. Sequencing principle ruled: one FV-moving event in flight at a time — Stage A → D-M2 sweep → D1 round.
+- **D-M2/3/4/5 RULED 2026-07-15** ("proceed as recommended"): **D-M5 executed same day** — fv_low/fv_high scenario intervals in the Verdict + book_scorecard schema 2.4, with the interval FLIP-TRIAGE rule live in the drift gate (price inside the interval → band-mech, no eyeball; interval-EXIT keeps the eyeball). D-M2 (leverage-adjusted r_e, Option B) + D-M3 (parity-denominator A/B, frozen) post-Stage-A; **D-M4 closes §9 open decision 1** (piecewise-linear ramp; cycle.py frozen until the D1 round).
+- **Thread (d) SIGNED-CLOSED** ("sign thread (d) as confirmed"): the 2026-07-13 xclusiv weekly confirms every wired crude Resale anchor within the Thread-1B ±2% (VLCC 175.0 exact; advanced W28 corroborates; label-verified). Zero movement; STNG's 2-VLCC §9.6 gate lifted (wiring = its own post-Stage-A prereg); the "level-provisional" language retired.
+- **P1c — MR cleared to resale-uniform**: the same xclusiv issue RESUMED the MR2 secondhand line (dropped since 2023Q4); the $54M exception confirmed −1.8%; age-0 re-anchored to Resale **$55.0M** (`XCLUSIV_WIRED += MR`, exception retired). TEN the pre-registered sole mover (+0.07%, to the cent). Companion Thread-1A correction: product-Handysize age-0 re-sourced 36→**$44.9M** (ASC issuer contract; the $36M was the xclusiv BULK row — renamed Handy-Bulk, read directly, alias retired). Zero live movement.
+- **LR1 contract-floor + `resale-corroborated` taxonomy RULED** ("taxonomy (b) + contract-floor, post-Stage-A"; PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md FROZEN): age-0 → the dated xclusiv NB floor (~$61.0M★), 5yr → the dated intermodal mark (~$60.0M★; ★ re-dated at execution) — clears the wired inversion (59 < 60 < 61). New scoped status `resale-corroborated` (two-dated-marks class qualification + per-name age≥10 honesty rule, guard-tested). **TRMD → VALIDATED-TIGHT (the 7th) is scheduled work at the post-Stage-A anchor round**; `newbuild_contract` LR1 stays OMITTED (degenerate parity).
+- **TEN fully reconciled 2026-07-15** (prereg bands HIT: headline 88.76→**87.35** vs predicted 87.34; base 94.58 exact): advances $442.740M / WC $174.654M composite / debt $2,136.109M all 6-K-cited; +$45.954M Mare Success NCI netted (BWLP convention); 4 not-owned hulls out (Ulysses HFS; 3 true-sale SLBs — Arctic/Antarctic re-add owned at H1). Four §6 forks RULED ("proceed as recommended"), TEN-only baseline re-ratified, **ten LEFT `NAV_FIGURE_ESTIMATE_QUEUE`**; ev-family re-anchored (point==family-max; **schema 2.5** family-containment guard).
+- **Week-close mechanics (7/18):** BWLP Product-Services Q2 pre-announce triaged (net −$31M ≈ −1.3% NAV at the Q2 refresh; results date CONFIRMED 8/28); LPG $1.00 irregular dividend; the ratified 13-Jul spot re-proxy §3 values found UN-WIRED by the audit and APPLIED (Cape 36,000/Pana 20,000/Supra 19,050 — dry-bulk band-mech flips CMDB HOLD→BUY, GNK TRIM/SHORT→HOLD, SBLK HOLD→BUY, all price-inside-interval); the 7/17-close price vintage annotated ×16 (EV-only, ΔNAV 0.0); baltic_indexes staleness probed → SOURCE-QUIET + a text→image format drift on the capesize lane (monitoring hygiene, not an input break).
 
 ### 2026-06-29 — Self-consistency sprint: NAV-basis fix, dry-bulk fidelity, through-cycle anchors (§18)
 

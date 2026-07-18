@@ -36,7 +36,7 @@ significance needs a pre-2024 backfill
 [outputs/epistemic_soundness_memo_2026-06-22.md](outputs/epistemic_soundness_memo_2026-06-22.md)).
 Use the reads as one disciplined input to a position call, sized accordingly.
 
-## Status (2026-07-14)
+## Status (2026-07-18)
 
 - **25 tickers** across 6 sectors: crude (10, incl. **TEN** the 3-sleeve hybrid,
   **CAPT** the first Oslo/NOK listing, **BRUT** the pure-play VLCC newbuild
@@ -44,7 +44,7 @@ Use the reads as one disciplined input to a position call, sized accordingly.
   incl. **2343** Pacific Basin — the first HKEX/HKD listing and the first
   Handy-Bulk carrier, Stage-3 intake 2026-07-14), containerships (2), LPG (2,
   the WO3 Phase-4 validators)
-- **590+ tests passing** end-to-end (ticker count, sector split, AND this test
+- **585+ tests passing** end-to-end (ticker count, sector split, AND this test
   count are guarded by `tests/test_docs_stay_lean.py` — the count asserts
   against the suite's own test-function census within a tolerance band, audit
   N-7 2026-07-14)
@@ -80,7 +80,7 @@ long to find.)
 | Surface | What it is | Consumer |
 |---|---|---|
 | `outputs/book_scorecard.md` | **THE handoff** — Verdict table (tier·sub-reason, price, Model FV, FV range, upside, position, Blend FV, NAV/sh, broker NAV, gap, SANITY, handoff-ready, W-frag) + Validation matrix. Header discloses price basis, rate basis (incl. any held-curve state), weight-family vintage | Humans: the single surface a sizing decision reads |
-| `outputs/book_scorecard.json` | The same content as a **schema-versioned machine contract** (currently 2.4; consumer asserts major == 2). Adds `fv_low`/`fv_high`, `weight_sign_stable` + family EV ranges, `mark_wide_nodes`, hybrid sleeve FVs, vintage stamps (`generated_at`, `source_commit`) | The governance repo's monitor (its §4 seam check) |
+| `outputs/book_scorecard.json` | The same content as a **schema-versioned machine contract** (currently 2.5; consumer asserts major == 2). Adds `fv_low`/`fv_high`, `weight_sign_stable` + family EV ranges, `mark_wide_nodes`, hybrid sleeve FVs, vintage stamps (`generated_at`, `source_commit`) | The governance repo's monitor (its §4 seam check) |
 | `outputs/<ticker>_fv_report.md` / `.xlsx` | Per-name single-point build: NAV breakdown, dividend strip, cycle weighting, blend + FV attribution, breakeven, 5×5 grid, divergence diagnosis | Per-name deep dives |
 | `outputs/<ticker>_scenarios.md` | The scenario deck + probability-weighted FV that feeds the Verdict | Per-name deep dives |
 | `baselines/reconcile_baseline.yaml` + `RATIFY_LOG.md` | The accepted-state anchor + the dated, cause-carrying record of every ratify (the drift gate reds on unexplained moves against it) | The audit trail; the governance monitor reads RATIFY_LOG weekly |
@@ -170,6 +170,8 @@ Pre-empting the "where does this go wrong?" question — see
 | NAT  | Nordic American Tankers | Pure Suezmax (18 vessels) — §12 framework-limitation case |
 | TEN  | Tsakos Energy Navigation | 3-sleeve hybrid: crude + product + LNG (60 in-water + 19 NBs); 4 DP2 shuttle off-curve via §11.6 convention; §15 case (30% haircut) |
 | CAPT | Capital Tankers | 12 VLCC + 10 Suezmax + 4 Aframax + 4 LR2; 21 NBs at delivered-market-less-commitment; Oslo/NOK (added 2026-06-11) |
+| BRUT | Brut Tankers | Pure-play VLCC newbuild vehicle (12 firm NBs, 0 on-water) — the §9.6 max-torque case; Oslo Growth/NOK (added 2026-06-22) |
+| CMBT | CMB.TECH | Multi-sleeve conglomerate (crude + dry-bulk + chemical/Windcat, §11.9); ex-Euronav (added 2026-06-27) |
 
 **LNG sector (`sectors.lng` — glut-cycle framework):**
 
@@ -194,6 +196,16 @@ Pre-empting the "where does this go wrong?" question — see
 | SBLK | Star Bulk Carriers | 135 bulkers (Cape 31 / Pana 46 / Supra-Ultra 58) — first dry-bulk validator; §6 mark-driven |
 | GNK  | Genco Shipping | 44 bulkers (Cape 19 / Supra-Ultra 25, no Pana) — VALIDATES the txn-anchored curves (k 1.04) |
 | CMDB | Costamare Bulkers | 30 owned older bulkers + P&L-only chartered-in platform; §15 case (30% haircut), APPROX anchor |
+| SB   | Safe Bulkers | 44 operating + 1 HFS + 8 NB (Cape/Pana/PPMX mix) — the lone VALIDATED-TIGHT BUY (added 2026-06-27) |
+| 2343 | Pacific Basin | ~110 owned Handy-Bulk/Supra (40.7% Handy) + P&L-only chartered-in book; 1st HKEX; §11.7.11 (added 2026-07-14) |
+
+**LPG sector (`sectors.lpg` — WO3 Phase-4 validators, 2026-07-10; sector
+PROVISIONAL·v1-lock-miss, re-run 2026-11-13):**
+
+| Ticker | Company | Fleet shape |
+|---|---|---|
+| LPG  | Dorian LPG | 22 owned VLGCs (16 scrubber/dual-fuel-tagged); US domestic filer |
+| BWLP | BW LPG | ~50 VLGCs incl. 20+ LPG dual-fuel; BW India listed sub (NCI via preferred_equity); Product Services trading arm |
 
 **Containerships sector (`sectors.containerships` — Container Set A,
 coverage-schedule charter framework, unlocked 2026-06-12):**
@@ -206,7 +218,7 @@ coverage-schedule charter framework, unlocked 2026-06-12):**
 ## Sample output: broker-NAV sweep
 
 _Illustrative snapshot from the 2026-06-04 vintage (13 names); the live
-19-name table regenerates every run at `outputs/broker_nav_sweep.md`._
+25-name table regenerates every run at `outputs/broker_nav_sweep.md`._
 
 The diagnostic that distinguishes mark-validated calls from mark-driven ones.
 Per name: `k_broker` is the uniform vessel-mark premium that lifts tool NAV
@@ -344,7 +356,7 @@ inputs/
 outputs/                generated reports (md + xlsx), regenerated each run
 decisions/              per-ticker decision logs (user-curated, git-tracked)
 state/                  pipeline state snapshot (machine-local, gitignored)
-tests/                  177 tests, all green
+tests/                  the full guard suite (count guard-tested above)
 ```
 
 ## Install
@@ -352,7 +364,7 @@ tests/                  177 tests, all green
 ```sh
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
-pytest -q                                    # 243 passing (2026-06-11)
+pytest -q                                    # full suite (count guard-tested above)
 python -m crude_tanker_fv.refresh             # smoke-test refresh
 python -m crude_tanker_fv.pipeline 2026-Q1   # smoke-test full pipeline
 ```
@@ -372,10 +384,12 @@ bash scripts/build_methodology_pdf.sh        # → METHODOLOGY.pdf
   LNG; ASC (pure MR, single-class, variable payout) for product. Each
   validator's fair value is band-locked in tests so structural regressions
   surface immediately.
-- **Mark discrimination:** the broker-NAV sweep classifies every name as
-  mark-validated (DHT / ECO / FRO / STNG with ≤10pp spread) or mark-driven
-  (TNK / INSW / NAT / ASC with >10pp spread). Critical for sizing — wide
-  spreads mean the call is sensitive to vessel-mark choice.
+- **Mark discrimination:** the broker-NAV sweep classifies every name on the
+  B4 two-regime semantics (k_broker 1.05–1.25 = the validated pure-play band
+  on txn-anchored sectors; outside = mark-driven, the spread documented in §6
+  with a thesis). *(The pre-2026-06 "≤10pp validated / >10pp driven" list that
+  used to sit here is vintage language — see LIMITATIONS §1.)* Critical for
+  sizing — wide spreads mean the call is sensitive to vessel-mark choice.
 - **Transaction anchoring:** Aframax and Suezmax curves were recalibrated
   against disclosed second-hand transactions (TNK Aframax sale-leasebacks,
   NAT Suezmax disposals). The recalibration is opt-in (default off in
@@ -387,8 +401,8 @@ bash scripts/build_methodology_pdf.sh        # → METHODOLOGY.pdf
 
 ## Documentation
 
-- **[METHODOLOGY.md](METHODOLOGY.md)** — full framework (~720 lines, 12
-  sections + 11.5 product-sector subsection + per-ticker §6 notes)
+- **[METHODOLOGY.md](METHODOLOGY.md)** — full framework (canonical spec;
+  §1-§18 + Appendix A change record + per-ticker §6 notes)
 - **[LIMITATIONS.md](LIMITATIONS.md)** — known framework limitations and
   validation status (the "where does this go wrong?" doc)
 - **[decisions/README.md](decisions/README.md)** — decision-log format and
@@ -407,7 +421,7 @@ inputs/             ← per-ticker YAMLs + market data + scenarios
 outputs/            ← generated each run
 decisions/          ← user-curated per-ticker logs
 state/              ← machine-local snapshot (gitignored)
-tests/              ← 177 tests
+tests/              ← the guard suite
 scripts/            ← PDF build script
 notebooks/          ← exploratory / hand-check work
 ```

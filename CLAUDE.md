@@ -5,7 +5,7 @@ once; each rule is dated so you can see how proven it is. This file is the **rou
 kept short on purpose — when you fix a recurring mistake, append a dated ONE-LINER rule
 here and the narrative to `CHANGELOG.md`. Detail lives in the companions:
 
-- **METHODOLOGY.md** (~3450 lines) — the full valuation framework. The canonical spec.
+- **METHODOLOGY.md** — the full valuation framework. The canonical spec.
 - **PLAN.md** — the rolling sprint plan / handoff. A new agent reads CLAUDE.md → PLAN.md → starts.
 - **CHANGELOG.md** — dated history of decisions, onboardings, fixes (the gotcha narratives live here).
 - **TICKER_NOTES.md** — per-ticker quick-refs (consult when working a specific name).
@@ -57,7 +57,7 @@ methodology drifted or the market moved — not whether to recalibrate the curve
 
 After any change to inputs, schemas, marks, scenarios, or pipeline code:
 
-1. **`pytest -q`** — must stay green (315+; includes `tests/test_drift_gate.py`). An UNEXPLAINED >2pp
+1. **`pytest -q`** — must stay green (count guard-tested in README; includes `tests/test_drift_gate.py`). An UNEXPLAINED >2pp
    EV%/NAV move, a band flip, or a >0.05 k_broker *second-difference* vs the baseline reds the suite
    until you annotate `decisions/<t>_log.md` (dated, non-placeholder) OR re-ratify with a cause. **Don't
    auto-revert a gate-fail on requested work** — surface it, let the owner decide (memory
@@ -111,8 +111,8 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   disclosed aggregate — and move the name to `OPERATING_SCRUBBER_VERIFIED{name:count}`
   (`test_verified_operating_scrubber_count` asserts the count). **Work the queue at onboarding** — don't
   ship a blanket default into `OPERATING_SCRUBBER_QUEUE` and leave it (a queued name can still carry a wrong count).
-- **Long-running nohup jobs die silently** (block-buffered stdout; 2026-06-10). Pattern:
-  `nohup sh -c 'PYTHONUNBUFFERED=1 … ; echo "EXIT $?"' >> log 2>&1 &`; watch log mtime, not contents.
+- **"Read-only" agents must not run pytest/pipeline in the shared tree** (2026-07-18) — the run
+  regenerates outputs+logs; one agent's stash swept live session work. Worktree-isolate them.
 - **Newbuilds valued at delivered market LESS remaining commitment** (NOT sunk cost; §3.1/§9.6),
   PV-discounted `1.11^(−years_to_delivery)` per vessel (defaults 0 = on the water).
 - **`use_transaction_anchored` is DEFAULT-ON** (2026-06-09). Txn-anchored marks ARE the headline; k_broker
@@ -123,8 +123,8 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   `outputs/transaction_anchor_comparison.md`, annotate every name whose txn-anchored EV moved >2pp / band flipped.
 - **Don't back-solve validator marks to broker NAV** (2026-06-09, SBLK) — a wide validator gap is a
   methodology question (txn-anchor per §9.9, or accept as documented mark-driven), not a license to tune.
-- **Dry-bulk manifest `dwt` is LOAD-BEARING** (§11.7.10) — Cape/Pana/Supra-Ultra curves are `dwt_scaled`
-  (value ∝ dwt/baseline: Cape 180k / Pana 82k / Supra-Ultra 62k), so a rough dwt mis-values a hull; use
+- **Dry-bulk manifest `dwt` is LOAD-BEARING** (§11.7.10) — Cape/Pana/Supra-Ultra/Handy-Bulk curves are
+  `dwt_scaled` (value ∝ dwt/baseline: Cape 180k / Pana 82k / Supra-Ultra 62k / Handy 38k, §11.7.11), so a rough dwt mis-values a hull; use
   the issuer's exact per-vessel dwt, split mixed cohorts by sub-class. (Crude/product/lng/container stay
   flat-per-class.) KNOWN LIMIT: the Pana curve over-values old Post-Panamax — dedicated sub-class pending.
 - **Two structural framework limits are codified:** §12 (high-payout pure-plays at peak — tool

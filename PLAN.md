@@ -5,39 +5,47 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-07-10 EOD, WO3-Phase-4 LANDED):** **24 watchlist names across 6 valued
-sectors** (LPG validators **Dorian `LPG` + BW LPG `BWLP` ONBOARDED 2026-07-10** — full four-YAML
-sourcing off the FY2026 10-K / Q1-2026 6-K + 20-F, both SANITY=OK [gaps −20.4% / −17.2%, k_broker
-~1.2], §9.10 family populated [both WEIGHT-ROBUST, sign-stable TRIM], cycle-relabeled "rich ·
-cycle position"; **the v1 LOCK MISSED 0/2 within ±10% → sector HELD PROVISIONAL·v1-lock-miss via
-`SECTOR_V1_UNLOCKED` [new tier cap, guard-tested], handoff_ready=False — Phase 5 = the OWNER's
-lock ruling**; Cobra's FILED $81.9M print replaced the broker row [watch-item executed]; suite
-FULLY green after the 2026-07-10 owner ratify [decision #1 RESOLVED — see below] + 16 xfailed);
-**suite 558 green + 16 xfailed** (3 machine-local skips on clean clones; +13 backtest via
-`PYTHONPATH=. pytest backtest/`; +57 harvester via `.venv310`); **handoff JSON schema 2.3**
-(+ `mark_wide_nodes`); **the daily price feed RESUMED 2026-07-09** after the Jul-2/3 stall —
-pending owner decision #1 (committed-price re-ratify, GSL band flip) is now actionable on live
-prices; **drift gate 0 UNEXPLAINED
-at HEAD** (baseline ratified 2026-07-06 post-recapture); handoff = `outputs/book_scorecard.json`
-**schema 2.2** (consumer asserts major 2) with four-basis stamps (price/rate/weight-family/source-commit)
-+ per-name `weight_sign_stable`/`ev_pct_family_min/max` now populated for **crude, product, LNG, AND
-dry bulk** (WO4). **The WO2 watch layer is LIVE:** sentinel (10 check families) + email notify/digest/
-ping-withholding + dirty META-MODE + GitHub Action backstop (`sentinel-lite`) + heartbeats/run-ledger on
-all wrappers + EDGAR poller (19 CIKs, all SEC-verified after the FLNG/CCEC/INSW wrong-CIK catch) +
-arrival validation/quarantine + drift-aware guards (`scripts/drift_files.txt`). **Vintages:** consensus
-pairs rebased to the Pareto 3-Jul daily (18 names; TEN/SB/GSL/CMDB absent that edition, at their own
-documented vintages; threshold 42d, owner 2026-07-06); containers REFRESHED from MB W27 (Jul-3
-assessments; A3 intermediate 46,350); tanker forwards still HELD at Jun-7 (trigger
-`tanker_forward_print_lands`); dry bulk PROMOTED to the 13-Jul FFA OCR (all three classes, three
-surfaces — strips + 12M TC + spot-as-FFA-front-month-proxy during the Pareto seasonal silence;
-owner-ratified, `decisions/ffa_promotion_2026-07-13.md`; Cape front BACKWARDATED q3>q4; reversion
-trigger `drybulk_spot_daily_resumes` ~Sep-1). Long surface (Jul-6 book): SB +53 T /
-SBLK +14 T (both now weight-sign-stable per WO4) + CMDB +12 GW + TEN +36 GW + CCEC +55 GW + ASC +9.6 GW
-+ GSL +6.4 GW (but see PENDING — GSL flips to HOLD at current prices). **NEXT DATED GATES:**
-`crude_doha_talks_resumption` ~Jul-10 · `crude_mou_implementation_check` Jul-17 ·
-`crude_day60_toll_cliff` Aug-16 (pre-registered reweight) · `container_mb_refresh` Aug-7 ·
-`all_sectors_consensus_pair_recapture` + staleness floor Oct-2 · `lpg_anchor_annual_review` 2027-06-30 —
-all in `inputs/reweight_triggers.yaml`, sentinel-paged.
+**Current state (2026-07-18 Week-close):** **25 watchlist names across 6 valued sectors**
+(2343 the 25th, onboarded 2026-07-14, 1st HKEX). **Suite 587 green + 3 machine-local skips +
+15 xfailed** (backtest +13; harvester +57 via `.venv310`); **handoff schema 2.5** (fv_low/fv_high
+D-M5 intervals + the re-anchored weight families with point==family-max); **drift gate 0 UNEXPLAINED /
+17 explained** (the 7/17-close price vintage: EV-only ×16, ΔNAV 0.0 on every row, SBLK HOLD→BUY
+auto-classified **band-mech** per the D-M5 flip-triage; batch baseline ratify = the owner's next
+deliberate step; anchor at c6877ee, TEN-recon cause). **The Week's closed arcs (7/13→7/18):**
+2343 onboarded+ratified · Hormuz re-tilt RESTORED BOTH (3-sector coherence) · tanker forward-print
+ruling SIGNED (i-continue two-stage) · D-M2/3/4/5 RULED (D-M5 executed; rest post-Stage-A) ·
+**thread (d) SIGNED-CLOSED** (crude level confirmed on the 07-13 xclusiv print; STNG 2-VLCC §9.6
+gate lifted) · **P1c: MR → resale-uniform** (xclusiv MR2 line resumed; age-0 54→55; TEN +0.07% the
+sole move) · **LR1 RULED** (contract-floor + the scoped `resale-corroborated` status;
+`PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md` FROZEN — **TRMD → the 7th VALIDATED-TIGHT at the
+post-Stage-A anchor round**) · **TEN fully reconciled** (NAV 88.76→87.35 bands-hit, forks ruled,
+baseline re-ratified, ten LEFT the figure queue) · MoU implementation check RECORDED (failed all
+three observables; pro-forma close — the 7/12 Jun-9 restore already prices it) · BWLP/LPG/CMDB
+filings triaged (BWLP Q2 pre-announce net −$31M at-refresh, results **CONFIRMED 8/28**; LPG $1.00
+irregular dividend; CMDB AGM). **Tier map: 6 TIGHT / 14 WIDE / 5 PROVISIONAL** (SB the lone TIGHT
+BUY). Governance side: CCEC t1 FILLED 7/15 (220 sh, 1.64%, t2 print-gated); TEN card triple-gated
+(gate ii done); Hynix restore print-gated at the 7/22 Q2 print. **Vintages:** tanker forwards HELD
+at Jun-7 (Stage A ≤ 8/15 re-anchors); dry bulk at the 13-Jul FFA promotion (Cape backwardated);
+consensus pairs at the Pareto 3-Jul daily; xclusiv extract at 06-22 + the 07-13 MR row (full
+refresh = the post-Stage-A rider). **NEXT DATED GATES:** `crude_doha_round3_or_collapse` 7/22 ·
+GNK/Diana tender census 7/24 · Q2 early cluster from 7/28 (STNG/ASC/SB → TNK/CCEC/LPG/2343 into
+early Aug; BWLP 8/28 confirmed) · `crude_day60_toll_cliff` 8/16 (pre-registered reweight; mou_base
+.18 flagged increasingly counterfactual) · **Stage A ≤ 8/15 UNCONDITIONAL** → the anchor round
+(LR1 + extract refresh; TRMD TIGHT) → D-M2 sweep → D1 round (~late Aug) → Stage B 8/26–9/04 ·
+`container_mb_refresh` 8/7 · `lpg_v1_lock_rerun` 11/13 — all in `inputs/reweight_triggers.yaml`,
+sentinel-paged.
+
+**WEEK OF 2026-07-20 — theme: Q2 intake + Stage-A basis accumulation.** The sprint is
+calendar-driven: (1) **7/22** — Doha round-3 watch (record either way; the MoU-check evidence
+leans collapse-track) + the Hynix Q2 print (governance executes its print-gated restore on
+G1–G5); (2) **7/24** — tender census (gnk_log branch-c); (3) **from 7/28** — the Q2 early
+cluster lands: run the report-day refresh flow per name (subsequent-events note FIRST), fold
+ASC's pre-booked ~+1.9% Handysize correction, watch STNG/ASC/TNK term-rate disclosures as
+**Stage-A cluster-basis prints** (PRE_REGISTRATION_TANKER_CLUSTER_REANCHOR §6); (4) owner
+items — batch price-vintage ratify · marks-trail triage (weeklies staged through 7/14, newest
+promoted print 6/30) · baltic_indexes staleness disposition (probe verdict in the Week-close
+audit). **Definition of done:** every landed Q2 print reconciled-or-queued with its log entry;
+round-3 + census recorded; drift gate 0 unexplained at close; Stage-A basis inventory started.
 
 **PENDING OWNER DECISIONS (do not act unilaterally; recorded 2026-07-08, extended 2026-07-14):**
 -2. **2026-07-14 EVE — tanker forward re-anchor (trigger `tanker_forward_print_lands`

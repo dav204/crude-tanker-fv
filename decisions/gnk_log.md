@@ -1,11 +1,55 @@
 # GNK — Decision Log
 
+## 2026-07-18 (later) — RATIFIED 13-Jul spot re-proxy APPLIED (Week-close audit catch): dry-bulk FV-moving
+
+**Decision:** the ffa_promotion_2026-07-13.md §3 spot_tce values (Cape 36,000 / Pana+PPMX 20,000 / Supra-Ultra 19,050 — FFA front-month during the Pareto silence) were OWNER-RATIFIED 7/13 but never wired (items 1-2 landed; item 3 did not — the file kept the 2-Jul Pareto rows under a 7/13 as_of stamp). Applied 2026-07-18 at the Week-close audit. This MOVES dry-bulk FVs (ΔNAV 0.0 — spot feeds the cycle/blend leg, not marks). Band flip **TRIM/SHORT→HOLD** (band-mech: 24.12 ∈ [17.84, 29.14]) — note the 7/24 tender census reads this name; the flip is spot-proxy + tape, not tender news. All flips auto-classify band-mech per D-M5 (price inside the fv interval — no eyeball owed; absorbed at the owner's next batch ratify, which now carries BOTH causes: the 7/17 price vintage AND this ratified-value application). Flips surfaced in the Week-close report regardless.
+
+## 2026-07-18 — price-vintage drift (7/17 close row): EV-only, accepted at the Week-close gate
+
+**Decision:** price-vintage drift ACCEPTED-as-mechanical (2026-07-18 Week-close gate): the 2026-07-17 close row landed via the daily price-refresh — EV%-only move, **ΔNAV +0.0%** (no model input changed; the FV stands at the 7/15 regen basis). Baseline re-ratify NOT executed — the batch absorb is the owner's deliberate step (2026-06-30 standing-thread discipline); recross of any band on a later vintage = a NEW eyeball.
+
 Chronological record of model state at each pipeline run plus the investment
 decisions taken (or explicitly not taken). Newest entries appear at the top.
 Auto-prepended sections capture model state; the `**Decision:**` line is
 where you annotate what you actually did and why.
 
 (METHODOLOGY §7.8 + decisions/README.md describe the auto-prepend convention.)
+
+---
+
+## 2026-07-18T19:23:51+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.12
+- Single-point FV: $23.98
+- Scenario PW FV: $23.15 (EV -4.0%)
+- NAV / share: $24.69
+- Position: **HOLD (fairly valued)**
+- Broker spread: +8.4pp (k_broker 1.08)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-18T19:22:42+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.12
+- Single-point FV: $23.98
+- Scenario PW FV: $23.15 (EV -4.0%)
+- NAV / share: $24.69
+- Position: **HOLD (fairly valued)**
+- Broker spread: +8.4pp (k_broker 1.08)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
 
 ---
 
