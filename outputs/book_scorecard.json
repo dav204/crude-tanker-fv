@@ -1,7 +1,7 @@
 {
   "schema_version": "2.5",
-  "generated_at": "2026-07-18T20:21:44+00:00",
-  "source_commit": "a6e1cd7-dirty",
+  "generated_at": "2026-07-18T20:22:46+00:00",
+  "source_commit": "88d646f",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 25,
@@ -153,8 +153,8 @@
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": 34.2,
-      "ev_pct_family_max": 46.9,
+      "ev_pct_family_min": 32.4,
+      "ev_pct_family_max": 45.0,
       "mark_wide_nodes": [
         "Post-Panamax@five_year+ten_year"
       ],

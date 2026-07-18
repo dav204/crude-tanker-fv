@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-07-18T20:21:53+00:00
-- **Previous run:** 2026-07-18T20:07:52+00:00
+- **This run:** 2026-07-18T20:22:55+00:00
+- **Previous run:** 2026-07-18T20:21:53+00:00
 
 ## Headline changes (material moves)
 
@@ -9,8 +9,7 @@
 
 ## Input files changed since last run
 
-- `inputs/market_data/transactions/post_panamax.yaml` (new)
-- `inputs/reweight_triggers.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 
@@ -37,7 +36,7 @@
 | GSL | $40.16 (no change) | $43.06 (no change) | $40.54 (no change) | $38.59 (no change) | HOLD (fairly valued) | +29.1pp (no change) |
 | BRUT | $5.50 (no change) | $9.27 (no change) | $6.21 (no change) | $8.80 (no change) | BUY (undervalued) | -17.8pp (no change) |
 | CMBT | $14.96 (no change) | $15.48 (no change) | $14.09 (no change) | $16.12 (no change) | TRIM/SHORT (overvalued) | +24.2pp (no change) |
-| SB | $6.82 (no change) | $9.69 (-1.3%) | $9.47 (-1.4%) | $10.02 (-1.5%) | BUY (undervalued) | -28.6pp (+1.9pp) |
+| SB | $6.82 (no change) | $9.69 (no change) | $9.47 (no change) | $10.02 (no change) | BUY (undervalued) | -28.6pp (no change) |
 | LPG | $41.03 (no change) | $32.76 (no change) | $30.55 (no change) | $34.11 (no change) | TRIM/SHORT (overvalued) | +29.9pp (no change) |
 | BWLP | $20.35 (no change) | $15.43 (no change) | $14.46 (no change) | $15.80 (no change) | TRIM/SHORT (overvalued) | +21.1pp (no change) |
 | 2343 | $0.40 (no change) | $0.38 (no change) | $0.38 (no change) | $0.39 (no change) | HOLD (fairly valued) | +2.3pp (no change) |

@@ -32,6 +32,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-18T20:22:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.82
+- Single-point FV: $9.69
+- Scenario PW FV: $9.47 (EV +38.9%)
+- NAV / share: $10.02
+- Position: **BUY (undervalued)**
+- Broker spread: -28.6pp (k_broker 0.86)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** clean-stamp regen after the PPMX seed — same state as the dated entries below; no new movement.
+
+---
+
 ## 2026-07-18T20:21:53+00:00 — Pipeline run (auto)
 
 **Model state:**
