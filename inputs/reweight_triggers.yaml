@@ -24,7 +24,13 @@ crude_mou_implementation_check:
     Non-normalized traffic by the due date is direct evidence for the
     MoU-ineffective leg (shift mass pre_mou-ward); normalized traffic
     corroborates mou_base. Either way, record the check in decisions/.
-  status: armed
+  status: done   # CHECKED 2026-07-18 (due 7/17): FAILED all three observables — Jul-14
+                 # naval blockade (reverse of removal), TSS mine area still published at
+                 # Jul-16 (demining incomplete), transits ~8-11% of pre-crisis, war-risk
+                 # ~8x. Pre-registered shift ALREADY LIVE via the 7/12 Jun-9 restore →
+                 # closed PRO-FORMA, zero movement. Escalation-beyond-Jun-9 observation
+                 # registered for the 7/22 round-3 watch + the Aug-16 toll-cliff reweight.
+                 # decisions/mou_implementation_check_2026-07-18.md
   added: 2026-07-02
 
 crude_day60_toll_cliff:
