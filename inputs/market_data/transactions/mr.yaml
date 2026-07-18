@@ -191,3 +191,10 @@ prints:
     source: d'Amico (DIS) press release / Marine Link
     quality_flag: standard
     notes: outside [3,17] window AND subclass (40k DWT MR1, not standard 50k MR2). 2× MR1 newbuilding ORDERS at Guangzhou Shipyard Int'l (GSI); delivery Apr/Jul 2029. Eco methanol-ready. Included for completeness; framework does not separately curve MR1.
+  # ---- 2026-07-18 marks-trail promotion (decisions/marks_trail_triage_2026-07-18.md §A; owner: 'Promote') ----
+  - date: 2026-07-10
+    vessel_age_at_sale: 15
+    sale_price_usd_m: 25.1
+    source: MB Tanker Weekly 28 (2026-07-10, exact)
+    quality_flag: standard
+    notes: Honesty (50,384 dwt, 2011 GSI); July delivery; seller Sea Pioneer, buyer UK/Indian.

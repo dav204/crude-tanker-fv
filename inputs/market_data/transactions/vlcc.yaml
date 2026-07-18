@@ -115,3 +115,10 @@ prints:
     quality_flag: newbuild_resale
     in_fit: false   # BUG-2: documentation only (also outside the [3,17] window)
     notes: outside [3,17] window. Related-party purchase from Hemen Holding affiliate (Fredriksen). 9 latest-gen ECO VLCC newbuilds (6 Hengli + 3 Dalian China), $1,224M aggregate / $136M each, deliveries from Q3 2026 through Q2 2027. Documents the prompt-NB market level; sits below our $175M resale anchor reflecting forward-delivery + Chinese-yard discount vs Korean prompt resale.
+  # ---- 2026-07-18 marks-trail promotion (decisions/marks_trail_triage_2026-07-18.md §A; owner: 'Promote') ----
+  - date: 2026-06-29
+    vessel_age_at_sale: 14
+    sale_price_usd_m: 52.0
+    source: xclusiv issue 2026-06-29 (table + prose)
+    quality_flag: tc_attached
+    notes: C. Innovator (313,999 dwt, 2012 Dalian); TC to Mercuria ~$28k/day until max Oct-2027 — below-market charter attached, price NOT adjusted (flag documents).

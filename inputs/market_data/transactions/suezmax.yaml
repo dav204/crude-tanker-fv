@@ -177,3 +177,10 @@ prints:
     source: Performance Shipping (PSHG) press release (2x Suezmax NB order at SWS)
     quality_flag: standard
     notes: outside [3,17] window. NB ORDER (not resale) — 2× 158,000 DWT Tier III fuel-efficient scrubber-fitted, delivery Oct 2028 / May 2029. $81.5M each / $163M total. T/C to Repsol. Forward yard contract price — sits 25% below our prompt resale anchor (consistent with prompt-vs-forward gap on 2-3yr-out delivery).
+  # ---- 2026-07-18 marks-trail promotion (decisions/marks_trail_triage_2026-07-18.md §A; owner: 'Promote') ----
+  - date: 2026-07-10
+    vessel_age_at_sale: 10
+    sale_price_usd_m: 81.0
+    source: MB Tanker Weekly 28 (2026-07-10, exact); xclusiv/intermodal/banchero "low/mid $80s" corroborate
+    quality_flag: standard
+    notes: GH Holiday (157,543 dwt, 2016 New Times, scrubber; seller Hayfin, buyer GNMTC per intermodal). Age-10 print at ~the txn-anchored 10yr level.

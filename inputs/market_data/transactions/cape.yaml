@@ -248,3 +248,25 @@ prints:
     source: Pareto Shipping Daily 2026-06-05 — Maran disclosure
     quality_flag: standard
     notes: outside [3,17] window. The 2008-built sister in the Maran 2x SWS capesize $60M en-bloc (the 2009-built half is in the fit). Confirms vintage-cape strength continuing into Jun-2026.
+  # ---- 2026-07-18 marks-trail promotion (decisions/marks_trail_triage_2026-07-18.md §A; owner: 'Promote') ----
+  - date: 2026-06-29
+    vessel_age_at_sale: 6
+    dwt: 182588
+    sale_price_usd_m: 70.0
+    source: banchero W26 + intermodal (exact); xclusiv "region 70"
+    quality_flag: standard
+    notes: Lady Deena (2020 JMU Kure, eco, scrubber; delivery Nov-Dec 2026 basis).
+  - date: 2026-06-29
+    vessel_age_at_sale: 14
+    dwt: 205449
+    sale_price_usd_m: 41.8
+    source: banchero W26 (per-vessel price printed)
+    quality_flag: standard
+    notes: RTM Dampier (2012 HHIC Phil Newcastlemax, eco ME); en-bloc pair w/ RTM Columbus, per-vessel prices; buyer Mercuria, ex-Rio Tinto.
+  - date: 2026-06-29
+    vessel_age_at_sale: 13
+    dwt: 205514
+    sale_price_usd_m: 46.2
+    source: banchero W26 (per-vessel price printed)
+    quality_flag: standard
+    notes: RTM Columbus (2013 HHIC Phil Newcastlemax, eco ME); en-bloc pair, buyer Mercuria.

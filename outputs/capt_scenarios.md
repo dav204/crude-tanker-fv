@@ -11,10 +11,10 @@
 
 | Scenario | Weight | Vessel× | NAV/sh | FV (base) | FV [low–high] | Cycle | w_nav | Strip NPV | Assumed TCE (12M) | Assumed / Breakeven |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| Escalation | 25% | 1.25× | $22.51 | $24.41 | $23.64–$25.30 | 7.00× | 0.70 | $28.86 | $246,237 | n/a |
-| Pre-MoU baseline | 45% | 0.82× | $10.40 | $10.39 | $10.10–$10.69 | 2.32× | 0.70 | $10.35 | $81,123 | n/a |
-| MoU base case | 18% | 0.75× | $8.51 | $8.33 | $8.08–$8.57 | 1.90× | 0.70 | $7.89 | $66,142 | n/a |
-| MoU bear | 12% | 0.71× | $7.25 | $7.20 | $6.94–$7.47 | 1.50× | 0.60 | $7.14 | $51,975 | n/a |
+| Escalation | 25% | 1.25× | $22.50 | $24.41 | $23.64–$25.30 | 7.00× | 0.70 | $28.88 | $246,248 | n/a |
+| Pre-MoU baseline | 45% | 0.82× | $10.40 | $10.39 | $10.10–$10.69 | 2.32× | 0.70 | $10.36 | $81,128 | n/a |
+| MoU base case | 18% | 0.75× | $8.51 | $8.33 | $8.08–$8.57 | 1.90× | 0.70 | $7.90 | $66,145 | n/a |
+| MoU bear | 12% | 0.71× | $7.24 | $7.21 | $6.94–$7.47 | 1.50× | 0.60 | $7.15 | $51,979 | n/a |
 | **Probability-weighted** | | | | **$13.14** | | | | | | |
 
 _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate assumption, NOT a breakeven). Assumed/Breakeven is n/a — the price clears at any rate, so every scenario's rates trivially justify it._

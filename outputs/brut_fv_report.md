@@ -37,8 +37,8 @@
 | Q7 | 147,500 | 147,500 | 0.744 | 0.000 | 0.000 |
 | Q8 | 105,500 | 105,500 | 0.783 | 0.000 | 0.000 |
 | Σ discounted DPS | | | | | 0.00 |
-| Terminal value (NAV, q9) | | | | 13.12 | 10.37 |
-| **DivStrip implied price** | | | | | **$10.37** |
+| Terminal value (NAV, q9) | | | | 13.12 | 10.38 |
+| **DivStrip implied price** | | | | | **$10.38** |
 
 _FFA spot is the VLCC forward curve that drives the strip cash flows; its 12-month average is **$155,000/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$111,500/day** — not this FFA average._
 
@@ -49,7 +49,7 @@ _FFA spot is the VLCC forward curve that drives the strip cash flows; its 12-mon
 
 ## Blended fair value
 
-0.70 × $8.80 (NAV) + 0.30 × $10.37 (strip) = **$9.27**
+0.70 × $8.80 (NAV) + 0.30 × $10.38 (strip) = **$9.27**
 
 ### FV attribution
 
@@ -67,7 +67,7 @@ _Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $9.33 |
+| 80% | $9.34 |
 | 95% | $9.35 |
 | 100% | $9.35 |
 
@@ -91,7 +91,7 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 | **-30%** | $3.32 | $6.14 | $8.96 | $11.78 | $14.60 |
 | **-15%** | $3.48 | $6.30 | $9.12 | $11.94 | $14.76 |
 | **+0%** | $3.63 | $6.45 | $9.27 | $12.09 | $14.91 |
-| **+15%** | $3.78 | $6.60 | $9.43 | $12.25 | $15.07 |
+| **+15%** | $3.79 | $6.61 | $9.43 | $12.25 | $15.07 |
 | **+30%** | $3.94 | $6.76 | $9.58 | $12.40 | $15.22 |
 
 _Current price $5.50. Cycle weights held at base across the grid._
@@ -102,5 +102,5 @@ Tool fair value **$9.27** is +68.5% vs the current price ($5.50) and +30.0% vs t
 
 ## Modeling notes
 
-- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $63.1M (+2%) / 10yr $46.0M (+2%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $35.5M (+11%) / 10yr $25.8M (+8%) [n=5], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $29.3M (-11%) / 10yr $22.4M (-10%) [n=22], VLCC 5yr $113.2M (-18%) / 10yr $92.5M (-17%) [n=10], VLGC 5yr $91.9M (-0%) / 10yr $80.0M (-0%) [n=7]. Newbuild + old-age anchors unchanged.
+- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $64.1M (+3%) / 10yr $46.9M (+4%) [n=29], LR2 5yr $76.1M (-4%) / 10yr $61.4M (-10%) [n=12], MR 5yr $46.0M (-0%) / 10yr $34.5M (-0%) [n=22], Pana 5yr $35.1M (+10%) / 10yr $26.1M (+9%) [n=6], Suezmax 5yr $87.9M (-4%) / 10yr $70.6M (-12%) [n=20], Supra-Ultra 5yr $30.2M (-9%) / 10yr $23.6M (-6%) [n=27], VLCC 5yr $113.5M (-18%) / 10yr $89.4M (-19%) [n=11], VLGC 5yr $91.9M (-0%) / 10yr $80.0M (-0%) [n=7]. Newbuild + old-age anchors unchanged.
 - Earning fleet varies over the strip per the manifest fleet_schedule (e.g. newbuild deliveries / sales); NAV is anchored at the report date.

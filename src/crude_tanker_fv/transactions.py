@@ -40,6 +40,9 @@ QUALITY_UPLIFT = {
     "financing": 0.05,        # sale-leaseback / financing structure
     "distressed": 0.10,
     "newbuild_resale": 0.0,
+    "tc_attached": 0.0,       # TC-attached at sale — direction/magnitude of the charter's
+                              # value-in-price is deal-specific and NOT adjusted (2026-07-18,
+                              # C. Innovator); the flag documents, the clamp bounds.
 }
 DEFAULT_HALF_LIFE_MONTHS = 15.0
 MID_AGE_MIN, MID_AGE_MAX = 3, 17

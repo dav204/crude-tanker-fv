@@ -232,3 +232,39 @@ prints:
       documentation: ~10% below the scrubber-adj curve at age 22 —
       consistent with the Picardy/Predator-validated leg. Filed
       2026-06-12 (owner decision, MB once-over).
+  # ---- 2026-07-18 marks-trail promotion (decisions/marks_trail_triage_2026-07-18.md §A; owner: 'Promote') ----
+  - date: 2026-07-06
+    vessel_age_at_sale: 6
+    dwt: 63547
+    sale_price_usd_m: 36.5
+    source: xclusiv 7/06 + advanced W28 + MB Dry W28 (exact)
+    quality_flag: standard
+    notes: WF Artemis (2020 Iwagi Ultramax, eco).
+  - date: 2026-07-06
+    vessel_age_at_sale: 15
+    dwt: 61472
+    sale_price_usd_m: 23.5
+    source: xclusiv 7/06 + advanced W28 (exact)
+    quality_flag: standard
+    notes: Haato (2011 Shin Kasado Ultramax); buyer ADNOC; delivered.
+  - date: 2026-07-10
+    vessel_age_at_sale: 14
+    dwt: 57480
+    sale_price_usd_m: 16.5
+    source: xclusiv 7/13 + advanced W28 + banchero W28 + MB Dry W28 (exact, 4 houses)
+    quality_flag: standard
+    notes: Everest (2012 STX Jinhae Supramax, Tier II); buyer Chinese.
+  - date: 2026-07-06
+    vessel_age_at_sale: 15
+    dwt: 55874
+    sale_price_usd_m: 15.9
+    source: xclusiv 7/06 + advanced W27 (exact)
+    quality_flag: standard
+    notes: Aegir Selmer (2011 IHI Supramax); buyer Chinese/ADNOC per house.
+  - date: 2026-07-06
+    vessel_age_at_sale: 17
+    dwt: 55469
+    sale_price_usd_m: 15.3
+    source: xclusiv 7/06 + advanced W28 + MB Dry W28 (exact)
+    quality_flag: standard
+    notes: Bermondi (2009 Mitsui Supramax); SELLER COSTAMARE — CMDB-complex disposal (cmdb_log 2026-07-18). Window-edge age 17.

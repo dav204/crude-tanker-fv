@@ -1,5 +1,9 @@
 # SBLK — Decision Log
 
+## 2026-07-18 (marks) — §9.9 prints promotion drift ACCEPTED-as-designed
+
+**Decision:** Dry-bulk anchors re-fit UP (+2.7% NAV, +2.6pp EV; BUY stands — the band-mech flip of 7/18-morning now carries marks corroboration). Cause: the 13-print marks-trail promotion (decisions/marks_trail_triage_2026-07-18.md §A, owner: 'Promote') — the prints-drift loop IS the gate for this move (CLAUDE.md 2026-06-09). Baseline re-ratify owner-gated.
+
 ## 2026-07-18 (later) — RATIFIED 13-Jul spot re-proxy APPLIED (Week-close audit catch): dry-bulk FV-moving
 
 **Decision:** the ffa_promotion_2026-07-13.md §3 spot_tce values (Cape 36,000 / Pana+PPMX 20,000 / Supra-Ultra 19,050 — FFA front-month during the Pareto silence) were OWNER-RATIFIED 7/13 but never wired (items 1-2 landed; item 3 did not — the file kept the 2-Jul Pareto rows under a 7/13 as_of stamp). Applied 2026-07-18 at the Week-close audit. This MOVES dry-bulk FVs (ΔNAV 0.0 — spot feeds the cycle/blend leg, not marks). Band re-flip HOLD→BUY (band-mech: 24.90 ∈ [21.22, 34.64]). All flips auto-classify band-mech per D-M5 (price inside the fv interval — no eyeball owed; absorbed at the owner's next batch ratify, which now carries BOTH causes: the 7/17 price vintage AND this ratified-value application). Flips surfaced in the Week-close report regardless.
@@ -14,6 +18,24 @@ Auto-prepended sections capture model state; the `**Decision:**` line is
 where you annotate what you actually did and why.
 
 (METHODOLOGY §7.8 + decisions/README.md describe the auto-prepend convention.)
+
+---
+
+## 2026-07-18T19:59:08+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.90
+- Single-point FV: $29.16
+- Scenario PW FV: $28.35 (EV +13.8%)
+- NAV / share: $30.13
+- Position: **BUY (undervalued)**
+- Broker spread: +6.1pp (k_broker 1.05)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +2.3% | Δscenario FV: +2.4% | ΔNAV: +2.7% | Δspread: -2.7pp
+
+**Decision:** _[pending annotation]_
 
 ---
 

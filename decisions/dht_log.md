@@ -1,5 +1,9 @@
 # DHT — Decision Log
 
+## 2026-07-18 (marks) — §9.9 prints promotion drift ACCEPTED-as-designed
+
+**Decision:** VLCC mid-age slope re-fit on the C. Innovator age-14 $52.0M print (tc_attached flag — below-market charter documented, price unadjusted): older-VLCC marks ease, −2.2% NAV; no band change. Cause: the 13-print marks-trail promotion (decisions/marks_trail_triage_2026-07-18.md §A, owner: 'Promote') — the prints-drift loop IS the gate for this move (CLAUDE.md 2026-06-09). Baseline re-ratify owner-gated.
+
 ## 2026-07-18 — price-vintage drift (7/17 close row): EV-only, accepted at the Week-close gate
 
 **Decision:** price-vintage drift ACCEPTED-as-mechanical (2026-07-18 Week-close gate): the 2026-07-17 close row landed via the daily price-refresh — EV%-only move, **ΔNAV +0.0%** (no model input changed; the FV stands at the 7/15 regen basis). Baseline re-ratify NOT executed — the batch absorb is the owner's deliberate step (2026-06-30 standing-thread discipline); recross of any band on a later vintage = a NEW eyeball.
@@ -8,6 +12,24 @@ Chronological record of model state at each pipeline run plus the investment
 decisions taken (or explicitly not taken). Newest entries appear at the top.
 Auto-prepended sections capture model state; the `**Decision:**` line is
 where you annotate what you actually did and why.
+
+---
+
+## 2026-07-18T19:59:08+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.41
+- Single-point FV: $14.68
+- Scenario PW FV: $13.10 (EV -24.8%)
+- NAV / share: $13.58
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +7.7pp (k_broker 1.11)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -1.8% | Δscenario FV: -1.8% | ΔNAV: -2.2% | Δspread: +1.3pp
+
+**Decision:** _[pending annotation]_
 
 ---
 

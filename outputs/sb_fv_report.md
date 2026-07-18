@@ -2,25 +2,25 @@
 
 - **Report date:** 2026-Q1
 - **Current price:** $6.82
-- **Model fair value:** $9.78
+- **Model fair value:** $9.82
 - **Analyst target:** $7.10
 
 ## NAV breakdown
 
 | Item | $M |
 |---|---:|
-| Fleet value — Pana | 985.1 |
+| Fleet value — Pana | 985.8 |
 | Fleet value — Post-Panamax | 422.1 |
-| Fleet value — Cape | 268.8 |
+| Fleet value — Cape | 273.2 |
 | + Cash & equivalents | 171.8 |
 | + Working capital (net) | 53.8 |
 | − Total debt | 544.0 |
 | − Lease liabilities | 0.0 |
 | − Newbuild commitments | 227.5 |
 | + Newbuild advances | 0.0 |
-| **= NAV total** | **1,030.0** |
+| **= NAV total** | **1,035.2** |
 | Diluted shares | 101,826,580 |
-| **NAV / share** | **$10.12** |
+| **NAV / share** | **$10.17** |
 
 ## Dividend strip (r = 11%)
 
@@ -35,8 +35,8 @@
 | Q7 | 14,900 | 16,307 | 0.459 | 0.138 | 0.115 |
 | Q8 | 14,600 | 16,187 | 0.451 | 0.135 | 0.110 |
 | Σ discounted DPS | | | | | 1.09 |
-| Terminal value (NAV, q9) | | | | 10.01 | 7.92 |
-| **DivStrip implied price** | | | | | **$9.01** |
+| Terminal value (NAV, q9) | | | | 10.04 | 7.94 |
+| **DivStrip implied price** | | | | | **$9.03** |
 
 _FFA spot is the Pana forward curve that drives the strip cash flows; its 12-month average is **$18,138/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$19,500/day** — not this FFA average._
 
@@ -47,17 +47,17 @@ _FFA spot is the Pana forward curve that drives the strip cash flows; its 12-mon
 
 ## Blended fair value
 
-0.70 × $10.12 (NAV) + 0.30 × $9.01 (strip) = **$9.78**
+0.70 × $10.17 (NAV) + 0.30 × $9.03 (strip) = **$9.82**
 
 ### FV attribution
 
 | Term | $/sh | share of FV |
 |---|---:|---:|
-| Vessel marks | 11.52 | 118% |
+| Vessel marks | 11.56 | 118% |
 | Balance-sheet net | -4.44 | -45% |
 | Discounted DPS (strip, 8-10q) | 0.33 | 3% |
 | Discounted terminal (aged NAV) | 2.38 | 24% |
-| **Blend FV** | **9.78** | 100% |
+| **Blend FV** | **9.82** | 100% |
 
 _Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 × 0.88 = **96%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
 
@@ -65,22 +65,22 @@ _Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $9.85 |
-| 95% | $9.87 |
-| 100% | $9.87 |
+| 80% | $9.89 |
+| 95% | $9.91 |
+| 100% | $9.91 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-**NAV alone covers the price.** NAV/share **$10.12** ≥ price **$6.82** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
+**NAV alone covers the price.** NAV/share **$10.17** ≥ price **$6.82** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
 | **Implied breakeven (blended)** | **0** | — |
-| 10-year mean | 13,785 | 0.00× |
-| 12-month FFA | 20,433 | 0.00× |
-| Current spot | 22,566 | 0.00× |
+| 10-year mean | 13,809 | 0.00× |
+| 12-month FFA | 20,463 | 0.00× |
+| Current spot | 22,600 | 0.00× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
@@ -92,18 +92,18 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $6.57 | $8.04 | $9.52 | $10.99 | $12.46 |
-| **-15%** | $6.70 | $8.18 | $9.65 | $11.12 | $12.60 |
-| **+0%** | $6.84 | $8.31 | $9.78 | $11.26 | $12.73 |
-| **+15%** | $6.97 | $8.44 | $9.92 | $11.39 | $12.86 |
-| **+30%** | $7.10 | $8.58 | $10.05 | $11.52 | $12.99 |
+| **-30%** | $6.60 | $8.08 | $9.56 | $11.04 | $12.51 |
+| **-15%** | $6.74 | $8.21 | $9.69 | $11.17 | $12.64 |
+| **+0%** | $6.87 | $8.35 | $9.82 | $11.30 | $12.78 |
+| **+15%** | $7.00 | $8.48 | $9.96 | $11.43 | $12.91 |
+| **+30%** | $7.14 | $8.61 | $10.09 | $11.57 | $13.04 |
 
 _Current price $6.82. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$9.78** is +43.4% vs the current price ($6.82) and +37.8% vs the analyst target ($7.10). NAV alone covers the price (NAV/sh $10.12 ≥ $6.82); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
+Tool fair value **$9.82** is +44.0% vs the current price ($6.82) and +38.4% vs the analyst target ($7.10). NAV alone covers the price (NAV/sh $10.17 ≥ $6.82); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
 
 ## Modeling notes
 
-- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $63.1M (+2%) / 10yr $46.0M (+2%) [n=26], LR2 5yr $77.8M (-2%) / 10yr $61.7M (-9%) [n=11], MR 5yr $46.1M (+0%) / 10yr $34.4M (-0%) [n=21], Pana 5yr $35.5M (+11%) / 10yr $25.8M (+8%) [n=5], Suezmax 5yr $86.3M (-6%) / 10yr $69.6M (-13%) [n=19], Supra-Ultra 5yr $29.3M (-11%) / 10yr $22.4M (-10%) [n=22], VLCC 5yr $113.2M (-18%) / 10yr $92.5M (-17%) [n=10], VLGC 5yr $91.9M (-0%) / 10yr $80.0M (-0%) [n=7]. Newbuild + old-age anchors unchanged.
+- Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $64.1M (+3%) / 10yr $46.9M (+4%) [n=29], LR2 5yr $76.1M (-4%) / 10yr $61.4M (-10%) [n=12], MR 5yr $46.0M (-0%) / 10yr $34.5M (-0%) [n=22], Pana 5yr $35.1M (+10%) / 10yr $26.1M (+9%) [n=6], Suezmax 5yr $87.9M (-4%) / 10yr $70.6M (-12%) [n=20], Supra-Ultra 5yr $30.2M (-9%) / 10yr $23.6M (-6%) [n=27], VLCC 5yr $113.5M (-18%) / 10yr $89.4M (-19%) [n=11], VLGC 5yr $91.9M (-0%) / 10yr $80.0M (-0%) [n=7]. Newbuild + old-age anchors unchanged.

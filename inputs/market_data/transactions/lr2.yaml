@@ -129,3 +129,10 @@ prints:
       ($77-79M) with a prompt-delivery premium — so the print says our
       $90M NB anchor is CONSERVATIVE-TO-FAIR, not validated-exactly.
       Filed 2026-06-12 (owner decision, MB once-over).
+  # ---- 2026-07-18 marks-trail promotion (decisions/marks_trail_triage_2026-07-18.md §A; owner: 'Promote') ----
+  - date: 2026-07-03
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 44.0
+    source: advanced W27 (GE Shipping prose, $44m); xclusiv 7/06 table $44.1
+    quality_flag: standard
+    notes: Jag Lokesh (105,599 dwt, 2009 HHI, scrubber, coated); buyer Greek/Y-KNOT. Window-edge age 17.

@@ -1,5 +1,9 @@
 # CMDB — Decision Log
 
+## 2026-07-18 (marks) — §9.9 prints promotion drift ACCEPTED-as-designed
+
+**Decision:** Dry-bulk (Supra/Pana/Cape) anchors re-fit UP on the 9 promoted dry prints (+2.5% NAV, +2.4pp EV; BUY stands — the 7/18 spot-reproxy flip direction corroborated by marks). Cause: the 13-print marks-trail promotion (decisions/marks_trail_triage_2026-07-18.md §A, owner: 'Promote') — the prints-drift loop IS the gate for this move (CLAUDE.md 2026-06-09). Baseline re-ratify owner-gated.
+
 ## 2026-07-18 (later) — RATIFIED 13-Jul spot re-proxy APPLIED (Week-close audit catch): dry-bulk FV-moving
 
 **Decision:** the ffa_promotion_2026-07-13.md §3 spot_tce values (Cape 36,000 / Pana+PPMX 20,000 / Supra-Ultra 19,050 — FFA front-month during the Pareto silence) were OWNER-RATIFIED 7/13 but never wired (items 1-2 landed; item 3 did not — the file kept the 2-Jul Pareto rows under a 7/13 as_of stamp). Applied 2026-07-18 at the Week-close audit. This MOVES dry-bulk FVs (ΔNAV 0.0 — spot feeds the cycle/blend leg, not marks). Band flip **HOLD→BUY** (band-mech: 18.81 ∈ [16.47, 23.98]). All flips auto-classify band-mech per D-M5 (price inside the fv interval — no eyeball owed; absorbed at the owner's next batch ratify, which now carries BOTH causes: the 7/17 price vintage AND this ratified-value application). Flips surfaced in the Week-close report regardless.
@@ -14,6 +18,24 @@ Auto-prepended sections capture model state; the `**Decision:**` line is
 where you annotate what you actually did and why.
 
 (METHODOLOGY §7.8 + decisions/README.md describe the auto-prepend convention.)
+
+---
+
+## 2026-07-18T19:59:08+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.81
+- Single-point FV: $20.98
+- Scenario PW FV: $20.55 (EV +9.2%)
+- NAV / share: $32.10
+- Position: **BUY (undervalued)**
+- Broker spread: -5.6pp (k_broker 0.94)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +2.2% | Δscenario FV: +2.2% | ΔNAV: +2.5% | Δspread: -2.5pp
+
+**Decision:** _[pending annotation]_
 
 ---
 
@@ -2022,3 +2044,12 @@ a later-vintage recross is a NEW eyeball per the 2026-07-10 rule.
 **Decision:** administrative — 2026 Annual Meeting of Shareholders announcement, no
 financial content. No input moves. The Astros-sale watch (clean age-8 Ultramax print,
 Q2 kit) stays open; H1 window 8/4-8/14 unchanged.
+
+## 2026-07-18 — Costamare disposal print: BERMONDI (Supramax 2009) $15.3M
+
+**Decision:** informational — the marks-trail promotion (§A #13) wires BERMONDI (55,469
+dwt, 2009 Mitsui, age 17) at $15.3M with SELLER COSTAMARE (MB Dry W28; xclusiv/advanced
+corroborate). A CMDB-complex fleet disposal print — corroborates the old-Supra mark level
+the CMDB book carries; the manifest is unaffected until a CMDB filing confirms which
+entity sold (CBI chartered-in platform vessels never sit in the manifest). The Astros
+watch (clean age-8 Ultramax print, Q2 kit) stays open — Bermondi is NOT Astros.
