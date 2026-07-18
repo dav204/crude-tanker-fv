@@ -67,6 +67,11 @@ OPERATING_SCRUBBER_QUEUE = {   # SB/ECO left 2026-07-01; TRMD left 2026-07-02 (F
 # basis rollup alone would over-grade the tier to VALIDATED-TIGHT. confidence_tier caps these at
 # GOVERNED-WIDE (sub-reason pending-anchor). An entry is REMOVED when its class's re-fit trigger
 # fires and the §9.9 fit lands (2343: handy_bulk_txn_refit — Handy-Bulk is 51% of its hulls).
+# BOUNDARY PRECEDENT (SB/PPMX, owner-ruled 2026-07-18 "Flag not cap"): this cap is for
+# NO-fit classes only. A class with a real-but-WIDE fit registers in MARK_WIDE_NODES
+# instead, and the holder's tier STANDS iff the registered band cannot flip the name's
+# read (SB: BUY invariant across the whole PPMX leave-one-out space, worst edge ~+25%).
+# A band edge that flips a read = cap territory. ppmx_fit_seed_prereg_2026-07-18.md §4.
 UNANCHORED_VALUE_CLASS_CAP = {"2343"}
 
 # --- NAV-equation figure provenance (test_manifest_provenance) ----------------------------------

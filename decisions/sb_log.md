@@ -1,5 +1,13 @@
 # SB — Decision Log
 
+## 2026-07-18 (tier) — boundary RULED: "Flag not cap" — VALIDATED-TIGHT stands
+
+**Decision:** owner verbatim "Flag not cap". SB keeps VALIDATED-TIGHT with the
+Post-Panamax mark-wide flag printed on its row. Basis: the band-invariance test —
+BUY at every point of the leave-one-out fit space (NAV 8.70-10.37, joint bear edge
+~0.79x price / ~+25%); the bear edge is the tc_attached print. Precedent codified
+at UNANCHORED_VALUE_CLASS_CAP: no-fit caps, wide-fit flags, read-invariance decides.
+
 ## 2026-07-18 (ppmx) — the holding card's PPMX falsifier CHECKPOINT executed: error REAL but SMALL
 
 **Decision:** the PPMX §9.9 fit SEEDED (owner ruling; ppmx_fit_seed_prereg_2026-07-18.md)

@@ -53,7 +53,14 @@ band is dominated by one tc-attached print with a refit trigger armed.
 **Recommendation: flag-not-cap** (mark_wide_nodes prints on SB's scorecard row; tier
 stands). The alternative (cap → SB GOVERNED-WIDE·pending-anchor) would demote the
 book's only TIGHT BUY on the day its known over-valuation was CORRECTED by 1.5% —
-the tier would punish the fix. Owner confirms at the ratify: ______
+the tier would punish the fix. **RULED 2026-07-18 (owner verbatim: "Flag not cap") —
+SB stays VALIDATED-TIGHT with the mark-wide flag printed. Decisive analysis at the ruling:
+SB's BUY is INVARIANT across the entire leave-one-out fit space (NAV 8.70-10.37 vs price
+~6.90; the joint bear edge still reads ~0.79x / ~+25%), and the bear edge is driven by the
+one tc_attached print. The 2343 distinction is now precedent: a NO-fit class caps
+(UNANCHORED_VALUE_CLASS_CAP); a WIDE-fit class flags (MARK_WIDE_NODES) and the holder's
+tier stands iff the registered band cannot flip the name's read — the band-invariance
+test. A future band-edge that flips a read = cap territory.**
 
 ## 5. Execution (this prereg → wire → prints-drift loop → annotate → clean-stamp)
 
