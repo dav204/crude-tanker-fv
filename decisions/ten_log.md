@@ -1,5 +1,16 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-07-20 — NEW LNG NEWBUILD ORDER reported (MB LNG Weekly 29): watch item for the Sep H1
+
+**Decision:** informational — no snapshot change (post-Q1 subsequent event, the
+thrice-caught pattern: does NOT enter the Q1 manifest). MB LNG Weekly 29 (2026-07-16):
+"Tsakos Energy has ordered a single vessel at Hyundai Heavy Industries for delivery in
+Q1 2029 which has been fixed to an unknown oil major for 10 years." No price printed.
+At the Sep H1 refresh: expect the NB program to read 19→20 hulls with a NEW commitment
+figure (price from the H1 6-K, else NEWBUILD_PRICE_PENDING park per the NAT precedent);
+the 10-yr charter attaches to the LNG sleeve's contracted book. Consistent with the
+20-F-noted ordering appetite; changes nothing at the reconciled Q1 basis (NAV 87.35).
+
 ## 2026-07-15 — FULL BALANCE-SHEET RECONCILIATION (pre-registered @ ce65da4; bands HIT)
 
 **Decision:** TEN NAV move ACCEPTED-as-reconciliation (2026-07-15): headline NAV/sh
