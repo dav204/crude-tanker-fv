@@ -5,6 +5,19 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-20 — EDGAR POLLER STAGES EX-99 EXHIBITS (the BWLP cover-only gap).** The poller
+  staged only each filing's PRIMARY document, but a 6-K/8-K's substance lives in exhibit 99.x:
+  BWLP 0001213900-26-078478 (filed 2026-07-16) staged the 9KB 6-K cover while ex-99.1 carried
+  the Product Services Q2 pre-announcement (net −$31M) — fetched by hand 2026-07-18. Now: for
+  each new accession the poller also fetches the accession's `-index.htm`, stages every row
+  whose Type matches EX-99* under the same `{accession}_{form}_{filename}` convention, and
+  records them on the manifest line (`exhibits: [{doc, type, staged_path}]` — additive key;
+  sentinel reads via .get, unaffected). Politeness preserved: same UA/spacing seam, exhibit
+  downloads count against MAX_DOCS_PER_RUN; exhibit DETECTION is never capped (cap-exhausted
+  rows land manifest-only, the primary-doc convention). Primary-registered-as-exhibit rows
+  skipped (no double-stage); iXBRL `/ix?doc=` hrefs handled. Row shape verified against the
+  live BWLP index page. Guards: test_ex99_exhibits_staged_and_manifested,
+  test_exhibit_detection_never_capped_staging_is, test_dry_run_fetches_no_archives.
 - **2026-07-15 — TEN FULL BALANCE-SHEET RECONCILIATION (ninth of the pattern; pre-registered @
   ce65da4, both bands HIT).** Requested by the governance sizing analysis (TEN card gate ii).
   The 6-K's OWN condensed Mar-31 balance sheet — which the 2026-06-05 onboarding log had already

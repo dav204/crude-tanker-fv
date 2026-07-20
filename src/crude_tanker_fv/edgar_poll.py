@@ -1,7 +1,10 @@
 """EDGAR filings poller (WO2 2.2) — filings become events.
 
 Polls each covered CIK's submissions JSON and stages new relevant filings'
-primary documents to inputs/filings/<ticker>/ (gitignored). The authoritative
+primary documents AND their ex-99* exhibits (parsed from the accession's
+-index.htm — a 6-K/8-K's substance lives in the exhibit, not the cover; the
+BWLP 0001213900-26-078478 precedent) to inputs/filings/<ticker>/ (gitignored).
+The authoritative
 arrival record is STATE-SIDE (R-2): state/edgar_manifest.jsonl — one line per
 new accession (invariant 4: accession number IS the identity; a /A form
 carries amended=true). The sentinel reads the manifest for
@@ -49,6 +52,7 @@ FILINGS_DIR = INPUTS / "filings"
 USER_AGENT = "crude-tanker-fv research (dav204@gmail.com)"
 RELEVANT_FORMS = {"6-K", "6-K/A", "10-Q", "10-Q/A", "10-K", "10-K/A",
                   "20-F", "20-F/A", "8-K", "8-K/A"}
+EXHIBIT_RE = re.compile(r"EX-99", re.I)
 REQUEST_SPACING_S = 0.25
 BACKOFF_MIN = 30
 MAX_DOCS_PER_RUN = 30
@@ -105,6 +109,27 @@ def _fetch(url: str, headers: dict) -> "tuple[int, bytes, dict]":
             return resp.status, resp.read(), dict(resp.headers)
     except urllib.error.HTTPError as exc:
         return exc.code, b"", dict(exc.headers or {})
+
+
+def parse_index_exhibits(html: str, primary: str) -> "list[tuple[str, str]]":
+    """(filename, exhibit type) for each -index.htm document row whose Type
+    column matches EXHIBIT_RE, primary excluded (some filers register the
+    primary doc itself as the exhibit). Row shape: Seq | Description |
+    <a href> | Type | Size; iXBRL hrefs carry an /ix?doc= prefix, so the
+    filename is the last path segment."""
+    out = []
+    primary_name = Path(primary).name if primary else None
+    for row in re.finditer(r"<tr[^>]*>(.*?)</tr>", html, re.S | re.I):
+        cells = re.findall(r"<td[^>]*>(.*?)</td>", row.group(1), re.S | re.I)
+        if len(cells) < 4:
+            continue
+        m = re.search(r'href="([^"]+)"', cells[2])
+        if not m or not EXHIBIT_RE.match(cells[3].strip()):
+            continue
+        name = m.group(1).rsplit("/", 1)[-1]
+        if name != primary_name:
+            out.append((name, cells[3].strip()))
+    return out
 
 
 def record_manifest_line(line: dict, manifest: Path = MANIFEST) -> None:
@@ -171,25 +196,45 @@ def poll_cik(ticker: str, cik: str, state: dict, *, fetch=_fetch,
         if accession in seen or filed < watermark:
             continue
         staged = None
-        if not dry_run and primary and used < downloads_left:
+        exhibits: "list[dict]" = []
+        if not dry_run:
             acc_nodash = accession.replace("-", "")
-            doc_url = (f"https://www.sec.gov/Archives/edgar/data/"
-                       f"{int(cik)}/{acc_nodash}/{primary}")
-            time.sleep(REQUEST_SPACING_S)
-            s2, b2, _ = fetch(doc_url, {})
-            if s2 == 200 and b2:
-                dest = FILINGS_DIR / ticker / f"{accession}_{form.replace('/', '')}_{Path(primary).name}"
+            base = (f"https://www.sec.gov/Archives/edgar/data/"
+                    f"{int(cik)}/{acc_nodash}")
+
+            def _stage(name: str) -> "str | None":
+                time.sleep(REQUEST_SPACING_S)
+                s2, b2, _ = fetch(f"{base}/{name}", {})
+                if s2 != 200 or not b2:
+                    return None
+                dest = FILINGS_DIR / ticker / f"{accession}_{form.replace('/', '')}_{Path(name).name}"
                 dest.parent.mkdir(parents=True, exist_ok=True)
                 dest.write_bytes(b2)
                 try:
-                    staged = str(dest.relative_to(ROOT))
+                    return str(dest.relative_to(ROOT))
                 except ValueError:   # staging dir outside ROOT (tests)
-                    staged = str(dest)
-                used += 1
+                    return str(dest)
+
+            if primary and used < downloads_left:
+                staged = _stage(primary)
+                used += staged is not None
+            # Exhibit DETECTION is never capped (only staging is): list the
+            # index rows even when the doc budget is spent this run.
+            time.sleep(REQUEST_SPACING_S)
+            s3, b3, _ = fetch(f"{base}/{accession}-index.htm", {})
+            if s3 == 200 and b3:
+                for name, ex_type in parse_index_exhibits(
+                        b3.decode("utf-8", "replace"), primary):
+                    ex_staged = None
+                    if used < downloads_left:
+                        ex_staged = _stage(name)
+                        used += ex_staged is not None
+                    exhibits.append({"doc": name, "type": ex_type,
+                                     "staged_path": ex_staged})
         line = {"ts": now.isoformat(timespec="seconds"), "ticker": ticker,
                 "cik": cik, "accession": accession, "form": form,
                 "filed": filed, "primary_doc": primary, "staged_path": staged,
-                "amended": form.endswith("/A")}
+                "exhibits": exhibits, "amended": form.endswith("/A")}
         lines.append(line)
         seen.add(accession)
     st["seen_accessions"] = ([r[0] for r in relevant if r[0] in seen])[:200]
@@ -224,8 +269,10 @@ def main(argv: "list[str] | None" = None) -> int:
         for line in lines:
             record_manifest_line(line)
             tag = " AMENDED" if line["amended"] else ""
+            n_ex = len(line["exhibits"])
+            ex = f" +{n_ex} exhibit(s)" if n_ex else ""
             print(f"{ticker}: NEW {line['form']}{tag} {line['accession']} "
-                  f"filed {line['filed']} -> {line['staged_path'] or 'manifest-only'}")
+                  f"filed {line['filed']} -> {line['staged_path'] or 'manifest-only'}{ex}")
         total_new += len(lines)
     _save_state(state)
     print(f"polled {len(ciks)} names: {total_new} new filing(s), {total_docs} doc(s) staged")

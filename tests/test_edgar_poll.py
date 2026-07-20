@@ -1,6 +1,7 @@
 """EDGAR poller (WO2 2.2): CIK discovery, quiet bootstrap, new-accession
-detection with amended flag, conditional GETs, backoff, download cap. All
-network stubbed at the module's fetch seam."""
+detection with amended flag, conditional GETs, backoff, download cap, ex-99
+exhibit staging from the -index.htm. All network stubbed at the module's
+fetch seam."""
 
 import json
 from datetime import datetime, timedelta, timezone
@@ -142,6 +143,95 @@ def test_403_sets_backoff(monkeypatch):
     assert lines == []
     until = datetime.fromisoformat(state["0001331284"]["backoff_until"])
     assert until >= now + timedelta(minutes=29)
+
+
+# Row shapes verified against the live BWLP 0001213900-26-078478 -index.htm
+# (2026-07-20): Seq | Description | <a href> | Type | Size; iXBRL hrefs carry
+# an /ix?doc= prefix. EX-99.2 here points at the primary filename — some
+# filers register the cover itself as an exhibit; it must not double-stage.
+_INDEX_HTML = b"""<html><table>
+<tr><th>Seq</th><th>Description</th><th>Document</th><th>Type</th><th>Size</th></tr>
+<tr><td>1</td><td>REPORT OF FOREIGN PRIVATE ISSUER</td>
+<td><a href="/Archives/edgar/data/1649313/000126000002/cover-6k.htm">cover-6k.htm</a></td>
+<td>6-K</td><td>9363</td></tr>
+<tr><td>2</td><td>PRESS RELEASE</td>
+<td><a href="/ix?doc=/Archives/edgar/data/1649313/000126000002/ex99-1_press.htm">ex99-1_press.htm</a></td>
+<td>EX-99.1</td><td>11009</td></tr>
+<tr><td>3</td><td>COVER REGISTERED AS EXHIBIT</td>
+<td><a href="/Archives/edgar/data/1649313/000126000002/cover-6k.htm">cover-6k.htm</a></td>
+<td>EX-99.2</td><td>9363</td></tr>
+<tr><td>4</td><td>LOGO</td>
+<td><a href="/Archives/edgar/data/1649313/000126000002/img.jpg">img.jpg</a></td>
+<td>GRAPHIC</td><td>500</td></tr>
+<tr><td>&nbsp;</td><td>Complete submission text file</td>
+<td><a href="/Archives/edgar/data/1649313/000126000002/full.txt">full.txt</a></td>
+<td>&nbsp;</td><td>21520</td></tr>
+</table></html>"""
+
+
+def _recent_one(accession, form, primary):
+    from datetime import date, timedelta
+
+    filed = (date.today() + timedelta(days=1)).isoformat()
+    recent = {"accessionNumber": [accession], "form": [form],
+              "filingDate": [filed], "primaryDocument": [primary]}
+    return json.dumps({"filings": {"recent": recent}}).encode()
+
+
+def _fake_fetch_with_index(payload, index_html=_INDEX_HTML):
+    calls = []
+
+    def fetch(url, headers):
+        calls.append((url, headers))
+        if "data.sec.gov" in url:
+            return 200, payload, {"ETag": "abc123"}
+        if url.endswith("-index.htm"):
+            return 200, index_html, {}
+        return 200, b"<html>doc</html>", {}
+    fetch.calls = calls
+    return fetch
+
+
+def test_ex99_exhibits_staged_and_manifested(tmp_path, monkeypatch):
+    """BWLP 0001213900-26-078478 (2026-07-16): the 9KB 6-K cover was staged
+    while ex-99.1 carried the Product Services Q2 pre-announcement (net −$31M)
+    — fetched by hand 2026-07-18. Exhibits now land alongside the primary,
+    type-filtered (GRAPHIC / full-text rows skipped)."""
+    monkeypatch.setattr(ep, "FILINGS_DIR", tmp_path / "filings")
+    monkeypatch.setattr(ep, "REQUEST_SPACING_S", 0)
+    state = {"0001649313": {"bootstrapped": True, "seen_accessions": ["old"]}}
+    fetch = _fake_fetch_with_index(_recent_one("0001-26-000002", "6-K", "cover-6k.htm"))
+    lines, used = poll_cik("BWLP", "0001649313", state, fetch=fetch)
+    assert len(lines) == 1 and used == 2          # primary + ex-99.1
+    line = lines[0]
+    assert [(e["doc"], e["type"]) for e in line["exhibits"]] == [
+        ("ex99-1_press.htm", "EX-99.1")]
+    ex = line["exhibits"][0]
+    assert (ep.ROOT / ex["staged_path"]).name == "0001-26-000002_6-K_ex99-1_press.htm"
+    assert (ep.ROOT / ex["staged_path"]).read_bytes() == b"<html>doc</html>"
+    urls = [u for u, _ in fetch.calls]
+    assert not any("img.jpg" in u or "full.txt" in u for u in urls)
+    assert sum(u.endswith("cover-6k.htm") for u in urls) == 1   # no double-stage
+
+
+def test_exhibit_detection_never_capped_staging_is(tmp_path, monkeypatch):
+    monkeypatch.setattr(ep, "FILINGS_DIR", tmp_path / "filings")
+    monkeypatch.setattr(ep, "REQUEST_SPACING_S", 0)
+    state = {"0001649313": {"bootstrapped": True, "seen_accessions": ["old"]}}
+    fetch = _fake_fetch_with_index(_recent_one("0001-26-000002", "6-K", "cover-6k.htm"))
+    lines, used = poll_cik("BWLP", "0001649313", state, fetch=fetch,
+                           downloads_left=1)
+    assert used == 1                              # budget went to the primary
+    assert [(e["doc"], e["staged_path"]) for e in lines[0]["exhibits"]] == [
+        ("ex99-1_press.htm", None)]               # listed manifest-only
+
+
+def test_dry_run_fetches_no_archives():
+    state = {"0001649313": {"bootstrapped": True, "seen_accessions": ["old"]}}
+    fetch = _fake_fetch_with_index(_recent_one("0001-26-000002", "6-K", "cover-6k.htm"))
+    lines, used = poll_cik("BWLP", "0001649313", state, fetch=fetch, dry_run=True)
+    assert used == 0 and lines[0]["exhibits"] == []
+    assert all("data.sec.gov" in u for u, _ in fetch.calls)
 
 
 def test_download_cap_respected(tmp_path, monkeypatch):
