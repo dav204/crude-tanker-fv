@@ -503,8 +503,11 @@ def test_pure_mode_flags_stale_head_in_open_window(tmp_path):
     flags = collect_flags(inputs, outputs, environ={}, pure=True)
     assert any("repo HEAD 5d old" in f for f in flags)
     # (the same open window legitimately emits calendar flags for DHT — 2.3)
-    assert all(f.split()[0] in ("STALE-INPUT", "EARNINGS-DUE",
-                                "STALE-BALANCE-SHEET") for f in flags)
+    # 2026-07-21: + the date-verification families (EARNINGS-UNCONFIRMED /
+    # EARNINGS-SWEEP-STALE) — the fixture's open expected-window fires them by design.
+    assert all(f.split()[0].rstrip(":") in ("STALE-INPUT", "EARNINGS-DUE",
+                                "STALE-BALANCE-SHEET", "EARNINGS-UNCONFIRMED",
+                                "EARNINGS-SWEEP-STALE") for f in flags)
 
 
 def test_filing_events_landed_overdue_unseeded(tmp_path):
@@ -641,3 +644,34 @@ def test_exit_codes_and_log_format(tmp_path, monkeypatch):
     assert main(["--log", str(log)]) == 1
     last = log.read_text().strip().splitlines()[-1]
     assert " FLAG 1: TRIGGER-DUE" in last
+
+
+def test_earnings_unconfirmed_pages_near_expected_windows(tmp_path, monkeypatch):
+    """2026-07-21 (the SBLK false-confirmed case): a window opening within 10d
+    whose status is not 'confirmed' must page EARNINGS-UNCONFIRMED; a confirmed
+    one must not; a >7d-stale last_date_sweep with any window inside 21d must
+    page EARNINGS-SWEEP-STALE."""
+    from datetime import date, datetime, timezone, timedelta
+    from crude_tanker_fv.sentinel import _filing_event_flags
+
+    now = datetime(2026, 7, 21, 12, 0, tzinfo=timezone.utc)
+    near = date(2026, 7, 28)
+    cal = {
+        "AAA": {"window_start": near, "window_end": near, "status": "expected", "basis": "x"},
+        "BBB": {"window_start": near, "window_end": near, "status": "confirmed", "basis": "x"},
+    }
+    meta_stale = {"quarter": "2026-Q2", "last_date_sweep": date(2026, 7, 10)}
+    meta_fresh = {"quarter": "2026-Q2", "last_date_sweep": date(2026, 7, 20)}
+
+    import crude_tanker_fv.sentinel as S
+    import crude_tanker_fv.refresh as R
+    monkeypatch.setattr(R, "load_earnings_calendar", lambda *_a, **_k: (meta_stale, cal))
+    monkeypatch.setattr(R, "check_earnings_calendar", lambda *_a, **_k: [])
+    flags = _filing_event_flags(tmp_path, {"AAA": {}, "BBB": {}}, [], now=now)
+    assert any(f.startswith("EARNINGS-UNCONFIRMED AAA") for f in flags)
+    assert not any("BBB" in f and f.startswith("EARNINGS-UNCONFIRMED") for f in flags)
+    assert any(f.startswith("EARNINGS-SWEEP-STALE") for f in flags)
+
+    monkeypatch.setattr(R, "load_earnings_calendar", lambda *_a, **_k: (meta_fresh, cal))
+    flags = _filing_event_flags(tmp_path, {"AAA": {}, "BBB": {}}, [], now=now)
+    assert not any(f.startswith("EARNINGS-SWEEP-STALE") for f in flags)

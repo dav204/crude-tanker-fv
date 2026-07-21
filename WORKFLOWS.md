@@ -200,6 +200,34 @@ quirks live here:
   sentinel FILING-LANDED + draft queue work unchanged. HK cadence is SEMI-ANNUAL (Annual ~Mar,
   Interim ~Jul/Aug) + Monthly Returns (share count).
 
+## Earnings-date sweep — the recurring verification (added 2026-07-21, owner directive)
+
+The calendar's windows are only as good as their last verification — the SBLK case
+(2026-07-21): a wrongly-"confirmed" entry looks SAFE to every mechanical check, because
+date-setting PRs are newswire releases, mostly NOT EDGAR filings. So the sweep itself is
+agent work; the TRIGGER is mechanical (sentinel `EARNINGS-UNCONFIRMED` — a window opening
+≤10d with status=expected pages per-name; `EARNINGS-SWEEP-STALE` — any window ≤21d with
+`meta.last_date_sweep` >7d old pages for the full sweep).
+
+**The sweep (weekly during earnings season, on the sentinel page or at the Saturday session):**
+1. Fan out research agents over: every `expected` name whose window opens within ~21d,
+   PLUS re-verification of `confirmed` names inside 14d (the FLNG early-release pattern).
+2. Per name, only an ISSUER-GRADE source upgrades to confirmed: the company's own date PR
+   (GlobeNewswire/PRNewswire/Business Wire), its financial-calendar page, or an exchange
+   calendar (Euronext/Oslo Newspoint, HKEXnews board-meeting notice). Aggregator dates
+   (MarketBeat/stockanalysis/Nasdaq) are ESTIMATES — record them labeled, never as status.
+3. Update `inputs/earnings_calendar.yaml`: status + window + a basis line carrying the
+   citation, the verbatim date sentence's substance, and the sweep date. Windows the
+   pattern no longer supports get honestly RE-SHAPED (SB's Q1 slip, GSL's lateness), not
+   left to look precise.
+4. Stamp `meta.last_date_sweep`, run the calendar guard (`pytest -k calendar`), commit.
+
+The backstop stack, for the record: the sweep verifies dates AHEAD; EARNINGS-DUE pages
+14d out; the EDGAR poller polls in-window names every run (and everything at least ~12h)
+so a print is never missed outright — what the sweep protects is the PREPARATION: the
+report-day refresh queued, FVs current at the event, and no false confidence from a
+stale "confirmed".
+
 ## Consensus-pair recapture — the quarterly packet (added 2026-07-03, WO2 3.1)
 
 The consensus pair (`current_price` + `consensus_pnav` + `consensus_fwd_pe`) is valid only AS A

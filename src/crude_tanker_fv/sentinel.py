@@ -584,6 +584,38 @@ def _filing_event_flags(inputs_dir: Path, watchlist: dict,
                    else "EARNINGS-DUE")
             flags.append(f"{tag} {it.label}: {it.detail}")
 
+    # EARNINGS-UNCONFIRMED (2026-07-21, owner: date sweeps must be routine, not
+    # memory) — the SBLK case: a wrongly-"confirmed" or stale-"expected" entry
+    # looks SAFE to every other check (EARNINGS-DUE pages off the window; the
+    # poller catches the filing but not the preparation). Date-setting PRs are
+    # newswire releases, mostly NOT filings — verification is agent work; this
+    # check makes the TRIGGER mechanical: (a) a window opening within 10d whose
+    # status is still "expected" pages for a sweep of that name; (b) any window
+    # inside 21d with the calendar's last_date_sweep stamp >7d old pages for
+    # the full sweep (WORKFLOWS §Earnings-date sweep).
+    today = now.date()
+    stale_sweep_due = False
+    for ticker, entry in cal.items():
+        if not isinstance(entry, dict) or "window_start" not in entry:
+            continue
+        ws = entry["window_start"]
+        days_out = (ws - today).days
+        if days_out < -3:
+            continue
+        if days_out <= 21:
+            stale_sweep_due = True
+        if days_out <= 10 and str(entry.get("status")) != "confirmed":
+            flags.append(
+                f"EARNINGS-UNCONFIRMED {ticker}: window opens {ws} ({days_out}d) "
+                f"with status={entry.get('status')} — no official date on file; "
+                f"run the date sweep for this name (WORKFLOWS §Earnings-date sweep)")
+    sweep_stamp = meta.get("last_date_sweep")
+    if stale_sweep_due and (sweep_stamp is None or (today - sweep_stamp).days > 7):
+        flags.append(
+            f"EARNINGS-SWEEP-STALE: windows open within 21d but the calendar's "
+            f"last_date_sweep is {sweep_stamp or 'ABSENT'} (>7d) — run the full "
+            f"date sweep and stamp meta.last_date_sweep")
+
     by_ticker: dict = {}
     for e in manifest_entries:
         by_ticker.setdefault(e.get("ticker"), []).append(e)
