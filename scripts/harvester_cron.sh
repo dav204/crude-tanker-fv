@@ -20,6 +20,8 @@ cd "$PROJECT"
 JOB=harvester
 . "$(dirname "$0")/cron_lib.sh"
 
+cron_require_network www.hellenicshippingnews.com
+
 if [ -f "$PROJECT/PAUSE" ]; then
   CRON_OUTCOME=skipped-paused
   echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') SKIPPED: paused"

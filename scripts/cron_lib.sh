@@ -40,6 +40,33 @@ fi
 CRON_OUTCOME="error"
 CRON_NOTE=""
 
+# Wake-time DNS race (observed 9x in edgar_poll.err through 2026-07-21, plus
+# price-refresh 7/17+7/21 and rocketchat-ingest 7/17: launchd fires the first
+# post-wake run before name resolution is up -> URLError Errno 8, rc=1, a
+# FETCH-FAILED page for a self-healing transient). Fetch wrappers call this
+# BEFORE their python: waits up to ~30s for DNS; on persistent failure stands
+# down as skipped-no-network rc=0 (the next scheduled run covers it) — the
+# same live-job-standing-down semantics as skipped-paused.
+cron_require_network() {
+  crn_host="${1:-sec.gov}"
+  crn_tries=0
+  # write-nothing resolvers only: python3 would create $HOME/Library caches
+  # (dirties the tmp-repo test harness whose HOME is the repo).
+  while [ $crn_tries -lt 6 ]; do
+    if command -v dscacheutil >/dev/null 2>&1; then
+      dscacheutil -q host -a name "$crn_host" 2>/dev/null | grep -q ip_address && return 0
+    elif command -v getent >/dev/null 2>&1; then
+      getent hosts "$crn_host" >/dev/null 2>&1 && return 0
+    fi
+    crn_tries=$((crn_tries + 1))
+    sleep 5
+  done
+  CRON_OUTCOME=skipped-no-network
+  CRON_NOTE="dns-unresolvable:${crn_host}-after-30s"
+  echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') SKIPPED: network not up (${crn_host} unresolvable after ~30s)"
+  exit 0
+}
+
 cron_exit() {
   cron_rc=${1:-$?}
   mkdir -p "$PROJECT/state/heartbeat"

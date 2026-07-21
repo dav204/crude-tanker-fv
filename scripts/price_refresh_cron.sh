@@ -15,6 +15,8 @@ export PYTHONUNBUFFERED=1
 JOB=price-refresh
 . "$(dirname "$0")/cron_lib.sh"
 
+cron_require_network query1.finance.yahoo.com
+
 # Collision guard (WO1 Task 3, 2026-07-02): no automation through live surgery.
 # The 18:52 Jul-2 fetch landed mid-F-13-fix and had to be hand-separated into
 # its own commit. Re-scoped 2026-07-06 (owner-approved): dirt confined to the

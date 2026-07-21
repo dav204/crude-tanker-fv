@@ -30,6 +30,8 @@ export PYTHONUNBUFFERED=1
 JOB=rocketchat-ingest
 . "$(dirname "$0")/cron_lib.sh"
 
+cron_require_network rc.seekingalpha.com
+
 if [ -f "$PROJECT/PAUSE" ]; then
   CRON_OUTCOME=skipped-paused
   echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') SKIPPED: paused"

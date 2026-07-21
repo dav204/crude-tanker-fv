@@ -36,6 +36,8 @@ export PYTHONUNBUFFERED=1
 JOB=news-pull
 . "$(dirname "$0")/cron_lib.sh"
 
+cron_require_network sec.gov
+
 if [ -f "$PROJECT/PAUSE" ]; then
   CRON_OUTCOME=skipped-paused
   echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') SKIPPED: paused"
