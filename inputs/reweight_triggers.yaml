@@ -218,7 +218,11 @@ tanker_forward_print_lands:
 
 container_mb_refresh:
   sector: containerships
-  due: 2026-08-07
+  due: 2026-08-21   # re-armed 2026-07-22 on the W28+W29 ingest (monthly from
+                    # promotion; was 2026-08-07 = monthly-from-W27). Record:
+                    # decisions/container_mb_refresh_packet_2026-07-22.md —
+                    # ONE moving cell (1,700 12M 30k→31k → Ctr-Feeder 24,250);
+                    # values ALL flat, comment re-stamp only.
   observable: >
     Monthly re-capture of the container determinants (Ctr-* TC + value
     assessments) from the newest staged MB Container Weekly — the §11.8

@@ -1,7 +1,7 @@
 # TNK — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $70.07
+- **Current price:** $71.91
 - **Model fair value:** $79.61
 - **Analyst target:** $75.00
 
@@ -80,20 +80,20 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-**NAV alone covers the price.** NAV/share **$77.73** ≥ price **$70.07** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
+The current price requires the fleet to run at **0.22× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **2,343** | — |
-| 10-year mean | 32,645 | 0.07× |
-| 12-month FFA | 84,302 | 0.03× |
-| Current spot | 91,059 | 0.03× |
+| **Implied breakeven (blended)** | **18,151** | — |
+| 10-year mean | 32,645 | 0.56× |
+| 12-month FFA | 84,302 | 0.22× |
+| Current spot | 91,059 | 0.20× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Aframax (50% of fleet value) | 2,147 | 0.06× |
-| Suezmax (46% of fleet value) | 2,363 | 0.09× |
-| VLCC (5% of fleet value) | 4,309 | 0.11× |
+| Aframax (50% of fleet value) | 16,633 | 0.46× |
+| Suezmax (46% of fleet value) | 18,302 | 0.66× |
+| VLCC (5% of fleet value) | 33,374 | 0.83× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -105,11 +105,11 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 | **+15%** | $72.97 | $77.03 | $81.08 | $85.14 | $89.19 |
 | **+30%** | $74.44 | $78.50 | $82.56 | $86.61 | $90.67 |
 
-_Current price $70.07. Cycle weights held at base across the grid._
+_Current price $71.91. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$79.61** is +13.6% vs the current price ($70.07) and +6.1% vs the analyst target ($75.00). NAV alone covers the price (NAV/sh $77.73 ≥ $70.07); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
+Tool fair value **$79.61** is +10.7% vs the current price ($71.91) and +6.1% vs the analyst target ($75.00). The current price implies the fleet earning a value-weighted blended **$18,151/day** (0.22× the current forward) — 0.6× the value-weighted 10-yr mean ($32,645, i.e. the market is pricing distress), and the market is below the forward curve.
 
 ## Modeling notes
 

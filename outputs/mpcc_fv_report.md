@@ -1,7 +1,7 @@
 # MPCC — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $2.48
+- **Current price:** $2.46
 - **Model fair value:** $2.21
 - **Analyst target:** $2.63
 
@@ -29,10 +29,10 @@
 | Q2 | 45,325 | 26,404 | 0.131 | 0.066 | 0.062 |
 | Q3 | 44,325 | 27,014 | 0.135 | 0.068 | 0.063 |
 | Q4 | 43,300 | 28,736 | 0.146 | 0.073 | 0.066 |
-| Q5 | 42,275 | 29,055 | 0.155 | 0.077 | 0.068 |
+| Q5 | 42,275 | 29,055 | 0.155 | 0.078 | 0.068 |
 | Q6 | 41,275 | 29,765 | 0.166 | 0.083 | 0.071 |
-| Q7 | 40,250 | 29,755 | 0.174 | 0.087 | 0.072 |
-| Q8 | 39,225 | 30,430 | 0.186 | 0.093 | 0.075 |
+| Q7 | 40,250 | 29,755 | 0.174 | 0.087 | 0.073 |
+| Q8 | 39,225 | 30,430 | 0.186 | 0.093 | 0.076 |
 | Q9 | 38,225 | 30,553 | 0.194 | 0.097 | 0.077 |
 | Q10 | 37,200 | 32,493 | 0.217 | 0.108 | 0.084 |
 | Σ discounted DPS | | | | | 0.70 |
@@ -43,7 +43,7 @@ _FFA spot is the Ctr-Intermediate forward curve that drives the strip cash flows
 
 ## Cycle weighting
 
-- Cycle position = 12M TC (Compass) $46,350 / 10-yr mean $33,700 = **1.31×** → **elevated**
+- Cycle position = 12M TC (Compass) $46,350 / 10-yr mean $33,700 = **1.32×** → **elevated**
 - Weights: w_nav = 0.60, w_earn = 0.40
 
 ## Blended fair value
@@ -74,35 +74,35 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **3.20× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **3.05× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **123,507** | — |
-| 10-year mean | 30,008 | 4.12× |
-| 12-month FFA | 38,554 | 3.20× |
-| Current spot | 39,856 | 3.10× |
+| **Implied breakeven (blended)** | **117,818** | — |
+| 10-year mean | 30,008 | 3.93× |
+| 12-month FFA | 38,662 | 3.05× |
+| Current spot | 40,000 | 2.95× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Ctr-Intermediate (71% of fleet value) | 143,596 | 4.26× |
-| Ctr-Feeder (29% of fleet value) | 73,680 | 3.53× |
+| Ctr-Intermediate (71% of fleet value) | 136,600 | 4.05× |
+| Ctr-Feeder (29% of fleet value) | 71,233 | 3.42× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
 | **-30%** | $1.50 | $1.80 | $2.10 | $2.41 | $2.71 |
-| **-15%** | $1.52 | $1.82 | $2.13 | $2.43 | $2.73 |
+| **-15%** | $1.52 | $1.82 | $2.13 | $2.43 | $2.74 |
 | **+0%** | $1.54 | $1.85 | $2.15 | $2.45 | $2.76 |
-| **+15%** | $1.56 | $1.87 | $2.17 | $2.48 | $2.78 |
+| **+15%** | $1.57 | $1.87 | $2.17 | $2.48 | $2.78 |
 | **+30%** | $1.59 | $1.89 | $2.20 | $2.50 | $2.80 |
 
-_Current price $2.48. Cycle weights held at base across the grid._
+_Current price $2.46. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$2.21** is -11.1% vs the current price ($2.48) and -16.0% vs the analyst target ($2.63). The current price implies the fleet earning a value-weighted blended **$123,507/day** (3.20× the current forward) — 4.1× the value-weighted 10-yr mean ($30,008, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$2.21** is -10.2% vs the current price ($2.46) and -16.0% vs the analyst target ($2.63). The current price implies the fleet earning a value-weighted blended **$117,818/day** (3.05× the current forward) — 3.9× the value-weighted 10-yr mean ($30,008, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

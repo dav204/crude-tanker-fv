@@ -11,6 +11,78 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-22T21:56:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.33
+- Single-point FV: $5.99
+- Scenario PW FV: $6.23 (EV -15.0%)
+- NAV / share: $5.57
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +35.2pp (k_broker 1.45)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-22T21:50:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.33
+- Single-point FV: $5.99
+- Scenario PW FV: $6.23 (EV -15.0%)
+- NAV / share: $5.57
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +35.2pp (k_broker 1.45)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-22T21:48:51+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.33
+- Single-point FV: $5.99
+- Scenario PW FV: $6.23 (EV -15.0%)
+- NAV / share: $5.57
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +35.2pp (k_broker 1.45)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-22T18:14:30+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.33
+- Single-point FV: $5.99
+- Scenario PW FV: $6.23 (EV -15.0%)
+- NAV / share: $5.57
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +35.2pp (k_broker 1.45)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.08 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +0.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-18T20:22:55+00:00 — Pipeline run (auto)
 
 **Model state:**

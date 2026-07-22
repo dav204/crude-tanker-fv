@@ -29,9 +29,10 @@ rate_basis:
   default: tc_assessment
   VLGC: realized_tce
 as_of:
-  default: 2026-07-13       # dry bulk promoted from the 13-Jul FFA OCR widget
-                            # (owner ratify 2026-07-13); prior default event
-                            # (containers, MB W27) now an explicit hold below
+  default: 2026-07-17       # containers promoted from MB W29 assessments (owner
+                            # "promote" 2026-07-22, container_mb_refresh_packet_
+                            # 2026-07-22.md); prior default event (dry bulk,
+                            # 13-Jul FFA promotion) now explicit holds below
   VLGC: 2026-06-02
   VLCC: 2026-06-07
   Suezmax: 2026-06-07
@@ -45,10 +46,11 @@ as_of:
   Handymax: 2026-06-07
   LR1_clean: 2026-06-07
   LR2_clean: 2026-06-07
-  Ctr-Feeder: 2026-07-03
-  Ctr-Intermediate: 2026-07-03
-  Ctr-Large: 2026-07-03
   Handy-Bulk: 2026-07-10    # MB Dry Bulk Weekly 28 (own cadence — no Handy FFA panel)
+  Cape: 2026-07-13          # 13-Jul FFA OCR promotion (own promote loop)
+  Pana: 2026-07-13
+  Post-Panamax: 2026-07-13
+  Supra-Ultra: 2026-07-13
 twelve_month_tc:
   VLCC: 111500          # STALE Jun-7 war vintage — held, no 2-Jul TC print (see header)
   Suezmax: 61250        # STALE Jun-7 — held
@@ -83,11 +85,15 @@ twelve_month_tc:
                         # loop. Corroboration: Intermodal W27 1yr 13,500 @32k (≈14.4-15k
                         # dwt-scaled to 38k). The xclusiv "TC" column is BHSI spot earnings,
                         # NOT a 1-yr TC (prereg §0.2) — deliberately not used here.
-  # Containerships (§11.8) — MB Container Weekly 27 assessments (2026-07-03),
-  # class-collapsed per §11.8.1; ingested 2026-07-06 (trigger
-  # container_mb_refresh; decisions/container_ingest_2026-07-06.md).
-  Ctr-Feeder: 23750         # avg(1,100: 17,500 / 1,700: 30,000) — 1,700 ticked +1,000 in W27
+  # Containerships (§11.8) — MB Container Weekly 29 assessments (2026-07-17),
+  # class-collapsed per §11.8.1; ingested 2026-07-06 (W27) then refreshed
+  # 2026-07-22 (W28+W29; trigger container_mb_refresh;
+  # decisions/container_mb_refresh_packet_2026-07-22.md — ONE moving cell).
+  Ctr-Feeder: 24250         # avg(1,100: 17,500 / 1,700: 31,000) — 1,700 ticked +1,000 in W28, held W29
   Ctr-Intermediate: 46350   # A3 TEU-weighted on the combined MPCC+GSL intermediate
-                            # fleets, RE-DERIVED 2026-07-06 (72 vessels, 256k TEU;
-                            # buckets 2500: 11.5% / 2700: 21.8% / 3500: 25.3% / 4250: 41.4%)
-  Ctr-Large: 63000          # avg(5,500: 60,000 / 6,500: 66,000); 5,400 WB excluded (design premium)
+                            # fleets, RE-DERIVED 2026-07-06 (72 vessels, 256,234 TEU —
+                            # exact-TEU weights CANONICAL; buckets 2500: 11.5% / 2700:
+                            # 21.8% / 3500: 25.3% / 4250: 41.4% display-rounded);
+                            # W29 buckets re-assessed FLAT
+  Ctr-Large: 63000          # avg(5,500: 60,000 / 6,500: 66,000); 5,400 WB excluded (design
+                            # premium); W29 re-assessed FLAT

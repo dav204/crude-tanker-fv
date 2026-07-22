@@ -29,6 +29,78 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-22T21:56:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $21.10
+- Single-point FV: $15.43
+- Scenario PW FV: $14.46 (EV -31.5%)
+- NAV / share: $15.80
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +23.5pp (k_broker 1.30)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) family-sidecar re-stamp regen (promote loop, final) — no movement; see the annotated entries below.
+
+---
+
+## 2026-07-22T21:50:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $21.10
+- Single-point FV: $15.43
+- Scenario PW FV: $14.46 (EV -31.5%)
+- NAV / share: $15.80
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +23.5pp (k_broker 1.30)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) clean-stamp regen after the container W28+W29 promote commit — identical state to the annotated entries below; no new movement.
+
+---
+
+## 2026-07-22T21:48:51+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $21.10
+- Single-point FV: $15.43
+- Scenario PW FV: $14.46 (EV -31.5%)
+- NAV / share: $15.80
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +23.5pp (k_broker 1.30)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) spot-mirror/vintage-coherence regen (same promote event) — no new movement; see the annotated 2026-07-22 entry below.
+
+---
+
+## 2026-07-22T18:14:30+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $21.10
+- Single-point FV: $15.43
+- Scenario PW FV: $14.46 (EV -31.5%)
+- NAV / share: $15.80
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +23.5pp (k_broker 1.30)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.75 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.4pp
+
+**Decision:** (2026-07-22) price-vintage row (+$0.75, EV-only, ΔNAV +0.0%) rides the standing batch-ratify queue; see the 2026-07-22 BW Levant triage entry at the top of this log for the day's filing disposition (no ingest).
+
+---
+
 ## 2026-07-18T20:22:55+00:00 — Pipeline run (auto)
 
 **Model state:**

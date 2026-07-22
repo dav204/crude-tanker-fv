@@ -95,3 +95,24 @@ recompute must use the exact-TEU weights.
    the Q2-cluster window and Stage-A basis gathering opens Jul-28 — the isolation rule is live
    immediately: the ingest commit stays SEPARATE from any report-day refresh or Stage-A basis
    commit** (consistent with the Stage-A prereg's one-ratify-per-stage discipline).
+
+---
+
+## EXECUTION RECORD (2026-07-22, owner "promote")
+
+- Steps 1-5 executed as specified; **NAV frozen verified book-wide (every delta-report NAV
+  cell no-change on both regens) — the halt condition did NOT fire.** MPCC's scenario FV move
+  is sub-display (within the corrected sub-1pp prediction); GSL exact zero. §11.8.5 table
+  revised (feeder cycle 1.14x → 1.16x); trigger re-armed → 2026-08-21.
+- **Third mirror surface caught by the guards, executed:** `spot_tce.yaml` carries the Ctr
+  container rows BY CONVENTION (= the 12M assessment; no spot market exists) — Ctr-Feeder
+  23,750 → 24,250 there too (the "12M TC / spot ref" single determinant, two surfaces —
+  `test_held_class_sets_agree_across_surfaces` enforced it). Zero output movement (0 material).
+- **Vintage-default convention followed (the 7/13 precedent):** containers 7/17 become the new
+  `as_of.default` on all three surfaces; the prior default event (dry bulk, 13-Jul FFA) became
+  explicit holds (Cape/Pana/Post-Panamax/Supra-Ultra: 2026-07-13). Vintage-coherence suite green.
+- Drift gate at close: **0 UNEXPLAINED / 11 explained** — the 11 are the committed 7/21-close
+  price-vintage catch-up reaching outputs at this regen (ΔNAV 0.0 on every row; LPG annotated
+  explain-not-accept; GNK's HOLD→TRIM/SHORT recross given its individual eyeball — price-led,
+  band-mech, tender-pinned, census 7/24). The batch price-vintage re-ratify remains the owner's
+  deliberate step, deliberately NOT bundled here.

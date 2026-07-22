@@ -9,6 +9,78 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-22T21:56:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $43.09
+- Single-point FV: $32.76
+- Scenario PW FV: $30.55 (EV -29.1%)
+- NAV / share: $34.11
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +33.2pp (k_broker 1.42)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) family-sidecar re-stamp regen (promote loop, final) — no movement; see the annotated entries below.
+
+---
+
+## 2026-07-22T21:50:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $43.09
+- Single-point FV: $32.76
+- Scenario PW FV: $30.55 (EV -29.1%)
+- NAV / share: $34.11
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +33.2pp (k_broker 1.42)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) clean-stamp regen after the container W28+W29 promote commit — identical state to the annotated entries below; no new movement.
+
+---
+
+## 2026-07-22T21:48:51+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $43.09
+- Single-point FV: $32.76
+- Scenario PW FV: $30.55 (EV -29.1%)
+- NAV / share: $34.11
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +33.2pp (k_broker 1.42)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) spot-mirror/vintage-coherence regen (same promote event) — no new movement; see the annotated 2026-07-22 entry below.
+
+---
+
+## 2026-07-22T18:14:30+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $43.09
+- Single-point FV: $32.76
+- Scenario PW FV: $30.55 (EV -29.1%)
+- NAV / share: $34.11
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +33.2pp (k_broker 1.42)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +2.06 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +3.3pp
+
+**Decision:** (2026-07-22) EXPLAIN-not-accept — the drift gate's lone UNEXPLAINED row is the committed 7/21-close price-vintage catch-up reaching outputs at the container-promote regen (price +$2.06 → EV%-only move, **ΔNAV +0.0%**, no LPG model input changed; the container refresh touches nothing LPG reads). Same standing pattern as the 7/18 vintage rows; the batch price-vintage re-ratify remains the owner's deliberate step. Recross of any band on a later vintage = a NEW eyeball.
+
+---
+
 ## 2026-07-18T20:22:55+00:00 — Pipeline run (auto)
 
 **Model state:**

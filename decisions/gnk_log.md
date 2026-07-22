@@ -21,6 +21,79 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-22T21:56:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.26
+- Single-point FV: $24.65
+- Scenario PW FV: $23.82 (EV -5.7%)
+- NAV / share: $25.48
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +9.7pp (k_broker 1.09)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) family-sidecar re-stamp regen (promote loop, final) — no movement; see the annotated entries below.
+
+---
+
+## 2026-07-22T21:50:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.26
+- Single-point FV: $24.65
+- Scenario PW FV: $23.82 (EV -5.7%)
+- NAV / share: $25.48
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +9.7pp (k_broker 1.09)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) clean-stamp regen after the container W28+W29 promote commit — identical state to the annotated entries below; no new movement.
+
+---
+
+## 2026-07-22T21:48:51+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.26
+- Single-point FV: $24.65
+- Scenario PW FV: $23.82 (EV -5.7%)
+- NAV / share: $25.48
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +9.7pp (k_broker 1.09)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) spot-mirror/vintage-coherence regen (same promote event) — no new movement; see the annotated 2026-07-22 entry below.
+
+---
+
+## 2026-07-22T18:14:30+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.26
+- Single-point FV: $24.65
+- Scenario PW FV: $23.82 (EV -5.7%)
+- NAV / share: $25.48
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +9.7pp (k_broker 1.09)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: +1.14 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +4.1pp
+
+**Decision:** (2026-07-22) RECROSS EYEBALL (the 7/13 watch rule — a recross is a NEW eyeball, not noise): HOLD→TRIM/SHORT on the 7/21-close vintage (+$1.14 price), auto-classified band-mech by the D-M5 interval triage; FVs byte-unchanged, ΔNAV +0.0%. Eyeballed: a shallow price-led oscillation around the same boundary the 7/18 ratify absorbed in the other direction — sign-stable-negative per the W-frag family, no thesis content, NO action. GNK stays tender-pinned; the Jul-24 census is the decision venue.
+
+---
+
 ## 2026-07-18T20:22:55+00:00 — Pipeline run (auto)
 
 **Model state:**

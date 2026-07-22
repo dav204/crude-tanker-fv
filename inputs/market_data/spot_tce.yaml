@@ -23,9 +23,10 @@
 # older vintage (their staleness is tracked by their own trigger/note, not
 # by the lane). Top-level sibling key — invisible to loaders._scalar_map.
 as_of:
-  default: 2026-07-13       # dry bulk re-proxied from the 13-Jul FFA OCR widget
-                            # (owner ratify 2026-07-13); all other classes below
-                            # carry their own prior-event dates
+  default: 2026-07-17       # containers refreshed from MB W29 assessments (owner
+                            # "promote" 2026-07-22, container_mb_refresh_packet_
+                            # 2026-07-22.md); all other classes below carry their
+                            # own prior-event dates
   VLCC: 2026-07-02
   Suezmax: 2026-07-02
   Aframax: 2026-07-02
@@ -37,10 +38,11 @@ as_of:
   LR2_clean: 2026-07-02
   LNGC: 2026-06-07          # held — no LNG spot print in the 2-Jul daily
   MGC: 2026-06-07           # held, as LNGC
-  Ctr-Feeder: 2026-07-03    # containers refreshed 2026-07-06 from MB W27
-  Ctr-Intermediate: 2026-07-03
-  Ctr-Large: 2026-07-03
   Handy-Bulk: 2026-07-10    # BHSI week-close print (no FFA panel, no Pareto column)
+  Cape: 2026-07-13          # 13-Jul FFA OCR re-proxy (own promote loop)
+  Pana: 2026-07-13
+  Post-Panamax: 2026-07-13
+  Supra-Ultra: 2026-07-13
 spot_tce:
   VLCC: 285500          # TD3C eco (Pareto 2-Jul; -1.1% d/d). MEG-China war premium only
                         # partially unwound (TD22 USG-China printed $127,600 same day).
@@ -73,7 +75,8 @@ spot_tce:
                         # on the Baltic weekly print (Pacific Basin IR republishes).
   # Containerships: NO spot market exists (TC-only); set = the 12M TC
   # assessment so the breakeven display has a current-rate reference.
-  # Refreshed 2026-07-06 from MB W27 (Jul-3) — see twelve_month_tc.yaml.
-  Ctr-Feeder: 23750
-  Ctr-Intermediate: 46350   # A3 TEU-weighted, re-derived 2026-07-06
+  # Refreshed 2026-07-22 from MB W29 (Jul-17) — see twelve_month_tc.yaml
+  # (mirror surface; the 12M assessment is the single determinant).
+  Ctr-Feeder: 24250
+  Ctr-Intermediate: 46350   # A3 TEU-weighted, re-derived 2026-07-06; W29 flat
   Ctr-Large: 63000

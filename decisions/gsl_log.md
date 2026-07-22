@@ -11,6 +11,78 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-22T21:56:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $41.10
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV -1.4%)
+- NAV / share: $38.59
+- Position: **HOLD (fairly valued)**
+- Broker spread: +30.9pp (k_broker 1.33)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-22T21:50:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $41.10
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV -1.4%)
+- NAV / share: $38.59
+- Position: **HOLD (fairly valued)**
+- Broker spread: +30.9pp (k_broker 1.33)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-22T21:48:51+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $41.10
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV -1.4%)
+- NAV / share: $38.59
+- Position: **HOLD (fairly valued)**
+- Broker spread: +30.9pp (k_broker 1.33)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-22T18:14:30+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $41.10
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV -1.4%)
+- NAV / share: $38.59
+- Position: **HOLD (fairly valued)**
+- Broker spread: +30.9pp (k_broker 1.33)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.94 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.8pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-18T20:22:55+00:00 — Pipeline run (auto)
 
 **Model state:**

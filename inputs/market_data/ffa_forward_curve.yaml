@@ -26,10 +26,10 @@
 # Held classes carry their own trigger (tanker_forward_print_lands /
 # container_mb_refresh); agreement with vintage_notes is suite-tested.
 as_of:
-  default: 2026-07-13       # dry bulk promoted from the 13-Jul FFA OCR widget
-                            # (owner ratify 2026-07-13); the prior default event
-                            # (containers, MB W27 Jul-3 assessments) is now an
-                            # explicit hold below
+  default: 2026-07-17       # containers promoted from MB W29 assessments (owner
+                            # "promote" 2026-07-22, container_mb_refresh_packet_
+                            # 2026-07-22.md); the prior default event (dry bulk,
+                            # 13-Jul FFA promotion) is now an explicit hold below
   VLGC: 2026-06-02
   VLCC: 2026-06-07
   Suezmax: 2026-06-07
@@ -43,9 +43,10 @@ as_of:
   LR2_clean: 2026-06-07
   LNGC: 2026-06-07
   MGC: 2026-06-07
-  Ctr-Feeder: 2026-07-03
-  Ctr-Intermediate: 2026-07-03
-  Ctr-Large: 2026-07-03
+  Cape: 2026-07-13          # 13-Jul FFA OCR promotion (own promote loop)
+  Pana: 2026-07-13
+  Post-Panamax: 2026-07-13
+  Supra-Ultra: 2026-07-13
   Handy-Bulk: 2026-07-10    # own cadence (MB Dry Bulk weekly) — NO Handy FFA exists at any
                             # tenor; its curve row below is DERIVED (= Supra-Ultra x 0.90,
                             # §11.7.11 locked basis), regenerated with any supra promotion
@@ -257,15 +258,18 @@ ffa_forward_curve:
   # the anchored end is the convention; owner-ratified at wire-up), linear
   # decay between. Alternative shape-preserving scaling documented in the
   # ingest note's forks.
+  # Ctr-Feeder re-synthesized 2026-07-22 (W29 start 24,250 → SAME wire-up
+  # terminal 19,000, linear, round-250 — §11.8.6.4 convention;
+  # decisions/container_mb_refresh_packet_2026-07-22.md)
   Ctr-Feeder:
+  - 24250
   - 23750
-  - 23250
-  - 22750
-  - 22250
-  - 21750
-  - 21000
-  - 20500
-  - 20000
+  - 23000
+  - 22500
+  - 22000
+  - 21250
+  - 20750
+  - 20250
   - 19500
   - 19000
   Ctr-Intermediate:

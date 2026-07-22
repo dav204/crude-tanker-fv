@@ -2081,11 +2081,18 @@ FY2021-2025 annual averages per band, embedding a full cycle (covid boom
 2021-22, trough 2023, disruption boom 2024-25). v1 anchor = mean of
 FY2021-25 band averages, collapsed to class:
 
-| Class | v1 cycle anchor (USD/day) | Current class rate (2026-07-03) | Cycle position |
+| Class | v1 cycle anchor (USD/day) | Current class rate (2026-07-17) | Cycle position |
 |---|---:|---:|:---:|
-| `ctr_feeder` | **$20,850** | $23,750 | 1.14x |
+| `ctr_feeder` | **$20,850** | $24,250 | 1.16x |
 | `ctr_intermediate` | **$33,700** | $46,350 | 1.38x |
 | `ctr_large` | **$41,000** | $63,000 | 1.54x |
+
+*(Revision 2026-07-22 — W28+W29 re-capture (assessments Jul-17; trigger
+`container_mb_refresh`; decisions/container_mb_refresh_packet_2026-07-22.md):
+ONE moving cell — the 1,700 12M assessment ticked 30,000→31,000 in W28 and
+held in W29 → feeder 23,750→24,250, cycle 1.14x→1.16x; intermediate/large
+and ALL value assessments re-assessed FLAT (value-curve comments re-dated,
+zero value movement — NAV frozen book-wide, verified at the regen).)*
 
 *(Revision 2026-07-06 — first monthly MB re-capture (W27, assessments
 Jul-3), closing the Apr-01 freeze (trigger `container_mb_refresh`;

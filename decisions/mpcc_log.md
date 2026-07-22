@@ -7,6 +7,78 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-22T21:56:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.46
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -16.3%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.5pp (k_broker 1.09)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) family-sidecar re-stamp regen (promote loop, final) — no movement; see the annotated entries below.
+
+---
+
+## 2026-07-22T21:50:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.46
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -16.3%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.5pp (k_broker 1.09)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) clean-stamp regen after the container W28+W29 promote commit — identical state to the annotated entries below; no new movement.
+
+---
+
+## 2026-07-22T21:48:51+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.46
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -16.3%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.5pp (k_broker 1.09)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) spot-mirror/vintage-coherence regen (same promote event) — no new movement; see the annotated 2026-07-22 entry below.
+
+---
+
+## 2026-07-22T18:14:30+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.46
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -16.3%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.5pp (k_broker 1.09)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.02 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -0.6pp
+
+**Decision:** (2026-07-22) container_mb_refresh W28+W29 PROMOTED at owner go (decisions/container_mb_refresh_packet_2026-07-22.md): Ctr-Feeder 12M TC 23,750→24,250 (the ONE moving cell) + feeder strip re-synthesis; cycle 1.14x→1.16x (§11.8.5 table revised). Effect on MPCC is SUB-DISPLAY (scenario FV unchanged at 2dp — within the packet's sub-1pp prediction, for the corrected TC-only reason); **NAV $2.04 FROZEN as the packet's halt-gate requires (verified book-wide: every NAV cell no-change)**. Position unchanged (unreliable read). Spread −0.6pp = price-vintage mix. Forward pre-flag on the card: ~2 refreshes from the 1.2x w_nav band boundary vs the D-M4/D1 adoption race.
+
+---
+
 ## 2026-07-18T20:22:55+00:00 — Pipeline run (auto)
 
 **Model state:**
