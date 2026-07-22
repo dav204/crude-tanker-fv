@@ -1,6 +1,9 @@
 # Reweight proposal — retire the benign-MoU mass (mid-cycle, ahead of the Aug-16 venue)
 
-**Status: PREPARED 2026-07-22 at owner direction ("prep mid-cycle proposal"), ruling = OWNER's.**
+**Status: RULED 2026-07-22 same day — Option A + conditional B′ pre-registered on the 7/29
+watch (see the Decision section). No input changes today; B′ FROZEN as the conditional package.**
+
+**(Original status:) PREPARED 2026-07-22 at owner direction ("prep mid-cycle proposal"), ruling = OWNER's.**
 This is the mid-cycle move the 7/18 MoU-implementation check FLAGGED but did not propose (an
 out-of-band change would cut across the locked-weights gate and the one-FV-moving-event
 sequencing); the owner has now asked for the package. NOT pre-registered — a fresh owner-reviewed
@@ -99,7 +102,20 @@ now would (a) insert an FV-moving event ahead of Stage A, and (b) see-saw agains
 
 ## Decision (owner)
 
-- [ ] **A — HOLD to the Aug-16 venue (agent recommendation).** The venue is pre-registered
+**RULED 2026-07-22 (owner verbatim: "Rule A - conditional B′ pre-registered on the 7/29
+watch"): Option A + the conditional.** No reweight now; the weights stand at the Jun-9 shape.
+**B′ (0.25/0.57/0.05/0.13) is PRE-REGISTERED on `crude_ceasefire_mediation_watch` (due
+2026-07-29) and FROZEN at this ruling:** if that check records another collapse-track week
+(no ceasefire convened or in effect), B′ EXECUTES at the check — mechanically, per the
+execution loop below, with the CAPT HOLD→BUY flip eyeballed INDIVIDUALLY (halt-and-investigate
+rider) — accepting that execution lands mid-cluster (the option was ruled with that note
+visible). A ceasefire outcome instead VOIDS the conditional and routes to the normal
+de-escalation proposal branch (owner proposal, never unilateral). Either way the Aug-16
+toll-cliff venue STANDS for the full re-derivation (retiring the MoU scenario family outright).
+The B package (escalation bump) is NOT pre-registered — escalation-ward mass remains an
+owner call at a future venue.
+
+- [x] **A — HOLD to the Aug-16 venue (agent recommendation).** The venue is pre-registered
       regardless-of-outcome, 3.5 weeks out, answers the toll binary first, and follows Stage A
       as designed. The interim cost is a known, conservative, documented bias (this doc + the
       scorecard header can carry a one-line disclosure); no sizing decision reads crude before
@@ -107,7 +123,7 @@ now would (a) insert an FV-moving event ahead of Stage A, and (b) see-saw agains
 - [ ] **B now** (0.30/0.52/0.05/0.13) — the persistence evidence into escalation; execute
       7/23–7/25 with the full loop below.
 - [ ] **B′ now** (0.25/0.57/0.05/0.13) — the minimal honesty move; same window and loop.
-- [ ] **Conditional — pre-register B′ on the 7/29 watch:** if `crude_ceasefire_mediation_watch`
+- [x] **Conditional — pre-register B′ on the 7/29 watch:** if `crude_ceasefire_mediation_watch`
       records another collapse-track week (no ceasefire convened/in-effect), execute B′ at that
       check; a ceasefire outcome instead voids this card and routes to the normal de-escalation
       proposal branch. (Note: execution would then land mid-cluster — accept that, or name the

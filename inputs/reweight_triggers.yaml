@@ -146,13 +146,17 @@ crude_ceasefire_mediation_watch:
     ceasefire/mediation round convene or take effect, or does daily-strike tempo
     continue into the toll-cliff track?
   action: >
-    Same branch logic (pre-registered 2026-07-12): de-escalation (ceasefire takes
-    effect / talks convene with a sanctions-relief path) -> re-normalization
-    PROPOSAL to the owner, never a unilateral reweight; continued strikes/no-show
-    -> record + re-arm. The mid-Aug MoU expiry/toll window stays separately covered
-    by crude_day60_toll_cliff (Aug-16), which is also the scheduled venue for the
-    owner's mou_base/mou_bear counterfactuality re-derivation (flagged in the
-    round-3 record).
+    RULED 2026-07-22 (owner: "Rule A - conditional B' pre-registered on the 7/29
+    watch" — decisions/mou_scenario_reweight_proposal_2026-07-22.md): continued
+    collapse-track (no ceasefire convened or in effect at this check) -> EXECUTE
+    the FROZEN B' reweight (escalation .25 / pre_mou .57 / mou_base .05 /
+    mou_bear .13) mechanically per the proposal's execution loop — CAPT HOLD->BUY
+    flip eyeballed INDIVIDUALLY (halt-and-investigate rider), owner-aware ratify;
+    mid-cluster landing accepted at the ruling. De-escalation (ceasefire takes
+    effect / talks convene with a sanctions-relief path) -> the conditional is
+    VOID; re-normalization PROPOSAL to the owner, never a unilateral reweight.
+    Either branch: crude_day60_toll_cliff (Aug-16) stands as the venue for the
+    full MoU-family re-derivation.
   status: armed
   added: 2026-07-22
 
