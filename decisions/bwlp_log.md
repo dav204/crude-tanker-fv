@@ -1,6 +1,22 @@
 # BWLP — Decision Log
 
-## 2026-07-18 — price-vintage drift (7/17 close row): EV-only, accepted at the Week-close gate
+## 2026-07-22 — FILING-LANDED triage: 6-K 0001213900-26-079614 = sale of BW Levant (no input change today)
+
+**Decision:** TRIAGED, no ingest — the 6-K (filed 7/20, staged by the EDGAR poller, sentinel-flagged
+in the 7/22 digest) is the **sale of BW Levant** (2015-built VLGC, acquired in the 2024 Avance Gas
+transaction): net book gain ~$17M, net cash proceeds ~$38M, delivery to the buyer by mid-November
+2026. Two forward hooks, neither an input move today:
+1. **VLGC secondhand print candidate (§9.9 / the Nov-13 lock re-run path):** the GROSS sale price is
+   NOT derivable from the PR (gain and net-cash compose with an undisclosed book value / debt
+   repayment) — watch the MB/Xclusiv weeklies for the reported price; if a dated per-vessel print
+   surfaces, it routes through the normal marks-trail promotion, and a VLGC re-fit trips
+   `tests/test_bwlp_nci.py` BY DESIGN (rider (a) of the NCI ratification).
+2. **Balance-sheet event for the 8/28 Q2 report:** delivery by mid-Nov = an H2 completion; expect it
+   in the Q2 6-K as HFS/subsequent-events — handle AS-OF at the report-day refresh (subsequent-events
+   note FIRST), alongside the already-noted Q2 pre-announce (net −$31M) and the 8×90cbm Panamax-VLGC
+   order (§9.6 + R-2 orderbook re-read).
+Fleet-count note: ~50 VLGCs unchanged in the PR boilerplate; one-vessel sale ≈ −2% of fleet, immaterial
+until the Q2 snapshot lands.
 
 **Decision:** price-vintage drift ACCEPTED-as-mechanical (2026-07-18 Week-close gate): the 2026-07-17 close row landed via the daily price-refresh — EV%-only move, **ΔNAV +0.0%** (no model input changed; the FV stands at the 7/15 regen basis). Baseline re-ratify NOT executed — the batch absorb is the owner's deliberate step (2026-06-30 standing-thread discipline); recross of any band on a later vintage = a NEW eyeball.
 

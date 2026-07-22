@@ -1,5 +1,5 @@
 meta:
-  last_date_sweep: 2026-07-21
+  last_date_sweep: 2026-07-22
   quarter: 2026-Q2
   vetted: 2026-07-03
 names:
@@ -14,9 +14,9 @@ names:
     window_end: 2026-08-06
     window_start: 2026-08-06
   ASC:
-    basis: No PR yet as of the 2026-07-21 sweep (InvestorRoom latest 6/16). MarketBeat est. Wed Jul-29
-      10:00 ET call (labeled estimate); Q2-25 was Jul-30 pre-market; Q1-26 date-PR came 8d ahead — official
-      PR imminent.
+    basis: 'Still NO PR at the 2026-07-22 per-name sweep (InvestorRoom feed re-checked via search — newest
+      remains the Q1 cycle). MarketBeat est. Wed Jul-29 10:00 ET call (labeled estimate); Q2-25 was Jul-30
+      pre-market; Q1-26 date-PR came 8d ahead — official PR imminent, window opens 7/28.'
     disclosure_type: 6-K
     status: expected
     venue: NYSE
@@ -49,13 +49,15 @@ names:
     window_end: 2026-09-01
     window_start: 2026-09-01
   CCEC:
-    basis: No PR yet as of the 2026-07-21 sweep (StockTitan latest 6/18). Nasdaq/MarketBeat est. Jul-30;
-      Q1 pattern = date-PR ~1wk ahead, PRE-market + morning call — expect the date-PR ~Jul-22-24. ALSO
-      the governance CCEC t2 print-gate venue.
+    basis: 'CONFIRMED 2026-07-22 by the issuer''s date-setting announcement PR (GlobeNewswire 2026-07-22,
+      Athens), landed exactly on the predicted ~Jul-22-24 pattern: ''Capital Clean Energy Carriers Corp.
+      Schedules Second Quarter 2026 Earnings Release, Conference Call and Webcast'' — Q2 results BEFORE
+      the Nasdaq open Wed Jul-29; interactive call same day 9:00 a.m. ET. ALSO the governance CCEC t2
+      print-gate venue (window 7/29-8/06 in the gov prereg; the print lands at its OPEN).'
     disclosure_type: 6-K
-    status: expected
+    status: confirmed
     venue: NASDAQ
-    window_end: 2026-08-06
+    window_end: 2026-07-29
     window_start: 2026-07-29
   CMBT:
     basis: 'CMB.TECH PR (GlobeNewswire 2026-06-29): Q2-2026 announcement Aug-27; SEEDED 2026-07-03 (was
@@ -66,9 +68,9 @@ names:
     window_end: 2026-08-27
     window_start: 2026-08-27
   CMDB:
-    basis: 'WIDENED-START 2026-07-21: no H1 date-PR yet (latest: 7/17 AGM notice). H1-2025 released ~Jul-31
-      pre-market with the sets-date PR only ~5d ahead — the window must open in late July, not Aug-4.
-      Swept 2026-07-21.'
+    basis: 'Still NO H1 date-PR at the 2026-07-22 per-name sweep (newest issuer items: 7/17 AGM notice +
+      a 13G/A; GlobeNewswire feed re-checked). H1-2025 released ~Jul-31 pre-market with the sets-date PR
+      only ~5d ahead — window opens 7/29 (WIDENED-START 2026-07-21 stands).'
     disclosure_type: 6-K (H1/six-month report)
     status: expected
     venue: NYSE
@@ -143,9 +145,9 @@ names:
     window_end: 2026-08-07
     window_start: 2026-08-04
   LPG:
-    basis: 'No PR yet as of the 2026-07-21 sweep (latest: 7/16 dividend 8-K). FQ1-FY2027 (Apr-Jun 2026).
-      Last year''s FQ1 notice came Jul-25 (Business Wire) for a Jul-31 pre-market release — notice due
-      ~this week. Aggregator est. Aug-3.'
+    basis: 'Still NO PR at the 2026-07-22 per-name sweep (newest 8-K remains the 7/16 dividend;
+      Business Wire feed re-checked). FQ1-FY2027 (Apr-Jun 2026). Last year''s FQ1 notice came Jul-25
+      (Business Wire) for a Jul-31 pre-market release — notice due within days. Aggregator est. Aug-3.'
     disclosure_type: 10-Q (US domestic filer; fiscal year ends Mar-31)
     status: expected
     venue: NYSE
@@ -176,10 +178,11 @@ names:
     window_end: 2026-08-14
     window_start: 2026-08-04
   SB:
-    basis: 'WIDENED 2026-07-21: no sets-date PR yet (verified). Aggregator est. Jul-29 rests on the 2024/2025
-      seasonal pattern, but Q1-2026 slipped to Jun-17 (date-PR Jun-8, ~9d ahead) — only ~5wks before a
-      late-July print, so a slip into August is live. AFTER-close release, call next morning. The sets-date
-      PR is the real signal.'
+    basis: 'Still NO sets-date PR at the 2026-07-22 per-name sweep — the issuer''s own earnings-releases
+      feed (safebulkers.com, domain-restricted search) shows the newest sets-date item is STILL the Q1 one
+      (Jun-8 for the Jun-17 print). Aggregator est. Jul-29 stays a labeled estimate; the Q1 slip to Jun-17
+      (~5wks before a late-July print) keeps an August slip live. AFTER-close release, call next morning.
+      The sets-date PR is the real signal (WIDENED 2026-07-21 window stands).'
     disclosure_type: 6-K
     status: expected
     venue: NYSE
