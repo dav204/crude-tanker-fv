@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-22T22:01:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $43.09
+- Single-point FV: $32.76
+- Scenario PW FV: $30.55 (EV -29.1%)
+- NAV / share: $34.11
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +33.2pp (k_broker 1.42)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-22) clean-stamp regen at pushed-HEAD parity (container promote arc, final) — no movement; annotations below stand.
+
+---
+
 ## 2026-07-22T21:56:50+00:00 — Pipeline run (auto)
 
 **Model state:**

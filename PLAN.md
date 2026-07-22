@@ -32,7 +32,8 @@ GNK/Diana tender census 7/24 · Q2 early cluster from 7/28 (STNG/ASC/SB → TNK/
 early Aug; BWLP 8/28 confirmed) · `crude_day60_toll_cliff` 8/16 (pre-registered reweight; mou_base
 .18 flagged increasingly counterfactual) · **Stage A ≤ 8/15 UNCONDITIONAL** → the anchor round
 (LR1 + extract refresh; TRMD TIGHT) → D-M2 sweep → D1 round (~late Aug) → Stage B 8/26–9/04 ·
-`container_mb_refresh` 8/7 · `lpg_v1_lock_rerun` 11/13 — all in `inputs/reweight_triggers.yaml`,
+`container_mb_refresh` DONE 7/22 (W28+W29 promoted — Ctr-Feeder 24,250, NAV frozen verified;
+re-armed 8/21) · `lpg_v1_lock_rerun` 11/13 — all in `inputs/reweight_triggers.yaml`,
 sentinel-paged.
 
 **WEEK OF 2026-07-20 — theme: Q2 intake + Stage-A basis accumulation.** The sprint is
