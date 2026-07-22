@@ -128,8 +128,33 @@ crude_doha_round3_watch:
     covered separately by crude_day60_toll_cliff (Aug-16). NOTE: the staged
     Hormuz re-tilt ruling (hormuz_retilt_proposal_2026-07-13.md) is UNBLOCKED
     as of the round-2 no-show — owner decision cell, independent of this watch.
-  status: armed
+  status: done   # CHECKED 2026-07-22: COLLAPSE branch — no round convened; MoU declared
+                 # "over" (Trump, ~Jul-12 Ankara) / "suspended" (Iran, Jul-18); 10th
+                 # consecutive strike day Jul-21, US soldiers killed, Iran hit Kuwait,
+                 # Brent $91; ≥9 ships attacked since Jul-6. No reweight (pre-registered
+                 # branch); war tilt stands. Record:
+                 # decisions/doha_round3_check_2026-07-22.md. Successor below.
   added: 2026-07-14
+
+crude_ceasefire_mediation_watch:
+  sector: crude
+  due: 2026-07-29
+  observable: >
+    Successor to crude_doha_round3_watch (collapse recorded 2026-07-22). The only
+    live de-escalation thread: Iran has confirmed receiving mediation proposals and
+    a possible 10-day ceasefire is reported under discussion (Jul-21). Does a
+    ceasefire/mediation round convene or take effect, or does daily-strike tempo
+    continue into the toll-cliff track?
+  action: >
+    Same branch logic (pre-registered 2026-07-12): de-escalation (ceasefire takes
+    effect / talks convene with a sanctions-relief path) -> re-normalization
+    PROPOSAL to the owner, never a unilateral reweight; continued strikes/no-show
+    -> record + re-arm. The mid-Aug MoU expiry/toll window stays separately covered
+    by crude_day60_toll_cliff (Aug-16), which is also the scheduled venue for the
+    owner's mou_base/mou_bear counterfactuality re-derivation (flagged in the
+    round-3 record).
+  status: armed
+  added: 2026-07-22
 
 crude_transit_normalization:
   sector: crude
