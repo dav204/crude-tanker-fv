@@ -96,8 +96,6 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
 - **Never type a market price from filing/report prose** (2026-06-10, TEN $44). Prices come from
   `prices_daily.yaml` or a dated quote; a watchlist `current_price` NEVER moves without rebasing
   `consensus_pnav` / `consensus_fwd_pe` from the same vintage (broker NAV = price/pnav drifts otherwise).
-- **Cross-foot the manifest vs the issuer table AND the `fleet_summary` block before shipping** (2026-06-11,
-  TEN). Machine-enforced by `test_fleet_summary_totals_cross_foot_against_vessel_rows`.
 - **The snapshot MUST match the NAV/balance-sheet date — fleet AND every balance-sheet figure** (2026-07-01,
   SB fleet + ASC newbuild). A results 6-K's fleet table is as-of the FILING date, and its **Subsequent Events
   note is where post-quarter events hide** — a delivery/sale/newbuild ORDER dated after quarter-end does NOT
@@ -137,9 +135,10 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   **sub-reason = resolution path**. Registry in `provenance.py` (`POSITION_CYCLE_RELABEL`,
   `POSITION_UNRELIABLE`, `NAV_DERIVED_VOID`, `TIER_SUBREASON`), no-drift-tested.
 - **An incidental identity is NOT an invariant — two surfaces assumed to agree need a TEST that they
-  agree** (2026-07-02, 3× same day: C-3 rank-1 sleeve pairing; F-13 blend-FV printed beside
-  scenario-position = "+28% upside · SHORT". Guards: test_scorecard F-13 identity,
-  test_outputs_hygiene sign/label coherence, test_carveout sleeve invariance).
+  agree** (2026-07-02, 3× same day; guards: test_scorecard F-13, test_outputs_hygiene, test_carveout).
+- **Gate expectations scale by determinant LEG, not past event** (2026-07-22, owner catch): the 7/06
+  container elasticity was TC+value JOINT — a TC-only refresh predicts NAV exactly 0.00; nonzero NAV =
+  HALT (frozen file touched). Predicted-impact blocks state which files may move and which are frozen.
 - **Weight-set names are sector-namespaced** ("Crude Set A", "LNG Set B-revised"). A cross-sector "Set B"
   without a prefix is a methodology error.
 - **ECO sale-leaseback is in "borrowings"** — no separate operating-lease line; don't double-count.
