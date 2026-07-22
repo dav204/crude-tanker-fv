@@ -43,6 +43,8 @@ owner-only and is structurally covered by `crude_day60_toll_cliff` (Aug-16,
 pre-registered), which should now be read as the scheduled venue for retiring or
 re-deriving the MoU-track scenarios. A mid-cycle proposal ahead of Aug-16 is available
 on request; nothing is staged here (one FV-moving event at a time; Stage A is in flight).
+*(Same-day update: the owner requested the prep — see
+`decisions/mou_scenario_reweight_proposal_2026-07-22.md`, awaiting ruling.)*
 
 ## Actions
 

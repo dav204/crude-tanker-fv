@@ -48,6 +48,16 @@ audit). **Definition of done:** every landed Q2 print reconciled-or-queued with 
 round-3 + census recorded; drift gate 0 unexplained at close; Stage-A basis inventory started.
 
 **PENDING OWNER DECISIONS (do not act unilaterally; recorded 2026-07-08, extended 2026-07-14):**
+-3. **2026-07-22 — MoU-scenario reweight proposal PREPARED (owner: "prep mid-cycle proposal") —
+   AWAITING RULING:** retire the benign-MoU mass (mou_base 0.18 → 0.05) after the round-3
+   COLLAPSE record (`doha_round3_check_2026-07-22.md`). Two computed candidates (B
+   0.30/0.52/0.05/0.13 · B′ 0.25/0.57/0.05/0.13), scratch what-if run in an isolated worktree
+   (3 full pipeline runs @ ac216cf): crude FVs +2-7% (B) / +0.5-2% (B′), ΔNAV 0.0, non-crude
+   byte-identical; ONE flip either way — **CAPT HOLD→BUY** (halt-and-investigate eyeball at
+   execution). Agent rec = **(A) hold to the pre-registered Aug-16 toll-cliff venue** (Stage-A
+   sequencing + the live 7/29 ceasefire-mediation watch; interim bias is known-conservative);
+   decision cell incl. a conditional pre-registration on the 7/29 watch. Full doc:
+   `decisions/mou_scenario_reweight_proposal_2026-07-22.md`.
 -2. **2026-07-14 EVE — tanker forward re-anchor (trigger `tanker_forward_print_lands`
    FIRED, stays red until ruled) — STILL OPEN:** DHT's Jul-13 business update delivered a
    REAL term print — 3-yr VLCC TC $75,000/day (Jaguar, Sep-26 start) ~46% below the held
