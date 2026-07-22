@@ -1,6 +1,20 @@
 # CCEC — Decision Log
 
-## 2026-07-18 — price-vintage drift (7/17 close row): EV-only, accepted at the Week-close gate
+## 2026-07-22 — §15.7 tripwire-5-ADJACENT context (cross-filed from the container packet; no tripwire fired)
+
+**Decision:** RECORDED, no action — **Capital Maritime (the CCEC/CAPT sponsor) sold its four
+3,700-TEU 2007-built "Spirit of Auckland / Melbourne / Singapore / Sydney" en bloc for ~$150M
+with charters attached** (MB Container Weekly 29, assessments 2026-07-17, p.3 2nd-Hand Market;
+also staged in `decisions/container_mb_refresh_packet_2026-07-22.md`). Screened against the
+2026-06-11 tripwire list: NOT tripwire 2 (no CCEC dropdown, no CAPT↔CCEC cross-dealing — the
+PRIVATE fleet sold to a third party) and not itself a Yoda stake event (tripwire 5). Filed here
+as **tripwire-5-adjacent** because both readings are worth having where tripwire monitoring
+looks: **benign** — the sponsor monetizing legacy tonnage at market, consistent with the
+away-from-sponsor trend the 0% ruling credited; **watch-item** — ~$150M of fresh sponsor
+liquidity is real ammunition against a ~$180M-at-market 13% float if take-private mechanics
+ever start. One fleet sale proves neither; read it ALONGSIDE any future Yoda/float event, and
+note the timing — a sponsor liquidity event the week before the CCEC Q2 print (7/29, issuer
+date-PR 7/22).
 
 **Decision:** price-vintage drift ACCEPTED-as-mechanical (2026-07-18 Week-close gate): the 2026-07-17 close row landed via the daily price-refresh — EV%-only move, **ΔNAV +0.0%** (no model input changed; the FV stands at the 7/15 regen basis). Baseline re-ratify NOT executed — the batch absorb is the owner's deliberate step (2026-06-30 standing-thread discipline); recross of any band on a later vintage = a NEW eyeball.
 

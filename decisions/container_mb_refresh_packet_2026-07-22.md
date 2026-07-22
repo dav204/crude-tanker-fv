@@ -29,17 +29,31 @@ did not follow.
 **A3 shares note:** bucket weights (2,500: 11.5% / 2,700: 21.8% / 3,500: 25.3% / 4,250: 41.4%)
 carry over unchanged — no fleet re-derivation owed (MPCC/GSL on-water intermediate fleets
 unchanged since the 7/06 derivation; GSL's Jun-26 NB order is future delivery, out of the
-on-water buckets by construction).
+on-water buckets by construction). **Canonical-weights declaration (owner review 2026-07-22):
+the exact-TEU shares from the 7/06 census (72 vessels / 256,234 TEU) are canonical; the
+11.5/21.8/25.3/41.4 figures are display-rounded.** The promoted 46,350 stands; the 46,355
+rounded-share recompute in the diff table is a display artifact, not drift — any future guard
+recompute must use the exact-TEU weights.
 
-## Predicted model impact (gate expectations, scaled off the 7/06 elasticity)
+## Predicted model impact (gate expectations — CORRECTED 2026-07-22 owner review)
 
-- **MPCC:** the 7/06 ingest moved feeder +15.9% → NAV +1.0%, EV −4.4pp (rate lift richens the
-  cycle position against a ~99%-covered 2026 book). This refresh is feeder **+2.1%** → predicted
-  **NAV ≈ +0.1-0.2%, EV sub-1pp, cycle 1.14x → ~1.16x**; position stays "unreliable read (not
-  actionable)". No band flip expected.
-- **GSL:** **zero** — no determinant GSL touches moved (intermediate + large flat).
-- Drift gate: expect 0 UNEXPLAINED with at most a small explained MPCC row; no re-ratify beyond
-  the routine post-promotion absorb.
+- **NAV Δ = 0.00% on EVERY row — exactly zero, to the cent. Any nonzero NAV row on promote =
+  HALT and investigate** (it means `vessel_value_curves.yaml` was touched, which this refresh
+  must not do — a bug, not drift). The original draft mis-scaled off the 7/06 elasticity: that
+  was a JOINT event (feeder 12M TC +15.9% **and** feeder 10-yr value $28.0M→$29.0M) and its
+  NAV +1.0% came from the **value** leg; NAV is curve marks — the 12M TC line never touches it,
+  and this refresh moves TC only (the diff table's value row is Δ 0).
+- **MPCC:** the whole effect flows through cycle position (**1.14x → ~1.16x**) and the feeder
+  strip start → **EV ≈ −0.2 to −0.5pp** (the 7/06 −4.4pp was value-contaminated; sub-1pp stands,
+  now for the right reason). Position stays "unreliable read (not actionable)"; no band flip.
+- **GSL:** **zero everywhere** — no determinant GSL touches moved (intermediate + large flat).
+- Drift gate: expect 0 UNEXPLAINED with at most a small explained MPCC EV row; no re-ratify
+  beyond the routine post-promotion absorb.
+- **Forward pre-flag (not this promote):** at this cadence the feeder tick puts MPCC's cycle
+  position ~2 monthly refreshes from the **1.2× band boundary** — a discrete w_nav 0.5→0.6 step
+  under current mechanics. D-M4 (piecewise-linear ramp) is RULED but adopts at the D1 round
+  (~late Aug): if D1 lands first, MPCC is the first live name the ramp smooths; if the boundary
+  crossing comes first, expect a step event + flip-eyeball at that refresh.
 
 ## Market color (not determinants; dated to the weeklies)
 
@@ -55,17 +69,29 @@ on-water buckets by construction).
   3,700-TEU 2007-built "Spirit of—" vessels en bloc, ~$150M with charters attached.** Capital
   Maritime = the CAPT/CCEC sponsor. This is the PRIVATE fleet selling to a third party — NOT a
   §15.7 tripwire (no CCEC dropdown, no CAPT↔CCEC cross-dealing) — but it is sponsor
-  capital-recycling color worth having on file the week of the CCEC print (7/29).
+  capital-recycling color worth having on file the week of the CCEC print (7/29, confirmed by
+  the issuer's 7/22 date-PR). **CROSS-FILED 2026-07-22 (owner review) to `ccec_log.md` as
+  tripwire-5-adjacent context** — a container packet is where future CCEC work will never look.
 
 ## On "promote" (the normal promote→rerun→drift loop)
 
 1. `twelve_month_tc.yaml`: `Ctr-Feeder` 23,750 → **24,250** + vintage stamps `Ctr-*` →
    **2026-07-17** (intermediate/large re-stamp at unchanged values — the vintage is the
    assessment date, not the delta); dated comment citing this packet.
-2. Strip re-synthesis: feeder start → 24,250, same wire-up terminal, linear (the documented
+2. **`vessel_value_curves.yaml` — dated-comment RE-STAMP ONLY, zero value movement (owner
+   review 2026-07-22, same vintage principle):** the container value anchors' dated comments
+   currently read W27 2026-07-03 (Ctr-Feeder `ten_year_benchmark` 29.0; Ctr-Intermediate 10yr
+   35.5; the Ctr-Large WB-pair basis 63.5/75.0) and W28/W29 re-assessed ALL of them flat →
+   re-date to **W29 2026-07-17, values byte-unchanged, in the SAME commit** — else staleness
+   monitoring reads the container marks 19 days staler than they are. **Guard: if this step
+   changes any NUMBER (not comment), stop — that is the NAV-halt condition above.**
+3. Strip re-synthesis: feeder start → 24,250, same wire-up terminal, linear (the documented
    §11.8.6.4 convention); intermediate/large untouched.
-3. Pipeline regen; drift-annotate `mpcc_log.md` (cause: this packet); suite + SANITY.
-4. Re-arm `container_mb_refresh` → next due **2026-08-21** (monthly from this ingest; the 8/7
+4. Pipeline regen; verify **NAV Δ 0.00% on all 25 rows** (halt on any nonzero); drift-annotate
+   `mpcc_log.md` (cause: this packet); suite + SANITY.
+5. Re-arm `container_mb_refresh` → next due **2026-08-21** (monthly from this ingest; the 8/7
    registration was monthly-from-W27).
-5. Owner-aware baseline absorb per the standing batch-ratify discipline (this lands inside the
-   Q2-cluster window — keep the ingest commit ISOLATED from any report-day refresh commit).
+6. Owner-aware baseline absorb per the standing batch-ratify discipline. **This lands inside
+   the Q2-cluster window and Stage-A basis gathering opens Jul-28 — the isolation rule is live
+   immediately: the ingest commit stays SEPARATE from any report-day refresh or Stage-A basis
+   commit** (consistent with the Stage-A prereg's one-ratify-per-stage discipline).
