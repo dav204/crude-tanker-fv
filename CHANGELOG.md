@@ -5,6 +5,25 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-24 — RC CHANNEL SENDER RESHUFFLE ABSORBED (three lanes; the 7/22 STALE-INPUT was
+  a sender change, not a quiet channel).** Owner intel + channel inspect: the dry-bulk FFA
+  widget screenshots moved Joeri.van.der.Sman → **Chris.Palun** (~7/19-20, phone captures);
+  the full Baltic-5 panel returned under NEW sender **Big_P** (7/20 →, diff-fenced fixed-width
+  format); **CPLazos** posts a daily official Baltic Capesize panel (BCI + routes $/day +
+  C5TC-182 $/day). Wired: (1) ffa_drybulk accepts both senders, `single_sender` retired;
+  (2) baltic parser extended for Big_P's format ("Shipping Indices" header, colon-less
+  panel lines gated on change+percent columns, explicit textual date) + ingest now reads
+  upload-caption text from attachment descriptions (Palun's capesize lines ride his image
+  posts — invisible before); silence_days 10→3, dormancy-override premise retired;
+  (3) NEW staging-only lane `baltic_capesize_table` (CPLazos, no consumer — the C5TC $/day
+  average is the §18.5a-blocked series; determinant wiring = owner ruling; bootstrap pulled
+  his archive to early May); (4) **ffa_ocr layout detection**: Palun's phone captures STACK
+  the three panels vertically — header y-band assignment added (x-third fallback unchanged,
+  ≥2 anchors required); the pre-fix mis-bucketed 7/20-24 db entries dropped + re-parsed
+  (bucketing verified against the source image; residual digit-misreads honestly flagged,
+  promotion stays owner-run). Backfilled via `--since 2026-07-18`: 10 FFA images, Baltic
+  rows 7/20-24 (Big_P panels + Palun capesize). Suite 596 green (+3 parser/layout tests).
+
 - **2026-07-20 — EDGAR POLLER STAGES EX-99 EXHIBITS (the BWLP cover-only gap).** The poller
   staged only each filing's PRIMARY document, but a 6-K/8-K's substance lives in exhibit 99.x:
   BWLP 0001213900-26-078478 (filed 2026-07-16) staged the 9KB 6-K cover while ex-99.1 carried

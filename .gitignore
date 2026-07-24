@@ -59,6 +59,7 @@ scratch/
 # same convention as research_pareto*: raw research binaries stay out of
 # git; only derived/parsed artifacts are committed. (2026-06-10)
 inputs/ffa_drybulk/
+inputs/baltic_capesize/
 
 # EDGAR filing staging (WO2 2.2) — primary docs are .htm so the blanket
 # *.pdf rule does NOT cover them; the staged docs are machine-local

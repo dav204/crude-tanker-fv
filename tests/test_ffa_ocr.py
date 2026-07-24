@@ -177,3 +177,48 @@ def test_queue_month_columns_are_chronological(tmp_path, monkeypatch):
     assert _tenor_sort_key("dec", 12) < _tenor_sort_key("jan", 12)
     assert _tenor_sort_key("aug", 7) < _tenor_sort_key("q3", 7) \
         < _tenor_sort_key("cal27", 7)
+
+
+def _wy(text, x, y, line, conf=95.0, width=200):
+    return {"text": text, "x": x, "y": y, "line": ("1", "1", str(line)),
+            "conf": conf, "width": width}
+
+
+def test_parse_widget_stacked_layout():
+    """Chris.Palun phone captures (2026-07-20 →): the three panels stack
+    vertically — header y-bands, not x-thirds, decide the panel."""
+    words = []
+    li = 1
+    for pi, (panel, prices) in enumerate([
+        ("Cape", [35125, 33875, 34950, 35500, 28950]),
+        ("Pmax", [19600, 18600, 19200, 19050, 16450]),
+        ("Smax", [19450, 18800, 19125, 18300, 14300]),
+    ]):
+        y0 = pi * 6000
+        words.append(_wy(panel, 40, y0, li)); li += 1
+        for ti, tenor in enumerate(("Jul", "Aug", "Q3", "Q4", "Cal27")):
+            y = y0 + 800 + ti * 900
+            words.append(_wy(tenor, 45, y, li))
+            words.append(_wy(str(prices[ti]), 700, y, li))
+            li += 1
+    curves = parse_widget(words)
+    assert curves["cape"]["cal27"] == 28950
+    assert curves["pmax"]["jul"] == 19600
+    assert curves["smax"]["q4"] == 18300
+    assert len(curves["cape"]) == len(curves["pmax"]) == len(curves["smax"]) == 5
+
+
+def test_parse_widget_stacked_skips_words_above_first_header():
+    # Stacked detection needs >=2 header anchors; words above the first
+    # header (cropped chrome / index caption) belong to no panel.
+    words = [
+        _wy("34569", 700, 10, 1),          # index line above the widget — no panel
+        _wy("Cape", 40, 1000, 2),
+        _wy("Jul", 45, 1900, 3), _wy("35125", 700, 1900, 3),
+        _wy("Pmax", 40, 7000, 4),
+        _wy("Jul", 45, 7900, 5), _wy("19600", 700, 7900, 5),
+    ]
+    curves = parse_widget(words)
+    assert curves["cape"] == {"jul": 35125}
+    assert curves["pmax"] == {"jul": 19600}
+    assert curves["smax"] == {}

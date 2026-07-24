@@ -163,3 +163,42 @@ def test_capesize_no_delta():
 def test_capesize_none_on_unrelated_text():
     assert parse_capesize_post("just some text") is None
     assert parse_capesize_post("") is None
+
+
+# ---------- Big_P diff-fenced panel (source since 2026-07-22) ----------
+
+BIG_P_PANEL = """```diff
+Shipping Indices
+Wed 22 Jul 2026
+============================
++ BCTI   1,326  +21  +1.6%
++ BDTI   2,400  +44  +1.9%
++ BLPG  19,106  +830  +4.5%
++ BDI    2,715  +45  +1.7%
+- FBX    3,665  -8  -0.2%
+```"""
+
+
+def test_big_p_diff_fenced_panel():
+    row = parse_baltic_post(BIG_P_PANEL, _ts("2026-07-22T14:29:00Z"))
+    assert row == {
+        "date": "2026-07-22",
+        "BCTI": 1326,
+        "BDTI": 2400,
+        "BLPG": 19106,
+        "BDI": 2715,
+        "FBX": 3665,
+    }
+
+
+def test_big_p_textual_date_wins_over_message_ts():
+    # Posted next morning: the panel's own date line governs, not the ts.
+    row = parse_baltic_post(BIG_P_PANEL, _ts("2026-07-23T07:05:00Z"))
+    assert row["date"] == "2026-07-22"
+
+
+def test_panel_line_requires_change_and_percent_columns():
+    # Prose mentioning an index name + number must NOT false-match the
+    # colon-less panel pattern (no signed change / percent columns).
+    text = "Shipping indices note: BDI 2715 looked firm into the close."
+    assert parse_baltic_post(text, _ts("2026-07-22T14:29:00Z")) is None

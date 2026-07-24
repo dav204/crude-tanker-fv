@@ -17,6 +17,16 @@ Chris.Palun (historical source, mostly Jan-Apr 2026)::
     - BDTI: 2812 (-25)
     ...
 
+Big_P (source since 2026-07-22 — diff-fenced fixed-width panel, textual date)::
+
+    ```diff
+    Shipping Indices
+    Wed 22 Jul 2026
+    ============================
+    + BCTI   1,326  +21  +1.6%
+    - FBX    3,665  -8  -0.2%
+    ```
+
 Plus standalone Capesize index posts from Chris::
 
     Capesize index: 35,333 (-301)
@@ -35,9 +45,19 @@ from typing import Optional
 INDEX_NAMES = ("BCTI", "BDTI", "BLPG", "BDI", "FBX")
 
 _HEADER_RE = re.compile(
-    r"\b(daily\s+shipping\s+indexes|shipping\s+index)\s*(\d{1,2}/\d{1,2})?",
+    r"\b(daily\s+shipping\s+indexes|shipping\s+ind(?:ex|ices))\s*(\d{1,2}/\d{1,2})?",
     re.IGNORECASE,
 )
+
+# Big_P textual date line: "Wed 22 Jul 2026" (year explicit, no inference).
+_TEXT_DATE_RE = re.compile(
+    r"\b(?:mon|tue|wed|thu|fri|sat|sun)\w*\s+(\d{1,2})\s+"
+    r"(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\w*\s+(\d{4})",
+    re.IGNORECASE,
+)
+_MONTHS = {m: i + 1 for i, m in enumerate(
+    ("jan", "feb", "mar", "apr", "may", "jun",
+     "jul", "aug", "sep", "oct", "nov", "dec"))}
 
 # Single-line value: "BCTI: 1,379 (+3) (6/8)", "- BCTI: 2197 (-4)",
 # "BCTI: 1,376 ▼ (6/5)". Applied with re.match() against each line.
@@ -45,6 +65,13 @@ _LINE_RE = re.compile(
     r"\s*[-*]?\s*([A-Z]{3,4})\s*:\s*([\d,]+)"
     r"(?:[ \t]*(?:\(([+\-]?[\d,]+)\)|[▲▼▲▼]))?"
     r"(?:[ \t]*\((\d{1,2}/\d{1,2})\))?"
+)
+
+# Big_P panel line (colon-less fixed-width inside a ```diff fence):
+# "+ BCTI   1,326  +21  +1.6%". Kept tight — requires BOTH the signed
+# change column and the trailing percent so prose can't false-match.
+_PANEL_LINE_RE = re.compile(
+    r"\s*[+\-]?\s*([A-Z]{3,4})\s+([\d,]+)\s+[+\-][\d,]+\s+[+\-][\d.]+%"
 )
 
 _CAPESIZE_RE = re.compile(
@@ -96,17 +123,22 @@ def parse_baltic_post(text: str, msg_ts: datetime) -> Optional[dict]:
     inline_dates: list[str] = []
     for line in text.splitlines():
         m = _LINE_RE.match(line)
-        if not m:
+        if m and m.group(1) in INDEX_NAMES:
+            values[m.group(1)] = _to_int(m.group(2))
+            if m.group(4):
+                inline_dates.append(m.group(4))
             continue
-        name = m.group(1)
-        if name not in INDEX_NAMES:
-            continue
-        values[name] = _to_int(m.group(2))
-        if m.group(4):
-            inline_dates.append(m.group(4))
+        p = _PANEL_LINE_RE.match(line)
+        if p and p.group(1) in INDEX_NAMES:
+            values[p.group(1)] = _to_int(p.group(2))
 
     if not any(v is not None for v in values.values()):
         return None  # header matched but no recognised index lines
+
+    td = _TEXT_DATE_RE.search(text)
+    if td:
+        d = date(int(td.group(3)), _MONTHS[td.group(2).lower()[:3]], int(td.group(1)))
+        return {"date": d.isoformat(), **values}
 
     raw_date = header.group(2) or (inline_dates[0] if inline_dates else None)
     return {"date": _resolve_date(raw_date, msg_ts).isoformat(), **values}

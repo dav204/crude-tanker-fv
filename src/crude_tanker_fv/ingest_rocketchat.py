@@ -225,7 +225,14 @@ def _handle_text_source(
     if parser_name != "baltic_indexes":
         raise SystemExit(f"Unknown text parser '{parser_name}' in source {source['name']}")
 
-    text = msg.get("msg") or ""
+    # Upload captions live in the attachment's description, not msg["msg"]
+    # (Chris.Palun's capesize line rides his FFA screenshot upload — invisible
+    # to this lane until 2026-07-24). Concatenate both surfaces.
+    parts = [msg.get("msg") or ""]
+    for att in msg.get("attachments") or []:
+        if att.get("description"):
+            parts.append(att["description"])
+    text = "\n".join(p for p in parts if p)
     priority: dict[str, int] = source.get("priority") or {}
 
     rows = text_state["rows"]

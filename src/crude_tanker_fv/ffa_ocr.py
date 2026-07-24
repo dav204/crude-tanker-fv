@@ -82,8 +82,8 @@ def ocr_image(src: Path, psm: int = 6) -> tuple[str, list[dict]]:
         f = line.split("\t")
         if len(f) == 12 and f[0] == "5" and f[11].strip():
             words.append({"line": (f[2], f[3], f[4]), "x": int(f[6]),
-                          "width": int(f[8]), "conf": float(f[10]),
-                          "text": f[11].strip()})
+                          "y": int(f[7]), "width": int(f[8]),
+                          "conf": float(f[10]), "text": f[11].strip()})
     text = ""
     last = None
     for w in words:
@@ -113,17 +113,42 @@ def _norm_tenor(tok: str) -> str | None:
 def parse_widget(words: list[dict]) -> dict[str, dict[str, int]]:
     """Positional parse: TSV words -> {panel: {tenor: price}}.
 
-    The widget is three equal-width panels left-to-right (Cape, Pmax,
-    Smax); a word's panel is its x-band third. Each visual row carries
-    one tenor repeated per panel — the row tenor is decided by majority
-    vote of the row's normalized tenor tokens, so a single garbled label
-    can't drop the row. Change-column tokens are ignored (sign glyphs
-    mangle; continuity checks run against our own archive instead).
+    Two layouts exist in the wild. Joeri.van.der.Sman's desktop widget
+    lays the three panels side-by-side (Cape, Pmax, Smax) — a word's
+    panel is its x-band third. Chris.Palun's phone screenshots
+    (2026-07-20 →) STACK the same three panels vertically — there the
+    "Cape"/"Pmax"/"Smax" header y-positions bound each panel's rows and
+    x-bands would mis-bucket everything. The header anchors decide which
+    layout applies. Each visual row carries one tenor (repeated per panel
+    in the wide layout) — the row tenor is decided by majority vote of
+    the row's normalized tenor tokens, so a single garbled label can't
+    drop the row. Change-column tokens are ignored (sign glyphs mangle;
+    continuity checks run against our own archive instead).
     """
     curves: dict[str, dict[str, int]] = {p: {} for p in PANELS}
     if not words:
         return curves
     span = max(w["x"] + w["width"] for w in words)
+
+    headers: dict[str, dict] = {}
+    for w in words:
+        name = w["text"].strip(".:|").lower()
+        if name in PANELS and name not in headers:
+            headers[name] = w
+    stacked = len(headers) >= 2 and (
+        max(h["y"] for h in headers.values()) - min(h["y"] for h in headers.values())
+        > max(h["x"] for h in headers.values()) - min(h["x"] for h in headers.values())
+    )
+    bands = sorted((h["y"], p) for p, h in headers.items()) if stacked else None
+
+    def _panel_of(w: dict) -> str | None:
+        if not stacked:
+            return PANELS[min(2, int(3 * w["x"] / span))]
+        panel = None
+        for y0, name in bands:
+            if w["y"] >= y0:
+                panel = name
+        return panel  # None above the first header (cropped chrome) — skip
     rows: dict[tuple, list[dict]] = {}
     for w in words:
         rows.setdefault(w["line"], []).append(w)
@@ -141,8 +166,8 @@ def parse_widget(words: list[dict]) -> dict[str, dict[str, int]]:
             tok = w["text"].rstrip(",.|;:»«=)")
             if not _PRICE_RE.match(tok) or w["conf"] < 60:
                 continue
-            panel = PANELS[min(2, int(3 * w["x"] / span))]
-            if tenor not in curves[panel]:
+            panel = _panel_of(w)
+            if panel is not None and tenor not in curves[panel]:
                 curves[panel][tenor] = int(tok)
     return curves
 
