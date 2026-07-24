@@ -43,8 +43,11 @@ owner-only and is structurally covered by `crude_day60_toll_cliff` (Aug-16,
 pre-registered), which should now be read as the scheduled venue for retiring or
 re-deriving the MoU-track scenarios. A mid-cycle proposal ahead of Aug-16 is available
 on request; nothing is staged here (one FV-moving event at a time; Stage A is in flight).
-*(Same-day update: the owner requested the prep — see
-`decisions/mou_scenario_reweight_proposal_2026-07-22.md`, awaiting ruling.)*
+*(Same-day update: the owner requested the prep AND RULED it the same evening —
+"Rule A - conditional B′ pre-registered on the 7/29 watch." See
+`decisions/mou_scenario_reweight_proposal_2026-07-22.md` §Decision: no reweight
+now; B′ frozen + pre-registered on `crude_ceasefire_mediation_watch`'s
+collapse branch; Aug-16 stays the full re-derivation venue.)*
 
 ## Actions
 
