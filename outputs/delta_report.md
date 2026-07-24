@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-07-24T16:04:09+00:00
-- **Previous run:** 2026-07-24T15:56:07+00:00
+- **This run:** 2026-07-24T16:05:00+00:00
+- **Previous run:** 2026-07-24T16:04:09+00:00
 
 ## Headline changes (material moves)
 
@@ -9,7 +9,7 @@
 
 ## Input files changed since last run
 
-- `inputs/market_data/ffa_forward_curve.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 

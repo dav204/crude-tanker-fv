@@ -40,6 +40,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-24T16:05:00+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.16
+- Single-point FV: $9.70
+- Scenario PW FV: $9.42 (EV +31.6%)
+- NAV / share: $10.02
+- Position: **BUY (undervalued)**
+- Broker spread: -22.5pp (k_broker 0.88)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-24) clean-stamp regen at pushed-parity after the FFA-promotion commit c15d131 — no movement; annotations below stand.
+
+---
+
 ## 2026-07-24T16:04:09+00:00 — Pipeline run (auto)
 
 **Model state:**
