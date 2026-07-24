@@ -7,6 +7,60 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-24T16:04:09+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.46
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -16.3%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.5pp (k_broker 1.09)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-24) regen after the Handy-Bulk guard-rounding fix (16605→16600, round-half-to-even-to-10) — state as annotated in the FFA-promotion entry below.
+
+---
+
+## 2026-07-24T15:56:07+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.46
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -16.3%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.5pp (k_broker 1.09)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.10 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -2.4pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-24T15:55:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.56
+- Single-point FV: $2.21
+- Scenario PW FV: $2.06 (EV -19.4%)
+- NAV / share: $2.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.9pp (k_broker 1.12)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.10 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.4pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-22T22:01:16+00:00 — Pipeline run (auto)
 
 **Model state:**

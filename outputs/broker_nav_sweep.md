@@ -13,14 +13,14 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | TNK | 0.73× | 1.45 | +2.0% | +13.3% | +24.6% | HOLD→BUY | $18,151→NAV>px | +23 | wide-spread |
 | CAPT | 0.69× | 1.10 | +4.3% | +13.4% | +22.5% | HOLD→BUY | NAV>px→NAV>px | +18 | wide-spread |
 | HAFN | 0.86× | 1.45 | -15.0% | +2.6% | +20.2% | TRIM/SHORT→BUY | $88,842→$7,802 | +35 | wide-spread |
-| SBLK | 0.78× | 1.09 | +8.7% | +14.1% | +19.5% | BUY→BUY | $10,780→NAV>px | +11 | wide-spread |
-| CMBT **(WHOLE-CO)** | 0.73× | 1.17 | -6.5% | +5.9% | +18.4% | TRIM/SHORT→BUY | $59,342→NAV>px | +25 | wide-spread |
-| SB | 0.88× | 0.88 | +32.3% | +21.0% | +9.7% | BUY→BUY | NAV>px→NAV>px | -23 | wide-spread |
+| SBLK | 0.78× | 1.09 | +8.0% | +13.4% | +18.8% | BUY→BUY | $10,759→NAV>px | +11 | wide-spread |
+| CMBT **(WHOLE-CO)** | 0.73× | 1.17 | -7.3% | +5.2% | +17.6% | TRIM/SHORT→BUY | $59,342→NAV>px | +25 | wide-spread |
+| SB | 0.88× | 0.88 | +31.6% | +20.4% | +9.1% | BUY→BUY | NAV>px→NAV>px | -23 | wide-spread |
 | LPG | 0.84× | 1.42 | -29.1% | -12.5% | +4.1% | TRIM/SHORT→HOLD | $174,694→NAV>px | +33 | wide-spread |
-| GNK | 0.89× | 1.09 | -5.7% | -0.9% | +4.0% | TRIM/SHORT→HOLD | $30,323→$14,326 | +10 | narrow-spread |
-| CMDB | 0.62× | 0.93 | +10.3% | +7.0% | +3.8% | BUY→HOLD | $7,192→$15,001 | -7 | narrow-spread |
+| CMDB | 0.62× | 0.93 | +9.9% | +6.6% | +3.4% | BUY→HOLD | $7,186→$14,988 | -6 | narrow-spread |
+| GNK | 0.89× | 1.09 | -6.4% | -1.6% | +3.2% | TRIM/SHORT→HOLD | $30,248→$14,290 | +10 | narrow-spread |
 | NAT | 0.85× | 2.14 | -55.2% | -26.7% | +1.8% | TRIM/SHORT→HOLD | $425,461→NAV>px | +57 | wide-spread |
-| 2343 | 0.98× | 1.02 | -2.5% | -1.5% | -0.5% | HOLD→HOLD | $18,267→$16,732 | +2 | narrow-spread |
+| 2343 | 0.98× | 1.02 | -2.9% | -1.9% | -0.9% | HOLD→HOLD | $18,360→$16,817 | +2 | narrow-spread |
 | BRUT | 0.72× | 0.96 | +14.6% | +4.6% | -5.4% | BUY→TRIM/SHORT | NAV>px→NAV>px | -20 | wide-spread |
 | MPCC | 1.04× | 1.09 | -16.3% | -11.1% | -5.8% | TRIM/SHORT→TRIM/SHORT | $117,818→$45,007 | +10 | wide-spread |
 | BWLP | 0.97× | 1.30 | -31.5% | -19.7% | -8.0% | TRIM/SHORT→TRIM/SHORT | $184,952→$60,221 | +23 | wide-spread |

@@ -15,6 +15,60 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-24T16:04:09+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.89
+- Single-point FV: $14.68
+- Scenario PW FV: $13.10 (EV -26.8%)
+- NAV / share: $13.58
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +9.4pp (k_broker 1.14)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-24) regen after the Handy-Bulk guard-rounding fix (16605→16600, round-half-to-even-to-10) — state as annotated in the FFA-promotion entry below.
+
+---
+
+## 2026-07-24T15:56:07+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.89
+- Single-point FV: $14.68
+- Scenario PW FV: $13.10 (EV -26.8%)
+- NAV / share: $13.58
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +9.4pp (k_broker 1.14)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.52 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -1.7pp
+
+**Decision:** (2026-07-24) TRIAGE, no input change today — DHT fleet-update PR (Jul-24, via the RC channel sweep, staged as inputs/ffa_drybulk/2026/07/2026-07-24_IMG_9273.jpg — not a widget): (1) DHT Impala VLCC NB DELIVERED (4th/final 2026 NB, entering spot); (2) DHT Bauhinia (2007) delivered to buyers 2026-07-20. BOTH are post-Q2 subsequent events -> they belong to the Q3 snapshot, NOT the ~Aug-5 Q2 report-day refresh (AS-OF discipline; audit the subsequent-events note first). At the Q2 refresh: expect Impala in the NB table still (Q2-end) and Bauhinia held-for-sale/committed; wire the flips only at Q3.
+
+---
+
+## 2026-07-24T15:55:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.41
+- Single-point FV: $14.68
+- Scenario PW FV: $13.10 (EV -28.9%)
+- NAV / share: $13.58
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +11.1pp (k_broker 1.16)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.52 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.7pp
+
+**Decision:** (2026-07-24) superseded intermediate regen (price-contaminated, reverted same hour) — see the annotated entry above.
+
+---
+
 ## 2026-07-22T22:01:16+00:00 — Pipeline run (auto)
 
 **Model state:**

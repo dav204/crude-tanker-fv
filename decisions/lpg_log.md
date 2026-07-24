@@ -9,6 +9,60 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-24T16:04:09+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $43.09
+- Single-point FV: $32.76
+- Scenario PW FV: $30.55 (EV -29.1%)
+- NAV / share: $34.11
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +33.2pp (k_broker 1.42)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-24) regen after the Handy-Bulk guard-rounding fix (16605→16600, round-half-to-even-to-10) — state as annotated in the FFA-promotion entry below.
+
+---
+
+## 2026-07-24T15:56:07+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $43.09
+- Single-point FV: $32.76
+- Scenario PW FV: $30.55 (EV -29.1%)
+- NAV / share: $34.11
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +33.2pp (k_broker 1.42)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -2.52 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -3.6pp
+
+**Decision:** (2026-07-24) price-vintage row unchanged (standing 7/21-close catch-up, ΔNAV +0.0%) — re-annotated for the 7/24 FFA-promotion regens (LPG itself is untouched by dry-bulk curves); the batch re-ratify remains the owner's step.
+
+---
+
+## 2026-07-24T15:55:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $45.61
+- Single-point FV: $32.76
+- Scenario PW FV: $30.55 (EV -33.0%)
+- NAV / share: $34.11
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +36.8pp (k_broker 1.49)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +2.52 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +3.6pp
+
+**Decision:** (2026-07-24) superseded intermediate regen (price-contaminated, reverted same hour) — see the annotated entry above.
+
+---
+
 ## 2026-07-22T22:01:16+00:00 — Pipeline run (auto)
 
 **Model state:**

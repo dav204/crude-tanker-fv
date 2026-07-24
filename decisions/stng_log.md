@@ -7,6 +7,60 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-24T16:04:09+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $77.98
+- Single-point FV: $75.86
+- Scenario PW FV: $76.87 (EV -1.4%)
+- NAV / share: $77.13
+- Position: **HOLD (fairly valued)**
+- Broker spread: +40.3pp (k_broker 1.51)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-24T15:56:07+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $77.98
+- Single-point FV: $75.86
+- Scenario PW FV: $76.87 (EV -1.4%)
+- NAV / share: $77.13
+- Position: **HOLD (fairly valued)**
+- Broker spread: +40.3pp (k_broker 1.51)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -1.42 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -1.6pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-07-24T15:55:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $79.40
+- Single-point FV: $75.86
+- Scenario PW FV: $76.87 (EV -3.2%)
+- NAV / share: $77.13
+- Position: **HOLD (fairly valued)**
+- Broker spread: +41.9pp (k_broker 1.54)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +1.42 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.6pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-22T22:01:16+00:00 — Pipeline run (auto)
 
 **Model state:**

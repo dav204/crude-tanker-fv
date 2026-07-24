@@ -17,6 +17,60 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-24T16:04:09+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $15.08
+- Single-point FV: $15.50
+- Scenario PW FV: $13.99 (EV -7.3%)
+- NAV / share: $16.12
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +24.8pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-24) regen after the Handy-Bulk guard-rounding fix (16605→16600, round-half-to-even-to-10) — state as annotated in the FFA-promotion entry below.
+
+---
+
+## 2026-07-24T15:56:07+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $15.08
+- Single-point FV: $15.50
+- Scenario PW FV: $13.99 (EV -7.3%)
+- NAV / share: $16.12
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +24.8pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.53 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -3.0pp
+
+**Decision:** (2026-07-24) FFA dry-bulk promotion (owner: "eyeball the flagged OCR rows and promote the curves" — decisions/ffa_promotion_2026-07-24.md): 24-Jul print promoted on all three surfaces after full human eyeball of the flagged rows (Supra front +2.5% 12M, Pana −1.8%, Cape 12M unchanged; Supra Cal27-derived strip legs HELD at 7/13 — source viewport crop, vintage_notes). Effect on this name: scenario-FV −0.4..−0.7%, EV move sub-gate-threshold, NO band flip, ΔNAV +0.0% (verified vs committed HEAD at constant 7/21 prices; the intermediate contaminated regen was discarded by price-file revert). Cape front back to CONTANGO.
+
+---
+
+## 2026-07-24T15:55:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $15.61
+- Single-point FV: $15.50
+- Scenario PW FV: $13.99 (EV -10.4%)
+- NAV / share: $16.12
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +27.8pp (k_broker 1.19)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.53 | Δsingle FV: +0.1% | Δscenario FV: -0.7% | ΔNAV: no change | Δspread: +2.8pp
+
+**Decision:** (2026-07-24) superseded intermediate regen (price-contaminated, reverted same hour) — see the annotated entry above.
+
+---
+
 ## 2026-07-22T22:01:16+00:00 — Pipeline run (auto)
 
 **Model state:**

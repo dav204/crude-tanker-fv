@@ -1,7 +1,7 @@
 {
   "schema_version": "2.5",
-  "generated_at": "2026-07-22T22:01:07+00:00",
-  "source_commit": "93b0230",
+  "generated_at": "2026-07-24T16:03:59+00:00",
+  "source_commit": "566c764-dirty",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 25,
@@ -10,6 +10,7 @@
     "market_event_review": {}
   },
   "rate_basis": [
+    "Supra-Ultra 2027+2028 strip legs HELD at the 13-Jul synthesis (Cal-27 14,175): the Smax Cal27 row is cropped from every capture of the new source (Chris.Palun, 2026-07-20 \u2192) \u2014 front (q1/q2/12M/spot) IS the 24-Jul print. Held-node bracket per ffa_promotion_2026-07-24.md; retires at the first capture showing Smax Cal27 (owner channel-ask staged). Handy-Bulk derived row inherits the same mix via the x0.90 identity.",
     "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean) HELD at the 2026-06-07 vintage \u2014 TERM PRINT EXISTS (DHT 6-K 2026-07-13: 3-yr VLCC TC $75k/day Sep-26 start; Q3 QTD bookings $139.7k corroborate the front within ~5%; back-half implied 40-55% below this vintage). Promotion deferred to the Q2-cluster re-anchor by owner ruling 2026-07-14, SIGNED 2026-07-15 (decisions/tanker_forward_print_ruling_2026-07-14.md): Stage A no later than 2026-08-15 (unconditional \u2014 DHT-print fallback if cluster basis insufficient), Stage B true-up \u22642026-09-04 band-gated. Estimated strip overhang while held: \u22123 to \u22124% FV on peak-weighted crude, direction-safe (can only make rich names richer; the one qualified case \u2014 TRMD's post-re-tilt BUY \u2014 is in the Stage-A eyeball inventory, ruling ADDENDUM). Method: PRE_REGISTRATION_TANKER_CLUSTER_REANCHOR.md (frozen at signature).",
     "Dry-bulk curves (Cape/Pana/Post-Panamax/Supra-Ultra) RE-ANCHORED 2026-07-13 from the 13-Jul FFA OCR widget (status ok; owner-ratified promotion, all three classes; decisions/ffa_promotion_2026-07-13.md). Cape front flipped to BACKWARDATION (q3 > q4) \u2014 near-dated C5TC spike, Cal-27 barely moved.",
     "Container TC/value curves REFRESHED 2026-07-06 from MB Container Weekly 27 (assessments 2026-07-03) \u2014 the cited \u00a711.8 ingest event closing trigger container_mb_refresh (decisions/container_ingest_2026-07-06.md; A3 re-derived on the combined validator fleets). The Apr-01 freeze disclosed 2026-07-03 is RESOLVED; trigger re-armed to the 2026-08-07 monthly boundary.",
@@ -144,9 +145,9 @@
       "sanity": "n-a",
       "price": 7.16,
       "position": "BUY (undervalued)",
-      "fv": 9.47,
-      "ev_pct": 32.3,
-      "blend_fv": 9.69,
+      "fv": 9.42,
+      "ev_pct": 31.6,
+      "blend_fv": 9.7,
       "nav_per_share": 10.02,
       "broker_nav": 8.14,
       "gap_pct": 23.1,
@@ -158,8 +159,8 @@
       "mark_wide_nodes": [
         "Post-Panamax@five_year+ten_year"
       ],
-      "fv_low": 7.09,
-      "fv_high": 12.23
+      "fv_low": 7.06,
+      "fv_high": 12.16
     },
     {
       "ticker": "SBLK",
@@ -172,9 +173,9 @@
       "sanity": "OK",
       "price": 26.09,
       "position": "BUY (undervalued)",
-      "fv": 28.35,
-      "ev_pct": 8.7,
-      "blend_fv": 29.16,
+      "fv": 28.19,
+      "ev_pct": 8.0,
+      "blend_fv": 29.22,
       "nav_per_share": 30.13,
       "broker_nav": 33.45,
       "gap_pct": -9.9,
@@ -184,8 +185,8 @@
       "ev_pct_family_min": 4.1,
       "ev_pct_family_max": 12.8,
       "mark_wide_nodes": null,
-      "fv_low": 21.77,
-      "fv_high": 35.43
+      "fv_low": 21.66,
+      "fv_high": 35.21
     },
     {
       "ticker": "CAPT",
@@ -224,9 +225,9 @@
       "sanity": "OK",
       "price": 15.08,
       "position": "TRIM/SHORT (overvalued)",
-      "fv": 14.09,
-      "ev_pct": -6.5,
-      "blend_fv": 15.48,
+      "fv": 13.99,
+      "ev_pct": -7.3,
+      "blend_fv": 15.5,
       "nav_per_share": 16.12,
       "broker_nav": 20.66,
       "gap_pct": -22.0,
@@ -240,7 +241,7 @@
         {
           "sleeve": "dry_bulk",
           "sector": "dry_bulk",
-          "fv_contribution_per_share": 10.11
+          "fv_contribution_per_share": 10.01
         },
         {
           "sleeve": "containerships",
@@ -252,8 +253,8 @@
       "ev_pct_family_min": -13.8,
       "ev_pct_family_max": -6.5,
       "mark_wide_nodes": null,
-      "fv_low": 8.87,
-      "fv_high": 21.38
+      "fv_low": 8.8,
+      "fv_high": 21.22
     },
     {
       "ticker": "INSW",
@@ -424,7 +425,7 @@
       "price": 0.39,
       "position": "HOLD (fairly valued)",
       "fv": 0.38,
-      "ev_pct": -2.5,
+      "ev_pct": -2.9,
       "blend_fv": 0.38,
       "nav_per_share": 0.39,
       "broker_nav": 0.4,
@@ -449,9 +450,9 @@
       "sanity": "n-a",
       "price": 18.63,
       "position": "BUY (undervalued)",
-      "fv": 20.55,
-      "ev_pct": 10.3,
-      "blend_fv": 20.98,
+      "fv": 20.47,
+      "ev_pct": 9.9,
+      "blend_fv": 21.01,
       "nav_per_share": 32.1,
       "broker_nav": 30.05,
       "gap_pct": 6.8,
@@ -461,8 +462,8 @@
       "ev_pct_family_min": 6.7,
       "ev_pct_family_max": 13.6,
       "mark_wide_nodes": null,
-      "fv_low": 16.84,
-      "fv_high": 24.52
+      "fv_low": 16.79,
+      "fv_high": 24.41
     },
     {
       "ticker": "GNK",
@@ -475,9 +476,9 @@
       "sanity": "OK",
       "price": 25.26,
       "position": "TRIM/SHORT (overvalued)",
-      "fv": 23.82,
-      "ev_pct": -5.7,
-      "blend_fv": 24.65,
+      "fv": 23.66,
+      "ev_pct": -6.4,
+      "blend_fv": 24.71,
       "nav_per_share": 25.48,
       "broker_nav": 28.38,
       "gap_pct": -10.2,
@@ -487,8 +488,8 @@
       "ev_pct_family_min": -9.9,
       "ev_pct_family_max": -1.9,
       "mark_wide_nodes": null,
-      "fv_low": 18.39,
-      "fv_high": 29.95
+      "fv_low": 18.29,
+      "fv_high": 29.71
     },
     {
       "ticker": "CCEC",
