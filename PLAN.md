@@ -5,7 +5,27 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-07-18 Week-close):** **25 watchlist names across 6 valued sectors**
+**Current state (2026-07-26 Week-close):** **25 names / 6 sectors · suite 599 green + 3
+machine-local skips + 15 xfailed · drift gate 0/0 (anchor a46eda7, week-close batch absorb —
+RATIFY_LOG 2026-07-26T21:24Z) · handoff schema 2.5 · tier map 6 TIGHT / 14 WIDE / 5
+PROVISIONAL — SB again the LONE TIGHT BUY (SBLK BUY→HOLD at price-reached-FV $28.14≈$28.19,
+the same event that fired the governance $28 take-profit: the discount leg is SPENT).**
+The 7/20 week's closed arcs: Doha round-3 COLLAPSE recorded (no reweight; MoU-reweight RULED
+"A + conditional B′" — **B′ 0.25/0.57/0.05/0.13 FROZEN, pre-registered on the 7/29
+`crude_ceasefire_mediation_watch` collapse branch, executes mechanically there with the CAPT
+HOLD→BUY flip eyeballed individually**) · container W28/W29 promote (Ctr-Feeder 24,250, cycle
+1.16x, re-arm 8/21) · RC sender reshuffle absorbed (Palun FFA widgets/stacked-layout OCR,
+Big_P Baltic-5 panel, CPLazos capesize staging lane = the §18.5a $/day seed) · first
+Palun-vintage FFA promotion 7/24 (Cape front back to CONTANGO; Supra 12M +2.5% / Pana −1.8%;
+**Supra Cal27-derived strip legs HELD at 7/13 — Smax Cal27 cropped from every capture; retire
+= ask Palun to scroll**) · GNK tender EXPIRED 7/24, outcome PR pending · Hynix print re-dated
+7/29 (issuer 6-K) with GOOG capex-raise = G4 1-of-4 favorable · DHT Impala/Bauhinia = Q3
+subsequent events (dht_log discipline note). **Vintages:** prices 7/24-close committed ·
+dry-bulk FFA 7/24 (one held node) · containers MB W29 7/17 · tanker forwards HELD Jun-7
+(Stage A ≤8/15 UNCONDITIONAL) · consensus pairs Pareto 3-Jul (k_broker drift +0.02..+0.17
+noted at the ratify — the pair-recapture question is aging toward its 10/02 trigger).
+
+**Prior state (2026-07-18 Week-close):** 25 watchlist names across 6 valued sectors
 (2343 the 25th, onboarded 2026-07-14, 1st HKEX). **Suite 587 green + 3 machine-local skips +
 15 xfailed** (backtest +13; harvester +57 via `.venv310`); **handoff schema 2.5** (fv_low/fv_high
 D-M5 intervals + the re-anchored weight families with point==family-max); **drift gate 0 UNEXPLAINED /
@@ -36,7 +56,27 @@ early Aug; BWLP 8/28 confirmed) · `crude_day60_toll_cliff` 8/16 (pre-registered
 re-armed 8/21) · `lpg_v1_lock_rerun` 11/13 — all in `inputs/reweight_triggers.yaml`,
 sentinel-paged.
 
-**WEEK OF 2026-07-20 — theme: Q2 intake + Stage-A basis accumulation.** The sprint is
+**WEEK OF 2026-07-27 — theme: THE Q2 CLUSTER LANDS + the 7/29 quad-day.** Calendar-driven:
+(1) **Mon 7/28** — GNK/Diana tender outcome PR expected (census recorded 7/26, gnk_log;
+extension #3 / lapse / amended terms all live — the announcement un-pins GNK's tape);
+ASC/SB report windows open (EARNINGS-UNCONFIRMED — run the date sweep). (2) **Tue 7/29,
+the quad-day** — Hynix Q2 print + call 9am Seoul (governance G1–G5 restore gate; G4 already
+1-of-4) · CCEC Q2 (the governance t2 print-gate venue) · TNK after close (call 7/30) ·
+`crude_ceasefire_mediation_watch` due — **collapse-track week ⇒ B′ EXECUTES mechanically
+(pre-registered 7/22 ruling; CAPT flip individual eyeball; mid-cluster landing accepted at
+ruling)**, ceasefire ⇒ conditional VOIDS, owner proposal. (3) **Wed 7/30** — STNG Q2
+pre-market (call 8:00 ET); LPG window. (4) **Per landed print:** report-day refresh flow,
+subsequent-events note FIRST (DHT Impala/Bauhinia = the standing example: post-Q2 events do
+NOT enter Q2 snapshots); fold ASC's pre-booked ~+1.9% Handysize correction; capture
+STNG/ASC/TNK term-rate disclosures as **Stage-A cluster-basis prints**
+(PRE_REGISTRATION_TANKER_CLUSTER_REANCHOR §6 — Stage A ≤8/15 UNCONDITIONAL). (5) **Owner
+items:** SBLK trim sizing (mini-review 7/25 staged, take-profit fired — pick (a) 175 sh /
+(b) ~55 sh, Claude stages the draft) · the Palun channel ask (Smax Cal27 row) · push both
+repos. **Definition of done:** every landed print reconciled-or-queued with its log entry;
+7/29 watch recorded (B′ executed or voided); gate 0 unexplained at close; Stage-A basis
+inventory grows with each term-rate disclosure.
+
+**PRIOR WEEK (2026-07-20) — theme: Q2 intake + Stage-A basis accumulation.** The sprint is
 calendar-driven: (1) **7/22** — Doha round-3 watch (record either way; the MoU-check evidence
 leans collapse-track) + the Hynix Q2 print (governance executes its print-gated restore on
 G1–G5); (2) **7/24** — tender census (gnk_log branch-c); (3) **from 7/28** — the Q2 early

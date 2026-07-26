@@ -111,6 +111,10 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   ship a blanket default into `OPERATING_SCRUBBER_QUEUE` and leave it (a queued name can still carry a wrong count).
 - **"Read-only" agents must not run pytest/pipeline in the shared tree** (2026-07-18) — the run
   regenerates outputs+logs; one agent's stash swept live session work. Worktree-isolate them.
+- **`git checkout -- inputs/market_data/prices_daily.yaml` BEFORE any promote/ingest regen**
+  (2026-07-26; bit twice, 7/22 + 7/24) — the 18:30 refresher dirties it daily; a regen on the
+  dirty tree launders the new price vintage into the sourcing event's outputs. Prices absorb
+  ONLY as their own deliberate commit (week-close or batch ratify).
 - **Newbuilds valued at delivered market LESS remaining commitment** (NOT sunk cost; §3.1/§9.6),
   PV-discounted `1.11^(−years_to_delivery)` per vessel (defaults 0 = on the water).
 - **`use_transaction_anchored` is DEFAULT-ON** (2026-06-09). Txn-anchored marks ARE the headline; k_broker

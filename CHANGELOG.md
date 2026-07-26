@@ -5,6 +5,25 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-26 — WEEK-CLOSE (the 7/20 week): collapse-recorded + two promotions + sender
+  reshuffle + batch ratify.** The week's arc: (1) **Doha round-3 COLLAPSE recorded** 7/22
+  (MoU declared dead by both principals; no reweight — pre-registered branch;
+  `crude_ceasefire_mediation_watch` armed 7/29) and the **MoU-scenario reweight RULED same
+  evening** (owner: "Rule A - conditional B′" — no reweight now, B′ 0.25/0.57/0.05/0.13
+  FROZEN + pre-registered on the 7/29 watch's collapse branch; Aug-16 stays the full
+  re-derivation venue). (2) **Container W28/W29 promote** 7/22 (Ctr-Feeder 24,250, NAV
+  frozen verified). (3) **RC sender reshuffle** absorbed 7/24 (entry below). (4) **First
+  Palun-vintage FFA promotion** 7/24 (entry: ffa_promotion_2026-07-24.md — 100% of OCR
+  misreads inside flagged rows; Supra Cal27 held-node bracket). (5) **Hynix print re-dated
+  7/29** (issuer 6-K) + GOOG capex-raise logged as G4 1-of-4 (governance side). (6) **GNK
+  tender census**: offer expired 7/24, outcome PR pending Mon 7/28. (7) **Week-close batch
+  ratify** @ a46eda7 (RATIFY_LOG 2026-07-26T21:24Z): 7/21+7/24 price vintages + both
+  promotes; FIVE flips eyeballed individually — SBLK BUY→HOLD **price-at-FV** (the model
+  and the governance $28 take-profit agreeing: the discount leg is spent; SB back to the
+  lone TIGHT BUY), GNK tender-pinned recross, ASC/GSL/2343 shallow crossings. Suite 599 +
+  15 xfailed; gate 0/0. Lesson added to CLAUDE.md: revert prices_daily before promote
+  regens (bit twice this week).
+
 - **2026-07-24 — RC CHANNEL SENDER RESHUFFLE ABSORBED (three lanes; the 7/22 STALE-INPUT was
   a sender change, not a quiet channel).** Owner intel + channel inspect: the dry-bulk FFA
   widget screenshots moved Joeri.van.der.Sman → **Chris.Palun** (~7/19-20, phone captures);

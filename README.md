@@ -36,7 +36,7 @@ significance needs a pre-2024 backfill
 [outputs/epistemic_soundness_memo_2026-06-22.md](outputs/epistemic_soundness_memo_2026-06-22.md)).
 Use the reads as one disciplined input to a position call, sized accordingly.
 
-## Status (2026-07-18)
+## Status (2026-07-26)
 
 - **25 tickers** across 6 sectors: crude (10, incl. **TEN** the 3-sleeve hybrid,
   **CAPT** the first Oslo/NOK listing, **BRUT** the pure-play VLCC newbuild
