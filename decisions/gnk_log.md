@@ -1,5 +1,19 @@
 # GNK — Decision Log
 
+## 2026-07-26 — Tender census (scheduled 7/24 check): offer EXPIRED 7/24 17:00 NY, outcome PR NOT YET PUBLISHED
+
+**Decision:** census CHECKED at the Week-close (web sweep 2026-07-26): the extended tender
+expired Friday 2026-07-24 5:00 p.m. NY. **No post-expiry outcome PR or SC TO-T/A had been
+published as of this check** (weekend gap; a Friday-evening expiry conventionally announces
+Monday morning). Last public count remains 29.7% of non-Diana shares tendered (7/10 count) —
+far short of control; terms unchanged ($24.80 cash + 1 DSX share ≈ $27.34 implied). Branch-(c)
+muddle persists: extension #3, lapse, or amended terms are all live. **Re-armed: next check
+2026-07-28 (Monday) — expect the announcement to pin GNK's tape either way.** GNK stays a
+normal on-curve name; the HOLD→TRIM/SHORT recross (7/22 entry below) remains band-mech,
+tender-pinned, read through the deal lens until the announcement lands.
+
+---
+
 ## 2026-07-18 (marks) — §9.9 prints promotion drift ACCEPTED-as-designed
 
 **Decision:** Dry-bulk anchors re-fit UP (+3.2% NAV, +2.8pp EV; HOLD stands). Tender-pinned price context unchanged; census 7/24. Cause: the 13-print marks-trail promotion (decisions/marks_trail_triage_2026-07-18.md §A, owner: 'Promote') — the prints-drift loop IS the gate for this move (CLAUDE.md 2026-06-09). Baseline re-ratify owner-gated.
