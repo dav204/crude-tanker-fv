@@ -103,18 +103,15 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   was the fleet-table version). **Audit the subsequent-events note FIRST** on every reconciliation; build
   AS-OF the NAV date from the closest-to-quarter filing (20-F / prior 6-K), not the newest page. The "nothing
   changed" intuition is the trap — the quarter-boundary transactions are what a stale snapshot gets wrong.
-- **Cross-foot the OPERATING-scrubber COUNT vs the issuer's disclosed aggregate at onboarding** (2026-07-01,
-  SB) — a blanket per-class `scrubber:true` is the CAPT peer-borrowed-flag bug. Scrubber is a static
-  value-adding flag with no build-year rule; source it per-vessel — its sum MUST equal the issuer's
-  disclosed aggregate — and move the name to `OPERATING_SCRUBBER_VERIFIED{name:count}`
-  (`test_verified_operating_scrubber_count` asserts the count). **Work the queue at onboarding** — don't
-  ship a blanket default into `OPERATING_SCRUBBER_QUEUE` and leave it (a queued name can still carry a wrong count).
+- **Scrubber flags are sourced per-vessel; the count must cross-foot to the issuer's disclosed
+  aggregate at onboarding** (2026-07-01, SB; the CAPT peer-borrowed-flag bug). Guard-enforced:
+  `test_verified_operating_scrubber_count` + `test_scrubber_provenance` — work the queue at
+  onboarding, don't ship a blanket default.
 - **"Read-only" agents must not run pytest/pipeline in the shared tree** (2026-07-18) — the run
   regenerates outputs+logs; one agent's stash swept live session work. Worktree-isolate them.
-- **`git checkout -- inputs/market_data/prices_daily.yaml` BEFORE any promote/ingest regen**
-  (2026-07-26; bit twice, 7/22 + 7/24) — the 18:30 refresher dirties it daily; a regen on the
-  dirty tree launders the new price vintage into the sourcing event's outputs. Prices absorb
-  ONLY as their own deliberate commit (week-close or batch ratify).
+- **Revert `prices_daily.yaml` before any promote/ingest regen** (2026-07-26, bit 2×) — the daily
+  refresher dirties it; a dirty-tree regen launders the price vintage into the sourcing event.
+  Prices absorb only as their own deliberate commit.
 - **Newbuilds valued at delivered market LESS remaining commitment** (NOT sunk cost; §3.1/§9.6),
   PV-discounted `1.11^(−years_to_delivery)` per vessel (defaults 0 = on the water).
 - **`use_transaction_anchored` is DEFAULT-ON** (2026-06-09). Txn-anchored marks ARE the headline; k_broker
