@@ -11,6 +11,43 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-26T21:20:27+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.61
+- Single-point FV: $16.77
+- Scenario PW FV: $16.85 (EV +1.4%)
+- NAV / share: $17.82
+- Position: **HOLD (fairly valued)**
+- Broker spread: +22.9pp (k_broker 1.28)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-26 week-close) FLIP EYEBALL — BUY→HOLD, the pre-warned oscillation (7/13 ratify note: 'the staged product re-tilt may flip it back — NEW eyeball then'): +8% product tape, shallow boundary crossing, ΔNAV 0.0. Accepted individually at the ratify; the Q2 print (~7/28-30 window) rebuilds the FV with the +1.9% Handysize correction anyway.
+
+---
+
+## 2026-07-26T21:19:46+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.61
+- Single-point FV: $16.77
+- Scenario PW FV: $16.85 (EV +1.4%)
+- NAV / share: $17.82
+- Position: **HOLD (fairly valued)**
+- Broker spread: +22.9pp (k_broker 1.28)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: +0.79 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +4.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-24T16:05:00+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -11,6 +11,43 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-26T21:20:27+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $43.61
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV -7.0%)
+- NAV / share: $38.59
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +35.1pp (k_broker 1.40)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-26 week-close) FLIP EYEBALL — HOLD→TRIM/SHORT, the standing recross-watch name doing its shallow crossing on a strong container tape; APPROX anchor, unheld, Q2 rebuild Aug-4/6. Accepted individually at the ratify.
+
+---
+
+## 2026-07-26T21:19:46+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $43.61
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV -7.0%)
+- NAV / share: $38.59
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +35.1pp (k_broker 1.40)
+- Sector: containerships
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: +2.51 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +4.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-24T16:05:00+00:00 — Pipeline run (auto)
 
 **Model state:**

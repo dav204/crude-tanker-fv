@@ -9,6 +9,42 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-26T21:20:27+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $45.32
+- Single-point FV: $32.76
+- Scenario PW FV: $30.55 (EV -32.6%)
+- NAV / share: $34.11
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +36.4pp (k_broker 1.49)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-26 week-close) 7/24-close price-vintage row — EV%-only, ΔNAV +0.0%, the broad Friday tape rally (shipping/semis up, dry bulk +11% w/w) through the pinned consensus pairs (k_broker drift is the same event). No model input changed for this name. Absorbed at the week-close batch ratify (cause on the RATIFY_LOG row).
+
+---
+
+## 2026-07-26T21:19:46+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $45.32
+- Single-point FV: $32.76
+- Scenario PW FV: $30.55 (EV -32.6%)
+- NAV / share: $34.11
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +36.4pp (k_broker 1.49)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +2.23 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +3.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-24T16:05:00+00:00 — Pipeline run (auto)
 
 **Model state:**

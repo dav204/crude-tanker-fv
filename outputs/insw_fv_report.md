@@ -1,9 +1,9 @@
 # INSW — Fair Value Report
 
-> **Valuation basis:** CRUDE SLEEVE only (65.3% of vessel value). FV and price are the CRUDE sleeve / CRUDE-ALLOCATED price $57.74 (= whole-company $88.40 × crude_share). Product sleeve (~35%) is EXCLUDED from the model FV — covered qualitatively only (v2 product strip pending). Do not compare directly to whole-company P/NAV without re-aggregating.
+> **Valuation basis:** CRUDE SLEEVE only (65.3% of vessel value). FV and price are the CRUDE sleeve / CRUDE-ALLOCATED price $60.28 (= whole-company $92.28 × crude_share). Product sleeve (~35%) is EXCLUDED from the model FV — covered qualitatively only (v2 product strip pending). Do not compare directly to whole-company P/NAV without re-aggregating.
 
 - **Report date:** 2026-Q1
-- **Current price (crude-allocated):** $57.74
+- **Current price (crude-allocated):** $60.28
 - **Model fair value:** $38.50
 - **Analyst target (crude-allocated):** $51.93
 
@@ -83,21 +83,21 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **3.16× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **3.44× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **346,802** | — |
-| 10-year mean | 33,246 | 10.43× |
-| 12-month FFA | 109,911 | 3.16× |
-| Current spot | 169,673 | 2.04× |
+| **Implied breakeven (blended)** | **378,011** | — |
+| 10-year mean | 33,246 | 11.37× |
+| 12-month FFA | 109,911 | 3.44× |
+| Current spot | 169,673 | 2.23× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Suezmax (47% of fleet value) | 268,200 | 9.67× |
-| VLCC (37% of fleet value) | 489,070 | 12.23× |
-| Aframax (11% of fleet value) | 243,746 | 6.68× |
-| LR1 (5% of fleet value) | 243,746 | 8.83× |
+| Suezmax (47% of fleet value) | 292,335 | 10.54× |
+| VLCC (37% of fleet value) | 533,082 | 13.33× |
+| Aframax (11% of fleet value) | 265,681 | 7.28× |
+| LR1 (5% of fleet value) | 265,681 | 9.63× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -109,15 +109,15 @@ The current price requires the fleet to run at **3.16× the current forward curv
 | **+15%** | $33.76 | $36.80 | $39.84 | $42.89 | $45.93 |
 | **+30%** | $35.10 | $38.14 | $41.18 | $44.22 | $47.27 |
 
-_Current price $57.74. Cycle weights held at base across the grid._
+_Current price $60.28. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$38.50** is -33.3% vs the current price ($57.74) and -25.9% vs the analyst target ($51.93). The current price implies the fleet earning a value-weighted blended **$346,802/day** (3.16× the current forward) — 10.4× the value-weighted 10-yr mean ($33,246, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$38.50** is -36.1% vs the current price ($60.28) and -25.9% vs the analyst target ($51.93). The current price implies the fleet earning a value-weighted blended **$378,011/day** (3.44× the current forward) — 11.4× the value-weighted 10-yr mean ($33,246, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 
 - Mid-age value anchors **transaction-recalibrated** (METHODOLOGY 9.9): Aframax 5yr $78.7M (-0%) / 10yr $61.0M (-10%) [n=13], Cape 5yr $64.1M (+3%) / 10yr $46.9M (+4%) [n=29], LR2 5yr $76.1M (-4%) / 10yr $61.4M (-10%) [n=12], MR 5yr $46.0M (-0%) / 10yr $34.5M (-0%) [n=22], Pana 5yr $35.1M (+10%) / 10yr $26.1M (+9%) [n=6], Post-Panamax 5yr $33.6M (-1%) / 10yr $24.3M (-6%) [n=5], Suezmax 5yr $87.9M (-4%) / 10yr $70.6M (-12%) [n=20], Supra-Ultra 5yr $30.2M (-9%) / 10yr $23.6M (-6%) [n=27], VLCC 5yr $113.5M (-18%) / 10yr $89.4M (-19%) [n=11], VLGC 5yr $91.9M (-0%) / 10yr $80.0M (-0%) [n=7]. Newbuild + old-age anchors unchanged.
 - HYBRID crude carve-out (METHODOLOGY 6): crude sleeve = 65.3% of vessel value ($1,706M crude vs $906M product). Price/target shown are crude-ALLOCATED (whole-company x crude_share); balance sheet, G&A and corporate debt pro-rated, LR1-secured ECA debt held with the product sleeve.
-- Crude sleeve (this model): -33% vs the crude-allocated price. Product sleeve (qualitative, awaiting v2): ~35% of vessel value, held at current Compass values. Product rates have corrected MORE than crude week-over-week (MR -52%, LR2 -28% vs Aframax/Suezmax/VLCC -7 to -8%), so product is LEADING the MoU normalization — a static-Compass product NAV likely OVERSTATES fair value once a v2 product strip is incorporated. Whole-company decision deferred to v2.
+- Crude sleeve (this model): -36% vs the crude-allocated price. Product sleeve (qualitative, awaiting v2): ~35% of vessel value, held at current Compass values. Product rates have corrected MORE than crude week-over-week (MR -52%, LR2 -28% vs Aframax/Suezmax/VLCC -7 to -8%), so product is LEADING the MoU normalization — a static-Compass product NAV likely OVERSTATES fair value once a v2 product strip is incorporated. Whole-company decision deferred to v2.
 - Vessel values carry a yard-quality discount (Chinese / ex-Hanjin-Subic yards); NAV is shown with and without it.

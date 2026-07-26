@@ -14,6 +14,42 @@ tender-pinned, read through the deal lens until the announcement lands.
 
 ---
 
+## 2026-07-26T21:20:27+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $26.77
+- Single-point FV: $24.71
+- Scenario PW FV: $23.66 (EV -11.6%)
+- NAV / share: $25.48
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +14.4pp (k_broker 1.15)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-26 week-close) FLIP EYEBALL — HOLD→TRIM/SHORT deepened to −10.4pp on the rally; tender-pinned, offer EXPIRED 7/24 with the outcome PR pending (census entry above; next check Mon 7/28). Read through the deal lens; accepted individually at the ratify. The Monday announcement is the decision venue.
+
+---
+
+## 2026-07-26T21:19:46+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $26.77
+- Single-point FV: $24.71
+- Scenario PW FV: $23.66 (EV -11.6%)
+- NAV / share: $25.48
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +14.4pp (k_broker 1.15)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +1.51 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +4.8pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-18 (marks) — §9.9 prints promotion drift ACCEPTED-as-designed
 
 **Decision:** Dry-bulk anchors re-fit UP (+3.2% NAV, +2.8pp EV; HOLD stands). Tender-pinned price context unchanged; census 7/24. Cause: the 13-print marks-trail promotion (decisions/marks_trail_triage_2026-07-18.md §A, owner: 'Promote') — the prints-drift loop IS the gate for this move (CLAUDE.md 2026-06-09). Baseline re-ratify owner-gated.

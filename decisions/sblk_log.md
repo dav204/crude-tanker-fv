@@ -21,6 +21,44 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-26T21:20:27+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.14
+- Single-point FV: $29.22
+- Scenario PW FV: $28.19 (EV +0.2%)
+- NAV / share: $30.13
+- Position: **HOLD (fairly valued)**
+- Broker spread: +17.8pp (k_broker 1.16)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-26 week-close) FLIP EYEBALL — BUY→HOLD at $28.14 vs FV $28.19: the price REACHED fair value; EV ~0 by construction. Coherent with the governance card's $28 take-profit firing the same day (trim leg, mini-review staged). Not noise, not a thesis event — the position converged. Accepted individually at the ratify.
+
+---
+
+## 2026-07-26T21:19:46+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.14
+- Single-point FV: $29.22
+- Scenario PW FV: $28.19 (EV +0.2%)
+- NAV / share: $30.13
+- Position: **HOLD (fairly valued)**
+- Broker spread: +17.8pp (k_broker 1.16)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- ⚑ broker spread +7.1pp
+- Δprice: +2.05 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +7.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-24T16:05:00+00:00 — Pipeline run (auto)
 
 **Model state:**
