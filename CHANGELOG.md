@@ -5,6 +5,19 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-27 — SCHEDULED RC INGEST WEDGED 3 DAYS BY THE NEW LANE'S BOOTSTRAP (fixed; sentinel
+  FETCH-FAILED caught it).** The 7/24 `baltic_capesize_table` bootstrap walked unbounded — TWO
+  stacked bugs: main()'s cursor precedence put `None in cursors` ahead of `--since` (a cursor-less
+  source silently discarded the bound), and the RC API silently ignores an `oldest` it can't parse
+  (hand-typed second-precision ISO), so nothing bound the walk server-side either. It hit the WO2
+  1.1 sanity cap, exited 3 WITHOUT persisting the cursor, and every scheduled run after (Sat
+  news-pull, Mon daily) refused at the CURSOR-RESET guard. Fixed both layers (`_decide_oldest`
+  precedence + client-side bound enforcement in `iter_history`), seeded the cursor via a bounded
+  walk (55 msgs), caught the weekend backlog (3 FFA images, Baltic rows through 7/24), 3 regression
+  tests (`tests/test_rocketchat_api.py`). Suite 602 green. The guard chain WORKED as designed —
+  fail-loud, no cursor corruption, no silent re-crawl; the cost was 3 days of staging lag, all
+  recovered.
+
 - **2026-07-26 — WEEK-CLOSE (the 7/20 week): collapse-recorded + two promotions + sender
   reshuffle + batch ratify.** The week's arc: (1) **Doha round-3 COLLAPSE recorded** 7/22
   (MoU declared dead by both principals; no reweight — pre-registered branch;
