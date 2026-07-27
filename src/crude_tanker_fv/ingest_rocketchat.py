@@ -81,6 +81,24 @@ def _senders_of(source: dict) -> list[str]:
     return source.get("senders") or [source["sender"]]
 
 
+def _decide_oldest(since: str | None, backfill: bool,
+                   cursors: list[str | None]) -> str | None:
+    """--since BINDS even when a source has no cursor (2026-07-27 fix).
+
+    The old precedence put ``None in cursors`` first, so a cursor-less
+    source silently discarded --since and walked unbounded — hit the WO2
+    1.1 cap, exited 3 without persisting, and wedged the scheduled runs
+    behind the CURSOR-RESET guard for three days (baltic_capesize_table
+    bootstrap, 2026-07-24 -> 27). An explicit bound outranks everything;
+    --backfill is the only sanctioned unbounded walk.
+    """
+    if since:
+        return since
+    if backfill or None in cursors:
+        return None
+    return min(cursors)
+
+
 def _msg_dt(ts: str) -> datetime:
     return datetime.fromisoformat(ts.replace("Z", "+00:00"))
 
@@ -318,12 +336,7 @@ def main(argv: list[str] | None = None) -> int:
               "refusing the implicit full-history walk. Re-run with --backfill "
               "(deliberate) or --since <ISO> (bounded).", file=sys.stderr)
         return 3
-    if args.backfill or None in cursors:
-        oldest = None
-    elif args.since:
-        oldest = args.since
-    else:
-        oldest = min(cursors)
+    oldest = _decide_oldest(args.since, args.backfill, cursors)
 
     # Per-source bookkeeping
     newest_ts: dict[str, str | None] = {

@@ -81,9 +81,16 @@ def iter_history(
 ) -> Iterator[dict]:
     """Yield messages from newest to oldest, paginating until exhausted.
 
-    ``oldest`` is an ISO-8601 string; when set, the server only returns
-    messages strictly newer than it (incremental mode).
+    ``oldest`` is an ISO-8601 string; when set, only messages strictly newer
+    than it are yielded. The bound is enforced CLIENT-SIDE as well as passed
+    to the server: the RC API silently ignores an ``oldest`` it can't parse
+    (e.g. a second-precision string without ms/Z, as a hand-typed ``--since``
+    produces), which turned a bounded walk into an unbounded one — it then
+    hit the WO2 1.1 sanity cap, exited 3 without persisting the cursor, and
+    wedged every scheduled run behind the CURSOR-RESET guard (2026-07-24→27,
+    the baltic_capesize_table bootstrap; CHANGELOG 2026-07-27).
     """
+    bound = _iso_key(oldest) if oldest else None
     latest: str | None = None
     while True:
         params: dict[str, str] = {"roomId": room_id, "count": str(BATCH_SIZE)}
@@ -105,10 +112,25 @@ def iter_history(
         if not messages:
             return
         for msg in messages:
+            if bound and msg.get("ts") and _iso_key(msg["ts"]) <= bound:
+                return
             yield msg
         if len(messages) < BATCH_SIZE:
             return
         latest = messages[-1]["ts"]
+
+
+def _iso_key(ts: str) -> "datetime":
+    """Parse an RC/CLI ISO-8601 timestamp to an aware datetime for comparison.
+
+    Accepts both the API's ms+Z form (2026-07-24T12:36:09.768Z) and a
+    hand-typed second-precision form (2026-07-26T00:00:00); naive input is
+    taken as UTC.
+    """
+    dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt
 
 
 def classify_attachment(name: str, mime: str) -> str:
