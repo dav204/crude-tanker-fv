@@ -1,14 +1,40 @@
-# Tanker & Gas-Carrier Fair Value Tool
+# Shipping Equity Fair Value Tool
 
-Independent fair-value estimate per share for tanker and gas-carrier equities,
-built to validate and stress-test sell-side analyst targets across the
-**crude / LNG / product** segments. Blends two lenses — net asset value (NAV)
-and a forward dividend strip — with the blend weight set by cycle position,
-then runs five-scenario sensitivities, a broker-NAV sweep, and a
+Independent fair-value estimate per share for shipping equities — 25 names
+across **crude tanker / product tanker / LNG / dry bulk / containership /
+LPG** — built to validate and stress-test sell-side analyst targets. Blends
+two lenses — net asset value (NAV, from per-vessel transaction-anchored
+marks) and a forward dividend strip — with the blend weight set by cycle
+position, then runs scenario sensitivities, a broker-NAV sweep, and a
 transaction-anchored curve diagnostic. **Not investment advice.**
 
-See [METHODOLOGY.md](METHODOLOGY.md) for the full framework (~2,900 lines);
+See [METHODOLOGY.md](METHODOLOGY.md) for the full framework (~3,000 lines);
 this README is orientation for someone landing on the repo cold.
+
+### How this was built
+
+End-to-end through **agentic development with Claude Code** — this repo is
+itself the working example of that workflow. Concretely, and verifiable in
+the history:
+
+- Effectively every commit is agent-written under human direction: ~357 of
+  the ~368 commits carry `Co-Authored-By: Claude` trailers, and the merged
+  PRs (#1, #2) plus the `claude/*` branches are cloud agents opening PRs
+  against the repo for review.
+- **Sprint handoffs are spec-first:** [PLAN.md](PLAN.md) is the rolling
+  handoff a fresh agent session reads to pick up mid-sprint ("a new agent
+  reads CLAUDE.md, then this file, then starts"), rewritten at each weekly
+  close with the current state, dated gates, and definition of done.
+- **[CLAUDE.md](CLAUDE.md) is the standing engineering convention set** —
+  dated, mistake-derived rules with a build-enforced size cap
+  (`tests/test_docs_stay_lean.py`), so the always-loaded rulebook cannot
+  grow without evicting: when a rule can be a test, it becomes a test.
+- **The ~600-test suite is what lets agents extend the system safely:**
+  validator fair values are band-locked, doc counts are census-guarded,
+  data-provenance rules are enforced as xfail-strict queues (an xfail
+  *clearing* is the work), and an owner-ratified drift baseline turns any
+  unexplained output move into a red build. Agents work inside those
+  guardrails; the human rules on anything that moves a number.
 
 ### What "independent" means here, and what it does not
 
@@ -44,7 +70,7 @@ Use the reads as one disciplined input to a position call, sized accordingly.
   incl. **2343** Pacific Basin — the first HKEX/HKD listing and the first
   Handy-Bulk carrier, Stage-3 intake 2026-07-14), containerships (2), LPG (2,
   the WO3 Phase-4 validators)
-- **585+ tests passing** end-to-end (ticker count, sector split, AND this test
+- **600+ tests passing** end-to-end (ticker count, sector split, AND this test
   count are guarded by `tests/test_docs_stay_lean.py` — the count asserts
   against the suite's own test-function census within a tolerance band, audit
   N-7 2026-07-14)

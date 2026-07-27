@@ -53,7 +53,7 @@ where you annotate what you actually did and why.
 **Deltas since last run:** _(no material moves)_
 - Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
 
-**Decision:** (2026-07-26 week-close) FLIP EYEBALL — BUY→HOLD at $28.14 vs FV $28.19: the price REACHED fair value; EV ~0 by construction. Coherent with the governance card's $28 take-profit firing the same day (trim leg, mini-review staged). Not noise, not a thesis event — the position converged. Accepted individually at the ratify.
+**Decision:** (2026-07-26 week-close) FLIP EYEBALL — BUY→HOLD at $28.14 vs FV $28.19: the price REACHED fair value; EV ~0 by construction. Coherent with the downstream consumer's own pre-set exit discipline at the same level. Not noise, not a thesis event — the read converged on fair value. Accepted individually at the ratify.
 
 ---
 

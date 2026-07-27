@@ -43,7 +43,7 @@ baseline re-ratified, ten LEFT the figure queue) · MoU implementation check REC
 three observables; pro-forma close — the 7/12 Jun-9 restore already prices it) · BWLP/LPG/CMDB
 filings triaged (BWLP Q2 pre-announce net −$31M at-refresh, results **CONFIRMED 8/28**; LPG $1.00
 irregular dividend; CMDB AGM). **Tier map: 6 TIGHT / 14 WIDE / 5 PROVISIONAL** (SB the lone TIGHT
-BUY). Governance side: CCEC t1 FILLED 7/15 (220 sh, 1.64%, t2 print-gated); TEN card triple-gated
+BUY). Governance side: CCEC tranche-1 executed 7/15 (t2 print-gated); TEN card triple-gated
 (gate ii done); Hynix restore print-gated at the 7/22 Q2 print. **Vintages:** tanker forwards HELD
 at Jun-7 (Stage A ≤ 8/15 re-anchors); dry bulk at the 13-Jul FFA promotion (Cape backwardated);
 consensus pairs at the Pareto 3-Jul daily; xclusiv extract at 06-22 + the 07-13 MR row (full
@@ -70,9 +70,9 @@ subsequent-events note FIRST (DHT Impala/Bauhinia = the standing example: post-Q
 NOT enter Q2 snapshots); fold ASC's pre-booked ~+1.9% Handysize correction; capture
 STNG/ASC/TNK term-rate disclosures as **Stage-A cluster-basis prints**
 (PRE_REGISTRATION_TANKER_CLUSTER_REANCHOR §6 — Stage A ≤8/15 UNCONDITIONAL). (5) **Owner
-items:** SBLK trim sizing (mini-review 7/25 staged, take-profit fired — pick (a) 175 sh /
-(b) ~55 sh, Claude stages the draft) · the Palun channel ask (Smax Cal27 row) · push both
-repos. **Definition of done:** every landed print reconciled-or-queued with its log entry;
+items:** SBLK trim decision (governance-side, mini-review staged; a pre-set take-profit
+fired — sizing is the consumer repo's business) · the Palun channel ask (Smax Cal27
+row) · push both repos. **Definition of done:** every landed print reconciled-or-queued with its log entry;
 7/29 watch recorded (B′ executed or voided); gate 0 unexplained at close; Stage-A basis
 inventory grows with each term-rate disclosure.
 
