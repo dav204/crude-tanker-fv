@@ -46,3 +46,22 @@ def test_entries_carry_the_vetted_fields():
             assert any(w in e["basis"].lower() for w in
                        ("calendar", "announc", "newsweb", "newspoint", "mfn", "pr ")), \
                 f"{ticker}: confirmed without a citable announcement in basis"
+
+
+def test_meta_date_fields_are_real_dates():
+    """Every meta date must parse as a date, not a string.
+
+    The sentinel does date arithmetic on `meta.last_date_sweep`
+    (`(today - sweep_stamp).days` in `_filing_event_flags`), so a hand-written
+    "YYYY-MM-DD" string crashes the daily digest at runtime while the rest of
+    the suite stays green — the entry-level guard above only covers
+    `names.*.window_*`. Caught 2026-07-28 after a date sweep wrote the field
+    as a string; the crash would have taken out the next morning's digest.
+    """
+    meta = _doc()["meta"]
+    for field in ("last_date_sweep", "vetted"):
+        if field in meta:
+            assert isinstance(meta[field], date), (
+                f"meta.{field} is {type(meta[field]).__name__}, not a date — "
+                "the sentinel does arithmetic on it (quote-free YAML: 2026-07-28)"
+            )
