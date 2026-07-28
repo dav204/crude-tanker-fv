@@ -25,6 +25,42 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-28T15:58:58+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $23.35
+- Single-point FV: $32.08
+- Scenario PW FV: $35.91 (EV +53.8%)
+- NAV / share: $28.10
+- Position: **BUY (undervalued)**
+- Broker spread: -8.7pp (k_broker 0.98)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28) family-sidecar re-stamp regen (promotion arc, final) — no movement; annotations below stand.
+
+---
+
+## 2026-07-28T15:51:41+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $23.35
+- Single-point FV: $32.08
+- Scenario PW FV: $35.91 (EV +53.8%)
+- NAV / share: $28.10
+- Position: **BUY (undervalued)**
+- Broker spread: -8.7pp (k_broker 0.98)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28) clean-stamp regen at 71e7020 (marks-promotion arc close) — no movement; the promotion annotations below stand.
+
+---
+
 ## 2026-07-28T15:36:23+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -13,6 +13,42 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-28T15:58:58+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.01
+- Single-point FV: $16.03
+- Scenario PW FV: $13.14 (EV +1.0%)
+- NAV / share: $15.49
+- Position: **HOLD (fairly valued)**
+- Broker spread: +21.4pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28) family-sidecar re-stamp regen (promotion arc, final) — no movement; annotations below stand.
+
+---
+
+## 2026-07-28T15:51:41+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.01
+- Single-point FV: $16.03
+- Scenario PW FV: $13.14 (EV +1.0%)
+- NAV / share: $15.49
+- Position: **HOLD (fairly valued)**
+- Broker spread: +21.4pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28) clean-stamp regen at 71e7020 (marks-promotion arc close) — no movement; the promotion annotations below stand.
+
+---
+
 ## 2026-07-28T15:36:23+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -12,8 +12,6 @@
 
 > **Rate basis:** Handy-Bulk (§11.7.11, added 2026-07-14): NO market FFA at any tenor — its curve row + scenario deck are both DERIVED = supra x 0.90 (locked basis, identity guard-tested; regenerate BOTH with any supra promotion). as_of 2026-07-10 = the MB Dry Bulk Weekly 28 vintage (own cadence, not a hold awaiting a print).
 
-> **Weight-family EV vintage: LAGGING for CMBT** — the live point EV sits outside the §9.10 sidecar's family range, so an EV-moving determinant outside the scenario_inputs.yaml stamp (marks / tape) changed after the diagnostic last ran. Family fields for these names are withheld (null), never printed out-of-range — re-run the family diagnostic scripts at the current tape.
-
 This file lists each name **twice, by design** — once in the **Verdict** (the decision surface: FV vs price, position, tier) and once in the **Validation matrix** below (the per-gate evidence behind that tier). The Verdict is what you act on; the matrix is why. One row per name *within* each table.
 
 ## Verdict — the consolidated read (the decision surface)
@@ -33,7 +31,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | SB | dry_bulk | VALIDATED-TIGHT | $7.67 | $9.47 | 7.10–12.22 | +24% | BUY (undervalued) | $9.75 | $10.07 | $8.72 (apx) | +16% | n-a | ready | stable |
 | SBLK | dry_bulk | VALIDATED-TIGHT | $28.14 | $28.62 | 22.03–35.72 | +2% | HOLD (fairly valued) | $29.66 | $30.64 | $36.08 | -15% | OK | ready | **⚠ sign flips** |
 | CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $13.01 | $13.14 | 7.21–24.41 | +1% | HOLD (fairly valued) | $16.03 | $15.49 | $18.86 | -18% | OK | ready | **⚠ sign flips** |
-| CMBT | crude | GOVERNED-WIDE · structural-class | $15.74 | $14.05 | 8.86–21.30 | -11% | TRIM/SHORT (overvalued) | $15.57 | $16.19 | $21.56 | -25% | OK | ready | — |
+| CMBT | crude | GOVERNED-WIDE · structural-class | $15.74 | $14.05 | 8.86–21.30 | -11% | TRIM/SHORT (overvalued) | $15.57 | $16.19 | $21.56 | -25% | OK | ready | stable |
 | INSW | crude | GOVERNED-WIDE · pending-anchor | $92.28 | $54.12 | 38.47–77.73 | -41% | rich · cycle position (not a short) | $38.50 | $52.48 | $83.14 | -37% | OK | ready | stable |
 | NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $6.45 | $2.76 | 1.88–4.54 | -57% | rich · cycle position (not a short) | $3.14 | $2.85 | $7.59 (apx) | -63% | n-a | ready | stable |
 | TEN | crude | GOVERNED-WIDE · mixed | $39.40 | $56.56 | 41.52–82.07 | +44% | BUY (undervalued) | $59.78 | $87.57 | $115.88 (apx) | -24% | n-a | ready | stable |

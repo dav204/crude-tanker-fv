@@ -14,6 +14,42 @@ tender-pinned, read through the deal lens until the announcement lands.
 
 ---
 
+## 2026-07-28T15:58:58+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $26.77
+- Single-point FV: $25.14
+- Scenario PW FV: $24.08 (EV -10.1%)
+- NAV / share: $25.98
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.8pp (k_broker 1.13)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28) family-sidecar re-stamp regen (promotion arc, final) — no movement; annotations below stand.
+
+---
+
+## 2026-07-28T15:51:41+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $26.77
+- Single-point FV: $25.14
+- Scenario PW FV: $24.08 (EV -10.1%)
+- NAV / share: $25.98
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.8pp (k_broker 1.13)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28) clean-stamp regen at 71e7020 (marks-promotion arc close) — no movement; the promotion annotations below stand.
+
+---
+
 ## 2026-07-28T15:36:23+00:00 — Pipeline run (auto)
 
 **Model state:**

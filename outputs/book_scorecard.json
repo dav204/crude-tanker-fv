@@ -1,7 +1,7 @@
 {
   "schema_version": "2.5",
-  "generated_at": "2026-07-28T15:36:08+00:00",
-  "source_commit": "511e43e-dirty",
+  "generated_at": "2026-07-28T15:58:47+00:00",
+  "source_commit": "1a2c3e1",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 25,
@@ -26,10 +26,7 @@
       "lpg": "36098fd5f854"
     },
     "current_sha": "36098fd5f854",
-    "lagging": [],
-    "ev_lagging": [
-      "CMBT"
-    ]
+    "lagging": []
   },
   "sleeves_note": "sleeves[*].fv_contribution_per_share are per-share scenario-weighted FVs; sum(sleeves) == fv to the cent (C-3 per-sleeve identity). Corporate-level balance-sheet items (debt, working capital, preferred, shuttle contracted book) are pro-rated INTO the sleeve carve-outs (carveout.py), so nothing sits outside the per-sleeve lines.",
   "names": [
@@ -157,8 +154,8 @@
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": 17.1,
-      "ev_pct_family_max": 28.2,
+      "ev_pct_family_min": 17.8,
+      "ev_pct_family_max": 28.9,
       "mark_wide_nodes": [
         "Post-Panamax@five_year+ten_year"
       ],
@@ -185,8 +182,8 @@
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": false,
-      "ev_pct_family_min": -4.0,
-      "ev_pct_family_max": 4.0,
+      "ev_pct_family_min": -2.5,
+      "ev_pct_family_max": 5.6,
       "mark_wide_nodes": null,
       "fv_low": 22.03,
       "fv_high": 35.72
@@ -252,9 +249,9 @@
           "fv_contribution_per_share": 0.54
         }
       ],
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -17.7,
+      "ev_pct_family_max": -10.7,
       "mark_wide_nodes": null,
       "fv_low": 8.86,
       "fv_high": 21.3
@@ -436,8 +433,8 @@
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": -11.3,
-      "ev_pct_family_max": -6.9,
+      "ev_pct_family_min": -10.0,
+      "ev_pct_family_max": -5.6,
       "mark_wide_nodes": null,
       "fv_low": 0.32,
       "fv_high": 0.45
@@ -462,8 +459,8 @@
       "governance_discount_pct": 30.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": 5.1,
-      "ev_pct_family_max": 11.9,
+      "ev_pct_family_min": 6.7,
+      "ev_pct_family_max": 13.6,
       "mark_wide_nodes": null,
       "fv_low": 17.06,
       "fv_high": 24.79
@@ -488,8 +485,8 @@
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": -15.6,
-      "ev_pct_family_max": -8.1,
+      "ev_pct_family_min": -14.1,
+      "ev_pct_family_max": -6.5,
       "mark_wide_nodes": null,
       "fv_low": 18.64,
       "fv_high": 30.22
