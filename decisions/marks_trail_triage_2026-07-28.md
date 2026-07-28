@@ -69,9 +69,76 @@ Advanced+Intermodal exact, xclusiv "very high 16") · **LUCKY FINDER** 37,268/20
 Ages 13/15/15/17 — the trigger's **≤6yr age-node condition remains unmet** (no young Handy
 print yet); count advances, arming still short.
 
-## F. Harvester note
+## F. Harvester note — CORRECTED at the owner review (see §G)
 
-Fearnleys/Fearnpulse web exports have shipped a BLANK S&P section two consecutive issues
-(W28, W30) with dry-bulk rate pages also empty — treat the feed's S&P section as unreliable;
-candidate for a per-feed expectation note in the harvester config rather than repeated
-manual verification.
+~~Blank two consecutive issues (W28, W30)~~ — the "consecutive" claim was WRONG: the
+manifest carries a "Fearnleys Week 29 2026" row with an EMPTY staged_path — W29 was
+ANNOUNCED but never staged (a harvester fetch failure of its own, distinct from the
+publisher shipping blank sections). Verified 2026-07-28. Corrected state: S&P blank in
+W28 and W30 as-staged; W29 unknown. Action before any feed downgrade: re-fetch W29 and
+check its S&P; separately fix/flag the empty-staged-path failure mode (a manifest row
+with no file should itself flag). Compass Maritime registered as a CANDIDATE FEED
+(publishes per-vessel S&P weekly; would structurally cover this gap) — owner decision,
+needs source-access check at onboarding.
+
+## G. OWNER REVIEW 2026-07-28 — amendments (all verified before adoption)
+
+**G1. §A direction RESTATED — the young end is parity-capped, not lifting.** On $/dwt the
+Supra-Ultra batch is linear ~$28/dwt/yr from age 6→16; back-extrapolating that line to
+age 3 implies ~$683/dwt ≈ $45.5M — SEACON TOKYO's $41.6M print sits BELOW trend, not
+above. Mechanism: newbuild parity — 2343's April-2026 conversion (4 × 64k conventional
+Ultramax, $156.8M aggregate = $39.2M each, 2028-29 delivery) puts 3-year tonnage ABOVE
+newbuild contract and 6-year just below it: a PROMPT-DELIVERY PREMIUM, not a shifted age
+curve (Compass corroborates: firm pricing "especially for prompt deliveries").
+**FIT INSTRUCTION at promotion: fit the level shift on the 7–16 band; the young end is
+capped by the separately-validated newbuild leg; the ≤6y prints enter flagged (G3), not
+as level evidence.** A uniform shift would overshoot ages 3-6 badly and bake a transient
+premium into a ~15-month-half-life recency-weighted fit.
+**Kamsarmax relative-value note:** the Nord pair at $456/dwt @4y vs Ultramax $599/dwt
+@6y = Kamsarmax at a DISCOUNT to newbuild while Ultramax trades at a premium — a real
+cross-class signal, recorded for §6/market-shape.
+
+**G2. SEACON TOKYO corroborated out-of-feed** (owner-supplied Compass Maritime: 66,628
+dwt / built 4-2023 Tsuneishi Zhoushan / eco Tier III / 4×36t, offers due 6-Jul, "in
+excess of $41M" — exact spec match). Promote with confidence — WITH the G3 flag.
+**CMB JORDAENS identity RESOLVED** (registry, IMO 9860635): 63,447 / 2019 / Tadotsu —
+the Xclusiv specs are RIGHT. Compass's 63,547 / 4-2020 / IWAGI unit to Meghna at $36.5M
+prompt is a THIRD, DISTINCT Meghna vessel the staged feeds missed → recorded as a
+CANDIDATE print (out-of-feed citation; promotable at owner discretion or on Compass
+onboarding). The cmbt_log disposal note is SAFE to write at promotion. **Meghna
+single-buyer cluster note:** ≥4 young Ultras to one buyer in one window (Jordaens 35.2 ·
+Oldendorff pair 37.5/low-37 · Iwagi 36.5) — the premium channel personified; carried
+into the G3 annotations.
+
+**G3. Premium-channel flag ADOPTED (the asymmetry's 4th recurrence — now systematic).**
+Existing quality_flag vocabulary (financing / newbuild_resale / standard / tc_attached)
+adjusts impaired prints UP but has no downward counterpart; recurrences: Seamusic
+(Jun, Aframax), the ALASKA/ARCHANGEL aged-Suezmax bid (out-of-window here), and now
+four of five young dry-bulk prints. NEW value **`prompt_premium`** enters the vocabulary
+at this promotion: metadata + excluded from level-fit evidence on the young band (the
+G1 fit instruction already enforces the treatment for THIS batch; solver-side formal
+treatment = a §9.9 refit item, mirroring the tc_attached clamp precedent). Applied to:
+SEACON TOKYO, BRITA + BENJAMIN OLDENDORFF, CMB JORDAENS (+ the Compass candidate).
+
+**G4. Observation honesty:** §A's 14 rows = **12 independent transactions** (Nord pair
+and Oldendorff pair are one deal each); the young segment rests on FOUR transactions,
+three carrying caveats. Thin for re-rating the segment both Stage-3 funnel names live in
+— hence G6.
+
+**G5. Rulings adopted:** **INDUS PROSPERITY — HOLD** (owner-ruled: the distress-uplift
+parameter is tanker-calibrated; a borrowed adjustment must not set 1/6 of the thin PPMX
+evidence base; the fit stays thin either way but stays clean). **AEGIR SELMER — STANDING
+RULE: newest print wins on cross-week revisions** (the WLS is already recency-weighted;
+adopting newest is consistent, adopting-when-convenient is selection bias) → promote at
+**$16.2M**, revision annotated. AASHNA dwt re-verified at source by direct page read:
+Advanced + Xclusiv both print 179,523; Banchero's 179,253 is its own transposition —
+registry-consistent 179,523 stands. The five-rows-at-$37.5M independence spot-check
+PASSES by the same direct read (three genuinely separate deals).
+
+**G6. PRE-COMMITTED before the promotion runs (owner: "before you run it, not after"):**
+if the prints-drift loop flips any dry-bulk position/verdict — in particular anything
+read by the Stage-3 funnel pair (2343's gates; the PANL evaluation with P-1 still open)
+— the flip is **FROZEN pending a second corroborating print batch**. With MB absent
+(Gmail gap) and Fearnleys blank, that second batch STRUCTURALLY cannot arrive this
+cycle; a flip therefore waits for the MB reconnect or next week's staging, is recorded
+at the drift gate as frozen-pending-corroboration, and hands off NOTHING in the interim.
