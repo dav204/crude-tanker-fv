@@ -187,3 +187,106 @@ attributable post-promotion pass (the promotion had already run at the owner's e
   (VLCC) = the premium is STRUCTURAL, reinforcing the downward flag as policy. Ladder
   ingestion + the k_broker-doctrine cross-check (is "22% below broker" market-wide or an
   xclusiv artifact?) = Compass onboarding deliverable #1.
+
+## I. MB W29+W30 SWEEP (2026-07-28 EVE, after the Gmail harvest) — the ladder cross-check runs
+
+Four feeds × two weeks read (the W29s had been on disk unread — see the corrected header).
+
+### I1. THE LADDER CROSS-CHECK — two houses DISAGREE on the rung the fit-lag call rested on
+
+MB dry-bulk ladder is **three rungs (NB / RESALE / 5yr — no 10yr, no scrap)**, identical
+W29 and W30, basis "5 year: Japanese built with ECO main engine; NB: Chinese Tier III 2029
+delivery; Resale: Chinese 2026 delivery":
+
+| Class | MB NB | MB Resale | MB 5yr | Compass (owner, W30) |
+|---|---|---|---|---|
+| Handysize | 30.5 | 35.5 | 30.0 | — |
+| **Ultramax** | **35.0** | **37.5** | **38.5** | **NB ~35 · resale ~44 · 5yr ~38** |
+| Kamsarmax | 37.0 | 40.0 | 38.5 | — |
+| Cape/Ncx | 76.0* | 90.0* | 71.0 | — (*208k Ncx basis) |
+
+**NB agrees (~35) and 5yr agrees (~38), but RESALE differs by ~17% (MB 37.5 vs Compass ~44)
+— and resale is precisely the rung the §G1/§H fit-lag conclusion leaned on.** On Compass's
+ladder SEACON TOKYO ($41.6M) "sits between 5yr and resale" = on-ladder. On MB's ladder
+resale (37.5) is BELOW 5yr (38.5) and SEACON sits ABOVE EVERY PUBLISHED RUNG = hot. Also
+"resale ~26% over NB in Ultramax" is Compass-specific: MB prints +7%.
+**Consequence: the fit-lag reading is NOT established — it is house-dependent. The
+cross-sectional check the Compass ruling wanted has its first result, and the result is
+that broker ladders are not interchangeable ground truth (17% apart on one rung).**
+**The executed G1 instruction is ROBUST to the disagreement** — under Compass the young
+prints are on-ladder, under MB they are above every rung; under BOTH, they must not set
+the curve level. No re-work owed; the conservative call was right either way.
+
+### I2. k_broker doctrine — a second house, same DIRECTION, non-constant MAGNITUDE
+
+Tool fit/curve 5yr vs MB 5yr: **Cape −10.0% · Pana −7.9% · Supra-Ultra −19.9% ·
+Handy-Bulk −1.7%** (curve, no fit). So the "~22% below broker" gap is corroborated in
+SIGN by an independent house (not an xclusiv artifact) but is **NOT a single market-wide
+constant — it ranges −2% to −20% by class.** CONFOUND to carry: MB's 5yr basis is
+"Japanese-built ECO" (premium spec) vs our class-average age-5, so part of every gap is
+spec, not mark divergence. Elevating a single number to doctrine looks less safe after
+this; the honest statement is a class-varying, spec-confounded band.
+
+### I3. New / upgraded prints (NOT promoted — one FV-moving event at a time)
+
+- **OCEAN RHEA** 92,648 / 2011 (15) **$15.25M** (MB W29, exact; seller Wei Xu, buyer
+  Chinese, no condition note) — **a CLEAN Post-Panamax print, the class that is 5-prints
+  thin and whose only other candidate (INDUS PROSPERITY) is held for impairment. Highest-
+  value single find of this sweep**; it would let PPMX grow without a distressed input.
+- **AMIS WISDOM VI** 61,456 / 2011 **$22.30M** (MB exact) — was HELD region-tier
+  ("rgn $22m", single source) → now promote-grade.
+- **YARRA** 78,184 / 2015 **$28.5M** (MB exact) — was HELD region-tier ("mid $28m") →
+  now promote-grade (Panamax, age 11).
+- **JNS PHOENIX** 40,504 / 2025 (age 1) $34.00M — young Handy, but BELOW the [3,17]
+  window; documentation-only, does not arm `handy_bulk_txn_refit` (still no ≤6y in-window
+  Handy node).
+- Corroborations: LUCKY FINDER **MB 13.00 = Compass 13.0** vs Intermodal 13.3 → 2-1 for
+  13.0 · BLUE UNION dwt **MB 28,386 = ours** (Compass's 28,286 was the transposition —
+  our figure vindicated) · IVS 23.30 and HPC 19.50 and IKAN 16.90 exact-match ours.
+- Minor variances on promoted rows: NICHOLAS G.S MB 34.40 vs 34.5 · BLUE AKIHABARA MB
+  25.10 vs 25.5. Sub-1.6%, no action, recorded.
+- **OLDENDORFF PAIR: absent from MB entirely** — no fourth vote; the 2-1 correction to
+  $37.0M stands as ruled.
+
+### I4. Handy-Bulk 12M TC — wired value CONFIRMED, with a staleness catch
+
+MB 38k Handysize 1-yr TC = **14,500 in BOTH W29 and W30** = exactly our wired value; no
+change owed. **BUT** the footnote reads "Illustrative rates estimated basis Jul 3rd" in
+BOTH the 17-Jul and 24-Jul issues — the basis date is stale relative to issue date even
+though W30 carries a live Kamsarmax −250 move. Our row is stamped "MB DBW28 (4-10 Jul)";
+its true basis may be Jul-3. Flagged for the Handy row's next refresh.
+
+### I5. TANKER — zero S&P prints, but the Stage-A basis inventory OPENS
+
+- **MB Tanker prints `None.` in Recent Sales for BOTH weeks** (explicit nil, not a
+  render failure) — an arrived-but-empty issue, i.e. exactly the case the ruled Compass
+  **content-level sentinel** (min-prints-per-issue) is designed to catch. Evidence that
+  the design note is right, now from a second feed.
+- **STAGE-A BASIS (prereg §6 cluster basis / §7 DHT fallback) — first entries:**
+  MB period assessments, both weeks, all six classes, 1yr AND 3yr:
+  VLCC 1yr 115,000→**117,500**, 3yr 70,000→**72,500** (+9,500 then +2,500 — the 3yr rose
+  ~12k/day across two weeks) · Suezmax 68,000→**72,500** / 47,500 · Aframax + LR2
+  51,500→**52,500** / 39,000 · LR1 37,000 / 30,000 · MR 28,000→**28,500** / 23,000→23,500.
+  Asset ladder (2 rungs only, NB Korea / 5yr): VLCC 130/147 · Suezmax 90/100 · Aframax
+  77/80 · LR2 79/82 · **LR1 64/58 (5yr BELOW NB — verified, not an artifact)** · MR 52/51.
+- **The DHT Jaguar print is INDEPENDENTLY CORROBORATED**: MB W29's fixture table carries
+  *Dht Jaguar 299,629/2015, 36 months, 75,000/day, ST Shipping, Sep-2026 delivery* — the
+  same term print that fired `tanker_forward_print_lands` off the 7/13 6-K. It sits
+  ~5,000/day ABOVE MB's own W29 3-yr VLCC assessment (70,000). The Stage-A fallback basis
+  now has two sources.
+- Other fixtures: Blue Moon (Afra 2011) 24mo front-loaded 43k/38k · Midnight Glory (MR
+  2020, scrubber) the SAME hull at 36mo 23,800 (SK Energy) and 12mo 28,500 (Cargill relet)
+  — a clean one-hull 12m-vs-36m spread of −4,700 vs MB's assessed −5,000 spread.
+- Held VLCC 12M TC is 111,500 (Jun-7 war vintage) vs MB's current 117,500 — the FRONT is
+  ~5% below MB, i.e. the held front is not the problem; the back half is (per the ruling).
+
+### I6. LNG — context for the CCEC print (t2 gate venue, 7/29 pre-open)
+
+Spot: X-DF/ME-GI **95,000 (−5,000)** · DFDE/TFDE 55,000 (−4,000) · Steam 20,000 (flat).
+Term ladder unchanged, U-shaped: X-DF 1yr 78,500 · 3yr 77,000 · 7yr 81,000 · 10yr 83,000.
+**Fixtures print WELL BELOW the term ladder** — INEOS→BP 174k 18 months **$63,000**
+(May-2027 US Gulf); Qatari 1-years "mid $60,000s"; Quest Kirishima "$70,000s". So
+assessed term ~78.5k vs transacted 63-70k = **assessments running ~15-20% above actual
+fixtures** — read CCEC's charter-coverage disclosures tomorrow against the FIXTURE tier,
+not the assessment tier. NB prices: Korea 248 / China 225; 2nd-hand 174k-5yr 220.0.
+No LNG S&P prints (explicit nil, 3 weeks running).
