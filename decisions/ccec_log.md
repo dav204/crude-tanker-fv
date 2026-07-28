@@ -1,5 +1,23 @@
 # CCEC — Decision Log
 
+## 2026-07-28T16:42:52+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $23.35
+- Single-point FV: $32.08
+- Scenario PW FV: $35.91 (EV +53.8%)
+- NAV / share: $28.10
+- Position: **BUY (undervalued)**
+- Broker spread: -8.7pp (k_broker 0.98)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28, later) Compass-W30 correction pass (owner fetch + review — triage §H): Oldendorff pair 37.5→37.0 forward-delivery (flag corrected, in_fit false unchanged), AASHNA trade-press cross-checked (AANYA = the unsold sister), the 'third Meghna vessel' withdrawn (= WF Artemis, promoted 7/18). ZERO number movement (fit byte-identical 30.86/24.42, n=33; corrections touched excluded rows + notes only). NAV state unchanged from the promotion entry below.
+
+---
+
 ## 2026-07-22 — §15.7 tripwire-5-ADJACENT context (cross-filed from the container packet; no tripwire fired)
 
 **Decision:** RECORDED, no action — **Capital Maritime (the CCEC/CAPT sponsor) sold its four

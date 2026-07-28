@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-07-28T15:58:58+00:00
-- **Previous run:** 2026-07-28T15:51:41+00:00
+- **This run:** 2026-07-28T16:42:52+00:00
+- **Previous run:** 2026-07-28T15:58:58+00:00
 
 ## Headline changes (material moves)
 
@@ -9,7 +9,8 @@
 
 ## Input files changed since last run
 
-- _(no input file changes detected — hashes match)_
+- `inputs/market_data/transactions/cape.yaml` (modified)
+- `inputs/market_data/transactions/supra_ultra.yaml` (modified)
 
 ## Full per-ticker deltas
 

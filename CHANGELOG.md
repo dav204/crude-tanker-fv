@@ -5,6 +5,18 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-28 — DECISION-LOG AUTO-PREPEND ANCHOR FIXED (the 2343 mid-file quirk flagged at
+  71e7020).** `delta.prepend_decision_log_entries` anchored on the first `---\n`, which is the
+  preamble separator only in AUTO-founded logs; a manually-founded log (2343 at its 7/14
+  onboarding) has its top entry above any `---`, so every auto entry landed mid-file, breaking
+  the newest-first contract `drift_gate.decision_log_annotated_since` reads by (it consults only
+  the first dated header — 2343_log had to be hand-reordered 7/28). Now the prepend inserts
+  immediately before the first dated `## YYYY-MM-DD` header (preamble stays above; entry-less
+  files get the entry appended). The header regex moved to `delta.DECISION_LOG_HEADER_RE` and
+  drift_gate imports it — writer and reader share one definition per the incidental-identity
+  rule. Guard: `test_decision_log_prepend_lands_above_manual_top_entry`; auto-founded logs
+  verified byte-identical old-vs-new. Suite 603 green.
+
 - **2026-07-27 — SCHEDULED RC INGEST WEDGED 3 DAYS BY THE NEW LANE'S BOOTSTRAP (fixed; sentinel
   FETCH-FAILED caught it).** The 7/24 `baltic_capesize_table` bootstrap walked unbounded — TWO
   stacked bugs: main()'s cursor precedence put `None in cursors` ahead of `--since` (a cursor-less

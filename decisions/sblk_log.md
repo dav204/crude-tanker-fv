@@ -1,5 +1,23 @@
 # SBLK — Decision Log
 
+## 2026-07-28T16:42:52+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.14
+- Single-point FV: $29.66
+- Scenario PW FV: $28.62 (EV +1.7%)
+- NAV / share: $30.64
+- Position: **HOLD (fairly valued)**
+- Broker spread: +16.3pp (k_broker 1.14)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28, later) Compass-W30 correction pass (owner fetch + review — triage §H): Oldendorff pair 37.5→37.0 forward-delivery (flag corrected, in_fit false unchanged), AASHNA trade-press cross-checked (AANYA = the unsold sister), the 'third Meghna vessel' withdrawn (= WF Artemis, promoted 7/18). ZERO number movement (fit byte-identical 30.86/24.42, n=33; corrections touched excluded rows + notes only). NAV state unchanged from the promotion entry below.
+
+---
+
 ## 2026-07-18 (marks) — §9.9 prints promotion drift ACCEPTED-as-designed
 
 **Decision:** Dry-bulk anchors re-fit UP (+2.7% NAV, +2.6pp EV; BUY stands — the band-mech flip of 7/18-morning now carries marks corroboration). Cause: the 13-print marks-trail promotion (decisions/marks_trail_triage_2026-07-18.md §A, owner: 'Promote') — the prints-drift loop IS the gate for this move (CLAUDE.md 2026-06-09). Baseline re-ratify owner-gated.

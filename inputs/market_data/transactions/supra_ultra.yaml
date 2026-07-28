@@ -240,6 +240,9 @@ prints:
     source: xclusiv 7/06 + advanced W28 + MB Dry W28 (exact)
     quality_flag: standard
     notes: WF Artemis (2020 Iwagi Ultramax, eco).
+      [2026-07-28 - Splash247 confirms PROMPT-DELIVERY basis + Compass W30 re-prints
+      $36.5M. G3-RETROACTIVITY QUESTION flagged to owner - under the 7/28 prompt_premium
+      rule this print would be in_fit:false; it entered 7/18 as standard/in-fit.]
   - date: 2026-07-06
     vessel_age_at_sale: 15
     dwt: 61472
@@ -258,7 +261,7 @@ prints:
     vessel_age_at_sale: 15
     dwt: 55874
     sale_price_usd_m: 16.2
-    source: advanced W30 (revision; was 15.9 per xclusiv 7/06 + advanced W27)
+    source: advanced W30 + Compass W30 (both independently 16.2; was 15.9 per xclusiv 7/06 + advanced W27)
     quality_flag: standard
     notes: Aegir Selmer (2011 IHI Supramax); buyer Chinese/ADNOC per house. REVISED
       15.9->16.2 per the NEWEST-WINS standing rule (owner 2026-07-28, triage §G5 -

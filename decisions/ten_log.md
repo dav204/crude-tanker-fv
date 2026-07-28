@@ -1,5 +1,23 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-07-28T16:42:52+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.40
+- Single-point FV: $59.78
+- Scenario PW FV: $56.56 (EV +43.6%)
+- NAV / share: $87.57
+- Position: **BUY (undervalued)**
+- Broker spread: +41.6pp (k_broker 1.23)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28, later) Compass-W30 correction pass (owner fetch + review — triage §H): Oldendorff pair 37.5→37.0 forward-delivery (flag corrected, in_fit false unchanged), AASHNA trade-press cross-checked (AANYA = the unsold sister), the 'third Meghna vessel' withdrawn (= WF Artemis, promoted 7/18). ZERO number movement (fit byte-identical 30.86/24.42, n=33; corrections touched excluded rows + notes only). NAV state unchanged from the promotion entry below.
+
+---
+
 ## 2026-07-20 — NEW LNG NEWBUILD ORDER reported (MB LNG Weekly 29): watch item for the Sep H1
 
 **Decision:** informational — no snapshot change (post-Q1 subsequent event, the

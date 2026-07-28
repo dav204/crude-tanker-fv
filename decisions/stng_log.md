@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-28T16:42:52+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $79.49
+- Single-point FV: $75.86
+- Scenario PW FV: $76.87 (EV -3.3%)
+- NAV / share: $77.13
+- Position: **HOLD (fairly valued)**
+- Broker spread: +42.0pp (k_broker 1.54)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28, later) Compass-W30 correction pass (owner fetch + review — triage §H): Oldendorff pair 37.5→37.0 forward-delivery (flag corrected, in_fit false unchanged), AASHNA trade-press cross-checked (AANYA = the unsold sister), the 'third Meghna vessel' withdrawn (= WF Artemis, promoted 7/18). ZERO number movement (fit byte-identical 30.86/24.42, n=33; corrections touched excluded rows + notes only). NAV state unchanged from the promotion entry below.
+
+---
+
 ## 2026-07-28T15:58:58+00:00 — Pipeline run (auto)
 
 **Model state:**

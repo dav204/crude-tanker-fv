@@ -169,7 +169,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-07-06 • age 6 • $36.5M • xclusiv 7/06 + advanced W28 + MB Dry W28 (exact)
   - 2026-07-06 • age 15 • $23.5M • xclusiv 7/06 + advanced W28 (exact)
   - 2026-07-10 • age 14 • $16.5M • xclusiv 7/13 + advanced W28 + banchero W28 + MB Dry W28 (exact, 4 houses)
-  - 2026-07-06 • age 15 • $16.2M • advanced W30 (revision; was 15.9 per xclusiv 7/06 + advanced W27)
+  - 2026-07-06 • age 15 • $16.2M • advanced W30 + Compass W30 (both independently 16.2; was 15.9 per xclusiv 7/06 + advanced W27)
   - 2026-07-06 • age 17 • $15.3M • xclusiv 7/06 + advanced W28 + MB Dry W28 (exact)
   - 2026-07-20 • age 6 • $37.5M, prompt_premium (+0%) • xclusiv 7/20 (table "37.5 EACH"); advanced W30 "low $37 each" (tension noted)
   - 2026-07-20 • age 6 • $37.5M, prompt_premium (+0%) • xclusiv 7/20; advanced W30

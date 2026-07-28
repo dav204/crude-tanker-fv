@@ -1,5 +1,23 @@
 # SB — Decision Log
 
+## 2026-07-28T16:42:52+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.67
+- Single-point FV: $9.75
+- Scenario PW FV: $9.47 (EV +23.5%)
+- NAV / share: $10.07
+- Position: **BUY (undervalued)**
+- Broker spread: -15.1pp (k_broker 0.92)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28, later) Compass-W30 correction pass (owner fetch + review — triage §H): Oldendorff pair 37.5→37.0 forward-delivery (flag corrected, in_fit false unchanged), AASHNA trade-press cross-checked (AANYA = the unsold sister), the 'third Meghna vessel' withdrawn (= WF Artemis, promoted 7/18). ZERO number movement (fit byte-identical 30.86/24.42, n=33; corrections touched excluded rows + notes only). NAV state unchanged from the promotion entry below.
+
+---
+
 ## 2026-07-28 — FILING-LANDED triage: 6-K 0000930413-26-002185 = 2026 AGM proxy materials (no ingest)
 
 **Decision:** TRIAGED, no input change — the 7/27 6-K stages the 2026 Annual Meeting proxy

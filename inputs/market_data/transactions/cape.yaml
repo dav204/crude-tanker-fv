@@ -276,9 +276,12 @@ prints:
     sale_price_usd_m: 37.5
     source: advanced W30 + banchero W29 (exact) + xclusiv 7/20 ("region 37"); 3-house
     quality_flag: standard
-    notes: Aashna (2012 HHIC Philippines); buyer Chinese, seller Adani (advanced prose).
-      Banchero prints dwt 179,253 (its own transposition) — 179,523 per advanced+xclusiv,
-      registry-consistent. marks_trail_triage_2026-07-28 #1.
+    notes: Aashna (2012 HHIC Philippines, IMO 9592458); buyer Chinese, seller Adani.
+      TRADE-PRESS CROSS-CHECKED (Splash247, added 2026-07-28) - the COMPLETED sale is
+      AASHNA at ~$37.5M; sister AANYA (IMO 9592446, 179,628 dwt) was initially circulated
+      en-bloc (~$75M) and REMAINS ON MARKET — which is why Compass printed AANYA (identity
+      conflict resolved in the staged feeds' favor). Banchero dwt 179,253 = its own
+      transposition. Corroboration tier - 3 houses + trade press. #1.
   - date: 2026-07-20
     vessel_age_at_sale: 16
     dwt: 179221

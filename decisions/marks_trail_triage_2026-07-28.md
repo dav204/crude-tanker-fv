@@ -142,3 +142,44 @@ read by the Stage-3 funnel pair (2343's gates; the PANL evaluation with P-1 stil
 (Gmail gap) and Fearnleys blank, that second batch STRUCTURALLY cannot arrive this
 cycle; a flip therefore waits for the MB reconnect or next week's staging, is recorded
 at the drift gate as frozen-pending-corroboration, and hands off NOTHING in the interim.
+
+## H. COMPASS W30 CORRECTIONS (owner fetch + review, applied 2026-07-28 post-promotion)
+
+The owner fetched Compass W30 directly (public PDF); corrections applied as an
+attributable post-promotion pass (the promotion had already run at the owner's earlier
+"promote"):
+
+- **Oldendorff pair: $37.5M → $37.0M each** — Compass (prose+table) + Advanced "low $37"
+  outvote xclusiv's "37.5 EACH" 2-1. My §A tiebreak had gone to the single higher source —
+  **the upward-resolution bias the owner flagged, caught in the wild.** ALSO Q4-2026
+  FORWARD delivery per Compass (not prompt): flag corrected prompt_premium→standard,
+  in_fit stays false pending the fit-lag ruling. Zero fit impact (rows were excluded).
+- **AASHNA identity RESOLVED via trade press** (Splash247): the completed sale is AASHNA
+  (IMO 9592458, 179,523) at ~$37.5M; sister AANYA (IMO 9592446, 179,628) was circulated
+  en-bloc initially and REMAINS ON MARKET — Compass printed the unsold sister. Row stands,
+  corroboration upgraded to 3-houses + trade press.
+- **The "third Meghna vessel" WITHDRAWN**: Compass's 63,547/2020 Iwagi $36.5M print is
+  **WF ARTEMIS — promoted 7/18**, not a missed vessel (Splash: prompt-delivery, Meghna's
+  5th ultramax). The Meghna cluster stands at 4 known purchases; the decision-cell claim
+  is corrected. **G3-retroactivity question flagged:** WF Artemis is prompt-delivery and
+  sits in the fit as standard (pre-flag vintage) — owner ruling wanted on retroactive
+  flagging (it would move the fit).
+- **AEGIR 16.2 independently corroborated** by Compass (§C resolved twice over).
+- **BLUE UNION dwt**: Compass 28,286 vs staged 28,386 — third dwt transposition this
+  batch → **ingestion-key lesson adopted: name + build year + price, not dwt** (Compass
+  feed design + general marks-trail practice). LUCKY FINDER: Compass $13.0M vs Intermodal
+  $13.3M (tally note, discrepancy recorded).
+- **INDUS PROSPERITY hold RE-BASED**: Compass notes SS/DD due but NOT poor condition —
+  impairment not unanimous; the hold now rests on PPMX fit-thinness alone (the borrowed
+  tanker-calibrated uplift), which was always the stronger leg.
+- **§D RECLASSED**: ALASKA/ARCHANGEL are coated, coiled, Ice-1A (Compass: LR2-spec) —
+  specification-premium units, NOT plain aged crude tonnage; the "war-market aged-tonnage
+  bid" read is WITHDRAWN as unsupported by these prints alone.
+- **The value-matrix reframe (the real prize):** Compass publishes a per-class
+  NB/resale/5yr/10yr ladder — vs it, SEACON (3y, $41.6M) sits between 5yr and resale and
+  the Oldendorffs just under 5yr: **ON the ladder, not hot. The young-end anomaly is the
+  FIT LAGGING, not prints running above market** — the same lag disease the crude side
+  carries a tripwire for. And resale ~26% over NB (Ultramax) / ~21% (Kamsarmax) / wider
+  (VLCC) = the premium is STRUCTURAL, reinforcing the downward flag as policy. Ladder
+  ingestion + the k_broker-doctrine cross-check (is "22% below broker" market-wide or an
+  xclusiv artifact?) = Compass onboarding deliverable #1.

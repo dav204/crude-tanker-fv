@@ -1,5 +1,23 @@
 # GNK — Decision Log
 
+## 2026-07-28T16:42:52+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $26.77
+- Single-point FV: $25.14
+- Scenario PW FV: $24.08 (EV -10.1%)
+- NAV / share: $25.98
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.8pp (k_broker 1.13)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28, later) Compass-W30 correction pass (owner fetch + review — triage §H): Oldendorff pair 37.5→37.0 forward-delivery (flag corrected, in_fit false unchanged), AASHNA trade-press cross-checked (AANYA = the unsold sister), the 'third Meghna vessel' withdrawn (= WF Artemis, promoted 7/18). ZERO number movement (fit byte-identical 30.86/24.42, n=33; corrections touched excluded rows + notes only). NAV state unchanged from the promotion entry below.
+
+---
+
 ## 2026-07-26 — Tender census (scheduled 7/24 check): offer EXPIRED 7/24 17:00 NY, outcome PR NOT YET PUBLISHED
 
 **Decision:** census CHECKED at the Week-close (web sweep 2026-07-26): the extended tender

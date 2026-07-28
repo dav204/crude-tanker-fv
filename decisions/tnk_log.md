@@ -1,5 +1,23 @@
 # TNK — Decision Log
 
+## 2026-07-28T16:42:52+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $75.81
+- Single-point FV: $79.61
+- Scenario PW FV: $73.35 (EV -3.2%)
+- NAV / share: $77.73
+- Position: **HOLD (fairly valued)**
+- Broker spread: +26.9pp (k_broker 1.57)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28, later) Compass-W30 correction pass (owner fetch + review — triage §H): Oldendorff pair 37.5→37.0 forward-delivery (flag corrected, in_fit false unchanged), AASHNA trade-press cross-checked (AANYA = the unsold sister), the 'third Meghna vessel' withdrawn (= WF Artemis, promoted 7/18). ZERO number movement (fit byte-identical 30.86/24.42, n=33; corrections touched excluded rows + notes only). NAV state unchanged from the promotion entry below.
+
+---
+
 ## 2026-07-18 — price-vintage drift (7/17 close row): EV-only, accepted at the Week-close gate
 
 **Decision:** price-vintage drift ACCEPTED-as-mechanical (2026-07-18 Week-close gate): the 2026-07-17 close row landed via the daily price-refresh — EV%-only move, **ΔNAV +0.0%** (no model input changed; the FV stands at the 7/15 regen basis). k_broker second-difference −0.070 is the same price event through the pinned pair. Baseline re-ratify NOT executed — the batch absorb is the owner's deliberate step (2026-06-30 standing-thread discipline); recross of any band on a later vintage = a NEW eyeball.

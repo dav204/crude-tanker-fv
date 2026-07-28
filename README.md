@@ -49,7 +49,10 @@ product) are drawn from a single vendor's research, and for six names that vendo
 supplies both the comparison NAV and the calibrating prints, so agreement between them
 is weaker evidence than it appears. Crude pure-plays are the best-corroborated tier
 (about half their prints carry issuer-filing or trade-press cross-checks); dry bulk and
-product are the most single-source. Second, a disagreement with a broker cannot, by
+product are the most single-source. Adding further broker houses softens but does not
+cure this: brokerages recycle overlapping market intelligence, so a second house
+reporting the same deal is corroboration of the report, not an independent observation
+of the market — multi-house counts overstate statistical independence. Second, a disagreement with a broker cannot, by
 construction, prove a mark wrong; only a disclosed transaction at odds with a mark, or a
 gross sanity-gate breach, can. The per-name EV% and BUY/TRIM/HOLD label are a structured,
 auditable valuation opinion relative to price and to one broker's NAV, not a backtested
