@@ -20,6 +20,9 @@
 #                         typically clears 5-10% below clean market because the
 #                         lessee gets capex relief, the lessor a yield premium)
 #     distressed          forced sale (yard default, insolvency) (+10% uplift)
+#     prompt_premium      prompt-delivery / single-buyer-channel premium (no
+#                         adjustment — pair with in_fit: false so the premium
+#                         documents but cannot set the curve level; 2026-07-28)
 #     newbuild_resale     sister-vessel newbuild slot resale (treat as age 0,
 #                         no uplift — already a clean-market print)
 #   notes               — anything relevant (yard, scrubber/eco, charter attached)

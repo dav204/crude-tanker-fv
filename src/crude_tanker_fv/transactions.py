@@ -43,6 +43,13 @@ QUALITY_UPLIFT = {
     "tc_attached": 0.0,       # TC-attached at sale — direction/magnitude of the charter's
                               # value-in-price is deal-specific and NOT adjusted (2026-07-18,
                               # C. Innovator); the flag documents, the clamp bounds.
+    "prompt_premium": 0.0,    # prompt-delivery / single-buyer-channel premium — the downward
+                              # counterpart the vocabulary lacked (4th recurrence, adopted
+                              # 2026-07-28 owner review, marks_trail_triage_2026-07-28 §G3).
+                              # NOT price-adjusted (magnitude deal-specific, like tc_attached);
+                              # such prints enter with in_fit: false so a transient premium
+                              # cannot set the curve level — young end is capped by the
+                              # separately-validated newbuild leg (§G1 fit instruction).
 }
 DEFAULT_HALF_LIFE_MONTHS = 15.0
 MID_AGE_MIN, MID_AGE_MAX = 3, 17

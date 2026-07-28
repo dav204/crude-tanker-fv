@@ -1,7 +1,7 @@
 {
   "schema_version": "2.5",
-  "generated_at": "2026-07-26T21:26:43+00:00",
-  "source_commit": "d1fe786",
+  "generated_at": "2026-07-28T15:36:08+00:00",
+  "source_commit": "511e43e-dirty",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 25,
@@ -26,7 +26,10 @@
       "lpg": "36098fd5f854"
     },
     "current_sha": "36098fd5f854",
-    "lagging": []
+    "lagging": [],
+    "ev_lagging": [
+      "CMBT"
+    ]
   },
   "sleeves_note": "sleeves[*].fv_contribution_per_share are per-share scenario-weighted FVs; sum(sleeves) == fv to the cent (C-3 per-sleeve identity). Corporate-level balance-sheet items (debt, working capital, preferred, shuttle contracted book) are pro-rated INTO the sleeve carve-outs (carveout.py), so nothing sits outside the per-sleeve lines.",
   "names": [
@@ -145,12 +148,12 @@
       "sanity": "n-a",
       "price": 7.67,
       "position": "BUY (undervalued)",
-      "fv": 9.42,
-      "ev_pct": 22.9,
-      "blend_fv": 9.7,
-      "nav_per_share": 10.02,
+      "fv": 9.47,
+      "ev_pct": 23.5,
+      "blend_fv": 9.75,
+      "nav_per_share": 10.07,
       "broker_nav": 8.72,
-      "gap_pct": 15.0,
+      "gap_pct": 15.6,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -159,8 +162,8 @@
       "mark_wide_nodes": [
         "Post-Panamax@five_year+ten_year"
       ],
-      "fv_low": 7.06,
-      "fv_high": 12.16
+      "fv_low": 7.1,
+      "fv_high": 12.22
     },
     {
       "ticker": "SBLK",
@@ -173,20 +176,20 @@
       "sanity": "OK",
       "price": 28.14,
       "position": "HOLD (fairly valued)",
-      "fv": 28.19,
-      "ev_pct": 0.2,
-      "blend_fv": 29.22,
-      "nav_per_share": 30.13,
+      "fv": 28.62,
+      "ev_pct": 1.7,
+      "blend_fv": 29.66,
+      "nav_per_share": 30.64,
       "broker_nav": 36.08,
-      "gap_pct": -16.5,
+      "gap_pct": -15.1,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": false,
       "ev_pct_family_min": -4.0,
       "ev_pct_family_max": 4.0,
       "mark_wide_nodes": null,
-      "fv_low": 21.66,
-      "fv_high": 35.21
+      "fv_low": 22.03,
+      "fv_high": 35.72
     },
     {
       "ticker": "CAPT",
@@ -225,12 +228,12 @@
       "sanity": "OK",
       "price": 15.74,
       "position": "TRIM/SHORT (overvalued)",
-      "fv": 13.99,
-      "ev_pct": -11.1,
-      "blend_fv": 15.5,
-      "nav_per_share": 16.12,
+      "fv": 14.05,
+      "ev_pct": -10.7,
+      "blend_fv": 15.57,
+      "nav_per_share": 16.19,
       "broker_nav": 21.56,
-      "gap_pct": -25.2,
+      "gap_pct": -24.9,
       "governance_discount_pct": 0.0,
       "sleeves": [
         {
@@ -241,7 +244,7 @@
         {
           "sleeve": "dry_bulk",
           "sector": "dry_bulk",
-          "fv_contribution_per_share": 10.01
+          "fv_contribution_per_share": 10.06
         },
         {
           "sleeve": "containerships",
@@ -249,12 +252,12 @@
           "fv_contribution_per_share": 0.54
         }
       ],
-      "weight_sign_stable": true,
-      "ev_pct_family_min": -18.1,
-      "ev_pct_family_max": -11.1,
+      "weight_sign_stable": null,
+      "ev_pct_family_min": null,
+      "ev_pct_family_max": null,
       "mark_wide_nodes": null,
-      "fv_low": 8.8,
-      "fv_high": 21.22
+      "fv_low": 8.86,
+      "fv_high": 21.3
     },
     {
       "ticker": "INSW",
@@ -424,12 +427,12 @@
       "sanity": "n-a",
       "price": 0.42,
       "position": "TRIM/SHORT (overvalued)",
-      "fv": 0.38,
-      "ev_pct": -9.0,
-      "blend_fv": 0.38,
-      "nav_per_share": 0.39,
+      "fv": 0.39,
+      "ev_pct": -7.8,
+      "blend_fv": 0.39,
+      "nav_per_share": 0.4,
       "broker_nav": 0.43,
-      "gap_pct": -8.4,
+      "gap_pct": -7.0,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -437,7 +440,7 @@
       "ev_pct_family_max": -6.9,
       "mark_wide_nodes": null,
       "fv_low": 0.32,
-      "fv_high": 0.44
+      "fv_high": 0.45
     },
     {
       "ticker": "CMDB",
@@ -450,20 +453,20 @@
       "sanity": "n-a",
       "price": 18.84,
       "position": "BUY (undervalued)",
-      "fv": 20.47,
-      "ev_pct": 8.6,
-      "blend_fv": 21.01,
-      "nav_per_share": 32.1,
+      "fv": 20.79,
+      "ev_pct": 10.3,
+      "blend_fv": 21.34,
+      "nav_per_share": 32.65,
       "broker_nav": 30.39,
-      "gap_pct": 5.6,
+      "gap_pct": 7.4,
       "governance_discount_pct": 30.0,
       "sleeves": null,
       "weight_sign_stable": true,
       "ev_pct_family_min": 5.1,
       "ev_pct_family_max": 11.9,
       "mark_wide_nodes": null,
-      "fv_low": 16.79,
-      "fv_high": 24.41
+      "fv_low": 17.06,
+      "fv_high": 24.79
     },
     {
       "ticker": "GNK",
@@ -476,20 +479,20 @@
       "sanity": "OK",
       "price": 26.77,
       "position": "TRIM/SHORT (overvalued)",
-      "fv": 23.66,
-      "ev_pct": -11.6,
-      "blend_fv": 24.71,
-      "nav_per_share": 25.48,
+      "fv": 24.08,
+      "ev_pct": -10.1,
+      "blend_fv": 25.14,
+      "nav_per_share": 25.98,
       "broker_nav": 30.08,
-      "gap_pct": -15.3,
+      "gap_pct": -13.6,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
       "ev_pct_family_min": -15.6,
       "ev_pct_family_max": -8.1,
       "mark_wide_nodes": null,
-      "fv_low": 18.29,
-      "fv_high": 29.71
+      "fv_low": 18.64,
+      "fv_high": 30.22
     },
     {
       "ticker": "CCEC",

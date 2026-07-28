@@ -118,3 +118,20 @@ prints:
     source: xclusiv 7/06 + MB Dry W28 + banchero W28 (exact; advanced $21m)
     quality_flag: standard
     notes: Polynesia Queen (2012 Tsuneishi Zhoushan Kamsarmax); buyer Chinese.
+  - date: 2026-07-20
+    vessel_age_at_sale: 4
+    dwt: 82258
+    sale_price_usd_m: 37.5
+    source: advanced W30 (exact per-vessel, "USD 37,5 mill each")
+    quality_flag: standard
+    notes: Nord Antares (2022 Yamic Kamsarmax); scrubber; en-bloc pair with Nord Andromeda
+      (ONE transaction, two per-vessel prints). RARE young-Pana node. RV note - Kamsarmax
+      $456/dwt at 4y sits BELOW young-Ultramax $599/dwt at 6y (Kamsarmax at discount to NB
+      while Ultramax at premium; triage §G1). marks_trail_triage_2026-07-28 #3.
+  - date: 2026-07-20
+    vessel_age_at_sale: 4
+    dwt: 82251
+    sale_price_usd_m: 37.5
+    source: advanced W30 (exact per-vessel)
+    quality_flag: standard
+    notes: Nord Andromeda; en-bloc pair with Nord Antares (see above). #4.

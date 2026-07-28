@@ -10,6 +10,24 @@ open item (confirm the buyback authorization) — proxies are where authorizatio
 
 ---
 
+## 2026-07-28T15:36:23+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.67
+- Single-point FV: $9.75
+- Scenario PW FV: $9.47 (EV +23.5%)
+- NAV / share: $10.07
+- Position: **BUY (undervalued)**
+- Broker spread: -15.1pp (k_broker 0.92)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.5% | Δscenario FV: +0.5% | ΔNAV: +0.5% | Δspread: -0.5pp
+
+**Decision:** (2026-07-28) marks-trail promotion at owner go ("promote" — decisions/marks_trail_triage_2026-07-28.md incl. §G owner-review amendments): 12 independent transactions (14 per-vessel prints) into Cape/Pana/Supra-Ultra; 4 young prints enter prompt_premium/in_fit-false (§G3 — excluded from level fit; fitted Supra age-5 $30.9M vs NB-parity cap ~$38M, comfortably under); AEGIR SELMER revised 15.9→16.2 (newest-wins rule). ΔNAV +0.5%; BUY stands (the TIGHT BUY margin widens slightly into tonight's print).
+
+---
+
 ## 2026-07-18 (tier) — boundary RULED: "Flag not cap" — VALIDATED-TIGHT stands
 
 **Decision:** owner verbatim "Flag not cap". SB keeps VALIDATED-TIGHT with the

@@ -1,5 +1,36 @@
 # CMBT — Decision Log
 
+## 2026-07-28 — CMB-complex disposal print: CMB JORDAENS sold (marks-trail promotion)
+
+**Decision:** NOTE ONLY, no input change to CMBT — the 7/20 weeklies print **CMB JORDAENS
+(63,447 dwt / 2019 Tadotsu Ultramax, registry-verified IMO 9860635) sold to Meghna
+(Bangladesh) at $35.2M** (xclusiv exact; flagged prompt_premium/in_fit-false at the curve).
+An ex-Bocimar hull — a CMB-complex young-Ultramax disposal at a FIRM price (~$555/dwt @7y,
+just under NB parity). Read-through: consistent with the dry-bulk fleet-rotation leg of the
+CMBT thesis (selling young tonnage into a premium bid is NAV-accretive vs holding);
+one print proves nothing alone (the 7/18 BERMONDI/Costamare convention). Watch the H1
+report's fleet table for the disposal booking. Triage: marks_trail_triage_2026-07-28 §G2.
+
+---
+
+## 2026-07-28T15:36:23+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $15.74
+- Single-point FV: $15.57
+- Scenario PW FV: $14.05 (EV -10.8%)
+- NAV / share: $16.19
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +28.2pp (k_broker 1.20)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.5% | Δscenario FV: +0.4% | ΔNAV: +0.4% | Δspread: -0.3pp
+
+**Decision:** (2026-07-28) marks-trail promotion at owner go ("promote" — decisions/marks_trail_triage_2026-07-28.md incl. §G owner-review amendments): 12 independent transactions (14 per-vessel prints) into Cape/Pana/Supra-Ultra; 4 young prints enter prompt_premium/in_fit-false (§G3 — excluded from level fit; fitted Supra age-5 $30.9M vs NB-parity cap ~$38M, comfortably under); AEGIR SELMER revised 15.9→16.2 (newest-wins rule). ΔNAV +0.4%; see the 2026-07-28 CMB JORDAENS disposal note at the top of this log.
+
+---
+
 ## 2026-07-18 (later) — RATIFIED 13-Jul spot re-proxy APPLIED (Week-close audit catch): dry-bulk FV-moving
 
 **Decision:** the ffa_promotion_2026-07-13.md §3 spot_tce values (Cape 36,000 / Pana+PPMX 20,000 / Supra-Ultra 19,050 — FFA front-month during the Pareto silence) were OWNER-RATIFIED 7/13 but never wired (items 1-2 landed; item 3 did not — the file kept the 2-Jul Pareto rows under a 7/13 as_of stamp). Applied 2026-07-18 at the Week-close audit. This MOVES dry-bulk FVs (ΔNAV 0.0 — spot feeds the cycle/blend leg, not marks). Dry sleeve only (EV +4.8pp). All flips auto-classify band-mech per D-M5 (price inside the fv interval — no eyeball owed; absorbed at the owner's next batch ratify, which now carries BOTH causes: the 7/17 price vintage AND this ratified-value application). Flips surfaced in the Week-close report regardless.

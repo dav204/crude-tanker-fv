@@ -257,10 +257,12 @@ prints:
   - date: 2026-07-06
     vessel_age_at_sale: 15
     dwt: 55874
-    sale_price_usd_m: 15.9
-    source: xclusiv 7/06 + advanced W27 (exact)
+    sale_price_usd_m: 16.2
+    source: advanced W30 (revision; was 15.9 per xclusiv 7/06 + advanced W27)
     quality_flag: standard
-    notes: Aegir Selmer (2011 IHI Supramax); buyer Chinese/ADNOC per house.
+    notes: Aegir Selmer (2011 IHI Supramax); buyer Chinese/ADNOC per house. REVISED
+      15.9->16.2 per the NEWEST-WINS standing rule (owner 2026-07-28, triage §G5 -
+      the WLS is recency-weighted; revisions always adopt the newest figure).
   - date: 2026-07-06
     vessel_age_at_sale: 17
     dwt: 55469
@@ -268,3 +270,87 @@ prints:
     source: xclusiv 7/06 + advanced W28 + MB Dry W28 (exact)
     quality_flag: standard
     notes: Bermondi (2009 Mitsui Supramax); SELLER COSTAMARE — CMDB-complex disposal (cmdb_log 2026-07-18). Window-edge age 17.
+  - date: 2026-07-20
+    vessel_age_at_sale: 6
+    dwt: 62623
+    sale_price_usd_m: 37.5
+    source: xclusiv 7/20 (table "37.5 EACH"); advanced W30 "low $37 each" (tension noted)
+    quality_flag: prompt_premium
+    in_fit: false
+    notes: Brita Oldendorff (2020 Oshima); scrubber; en-bloc pair; buyer Meghna (advanced).
+      PROMPT-PREMIUM channel (Meghna single-buyer cluster, >=4 young Ultras in window;
+      trades just below NB parity $613/dwt vs 2343's Apr-26 conversion $39.2M/64k).
+      §G1/G3 - excluded from level fit; young end capped by NB leg. #5.
+  - date: 2026-07-20
+    vessel_age_at_sale: 6
+    dwt: 62623
+    sale_price_usd_m: 37.5
+    source: xclusiv 7/20; advanced W30
+    quality_flag: prompt_premium
+    in_fit: false
+    notes: Benjamin Oldendorff; en-bloc pair with Brita (ONE transaction). #6.
+  - date: 2026-07-20
+    vessel_age_at_sale: 7
+    dwt: 63447
+    sale_price_usd_m: 35.2
+    source: xclusiv 7/20 (exact); identity registry-verified IMO 9860635 (63,447/2019 Tadotsu)
+    quality_flag: prompt_premium
+    in_fit: false
+    notes: CMB Jordaens (2019 Tadotsu); buyer Meghna. CMB-COMPLEX DISPOSAL (ex-Bocimar) -
+      cmbt_log 2026-07-28 note. Distinct from Compass's 63,547/2020 Iwagi Meghna unit at
+      $36.5M (a THIRD Meghna vessel; candidate print, out-of-feed). §G2/G3. #7.
+  - date: 2026-07-20
+    vessel_age_at_sale: 3
+    dwt: 66628
+    sale_price_usd_m: 41.6
+    source: advanced W30 (exact, table); CORROBORATED out-of-feed by Compass Maritime
+      (owner-supplied 2026-07-28 - 66,628/4-2023 Tsuneishi Zhoushan, offers due 6-Jul,
+      "in excess of $41M")
+    quality_flag: prompt_premium
+    in_fit: false
+    notes: Seacon Tokyo (2023 Tsuneishi Zhoushan Ultramax); geared 4x36T. Window-edge age 3;
+      trades ABOVE NB parity - the parity-cap case in person. BELOW the back-extrapolated
+      7-16 trend ($45.5M) - the young end flattens, not lifts (§G1). #8.
+  - date: 2026-07-20
+    vessel_age_at_sale: 10
+    dwt: 63590
+    sale_price_usd_m: 30.0
+    source: banchero W29 (exact)
+    quality_flag: standard
+    notes: Wooyang Belos (2016 Shin Kasado); ECO ME. #9.
+  - date: 2026-07-20
+    vessel_age_at_sale: 12
+    dwt: 61630
+    sale_price_usd_m: 25.5
+    source: banchero W29 (exact)
+    quality_flag: standard
+    notes: Blue Akihabara (2014 Nantong COSCO KHI); ECO; del Sep, DD due 03/2027. #10.
+  - date: 2026-07-20
+    vessel_age_at_sale: 14
+    dwt: 61429
+    sale_price_usd_m: 22.0
+    source: banchero W29 (exact) + xclusiv 7/20 ("region 22", buyer ADNOC)
+    quality_flag: standard
+    notes: Ince Beylerbeyi (2012 Iwagi). Distinct from Amis Wisdom VI (61,456/2011 Shin
+      Kasado, "rgn $22m" advanced - held, region-tier). #11.
+  - date: 2026-07-20
+    vessel_age_at_sale: 12
+    dwt: 57945
+    sale_price_usd_m: 23.3
+    source: intermodal W29 (exact) + xclusiv 7/20 ("mid 23")
+    quality_flag: standard
+    notes: IVS Crimson Creek (2014 Shin Kurushima); eco, 4x30.5T. #12.
+  - date: 2026-07-20
+    vessel_age_at_sale: 13
+    dwt: 56064
+    sale_price_usd_m: 19.5
+    source: intermodal W29 (exact)
+    quality_flag: standard
+    notes: HPC Atlantic (2013 Minaminippon); 4x30t. #13.
+  - date: 2026-07-20
+    vessel_age_at_sale: 16
+    dwt: 55499
+    sale_price_usd_m: 16.8
+    source: advanced W30 (exact)
+    quality_flag: standard
+    notes: Capt Eugene (2010 Mitsui); seller Graham Shipping. #14.

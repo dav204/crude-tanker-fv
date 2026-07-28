@@ -21,6 +21,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-28T15:36:23+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.84
+- Single-point FV: $21.34
+- Scenario PW FV: $20.79 (EV +10.3%)
+- NAV / share: $32.65
+- Position: **BUY (undervalued)**
+- Broker spread: -7.1pp (k_broker 0.92)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +1.6% | Δscenario FV: +1.6% | ΔNAV: +1.7% | Δspread: -1.7pp
+
+**Decision:** (2026-07-28) marks-trail promotion at owner go ("promote" — decisions/marks_trail_triage_2026-07-28.md incl. §G owner-review amendments): 12 independent transactions (14 per-vessel prints) into Cape/Pana/Supra-Ultra; 4 young prints enter prompt_premium/in_fit-false (§G3 — excluded from level fit; fitted Supra age-5 $30.9M vs NB-parity cap ~$38M, comfortably under); AEGIR SELMER revised 15.9→16.2 (newest-wins rule). ΔNAV +1.7%; BUY stands.
+
+---
+
 ## 2026-07-26T21:26:52+00:00 — Pipeline run (auto)
 
 **Model state:**

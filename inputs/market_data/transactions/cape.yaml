@@ -270,3 +270,19 @@ prints:
     source: banchero W26 (per-vessel price printed)
     quality_flag: standard
     notes: RTM Columbus (2013 HHIC Phil Newcastlemax, eco ME); en-bloc pair, buyer Mercuria.
+  - date: 2026-07-20
+    vessel_age_at_sale: 14
+    dwt: 179523
+    sale_price_usd_m: 37.5
+    source: advanced W30 + banchero W29 (exact) + xclusiv 7/20 ("region 37"); 3-house
+    quality_flag: standard
+    notes: Aashna (2012 HHIC Philippines); buyer Chinese, seller Adani (advanced prose).
+      Banchero prints dwt 179,253 (its own transposition) — 179,523 per advanced+xclusiv,
+      registry-consistent. marks_trail_triage_2026-07-28 #1.
+  - date: 2026-07-20
+    vessel_age_at_sale: 16
+    dwt: 179221
+    sale_price_usd_m: 34.5
+    source: advanced W30 (exact) + xclusiv 7/20 ("low/mid 34")
+    quality_flag: standard
+    notes: Nicholas G.S (2010 Sungdong); scrubber fitted. marks_trail_triage_2026-07-28 #2.
