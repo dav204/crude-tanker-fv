@@ -1,5 +1,15 @@
 # SB — Decision Log
 
+## 2026-07-28 — FILING-LANDED triage: 6-K 0000930413-26-002185 = 2026 AGM proxy materials (no ingest)
+
+**Decision:** TRIAGED, no input change — the 7/27 6-K stages the 2026 Annual Meeting proxy
+statement + proxy card (ex-99.1-99.3), incorporated by reference into the F-3. Not the
+sets-date earnings PR (that remains outstanding; window opened today, date sweep armed) and
+not a transaction. FORWARD HOOK: skim the proxy at the Q2 refresh for the standing sb_log
+open item (confirm the buyback authorization) — proxies are where authorizations renew.
+
+---
+
 ## 2026-07-18 (tier) — boundary RULED: "Flag not cap" — VALIDATED-TIGHT stands
 
 **Decision:** owner verbatim "Flag not cap". SB keeps VALIDATED-TIGHT with the
