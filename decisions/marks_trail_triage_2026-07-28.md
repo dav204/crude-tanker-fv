@@ -2,9 +2,13 @@
 
 **2026-07-28. Triage record per the sentinel's letter. Sources: 2-agent local-PDF extraction
 over every staged issue since the 7/18 triage — xclusiv 7/20, advanced W30, banchero W29,
-intermodal W29, fearnleys W30 (S&P page BLANK, 2nd consecutive issue). The MB weeklies W29
-are ABSENT (Gmail-connector gap — owner reconnect pending), so corroboration ceilings are
-one source lower than usual this batch. PROMOTION IS OWNER-GATED — nothing is wired by this
+intermodal W29, fearnleys W30 (S&P page BLANK, 2nd consecutive issue). ~~The MB weeklies W29
+are ABSENT (Gmail-connector gap)~~ **— WRONG, corrected 2026-07-28 EVE: MB W29 (dated 7/16-17,
+all four feeds) WAS on disk the whole time; the Gmail gap had only stopped W30. The sweep
+simply failed to include staged PDFs that were sitting in `inputs/research_mb/`. The stated
+"corroboration ceiling one source lower" was therefore self-inflicted, not structural. MB
+W29+W30 read in the §I follow-up sweep; lesson: the sweep's source list must be built from
+the STAGING TREE, not from an assumption about which feeds are current.** PROMOTION IS OWNER-GATED — nothing is wired by this
 record; one "promote" executes §A via the standard prints-drift loop (re-run →
 transaction_anchor_comparison → annotate >2pp movers).**
 
