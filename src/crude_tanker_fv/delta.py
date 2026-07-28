@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -456,6 +457,11 @@ def _signed_pp(v: Optional[float]) -> str:
 # annotations live forever. If the file doesn't exist, it's created with a
 # brief header.
 
+# A dated entry header. This module writes them; drift_gate reads only the
+# first one (newest-first contract), so the prepend anchor and the gate parser
+# must share this definition.
+DECISION_LOG_HEADER_RE = re.compile(r"^##\s+(\d{4}-\d{2}-\d{2})[^\s]*\s*(.*)$")
+
 _DECISION_LOG_HEADER = """# {ticker} — Decision Log
 
 Chronological record of model state at each pipeline run plus the investment
@@ -482,10 +488,22 @@ def prepend_decision_log_entries(
         entry = _render_decision_log_entry(d, report)
         if path.exists():
             existing = path.read_text()
-            # Insert the new entry AFTER the header (everything up to and
-            # including the first "---" separator), preserving prior entries.
-            header, _, rest = existing.partition("---\n")
-            new_content = f"{header}---\n\n{entry}\n{rest.lstrip()}"
+            # Insert the new entry immediately above the first dated entry
+            # header — newest-first must hold even for logs founded manually,
+            # whose top entry sits above any "---" preamble separator.
+            lines = existing.splitlines(keepends=True)
+            idx = next(
+                (i for i, ln in enumerate(lines)
+                 if DECISION_LOG_HEADER_RE.match(ln)),
+                None,
+            )
+            if idx is None:
+                new_content = f"{existing.rstrip()}\n\n{entry}\n"
+            else:
+                preamble = "".join(lines[:idx])
+                if preamble:
+                    preamble = preamble.rstrip("\n") + "\n\n"
+                new_content = f"{preamble}{entry}\n{''.join(lines[idx:])}"
         else:
             header = _DECISION_LOG_HEADER.format(ticker=d.ticker)
             new_content = f"{header}\n{entry}\n"

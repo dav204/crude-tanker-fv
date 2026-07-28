@@ -260,6 +260,31 @@ def test_decision_log_prepend_preserves_user_content_below(tmp_path):
     assert new_pos < old_pos, "newest entry should be above older entries"
 
 
+def test_decision_log_prepend_lands_above_manual_top_entry(tmp_path):
+    """A log founded by hand (e.g. at onboarding) has its manual entry at the
+    very top, with no "---" separator between preamble and first entry. The
+    auto entry must anchor on the first dated header — landing ABOVE the
+    manual entry — not after the first "---", which sits mid-file here and
+    breaks the newest-first contract drift_gate reads by."""
+    log = tmp_path / "x_log.md"
+    log.write_text(
+        "# X (Some Name) — decision log\n\n"
+        "## 2026-07-14T09:00:00+00:00 — Onboarding (manual)\n\n"
+        "Founding note.\n\n"
+        "---\n"
+    )
+    cur = _make_snapshot({"X": _base_state()}, run_at="2026-07-28T00:00:00+00:00")
+    prev = _make_snapshot({"X": _base_state()}, run_at="2026-07-14T09:00:00+00:00")
+    report = compute_deltas(cur, prev)
+    prepend_decision_log_entries(report, decisions_dir=tmp_path)
+    content = log.read_text()
+    assert content.startswith("# X (Some Name) — decision log\n")
+    auto_pos = content.index("2026-07-28T00:00:00+00:00")
+    manual_pos = content.index("2026-07-14T09:00:00+00:00")
+    assert auto_pos < manual_pos, "auto entry must land above the manual top entry"
+    assert "Founding note." in content
+
+
 def test_decision_log_filename_is_lowercase(tmp_path):
     """Standardise on lowercase filenames so the ticker case in YAML doesn't
     spawn case-variant duplicate files on case-sensitive filesystems."""
