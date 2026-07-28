@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-28T19:32:52+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $92.28
+- Single-point FV: $38.50
+- Scenario PW FV: $54.12 (EV -41.4%)
+- NAV / share: $52.48
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +28.2pp (k_broker 1.58)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28 EVE) clean-stamp regen at a9b99dc — the parked stamp refresh, unblocked by the anchor-fix commit; no number movement, the day's annotations below stand.
+
+---
+
 ## 2026-07-28T16:42:52+00:00 — Pipeline run (auto)
 
 **Model state:**

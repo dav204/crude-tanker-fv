@@ -1,5 +1,23 @@
 # SBLK — Decision Log
 
+## 2026-07-28T19:32:52+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.14
+- Single-point FV: $29.66
+- Scenario PW FV: $28.62 (EV +1.7%)
+- NAV / share: $30.64
+- Position: **HOLD (fairly valued)**
+- Broker spread: +16.3pp (k_broker 1.14)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28 EVE) clean-stamp regen at a9b99dc — the parked stamp refresh, unblocked by the anchor-fix commit; no number movement, the day's annotations below stand.
+
+---
+
 ## 2026-07-28T16:42:52+00:00 — Pipeline run (auto)
 
 **Model state:**

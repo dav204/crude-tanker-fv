@@ -1,5 +1,23 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-07-28T19:32:52+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.40
+- Single-point FV: $59.78
+- Scenario PW FV: $56.56 (EV +43.6%)
+- NAV / share: $87.57
+- Position: **BUY (undervalued)**
+- Broker spread: +41.6pp (k_broker 1.23)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-28 EVE) clean-stamp regen at a9b99dc — the parked stamp refresh, unblocked by the anchor-fix commit; no number movement, the day's annotations below stand.
+
+---
+
 ## 2026-07-28T16:42:52+00:00 — Pipeline run (auto)
 
 **Model state:**
