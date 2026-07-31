@@ -1,5 +1,23 @@
 # SBLK — Decision Log
 
+## 2026-07-31T18:33:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.77
+- Single-point FV: $29.66
+- Scenario PW FV: $28.62 (EV -0.5%)
+- NAV / share: $30.64
+- Position: **HOLD (fairly valued)**
+- Broker spread: +18.3pp (k_broker 1.16)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31 EVE) clean-stamp regen (SB Q2 refresh arc) — no movement; the refresh + band-miss records stand.
+
+---
+
 ## 2026-07-31T18:24:14+00:00 — Pipeline run (auto)
 
 **Model state:**

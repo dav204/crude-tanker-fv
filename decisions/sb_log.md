@@ -1,5 +1,23 @@
 # SB — Decision Log
 
+## 2026-07-31T18:33:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.81
+- Single-point FV: $10.35
+- Scenario PW FV: $10.10 (EV +29.4%)
+- NAV / share: $10.73
+- Position: **BUY (undervalued)**
+- Broker spread: -20.4pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31 EVE) clean-stamp regen (SB Q2 refresh arc) — no movement; the refresh + band-miss records stand.
+
+---
+
 ## 2026-07-31 (later) — REFRESH RECOMPUTE: BAND MISS BY 0.6% — HALTED, INVESTIGATED, INPUT VERIFIED CLEAN; attribution documented, curve question SURFACED (not tuned)
 
 **Result: NAV/sh $10.07 → $10.73 (+6.6%) vs the pre-registered ±6% band [9.47, 10.67] —

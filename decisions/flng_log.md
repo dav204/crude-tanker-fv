@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-31T18:33:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $31.16
+- Single-point FV: $28.16
+- Scenario PW FV: $30.67 (EV -1.5%)
+- NAV / share: $28.45
+- Position: **HOLD (fairly valued)**
+- Broker spread: -16.0pp (k_broker 0.90)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31 EVE) clean-stamp regen (SB Q2 refresh arc) — no movement; the refresh + band-miss records stand.
+
+---
+
 ## 2026-07-31T18:24:14+00:00 — Pipeline run (auto)
 
 **Model state:**

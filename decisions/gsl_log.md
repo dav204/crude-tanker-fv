@@ -1,5 +1,23 @@
 # GSL — Decision Log
 
+## 2026-07-31T18:33:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.30
+- Single-point FV: $43.06
+- Scenario PW FV: $40.54 (EV -8.5%)
+- NAV / share: $38.59
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +36.2pp (k_broker 1.42)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31 EVE) clean-stamp regen (SB Q2 refresh arc) — no movement; the refresh + band-miss records stand.
+
+---
+
 ## 2026-07-31T18:24:14+00:00 — Pipeline run (auto)
 
 **Model state:**

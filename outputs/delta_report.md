@@ -1,16 +1,15 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-07-31T18:24:14+00:00
-- **Previous run:** 2026-07-31T18:06:00+00:00
+- **This run:** 2026-07-31T18:33:40+00:00
+- **Previous run:** 2026-07-31T18:24:14+00:00
 
 ## Headline changes (material moves)
 
-- **SB:** broker spread -7.3pp; NAV/sh +6.6%
+- **No material changes.** All tickers within thresholds (|ΔFV%|≤10%, |Δspread|≤5pp, |ΔNAV%|≤5%) and no position flips.
 
 ## Input files changed since last run
 
-- `inputs/balance_sheets/sb_2026-Q2.yaml` (new)
-- `inputs/fleet_manifests/sb.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 
@@ -37,7 +36,7 @@
 | GSL | $44.30 (no change) | $43.06 (no change) | $40.54 (no change) | $38.59 (no change) | TRIM/SHORT (overvalued) | +36.2pp (no change) |
 | BRUT | $5.97 (no change) | $9.27 (no change) | $6.45 (no change) | $8.80 (no change) | BUY (undervalued) | -7.2pp (no change) |
 | CMBT | $16.16 (no change) | $15.57 (no change) | $14.11 (no change) | $16.19 (no change) | TRIM/SHORT (overvalued) | +30.5pp (no change) |
-| SB ⚑ | $7.81 (no change) | $10.35 (+6.2%) | $10.10 (+6.7%) | $10.73 (+6.6%) | BUY (undervalued) | -20.4pp (-7.3pp) |
+| SB | $7.81 (no change) | $10.35 (no change) | $10.10 (no change) | $10.73 (no change) | BUY (undervalued) | -20.4pp (no change) |
 | LPG | $46.54 (no change) | $32.76 (no change) | $30.55 (no change) | $34.11 (no change) | TRIM/SHORT (overvalued) | +38.0pp (no change) |
 | BWLP | $22.70 (no change) | $15.43 (no change) | $14.46 (no change) | $15.80 (no change) | TRIM/SHORT (overvalued) | +27.8pp (no change) |
 | 2343 | $0.42 (no change) | $0.39 (no change) | $0.39 (no change) | $0.40 (no change) | TRIM/SHORT (overvalued) | +5.7pp (no change) |
