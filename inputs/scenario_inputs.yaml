@@ -207,7 +207,14 @@ sectors:
         # RESTORED 0.45 (2026-07-12, Jun-9 shape): the MoU-ineffective leg IS now the
         # observed state — sanctions re-imposed, strikes resumed inside the framework
         # (doha trigger fired; decisions/doha_check_2026-07-12.md).
-        weight: 0.45
+        # B' REWEIGHT EXECUTED 2026-07-31 (owner: 'Execute B'' — the 7/22 ruling's
+        # frozen conditional, decisions/mou_scenario_reweight_proposal_2026-07-22.md;
+        # check: ceasefire_mediation_check_2026-07-31.md — pause-without-talks state,
+        # owner ruled execute): 0.25/0.45/0.18/0.12 -> 0.25/0.57/0.05/0.13. Retires
+        # the dead-MoU mass (framework repudiated by both principals; mou_base 0.05 =
+        # rapid-revival tail); escalation UNTOUCHED (B, the escalation bump, was NOT
+        # pre-registered). Full re-derivation stays the Aug-16 toll-cliff venue.
+        weight: 0.57
         semantics_changed: 2026-07-02
         description: >
           MoU-INEFFECTIVE (semantic shift 2026-07-02; key name kept to avoid YAML/
@@ -274,7 +281,7 @@ sectors:
         # confidence with a known binary inside the horizon.
         # RESTORED 0.18 (2026-07-12, Jun-9 shape; doha trigger fired — the benign-path
         # mass moves back to the war/ineffective legs. decisions/doha_check_2026-07-12.md).
-        weight: 0.18
+        weight: 0.05
         description: >
           MoU signs, three-phase path materializes: ~30 days of Phase 1 backlog
           clearance (MEG-loading routes spike on fixture scramble) followed by
@@ -338,7 +345,7 @@ sectors:
         # phased/partial reopening, Iran export ramp underdelivers.
         # RESTORED 0.12 (2026-07-12, Jun-9 shape; doha trigger fired — 'framework holds'
         # variants shrink together. decisions/doha_check_2026-07-12.md).
-        weight: 0.12
+        weight: 0.13
         description: >
           MoU signs but Iran fails to ramp exports (sanctions infrastructure too
           degraded, buyers reluctant, or political pushback). No Phase 1 backlog

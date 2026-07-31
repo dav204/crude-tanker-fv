@@ -43,9 +43,14 @@ def test_scenarios_parse_and_weights_sum_to_one(doc):
     # 0.25/0.45/0.18/0.12): trigger crude_doha_talks_resumption FIRED — Jul-7/8
     # Hormuz strikes + sanctions re-imposition; the pre-registered restore executed
     # at owner go. decisions/doha_check_2026-07-12.md.
+    # Re-pinned 2026-07-31 (B' reweight 0.25/0.45/0.18/0.12 -> 0.25/0.57/0.05/0.13):
+    # the 7/22 ruling's frozen conditional executed at owner go after the 7/29
+    # mediation-watch check (pause-without-talks; owner ruled the letter governs).
+    # Retires dead-MoU mass; escalation untouched; Aug-16 = the full re-derivation.
+    # decisions/ceasefire_mediation_check_2026-07-31.md.
     assert {n: doc["scenarios"][n]["weight"] for n in names} == {
-        "escalation": pytest.approx(0.25), "pre_mou_baseline": pytest.approx(0.45),
-        "mou_base": pytest.approx(0.18), "mou_bear": pytest.approx(0.12),
+        "escalation": pytest.approx(0.25), "pre_mou_baseline": pytest.approx(0.57),
+        "mou_base": pytest.approx(0.05), "mou_bear": pytest.approx(0.13),
     }
     # Sector layer (METHODOLOGY §11): the default load returns the crude sub-doc
     # with its own cycle_anchors, and the sector name is stamped in.
@@ -579,7 +584,11 @@ def test_insw_whole_company_fv_preserved_through_product_sector_refactor():
     # 2026-07-12: Jun-9 war tilt RESTORED (doha trigger fired,
     # decisions/doha_check_2026-07-12.md) → ~$57.15; ±2.5% band. TRIM/SHORT still
     # holds at $82.98 (the war premium narrows the read, doesn't flip it).
-    assert 55.7 < headline.probability_weighted_fv < 58.6
+    # 2026-07-31: B' reweight (dead-MoU mass retired -> pre_mou 0.57) lifts the
+    # crude sleeve → ~$58.82; ±2.5% band re-pinned. TRIM/SHORT still holds —
+    # the reweight narrows the negative read, doesn't flip it.
+    # decisions/ceasefire_mediation_check_2026-07-31.md.
+    assert 57.3 < headline.probability_weighted_fv < 60.3
     # Both sleeves should have valid prob-weighted FVs.
     assert crude_r is not None and product_r is not None
     assert crude_r.probability_weighted_fv > 0
