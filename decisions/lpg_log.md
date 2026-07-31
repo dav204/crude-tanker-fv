@@ -9,6 +9,17 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-31 — FILING-LANDED triage: 8-K (event 7/24) = executive severance plan amendment (no ingest)
+
+**Decision:** TRIAGED, no input change — Item 5.02 governance 8-K: amended/restated
+executive severance + change-in-control plan, revising the CiC definition to "remove
+certain carve-outs... no longer appropriate in view of the Company's current shareholders."
+Not earnings, no financials. FORWARD HOOK: mild §15-adjacent governance note (CiC
+definition tightened around the current holder base) — fold into the FQ1 report review
+(~Aug-7 est) alongside the earnings-date sweep still owed for this name.
+
+---
+
 ## 2026-07-31T18:06:00+00:00 — Pipeline run (auto)
 
 **Model state:**

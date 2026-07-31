@@ -1,5 +1,17 @@
 # ECO — Decision Log
 
+## 2026-07-31 — FILING-LANDED triage: two 7/30 6-Ks (neither is earnings)
+
+**Decision:** TRIAGED, no input change. (1) 088444 = **Nissos Sifnos drone strike 7/30** at
+the CPC terminal (Kazakh crude, Black Sea) — crew safe, no spill, minor damage, voyage
+continuing. Operational event, no financial quantification; NOTE CAREFULLY: Black Sea/CPC
+theater, NOT Hormuz — this is Ukraine-war-adjacent war-risk evidence, kept OUT of the Iran
+scenario observations. Watch the Q2 call (8/5) for repair/off-hire quantification. (2)
+088713 = webcast notice confirming **Q2 results 8/4 after NYSE close** (calendar already
+confirmed). Fleet boilerplate: 10 Suezmax + 8 VLCC sailing, all scrubber-fitted ✓.
+
+---
+
 ## 2026-07-31T18:06:00+00:00 — Pipeline run (auto)
 
 **Model state:**
