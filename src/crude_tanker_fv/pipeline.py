@@ -1035,11 +1035,18 @@ def _run_delta_and_decision_log(quarter, fv_reports, scenario_reports, broker_ro
     programmatically (e.g. from tests) via the individual run_* functions.
     """
     from crude_tanker_fv import delta
+    from crude_tanker_fv.loaders import stale_price_fallbacks
+    from crude_tanker_fv.price_refresh import STALE_PRICE_ALERT_MIN_NAMES
 
+    stale = stale_price_fallbacks(load_watchlist(live_prices=True))
+    if len(stale) >= STALE_PRICE_ALERT_MIN_NAMES:
+        print(f"⚠ STALE-PRICE RUN: {len(stale)} names fell back past the freshness gate "
+              f"({', '.join(sorted(stale))}) — prices_daily.yaml has aged out; delta report "
+              f"and scorecard header carry the banner", file=sys.stderr)
     current = delta.snapshot_current_run(quarter, fv_reports, scenario_reports, broker_rows)
     previous = delta.load_previous_snapshot()
     report = delta.compute_deltas(current, previous)
-    delta_path = delta.write_delta_report(report)
+    delta_path = delta.write_delta_report(report, stale_prices=stale)
     touched = delta.prepend_decision_log_entries(report)
     delta.save_snapshot(current)
 

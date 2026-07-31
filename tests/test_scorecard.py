@@ -271,7 +271,9 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
     # 2.4 (2026-07-15, D-M5 ruled): + fv_low/fv_high (scenario min/max interval).
     # 2.5 (2026-07-15): family-range containment — out-of-range family fields
     # withhold (null) + weight_family_basis.ev_lagging names them.
-    assert doc["schema_version"] == "2.5"
+    # 2.6 (2026-07-31): + price_basis.stale_fallback (freshness-gate subset;
+    # the stale-run alert's counting set).
+    assert doc["schema_version"] == "2.6"
     assert doc["schema_version"].split(".")[0] == "2"
     assert doc["quarter"] == QUARTER
     # Vintage stamp: ISO-8601 UTC + the HEAD hash ('-dirty' allowed).
@@ -333,6 +335,26 @@ def test_price_basis_header_announces_static_fallbacks(tmp_path, rows):
     assert "2 of 22 prices are STATIC-FALLBACK" in text
     assert "oldest as-of 2026-06-04" in text and "ASC, DHT" in text
     assert "Market-event review:" in text and "TNK" in text
+    assert "STALE-PRICE RUN" not in text   # per-name fallbacks stay a disclosure, not a siren
+
+
+def test_price_basis_header_goes_loud_when_the_overlay_aged_out(tmp_path, rows):
+    """2026-07-31: >= STALE_PRICE_ALERT_MIN_NAMES freshness-gate fallbacks means
+    the prices_daily vintage itself aged out — the header must SCREAM (banner
+    above the quiet static-fallback line), because the flips it prints are
+    presumptively phantom."""
+    reason = "stale quote (2026-07-24T20:00:04+00:00)"
+    pb = {"total": 22,
+          "static_fallback": {t: {"as_of": "2026-06-26", "reason": reason}
+                              for t in ("ASC", "STNG", "TNK")},
+          "stale_fallback": {t: reason for t in ("ASC", "STNG", "TNK")},
+          "oldest_static_as_of": "2026-06-26",
+          "market_event_review": {}}
+    text = write_scorecard(rows, outputs_dir=tmp_path, valuation=_synthetic_valuation(rows),
+                           price_basis=pb).read_text()
+    assert "STALE-PRICE RUN" in text and "PHANTOM" in text
+    assert "ASC, STNG, TNK" in text
+    assert text.index("STALE-PRICE RUN") < text.index("STATIC-FALLBACK")
 
 
 def test_verdict_prose_is_derived_not_hardwired(tmp_path, rows):

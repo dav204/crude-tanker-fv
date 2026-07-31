@@ -55,6 +55,9 @@ DAY_MOVE_FLAG_PCT = 15.0
 VS_STATIC_FLAG_PCT = 30.0
 MARKET_EVENT_MIN_NAMES = 3  # >= this many day-move trips in one run = repricing, not glitches
 PRICE_FRESH_DAYS = 5  # covers weekends + a holiday; beyond this the loader falls back
+STALE_PRICE_ALERT_MIN_NAMES = 3  # >= this many freshness-gate fallbacks in one run means the
+# overlay VINTAGE aged out (not a per-name gap) — delta report + scorecard go LOUD (2026-07-31:
+# a 7-day-old committed vintage silently repriced the book on Jun-26/Jul-3 statics, phantom flips)
 
 
 def _fetch_chart(symbol: str) -> dict:

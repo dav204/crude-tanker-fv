@@ -344,3 +344,12 @@ def load_watchlist(inputs_dir: Path = INPUTS_DIR, live_prices: bool = False) -> 
                 # Circuit-breaker pass-through: price applied, row marked for review.
                 entry["price_review"] = quote["market_event"]
     return out
+
+
+def stale_price_fallbacks(watchlist: dict[str, dict]) -> dict[str, str]:
+    """{ticker: reason} for rows the live-price overlay dropped past the
+    freshness gate (daily quote present but older than PRICE_FRESH_DAYS).
+    Flagged quotes and never-fetched names are other disclosure lanes; this
+    set is the aged-out-vintage signature the stale-run alert counts."""
+    return {t: e["price_fallback"] for t, e in sorted(watchlist.items())
+            if str(e.get("price_fallback", "")).startswith("stale quote")}

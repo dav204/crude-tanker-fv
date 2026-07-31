@@ -5,6 +5,18 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-31 — STALE-RUN GUARD SHIPPED (closes the GUARD OWED in the entry below).** Freshness-gate
+  fallbacks are now counted per run (`loaders.stale_price_fallbacks`, the `stale quote` subset only —
+  flagged and never-fetched names are other disclosure lanes); at >= `STALE_PRICE_ALERT_MIN_NAMES` (3,
+  `price_refresh.py`) the run goes LOUD instead of silent: a banner LEADS `outputs/delta_report.md`
+  (above any flip line), the scorecard price_basis header screams above its quiet STATIC-FALLBACK
+  disclosure ("flips are presumptively PHANTOM"), and the pipeline prints the alert to stderr at the
+  delta step. Chose loud-banner over refuse-to-run so a deliberate offline regen stays possible —
+  escalate to a hard refusal only if the banner ever gets ignored. Handoff schema 2.5 → 2.6
+  (additive: `price_basis.stale_fallback`). Guards: 4 in test_price_refresh (synthetic 7-day-old
+  vintage end-to-end into `price_basis_summary`), 2 in test_delta, 2 in test_scorecard. Suite green;
+  fresh-price runs render byte-identical.
+
 - **2026-07-31 — STALE-PRICE SILENT FALLBACK (caught same hour; artifact outputs discarded
   uncommitted).** The B' regen ran while the committed `prices_daily` vintage was 7 days old
   (the laptop-shut week: daily refreshes wrote the file but nothing committed it, and the

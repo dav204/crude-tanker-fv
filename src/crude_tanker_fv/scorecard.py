@@ -28,7 +28,15 @@ from pathlib import Path
 from typing import Optional
 
 from .justified_pnav import JustifiedPnavRow, compute_justified_pnav_rows
-from .loaders import ALLOWED_CLASSES, INPUTS_DIR, load_basis_status, load_company_inputs, load_watchlist
+from .loaders import (
+    ALLOWED_CLASSES,
+    INPUTS_DIR,
+    load_basis_status,
+    load_company_inputs,
+    load_watchlist,
+    stale_price_fallbacks,
+)
+from .price_refresh import STALE_PRICE_ALERT_MIN_NAMES
 from .nav import compute_nav
 from .normal_rates import (
     PARITY_BANDS,
@@ -319,6 +327,9 @@ def price_basis_summary(inputs_dir: Path = INPUTS_DIR) -> dict:
         "oldest_static_as_of": min(
             (str(e.get("as_of")) for e in static.values() if e.get("as_of")), default=None
         ),
+        # The aged-out-vintage subset of static_fallback — the stale-run alert
+        # (2026-07-31) counts these, not flagged/never-fetched names.
+        "stale_fallback": stale_price_fallbacks(wl),
         "market_event_review": {
             t: e["price_review"] for t, e in sorted(wl.items()) if e.get("price_review")
         },
@@ -618,6 +629,15 @@ def write_scorecard(
     w("# Book-wide scorecard (Thread 4)\n")
 
     if price_basis:
+        stale = price_basis.get("stale_fallback") or {}
+        if len(stale) >= STALE_PRICE_ALERT_MIN_NAMES:
+            w(f"> ## ⚠️ STALE-PRICE RUN — the daily price overlay has AGED OUT\n"
+              f">\n"
+              f"> **{len(stale)} of {price_basis['total']} names fell back past the freshness "
+              f"gate: {', '.join(sorted(stale))}.** Their Price / Upside / position verdicts sit "
+              f"on watchlist statics, not the tape — position flips this run are presumptively "
+              f"PHANTOM. Re-fetch (`python -m crude_tanker_fv.price_refresh`), commit the "
+              f"vintage, re-run before acting.\n")
         n_static = len(price_basis["static_fallback"])
         if n_static:
             names = ", ".join(price_basis["static_fallback"])
@@ -919,7 +939,11 @@ def _write_handoff_json(
         # has its family fields withheld (null) and is named in
         # weight_family_basis.ev_lagging. ev_pct ∈ [family_min, family_max]
         # is now an invariant of every printed row.
-        "schema_version": "2.5",
+        # 2.6 (2026-07-31): + price_basis.stale_fallback — the freshness-gate
+        # subset of static_fallback; >= STALE_PRICE_ALERT_MIN_NAMES of them
+        # marks the run's price basis as an aged-out vintage (banner in the
+        # scorecard header + delta report).
+        "schema_version": "2.6",
         **_vintage_stamp(),
         "quarter": quarter,
         "price_basis": price_basis,

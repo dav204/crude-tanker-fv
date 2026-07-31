@@ -10,7 +10,7 @@ from datetime import datetime, timedelta, timezone
 
 import yaml
 
-from crude_tanker_fv.loaders import load_watchlist
+from crude_tanker_fv.loaders import load_watchlist, stale_price_fallbacks
 from crude_tanker_fv.price_refresh import (
     PRICE_FRESH_DAYS,
     extract_quote,
@@ -196,3 +196,62 @@ def test_loader_no_daily_file(tmp_path):
     }))
     wl = load_watchlist(tmp_path, live_prices=True)
     assert wl["DHT"]["current_price"] == 16.40
+
+
+# ----------------------------------------------------------------------------
+# Stale-run alert (2026-07-31): a regen on an aged-out prices_daily vintage
+# silently repriced the book on Jun-26/Jul-3 statics — phantom BUY flips.
+# >= STALE_PRICE_ALERT_MIN_NAMES freshness-gate fallbacks in one load must be
+# detectable (loader helper) and carried to the scorecard's price_basis.
+# ----------------------------------------------------------------------------
+def _write_book_fixture(tmp_path, n_names, asof):
+    (tmp_path / "market_data").mkdir()
+    (tmp_path / "watchlist.yaml").write_text(yaml.safe_dump({
+        f"T{i}": {"current_price": 10.0 + i, "analyst_target": 15.0,
+                  "sector": "crude", "as_of": "2026-06-26"}
+        for i in range(n_names)
+    }))
+    (tmp_path / "market_data" / "prices_daily.yaml").write_text(yaml.safe_dump({
+        "prices": {f"T{i}": {"price": 12.0 + i, "asof": asof} for i in range(n_names)},
+    }))
+
+
+def _stale_iso():
+    return (datetime.now(timezone.utc)
+            - timedelta(days=PRICE_FRESH_DAYS + 2)).isoformat(timespec="seconds")
+
+
+def test_stale_overlay_multi_name_fallback_is_detected(tmp_path):
+    _write_book_fixture(tmp_path, 3, _stale_iso())
+    wl = load_watchlist(tmp_path, live_prices=True)
+    stale = stale_price_fallbacks(wl)
+    assert sorted(stale) == ["T0", "T1", "T2"]
+    assert all(reason.startswith("stale quote") for reason in stale.values())
+    assert wl["T0"]["current_price"] == 10.0   # overlay dropped, static survived
+
+
+def test_fresh_overlay_has_no_stale_fallbacks(tmp_path):
+    _write_book_fixture(tmp_path, 3, _now_iso())
+    wl = load_watchlist(tmp_path, live_prices=True)
+    assert stale_price_fallbacks(wl) == {}
+    assert wl["T0"]["current_price"] == 12.0   # overlay applied
+
+
+def test_flagged_and_missing_quotes_do_not_count_as_stale(tmp_path):
+    _write_fixture(tmp_path, {"price": 17.25, "asof": _now_iso(),
+                              "flag": "day move -21.7% exceeds ±15% band"})
+    wl = load_watchlist(tmp_path, live_prices=True)
+    assert stale_price_fallbacks(wl) == {}
+
+    (tmp_path / "market_data" / "prices_daily.yaml").unlink()
+    wl = load_watchlist(tmp_path, live_prices=True)
+    assert stale_price_fallbacks(wl) == {}
+
+
+def test_price_basis_summary_carries_the_stale_set(tmp_path):
+    from crude_tanker_fv.scorecard import price_basis_summary
+
+    _write_book_fixture(tmp_path, 3, _stale_iso())
+    pb = price_basis_summary(tmp_path)
+    assert sorted(pb["stale_fallback"]) == ["T0", "T1", "T2"]
+    assert sorted(pb["static_fallback"]) == ["T0", "T1", "T2"]

@@ -29,6 +29,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
+from .price_refresh import PRICE_FRESH_DAYS, STALE_PRICE_ALERT_MIN_NAMES
 from .scenarios import detect_mixed_anchor_basis, format_mixed_anchor_basis
 
 # Project root resolved relative to this file (src/crude_tanker_fv/delta.py)
@@ -314,17 +315,34 @@ def _classify_material(d: TickerDelta) -> tuple[bool, list[str]]:
 # ----------------------------------------------------------------------------
 # Markdown rendering — delta report
 # ----------------------------------------------------------------------------
-def write_delta_report(report: DeltaReport, outputs_dir: Path = OUTPUTS_DIR) -> Path:
-    """Render the delta report to ``outputs/delta_report.md`` and return path."""
+def write_delta_report(report: DeltaReport, outputs_dir: Path = OUTPUTS_DIR,
+                       stale_prices: Optional[dict[str, str]] = None) -> Path:
+    """Render the delta report to ``outputs/delta_report.md`` and return path.
+
+    ``stale_prices`` is ``loaders.stale_price_fallbacks(...)`` for the run —
+    at ``STALE_PRICE_ALERT_MIN_NAMES`` names the report leads with a banner:
+    that many freshness-gate fallbacks means the overlay vintage itself aged
+    out, and every flip below may be a phantom on month-old statics
+    (2026-07-31 — the delta report said nothing while TNK/STNG/ASC flipped)."""
     outputs_dir.mkdir(parents=True, exist_ok=True)
     path = outputs_dir / "delta_report.md"
-    path.write_text(_render_delta_md(report))
+    path.write_text(_render_delta_md(report, stale_prices))
     return path
 
 
-def _render_delta_md(r: DeltaReport) -> str:
+def _render_delta_md(r: DeltaReport, stale_prices: Optional[dict[str, str]] = None) -> str:
     lines: list[str] = []
     lines.append("# Pipeline Delta Report\n")
+    if stale_prices and len(stale_prices) >= STALE_PRICE_ALERT_MIN_NAMES:
+        names = ", ".join(sorted(stale_prices))
+        lines.append(f"> ## ⚠️ STALE-PRICE RUN — price basis is NOT the tape\n"
+                     f">\n"
+                     f"> **{len(stale_prices)} names fell back past the freshness gate: {names}.** "
+                     f"The `prices_daily.yaml` overlay is older than {PRICE_FRESH_DAYS} days, so "
+                     f"these rows are priced on watchlist statics. Every position flip and Δprice "
+                     f"below is SUSPECT until prices are re-fetched "
+                     f"(`python -m crude_tanker_fv.price_refresh`), the vintage committed, and the "
+                     f"pipeline re-run.\n")
     lines.append(f"- **This run:** {r.current_run_at}")
     if r.is_first_run:
         lines.append("- **Previous run:** _(none — first snapshot)_\n")

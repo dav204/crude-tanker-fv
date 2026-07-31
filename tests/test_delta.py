@@ -356,3 +356,26 @@ def test_delta_report_no_mixed_anchor_basis_flag_within_one_basis(tmp_path):
     report = compute_deltas(cur, previous=None)
     content = write_delta_report(report, outputs_dir=tmp_path).read_text()
     assert "MIXED-ANCHOR-BASIS" not in content
+
+
+def test_delta_report_leads_with_stale_price_banner_at_threshold(tmp_path):
+    """2026-07-31: phantom flips rendered with no hint the price basis was a
+    month old. At STALE_PRICE_ALERT_MIN_NAMES freshness-gate fallbacks the
+    report must lead with the banner — before any headline/flip line."""
+    cur = _make_snapshot({"DHT": _base_state()})
+    report = compute_deltas(cur, previous=None)
+    stale = {t: "stale quote (2026-07-24T20:00:04+00:00)" for t in ("TNK", "STNG", "ASC")}
+    content = write_delta_report(report, outputs_dir=tmp_path, stale_prices=stale).read_text()
+    assert "STALE-PRICE RUN" in content
+    assert "ASC, STNG, TNK" in content
+    assert content.index("STALE-PRICE RUN") < content.index("First run.")
+
+
+def test_delta_report_stays_quiet_below_stale_threshold(tmp_path):
+    cur = _make_snapshot({"DHT": _base_state()})
+    report = compute_deltas(cur, previous=None)
+    two = {t: "stale quote (2026-07-24T20:00:04+00:00)" for t in ("TNK", "STNG")}
+    assert "STALE-PRICE RUN" not in write_delta_report(
+        report, outputs_dir=tmp_path, stale_prices=two).read_text()
+    assert "STALE-PRICE RUN" not in write_delta_report(
+        report, outputs_dir=tmp_path).read_text()
