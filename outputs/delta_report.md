@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-07-31T19:11:34+00:00
-- **Previous run:** 2026-07-31T19:01:15+00:00
+- **This run:** 2026-07-31T19:18:35+00:00
+- **Previous run:** 2026-07-31T19:11:34+00:00
 
 ## Headline changes (material moves)
 
@@ -9,7 +9,7 @@
 
 ## Input files changed since last run
 
-- `inputs/market_data/newbuild_specs.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 

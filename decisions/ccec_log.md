@@ -1,5 +1,23 @@
 # CCEC — Decision Log
 
+## 2026-07-31T19:18:35+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $22.39
+- Single-point FV: $32.08
+- Scenario PW FV: $35.91 (EV +60.4%)
+- NAV / share: $28.10
+- Position: **BUY (undervalued)**
+- Broker spread: -13.5pp (k_broker 0.97)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31) clean-stamp regen (TNK Q2 refresh arc close) — no movement; the refresh records stand.
+
+---
+
 ## 2026-07-31T19:11:34+00:00 — Pipeline run (auto)
 
 **Model state:**

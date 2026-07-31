@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-31T19:18:35+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $31.16
+- Single-point FV: $28.16
+- Scenario PW FV: $30.67 (EV -1.5%)
+- NAV / share: $28.45
+- Position: **HOLD (fairly valued)**
+- Broker spread: -16.0pp (k_broker 0.90)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31) clean-stamp regen (TNK Q2 refresh arc close) — no movement; the refresh records stand.
+
+---
+
 ## 2026-07-31T19:11:34+00:00 — Pipeline run (auto)
 
 **Model state:**

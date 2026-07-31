@@ -34,7 +34,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | INSW | crude | GOVERNED-WIDE · pending-anchor | $96.13 | $54.46 | 38.47–77.73 | -43% | rich · cycle position (not a short) | $38.50 | $52.48 | $86.60 | -39% | OK | ready | stable |
 | NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $6.53 | $2.79 | 1.88–4.54 | -57% | rich · cycle position (not a short) | $3.14 | $2.85 | $7.68 (apx) | -63% | n-a | ready | stable |
 | TEN | crude | GOVERNED-WIDE · mixed | $40.23 | $56.83 | 41.52–82.07 | +41% | BUY (undervalued) | $59.78 | $87.57 | $118.32 (apx) | -26% | n-a | ready | stable |
-| TNK | crude | GOVERNED-WIDE | $79.95 | $76.95 | 65.15–99.39 | -4% | HOLD (fairly valued) | $83.25 | $81.48 | $109.53 | -26% | OK | ready | stable |
+| TNK | crude | GOVERNED-WIDE · read-flips | $79.95 | $76.95 | 65.15–99.39 | -4% | HOLD (fairly valued) | $83.25 | $81.48 | $109.53 | -26% | OK | ready | stable |
 | ASC | product | GOVERNED-WIDE · structural-class | $17.40 | $16.85 | 13.26–19.79 | -3% | HOLD (fairly valued) | $16.77 | $17.82 | $23.20 (apx) | -23% | n-a | ready | stable |
 | TRMD | product | GOVERNED-WIDE · basis-pending | $30.19 | $31.87 | 18.47–45.34 | +6% | BUY (undervalued) | $30.94 | $30.30 | $36.82 | -18% | OK | ready | **⚠ sign flips** |
 | 2343 | dry_bulk | GOVERNED-WIDE · pending-anchor | $0.42 | $0.39 | 0.32–0.45 | -7% | TRIM/SHORT (overvalued) | $0.39 | $0.40 | $0.43 (apx) | -6% | n-a | ready | stable |

@@ -1,5 +1,23 @@
 # SB — Decision Log
 
+## 2026-07-31T19:18:35+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.81
+- Single-point FV: $10.35
+- Scenario PW FV: $10.10 (EV +29.4%)
+- NAV / share: $10.73
+- Position: **BUY (undervalued)**
+- Broker spread: -20.4pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31) clean-stamp regen (TNK Q2 refresh arc close) — no movement; the refresh records stand.
+
+---
+
 ## 2026-07-31T19:11:34+00:00 — Pipeline run (auto)
 
 **Model state:**
