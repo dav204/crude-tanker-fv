@@ -1,5 +1,42 @@
 # CCEC — Decision Log
 
+## 2026-07-31T18:03:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $22.39
+- Single-point FV: $32.08
+- Scenario PW FV: $35.91 (EV +60.4%)
+- NAV / share: $28.10
+- Position: **BUY (undervalued)**
+- Broker spread: -13.5pp (k_broker 0.97)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.79 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +4.3pp
+
+**Decision:** (2026-07-31) TWO-CAUSE regen — (1) B' reweight EXECUTED (owner go; 7/22 frozen conditional; decisions/ceasefire_mediation_check_2026-07-31.md — crude scenario FVs +0.5-0.6%, per the proposal's B' column) + (2) the 7/31 live price vintage (deliberate absorb b9aa18a — the committed 7/24 vintage aged past the overlay freshness gate and one regen fell back to stale watchlist prices; those outputs were DISCARDED, never committed). ΔNAV +0.0% every row. Earnings-week tape: the shipping complex rallied on the Q2 prints. EV%-only (Q2 landed 7/29 pre-open — the governance t2 venue; refresh queued FIRST in the Q2 block).
+
+---
+
+## 2026-07-31T18:00:07+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $21.60
+- Single-point FV: $32.08
+- Scenario PW FV: $35.91 (EV +66.2%)
+- NAV / share: $28.10
+- Position: **BUY (undervalued)**
+- Broker spread: -17.8pp (k_broker 0.96)
+- Sector: lng
+
+**Material deltas since last run:**
+- ⚑ broker spread -9.1pp
+- Δprice: -1.75 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -9.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-28T19:32:52+00:00 — Pipeline run (auto)
 
 **Model state:**

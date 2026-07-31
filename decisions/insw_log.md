@@ -7,6 +7,44 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-31T18:03:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $96.13
+- Single-point FV: $38.50
+- Scenario PW FV: $54.46 (EV -43.4%)
+- NAV / share: $52.48
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +30.3pp (k_broker 1.65)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread +7.8pp
+- Δprice: +13.73 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +7.8pp
+
+**Decision:** (2026-07-31) TWO-CAUSE regen — (1) B' reweight EXECUTED (owner go; 7/22 frozen conditional; decisions/ceasefire_mediation_check_2026-07-31.md — crude scenario FVs +0.5-0.6%, per the proposal's B' column) + (2) the 7/31 live price vintage (deliberate absorb b9aa18a — the committed 7/24 vintage aged past the overlay freshness gate and one regen fell back to stale watchlist prices; those outputs were DISCARDED, never committed). ΔNAV +0.0% every row. Earnings-week tape: the shipping complex rallied on the Q2 prints. EV%-only (+$13.73 tape; earnings 8/4-8/7 window).
+
+---
+
+## 2026-07-31T18:00:07+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $82.40
+- Single-point FV: $38.50
+- Scenario PW FV: $54.46 (EV -33.9%)
+- NAV / share: $52.48
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +22.5pp (k_broker 1.41)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -5.7pp
+- Δprice: -9.88 | Δsingle FV: no change | Δscenario FV: +0.6% | ΔNAV: no change | Δspread: -5.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-28T19:32:52+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,10 +1,10 @@
 # HAFN — Scenario Fair Value (product margin / glut framework)
 
-- **Current price:** $7.65
+- **Current price:** $7.67
 - **Analyst target:** $10.00
 - **NAV / share (reference, unflexed):** $5.57 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $6.23 (-18.6% vs price)
-- **Breakeven TCE (scenario-invariant):** $98,762/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
+- **Probability-weighted fair value:** $6.23 (-18.8% vs price)
+- **Breakeven TCE (scenario-invariant):** $99,382/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** TRIM/SHORT (overvalued)
 
 ## Per-scenario fair value
@@ -22,9 +22,9 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $+1.22
-- **Downside (worst scenario − price):** $-4.59
-- **Expected value vs current** (weighted FV − price): $-1.42 (-18.6%)
+- **Upside (best scenario − price):** $+1.20
+- **Downside (worst scenario − price):** $-4.61
+- **Expected value vs current** (weighted FV − price): $-1.44 (-18.8%)
 - **Position:** TRIM/SHORT (overvalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

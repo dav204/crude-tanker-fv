@@ -1,5 +1,45 @@
 # TNK — Decision Log
 
+## 2026-07-31T18:03:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $79.95
+- Single-point FV: $79.61
+- Scenario PW FV: $73.69 (EV -7.8%)
+- NAV / share: $77.73
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +31.3pp (k_broker 1.69)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → TRIM/SHORT (overvalued)
+- ⚑ broker spread +14.0pp
+- Δprice: +12.35 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +14.0pp
+
+**Decision:** (2026-07-31) TWO-CAUSE regen — (1) B' reweight EXECUTED (owner go; 7/22 frozen conditional; decisions/ceasefire_mediation_check_2026-07-31.md — crude scenario FVs +0.5-0.6%, per the proposal's B' column) + (2) the 7/31 live price vintage (deliberate absorb b9aa18a — the committed 7/24 vintage aged past the overlay freshness gate and one regen fell back to stale watchlist prices; those outputs were DISCARDED, never committed). ΔNAV +0.0% every row. Earnings-week tape: the shipping complex rallied on the Q2 prints. FLIP EYEBALL (the one real flip): HOLD→TRIM/SHORT at $79.95 (+18% on the week, Q2 landed 7/29) — price-led band crossing, FV byte-unchanged pre-refresh; the report-day refresh (queued, next block) rebuilds the FV and is the real venue. Band-mech classified; accepted individually at the ratify.
+
+---
+
+## 2026-07-31T18:00:07+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $67.60
+- Single-point FV: $79.61
+- Scenario PW FV: $73.69 (EV +9.0%)
+- NAV / share: $77.73
+- Position: **BUY (undervalued)**
+- Broker spread: +17.3pp (k_broker 1.32)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- ⚑ broker spread -9.6pp
+- Δprice: -8.21 | Δsingle FV: no change | Δscenario FV: +0.5% | ΔNAV: no change | Δspread: -9.6pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-28T19:32:52+00:00 — Pipeline run (auto)
 
 **Model state:**

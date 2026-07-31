@@ -1,5 +1,41 @@
 # CAPT — Decision Log
 
+## 2026-07-31T18:03:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.51
+- Single-point FV: $16.03
+- Scenario PW FV: $13.38 (EV -0.9%)
+- NAV / share: $15.49
+- Position: **HOLD (fairly valued)**
+- Broker spread: +25.2pp (k_broker 1.15)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.20 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.4pp
+
+**Decision:** (2026-07-31) B' EXECUTION EYEBALL (the pre-registered halt-and-investigate rider): the 7/22 what-if predicted a shallow CAPT HOLD→BUY at that vintage; at the LIVE 7/31 tape ($13.51) **NO FLIP occurs** — CAPT holds HOLD, EV move +1.4pp sub-threshold. Rider satisfied by observation; nothing to halt. decisions/ceasefire_mediation_check_2026-07-31.md.
+
+---
+
+## 2026-07-31T18:00:07+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.31
+- Single-point FV: $16.03
+- Scenario PW FV: $13.38 (EV +0.5%)
+- NAV / share: $15.49
+- Position: **HOLD (fairly valued)**
+- Broker spread: +23.8pp (k_broker 1.14)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.30 | Δsingle FV: no change | Δscenario FV: +1.8% | ΔNAV: no change | Δspread: +2.4pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-28T19:32:52+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,5 +1,44 @@
 # GNK — Decision Log
 
+## 2026-07-31T18:03:55+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.76
+- Single-point FV: $25.14
+- Scenario PW FV: $24.08 (EV -6.5%)
+- NAV / share: $25.98
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +9.6pp (k_broker 1.09)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: +1.26 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +4.3pp
+
+**Decision:** (2026-07-31) TWO-CAUSE regen — (1) B' reweight EXECUTED (owner go; 7/22 frozen conditional; decisions/ceasefire_mediation_check_2026-07-31.md — crude scenario FVs +0.5-0.6%, per the proposal's B' column) + (2) the 7/31 live price vintage (deliberate absorb b9aa18a — the committed 7/24 vintage aged past the overlay freshness gate and one regen fell back to stale watchlist prices; those outputs were DISCARDED, never committed). ΔNAV +0.0% every row. Earnings-week tape: the shipping complex rallied on the Q2 prints. EV%-only (tender outcome now public — read at the GNK refresh, 8/5 report).
+
+---
+
+## 2026-07-31T18:00:07+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.50
+- Single-point FV: $25.14
+- Scenario PW FV: $24.08 (EV -1.7%)
+- NAV / share: $25.98
+- Position: **HOLD (fairly valued)**
+- Broker spread: +5.3pp (k_broker 1.05)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position TRIM/SHORT (overvalued) → HOLD (fairly valued)
+- ⚑ broker spread -7.5pp
+- Δprice: -2.27 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -7.5pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-28T19:32:52+00:00 — Pipeline run (auto)
 
 **Model state:**
