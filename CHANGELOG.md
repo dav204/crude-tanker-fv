@@ -5,6 +5,20 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-07-31 — STALE-PRICE SILENT FALLBACK (caught same hour; artifact outputs discarded
+  uncommitted).** The B' regen ran while the committed `prices_daily` vintage was 7 days old
+  (the laptop-shut week: daily refreshes wrote the file but nothing committed it, and the
+  revert-before-regen rule discarded them) — the loader's overlay freshness gate silently fell
+  back to `watchlist.current_price` values dated Jun-26/Jul-3, producing phantom BUY flips
+  (TNK/STNG/ASC) on month-old prices. Caught because the flips contradicted the live IBKR
+  tape (SB $6.39 vs $7.81). Fix-of-the-day: fresh 7/31 vintage fetched + deliberately
+  committed FIRST, regen re-run, artifacts discarded. GUARD OWED (task-flagged): a regen
+  where >N names fall back past the freshness gate should refuse or go loud in the delta
+  header — a silent basis swap during an FV-moving event is exactly the §10 mixed-basis
+  class of error. Also of note: B' executed same day (see the reweight commits) after the
+  7/29 mediation watch surfaced a THIRD state (pause-without-talks) the pre-registration's
+  binary didn't name — successor trigger now carries three explicit branches.
+
 - **2026-07-28 — DECISION-LOG AUTO-PREPEND ANCHOR FIXED (the 2343 mid-file quirk flagged at
   71e7020).** `delta.prepend_decision_log_entries` anchored on the first `---\n`, which is the
   preamble separator only in AUTO-founded logs; a manually-founded log (2343 at its 7/14

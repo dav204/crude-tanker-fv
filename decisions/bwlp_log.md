@@ -1,5 +1,23 @@
 # BWLP — Decision Log
 
+## 2026-07-31T18:06:00+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $22.70
+- Single-point FV: $15.43
+- Scenario PW FV: $14.46 (EV -36.3%)
+- NAV / share: $15.80
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +27.8pp (k_broker 1.38)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31) clean-stamp regen (B' arc close) — no movement; the two-cause annotations below stand.
+
+---
+
 ## 2026-07-31T18:03:55+00:00 — Pipeline run (auto)
 
 **Model state:**

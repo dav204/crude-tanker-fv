@@ -1,5 +1,23 @@
 # ASC — Decision Log
 
+## 2026-07-31T18:06:00+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.40
+- Single-point FV: $16.77
+- Scenario PW FV: $16.85 (EV -3.2%)
+- NAV / share: $17.82
+- Position: **HOLD (fairly valued)**
+- Broker spread: +27.1pp (k_broker 1.35)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31) clean-stamp regen (B' arc close) — no movement; the two-cause annotations below stand.
+
+---
+
 ## 2026-07-31T18:03:55+00:00 — Pipeline run (auto)
 
 **Model state:**
