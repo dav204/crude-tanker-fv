@@ -55,8 +55,11 @@ sizing decision reads a crude FV before Stage A (≤8/15).
 
 1. `crude_ceasefire_mediation_watch` → **CHECKED, RULING PENDING** (not marked done; the
    trigger stays red until the owner rules, per the fired-ruled-deferred treatment).
-2. **Owner decision:** [ ] execute B′ now (agent rec) · [ ] hold to the Aug-16 venue ·
-   [ ] amend the branch definition for future checks.
+2. **Owner decision: RULED same day — "Execute B′"** (the letter governs). Executed
+   2026-07-31: weights 0.25/0.57/0.05/0.13 (6c508fb), regen at the live 7/31 vintage,
+   ratified (1d1cdb9). CAPT: NO flip at the live tape (halt rider satisfied); TNK
+   HOLD→T/S eyeballed price-led (earnings rally). The stale-price artifact regen that
+   preceded the live one was discarded uncommitted (see CHANGELOG 2026-07-31).
 3. Successor watch to arm on the ruling either way — the pause/talks thread needs a dated
    re-check (~1 week) regardless of which way B′ goes.
 

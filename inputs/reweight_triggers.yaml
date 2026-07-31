@@ -33,6 +33,25 @@ crude_mou_implementation_check:
                  # decisions/mou_implementation_check_2026-07-18.md
   added: 2026-07-02
 
+crude_pause_talks_watch:
+  sector: crude
+  due: 2026-08-07
+  observable: >
+    Successor to crude_ceasefire_mediation_watch (B' executed 2026-07-31). The
+    strike PAUSE (US, ~7/26-27, at Iran's request) + mediator-reported progress
+    vs Iran's denial of bilateral talks (Oman-only channel). Does a ceasefire
+    convene/take effect, do strikes resume, or does the ambiguous pause persist
+    into the toll cliff?
+  action: >
+    Ceasefire convenes/takes effect -> re-normalization PROPOSAL to the owner
+    (never unilateral; mou_bear is the landing zone, B' already holds it ~flat).
+    Strikes resume -> record; B' stands (escalation mass untouched by design).
+    Ambiguous pause persists -> record; the Aug-16 toll-cliff venue (9d later)
+    does the full re-derivation regardless. LESSON ENCODED from the 7/29 check:
+    this card names THREE branches, not two.
+  status: armed
+  added: 2026-07-31
+
 crude_day60_toll_cliff:
   sector: crude+product
   due: 2026-08-16
@@ -157,7 +176,10 @@ crude_ceasefire_mediation_watch:
     VOID; re-normalization PROPOSAL to the owner, never a unilateral reweight.
     Either branch: crude_day60_toll_cliff (Aug-16) stands as the venue for the
     full MoU-family re-derivation.
-  status: fired-ruling-pending   # CHECKED 2026-07-31 (2d late): the card's BINARY DOES NOT
+  status: done   # RULED + EXECUTED 2026-07-31 (owner: "Execute B'"): the letter governs the
+                 # pause-without-talks third state. B' live (0.25/0.57/0.05/0.13, commit
+                 # 6c508fb; regen at the 7/31 vintage, ratified 1d1cdb9; CAPT no-flip,
+                 # TNK flip eyeballed price-led). Successor below; Aug-16 unchanged.   # CHECKED 2026-07-31 (2d late): the card's BINARY DOES NOT
                  # FIT — US paused strikes ~7/26-27 at Iran's request, mediators report
                  # progress, BUT Iran denies bilateral talks (Oman-only channel) and NO
                  # ceasefire is convened or in effect. By the card's letter the collapse
