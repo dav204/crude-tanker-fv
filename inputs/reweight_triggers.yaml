@@ -157,7 +157,14 @@ crude_ceasefire_mediation_watch:
     VOID; re-normalization PROPOSAL to the owner, never a unilateral reweight.
     Either branch: crude_day60_toll_cliff (Aug-16) stands as the venue for the
     full MoU-family re-derivation.
-  status: armed
+  status: fired-ruling-pending   # CHECKED 2026-07-31 (2d late): the card's BINARY DOES NOT
+                 # FIT — US paused strikes ~7/26-27 at Iran's request, mediators report
+                 # progress, BUT Iran denies bilateral talks (Oman-only channel) and NO
+                 # ceasefire is convened or in effect. By the card's letter the collapse
+                 # branch is met (B' executes); the state is a third one the ruling did not
+                 # contemplate. Agent rec = EXECUTE (B' retires dead-MoU mass, leaves
+                 # escalation untouched — premise undisturbed by a pause). OWNER RULES.
+                 # Record: decisions/ceasefire_mediation_check_2026-07-31.md
   added: 2026-07-22
 
 crude_transit_normalization:
