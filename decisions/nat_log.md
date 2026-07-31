@@ -1,5 +1,23 @@
 # NAT — Decision Log
 
+## 2026-07-31T19:39:22+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.53
+- Single-point FV: $3.14
+- Scenario PW FV: $2.79 (EV -57.2%)
+- NAV / share: $2.85
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +59.5pp (k_broker 2.25)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31 EVE) clean-stamp regen at the coherence-restore commit — no movement.
+
+---
+
 ## 2026-07-31T19:31:16+00:00 — Pipeline run (auto)
 
 **Model state:**

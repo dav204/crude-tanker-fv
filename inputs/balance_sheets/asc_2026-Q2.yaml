@@ -58,10 +58,11 @@ lease_liabilities: 1599000
 # totals $165.2M but is explicitly dated "as of July 29, 2026" — AFTER the Company "paid
 # $18.4 million as installments for two of the newbuildings" in Q3 2026. The 2026-06-30
 # commitment is therefore 165.2 + 18.4 = 183.6.
-# ADVANCES AT 6/30 = ZERO, verified two ways: (i) the MD&A lists "first installment payments
-# for the four newbuildings" under SHORT-TERM liquidity requirements (i.e. still upcoming at
-# the balance-sheet date), and (ii) H1 investing cash flow shows only $2.2M vessel/equipment
-# acquisition + $0.5M "advances for vessel equipment" — no newbuild instalment outflow.
+# ADVANCES AT 6/30 = ZERO per two independent lines of the same 6-K (acc 0001104659-26-087834):
+#   (i) MD&A Liquidity: "first installment payments for the four newbuildings" is listed under
+#       SHORT-TERM liquidity REQUIREMENTS — i.e. still upcoming at the balance-sheet date; and
+#   (ii) MD&A H1 investing cash flow: only "$2.2 million" vessel/equipment acquisition and
+#        "$0.5 million" advances for vessel EQUIPMENT — no newbuild instalment outflow.
 newbuild_capex_commitments: 183600000
 newbuild_advances_paid: 0
 

@@ -1,5 +1,23 @@
 # TRMD — Decision Log
 
+## 2026-07-31T19:39:22+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $30.19
+- Single-point FV: $30.94
+- Scenario PW FV: $31.87 (EV +5.5%)
+- NAV / share: $30.30
+- Position: **BUY (undervalued)**
+- Broker spread: +18.9pp (k_broker 1.18)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31 EVE) clean-stamp regen at the coherence-restore commit — no movement.
+
+---
+
 ## 2026-07-31T19:31:16+00:00 — Pipeline run (auto)
 
 **Model state:**

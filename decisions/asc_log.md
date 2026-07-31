@@ -1,5 +1,23 @@
 # ASC — Decision Log
 
+## 2026-07-31T19:39:22+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.40
+- Single-point FV: $16.77
+- Scenario PW FV: $16.85 (EV -3.2%)
+- NAV / share: $17.82
+- Position: **HOLD (fairly valued)**
+- Broker spread: +27.1pp (k_broker 1.35)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31 EVE) clean-stamp regen at the coherence-restore commit — no movement.
+
+---
+
 ## 2026-07-31 (EVE) — ⚠ THE Q2 REFRESH BELOW IS **STAGED, NOT APPLIED** — see decisions/q2_cluster_transition_2026-07-31.md
 
 The `asc_2026-Q2.yaml` balance sheet is written, sourced and kept; the fleet-manifest edits
