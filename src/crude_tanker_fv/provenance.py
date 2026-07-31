@@ -43,11 +43,7 @@ OFF_CONVENTION_QUEUE = {"CMBT", "STNG", "TEN"}  # NAT/ASC/ECO/HAFN left; TRMD le
 SCRUBBER_UNVERIFIED_QUEUE: set[str] = set()   # NEWBUILD-value scrubber flag unverified (now empty)
 
 # --- Operating-scrubber audit (test_scrubber_provenance) ---------------------------------------
-OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "ECO": 16, "TRMD": 85,   # name -> audited operating scrubber-fitted count
-                               # SB 20->19 at the 2026-07-31 Q2 refresh: the 20-F set is 21
-                               # (all Capes + 13 non-Cape); at 6/30 Michalis H (scrubber Cape)
-                               # is SOLD and Xenia (scrubber PPMX) is HFS -> 19 operating.
-                               "SB": 19,
+OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "SB": 20, "ECO": 16, "TRMD": 85,   # name -> audited operating scrubber-fitted count
                                # LPG/BWLP verified AT onboarding (2026-07-10, WO3 Phase 4) — per-vessel
                                # issuer columns, not blanket flags: Dorian FY2026 10-K Item 4 fleet-table
                                # "Scrubber Equipped and/or Dual-Fuel" ("S" flags; 16 of 22 owned hulls);
@@ -187,14 +183,6 @@ TIER_SUBREASON = {
     "INSW": "pending-anchor",
     "TEN": "mixed",
     "CMDB": "read-flips", "GNK": "read-flips",
-    # TNK 2026-07-31 (Q2 report-day refresh): LEFT VALIDATED-TIGHT. The refresh lifted the
-    # scenario FV +4.4% (cash 996->1,212M, 2 Suezmax NBs on-curve, VLCC off to HFS), putting
-    # the name essentially AT fair value (EV -3.8%, price 79.95 vs FV 76.95) — so the §9.10
-    # weight family now STRADDLES the HOLD/TRIM boundary (positions: HOLD,HOLD,T/S,T/S,T/S,T/S)
-    # and the read FLIPS between bases. Its figures all trace (resale-uniform, SANITY OK) —
-    # the wideness is label fragility at fair value, not a provenance gap. Resolution path:
-    # the name re-tightens when price and FV separate again (either direction). tnk_log 7/31.
-    "TNK": "read-flips",
     "NAT": "newbuild-indeterminate",
     "BRUT": "cash-pending", "HAFN": "pool-gross-up-pending",
     "STNG": "off-curve",

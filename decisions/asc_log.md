@@ -1,5 +1,65 @@
 # ASC — Decision Log
 
+## 2026-07-31 (EVE) — ⚠ THE Q2 REFRESH BELOW IS **STAGED, NOT APPLIED** — see decisions/q2_cluster_transition_2026-07-31.md
+
+The `asc_2026-Q2.yaml` balance sheet is written, sourced and kept; the fleet-manifest edits
+were **REVERTED** the same evening. Reason: `load_balance_sheet` resolves an exact
+`{{ticker}}_{{quarter}}.yaml` (no fallback) while the fleet manifest is quarter-agnostic, so
+with the pipeline running `2026-Q1` the manifest half went live and the balance-sheet half
+did not — asset counted, liability ignored. **The NAV/band results recorded below were
+computed on MIXED inputs and are therefore VOID as measurements.** The attributions in them
+(young-Panamax anchor; VLCC old-age level) are retained as HYPOTHESES to re-test, not as
+findings. This name re-runs as part of the Q2 cluster transition once the vintage mechanism
+is ruled.
+
+---
+
+## 2026-07-31T19:31:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.40
+- Single-point FV: $16.77
+- Scenario PW FV: $16.85 (EV -3.2%)
+- NAV / share: $17.82
+- Position: **HOLD (fairly valued)**
+- Broker spread: +27.1pp (k_broker 1.35)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- ⚑ single-point FV -17.4%
+- ⚑ scenario PW FV -17.1%
+- ⚑ broker spread +15.0pp
+- ⚑ NAV/sh -14.5%
+- Δprice: no change | Δsingle FV: -17.4% | Δscenario FV: -17.1% | ΔNAV: -14.5% | Δspread: +15.0pp
+
+**Decision:** (2026-07-31 EVE) coherence-restore regen — the three staged Q2 refreshes were REVERTED on the manifest side (see the VOID banner at the top of sb/tnk/asc logs + decisions/q2_cluster_transition_2026-07-31.md); this run is coherent Q1-manifest-on-Q1-balance-sheet. No movement vs the pre-refresh state.
+
+---
+
+## 2026-07-31T19:27:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.40
+- Single-point FV: $20.31
+- Scenario PW FV: $20.32 (EV +16.8%)
+- NAV / share: $20.84
+- Position: **BUY (undervalued)**
+- Broker spread: +12.1pp (k_broker 1.13)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- ⚑ single-point FV +21.1%
+- ⚑ scenario PW FV +20.6%
+- ⚑ broker spread -15.0pp
+- ⚑ NAV/sh +16.9%
+- Δprice: no change | Δsingle FV: +21.1% | Δscenario FV: +20.6% | ΔNAV: +16.9% | Δspread: -15.0pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-31 — Q2 REPORT-DAY REFRESH (pre-registered BEFORE recompute; 6-K pair acc -087834/-087836)
 
 **Snapshot moved 2026-03-31 → 2026-06-30.** Deltas: **debt 103.4 → 33.4** (−$70.0M of Q2

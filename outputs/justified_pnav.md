@@ -18,14 +18,14 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 
 | Ticker | Sector | NAV/sh | Price | P/NAV (mkt) | RONAV (par) | Just P/NAV (par) | RONAV (hist) | Just P/NAV (hist) | Read: par → hist | Robust? |
 |---|---|--:|--:|--:|--:|--:|--:|--:|---|---|
-| SB | dry_bulk | $10.73 | $6.39 | 0.596× | 14.6% | 1.359× | 9.8% | 0.878× | cheap → cheap | robust |
+| SB | dry_bulk | $10.07 | $6.39 | 0.634× | 15.2% | 1.422× | 10.2% | 0.918× | cheap → cheap | robust |
 | SBLK | dry_bulk | $30.64 | $25.20 | 0.822× | 12.7% | 1.174× | 10.7% | 0.975× | cheap → cheap | robust |
 | CMDB | dry_bulk | $32.65 | $17.25 | 0.528× | 7.7% | 0.672× | 6.4% | 0.545× | cheap → fair | flips (cheap/fair) |
 | GNK | dry_bulk | $25.98 | $24.50 | 0.943× | 11.7% | 1.067× | 10.6% | 0.962× | cheap → fair | flips (cheap/fair) |
 | 2343 | dry_bulk | $0.40 | $0.39 | 0.976× | 12.0% | 1.097× | 12.5% | 1.154× | cheap → cheap | robust |
-| TNK | crude | $81.48 | $67.60 | 0.830× | 7.2% | 0.616× | 8.5% | 0.748× | rich → fair | flips (rich/fair) |
+| TNK | crude | $77.73 | $67.60 | 0.870× | 7.3% | 0.635× | 8.8% | 0.779× | rich → rich | robust |
 | DHT | crude | $13.58 | $17.20 | 1.266× | 10.0% | 0.901× | 9.4% | 0.837× | rich → rich | robust |
-| FRO | crude | $24.11 | $36.80 | 1.527× | 10.5% | 0.955× | 9.6% | 0.865× | rich → rich | robust |
+| FRO | crude | $24.11 | $36.80 | 1.527× | 10.6% | 0.955× | 9.6% | 0.865× | rich → rich | robust |
 | NAT | crude | $2.85 | $5.80 | 2.039× | 12.9% | 1.191× | 9.7% | 0.865× | rich → rich | robust |
 | ECO | crude | $34.42 | $53.10 | 1.543× | 7.7% | 0.668× | 6.4% | 0.539× | rich → rich | robust |
 | INSW **(WHOLE-CO)** | crude | $52.48 | $82.40 | 1.570× | n/a | — | 9.9% | 0.890× | no anchor → rich | n/a |

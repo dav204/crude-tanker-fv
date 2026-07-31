@@ -10,12 +10,12 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | GSL | 0.75× | 1.42 | -8.5% | +9.6% | +27.7% | TRIM/SHORT→BUY | $118,655→NAV>px | +36 | wide-spread |
 | TRMD | 0.82× | 1.18 | +5.6% | +15.0% | +24.5% | BUY→BUY | $42,981→NAV>px | +19 | wide-spread |
 | CAPT | 0.69× | 1.15 | -1.0% | +11.6% | +24.2% | HOLD→BUY | NAV>px→NAV>px | +25 | wide-spread |
-| TNK | 0.73× | 1.56 | -3.8% | +10.2% | +24.1% | HOLD→BUY | $54,688→NAV>px | +28 | wide-spread |
 | ASC | 0.75× | 1.35 | -3.2% | +10.4% | +24.0% | HOLD→BUY | $30,382→NAV>px | +27 | wide-spread |
+| TNK | 0.73× | 1.69 | -7.8% | +7.8% | +23.5% | TRIM/SHORT→BUY | $87,258→NAV>px | +31 | wide-spread |
 | HAFN | 0.86× | 1.51 | -18.8% | +0.3% | +19.3% | TRIM/SHORT→BUY | $99,382→$7,511 | +38 | wide-spread |
 | SBLK | 0.78× | 1.16 | -0.5% | +8.7% | +17.8% | HOLD→BUY | $19,445→NAV>px | +18 | wide-spread |
 | CMBT **(WHOLE-CO)** | 0.73× | 1.22 | -12.7% | +2.5% | +17.7% | TRIM/SHORT→BUY | $83,165→NAV>px | +30 | wide-spread |
-| SB | 0.88× | 0.89 | +29.4% | +19.1% | +8.9% | BUY→BUY | NAV>px→NAV>px | -20 | wide-spread |
+| SB | 0.88× | 0.93 | +21.3% | +14.7% | +8.2% | BUY→BUY | NAV>px→NAV>px | -13 | wide-spread |
 | LPG | 0.84× | 1.52 | -34.4% | -15.3% | +3.7% | TRIM/SHORT→HOLD | $215,517→NAV>px | +38 | wide-spread |
 | GNK | 0.89× | 1.09 | -6.5% | -1.7% | +3.1% | TRIM/SHORT→HOLD | $30,584→$14,327 | +10 | narrow-spread |
 | CMDB | 0.62× | 0.95 | +7.7% | +5.4% | +3.1% | BUY→HOLD | $9,375→$15,105 | -5 | narrow-spread |

@@ -213,7 +213,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 |---|--:|--:|--:|--:|---|
 | CCEC | $28.10→$28.10 | +0.0% | +60.4%→+60.4% | +0.0 | BUY→BUY |
 | TEN | $94.58→$87.57 | -7.4% | +51.5%→+41.3% | -10.3 | BUY→BUY |
-| SB | $10.36→$10.73 | +3.5% | +24.7%→+29.4% | +4.7 | BUY→BUY |
+| SB | $9.72→$10.07 | +3.6% | +16.8%→+21.3% | +4.5 | BUY→BUY |
 | BRUT | $8.80→$8.80 | +0.0% | +10.0%→+8.1% | -1.9 | BUY→BUY |
 | CMDB | $32.12→$32.65 | +1.7% | +6.1%→+7.7% | +1.5 | BUY→BUY |
 | TRMD | $31.65→$30.30 | -4.2% | +9.4%→+5.6% | -3.9 | BUY→BUY |
@@ -222,9 +222,9 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | CAPT | $15.61→$15.49 | -0.8% | +0.7%→-1.0% | -1.7 | HOLD→HOLD |
 | FLNG | $28.45→$28.45 | +0.0% | -1.5%→-1.5% | +0.0 | HOLD→HOLD |
 | ASC | $17.82→$17.82 | -0.0% | -3.1%→-3.2% | -0.0 | HOLD→HOLD |
-| TNK | $86.53→$81.48 | -5.8% | +1.2%→-3.8% | -4.9 | HOLD→HOLD |
 | GNK | $25.53→$25.98 | +1.8% | -8.0%→-6.5% | +1.4 | TRIM/SHORT→TRIM/SHORT |
 | 2343 | $0.40→$0.40 | -1.1% | -6.3%→-7.2% | -0.9 | TRIM/SHORT→TRIM/SHORT |
+| TNK | $83.32→$77.73 | -6.7% | -2.4%→-7.8% | -5.5 | HOLD→TRIM/SHORT ⚠️ |
 | GSL | $38.59→$38.59 | +0.0% | -8.5%→-8.5% | +0.0 | TRIM/SHORT→TRIM/SHORT |
 | CMBT **(WHOLE-CO)** | $15.84→$16.19 | +2.2% | -14.6%→-12.7% | +1.9 | TRIM/SHORT→TRIM/SHORT |
 | HAFN | $5.69→$5.57 | -2.1% | -17.5%→-18.8% | -1.3 | TRIM/SHORT→TRIM/SHORT |

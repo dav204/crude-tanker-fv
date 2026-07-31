@@ -1,5 +1,56 @@
 # TNK — Decision Log
 
+## 2026-07-31 (EVE) — ⚠ THE Q2 REFRESH BELOW IS **STAGED, NOT APPLIED** — see decisions/q2_cluster_transition_2026-07-31.md
+
+The `tnk_2026-Q2.yaml` balance sheet is written, sourced and kept; the fleet-manifest edits
+were **REVERTED** the same evening. Reason: `load_balance_sheet` resolves an exact
+`{{ticker}}_{{quarter}}.yaml` (no fallback) while the fleet manifest is quarter-agnostic, so
+with the pipeline running `2026-Q1` the manifest half went live and the balance-sheet half
+did not — asset counted, liability ignored. **The NAV/band results recorded below were
+computed on MIXED inputs and are therefore VOID as measurements.** The attributions in them
+(young-Panamax anchor; VLCC old-age level) are retained as HYPOTHESES to re-test, not as
+findings. This name re-runs as part of the Q2 cluster transition once the vintage mechanism
+is ruled.
+
+---
+
+## 2026-07-31T19:31:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $79.95
+- Single-point FV: $79.61
+- Scenario PW FV: $73.69 (EV -7.8%)
+- NAV / share: $77.73
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +31.3pp (k_broker 1.69)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: no change | Δsingle FV: -4.4% | Δscenario FV: -4.2% | ΔNAV: -4.6% | Δspread: +3.4pp
+
+**Decision:** (2026-07-31 EVE) coherence-restore regen — the three staged Q2 refreshes were REVERTED on the manifest side (see the VOID banner at the top of sb/tnk/asc logs + decisions/q2_cluster_transition_2026-07-31.md); this run is coherent Q1-manifest-on-Q1-balance-sheet. No movement vs the pre-refresh state.
+
+---
+
+## 2026-07-31T19:27:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $79.95
+- Single-point FV: $83.25
+- Scenario PW FV: $76.95 (EV -3.8%)
+- NAV / share: $81.48
+- Position: **HOLD (fairly valued)**
+- Broker spread: +27.9pp (k_broker 1.56)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-31T19:18:35+00:00 — Pipeline run (auto)
 
 **Model state:**

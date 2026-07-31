@@ -96,13 +96,13 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
 - **Never type a market price from filing/report prose** (2026-06-10, TEN $44). Prices come from
   `prices_daily.yaml` or a dated quote; a watchlist `current_price` NEVER moves without rebasing
   `consensus_pnav` / `consensus_fwd_pe` from the same vintage (broker NAV = price/pnav drifts otherwise).
-- **The snapshot MUST match the NAV/balance-sheet date — fleet AND every balance-sheet figure** (2026-07-01,
-  SB fleet + ASC newbuild). A results 6-K's fleet table is as-of the FILING date, and its **Subsequent Events
-  note is where post-quarter events hide** — a delivery/sale/newbuild ORDER dated after quarter-end does NOT
-  belong in the snapshot (ASC's April-2026 Handysize order was wrongly loaded as a −$88.8M Q1 commitment; SB
-  was the fleet-table version). **Audit the subsequent-events note FIRST** on every reconciliation; build
-  AS-OF the NAV date from the closest-to-quarter filing (20-F / prior 6-K), not the newest page. The "nothing
-  changed" intuition is the trap — the quarter-boundary transactions are what a stale snapshot gets wrong.
+- **Snapshot integrity, two halves** — (a) **DATE**: fleet AND every balance-sheet figure must be as-of the
+  NAV date; a 6-K's fleet table is as-of FILING, and the **Subsequent Events note is where post-quarter events
+  hide** — audit it FIRST, build from the closest-to-quarter filing (2026-07-01, SB/ASC). (b) **APPLICATION**:
+  a refresh is applied only when the run uses BOTH halves — balance sheets are quarter-keyed, manifests are
+  NOT, so a per-name refresh on the old run-quarter puts assets live and leaves liabilities unread. Verify
+  against the run's own `outputs/<t>_fv_report.md` NAV breakdown BEFORE attributing a band miss to a cause;
+  a satisfying explanation is not a verified one (2026-07-31, q2_cluster_transition_2026-07-31.md).
 - **Scrubber flags are sourced per-vessel; the count must cross-foot to the issuer's disclosed
   aggregate at onboarding** (2026-07-01, SB; the CAPT peer-borrowed-flag bug). Guard-enforced:
   `test_verified_operating_scrubber_count` + `test_scrubber_provenance` — work the queue at

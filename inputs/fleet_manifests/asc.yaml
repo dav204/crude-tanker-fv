@@ -1,24 +1,18 @@
 # Ardmore Shipping (ASC / NYSE:ASC) fleet manifest — METHODOLOGY.md sections 4.1, 11.5
-# Source: Ardmore Q2 2026 6-K pair (acc 0001104659-26-087834 companion + -087836 ex-99.1
-# release, filed 2026-07-29). REPORT-DAY REFRESH 2026-07-31, snapshot AS-OF 2026-06-30:
-# "As of June 30, 2026, the Company had 25 vessels in operation (including one chartered-in),
-# consisting of 19 MR tankers (18 owned Eco-Design and one chartered-in Eco-Mod) ... and six
-# owned Eco-Design IMO 2 product/chemical tankers ranging in size from 25,000 dwt to 37,800
-# dwt." OWNED = 18 MR + 6 Handy (2 product on-curve + 4 chemical off-curve) = 24; the
-# chartered-in MR is EXCLUDED (operating lease). Prior: Q1 (acc -056715), reconciled 7/01.
+# Source: Ardmore Q1 2026 6-K (acc 0001104659-26-056715, asc-20260331x6k.htm) fleet table,
+# "As of March 31, 2026, our fleet consisted of the following 25 owned vessels". Cross-footed
+# vessel-by-vessel against that table. Reconciliation: decisions/asc_reconciliation_prereg_2026-07-01.md.
 #
 # The 25 owned vessels split: 18 operating MRs (~50k) + 2 product Handysize (37k) ON-CURVE here;
 # and handled via the balance sheet (excluded from this manifest so marks don't double-count):
-#   - Ardmore Engineer (2014 MR, 49,420): SOLD — delivered to the buyer June 2026, gain $12.2M,
-#     net proceeds $35.1M. GONE from both the fleet and held_for_sale as of this snapshot
-#     (the Q1 held_for_sale $35.5M is retired, not rolled).
+#   - Ardmore Engineer (2014 MR, 49,420): agreed sold $35.5M (delivery June 2026), classified
+#     held-for-sale effective 3/31 -> NAV via the `held_for_sale` field at the agreed price.
 #   - 4 × Handysize CHEMICAL (Chippewa/Chinook/Cheyenne/Cherokee — 25,217 DWT Japan-built 2015)
 #     -> off-curve (§11.5: no clean 25k-stainless resale curve) via working_capital_net at a
 #     CARRYING-VALUE FLOOR (cited to the 20-F market>carrying disclosure; see balance sheet).
 # Net: 20 vessels on-curve (18 MR + 2 product Handy) + 5 off-curve via the balance sheet = 25.
 #
-# NOTE (Q1 vintage, now SUPERSEDED — the order is 4 vessels and IS in this snapshot):
-# the 2 × 40,500 DWT Handysize NEWBUILDS ($44.9M each, Wuhu, delivery "from late 2028")
+# NOTE — the 2 × 40,500 DWT Handysize NEWBUILDS ($44.9M each, Wuhu, delivery "from late 2028")
 # were ordered IN APRIL 2026 (6-K Note 8 subsequent event) — AFTER the 3/31 date, so they are
 # EXCLUDED from this Q1 snapshot entirely. They enter the Q2 refresh (on-curve, §9.6).
 #
@@ -28,65 +22,50 @@
 # scrubber: Ardmore runs ZERO scrubbers fleet-wide (Eco-design + biofuel/carbon-capture play,
 # not scrubber retrofit; 20-F).
 ticker: ASC
-report_date: 2026-Q2
+report_date: 2026-Q1
 vessels:
   # ---- 2013 builds (age 13) — 5 Eco-Mod MRs (pre-2014: eco false per §3.1) ----
-  - {id: Ardmore_Seavaliant,  class: MR, dwt: 49998, age: 13.25, scrubber: false, eco: false, charter_status: spot, count: 1}
-  - {id: Ardmore_Seaventure,  class: MR, dwt: 49998, age: 13.25, scrubber: false, eco: false, charter_status: spot, count: 1}
-  - {id: Ardmore_Endeavour,   class: MR, dwt: 49997, age: 13.25, scrubber: false, eco: false, charter_status: spot, count: 1}
-  - {id: Ardmore_Endurance,   class: MR, dwt: 49466, age: 13.25, scrubber: false, eco: false, charter_status: spot, count: 1}
-  - {id: Ardmore_Enterprise,  class: MR, dwt: 49453, age: 13.25, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: Ardmore_Seavaliant,  class: MR, dwt: 49998, age: 13, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: Ardmore_Seaventure,  class: MR, dwt: 49998, age: 13, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: Ardmore_Endeavour,   class: MR, dwt: 49997, age: 13, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: Ardmore_Endurance,   class: MR, dwt: 49466, age: 13, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: Ardmore_Enterprise,  class: MR, dwt: 49453, age: 13, scrubber: false, eco: false, charter_status: spot, count: 1}
   # ---- 2014 builds (age 12) — 5 Eco MRs (Ardmore Engineer excluded — held for sale) ----
-  - {id: Ardmore_Seavanguard, class: MR, dwt: 49998, age: 12.25, scrubber: false, eco: true,  charter_status: spot, count: 1}
-  - {id: Ardmore_Seavantage,  class: MR, dwt: 49997, age: 12.25, scrubber: false, eco: true,  charter_status: spot, count: 1}
-  - {id: Ardmore_Encounter,   class: MR, dwt: 49478, age: 12.25, scrubber: false, eco: true,  charter_status: spot, count: 1}
-  - {id: Ardmore_Explorer,    class: MR, dwt: 49494, age: 12.25, scrubber: false, eco: true,  charter_status: spot, count: 1}
-  - {id: Ardmore_Exporter,    class: MR, dwt: 49466, age: 12.25, scrubber: false, eco: true,  charter_status: spot, count: 1}
+  - {id: Ardmore_Seavanguard, class: MR, dwt: 49998, age: 12, scrubber: false, eco: true,  charter_status: spot, count: 1}
+  - {id: Ardmore_Seavantage,  class: MR, dwt: 49997, age: 12, scrubber: false, eco: true,  charter_status: spot, count: 1}
+  - {id: Ardmore_Encounter,   class: MR, dwt: 49478, age: 12, scrubber: false, eco: true,  charter_status: spot, count: 1}
+  - {id: Ardmore_Explorer,    class: MR, dwt: 49494, age: 12, scrubber: false, eco: true,  charter_status: spot, count: 1}
+  - {id: Ardmore_Exporter,    class: MR, dwt: 49466, age: 12, scrubber: false, eco: true,  charter_status: spot, count: 1}
   # ---- 2015 builds (age 11) — 4 Eco MRs ----
-  - {id: Ardmore_Seahawk,     class: MR, dwt: 49999, age: 11.25, scrubber: false, eco: true,  charter_status: spot, count: 1}
-  - {id: Ardmore_Seawolf,     class: MR, dwt: 49999, age: 11.25, scrubber: false, eco: true,  charter_status: spot, count: 1}
-  - {id: Ardmore_Seafox,      class: MR, dwt: 49999, age: 11.25, scrubber: false, eco: true,  charter_status: spot, count: 1}
-  - {id: Ardmore_Sealion,     class: MR, dwt: 49999, age: 11.25, scrubber: false, eco: true,  charter_status: spot, count: 1}
+  - {id: Ardmore_Seahawk,     class: MR, dwt: 49999, age: 11, scrubber: false, eco: true,  charter_status: spot, count: 1}
+  - {id: Ardmore_Seawolf,     class: MR, dwt: 49999, age: 11, scrubber: false, eco: true,  charter_status: spot, count: 1}
+  - {id: Ardmore_Seafox,      class: MR, dwt: 49999, age: 11, scrubber: false, eco: true,  charter_status: spot, count: 1}
+  - {id: Ardmore_Sealion,     class: MR, dwt: 49999, age: 11, scrubber: false, eco: true,  charter_status: spot, count: 1}
   # ---- 2017 builds (age 9) — 3 Eco MRs (the entire 2017 cohort per the 6-K fleet table:
   # Gibraltar / Pursuit / Persistence; the phantom "Ardmore_Patriot" was removed 2026-07-01 —
   # never an Ardmore vessel, 0 mentions in the 6-K/20-F). The Q1 call cited "4 product TCs";
   # these 3 are the identified TC hulls, the 4th is among the older MRs (undisclosed).
   # TC rate left null — Q1 release did not disclose; refresh from FY26 guidance.
-  - {id: Ardmore_Persistence, class: MR, dwt: 49688, age: 9.25,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, charter_end: null, count: 1}
-  - {id: Ardmore_Pursuit,     class: MR, dwt: 49709, age: 9.25,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, charter_end: null, count: 1}
-  - {id: Ardmore_Gibraltar,   class: MR, dwt: 49999, age: 9.25,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, charter_end: null, count: 1}
+  - {id: Ardmore_Persistence, class: MR, dwt: 49688, age: 9,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, charter_end: null, count: 1}
+  - {id: Ardmore_Pursuit,     class: MR, dwt: 49709, age: 9,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, charter_end: null, count: 1}
+  - {id: Ardmore_Gibraltar,   class: MR, dwt: 49999, age: 9,  scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, charter_end: null, count: 1}
   # ---- 2020 build (age 6) — 1 modern MR ----
-  - {id: Ardmore_Purpose,     class: MR, dwt: 50192, age: 6.25,  scrubber: false, eco: true,  charter_status: spot, count: 1}
+  - {id: Ardmore_Purpose,     class: MR, dwt: 50192, age: 6,  scrubber: false, eco: true,  charter_status: spot, count: 1}
   # ---- Handysize PRODUCT — 2 × 37k Korea-built (HMD) 2015 (age 11). ON-CURVE (clean-product
   # Handysize curve; §11.5 gap retired for these). Defender (37,791) / Dauntless (37,764).
   # The 4 × 25k stainless CHEMICAL Handies stay OFF-curve via working_capital_net (carrying floor).
-  - {id: Ardmore_Defender,    class: Handysize, dwt: 37000, age: 11.25, scrubber: false, eco: true, charter_status: spot, count: 2}
-  # ---- NEWBUILDS (§9.6 on-curve, age-0 delivered-market PV less remaining commitment) ----
-  # 4 × 40,500 DWT Handysize product/chemical at Wuhu Shipyard: 2 ordered April 2026, 2 more
-  # via option exercise June 2026 "on the same terms"; 2 FURTHER OPTIONS secured but NOT
-  # commitments (excluded — an option is not an order). Release installment table: 1 delivery
-  # 2028, 3 deliveries 2029 ("from late 2028 and onwards"). years_to_delivery from 2026-06-30.
-  # Value flags registered in market_data/newbuild_specs.yaml (eco §3.1 rule; scrubber FALSE
-  # on Ardmore's own fleet-wide zero-scrubber disclosure — a name-specific statement, not a
-  # peer default).
-  - {id: Ardmore_NB_2028,  class: Handysize, dwt: 40500, age: 0, scrubber: false, eco: true, count: 1, years_to_delivery: 2.4}
-  - {id: Ardmore_NB_2029,  class: Handysize, dwt: 40500, age: 0, scrubber: false, eco: true, count: 3, years_to_delivery: 3.0}
+  - {id: Ardmore_Defender,    class: Handysize, dwt: 37000, age: 11, scrubber: false, eco: true, charter_status: spot, count: 2}
 # Spot coverage: ~78% of the on-curve MRs (14/18; 4 product TCs per the Q1 call — 3 identified
 # in the 2017 cohort, 1 unidentified among the older MRs, modelled spot). Handies on spot.
 spot_coverage_pct:
-  MR: 0.72          # 13/18 owned MRs on spot — the Q2 release discloses 5 product + 1 chemical
-                    # tanker on time charter at 6/30 (was 4 product at Q1); the chemical TC sits
-                    # on an OFF-CURVE chem Handy, so only the 5 product TCs bear here. 3 are the
-                    # identified 2017-cohort hulls below; 2 are undisclosed and modelled spot.
+  MR: 0.78          # 14/18 active MRs on spot (4 product TCs per Q1 call)
   Handysize: 1.00   # 2 product Handies on spot
 fleet_summary:
-  on_curve_total: 24                          # MUST equal Σ curve-valued rows: 18 MR + 2 product Handy + 4 NB
-  MR_count: 18                                # owned on-curve MRs (~50k)
+  MR_count: 18                                # active on-curve MRs (~50k); phantom Patriot removed 2026-07-01
   Handysize_count: 2                          # 2 × 37k product (Defender/Dauntless) on-curve
-  MR_held_for_sale_count: 0                   # Ardmore Engineer SOLD (delivered June 2026) — HFS retired
+  MR_held_for_sale_count: 1                   # Ardmore Engineer ($35.5M, June-2026 delivery) — held_for_sale field
   chem_handy_off_curve_count: 4               # 4 × 25k stainless chem — off-curve, carrying-value floor (§11.5)
-  newbuilds_on_curve: 4                       # 4 × 40,500 Handysize (Apr + Jun-2026 option exercise) — IN this snapshot
-  newbuild_options_excluded: 2                # 2 further options secured — NOT commitments
+  newbuild_orders_post_q1: 2                  # 2 × 40,500 DWT Handysize, Apr-2026 order — EXCLUDED from Q1 (Q2 event)
   avg_age_active_MR_approx: 11.2
-  tc_count: 6                                 # 5 product + 1 chemical on TC at 6/30 (Q2 release)
+  tc_count: 4                                 # 4 product TCs (per Q1 call)
   scrubber_count: 0                           # Ardmore runs zero scrubbers

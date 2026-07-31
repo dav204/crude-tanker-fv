@@ -1,15 +1,8 @@
 # Teekay Tankers (TNK) fleet manifest — METHODOLOGY.md section 4.1
-# Source: TNK Q2 2026 ER 6-K (acc 0001419945-26-000054, filed 2026-07-29; fleet table
-# dated 2026-07-28). REPORT-DAY REFRESH 2026-07-31, snapshot AS-OF 2026-06-30.
-# Authoritative OWNED totals: 14 Suezmax + 18 Aframax/LR2 on the water = 32, PLUS
-# 2 Suezmax newbuilds (2027 delivery, §9.6 on-curve) = 34 owned. The 1 VLCC is HELD
-# FOR SALE at 6/30 → OFF-CURVE (in working_capital_net at the contracted $84.5M;
-# sale CLOSED July 2026, $22.9M Q3 gain). 3 chartered-in tankers + 2 STS/bunker
-# EXCLUDED (operating leases, ROU ≈ lease liability, net ~0).
-# DATE-BASIS NOTE: the prior (Q1) manifest carried a 2026-05-13 fleet table on a
-# 2026-03-31 balance sheet — the SB-class date mix. RESOLVED here: the 7/28 fleet
-# table and the 6/30 balance sheet agree (no Suezmax transactions between 6/30 and
-# 7/28), so this snapshot is internally date-consistent.
+# Source: TNK Q1 2026 ER (fleet table as of 2026-05-13) + fleet page sample.
+# Authoritative OWNED class totals (Q1 ER "About" + fleet table): 14 Suezmax,
+# 18 Aframax/LR2, 1 VLCC = 33 owned (+3 chartered-in tankers + 2 STS/bunker,
+# all EXCLUDED — operating leases, ROU asset ≈ lease liability, net ~0).
 #
 # The public fleet page renders only ~10 vessels (JS-paginated), so — as with FRO
 # — this manifest is built as representative GROUPS (count = sister vessels) that
@@ -21,49 +14,37 @@
 #
 # LR2 modeled as Aframax-equivalent (crude/dirty proxy) for v1, consistent with
 # FRO; TNK's "Aframax/LR2" trade both clean and dirty.
-# SUBSEQUENT EVENTS (post 2026-06-30, NOT in this snapshot — audited first):
-#   · VLCC sale CLOSED July 2026 ($84.5M, $22.9M Q3 gain) — the vessel IS in the 6/30
-#     snapshot as held-for-sale (off-curve, in WC at the contracted price).
-#   · The last 2 of the 3 Jan-2026 Aframaxes were REDELIVERED from bareboat-out in July
-#     (one redelivered May, in-quarter) — ownership unchanged throughout; bareboat-out is
-#     an income structure, not an ownership question, so all 3 stay on the curve.
-#   · Q2 dividend $0.25/sh declared with the release (payable 8/21) — post-quarter.
-#   · NO post-6/30 newbuild orders, purchases, or financings.
+# SUBSEQUENT EVENTS (post 2026-03-31, NOT in this snapshot): 2 Korean Suezmax
+# resale newbuilds agreed Apr'26 ($190M, deliver 2027); 2013 VLCC agreed-sold for
+# $84.5M (closes Jun'26) — kept here at report-date market value (≈ sale price).
 ticker: TNK
-report_date: 2026-Q2
+report_date: 2026-Q1
 vessels:
   # ---- Suezmax (14 owned: 3 fixed-rate TC-out, 11 spot) ----
-  - {id: SMX_tc, class: Suezmax, dwt: 158500, age: 14.25, scrubber: false, eco: false, yard: Samsung,
-     charter_status: time_charter, charter_rate: 57773, count: 3}   # 3 fixed-rate at 7/28; rate = Q2 realized TC-out TCE
-  - {id: SMX_2013_sam, class: Suezmax, dwt: 158500, age: 13.25, scrubber: false, eco: false, yard: Samsung, count: 2}
-  - {id: SMX_2011_sam, class: Suezmax, dwt: 158500, age: 15.25, scrubber: false, eco: false, yard: Samsung, count: 4}  # Atlanta/Barcelona +2
-  - {id: SMX_2010_rs, class: Suezmax, dwt: 156700, age: 16.25, scrubber: false, eco: false, yard: Rongsheng, count: 3}  # Copper/Beijing +1 (13% yard discount)
-  - {id: SMX_2013_hhi, class: Suezmax, dwt: 158500, age: 13.25, scrubber: false, eco: false, yard: Hyundai, count: 2}
+  - {id: SMX_tc, class: Suezmax, dwt: 158500, age: 14, scrubber: false, eco: false, yard: Samsung,
+     charter_status: time_charter, charter_rate: 50000, count: 3}   # 3 fixed-rate (TC-out $44.8k-$80k)
+  - {id: SMX_2013_sam, class: Suezmax, dwt: 158500, age: 13, scrubber: false, eco: false, yard: Samsung, count: 2}
+  - {id: SMX_2011_sam, class: Suezmax, dwt: 158500, age: 15, scrubber: false, eco: false, yard: Samsung, count: 4}  # Atlanta/Barcelona +2
+  - {id: SMX_2010_rs, class: Suezmax, dwt: 156700, age: 16, scrubber: false, eco: false, yard: Rongsheng, count: 3}  # Copper/Beijing +1 (13% yard discount)
+  - {id: SMX_2013_hhi, class: Suezmax, dwt: 158500, age: 13, scrubber: false, eco: false, yard: Hyundai, count: 2}
   # ---- Aframax / LR2 (18 owned: 4 fixed-rate TC-out, 14 spot; LR2 as Aframax proxy) ----
-  - {id: AFRA_tc, class: Aframax, dwt: 109000, age: 14.25, scrubber: false, eco: false,
-     charter_status: time_charter, charter_rate: 37043, count: 3}   # 3 fixed-rate at 7/28 (was 4); rate = Q2 realized TC-out TCE
-  - {id: AFRA_2016, class: Aframax, dwt: 112000, age: 10.25, scrubber: false, eco: false, count: 4}  # acquired Q1'26 $47.2M ea; yard unconfirmed (no discount)
-  - {id: AFRA_2010_hz, class: Aframax, dwt: 109000, age: 16.25, scrubber: false, eco: false, yard: Hudong Zhonghua, count: 4}  # Blackcomb +3 (8% discount)
-  - {id: AFRA_2009_hz, class: Aframax, dwt: 109000, age: 17.25, scrubber: false, eco: false, yard: Hudong Zhonghua, count: 4}  # Emerald/Garibaldi +2 (8% discount)
-  - {id: LR2_2012_hhi, class: Aframax, dwt: 105000, age: 14.25, scrubber: false, eco: false, yard: Hyundai, count: 3}  # Hovden +2 (LR2 as Aframax proxy)
-  # ---- VLCC: NONE on the curve at 6/30 — the 1 owned VLCC (2013 SWS, Singapore Spirit)
-  #      is HELD FOR SALE, off-curve in working_capital_net at the contracted $84.5M
-  #      (sale closed July 2026). Its Q2 TCE $123,189/day will not recur.
-  # ---- Suezmax newbuilds (2 Korean resales, agreed Apr-2026, delivery 2027) — §9.6
-  #      on-curve at age-0 delivered-market PV less remaining commitment ($156.6M of
-  #      $190.0M total; $33.4M paid → advances 0 in the balance sheet file).
-  - {id: SMX_NB_2027a, class: Suezmax, dwt: 158000, age: 0, scrubber: false, eco: true, count: 1, years_to_delivery: 1.0}
-  - {id: SMX_NB_2027b, class: Suezmax, dwt: 158000, age: 0, scrubber: false, eco: true, count: 1, years_to_delivery: 1.0}
+  - {id: AFRA_tc, class: Aframax, dwt: 109000, age: 14, scrubber: false, eco: false,
+     charter_status: time_charter, charter_rate: 45000, count: 4}   # 4 fixed-rate (TC-out $32.5k-$60k)
+  - {id: AFRA_2016, class: Aframax, dwt: 112000, age: 10, scrubber: false, eco: false, count: 3}  # acquired Q1'26 $47.2M ea; yard unconfirmed (no discount)
+  - {id: AFRA_2010_hz, class: Aframax, dwt: 109000, age: 16, scrubber: false, eco: false, yard: Hudong Zhonghua, count: 4}  # Blackcomb +3 (8% discount)
+  - {id: AFRA_2009_hz, class: Aframax, dwt: 109000, age: 17, scrubber: false, eco: false, yard: Hudong Zhonghua, count: 4}  # Emerald/Garibaldi +2 (8% discount)
+  - {id: LR2_2012_hhi, class: Aframax, dwt: 105000, age: 14, scrubber: false, eco: false, yard: Hyundai, count: 3}  # Hovden +2 (LR2 as Aframax proxy)
+  # ---- VLCC (1 owned; agreed-sold Jun'26 at $84.5M ≈ curve value) ----
+  - {id: VLCC_2013_sws, class: VLCC, dwt: 319000, age: 13, scrubber: false, eco: false, yard: SWS, count: 1}  # Singapore Spirit (5% yard discount)
 # Owned spot fractions (fixed-rate TC vessels carry disclosed charter rates above).
 spot_coverage_pct:
   Suezmax: 0.79      # 11 spot of 14 owned
-  Aframax: 0.83      # 15 spot of 18 owned (7/28 deployment: 3 fixed-rate)
+  Aframax: 0.78      # 14 spot of 18 owned
+  VLCC: 1.00         # trades in a third-party pool
 fleet_summary:
-  on_curve_total: 34          # MUST equal Σ curve-valued rows: 32 on-water + 2 NB (cross-foot gate)
-  Suezmax_count: 14           # on the water at 6/30
+  Suezmax_count: 14
   Aframax_LR2_count: 18
-  VLCC_count: 0               # the 1 VLCC is HELD FOR SALE, off-curve (WC at $84.5M contracted)
-  suezmax_newbuilds_on_curve: 2   # agreed Apr-2026, delivery 2027 — IN this snapshot (§9.6)
-  held_for_sale: 1            # the VLCC
+  VLCC_count: 1
   chartered_in_excluded: 3
-  avg_age_approx: 14.25
+  suezmax_newbuilds_post_q1: 2   # agreed Apr'26, deliver 2027; not in snapshot
+  avg_age_approx: 14
