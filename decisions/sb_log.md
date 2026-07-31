@@ -1,5 +1,56 @@
 # SB — Decision Log
 
+## 2026-07-31 (later) — REFRESH RECOMPUTE: BAND MISS BY 0.6% — HALTED, INVESTIGATED, INPUT VERIFIED CLEAN; attribution documented, curve question SURFACED (not tuned)
+
+**Result: NAV/sh $10.07 → $10.73 (+6.6%) vs the pre-registered ±6% band [9.47, 10.67] —
+outside by $0.06. HALT rule applied; investigation:**
+
+**Inputs verify clean** — every figure re-checked against the release (debt 511.4, cash
+134.5, WC 37.7 components, commitments 277.2, fleet 44+2HFS+9NB, cross-foots green).
+The miss is NOT an input error. **Attribution of the +$0.66/sh:**
+- Balance-sheet net: **−$0.69/sh** (debt −32.6 helps; cash −37.2, WC −16.1, commitments
+  +49.7 hurt) — as pre-registered.
+- Fleet side: **≈ +$1.35/sh**, from (i) Katerina + Maritsa moving NB→on-water at FULL
+  age-0.5 curve value (Pana age-0 anchor $46.0M each) with their commitments now paid,
+  and (ii) FOUR new NB orders entering §9.6 on-curve at delivered-PV-less-commitment
+  (embedded ordering value at the same $46.0M anchor). Both are CONVENTION-CORRECT.
+- **The under-estimated term was the Pana age-0 anchor level, not the mechanics: $46.0M
+  vs the LIVE young-Pana market evidence — Nord pair $37.5M @4y (promoted 7/28), MB W30
+  Kamsarmax ladder NB $37.0M / resale $40.0M.** The curve's Pana young end sits ~15-20%
+  above current market parity — the SAME young-end question §G1 flagged for Supra (there
+  the young prints were EXCLUDED; here the anchor VALUES two real deliveries + 4 orders).
+  If the Pana age-0 were re-anchored to ~$38-40M, roughly −$18-22M ≈ −$0.18-0.22/sh of
+  today's gain reverses.
+
+**Disposition per discipline: input stands (verified), curve NOT tuned (owner-gated §9.9
+question — added to the young-end/fit-lag review the Compass ruling already ordered as
+ladder-ingest deliverable #1). SB verdict: BUY stands (EV +29.4% at $7.81), tier
+VALIDATED-TIGHT, SANITY n/a-APPROX. The +9.8pp gap drift = this refresh (annotated; gate
+row expected). HONESTY LINE for the handoff: ~$0.20/sh of SB's NAV rests on a young-Pana
+anchor that current market parity evidence prices 15-20% lower — the scorecard's W-frag/
+family fields carry the fragility; the governance side should read the BUY margin net of
+~2% for this until the anchor review lands.**
+
+## 2026-07-31T18:24:14+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.81
+- Single-point FV: $10.35
+- Scenario PW FV: $10.10 (EV +29.4%)
+- NAV / share: $10.73
+- Position: **BUY (undervalued)**
+- Broker spread: -20.4pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ broker spread -7.3pp
+- ⚑ NAV/sh +6.6%
+- Δprice: no change | Δsingle FV: +6.2% | Δscenario FV: +6.7% | ΔNAV: +6.6% | Δspread: -7.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-31 — Q2 REPORT-DAY REFRESH (pre-registered BEFORE recompute; 6-K acc -037, release 7/28)
 
 **Snapshot moved 2026-03-31 → 2026-06-30.** Deltas loaded: debt 544.0→511.4 (−32.6, paydown

@@ -18,7 +18,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 
 | Ticker | Sector | NAV/sh | Price | P/NAV (mkt) | RONAV (par) | Just P/NAV (par) | RONAV (hist) | Just P/NAV (hist) | Read: par → hist | Robust? |
 |---|---|--:|--:|--:|--:|--:|--:|--:|---|---|
-| SB | dry_bulk | $10.07 | $6.39 | 0.634× | 15.2% | 1.422× | 10.2% | 0.918× | cheap → cheap | robust |
+| SB | dry_bulk | $10.73 | $6.39 | 0.596× | 14.6% | 1.359× | 9.8% | 0.878× | cheap → cheap | robust |
 | SBLK | dry_bulk | $30.64 | $25.20 | 0.822× | 12.7% | 1.174× | 10.7% | 0.975× | cheap → cheap | robust |
 | CMDB | dry_bulk | $32.65 | $17.25 | 0.528× | 7.7% | 0.672× | 6.4% | 0.545× | cheap → fair | flips (cheap/fair) |
 | GNK | dry_bulk | $25.98 | $24.50 | 0.943× | 11.7% | 1.067× | 10.6% | 0.962× | cheap → fair | flips (cheap/fair) |

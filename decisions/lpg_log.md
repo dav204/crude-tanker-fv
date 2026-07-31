@@ -9,6 +9,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-07-31T18:24:14+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $46.54
+- Single-point FV: $32.76
+- Scenario PW FV: $30.55 (EV -34.4%)
+- NAV / share: $34.11
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +38.0pp (k_broker 1.52)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-31 — FILING-LANDED triage: 8-K (event 7/24) = executive severance plan amendment (no ingest)
 
 **Decision:** TRIAGED, no input change — Item 5.02 governance 8-K: amended/restated

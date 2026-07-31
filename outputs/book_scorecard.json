@@ -1,12 +1,13 @@
 {
-  "schema_version": "2.5",
-  "generated_at": "2026-07-31T18:05:51+00:00",
-  "source_commit": "56a4907",
+  "schema_version": "2.6",
+  "generated_at": "2026-07-31T18:24:04+00:00",
+  "source_commit": "f8809d0-dirty",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 25,
     "static_fallback": {},
     "oldest_static_as_of": null,
+    "stale_fallback": {},
     "market_event_review": {}
   },
   "rate_basis": [
@@ -26,7 +27,10 @@
       "lpg": "fea59f0f56a9"
     },
     "current_sha": "fea59f0f56a9",
-    "lagging": []
+    "lagging": [],
+    "ev_lagging": [
+      "SB"
+    ]
   },
   "sleeves_note": "sleeves[*].fv_contribution_per_share are per-share scenario-weighted FVs; sum(sleeves) == fv to the cent (C-3 per-sleeve identity). Corporate-level balance-sheet items (debt, working capital, preferred, shuttle contracted book) are pro-rated INTO the sleeve carve-outs (carveout.py), so nothing sits outside the per-sleeve lines.",
   "names": [
@@ -145,22 +149,22 @@
       "sanity": "n-a",
       "price": 7.81,
       "position": "BUY (undervalued)",
-      "fv": 9.47,
-      "ev_pct": 21.3,
-      "blend_fv": 9.75,
-      "nav_per_share": 10.07,
+      "fv": 10.1,
+      "ev_pct": 29.4,
+      "blend_fv": 10.35,
+      "nav_per_share": 10.73,
       "broker_nav": 8.88,
-      "gap_pct": 13.5,
+      "gap_pct": 20.9,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": true,
-      "ev_pct_family_min": 15.6,
-      "ev_pct_family_max": 26.6,
+      "weight_sign_stable": null,
+      "ev_pct_family_min": null,
+      "ev_pct_family_max": null,
       "mark_wide_nodes": [
         "Post-Panamax@five_year+ten_year"
       ],
-      "fv_low": 7.1,
-      "fv_high": 12.22
+      "fv_low": 7.81,
+      "fv_high": 12.79
     },
     {
       "ticker": "SBLK",

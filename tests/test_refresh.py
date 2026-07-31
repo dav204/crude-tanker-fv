@@ -299,9 +299,14 @@ def test_forward_looking_quarter_flags_all_missing(tmp_path):
     # touching the live inputs, so directly call with future today.
     from crude_tanker_fv.loaders import load_watchlist
     checklist = build_checklist(target_quarter=None, today=date(2026, 8, 1))
+    # 2026-07-31: Q2 balance sheets are now ARRIVING (SB first) — the "all missing"
+    # premise expires file-by-file. Assert against the actual on-disk census instead
+    # of a hard 25 so each refresh doesn't re-red this test.
+    import glob as _glob
+    n_q2_on_disk = len(_glob.glob("inputs/balance_sheets/*_2026-Q2.yaml"))
     assert checklist.target_quarter == "2026-Q2"
     # Every watchlist ticker must be flagged missing (we have only Q1 BSes).
-    assert checklist.missing_bs_count == len(load_watchlist())
+    assert checklist.missing_bs_count == len(load_watchlist()) - n_q2_on_disk
     # Render + spot-check that ASC's IR URLs surface in the missing section.
     path = write_checklist(checklist, outputs_dir=tmp_path)
     content = path.read_text()

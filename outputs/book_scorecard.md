@@ -12,6 +12,8 @@
 
 > **Rate basis:** Handy-Bulk (§11.7.11, added 2026-07-14): NO market FFA at any tenor — its curve row + scenario deck are both DERIVED = supra x 0.90 (locked basis, identity guard-tested; regenerate BOTH with any supra promotion). as_of 2026-07-10 = the MB Dry Bulk Weekly 28 vintage (own cadence, not a hold awaiting a print).
 
+> **Weight-family EV vintage: LAGGING for SB** — the live point EV sits outside the §9.10 sidecar's family range, so an EV-moving determinant outside the scenario_inputs.yaml stamp (marks / tape) changed after the diagnostic last ran. Family fields for these names are withheld (null), never printed out-of-range — re-run the family diagnostic scripts at the current tape.
+
 This file lists each name **twice, by design** — once in the **Verdict** (the decision surface: FV vs price, position, tier) and once in the **Validation matrix** below (the per-gate evidence behind that tier). The Verdict is what you act on; the matrix is why. One row per name *within* each table.
 
 ## Verdict — the consolidated read (the decision surface)
@@ -28,7 +30,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | ECO | crude | VALIDATED-TIGHT | $60.48 | $32.57 | 19.63–55.63 | -46% | rich · cycle position (not a short) | $37.19 | $34.42 | $44.80 | -23% | OK | ready | stable |
 | FRO | crude | VALIDATED-TIGHT | $39.34 | $23.15 | 13.43–40.10 | -41% | rich · cycle position (not a short) | $26.41 | $24.11 | $28.72 | -16% | OK | ready | stable |
 | TNK | crude | VALIDATED-TIGHT | $79.95 | $73.69 | 62.43–95.01 | -8% | TRIM/SHORT (overvalued) | $79.61 | $77.73 | $109.53 | -29% | OK | ready | stable |
-| SB | dry_bulk | VALIDATED-TIGHT | $7.81 | $9.47 | 7.10–12.22 | +21% | BUY (undervalued) | $9.75 | $10.07 | $8.88 (apx) | +13% | n-a | ready | stable |
+| SB | dry_bulk | VALIDATED-TIGHT | $7.81 | $10.10 | 7.81–12.79 | +29% | BUY (undervalued) | $10.35 | $10.73 | $8.88 (apx) | +21% | n-a | ready | — |
 | SBLK | dry_bulk | VALIDATED-TIGHT | $28.77 | $28.62 | 22.03–35.72 | -1% | HOLD (fairly valued) | $29.66 | $30.64 | $36.88 | -17% | OK | ready | **⚠ sign flips** |
 | CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $13.51 | $13.38 | 7.21–24.41 | -1% | HOLD (fairly valued) | $16.03 | $15.49 | $19.57 | -21% | OK | ready | stable |
 | CMBT | crude | GOVERNED-WIDE · structural-class | $16.16 | $14.11 | 8.86–21.30 | -13% | TRIM/SHORT (overvalued) | $15.57 | $16.19 | $22.14 | -27% | OK | ready | stable |
@@ -81,7 +83,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | 2343 | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.98× | cheap→cheap | robust | clears (+unvalidated) | pending | pending | comparable; §18.5 gates pending |
 | CMDB | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.53× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
 | GNK | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.94× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
-| SB | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.63× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| SB | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.60× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | SBLK | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.82× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | CCEC | lng | GOVERNED-WIDE | structural-unavailable | 0.77× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | FLNG | lng | GOVERNED-WIDE | structural-unavailable | 1.03× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
