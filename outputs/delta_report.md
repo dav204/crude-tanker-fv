@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-07-31T19:39:22+00:00
-- **Previous run:** 2026-07-31T19:31:16+00:00
+- **This run:** 2026-07-31T19:45:38+00:00
+- **Previous run:** 2026-07-31T19:39:22+00:00
 
 ## Headline changes (material moves)
 
@@ -9,7 +9,7 @@
 
 ## Input files changed since last run
 
-- `inputs/balance_sheets/asc_2026-Q2.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 

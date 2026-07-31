@@ -1,5 +1,23 @@
 # SB — Decision Log
 
+## 2026-07-31T19:45:38+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.81
+- Single-point FV: $9.75
+- Scenario PW FV: $9.47 (EV +21.3%)
+- NAV / share: $10.07
+- Position: **BUY (undervalued)**
+- Broker spread: -13.1pp (k_broker 0.93)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31 EVE) final clean-stamp regen — stamp at clean HEAD; no movement.
+
+---
+
 ## 2026-07-31T19:39:22+00:00 — Pipeline run (auto)
 
 **Model state:**
