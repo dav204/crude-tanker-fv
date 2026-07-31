@@ -370,11 +370,17 @@ def test_verdict_prose_is_derived_not_hardwired(tmp_path, rows):
         .read_text().split("## Validation matrix")[0]
     assert "Name-specific shorts: GNK" in verdict
     assert "not one is a name-specific short" not in verdict
-    # The rich-long sentence is derived from the rows: with this synthetic
-    # all-BUY valuation, every VALIDATED-TIGHT name reading rich historically
-    # (DHT, ECO, FRO, TNK) is named — nothing hardwired to TNK.
+    # The rich-long sentence is derived from the rows: every VALIDATED-TIGHT crude
+    # name is named. DERIVED from `rows`, not a literal list — the literal
+    # ("DHT", "ECO", "FRO", "TNK") re-red on 2026-07-31 when TNK left TIGHT for
+    # GOVERNED-WIDE·read-flips at its Q2 refresh, i.e. the test that asserts
+    # "nothing hardwired" was itself hardwired. Deriving it also means a future
+    # tier change is caught as a tier change, not as a prose failure.
     rich_line = next(ln for ln in verdict.splitlines() if "read *rich*" in ln)
-    for t in ("DHT", "ECO", "FRO", "TNK"):
+    tight_crude = {r.ticker for r in rows
+                   if r.confidence_tier == "VALIDATED-TIGHT" and r.sector == "crude"}
+    assert tight_crude, "no VALIDATED-TIGHT crude names — the assertion below would be vacuous"
+    for t in sorted(tight_crude):
         assert t in rich_line
 
 

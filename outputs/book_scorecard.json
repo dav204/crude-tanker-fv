@@ -1,7 +1,7 @@
 {
   "schema_version": "2.6",
-  "generated_at": "2026-07-31T18:33:30+00:00",
-  "source_commit": "8d3e7a6",
+  "generated_at": "2026-07-31T19:11:24+00:00",
+  "source_commit": "25f9929-dirty",
   "quarter": "2026-Q1",
   "price_basis": {
     "total": 25,
@@ -27,10 +27,7 @@
       "lpg": "fea59f0f56a9"
     },
     "current_sha": "fea59f0f56a9",
-    "lagging": [],
-    "ev_lagging": [
-      "SB"
-    ]
+    "lagging": []
   },
   "sleeves_note": "sleeves[*].fv_contribution_per_share are per-share scenario-weighted FVs; sum(sleeves) == fv to the cent (C-3 per-sleeve identity). Corporate-level balance-sheet items (debt, working capital, preferred, shuttle contracted book) are pro-rated INTO the sleeve carve-outs (carveout.py), so nothing sits outside the per-sleeve lines.",
   "names": [
@@ -113,32 +110,6 @@
       "fv_high": 40.1
     },
     {
-      "ticker": "TNK",
-      "sector": "crude",
-      "confidence_tier": "VALIDATED-TIGHT",
-      "tier_subreason": null,
-      "handoff_ready": true,
-      "nav_basis": "resale-uniform",
-      "void": false,
-      "sanity": "OK",
-      "price": 79.95,
-      "position": "TRIM/SHORT (overvalued)",
-      "fv": 73.69,
-      "ev_pct": -7.8,
-      "blend_fv": 79.61,
-      "nav_per_share": 77.73,
-      "broker_nav": 109.53,
-      "gap_pct": -29.0,
-      "governance_discount_pct": 0.0,
-      "sleeves": null,
-      "weight_sign_stable": true,
-      "ev_pct_family_min": -17.7,
-      "ev_pct_family_max": -7.8,
-      "mark_wide_nodes": null,
-      "fv_low": 62.43,
-      "fv_high": 95.01
-    },
-    {
       "ticker": "SB",
       "sector": "dry_bulk",
       "confidence_tier": "VALIDATED-TIGHT",
@@ -157,9 +128,9 @@
       "gap_pct": 20.9,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": 23.9,
+      "ev_pct_family_max": 34.5,
       "mark_wide_nodes": [
         "Post-Panamax@five_year+ten_year"
       ],
@@ -364,6 +335,32 @@
       "mark_wide_nodes": null,
       "fv_low": 41.52,
       "fv_high": 82.07
+    },
+    {
+      "ticker": "TNK",
+      "sector": "crude",
+      "confidence_tier": "GOVERNED-WIDE",
+      "tier_subreason": null,
+      "handoff_ready": true,
+      "nav_basis": "resale-uniform",
+      "void": false,
+      "sanity": "OK",
+      "price": 79.95,
+      "position": "HOLD (fairly valued)",
+      "fv": 76.95,
+      "ev_pct": -3.8,
+      "blend_fv": 83.25,
+      "nav_per_share": 81.48,
+      "broker_nav": 109.53,
+      "gap_pct": -25.6,
+      "governance_discount_pct": 0.0,
+      "sleeves": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -14.1,
+      "ev_pct_family_max": -3.8,
+      "mark_wide_nodes": null,
+      "fv_low": 65.15,
+      "fv_high": 99.39
     },
     {
       "ticker": "ASC",

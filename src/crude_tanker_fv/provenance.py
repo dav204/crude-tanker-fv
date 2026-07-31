@@ -187,6 +187,14 @@ TIER_SUBREASON = {
     "INSW": "pending-anchor",
     "TEN": "mixed",
     "CMDB": "read-flips", "GNK": "read-flips",
+    # TNK 2026-07-31 (Q2 report-day refresh): LEFT VALIDATED-TIGHT. The refresh lifted the
+    # scenario FV +4.4% (cash 996->1,212M, 2 Suezmax NBs on-curve, VLCC off to HFS), putting
+    # the name essentially AT fair value (EV -3.8%, price 79.95 vs FV 76.95) — so the §9.10
+    # weight family now STRADDLES the HOLD/TRIM boundary (positions: HOLD,HOLD,T/S,T/S,T/S,T/S)
+    # and the read FLIPS between bases. Its figures all trace (resale-uniform, SANITY OK) —
+    # the wideness is label fragility at fair value, not a provenance gap. Resolution path:
+    # the name re-tightens when price and FV separate again (either direction). tnk_log 7/31.
+    "TNK": "read-flips",
     "NAT": "newbuild-indeterminate",
     "BRUT": "cash-pending", "HAFN": "pool-gross-up-pending",
     "STNG": "off-curve",

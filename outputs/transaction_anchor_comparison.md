@@ -222,9 +222,9 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | CAPT | $15.61→$15.49 | -0.8% | +0.7%→-1.0% | -1.7 | HOLD→HOLD |
 | FLNG | $28.45→$28.45 | +0.0% | -1.5%→-1.5% | +0.0 | HOLD→HOLD |
 | ASC | $17.82→$17.82 | -0.0% | -3.1%→-3.2% | -0.0 | HOLD→HOLD |
+| TNK | $86.53→$81.48 | -5.8% | +1.2%→-3.8% | -4.9 | HOLD→HOLD |
 | GNK | $25.53→$25.98 | +1.8% | -8.0%→-6.5% | +1.4 | TRIM/SHORT→TRIM/SHORT |
 | 2343 | $0.40→$0.40 | -1.1% | -6.3%→-7.2% | -0.9 | TRIM/SHORT→TRIM/SHORT |
-| TNK | $83.32→$77.73 | -6.7% | -2.4%→-7.8% | -5.5 | HOLD→TRIM/SHORT ⚠️ |
 | GSL | $38.59→$38.59 | +0.0% | -8.5%→-8.5% | +0.0 | TRIM/SHORT→TRIM/SHORT |
 | CMBT **(WHOLE-CO)** | $15.84→$16.19 | +2.2% | -14.6%→-12.7% | +1.9 | TRIM/SHORT→TRIM/SHORT |
 | HAFN | $5.69→$5.57 | -2.1% | -17.5%→-18.8% | -1.3 | TRIM/SHORT→TRIM/SHORT |

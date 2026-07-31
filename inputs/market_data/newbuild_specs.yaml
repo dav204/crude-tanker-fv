@@ -122,3 +122,19 @@ TRMD:
     existing-fleet-scoped ("scrubbers fitted to our 35 core Supramax vessels", p.26 — the SB
     trap); no NB scrubber disclosure exists, so the premium is not claimed. Registered at
     onboarding 2026-07-14.
+
+TNK:
+  eco: true
+  scrubber: false
+  scrubber_verified: true
+  source: >
+    Q2-2026 ER 6-K (acc 0001419945-26-000054, filed 2026-07-29). Two Korean Suezmax
+    newbuilding contracts acquired June 2026, $190.0M total, delivery 2027 ($33.4M paid,
+    $156.6M remaining "per construction milestones"). eco: TRUE by the §3.1 mechanical rule
+    (2027 delivery >> 2014), derivable from the disclosed delivery year — no attestation
+    needed. scrubber=FALSE: the filing makes NO scrubber statement about these newbuilds —
+    no scrubber column in the fleet table's newbuild rows and no equipment description
+    anywhere in the release. Per the peer-number trap rule, absence of a statement is NOT
+    evidence FOR the premium; booked false (conservative), same disposition as ECO's
+    2 Suezmax NBs (2026-07-01) and SB's Kamsarmax orderbook. Revisit if TNK discloses
+    specs at delivery or in the 20-F.

@@ -461,7 +461,7 @@ source of truth (imported by both the guards and the tier, so they can't drift):
    "Present but uncited" fails like "absent".
 
 **Confidence tier (governance handoff, `provenance.confidence_tier`)** — read from the existing
-validation state, NOT a new model: **VALIDATED-TIGHT** (6: DHT, FRO, SB, SBLK, TNK, **ECO** — traced +
+validation state, NOT a new model: **VALIDATED-TIGHT** (5: DHT, FRO, SB, SBLK, **ECO** — TNK LEFT 2026-07-31 at its Q2 refresh → GOVERNED-WIDE·read-flips, label fragility at fair value, figures all trace — traced +
 robust two-basis; ECO cleared 2026-07-01 via the §9.6 on-curve fix + scrubber verification, but is
 validated-but-RICH [rich · cycle position], NOT a new long), **GOVERNED-WIDE** (13 — traces but
 structural-unavailable input, read flips, or newbuild parked/absent: **NAT** `newbuild-indeterminate`;

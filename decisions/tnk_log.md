@@ -1,5 +1,80 @@
 # TNK — Decision Log
 
+## 2026-07-31T19:11:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $79.95
+- Single-point FV: $83.25
+- Scenario PW FV: $76.95 (EV -3.8%)
+- NAV / share: $81.48
+- Position: **HOLD (fairly valued)**
+- Broker spread: +27.9pp (k_broker 1.56)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31) TNK Q2 REPORT-DAY REFRESH — NAV $77.73→$81.48 (+4.8%), INSIDE the ±8% band; point estimate was high (~3.7%) and the no-flip prediction was WRONG (TRIM/SHORT→HOLD, FV-led, band-mech by D-M5). **TIER: VALIDATED-TIGHT → GOVERNED-WIDE·read-flips** — at fair value (EV −3.8%) the §9.10 family straddles the HOLD/TRIM boundary; figures all trace, this is label fragility not a provenance gap. Full record in the dated entries below.
+
+---
+
+## 2026-07-31 (later) — REFRESH RECOMPUTE: band HELD, POINT ESTIMATE HIGH, FLIP PREDICTION WRONG
+
+**Result: NAV/sh $77.73 → $81.48 (+4.8%) — INSIDE the pre-registered ±8% band [77.3, 91.0]
+→ no halt owed. SANITY OK (−12.0% to broker $92.60, gap Δ +4.0pp = this refresh).**
+
+**But two prediction misses, recorded rather than smoothed over:**
+
+1. **Point estimate high: predicted ~$84-85, got $81.48 (~3.7% optimistic).** Largest
+   identified driver: I assumed the curve valued the 13.25-yr VLCC BELOW its $84.5M
+   contracted price, making the off-curve swap accretive (+$10M). It is the other way —
+   the VLCC curve (10yr $111.0M, interpolating to ~$92M at 13.25y, less the 5% SWS yard
+   discount) marks the hull at **~$87.8M, i.e. ~4% ABOVE what TNK actually realized**.
+   The swap was therefore mildly DILUTIVE (≈ −$3M), not accretive. Remaining gap is
+   aging + NB delivered-PV running slightly less favorable than assumed; not chased
+   further — the band held and no input is in question.
+   **FINDING WORTH KEEPING: a REALIZED, issuer-filed VLCC sale ($84.5M, 2013-built)
+   prints ~4% UNDER the curve's mark for that hull.** Rare old-age corroboration (most
+   evidence is broker assessment, not realization). Direction matches the SB young-Pana
+   finding — the curve reads mildly rich — but the magnitude here is small and
+   single-hull. Routed to the same young-end/ladder review; NOT tuned here.
+
+2. **FLIP PREDICTION WRONG: I predicted "no position flip"; TNK flipped TRIM/SHORT →
+   HOLD.** Mechanism: FV-driven, not price-driven — the NAV rebuild lifted the scenario
+   FV +4.4% ($73.69 → $76.95) against an unchanged $79.95 price, moving EV −7.8% → −3.8%
+   and crossing the boundary. Auto-classifies **band-mech** under D-M5 (price $79.95 sits
+   inside the fv interval $65.15–$99.39), so no eyeball is owed by rule — but the
+   prediction error is mine and is recorded as such.
+   **CONTEXT THAT MATTERS MORE THAN THE FLIP: TNK crossed this boundary TWICE TODAY** —
+   HOLD→TRIM/SHORT this morning (B′ reweight + the 7/31 price vintage, price-led) and
+   TRIM/SHORT→HOLD now (refresh, FV-led). The name is sitting essentially AT fair value
+   (price $79.95 vs FV $76.95, EV −3.8%) after an +18% post-earnings week. Treat further
+   crossings as noise around a fair-valued name, not as signal; the position read is
+   "fairly valued, no edge," which is what both labels are really saying.
+
+**Tier: GOVERNED-WIDE (unchanged). Verdict: HOLD, EV −3.8%. The balance sheet is the
+story — debt-free with $1.21B cash+investments (41% of the $2.77B market cap) against
+$156.6M of remaining newbuild commitments; net cash covers the orderbook 7.7×.**
+
+## 2026-07-31T19:01:15+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $79.95
+- Single-point FV: $83.25
+- Scenario PW FV: $76.95 (EV -3.8%)
+- NAV / share: $81.48
+- Position: **HOLD (fairly valued)**
+- Broker spread: +27.9pp (k_broker 1.56)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position TRIM/SHORT (overvalued) → HOLD (fairly valued)
+- Δprice: no change | Δsingle FV: +4.6% | Δscenario FV: +4.4% | ΔNAV: +4.8% | Δspread: -3.4pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-31 — Q2 REPORT-DAY REFRESH (pre-registered BEFORE recompute; 6-K acc -054, release 7/29)
 
 **Snapshot moved 2026-03-31 → 2026-06-30**, and the Q1 date-mix is resolved (the Q1 manifest

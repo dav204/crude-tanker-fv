@@ -1,5 +1,41 @@
 # SB — Decision Log
 
+## 2026-07-31T19:11:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.81
+- Single-point FV: $10.35
+- Scenario PW FV: $10.10 (EV +29.4%)
+- NAV / share: $10.73
+- Position: **BUY (undervalued)**
+- Broker spread: -20.4pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** (2026-07-31) SB Q2 REPORT-DAY REFRESH — NAV $10.07→$10.73 (+6.6%), band miss 0.6% HALTED+INVESTIGATED, inputs verified clean, attribution = young-Pana anchor ($46.0M vs live 37-40M evidence), curve NOT tuned (routed to the ladder/young-end review), honesty line carried. BUY stands EV +29.4%, VALIDATED-TIGHT, SANITY n/a-APPROX. Full record in the dated 2026-07-31 entries below.
+
+---
+
+## 2026-07-31T19:01:15+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.81
+- Single-point FV: $10.35
+- Scenario PW FV: $10.10 (EV +29.4%)
+- NAV / share: $10.73
+- Position: **BUY (undervalued)**
+- Broker spread: -20.4pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-31T18:33:40+00:00 — Pipeline run (auto)
 
 **Model state:**
