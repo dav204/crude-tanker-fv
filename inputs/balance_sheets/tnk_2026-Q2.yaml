@@ -1,0 +1,53 @@
+# Teekay Tankers balance sheet snapshot — METHODOLOGY.md section 4.2
+# Source: TNK Q2 2026 ER 6-K (acc 0001419945-26-000054, filed 2026-07-29), Summary
+# Consolidated Balance Sheet at 2026-06-30. USD. Report-day refresh 2026-07-31.
+# TNK remains DEBT-FREE with a $1.21B cash/investments pile — NAV ≈ vessels + cash.
+ticker: TNK
+quarter: 2026-Q2
+
+# Cash & equivalents 735,007 + short-term investments 476,582 (bank term deposits +
+# UST <1y) = 1,211,589. Up $215.4M on the quarter (Q1: 996,151) — record spot TCEs
+# (Suezmax $109,171/day) + $53.5M Suezmax sale proceeds. Restricted cash 3,655 → WC.
+cash_and_equivalents: 1211589000
+
+# working_capital_net = operating WC + restricted cash + held-for-sale vessel:
+#   (accounts receivable 85,832 + bunker/lube inventory 37,788 + prepaid 13,699
+#    + accrued revenue & other current assets 54,931) = 192,250
+#   - (accounts payable & accrued 120,034 + other current liabilities 10,609) = 130,643
+#   = +61,607 (operating WC)
+#   + restricted cash 3,655
+#   + 84,500 = the 2013-built VLCC, HELD FOR SALE at 6/30 → OFF-CURVE (removed from the
+#     fleet manifest), carried at the AGREED/REALIZED price $84.5M, not the $62,629
+#     balance-sheet carrying value.
+#   = +149,762
+#
+# CONVENTION NOTE (held-for-sale carrying vs contracted price) — the two 2026-07-31
+# refreshes took DIFFERENT values, deliberately, on a principled split:
+#   · SB (same day): HFS booked at CARRYING ($20.9M vs $27.5M agreed) because those
+#     sales are AGREED-BUT-NOT-CLOSED ("upon completion of current voyages") — execution
+#     risk remains, conservative value applies.
+#   · TNK (here): booked at the CONTRACTED $84.5M because the sale CLOSED in July 2026
+#     (delivered to purchaser; $22.9M Q3 gain booked) — zero execution risk at the time
+#     of this refresh, and the NAT precedent (held_for_sale at the $65M contracted
+#     figure) and ASC precedent ($35.5M Engineer) both use the contracted price.
+#   Proposed standing rule: AGREED-not-closed → carrying (conservative);
+#   CLOSED-post-quarter-before-refresh → contracted price (certain). Owner may rule.
+working_capital_net: 149762000
+
+# No interest-bearing debt (Q2 interest expense $797k = revolver commitment fees;
+# 25 of 34 owned vessels/NBs unencumbered; $97.6M undrawn revolver). Operating-lease
+# liabilities (current 16,576 + LT 11,225 = 27,801) for chartered-in tonnage are
+# offset ~1:1 by their ROU asset and the chartered-in vessels are excluded from the
+# owned fleet → net ~0, no double-count.
+total_debt: 0
+lease_liabilities: 0
+
+# 2 Korean Suezmax newbuilds, $190.0M total, delivery 2027 — agreed April 2026, so
+# NOW IN THE SNAPSHOT (was a subsequent event at 3/31). $33.4M paid to date
+# ("Advances on newbuilding contracts" 33,412) → remaining $156.6M.
+# §9.6 on-curve: the 2 NBs are valued on the curve at age-0 delivered-market PV in
+# tnk.yaml and advances → 0 (sunk into the on-curve delivered value).
+newbuild_capex_commitments: 156600000
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 34680112    # common shares outstanding at 2026-06-30

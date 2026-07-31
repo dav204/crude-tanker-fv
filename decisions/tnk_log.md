@@ -1,5 +1,37 @@
 # TNK — Decision Log
 
+## 2026-07-31 — Q2 REPORT-DAY REFRESH (pre-registered BEFORE recompute; 6-K acc -054, release 7/29)
+
+**Snapshot moved 2026-03-31 → 2026-06-30**, and the Q1 date-mix is resolved (the Q1 manifest
+carried a 5/13 fleet table on a 3/31 balance sheet — the SB-class error; the 7/28 table and
+the 6/30 balance sheet agree, no Suezmax transactions between them).
+
+**Deltas loaded:** cash 996.2 → **1,211.6** (+215.4M — record spot TCEs [Suezmax $109,171/d,
+Afra/LR2 $74,149, VLCC $123,189] + the $53.5M May Suezmax sale, gain $32.3M); WC 97.3 →
+**149.8** (operating WC 61.6 [AR 85.8 + bunkers 37.8 + prepaid 13.7 + accrued 54.9 − AP 120.0
+− other CL 10.6] + restricted 3.7 + **the HFS VLCC at the contracted $84.5M**); debt **stays
+0** (interest expense $797k = commitment fees; 25 of 34 hulls unencumbered); **NB commitments
+0 → 156.6M** — the 2 Korean Suezmax resales agreed Apr-2026 are now IN the snapshot, wired
+§9.6 ON-CURVE (2 age-0 rows, years_to_delivery 1.0, advances → 0); shares 34.644 → 34.680M.
+**Fleet:** VLCC REMOVED from the curve (HFS at 6/30 → off-curve in WC; sale CLOSED July at
+$84.5M, $22.9M Q3 gain) · Aframax fixed-rate 4 → 3 per the 7/28 deployment (the freed hull to
+the spot 2016 group; TC rates re-set to the Q2 realized TC-out TCEs, Suez $57,773 / Afra
+$37,043) · ages +0.25. Census cross-foots 14 Suezmax + 18 Afra/LR2 + 2 NB = 34.
+
+**HFS CONVENTION SPLIT — deliberate, documented, owner may rule:** SB's HFS pair (same-day
+refresh) booked at CARRYING because those sales are agreed-but-NOT-closed (execution risk);
+TNK's VLCC booked at the CONTRACTED $84.5M because the sale CLOSED in July before this
+refresh (zero execution risk) — matching the NAT ($65M contracted) and ASC ($35.5M) precedent.
+Proposed standing rule stated in tnk_2026-Q2.yaml.
+
+**PRE-REGISTERED EXPECTATION (before recompute):** the cash build dominates. +215.4M cash
+(+$6.2/sh) + ~+10M net on the VLCC swap (off-curve at 84.5 vs its ~75M curve value) + ~+14M
+net on the 2 NBs on-curve (delivered PV ~171M less the 156.6M commitment) − ~10-15M from
+ages +0.25 ⇒ **NAV/sh expected ~$84-85 vs $77.73, i.e. +8-9%; band ±8% → [77.3, 91.0].
+No position flip expected — TNK reads TRIM/SHORT at the live $79.95 tape either way (NAV
+rising narrows but does not close the gap; EV stays negative). SANITY must stay OK.**
+A miss beyond the band = HALT and investigate the input, not the curve.
+
 ## 2026-07-31T18:33:40+00:00 — Pipeline run (auto)
 
 **Model state:**
