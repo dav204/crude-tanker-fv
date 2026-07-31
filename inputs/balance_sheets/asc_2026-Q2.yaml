@@ -1,0 +1,71 @@
+# Ardmore Shipping (ASC / NYSE:ASC) balance sheet snapshot — METHODOLOGY.md §4.2, §11.5
+# Source of record: Ardmore Q2 2026 companion 6-K, EDGAR acc 0001104659-26-087834
+# (asc-20260630x6k.htm), unaudited interim condensed financials AS OF 2026-06-30, +
+# the Q2 earnings release (acc 0001104659-26-087836, ex-99.1) for the newbuild table.
+# Report-day refresh 2026-07-31. Prior: Q1 (acc -056715, reconciled 2026-07-01).
+#
+# Figures avoid double-counting against the NAV formula, which adds cash and subtracts
+# total_debt/leases SEPARATELY. working_capital_net excludes cash and the current
+# operating-lease portion.
+ticker: ASC
+quarter: 2026-Q2
+
+cash_and_equivalents: 48138000        # BS "Cash and cash equivalents" (2026-06-30); no restricted line
+
+# working_capital_net = OPERATING working capital + the OFF-CURVE chemical-Handy sleeve (§11.5).
+#
+#   1. OPERATING working capital (ex-cash, ex-debt, ex-operating-lease):
+#        Current assets ex-cash = 124,186 − 48,138 = 76,048
+#          (= AR 55,028 net of $1.3M allowance + Prepaid 4,757 + Advances & deposits 2,297
+#             + Inventories 13,966)
+#        Current liabilities ex-current-lease = 22,796 − 502 = 22,294
+#          (= AP 5,519 + Accrued 12,965 + Deferred revenue 3,810)
+#        Operating WC = 76,048 − 22,294 = +53,754 ($k).   [Q1: +46,584]
+#
+#   2. OFF-CURVE CHEMICAL-HANDY sleeve — 4 × 25,217 DWT stainless Fukuoka chemical tankers
+#      (Chippewa/Chinook/Cheyenne/Cherokee, 2015; §11.5 gap — no clean 25k-stainless resale
+#      curve). Carrying-value floor carried forward from Q1 ($73,100) less one quarter of
+#      straight-line depreciation on the same cited basis (cost $29.5M, 25-yr life, ~$3.6M
+#      residual ⇒ ~$1.036M/hull/yr × 0.25 × 4 hulls = $1,036) → +72,064 ($k).
+#      Basis: carrying-value-floor · §11.5 structural, NOT resale-uniform (unchanged).
+#
+#   Total working_capital_net = 53,754 + 72,064 = 125,818 ($k).
+working_capital_net: 125818000
+
+# HELD FOR SALE: NONE at 2026-06-30. The Ardmore Engineer (2014 MR) SOLD — delivered to the
+# buyer June 2026, gain $12.2M, net proceeds $35.1M (in the H1 investing cash flow). The Q1
+# held_for_sale of $35,500 is therefore RETIRED, not rolled.
+held_for_sale: 0
+
+# Total debt (Note 4): $350M Revolving Credit Facility drawn 30,000 ($282.3M undrawn,
+# SOFR+1.80%, matures July 2031) + $15M Working Capital Facility drawn 3,381 ($11.6M undrawn,
+# SOFR+3.10%, matures Aug 2030) = 33,381. ALL non-current — nothing due until 2030/2031.
+# Down from 103,359 at 3/31 (and 127,000 at 12/31/25): ~$70M of Q2 paydown, funded by the
+# Engineer proceeds + operating cash. Liquidity $342.1M (cash + $294.0M undrawn).
+total_debt: 33381000
+
+# Operating-lease liabilities (office): 502 current + 1,097 non-current = 1,599 ($k).
+# No material finance/SLB leases (bank-financed fleet).
+lease_liabilities: 1599000
+
+# NEWBUILDS — NOW IN THE SNAPSHOT (§9.6 on-curve; 4 age-0 rows in asc.yaml).
+# The April-2026 order of 2 × 40,500 DWT Handysize product/chemical tankers at Wuhu was
+# EXPANDED in June 2026 by exercising options for 2 more on the SAME TERMS → 4 firm, with
+# 2 FURTHER OPTIONS secured (not commitments; excluded). Deliveries "from late 2028 and
+# onwards" — the release's installment table shows 1 delivery in 2028 and 3 in 2029.
+#
+# AS-OF ARITHMETIC (the figure-provenance point): the release's remaining-installment table
+# totals $165.2M but is explicitly dated "as of July 29, 2026" — AFTER the Company "paid
+# $18.4 million as installments for two of the newbuildings" in Q3 2026. The 2026-06-30
+# commitment is therefore 165.2 + 18.4 = 183.6.
+# ADVANCES AT 6/30 = ZERO, verified two ways: (i) the MD&A lists "first installment payments
+# for the four newbuildings" under SHORT-TERM liquidity requirements (i.e. still upcoming at
+# the balance-sheet date), and (ii) H1 investing cash flow shows only $2.2M vessel/equipment
+# acquisition + $0.5M "advances for vessel equipment" — no newbuild instalment outflow.
+newbuild_capex_commitments: 183600000
+newbuild_advances_paid: 0
+
+# Series A Preferred fully redeemed Oct-2025 → no preferred claim (defaults to 0).
+
+# Common shares outstanding as of 2026-07-29 (release dividend-calc table).
+diluted_shares_outstanding: 40851870

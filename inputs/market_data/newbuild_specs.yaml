@@ -138,3 +138,18 @@ TNK:
     evidence FOR the premium; booked false (conservative), same disposition as ECO's
     2 Suezmax NBs (2026-07-01) and SB's Kamsarmax orderbook. Revisit if TNK discloses
     specs at delivery or in the 20-F.
+
+ASC:
+  eco: true
+  scrubber: false
+  scrubber_verified: true
+  source: >
+    Q2-2026 6-K pair (acc 0001104659-26-087834 + -087836 ex-99.1, filed 2026-07-29). Four
+    40,500 DWT Handysize product/chemical newbuildings at Wuhu Shipyard (2 ordered April
+    2026, 2 via option exercise June 2026 "on the same terms"), deliveries "from late 2028
+    and onwards". eco: TRUE by the §3.1 mechanical rule (2028-29 delivery >> 2014) and
+    corroborated by the issuer's own "Eco-Design" description of the class. scrubber=FALSE
+    on a NAME-SPECIFIC disclosure, not an absence-of-evidence default: Ardmore runs ZERO
+    scrubbers fleet-wide (20-F; the strategy is eco-design + biofuel/carbon-capture, not
+    scrubber retrofit), so the zero flag traces to the company's own stated equipment
+    policy rather than to silence about these hulls.

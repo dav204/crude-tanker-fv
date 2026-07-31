@@ -1,5 +1,44 @@
 # ASC — Decision Log
 
+## 2026-07-31 — Q2 REPORT-DAY REFRESH (pre-registered BEFORE recompute; 6-K pair acc -087834/-087836)
+
+**Snapshot moved 2026-03-31 → 2026-06-30.** Deltas: **debt 103.4 → 33.4** (−$70.0M of Q2
+paydown, funded by the Engineer proceeds + operating cash; all non-current, nothing due
+before 2030) · cash 47.2 → 48.1 · operating WC 46.6 → 53.8 · chem sleeve 73.1 → 72.1
+(0.25y depreciation on the cited carrying basis) · **held_for_sale 35.5 → 0** (Ardmore
+Engineer SOLD, delivered June, gain $12.2M, net proceeds $35.1M) · **newbuild commitments
+0 → 183.6M with advances 0** · shares ~flat · ages +0.25 · TC book 4 product → 5 product +
+1 chemical (MR spot coverage 0.78 → 0.72).
+
+**THE FIGURE-PROVENANCE CATCH (source-verified, not inferred):** the release's remaining-
+installment table totals $165.2M but is explicitly dated **"as of July 29, 2026"** — after
+the Company "paid $18.4 million as installments for two of the newbuildings" in Q3. The
+6/30 commitment is therefore **165.2 + 18.4 = 183.6**. Advances at 6/30 = **ZERO**, verified
+twice: the MD&A lists "first installment payments for the four newbuildings" under
+SHORT-TERM liquidity (still upcoming at the balance-sheet date), and H1 investing cash flow
+shows only $2.2M vessel/equipment + $0.5M equipment advances — no newbuild outflow. Taking
+the table at face value would have understated the commitment by $18.4M (~$0.45/sh).
+
+**Order is now 4 vessels, not 2** (April order + June option exercise on the same terms),
+plus 2 further options SECURED BUT EXCLUDED — an option is not a commitment.
+
+**PRE-REGISTERED EXPECTATION (before recompute):** +70.0 (debt) + 0.9 (cash) + 6.1 (WC net
+of chem dep) − 35.5 (HFS retired) − 12.3 (ages +0.25 on 20 on-curve hulls) and the §9.6
+newbuild leg **NEGATIVE**: 4 hulls at the $44.9M issuer-contract age-0 basis, PV-discounted
+1.11^−2.4 / 1.11^−3.0 ≈ $133.4M delivered value against a $183.6M unpaid commitment ⇒
+≈ −$50.2M. Net ≈ **−$21.0M ⇒ NAV/sh $17.82 → ~$17.31, i.e. ≈ −2.9%; band ±6% →
+[16.75, 18.89]. No tier change expected (GOVERNED-WIDE·structural-class stands — the 4
+off-curve chem hulls are unchanged). SANITY must stay OK.**
+
+**DISCREPANCY FLAGGED AHEAD OF THE RUN:** PLAN.md carries a pre-booked expectation of a
+"**~+1.9%** Handysize correction" at this refresh, written 2026-07-15 when the order was
+2 vessels and before the commitment/advance split was known. My computed expectation is the
+opposite SIGN. The mechanism is the §9.6 convention itself: an unpaid, far-dated newbuild is
+NAV-NEGATIVE (you owe ~$46M face for an asset worth ~$33M in PV at the locked 11% rate) —
+unlike SB, whose NBs are ~40% pre-paid so its remaining commitment sits far below delivered
+PV. If the recompute lands near −2.9%, the PLAN note was about the Thread-1A age-0 re-source
+in isolation, not the whole NB entry, and PLAN should be corrected rather than the model.
+
 ## 2026-07-31T19:18:35+00:00 — Pipeline run (auto)
 
 **Model state:**
