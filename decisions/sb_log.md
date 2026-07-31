@@ -1,5 +1,26 @@
 # SB — Decision Log
 
+## 2026-07-31 — Q2 REPORT-DAY REFRESH (pre-registered BEFORE recompute; 6-K acc -037, release 7/28)
+
+**Snapshot moved 2026-03-31 → 2026-06-30.** Deltas loaded: debt 544.0→511.4 (−32.6, paydown
+incl. $27M voluntary); cash 171.8→134.5 (−37.2); WC 53.8→37.7 (−16.1: Michalis-H HFS out
+[closed Apr, gain $4.1M], Xenia+PedCommander HFS in at $20.9M carrying, operating WC ~+8.4);
+NB commitments 227.5→277.2 (+49.7; orderbook 8→10 with 4 new orders); fleet: Katerina+Maritsa
+DELIVERED (NB→operating age-0.5 Kamsarmax), Xenia+PedCommander operating→HFS (44 operating
+unchanged in count, −6,900 dwt); ages +0.25 book-wide; Cape charter book updated to Table 9
+exact (7 rows, avg $24,580, 1.7y). **CAPESIZE NB PARKED at $0** (lease-funded, no disclosed
+price — NAT NEWBUILD_PRICE_PENDING pattern; owner may rule otherwise; resolution = H1
+interim lease schedule). Shares 101.83M; preferred $100M; §15 screen unchanged at 0
+(dividend RAISED to $0.075 — pari-passu intact; no tripwire movement; buyback now
+quantified: 515,469 shs cumulative at 7/24).
+
+**PRE-REGISTERED EXPECTATION (before recompute):** offsetting deltas (debt −32.6 vs
+cash −37.2/WC −16.1/commitments +49.7, fleet swaps ≈ neutral: 2 young Kamsarmax on-water
+replace NB rows at similar PV; 2 old hulls leave the curve [~$20-26M curve value] and
+return $20.9M in WC) → **NAV/sh expected within ±6% of $10.07, no position flip (BUY
+margin ~+38% at the 7/24 basis, ~+13% EV at the live 7/31 tape), SANITY stays n/a-APPROX.**
+A miss beyond the band = HALT and investigate the input, not the curve.
+
 ## 2026-07-31T18:06:00+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,0 +1,58 @@
+# Safe Bulkers Inc. (SB) balance sheet snapshot — METHODOLOGY §4.2. USD.
+# Source: Q2-2026 earnings 6-K (SEC CIK 1434754, acc 0001317861-26-000037, filed 2026-07-29;
+# press release dated 2026-07-28), Table 3 condensed balance sheet (2026-06-30 column) +
+# "Liquidity" section. Report-day refresh 2026-07-31. NOTE: the release also carries a
+# 7/24/26 liquidity snapshot (cash $153.2M, debt $514.0M gross) — deliberately NOT used;
+# this file is the 6/30 NAV-date snapshot (AS-OF discipline).
+
+ticker: SB
+quarter: 2026-Q2
+
+# Cash & equivalents 43,742 + time deposits 90,795 (Table 3). Restricted cash non-current
+# 8,375 goes to working_capital_net per the Q1 convention.
+cash_and_equivalents: 134537000
+
+# working_capital_net = operating WC + non-current restricted + held-for-sale carrying:
+#   other current assets 55,880 − other current liabilities 39,297 − other non-current
+#     liabilities 8,140 = +8,443 (operating WC)
+#   + restricted cash non-current 8,375
+#   + assets held for sale 20,900 = Xenia (2006 PPMX) + Pedhoulas Commander (2008
+#     Kamsarmax) at carrying value (sales agreed May-2026 at $12.8M + $14.7M = $27.5M
+#     gross — closing expected post-quarter "upon completion of their current voyages";
+#     carried at the LOWER carrying value, conservative, DHT-Bauhinia convention)
+#   = +37,718.  (Q1's Michalis H HFS $30.2M is GONE — sale closed April, gain $4.1M.)
+working_capital_net: 37718000
+
+# Total interest-bearing debt net of deferred financing costs (Table 3): current portion
+# 171,564 + long-term 339,884 = 511,448. Split (Selected highlights): secured $397.7M /
+# unsecured $113.7M (€100M 2.95% bond, matures Feb-2027 — the 2027 wall: $180.4M due).
+# Gross before DFC $519.2M. Finance-lease/bareboat liabilities embedded in borrowings
+# (ECO convention → lease_liabilities 0, not additive). Q2 paydown: $5.0M scheduled +
+# $27.0M voluntary; weighted-avg rate 5.10%.
+total_debt: 511448000
+lease_liabilities: 0
+
+# Newbuild book (§9.6 on-curve, delivered-less-commitment): NINE Kamsarmax NBs on the
+# curve (see sb.yaml NB rows); remaining commitments $277.2M ($91.5M paid) — payable
+# $61.4M 2026 / $81.5M 2027 / $42.8M 2028 / $91.5M 2029 ("Liquidity" section).
+# THE CAPESIZE NB (182k JP, H2-2029, ordered Jun-2026) IS EXCLUDED/PARKED AT $0:
+# finance-lease funded (bareboat w/ purchase option), NO disclosed price and NO entry in
+# the capex-commitments table — the NAT NEWBUILD_PRICE_PENDING pattern (park pending
+# disclosed terms; §9.6 on-curve unauthorized without a citable commitment figure).
+# Owner may rule otherwise at reconcile; resolution path = the lease schedule in the
+# H1 interim financials or 20-F.
+newbuild_capex_commitments: 277200000
+newbuild_advances_paid: 0
+
+# Common shares outstanding as of 2026-07-24 (release) — the per-share denominator.
+diluted_shares_outstanding: 101833473
+
+# Preferred equity: 8.00% Series C (804,950) + Series D (3,195,050), $25.00 liquidation
+# = $100.0M aggregate, $2.0M/quarter (7/1 declaration paid 7/30). Unchanged.
+preferred_equity: 100000000
+
+# §15 governance screen: carried from Q1 UNCHANGED at 0 — Q2 evidence moves the tripwires
+# NONE: common dividend RAISED to $0.075 (pari-passu intact), no related-party drop-downs,
+# fee basis unchanged in the release. Full screen + tripwires in sb_2026-Q1.yaml comments
+# and decisions/sb_log.md.
+governance_discount_pct: 0.0
