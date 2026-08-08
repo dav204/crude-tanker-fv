@@ -1,0 +1,50 @@
+# DHT Holdings balance sheet snapshot — METHODOLOGY.md section 4.2. USD.
+# Source: Q2-2026 results 6-K (EDGAR acc 0000950157-26-000847, filed 2026-08-05),
+# Consolidated Statement of Financial Position 2026-06-30 column + the debt table
+# + the liquidity section share count. Q2 refresh 2026-08-08.
+# Subsequent events (release note) audited FIRST and kept OUT: the 8/4 $1.22/sh Q2
+# dividend (record 8/17), the 7/20 Bauhinia delivery to buyer ($51.0M net — used
+# below as the 6/30 HFS realisable, the sale itself closes post-quarter), the 7/24
+# DHT Impala delivery (Impala stays the on-curve NB row at 6/30), and the July
+# Jaguar 3-yr $75k/day TC (commences September; Stage-A print, banked).
+
+ticker: DHT
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1331284/000095015726000847/
+retrieved_at: 2026-08-08
+filing_period_end: 2026-06-30
+
+cash_and_equivalents: 161683000      # "Cash and cash equivalents"
+
+# working_capital_net = operating working capital (non-cash, non-debt)
+#                       + DHT Bauhinia held-for-sale at its realized sale value:
+# Operating WC = (AR + accrued revenues 87,059 + capitalized voyage exp 2,826
+#                 + prepaid 6,624 + current derivative assets 923 + inventories 26,835)
+#              - (accounts payable + accrued 24,077 + other current liab 1,224
+#                 + deferred shipping revenues 12,376)
+#              = 124,267 - 37,677 = 86,590 ($k).
+# Bauhinia: BS "assets held for sale" 16,777 carrying; NAV uses the REALIZED
+# $51.0M net (delivered 7/20 per the subsequent-events note — supersedes the
+# agreed $51.5M): 86,590 + 51,000 = 137,590 ($k).
+working_capital_net: 137590000
+
+total_debt: 434804000                # "Total interest bearing debt" (debt table,
+                                     # net of $8,447k unamortized fees — the same
+                                     # Note-4 caption basis as Q1's 505,343; the
+                                     # fall = scheduled repayments + prepayments)
+
+# Small office leases only (all vessels owned). The Q2 release carries no separate
+# lease line (CF shows $0.3M/qtr lease principal); HELD at the Q1-cited $0.99M.
+lease_liabilities: 990000
+
+# DHT Impala (the 4th newbuilding) — ON-curve §9.6 (manifest DHT_Impala_nb,
+# years_to_delivery 0.07 at 6/30; delivered 7/24 post-Q2). Remaining installments
+# HELD at the Q1-2026 Note-5 cited $77,481k: the Q2 CF shows only $1.28M of
+# capitalized construction additions in the quarter (BS line 55,676->56,974 —
+# no installment payments); the delivery installment was paid AT the 7/24
+# delivery, post-Q2, funded by the ING/Nordea export facility.
+newbuild_capex_commitments: 77481000
+newbuild_advances_paid: 0            # sunk into the on-curve delivered value (§9.6)
+
+diluted_shares_outstanding: 161235573  # "shares of common stock outstanding" at
+                                       # 2026-06-30 (liquidity section)

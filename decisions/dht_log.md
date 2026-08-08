@@ -1,5 +1,36 @@
 # DHT — Decision Log
 
+## 2026-08-08T22:30:06+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.76
+- Single-point FV: $14.91
+- Scenario PW FV: $13.51 (EV -28.0%)
+- NAV / share: $13.83
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +11.2pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +1.6% | Δscenario FV: +2.0% | ΔNAV: +1.8% | Δspread: -1.1pp
+
+**Decision:** Q2 REPORT-DAY REFRESH (backlog drain #6, transition mechanism — pair landed
+together, preflight clean). Source: Q2 6-K acc 0000950157-26-000847 (8/5). Subsequent
+events EXCLUDED: 8/4 $1.22/sh dividend · 7/20 Bauhinia delivery ($51.0M net — used as
+the 6/30 HFS realisable, supersedes the agreed $51.5M) · 7/24 Impala delivery (stays the
+on-curve §9.6 NB row at 6/30, remaining installments HELD at the Q1-cited $77,481k —
+Q2 CF shows no installment payments, the delivery installment paid post-Q2 via the
+ING/Nordea export facility) · the July Jaguar 3-yr $75k TC (commences Sept — spot at
+6/30; the coverage update batches with Stage A per §7 below). NAV $13.58→$13.83 (+1.8%)
+— INSIDE the pre-registered band [13.35, 14.75] (point $14.05): debt-relief +70.5M
+(505.3→434.8 same Note-4 basis) + cash +35.4 + WC +3.4 against ~0.5y uniform aging.
+Ages → 2026.5-built basis. Both halves verified (161.7/137.6/434.8/77.5). Forward
+invariance held (24 names 0.0). NO FLIP — TRIM/SHORT stands (rich · cycle), EV −28.0%;
+VALIDATED-TIGHT stands; family WEIGHT-ROBUST TRIM. **GATE: GREEN SUB-THRESHOLD (+1.4pp
+EV, stable) — the first drain refresh needing NO ratify**; the baseline rides.
+
+---
+
 ## 2026-08-08T22:13:11+00:00 — Pipeline run (auto)
 
 **Model state:**

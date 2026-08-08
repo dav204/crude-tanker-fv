@@ -2,15 +2,15 @@
 # Source: https://www.dhtankers.com/fleetlist/ cross-checked against the
 # Q1 2026 results (press release, May 5 2026; balance sheet as of 2026-03-31).
 #
-# Scope = the 22 RETAINED OPERATING VLCCs as of 2026-03-31. Two website fleet
-# entries are deliberately excluded here and handled via the balance sheet:
-#   - DHT Impala (2026 newbuild): still under construction at 2026-03-31
-#     (delivered June 2026) -> enters NAV via newbuild capex/advances lines.
-#   - DHT Bauhinia (2007): held for sale at an agreed $51.5M (delivery Jun/Jul
-#     2026) -> entered in NAV via working_capital_net at its sale price, not
-#     the age curve (the curve over-values a 19yo VLCC vs. the agreed price).
-#
-# age = 2026 - year built. eco = built post-2014 (METHODOLOGY 3.1 definition).
+# Q2 REFRESH 2026-08-08, snapshot AS-OF 2026-06-30 (Q2 6-K acc 0000950157-26-000847,
+# 8/5). Scope = 22 operating VLCCs + the DHT_Impala_nb on-curve §9.6 row (under
+# construction at 6/30, years_to_delivery 0.07 — DELIVERED 7/24, post-Q2, the 4th and
+# final 2026 newbuilding; remaining installments stay on the sheet). DHT Bauhinia
+# (2007) HFS at 6/30 — in working_capital_net at the REALIZED $51.0M net (delivered
+# to buyer 7/20, post-Q2; was agreed $51.5M) — not the age curve. DHT Jaguar
+# (2015): the 3-yr $75,000/day TC (July agreement, the Stage-A trigger print)
+# COMMENCES SEPTEMBER — spot at 6/30; the coverage update batches with Stage A
+# (dht_log §7). Ages = 2026.5 − built. eco = built post-2014 (METHODOLOGY 3.1).
 # scrubber: operating VLCCs flagged true on the ONBOARDING basis (DHT's historically
 # scrubber-heavy fleet). NOT restated in the Q1-2026 6-K (which says "scrubber" 0 times) — the
 # fleet-wide claim is UNVERIFIED against a primary source and sits in the Tier-2 operating-scrubber
@@ -18,12 +18,12 @@
 # of the Q1-2026 6-K ("fitted with exhaust gas cleaning systems", acc 0000950157-26-000576).
 # [Corrected 2026-06-30: the prior bare flag-claim had no source backing — see test_manifest_provenance.]
 ticker: DHT
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
   - id: DHT_Gazelle
     class: VLCC
     dwt: 319825
-    age: 0      # built 2026
+    age: 0.5      # built 2026
     scrubber: true
     eco: true
     charter_status: time_charter   # 5-7yr TC from Mar 2026
@@ -32,7 +32,7 @@ vessels:
   - id: DHT_Addax
     class: VLCC
     dwt: 319999
-    age: 0      # built 2026
+    age: 0.5      # built 2026
     scrubber: true
     eco: true
     charter_status: spot
@@ -41,7 +41,7 @@ vessels:
   - id: DHT_Antelope
     class: VLCC
     dwt: 319999
-    age: 0      # built 2026
+    age: 0.5      # built 2026
     scrubber: true
     eco: true
     charter_status: spot
@@ -50,7 +50,7 @@ vessels:
   - id: DHT_Appaloosa
     class: VLCC
     dwt: 318918
-    age: 8      # built 2018
+    age: 8.5      # built 2018
     scrubber: true
     eco: true
     charter_status: time_charter   # TC w/ profit sharing until Q2'32
@@ -59,7 +59,7 @@ vessels:
   - id: DHT_Mustang
     class: VLCC
     dwt: 317975
-    age: 8      # built 2018
+    age: 8.5      # built 2018
     scrubber: true
     eco: true
     charter_status: spot
@@ -68,7 +68,7 @@ vessels:
   - id: DHT_Nokota
     class: VLCC
     dwt: 318918
-    age: 8      # built 2018
+    age: 8.5      # built 2018
     scrubber: true
     eco: true
     charter_status: spot
@@ -77,7 +77,7 @@ vessels:
   - id: DHT_Bronco
     class: VLCC
     dwt: 317975
-    age: 8      # built 2018
+    age: 8.5      # built 2018
     scrubber: true
     eco: true
     charter_status: spot
@@ -86,7 +86,7 @@ vessels:
   - id: DHT_Colt
     class: VLCC
     dwt: 319713
-    age: 8      # built 2018
+    age: 8.5      # built 2018
     scrubber: true
     eco: true
     charter_status: spot
@@ -95,7 +95,7 @@ vessels:
   - id: DHT_Stallion
     class: VLCC
     dwt: 319713
-    age: 8      # built 2018
+    age: 8.5      # built 2018
     scrubber: true
     eco: true
     charter_status: spot
@@ -104,7 +104,7 @@ vessels:
   - id: DHT_Tiger
     class: VLCC
     dwt: 299629
-    age: 9      # built 2017
+    age: 9.5      # built 2017
     scrubber: true
     eco: true
     charter_status: spot
@@ -113,7 +113,7 @@ vessels:
   - id: DHT_Harrier
     class: VLCC
     dwt: 299985
-    age: 10     # built 2016
+    age: 10.5     # built 2016
     scrubber: true
     eco: true
     charter_status: time_charter   # 5yr extension at $47,500/day
@@ -122,7 +122,7 @@ vessels:
   - id: DHT_Puma
     class: VLCC
     dwt: 299629
-    age: 10     # built 2016
+    age: 10.5     # built 2016
     scrubber: true
     eco: true
     charter_status: time_charter   # TC w/ profit sharing until Q1'27
@@ -131,7 +131,7 @@ vessels:
   - id: DHT_Panther
     class: VLCC
     dwt: 299629
-    age: 10     # built 2016
+    age: 10.5     # built 2016
     scrubber: true
     eco: true
     charter_status: spot
@@ -140,7 +140,7 @@ vessels:
   - id: DHT_Osprey
     class: VLCC
     dwt: 299999
-    age: 10     # built 2016
+    age: 10.5     # built 2016
     scrubber: true
     eco: true
     charter_status: time_charter   # TC until Q2'27
@@ -149,7 +149,7 @@ vessels:
   - id: DHT_Lion
     class: VLCC
     dwt: 299629
-    age: 10     # built 2016
+    age: 10.5     # built 2016
     scrubber: true
     eco: true
     charter_status: spot
@@ -158,7 +158,7 @@ vessels:
   - id: DHT_Leopard
     class: VLCC
     dwt: 299629
-    age: 10     # built 2016
+    age: 10.5     # built 2016
     scrubber: true
     eco: true
     charter_status: time_charter   # TC until Q4'27
@@ -167,7 +167,7 @@ vessels:
   - id: DHT_Jaguar
     class: VLCC
     dwt: 299629
-    age: 11     # built 2015
+    age: 11.5     # built 2015
     scrubber: true
     eco: true
     charter_status: spot
@@ -176,7 +176,7 @@ vessels:
   - id: DHT_Taiga
     class: VLCC
     dwt: 318130
-    age: 14     # built 2012
+    age: 14.5     # built 2012
     scrubber: true
     eco: false
     charter_status: time_charter   # 1yr TC at $94,000/day from Mar 2026
@@ -185,7 +185,7 @@ vessels:
   - id: DHT_Opal
     class: VLCC
     dwt: 320105
-    age: 14     # built 2012
+    age: 14.5     # built 2012
     scrubber: true
     eco: false
     charter_status: time_charter   # 1yr TC at $90,000/day from Feb 2026
@@ -194,7 +194,7 @@ vessels:
   - id: DHT_Sundarbans
     class: VLCC
     dwt: 318123
-    age: 14     # built 2012
+    age: 14.5     # built 2012
     scrubber: true
     eco: false
     charter_status: time_charter   # TC until Q1'27
@@ -203,7 +203,7 @@ vessels:
   - id: DHT_Redwood
     class: VLCC
     dwt: 318130
-    age: 15     # built 2011
+    age: 15.5     # built 2011
     scrubber: true
     eco: false
     charter_status: time_charter   # 1yr TC at $105,000/day from Mar 2026
@@ -212,7 +212,7 @@ vessels:
   - id: DHT_Amazon
     class: VLCC
     dwt: 318130
-    age: 15     # built 2011
+    age: 15.5     # built 2011
     scrubber: true
     eco: false
     charter_status: spot           # spot at 2026-03-31 (1yr TC fixed in May)
@@ -227,11 +227,11 @@ vessels:
   - id: DHT_Impala_nb
     class: VLCC
     dwt: 300000
-    age: 0
+    age: 0.5
     scrubber: true
     eco: true
     count: 1
-    years_to_delivery: 0.25
+    years_to_delivery: 0.07
     charter_status: spot
     charter_rate: null
     charter_end: null
