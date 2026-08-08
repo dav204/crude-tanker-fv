@@ -2,7 +2,7 @@
 
 > **Price basis:** all 25 prices live.
 
-> **Balance-sheet basis: 16 of 25 names on a pre-2026-Q2 vintage:** 2343 (2026-Q1), BRUT (2026-Q1), BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), CMDB (2026-Q1), FLNG (2026-Q1), FRO (2026-Q1), GNK (2026-Q1), HAFN (2026-Q1), INSW (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), SBLK (2026-Q1), TEN (2026-Q1), TRMD (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
+> **Balance-sheet basis: 15 of 25 names on a pre-2026-Q2 vintage:** 2343 (2026-Q1), BRUT (2026-Q1), BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), CMDB (2026-Q1), FLNG (2026-Q1), FRO (2026-Q1), HAFN (2026-Q1), INSW (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), SBLK (2026-Q1), TEN (2026-Q1), TRMD (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
 
 > **Rate basis:** Supra-Ultra 2027+2028 strip legs HELD at the 13-Jul synthesis (Cal-27 14,175): the Smax Cal27 row is cropped from every capture of the new source (Chris.Palun, 2026-07-20 →) — front (q1/q2/12M/spot) IS the 24-Jul print. Held-node bracket per ffa_promotion_2026-07-24.md; retires at the first capture showing Smax Cal27 (owner channel-ask staged). Handy-Bulk derived row inherits the same mix via the x0.90 identity.
 
@@ -20,7 +20,7 @@ This file lists each name **twice, by design** — once in the **Verdict** (the 
 
 FV vs current price, position, and the broker-NAV bug-gate on the **same row** as the confidence tier — **the single handoff surface** for a sizing decision. The per-gate evidence behind each tier is the Validation matrix below (same names, same file).
 
-**What this says about the opportunity set:** of 25 names, the validated-and-actionable-long surface is **1 (SB — dry bulk, cheap on both NAV bases)**. 14 are directional-only (GOVERNED-WIDE); 5 are not yet trustworthy enough to act on (PROVISIONAL ⛔). **Name-specific shorts: 2343, CMBT** — every other TRIM/SHORT row is cycle-position, unreliable-read, or void. The thin actionable list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.
+**What this says about the opportunity set:** of 25 names, the validated-and-actionable-long surface is **1 (SB — dry bulk, cheap on both NAV bases)**. 14 are directional-only (GOVERNED-WIDE); 5 are not yet trustworthy enough to act on (PROVISIONAL ⛔). **Name-specific shorts: 2343, CMBT, GNK** — every other TRIM/SHORT row is cycle-position, unreliable-read, or void. The thin actionable list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.
 
 **Reading the labels:** the tier cell carries a **sub-reason = resolution path** (`structural-class` needs a new data regime; `pending-anchor` is sourceable now; `newbuild-heavy` resolves as hulls deliver; `newbuild-indeterminate` = a newbuild parked at $0 pending a filed price; `read-flips` needs the §18.5 gate data; `void` = a derived number rests on a contradicted figure). A **`cycle position`** in Position is a NAV-relative read (§12), NOT a directional short. A **void** row prints no derived numbers — they are known-suspect, not data.
 
@@ -41,7 +41,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | TRMD | product | GOVERNED-WIDE · basis-pending | $29.49 | $31.87 | 18.47–45.34 | +8% | BUY (undervalued) | $30.94 | $30.30 | $35.96 | -16% | OK | ready | **⚠ sign flips** |
 | 2343 | dry_bulk | GOVERNED-WIDE · pending-anchor | $0.48 | $0.39 | 0.32–0.45 | -20% | TRIM/SHORT (overvalued) | $0.39 | $0.40 | $0.49 (apx) | -19% | n-a | ready | stable |
 | CMDB | dry_bulk | GOVERNED-WIDE · read-flips | $17.80 | $20.79 | 17.06–24.79 | +17% | BUY (undervalued) | $21.34 | $32.65 | $28.71 (apx) | +14% | n-a | ready | stable |
-| GNK | dry_bulk | GOVERNED-WIDE · read-flips | $25.33 | $24.08 | 18.64–30.22 | -5% | HOLD (fairly valued) | $25.14 | $25.98 | $28.46 | -9% | OK | ready | stable |
+| GNK | dry_bulk | GOVERNED-WIDE · read-flips | $25.33 | $23.42 | 17.93–29.63 | -8% | TRIM/SHORT (overvalued) | $24.51 | $25.26 | $28.46 | -11% | OK | ready | stable |
 | CCEC | lng | GOVERNED-WIDE · structural-class | $22.37 | $33.70 | 16.27–47.20 | +51% | BUY (undervalued) | $29.97 | $25.70 | $24.86 (apx) | +3% | n-a | ready | stable |
 | FLNG | lng | GOVERNED-WIDE · structural-class | $30.84 | $30.67 | 20.36–39.36 | -1% | HOLD (fairly valued) | $28.16 | $28.45 | $22.84 | +25% | OK | ready | stable |
 | GSL | containerships | GOVERNED-WIDE · structural-class | $42.44 | $43.02 | 38.70–46.80 | +1% | HOLD (fairly valued) | $45.50 | $41.20 | $56.59 (apx) | -27% | n-a | ready | — |
@@ -82,7 +82,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | TRMD | product | GOVERNED-WIDE | pending-sourceable | 0.91× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | 2343 | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.98× | cheap→cheap | robust | clears (+unvalidated) | pending | pending | comparable; §18.5 gates pending |
 | CMDB | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.53× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
-| GNK | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.94× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
+| GNK | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.97× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
 | SB | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.64× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | SBLK | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.82× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | CCEC | lng | GOVERNED-WIDE | structural-unavailable | 0.84× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |

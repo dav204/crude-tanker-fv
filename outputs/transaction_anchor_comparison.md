@@ -224,7 +224,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | SBLK | $29.77→$30.64 | +2.9% | -3.5%→-1.0% | +2.6 | HOLD→HOLD |
 | STNG | $79.63→$76.42 | -4.0% | +0.6%→-3.1% | -3.7 | HOLD→HOLD |
 | CAPT | $15.61→$15.49 | -0.8% | -2.4%→-4.0% | -1.6 | HOLD→HOLD |
-| GNK | $25.53→$25.98 | +1.8% | -6.4%→-4.9% | +1.5 | TRIM/SHORT→HOLD ⚠️ |
+| GNK | $24.77→$25.26 | +2.0% | -9.1%→-7.5% | +1.6 | TRIM/SHORT→TRIM/SHORT |
 | CMBT **(WHOLE-CO)** | $15.84→$16.19 | +2.2% | -15.3%→-13.4% | +1.9 | TRIM/SHORT→TRIM/SHORT |
 | HAFN | $5.69→$5.57 | -2.1% | -15.7%→-17.1% | -1.4 | TRIM/SHORT→TRIM/SHORT |
 | MPCC | $2.04→$2.04 | +0.0% | -19.4%→-19.4% | +0.0 | TRIM/SHORT→TRIM/SHORT |

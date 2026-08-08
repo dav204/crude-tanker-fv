@@ -222,11 +222,11 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   GNK:
-    ev_min_pct: -9.2
-    ev_max_pct: -1.1
+    ev_min_pct: -11.8
+    ev_max_pct: -3.7
     ev_sign_stable: true
     positions:
-    - HOLD
+    - TRIM/SHORT
     - HOLD
     - TRIM/SHORT
   HAFN:

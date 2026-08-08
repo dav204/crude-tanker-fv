@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-08T22:31:32+00:00
-- **Previous run:** 2026-08-08T22:30:06+00:00
+- **This run:** 2026-08-08T23:19:45+00:00
+- **Previous run:** 2026-08-08T23:10:50+00:00
 
 ## Headline changes (material moves)
 
@@ -9,7 +9,8 @@
 
 ## Input files changed since last run
 
-- _(no input file changes detected — hashes match)_
+- `inputs/fleet_manifests/gnk.yaml` (modified)
+- `inputs/market_data/newbuild_specs.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -30,7 +31,7 @@
 | TEN | $39.14 (no change) | $59.78 (no change) | $56.83 (no change) | $87.57 (no change) | BUY (undervalued) | +41.0pp (no change) |
 | CMDB | $17.80 (no change) | $21.34 (no change) | $20.79 (no change) | $32.65 (no change) | BUY (undervalued) | -13.0pp (no change) |
 | SBLK | $28.90 (no change) | $29.66 (no change) | $28.62 (no change) | $30.64 (no change) | HOLD (fairly valued) | +18.7pp (no change) |
-| GNK | $25.33 (no change) | $25.14 (no change) | $24.08 (no change) | $25.98 (no change) | HOLD (fairly valued) | +8.2pp (no change) |
+| GNK | $25.33 (no change) | $24.51 (no change) | $23.42 (no change) | $25.26 (no change) | TRIM/SHORT (overvalued) | +10.6pp (no change) |
 | CAPT | $13.94 (no change) | $16.03 (no change) | $13.38 (no change) | $15.49 (no change) | HOLD (fairly valued) | +28.2pp (no change) |
 | MPCC | $2.56 (no change) | $2.21 (no change) | $2.06 (no change) | $2.04 (no change) | TRIM/SHORT (overvalued) | +12.9pp (no change) |
 | GSL | $42.44 (no change) | $45.50 (no change) | $43.02 (no change) | $41.20 (no change) | HOLD (fairly valued) | +28.3pp (no change) |
