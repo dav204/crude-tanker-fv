@@ -162,9 +162,9 @@ def test_vlcc_recalibration_lowers_dht_nav():
     NOTE 2026-06-09: txn-anchored marks are now the pipeline DEFAULT — the
     un-anchored baseline side must be requested explicitly with False.
     """
-    base = value_company("DHT", "2026-Q1", 16.40, 16.00,
+    base = value_company("DHT", BOOK_QUARTER, 16.40, 16.00,
                          use_transaction_anchored=False).nav.nav_per_share
-    on = value_company("DHT", "2026-Q1", 16.40, 16.00).nav.nav_per_share
+    on = value_company("DHT", BOOK_QUARTER, 16.40, 16.00).nav.nav_per_share
     assert on < base
 
 
@@ -179,9 +179,9 @@ def test_toggle_on_changes_exposed_names_only(tmp_path):
     # Pure-VLCC: DHT NAV drops materially under the VLCC fit (2026-06-04 update —
     # vlcc.yaml adds 5 in-window prints; the fit lowers VLCC mid-age anchors
     # ~10-15%, which flows through to pure-VLCC names like DHT).
-    base_dht = value_company("DHT", "2026-Q1", 16.40, 16.00,
+    base_dht = value_company("DHT", BOOK_QUARTER, 16.40, 16.00,
                              use_transaction_anchored=False).nav.nav_per_share
-    on_dht = value_company("DHT", "2026-Q1", 16.40, 16.00).nav.nav_per_share
+    on_dht = value_company("DHT", BOOK_QUARTER, 16.40, 16.00).nav.nav_per_share
     assert on_dht < base_dht
     # Pure-LNG: FLNG and CCEC are now the only no-exposure controls (no class
     # with a transactions file overlaps with their fleets).

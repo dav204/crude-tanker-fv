@@ -2,6 +2,7 @@
 
 from dataclasses import replace
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 
 from crude_tanker_fv.dividend_strip import compute_dividend_strip
@@ -17,7 +18,7 @@ def test_quarter_keys_extends_the_q3_2026_convention():
 
 
 def test_default_horizon_is_unchanged_8q():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     nav = compute_nav(ci)
     default = compute_dividend_strip(ci, nav.nav_per_share)
     explicit = compute_dividend_strip(ci, nav.nav_per_share, strip_horizon=8)
@@ -28,7 +29,7 @@ def test_default_horizon_is_unchanged_8q():
 def test_static_coverage_schedule_reproduces_spot_pct_blend():
     # A coverage_schedule pinned at (1 - spot_pct) must be EXACTLY the
     # pre-§11.8 static blend — the generalization's zero-drift property.
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     nav = compute_nav(ci)
     base = compute_dividend_strip(ci, nav.nav_per_share)
     classes = {v.cls for v in ci.fleet.vessels}
@@ -68,7 +69,7 @@ def test_decaying_coverage_blends_each_quarter_independently():
 
 
 def test_longer_horizon_extends_the_strip_and_moves_terminal():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     # Longer horizons require curves of matching length (loud IndexError
     # otherwise — sectors that extend the horizon author longer curves).
     md = ci.market_data
@@ -83,7 +84,7 @@ def test_longer_horizon_extends_the_strip_and_moves_terminal():
 
 
 def test_horizon_beyond_curve_length_fails_loud():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     nav = compute_nav(ci)
     with pytest.raises(IndexError):
         compute_dividend_strip(ci, nav.nav_per_share, strip_horizon=10)

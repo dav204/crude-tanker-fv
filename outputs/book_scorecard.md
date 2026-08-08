@@ -2,7 +2,7 @@
 
 > **Price basis:** all 25 prices live.
 
-> **Balance-sheet basis: 17 of 25 names on a pre-2026-Q2 vintage:** 2343 (2026-Q1), BRUT (2026-Q1), BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), CMDB (2026-Q1), DHT (2026-Q1), FLNG (2026-Q1), FRO (2026-Q1), GNK (2026-Q1), HAFN (2026-Q1), INSW (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), SBLK (2026-Q1), TEN (2026-Q1), TRMD (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
+> **Balance-sheet basis: 16 of 25 names on a pre-2026-Q2 vintage:** 2343 (2026-Q1), BRUT (2026-Q1), BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), CMDB (2026-Q1), FLNG (2026-Q1), FRO (2026-Q1), GNK (2026-Q1), HAFN (2026-Q1), INSW (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), SBLK (2026-Q1), TEN (2026-Q1), TRMD (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
 
 > **Rate basis:** Supra-Ultra 2027+2028 strip legs HELD at the 13-Jul synthesis (Cal-27 14,175): the Smax Cal27 row is cropped from every capture of the new source (Chris.Palun, 2026-07-20 →) — front (q1/q2/12M/spot) IS the 24-Jul print. Held-node bracket per ffa_promotion_2026-07-24.md; retires at the first capture showing Smax Cal27 (owner channel-ask staged). Handy-Bulk derived row inherits the same mix via the x0.90 identity.
 
@@ -26,7 +26,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 
 | Ticker | Sector | **Tier · why** | Price | Model FV | FV range | Upside | Position | Blend FV† | NAV/sh | Broker NAV | Gap | SANITY | Handoff | W-frag |
 |---|---|---|--:|--:|:--|--:|:--|--:|--:|--:|--:|:--|:--|:--|
-| DHT | crude | VALIDATED-TIGHT | $18.76 | $13.24 | 9.22–20.25 | -29% | rich · cycle position (not a short) | $14.68 | $13.58 | $16.46 | -17% | OK | ready | stable |
+| DHT | crude | VALIDATED-TIGHT | $18.76 | $13.51 | 9.57–20.37 | -28% | rich · cycle position (not a short) | $14.91 | $13.83 | $16.46 | -16% | OK | ready | stable |
 | ECO | crude | VALIDATED-TIGHT | $61.86 | $35.69 | 22.94–58.46 | -42% | rich · cycle position (not a short) | $40.24 | $37.65 | $45.82 | -18% | OK | ready | stable |
 | FRO | crude | VALIDATED-TIGHT | $39.74 | $23.15 | 13.43–40.10 | -42% | rich · cycle position (not a short) | $26.41 | $24.11 | $29.01 | -17% | OK | ready | stable |
 | TNK | crude | VALIDATED-TIGHT | $77.25 | $79.87 | 68.02–102.30 | +3% | HOLD (fairly valued) | $86.17 | $84.60 | $105.82 | -20% | OK | ready | **⚠ sign flips** |
@@ -69,7 +69,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | BRUT | crude | PROVISIONAL ⛔ | resale-uniform | 0.60× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
 | CAPT | crude | GOVERNED-WIDE | resale-uniform | 0.86× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
 | CMBT | crude | GOVERNED-WIDE | structural-unavailable | 0.90× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
-| DHT | crude | VALIDATED-TIGHT | resale-uniform | 1.27× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| DHT | crude | VALIDATED-TIGHT | resale-uniform | 1.24× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | ECO | crude | VALIDATED-TIGHT | resale-uniform | 1.41× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | FRO | crude | VALIDATED-TIGHT | resale-uniform | 1.53× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | INSW | crude | GOVERNED-WIDE | pending-sourceable | 1.57× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |

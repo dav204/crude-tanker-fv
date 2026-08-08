@@ -229,7 +229,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | HAFN | $5.69→$5.57 | -2.1% | -15.7%→-17.1% | -1.4 | TRIM/SHORT→TRIM/SHORT |
 | MPCC | $2.04→$2.04 | +0.0% | -19.4%→-19.4% | +0.0 | TRIM/SHORT→TRIM/SHORT |
 | 2343 | $0.40→$0.40 | -1.1% | -19.1%→-19.9% | -0.8 | TRIM/SHORT→TRIM/SHORT |
-| DHT | $16.07→$13.58 | -15.5% | -18.5%→-29.4% | -10.9 | TRIM/SHORT→TRIM/SHORT |
+| DHT | $16.30→$13.83 | -15.2% | -17.1%→-28.0% | -10.9 | TRIM/SHORT→TRIM/SHORT |
 | LPG | $35.70→$35.69 | -0.0% | -30.4%→-30.5% | -0.0 | TRIM/SHORT→TRIM/SHORT |
 | BWLP | $15.81→$15.80 | -0.1% | -33.0%→-33.0% | -0.0 | TRIM/SHORT→TRIM/SHORT |
 | INSW **(WHOLE-CO)** | $57.91→$52.48 | -9.4% | -36.4%→-41.1% | -4.7 | TRIM/SHORT→TRIM/SHORT |

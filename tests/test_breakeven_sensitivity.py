@@ -2,6 +2,7 @@
 
 from dataclasses import replace
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 
 from crude_tanker_fv.blend import blend_fair_value
@@ -25,7 +26,7 @@ def _fv_at_mult(ci, mult):
 
 
 def test_breakeven_round_trips_to_price():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     price = 16.35
     be = implied_breakeven_tce(ci, price)
     # FV evaluated at the solved forward multiplier must reproduce the price.
@@ -36,7 +37,7 @@ def test_breakeven_round_trips_to_price():
 
 
 def test_breakeven_above_mean():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     be = implied_breakeven_tce(ci, 16.35)
     x = be.blended_breakeven_tce
     assert x > be.blended_mean_tce              # pricing extended peak vs the 10-yr mean
@@ -44,7 +45,7 @@ def test_breakeven_above_mean():
 
 
 def test_breakeven_increases_with_price():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     low = implied_breakeven_tce(ci, 14.00).blended_breakeven_tce
     high = implied_breakeven_tce(ci, 18.00).blended_breakeven_tce
     assert high > low
@@ -58,7 +59,7 @@ def test_breakeven_degenerate_is_exact_zero():
     docs and leaked last-ULP float noise into regeneration diffs (external
     audit 2026-07-02, F-3/F-10).
     """
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     be = implied_breakeven_tce(ci, 1.00)
     assert be.multiplier == 0.0
     assert be.blended_breakeven_tce == 0.0
@@ -73,7 +74,7 @@ def test_degenerate_scenario_doc_renders_na_ratio():
         load_scenarios, render_scenario_markdown, run_scenarios,
     )
 
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     doc = load_scenarios(sector="crude")
     report = run_scenarios(ci, 1.00, 1.00, doc)
     assert report.breakeven_tce == 0.0
@@ -86,7 +87,7 @@ def test_degenerate_scenario_doc_renders_na_ratio():
 
 
 def test_sensitivity_grid_shape_and_base():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     grid = compute_sensitivity(ci, 16.35)
     assert len(grid.grid) == 5 and all(len(r) == 5 for r in grid.grid)
     # Base cell (0% TCE, 0% vessel) must equal the unshocked blended FV.
@@ -100,7 +101,7 @@ def test_sensitivity_grid_shape_and_base():
 
 
 def test_sensitivity_monotonic_both_axes():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     g = compute_sensitivity(ci, 16.35).grid
     for row in g:                                   # increasing along vessel-value axis
         assert all(row[j] < row[j + 1] for j in range(4))
@@ -110,7 +111,7 @@ def test_sensitivity_monotonic_both_axes():
 
 
 def test_vessel_value_dominates_tce():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     g = compute_sensitivity(ci, 16.35).grid
     vessel_span = g[2][4] - g[2][0]   # +/-20% vessel at base TCE
     tce_span = g[4][2] - g[0][2]      # +/-30% TCE at base vessel

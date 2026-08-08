@@ -2,6 +2,7 @@
 
 from dataclasses import replace
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 
 from crude_tanker_fv.loaders import load_balance_sheet, load_company_inputs
@@ -9,13 +10,13 @@ from crude_tanker_fv.validate import validate_inputs
 
 
 def test_flags_implausible_dht_spot():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     warnings = validate_inputs(ci)
     assert any("spot TCE VLCC" in w and "unsustainable" in w for w in warnings)
 
 
 def test_clean_inputs_have_no_warnings():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     # Replace the spike with a plausible spot (~3x mean) -> no warnings.
     fixed = replace(ci.market_data, spot_tce={**ci.market_data.spot_tce, "VLCC": 120_000})
     ci = replace(ci, market_data=fixed)
@@ -23,7 +24,7 @@ def test_clean_inputs_have_no_warnings():
 
 
 def test_flags_nonpositive_shares():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     fixed_md = replace(ci.market_data, spot_tce={"VLCC": 120_000})
     ci = replace(
         ci,

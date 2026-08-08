@@ -11,7 +11,7 @@ from crude_tanker_fv.report import write_company_report, write_watchlist_summary
 
 @pytest.fixture
 def dht_report():
-    return value_company("DHT", "2026-Q1", current_price=16.35, analyst_target=16.00)
+    return value_company("DHT", BOOK_QUARTER, current_price=16.35, analyst_target=16.00)
 
 
 def test_value_company_assembles_consistent_report(dht_report):
@@ -34,7 +34,7 @@ def test_write_company_report_creates_md_and_xlsx(dht_report, tmp_path):
 
     text = md.read_text()
     for needle in ["# DHT", "NAV breakdown", "Dividend strip", "Implied breakeven TCE",
-                   "Sensitivity", "Divergence diagnosis", "$14.68", "FFA spot",
+                   "Sensitivity", "Divergence diagnosis", "$14.91", "FFA spot",
                    "Data validation warnings"]:
         assert needle in text
 
@@ -54,7 +54,7 @@ def test_write_watchlist_summary(dht_report, tmp_path):
     row = [c.value for c in ws[2]]
     assert row[0] == "DHT"
     assert row[1] == "whole-company"   # DHT is a pure-play
-    assert row[3] == pytest.approx(14.68, abs=0.01)   # re-pinned 2026-07-18: VLCC mid-age slope eased on the C. Innovator age-14 print (marks-trail promotion; was 14.95 since §9.6 2026-06-30)
+    assert row[3] == pytest.approx(14.91, abs=0.01)   # re-pinned 2026-08-08 (DHT Q2 refresh, band-verified +1.8%: debt relief + Bauhinia realized; was 14.68 since the 7/18 C. Innovator re-pin)
 
 
 def test_run_watchlist_end_to_end(tmp_path):

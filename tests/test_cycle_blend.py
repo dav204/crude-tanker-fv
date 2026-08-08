@@ -1,5 +1,6 @@
 """Cycle-weighting and blend tests (METHODOLOGY.md sections 2.1-2.3)."""
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 
 from crude_tanker_fv.blend import blend_fair_value
@@ -41,7 +42,7 @@ def test_cycle_position_rejects_nonpositive_mean():
 
 
 def test_dht_cycle_uses_12m_tc():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     cyc = compute_cycle(ci)
     # Cycle uses the Compass 12M TC ($111.5k), NOT the FFA strip: 111500/40000 = 2.7875x.
     assert cyc.cycle_position == pytest.approx(2.7875)
@@ -106,7 +107,7 @@ def test_dht_fair_value_end_to_end():
     from crude_tanker_fv.dividend_strip import compute_dividend_strip
     from crude_tanker_fv.nav import compute_nav
 
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     nav = compute_nav(ci)
     strip = compute_dividend_strip(ci, nav.nav_per_share)
     cyc = compute_cycle(ci)

@@ -5,6 +5,7 @@ with a falsifiable per-name classification. These pins guard the trigger gate an
 the NAT resolution.
 """
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 from crude_tanker_fv.dividend_window import evaluate, q_star
 from crude_tanker_fv.loaders import load_watchlist
 
@@ -14,7 +15,7 @@ def test_trigger_gate_nat_in_dht_out():
     premium over the tool floor) but NOT for DHT (premium ~1.27× < the 1.5× gate)."""
     wl = load_watchlist()
     nat = evaluate("NAT", "2026-Q1", wl["NAT"])
-    dht = evaluate("DHT", "2026-Q1", wl["DHT"])
+    dht = evaluate("DHT", BOOK_QUARTER, wl["DHT"])
     assert nat.gated is True
     assert dht.gated is False
     assert nat.premium_x > 1.5 > dht.premium_x

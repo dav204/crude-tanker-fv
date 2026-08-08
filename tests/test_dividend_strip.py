@@ -1,5 +1,6 @@
 """Dividend-strip tests (METHODOLOGY.md section 3.2)."""
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 
 from crude_tanker_fv.dividend_strip import compute_dividend_strip
@@ -114,7 +115,7 @@ def test_base_plus_variable_adds_base_on_top():
 def test_strip_reports_ffa_front4_mean():
     from crude_tanker_fv.cycle import twelve_month_ffa
 
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     s = compute_dividend_strip(ci, nav_per_share=compute_nav(ci).nav_per_share)
     # The strip reports the FFA 12M (front-4 mean) for context; it drives the
     # cash flows but NOT the cycle (which now uses the 12M TC).
@@ -132,7 +133,7 @@ def test_terminal_value_below_current_nav():
 
 
 def test_dht_integration():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     nav = compute_nav(ci)
     s = compute_dividend_strip(ci, nav.nav_per_share)
     assert len(s.dps_by_quarter) == 8

@@ -102,7 +102,7 @@ def test_detect_mixed_anchor_basis():
 
 
 def test_run_scenarios_weighted_average_identity(doc):
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     r = run_scenarios(ci, 16.40, 16.00, doc)
     assert len(r.scenarios) == 4
     expected = sum(s.weight * s.fair_value for s in r.scenarios)
@@ -115,7 +115,7 @@ def test_run_scenarios_weighted_average_identity(doc):
 # Re-pinned 2026-07-02 (post-stand-down vintage: crude reweight + MoU-ineffective
 # leg recalibration — decisions/crude_reweight_proposal_2026-07-02.md).
 def test_nav_flexes_with_scenario(doc):
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     r = run_scenarios(ci, 16.40, 16.00, doc)
     navs = {s.name: s.nav_per_share for s in r.scenarios}
     # Vessel values reset with the scenario forward: escalation > pre-MoU > base > bear.
@@ -147,7 +147,7 @@ def test_per_scenario_range_brackets_base(doc):
 
 
 def test_bear_softer_than_base(doc):
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     r = {s.name: s for s in run_scenarios(ci, 16.40, 16.00, doc).scenarios}
     # Bear scenario has lower forward rates -> lower cycle ratio and lower FV.
     assert r["mou_bear"].cycle_position < r["mou_base"].cycle_position
@@ -176,7 +176,7 @@ def test_lr2_maps_to_clean_curve(doc):
 def test_breakeven_is_scenario_invariant(doc):
     from crude_tanker_fv.breakeven import implied_breakeven_tce
 
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     r = run_scenarios(ci, 16.40, 16.00, doc)
     # ONE breakeven, equal to the standalone (unflexed) value-weighted blended solve.
     expected = implied_breakeven_tce(ci, 16.40).blended_breakeven_tce
@@ -625,7 +625,7 @@ def test_crude_ticker_does_not_load_lng_doc():
     handing a doc to run_scenarios. Catching the KeyError here pins the
     contract — the sector layer is not a soft default.
     """
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     with pytest.raises(KeyError):
         run_scenarios(ci, 16.40, 16.00, load_scenarios(sector="lng"))
 
@@ -1133,7 +1133,7 @@ def test_strip_start_from_asof_maps_report_quarter_plus_two():
 def test_run_scenarios_asof_same_vintage_is_byte_identical(doc):
     """asof_quarter=2026-Q1 must reproduce the default (None) run exactly — both
     resolve to q3_2026, so the as-of path is a no-op on the live vintage."""
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     base = run_scenarios(ci, 16.40, 16.00, doc)
     asof = run_scenarios(ci, 16.40, 16.00, doc, asof_quarter="2026-Q1")
     assert asof.probability_weighted_fv == base.probability_weighted_fv
@@ -1144,7 +1144,7 @@ def test_run_scenarios_asof_same_vintage_is_byte_identical(doc):
 def test_run_scenarios_asof_missing_vintage_fails_fast(doc):
     """A historical as-of with no vintage curves in the doc must raise a clear
     error naming the missing forward-quarter keys — never silently mis-route."""
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     with pytest.raises(ValueError) as exc:
         run_scenarios(ci, 16.40, 16.00, doc, asof_quarter="2020-Q1")
     assert "q3_2020" in str(exc.value)

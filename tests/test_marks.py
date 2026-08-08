@@ -12,7 +12,7 @@ from crude_tanker_fv.pipeline import run_broker_sweep
 
 
 def test_scale_marks_identity_and_monotone():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     base = compute_nav(ci).nav_per_share
     assert compute_nav(scale_vessel_marks(ci, 1.0)).nav_per_share == pytest.approx(base)
     up = compute_nav(scale_vessel_marks(ci, 1.20)).nav_per_share

@@ -134,6 +134,7 @@ def test_exact_match_wins_and_no_forward_reads(inputs_copy):
 def test_fallback_resolves_newest_at_or_before(inputs_copy):
     _, vintage = resolve_balance_sheet_path("asc", "2026-Q3", inputs_copy)
     assert vintage == "2026-Q2"
+    _drop_sheets_after(inputs_copy, "dht", "2026-Q1")
     _, vintage = resolve_balance_sheet_path("dht", "2026-Q4", inputs_copy)
     assert vintage == "2026-Q1"
 
@@ -240,10 +241,11 @@ def test_current_book_quarter_reads_state(tmp_path):
 def test_balance_sheet_basis_summary_lagging_and_current():
     from crude_tanker_fv.scorecard import balance_sheet_basis_summary
 
-    s = balance_sheet_basis_summary("2026-Q2", ["SB", "DHT", "TNK"])
-    assert s["lagging"] == {"DHT": "2026-Q1"} and s["missing"] == []
-    s = balance_sheet_basis_summary("2026-Q1", ["SB", "DHT", "TNK"])
-    assert s["lagging"] == {} and s["total"] == 3
+    # FRO is the lagging specimen (no Q2 filing staged; DHT advanced 2026-08-08).
+    s = balance_sheet_basis_summary("2026-Q2", ["SB", "FRO", "TNK"])
+    assert s["lagging"] == {"FRO": "2026-Q1"} and s["missing"] == []
+    s = balance_sheet_basis_summary("2026-Q1", ["FRO"])
+    assert s["lagging"] == {} and s["total"] == 1
 
 
 def test_balance_sheet_basis_summary_missing_lane():

@@ -24,7 +24,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | GNK | dry_bulk | $25.98 | $24.50 | 0.943× | 11.7% | 1.067× | 10.6% | 0.962× | cheap → fair | flips (cheap/fair) |
 | 2343 | dry_bulk | $0.40 | $0.39 | 0.976× | 12.0% | 1.097× | 12.5% | 1.154× | cheap → cheap | robust |
 | TNK | crude | $84.60 | $67.60 | 0.799× | 6.9% | 0.589× | 8.2% | 0.716× | rich → rich | robust |
-| DHT | crude | $13.58 | $17.20 | 1.266× | 10.0% | 0.901× | 9.4% | 0.837× | rich → rich | robust |
+| DHT | crude | $13.83 | $17.20 | 1.244× | 9.8% | 0.882× | 9.2% | 0.819× | rich → rich | robust |
 | FRO | crude | $24.11 | $36.80 | 1.527× | 10.5% | 0.955× | 9.6% | 0.865× | rich → rich | robust |
 | ECO | crude | $37.65 | $53.10 | 1.410× | 7.0% | 0.602× | 5.8% | 0.484× | rich → rich | robust |
 | NAT | crude | $2.85 | $5.80 | 2.039× | 12.9% | 1.191× | 9.7% | 0.865× | rich → rich | robust |
@@ -49,7 +49,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | Sector | Median Just P/NAV (parity) | Median (historical) | n |
 |---|--:|--:|--:|
 | dry_bulk | 1.097× | 0.962× | 5 |
-| crude | 0.901× | 0.851× | 5 |
+| crude | 0.882× | 0.842× | 5 |
 
 _The two columns ARE the signal: where parity ≫ historical, the sector reads cheaper under replacement economics than under its (boom/firm-window-biased) historical anchor — the §18 under-ordering. The §17.6 anchor-bias caveats apply to the historical column only; parity is independent of those biases (it is built from newbuild cost, not a rate-history window)._
 
@@ -60,13 +60,13 @@ _The headline vector covers the COMPOSABLE sectors only (crude / product / dry_b
 ## Sensitivity grids — Justified P/NAV across g × RONAV_norm (r = 11%, base = sector median RONAV_norm)
 
 
-**crude** (base RONAV_norm 10.0%)
+**crude** (base RONAV_norm 9.8%)
 
 | RONAV_norm \ g | g=0% | g=1% | g=2% |
 |---|--:|--:|--:|
-| 8.0% | 0.73× | 0.70× | 0.67× |
-| 10.0% | 0.91× | 0.90× | 0.89× |
-| 12.0% | 1.09× | 1.10× | 1.11× |
+| 7.8% | 0.71× | 0.68× | 0.65× |
+| 9.8% | 0.89× | 0.88× | 0.87× |
+| 11.8% | 1.07× | 1.08× | 1.09× |
 
 **dry_bulk** (base RONAV_norm 12.0%)
 

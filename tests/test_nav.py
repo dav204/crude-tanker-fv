@@ -6,6 +6,7 @@ a synthetic fleet, and a DHT integration check against the populated inputs.
 
 from dataclasses import replace
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 
 from crude_tanker_fv.loaders import load_company_inputs
@@ -283,7 +284,7 @@ def test_held_for_sale_adds_to_nav(vlcc_curve):
 
 
 def test_dht_integration():
-    ci = load_company_inputs("DHT", "2026-Q1")
+    ci = load_company_inputs("DHT", BOOK_QUARTER)
     assert len(ci.fleet.vessels) == 23   # 22 operating VLCCs + DHT Impala newbuild on the curve (§9.6, 2026-06-30)
     assert all(v.cls == "VLCC" for v in ci.fleet.vessels)
     assert all(v.scrubber for v in ci.fleet.vessels)  # DHT VLCCs + Impala all scrubber-fitted
@@ -291,4 +292,6 @@ def test_dht_integration():
     # Sanity band: un-anchored ~$16.07/share. DHT Impala (1 VLCC) now ON the curve at age-0
     # delivered PV (§9.6) instead of commitment-net — adds ~$182M PV to fleet_value, advances→0.
     assert 14.0 < nav.nav_per_share < 18.0
-    assert nav.fleet_value == pytest.approx(2911.35 * M, rel=1e-3)
+    # Re-pinned 2026-08-08 (DHT Q2 refresh): ages -> 2026.5-built basis (+0.5y
+    # uniform) eased the fleet marks ~-2.4%; band-verified in dht_log.
+    assert nav.fleet_value == pytest.approx(2842.80 * M, rel=1e-3)

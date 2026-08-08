@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-08T22:13:11+00:00
-- **Previous run:** 2026-08-08T22:04:11+00:00
+- **This run:** 2026-08-08T22:31:32+00:00
+- **Previous run:** 2026-08-08T22:30:06+00:00
 
 ## Headline changes (material moves)
 
@@ -15,7 +15,7 @@
 
 | Ticker | Price | Single-point FV | Scenario PW FV | NAV/sh | Position | Broker spread |
 |---|---|---|---|---|---|---|
-| DHT | $18.76 (no change) | $14.68 (no change) | $13.24 (no change) | $13.58 (no change) | TRIM/SHORT (overvalued) | +12.3pp (no change) |
+| DHT | $18.76 (no change) | $14.91 (no change) | $13.51 (no change) | $13.83 (no change) | TRIM/SHORT (overvalued) | +11.2pp (no change) |
 | ECO | $61.86 (no change) | $40.24 (no change) | $35.69 (no change) | $37.65 (no change) | TRIM/SHORT (overvalued) | +10.7pp (no change) |
 | FRO | $39.74 (no change) | $26.41 (no change) | $23.15 (no change) | $24.11 (no change) | TRIM/SHORT (overvalued) | +10.0pp (no change) |
 | INSW | $92.41 (no change) | $38.50 (no change) | $54.46 (no change) | $52.48 (no change) | TRIM/SHORT (overvalued) | +28.4pp (no change) |

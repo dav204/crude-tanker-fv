@@ -181,8 +181,8 @@ names:
     - BUY
     - BUY
   DHT:
-    ev_min_pct: -44.3
-    ev_max_pct: -29.4
+    ev_min_pct: -42.5
+    ev_max_pct: -28.0
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
