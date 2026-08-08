@@ -72,18 +72,18 @@ Comparison reference: Set B (v2, prior lock, same day).
 
 | Scenario | Vessel× | NAV/sh | FV (base) | Strip NPV | Assumed 12M TCE |
 |---|--:|--:|--:|--:|--:|
-| tight_resurgence | 1.25× | $52.98 | $49.70 | $42.05 | $137,383 |
-| moderate_tightening | 1.13× | $41.36 | $41.36 | $41.36 | $74,327 |
-| glut_base | 0.96× | $24.44 | $28.84 | $31.77 | $54,921 |
-| glut_intensifies | 0.84× | $12.48 | $18.18 | $21.98 | $41,075 |
-| structural_reset | 0.72× | $0.69 | $7.81 | $12.55 | $38,068 |
+| tight_resurgence | 1.25× | $50.28 | $47.20 | $40.03 | $136,327 |
+| moderate_tightening | 1.13× | $38.81 | $39.08 | $39.35 | $73,865 |
+| glut_base | 0.96× | $22.11 | $26.78 | $29.89 | $54,599 |
+| glut_intensifies | 0.84× | $10.31 | $16.27 | $20.24 | $40,848 |
+| structural_reset | 0.72× | $-1.37 | $6.00 | $10.90 | $37,815 |
 
 **Headline:**
 
 | Metric | Set B | Set B-revised | Δ |
 |---|--:|--:|--:|
-| PW FV | $30.67 | $33.50 | $+2.83 (+9.2%) |
-| EV% | +37.1% | +49.7% | +12.6pp |
+| PW FV | $28.57 | $31.34 | $+2.78 (+9.7%) |
+| EV% | +27.7% | +40.1% | +12.4pp |
 | Position | BUY | BUY | unchanged |
 
 **Threshold analysis** (alpha = 0: Set B; alpha = 1: Set B-revised; FV is linear in weights so the convex combination is exact):

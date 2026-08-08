@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-08T20:09:31+00:00
-- **Previous run:** 2026-08-08T19:57:27+00:00
+- **This run:** 2026-08-08T20:42:09+00:00
+- **Previous run:** 2026-08-08T20:34:11+00:00
 
 ## Headline changes (material moves)
 
@@ -9,8 +9,7 @@
 
 ## Input files changed since last run
 
-- `inputs/balance_sheets/eco_2026-Q2.yaml` (modified)
-- `inputs/market_data/newbuild_specs.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 
@@ -23,7 +22,7 @@
 | TNK | $77.25 (no change) | $86.17 (no change) | $79.87 (no change) | $84.60 (no change) | HOLD (fairly valued) | +21.8pp (no change) |
 | NAT | $6.46 (no change) | $3.14 (no change) | $2.79 (no change) | $2.85 (no change) | TRIM/SHORT (overvalued) | +59.1pp (no change) |
 | FLNG | $30.84 (no change) | $28.16 (no change) | $30.67 (no change) | $28.45 (no change) | HOLD (fairly valued) | -16.9pp (no change) |
-| CCEC | $22.37 (no change) | $32.08 (no change) | $35.91 (no change) | $28.10 (no change) | BUY (undervalued) | -13.6pp (no change) |
+| CCEC | $22.37 (no change) | $29.97 (no change) | $33.70 (no change) | $25.70 (no change) | BUY (undervalued) | -3.5pp (no change) |
 | STNG | $76.08 (no change) | $75.86 (no change) | $76.87 (no change) | $77.13 (no change) | HOLD (fairly valued) | +38.2pp (no change) |
 | HAFN | $7.51 (no change) | $5.99 (no change) | $6.23 (no change) | $5.57 (no change) | TRIM/SHORT (overvalued) | +36.8pp (no change) |
 | TRMD | $29.49 (no change) | $30.94 (no change) | $31.87 (no change) | $30.30 (no change) | BUY (undervalued) | +16.8pp (no change) |

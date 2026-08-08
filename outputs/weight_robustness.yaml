@@ -154,8 +154,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   CCEC:
-    ev_min_pct: 39.9
-    ev_max_pct: 60.5
+    ev_min_pct: 30.4
+    ev_max_pct: 50.7
     ev_sign_stable: true
     positions:
     - BUY (undervalued)

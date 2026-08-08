@@ -30,7 +30,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | NAT | crude | $2.85 | $5.80 | 2.039× | 12.9% | 1.191× | 9.7% | 0.865× | rich → rich | robust |
 | INSW **(WHOLE-CO)** | crude | $52.48 | $82.40 | 1.570× | n/a | — | 9.9% | 0.890× | no anchor → rich | n/a |
 | FLNG | lng | $28.45 | $29.30 | 1.030× | n/a | — | 14.6% | 1.405× | no anchor → cheap | n/a |
-| CCEC | lng | $28.10 | $21.60 | 0.769× | n/a | — | 27.5% | 2.835× | no anchor → cheap | n/a |
+| CCEC | lng | $25.70 | $21.60 | 0.840× | n/a | — | 30.0% | 3.112× | no anchor → cheap | n/a |
 | STNG | product | $77.13 | $73.00 | 0.946× | n/a | — | 4.7% | 0.365× | no anchor → rich | n/a |
 | HAFN | product | $5.57 | $7.00 | 1.257× | n/a | — | 13.2% | 1.216× | no anchor → fair | n/a |
 | TRMD | product | $30.30 | $27.70 | 0.914× | n/a | — | 7.4% | 0.642× | no anchor → rich | n/a |
