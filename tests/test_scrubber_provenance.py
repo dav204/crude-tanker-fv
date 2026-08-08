@@ -35,7 +35,7 @@ OPERATING_SCRUBBER_VERIFIED = {
     "ECO": 17,   # H1-2026 6-K (acc 0001104659-26-090429) ex-99.1 "ten modern scrubber-fitted Suezmax + eight scrubber-fitted VLCC" (sailing fleet incl. Tigani, delivered 5/26 -> 17 operating at 6/30; Vous NB). Q2 refresh 2026-08-08 (was 16 at 3/31)
     "TRMD": 85,  # FY2025 20-F (acc 0001628280-26-011954) "installed scrubbers on 85 of our vessels" = all 22 LR2 + all 63 MR (10 vintage LR1s none). Verified 2026-07-02
     "STNG": 54,  # Q2-2026 6-K (acc 0001628280-26-051064) fleet-list per-vessel Scrubber column: 25/25 LR2 + 29/35 MR + 0/14 Handymax at the 74-hull census. Verified 2026-08-08
-    "LPG": 16,   # FY2026 10-K (acc 0001596993-26-000025) Item 4 fleet-table "Scrubber Equipped and/or Dual-Fuel" per-vessel "S" flags; 16 of 22 owned at 3/31 (Cobra unlisted->false). Verified AT onboarding 2026-07-10
+    "LPG": 13,   # FY2026 10-K Item 4 "S" flags (16 of 22 at onboarding, Cobra unlisted->false); Q2 refresh 2026-08-08: Corsair/Constellation/Clermont HFS off-curve -> 13 operating of 18 (10-Q acc 0001596993-26-000035 Note 5)
     "BWLP": 12,  # FY2025 20-F (acc 0001104659-26-037215) fleet-table propulsion column "Scrubber" per-vessel: 10 parent + BW Kyoto + BW Loyalty (India). Verified AT onboarding 2026-07-10
 }
 

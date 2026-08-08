@@ -9,6 +9,46 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-08T21:41:39+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $45.76
+- Single-point FV: $33.93
+- Scenario PW FV: $31.82 (EV -30.4%)
+- NAV / share: $35.69
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +34.1pp (k_broker 1.57)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +3.6% | Δscenario FV: +4.2% | ΔNAV: +4.6% | Δspread: -2.9pp
+
+**Decision:** Q2 REPORT-DAY REFRESH (backlog drain #4, transition mechanism — pair landed
+together, preflight clean). Source: FQ1-2027 10-Q acc 0001596993-26-000035 (8/5) + the FQ1
+release 8-K (Constellation per-vessel proceeds). Subsequent events EXCLUDED: July Corsair/
+Constellation closings (their AGREED $166.4M net IS the 6/30 HFS realisable), July $23.9M
+BALCAP prepayment, 7/16 $1.00/sh dividend (~$42.8M, payable ~8/12), ~8/31 Chaparral
+purchase-option payment (~$34.6M). NAV $34.11→$35.69 (+4.6%) — INSIDE the pre-registered
+band [33.0, 37.2] (point $35.10): BS +$400.3M (WC +102.0 — the Helios pool receivable's
+war-quarter accrual 97.0→190.4M; HFS line +220.0; debt-relief +53.4 gross 565.8→512.4;
+leases +10.0; cash +14.7) against −4 hulls at marks + 0.5y aging. Fleet 22→18 on-curve:
+Cobra SOLD 5/6 (gain $30.1M); the Note-5 HFS trio (Corsair 2014 + Constellation 2015 +
+Clermont 2015) off the curve at realisable — Clermont carries its cited $53.6M residual
+(no agreed price disclosed; the 2015-sister ~$85M pattern implies ~$0.7/sh conservative
+understatement, disclosed). Both halves verified (342.1/512.4/138.7/0.0). Forward
+invariance held (24 names 0.0). NO FLIP — TRIM/SHORT stands (§12 relabel: rich · cycle
+position), EV −33.2%→−30.5%; PROVISIONAL stands (SECTOR_V1_UNLOCKED cap — unaffected by
+this refresh; the Nov-13 lock re-run path is UNCHANGED). **MARKS-TRAIL CANDIDATES (VLGC,
+owner-gated; the re-fit belongs to the Nov-13 `lpg_v1_lock_rerun` — rider (a) trips
+test_bwlp_nci by design, so candidates are RECORDED, not promoted):** Cobra 2015 $81.9M
+net (May) · Constellation 2015 $85.6M net (July, FQ1 release) · Corsair 2014 $80.8M
+(identity 166.4 − 85.6 of two issuer figures — not a back-solve). Three in-window
+per-vessel prints against the fitted age-10/11 nodes ($80.3M age-10 strong) — exactly
+the trio-split evidence the lock re-run wants. FQ1 fleet TCE $75,926/day (war-elevated).
+Ratified same day.
+
+---
+
 ## 2026-08-08T21:31:20+00:00 — Pipeline run (auto)
 
 **Model state:**

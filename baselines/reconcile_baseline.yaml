@@ -2,12 +2,12 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-08-08T21:23:44+00:00'
-  ratified_commit: ccaa216
+  ratified_at: '2026-08-08T21:41:39+00:00'
+  ratified_commit: abeb78e
   quarter: 2026-Q2
-  cause: 'Q2 backlog drain #3: STNG NAV -0.9% INSIDE prereg band; census corrections (74-hull list, Handymax
-    ages fixed, -7 LR2), scrubbers VERIFIED 54 (queue 8->7), debt 855.0 gross w/ OOM converts, both-halves
-    verified, invariance held, stng_log annotated; no flip (HOLD stands)'
+  cause: 'Q2 backlog drain #4: LPG NAV +4.6% INSIDE prereg band; fleet 22->18 (Cobra sold, HFS trio off-curve
+    at realisable), 3 per-vessel VLGC sale prints recorded as lock-rerun candidates; both-halves verified,
+    invariance held, lpg_log annotated; no flip'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -127,10 +127,10 @@ names:
     sector: crude
   LPG:
     pnav_basis: pareto
-    ev_pct: -33.25
-    tool_nav: 34.11
+    ev_pct: -30.45
+    tool_nav: 35.69
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.5
+    k_broker: 1.57
     sector: lpg
   MPCC:
     pnav_basis: approx

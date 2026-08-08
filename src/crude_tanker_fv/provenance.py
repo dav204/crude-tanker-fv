@@ -65,7 +65,10 @@ OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "TRMD": 85,   # name -> audited operat
                                # BW LPG FY2025 20-F fleet-table propulsion column ("Scrubber"; 10 parent
                                # + BW Kyoto + BW Loyalty = 12 of 39). Value-NEUTRAL for VLGC (scrubber
                                # premium 0, §11.10) — classified for the provenance gate, not for value.
-                               "LPG": 16, "BWLP": 12}
+                               # LPG 16->13 at the 2026-08-08 Q2 refresh: the Item-4 "S" set loses
+                               # Corsair/Constellation/Clermont (HFS at 6/30, off-curve; Cobra was
+                               # unlisted-false) — 13 operating of 18 on-curve.
+                               "LPG": 13, "BWLP": 12}
 OPERATING_SCRUBBER_QUEUE = {   # SB/ECO left 2026-07-01; TRMD left 2026-07-02 (FY2025 20-F "installed scrubbers on 85 of our vessels" = all 22 LR2 + all 63 MR)
     "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "TEN",
 }   # STNG left 2026-08-08: the Q2 6-K fleet list has a per-vessel Scrubber column -> VERIFIED 54

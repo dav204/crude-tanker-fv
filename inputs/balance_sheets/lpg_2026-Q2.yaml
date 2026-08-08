@@ -1,0 +1,63 @@
+# Dorian LPG Ltd. balance sheet snapshot — METHODOLOGY.md §4.2 (WO3 validator). USD.
+# Source: FQ1-2027 10-Q (acc 0001596993-26-000035, filed 2026-08-05), Unaudited Condensed
+# Consolidated Balance Sheets, 2026-06-30 column + Note 5 (HFS) + Note 8 debt table +
+# the FQ1 earnings release 8-K (acc 0001596993-26-000038) for the Constellation
+# per-vessel proceeds. Q2 refresh 2026-08-08.
+# Subsequent events (10-Q note) audited FIRST and kept OUT: the July completions of the
+# Corsair + Constellation sales ($166.4M net — the HFS line below uses those AGREED
+# proceeds as 6/30 realisable, the sales themselves close post-quarter), the July $23.9M
+# BALCAP prepayment (Constellation tranche), the 7/16 $1.00/sh irregular dividend
+# (~$42.8M, payable ~8/12), and the ~8/31 Chaparral purchase-option payment (~$34.6M).
+
+ticker: LPG
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1596993/000159699326000035/
+retrieved_at: 2026-08-08
+filing_period_end: 2026-06-30
+
+cash_and_equivalents: 342141482      # BS line; excludes non-current restricted $79,423 (Q1 convention).
+
+# working_capital_net = operating working capital (non-cash, non-debt, current; Q1 convention):
+#   (trade receivables + accrued revenues 3,552,552
+#    + due from related parties 190,448,957   <- the Helios Pool pro-rata distribution
+#      receivable (NAV-economic, Dorian's earned share — the war-rate quarter accrued;
+#      was 97.0M at 3/31)
+#    + inventories 2,581,435 + prepaid 23,913,034)
+#   - (trade accounts payable 8,687,741 + accrued expenses 5,565,363
+#      + due to related parties 557,995 + deferred income 1,862,278
+#      + dividends payable 933,092)
+#   = 220,495,978 - 17,606,469 = 202,889,509.
+# EXCLUDED conservatively (Q1 convention): "Due from related parties—non-current"
+# $22.0M, derivative assets $3.27M, deferred drydock $18.95M.
+working_capital_net: 202889509
+
+# Vessels held for sale (Note 5: Corsair 2014 + Constellation 2015 + Clermont 2015,
+# carrying $156,449,076, depreciation suspended). NAV uses REALISABLE where cited:
+#   Corsair + Constellation at the July AGREED/realized net proceeds $166.4M
+#   (subsequent-events note; per-vessel: Constellation $85.6M net per the FQ1
+#   release -> Corsair $80.8M by identity of the two issuer figures)
+#   + Clermont at its cited carrying residual 156,449,076 - 102,800,000 = 53,649,076
+#   (NO agreed price disclosed; lower-of-carrying-or-FV floor — the 2015-sister
+#   pattern ~$85M implies ~$30M conservative understatement, ~$0.7/sh, disclosed).
+#   = 220,049,076.
+held_for_sale: 220049076
+
+# Note 8 debt table, GROSS of deferred financing fees ($4,865,383) — Q1 basis:
+#   2023 A&R 144,000,000 + Areion 62,900,531 + BALCAP 47,748,113 + Japanese
+#   Financings 257,760,696 (Corsair repaid 5/28 in-quarter; Cresques/Cratis/
+#   Copernicus/Chaparral/Caravelle/Cougar/Captain Markos bareboat SLBs INSIDE
+#   total debt — not double-counted in lease_liabilities).
+total_debt: 512409340
+
+# Operating lease liabilities: current 44,576,592 + long-term 94,117,477 (the
+# capitalized time-chartered-in VLGCs + office; RoU asset $138.7M NOT added —
+# chartered-in hulls aren't in the manifest; convention-sensitivity flag stands).
+lease_liabilities: 138694069
+
+# No newbuild commitments at 6/30 (Note: commitments line "—"; Areion delivered
+# 3/20/2026 was the last under-construction hull).
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 42782681 # unchanged: 54,647,868 issued − 11,865,187 treasury
+                                     # (BS equity caption, both dates identical).

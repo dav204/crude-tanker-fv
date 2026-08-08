@@ -1,6 +1,15 @@
 # Dorian LPG Ltd. fleet manifest — METHODOLOGY.md section 4.1 (WO3 Phase 4, onboarded 2026-07-10)
-# Source of record: FY2026 10-K (year ended 2026-03-31; filed 2026-05-27,
-# acc 0001596993-26-000025). Per-vessel identity/cbm/built/cost/carrying value from the
+# Q2 REFRESH 2026-08-08, snapshot AS-OF 2026-06-30 (FQ1-2027 10-Q, acc 0001596993-26-000035):
+# Cobra (2015) SOLD 5/6 (gain $30.1M, Note 6) — OUT; the Note-5 HFS trio Corsair (2014) +
+# Constellation (2015) + Clermont (2015) — OFF the curve, carried in balance-sheet
+# held_for_sale at realisable ($220.0M; the July pair closed at $166.4M net). 18 on-curve.
+# Ages = 2026.5 − built (uniform +0.5 from the 10-K integer basis; report_date bumped WITH
+# the sheet). Marks-trail candidates from this event (owner-gated; VLGC re-fit is the
+# Nov-13 lock re-run path, rider (a) trips test_bwlp_nci by design): Cobra $81.9M net
+# (2015, May) · Constellation $85.6M net (2015, July; FQ1 release) · Corsair $80.8M
+# (2014, July; identity 166.4 − 85.6, two issuer figures — not a back-solve).
+# Original onboarding source of record: FY2026 10-K (year ended 2026-03-31; filed
+# 2026-05-27, acc 0001596993-26-000025). Per-vessel identity/cbm/built/cost/carrying value from the
 # Item 5 carrying-value table ("as of March 31, 2026 ... none of the vessels ... held for
 # sale"); scrubber ("S") / ECO / dual-fuel ("DF") / employment flags from the Item 4
 # fleet table ("Scrubber Equipped and/or Dual-Fuel", "ECO Vessel" columns).
@@ -27,12 +36,12 @@
 # time-chartered out through the pool -> time_charter (expirations are calendar quarters
 # from the Item 4 table; per-vessel TCO rates not disclosed).
 ticker: LPG
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
   - id: Captain_John_NP
     class: VLGC
     dwt: 54000      # 82,000 cbm (2007, Hyundai); ammonia-capable (fn 3)
-    age: 19
+    age: 19.5
     scrubber: false # no "S" flag in the Item 4 table
     eco: false      # the one non-ECO hull (no "X")
     charter_status: spot   # Helios Pool
@@ -41,16 +50,7 @@ vessels:
   - id: Comet
     class: VLGC
     dwt: 55000      # 84,000 cbm (2014, Hyundai); ammonia-fitted (fn 4)
-    age: 12
-    scrubber: true
-    eco: true
-    charter_status: spot   # Pool
-    charter_rate: null
-    charter_end: null
-  - id: Corsair
-    class: VLGC
-    dwt: 55000      # 84,000 cbm (2014, Hyundai); bareboat (Corsair Japanese Financing, Note 10)
-    age: 12
+    age: 12.5
     scrubber: true
     eco: true
     charter_status: spot   # Pool
@@ -59,7 +59,7 @@ vessels:
   - id: Corvette
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hyundai); ammonia-fitted (fn 4)
-    age: 11
+    age: 11.5
     scrubber: true
     eco: true
     charter_status: spot   # Pool
@@ -68,7 +68,7 @@ vessels:
   - id: Cougar
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hyundai); bareboat (Cougar Japanese Financing, Note 10)
-    age: 11
+    age: 11.5
     scrubber: false
     eco: true
     charter_status: time_charter   # Pool-TCO, expires Q1 2029
@@ -77,30 +77,16 @@ vessels:
   - id: Concorde
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hyundai)
-    age: 11
+    age: 11.5
     scrubber: true
     eco: true
-    charter_status: spot   # Pool
-    charter_rate: null
-    charter_end: null
-  - id: Cobra
-    class: VLGC
-    dwt: 55000      # 84,000 cbm (2015, Hyundai). IN the operating fleet at 2026-03-31
-                    # (carrying value $50.75M; NOT held for sale per the Item 5 table
-                    # statement). Sold May-6-2026 net $81.9M — SUBSEQUENT event (Note 25);
-                    # leaves the fleet at the 2026-Q2 refresh.
-    age: 11
-    scrubber: false # not listed in the (post-sale) Item 4 table; no scrubber claim
-                    # exists for Cobra in the 10-K -> conservative false (value-neutral,
-                    # VLGC scrubber premium = 0)
-    eco: true       # 2015-built ECO sister of the Constitution-class hulls
     charter_status: spot   # Pool
     charter_rate: null
     charter_end: null
   - id: Continental
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hyundai)
-    age: 11
+    age: 11.5
     scrubber: true
     eco: true
     charter_status: time_charter   # Pool-TCO, expires Q2 2030
@@ -109,7 +95,7 @@ vessels:
   - id: Constitution
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hyundai)
-    age: 11
+    age: 11.5
     scrubber: true
     eco: true
     charter_status: spot   # Pool
@@ -118,7 +104,7 @@ vessels:
   - id: Commodore
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hyundai)
-    age: 11
+    age: 11.5
     scrubber: false
     eco: true
     charter_status: time_charter   # Pool-TCO, expires Q2 2027
@@ -127,25 +113,7 @@ vessels:
   - id: Cresques
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hanwha Ocean); bareboat (Cresques Japanese Financing)
-    age: 11
-    scrubber: true
-    eco: true
-    charter_status: spot   # Pool
-    charter_rate: null
-    charter_end: null
-  - id: Constellation
-    class: VLGC
-    dwt: 55000      # 84,000 cbm (2015, Hyundai)
-    age: 11
-    scrubber: true
-    eco: true
-    charter_status: spot   # Pool
-    charter_rate: null
-    charter_end: null
-  - id: Clermont
-    class: VLGC
-    dwt: 55000      # 84,000 cbm (2015, Hyundai)
-    age: 11
+    age: 11.5
     scrubber: true
     eco: true
     charter_status: spot   # Pool
@@ -154,7 +122,7 @@ vessels:
   - id: Cheyenne
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hyundai)
-    age: 11
+    age: 11.5
     scrubber: true
     eco: true
     charter_status: spot   # Pool
@@ -163,7 +131,7 @@ vessels:
   - id: Cratis
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hanwha Ocean); bareboat (Cratis Japanese Financing)
-    age: 11
+    age: 11.5
     scrubber: true
     eco: true
     charter_status: spot   # Pool
@@ -172,7 +140,7 @@ vessels:
   - id: Commander
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hyundai); ammonia-fitted (fn 4)
-    age: 11
+    age: 11.5
     scrubber: true
     eco: true
     charter_status: time_charter   # Pool-TCO, expires Q4 2026
@@ -181,7 +149,7 @@ vessels:
   - id: Chaparral
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hyundai); bareboat (Chaparral Japanese Financing)
-    age: 11
+    age: 11.5
     scrubber: false
     eco: true
     charter_status: time_charter   # Pool-TCO, expires Q3 2027
@@ -190,7 +158,7 @@ vessels:
   - id: Copernicus
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hanwha Ocean); bareboat (Copernicus Japanese Financing)
-    age: 11
+    age: 11.5
     scrubber: true
     eco: true
     charter_status: spot   # Pool
@@ -199,7 +167,7 @@ vessels:
   - id: Challenger
     class: VLGC
     dwt: 55000      # 84,000 cbm (2015, Hyundai)
-    age: 11
+    age: 11.5
     scrubber: true
     eco: true
     charter_status: time_charter   # Pool-TCO, expires Q2 2030
@@ -208,7 +176,7 @@ vessels:
   - id: Caravelle
     class: VLGC
     dwt: 55000      # 84,000 cbm (2016, Hyundai); bareboat (Caravelle Japanese Financing)
-    age: 10
+    age: 10.5
     scrubber: true
     eco: true
     charter_status: spot   # Pool
@@ -218,7 +186,7 @@ vessels:
     class: VLGC
     dwt: 55000      # 84,000 cbm (2023, Kawasaki); dual-fuel ("DF"); bareboat
                     # (Captain Markos Dual-Fuel Japanese Financing, Note 10)
-    age: 3
+    age: 3.5
     scrubber: false # DF, not scrubber
     eco: true
     charter_status: spot   # Pool
@@ -230,16 +198,18 @@ vessels:
                     # DELIVERED 2026-03-20 (carrying-value table "Date of Acquisition/
                     # Delivery") — on the water at the 3/31 snapshot, age 0; the prior
                     # "Vessel under construction" line is 0 on the 3/31 balance sheet.
-    age: 0
+    age: 0.5
     scrubber: true
     eco: true
     charter_status: spot   # Pool
     charter_rate: null
     charter_end: null
 spot_coverage_pct:
-  VLGC: 0.73   # 16 of 22 on Pool (voyage/spot exposure); 6 Pool-TCO (not used by NAV)
+  VLGC: 0.72   # 13 of 18 on Pool voyage/spot exposure (5 Pool-TCO; ratio ~unchanged post-sales)
 fleet_summary:
-  VLGC_count: 22                 # owned/bareboat operating fleet at 2026-03-31 (incl Cobra)
-  vessels_under_construction: 0  # Areion delivered 2026-03-20; no other hull on order (Note 20)
-  held_for_sale: 0               # "none ... held for sale" at 2026-03-31 (Item 5 table)
-  avg_age_VLGC: 10.0
+  VLGC_count: 18                 # on-curve at 2026-06-30: 22 at 3/31 − Cobra (SOLD 5/6, 10-Q Note 6)
+                                 # − Corsair/Constellation/Clermont (HFS at 6/30, 10-Q Note 5 —
+                                 # on the balance sheet at realisable, OFF the curve; no double-count)
+  vessels_under_construction: 0
+  held_for_sale: 3               # the Note-5 trio, carried in balance-sheet held_for_sale $220.0M
+  avg_age_VLGC: 10.3
