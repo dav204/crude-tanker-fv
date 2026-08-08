@@ -10,7 +10,7 @@ one-way bullish override — audit E-3.)
 |---|:--:|--:|--:|:--:|--:|---|
 | NAT | Y | 2.04× | +2.95 | >strip | 8.0 | TRIM stands (value trap) |
 | 2343 | · | 0.98× | -0.01 | — | 4.0 | n/a (gate) |
-| ASC | · | 0.84× | -2.92 | — | 8.0 | n/a (gate) |
+| ASC | · | 0.86× | -2.47 | — | 8.0 | n/a (gate) |
 | BRUT | · | 0.60× | -3.50 | — | 8.0 | n/a (gate) |
 | BWLP | · | 1.17× | +2.72 | — | 7.0 | n/a (gate) |
 | CAPT | · | 0.86× | -2.18 | — | 8.0 | n/a (gate) |
@@ -27,11 +27,11 @@ one-way bullish override — audit E-3.)
 | INSW | · | 2.36× | +47.56 | — | 8.0 | n/a (gate) |
 | LPG | · | 1.06× | +1.89 | — | 7.0 | n/a (gate) |
 | MPCC | · | 1.20× | +0.40 | — | 8.9 | n/a (gate) |
-| SB | · | 0.63× | -3.68 | — | 8.0 | n/a (gate) |
+| SB | · | 0.64× | -3.64 | — | 8.0 | n/a (gate) |
 | SBLK | · | 0.82× | -5.44 | — | 6.7 | n/a (gate) |
 | STNG | · | 0.95× | -4.13 | — | 8.0 | n/a (gate) |
 | TEN | · | 0.42× | -50.43 | — | 7.0 | n/a (gate) |
-| TNK | · | 0.87× | -10.13 | — | 8.0 | n/a (gate) |
+| TNK | · | 0.80× | -17.00 | — | 8.0 | n/a (gate) |
 | TRMD | · | 0.91× | -2.60 | — | 8.0 | n/a (gate) |
 
 **Gated** (high-payout single-class names at peak with a large market premium): NAT.

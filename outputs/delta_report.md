@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-08T17:55:50+00:00
-- **Previous run:** 2026-08-08T17:29:03+00:00
+- **This run:** 2026-08-08T18:13:55+00:00
+- **Previous run:** 2026-08-08T18:01:06+00:00
 
 ## Headline changes (material moves)
 
@@ -19,14 +19,14 @@
 | ECO | $61.86 (no change) | $37.19 (no change) | $32.57 (no change) | $34.42 (no change) | TRIM/SHORT (overvalued) | +14.9pp (no change) |
 | FRO | $39.74 (no change) | $26.41 (no change) | $23.15 (no change) | $24.11 (no change) | TRIM/SHORT (overvalued) | +10.0pp (no change) |
 | INSW | $92.41 (no change) | $38.50 (no change) | $54.46 (no change) | $52.48 (no change) | TRIM/SHORT (overvalued) | +28.4pp (no change) |
-| TNK | $77.25 (no change) | $79.61 (no change) | $73.69 (no change) | $77.73 (no change) | HOLD (fairly valued) | +28.7pp (no change) |
+| TNK | $77.25 (no change) | $86.17 (no change) | $79.87 (no change) | $84.60 (no change) | HOLD (fairly valued) | +21.8pp (no change) |
 | NAT | $6.46 (no change) | $3.14 (no change) | $2.79 (no change) | $2.85 (no change) | TRIM/SHORT (overvalued) | +59.1pp (no change) |
 | FLNG | $30.84 (no change) | $28.16 (no change) | $30.67 (no change) | $28.45 (no change) | HOLD (fairly valued) | -16.9pp (no change) |
 | CCEC | $22.37 (no change) | $32.08 (no change) | $35.91 (no change) | $28.10 (no change) | BUY (undervalued) | -13.6pp (no change) |
 | STNG | $76.08 (no change) | $75.86 (no change) | $76.87 (no change) | $77.13 (no change) | HOLD (fairly valued) | +38.2pp (no change) |
 | HAFN | $7.51 (no change) | $5.99 (no change) | $6.23 (no change) | $5.57 (no change) | TRIM/SHORT (overvalued) | +36.8pp (no change) |
 | TRMD | $29.49 (no change) | $30.94 (no change) | $31.87 (no change) | $30.30 (no change) | BUY (undervalued) | +16.8pp (no change) |
-| ASC | $16.71 (no change) | $16.77 (no change) | $16.85 (no change) | $17.82 (no change) | HOLD (fairly valued) | +23.4pp (no change) |
+| ASC | $16.71 (no change) | $17.13 (no change) | $17.11 (no change) | $17.37 (no change) | HOLD (fairly valued) | +26.3pp (no change) |
 | TEN | $39.14 (no change) | $59.78 (no change) | $56.83 (no change) | $87.57 (no change) | BUY (undervalued) | +41.0pp (no change) |
 | CMDB | $17.80 (no change) | $21.34 (no change) | $20.79 (no change) | $32.65 (no change) | BUY (undervalued) | -13.0pp (no change) |
 | SBLK | $28.90 (no change) | $29.66 (no change) | $28.62 (no change) | $30.64 (no change) | HOLD (fairly valued) | +18.7pp (no change) |
@@ -36,7 +36,7 @@
 | GSL | $42.44 (no change) | $43.06 (no change) | $40.54 (no change) | $38.59 (no change) | HOLD (fairly valued) | +33.2pp (no change) |
 | BRUT | $6.41 (no change) | $9.27 (no change) | $6.45 (no change) | $8.80 (no change) | HOLD (fairly valued) | +1.3pp (no change) |
 | CMBT | $16.29 (no change) | $15.57 (no change) | $14.11 (no change) | $16.19 (no change) | TRIM/SHORT (overvalued) | +31.1pp (no change) |
-| SB | $7.60 (no change) | $9.75 (no change) | $9.47 (no change) | $10.07 (no change) | BUY (undervalued) | -16.2pp (no change) |
+| SB | $7.60 (no change) | $9.70 (no change) | $9.47 (no change) | $10.03 (no change) | BUY (undervalued) | -15.8pp (no change) |
 | LPG | $45.76 (no change) | $32.76 (no change) | $30.55 (no change) | $34.11 (no change) | TRIM/SHORT (overvalued) | +37.0pp (no change) |
 | BWLP | $21.60 (no change) | $15.43 (no change) | $14.46 (no change) | $15.80 (no change) | TRIM/SHORT (overvalued) | +24.9pp (no change) |
 | 2343 | $0.48 (no change) | $0.39 (no change) | $0.39 (no change) | $0.40 (no change) | TRIM/SHORT (overvalued) | +17.1pp (no change) |

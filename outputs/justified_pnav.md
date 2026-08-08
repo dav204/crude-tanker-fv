@@ -18,14 +18,14 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 
 | Ticker | Sector | NAV/sh | Price | P/NAV (mkt) | RONAV (par) | Just P/NAV (par) | RONAV (hist) | Just P/NAV (hist) | Read: par → hist | Robust? |
 |---|---|--:|--:|--:|--:|--:|--:|--:|---|---|
-| SB | dry_bulk | $10.07 | $6.39 | 0.634× | 15.2% | 1.422× | 10.2% | 0.918× | cheap → cheap | robust |
+| SB | dry_bulk | $10.03 | $6.39 | 0.637× | 15.6% | 1.460× | 10.5% | 0.946× | cheap → cheap | robust |
 | SBLK | dry_bulk | $30.64 | $25.20 | 0.822× | 12.7% | 1.174× | 10.7% | 0.975× | cheap → cheap | robust |
 | CMDB | dry_bulk | $32.65 | $17.25 | 0.528× | 7.7% | 0.672× | 6.4% | 0.545× | cheap → fair | flips (cheap/fair) |
 | GNK | dry_bulk | $25.98 | $24.50 | 0.943× | 11.7% | 1.067× | 10.6% | 0.962× | cheap → fair | flips (cheap/fair) |
 | 2343 | dry_bulk | $0.40 | $0.39 | 0.976× | 12.0% | 1.097× | 12.5% | 1.154× | cheap → cheap | robust |
-| TNK | crude | $77.73 | $67.60 | 0.870× | 7.3% | 0.635× | 8.8% | 0.779× | rich → rich | robust |
+| TNK | crude | $84.60 | $67.60 | 0.799× | 6.9% | 0.589× | 8.2% | 0.716× | rich → rich | robust |
 | DHT | crude | $13.58 | $17.20 | 1.266× | 10.0% | 0.901× | 9.4% | 0.837× | rich → rich | robust |
-| FRO | crude | $24.11 | $36.80 | 1.527× | 10.6% | 0.955× | 9.6% | 0.865× | rich → rich | robust |
+| FRO | crude | $24.11 | $36.80 | 1.527× | 10.5% | 0.955× | 9.6% | 0.865× | rich → rich | robust |
 | NAT | crude | $2.85 | $5.80 | 2.039× | 12.9% | 1.191× | 9.7% | 0.865× | rich → rich | robust |
 | ECO | crude | $34.42 | $53.10 | 1.543× | 7.7% | 0.668× | 6.4% | 0.539× | rich → rich | robust |
 | INSW **(WHOLE-CO)** | crude | $52.48 | $82.40 | 1.570× | n/a | — | 9.9% | 0.890× | no anchor → rich | n/a |
@@ -34,7 +34,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | STNG | product | $77.13 | $73.00 | 0.946× | n/a | — | 4.7% | 0.365× | no anchor → rich | n/a |
 | HAFN | product | $5.57 | $7.00 | 1.257× | n/a | — | 13.2% | 1.216× | no anchor → fair | n/a |
 | TRMD | product | $30.30 | $27.70 | 0.914× | n/a | — | 7.4% | 0.642× | no anchor → rich | n/a |
-| ASC | product | $17.82 | $14.90 | 0.836× | n/a | — | 3.9% | 0.289× | no anchor → rich | n/a |
+| ASC | product | $17.37 | $14.90 | 0.858× | n/a | — | 7.2% | 0.621× | no anchor → rich | n/a |
 | TEN **(WHOLE-CO)** | crude | $87.57 | $37.14 | 0.424× | n/a | — | 12.1% | 1.115× | no anchor → cheap | n/a |
 | CAPT | crude | $15.49 | $13.31 | 0.859× | 11.0% | — | 10.7% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | MPCC | containerships | $2.04 | $2.44 | 1.195× | n/a | — | 49.5% | — | no anchor → newbuild-heavy (unreliable) | n/a |

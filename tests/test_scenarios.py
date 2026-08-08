@@ -877,11 +877,15 @@ def test_asc_fleet_loads_mr_plus_handysize():
     ci = load_company_inputs("ASC", BOOK_QUARTER)
     classes = {v.cls for v in ci.fleet.vessels}
     assert classes == {"MR", "Handysize"}, f"ASC fleet should be MR+Handysize, got {classes}"
-    assert len(ci.fleet.vessels) == 19, f"ASC rows should be 19 (18 MR + 1 Handysize), got {len(ci.fleet.vessels)}"
+    # Q2 census (transition 2026-08-08; manifest = the verified 4b444f9 state):
+    # 18 MR + 3 Handysize rows, 2 of them the §9.6 on-curve NB rows carrying the
+    # 4-hull order whose $183.6M commitment the 7/31 half-application hid.
+    assert len(ci.fleet.vessels) == 21, f"ASC rows should be 21 (18 MR + 3 Handysize), got {len(ci.fleet.vessels)}"
     # MR + Handysize rows with eco: true. 5 × 2013 MRs are eco: false (pre-2014
-    # Eco-Mod); the 2 product Handies (2015) are eco: true.
+    # Eco-Mod); the 2 product Handies (2015) are eco: true; + the 2 Q2 NB rows
+    # (eco by the §3.1 newbuild rule, newbuild_specs 4b444f9) = 16.
     eco_count = sum(1 for v in ci.fleet.vessels if v.eco)
-    assert eco_count == 14, f"ASC eco rows should be 14 (13 eco MR + 1 eco Handysize), got {eco_count}"
+    assert eco_count == 16, f"ASC eco rows should be 16 (13 eco MR + 3 eco Handysize incl. 2 NB), got {eco_count}"
     # Zero scrubbers fleet-wide — Ardmore's strategy is Eco-design + biofuel,
     # not scrubber retrofit.
     assert sum(1 for v in ci.fleet.vessels if v.scrubber) == 0

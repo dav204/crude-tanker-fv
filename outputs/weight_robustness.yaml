@@ -116,13 +116,13 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   ASC:
-    ev_min_pct: -5.1
-    ev_max_pct: 0.8
+    ev_min_pct: -4.3
+    ev_max_pct: 2.4
     ev_sign_stable: false
     positions:
     - HOLD (fairly valued)
     - HOLD (fairly valued)
-    - TRIM/SHORT (overvalued)
+    - HOLD (fairly valued)
   BRUT:
     ev_min_pct: -68.1
     ev_max_pct: 0.7
@@ -268,8 +268,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   SB:
-    ev_min_pct: 18.8
-    ev_max_pct: 30.1
+    ev_min_pct: 19.0
+    ev_max_pct: 29.8
     ev_sign_stable: true
     positions:
     - BUY
@@ -303,16 +303,16 @@ names:
     - BUY
     - BUY
   TNK:
-    ev_min_pct: -14.8
-    ev_max_pct: -4.6
-    ev_sign_stable: true
+    ev_min_pct: -7.3
+    ev_max_pct: 3.4
+    ev_sign_stable: false
     positions:
     - HOLD
+    - HOLD
+    - HOLD
+    - HOLD
     - TRIM/SHORT
-    - TRIM/SHORT
-    - TRIM/SHORT
-    - TRIM/SHORT
-    - TRIM/SHORT
+    - HOLD
   TRMD:
     ev_min_pct: -10.3
     ev_max_pct: 8.1
