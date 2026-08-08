@@ -11,7 +11,7 @@ from crude_tanker_fv.scorecard import (
     write_scorecard,
 )
 
-QUARTER = "2026-Q1"
+from conftest import BOOK_QUARTER as QUARTER  # follows the book across quarter rolls
 
 
 # --- pure helpers (deterministic, no IO) ----------------------------------- #

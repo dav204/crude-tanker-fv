@@ -5,6 +5,25 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-08-08 — THE Q2 TRANSITION EXECUTED (block 1: SB/TNK/ASC) — the 7/31 half-application
+  arc CLOSES on paired inputs.** Sequence per the owner-ruled split: guards commit → price-absorb
+  ratify (8/07 tape, ΔNAV 0.0 all rows, 4 flips eyeballed) → transition on the frozen tape.
+  Manifests restored from 3cd0f46^ WITH pins (SB scrubber 20→19, provenance), SB `report_date`
+  bumped WITH its sheet this time. Preflight CLEAN at 2026-Q2 → run → **forward invariance HELD:
+  all 22 lagging names printed delta 0.0 in every column** (the laundering signature is absent).
+  All three pre-registered bands HIT: TNK $77.73→$84.60 (+8.8%, predicted +8-9% — the VOIDed
+  artifact said $81.48) · ASC $17.82→$17.37 (−2.5% vs predicted −2.9%, SIGN-OPPOSITE to the
+  +16.9% artifact, the $183.6M commitment now visible in the breakdown) · SB $10.07→$10.03
+  (−0.4%; **the 7/31 band miss VANISHES on paired inputs** — cause re-classified to the
+  half-application, NOT the young-Pana anchor; the curve question stays in the ladder review on
+  its own merits). Both-halves consumption verified in each fv_report. Baseline ratified.
+  **TNK tier correction:** the 7/31 GOVERNED-WIDE·read-flips entry was computed ON the artifact
+  (family 2×HOLD/4×T/S at FV $76.95); on paired inputs the family reads 5/6 HOLD, §17 robust —
+  **TNK stays VALIDATED-TIGHT** (6th TIGHT), fragility carried by weight_sign_stable=False.
+  Tests learned to roll with the book: tests/conftest.py BOOK_QUARTER (committed-scorecard
+  quarter) replaces hardcoded run-quarter constants across 15 test files — the pair guard fired
+  at collection on the first roll, proving the class the vet's advisory predicted.
+
 - **2026-08-08 — Q2 TRANSITION MECHANISM RULED + LANDED (closes the 7/31 blocker; full record =
   the Decision block in `decisions/q2_cluster_transition_2026-07-31.md`).** Owner ruled BOTH fixes,
   then vetted and adopted the "Vintage Coherence v2" proposal as amended (5-agent adversarial vet,

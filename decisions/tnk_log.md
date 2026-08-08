@@ -1,5 +1,49 @@
 # TNK — Decision Log
 
+## 2026-08-08T18:01:06+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $77.25
+- Single-point FV: $86.17
+- Scenario PW FV: $79.87 (EV +3.4%)
+- NAV / share: $84.60
+- Position: **HOLD (fairly valued)**
+- Broker spread: +21.8pp (k_broker 1.43)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -6.9pp
+- ⚑ NAV/sh +8.8%
+- Δprice: no change | Δsingle FV: +8.2% | Δscenario FV: +8.4% | ΔNAV: +8.8% | Δspread: -6.9pp
+
+**Decision:** Q2 CLUSTER TRANSITION, block 1 — the first run consuming BOTH halves of the
+Q2 refresh (manifest at the 25f9929 state + `tnk_2026-Q2.yaml`; both-halves VERIFIED in
+this run's own NAV breakdown: debt 0.0, newbuild commitments 156.6, VLCC off-curve at its
+contracted HFS $84.5M). NAV $77.73→$84.60 (+8.8%) — INSIDE the pre-registered band
+(~$84–85, +8–9%, ±8%; commit 25f9929) and at its center. The VOIDed 7/31 half-applied
+recompute ($81.48/+4.8%) is superseded by this paired result; its banner stands as
+history. No position flip here — TNK went HOLD at the 8/07 price absorb (band-mech,
+ratified 4e9bd11); the transition ran on that frozen tape by design, Δprice exactly 0.
+Tier GOVERNED-WIDE·read-flips RE-APPLIED with the manifest (provenance restored from
+3cd0f46^): at fair value the §9.10 family straddles HOLD/TRIM — the 7/31 register note
+holds on paired inputs (point EV +3.4%). The VLCC old-age curve observation (curve ~$88M
+vs the issuer-REALIZED $84.5M) stays routed to the curve review on its own merits — on
+paired inputs it never caused a band miss, and the hull now carries its contracted value
+per the sheet. k_broker second-diff −0.18 = the FV-side move against a static consensus
+pnav. Baseline re-anchored via ratify same day (owner-authorized sequence 2026-08-08).
+
+**ADDENDUM (same day) — the tier restoration above is CORRECTED:** re-applying the 7/31
+provenance state restored "read-flips" mechanically, but that register entry was computed
+ON THE VOIDED artifact (FV $76.95/EV −3.8%, family 2×HOLD/4×T/S). On paired inputs the
+family reads 5/6 HOLD (single TRIM at the deepest bracket), the §17 two-basis read is
+robust, and the tier computes **VALIDATED-TIGHT — TNK returns to TIGHT**; the entry is
+REMOVED from TIER_SUBREASON. The at-fair-value fragility is real and is carried to the
+consumer by `weight_sign_stable=False` (family EV +3.4%..−7.3% crosses zero) — the
+designed channel — not by the tier. Seam note: tier VALIDATED-TIGHT is UNCHANGED vs the
+committed surface (it never left, on paired inputs); no tier-change flag due.
+
+---
+
 ## 2026-08-08T17:55:50+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -6,13 +6,14 @@ demote a robust name; an immaterial operating-scrubber surface does not either),
 (PROVISIONAL never passes a governed FV), and that the queues here track the guards' (no drift).
 """
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import crude_tanker_fv.provenance as prov
 from crude_tanker_fv.provenance import confidence_tier, is_handoff_ready
 from crude_tanker_fv.scorecard import compute_scorecard
 
 
 def test_archetypes_from_scorecard():
-    tiers = {r.ticker: r.confidence_tier for r in compute_scorecard("2026-Q1")}
+    tiers = {r.ticker: r.confidence_tier for r in compute_scorecard(BOOK_QUARTER)}
     assert tiers["SB"] == "VALIDATED-TIGHT"      # traced + robust (internal two-basis), op-scrubber immaterial
     assert tiers["CMBT"] == "GOVERNED-WIDE"      # structural-unavailable container class breaks the second basis
     assert tiers["NAT"] == "GOVERNED-WIDE"       # de-voided 2026-06-30; newbuild parked at $0 pending a filed price
@@ -22,7 +23,7 @@ def test_provisional_is_never_handoff_ready():
     assert not is_handoff_ready("PROVISIONAL")
     assert is_handoff_ready("VALIDATED-TIGHT")
     assert is_handoff_ready("GOVERNED-WIDE")
-    rows = compute_scorecard("2026-Q1")
+    rows = compute_scorecard(BOOK_QUARTER)
     for r in rows:
         if r.confidence_tier == "PROVISIONAL":
             assert not is_handoff_ready(r.confidence_tier), f"{r.ticker} PROVISIONAL must not hand off"

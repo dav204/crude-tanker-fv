@@ -24,14 +24,14 @@ import pytest
 
 from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
 
-QUARTER = "2026-Q1"
+from conftest import BOOK_QUARTER as QUARTER  # follows the book across quarter rolls
 
 # name -> verified operating scrubber-fitted COUNT (the contradiction anchor). A name lands here
 # only after its operating-fleet scrubber flags are traced to its own disclosure; the count is
 # asserted, so a later manifest change that contradicts the audited ledger hard-fails.
 OPERATING_SCRUBBER_VERIFIED = {
     "CAPT": 5,   # full Pareto initiation 2026-04-20 per-vessel ledger (all 30 vessels) verified 2026-06-30
-    "SB": 20,    # FY2025 20-F (acc 0001628280-26-014408) "21 scrubbers, all 8 Capes" ftn-15 per-vessel; 20 operating at 3/31 (Michalis H HFS). Verified 2026-07-01
+    "SB": 19,    # FY2025 20-F (acc 0001628280-26-014408) 21-vessel set, ftn-15 per-vessel; at 6/30 Michalis H (scrubber Cape) SOLD + Xenia (scrubber PPMX) HFS -> 19 operating. Q2 refresh 2026-07-31 (was 20 at 3/31)
     "ECO": 16,   # Q1-2026 6-K (acc 0001104659-26-060273) "eight scrubber-fitted Suezmax + eight scrubber-fitted VLCC"; all 16 on-water. Verified 2026-07-01
     "TRMD": 85,  # FY2025 20-F (acc 0001628280-26-011954) "installed scrubbers on 85 of our vessels" = all 22 LR2 + all 63 MR (10 vintage LR1s none). Verified 2026-07-02
     "LPG": 16,   # FY2026 10-K (acc 0001596993-26-000025) Item 4 fleet-table "Scrubber Equipped and/or Dual-Fuel" per-vessel "S" flags; 16 of 22 owned at 3/31 (Cobra unlisted->false). Verified AT onboarding 2026-07-10

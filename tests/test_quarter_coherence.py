@@ -61,10 +61,22 @@ def inputs_copy(tmp_path):
 
 
 def _set_manifest_quarter(inputs_dir: Path, ticker: str, quarter: str) -> None:
+    """Force the fixture manifest's label — regex on whatever the tree carries,
+    so these tests survive the book's quarter rolls."""
+    import re
+
     p = inputs_dir / "fleet_manifests" / f"{ticker}.yaml"
-    doc = p.read_text()
-    assert "report_date: 2026-Q1" in doc
-    p.write_text(doc.replace("report_date: 2026-Q1", f"report_date: {quarter}"))
+    doc, n = re.subn(r"(?m)^report_date: \S+", f"report_date: {quarter}", p.read_text())
+    assert n == 1
+    p.write_text(doc)
+
+
+def _drop_sheets_after(inputs_dir: Path, ticker: str, quarter: str) -> None:
+    """Remove fixture sheets keyed after ``quarter`` so a case can pin the
+    no-newer-sheet world regardless of what the real tree has staged."""
+    for p in (inputs_dir / "balance_sheets").glob(f"{ticker}_*.yaml"):
+        if p.stem.rpartition("_")[2] > quarter:
+            p.unlink()
 
 
 # ------------------------------------------- the four ruled case rows (B)
@@ -85,6 +97,8 @@ def test_case_row_2_rolling_reported_name_passes(inputs_copy):
 
 def test_case_row_3_rolling_unreported_name_falls_back_disclosed(inputs_copy):
     """Manifest Q1 + Q2 run, no Q2 sheet → Q1 pair via fallback, self-reported."""
+    _set_manifest_quarter(inputs_copy, "dht", "2026-Q1")
+    _drop_sheets_after(inputs_copy, "dht", "2026-Q1")
     ci = load_company_inputs("DHT", "2026-Q2", inputs_copy)
     assert ci.balance_sheet.quarter == "2026-Q1"
     assert ci.fleet.report_date == "2026-Q1"
@@ -93,14 +107,17 @@ def test_case_row_3_rolling_unreported_name_falls_back_disclosed(inputs_copy):
 def test_case_row_4_manifest_edited_sheet_not(inputs_copy):
     """Manifest bumped to Q2, no Q2 sheet anywhere → fallback resolves Q1 → fail."""
     _set_manifest_quarter(inputs_copy, "dht", "2026-Q2")
+    _drop_sheets_after(inputs_copy, "dht", "2026-Q1")
     with pytest.raises(ValueError, match="half|as-of 2026-Q2"):
         load_company_inputs("DHT", "2026-Q2", inputs_copy)
 
 
 def test_mirror_case_sheet_ahead_of_manifest(inputs_copy):
-    """The tree's REAL pre-transition state: staged Q2 sheet, manifest still Q1,
-    run at Q2 → exact Q2 sheet wins resolution → pair guard fails (liability
-    half ahead of asset half — the mirror of the incident)."""
+    """Staged Q2 sheet + manifest still Q1, run at Q2 → exact Q2 sheet wins
+    resolution → pair guard fails (liability half ahead of asset half — the
+    mirror of the incident; the tree's real state between 7/31 and the 8/08
+    transition)."""
+    _set_manifest_quarter(inputs_copy, "asc", "2026-Q1")
     with pytest.raises(ValueError, match="as-of 2026-Q1"):
         load_company_inputs("ASC", "2026-Q2", inputs_copy)
 
@@ -174,22 +191,31 @@ def test_sheets_from_2026_q2_carry_ingest_provenance():
 
 def test_whole_book_pairs_coherent_at_the_committed_quarter():
     """Every watchlist name's manifest label must match its resolved sheet
-    vintage at the book's committed quarter — the invariant the transition
-    preserves name-by-name."""
+    vintage at the book's committed quarter — the invariant every transition
+    preserves name-by-name. The quarter comes from the COMMITTED scorecard
+    (tracked in git), so this test rolls with the book instead of pinning a
+    constant that reds at each transition."""
+    import json
+
+    committed_quarter = json.loads(
+        (ROOT / "outputs" / "book_scorecard.json").read_text())["quarter"]
     for ticker in load_watchlist():
         fleet = load_fleet_manifest(ticker)
-        _, vintage = resolve_balance_sheet_path(ticker, "2026-Q1")
+        _, vintage = resolve_balance_sheet_path(ticker, committed_quarter)
         assert fleet.report_date == vintage, ticker
 
 
 # ------------------------------------------------- preflight + defaults
 
-def test_preflight_clean_at_q1_and_flags_the_staged_names_at_q2():
-    assert preflight_pair_coherence("2026-Q1") == []
-    problems = preflight_pair_coherence("2026-Q2")
+def test_preflight_clean_at_the_book_quarter_and_flags_the_stale_quarter():
+    """Post-transition tree state (2026-08-08): SB/TNK/ASC advanced to Q2 with
+    their sheets, the other 22 pairs lag coherently at Q1 — so the book is
+    clean at 2026-Q2, and a 2026-Q1 run must REFUSE for exactly the three
+    advanced names (their Q1 sheets still exist and exact-resolve, but the
+    manifests moved on). Update the two quarter pins at each transition."""
+    assert preflight_pair_coherence("2026-Q2") == []
+    problems = preflight_pair_coherence("2026-Q1")
     flagged = {p.split(":")[0] for p in problems}
-    # The three staged sheets are exactly the pre-transition mismatch set:
-    # their Q2 sheets resolve while the manifests still say Q1.
     assert flagged == {"ASC", "SB", "TNK"}
 
 

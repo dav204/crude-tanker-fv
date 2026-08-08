@@ -22,7 +22,7 @@ from crude_tanker_fv.justified_pnav import (
 from crude_tanker_fv.loaders import INPUTS_DIR, load_company_inputs, load_watchlist
 from crude_tanker_fv.nav import COST_OF_EQUITY, compute_nav
 
-QUARTER = "2026-Q1"
+from conftest import BOOK_QUARTER as QUARTER  # follows the book across quarter rolls
 R = COST_OF_EQUITY  # 0.11
 
 

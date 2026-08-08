@@ -19,7 +19,7 @@ from crude_tanker_fv.normal_rates import (
     parity_tce,
 )
 
-QUARTER = "2026-Q1"
+from conftest import BOOK_QUARTER as QUARTER  # follows the book across quarter rolls
 
 
 def test_crf_known_value():

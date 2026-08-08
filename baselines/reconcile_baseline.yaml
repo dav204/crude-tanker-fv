@@ -2,11 +2,13 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-08-08T17:29:03+00:00'
-  ratified_commit: b2799a6
-  quarter: 2026-Q1
-  cause: price-vintage absorb 7/31->8/07 (earnings-week tape; dNAV/dFV 0.0 all 25 rows; flips TNK/GNK/GSL/BRUT
-    eyeballed price-mechanical — owner go 2026-08-08)
+  ratified_at: '2026-08-08T18:01:06+00:00'
+  ratified_commit: 4e9bd11
+  quarter: 2026-Q2
+  cause: Q2 cluster transition block 1 — SB/TNK/ASC paired refresh on the frozen 8/07 tape; all three
+    pre-registered bands HIT (TNK +8.8% center-band, ASC -2.5% sign-opposite-confirmed, SB -0.4%); forward
+    invariance verified (22 lagging names delta 0.0 everywhere); logs annotated (owner-authorized sequence
+    2026-08-08)
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -21,10 +23,10 @@ names:
     sector: dry_bulk
   ASC:
     pnav_basis: approx
-    ev_pct: 0.84
-    tool_nav: 17.82
+    ev_pct: 2.42
+    tool_nav: 17.37
     position_band: HOLD (fairly valued)
-    k_broker: 1.29
+    k_broker: 1.27
     sector: product
   BRUT:
     pnav_basis: pareto
@@ -147,10 +149,10 @@ names:
     sector: crude
   SB:
     pnav_basis: approx
-    ev_pct: 24.64
-    tool_nav: 10.07
+    ev_pct: 24.57
+    tool_nav: 10.03
     position_band: BUY (undervalued)
-    k_broker: 0.91
+    k_broker: 0.92
     sector: dry_bulk
   SBLK:
     pnav_basis: pareto
@@ -175,10 +177,10 @@ names:
     sector: crude
   TNK:
     pnav_basis: pareto
-    ev_pct: -4.61
-    tool_nav: 77.73
+    ev_pct: 3.39
+    tool_nav: 84.6
     position_band: HOLD (fairly valued)
-    k_broker: 1.61
+    k_broker: 1.43
     sector: crude
   TRMD:
     pnav_basis: pareto

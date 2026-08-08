@@ -1,5 +1,32 @@
 # ASC — Decision Log
 
+## 2026-08-08T18:01:06+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.71
+- Single-point FV: $17.13
+- Scenario PW FV: $17.11 (EV +2.4%)
+- NAV / share: $17.37
+- Position: **HOLD (fairly valued)**
+- Broker spread: +26.3pp (k_broker 1.27)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +2.1% | Δscenario FV: +1.5% | ΔNAV: -2.5% | Δspread: +2.9pp
+
+**Decision:** Q2 CLUSTER TRANSITION, block 1 — the first run consuming BOTH halves
+(manifest at the 4b444f9 state + `asc_2026-Q2.yaml`; both-halves VERIFIED in this run's
+own NAV breakdown: debt 33.4, leases 1.6, newbuild commitments 183.6, advances 0.0).
+NAV $17.82→$17.37 (−2.5%) vs the pre-registered ~$17.31 (−2.9%) ±6% — inside band,
+within 0.4% of the point, and SIGN-OPPOSITE to the VOIDed +16.9% artifact exactly as
+the prereg predicted: the $183.6M Handysize-newbuild commitment the 7/31 half-application
+hid is now in the number. The VOID banner stands as history. No flip (HOLD). Spread
++2.9pp = the FV-side move against a static consensus pnav; Δprice exactly 0 (frozen tape
+by design). Baseline re-anchored via ratify same day (owner-authorized sequence
+2026-08-08).
+
+---
+
 ## 2026-08-08T17:55:50+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -4,6 +4,7 @@ Covers the crude three-phase MoU framework as before, plus the sector layer
 (METHODOLOGY §11): FLNG resolves to the LNG glut-cycle scenarios, not crude.
 """
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 
 from crude_tanker_fv.loaders import load_company_inputs
@@ -647,7 +648,7 @@ def test_asc_pure_product_uses_product_class_map():
 
     watchlist = load_watchlist()
     asc = watchlist["ASC"]
-    ci = load_company_inputs("ASC", "2026-Q1")
+    ci = load_company_inputs("ASC", BOOK_QUARTER)
     docs = _load_all_sectors()
     # The smoke test is just "does this not raise"; the KeyError-from-pre-fix
     # would have surfaced here. Behavioural pinning comes from the next test.
@@ -692,7 +693,7 @@ def test_asc_whole_company_fv_in_expected_band():
 
     watchlist = load_watchlist()
     asc = watchlist["ASC"]
-    ci = load_company_inputs("ASC", "2026-Q1")
+    ci = load_company_inputs("ASC", BOOK_QUARTER)
     docs = _load_all_sectors()
     headline, _, _ = _run_scenarios_for_ticker(
         "ASC", ci, asc["current_price"], asc["analyst_target"], docs, watchlist,
@@ -873,7 +874,7 @@ def test_asc_fleet_loads_mr_plus_handysize():
     incl. the Handysize class. (18 MRs, not 19 — the phantom `Ardmore_Patriot` was
     removed 2026-07-01: never an Ardmore vessel, 0 mentions in the 6-K/20-F.)
     """
-    ci = load_company_inputs("ASC", "2026-Q1")
+    ci = load_company_inputs("ASC", BOOK_QUARTER)
     classes = {v.cls for v in ci.fleet.vessels}
     assert classes == {"MR", "Handysize"}, f"ASC fleet should be MR+Handysize, got {classes}"
     assert len(ci.fleet.vessels) == 19, f"ASC rows should be 19 (18 MR + 1 Handysize), got {len(ci.fleet.vessels)}"

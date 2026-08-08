@@ -18,7 +18,7 @@ from crude_tanker_fv.normal_rates import (
     winsorize,
 )
 
-QUARTER = "2026-Q1"
+from conftest import BOOK_QUARTER as QUARTER  # follows the book across quarter rolls
 
 
 # --- §18.5a mean-reversion gate -------------------------------------------- #

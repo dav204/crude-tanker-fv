@@ -1,5 +1,34 @@
 # SB — Decision Log
 
+## 2026-08-08T18:01:06+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.60
+- Single-point FV: $9.70
+- Scenario PW FV: $9.47 (EV +24.6%)
+- NAV / share: $10.03
+- Position: **BUY (undervalued)**
+- Broker spread: -15.8pp (k_broker 0.92)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -0.5% | Δscenario FV: no change | ΔNAV: -0.4% | Δspread: +0.4pp
+
+**Decision:** Q2 CLUSTER TRANSITION, block 1 (sub-threshold move) — the first run
+consuming BOTH halves (manifest at the pre-revert state with `report_date` bumped WITH
+the sheet THIS time + `sb_2026-Q2.yaml`; breakdown verified: debt 511.4, commitments
+277.2). NAV $10.07→$10.03 (−0.4%), well inside the pre-registered ±6% (f8809d0); BUY
+stands, EV +24.6% at the 8/07 tape. **THE 7/31 BAND MISS IS RESOLVED:** the half-applied
+run printed $10.73 (+6.6%, miss +0.6%) and the honest-line investigation attributed it
+to the young-Panamax age-0 anchor — on paired inputs the miss VANISHES, so the cause is
+re-classified: the half-application, NOT the curve. The young-Pana evidence gap (Nord
+$37.5M @4y, MB ladder NB $37.0M vs the $46.0M anchor) remains a real curve question on
+its own merits and stays routed to the ladder-ingest/young-end review — no longer as
+this event's explanation. Scrubber ledger 20→19 re-applied (Michalis H SOLD + Xenia HFS
+at 6/30; guard pins restored from 3cd0f46^).
+
+---
+
 ## 2026-08-08T17:55:50+00:00 — Pipeline run (auto)
 
 **Model state:**

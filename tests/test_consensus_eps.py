@@ -2,6 +2,7 @@
 
 from pathlib import Path
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 
 from crude_tanker_fv.consensus_eps import (
@@ -15,7 +16,7 @@ from crude_tanker_fv.loaders import load_watchlist
 
 
 def test_rows_cover_names_with_published_fwd_pe():
-    rows = compute_consensus_eps_rows("2026-Q1")
+    rows = compute_consensus_eps_rows(BOOK_QUARTER)
     by = {r.ticker: r for r in rows}
     wl = load_watchlist()
     expected = {t for t, e in wl.items() if e.get("consensus_fwd_pe")}
@@ -24,7 +25,7 @@ def test_rows_cover_names_with_published_fwd_pe():
 
 
 def test_consensus_eps_is_price_over_pe():
-    rows = {r.ticker: r for r in compute_consensus_eps_rows("2026-Q1")}
+    rows = {r.ticker: r for r in compute_consensus_eps_rows(BOOK_QUARTER)}
     wl = load_watchlist()
     r = rows["DHT"]
     assert r.consensus_fwd_eps == pytest.approx(wl["DHT"]["current_price"] / wl["DHT"]["consensus_fwd_pe"])
@@ -33,7 +34,7 @@ def test_consensus_eps_is_price_over_pe():
 
 
 def test_gap_sign_and_earnings_driven_flag():
-    rows = {r.ticker: r for r in compute_consensus_eps_rows("2026-Q1")}
+    rows = {r.ticker: r for r in compute_consensus_eps_rows(BOOK_QUARTER)}
     r = rows["DHT"]
     # gap is 100*(tool-cons)/cons
     expected_gap = 100.0 * (r.tool_fwd_eps - r.consensus_fwd_eps) / r.consensus_fwd_eps
@@ -46,7 +47,7 @@ def test_gap_sign_and_earnings_driven_flag():
 def test_peak_names_carry_low_w_earn_mitigation():
     """The whole point: where the tool-vs-consensus EPS gap is widest (cycle
     peak), the strip weight w_earn is lowest — the framework compensates."""
-    rows = {r.ticker: r for r in compute_consensus_eps_rows("2026-Q1")}
+    rows = {r.ticker: r for r in compute_consensus_eps_rows(BOOK_QUARTER)}
     dht = rows["DHT"]
     assert dht.band_label == "late-cycle/peak"
     assert dht.w_earn <= 0.35            # strip heavily down-weighted at peak
@@ -54,13 +55,13 @@ def test_peak_names_carry_low_w_earn_mitigation():
 
 
 def test_hybrid_flagged():
-    rows = {r.ticker: r for r in compute_consensus_eps_rows("2026-Q1")}
+    rows = {r.ticker: r for r in compute_consensus_eps_rows(BOOK_QUARTER)}
     assert rows["INSW"].hybrid is True
     assert rows["DHT"].hybrid is False
 
 
 def test_tool_implied_pe_consistent():
-    rows = compute_consensus_eps_rows("2026-Q1")
+    rows = compute_consensus_eps_rows(BOOK_QUARTER)
     for r in rows:
         if r.tool_fwd_eps > 0:
             assert r.tool_implied_pe == pytest.approx(r.price / r.tool_fwd_eps)
@@ -69,7 +70,7 @@ def test_tool_implied_pe_consistent():
 
 
 def test_writer_emits_md_and_xlsx(tmp_path: Path):
-    rows = compute_consensus_eps_rows("2026-Q1")
+    rows = compute_consensus_eps_rows(BOOK_QUARTER)
     write_consensus_eps_xref(rows, outputs_dir=tmp_path)
     md = tmp_path / "consensus_eps_xref.md"
     xlsx = tmp_path / "consensus_eps_xref.xlsx"
@@ -80,6 +81,6 @@ def test_writer_emits_md_and_xlsx(tmp_path: Path):
 
 
 def test_run_returns_rows(tmp_path: Path):
-    rows = run_consensus_eps_xref("2026-Q1", outputs_dir=tmp_path)
+    rows = run_consensus_eps_xref(BOOK_QUARTER, outputs_dir=tmp_path)
     assert rows
     assert all(isinstance(r, ConsensusEpsRow) for r in rows)

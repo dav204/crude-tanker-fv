@@ -4,6 +4,7 @@ from datetime import date
 
 import pytest
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 from crude_tanker_fv.loaders import INPUTS_DIR, load_market_data
 from crude_tanker_fv.pipeline import (
     run_transaction_anchored_comparison,
@@ -171,9 +172,9 @@ def test_toggle_on_changes_exposed_names_only(tmp_path):
     # Default-on since 2026-06-09: "base" = explicit False (un-anchored curve).
     # TNK (Suezmax + Aframax): the Aframax recalibration lowers Aframax mid-age
     # more than the Suezmax recalibration lifts Suezmax mid-age, so net NAV drops.
-    base = value_company("TNK", "2026-Q1", 70.50, 75.00,
+    base = value_company("TNK", BOOK_QUARTER, 70.50, 75.00,
                          use_transaction_anchored=False).nav.nav_per_share
-    on = value_company("TNK", "2026-Q1", 70.50, 75.00).nav.nav_per_share
+    on = value_company("TNK", BOOK_QUARTER, 70.50, 75.00).nav.nav_per_share
     assert on < base
     # Pure-VLCC: DHT NAV drops materially under the VLCC fit (2026-06-04 update —
     # vlcc.yaml adds 5 in-window prints; the fit lowers VLCC mid-age anchors
@@ -191,7 +192,7 @@ def test_toggle_on_changes_exposed_names_only(tmp_path):
 
 
 def test_comparison_report_writes_outputs(tmp_path):
-    rows = run_transaction_anchored_comparison("2026-Q1", outputs_dir=tmp_path)
+    rows = run_transaction_anchored_comparison(BOOK_QUARTER, outputs_dir=tmp_path)
     by = {r.ticker: r for r in rows}
     # Pure-LNG: FLNG and CCEC are the remaining no-exposure controls.
     assert by["FLNG"].nav_base == pytest.approx(by["FLNG"].nav_txn)

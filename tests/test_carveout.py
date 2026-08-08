@@ -1,5 +1,6 @@
 """Crude carve-out tests (hybrid operators, METHODOLOGY.md section 6)."""
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 
 from crude_tanker_fv.carveout import crude_carve_out, product_read
@@ -512,10 +513,10 @@ def test_insw_outputs_are_clearly_labeled_v2_whole_company(tmp_path):
         run_watchlist,
     )
 
-    run_watchlist("2026-Q1", outputs_dir=tmp_path)
-    run_scenarios_watchlist("2026-Q1", outputs_dir=tmp_path)
-    run_broker_sweep("2026-Q1", outputs_dir=tmp_path)
-    run_transaction_anchored_comparison("2026-Q1", outputs_dir=tmp_path)
+    run_watchlist(BOOK_QUARTER, outputs_dir=tmp_path)
+    run_scenarios_watchlist(BOOK_QUARTER, outputs_dir=tmp_path)
+    run_broker_sweep(BOOK_QUARTER, outputs_dir=tmp_path)
+    run_transaction_anchored_comparison(BOOK_QUARTER, outputs_dir=tmp_path)
 
     # FV report (single-point detail) STAYS crude-sleeve in v2 — the whole-co
     # number is in the scenario report.

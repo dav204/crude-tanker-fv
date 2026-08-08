@@ -1,5 +1,6 @@
 """Broker-NAV mark-premium sweep tests (METHODOLOGY.md sections 3.1, 9)."""
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 
 from crude_tanker_fv.loaders import load_company_inputs
@@ -28,7 +29,7 @@ def test_solve_broker_premium_round_trips():
 
 
 def test_broker_sweep_discriminates_hybrid(tmp_path):
-    rows = run_broker_sweep("2026-Q1", outputs_dir=tmp_path)
+    rows = run_broker_sweep(BOOK_QUARTER, outputs_dir=tmp_path)
     by = {r.ticker: r for r in rows}
     # Since 2026-06-09 tool marks = transaction-anchored marks (default-on), so
     # k_broker measures the broker premium over transaction-validated levels.

@@ -1,5 +1,6 @@
 """Report-rendering and pipeline-assembly tests (METHODOLOGY.md sections 7-8)."""
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 from openpyxl import load_workbook
 
@@ -57,7 +58,7 @@ def test_write_watchlist_summary(dht_report, tmp_path):
 
 
 def test_run_watchlist_end_to_end(tmp_path):
-    reports = run_watchlist("2026-Q1", outputs_dir=tmp_path)
+    reports = run_watchlist(BOOK_QUARTER, outputs_dir=tmp_path)
     tickers = {r.ticker for r in reports}
     assert {"DHT", "FRO"} <= tickers  # both modeled (ECO/INSW skipped, no target yet)
     assert (tmp_path / "dht_fv_report.md").exists()

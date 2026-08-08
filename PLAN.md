@@ -18,11 +18,15 @@ in-loader AND a fail-before-writes pipeline preflight) + scorecard/JSON vintage 
 the four proposal case rows are named tests in `tests/test_quarter_coherence.py`.
 **`sb/tnk/asc_2026-Q2.yaml` remain STAGED** (now carrying the provenance trio); the three logs'
 VOID banners stand — the SB/TNK curve attributions are HYPOTHESES to re-test on paired inputs.
-**Remaining sequence (owner-ruled split): (1) price-absorb regen at 2026-Q1** — the 7/31→8/07
-price vintage absorbs as its own ratify so the tape can't launder into the transition —
-**then (2) the Q2 transition on a frozen tape**: advance the three manifests WITH their sheets,
-run 2026-Q2, and check forward invariance — every LAGGING name must print delta exactly 0.0
-(a nonzero delta on a lagging name = the laundering signature, halt).
+**SEQUENCE COMPLETE 2026-08-08: (1) price-absorb ratified** (8/07 tape, ΔNAV 0.0 × 25, flips
+TNK/GNK/GSL/BRUT eyeballed, owner go) → **(2) transition EXECUTED on the frozen tape**: preflight
+clean at 2026-Q2, **forward invariance HELD (22 lagging names delta 0.0 everywhere)**, all three
+pre-registered bands HIT (TNK +8.8% center-band · ASC −2.5% sign-opposite-confirmed · SB −0.4%,
+its 7/31 band miss VANISHED on paired inputs), both-halves consumption verified per fv_report,
+baseline ratified. **The book now runs 2026-Q2** (22 names lagging Q1 by design, disclosed).
+**TNK returned to VALIDATED-TIGHT** (the 7/31 read-flips entry was artifact-borne; fragility
+rides weight_sign_stable=False). NEXT: drain the 11-name backlog by report date under the new
+mechanism (each name: sheet + manifest land TOGETHER), then Stage A ≤ 8/15.
 
 **UNPROCESSED BACKLOG (a full Q2 cluster, nothing touched since 7/31).** 11 names carry
 STALE-BALANCE-SHEET: **2343 · CCEC · CMDB · DHT · ECO · GNK · GSL · INSW · LPG · SBLK · STNG**,

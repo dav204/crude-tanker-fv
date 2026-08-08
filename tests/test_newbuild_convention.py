@@ -23,7 +23,7 @@ import yaml
 
 from crude_tanker_fv.loaders import INPUTS_DIR, load_company_inputs, load_watchlist
 
-QUARTER = "2026-Q1"
+from conftest import BOOK_QUARTER as QUARTER  # follows the book across quarter rolls
 
 # Off-convention work queue (NB pre-reg §4). Each name leaves ONLY via its own
 # pre-registered fix. strict xfail. (SB+SBLK are removed by the pass-1 wiring commit.)
