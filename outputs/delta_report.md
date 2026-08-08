@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-08T21:49:49+00:00
-- **Previous run:** 2026-08-08T21:41:39+00:00
+- **This run:** 2026-08-08T22:13:11+00:00
+- **Previous run:** 2026-08-08T22:04:11+00:00
 
 ## Headline changes (material moves)
 
@@ -33,7 +33,7 @@
 | GNK | $25.33 (no change) | $25.14 (no change) | $24.08 (no change) | $25.98 (no change) | HOLD (fairly valued) | +8.2pp (no change) |
 | CAPT | $13.94 (no change) | $16.03 (no change) | $13.38 (no change) | $15.49 (no change) | HOLD (fairly valued) | +28.2pp (no change) |
 | MPCC | $2.56 (no change) | $2.21 (no change) | $2.06 (no change) | $2.04 (no change) | TRIM/SHORT (overvalued) | +12.9pp (no change) |
-| GSL | $42.44 (no change) | $43.06 (no change) | $40.54 (no change) | $38.59 (no change) | HOLD (fairly valued) | +33.2pp (no change) |
+| GSL | $42.44 (no change) | $45.50 (no change) | $43.02 (no change) | $41.20 (no change) | HOLD (fairly valued) | +28.3pp (no change) |
 | BRUT | $6.41 (no change) | $9.27 (no change) | $6.45 (no change) | $8.80 (no change) | HOLD (fairly valued) | +1.3pp (no change) |
 | CMBT | $16.29 (no change) | $15.57 (no change) | $14.11 (no change) | $16.19 (no change) | TRIM/SHORT (overvalued) | +31.1pp (no change) |
 | SB | $7.60 (no change) | $9.70 (no change) | $9.47 (no change) | $10.03 (no change) | BUY (undervalued) | -15.8pp (no change) |

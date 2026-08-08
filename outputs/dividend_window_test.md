@@ -22,7 +22,7 @@ one-way bullish override — audit E-3.)
 | FLNG | · | 1.03× | +0.85 | — | 0.0 | n/a (gate) |
 | FRO | · | 1.53× | +12.69 | — | 8.0 | n/a (gate) |
 | GNK | · | 0.94× | -1.48 | — | 6.5 | n/a (gate) |
-| GSL | · | 1.01× | +0.40 | — | 10.0 | n/a (gate) |
+| GSL | · | 0.95× | -2.21 | — | 10.0 | n/a (gate) |
 | HAFN | · | 1.26× | +1.43 | — | 8.0 | n/a (gate) |
 | INSW | · | 2.36× | +47.56 | — | 8.0 | n/a (gate) |
 | LPG | · | 1.01× | +0.31 | — | 7.0 | n/a (gate) |

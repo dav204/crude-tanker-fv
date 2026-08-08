@@ -2,7 +2,7 @@
 
 > **Price basis:** all 25 prices live.
 
-> **Balance-sheet basis: 18 of 25 names on a pre-2026-Q2 vintage:** 2343 (2026-Q1), BRUT (2026-Q1), BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), CMDB (2026-Q1), DHT (2026-Q1), FLNG (2026-Q1), FRO (2026-Q1), GNK (2026-Q1), GSL (2026-Q1), HAFN (2026-Q1), INSW (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), SBLK (2026-Q1), TEN (2026-Q1), TRMD (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
+> **Balance-sheet basis: 17 of 25 names on a pre-2026-Q2 vintage:** 2343 (2026-Q1), BRUT (2026-Q1), BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), CMDB (2026-Q1), DHT (2026-Q1), FLNG (2026-Q1), FRO (2026-Q1), GNK (2026-Q1), HAFN (2026-Q1), INSW (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), SBLK (2026-Q1), TEN (2026-Q1), TRMD (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
 
 > **Rate basis:** Supra-Ultra 2027+2028 strip legs HELD at the 13-Jul synthesis (Cal-27 14,175): the Smax Cal27 row is cropped from every capture of the new source (Chris.Palun, 2026-07-20 →) — front (q1/q2/12M/spot) IS the 24-Jul print. Held-node bracket per ffa_promotion_2026-07-24.md; retires at the first capture showing Smax Cal27 (owner channel-ask staged). Handy-Bulk derived row inherits the same mix via the x0.90 identity.
 
@@ -44,7 +44,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | GNK | dry_bulk | GOVERNED-WIDE · read-flips | $25.33 | $24.08 | 18.64–30.22 | -5% | HOLD (fairly valued) | $25.14 | $25.98 | $28.46 | -9% | OK | ready | stable |
 | CCEC | lng | GOVERNED-WIDE · structural-class | $22.37 | $33.70 | 16.27–47.20 | +51% | BUY (undervalued) | $29.97 | $25.70 | $24.86 (apx) | +3% | n-a | ready | stable |
 | FLNG | lng | GOVERNED-WIDE · structural-class | $30.84 | $30.67 | 20.36–39.36 | -1% | HOLD (fairly valued) | $28.16 | $28.45 | $22.84 | +25% | OK | ready | stable |
-| GSL | containerships | GOVERNED-WIDE · structural-class | $42.44 | $40.54 | 36.14–44.39 | -4% | HOLD (fairly valued) | $43.06 | $38.59 | $56.59 (apx) | -32% | n-a | ready | — |
+| GSL | containerships | GOVERNED-WIDE · structural-class | $42.44 | $43.02 | 38.70–46.80 | +1% | HOLD (fairly valued) | $45.50 | $41.20 | $56.59 (apx) | -27% | n-a | ready | — |
 | MPCC | containerships | GOVERNED-WIDE · structural-class | $2.56 | $2.06 | 1.69–2.20 | -19% | unreliable read (not actionable) | $2.21 | $2.04 | $2.46 (apx) | -17% | n-a | ready | — |
 | BRUT | crude | PROVISIONAL · cash-pending ⛔ | $6.41 | $6.45 | 0.07–17.18 | +1% | unreliable read (not actionable) | $9.27 | $8.80 | $8.90 | -1% | OK | **NO** | **⚠ sign flips** |
 | HAFN | product | PROVISIONAL · pool-gross-up-pending ⛔ | $7.51 | $6.23 | 3.70–8.87 | -17% | rich · cycle position (not a short) | $5.99 | $5.57 | $8.73 | -36% | OK | **NO** | stable |
@@ -87,7 +87,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | SBLK | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.82× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | CCEC | lng | GOVERNED-WIDE | structural-unavailable | 0.84× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | FLNG | lng | GOVERNED-WIDE | structural-unavailable | 1.03× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
-| GSL | containerships | GOVERNED-WIDE | structural-unavailable | 1.01× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
+| GSL | containerships | GOVERNED-WIDE | structural-unavailable | 0.95× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | MPCC | containerships | GOVERNED-WIDE | structural-unavailable | 1.20× | no anchor→newbuild-heavy (unreliable) | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | BWLP | lpg | PROVISIONAL ⛔ | pending-sourceable | 1.17× | no anchor→fair | n/a | unvalidated | pending | pending | NAV basis: pending-sourceable |
 | LPG | lpg | PROVISIONAL ⛔ | pending-sourceable | 1.01× | no anchor→rich | n/a | unvalidated | pending | pending | NAV basis: pending-sourceable |
