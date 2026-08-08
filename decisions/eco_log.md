@@ -1,5 +1,23 @@
 # ECO — Decision Log
 
+## 2026-08-08T20:34:11+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $61.86
+- Single-point FV: $40.24
+- Scenario PW FV: $35.69 (EV -42.3%)
+- NAV / share: $37.65
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.7pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** CCEC-refresh run (0-material for ECO) — ECO's substantive record is its dated Q2 REPORT-DAY REFRESH entry below (2026-08-08, band HIT). Baseline ratified same day (ECO+CCEC row in RATIFY_LOG; the batch-to-end-of-drain plan was dropped — the gate re-reds un-ratified names at every subsequent run, so ratifies are per-name from here on).
+
+---
+
 ## 2026-08-08T20:09:31+00:00 — Pipeline run (auto)
 
 **Model state:**

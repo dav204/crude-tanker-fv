@@ -2,13 +2,12 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-08-08T18:01:06+00:00'
-  ratified_commit: 4e9bd11
+  ratified_at: '2026-08-08T20:34:11+00:00'
+  ratified_commit: f0203b7
   quarter: 2026-Q2
-  cause: Q2 cluster transition block 1 — SB/TNK/ASC paired refresh on the frozen 8/07 tape; all three
-    pre-registered bands HIT (TNK +8.8% center-band, ASC -2.5% sign-opposite-confirmed, SB -0.4%); forward
-    invariance verified (22 lagging names delta 0.0 everywhere); logs annotated (owner-authorized sequence
-    2026-08-08)
+  cause: 'Q2 backlog drain names 1-2: ECO NAV +9.4% and CCEC NAV -8.5%, both INSIDE pre-registered bands,
+    both-halves verified, forward invariance held, logs annotated (ECO eco_log + CCEC ccec_log 2026-08-08);
+    no position flips'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -51,10 +50,10 @@ names:
     sector: crude
   CCEC:
     pnav_basis: approx
-    ev_pct: 60.51
-    tool_nav: 28.1
+    ev_pct: 50.65
+    tool_nav: 25.7
     position_band: BUY (undervalued)
-    k_broker: 0.97
+    k_broker: 0.99
     sector: lng
   CMBT:
     pnav_basis: pareto
@@ -79,10 +78,10 @@ names:
     sector: crude
   ECO:
     pnav_basis: pareto
-    ev_pct: -47.36
-    tool_nav: 34.42
+    ev_pct: -42.3
+    tool_nav: 37.65
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.23
+    k_broker: 1.17
     sector: crude
   FLNG:
     pnav_basis: pareto

@@ -1,0 +1,56 @@
+# Capital Clean Energy Carriers (CCEC) balance sheet — METHODOLOGY.md §4.2. USD.
+# Source: Q2-2026 earnings release 6-K (EDGAR acc 0001193125-26-330964, filed 2026-08-04;
+# release dated 2026-07-29), Unaudited Condensed Consolidated Balance Sheets, 2026-06-30
+# column + Company Capitalization + the under-construction capex schedule. Q2 refresh
+# 2026-08-08. Post-6/30 events deliberately NOT in this snapshot: MG/C Aridaios delivered
+# 7/23 + LNG/C Alcaios I delivered ~7/31 (both remain NB rows in the manifest), the
+# Amore Mio I 49% JV divestment (closes Q1-2027, $230M to the JV; vessel still 100%
+# consolidated at 6/30), ongoing buyback. NOTE: this is the RELEASE's condensed BS —
+# the formal interim 6-K with a subsequent-events note follows the semi-annual cycle;
+# revisit any late-August interim filing at the next sweep.
+
+ticker: CCEC
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1392326/000119312526330964/
+retrieved_at: 2026-08-08
+filing_period_end: 2026-06-30
+
+# Cash 252,708k + restricted current 0 + restricted non-current 16,193k = 268,901k
+# (matches the release's "total cash amounted to $268.9 million").
+cash_and_equivalents: 268901000
+
+# working_capital_net — FULL components (BASIS REFINEMENT vs the Q1 sheet, which
+# carried trade receivables ONLY because the Q1 summary did not disclose the other
+# lines; that construction also omitted current LIABILITIES, overstating NAV — the
+# refinement is worth about −$94.0M / −$1.54/sh and is disclosed in the prereg):
+#   (trade receivables 12,258 + prepayments 9,620 + inventories 6,173 + claims 929
+#    + current assets of discontinued ops 1,119)
+#   − (trade payables 12,367 + due to related parties 3,529 + accrued 61,835
+#      + deferred revenue 21,368 + current liabilities of discontinued ops 12,694)
+#   = 30,099 − 111,793 = −81,694k.
+# Above/below-market acquired charters (49,366 asset / 56,652 liability) excluded
+# BOTH quarters — acquisition intangibles, not NAV-economic under the tool's
+# vessels-at-market + strip framework (net −7.3M if ever included).
+working_capital_net: -81694000
+
+# Interest-bearing debt, BS net-of-fees basis (same as Q1): current portion
+# 133,284k + long-term 2,797,548k = 2,930,832k. (The release's "$2,955.1M total
+# debt" is the gross repayment-schedule figure incl. discontinued ops.)
+total_debt: 2930832000
+lease_liabilities: 0          # no separate operating-lease line (Q1 convention)
+
+# Remaining under-construction capex AFTER 6/30, issuer schedule (release table):
+# Newbuild LNG/Cs 1,314.0 + Gas Fleet 341.6 + LNGB/V 50% JV share 41.4 = 1,697.0M
+# (was 2,251.5M at 3/31; Q2 delivery payments funded by the H1 debt draws).
+# Group-B convention: ALL under-construction hulls sit in the fleet manifest at
+# delivered market (no §9.6 PV path), advances embedded -> 0 below. EXCEPTION —
+# the LNGB/V: its $41.4M share IS in this commitment figure but the hull is NOT
+# in the manifest (no bunkering-vessel class/curve exists) — a deliberate
+# conservative omission of ~-0.7% NAV, disclosed here and in the log.
+newbuild_capex_commitments: 1697000000
+newbuild_advances_paid: 0
+
+# End-of-period actual from the statement of changes in equity: 60,708,914 (Jan-1)
+# + 551,336 DRIP − 99,411 repurchased/retired = 61,160,839 at 6/30. (Q1 used the
+# 60.12M weighted average; end-count is the honest NAV divisor — DRIP dilutes.)
+diluted_shares_outstanding: 61160839

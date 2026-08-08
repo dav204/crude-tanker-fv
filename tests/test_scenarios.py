@@ -339,7 +339,7 @@ def test_ccec_position_under_locked_weights(lng_doc):
     flip for CCEC where FLNG only gets closer to HOLD. Position sizing
     should reflect that the call's robustness depends on the weight set.
     """
-    ci = load_company_inputs("CCEC", "2026-Q1")
+    ci = load_company_inputs("CCEC", BOOK_QUARTER)
     r = run_scenarios(ci, 23.18, 25.17, lng_doc)
     assert "BUY" in r.position_recommendation, (
         f"CCEC position should be BUY under Set B-revised; got "
@@ -474,7 +474,7 @@ def test_ccec_v3_set_b_revised_fv_band_and_buy_flip(lng_doc):
     (EV > +5%) — if it slips to HOLD the underlying NAV or scenario forwards
     have drifted enough to demand a methodology review (see §13).
     """
-    ci = load_company_inputs("CCEC", "2026-Q1")
+    ci = load_company_inputs("CCEC", BOOK_QUARTER)
     r = run_scenarios(ci, 23.18, 25.17, lng_doc)
     # 2026-06-22 rebased for the cycle-conditional terminal + NET RETAINED EARNINGS
     # (§9.2): CCEC is low-payout LNG with high scenario torque, so retained earnings
@@ -482,7 +482,10 @@ def test_ccec_v3_set_b_revised_fv_band_and_buy_flip(lng_doc):
     # Re-pinned 2026-07-02 (post-stand-down vintage: LNG v3 restore pulls the Jun-9
     # tight_resurgence tilt back out — PW FV ~$33.50, ±5%; BUY held at EV +44.5%).
     # Re-pinned 2026-07-14 EVE (hormuz re-tilt RESTORE BOTH executed): $35.91 ±5% -> [34.11, 37.70].
-    assert 34.11 < r.probability_weighted_fv < 37.70
+    # Re-pinned 2026-08-08 (Q2 refresh, band-verified −6.2% FV move: capex schedule
+    # 2,251.5→1,697.0 + full-WC basis + debt draws + census hull — ccec_log):
+    # $33.70 ±5% -> [32.02, 35.39]. BUY held throughout.
+    assert 32.02 < r.probability_weighted_fv < 35.39
     # Position must be BUY at locked weights — flag if it shifts.
     ev_pct = r.expected_value_vs_current / r.current_price * 100
     assert ev_pct > 5.0, (
