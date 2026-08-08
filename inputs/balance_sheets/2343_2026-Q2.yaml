@@ -1,0 +1,66 @@
+# Pacific Basin Shipping (2343) balance sheet snapshot — METHODOLOGY.md §4.2. USD.
+# Source: Interim Results announcement for the six months ended 2026-06-30 (HKEX
+# doc 12275567_2026080601217, published 2026-08-06), Unaudited Condensed
+# Consolidated Balance Sheet + the Liquidity and Borrowings table. Q2 refresh
+# 2026-08-08. FIRST new sheet since onboarding (semi-annual reporter) — the
+# vintage moves 2025-12-31 -> 2026-06-30 and the quarter label is the TRUE
+# vintage this time (the forward-keying question from the transition vet does
+# not arise). NOTE: the announcement's condensed notes carry NO capital-
+# commitments note — the commitments figure below is a documented composite;
+# REVISIT at the full Interim Report (publishes within the month, HKEX rules).
+# Subsequent-events: no events-after-reporting note in the announcement; the
+# interim dividend (HK15.5¢/sh, declared 8/6) is post-period by construction.
+
+ticker: "2343"
+quarter: 2026-Q2
+source_url: https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0806/2026080601217.pdf
+retrieved_at: 2026-08-08
+filing_period_end: 2026-06-30
+
+# "Cash and deposits" 206,530 (was 270,559; the cash bridge: +143.5 operating,
+# −57.3 capex, −89 debt paydown, −40 dividends, −3.5 buyback, +10 vessel sales).
+cash_and_equivalents: 206530000
+
+# Operating WC (Q1/onboarding convention — derivatives both sides, NC receivables in):
+#   + trade & other receivables current 183,957 + non-current 2,273
+#   + inventories 148,814 (bunkers for the operating book — NAV-economic)
+#   + derivative assets 7,162 + 307 + tax recoverable 214
+#   − trade payables & other liabilities 251,985
+#   − derivative liabilities 4,129 + 775
+#   = 342,727 − 256,889 = 85,838.
+# "Assets held for sale" 6,033 EXCLUDED — the committed-to-sell Supramax
+# (completing August) is ON-curve in the manifest at 6/30; including its HFS
+# carrying here would double-count the hull (the GNK-Q1 Predator pattern).
+# Goodwill 25,256 excluded (not NAV-economic).
+working_capital_net: 85838000
+
+# Borrowings: current 18,916 + non-current 30,393 = 49,309 (was 136,521 —
+# −$87.2M H1 deleveraging; issuer net cash +157.2M).
+total_debt: 49309000
+
+# Chartered-in IFRS-16 lease liabilities: current 27,956 + non-current 66,001
+# = 93,957. RoU assets (90,545) NOT added — chartered-in hulls aren't owned
+# and aren't in the manifest (CMDB/SBLK convention, unchanged).
+lease_liabilities: 93957000
+
+# Newbuild commitments — DOCUMENTED COMPOSITE (the announcement carries no
+# commitments note; revisit at the full Interim Report):
+#   284,926 (AR2025 Note 23(a), the 12/31 figure for the then-8-hull programme)
+#   + 59,600 = 2 × 29,800 (the Interim's HS order increase 4 -> 6 at the
+#     issuer's OWN published JNS series price — the same class/yard/spec/window
+#     contract cited at onboarding; issuer-series basis, not an estimate)
+#   = 344,526. CONSERVATIVE CEILING, two disclosed biases BOTH understating NAV:
+#   (i) NO deduction for H1 newbuild installments (the −57.3M capex bridge line
+#   is unsplit NB-vs-drydock); (ii) the dual-fuel->conventional UM swap's stated
+#   capex REDUCTION is ignored (magnitude undisclosed). The declared purchase
+#   options on 2 chartered Handysize (join by year-end) carry NO disclosed
+#   prices — note-only, no commitment booked (GNK-Volunteer needs-a-price rule).
+newbuild_capex_commitments: 344526000
+newbuild_advances_paid: 0    # sunk into on-curve delivered values (§9.6, Q1 convention)
+
+# Denominator held at the MR-Jun26 issued count (Monthly Return, 30-Jun-2026 —
+# AS-OF matched to this sheet; the H1 buyback ~9.5M shares is inside it).
+diluted_shares_outstanding: 5165247803
+
+preferred_equity: 0
+governance_discount_pct: 0   # §15 screen unchanged (onboarding Gate C pass; Caravel/Banga tripwires stand)

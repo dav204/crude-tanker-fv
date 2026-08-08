@@ -2,12 +2,13 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-08-08T23:10:50+00:00'
-  ratified_commit: a2662f9
+  ratified_at: '2026-08-08T23:45:20+00:00'
+  ratified_commit: fd1511a
   quarter: 2026-Q2
-  cause: 'Q2 backlog drain #7: GNK NAV -2.8% INSIDE prereg band; PRE-REGISTERED band-edge flip HOLD->T/S
-    fired and auto-classified band-mech (price inside [17.93,29.63], D-M5); Volunteer on-curve committed,
-    Predator out, tender regime OVER; both-halves verified, invariance held, gnk_log annotated'
+  cause: 'Q2 backlog drain #8: 2343 NAV +2.5% INSIDE prereg band (first post-onboarding sheet, 2-quarter
+    vintage move); census set-change resolved (WhiteBay out / Agatti in, Interim table confirms 107);
+    F-1 re-test recorded (orderbook ~9.3%); issuer market-value composite corroborates tool marks within
+    ~3%; commitments composite flagged for the full Interim Report; 2343_log annotated; no flip'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -15,10 +16,10 @@ thresholds:
 names:
   '2343':
     pnav_basis: approx
-    ev_pct: -19.89
-    tool_nav: 0.4
+    ev_pct: -17.47
+    tool_nav: 0.41
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.21
+    k_broker: 1.19
     sector: dry_bulk
   ASC:
     pnav_basis: approx
