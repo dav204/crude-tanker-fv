@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-18T12:07:19.323408+00:00",
+  "generated_at": "2026-08-08T12:03:23.033553+00:00",
   "archive_roots": [
     "inputs/research_pareto",
     "inputs/research_pareto_other"
   ],
-  "total_files": 853,
+  "total_files": 867,
   "files": [
     {
       "path": "inputs/research_pareto/2024/06/2024-06-26_d'AmicoInternationalShipping-CompanyReport-InitiatingCoverage-2024-06-26-364456.pdf",
@@ -5507,6 +5507,127 @@
       "classification_signal": "filename:ShippingDaily"
     },
     {
+      "path": "inputs/research_pareto/2026/07/2026-07-20_Periodical-ShippingDaily-2026-07-20-515852.pdf",
+      "filename": "2026-07-20_Periodical-ShippingDaily-2026-07-20-515852.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-07-20",
+      "downloaded_at": "2026-07-20T16:23:02.355913+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 160312,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/07/2026-07-28_NobleCorp.-CompanyComments-Newsflash-2026-07-28-517641.pdf",
+      "filename": "2026-07-28_NobleCorp.-CompanyComments-Newsflash-2026-07-28-517641.pdf",
+      "type": "company_report",
+      "report_date": "2026-07-28",
+      "downloaded_at": "2026-07-28T11:00:08.461157+00:00",
+      "parsed_at": null,
+      "page_count": 1,
+      "size_bytes": 56570,
+      "classification_signal": "content:NEWSFLASH"
+    },
+    {
+      "path": "inputs/research_pareto/2026/07/2026-07-28_NobleCorp.-CompanyReport-QuarterlyReview-2026-07-28-517727.pdf",
+      "filename": "2026-07-28_NobleCorp.-CompanyReport-QuarterlyReview-2026-07-28-517727.pdf",
+      "type": "company_report",
+      "report_date": "2026-07-28",
+      "downloaded_at": "2026-07-29T11:00:08.534563+00:00",
+      "parsed_at": null,
+      "page_count": 9,
+      "size_bytes": 409410,
+      "classification_signal": "filename:CompanyReport"
+    },
+    {
+      "path": "inputs/research_pareto/2026/07/2026-07-28_Periodical-ShippingDaily-2026-07-28-517658.pdf",
+      "filename": "2026-07-28_Periodical-ShippingDaily-2026-07-28-517658.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-07-28",
+      "downloaded_at": "2026-07-28T11:00:09.488169+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 159526,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-03_Periodical-ShippingDaily-2026-08-03-518505.pdf",
+      "filename": "2026-08-03_Periodical-ShippingDaily-2026-08-03-518505.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-03",
+      "downloaded_at": "2026-08-03T11:00:08.114241+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 158010,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-04_Periodical-ShippingDaily-2026-08-04-518826.pdf",
+      "filename": "2026-08-04_Periodical-ShippingDaily-2026-08-04-518826.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-04",
+      "downloaded_at": "2026-08-04T11:00:09.576902+00:00",
+      "parsed_at": null,
+      "page_count": 1,
+      "size_bytes": 145454,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-04_ScorpioTankers-CompanyReport-QuarterlyReview-2026-08-03-518648.pdf",
+      "filename": "2026-08-04_ScorpioTankers-CompanyReport-QuarterlyReview-2026-08-03-518648.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-04",
+      "downloaded_at": "2026-08-04T11:00:10.537956+00:00",
+      "parsed_at": null,
+      "page_count": 8,
+      "size_bytes": 403032,
+      "classification_signal": "filename:CompanyReport"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-04_TeekayTankers-CompanyReport-QuarterlyReview-2026-08-04-518926.pdf",
+      "filename": "2026-08-04_TeekayTankers-CompanyReport-QuarterlyReview-2026-08-04-518926.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-04",
+      "downloaded_at": "2026-08-05T11:00:30.134512+00:00",
+      "parsed_at": null,
+      "page_count": 8,
+      "size_bytes": 427494,
+      "classification_signal": "filename:CompanyReport"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-05_Periodical-ShippingDaily-2026-08-05-519014.pdf",
+      "filename": "2026-08-05_Periodical-ShippingDaily-2026-08-05-519014.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-05",
+      "downloaded_at": "2026-08-05T11:00:10.645485+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 164021,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-06_Periodical-ShippingDaily-2026-08-06-519631.pdf",
+      "filename": "2026-08-06_Periodical-ShippingDaily-2026-08-06-519631.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-06",
+      "downloaded_at": "2026-08-06T11:00:15.316523+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 165240,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-07_Periodical-ShippingDaily-2026-08-07-520031.pdf",
+      "filename": "2026-08-07_Periodical-ShippingDaily-2026-08-07-520031.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-07",
+      "downloaded_at": "2026-08-08T11:00:06.600435+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 160453,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
       "path": "inputs/research_pareto_other/company_report/2024/06/2024-06-26_d'AmicoInternationalShipping-CompanyReport-InitiatingCoverage-2024-06-26-364456.pdf",
       "filename": "2024-06-26_d'AmicoInternationalShipping-CompanyReport-InitiatingCoverage-2024-06-26-364456.pdf",
       "type": "company_report",
@@ -9332,6 +9453,39 @@
       "parsed_at": null,
       "page_count": 6,
       "size_bytes": 460941,
+      "classification_signal": "content:QUARTERLY PREVIEW"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-07-20_linked-515610.pdf",
+      "filename": "2026-07-20_linked-515610.pdf",
+      "type": "company_report",
+      "report_date": "2026-07-20",
+      "downloaded_at": "2026-08-08T12:02:03.491252+00:00",
+      "parsed_at": null,
+      "page_count": 6,
+      "size_bytes": 462499,
+      "classification_signal": "content:QUARTERLY PREVIEW"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-07-28_linked-517602.pdf",
+      "filename": "2026-07-28_linked-517602.pdf",
+      "type": "company_report",
+      "report_date": "2026-07-28",
+      "downloaded_at": "2026-08-08T12:02:04.703521+00:00",
+      "parsed_at": null,
+      "page_count": 6,
+      "size_bytes": 461107,
+      "classification_signal": "content:QUARTERLY PREVIEW"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-07-28_linked-517603.pdf",
+      "filename": "2026-07-28_linked-517603.pdf",
+      "type": "company_report",
+      "report_date": "2026-07-28",
+      "downloaded_at": "2026-08-08T12:02:05.906300+00:00",
+      "parsed_at": null,
+      "page_count": 6,
+      "size_bytes": 460777,
       "classification_signal": "content:QUARTERLY PREVIEW"
     },
     {
