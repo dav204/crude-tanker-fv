@@ -230,8 +230,8 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | MPCC | $2.04→$2.04 | +0.0% | -19.4%→-19.4% | +0.0 | TRIM/SHORT→TRIM/SHORT |
 | 2343 | $0.40→$0.40 | -1.1% | -19.1%→-19.9% | -0.8 | TRIM/SHORT→TRIM/SHORT |
 | DHT | $16.07→$13.58 | -15.5% | -18.5%→-29.4% | -10.9 | TRIM/SHORT→TRIM/SHORT |
+| LPG | $35.70→$35.69 | -0.0% | -30.4%→-30.5% | -0.0 | TRIM/SHORT→TRIM/SHORT |
 | BWLP | $15.81→$15.80 | -0.1% | -33.0%→-33.0% | -0.0 | TRIM/SHORT→TRIM/SHORT |
-| LPG | $34.12→$34.11 | -0.0% | -33.2%→-33.2% | -0.0 | TRIM/SHORT→TRIM/SHORT |
 | INSW **(WHOLE-CO)** | $57.91→$52.48 | -9.4% | -36.4%→-41.1% | -4.7 | TRIM/SHORT→TRIM/SHORT |
 | FRO | $28.47→$24.11 | -15.3% | -32.4%→-41.8% | -9.4 | TRIM/SHORT→TRIM/SHORT |
 | ECO | $43.80→$37.65 | -14.0% | -34.0%→-42.3% | -8.3 | TRIM/SHORT→TRIM/SHORT |

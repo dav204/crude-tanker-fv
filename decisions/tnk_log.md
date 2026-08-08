@@ -1,5 +1,23 @@
 # TNK — Decision Log
 
+## 2026-08-08T21:49:49+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $77.25
+- Single-point FV: $86.17
+- Scenario PW FV: $79.87 (EV +3.4%)
+- NAV / share: $84.60
+- Position: **HOLD (fairly valued)**
+- Broker spread: +21.8pp (k_broker 1.43)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-08T21:41:39+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -41,7 +41,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | GSL | containerships | $38.59 | $38.99 | 1.010× | n/a | — | 51.1% | 5.219× | no anchor → cheap | n/a |
 | BRUT | crude | $8.80 | $5.30 | 0.602× | 23.7% | — | 22.3% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | CMBT **(WHOLE-CO)** | crude | $16.19 | $14.60 | 0.902× | n/a | — | 7.1% | 0.609× | no anchor → rich | n/a |
-| LPG | lpg | $34.11 | $36.00 | 1.055× | n/a | — | 10.1% | 0.913× | no anchor → rich | n/a |
+| LPG | lpg | $35.69 | $36.00 | 1.009× | n/a | — | 6.9% | 0.594× | no anchor → rich | n/a |
 | BWLP | lpg | $15.80 | $18.52 | 1.172× | n/a | — | 13.2% | 1.220× | no anchor → fair | n/a |
 
 ## Subsector vector — median Justified P/NAV (parity headline, historical cross-check)

@@ -249,8 +249,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   LPG:
-    ev_min_pct: -35.4
-    ev_max_pct: -30.6
+    ev_min_pct: -32.3
+    ev_max_pct: -28.2
     ev_sign_stable: true
     positions:
     - TRIM/SHORT

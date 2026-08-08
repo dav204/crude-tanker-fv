@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-08T21:31:20+00:00
-- **Previous run:** 2026-08-08T21:23:44+00:00
+- **This run:** 2026-08-08T21:49:49+00:00
+- **Previous run:** 2026-08-08T21:41:39+00:00
 
 ## Headline changes (material moves)
 
@@ -9,8 +9,7 @@
 
 ## Input files changed since last run
 
-- `inputs/balance_sheets/stng_2026-Q2.yaml` (modified)
-- `inputs/fleet_manifests/stng.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 
@@ -38,7 +37,7 @@
 | BRUT | $6.41 (no change) | $9.27 (no change) | $6.45 (no change) | $8.80 (no change) | HOLD (fairly valued) | +1.3pp (no change) |
 | CMBT | $16.29 (no change) | $15.57 (no change) | $14.11 (no change) | $16.19 (no change) | TRIM/SHORT (overvalued) | +31.1pp (no change) |
 | SB | $7.60 (no change) | $9.70 (no change) | $9.47 (no change) | $10.03 (no change) | BUY (undervalued) | -15.8pp (no change) |
-| LPG | $45.76 (no change) | $32.76 (no change) | $30.55 (no change) | $34.11 (no change) | TRIM/SHORT (overvalued) | +37.0pp (no change) |
+| LPG | $45.76 (no change) | $33.93 (no change) | $31.82 (no change) | $35.69 (no change) | TRIM/SHORT (overvalued) | +34.1pp (no change) |
 | BWLP | $21.60 (no change) | $15.43 (no change) | $14.46 (no change) | $15.80 (no change) | TRIM/SHORT (overvalued) | +24.9pp (no change) |
 | 2343 | $0.48 (no change) | $0.39 (no change) | $0.39 (no change) | $0.40 (no change) | TRIM/SHORT (overvalued) | +17.1pp (no change) |
 

@@ -1,7 +1,7 @@
 {
   "schema_version": "2.7",
-  "generated_at": "2026-08-08T21:31:11+00:00",
-  "source_commit": "688fb16",
+  "generated_at": "2026-08-08T21:49:39+00:00",
+  "source_commit": "a6d40e8",
   "quarter": "2026-Q2",
   "price_basis": {
     "total": 25,
@@ -27,7 +27,6 @@
       "GSL": "2026-Q1",
       "HAFN": "2026-Q1",
       "INSW": "2026-Q1",
-      "LPG": "2026-Q1",
       "MPCC": "2026-Q1",
       "NAT": "2026-Q1",
       "SBLK": "2026-Q1",
@@ -763,23 +762,23 @@
       "sanity": "OK",
       "price": 45.76,
       "position": "rich \u00b7 cycle position (not a short)",
-      "fv": 30.55,
-      "ev_pct": -33.2,
-      "blend_fv": 32.76,
-      "nav_per_share": 34.11,
+      "fv": 31.82,
+      "ev_pct": -30.5,
+      "blend_fv": 33.93,
+      "nav_per_share": 35.69,
       "broker_nav": 54.48,
-      "gap_pct": -37.4,
+      "gap_pct": -34.5,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": -35.4,
-      "ev_pct_family_max": -30.6,
+      "ev_pct_family_min": -32.3,
+      "ev_pct_family_max": -28.2,
       "mark_wide_nodes": [
         "VLGC@five_year"
       ],
-      "fv_low": 23.06,
-      "fv_high": 38.5,
-      "balance_sheet_vintage": "2026-Q1"
+      "fv_low": 25.61,
+      "fv_high": 38.58,
+      "balance_sheet_vintage": "2026-Q2"
     }
   ]
 }
