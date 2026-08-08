@@ -2,7 +2,7 @@
 
 > **Price basis:** all 25 prices live.
 
-> **Balance-sheet basis: 15 of 25 names on a pre-2026-Q2 vintage:** 2343 (2026-Q1), BRUT (2026-Q1), BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), CMDB (2026-Q1), FLNG (2026-Q1), FRO (2026-Q1), HAFN (2026-Q1), INSW (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), SBLK (2026-Q1), TEN (2026-Q1), TRMD (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
+> **Balance-sheet basis: 14 of 25 names on a pre-2026-Q2 vintage:** BRUT (2026-Q1), BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), CMDB (2026-Q1), FLNG (2026-Q1), FRO (2026-Q1), HAFN (2026-Q1), INSW (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), SBLK (2026-Q1), TEN (2026-Q1), TRMD (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
 
 > **Rate basis:** Supra-Ultra 2027+2028 strip legs HELD at the 13-Jul synthesis (Cal-27 14,175): the Smax Cal27 row is cropped from every capture of the new source (Chris.Palun, 2026-07-20 →) — front (q1/q2/12M/spot) IS the 24-Jul print. Held-node bracket per ffa_promotion_2026-07-24.md; retires at the first capture showing Smax Cal27 (owner channel-ask staged). Handy-Bulk derived row inherits the same mix via the x0.90 identity.
 
@@ -39,7 +39,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | TEN | crude | GOVERNED-WIDE · mixed | $39.14 | $56.83 | 41.52–82.07 | +45% | BUY (undervalued) | $59.78 | $87.57 | $115.12 (apx) | -24% | n-a | ready | stable |
 | ASC | product | GOVERNED-WIDE · structural-class | $16.71 | $17.11 | 13.12–20.52 | +2% | HOLD (fairly valued) | $17.13 | $17.37 | $22.28 (apx) | -22% | n-a | ready | **⚠ sign flips** |
 | TRMD | product | GOVERNED-WIDE · basis-pending | $29.49 | $31.87 | 18.47–45.34 | +8% | BUY (undervalued) | $30.94 | $30.30 | $35.96 | -16% | OK | ready | **⚠ sign flips** |
-| 2343 | dry_bulk | GOVERNED-WIDE · pending-anchor | $0.48 | $0.39 | 0.32–0.45 | -20% | TRIM/SHORT (overvalued) | $0.39 | $0.40 | $0.49 (apx) | -19% | n-a | ready | stable |
+| 2343 | dry_bulk | GOVERNED-WIDE · pending-anchor | $0.48 | $0.40 | 0.33–0.46 | -17% | TRIM/SHORT (overvalued) | $0.40 | $0.41 | $0.49 (apx) | -17% | n-a | ready | stable |
 | CMDB | dry_bulk | GOVERNED-WIDE · read-flips | $17.80 | $20.79 | 17.06–24.79 | +17% | BUY (undervalued) | $21.34 | $32.65 | $28.71 (apx) | +14% | n-a | ready | stable |
 | GNK | dry_bulk | GOVERNED-WIDE · read-flips | $25.33 | $23.42 | 17.93–29.63 | -8% | TRIM/SHORT (overvalued) | $24.51 | $25.26 | $28.46 | -11% | OK | ready | stable |
 | CCEC | lng | GOVERNED-WIDE · structural-class | $22.37 | $33.70 | 16.27–47.20 | +51% | BUY (undervalued) | $29.97 | $25.70 | $24.86 (apx) | +3% | n-a | ready | stable |
@@ -80,7 +80,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | HAFN | product | PROVISIONAL ⛔ | pending-sourceable | 1.26× | no anchor→fair | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | STNG | product | PROVISIONAL ⛔ | pending-sourceable | 0.96× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | TRMD | product | GOVERNED-WIDE | pending-sourceable | 0.91× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
-| 2343 | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.98× | cheap→cheap | robust | clears (+unvalidated) | pending | pending | comparable; §18.5 gates pending |
+| 2343 | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.95× | cheap→cheap | robust | clears (+unvalidated) | pending | pending | comparable; §18.5 gates pending |
 | CMDB | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.53× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
 | GNK | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.97× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
 | SB | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.64× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |

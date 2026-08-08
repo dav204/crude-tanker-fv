@@ -108,8 +108,8 @@ weight_sets:
       arb_collapse: 0.17
 names:
   '2343':
-    ev_min_pct: -21.9
-    ev_max_pct: -18.0
+    ev_min_pct: -19.5
+    ev_max_pct: -15.6
     ev_sign_stable: true
     positions:
     - TRIM/SHORT

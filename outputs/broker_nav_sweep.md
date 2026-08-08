@@ -21,7 +21,7 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | GNK | 0.89× | 1.10 | -7.5% | -2.2% | +3.0% | TRIM/SHORT→HOLD | $32,091→$14,737 | +11 | wide-spread |
 | NAT | 0.85× | 2.23 | -56.8% | -27.2% | +2.3% | TRIM/SHORT→HOLD | $459,263→NAV>px | +59 | wide-spread |
 | BRUT | 0.72× | 1.00 | +0.7% | +1.4% | +2.1% | HOLD→HOLD | NAV>px→NAV>px | +1 | narrow-spread |
-| 2343 | 0.98× | 1.21 | -19.9% | -11.3% | -2.8% | TRIM/SHORT→HOLD | $35,266→$18,824 | +17 | wide-spread |
+| 2343 | 0.98× | 1.19 | -17.5% | -9.9% | -2.3% | TRIM/SHORT→HOLD | $32,650→$18,346 | +15 | wide-spread |
 | MPCC | 1.04× | 1.12 | -19.4% | -12.9% | -6.5% | TRIM/SHORT→TRIM/SHORT | $141,591→$48,690 | +13 | wide-spread |
 | BWLP | 0.97× | 1.32 | -33.0% | -20.6% | -8.2% | TRIM/SHORT→TRIM/SHORT | $196,627→$61,101 | +25 | wide-spread |
 | INSW **(WHOLE-CO)** | 1.11× | 1.59 | -41.1% | -26.9% | -12.7% | TRIM/SHORT→TRIM/SHORT | $379,056→$159,674 | +28 | wide-spread |

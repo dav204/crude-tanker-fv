@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-08T23:19:45+00:00
-- **Previous run:** 2026-08-08T23:10:50+00:00
+- **This run:** 2026-08-08T23:52:34+00:00
+- **Previous run:** 2026-08-08T23:45:20+00:00
 
 ## Headline changes (material moves)
 
@@ -9,8 +9,7 @@
 
 ## Input files changed since last run
 
-- `inputs/fleet_manifests/gnk.yaml` (modified)
-- `inputs/market_data/newbuild_specs.yaml` (modified)
+- `inputs/fleet_manifests/2343.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -40,7 +39,7 @@
 | SB | $7.60 (no change) | $9.70 (no change) | $9.47 (no change) | $10.03 (no change) | BUY (undervalued) | -15.8pp (no change) |
 | LPG | $45.76 (no change) | $33.93 (no change) | $31.82 (no change) | $35.69 (no change) | TRIM/SHORT (overvalued) | +34.1pp (no change) |
 | BWLP | $21.60 (no change) | $15.43 (no change) | $14.46 (no change) | $15.80 (no change) | TRIM/SHORT (overvalued) | +24.9pp (no change) |
-| 2343 | $0.48 (no change) | $0.39 (no change) | $0.39 (no change) | $0.40 (no change) | TRIM/SHORT (overvalued) | +17.1pp (no change) |
+| 2343 | $0.48 (no change) | $0.40 (no change) | $0.40 (no change) | $0.41 (no change) | TRIM/SHORT (overvalued) | +15.1pp (no change) |
 
 _⚑ flags a material change (position flip, |ΔFV%| > 10%, |Δspread| > 5pp, or |ΔNAV%| > 5%). ⟵ marks a position flip._
 

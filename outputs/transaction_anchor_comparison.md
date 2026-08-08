@@ -227,8 +227,8 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | GNK | $24.77→$25.26 | +2.0% | -9.1%→-7.5% | +1.6 | TRIM/SHORT→TRIM/SHORT |
 | CMBT **(WHOLE-CO)** | $15.84→$16.19 | +2.2% | -15.3%→-13.4% | +1.9 | TRIM/SHORT→TRIM/SHORT |
 | HAFN | $5.69→$5.57 | -2.1% | -15.7%→-17.1% | -1.4 | TRIM/SHORT→TRIM/SHORT |
+| 2343 | $0.41→$0.41 | -1.0% | -16.7%→-17.5% | -0.7 | TRIM/SHORT→TRIM/SHORT |
 | MPCC | $2.04→$2.04 | +0.0% | -19.4%→-19.4% | +0.0 | TRIM/SHORT→TRIM/SHORT |
-| 2343 | $0.40→$0.40 | -1.1% | -19.1%→-19.9% | -0.8 | TRIM/SHORT→TRIM/SHORT |
 | DHT | $16.30→$13.83 | -15.2% | -17.1%→-28.0% | -10.9 | TRIM/SHORT→TRIM/SHORT |
 | LPG | $35.70→$35.69 | -0.0% | -30.4%→-30.5% | -0.0 | TRIM/SHORT→TRIM/SHORT |
 | BWLP | $15.81→$15.80 | -0.1% | -33.0%→-33.0% | -0.0 | TRIM/SHORT→TRIM/SHORT |
