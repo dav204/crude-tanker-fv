@@ -1,7 +1,7 @@
 # CMBT — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $16.16
+- **Current price:** $16.29
 - **Model fair value:** $15.57
 - **Analyst target:** $16.59
 
@@ -79,22 +79,22 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **1.20× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **1.25× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **59,822** | — |
-| 10-year mean | 24,692 | 2.42× |
-| 12-month FFA | 49,770 | 1.20× |
-| Current spot | 68,092 | 0.88× |
+| **Implied breakeven (blended)** | **62,034** | — |
+| 10-year mean | 24,692 | 2.51× |
+| 12-month FFA | 49,770 | 1.25× |
+| Current spot | 68,092 | 0.91× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Cape (61% of fleet value) | 39,357 | 1.66× |
-| Suezmax (16% of fleet value) | 102,167 | 3.68× |
-| Pana (12% of fleet value) | 21,726 | 1.83× |
-| VLCC (8% of fleet value) | 186,305 | 4.66× |
-| Ctr-Large (3% of fleet value) | 72,719 | 1.77× |
+| Cape (61% of fleet value) | 40,812 | 1.73× |
+| Suezmax (16% of fleet value) | 105,945 | 3.82× |
+| Pana (12% of fleet value) | 22,529 | 1.89× |
+| VLCC (8% of fleet value) | 193,194 | 4.83× |
+| Ctr-Large (3% of fleet value) | 75,408 | 1.84× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -106,11 +106,11 @@ The current price requires the fleet to run at **1.20× the current forward curv
 | **+15%** | $11.13 | $13.57 | $16.01 | $18.45 | $20.89 |
 | **+30%** | $11.57 | $14.01 | $16.45 | $18.89 | $21.33 |
 
-_Current price $16.16. Cycle weights held at base across the grid._
+_Current price $16.29. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$15.57** is -3.7% vs the current price ($16.16) and -6.2% vs the analyst target ($16.59). The current price implies the fleet earning a value-weighted blended **$59,822/day** (1.20× the current forward) — 2.4× the value-weighted 10-yr mean ($24,692, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$15.57** is -4.4% vs the current price ($16.29) and -6.2% vs the analyst target ($16.59). The current price implies the fleet earning a value-weighted blended **$62,034/day** (1.25× the current forward) — 2.5× the value-weighted 10-yr mean ($24,692, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

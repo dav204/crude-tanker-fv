@@ -1,10 +1,10 @@
 # NAT — Scenario Fair Value (three-phase MoU framework)
 
-- **Current price:** $6.53
+- **Current price:** $6.46
 - **Analyst target:** $6.00
 - **NAV / share (reference, unflexed):** $2.85 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $2.79 (-57.2% vs price)
-- **Breakeven TCE (scenario-invariant):** $466,586/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
+- **Probability-weighted fair value:** $2.79 (-56.8% vs price)
+- **Breakeven TCE (scenario-invariant):** $459,263/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** TRIM/SHORT (overvalued)
 
 ## Per-scenario fair value
@@ -21,9 +21,9 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $-1.99
-- **Downside (worst scenario − price):** $-4.65
-- **Expected value vs current** (weighted FV − price): $-3.73 (-57.2%)
+- **Upside (best scenario − price):** $-1.92
+- **Downside (worst scenario − price):** $-4.58
+- **Expected value vs current** (weighted FV − price): $-3.67 (-56.8%)
 - **Position:** TRIM/SHORT (overvalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

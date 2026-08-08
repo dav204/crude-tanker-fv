@@ -1,5 +1,41 @@
 # ASC — Decision Log
 
+## 2026-08-08T17:55:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.71
+- Single-point FV: $16.77
+- Scenario PW FV: $16.85 (EV +0.8%)
+- NAV / share: $17.82
+- Position: **HOLD (fairly valued)**
+- Broker spread: +23.4pp (k_broker 1.29)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-08T17:29:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.71
+- Single-point FV: $16.77
+- Scenario PW FV: $16.85 (EV +0.8%)
+- NAV / share: $17.82
+- Position: **HOLD (fairly valued)**
+- Broker spread: +23.4pp (k_broker 1.29)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.69 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -3.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-07-31T19:45:38+00:00 — Pipeline run (auto)
 
 **Model state:**

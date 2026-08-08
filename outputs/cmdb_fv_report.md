@@ -1,7 +1,7 @@
 # CMDB — Fair Value Report
 
 - **Report date:** 2026-Q1
-- **Current price:** $19.30
+- **Current price:** $17.80
 - **Model fair value:** $21.34
 - **Analyst target:** $27.98
 
@@ -74,20 +74,20 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **0.42× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+**NAV alone covers the price.** NAV/share **$32.65** ≥ price **$17.80** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **9,375** | — |
-| 10-year mean | 16,627 | 0.56× |
-| 12-month FFA | 22,161 | 0.42× |
-| Current spot | 24,521 | 0.38× |
+| **Implied breakeven (blended)** | **0** | — |
+| 10-year mean | 16,627 | 0.00× |
+| 12-month FFA | 22,161 | 0.00× |
+| Current spot | 24,521 | 0.00× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Supra-Ultra (47% of fleet value) | 7,096 | 0.51× |
-| Cape (32% of fleet value) | 13,852 | 0.59× |
-| Pana (21% of fleet value) | 7,646 | 0.64× |
+| Supra-Ultra (47% of fleet value) | 0 | 0.00× |
+| Cape (32% of fleet value) | 0 | 0.00× |
+| Pana (21% of fleet value) | 0 | 0.00× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -99,11 +99,11 @@ The current price requires the fleet to run at **0.42× the current forward curv
 | **+15%** | $18.43 | $20.15 | $21.87 | $23.58 | $25.30 |
 | **+30%** | $18.96 | $20.68 | $22.39 | $24.11 | $25.83 |
 
-_Current price $19.30. Cycle weights held at base across the grid._
+_Current price $17.80. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$21.34** is +10.5% vs the current price ($19.30) and -23.7% vs the analyst target ($27.98). The current price implies the fleet earning a value-weighted blended **$9,375/day** (0.42× the current forward) — 0.6× the value-weighted 10-yr mean ($16,627, i.e. the market is pricing distress), and the market is below the forward curve.
+Tool fair value **$21.34** is +19.9% vs the current price ($17.80) and -23.7% vs the analyst target ($27.98). NAV alone covers the price (NAV/sh $32.65 ≥ $17.80); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
 
 ## Modeling notes
 
