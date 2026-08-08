@@ -7,6 +7,49 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-08T21:23:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $76.08
+- Single-point FV: $73.34
+- Scenario PW FV: $73.73 (EV -3.1%)
+- NAV / share: $76.42
+- Position: **HOLD (fairly valued)**
+- Broker spread: +39.0pp (k_broker 1.55)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -3.3% | Δscenario FV: -4.1% | ΔNAV: -0.9% | Δspread: +0.8pp
+
+**Decision:** Q2 REPORT-DAY REFRESH (backlog drain #3, transition mechanism — pair landed
+together, preflight clean). Source: Q2 6-K acc 0001628280-26-051064 (7/30), per-vessel
+fleet list + issuer debt table + installment schedule. NAV $77.13→$76.42 (−0.9%) — INSIDE
+the pre-registered band [74.4, 83.9] (point ~$79.1; the ~3% point gap sits inside the
+stated census-component uncertainty — the −7-LR2 mark estimate and Handymax lift were
+rough; band is the test). Balance sheet: cash 1,838.8 (+854.5) · debt 855.0 GROSS issuer
+table (converts $605M OUT-of-the-money stay debt; shares = actual 50,081,352 outstanding,
+NOT if-converted 53.5M — using both would double-count the notes; basis note in the sheet)
+· HFS 176.0 CARRYING (basis deviation from Q1's realisable $305M — no 6/30 per-hull list
+disclosed; direction-conservative ~$0.4-0.8/sh) · commitments 644.3 derived by identity
+(572.8 + 92.66 June MRs − 21.14 advances delta; the 7/28 $978.2M table includes July
+LOIs+JV = post-Q2) · advances 90.2. CENSUS CORRECTIONS (per-vessel list, first since the
+7/01 recon): 74 on-curve (25 LR2/35 MR/14 Handymax; −7 LR2 sold in Q2); **Handymax ages
+FIXED — all 14 are 2014-15 builds vs the Q1 cohorts' 2008-2013 (13-18y → 11.5-12.5y)**;
+TC-outs mapped per footnotes (10 LR2 + Jardins + Bosphorus BB + Battersea; LR2 spot
+coverage 0.875→0.60). **SCRUBBERS VERIFIED: the fleet list's per-vessel Scrubber column
+→ OPERATING_SCRUBBER_VERIFIED {STNG: 54} (25/25 LR2 + 29/35 MR + 0/14 HMX); STNG leaves
+OPERATING_SCRUBBER_QUEUE** (queue 8→7). Tier: PROVISIONAL·off-curve STANDS — the 12-hull
+NB program (now incl. the 2 June MR agreements) remains commitment-only off the §9.6
+curve; the deferred wiring decision now spans ~$644M commitments/~$1.5B program. POST-Q2
+noted for next quarter: Nordic $200M redeemed July @106.4, 2 LR2 LOIs (Hantong), the
+<15% minority JV in EIGHT VLCC newbuilds (crude exposure widens — flag for the §9.6
+decision's scope). Both halves verified in the breakdown; forward invariance held
+(24 names 0.0). HOLD stands (EV −3.1%). STAGE-A: Q3 QTD spot bookings banked (LR2
+$65,000/34% · MR $29,000/46% · Handymax $20,800/38%; the 3-yr term prints were banked
+7/31). Ratified same day.
+
+---
+
 ## 2026-08-08T20:42:09+00:00 — Pipeline run (auto)
 
 **Model state:**

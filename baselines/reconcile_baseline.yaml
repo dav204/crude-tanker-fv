@@ -2,12 +2,12 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-08-08T20:34:11+00:00'
-  ratified_commit: f0203b7
+  ratified_at: '2026-08-08T21:23:44+00:00'
+  ratified_commit: ccaa216
   quarter: 2026-Q2
-  cause: 'Q2 backlog drain names 1-2: ECO NAV +9.4% and CCEC NAV -8.5%, both INSIDE pre-registered bands,
-    both-halves verified, forward invariance held, logs annotated (ECO eco_log + CCEC ccec_log 2026-08-08);
-    no position flips'
+  cause: 'Q2 backlog drain #3: STNG NAV -0.9% INSIDE prereg band; census corrections (74-hull list, Handymax
+    ages fixed, -7 LR2), scrubbers VERIFIED 54 (queue 8->7), debt 855.0 gross w/ OOM converts, both-halves
+    verified, invariance held, stng_log annotated; no flip (HOLD stands)'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -162,10 +162,10 @@ names:
     sector: dry_bulk
   STNG:
     pnav_basis: pareto
-    ev_pct: 1.04
-    tool_nav: 77.13
+    ev_pct: -3.09
+    tool_nav: 76.42
     position_band: HOLD (fairly valued)
-    k_broker: 1.47
+    k_broker: 1.55
     sector: product
   TEN:
     pnav_basis: approx

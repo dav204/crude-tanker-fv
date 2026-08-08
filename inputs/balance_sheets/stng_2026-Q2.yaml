@@ -1,0 +1,63 @@
+# Scorpio Tankers (STNG) balance sheet snapshot — METHODOLOGY.md §4.2, §11.5. USD.
+# Source of record: Q2-2026 earnings 6-K, EDGAR acc 0001628280-26-051064 (Exhibit 99.1,
+# filed 2026-07-30), condensed consolidated balance sheet 2026-06-30 column + the
+# issuer's own debt principal table + newbuilding installment schedule. Q2 refresh
+# 2026-08-08. Prior full reconciliation: stng_reconciliation_prereg_2026-07-01.
+#
+# POST-6/30 (excluded, subsequent events): the July redemption of the $200M Unsecured
+# Senior Notes 2030 at 106.4 (they sit IN the 6/30 debt below; make-whole $12.8M was
+# Q2-expensed), the July LOI for 2 LR2 NBs @ $72.8M each (Hantong, 2029), the July
+# agreement for a <15% minority JV stake in EIGHT VLCC newbuilds (2029-30; equity
+# funded as installments fall due — issuer-unquantified), and the Sep-Q4 commencing
+# TC-outs (Notting Hill/Westminster $25k, Bronx $23.9k — Stage-A prints, banked 7/31).
+
+ticker: STNG
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1483934/000162828026051064/
+retrieved_at: 2026-08-08
+filing_period_end: 2026-06-30
+
+cash_and_equivalents: 1838782000     # BS line; issuer's own net-cash statement: +$983.8M vs gross debt.
+
+# OPERATING working capital ONLY (Q1 convention — HFS separate, cash separate, debt in total_debt):
+#   AR 244,600 + inventories 14,612 + prepaid 10,827 − accounts payable 38,903
+#   − accrued expenses and other liabilities 77,941 = +153,195 ($k).
+working_capital_net: 153195000
+
+# Vessels held for sale at 6/30: BS CARRYING $176,018k. BASIS DEVIATION from Q1
+# (which used the March batch's AGREED prices, $305M): the Q2 release names no 6/30
+# HFS composition or agreed-price list — Q1's 8-vessel batch delivered through Q2
+# (proceeds inside the H1 $674.3M); per the 7/20 call-notice PR (acc 0001628280-26-049198:
+# "currently owns 74 product tankers") the HFS block had delivered by then. Carrying ≤ realisable given the H1 $220.1M gain
+# pattern → DIRECTION-CONSERVATIVE (likely understates NAV by the unsold hulls'
+# embedded gain, order $20-40M ≈ $0.4-0.8/sh); revisit if the next filing names them.
+held_for_sale: 176018000
+
+# Total interest-bearing debt = the issuer's own principal table "Gross debt
+# outstanding, June 30, 2026 = $855,000k": 2026 $50M BofA facility 50,000 (STI
+# Rose/Alexis collateral, S+1.20%) + Unsecured Senior Notes 2030 200,000 (redeemed
+# July) + Convertible Notes 2031 605,000 (1.75%, conv ≈ $100.39 — OUT of the money
+# vs the ~$77 tape, so they stay DEBT at gross principal; see shares note). Secured
+# bank debt beyond the $50M facility: ZERO (all 2023 facilities repaid/terminated
+# in Q2 — $389.1M repaid). Same issuer-gross basis as Q1's $589,056k.
+total_debt: 855000000
+lease_liabilities: 0                 # SLB liability line — (bought out; office leases immaterial)
+
+# 12-hull own program at 6/30 (4 MR JNS + 4 LR2 DS + 2 VLCC HO + the 2 June-agreed
+# MR JNY @ $46.33M each; the 2 July LR2 LOIs and the July 8-VLCC JV are subsequent).
+# Remaining commitment DERIVED from issuer figures (identity: prior remaining + new
+# contracts − payments): 572,800 (Q1 issuer) + 92,660 (2 × 46,330, Q2 release)
+# − 21,139 (Q2 payments = BS advances 90,208 − 69,069) = 644,321.
+# Cross-check: the release's 7/28 installment table totals $978.2M but INCLUDES the
+# July LR2 LOIs and the July VLCC-JV funding (post-Q2) — not the 6/30 basis.
+# OFF-CURVE (OFF_CONVENTION_QUEUE): commitment-only carry (§9.6 violation, flagged);
+# the on-curve wiring (~+$9-10/sh) remains the deferred cross-sector decision.
+newbuild_capex_commitments: 644321000
+newbuild_advances_paid: 90208000     # BS "Vessels under construction" line.
+
+# Issuer-stated issued-and-outstanding as of 2026-07-28: 50,081,352 (post the Q2
+# 1,994,236 buyback @ $77.72). BASIS NOTE: NOT the if-converted diluted 53.54M —
+# using if-converted shares while carrying the $605M converts as debt would
+# double-count the notes; they are out of the money, so debt-at-gross + actual
+# outstanding is the coherent NAV pair (restricted-unit dilution ~1-2% disclosed).
+diluted_shares_outstanding: 50081352

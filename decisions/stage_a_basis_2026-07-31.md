@@ -63,3 +63,12 @@ corroboration at the fourth cluster name (joins TNK Suez $104.8k/44%, STNG 3-yr
 terms $23.9–25.0k, ASC MR ~$29.6k, DHT Jaguar 36mo $75k + $139.7k QTD). Note the
 ECO Suezmax Q3 print ($133k) vs TNK's Q3 Suez ($104.8k) — a two-issuer bracket on
 the Suezmax front leg for the Stage-A promote.
+
+**§6 UPDATE 2026-08-08 (Q2 refresh, backlog drain #3): STNG Q3 SPOT BOOKINGS LAND.**
+Q2 6-K (acc 0001628280-26-051064): Q3-2026 QTD pool/spot bookings — **LR2 $65,000/day
+(34% of days) · MR $29,000/day (46%) · Handymax $20,800/day (38%)**; Q2 actuals LR2
+$77,749 / MR $52,027 / Handymax $49,210. Adds the LR2/MR/Handymax product front legs to
+the cluster basis (joins ECO's VLCC/Suezmax Q3 prints, TNK Suez $104.8k/44%, the STNG
+3-yr terms banked 7/31, ASC MR ~$29.6k — note STNG MR Q3 booking $29.0k ≈ ASC's $29.6k,
+a two-issuer MR front bracket). Fresh 8-year LR2 term print also on the list: STI Rambla
+$30,500/day (Mar-26 start, fleet-list fn 17) — term-structure node for the promote.

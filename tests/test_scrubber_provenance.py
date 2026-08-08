@@ -34,6 +34,7 @@ OPERATING_SCRUBBER_VERIFIED = {
     "SB": 19,    # FY2025 20-F (acc 0001628280-26-014408) 21-vessel set, ftn-15 per-vessel; at 6/30 Michalis H (scrubber Cape) SOLD + Xenia (scrubber PPMX) HFS -> 19 operating. Q2 refresh 2026-07-31 (was 20 at 3/31)
     "ECO": 17,   # H1-2026 6-K (acc 0001104659-26-090429) ex-99.1 "ten modern scrubber-fitted Suezmax + eight scrubber-fitted VLCC" (sailing fleet incl. Tigani, delivered 5/26 -> 17 operating at 6/30; Vous NB). Q2 refresh 2026-08-08 (was 16 at 3/31)
     "TRMD": 85,  # FY2025 20-F (acc 0001628280-26-011954) "installed scrubbers on 85 of our vessels" = all 22 LR2 + all 63 MR (10 vintage LR1s none). Verified 2026-07-02
+    "STNG": 54,  # Q2-2026 6-K (acc 0001628280-26-051064) fleet-list per-vessel Scrubber column: 25/25 LR2 + 29/35 MR + 0/14 Handymax at the 74-hull census. Verified 2026-08-08
     "LPG": 16,   # FY2026 10-K (acc 0001596993-26-000025) Item 4 fleet-table "Scrubber Equipped and/or Dual-Fuel" per-vessel "S" flags; 16 of 22 owned at 3/31 (Cobra unlisted->false). Verified AT onboarding 2026-07-10
     "BWLP": 12,  # FY2025 20-F (acc 0001104659-26-037215) fleet-table propulsion column "Scrubber" per-vessel: 10 parent + BW Kyoto + BW Loyalty (India). Verified AT onboarding 2026-07-10
 }
@@ -43,7 +44,7 @@ OPERATING_SCRUBBER_VERIFIED = {
 # Likely to clear fast — operating specs are settled public fact (surveys/sales/charters), not
 # copied forward-looking claims — but the guard enforces it rather than assuming it.
 OPERATING_SCRUBBER_QUEUE = {   # SB/ECO left 2026-07-01; TRMD left 2026-07-02 (20-F "85 of our vessels" = all 22 LR2 + all 63 MR)
-    "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "STNG", "TEN",
+    "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "TEN",   # STNG left 2026-08-08 (fleet-list column -> 54)
     # 2343 deliberately NOT queued (2026-07-14): zero scrubber=true flags — the disclosed
     # 35-Supramax aggregate is an ECO-NB-style conservative omission (all-false), not an
     # untraced true flag. See provenance.py's registry comment for the resolution path.

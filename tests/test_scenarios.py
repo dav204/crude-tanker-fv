@@ -934,7 +934,7 @@ def test_stng_multi_class_product_loads_and_routes():
 
     watchlist = load_watchlist()
     stng = watchlist["STNG"]
-    ci = load_company_inputs("STNG", "2026-Q1")
+    ci = load_company_inputs("STNG", BOOK_QUARTER)
     docs = _load_all_sectors()
     headline, crude_r, product_r = _run_scenarios_for_ticker(
         "STNG", ci, stng["current_price"], stng["analyst_target"], docs, watchlist,
@@ -973,7 +973,7 @@ def test_stng_whole_company_fv_in_expected_band():
 
     watchlist = load_watchlist()
     stng = watchlist["STNG"]
-    ci = load_company_inputs("STNG", "2026-Q1")
+    ci = load_company_inputs("STNG", BOOK_QUARTER)
     docs = _load_all_sectors()
     headline, _, _ = _run_scenarios_for_ticker(
         "STNG", ci, stng["current_price"], stng["analyst_target"], docs, watchlist,

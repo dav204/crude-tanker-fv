@@ -51,6 +51,10 @@ OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "TRMD": 85,   # name -> audited operat
                                # covers the whole sailing fleet incl. Tigani + Vous ->
                                # Tigani/Vous flags issuer-evidenced (were peer-trap false).
                                "ECO": 17,
+                               # STNG 2026-08-08: Q2 6-K (acc 0001628280-26-051064) fleet
+                               # list per-vessel Scrubber column — 25/25 LR2 + 29/35 MR +
+                               # 0/14 Handymax = 54 operating at the 74-hull census.
+                               "STNG": 54,
                                # SB 20->19 at the 2026-07-31 Q2 refresh: the 20-F set is 21
                                # (all Capes + 13 non-Cape); at 6/30 Michalis H (scrubber Cape)
                                # is SOLD and Xenia (scrubber PPMX) is HFS -> 19 operating.
@@ -63,8 +67,8 @@ OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "TRMD": 85,   # name -> audited operat
                                # premium 0, §11.10) — classified for the provenance gate, not for value.
                                "LPG": 16, "BWLP": 12}
 OPERATING_SCRUBBER_QUEUE = {   # SB/ECO left 2026-07-01; TRMD left 2026-07-02 (FY2025 20-F "installed scrubbers on 85 of our vessels" = all 22 LR2 + all 63 MR)
-    "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "STNG", "TEN",
-}
+    "DHT", "FRO", "GNK", "HAFN", "INSW", "SBLK", "TEN",
+}   # STNG left 2026-08-08: the Q2 6-K fleet list has a per-vessel Scrubber column -> VERIFIED 54
 # 2343 is deliberately NOT queued (2026-07-14): the queue tracks UNTRACED scrubber=TRUE flags;
 # 2343 carries NONE — its AR2025 p.26 aggregate ("scrubbers fitted to our 35 core Supramax
 # vessels") has no public per-vessel identification, so all flags are FALSE (the ECO-NB
