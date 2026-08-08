@@ -1,5 +1,42 @@
 # ECO — Decision Log
 
+## 2026-08-08T19:57:27+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $61.86
+- Single-point FV: $40.24
+- Scenario PW FV: $35.69 (EV -42.3%)
+- NAV / share: $37.65
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.7pp (k_broker 1.17)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ NAV/sh +9.4%
+- Δprice: no change | Δsingle FV: +8.2% | Δscenario FV: +9.6% | ΔNAV: +9.4% | Δspread: -4.2pp
+
+**Decision:** Q2 REPORT-DAY REFRESH (backlog drain #1, under the 2026-08-08 transition
+mechanism — sheet + manifest landed TOGETHER, preflight clean, pair guard green).
+Source: H1 6-K acc 0001104659-26-090429 (filed 8/4), subsequent-events note audited
+FIRST — excluded from the snapshot: the $5.25/sh dividend (declared post-Q2), the 7/2
+$45M facility draw, the 7/8 Nissos Vous delivery (Vous stays the one NB row at 6/30,
+commitment $79.4M issuer-disclosed / advances embedded). NAV $34.42→$37.65 (+9.4%) —
+INSIDE the pre-registered band [35.8, 40.4] (point ~$38.1; prereg in the refresh
+commit): BS delta +$4.17/sh (cash +71.3M, WC +51.6M, debt +39.4M, commitments −79.5M)
+less ~$0.5 fleet-side (fractional-age basis ~+0.5y uniform, offset by Tigani
+NB→operating + Vous PV + issuer-evidenced scrubber premiums). Both halves VERIFIED in
+this run's breakdown (247.8/722.5/79.4). Forward invariance held (24 other names
+delta 0.0). NO FLIP — TRIM/SHORT stands (§12 relabel: rich · cycle position, not a
+short), EV −47.4%→−42.3%; k_broker second-diff −0.06 = FV-side vs static pnav —
+VALIDATED-TIGHT stands. Scrubber ledger 16→17 (Tigani operating; issuer aggregate
+8/4 ex-99.1 covers Tigani+Vous — flags upgraded from peer-trap false to
+issuer-evidenced true). The 7.1× spot-TCE sanity warn = the genuine war spike
+(release actual: VLCC $213.6k/day Q2 TCE). STAGE-A BASIS CAPTURED: Q3 QTD VLCC 48%
+booked @ $206,600/day + Suezmax 42% @ $133,000/day (stage_a_basis §6 updated).
+Baseline re-anchor batched to the end-of-drain ratify.
+
+---
+
 ## 2026-08-08T18:13:55+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,44 +1,42 @@
 # Okeanis Eco Tankers fleet manifest — METHODOLOGY.md section 4.1
-# Source: OET Q1 2026 results (fleet as of 2026-03-31: 16 vessels = 8 VLCC +
-# 8 Suezmax, avg age 5.8y) + fleet page. ALL eco-design, all scrubber-fitted,
-# all-Korean-built (Hyundai / Daehan -> no yard discount). Predominantly ALL-SPOT
-# (only Nissos Nikouria on a 1-yr TC at $91,140/day, Feb 2026).
-#
-# Two Suezmax newbuilds (Nissos Tigani, Nissos Vous; Daehan; bought Jan'26 at
-# $99.3M each) deliver Q2-Q3 2026 -> in the manifest at delivered MARKET value
-# (METHODOLOGY 9.6), with the remaining commitment on the balance sheet. Note:
-# unlike FRO's Hemen VLCCs, these were bought AT market, so embedded gain is small.
+# Q2 REFRESH 2026-08-08, snapshot AS-OF 2026-06-30. Source: OET Half-yearly Report
+# 6-K (acc 0001104659-26-090429, filed 2026-08-04): ex-99.2 Note 3/4 (Nissos Tigani
+# H5107 DELIVERED 2026-05-26 -> OPERATING at 6/30; Nissos Vous H5108 under
+# construction at 6/30, delivered 2026-07-08 = subsequent event, stays a NEWBUILD
+# row here) + ex-99.1 fleet statement. 17 operating at 6/30 = 8 VLCC + 9 Suezmax.
+# ALL eco-design, ALL scrubber-fitted — issuer aggregate (ex-99.1: "ten modern
+# scrubber-fitted Suezmax tankers and eight modern scrubber-fitted VLCC tankers",
+# as of the 8/4 release i.e. incl. Vous) — cross-foots: 17 operating scrubbers at
+# 6/30 (OPERATING_SCRUBBER_VERIFIED); Tigani + Vous scrubber flags now
+# ISSUER-EVIDENCED true (were conservative false under the peer-trap rule).
+# All-Korean-built (Hyundai / Daehan -> no yard discount). Predominantly ALL-SPOT
+# (only Nissos Nikouria on TC at $91,140/day).
+# Ages = 2026.5 - built (fractional; the Q1 file carried integer ≈2026-built ages —
+# the uniform shift is part of this snapshot advance, report_date bumped WITH it).
 ticker: ECO
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
-  # ---- VLCC (8 on-water, all Hyundai HI, eco, scrubber) ----
-  - {id: VLCC_2019, class: VLCC, dwt: 300000, age: 7, scrubber: true, eco: true, yard: Hyundai, count: 5}
-  - {id: VLCC_2020, class: VLCC, dwt: 300000, age: 6, scrubber: true, eco: true, yard: Hyundai, count: 1}
-  - {id: VLCC_2022_spot, class: VLCC, dwt: 300000, age: 4, scrubber: true, eco: true, yard: Hyundai, count: 1}
-  - {id: VLCC_2022_tc, class: VLCC, dwt: 300000, age: 4, scrubber: true, eco: true, yard: Hyundai,
+  - {id: VLCC_2019, class: VLCC, dwt: 300000, age: 7.5, scrubber: true, eco: true, yard: Hyundai, count: 5}
+  - {id: VLCC_2020, class: VLCC, dwt: 300000, age: 6.5, scrubber: true, eco: true, yard: Hyundai, count: 1}
+  - {id: VLCC_2022_spot, class: VLCC, dwt: 300000, age: 4.5, scrubber: true, eco: true, yard: Hyundai, count: 1}
+  - {id: VLCC_2022_tc, class: VLCC, dwt: 300000, age: 4.5, scrubber: true, eco: true, yard: Hyundai,
      charter_status: time_charter, charter_rate: 91140, count: 1}   # Nissos Nikouria
-  # ---- Suezmax (8 on-water + 2 newbuilds at age 0; eco, scrubber) ----
-  - {id: SMX_2016, class: Suezmax, dwt: 157000, age: 10, scrubber: true, eco: true, yard: Hyundai, count: 1}
-  - {id: SMX_2017, class: Suezmax, dwt: 157000, age: 9,  scrubber: true, eco: true, yard: Hyundai, count: 1}
-  - {id: SMX_2018, class: Suezmax, dwt: 157000, age: 8,  scrubber: true, eco: true, yard: Hyundai, count: 2}
-  - {id: SMX_2020, class: Suezmax, dwt: 157000, age: 6,  scrubber: true, eco: true, yard: Hyundai Samho, count: 2}
-  - {id: SMX_2026_jan, class: Suezmax, dwt: 157000, age: 0, scrubber: true, eco: true, yard: Daehan, count: 2}  # Piperi, Serifopoula
-  # 2 Suezmax NEWBUILDS on the §9.6 curve: delivered-market value PV-discounted 1.11^(-years_to_delivery)
-  # from the 3/31 snapshot (Tigani delivers May-2026, Vous Jul-2026 — Q1-2026 6-K acc 0001104659-26-060273).
-  # scrubber=FALSE on the NEWBUILDS (conservative): the 6-Ks' only scrubber statements are existing-fleet-
-  # scoped ("eight scrubber-fitted Suezmax + eight scrubber-fitted VLCC" = the 16 on-water), never
-  # newbuild-specific — so the premium is not claimed for the NBs (the SB peer-default trap). See newbuild_specs.yaml.
-  - {id: SMX_nb_tigani, class: Suezmax, dwt: 157000, age: 0, scrubber: false, eco: true, yard: Daehan, count: 1, years_to_delivery: 0.12}   # Nissos Tigani, May-2026
-  - {id: SMX_nb_vous,   class: Suezmax, dwt: 157000, age: 0, scrubber: false, eco: true, yard: Daehan, count: 1, years_to_delivery: 0.29}   # Nissos Vous, Jul-2026
+  - {id: SMX_2016, class: Suezmax, dwt: 157000, age: 10.5, scrubber: true, eco: true, yard: Hyundai, count: 1}
+  - {id: SMX_2017, class: Suezmax, dwt: 157000, age: 9.5,  scrubber: true, eco: true, yard: Hyundai, count: 1}
+  - {id: SMX_2018, class: Suezmax, dwt: 157000, age: 8.5,  scrubber: true, eco: true, yard: Hyundai, count: 2}
+  - {id: SMX_2020, class: Suezmax, dwt: 157000, age: 6.5,  scrubber: true, eco: true, yard: Hyundai Samho, count: 2}
+  - {id: SMX_2026_jan, class: Suezmax, dwt: 157000, age: 0.45, scrubber: true, eco: true, yard: Daehan, count: 2}  # Piperi, Serifopoula (Jan-2026)
+  - {id: SMX_2026_tigani, class: Suezmax, dwt: 157000, age: 0.1, scrubber: true, eco: true, yard: Daehan, count: 1}  # Nissos Tigani, DELIVERED 2026-05-26 (ex-99.2 Note 4)
+  - {id: SMX_nb_vous, class: Suezmax, dwt: 157000, age: 0, scrubber: true, eco: true, yard: Daehan, count: 1,
+     years_to_delivery: 0.02}   # Nissos Vous, H5108: under construction at 6/30, delivered 2026-07-08
 spot_coverage_pct:
   VLCC: 0.88      # all-spot except Nissos Nikouria (1 of 8 VLCCs on TC)
   Suezmax: 1.00   # fully spot
-# 2 Suezmax newbuilds (Tigani May'26, Vous Jul'26) earn from Q3'26 -> Suezmax 8->10.
 fleet_schedule:
   VLCC:    [8, 8, 8, 8, 8, 8, 8, 8]
-  Suezmax: [10, 10, 10, 10, 10, 10, 10, 10]
+  Suezmax: [10, 10, 10, 10, 10, 10, 10, 10]   # Vous delivered 7/8 -> 10 from Q3 on
 fleet_summary:
   VLCC_count: 8
-  Suezmax_count: 8           # on-water at 2026-03-31 (excl. 2 newbuilds)
-  suezmax_newbuilds: 2       # Tigani, Vous; $99.3M each
-  avg_age: 5.8
+  Suezmax_count: 9           # on-water at 2026-06-30 (Tigani in; excl. Vous NB)
+  suezmax_newbuilds: 1       # Nissos Vous ($99.3M contract; $79.4M remaining commitment)
+  avg_age: 5.6

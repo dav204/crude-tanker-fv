@@ -87,17 +87,18 @@ DHT:
     stays in the Tier-2 operating-scrubber audit queue (test_scrubber_provenance).
 ECO:
   eco: true
-  scrubber: false
+  scrubber: true
   scrubber_verified: true
   source: >
-    OFFICIAL: Okeanis Q1-2026 6-K (SEC CIK 0001964954, acc 0001104659-26-060273) + New Financings
-    Update 6-K (acc 0001104659-26-054316). eco via §3.1 post-2014 build rule (2 resale-newbuilding
-    Suezmaxes, Daehan, deliver May/Jul-2026). scrubber=FALSE (conservative): the filings' ONLY
-    scrubber statements are existing-fleet-scoped ("eight scrubber-fitted Suezmax + eight
-    scrubber-fitted VLCC" — the 16 on-water); the newbuilds are described only as "resale newbuilding
-    Suezmaxes", never scrubber-fitted. Per the value-flag rule an existing-fleet scrubber statement is
-    NOT evidence about the NBs (the SB trap), so the premium is not claimed pending a newbuild-specific
-    disclosure (e.g. a delivery 6-K). Verified 2026-07-01.
+    OFFICIAL: Okeanis H1-2026 6-K (SEC CIK 0001964954, acc 0001104659-26-090429, filed 2026-08-04)
+    ex-99.1 fleet statement: "ten modern scrubber-fitted Suezmax tankers and eight modern
+    scrubber-fitted VLCC tankers" — as of the release the SAILING fleet includes both former NBs
+    (Tigani delivered 5/26, Vous 7/8), so the statement now COVERS them: this is the
+    post-delivery disclosure the 2026-07-01 conservative-FALSE registration was pending
+    (its rule: an existing-fleet statement is not evidence about NBs — satisfied here
+    because the hulls are IN the stated fleet). Upgraded FALSE->TRUE 2026-08-08 (Q2
+    refresh; the one remaining NB row at 6/30 is Vous). History: Q1-2026 6-K
+    (acc 0001104659-26-060273) statements were 16-on-water-scoped; premium not claimed then.
 TRMD:
   eco: true
   scrubber: false

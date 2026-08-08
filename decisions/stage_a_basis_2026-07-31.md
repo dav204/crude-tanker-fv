@@ -54,3 +54,12 @@ Cape book 7 vessels avg $24,580 (1.7y) — term, below the FFA front (backlog vi
 Nissos Sifnos (Suezmax) hit by a drone 7/30 while loading at the CPC terminal — crew safe,
 minor damage, voyage continuing. **Black Sea/CPC theater (NOT Hormuz — do not conflate
 with the Iran-war scenario evidence)**; a war-risk-premium datapoint for tanker rates.
+
+**§6 UPDATE 2026-08-08 (Q2 refresh, backlog drain #1): ECO BASIS LANDS.** H1 6-K
+(acc 0001104659-26-090429) ex-99.1: **Q3 2026 QTD bookings — VLCC 48% of available
+spot days @ $206,600/day; Suezmax 42% @ $133,000/day.** Also Q2 actuals: fleetwide
+$191,700/available spot day (VLCC $213,600, Suezmax $174,900). Front-of-curve
+corroboration at the fourth cluster name (joins TNK Suez $104.8k/44%, STNG 3-yr
+terms $23.9–25.0k, ASC MR ~$29.6k, DHT Jaguar 36mo $75k + $139.7k QTD). Note the
+ECO Suezmax Q3 print ($133k) vs TNK's Q3 Suez ($104.8k) — a two-issuer bracket on
+the Suezmax front leg for the Stage-A promote.

@@ -1,5 +1,23 @@
 # FRO — Decision Log
 
+## 2026-08-08T19:57:27+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.74
+- Single-point FV: $26.41
+- Scenario PW FV: $23.15 (EV -41.8%)
+- NAV / share: $24.11
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.0pp (k_broker 1.13)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-08T18:13:55+00:00 — Pipeline run (auto)
 
 **Model state:**

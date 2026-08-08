@@ -1,0 +1,51 @@
+# Okeanis Eco Tankers balance sheet snapshot — METHODOLOGY.md section 4.2. USD.
+# Source: OET Half-yearly Report 6-K (EDGAR acc 0001104659-26-090429, filed 2026-08-04
+# after NYSE close, on the calendar date set by GlobeNewswire 2025-12-19 + issuer
+# financial calendar — earnings_calendar.yaml basis), ex-99.2 unaudited condensed
+# consolidated statement of financial position, 2026-06-30 column. Q2 refresh 2026-08-08.
+# Subsequent-events note audited FIRST — three post-Q2 events deliberately NOT in this
+# snapshot: the $5.25/sh dividend (declared post-quarter, payable 8/21), the 7/2 $45.0M
+# draw under the Tigani/Vous Facility, and the 7/8 Nissos Vous delivery (Vous is a
+# NEWBUILD at 6/30). The 7/30 Nissos Sifnos CPC drone strike: minor damage, no spill,
+# vessel departed — operational subsequent event, no balance-sheet effect.
+
+ticker: ECO
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1964954/000110465926090429/
+retrieved_at: 2026-08-08
+filing_period_end: 2026-06-30
+
+# Cash 222,591,472 + current restricted 19,005,431 + non-current restricted 6,210,000
+# (all ECO's cash; restricted mostly facility collateral — Q1 convention).
+cash_and_equivalents: 247806903
+
+# working_capital_net = non-cash current assets - non-debt current liabilities,
+# net of non-current "other" (Q1 convention):
+#   (inventories 29,662,719 + trade receivables 133,974,496 + claims 612,402
+#    + prepaid 9,579,615 + current derivatives 1,869,361 + due from related 8,475,446)
+#   - (trade payables 32,303,193 + accrued 9,186,092 + deferred revenue 2,825,340)
+#   = 184,174,039 - 44,314,625 = 139,859,414
+#   + other non-current assets 3,529,393 - other non-current liabilities 4,874,156
+#   - retirement benefit obligations 61,629 = 138,453,022.
+# Excludes the $20.13M Vous advances (handled via newbuild-at-market netting below).
+working_capital_net: 138450000
+
+# Total interest-bearing debt INCLUDES sale-leaseback obligations (inside
+# "borrowings"; no separate lease line — ECO convention): LT 670,787,434 +
+# current 51,706,349 = 722,493,783 (net-of-fees basis incl. the 50,171 finance
+# lease, matching the BS lines; gross per Note 5 debt table 726,797,584).
+total_debt: 722493783
+lease_liabilities: 0          # sale-leasebacks are inside total_debt; no double-count
+
+# ONE Suezmax newbuild at 6/30 (Nissos Vous, Daehan H5108; Tigani DELIVERED 5/26 ->
+# operating). Issuer-disclosed remaining contractual commitments under MoA $79.4M
+# (ex-99.2 liquidity section: "the remaining installment payments for the
+# under-construction vessel Nissos Vous") — already net of the $20.13M advances
+# (99.3M contract - 20.13M ≈ 79.2M, issuer rounds 79.4M; issuer figure used).
+# Valued at delivered market in the fleet (advances embedded -> set to 0).
+newbuild_capex_commitments: 79400000
+newbuild_advances_paid: 0
+
+# 39,044,655 at 6/30 (statement of changes: 35,433,544 Jan-1 + 3,611,111 issued);
+# basic = diluted per the EPS note.
+diluted_shares_outstanding: 39044655

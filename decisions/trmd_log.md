@@ -1,5 +1,23 @@
 # TRMD — Decision Log
 
+## 2026-08-08T19:57:27+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $29.49
+- Single-point FV: $30.94
+- Scenario PW FV: $31.87 (EV +8.1%)
+- NAV / share: $30.30
+- Position: **BUY (undervalued)**
+- Broker spread: +16.8pp (k_broker 1.15)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-08T18:13:55+00:00 — Pipeline run (auto)
 
 **Model state:**

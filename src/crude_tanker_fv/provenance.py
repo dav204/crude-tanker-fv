@@ -43,7 +43,14 @@ OFF_CONVENTION_QUEUE = {"CMBT", "STNG", "TEN"}  # NAT/ASC/ECO/HAFN left; TRMD le
 SCRUBBER_UNVERIFIED_QUEUE: set[str] = set()   # NEWBUILD-value scrubber flag unverified (now empty)
 
 # --- Operating-scrubber audit (test_scrubber_provenance) ---------------------------------------
-OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "ECO": 16, "TRMD": 85,   # name -> audited operating scrubber-fitted count
+OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "TRMD": 85,   # name -> audited operating scrubber-fitted count
+                               # ECO 16->17 at the 2026-08-08 Q2 refresh: Nissos Tigani
+                               # delivered 5/26 -> operating; issuer aggregate in the 8/4
+                               # H1 release ex-99.1 ("ten modern scrubber-fitted Suezmax
+                               # tankers and eight modern scrubber-fitted VLCC tankers")
+                               # covers the whole sailing fleet incl. Tigani + Vous ->
+                               # Tigani/Vous flags issuer-evidenced (were peer-trap false).
+                               "ECO": 17,
                                # SB 20->19 at the 2026-07-31 Q2 refresh: the 20-F set is 21
                                # (all Capes + 13 non-Cape); at 6/30 Michalis H (scrubber Cape)
                                # is SOLD and Xenia (scrubber PPMX) is HFS -> 19 operating.

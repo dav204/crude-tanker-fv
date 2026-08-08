@@ -208,15 +208,22 @@ def test_whole_book_pairs_coherent_at_the_committed_quarter():
 # ------------------------------------------------- preflight + defaults
 
 def test_preflight_clean_at_the_book_quarter_and_flags_the_stale_quarter():
-    """Post-transition tree state (2026-08-08): SB/TNK/ASC advanced to Q2 with
-    their sheets, the other 22 pairs lag coherently at Q1 — so the book is
-    clean at 2026-Q2, and a 2026-Q1 run must REFUSE for exactly the three
-    advanced names (their Q1 sheets still exist and exact-resolve, but the
-    manifests moved on). Update the two quarter pins at each transition."""
-    assert preflight_pair_coherence("2026-Q2") == []
-    problems = preflight_pair_coherence("2026-Q1")
-    flagged = {p.split(":")[0] for p in problems}
-    assert flagged == {"ASC", "SB", "TNK"}
+    """The book quarter is ALWAYS preflight-clean, and the PRIOR quarter must
+    refuse for exactly the names whose manifests advanced to the book quarter
+    (their prior sheets still exist and exact-resolve against a moved-on
+    manifest). Both sets derive from the tree, so the rolling backlog drain
+    doesn't re-pin this test at every per-name refresh (2026-08-08: the ECO
+    refresh grew the advanced set from {ASC, SB, TNK} within hours)."""
+    import json
+
+    book = json.loads((ROOT / "outputs" / "book_scorecard.json").read_text())["quarter"]
+    assert preflight_pair_coherence(book) == []
+    y, q = int(book[:4]), int(book[-1])
+    prior = f"{y - 1}-Q4" if q == 1 else f"{y}-Q{q - 1}"
+    advanced = {t for t in load_watchlist()
+                if load_fleet_manifest(t).report_date == book}
+    flagged = {p.split(":")[0] for p in preflight_pair_coherence(prior)}
+    assert advanced and flagged == advanced
 
 
 def test_current_book_quarter_reads_state(tmp_path):

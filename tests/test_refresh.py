@@ -307,12 +307,21 @@ def test_forward_looking_quarter_flags_all_missing(tmp_path):
     assert checklist.target_quarter == "2026-Q2"
     # Every watchlist ticker must be flagged missing (we have only Q1 BSes).
     assert checklist.missing_bs_count == len(load_watchlist()) - n_q2_on_disk
-    # Render + spot-check that ASC's IR URLs surface in the missing section.
+    # Render + spot-check the missing section DYNAMICALLY (2026-08-08: literal
+    # name pins re-redded at every backlog refresh as names left the missing set).
     path = write_checklist(checklist, outputs_dir=tmp_path)
     content = path.read_text()
-    assert "ardmoreshipping.com" in content       # ASC's IR home / fleet
-    assert "scorpiotankers.com" in content        # STNG's IR home / fleet
-    assert "missing: DHT, ECO, FRO" in content    # status summary lists missing
+    missing_names = [c.label for c in checklist.balance_sheets
+                     if c.status == "missing"]   # checklist (watchlist) order
+    assert missing_names, "census premise gone — every sheet present"
+    # The status summary lists the missing set…
+    assert f"missing: {', '.join(missing_names[:3])}" in content
+    # …and a missing name's IR URLs surface in the missing section.
+    import yaml as _yaml
+    ds = _yaml.safe_load(open("inputs/data_sources.yaml"))
+    probe = next(t for t in missing_names if t in ds and ds[t].get("ir_home"))
+    domain = ds[probe]["ir_home"].split("//")[1].split("/")[0]
+    assert domain in content, f"{probe}'s IR domain missing from the checklist"
 
 
 # ----------------------------------------------------------------------------
