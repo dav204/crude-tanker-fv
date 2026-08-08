@@ -192,8 +192,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   ECO:
-    ev_min_pct: -62.0
-    ev_max_pct: -47.4
+    ev_min_pct: -56.7
+    ev_max_pct: -42.3
     ev_sign_stable: true
     positions:
     - TRIM/SHORT

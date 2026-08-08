@@ -234,7 +234,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | LPG | $34.12→$34.11 | -0.0% | -33.2%→-33.2% | -0.0 | TRIM/SHORT→TRIM/SHORT |
 | INSW **(WHOLE-CO)** | $57.91→$52.48 | -9.4% | -36.4%→-41.1% | -4.7 | TRIM/SHORT→TRIM/SHORT |
 | FRO | $28.47→$24.11 | -15.3% | -32.4%→-41.8% | -9.4 | TRIM/SHORT→TRIM/SHORT |
-| ECO | $40.40→$34.42 | -14.8% | -39.2%→-47.4% | -8.1 | TRIM/SHORT→TRIM/SHORT |
+| ECO | $43.80→$37.65 | -14.0% | -34.0%→-42.3% | -8.3 | TRIM/SHORT→TRIM/SHORT |
 | NAT | $3.32→$2.85 | -14.2% | -51.0%→-56.8% | -5.8 | TRIM/SHORT→TRIM/SHORT |
 
 _Δ% = (txn − base) / base. Names with no exposure to a recalibrated class show Δ ≈ 0 — useful as a control. ⚠️ flags a position-call flip._

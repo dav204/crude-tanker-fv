@@ -18,7 +18,7 @@ one-way bullish override — audit E-3.)
 | CMBT | · | 0.90× | -1.59 | — | 8.1 | n/a (gate) |
 | CMDB | · | 0.53× | -15.40 | — | 6.1 | n/a (gate) |
 | DHT | · | 1.27× | +3.62 | — | 8.0 | n/a (gate) |
-| ECO | · | 1.54× | +18.68 | — | 8.0 | n/a (gate) |
+| ECO | · | 1.41× | +15.45 | — | 8.0 | n/a (gate) |
 | FLNG | · | 1.03× | +0.85 | — | 0.0 | n/a (gate) |
 | FRO | · | 1.53× | +12.69 | — | 8.0 | n/a (gate) |
 | GNK | · | 0.94× | -1.48 | — | 6.5 | n/a (gate) |

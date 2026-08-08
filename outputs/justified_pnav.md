@@ -26,8 +26,8 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | TNK | crude | $84.60 | $67.60 | 0.799× | 6.9% | 0.589× | 8.2% | 0.716× | rich → rich | robust |
 | DHT | crude | $13.58 | $17.20 | 1.266× | 10.0% | 0.901× | 9.4% | 0.837× | rich → rich | robust |
 | FRO | crude | $24.11 | $36.80 | 1.527× | 10.5% | 0.955× | 9.6% | 0.865× | rich → rich | robust |
+| ECO | crude | $37.65 | $53.10 | 1.410× | 7.0% | 0.602× | 5.8% | 0.484× | rich → rich | robust |
 | NAT | crude | $2.85 | $5.80 | 2.039× | 12.9% | 1.191× | 9.7% | 0.865× | rich → rich | robust |
-| ECO | crude | $34.42 | $53.10 | 1.543× | 7.7% | 0.668× | 6.4% | 0.539× | rich → rich | robust |
 | INSW **(WHOLE-CO)** | crude | $52.48 | $82.40 | 1.570× | n/a | — | 9.9% | 0.890× | no anchor → rich | n/a |
 | FLNG | lng | $28.45 | $29.30 | 1.030× | n/a | — | 14.6% | 1.405× | no anchor → cheap | n/a |
 | CCEC | lng | $28.10 | $21.60 | 0.769× | n/a | — | 27.5% | 2.835× | no anchor → cheap | n/a |

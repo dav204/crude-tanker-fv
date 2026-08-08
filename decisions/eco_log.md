@@ -1,5 +1,23 @@
 # ECO — Decision Log
 
+## 2026-08-08T20:09:31+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $61.86
+- Single-point FV: $40.24
+- Scenario PW FV: $35.69 (EV -42.3%)
+- NAV / share: $37.65
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.7pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** Clean-stamp regen of the annotated Q2 refresh (0-material vs the refresh run) — the substantive record is the dated Q2 REPORT-DAY REFRESH entry below (2026-08-08, band HIT, both halves verified). Baseline re-anchor batched to the end-of-drain ratify.
+
+---
+
 ## 2026-08-08T19:57:27+00:00 — Pipeline run (auto)
 
 **Model state:**
