@@ -43,7 +43,6 @@ def sandboxed_repo(tmp_path, monkeypatch):
     monkeypatch.setattr(add_ticker, "INPUTS", tmp_path / "inputs")
     monkeypatch.setattr(add_ticker, "TESTS", tmp_path / "tests")
     monkeypatch.setattr(add_ticker, "DECISIONS", tmp_path / "decisions")
-    monkeypatch.setattr(add_ticker, "STATE_PATH", tmp_path / "state" / "last_run.json")
     return tmp_path
 
 
@@ -100,3 +99,15 @@ def test_existing_sector_keeps_canonical_classes(sandboxed_repo):
     add_ticker.scaffold("NEWNAME", "crude", "2026-Q1", force=False, dry_run=False)
     fleet = (sandboxed_repo / "inputs" / "fleet_manifests" / "newname.yaml").read_text()
     assert "VLCC" in fleet
+
+
+def test_balance_sheet_stub_declares_clean_ticker_and_quarter():
+    """The 2026-08-08 regression class: a substring replace that ends inside a
+    template comment leaves the comment's tail BARE on the value line — every
+    scaffolded sheet is then born mislabeled and the vintage guards refuse the
+    book. The stub must parse clean against the REAL template."""
+    import yaml
+
+    doc = yaml.safe_load(add_ticker._balance_sheet_stub("GASS", "2026-Q2"))
+    assert doc["ticker"] == "GASS"
+    assert doc["quarter"] == "2026-Q2"

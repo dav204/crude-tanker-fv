@@ -12,7 +12,8 @@ Sources:
   - inputs/overlays.yaml — curated rows (everything except §15 and §12.6).
   - inputs/balance_sheets/*_<quarter>.yaml — §15 rows auto-populate from
     governance_discount_pct > 0 (the knob that actually drives the
-    pipeline), latest quarter per ticker.
+    pipeline), resolved at-or-before the run quarter per ticker (the same
+    resolution the valuation uses — never a staged future sheet).
   - the §12.5–§12.7 dividend-window test — §12.6 rows auto-populate from the
     COMPUTED classification (`dividend_window.build_rows`), so the ledger row
     can never contradict the diagnostic (closes audit E-2 "ledger is
@@ -20,7 +21,7 @@ Sources:
     NAT "treat FV as a NAV floor" §12 row was the exact drift this removes).
 
 CLI:
-    python -m crude_tanker_fv.overlay_ledger              # latest quarter
+    python -m crude_tanker_fv.overlay_ledger              # book quarter (state)
     python -m crude_tanker_fv.overlay_ledger --quarter 2026-Q1
 """
 
@@ -38,7 +39,8 @@ OVERLAYS_YAML = ROOT / "inputs" / "overlays.yaml"
 BALANCE_SHEETS = ROOT / "inputs" / "balance_sheets"
 OUT_MD = ROOT / "outputs" / "overlay_ledger.md"
 
-_BS_NAME = re.compile(r"^([a-z]+)_(\d{4}-Q[1-4])\.yaml$")
+# [a-z0-9]: HKEX names are numeric (2343) — the old [a-z]+ silently skipped them.
+_BS_NAME = re.compile(r"^([a-z0-9]+)_(\d{4}-Q[1-4])\.yaml$")
 _ARROW = {"up": "↑", "down": "↓", "none": "·"}
 
 
@@ -47,24 +49,24 @@ def curated_rows() -> list[dict]:
     return doc["overlays"]
 
 
-def _latest_quarter() -> str:
-    quarters = [m.group(2) for p in BALANCE_SHEETS.glob("*.yaml")
-                if (m := _BS_NAME.match(p.name))]
-    return max(quarters) if quarters else "2026-Q1"
+def governance_rows(quarter: str) -> list[dict]:
+    """§15 rows from the balance sheet RESOLVED for ``quarter`` per ticker.
 
+    Same at-or-before resolution as the valuation (loaders.resolve_balance_
+    sheet_path) — the previous newest-wins glob read staged FUTURE sheets, so
+    the ledger's §15 rows could carry a vintage the run never valued (the
+    half-application shape, second instance; vet 2026-08-08)."""
+    from .loaders import resolve_balance_sheet_path
 
-def governance_rows() -> list[dict]:
-    """§15 rows from the latest balance sheet per ticker."""
-    latest: dict[str, tuple[str, Path]] = {}
-    for p in BALANCE_SHEETS.glob("*.yaml"):
-        m = _BS_NAME.match(p.name)
-        if not m:
-            continue
-        ticker, quarter = m.group(1).upper(), m.group(2)
-        if ticker not in latest or quarter > latest[ticker][0]:
-            latest[ticker] = (quarter, p)
+    tickers = sorted({m.group(1) for p in BALANCE_SHEETS.glob("*.yaml")
+                      if (m := _BS_NAME.match(p.name))})
     rows = []
-    for ticker, (quarter, p) in sorted(latest.items()):
+    for t in tickers:
+        try:
+            p, _vintage = resolve_balance_sheet_path(t, quarter)
+        except FileNotFoundError:
+            continue
+        ticker = t.upper()
         pct = yaml.safe_load(p.read_text()).get("governance_discount_pct") or 0
         if pct > 0:
             rows.append({
@@ -156,8 +158,15 @@ def render(rows: list[dict]) -> str:
 
 
 def main(quarter: str | None = None) -> None:
-    quarter = quarter or _latest_quarter()
-    rows = curated_rows() + governance_rows() + dividend_window_rows(quarter)
+    from .loaders import _QUARTER_RE, current_book_quarter
+
+    quarter = quarter or current_book_quarter()
+    if quarter is None:
+        raise SystemExit("no --quarter given and no state/last_run.json to derive "
+                         "the book quarter from — pass --quarter explicitly")
+    if not _QUARTER_RE.fullmatch(quarter):
+        raise SystemExit(f"--quarter must be YYYY-Qn (e.g. 2026-Q2); got {quarter!r}")
+    rows = curated_rows() + governance_rows(quarter) + dividend_window_rows(quarter)
     OUT_MD.write_text(render(rows))
     auto = sum(1 for r in rows if r.get("_auto"))
     print(f"overlay ledger ({quarter}): {len(rows)} rows ({auto} auto §15/§12.6) -> {OUT_MD}")
@@ -165,5 +174,6 @@ def main(quarter: str | None = None) -> None:
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(prog="crude_tanker_fv.overlay_ledger")
-    ap.add_argument("--quarter", help="quarter for the §12.6 dividend-window rows (default: latest)")
+    ap.add_argument("--quarter", help="run quarter for §15 resolution + §12.6 rows "
+                                      "(default: the book quarter from state/last_run.json)")
     main(ap.parse_args().quarter)

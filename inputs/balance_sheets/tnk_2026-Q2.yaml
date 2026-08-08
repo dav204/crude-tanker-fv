@@ -4,6 +4,9 @@
 # TNK remains DEBT-FREE with a $1.21B cash/investments pile — NAV ≈ vessels + cash.
 ticker: TNK
 quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1419945/000141994526000054/
+retrieved_at: 2026-07-31
+filing_period_end: 2026-06-30
 
 # Cash & equivalents 735,007 + short-term investments 476,582 (bank term deposits +
 # UST <1y) = 1,211,589. Up $215.4M on the quarter (Q1: 996,151) — record spot TCEs

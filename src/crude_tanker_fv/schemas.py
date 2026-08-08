@@ -114,6 +114,14 @@ class BalanceSheet:
     # judgmental. Pro-rates as a corporate-stack item in hybrid carve-outs
     # (same scalar applies to each sleeve).
     governance_discount_pct: float = 0.0
+    # Provenance at ingest (ruled 2026-08-08, Q2-transition package): the
+    # quarter label is only ever checked against other labels inside the repo,
+    # so each sheet carries one anchor OUTSIDE it — the filing it came from —
+    # spot-checkable in seconds. Required for sheets keyed 2026-Q2 onward
+    # (guard-tested); older sheets keep their header-comment citations.
+    source_url: Optional[str] = None
+    retrieved_at: Optional[str] = None
+    filing_period_end: Optional[str] = None
 
 
 @dataclass

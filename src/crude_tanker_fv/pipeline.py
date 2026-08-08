@@ -985,14 +985,32 @@ def _write_txn_comparison(
 
 def main() -> None:
     """Console entry point (see [project.scripts] in pyproject.toml)."""
-    quarter = sys.argv[1] if len(sys.argv) > 1 else "2026-Q1"
+    # No-arg default DERIVES from the last run's state, never a hardcoded
+    # constant — a stale constant becomes a guaranteed mid-loop pair-guard
+    # crash the day the book rolls past it (vet 2026-08-08). Fresh clone /
+    # no state: require the quarter explicitly.
+    from .loaders import current_book_quarter, preflight_pair_coherence
+
+    quarter = sys.argv[1] if len(sys.argv) > 1 else (current_book_quarter() or "")
     # Fail fast on anything that isn't a quarter ('--help', a typo'd '2026-Q5'):
     # a bogus quarter would skip every name on missing balance-sheet files yet
     # still run scenarios/xrefs and OVERWRITE state/last_run.json + touch
     # decisions/*.md (audit 2026-07-02, F-6).
     if not re.fullmatch(r"\d{4}-Q[1-4]", quarter):
-        print(f"usage: python -m crude_tanker_fv.pipeline <QUARTER>  (e.g. 2026-Q1); "
-              f"got {quarter!r}", file=sys.stderr)
+        print(f"usage: python -m crude_tanker_fv.pipeline <QUARTER>  (e.g. 2026-Q2; "
+              f"no state/last_run.json to derive a default from); got {quarter!r}",
+              file=sys.stderr)
+        raise SystemExit(2)
+    # All-names pair-coherence preflight (2026-08-08): the in-loader guard
+    # fires per-name, which inside the write loop would tear the committed
+    # outputs/ tree. Refuse to start on ANY mismatch instead (F-6 pattern).
+    problems = preflight_pair_coherence(quarter)
+    if problems:
+        print(f"pair-coherence preflight FAILED for {quarter} — refusing to run "
+              f"(land each manifest with its balance sheet, then re-run):",
+              file=sys.stderr)
+        for p in problems:
+            print(f"  {p}", file=sys.stderr)
         raise SystemExit(2)
     fv_reports = run_watchlist(quarter, live_prices=True)
     if not fv_reports:

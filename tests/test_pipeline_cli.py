@@ -21,7 +21,14 @@ def test_main_rejects_non_quarter_arg(monkeypatch, arg):
 def test_main_aborts_before_state_writes_when_no_reports(monkeypatch):
     """A valid-format quarter with no populated inputs must stop before the
     scenario/xref/delta stages (which write state and decision logs)."""
+    from crude_tanker_fv import loaders
+
     monkeypatch.setattr(pipeline.sys, "argv", ["pipeline", "2031-Q4"])
+    # Stub the pair-coherence preflight — this test targets the LATER
+    # zero-report abort; the preflight has its own coverage in
+    # test_quarter_coherence (and correctly refuses 2031-Q4 on the real tree
+    # whenever staged future sheets are present).
+    monkeypatch.setattr(loaders, "preflight_pair_coherence", lambda q, *a, **k: [])
     monkeypatch.setattr(pipeline, "run_watchlist", lambda quarter, live_prices: [])
 
     def _must_not_run(*a, **k):
@@ -32,3 +39,22 @@ def test_main_aborts_before_state_writes_when_no_reports(monkeypatch):
     with pytest.raises(SystemExit) as exc:
         pipeline.main()
     assert exc.value.code == 1
+
+
+def test_main_preflight_refuses_a_torn_pair_before_any_writes(monkeypatch):
+    """The all-names preflight (2026-08-08): ANY manifest↔sheet vintage
+    mismatch refuses the run before run_watchlist's write loop can start —
+    the in-loader guard alone would abort MID-loop and tear outputs/."""
+    from crude_tanker_fv import loaders
+
+    monkeypatch.setattr(pipeline.sys, "argv", ["pipeline", "2026-Q1"])
+    monkeypatch.setattr(loaders, "preflight_pair_coherence",
+                        lambda q, *a, **k: ["X: manifest as-of A vs vintage B"])
+
+    def _must_not_run(*a, **k):
+        raise AssertionError("pipeline ran past a failed pair-coherence preflight")
+
+    monkeypatch.setattr(pipeline, "run_watchlist", _must_not_run)
+    with pytest.raises(SystemExit) as exc:
+        pipeline.main()
+    assert exc.value.code == 2

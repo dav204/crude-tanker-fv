@@ -58,8 +58,14 @@ Per name, on report day:
 
 1. Pull the 6-K/10-Q + press release (curl + pypdf for PDFs that fail
    WebFetch; **trust the report counts, not the fleet page**).
-2. Update `inputs/balance_sheets/<ticker>_<quarter>.yaml`; touch the
-   fleet manifest only for entries/exits/deliveries, cost structure and
+2. Update `inputs/balance_sheets/<ticker>_<quarter>.yaml` (with the
+   provenance trio `source_url` / `retrieved_at` / `filing_period_end` —
+   required from 2026-Q2 sheets on); touch the fleet manifest only for
+   entries/exits/deliveries. **A snapshot advance moves BOTH halves in one
+   commit: bump the manifest `report_date` to the new quarter WITH the new
+   sheet** — the pair guard reds any run whose two halves disagree, and
+   `scripts/check_snapshot_advance.py` warns on the one pattern the guard
+   can't see (snapshot advanced, label not bumped). Cost structure and
    dividend policy only if the policy actually changed.
 3. **Issuer-report S&P sweep** (per filing, ~1-3 prints/quarter with
    better vessel detail than Pareto prose): scan the filing + PRs for

@@ -33,7 +33,6 @@ for re-scaffolding after a delete).
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from pathlib import Path
 
@@ -41,7 +40,6 @@ ROOT = Path(__file__).resolve().parents[2]
 INPUTS = ROOT / "inputs"
 TESTS = ROOT / "tests"
 DECISIONS = ROOT / "decisions"
-STATE_PATH = ROOT / "state" / "last_run.json"
 
 # Sectors the scaffold offers as `--sector` choices. A sector is "live" if it
 # actually has a `sectors.<name>` block in inputs/scenario_inputs.yaml — that's
@@ -78,18 +76,6 @@ def _live_sectors() -> set[str]:
         return {"crude", "product", "lng"}
 
 
-def _quarter_from_state() -> str:
-    """Default quarter is the last pipeline run's quarter; fall back to 2026-Q1."""
-    if STATE_PATH.exists():
-        try:
-            q = json.loads(STATE_PATH.read_text()).get("quarter")
-            if q:
-                return q
-        except Exception:
-            pass
-    return "2026-Q1"
-
-
 def _read_template(path: Path) -> str:
     if not path.exists():
         sys.exit(f"Template missing: {path}")
@@ -124,18 +110,15 @@ fleet_summary:          # convenience totals, cross-check against vessels list
 
 
 def _balance_sheet_stub(ticker: str, quarter: str) -> str:
+    # Whole-line regex substitution, NOT substring replace: a substring target
+    # that ends inside a template comment leaves the comment's tail BARE on
+    # the value line, and the scaffolded sheet is born mislabeled — the exact
+    # class the vintage guards exist for (caught in review, 2026-08-08).
+    import re as _re
+
     template = _read_template(INPUTS / "balance_sheets" / "_template.yaml")
-    return (
-        template
-        .replace("ticker: null                      # e.g. DHT",
-                 f"ticker: {ticker}")
-        .replace("quarter: null                     # e.g. dht_2026-Q1.yaml",
-                 f"quarter: {quarter}")
-        .replace("quarter: null                     # e.g. 2026-Q1",
-                 f"quarter: {quarter}")
-        # Some templates may use a different placeholder — best-effort
-        .replace("quarter: null", f"quarter: {quarter}")
-    )
+    template = _re.sub(r"(?m)^ticker: null\b.*$", f"ticker: {ticker}", template)
+    return _re.sub(r"(?m)^quarter: null\b.*$", f"quarter: {quarter}", template)
 
 
 def _cost_structure_stub(ticker: str, classes: list[str]) -> str:
@@ -344,17 +327,22 @@ def main(argv: list[str] | None = None) -> int:
         choices=sorted(KNOWN_SECTORS),
         help="sector (existing: crude/product/lng; new sectors warn)",
     )
+    # REQUIRED and defined as the FILING's vintage, never defaulted from the
+    # run state: the old default stamped the last run's quarter into the sheet
+    # filename, its content AND the manifest report_date — a mid-cluster
+    # onboarding then passed every vintage guard with a coherent-but-FALSE
+    # label (vet 2026-08-08). Labels must come from the document.
     parser.add_argument(
-        "--quarter", default=None,
-        help="balance-sheet quarter (default: from last pipeline run)",
+        "--quarter", required=True,
+        help="the NEWEST FILING's balance-sheet quarter (its true as-of vintage, "
+             "e.g. a Dec-31 annual = YYYY-Q4) — NOT the current run quarter",
     )
     parser.add_argument("--dry-run", action="store_true",
                         help="show what would be created without writing")
     parser.add_argument("--force", action="store_true",
                         help="overwrite existing files / duplicate watchlist entries")
     args = parser.parse_args(argv)
-    quarter = args.quarter or _quarter_from_state()
-    return scaffold(args.ticker, args.sector, quarter, args.force, args.dry_run)
+    return scaffold(args.ticker, args.sector, args.quarter, args.force, args.dry_run)
 
 
 if __name__ == "__main__":

@@ -5,6 +5,38 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-08-08 — Q2 TRANSITION MECHANISM RULED + LANDED (closes the 7/31 blocker; full record =
+  the Decision block in `decisions/q2_cluster_transition_2026-07-31.md`).** Owner ruled BOTH fixes,
+  then vetted and adopted the "Vintage Coherence v2" proposal as amended (5-agent adversarial vet,
+  `wf_56a55a2a-f74`). Landed in one guards+tests commit, deliberately SPLIT from the transition
+  itself (sequencing: this commit → price-absorb Q1 regen → Q2 block on a frozen tape, with the
+  forward-invariance check: lagging names must print delta exactly 0.0 at the roll). The pieces:
+  loader-vintage fallback (`resolve_balance_sheet_path`, newest-at-or-before, self-reporting, never
+  forward) · pair guard in `load_company_inputs` (manifest label must equal the RESOLVED vintage) ·
+  all-names preflight in `pipeline.main()` (fail-before-writes, F-6 pattern) · mislabel hard-fail +
+  repo-wide sweep test · scorecard Balance-sheet-basis header + `balance_sheet_basis` +
+  `names[].balance_sheet_vintage` (schema 2.6→2.7, consumer wired governance-side same day) ·
+  provenance-at-ingest trio (`source_url`/`retrieved_at`/`filing_period_end`) required on sheets
+  keyed ≥2026-Q2 · `add_ticker --quarter` REQUIRED as the FILING's vintage (the run-state default
+  manufactured coherent-but-false labels) · `pipeline`/`overlay_ledger` no-arg quarters derive from
+  state (the hardcoded `2026-Q1` was a post-transition crash in waiting) · overlay_ledger §15/§12.6
+  routed through the same resolver (its newest-wins glob was a SECOND instance of the
+  half-application shape — staged future sheets leaked into the dividend-window computation; also
+  fixed its `[a-z]+` regex silently skipping 2343) · `scripts/check_snapshot_advance.py` as a
+  WARNING for the one pattern the pair guard can't see (snapshot advanced, label not bumped —
+  fitted on the single observed instance f8809d0, so no enforcement authority; the report-day
+  checklist line is the higher-confidence half). Mechanism C as proposed (any content change ⇒
+  report_date bump) REJECTED on evidence: 22/23 content-only manifest commits in history were
+  legitimate within-quarter work. Staleness ceiling DEFERRED with a recorded shape (cadence-aware,
+  never a loader crash — 2343 semi-annual false-fire + the loud-over-refuse precedent). A post-vet
+  adversarial diff review caught 3 defects pre-commit (add_ticker's template substitution born-
+  mislabeled regression → whole-line regex + stub parse test; the `missing` disclosure lane dead on
+  arrival → summary computed over the WATCHLIST, not surviving rows; the snapshot-advance detector
+  blind to flow-style manifests → mid-line age regex, smoke-verified on a synthetic TNK shift) and
+  the diagnostic scripts' hardcoded `2026-Q1` (now `current_book_quarter()`). Suite 611→627 green +
+  15 xfailed; the preflight test pins the real staged state (exactly {ASC, SB, TNK} flagged at
+  2026-Q2).
+
 - **2026-07-31 — STALE-RUN GUARD SHIPPED (closes the GUARD OWED in the entry below).** Freshness-gate
   fallbacks are now counted per run (`loaders.stale_price_fallbacks`, the `stale quote` subset only —
   flagged and never-fetched names are other disclosure lanes); at >= `STALE_PRICE_ALERT_MIN_NAMES` (3,

@@ -99,10 +99,10 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
 - **Snapshot integrity, two halves** — (a) **DATE**: fleet AND every balance-sheet figure must be as-of the
   NAV date; a 6-K's fleet table is as-of FILING, and the **Subsequent Events note is where post-quarter events
   hide** — audit it FIRST, build from the closest-to-quarter filing (2026-07-01, SB/ASC). (b) **APPLICATION**:
-  a refresh is applied only when the run uses BOTH halves — balance sheets are quarter-keyed, manifests are
-  NOT, so a per-name refresh on the old run-quarter puts assets live and leaves liabilities unread. Verify
-  against the run's own `outputs/<t>_fv_report.md` NAV breakdown BEFORE attributing a band miss to a cause;
-  a satisfying explanation is not a verified one (2026-07-31, q2_cluster_transition_2026-07-31.md).
+  guard-enforced 2026-08-08 (pair guard + pipeline preflight red any manifest↔sheet vintage mismatch;
+  sheets resolve newest-at-or-before with scorecard disclosure — `tests/test_quarter_coherence.py`).
+  Still verify the run's own NAV breakdown before attributing a band miss; a satisfying explanation is
+  not a verified one (2026-07-31 + Decision 2026-08-08, q2_cluster_transition_2026-07-31.md).
 - **Scrubber flags are sourced per-vessel; the count must cross-foot to the issuer's disclosed
   aggregate at onboarding** (2026-07-01, SB; the CAPT peer-borrowed-flag bug). Guard-enforced:
   `test_verified_operating_scrubber_count` + `test_scrubber_provenance` — work the queue at

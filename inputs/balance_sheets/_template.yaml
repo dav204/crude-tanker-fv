@@ -1,7 +1,13 @@
 # Balance sheet snapshot template — METHODOLOGY.md section 4.2
 # Copy to {ticker}_{quarter}.yaml (e.g. dht_2026-Q1.yaml) and fill in. USD.
 ticker: null                      # e.g. DHT
-quarter: null                     # e.g. 2026-Q1
+quarter: null                     # e.g. 2026-Q1 — the FILING's vintage (a Dec-31 annual = YYYY-Q4), never the run quarter
+# Provenance at ingest (REQUIRED on sheets keyed 2026-Q2 onward; guard-tested).
+# The quarter label above is only ever checked against other labels inside the
+# repo — these three fields anchor the sheet to the document it came from.
+source_url: null                  # the filing itself (EDGAR accession index / HKEX doc URL)
+retrieved_at: null                # ISO date the figures were transcribed
+filing_period_end: null           # balance-sheet date AS STATED in the document, e.g. 2026-06-30
 cash_and_equivalents: null
 working_capital_net: null
 total_debt: null

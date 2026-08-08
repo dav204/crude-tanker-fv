@@ -7,6 +7,9 @@
 
 ticker: SB
 quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1434754/000131786126000037/
+retrieved_at: 2026-07-31
+filing_period_end: 2026-06-30
 
 # Cash & equivalents 43,742 + time deposits 90,795 (Table 3). Restricted cash non-current
 # 8,375 goes to working_capital_net per the Q1 convention.

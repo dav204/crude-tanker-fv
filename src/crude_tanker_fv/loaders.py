@@ -8,6 +8,7 @@ at this boundary (required keys, class enum, non-negative age).
 
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -25,6 +26,7 @@ from .schemas import (
 )
 
 INPUTS_DIR = Path(__file__).resolve().parents[2] / "inputs"
+STATE_FILE = Path(__file__).resolve().parents[2] / "state" / "last_run.json"
 ALLOWED_CLASSES = {"VLCC", "Suezmax", "Aframax", "LR2", "LR1", "MR", "Handymax", "Handysize", "LNGC", "MGC",
                    # dry_bulk classes added 2026-06-09 with SBLK onboarding (METHODOLOGY §11.7.1);
                    # Post-Panamax split out 2026-06-29 (§11.7.10 — SB's 16 old/large 85-95.8k hulls
@@ -107,11 +109,57 @@ def load_fleet_manifest(ticker: str, inputs_dir: Path = INPUTS_DIR) -> FleetMani
     )
 
 
+_QUARTER_RE = re.compile(r"\d{4}-Q[1-4]")
+
+
+def _quarter_ord(quarter: str) -> int:
+    if not _QUARTER_RE.fullmatch(quarter):
+        raise ValueError(f"not a quarter string (YYYY-Qn): {quarter!r}")
+    return int(quarter[:4]) * 4 + int(quarter[-1])
+
+
+def resolve_balance_sheet_path(
+    ticker: str, quarter: str, inputs_dir: Path = INPUTS_DIR
+) -> "tuple[Path, str]":
+    """Resolve the newest balance sheet AT OR BEFORE ``quarter`` -> (path, vintage).
+
+    The Q2-cluster transition mechanism (ruled 2026-08-08,
+    decisions/q2_cluster_transition_2026-07-31.md): during a rolling earnings
+    cluster the book runs as the new quarter with refreshed names on their new
+    sheets and the rest EXPLICITLY on the prior vintage — the returned vintage
+    self-reports which, and the scorecard discloses lagging names. Exact match
+    wins; otherwise the newest earlier-keyed sheet; nothing at or before raises.
+    """
+    bs_dir = inputs_dir / "balance_sheets"
+    exact = bs_dir / f"{ticker.lower()}_{quarter}.yaml"
+    if exact.exists():
+        return exact, quarter
+    want = _quarter_ord(quarter)
+    prefix = f"{ticker.lower()}_"
+    candidates: list[tuple[int, str, Path]] = []
+    for p in bs_dir.glob(f"{prefix}*.yaml"):
+        q = p.stem[len(prefix):]
+        if _QUARTER_RE.fullmatch(q) and _quarter_ord(q) <= want:
+            candidates.append((_quarter_ord(q), q, p))
+    if not candidates:
+        raise FileNotFoundError(
+            f"input file not found: {exact} (and no {ticker} balance sheet "
+            f"keyed at or before {quarter} to fall back to)"
+        )
+    _, vintage, path = max(candidates)
+    return path, vintage
+
+
 def load_balance_sheet(
     ticker: str, quarter: str, inputs_dir: Path = INPUTS_DIR
 ) -> BalanceSheet:
-    """Load ``inputs/balance_sheets/{ticker}_{quarter}.yaml`` (section 4.2)."""
-    path = inputs_dir / "balance_sheets" / f"{ticker.lower()}_{quarter}.yaml"
+    """Load the balance sheet resolved for ``quarter`` (section 4.2).
+
+    Resolution is newest-at-or-before (``resolve_balance_sheet_path``); the
+    returned ``BalanceSheet.quarter`` is the vintage ACTUALLY used, which may
+    be older than ``quarter`` during a rolling cluster.
+    """
+    path, vintage = resolve_balance_sheet_path(ticker, quarter, inputs_dir)
     data = _read_yaml(path)
     fields = [
         "cash_and_equivalents",
@@ -125,6 +173,9 @@ def load_balance_sheet(
     bs = BalanceSheet(
         ticker=_require(data, "ticker", path),
         quarter=str(_require(data, "quarter", path)),
+        source_url=(str(data["source_url"]) if data.get("source_url") else None),
+        retrieved_at=(str(data["retrieved_at"]) if data.get("retrieved_at") else None),
+        filing_period_end=(str(data["filing_period_end"]) if data.get("filing_period_end") else None),
         crude_specific_debt=float(data.get("crude_specific_debt") or 0.0),
         product_specific_debt=float(data.get("product_specific_debt") or 0.0),
         preferred_equity=float(data.get("preferred_equity") or 0.0),
@@ -140,6 +191,14 @@ def load_balance_sheet(
         raise ValueError(
             f"{path}: diluted_shares_outstanding must be > 0 "
             f"(got {bs.diluted_shares_outstanding})"
+        )
+    # The vintage self-report rests on the filename key; a file whose content
+    # disagrees with its own key would silently mislabel every downstream
+    # disclosure — mislabeled sheets fail here, at the named file.
+    if bs.quarter != vintage:
+        raise ValueError(
+            f"{path}: file is keyed {vintage} but declares quarter {bs.quarter!r} "
+            f"— re-key or fix the sheet"
         )
     return bs
 
@@ -269,13 +328,77 @@ def load_company_inputs(
     except FileNotFoundError:
         cost_structure = CostStructure(ticker=ticker)
 
+    fleet = load_fleet_manifest(ticker, inputs_dir)
+    balance_sheet = load_balance_sheet(ticker, quarter, inputs_dir)
+    # The atomic-quarter guard (ruled 2026-08-08 with the vintage fallback,
+    # decisions/q2_cluster_transition_2026-07-31.md): manifests are quarter-
+    # agnostic files, so nothing structural stops a refresh from landing one
+    # half — on 2026-07-31 three names ran with Q2 assets against Q1
+    # liabilities (ASC printed +16.9% with its $183.6M commitment invisible).
+    # The two halves of the snapshot must carry the same quarter label.
+    if fleet.report_date != balance_sheet.quarter:
+        raise ValueError(
+            f"{ticker}: fleet manifest is as-of {fleet.report_date} but the "
+            f"balance sheet resolved for {quarter} is {balance_sheet.quarter} — "
+            f"a run on this pair counts one half of the snapshot and never reads "
+            f"the other (the 2026-07-31 half-application class). Land the "
+            f"manifest and its balance sheet together, then re-run."
+        )
     return CompanyInputs(
-        fleet=load_fleet_manifest(ticker, inputs_dir),
-        balance_sheet=load_balance_sheet(ticker, quarter, inputs_dir),
+        fleet=fleet,
+        balance_sheet=balance_sheet,
         dividend_policy=dividend_policy,
         cost_structure=cost_structure,
         market_data=load_market_data(inputs_dir),
     )
+
+
+def current_book_quarter(state_file: Path = STATE_FILE) -> "str | None":
+    """The quarter of the last pipeline run (state/last_run.json), or None.
+
+    The CLI defaults derive from this instead of a hardcoded constant — a
+    stale hardcoded default becomes a guaranteed pair-guard crash the day the
+    book rolls past it (vet finding, 2026-08-08). state/ is machine-local and
+    gitignored; callers must handle None (fresh clone) by requiring an
+    explicit quarter."""
+    import json
+
+    if not state_file.exists():
+        return None
+    try:
+        quarter = json.loads(state_file.read_text()).get("quarter")
+    except (ValueError, OSError):
+        return None
+    return quarter if isinstance(quarter, str) and _QUARTER_RE.fullmatch(quarter) else None
+
+
+def preflight_pair_coherence(
+    quarter: str, inputs_dir: Path = INPUTS_DIR
+) -> "list[str]":
+    """All-names manifest↔balance-sheet vintage check, for fail-BEFORE-writes.
+
+    The in-loader pair guard protects every consumer but fires per-name, so a
+    pipeline run would abort mid-write-loop and leave a half-regenerated
+    outputs/ tree (torn surface). The pipeline runs this first and refuses to
+    start on ANY mismatch, listing the full set (F-6 precedent: fail fast
+    before state/outputs writes). Names with no manifest or no resolvable
+    sheet are skipped here — that's the established missing-inputs skip lane,
+    disclosed by the scorecard's balance-sheet-basis header."""
+    problems: "list[str]" = []
+    for ticker in sorted(load_watchlist(inputs_dir)):
+        try:
+            fleet = load_fleet_manifest(ticker, inputs_dir)
+            path, vintage = resolve_balance_sheet_path(ticker, quarter, inputs_dir)
+        except FileNotFoundError:
+            continue
+        declared = str((_read_yaml(path) or {}).get("quarter"))
+        if declared != vintage:
+            problems.append(f"{ticker}: sheet {path.name} is keyed {vintage} "
+                            f"but declares quarter {declared!r}")
+        if fleet.report_date != vintage:
+            problems.append(f"{ticker}: manifest as-of {fleet.report_date} vs "
+                            f"balance-sheet vintage {vintage} (resolved for {quarter})")
+    return problems
 
 
 def load_watchlist(inputs_dir: Path = INPUTS_DIR, live_prices: bool = False) -> dict[str, dict]:

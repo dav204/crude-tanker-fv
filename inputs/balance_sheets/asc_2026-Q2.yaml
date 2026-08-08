@@ -9,6 +9,9 @@
 # operating-lease portion.
 ticker: ASC
 quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1577437/000110465926087834/
+retrieved_at: 2026-07-31
+filing_period_end: 2026-06-30
 
 cash_and_equivalents: 48138000        # BS "Cash and cash equivalents" (2026-06-30); no restricted line
 

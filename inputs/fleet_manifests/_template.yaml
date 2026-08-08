@@ -1,7 +1,7 @@
 # Fleet manifest template — METHODOLOGY.md section 4.1
 # Copy to {ticker}.yaml (e.g. dht.yaml) and fill in. One entry per vessel.
 ticker: null            # e.g. DHT
-report_date: null       # e.g. 2026-Q1
+report_date: null       # e.g. 2026-Q1 — snapshot quarter of BOTH halves; must equal the balance-sheet vintage (pair guard, loaders.load_company_inputs)
 vessels:
   - id: null            # e.g. VLCC_001
     class: null         # VLCC | Suezmax | Aframax | LR2

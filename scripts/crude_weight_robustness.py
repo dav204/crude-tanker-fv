@@ -33,6 +33,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from crude_tanker_fv.loaders import INPUTS_DIR, load_company_inputs, load_watchlist
+from crude_tanker_fv.loaders import current_book_quarter
+
+# The book quarter tracks state/last_run.json — a hardcoded quarter here
+# would hit the pair guard uncaught after every quarter roll (2026-08-08).
+BOOK_QUARTER = current_book_quarter() or "2026-Q1"
+
 from crude_tanker_fv.pipeline import (
     _load_all_sectors,
     _maybe_apply_transactions,
@@ -134,7 +140,7 @@ def run_ticker_under_all_sets(ticker: str, watchlist: dict, base_sector_docs: di
     entry = watchlist[ticker]
     price = entry["current_price"]
     target = entry["analyst_target"]
-    ci = load_company_inputs(ticker, "2026-Q1")
+    ci = load_company_inputs(ticker, BOOK_QUARTER)
     # Production path parity (fixed 2026-07-02): transaction-anchored marks are
     # DEFAULT-ON in the pipeline; without this the diagnostic ran ~12% high on
     # un-anchored marks for every name since 2026-06-09.

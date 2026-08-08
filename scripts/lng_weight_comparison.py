@@ -26,6 +26,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from crude_tanker_fv.loaders import load_company_inputs, load_watchlist
+from crude_tanker_fv.loaders import current_book_quarter
+
+# The book quarter tracks state/last_run.json — a hardcoded quarter here
+# would hit the pair guard uncaught after every quarter roll (2026-08-08).
+BOOK_QUARTER = current_book_quarter() or "2026-Q1"
+
 from crude_tanker_fv.scenarios import load_scenarios, run_scenarios
 
 # ----------------------------------------------------------------------------
@@ -149,7 +155,7 @@ def analyze_ticker(ticker: str, watchlist: dict, base_doc: dict) -> dict:
     entry = watchlist[ticker]
     price = entry["current_price"]
     target = entry["analyst_target"]
-    ci = load_company_inputs(ticker, "2026-Q1")
+    ci = load_company_inputs(ticker, BOOK_QUARTER)
 
     rep_b = run_under_weights(ticker, ci, price, target, base_doc, SET_B)
     rep_br = run_under_weights(ticker, ci, price, target, base_doc, SET_B_REVISED)
@@ -335,7 +341,7 @@ def write_fragility_sidecar(watchlist, base_doc):
         if ticker not in watchlist:
             continue
         entry = watchlist[ticker]
-        ci = load_company_inputs(ticker, "2026-Q1")
+        ci = load_company_inputs(ticker, BOOK_QUARTER)
         evs, positions = [], []
         for weights in LNG_FRAGILITY_SETS.values():
             rep = run_under_weights(ticker, ci, entry["current_price"],

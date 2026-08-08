@@ -38,7 +38,11 @@ from crude_tanker_fv.pipeline import (
 # ----------------------------------------------------------------------------
 MULTIPLES = [0.85, 0.90, 1.00, 1.10, 1.15]
 BASELINE = 1.00
-QUARTER = "2026-Q1"
+# Tracks state/last_run.json — a hardcoded quarter would hit the pair guard
+# uncaught after every quarter roll (2026-08-08).
+from crude_tanker_fv.loaders import current_book_quarter  # noqa: E402
+
+QUARTER = current_book_quarter() or "2026-Q1"
 
 
 # ----------------------------------------------------------------------------

@@ -10,19 +10,19 @@ then start. **Suite 611 green + 15 xfailed · drift gate 0/0 · tree clean · pr
 governance 4 ahead (both need a push).** Committed outputs are at the **2026-07-31 price basis**
 and the **2026-Q1 quarter** — deliberately, see below.
 
-**⛔ THE BLOCKER — the Q2 cluster transition is UNRULED and now gates 14 names.**
-`decisions/q2_cluster_transition_2026-07-31.md` is the required read. In short: balance sheets
-are quarter-keyed (`{ticker}_{quarter}.yaml`, exact path, NO fallback) but fleet manifests are
-quarter-agnostic, so a per-name Q2 refresh on a `2026-Q1` run puts the ASSET side live and
-leaves the LIABILITY side unread. It bit three times on 2026-07-31 (ASC printed NAV +16.9% with
-its $183.6M newbuild commitment invisible; SB and TNK likewise). Manifests were REVERTED to
-coherent Q1 state; **`sb_2026-Q2.yaml`, `tnk_2026-Q2.yaml`, `asc_2026-Q2.yaml` are written,
-sourced, reviewed and STAGED** — do NOT re-apply them name-by-name, that recreates the trap.
-**Owner ruling needed on the mechanism** (two candidates in the doc: loader-vintage fallback +
-disclosure — recommended — vs an atomic-quarter guard). A coherence-guard background task was
-spawned (`task_e8e9d51f`). The three logs carry VOID banners; the curve attributions inside them
-(SB young-Panamax anchor rich; TNK VLCC old-age ~4% rich vs a realized sale) are HYPOTHESES to
-re-test on paired inputs, not findings.
+**✅ THE BLOCKER IS CLEARED — Q2 transition mechanism RULED + LANDED 2026-08-08** (Decision
+block in `decisions/q2_cluster_transition_2026-07-31.md`; CHANGELOG same date). Loader-vintage
+fallback (newest-at-or-before, self-reporting) + pair guard (manifest label == resolved vintage,
+in-loader AND a fail-before-writes pipeline preflight) + scorecard/JSON vintage disclosure
+(schema 2.7, consumer wired) + provenance-at-ingest on ≥Q2 sheets. Suite 627 green + 15 xfailed;
+the four proposal case rows are named tests in `tests/test_quarter_coherence.py`.
+**`sb/tnk/asc_2026-Q2.yaml` remain STAGED** (now carrying the provenance trio); the three logs'
+VOID banners stand — the SB/TNK curve attributions are HYPOTHESES to re-test on paired inputs.
+**Remaining sequence (owner-ruled split): (1) price-absorb regen at 2026-Q1** — the 7/31→8/07
+price vintage absorbs as its own ratify so the tape can't launder into the transition —
+**then (2) the Q2 transition on a frozen tape**: advance the three manifests WITH their sheets,
+run 2026-Q2, and check forward invariance — every LAGGING name must print delta exactly 0.0
+(a nonzero delta on a lagging name = the laundering signature, halt).
 
 **UNPROCESSED BACKLOG (a full Q2 cluster, nothing touched since 7/31).** 11 names carry
 STALE-BALANCE-SHEET: **2343 · CCEC · CMDB · DHT · ECO · GNK · GSL · INSW · LPG · SBLK · STNG**,

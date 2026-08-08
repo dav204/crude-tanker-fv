@@ -336,6 +336,30 @@ def price_basis_summary(inputs_dir: Path = INPUTS_DIR) -> dict:
     }
 
 
+def balance_sheet_basis_summary(
+    quarter: str, tickers: "list[str]", inputs_dir: Path = INPUTS_DIR
+) -> dict:
+    """Which names' balance sheets actually carry the run quarter vs an older
+    vintage (loader newest-at-or-before fallback) — the liability-half analog
+    of price_basis. During a rolling earnings cluster the run quarter leads the
+    unrefreshed names' sheets BY DESIGN; the disclosure is what makes that
+    state legitimate (ruled 2026-08-08, q2_cluster_transition_2026-07-31)."""
+    from .loaders import resolve_balance_sheet_path
+
+    lagging: dict[str, str] = {}
+    missing: list[str] = []
+    for t in sorted(tickers):
+        try:
+            _, vintage = resolve_balance_sheet_path(t, quarter, inputs_dir)
+        except FileNotFoundError:
+            missing.append(t)
+            continue
+        if vintage != quarter:
+            lagging[t] = vintage
+    return {"quarter": quarter, "total": len(tickers),
+            "lagging": lagging, "missing": missing}
+
+
 def scenario_inputs_sha(inputs_dir: Path = INPUTS_DIR) -> Optional[str]:
     """Content hash (sha256[:12]) of scenario_inputs.yaml — the determinant the
     weight-family diagnostics are computed against (WO1-F4)."""
@@ -621,6 +645,7 @@ def write_scorecard(
     fragility: Optional[dict[str, bool]] = None,
     rate_basis: Optional[list[str]] = None,
     family_basis: Optional[dict] = None,
+    bs_basis: Optional[dict] = None,
 ) -> Path:
     outputs_dir.mkdir(parents=True, exist_ok=True)
     out: list[str] = []
@@ -650,6 +675,29 @@ def write_scorecard(
             names = ", ".join(price_basis["market_event_review"])
             w(f"> **Market-event review:** {names} — the day-band circuit breaker applied fresh "
               f"prices on a multi-name repricing; eyeball these moves before acting.\n")
+
+    if bs_basis:
+        lag = bs_basis.get("lagging") or {}
+        missing = bs_basis.get("missing") or []
+        if lag or missing:
+            parts = []
+            if lag:
+                names = ", ".join(f"{t} ({q})" for t, q in sorted(lag.items()))
+                parts.append(
+                    f"**Balance-sheet basis: {len(lag)} of {bs_basis['total']} names on a "
+                    f"pre-{bs_basis['quarter']} vintage:** {names}. Their liability half is "
+                    f"the newest sheet at or before the run quarter (loader fallback — "
+                    f"coherent with their manifests, guard-enforced); each pair advances "
+                    f"TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).")
+            if missing:
+                parts.append(
+                    f"**Balance-sheet basis: NO sheet resolvable for "
+                    f"{', '.join(missing)}** — those names cannot value at this quarter "
+                    f"and carry no row below.")
+            w("> " + " ".join(parts) + "\n")
+        else:
+            w(f"> **Balance-sheet basis:** all {bs_basis['total']} sheets at "
+              f"{bs_basis['quarter']}.\n")
 
     for note in (rate_basis or []):
         w(f"> **Rate basis:** {note}\n")
@@ -778,7 +826,7 @@ def write_scorecard(
     md_path.write_text("\n".join(out))
     if valuation is not None:
         _write_handoff_json(rows, valuation, outputs_dir, price_basis, quarter, fragility,
-                            rate_basis, family_basis)
+                            rate_basis, family_basis, bs_basis)
     return md_path
 
 
@@ -837,6 +885,7 @@ def _write_handoff_json(
     fragility: Optional[dict[str, bool]] = None,
     rate_basis: Optional[list[str]] = None,
     family_basis: Optional[dict] = None,
+    bs_basis: Optional[dict] = None,
 ) -> Path:
     """The machine-readable half of the handoff surface (audit 2026-07-02, F-4).
 
@@ -856,6 +905,14 @@ def _write_handoff_json(
         v = valuation.get(r.ticker)
         void = r.ticker in NAV_DERIVED_VOID
         frag = (fragility or {}).get(r.ticker) or {}
+        # 2.7: the sheet vintage this row's NAV actually rests on — derived
+        # from the ONE balance_sheet_basis map (single source, not a second
+        # computation; the 2026-07-02 incidental-identity rule). None when the
+        # run had no basis summary or no sheet resolved for the name.
+        bs_vintage = None
+        if bs_basis is not None and r.ticker not in (bs_basis.get("missing") or []):
+            bs_vintage = (bs_basis.get("lagging") or {}).get(r.ticker,
+                                                             bs_basis.get("quarter"))
         names.append({
             "ticker": r.ticker,
             "sector": r.sector,
@@ -917,6 +974,11 @@ def _write_handoff_json(
             # owe an owner eyeball. Void rows suppress like every derived number.
             "fv_low": None if (v is None or void) else _num(v.fv_low),
             "fv_high": None if (v is None or void) else _num(v.fv_high),
+            # 2.7: which balance-sheet vintage this row values on. Equals the
+            # run quarter unless the name is in balance_sheet_basis.lagging
+            # (rolling cluster) — the consumer's per-name seam diff reads this
+            # off the row it already diffs.
+            "balance_sheet_vintage": bs_vintage,
         })
     doc = {
         # "2.1" (2026-07-02, WO1 Task 1 — string; the consumer asserts
@@ -943,10 +1005,17 @@ def _write_handoff_json(
         # subset of static_fallback; >= STALE_PRICE_ALERT_MIN_NAMES of them
         # marks the run's price basis as an aged-out vintage (banner in the
         # scorecard header + delta report).
-        "schema_version": "2.6",
+        # 2.7 (2026-08-08, Q2-transition ruling): + balance_sheet_basis (run-
+        # level: quarter/total/lagging{ticker:vintage}/missing, from the loader
+        # newest-at-or-before resolution) + names[].balance_sheet_vintage (the
+        # same datum on the row the consumer's per-name seam diff operates on;
+        # derived from the one map, never recomputed). Minor bump: additive,
+        # consumer asserts major == 2.
+        "schema_version": "2.7",
         **_vintage_stamp(),
         "quarter": quarter,
         "price_basis": price_basis,
+        "balance_sheet_basis": bs_basis,
         "rate_basis": rate_basis or [],
         # WO1-F4: the family-fields' own vintage — status != "current" means
         # weight_sign_stable / ev_pct_family_* are withheld (null) because the
@@ -984,9 +1053,17 @@ def run_scorecard_xref(
     fragility = None
     rate_basis = None
     family_basis = None
+    bs_basis = None
     if fv_reports is not None and scenario_reports is not None and broker_rows is not None:
         valuation = valuation_index(fv_reports, scenario_reports, broker_rows)
         price_basis = price_basis_summary(inputs_dir)
+        # Over the WATCHLIST, not the surviving rows: compute_scorecard already
+        # dropped any name whose inputs failed to load, so a rows-based summary
+        # could never populate `missing` — the "cannot value at this quarter"
+        # lane would be dead code and the name would just silently vanish from
+        # names[] (review catch, 2026-08-08).
+        bs_basis = balance_sheet_basis_summary(
+            quarter, sorted(load_watchlist(inputs_dir)), inputs_dir)
         family_basis = weight_family_basis(outputs_dir, inputs_dir)
         # WO1-F4: a non-current sidecar is NO diagnostic — family fields go
         # null (never silently current) and the basis marker says why. The
@@ -997,7 +1074,7 @@ def run_scorecard_xref(
         rate_basis = rate_basis_notes(inputs_dir)
     if rows:
         path = write_scorecard(rows, outputs_dir, valuation, price_basis, quarter, fragility,
-                               rate_basis, family_basis)
+                               rate_basis, family_basis, bs_basis)
         n_uniform = sum(1 for r in rows if r.nav_basis == "resale-uniform")
         n_ready = sum(1 for r in rows if is_handoff_ready(r.confidence_tier))
         tag = "CONSOLIDATED verdict+matrix" if valuation else "validation matrix"

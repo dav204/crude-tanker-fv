@@ -263,8 +263,11 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
 
     pb = {"total": len(rows), "static_fallback": {}, "oldest_static_as_of": None,
           "market_event_review": {}}
+    lag_ticker = rows[0].ticker
+    bs_basis = {"quarter": QUARTER, "total": len(rows),
+                "lagging": {lag_ticker: "2025-Q4"}, "missing": []}
     write_scorecard(rows, outputs_dir=tmp_path, valuation=_synthetic_valuation(rows),
-                    price_basis=pb, quarter=QUARTER)
+                    price_basis=pb, quarter=QUARTER, bs_basis=bs_basis)
     doc = json.loads((tmp_path / "book_scorecard.json").read_text())
     # String "2.1" — the consumer asserts major == 2 (WO1 Task 1); minor bumps
     # are additive, major bumps break. 2.3 (2026-07-09): + mark_wide_nodes.
@@ -273,9 +276,20 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
     # withhold (null) + weight_family_basis.ev_lagging names them.
     # 2.6 (2026-07-31): + price_basis.stale_fallback (freshness-gate subset;
     # the stale-run alert's counting set).
-    assert doc["schema_version"] == "2.6"
+    # 2.7 (2026-08-08): + balance_sheet_basis + names[].balance_sheet_vintage
+    # (the Q2-transition disclosure; per-row field derives from the one map).
+    assert doc["schema_version"] == "2.7"
     assert doc["schema_version"].split(".")[0] == "2"
     assert doc["quarter"] == QUARTER
+    # The per-row vintage and the run-level map are ONE datum on two surfaces
+    # (2026-07-02 rule: surfaces assumed to agree get a test that they agree).
+    assert doc["balance_sheet_basis"] == bs_basis
+    for n in doc["names"]:
+        expect = bs_basis["lagging"].get(n["ticker"], QUARTER)
+        assert n["balance_sheet_vintage"] == expect, n["ticker"]
+    md = (tmp_path / "book_scorecard.md").read_text()
+    assert f"Balance-sheet basis: 1 of {len(rows)}" in md
+    assert f"{lag_ticker} (2025-Q4)" in md
     # Vintage stamp: ISO-8601 UTC + the HEAD hash ('-dirty' allowed).
     import subprocess
     assert doc["generated_at"].endswith("+00:00") and "T" in doc["generated_at"]
