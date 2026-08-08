@@ -1,0 +1,63 @@
+# Global Ship Lease balance sheet — 2026-06-30 (Q2 refresh 2026-08-08). USD.
+# Source: H1-2026 interim 6-K (EDGAR acc 0001140361-26-031697, filed 2026-08-06),
+# ex-99.1 interim unaudited condensed consolidated financial statements (BS + Notes
+# 3/7/9/10) + the Q2 earnings release 6-K (acc 0001140361-26-031416, 8/5).
+# Subsequent-events note audited FIRST — sole item: the 8/5 $0.625/sh Q2 dividend
+# (payable 9/3) — post-Q2, excluded. The 15-ship newbuild order is IN-QUARTER
+# (Note 3: "as at June 30, 2026"); the 4 agreed vessel sales (Ian H/Manet/Kumasi/
+# Julie, $65.5M aggregate) are IN-QUARTER agreements — hulls deliver at charter
+# expiry, NOT held-for-sale at 6/30, still on-curve (ASC-360 note, no impairment).
+
+ticker: GSL
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1430725/000114036126031697/
+retrieved_at: 2026-08-08
+filing_period_end: 2026-06-30
+
+# Cash 388,599 + time deposits 110,450 = 499,049. BASIS REFINEMENT vs Q1 (which
+# had only the PR's coarse split and excluded time deposits with the restricted
+# balances): time deposits are unrestricted cash-equivalent investments — included
+# now that the interim discloses them as their own line (+110.5M basis component;
+# the Q1-basis equivalent would be 388.6 vs Q1's 404.9 = −16.3 economic).
+# Restricted (51,326 current + 98,664 non-current) stays EXCLUDED — backs debt
+# service (Q1 rationale).
+cash_and_equivalents: 499049000
+
+# working_capital_net — FIRST REAL CONSTRUCTION (Q1 carried 0 as a marked ESTIMATE,
+# "refine at the Q2 refresh" — this is that refinement):
+#   (AR 50,500 + inventories 22,357 + prepaid 20,483 + due from related 1,309)
+#   − (AP 71,639 + accrued 41,637 + due to related 740 + deferred revenue current 45,482)
+#   = 94,649 − 159,498 = −64,849 ($k).
+# EXCLUDED: derivative assets 22,954 (rate caps — hedge, not operating WC);
+# non-current deferred revenue 108,383 (not current; strip-side economics);
+# intangible charter liabilities 96,443 (acquired-charter marks — the CCEC
+# above/below-market-charter precedent: charter value lives in the strip, not NAV).
+working_capital_net: -64849000
+
+# Note 7 "Total borrowings" GROSS ($676,425; deferred financing costs 4,661):
+#   credit facilities 481,625 (BofA 55,500 NEW 6/17/26 + UBS 57,000 + 2024 Senior
+#   Secured Term Loan 216,000 + 2027 Secured Notes 153,125) + sale-and-leaseback
+#   194,800 (Minsheng 159,888 + CMBFL 34,912 — INSIDE total debt, ECO gotcha).
+total_debt: 676425000
+lease_liabilities: 0
+
+# 15-ship newbuild program (Note 3, IN-quarter): aggregate contract $1,329,863k,
+# deliveries 4Q28-1Q30, deposits paid $124,340k, remaining commitments $1,205,523k
+# — chartered at birth (the Note-9 $3.08B contracted book INCLUDES the 15; release:
+# >75% of the price covered by chartered Adj EBITDA). CONVENTION: containers are
+# Group-B structural (newbuild_convention.yaml §A1.4 — no resale curve mark,
+# fabricating one forbidden) — GSL enters the registry on the CMBT ADVANCES-ONLY
+# pattern: deposits paid are the booked NB asset; the remaining commitment and the
+# undelivered hulls are BOTH out (≈ NPV-neutral stance for a bought-at-market,
+# charter-attached program; artifact-free vs pricing 2029-30 deliveries on a
+# generic curve node). THE COMMITMENT-NET FORK IS OWNER-FLAGGED (gsl_log + PLAN):
+# it belongs to the same pending prereg as CMBT's move to commitment-net.
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 124340000
+
+diluted_shares_outstanding: 36035434 # Class A issued and outstanding, BS caption 6/30.
+preferred_equity: 109000000          # 8.75% Series B: 43,592 × $2,500 liq pref —
+                                     # count UNCHANGED at 6/30 (BS caption; the Q1
+                                     # verify-at-Q2 note is CLOSED: no new prefs).
+shuttle_contracted_book: 0
+governance_discount_pct: 0           # §15.7 screen unchanged (2026-06-12 pass)

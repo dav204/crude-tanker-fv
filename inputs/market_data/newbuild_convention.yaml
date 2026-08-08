@@ -14,3 +14,4 @@
 structural_exempt:
   CCEC: "LNG/ammonia newbuilds — Group-B LNGC, no resale curve mark (§A1.4). Already commitment-net (passes clause 2)."
   CMBT: "container/diversified (CMB.TECH) newbuilds — Group-B Ctr-* among them, no resale curve mark (§A1.4). Currently advances-only; must move to commitment-net (own pre-reg)."
+  GSL: "15-ship container NB program (2026-08-08 Q2 refresh; 10-Q Note 3: $1,329.9M aggregate, $124.3M deposits, $1,205.5M remaining, 4Q28-1Q30, chartered at birth) — Group-B Ctr-*, no resale curve mark (§A1.4). ADVANCES-ONLY like CMBT (deposits booked, commitment+hulls both out — NPV-neutral stance for bought-at-market charter-attached; artifact-free vs generic curve nodes on 2029-30 deliveries). Joins CMBT's pending commitment-net pre-reg (owner fork, gsl_log 2026-08-08)."

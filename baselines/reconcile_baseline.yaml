@@ -2,12 +2,12 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-08-08T21:41:39+00:00'
-  ratified_commit: abeb78e
+  ratified_at: '2026-08-08T22:04:11+00:00'
+  ratified_commit: bc0f86e
   quarter: 2026-Q2
-  cause: 'Q2 backlog drain #4: LPG NAV +4.6% INSIDE prereg band; fleet 22->18 (Cobra sold, HFS trio off-curve
-    at realisable), 3 per-vessel VLGC sale prints recorded as lock-rerun candidates; both-halves verified,
-    invariance held, lpg_log annotated; no flip'
+  cause: 'Q2 backlog drain #5: GSL NAV +6.8% INSIDE prereg band; 15-NB program enters advances-only (Group-B
+    structural, commitment-net fork owner-flagged w/ CMBT), WC first-real-construction, time-deposit basis
+    disclosed; both-halves verified, invariance held, gsl_log annotated; no flip (HOLD)'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -106,10 +106,10 @@ names:
     sector: dry_bulk
   GSL:
     pnav_basis: approx
-    ev_pct: -4.48
-    tool_nav: 38.59
+    ev_pct: 1.37
+    tool_nav: 41.2
     position_band: HOLD (fairly valued)
-    k_broker: 1.37
+    k_broker: 1.32
     sector: containerships
   HAFN:
     pnav_basis: pareto

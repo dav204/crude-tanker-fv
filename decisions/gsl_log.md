@@ -1,5 +1,47 @@
 # GSL — Decision Log
 
+## 2026-08-08T22:04:11+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $42.44
+- Single-point FV: $45.50
+- Scenario PW FV: $43.02 (EV +1.4%)
+- NAV / share: $41.20
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.3pp (k_broker 1.32)
+- Sector: containerships
+
+**Material deltas since last run:**
+- ⚑ NAV/sh +6.8%
+- Δprice: no change | Δsingle FV: +5.7% | Δscenario FV: +6.1% | ΔNAV: +6.8% | Δspread: -4.9pp
+
+**Decision:** Q2 REPORT-DAY REFRESH (backlog drain #5, transition mechanism — pair landed
+together, preflight clean). Source: H1 interim 6-K acc 0001140361-26-031697 (8/6, full
+statements + notes) + the Q2 release 6-K (8/5). Subsequent events: only the 8/5 $0.625
+dividend (excluded). NAV $38.59→$41.20 (+6.8%) — INSIDE the pre-registered band
+[38.8, 44.6] (point ~$41.7): BS +$135.0M (advances +124.3; cash +94.2 — of which +110.5
+is the TIME-DEPOSIT BASIS INCLUSION now the interim discloses the line, −16.3 economic;
+WC −64.8 = the FIRST REAL CONSTRUCTION replacing Q1's marked zero-ESTIMATE — the
+promised refinement; debt 657.8→676.4 gross, −18.6 to NAV) − ~0.25y aging. Census UNCHANGED at 71 (Note 9). NO FLIP — HOLD stands,
+EV +1.4% (the pre-flagged +5% BUY-edge crossing did NOT fire); GOVERNED-WIDE·structural
+stands. **THE QUARTER'S EVENT — the 15-ship NB program (IN-quarter, Note 3): $1,329.9M
+aggregate, $124.3M deposits, $1,205.5M remaining, 4Q28-1Q30, chartered at birth (the
+$3.08B Note-9 book INCLUDES them; >75% of price EBITDA-covered per the release).
+CONVENTION: GSL enters newbuild_convention.yaml structural_exempt on the CMBT
+ADVANCES-ONLY pattern (Group-B Ctr-*, no resale mark §A1.4; deposits booked, commitment
++ hulls both out — NPV-neutral for bought-at-market charter-attached, artifact-free vs
+generic curve nodes on 2029-30 deliveries). OWNER FORK FLAGGED: commitment-net wiring
+(the registry's stated target) joins CMBT's pending pre-reg — one containers-NB ruling
+should cover both; the §9.6 PV asymmetry (asset discounted, commitment not) makes naive
+on-curve wiring read −$200M-class artifacts on far-dated programs, part of that ruling's
+scope.** Also in-quarter: 4 ships agreed-sold (Ian H/Manet/Kumasi/Julie, $65.5M
+aggregate — 4-hull en-bloc, NO per-vessel split → documented, never back-solved; hulls
+deliver at charter expiry, ON-curve at 6/30 with disposal flags). Preferred count
+verified unchanged (43,592 — the Q1 verify-at-Q2 note CLOSES). Both halves verified
+(499.0/−64.8/676.4/0.0/124.3). Forward invariance held (24 names 0.0). Ratified same day.
+
+---
+
 ## 2026-08-08T21:49:49+00:00 — Pipeline run (auto)
 
 **Model state:**

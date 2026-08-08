@@ -5,6 +5,7 @@ inputs; re-pin on the first MB-subscription marks refresh.
 """
 
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 from crude_tanker_fv.loaders import load_company_inputs
 from crude_tanker_fv.pipeline import value_company
 
@@ -21,15 +22,17 @@ def test_mpcc_onboarding_baseline():
 
 
 def test_gsl_onboarding_baseline():
-    r = value_company("GSL", "2026-Q1", current_price=38.99, analyst_target=52.04,
+    r = value_company("GSL", BOOK_QUARTER, current_price=38.99, analyst_target=52.04,
                       strip_horizon=10)
     # NAV $38.59 at pin: 71 vessels, $109M Series B prefs subtracted.
-    assert 36.6 < r.nav.nav_per_share < 40.5
+    # Re-pinned 2026-08-08 (Q2 refresh, band-verified +6.8%: time-deposit basis +
+    # first-real WC + NB advances-only — gsl_log): $41.20 ±5%.
+    assert 39.1 < r.nav.nav_per_share < 43.3
     assert r.nav.preferred_equity == 109_000_000
 
 
 def test_gsl_coverage_schedule_decays_with_charter_expiries():
-    ci = load_company_inputs("GSL", "2026-Q1")
+    ci = load_company_inputs("GSL", BOOK_QUARTER)
     cov = ci.fleet.coverage_schedule
     # Front quarters fully covered; intermediate decays hard by q4_2028 while
     # large holds — the staggered-expiry structure §11.8.6 exists to price.
@@ -51,6 +54,6 @@ def test_mpcc_fleet_schedule_ramps_with_owned_newbuilds():
 
 def test_container_validators_route_all_classes():
     for t in ("MPCC", "GSL"):
-        ci = load_company_inputs(t, "2026-Q1")
+        ci = load_company_inputs(t, BOOK_QUARTER)
         classes = {v.cls for v in ci.fleet.vessels}
         assert classes <= {"Ctr-Feeder", "Ctr-Intermediate", "Ctr-Large"}, classes
