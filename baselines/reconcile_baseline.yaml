@@ -2,12 +2,12 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-08-08T22:04:11+00:00'
-  ratified_commit: bc0f86e
+  ratified_at: '2026-08-08T23:10:50+00:00'
+  ratified_commit: a2662f9
   quarter: 2026-Q2
-  cause: 'Q2 backlog drain #5: GSL NAV +6.8% INSIDE prereg band; 15-NB program enters advances-only (Group-B
-    structural, commitment-net fork owner-flagged w/ CMBT), WC first-real-construction, time-deposit basis
-    disclosed; both-halves verified, invariance held, gsl_log annotated; no flip (HOLD)'
+  cause: 'Q2 backlog drain #7: GNK NAV -2.8% INSIDE prereg band; PRE-REGISTERED band-edge flip HOLD->T/S
+    fired and auto-classified band-mech (price inside [17.93,29.63], D-M5); Volunteer on-curve committed,
+    Predator out, tender regime OVER; both-halves verified, invariance held, gnk_log annotated'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -71,10 +71,10 @@ names:
     sector: dry_bulk
   DHT:
     pnav_basis: pareto
-    ev_pct: -29.4
-    tool_nav: 13.58
+    ev_pct: -27.98
+    tool_nav: 13.83
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.18
+    k_broker: 1.17
     sector: crude
   ECO:
     pnav_basis: pareto
@@ -99,10 +99,10 @@ names:
     sector: crude
   GNK:
     pnav_basis: pareto
-    ev_pct: -4.94
-    tool_nav: 25.98
-    position_band: HOLD (fairly valued)
-    k_broker: 1.08
+    ev_pct: -7.53
+    tool_nav: 25.26
+    position_band: TRIM/SHORT (overvalued)
+    k_broker: 1.1
     sector: dry_bulk
   GSL:
     pnav_basis: approx

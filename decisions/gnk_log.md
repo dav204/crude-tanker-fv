@@ -1,5 +1,44 @@
 # GNK — Decision Log
 
+## 2026-08-08T23:10:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.33
+- Single-point FV: $24.51
+- Scenario PW FV: $23.42 (EV -7.5%)
+- NAV / share: $25.26
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.6pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: no change | Δsingle FV: -2.5% | Δscenario FV: -2.7% | ΔNAV: -2.8% | Δspread: +2.4pp
+
+**Decision:** Q2 REPORT-DAY REFRESH (backlog drain #7, transition mechanism — pair landed
+together, preflight clean). Source: Q2 10-Q acc 0001104659-26-091231 (8/5). Subsequent
+events EXCLUDED: the Genco Volunteer August delivery (at 6/30 a COMMITTED acquisition —
+on-curve via years_to_delivery per the TRMD §9.6 resale precedent, remaining commitment
+$57.5M = 65.0 − 1.0 delay reduction − 6.5 deposit, all Note-5 cited), the 7/15 $50M
+revolver draw funding it, the 8/5 $0.80/sh dividend (~$35.6M). NAV $25.98→$25.26 (−2.8%)
+— INSIDE the pre-registered band [24.11, 26.65] (point $25.38): the new Volunteer
+commitment −57.5 against its on-curve value (+~62 at the Cape mark × PV) + cash +18.8 −
+0.5y aging; Predator OUT (delivered to buyers 4/15). **THE PRE-REGISTERED FLIP FIRED:
+HOLD→TRIM/SHORT at EV −7.5%** (the −5% band edge) — D-M5 interval triage: price $25.33
+INSIDE [17.93, 29.63] → BAND-MECH by rule, no owner eyeball owed. Context: GNK's third
+label change in two weeks (T/S→HOLD at the 8/07 price absorb, band-mech; HOLD→T/S now on
+Q2 fundamentals) — like GSL, the name SITS ON its band boundary; label churn is the
+boundary, not signal. §12 relabel applies downstream (rich · cycle family, not a short).
+**TENDER REGIME OVER (open-item #1 CLOSES): the hostile tender EXPIRED** (Item 1A; a
+non-binding indicative offer continues — the tape stays M&A-influenced but un-PINNED;
+the tool's read is now a clean NAV-relative one). Open-item #3 note: the SBLK 16-vessel
+purchase was contingent on tender success — presumptively dead; VERIFY at the SBLK
+refresh (next). Scrubbers: no per-vessel column in the 10-Q fleet table — GNK stays in
+OPERATING_SCRUBBER_QUEUE (Volunteer's own flag issuer-stated true). Both halves verified
+(73.6/16.8/330.0/57.5). Forward invariance held (24 names 0.0). Ratified same day.
+
+---
+
 ## 2026-08-08T22:31:32+00:00 — Pipeline run (auto)
 
 **Model state:**

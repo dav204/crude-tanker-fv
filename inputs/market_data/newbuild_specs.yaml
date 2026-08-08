@@ -154,3 +154,14 @@ ASC:
     scrubbers fleet-wide (20-F; the strategy is eco-design + biofuel/carbon-capture, not
     scrubber retrofit), so the zero flag traces to the company's own stated equipment
     policy rather than to silence about these hulls.
+GNK:
+  eco: true
+  scrubber: true
+  scrubber_verified: true
+  source: >
+    OFFICIAL: GNK Q2-2026 10-Q (SEC CIK 1326200, acc 0001104659-26-091231) Note 5 and
+    Note 15: the Genco Volunteer is "a 2019-built, 182,000 dwt scrubber-fitted Capesize
+    vessel" — vessel-specific issuer statement (not a fleet aggregate, not peer-borrowed).
+    eco via §3.1 post-2014 build rule (2019). Committed secondhand acquisition on-curve
+    via years_to_delivery (TRMD §9.6 resale precedent); delivers August 2026. Registered
+    2026-08-08 at the Q2 refresh.

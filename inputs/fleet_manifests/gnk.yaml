@@ -5,7 +5,11 @@
 # + the per-vessel employment table at pages 33-34 (as of May 5, 2026).
 #
 # Quarter-end convention (CLAUDE.md: trust the report at quarter-end): manifest
-# carries the Mar-31 fleet of 44, INCLUDING Genco Predator (2005 Supramax,
+# Q2 REFRESH 2026-08-08, AS-OF 2026-06-30 (10-Q acc 0001104659-26-091231): 43
+# operating (2 Ncmax + 17 Cape + 15 Ultra + 9 Supra; Predator DELIVERED to
+# buyers 4/15, Note 5) + the Genco_Volunteer committed row (§9.6 via
+# years_to_delivery, delivers Aug). Ages = 2026.5 − built. Tender EXPIRED
+# (Item 1A) — the tape's tender-pin regime is over.
 # held-for-sale at Mar-31, sale completed Apr 15 2026 at $10.6M less 3%
 # commission). The held-for-sale carrying value ($8,585k) is EXCLUDED from
 # working_capital_net in the balance sheet to avoid double-counting.
@@ -24,12 +28,12 @@
 # Charter detail from the May-5 employment table: fixed TCs entered with rate +
 # earliest expiration; index-linked (% of BCI) marked spot (spot economics).
 ticker: GNK
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
   - id: Genco_Stars_and_Stripes
     class: Cape
     dwt: 208000
-    age: 6      # built 2020
+    age: 6.5      # built 2020
     scrubber: true
     eco: true
     charter_status: spot
@@ -38,7 +42,7 @@ vessels:
   - id: Genco_Valkyrie
     class: Cape
     dwt: 208000
-    age: 6      # built 2020
+    age: 6.5      # built 2020
     scrubber: true
     eco: true
     charter_status: spot
@@ -47,7 +51,7 @@ vessels:
   - id: Genco_Augustus
     class: Cape
     dwt: 172000
-    age: 19      # built 2007
+    age: 19.5      # built 2007
     scrubber: true
     eco: false
     charter_status: spot
@@ -56,7 +60,7 @@ vessels:
   - id: Genco_Tiberius
     class: Cape
     dwt: 172000
-    age: 19      # built 2007
+    age: 19.5      # built 2007
     scrubber: true
     eco: false
     charter_status: time_charter
@@ -65,7 +69,7 @@ vessels:
   - id: Genco_London
     class: Cape
     dwt: 172000
-    age: 19      # built 2007
+    age: 19.5      # built 2007
     scrubber: true
     eco: false
     charter_status: spot
@@ -74,7 +78,7 @@ vessels:
   - id: Genco_Titus
     class: Cape
     dwt: 172000
-    age: 19      # built 2007
+    age: 19.5      # built 2007
     scrubber: true
     eco: false
     charter_status: spot
@@ -83,7 +87,7 @@ vessels:
   - id: Genco_Constantine
     class: Cape
     dwt: 172000
-    age: 18      # built 2008
+    age: 18.5      # built 2008
     scrubber: true
     eco: false
     charter_status: spot
@@ -92,7 +96,7 @@ vessels:
   - id: Genco_Bear
     class: Cape
     dwt: 179000
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true
     eco: false
     charter_status: spot      # index-linked TC (% of BCI) = spot economics
@@ -101,7 +105,7 @@ vessels:
   - id: Genco_Wolf
     class: Cape
     dwt: 179000
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true
     eco: false
     charter_status: spot      # index-linked TC (% of BCI) = spot economics
@@ -110,7 +114,7 @@ vessels:
   - id: Genco_Tiger
     class: Cape
     dwt: 179000
-    age: 15      # built 2011
+    age: 15.5      # built 2011
     scrubber: true
     eco: false
     charter_status: spot
@@ -119,7 +123,7 @@ vessels:
   - id: Genco_Lion
     class: Cape
     dwt: 179000
-    age: 14      # built 2012
+    age: 14.5      # built 2012
     scrubber: true
     eco: false
     charter_status: spot      # index-linked TC (% of BCI) = spot economics
@@ -128,7 +132,7 @@ vessels:
   - id: Genco_Endeavour
     class: Cape
     dwt: 180500
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true
     eco: true
     charter_status: spot
@@ -137,7 +141,7 @@ vessels:
   - id: Genco_Resolute
     class: Cape
     dwt: 180500
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true
     eco: true
     charter_status: spot
@@ -146,7 +150,7 @@ vessels:
   - id: Genco_Defender
     class: Cape
     dwt: 180500
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true
     eco: true
     charter_status: spot
@@ -155,7 +159,7 @@ vessels:
   - id: Genco_Liberty
     class: Cape
     dwt: 180500
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true
     eco: true
     charter_status: spot
@@ -164,7 +168,7 @@ vessels:
   - id: Genco_Ranger
     class: Cape
     dwt: 180500
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true
     eco: true
     charter_status: spot
@@ -173,7 +177,7 @@ vessels:
   - id: Genco_Reliance
     class: Cape
     dwt: 180500
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true
     eco: true
     charter_status: spot
@@ -182,7 +186,7 @@ vessels:
   - id: Genco_Intrepid
     class: Cape
     dwt: 180500
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true
     eco: true
     charter_status: spot
@@ -191,7 +195,7 @@ vessels:
   - id: Genco_Courageous
     class: Cape
     dwt: 182000
-    age: 6      # built 2020
+    age: 6.5      # built 2020
     scrubber: true
     eco: true
     charter_status: spot
@@ -200,7 +204,7 @@ vessels:
   - id: Genco_Hornet
     class: Supra-Ultra
     dwt: 63500
-    age: 12      # built 2014
+    age: 12.5      # built 2014
     scrubber: false
     eco: true
     charter_status: spot
@@ -209,7 +213,7 @@ vessels:
   - id: Genco_Wasp
     class: Supra-Ultra
     dwt: 63500
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: false
     eco: true
     charter_status: time_charter
@@ -218,7 +222,7 @@ vessels:
   - id: Genco_Scorpion
     class: Supra-Ultra
     dwt: 63500
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: false
     eco: true
     charter_status: time_charter
@@ -227,7 +231,7 @@ vessels:
   - id: Genco_Mantis
     class: Supra-Ultra
     dwt: 63500
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: false
     eco: true
     charter_status: spot
@@ -236,7 +240,7 @@ vessels:
   - id: Genco_Weatherly
     class: Supra-Ultra
     dwt: 63500
-    age: 12      # built 2014
+    age: 12.5      # built 2014
     scrubber: false
     eco: true
     charter_status: spot
@@ -245,7 +249,7 @@ vessels:
   - id: Genco_Columbia
     class: Supra-Ultra
     dwt: 63500
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: false
     eco: true
     charter_status: spot
@@ -254,7 +258,7 @@ vessels:
   - id: Genco_Magic
     class: Supra-Ultra
     dwt: 63500
-    age: 12      # built 2014
+    age: 12.5      # built 2014
     scrubber: false
     eco: true
     charter_status: time_charter
@@ -263,7 +267,7 @@ vessels:
   - id: Genco_Vigilant
     class: Supra-Ultra
     dwt: 63500
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: false
     eco: true
     charter_status: spot
@@ -272,7 +276,7 @@ vessels:
   - id: Genco_Freedom
     class: Supra-Ultra
     dwt: 63500
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: false
     eco: true
     charter_status: spot
@@ -281,7 +285,7 @@ vessels:
   - id: Genco_Enterprise
     class: Supra-Ultra
     dwt: 63500
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: false
     eco: true
     charter_status: spot
@@ -290,7 +294,7 @@ vessels:
   - id: Genco_Constellation
     class: Supra-Ultra
     dwt: 63500
-    age: 9      # built 2017
+    age: 9.5      # built 2017
     scrubber: false
     eco: true
     charter_status: time_charter
@@ -299,7 +303,7 @@ vessels:
   - id: Genco_Madeleine
     class: Supra-Ultra
     dwt: 63500
-    age: 12      # built 2014
+    age: 12.5      # built 2014
     scrubber: false
     eco: true
     charter_status: time_charter
@@ -308,7 +312,7 @@ vessels:
   - id: Genco_Mayflower
     class: Supra-Ultra
     dwt: 63500
-    age: 9      # built 2017
+    age: 9.5      # built 2017
     scrubber: false
     eco: true
     charter_status: time_charter
@@ -317,7 +321,7 @@ vessels:
   - id: Genco_Mary
     class: Supra-Ultra
     dwt: 63500
-    age: 4      # built 2022
+    age: 4.5      # built 2022
     scrubber: false
     eco: true
     charter_status: spot
@@ -326,7 +330,7 @@ vessels:
   - id: Genco_Laddey
     class: Supra-Ultra
     dwt: 63500
-    age: 4      # built 2022
+    age: 4.5      # built 2022
     scrubber: false
     eco: true
     charter_status: time_charter
@@ -335,7 +339,7 @@ vessels:
   - id: Genco_Hunter
     class: Supra-Ultra
     dwt: 56000
-    age: 19      # built 2007
+    age: 19.5      # built 2007
     scrubber: false
     eco: false
     charter_status: time_charter
@@ -344,7 +348,7 @@ vessels:
   - id: Genco_Aquitaine
     class: Supra-Ultra
     dwt: 56000
-    age: 17      # built 2009
+    age: 17.5      # built 2009
     scrubber: false
     eco: false
     charter_status: spot
@@ -353,7 +357,7 @@ vessels:
   - id: Genco_Ardennes
     class: Supra-Ultra
     dwt: 56000
-    age: 17      # built 2009
+    age: 17.5      # built 2009
     scrubber: false
     eco: false
     charter_status: time_charter
@@ -362,7 +366,7 @@ vessels:
   - id: Genco_Auvergne
     class: Supra-Ultra
     dwt: 56000
-    age: 17      # built 2009
+    age: 17.5      # built 2009
     scrubber: false
     eco: false
     charter_status: time_charter
@@ -371,7 +375,7 @@ vessels:
   - id: Genco_Bourgogne
     class: Supra-Ultra
     dwt: 56000
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: false
     eco: false
     charter_status: time_charter
@@ -380,7 +384,7 @@ vessels:
   - id: Genco_Brittany
     class: Supra-Ultra
     dwt: 56000
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: false
     eco: false
     charter_status: time_charter
@@ -389,7 +393,7 @@ vessels:
   - id: Genco_Languedoc
     class: Supra-Ultra
     dwt: 56000
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: false
     eco: false
     charter_status: spot
@@ -398,7 +402,7 @@ vessels:
   - id: Genco_Pyrenees
     class: Supra-Ultra
     dwt: 56000
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: false
     eco: false
     charter_status: spot
@@ -407,34 +411,31 @@ vessels:
   - id: Genco_Rhone
     class: Supra-Ultra
     dwt: 56000
-    age: 15      # built 2011
+    age: 15.5      # built 2011
     scrubber: false
     eco: false
     charter_status: time_charter
     charter_rate: 15500
     charter_end: 2026-05-31
-  - id: Genco_Predator
-    class: Supra-Ultra
-    dwt: 56000
-    age: 21      # built 2005
-    scrubber: false
-    eco: false
-    charter_status: spot      # held for sale at Mar-31; sold Apr 15 2026 for $10.6M
+  - id: Genco_Volunteer
+    class: Cape
+    dwt: 182000
+    age: 7.5      # built 2019
+    scrubber: true   # Note 5: "scrubber-fitted Capesize"
+    eco: true
+    charter_status: spot
     charter_rate: null
     charter_end: null
-# Spot coverage per class — from the May-5 employment table.
-# Cape: 18 of 19 on voyage/spot or index-linked BCI; only Tiberius on fixed TC.
-# Supra-Ultra: 12 of 25 on voyage/spot; 13 on short fixed TCs (all expire
-# May-Jul 2026 — effectively rolling near-spot exposure).
+    years_to_delivery: 0.1   # committed 4/16 (Note 5), delivers August 2026 — §9.6 on-curve, TRMD resale precedent
 spot_coverage_pct:
   Cape: 0.95
   Supra-Ultra: 0.48
 
 # Fleet summary — cross-check against vessels list.
 fleet_summary:
-  Cape_count: 19
-  avg_age_Cape: 12.9
-  Supra-Ultra_count: 25
-  avg_age_Supra-Ultra: 12.8
-  total_operating: 44
-  newbuildings_on_order: 0     # no NB orderbook; Apr-16 2026 secondhand cape agreement is post-Q
+  Cape_count: 20               # 19 operating (2 Ncmax + 17 Cape) + the Volunteer committed row
+  avg_age_Cape: 13.1
+  Supra-Ultra_count: 24        # 15 Ultra + 9 Supra (Predator delivered to buyers 4/15)
+  avg_age_Supra-Ultra: 13.1
+  total_operating: 43          # at 2026-06-30 (excl. the Volunteer committed row)
+  committed_acquisitions: 1    # Genco Volunteer, §9.6 on-curve via years_to_delivery (Aug delivery)

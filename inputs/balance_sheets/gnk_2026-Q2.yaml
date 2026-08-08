@@ -1,0 +1,50 @@
+# Genco Shipping & Trading (NYSE:GNK) balance sheet — METHODOLOGY §4.2. USD.
+# Source: Q2-2026 10-Q (EDGAR acc 0001104659-26-091231, filed 2026-08-05), Condensed
+# Consolidated Balance Sheet 2026-06-30 column + Notes 5/15. Q2 refresh 2026-08-08.
+# Subsequent events (Note 15) audited FIRST and kept OUT: the Genco Volunteer
+# DELIVERY (August; at 6/30 it is a COMMITTED acquisition — on-curve row via
+# years_to_delivery per the TRMD-resale §9.6 precedent, remaining commitment
+# below), the 7/15 $50,000k revolver draw funding it, and the 8/5 $0.80/sh
+# dividend (~$35.6M, record 8/17). TENDER REGIME OVER: the hostile tender has
+# EXPIRED (Item 1A: "a tender offer that has since expired"; a non-binding
+# indicative offer continues) — the tender-pin on the tape is released.
+
+ticker: GNK
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1326200/000110465926091231/
+retrieved_at: 2026-08-08
+filing_period_end: 2026-06-30
+
+cash_and_equivalents: 73587000       # "Cash and cash equivalents"
+
+# Working capital net (non-cash, non-debt; Q1 convention):
+#   (due from charterers 26,719 + prepaid 10,473 + inventories 25,549)
+#   − (AP + accrued 38,090 + deferred revenue 7,803)
+#   = 62,741 − 45,893 = 16,848 ($k).
+# "Deposits on vessels" 6,563 (the Volunteer escrow + interest) EXCLUDED here —
+# embedded in the on-curve §9.6 treatment below (advances → 0). Genco Predator
+# (the Q1 HFS-carrying exclusion) was DELIVERED to buyers 4/15 — out of both
+# the fleet and this sheet.
+working_capital_net: 16848000
+
+# Total debt: $680M Revolver drawn FACE principal at 6/30 = $330,000 ($k)
+# (BS net-of-fees 319,508 + deferred financing costs 10,492; NAV uses face —
+# Q1 convention). Flat vs 3/31 in face terms; the 7/15 +$50,000 draw is post-Q2.
+total_debt: 330000000
+
+# Long-term operating lease liabilities (office): 5,693 ($k).
+lease_liabilities: 5693000
+
+# Genco Volunteer (2019-built 182,000 dwt scrubber-fitted Capesize, Note 5):
+# committed at 6/30, August delivery — ON-curve via years_to_delivery (TRMD
+# §9.6 resale precedent). Remaining commitment = 65,000 purchase price
+# − ~1,000 delay reduction ($20k/day from 6/15, Note 5) − 6,500 deposit paid
+# 5/1 = 57,500 ($k). Advances → 0 (deposit embedded in delivered value).
+newbuild_capex_commitments: 57500000
+newbuild_advances_paid: 0
+
+# Weighted-average diluted shares, Q2-2026 income statement (Q1 convention):
+# basic 43,872,514; diluted 44,572,591. (BS issued-and-outstanding 43,586,605.)
+diluted_shares_outstanding: 44572591
+
+preferred_equity: 0

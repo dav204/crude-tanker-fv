@@ -33,7 +33,10 @@ def test_time_to_delivery_discount_pulls_nav_into_sanity_band():
 def test_on_water_names_carry_no_delivery_discount():
     """Backward-compat: the §9.6 field is opt-in — an existing on-water fleet
     has years_to_delivery == 0 on every vessel, so its NAV is unaffected.
-    (DHT moved off this set 2026-06-30 — DHT Impala is now an on-curve newbuild;
-    GNK is the on-water-only example.)"""
-    ci = load_company_inputs("GNK", "2026-Q1")
+    (DHT moved off this set 2026-06-30 — Impala; GNK moved off 2026-08-08 —
+    the Genco Volunteer committed row. CMDB is the on-water-only example now:
+    zero years_to_delivery rows in its manifest.)"""
+    from conftest import BOOK_QUARTER
+
+    ci = load_company_inputs("CMDB", BOOK_QUARTER)
     assert all((v.years_to_delivery or 0) == 0.0 for v in ci.fleet.vessels)

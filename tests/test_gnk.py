@@ -5,6 +5,7 @@ Data populated 2026-06-09 from the Q1 2026 10-Q (accession
 the Diana-tender deal context.
 """
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 
 from crude_tanker_fv.loaders import load_company_inputs
@@ -13,7 +14,7 @@ from crude_tanker_fv.pipeline import value_company
 
 @pytest.fixture(scope="module")
 def gnk_inputs():
-    return load_company_inputs("GNK", "2026-Q1")
+    return load_company_inputs("GNK", BOOK_QUARTER)
 
 
 def test_inputs_load(gnk_inputs):
@@ -26,17 +27,20 @@ def test_fleet_shape(gnk_inputs):
     25 Supra-Ultra (15 ultramax + 10 supramax incl. held-for-sale Predator).
     No Pana exposure."""
     vessels = gnk_inputs.fleet.vessels
+    # Re-pinned 2026-08-08 (Q2 refresh): 43 operating (Predator delivered to
+    # buyers 4/15) + the Genco_Volunteer committed row (§9.6 via
+    # years_to_delivery) = 44 rows; Cape 20 (incl. Volunteer) / Supra-Ultra 24.
     assert len(vessels) == 44
     by_class = {}
     for v in vessels:
         by_class[v.cls] = by_class.get(v.cls, 0) + 1
-    assert by_class == {"Cape": 19, "Supra-Ultra": 25}
+    assert by_class == {"Cape": 20, "Supra-Ultra": 24}
 
 
 def test_gnk_valuation_runs_and_reconciles():
     """NAV computes, and the tool↔broker gap stays inside the ±50% sanity bar
     (broker NAV = $24.00 / 0.87 = $27.59 per Pareto Jun-4 2026)."""
-    r = value_company("GNK", "2026-Q1", current_price=24.00, analyst_target=24.80)
+    r = value_company("GNK", BOOK_QUARTER, current_price=24.00, analyst_target=24.80)
     nav = r.nav.nav_per_share
     broker_nav = 24.00 / 0.87
     gap = nav / broker_nav - 1.0
