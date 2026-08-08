@@ -2,7 +2,7 @@
 
 > **Price basis:** all 25 prices live.
 
-> **Balance-sheet basis: 20 of 25 names on a pre-2026-Q2 vintage:** 2343 (2026-Q1), BRUT (2026-Q1), BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), CMDB (2026-Q1), DHT (2026-Q1), FLNG (2026-Q1), FRO (2026-Q1), GNK (2026-Q1), GSL (2026-Q1), HAFN (2026-Q1), INSW (2026-Q1), LPG (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), SBLK (2026-Q1), STNG (2026-Q1), TEN (2026-Q1), TRMD (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
+> **Balance-sheet basis: 19 of 25 names on a pre-2026-Q2 vintage:** 2343 (2026-Q1), BRUT (2026-Q1), BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), CMDB (2026-Q1), DHT (2026-Q1), FLNG (2026-Q1), FRO (2026-Q1), GNK (2026-Q1), GSL (2026-Q1), HAFN (2026-Q1), INSW (2026-Q1), LPG (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), SBLK (2026-Q1), TEN (2026-Q1), TRMD (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
 
 > **Rate basis:** Supra-Ultra 2027+2028 strip legs HELD at the 13-Jul synthesis (Cal-27 14,175): the Smax Cal27 row is cropped from every capture of the new source (Chris.Palun, 2026-07-20 →) — front (q1/q2/12M/spot) IS the 24-Jul print. Held-node bracket per ffa_promotion_2026-07-24.md; retires at the first capture showing Smax Cal27 (owner channel-ask staged). Handy-Bulk derived row inherits the same mix via the x0.90 identity.
 
@@ -48,7 +48,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | MPCC | containerships | GOVERNED-WIDE · structural-class | $2.56 | $2.06 | 1.69–2.20 | -19% | unreliable read (not actionable) | $2.21 | $2.04 | $2.46 (apx) | -17% | n-a | ready | — |
 | BRUT | crude | PROVISIONAL · cash-pending ⛔ | $6.41 | $6.45 | 0.07–17.18 | +1% | unreliable read (not actionable) | $9.27 | $8.80 | $8.90 | -1% | OK | **NO** | **⚠ sign flips** |
 | HAFN | product | PROVISIONAL · pool-gross-up-pending ⛔ | $7.51 | $6.23 | 3.70–8.87 | -17% | rich · cycle position (not a short) | $5.99 | $5.57 | $8.73 | -36% | OK | **NO** | stable |
-| STNG | product | PROVISIONAL · off-curve ⛔ | $76.08 | $76.87 | 51.31–101.53 | +1% | HOLD (fairly valued) | $75.86 | $77.13 | $110.26 | -30% | OK | **NO** | **⚠ sign flips** |
+| STNG | product | PROVISIONAL · off-curve ⛔ | $76.08 | $73.73 | 53.14–92.85 | -3% | HOLD (fairly valued) | $73.34 | $76.42 | $110.26 | -31% | OK | **NO** | stable |
 | BWLP | lpg | PROVISIONAL · v1-lock-miss ⛔ | $21.60 | $14.46 | 10.82–18.27 | -33% | rich · cycle position (not a short) | $15.43 | $15.80 | $22.27 | -29% | OK | **NO** | stable |
 | LPG | lpg | PROVISIONAL · v1-lock-miss ⛔ | $45.76 | $30.55 | 23.06–38.50 | -33% | rich · cycle position (not a short) | $32.76 | $34.11 | $54.48 | -37% | OK | **NO** | stable |
 
@@ -78,7 +78,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | TNK | crude | VALIDATED-TIGHT | resale-uniform | 0.80× | rich→rich | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | ASC | product | GOVERNED-WIDE | pending-sourceable | 0.86× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | HAFN | product | PROVISIONAL ⛔ | pending-sourceable | 1.26× | no anchor→fair | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
-| STNG | product | PROVISIONAL ⛔ | pending-sourceable | 0.95× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
+| STNG | product | PROVISIONAL ⛔ | pending-sourceable | 0.96× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | TRMD | product | GOVERNED-WIDE | pending-sourceable | 0.91× | no anchor→rich | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | 2343 | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.98× | cheap→cheap | robust | clears (+unvalidated) | pending | pending | comparable; §18.5 gates pending |
 | CMDB | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.53× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
