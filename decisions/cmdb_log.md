@@ -14,7 +14,7 @@
 **Deltas since last run:** _(no material moves)_
 - Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
 
-**Decision:** _[pending annotation]_
+**Decision:** WF ARTEMIS RETRO-FLAG increment: EV -0.9pp / NAV -0.9% (Ultramax cohort repriced on the corrected Supra anchors). Inside tolerance vs the standing baseline, no ratify at this event. BUY stands. (Recorded per the owner's sector-completeness catch 2026-08-09.)
 
 ---
 

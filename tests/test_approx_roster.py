@@ -42,3 +42,24 @@ def test_every_approx_name_is_on_the_watchlist():
     wl = set(load_watchlist())
     missing = APPROX_PNAV_TICKERS - wl
     assert not missing, f"APPROX roster names off the watchlist: {missing}"
+
+
+def test_ten_untabled_is_tracked_not_fine():
+    # OWNER CATCH 2026-08-09: pinning TEN in the untabled bucket codifies that its
+    # consensus pair can NEVER be recaptured from Pareto — and TEN is the $44 lesson
+    # the whole pair discipline is named after. A green pin must not imply the
+    # situation is fine. This guard makes the tracking EXPLICIT: TEN's watchlist
+    # pnav must carry a dated APPROX basis note (staleness visible in-file), and its
+    # vintage staleness is watched by the sentinel consensus-vintage lane (the
+    # all_sectors_consensus_pair_recapture observable). The ALTERNATIVE-ANCHOR
+    # question (VIE? company-implied? none?) is DOCKETED for the owner — see
+    # PLAN.md owner items; resolving it should move TEN out of this guard.
+    import re
+    from pathlib import Path
+    wl_text = Path("inputs/watchlist.yaml").read_text()
+    m = re.search(r"^TEN:.*?(?=^\S)", wl_text, re.M | re.S)
+    assert m, "TEN watchlist block not found"
+    assert "APPROX" in m.group(0), "TEN's pnav lost its APPROX marker"
+    assert re.search(r"20\d\d-\d\d(-\d\d)?", m.group(0)), (
+        "TEN's APPROX basis carries no date — staleness must be visible in-file"
+    )

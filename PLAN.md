@@ -50,8 +50,12 @@ checks → **wire Stage A** per the rulings + the §4 riders (DHT Jaguar coverag
 spot_tce promotion incl. LNGC 65,000 from MB W32 · C-2 rerun) → ADDENDUM flip inventory (TRMD
 BUY toward the +5 boundary is EXPECTED-direction; ANY flip toward BUY = halt-and-investigate)
 → one ratify citing the prereg → re-arm the trigger. PANL reports 8/10 after close (seed
-decision = owner's). (2) **Owner words pending:** SBLK frozen-flip disposition (+ leg-2
-interplay, governance side) · watchlist rebase promote · push both repos. (3) **Wed 8/13:**
+decision = owner's). (2) **Owner words pending:** watchlist rebase promote (draft
+staged, checklist in-file) · SBLK leg-2 (governance; producer FV $31.28 ≈ the proposed
+$31.30 line, ex-div ~8/21) · **TEN alternative-anchor decision** (the roster pin
+codifies TEN as never-Pareto-recapturable — the $44-lesson name; guard
+test_ten_untabled_is_tracked_not_fine keeps it visibly tracked, but the real fix is an
+alternative anchor [VIE? company-implied?] or an accepted explicit-staleness stance). (3) **Wed 8/13:**
 BRUT H1 (Rider 4 alert: any BRUT 12M/FFA print supersedes for its classes). (4) **Sat 8/16:**
 `crude_day60_toll_cliff` — the pre-registered crude+product re-derivation venue (regardless of
 Hormuz outcome; branch state at 8/09: ambiguous pause persists, Oman channel live). (5) **Stage

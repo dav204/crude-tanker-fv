@@ -14,7 +14,7 @@
 **Deltas since last run:** _(no material moves)_
 - Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
 
-**Decision:** _[pending annotation]_
+**Decision:** WF ARTEMIS RETRO-FLAG — THE DRY-VALIDATOR LINE (owner catch 2026-08-09: the event report had a sector hole). GNK took the LARGEEST dry NAV increment of the correction: NAV -1.0% / EV -0.8pp (vs SBLK -0.8%/-0.7) — consistent with 25-of-44 hulls Supra-Ultra (57% by count, more Supra-weighted than SBLK's book), tempered by Cape value-dominance. NO ratify at this event — the increment sits INSIDE tolerance vs the standing FFA-event baseline (gate clean for the right reason). MARK-DISCRIMINATION NOTE: GNK is a dry-bulk sector validator (README); k_broker now 1.10 (the correction lowers tool NAV, raising k ~+0.01) — comfortably inside the validated range on either band framing (the crude pure-play band was re-pinned (0.95,1.15) 8/09; the k doctrine reads across txn-anchored sectors). TRIM/SHORT stands.
 
 ---
 
