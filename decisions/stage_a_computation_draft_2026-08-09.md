@@ -133,3 +133,28 @@ which is verified real).
   (8/13, H1) is marginal. The prereg's own basis language is "everything landed by
   Aug-14 close." (My rec: **wait for INSW**, wire 8/10 after the pre-market print —
   still 5 days inside the deadline; one promotion, one ratify, prereg-faithful.)
+
+---
+
+## OWNER RULINGS (2026-08-09, in-session — the draft unblocks)
+
+- **D-4 RULED: WAIT FOR INSW** (8/10 pre-market) — Stage A wires 2026-08-10 after the
+  INSW print: run the INSW report-day refresh FIRST (pair flow), extract its Q3 QTD
+  bookings + any fixtures, RECOMPUTE the §2 medians and §5 checks with the new prints
+  (Aframax off single-print; LR1 possibly direct; VLCC/Suez front medians three-wide),
+  then one promotion + one ratify. BRUT 8/13 rides Stage B unless Rider 4 fires.
+- **D-1a/b RULED: ACCEPT POST-INVESTIGATION** — the computed VLCC front/term stand as
+  recomputed tomorrow; breach documentation carries into the promotion record verbatim.
+- **D-2 RULED: MOUNT HORIZON $105,700** sets the VLCC 12M line, tagged single-print +
+  spec-premium (dual-fuel NB); derived-interp rejected. Suezmax 12M consequently
+  derives to ~0.549 × the ruled VLCC 12M (≈58,050 pre-INSW; recomputes tomorrow).
+- **D-3 RULED: §4 LETTER $28,000** for LR2_clean term, war-inverted-ratio distortion
+  flagged in vintage_notes; Stage B (HAFN 8/28 / TRMD 8/26) is the correction venue.
+
+Standing items into tomorrow's wiring: the §4 batched riders (DHT Jaguar coverage +
+spot_tce promotion incl. the LNGC 65,000 MB W32 print + C-2 rerun + ADDENDUM flip
+inventory with TRMD's BUY under the halt-toward-BUY rule) execute with the promotion;
+SBLK's 8/09 BUY→HOLD band-mech flip remains FROZEN-FOR-OWNER-REVIEW (composition-
+driven; one-word disposition at review); the watchlist vintage rebase docket item is
+now URGENT-adjacent (the k_broker premium collapsed to ~1.00-1.04 partly on pnav
+vintage skew — rebase re-reads it cleanly).
