@@ -2,7 +2,7 @@
 
 > **Price basis:** all 25 prices live.
 
-> **Balance-sheet basis: 14 of 25 names on a pre-2026-Q2 vintage:** BRUT (2026-Q1), BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), CMDB (2026-Q1), FLNG (2026-Q1), FRO (2026-Q1), HAFN (2026-Q1), INSW (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), SBLK (2026-Q1), TEN (2026-Q1), TRMD (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
+> **Balance-sheet basis: 13 of 25 names on a pre-2026-Q2 vintage:** BRUT (2026-Q1), BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), CMDB (2026-Q1), FLNG (2026-Q1), FRO (2026-Q1), HAFN (2026-Q1), INSW (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), TEN (2026-Q1), TRMD (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
 
 > **Rate basis:** Supra-Ultra 2027+2028 strip legs HELD at the 13-Jul synthesis (Cal-27 14,175): the Smax Cal27 row is cropped from every capture of the new source (Chris.Palun, 2026-07-20 →) — front (q1/q2/12M/spot) IS the 24-Jul print. Held-node bracket per ffa_promotion_2026-07-24.md; retires at the first capture showing Smax Cal27 (owner channel-ask staged). Handy-Bulk derived row inherits the same mix via the x0.90 identity.
 
@@ -31,7 +31,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | FRO | crude | VALIDATED-TIGHT | $39.74 | $23.15 | 13.43–40.10 | -42% | rich · cycle position (not a short) | $26.41 | $24.11 | $29.01 | -17% | OK | ready | stable |
 | TNK | crude | VALIDATED-TIGHT | $77.25 | $79.87 | 68.02–102.30 | +3% | HOLD (fairly valued) | $86.17 | $84.60 | $105.82 | -20% | OK | ready | **⚠ sign flips** |
 | SB | dry_bulk | VALIDATED-TIGHT | $7.60 | $9.47 | 7.19–12.14 | +25% | BUY (undervalued) | $9.70 | $10.03 | $8.64 (apx) | +16% | n-a | ready | stable |
-| SBLK | dry_bulk | VALIDATED-TIGHT | $28.90 | $28.62 | 22.03–35.72 | -1% | HOLD (fairly valued) | $29.66 | $30.64 | $37.05 | -17% | OK | ready | **⚠ sign flips** |
+| SBLK | dry_bulk | VALIDATED-TIGHT | $28.90 | $30.22 | 23.51–37.45 | +5% | HOLD (fairly valued) | $31.28 | $32.39 | $37.05 | -13% | OK | ready | stable |
 | CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $13.94 | $13.38 | 7.21–24.41 | -4% | HOLD (fairly valued) | $16.03 | $15.49 | $20.20 | -23% | OK | ready | stable |
 | CMBT | crude | GOVERNED-WIDE · structural-class | $16.29 | $14.11 | 8.86–21.30 | -13% | TRIM/SHORT (overvalued) | $15.57 | $16.19 | $22.32 | -27% | OK | ready | stable |
 | INSW | crude | GOVERNED-WIDE · pending-anchor | $92.41 | $54.46 | 38.47–77.73 | -41% | rich · cycle position (not a short) | $38.50 | $52.48 | $83.25 | -37% | OK | ready | stable |
@@ -84,7 +84,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | CMDB | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.53× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
 | GNK | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.97× | cheap→fair | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
 | SB | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.64× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
-| SBLK | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.82× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| SBLK | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.78× | cheap→cheap | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | CCEC | lng | GOVERNED-WIDE | structural-unavailable | 0.84× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | FLNG | lng | GOVERNED-WIDE | structural-unavailable | 1.03× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | GSL | containerships | GOVERNED-WIDE | structural-unavailable | 0.95× | no anchor→cheap | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |

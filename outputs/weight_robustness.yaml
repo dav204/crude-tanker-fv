@@ -276,13 +276,13 @@ names:
     - BUY
     - BUY
   SBLK:
-    ev_min_pct: -5.1
-    ev_max_pct: 2.8
-    ev_sign_stable: false
+    ev_min_pct: 0.4
+    ev_max_pct: 8.4
+    ev_sign_stable: true
     positions:
     - HOLD
+    - BUY
     - HOLD
-    - TRIM/SHORT
   STNG:
     ev_min_pct: -13.8
     ev_max_pct: -3.1

@@ -12,7 +12,7 @@ Mark-spread robustness is the OTHER dimension — cross-read with `outputs/broke
 
 | Ticker | Weight robustness | What drives the call |
 |---|---|---|
-| SBLK | ⚑ driven | HOLD under Set A/Set B; TRIM/SHORT under Set C |
+| SBLK | ⚑ driven | HOLD under Set A/Set C; BUY under Set B |
 | GNK | ⚑ driven | TRIM/SHORT under Set A/Set C; HOLD under Set B |
 | CMDB | ✓ robust | position BUY across all 3 weight sets |
 | SB | ✓ robust | position BUY across all 3 weight sets |
@@ -31,7 +31,7 @@ Mark-spread robustness is the OTHER dimension — cross-read with `outputs/broke
 
 | Ticker | Set A EV | Set B EV | Set C EV | Robustness | Notes |
 |---|--:|--:|--:|---|---|
-| SBLK | -1.0% (HOLD) | +2.8% (HOLD) | -5.1% (TRIM/SHORT) | ⚑ driven | HOLD under Set A/Set B; TRIM/SHORT under Set C |
+| SBLK | +4.6% (HOLD) | +8.4% (BUY) | +0.4% (HOLD) | ⚑ driven | HOLD under Set A/Set C; BUY under Set B |
 | GNK | -7.5% (TRIM/SHORT) | -3.7% (HOLD) | -11.8% (TRIM/SHORT) | ⚑ driven | TRIM/SHORT under Set A/Set C; HOLD under Set B |
 | CMDB | +16.8% (BUY) | +20.2% (BUY) | +13.0% (BUY) | ✓ robust | position BUY across all 3 weight sets |
 | SB | +24.6% (BUY) | +29.8% (BUY) | +19.0% (BUY) | ✓ robust | position BUY across all 3 weight sets |
@@ -41,13 +41,13 @@ Mark-spread robustness is the OTHER dimension — cross-read with `outputs/broke
 
 ### SBLK — price $28.90, target $34.50
 
-**Classification:** WEIGHT-DRIVEN. HOLD under Set A/Set B; TRIM/SHORT under Set C.
+**Classification:** WEIGHT-DRIVEN. HOLD under Set A/Set C; BUY under Set B.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Bulk Set A (locked 2026-06-09, FFA-calibrated prior) | $28.62 | -1.0% | HOLD |
-| Bulk Set B (China-bull / Simandou super-cycle bracket) | $29.71 | +2.8% | HOLD |
-| Bulk Set C (China-property-drag bracket) | $27.44 | -5.1% | TRIM/SHORT |
+| Bulk Set A (locked 2026-06-09, FFA-calibrated prior) | $30.22 | +4.6% | HOLD |
+| Bulk Set B (China-bull / Simandou super-cycle bracket) | $31.32 | +8.4% | BUY |
+| Bulk Set C (China-property-drag bracket) | $29.00 | +0.4% | HOLD |
 
 ### GNK — price $25.33, target $24.80
 

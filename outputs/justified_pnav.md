@@ -18,8 +18,8 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 
 | Ticker | Sector | NAV/sh | Price | P/NAV (mkt) | RONAV (par) | Just P/NAV (par) | RONAV (hist) | Just P/NAV (hist) | Read: par → hist | Robust? |
 |---|---|--:|--:|--:|--:|--:|--:|--:|---|---|
-| SB | dry_bulk | $10.03 | $6.39 | 0.637× | 15.6% | 1.460× | 10.5% | 0.946× | cheap → cheap | robust |
-| SBLK | dry_bulk | $30.64 | $25.20 | 0.822× | 12.7% | 1.174× | 10.7% | 0.975× | cheap → cheap | robust |
+| SB | dry_bulk | $10.03 | $6.39 | 0.637× | 15.6% | 1.461× | 10.5% | 0.946× | cheap → cheap | robust |
+| SBLK | dry_bulk | $32.39 | $25.20 | 0.778× | 12.3% | 1.131× | 10.4% | 0.942× | cheap → cheap | robust |
 | GNK | dry_bulk | $25.26 | $24.50 | 0.970× | 12.3% | 1.127× | 11.1% | 1.012× | cheap → fair | flips (cheap/fair) |
 | CMDB | dry_bulk | $32.65 | $17.25 | 0.528× | 7.7% | 0.672× | 6.4% | 0.545× | cheap → fair | flips (cheap/fair) |
 | 2343 | dry_bulk | $0.41 | $0.39 | 0.950× | 11.9% | 1.089× | 12.5% | 1.147× | cheap → cheap | robust |
@@ -48,7 +48,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 
 | Sector | Median Just P/NAV (parity) | Median (historical) | n |
 |---|--:|--:|--:|
-| dry_bulk | 1.127× | 0.975× | 5 |
+| dry_bulk | 1.127× | 0.946× | 5 |
 | crude | 0.882× | 0.842× | 5 |
 
 _The two columns ARE the signal: where parity ≫ historical, the sector reads cheaper under replacement economics than under its (boom/firm-window-biased) historical anchor — the §18 under-ordering. The §17.6 anchor-bias caveats apply to the historical column only; parity is independent of those biases (it is built from newbuild cost, not a rate-history window)._

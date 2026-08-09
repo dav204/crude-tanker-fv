@@ -28,7 +28,7 @@ one-way bullish override — audit E-3.)
 | LPG | · | 1.01× | +0.31 | — | 7.0 | n/a (gate) |
 | MPCC | · | 1.20× | +0.40 | — | 8.9 | n/a (gate) |
 | SB | · | 0.64× | -3.64 | — | 8.0 | n/a (gate) |
-| SBLK | · | 0.82× | -5.44 | — | 6.7 | n/a (gate) |
+| SBLK | · | 0.78× | -7.19 | — | 6.7 | n/a (gate) |
 | STNG | · | 0.96× | -3.42 | — | 8.0 | n/a (gate) |
 | TEN | · | 0.42× | -50.43 | — | 7.0 | n/a (gate) |
 | TNK | · | 0.80× | -17.00 | — | 8.0 | n/a (gate) |
