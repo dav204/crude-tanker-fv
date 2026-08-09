@@ -102,7 +102,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 - **Pana** (16 prints, as_of 2026-06-12):
   - 2025-09-19 • age 9 • $27.5M • Pareto Shipping Daily 2025-09-19 — broker reports
   - 2025-10-06 • age 9 • $26.5M • Pareto Shipping Daily 2025-10-06 — broker reports
-  - 2026-06-12 • age 11 • $26.0M • MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
+  - 2026-06-12 • age 11 • $26.0M, tc_attached (+0%) • MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
   - 2025-06-17 • age 15 • $11.8M • Pareto Shipping Daily 2025-06-17 — Diana disclosure
   - 2025-04-28 • age 17 • $14.25M • Pareto Shipping Daily 2025-04-28 — Thenamaris disclosure
   - 2025-11-14 • age 0 • $35.0M, newbuild_resale (+0%) • Pareto Shipping Daily 2025-11-14 — broker reports
@@ -180,7 +180,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-02-24 • age 21 • $10.6M • GNK Q1 2026 10-Q Note 5 — sale of Genco Picardy
   - 2026-02-24 • age 21 • $10.6M • GNK Q1 2026 10-Q Note 5 — sale of Genco Predator
   - 2026-06-12 • age 22 • $10.0M • MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
-  - 2026-07-06 • age 6 • $36.5M • xclusiv 7/06 + advanced W28 + MB Dry W28 (exact)
+  - 2026-07-06 • age 6 • $36.5M, prompt_premium (+0%) • xclusiv 7/06 + advanced W28 + MB Dry W28 (exact)
   - 2026-07-06 • age 15 • $23.5M • xclusiv 7/06 + advanced W28 (exact)
   - 2026-07-10 • age 14 • $16.5M • xclusiv 7/13 + advanced W28 + banchero W28 + MB Dry W28 (exact, 4 houses)
   - 2026-07-06 • age 15 • $16.2M • advanced W30 + Compass W30 (both independently 16.2; was 15.9 per xclusiv 7/06 + advanced W27)
@@ -242,20 +242,20 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | CCEC | $25.70→$25.70 | +0.0% | +50.7%→+50.7% | +0.0 | BUY→BUY |
 | TEN | $94.58→$88.16 | -6.8% | +55.7%→+46.0% | -9.7 | BUY→BUY |
 | SB | $9.67→$10.58 | +9.4% | +14.4%→+25.4% | +11.0 | BUY→BUY |
-| CMDB | $31.44→$32.43 | +3.1% | +10.9%→+13.9% | +3.0 | BUY→BUY |
+| CMDB | $31.44→$32.13 | +2.2% | +10.9%→+12.9% | +2.0 | BUY→BUY |
 | TRMD | $31.65→$30.22 | -4.5% | +12.0%→+7.8% | -4.2 | BUY→BUY |
-| SBLK | $31.53→$33.04 | +4.8% | -0.5%→+3.8% | +4.3 | HOLD→HOLD |
 | TNK | $89.65→$84.60 | -5.6% | +8.5%→+3.4% | -5.1 | BUY→HOLD ⚠️ |
+| SBLK | $31.53→$32.78 | +4.0% | -0.5%→+3.1% | +3.6 | HOLD→HOLD |
 | ASC | $17.38→$17.37 | -0.0% | +2.4%→+2.4% | -0.0 | HOLD→HOLD |
 | BRUT | $8.80→$8.80 | +0.0% | +2.5%→+1.3% | -1.2 | HOLD→HOLD |
 | GSL | $41.20→$41.20 | +0.0% | +1.0%→+1.0% | +0.0 | HOLD→HOLD |
 | FLNG | $28.45→$28.45 | +0.0% | -0.5%→-0.5% | +0.0 | HOLD→HOLD |
 | STNG | $79.63→$76.22 | -4.3% | +0.6%→-3.3% | -3.9 | HOLD→HOLD |
 | CAPT | $15.61→$15.48 | -0.8% | -2.4%→-3.9% | -1.5 | HOLD→HOLD |
-| GNK | $24.77→$25.38 | +2.5% | -11.6%→-9.6% | +1.9 | TRIM/SHORT→TRIM/SHORT |
+| GNK | $24.77→$25.12 | +1.4% | -11.6%→-10.5% | +1.1 | TRIM/SHORT→TRIM/SHORT |
 | CMBT **(WHOLE-CO)** | $15.84→$16.46 | +3.9% | -18.1%→-14.9% | +3.2 | TRIM/SHORT→TRIM/SHORT |
 | HAFN | $5.69→$5.56 | -2.2% | -15.7%→-17.1% | -1.4 | TRIM/SHORT→TRIM/SHORT |
-| 2343 | $0.41→$0.41 | -1.0% | -17.0%→-17.7% | -0.7 | TRIM/SHORT→TRIM/SHORT |
+| 2343 | $0.41→$0.41 | -1.9% | -17.0%→-18.4% | -1.4 | TRIM/SHORT→TRIM/SHORT |
 | MPCC | $2.05→$2.05 | +0.0% | -19.1%→-19.1% | +0.0 | TRIM/SHORT→TRIM/SHORT |
 | DHT | $16.30→$15.01 | -8.0% | -17.1%→-22.8% | -5.7 | TRIM/SHORT→TRIM/SHORT |
 | LPG | $35.70→$35.69 | -0.0% | -30.4%→-30.5% | -0.0 | TRIM/SHORT→TRIM/SHORT |

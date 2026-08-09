@@ -1,5 +1,41 @@
 # SB — Decision Log
 
+## 2026-08-09T22:35:33+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.60
+- Single-point FV: $10.24
+- Scenario PW FV: $9.53 (EV +25.4%)
+- NAV / share: $10.58
+- Position: **BUY (undervalued)**
+- Broker spread: -21.4pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T22:28:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.60
+- Single-point FV: $10.24
+- Scenario PW FV: $9.53 (EV +25.4%)
+- NAV / share: $10.58
+- Position: **BUY (undervalued)**
+- Broker spread: -21.4pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-09T14:17:44+00:00 — Pipeline run (auto)
 
 **Model state:**

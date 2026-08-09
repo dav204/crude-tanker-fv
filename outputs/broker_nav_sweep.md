@@ -13,15 +13,15 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | TRMD | 0.82× | 1.16 | +7.8% | +16.4% | +24.9% | BUY→BUY | $38,395→NAV>px | +17 | wide-spread |
 | CAPT | 0.69× | 1.17 | -3.9% | +10.2% | +24.3% | HOLD→BUY | $18,274→NAV>px | +28 | wide-spread |
 | HAFN | 0.86× | 1.48 | -17.1% | +1.3% | +19.7% | TRIM/SHORT→BUY | $94,534→$7,642 | +37 | wide-spread |
-| SBLK | 0.78× | 1.10 | +3.8% | +9.5% | +15.2% | HOLD→BUY | $11,492→NAV>px | +11 | wide-spread |
+| SBLK | 0.78× | 1.11 | +3.1% | +9.1% | +15.2% | HOLD→BUY | $12,307→NAV>px | +12 | wide-spread |
 | CMBT **(WHOLE-CO)** | 0.73× | 1.21 | -14.9% | -0.3% | +14.2% | TRIM/SHORT→BUY | $79,939→NAV>px | +29 | wide-spread |
 | SB | 0.88× | 0.89 | +25.4% | +14.7% | +4.0% | BUY→HOLD | NAV>px→NAV>px | -21 | wide-spread |
 | LPG | 0.84× | 1.57 | -30.5% | -13.4% | +3.7% | TRIM/SHORT→HOLD | $223,619→NAV>px | +34 | wide-spread |
 | BRUT | 0.72× | 1.00 | +1.3% | +2.0% | +2.6% | HOLD→HOLD | NAV>px→NAV>px | +1 | narrow-spread |
 | NAT | 0.85× | 2.23 | -56.8% | -27.2% | +2.3% | TRIM/SHORT→HOLD | $459,263→NAV>px | +59 | wide-spread |
-| CMDB | 0.62× | 0.87 | +13.9% | +7.9% | +1.9% | BUY→HOLD | NAV>px→$14,638 | -12 | wide-spread |
-| GNK | 0.89× | 1.10 | -9.6% | -4.7% | +0.3% | TRIM/SHORT→HOLD | $30,423→$14,247 | +10 | narrow-spread |
-| 2343 | 0.98× | 1.19 | -17.7% | -10.2% | -2.7% | TRIM/SHORT→HOLD | $28,574→$17,304 | +15 | wide-spread |
+| CMDB | 0.62× | 0.88 | +12.9% | +7.4% | +1.9% | BUY→HOLD | NAV>px→$14,648 | -11 | wide-spread |
+| GNK | 0.89× | 1.10 | -10.5% | -5.1% | +0.3% | TRIM/SHORT→HOLD | $31,845→$14,263 | +11 | wide-spread |
+| 2343 | 0.98× | 1.20 | -18.4% | -10.5% | -2.7% | TRIM/SHORT→HOLD | $29,068→$17,269 | +16 | wide-spread |
 | MPCC | 1.04× | 1.12 | -19.1% | -12.8% | -6.5% | TRIM/SHORT→TRIM/SHORT | $139,574→$48,856 | +13 | wide-spread |
 | BWLP | 0.97× | 1.32 | -33.0% | -20.6% | -8.2% | TRIM/SHORT→TRIM/SHORT | $196,627→$61,101 | +25 | wide-spread |
 | INSW **(WHOLE-CO)** | 1.11× | 1.54 | -39.8% | -26.3% | -12.8% | TRIM/SHORT→TRIM/SHORT | $380,065→$164,298 | +27 | wide-spread |
