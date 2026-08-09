@@ -17,8 +17,8 @@ End-to-end through **agentic development with Claude Code** — this repo is
 itself the working example of that workflow. Concretely, and verifiable in
 the history:
 
-- Effectively every commit is agent-written under human direction: ~357 of
-  the ~368 commits carry `Co-Authored-By: Claude` trailers, and the merged
+- Effectively every commit is agent-written under human direction: all but
+  ~14 (early scaffolding) carry `Co-Authored-By: Claude` trailers, and the merged
   PRs (#1, #2) plus the `claude/*` branches are cloud agents opening PRs
   against the repo for review.
 - **Sprint handoffs are spec-first:** [PLAN.md](PLAN.md) is the rolling
@@ -65,7 +65,7 @@ significance needs a pre-2024 backfill
 [outputs/epistemic_soundness_memo_2026-06-22.md](outputs/epistemic_soundness_memo_2026-06-22.md)).
 Use the reads as one disciplined input to a position call, sized accordingly.
 
-## Status (2026-07-26)
+## Status (2026-08-09)
 
 - **25 tickers** across 6 sectors: crude (10, incl. **TEN** the 3-sleeve hybrid,
   **CAPT** the first Oslo/NOK listing, **BRUT** the pure-play VLCC newbuild
@@ -223,7 +223,7 @@ Pre-empting the "where does this go wrong?" question — see
 | Ticker | Company | Fleet shape |
 |---|---|---|
 | SBLK | Star Bulk Carriers | 135 bulkers (Cape 31 / Pana 46 / Supra-Ultra 58) — first dry-bulk validator; §6 mark-driven |
-| GNK  | Genco Shipping | 44 bulkers (Cape 19 / Supra-Ultra 25, no Pana) — VALIDATES the txn-anchored curves (k 1.04) |
+| GNK  | Genco Shipping | 44 bulkers (Cape 20 / Supra-Ultra 24, no Pana — Q2: Volunteer in, Predator out) — dry validator for the txn-anchored curves (k 1.10 at 2026-08-09; live value in outputs/broker_nav_sweep.md) |
 | CMDB | Costamare Bulkers | 30 owned older bulkers + P&L-only chartered-in platform; §15 case (30% haircut), APPROX anchor |
 | SB   | Safe Bulkers | 44 operating + 1 HFS + 8 NB (Cape/Pana/PPMX mix) — the lone VALIDATED-TIGHT BUY (added 2026-06-27) |
 | 2343 | Pacific Basin | ~110 owned Handy-Bulk/Supra (40.7% Handy) + P&L-only chartered-in book; 1st HKEX; §11.7.11 (added 2026-07-14) |
