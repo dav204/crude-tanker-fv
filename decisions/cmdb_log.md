@@ -1,5 +1,23 @@
 # CMDB — Decision Log
 
+## 2026-08-09T02:55:38+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.80
+- Single-point FV: $20.87
+- Scenario PW FV: $20.33 (EV +14.2%)
+- NAV / share: $31.92
+- Position: **BUY (undervalued)**
+- Broker spread: -10.6pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-09T02:48:48+00:00 — Pipeline run (auto)
 
 **Model state:**

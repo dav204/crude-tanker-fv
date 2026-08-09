@@ -21,7 +21,7 @@ The **earnings-leg analog of the broker-NAV sweep** (METHODOLOGY §9.11 / §9.9)
 | ASC | product | $14.90 | 13.2× | $1.13 | $3.09 | 4.8× | +173% | 7.6% | 1.38× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | ECO | crude | $53.10 | 9.4× | $5.65 | $15.30 | 3.5× | +171% | 10.6% | 2.51× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | TNK | crude | $67.60 | 8.4× | $8.05 | $21.33 | 3.2× | +165% | 11.9% | 1.90× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| CMDB | dry_bulk | $17.25 | 10.5× | $1.64 | $4.23 | 4.1× | +157% | 9.5% | 1.44× (elevated) | 0.40 | earnings-driven (tool>cons) |
+| CMDB | dry_bulk | $17.25 | 10.5× | $1.64 | $4.21 | 4.1× | +157% | 9.5% | 1.44× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | SB | dry_bulk | $6.39 | 8.0× | $0.80 | $2.05 | 3.1× | +156% | 12.5% | 1.59× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | CMBT | crude | $14.60 | 8.9× | $1.64 | $3.95 | 3.7× | +141% | 11.2% | 1.74× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | 2343 | dry_bulk | $0.39 | 13.0× | $0.03 | $0.07 | 5.4× | +139% | 7.7% | 1.24× (elevated) | 0.40 | earnings-driven (tool>cons) |

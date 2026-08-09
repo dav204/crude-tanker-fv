@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-09T02:36:18+00:00
-- **Previous run:** 2026-08-09T02:28:54+00:00
+- **This run:** 2026-08-09T02:55:38+00:00
+- **Previous run:** 2026-08-09T02:48:48+00:00
 
 ## Headline changes (material moves)
 
@@ -28,7 +28,7 @@
 | TRMD | $29.49 (no change) | $30.94 (no change) | $31.87 (no change) | $30.30 (no change) | BUY (undervalued) | +16.8pp (no change) |
 | ASC | $16.71 (no change) | $17.13 (no change) | $17.11 (no change) | $17.37 (no change) | HOLD (fairly valued) | +26.3pp (no change) |
 | TEN | $39.14 (no change) | $59.78 (no change) | $56.83 (no change) | $87.57 (no change) | BUY (undervalued) | +41.0pp (no change) |
-| CMDB | $17.80 (no change) | $21.34 (no change) | $20.79 (no change) | $32.65 (no change) | BUY (undervalued) | -13.0pp (no change) |
+| CMDB | $17.80 (no change) | $20.87 (no change) | $20.33 (no change) | $31.92 (no change) | BUY (undervalued) | -10.6pp (no change) |
 | SBLK | $28.90 (no change) | $31.28 (no change) | $30.22 (no change) | $32.39 (no change) | HOLD (fairly valued) | +13.6pp (no change) |
 | GNK | $25.33 (no change) | $24.51 (no change) | $23.42 (no change) | $25.26 (no change) | TRIM/SHORT (overvalued) | +10.6pp (no change) |
 | CAPT | $13.94 (no change) | $16.03 (no change) | $13.38 (no change) | $15.49 (no change) | HOLD (fairly valued) | +28.2pp (no change) |

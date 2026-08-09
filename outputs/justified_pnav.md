@@ -21,7 +21,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | SB | dry_bulk | $10.03 | $6.39 | 0.637× | 15.6% | 1.461× | 10.5% | 0.946× | cheap → cheap | robust |
 | SBLK | dry_bulk | $32.39 | $25.20 | 0.778× | 12.3% | 1.131× | 10.4% | 0.942× | cheap → cheap | robust |
 | GNK | dry_bulk | $25.26 | $24.50 | 0.970× | 12.3% | 1.127× | 11.1% | 1.012× | cheap → fair | flips (cheap/fair) |
-| CMDB | dry_bulk | $32.65 | $17.25 | 0.528× | 7.7% | 0.672× | 6.4% | 0.545× | cheap → fair | flips (cheap/fair) |
+| CMDB | dry_bulk | $31.92 | $17.25 | 0.540× | 7.9% | 0.688× | 6.6% | 0.558× | cheap → fair | flips (cheap/fair) |
 | 2343 | dry_bulk | $0.41 | $0.39 | 0.950× | 11.9% | 1.089× | 12.5% | 1.147× | cheap → cheap | robust |
 | TNK | crude | $84.60 | $67.60 | 0.799× | 6.9% | 0.589× | 8.2% | 0.716× | rich → rich | robust |
 | DHT | crude | $13.83 | $17.20 | 1.244× | 9.8% | 0.882× | 9.2% | 0.819× | rich → rich | robust |

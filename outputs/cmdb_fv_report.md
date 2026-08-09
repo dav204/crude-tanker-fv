@@ -1,42 +1,42 @@
 # CMDB — Fair Value Report
 
-- **Report date:** 2026-Q1
+- **Report date:** 2026-Q2
 - **Current price:** $17.80
-- **Model fair value:** $21.34
+- **Model fair value:** $20.87
 - **Analyst target:** $27.98
 
 ## NAV breakdown
 
 | Item | $M |
 |---|---:|
-| Fleet value — Cape | 220.9 |
-| Fleet value — Pana | 142.0 |
-| Fleet value — Supra-Ultra | 326.3 |
-| + Cash & equivalents | 258.5 |
-| + Working capital (net) | 3.8 |
-| − Total debt | 141.4 |
-| − Lease liabilities | 20.6 |
+| Fleet value — Cape | 214.1 |
+| Fleet value — Pana | 137.7 |
+| Fleet value — Supra-Ultra | 329.9 |
+| + Cash & equivalents | 234.8 |
+| + Working capital (net) | 29.6 |
+| − Total debt | 137.9 |
+| − Lease liabilities | 34.3 |
 | − Newbuild commitments | 0.0 |
 | + Newbuild advances | 0.0 |
-| **= NAV total** | **789.5** |
-| Diluted shares | 24,180,472 |
-| **NAV / share** | **$32.65** |
+| **= NAV total** | **773.8** |
+| Diluted shares | 24,241,646 |
+| **NAV / share** | **$31.92** |
 
 ## Dividend strip (r = 11%)
 
 | Quarter | FFA spot (Supra-Ultra, $/day) | Blended TCE ($/day) | EPS | DPS | Disc. DPS |
 |---|---:|---:|---:|---:|---:|
-| Q1 | 19,100 | 19,100 | 1.270 | 0.000 | 0.000 |
-| Q2 | 18,450 | 18,450 | 1.248 | 0.000 | 0.000 |
-| Q3 | 15,075 | 15,075 | 0.890 | 0.000 | 0.000 |
-| Q4 | 14,475 | 14,475 | 0.817 | 0.000 | 0.000 |
-| Q5 | 13,875 | 13,875 | 0.744 | 0.000 | 0.000 |
-| Q6 | 13,275 | 13,275 | 0.671 | 0.000 | 0.000 |
-| Q7 | 12,975 | 12,975 | 0.632 | 0.000 | 0.000 |
-| Q8 | 12,675 | 12,675 | 0.595 | 0.000 | 0.000 |
+| Q1 | 19,100 | 19,100 | 1.266 | 0.000 | 0.000 |
+| Q2 | 18,450 | 18,450 | 1.245 | 0.000 | 0.000 |
+| Q3 | 15,075 | 15,075 | 0.888 | 0.000 | 0.000 |
+| Q4 | 14,475 | 14,475 | 0.815 | 0.000 | 0.000 |
+| Q5 | 13,875 | 13,875 | 0.742 | 0.000 | 0.000 |
+| Q6 | 13,275 | 13,275 | 0.669 | 0.000 | 0.000 |
+| Q7 | 12,975 | 12,975 | 0.630 | 0.000 | 0.000 |
+| Q8 | 12,675 | 12,675 | 0.593 | 0.000 | 0.000 |
 | Σ discounted DPS | | | | | 0.00 |
-| Terminal value (NAV, q9) | | | | 24.11 | 19.06 |
-| **DivStrip implied price** | | | | | **$19.06** |
+| Terminal value (NAV, q9) | | | | 23.59 | 18.65 |
+| **DivStrip implied price** | | | | | **$18.65** |
 
 _FFA spot is the Supra-Ultra forward curve that drives the strip cash flows; its 12-month average is **$16,775/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$18,800/day** — not this FFA average._
 
@@ -47,18 +47,18 @@ _FFA spot is the Supra-Ultra forward curve that drives the strip cash flows; its
 
 ## Blended fair value
 
-0.60 × $22.86 (NAV) + 0.40 × $19.06 (strip) = **$21.34**
+0.60 × $22.34 (NAV) + 0.40 × $18.65 (strip) = **$20.87**
 
 ### FV attribution
 
 | Term | $/sh | share of FV |
 |---|---:|---:|
-| Vessel marks | 17.10 | 80% |
-| Balance-sheet net | 2.49 | 12% |
-| §15 governance haircut | -5.88 | -28% |
+| Vessel marks | 16.87 | 81% |
+| Balance-sheet net | 2.28 | 11% |
+| §15 governance haircut | -5.75 | -28% |
 | Discounted DPS (strip, 8-10q) | 0.00 | 0% |
-| Discounted terminal (aged NAV) | 7.62 | 36% |
-| **Blend FV** | **21.34** | 100% |
+| Discounted terminal (aged NAV) | 7.46 | 36% |
+| **Blend FV** | **20.87** | 100% |
 
 _Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.60 + 0.40 × 1.00 = **100%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
 
@@ -66,44 +66,44 @@ _Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.60 + 0.40 
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $22.11 |
-| 95% | $22.26 |
-| 100% | $22.30 |
+| 80% | $21.64 |
+| 95% | $21.78 |
+| 100% | $21.83 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-**NAV alone covers the price.** NAV/share **$32.65** ≥ price **$17.80** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
+The current price requires the fleet to run at **0.13× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **0** | — |
-| 10-year mean | 16,627 | 0.00× |
-| 12-month FFA | 22,161 | 0.00× |
-| Current spot | 24,521 | 0.00× |
+| **Implied breakeven (blended)** | **2,798** | — |
+| 10-year mean | 16,573 | 0.17× |
+| 12-month FFA | 22,053 | 0.13× |
+| Current spot | 24,419 | 0.11× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Supra-Ultra (47% of fleet value) | 0 | 0.00× |
-| Cape (32% of fleet value) | 0 | 0.00× |
-| Pana (21% of fleet value) | 0 | 0.00× |
+| Supra-Ultra (48% of fleet value) | 2,129 | 0.15× |
+| Cape (31% of fleet value) | 4,155 | 0.18× |
+| Pana (20% of fleet value) | 2,294 | 0.19× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $16.85 | $18.56 | $20.28 | $22.00 | $23.71 |
-| **-15%** | $17.38 | $19.09 | $20.81 | $22.53 | $24.24 |
-| **+0%** | $17.91 | $19.62 | $21.34 | $23.05 | $24.77 |
-| **+15%** | $18.43 | $20.15 | $21.87 | $23.58 | $25.30 |
-| **+30%** | $18.96 | $20.68 | $22.39 | $24.11 | $25.83 |
+| **-30%** | $16.43 | $18.12 | $19.81 | $21.51 | $23.20 |
+| **-15%** | $16.96 | $18.65 | $20.34 | $22.03 | $23.72 |
+| **+0%** | $17.49 | $19.18 | $20.87 | $22.56 | $24.25 |
+| **+15%** | $18.01 | $19.70 | $21.40 | $23.09 | $24.78 |
+| **+30%** | $18.54 | $20.23 | $21.92 | $23.61 | $25.31 |
 
 _Current price $17.80. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$21.34** is +19.9% vs the current price ($17.80) and -23.7% vs the analyst target ($27.98). NAV alone covers the price (NAV/sh $32.65 ≥ $17.80); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
+Tool fair value **$20.87** is +17.2% vs the current price ($17.80) and -25.4% vs the analyst target ($27.98). The current price implies the fleet earning a value-weighted blended **$2,798/day** (0.13× the current forward) — 0.2× the value-weighted 10-yr mean ($16,573, i.e. the market is pricing distress), and the market is below the forward curve.
 
 ## Modeling notes
 

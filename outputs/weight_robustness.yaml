@@ -173,8 +173,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   CMDB:
-    ev_min_pct: 13.0
-    ev_max_pct: 20.2
+    ev_min_pct: 10.4
+    ev_max_pct: 17.6
     ev_sign_stable: true
     positions:
     - BUY
