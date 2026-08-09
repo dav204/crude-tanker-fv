@@ -238,8 +238,13 @@ prints:
     dwt: 63547
     sale_price_usd_m: 36.5
     source: xclusiv 7/06 + advanced W28 + MB Dry W28 (exact)
-    quality_flag: standard
-    notes: WF Artemis (2020 Iwagi Ultramax, eco).
+    quality_flag: prompt_premium
+    in_fit: false
+    notes: WF Artemis (2020 Iwagi Ultramax, eco). G3-RETROACTIVITY RULED YES 2026-08-09
+      (owner; decisions/wf_artemis_retroflag_whatif_2026-08-09.md - dry-run -3.63%/-2.21%
+      on the Supra anchors) - prompt-delivery per Splash247, Meghna's 5th ultramax - the
+      same channel as the four prints G3 flagged 7/28; entered 7/18 pre-vocabulary as
+      standard/in-fit. The pre-7/28 sweep found no other fit-moving case.
       [2026-07-28 - Splash247 confirms PROMPT-DELIVERY basis + Compass W30 re-prints
       $36.5M. G3-RETROACTIVITY QUESTION flagged to owner - under the 7/28 prompt_premium
       rule this print would be in_fit:false; it entered 7/18 as standard/in-fit.]

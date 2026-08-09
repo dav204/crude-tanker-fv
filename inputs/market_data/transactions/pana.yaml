@@ -53,12 +53,16 @@ prints:
     dwt: 82036
     sale_price_usd_m: 26.0
     source: MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
-    quality_flag: standard
+    quality_flag: tc_attached
     notes: >-
       Vulcania (2015 YZJ, 82,036 dwt kamsarmax, eco m/e), Pimlico Shipping
-      -> Greek buyer. TC-ATTACHED (13/15 months) — the transactions layer
-      has no charter-adjustment flag (uplifts cover financing/distressed
-      only), and at a 13-15mo tenor near current market rates the attached
+      -> Greek buyer. TC-ATTACHED (13/15 months) — RETRO-FLAGGED standard ->
+      tc_attached 2026-08-09 (the WF Artemis retroactivity sweep; the flag
+      postdates this row's 6/12 entry - the original note below documents
+      the gap verbatim). tc_attached carries 0.0 uplift and stays in-fit:
+      ZERO anchor movement, documentation only. Original note: the
+      transactions layer [had] no charter-adjustment flag (uplifts covered
+      financing/distressed only), and at a 13-15mo tenor near current market rates the attached
       value is small but real: the +5.0% residual over the eco-adj curve
       ($26.0M vs $24.76M) could be ENTIRELY the charter, not a mark signal
       (§11.8.8 precedent — charter-attached prints not comparable without

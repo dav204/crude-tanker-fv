@@ -249,12 +249,18 @@ pages when due; the recapture is ONE sitting, one source:
    note its date — that date becomes every touched name's `as_of`.
 2. For every covered name: transcribe price, P/NAV, fwd P/E from THAT daily. Never mix days,
    never keep an old pnav against a new price.
-3. APPROX names (NAT / ASC / CCEC / MPCC — Pareto publishes no P/NAV; roster corrected
-   2026-08-09, MPCC was omitted when the workflow was written three weeks after its
-   onboarding): update price + fwd P/E from the daily, keep the pnav flagged APPROX with
-   its own basis note — flag, don't fake. NOTE the residual: k_broker = price ÷
-   consensus_pnav, so APPROX names carry a mixed-vintage pair BY DESIGN — any k-band
-   test allowance retired at a rebase needs a scoped APPROX-name replacement.
+3. APPROX names — DISCOVERED per sitting, never enumerated here (rule reshaped
+   2026-08-09, owner ruling: the prose roster went stale when containers onboarded —
+   "when a rule can be a test, it becomes a test"): any covered name the chosen daily
+   prints NO P/NAV for is handled APPROX for that sitting — price + fwd P/E from the
+   daily, pnav stays flagged with its own basis note ("flag, don't fake"). Names absent
+   from the table entirely keep their FULL static pair at its current vintage. The
+   expected two-sense partition is PINNED in `tests/test_approx_roster.py` (against
+   `reconcile.APPROX_PNAV_TICKERS`) — an onboard or Pareto coverage change must move
+   the pin deliberately, so divergence is a test failure, not silence. Residual:
+   k_broker = price ÷ consensus_pnav, so APPROX names carry a mixed-vintage pair BY
+   DESIGN — any k-band test allowance retired at a rebase needs a scoped APPROX-name
+   replacement.
 4. Rebase `inputs/watchlist.yaml` in one commit; run the gate loop (pytest -> reconcile ->
    drift annotate/ratify). Band flips from the price move follow the isolate-commit
    discipline (memory: isolate commit from price drift).

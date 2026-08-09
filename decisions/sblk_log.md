@@ -1,5 +1,23 @@
 # SBLK — Decision Log
 
+## 2026-08-09T22:28:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.90
+- Single-point FV: $31.88
+- Scenario PW FV: $29.79 (EV +3.1%)
+- NAV / share: $32.78
+- Position: **HOLD (fairly valued)**
+- Broker spread: +12.2pp (k_broker 1.11)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -0.7% | Δscenario FV: -0.7% | ΔNAV: -0.8% | Δspread: +0.8pp
+
+**Decision:** WF ARTEMIS RETRO-FLAG EXECUTED (owner-RULED 2026-08-09) + THE FREEZE LIFTS. The 8/09 BUY->HOLD flip was FROZEN pending its unresolved cause; the owner ruled the WF Artemis G3-retroactivity YES (the known-phantom prompt print leaves the Supra fit: anchors -3.6%/-2.2%, decisions/wf_artemis_retroflag_whatif_2026-08-09.md), and the pre-7/28 sweep confirmed NO other fit-moving case (Jag Lokesh = LR2/impairment-side; Wooyang Belos = post-rule, G3-considered; Singapore Spirit = VLCC issuer realization; Vulcania retro-flagged tc_attached, zero-impact). ON THE CORRECTED ANCHORS THE FLIP SURVIVES AND STRENGTHENS: EV +3.8% -> +3.1% (NAV -0.8%), SBLK moves FURTHER from the +5 BUY boundary. Per the owner's pre-specified disposition rule (flip survives corrected anchors -> real), the freeze RESOLVES into a ratified HOLD. Cause chain now clean: marks +4.4pp (real, multi-house) -> FFA 12M composition -2.6pp (real, seasonal-window) -> retro-flag -0.7pp (calibration correction). VALIDATED-TIGHT unchanged.
+
+---
+
 ## 2026-08-09T14:17:44+00:00 — Pipeline run (auto)
 
 **Model state:**

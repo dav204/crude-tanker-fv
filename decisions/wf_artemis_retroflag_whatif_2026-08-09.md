@@ -35,3 +35,26 @@ Execution if ruled YES: flip `in_fit` + `quality_flag: prompt_premium` on the ro
 a dated note → prints-drift loop → annotate SBLK/SB → ratify. ~15 minutes, fits any
 session; sequencing-wise it should NOT ride the Stage-A regen (one FV-moving event at
 a time — it is its own small event).
+
+---
+
+## RULED + EXECUTED (2026-08-09, owner: "rule yes, and rule it first")
+
+- WF Artemis -> `prompt_premium` / `in_fit: false` (supra_ultra.yaml, dated note).
+- **The pre-7/28 aggregate sweep the ruling asked for: NO other fit-moving case.**
+  Jag Lokesh (LR2, drydock-due = impairment-side, wrong channel + wrong class) ·
+  Wooyang Belos (promoted AT the 7/28 G3 sitting, considered, age 10, standard is
+  right) · Singapore Spirit (VLCC issuer realization, no channel) · Nord pair
+  (G3-considered 7/28, Kamsarmax at DISCOUNT to NB - deliberately unflagged) ·
+  young Cape packages (forward-delivery, §H precedent != prompt). ONE same-shape
+  hygiene case found and fixed in the same commit: **Vulcania (Pana 6/12) standard
+  -> tc_attached** — the flag postdated the row; 0.0 uplift, stays in-fit, ZERO
+  anchor movement.
+- Run result: Supra anchors moved as dry-run predicted; SBLK NAV -0.8% / EV
+  +3.8% -> +3.1% (sub-threshold, gate 0 UNEXPLAINED); SB exactly 0.0 (no
+  Ultramax exposure — Pana/PPMX/Cape book untouched). **SBLK freeze DISPOSED per
+  the owner's pre-specified rule: the flip survives the corrected anchors ->
+  real -> ratified HOLD** (sblk_log annotation same date).
+- Band-note correction for the record: the k uniformity band was re-pinned
+  (0.95, 1.15) at the 8/09 marks ratify and tests DHT/FRO/ECO — GNK is not a
+  member; direction logic (dry k rises toward center) unaffected.
