@@ -2,6 +2,21 @@
 # Source: Q1 2026 6-K press release (ex99-1.htm, filed 2026-05-20, accession
 # 0000950157-26-000639) + 2025 20-F (filed 2026-03-19, accession 0000950157-26-000397).
 #
+# Q2 REFRESH 2026-08-08, snapshot AS-OF 2026-06-30 (interim 6-K acc
+# 0000950157-26-000860 + release acc 0000950157-26-000846). Census = the interim's
+# Operating Fleet table (134 rows as of 8/5, name-diffed): 31 Cape / 45 Pana /
+# 58 Supra-Ultra on-curve + 5 NB rows. OUT this refresh: Star Moira (sold, June) +
+# Pendulum (HFS at 6/30, on the sheet at carrying; delivered 7/6 post-Q2). IN:
+# Star Emma/Evelina/Ellie (NB->operating, issuer-exact dwt) + Star Challenger/
+# Star Fighter (SLB hulls, title w/ lessors Note 8 — VERIFY CATCH 2026-08-08:
+# they were MISSING while their lease-financing debt was booked; ECO convention,
+# hull on the books). ALSO fixed: 4 duplicate rows removed (Amami, Star Renee,
+# Honey Badger, Wolverine — onboarding-era double-entries, verify catch).
+# Star Eva: agreed-sold (~$17.5M expected liquidity, Q3 delivery) — ON-curve at
+# 6/30, GNK-Q1 pattern. Fully-delivered basis 138 vessels; ~96% scrubber-fitted
+# (interim MD&A) — the per-vessel non-scrubber set is still unidentified, flags
+# stay on the documented fleet-level approximation (~5-6 of 138).
+# Ages = 2026.5 − built. Fleet shape history (Q1, superseded): 141 fully-delivered,
 # Fleet shape (as of May 20 2026 fully-delivered basis): 141 vessels enumerated by
 # Star Bulk's press release; this manifest captures 135 operating-fleet vessels
 # (the operating-at-quarter-end set as Q1 2026 reporting). 8 newbuildings on order
@@ -30,13 +45,13 @@
 # Plant & Equipment) or the next 6-K with per-vessel charter table.
 #
 ticker: SBLK
-report_date: 2026-Q1
+report_date: 2026-Q2
 # Operating fleet at Q1-end: 135 vessels; 8 newbuildings under construction (balance sheet).
 vessels:
   - id: Goliath
     class: Cape
     dwt: 209537
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -45,7 +60,7 @@ vessels:
   - id: Gargantua
     class: Cape
     dwt: 209529
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -54,7 +69,7 @@ vessels:
   - id: Star_Gina_2GR
     class: Cape
     dwt: 209475
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -63,7 +78,7 @@ vessels:
   - id: Maharaj
     class: Cape
     dwt: 209472
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -72,7 +87,7 @@ vessels:
   - id: Star_Leo
     class: Cape
     dwt: 207939
-    age: 8      # built 2018
+    age: 8.5      # built 2018
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -81,7 +96,7 @@ vessels:
   - id: Star_Laetitia
     class: Cape
     dwt: 207896
-    age: 9      # built 2017
+    age: 9.5      # built 2017
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -90,7 +105,7 @@ vessels:
   - id: Star_Ariadne
     class: Cape
     dwt: 207812
-    age: 9      # built 2017
+    age: 9.5      # built 2017
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -99,7 +114,7 @@ vessels:
   - id: Star_Virgo
     class: Cape
     dwt: 207810
-    age: 9      # built 2017
+    age: 9.5      # built 2017
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -108,7 +123,7 @@ vessels:
   - id: Star_Libra
     class: Cape
     dwt: 207765
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -117,7 +132,7 @@ vessels:
   - id: Star_Sienna
     class: Cape
     dwt: 207721
-    age: 9      # built 2017
+    age: 9.5      # built 2017
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -126,7 +141,7 @@ vessels:
   - id: Star_Marisa
     class: Cape
     dwt: 207709
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -135,7 +150,7 @@ vessels:
   - id: Star_Karlie
     class: Cape
     dwt: 207566
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -144,7 +159,7 @@ vessels:
   - id: Star_Eleni
     class: Cape
     dwt: 207555
-    age: 8      # built 2018
+    age: 8.5      # built 2018
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -153,7 +168,7 @@ vessels:
   - id: Star_Magnanimus
     class: Cape
     dwt: 207526
-    age: 8      # built 2018
+    age: 8.5      # built 2018
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -162,7 +177,7 @@ vessels:
   - id: Debbie_H
     class: Cape
     dwt: 206861
-    age: 7      # built 2019
+    age: 7.5      # built 2019
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -171,7 +186,7 @@ vessels:
   - id: Star_Ayesha
     class: Cape
     dwt: 206852
-    age: 7      # built 2019
+    age: 7.5      # built 2019
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -180,7 +195,7 @@ vessels:
   - id: Katie_K
     class: Cape
     dwt: 206839
-    age: 7      # built 2019
+    age: 7.5      # built 2019
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -189,7 +204,7 @@ vessels:
   - id: Leviathan
     class: Cape
     dwt: 182511
-    age: 12      # built 2014
+    age: 12.5      # built 2014
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -198,7 +213,7 @@ vessels:
   - id: Peloreus
     class: Cape
     dwt: 182496
-    age: 12      # built 2014
+    age: 12.5      # built 2014
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -207,7 +222,7 @@ vessels:
   - id: Star_Claudine
     class: Cape
     dwt: 181258
-    age: 15      # built 2011
+    age: 15.5      # built 2011
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -216,7 +231,7 @@ vessels:
   - id: Star_Ophelia
     class: Cape
     dwt: 180716
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -225,7 +240,7 @@ vessels:
   - id: Star_Pauline
     class: Cape
     dwt: 180274
-    age: 18      # built 2008
+    age: 18.5      # built 2008
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -234,7 +249,7 @@ vessels:
   - id: Star_Martha
     class: Cape
     dwt: 180274
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -243,7 +258,7 @@ vessels:
   - id: Star_Lyra
     class: Cape
     dwt: 179147
-    age: 17      # built 2009
+    age: 17.5      # built 2009
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -252,7 +267,7 @@ vessels:
   - id: Star_Borneo
     class: Cape
     dwt: 178978
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -261,7 +276,7 @@ vessels:
   - id: Star_Bueno
     class: Cape
     dwt: 178978
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -270,7 +285,7 @@ vessels:
   - id: Star_Marilena
     class: Cape
     dwt: 178978
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -279,7 +294,7 @@ vessels:
   - id: Star_Janni
     class: Cape
     dwt: 178978
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -288,7 +303,7 @@ vessels:
   - id: Star_Marianne
     class: Cape
     dwt: 178906
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -297,7 +312,7 @@ vessels:
   - id: Star_Angie
     class: Cape
     dwt: 177931
-    age: 19      # built 2007
+    age: 19.5      # built 2007
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -306,7 +321,7 @@ vessels:
   - id: Kymopolia
     class: Cape
     dwt: 176990
-    age: 20      # built 2006
+    age: 20.5      # built 2006
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -315,7 +330,7 @@ vessels:
   - id: Star_Eva
     class: Pana
     dwt: 106659
-    age: 14      # built 2012
+    age: 14.5      # built 2012
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -324,16 +339,7 @@ vessels:
   - id: Amami
     class: Pana
     dwt: 98681
-    age: 15      # built 2011
-    scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
-    eco: false     # §3.1: year ≥ 2014
-    charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
-    charter_rate: null
-    charter_end: null
-  - id: Amami
-    class: Pana
-    dwt: 98681
-    age: 15      # built 2011
+    age: 15.5      # built 2011
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -342,7 +348,7 @@ vessels:
   - id: Madredeus
     class: Pana
     dwt: 98681
-    age: 15      # built 2011
+    age: 15.5      # built 2011
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -351,7 +357,7 @@ vessels:
   - id: Star_Sirius
     class: Pana
     dwt: 98681
-    age: 15      # built 2011
+    age: 15.5      # built 2011
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -360,7 +366,7 @@ vessels:
   - id: Star_Vega
     class: Pana
     dwt: 98681
-    age: 15      # built 2011
+    age: 15.5      # built 2011
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -369,7 +375,7 @@ vessels:
   - id: Star_Aphrodite
     class: Pana
     dwt: 92006
-    age: 15      # built 2011
+    age: 15.5      # built 2011
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -378,7 +384,7 @@ vessels:
   - id: Star_Piera
     class: Pana
     dwt: 91951
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -387,7 +393,7 @@ vessels:
   - id: Star_Despoina
     class: Pana
     dwt: 91951
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -396,7 +402,7 @@ vessels:
   - id: Star_Electra
     class: Pana
     dwt: 83494
-    age: 15      # built 2011
+    age: 15.5      # built 2011
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -405,7 +411,7 @@ vessels:
   - id: Star_Angelina
     class: Pana
     dwt: 82981
-    age: 20      # built 2006
+    age: 20.5      # built 2006
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -414,7 +420,7 @@ vessels:
   - id: Star_Gwyneth
     class: Pana
     dwt: 82790
-    age: 20      # built 2006
+    age: 20.5      # built 2006
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -423,7 +429,7 @@ vessels:
   - id: Star_Kamila
     class: Pana
     dwt: 82769
-    age: 21      # built 2005
+    age: 21.5      # built 2005
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -432,7 +438,7 @@ vessels:
   - id: Star_Luna
     class: Pana
     dwt: 82687
-    age: 18      # built 2008
+    age: 18.5      # built 2008
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -441,16 +447,7 @@ vessels:
   - id: Star_Bianca
     class: Pana
     dwt: 82672
-    age: 18      # built 2008
-    scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
-    eco: false     # §3.1: year ≥ 2014
-    charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
-    charter_rate: null
-    charter_end: null
-  - id: Pendulum
-    class: Pana
-    dwt: 82619
-    age: 20      # built 2006
+    age: 18.5      # built 2008
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -459,7 +456,7 @@ vessels:
   - id: Star_Maria
     class: Pana
     dwt: 82598
-    age: 19      # built 2007
+    age: 19.5      # built 2007
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -468,7 +465,7 @@ vessels:
   - id: Star_Markella
     class: Pana
     dwt: 82594
-    age: 19      # built 2007
+    age: 19.5      # built 2007
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -477,7 +474,7 @@ vessels:
   - id: Star_Jeannette
     class: Pana
     dwt: 82566
-    age: 12      # built 2014
+    age: 12.5      # built 2014
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -486,7 +483,7 @@ vessels:
   - id: Star_Elizabeth
     class: Pana
     dwt: 82403
-    age: 5      # built 2021
+    age: 5.5      # built 2021
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -495,16 +492,7 @@ vessels:
   - id: Star_Sophia
     class: Pana
     dwt: 82269
-    age: 19      # built 2007
-    scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
-    eco: false     # §3.1: year ≥ 2014
-    charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
-    charter_rate: null
-    charter_end: null
-  - id: Star_Moira
-    class: Pana
-    dwt: 82257
-    age: 20      # built 2006
+    age: 19.5      # built 2007
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -513,7 +501,7 @@ vessels:
   - id: Star_Renee
     class: Pana
     dwt: 82221
-    age: 20      # built 2006
+    age: 20.5      # built 2006
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -522,16 +510,7 @@ vessels:
   - id: Star_Nina
     class: Pana
     dwt: 82224
-    age: 20      # built 2006
-    scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
-    eco: false     # §3.1: year ≥ 2014
-    charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
-    charter_rate: null
-    charter_end: null
-  - id: Star_Renee
-    class: Pana
-    dwt: 82221
-    age: 20      # built 2006
+    age: 20.5      # built 2006
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -540,7 +519,7 @@ vessels:
   - id: Star_Nasia
     class: Pana
     dwt: 82220
-    age: 20      # built 2006
+    age: 20.5      # built 2006
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -549,7 +528,7 @@ vessels:
   - id: Star_Laura
     class: Pana
     dwt: 82209
-    age: 20      # built 2006
+    age: 20.5      # built 2006
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -558,7 +537,7 @@ vessels:
   - id: Star_Mona
     class: Pana
     dwt: 82188
-    age: 14      # built 2012
+    age: 14.5      # built 2012
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -567,7 +546,7 @@ vessels:
   - id: Star_Helena
     class: Pana
     dwt: 82187
-    age: 20      # built 2006
+    age: 20.5      # built 2006
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -576,7 +555,7 @@ vessels:
   - id: Star_Astrid
     class: Pana
     dwt: 82158
-    age: 14      # built 2012
+    age: 14.5      # built 2012
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -585,7 +564,7 @@ vessels:
   - id: Star_Alessia
     class: Pana
     dwt: 81944
-    age: 9      # built 2017
+    age: 9.5      # built 2017
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -594,7 +573,7 @@ vessels:
   - id: Star_Calypso
     class: Pana
     dwt: 81918
-    age: 12      # built 2014
+    age: 12.5      # built 2014
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -603,7 +582,7 @@ vessels:
   - id: Star_Suzanna
     class: Pana
     dwt: 81711
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -612,7 +591,7 @@ vessels:
   - id: Star_Charis
     class: Pana
     dwt: 81711
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -621,7 +600,7 @@ vessels:
   - id: Mercurial_Virgo
     class: Pana
     dwt: 81545
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -630,7 +609,7 @@ vessels:
   - id: Stardust
     class: Pana
     dwt: 81502
-    age: 15      # built 2011
+    age: 15.5      # built 2011
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -639,7 +618,7 @@ vessels:
   - id: Star_Sky
     class: Pana
     dwt: 81466
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -648,7 +627,7 @@ vessels:
   - id: Star_Lambada
     class: Pana
     dwt: 81272
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -657,7 +636,7 @@ vessels:
   - id: Star_Carioca
     class: Pana
     dwt: 81262
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -666,7 +645,7 @@ vessels:
   - id: Star_Capoeira
     class: Pana
     dwt: 81253
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -675,7 +654,7 @@ vessels:
   - id: Star_Macarena
     class: Pana
     dwt: 81198
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -684,7 +663,7 @@ vessels:
   - id: Star_Lydia
     class: Pana
     dwt: 81187
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -693,7 +672,7 @@ vessels:
   - id: Star_Nicole
     class: Pana
     dwt: 81120
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -702,7 +681,7 @@ vessels:
   - id: Star_Virginia
     class: Pana
     dwt: 81061
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -711,7 +690,7 @@ vessels:
   - id: Star_Genesis
     class: Pana
     dwt: 80705
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -720,7 +699,7 @@ vessels:
   - id: Star_Flame
     class: Pana
     dwt: 80448
-    age: 15      # built 2011
+    age: 15.5      # built 2011
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -729,7 +708,7 @@ vessels:
   - id: Star_Cape_Town
     class: Supra-Ultra
     dwt: 63707
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -738,7 +717,7 @@ vessels:
   - id: Star_Vancouver
     class: Supra-Ultra
     dwt: 63670
-    age: 6      # built 2020
+    age: 6.5      # built 2020
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -747,7 +726,7 @@ vessels:
   - id: Star_Oslo
     class: Supra-Ultra
     dwt: 63655
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -756,7 +735,7 @@ vessels:
   - id: Star_Rotterdam
     class: Supra-Ultra
     dwt: 63629
-    age: 9      # built 2017
+    age: 9.5      # built 2017
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -765,7 +744,7 @@ vessels:
   - id: Star_Halifax
     class: Supra-Ultra
     dwt: 63618
-    age: 6      # built 2020
+    age: 6.5      # built 2020
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -774,7 +753,7 @@ vessels:
   - id: Star_Helsinki
     class: Supra-Ultra
     dwt: 63605
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -783,7 +762,7 @@ vessels:
   - id: Star_Gibraltar
     class: Supra-Ultra
     dwt: 63576
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -792,7 +771,7 @@ vessels:
   - id: Star_Valencia
     class: Supra-Ultra
     dwt: 63556
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -801,7 +780,7 @@ vessels:
   - id: Star_Dublin
     class: Supra-Ultra
     dwt: 63550
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -810,7 +789,7 @@ vessels:
   - id: Star_Santos
     class: Supra-Ultra
     dwt: 63536
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -819,7 +798,7 @@ vessels:
   - id: Star_Antwerp
     class: Supra-Ultra
     dwt: 63530
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -828,7 +807,7 @@ vessels:
   - id: Star_Sydney
     class: Supra-Ultra
     dwt: 63523
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -837,7 +816,7 @@ vessels:
   - id: Star_Copenhagen
     class: Supra-Ultra
     dwt: 63495
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -846,7 +825,7 @@ vessels:
   - id: Star_Hong_Kong
     class: Supra-Ultra
     dwt: 63472
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -855,7 +834,7 @@ vessels:
   - id: Idee_Fixe
     class: Supra-Ultra
     dwt: 63458
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -864,7 +843,7 @@ vessels:
   - id: Star_Shanghai
     class: Supra-Ultra
     dwt: 63438
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -873,7 +852,7 @@ vessels:
   - id: Star_Roberta
     class: Supra-Ultra
     dwt: 63426
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -882,7 +861,7 @@ vessels:
   - id: Laura
     class: Supra-Ultra
     dwt: 63399
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -891,7 +870,7 @@ vessels:
   - id: Star_Singapore
     class: Supra-Ultra
     dwt: 63386
-    age: 9      # built 2017
+    age: 9.5      # built 2017
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -900,7 +879,7 @@ vessels:
   - id: Star_Westport
     class: Supra-Ultra
     dwt: 63344
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -909,7 +888,7 @@ vessels:
   - id: Star_Hamburg
     class: Supra-Ultra
     dwt: 63334
-    age: 12      # built 2014
+    age: 12.5      # built 2014
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -918,7 +897,7 @@ vessels:
   - id: Star_Fairfield
     class: Supra-Ultra
     dwt: 63301
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -927,7 +906,7 @@ vessels:
   - id: Star_Greenwich
     class: Supra-Ultra
     dwt: 63301
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -936,7 +915,7 @@ vessels:
   - id: Star_Groton
     class: Supra-Ultra
     dwt: 63301
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -945,7 +924,7 @@ vessels:
   - id: Star_Madison
     class: Supra-Ultra
     dwt: 63301
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -954,7 +933,7 @@ vessels:
   - id: Star_Mystic
     class: Supra-Ultra
     dwt: 63301
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -963,7 +942,7 @@ vessels:
   - id: Star_Rowayton
     class: Supra-Ultra
     dwt: 63301
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -972,7 +951,7 @@ vessels:
   - id: Star_Southport
     class: Supra-Ultra
     dwt: 63301
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -981,7 +960,7 @@ vessels:
   - id: Kaley
     class: Supra-Ultra
     dwt: 63283
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -990,7 +969,7 @@ vessels:
   - id: Star_Stockholm
     class: Supra-Ultra
     dwt: 63275
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -999,7 +978,7 @@ vessels:
   - id: Kennadi
     class: Supra-Ultra
     dwt: 63262
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1008,7 +987,7 @@ vessels:
   - id: Mackenzie
     class: Supra-Ultra
     dwt: 63226
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1017,7 +996,7 @@ vessels:
   - id: Star_New_London
     class: Supra-Ultra
     dwt: 63140
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1026,7 +1005,7 @@ vessels:
   - id: Star_Apus
     class: Supra-Ultra
     dwt: 63123
-    age: 12      # built 2014
+    age: 12.5      # built 2014
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1035,7 +1014,7 @@ vessels:
   - id: Star_Subaru
     class: Supra-Ultra
     dwt: 61571
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1044,7 +1023,7 @@ vessels:
   - id: Star_Stamford
     class: Supra-Ultra
     dwt: 61530
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1053,7 +1032,7 @@ vessels:
   - id: Star_Wave
     class: Supra-Ultra
     dwt: 61491
-    age: 9      # built 2017
+    age: 9.5      # built 2017
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1062,7 +1041,7 @@ vessels:
   - id: Star_Lutas
     class: Supra-Ultra
     dwt: 61347
-    age: 10      # built 2016
+    age: 10.5      # built 2016
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1071,7 +1050,7 @@ vessels:
   - id: Honey_Badger
     class: Supra-Ultra
     dwt: 61320
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1080,25 +1059,7 @@ vessels:
   - id: Wolverine
     class: Supra-Ultra
     dwt: 61292
-    age: 11      # built 2015
-    scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
-    eco: true     # §3.1: year ≥ 2014
-    charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
-    charter_rate: null
-    charter_end: null
-  - id: Honey_Badger
-    class: Supra-Ultra
-    dwt: 61320
-    age: 11      # built 2015
-    scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
-    eco: true     # §3.1: year ≥ 2014
-    charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
-    charter_rate: null
-    charter_end: null
-  - id: Wolverine
-    class: Supra-Ultra
-    dwt: 61292
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1107,7 +1068,7 @@ vessels:
   - id: Star_Antares
     class: Supra-Ultra
     dwt: 61258
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1116,7 +1077,7 @@ vessels:
   - id: Star_Tokyo
     class: Supra-Ultra
     dwt: 61225
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1125,7 +1086,7 @@ vessels:
   - id: Star_Monica
     class: Supra-Ultra
     dwt: 60935
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1134,7 +1095,7 @@ vessels:
   - id: Star_Aquarius
     class: Supra-Ultra
     dwt: 60916
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1143,7 +1104,7 @@ vessels:
   - id: Star_Pisces
     class: Supra-Ultra
     dwt: 60916
-    age: 11      # built 2015
+    age: 11.5      # built 2015
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: true     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1152,7 +1113,7 @@ vessels:
   - id: Crane
     class: Supra-Ultra
     dwt: 57809
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1161,7 +1122,7 @@ vessels:
   - id: Egret_Bulker
     class: Supra-Ultra
     dwt: 57809
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1170,7 +1131,7 @@ vessels:
   - id: Gannet_Bulker
     class: Supra-Ultra
     dwt: 57809
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1179,7 +1140,7 @@ vessels:
   - id: Grebe_Bulker
     class: Supra-Ultra
     dwt: 57809
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1188,7 +1149,7 @@ vessels:
   - id: Ibis_Bulker
     class: Supra-Ultra
     dwt: 57809
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1197,7 +1158,7 @@ vessels:
   - id: Jay
     class: Supra-Ultra
     dwt: 57809
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1206,7 +1167,7 @@ vessels:
   - id: Kingfisher
     class: Supra-Ultra
     dwt: 57809
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1215,7 +1176,7 @@ vessels:
   - id: Martin
     class: Supra-Ultra
     dwt: 57809
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1224,7 +1185,7 @@ vessels:
   - id: Star_Cleo
     class: Supra-Ultra
     dwt: 56582
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1233,7 +1194,7 @@ vessels:
   - id: Star_Pegasus
     class: Supra-Ultra
     dwt: 56540
-    age: 13      # built 2013
+    age: 13.5      # built 2013
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1242,7 +1203,7 @@ vessels:
   - id: Star_Bright
     class: Supra-Ultra
     dwt: 55569
-    age: 16      # built 2010
+    age: 16.5      # built 2010
     scrubber: true      # default per 97% fleet fitting; ~4 non-scrubber not identified per-vessel
     eco: false     # §3.1: year ≥ 2014
     charter_status: spot      # SBLK is spot-heavy; per-vessel TC detail not disclosed
@@ -1254,9 +1215,25 @@ vessels:
   # advances-only. Q1-2026 6-K (CIK 1386716, accession 0000950157-26-000639) Note 6
   # "Under Construction" table: 2 Qingdao Q2-2026, 3 Hengli Q3-2026, 3 Qingdao Q4-2026;
   # "total aggregate REMAINING contracted price … $195,556" ($k). See sblk_log + NB pre-reg.
-  - {id: SBLK_NB_Q2_2026, class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 2, years_to_delivery: 0.13}   # Star Emma, Evelina (Qingdao)
-  - {id: SBLK_NB_Q3_2026, class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 3, years_to_delivery: 0.38}   # Star Ellie, Bella, Kyra (Hengli)
-  - {id: SBLK_NB_Q4_2026, class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 3, years_to_delivery: 0.63}   # Star Irini, Aline, Affi (Qingdao)
+  - id: Star_Challenger
+    class: Supra-Ultra
+    dwt: 61462
+    age: 14.5      # built 2012
+    scrubber: true      # fleet-level ~96% approximation (header note)
+    eco: false
+    charter_status: spot   # SLB — title with lessors (Note 8), lease financing inside total_debt; hull on the books (ECO convention)
+  - id: Star_Fighter
+    class: Supra-Ultra
+    dwt: 61455
+    age: 13.5      # built 2013
+    scrubber: true      # fleet-level ~96% approximation (header note)
+    eco: false
+    charter_status: spot   # SLB — title with lessors (Note 8); added 2026-08-08 (verify catch: hulls were MISSING while their lease debt was booked)
+  - {id: Star_Emma_2026,    class: Pana, dwt: 82279, age: 0.1, scrubber: true, eco: true, count: 1, charter_status: spot}   # delivered 5/25 (Qingdao; Note 6) — dwt issuer-exact (8/5 fleet table)
+  - {id: Star_Evelina_2026, class: Pana, dwt: 82202, age: 0.1, scrubber: true, eco: true, count: 1, charter_status: spot}   # delivered 5/22 (Qingdao)
+  - {id: Star_Ellie_2026,   class: Pana, dwt: 82114, age: 0.0, scrubber: true, eco: true, count: 1, charter_status: spot}   # delivered 6/29 (Hengli)
+  - {id: SBLK_NB_Q3_2026, class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 2, years_to_delivery: 0.13}   # Star Bella, Kyra (Hengli, Q3-26)
+  - {id: SBLK_NB_Q4_2026, class: Pana, dwt: 82000, age: 0, scrubber: true, eco: true, count: 3, years_to_delivery: 0.38}   # Star Irini, Aline, Argyro (Qingdao, Q4-26; "Argyro" per the 8/5 fleet table — was "Affi")
 
 # Spot coverage per class — high (SBLK is predominantly spot-traded). Refine when
 # per-vessel TC detail becomes available; the 0.85+ default reflects historic SBLK
@@ -1269,10 +1246,8 @@ spot_coverage_pct:
 # Fleet summary — cross-check against vessels list.
 fleet_summary:
   Cape_count: 31
-  avg_age_Cape: 12.2
-  Pana_count: 46
-  avg_age_Pana: 15.5
+  Pana_count: 45
   Supra-Ultra_count: 58
-  avg_age_Supra-Ultra: 11.7
-  total_operating: 135
-  newbuildings_on_order: 8     # 8 × 82,000 dwt Kamsarmax (Qingdao + Hengli yards, Apr-Sep 2026 delivery)
+  total_operating: 134           # at 2026-06-30, ex-Pendulum (HFS on the sheet); = the interim 6-K fleet table + Pendulum = the release's 135
+  newbuildings_on_order: 5       # Bella+Kyra (Q3-26 Hengli), Irini+Aline+Argyro (Q4-26 Qingdao)
+  avg_age_approx: 12.9

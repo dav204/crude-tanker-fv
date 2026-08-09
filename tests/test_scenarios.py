@@ -373,7 +373,7 @@ def test_dry_bulk_locked_weights_position(dry_bulk_doc):
         "china_property_drag": pytest.approx(0.25),
         "coordinated_slowdown": pytest.approx(0.15),
     }, "Bulk Set A weights moved — reweighting is a §11.7.x revision, not silent"
-    ci = load_company_inputs("SBLK", "2026-Q1")
+    ci = load_company_inputs("SBLK", BOOK_QUARTER)
     r = run_scenarios(ci, 25.20, 34.50, dry_bulk_doc,
                       scenario_class_map=SCENARIO_CLASS_MAP_BY_SECTOR["dry_bulk"])
     assert "BUY" in r.position_recommendation, (

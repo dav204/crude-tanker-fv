@@ -1,0 +1,78 @@
+# Star Bulk Carriers (NASDAQ:SBLK) balance sheet — METHODOLOGY.md §4.2. USD.
+# Source: H1-2026 interim 6-K (EDGAR acc 0000950157-26-000860, filed 2026-08-07),
+# Consolidated Statement of Financial Position 2026-06-30 column + Notes 6/7/8/9/
+# 10/13/18, + the Q2 earnings release 6-K (acc 0000950157-26-000846, 8/5).
+# Q2 refresh 2026-08-08 (workflow-extracted, adversarially verified).
+# Subsequent events (Note 18, unusually thin) EXCLUDED: the 7/6 Pendulum delivery
+# to buyers (HFS at 6/30 — in WC at carrying below) and the 8/5 $0.90/sh dividend
+# (record 8/21). DIANA SPA: the conditional 16-vessel $470.5M purchase remains
+# LIVE in MD&A ("subject to ... the success of Diana's offer to acquire Genco")
+# while THE TENDER HAS EXPIRED (GNK 10-Q Item 1A) — a zombie conditional: NOT in
+# the commitments note, NOT booked here (condition unsatisfied); WATCH for
+# termination/renegotiation next quarter.
+
+ticker: SBLK
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1386716/000095015726000860/
+retrieved_at: 2026-08-08
+filing_period_end: 2026-06-30
+
+# Cash 498,165 + restricted current 65,502 + restricted non-current 1,615 =
+# 565,282. BASIS CHANGE from Q1 (which excluded restricted, 12,390 then),
+# disclosed: the 6/30 restricted balance is DOMINATED by the $60,000 NBG
+# "Third Drawing" drawn ON 6/30 and repaid in July (Note 9) — the same
+# $60,000 sits inside the debt line below, so excluding it cash-side while
+# carrying it debt-side would print a ~$0.54/sh one-day-straddle artifact.
+# Including restricted pairs the straddle (ECO convention: it is SBLK's cash;
+# the residual 7,117 is legally-restricted minimum liquidity incl. FFA cash collateral (Note 9)). Q1-basis
+# equivalent: 498,165.
+cash_and_equivalents: 565282000
+
+# Working capital net (non-cash, non-debt; Q1 convention):
+#   (trade AR 97,192 + inventories 75,014 + prepaid 11,516 + other current
+#    assets 49,540 [incl 1,470 debt security])
+#   − (AP 59,700 + due to managers 13,130 + due to related 1,792 + accrued
+#      56,011 + derivative liability 854 + deferred revenue 26,494 + other
+#      current liabilities 2,000)
+#   = 233,262 − 159,981 = 73,281
+#   + Pendulum held-for-sale at CARRYING 10,950 (Note 6; sold-pending at 6/30,
+#     delivered 7/6; NO agreed price disclosed — carrying floor, conservative;
+#     the hull is OFF the manifest, no double-count — DHT-Bauhinia pattern)
+#   = 84,231.
+working_capital_net: 84231000
+
+# Interest-bearing debt + lease financing, BS net-of-issuance-costs basis (Q1
+# convention): bank loans current 230,850 + long-term 794,519 (net of 4,717
+# costs) + lease financing 2,731 + 8,478 = 1,036,578. (Gross principal Note 9:
+# 1,030,086 bank + 11,209 lease.) Includes the $60,000 6/30 revolver drawing
+# repaid July — PAIRED by the restricted-cash inclusion above.
+total_debt: 1036578000
+
+# Operating lease liabilities (charter-in 7 hulls >12m + office): current
+# 28,416 + non-current 114,008 = 142,424. RoU assets NOT added (not owned,
+# not in the manifest — Q1 convention).
+lease_liabilities: 142424000
+
+# Newbuild program: 5 Kamsarmax under construction at 6/30 (Star Bella + Kyra
+# Q3-26 Hengli; Star Irini + Aline + Argyro Q4-26 Qingdao — Argyro per the
+# fleet table, was "Affi" in earlier comments). Note 6 EXACT: "total aggregate
+# remaining contracted price, including scrubber installation costs, for the
+# remaining five vessels under construction ... $122,035" (the MD&A's $118.4M
+# is the ~8/5 report-date basis — installments paid between; 6/30 figure used).
+# On-curve §9.6: hulls in the manifest at delivered PV; advances (62,929 BS
+# line) → 0, sunk into the on-curve value. Q2 deliveries: Star Evelina 5/22 +
+# Star Emma 5/25 (Qingdao, ESUN-financed) + Star Ellie 6/29 (Hengli) — moved
+# to OPERATING rows.
+newbuild_capex_commitments: 122035000
+newbuild_advances_paid: 0
+
+# Weighted-average diluted, Q2-2026 from the 8/5 release income statement
+# (the quarterly convention Q1 used; the interim 6-K presents six-month only —
+# H1 diluted is 111,697,798, +0.1%). The buyback did the work: 117.43M (Q1
+# weighted) → 111.59M (−5.0% divisor; H1 repurchases 2,208,251 sh @ $20.98
+# avg = $46.3M, Note 10; outstanding 111,671,386 net of treasury at 6/30).
+diluted_shares_outstanding: 111585370
+
+preferred_equity: 0
+shuttle_contracted_book: 0
+governance_discount_pct: 0.0

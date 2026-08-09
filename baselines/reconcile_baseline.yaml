@@ -2,13 +2,12 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-08-08T23:45:20+00:00'
-  ratified_commit: fd1511a
+  ratified_at: '2026-08-09T02:28:54+00:00'
+  ratified_commit: 8b01d4e
   quarter: 2026-Q2
-  cause: 'Q2 backlog drain #8: 2343 NAV +2.5% INSIDE prereg band (first post-onboarding sheet, 2-quarter
-    vintage move); census set-change resolved (WhiteBay out / Agatti in, Interim table confirms 107);
-    F-1 re-test recorded (orderbook ~9.3%); issuer market-value composite corroborates tool marks within
-    ~3%; commitments composite flagged for the full Interim Report; 2343_log annotated; no flip'
+  cause: 'Q2 backlog drain #9: SBLK NAV +5.7% INSIDE prereg band; verify caught 4 duplicate rows + 2 missing
+    SLB hulls (census now exact vs the interim fleet table); pre-flagged BUY-edge crossing did NOT fire
+    (EV +4.6%, HOLD stands, no seam change); Diana SPA zombie-conditional watch armed; sblk_log annotated'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -156,10 +155,10 @@ names:
     sector: dry_bulk
   SBLK:
     pnav_basis: pareto
-    ev_pct: -0.95
-    tool_nav: 30.64
+    ev_pct: 4.55
+    tool_nav: 32.39
     position_band: HOLD (fairly valued)
-    k_broker: 1.17
+    k_broker: 1.12
     sector: dry_bulk
   STNG:
     pnav_basis: pareto

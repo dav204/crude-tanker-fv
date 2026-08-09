@@ -1,5 +1,52 @@
 # SBLK — Decision Log
 
+## 2026-08-09T02:28:54+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.90
+- Single-point FV: $31.28
+- Scenario PW FV: $30.22 (EV +4.5%)
+- NAV / share: $32.39
+- Position: **HOLD (fairly valued)**
+- Broker spread: +13.6pp (k_broker 1.12)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ broker spread -5.1pp
+- ⚑ NAV/sh +5.7%
+- Δprice: no change | Δsingle FV: +5.5% | Δscenario FV: +5.6% | ΔNAV: +5.7% | Δspread: -5.1pp
+
+**Decision:** Q2 REPORT-DAY REFRESH (backlog drain #9 — workflow-extracted from both
+filings, ADVERSARIALLY VERIFIED pre-run; the verify caught real errors). Sources: interim
+6-K acc 0000950157-26-000860 (8/7) + release acc 0000950157-26-000846 (8/5). Subsequent
+events EXCLUDED (Note 18: Pendulum delivered 7/6; the 8/5 $0.90 dividend — a step-UP vs
+the $0.87 H1 run-rate, noted). NAV $30.64→$32.39 (+5.7%) — INSIDE the pre-registered band
+[30.90, 34.84] (point $32.87): BS +$198.6M (commitments 195.6→122.0 as 3 NBs delivered
+[Evelina 5/22, Emma 5/25, Ellie 6/29 — operating rows at issuer-exact dwt]; cash incl. the
+$60.0M NBG Third-Drawing STRADDLE — drawn 6/30, repaid July, sits in BOTH restricted cash
+and debt; the basis change pairing it is disclosed in the sheet) + the buyback-shrunk
+divisor (117.43M→111.59M weighted, −5.0% — H1 repurchases 2.21M sh @ $20.98) against
+fleet-side −$129M (Moira sold + Pendulum HFS at carrying + census fixes + 0.5y aging).
+**VERIFY CATCHES (pre-existing onboarding-era errors, fixed): 4 DUPLICATE rows removed
+(Amami, Star Renee, Honey Badger, Wolverine) + 2 MISSING SLB hulls added (Star Challenger
+2012 + Star Fighter 2013 — their lease-financing debt was booked while the hulls were off
+the curve). Census now name-diffed exact vs the interim's 134-row fleet table: 31 Cape /
+45 Pana / 58 Supra-Ultra + 5 NB.** THE PRE-FLAGGED BUY-EDGE CROSSING DID **NOT** FIRE:
+EV −1.0%→+4.6%, 0.4pp UNDER the +5% edge — HOLD stands (no seam label change; SBLK joins
+the boundary-sitter set: GSL, GNK). **DIANA SPA = ZOMBIE CONDITIONAL:** the 16-vessel
+$470.5M purchase is still described as LIVE in MD&A, conditional on "the success of
+Diana's offer to acquire Genco" — WHILE THE TENDER HAS EXPIRED (GNK 10-Q). Not in the
+commitments note, correctly UNBOOKED here; WATCH next quarter for termination/
+renegotiation (if it ever un-conditions: 16 hulls/$470.5M = a major census + commitment
+event AND a Cape/Ultra print batch). Star Eva: agreed-sold (~$17.5M expected liquidity,
+Q3) — ON-curve at 6/30, GNK-Q1 pattern. Per-vessel sale prices ABSENT for all five H1/Q2
+sales (aggregates only — no marks-trail prints). TCE quality flag: Q2's $24,486/day
+fleet TCE includes ~$21.0M one-off bunker-sale gains (~$1,807/day) — strip-side color,
+not repriced. Both halves verified (565.3/84.2/1,036.6/142.4/122.0). Forward invariance
+held (24 names 0.0). VALIDATED-TIGHT stands. Ratified same day.
+
+---
+
 ## 2026-08-08T23:52:34+00:00 — Pipeline run (auto)
 
 **Model state:**
