@@ -29,9 +29,13 @@ rate_basis:
   default: tc_assessment
   VLGC: realized_tce
 as_of:
-  default: 2026-08-06       # dry bulk promoted from the 06-Aug FFA print (owner-
+  default: 2026-08-07       # containers MB W32 (8/09 event); dry 06-Aug FFA holds (owner-
                             # authorized 2026-08-09 promotion round, ffa_promotion_
                             # 2026-08-09.md); prior default event 2026-07-24
+  Cape: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
+  Pana: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
+  Post-Panamax: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
+  Supra-Ultra: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
   VLGC: 2026-06-02
   VLCC: 2026-06-07
   Suezmax: 2026-06-07

@@ -201,7 +201,7 @@ classes:
   Ctr-Feeder:           # reference ~1,700 TEU (MB sizes 1,100/1,700)
     dwt: 23500
     newbuild: 32000000          # MB 1,800 TEU China
-    five_year_benchmark: 30000000
+    five_year_benchmark: 30000000   # W32 2026-08-07 re-assessed flat
     ten_year_benchmark: 29500000  # MB 1,700 TEU 10yr 29.5 (W32 2026-08-07, +0.5 — the only container value move W29->W32; 15-yr 23.0->23.5 same direction corroborates; was 29.0 since W27 7/03 — container_mb_refresh_packet_2026-08-09.md)
     scrap_25yr: 4000000           # ~8,500 LDT ESTIMATE
     scrubber_premium: 0
@@ -210,14 +210,14 @@ classes:
     dwt: 39000
     newbuild: 44000000          # MB 2,800 TEU China
     five_year_benchmark: 39800000
-    ten_year_benchmark: 35500000  # MB 2,700 TEU 10yr (W29 2026-07-17 re-assessed FLAT)
+    ten_year_benchmark: 35500000  # MB 2,700 10yr 35.5 (W32 2026-08-07 re-assessed flat)
     scrap_25yr: 5000000           # ~11,500 LDT ESTIMATE
     scrubber_premium: 0
     eco_premium_pct: 0.05
   Ctr-Large:            # reference ~6,000 TEU (MB sizes 5,500/6,500)
     # SOFTEST-VALIDATED MARKS IN THE BOOK (§11.8.5): MB's only large-size
     # 2nd-hand assessments are WB designs (5,000WB $63.5M / 6,700WB $75.0M —
-    # W29 2026-07-17 re-assessed FLAT), which price ABOVE the conventional
+    # W32 2026-08-07 re-assessed FLAT), which price ABOVE the conventional
     # 5,400 NB ($63.0M China) — boom inversion. 10yr below = WB pair interpolated to 6,000 (~$69M) less a
     # ~12% WB-design premium adjustment (JUDGMENT, documented; keeps the
     # curve monotonic). Re-derive before trusting any large-heavy name

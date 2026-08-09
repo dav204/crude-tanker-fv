@@ -26,11 +26,15 @@
 # Held classes carry their own trigger (tanker_forward_print_lands /
 # container_mb_refresh); agreement with vintage_notes is suite-tested.
 as_of:
-  default: 2026-08-06       # dry bulk promoted from the 24-Jul FFA print (owner
-                            # "eyeball + promote" 2026-07-24, ffa_promotion_
-                            # 2026-07-24.md — first promotion from the Palun
-                            # captures); prior default event (containers, MB W29
-                            # 7/17) now explicit holds below
+  default: 2026-08-07       # containers, MB W32 refresh (2026-08-09 event, packet
+                            # 2026-08-09) — the newest deliberate refresh; the
+                            # same-round dry-bulk FFA promotion (06-Aug print,
+                            # ffa_promotion_2026-08-09.md) is the explicit
+                            # 2026-08-06 hold set below
+  Cape: 2026-08-06
+  Pana: 2026-08-06
+  Post-Panamax: 2026-08-06
+  Supra-Ultra: 2026-08-06
   VLGC: 2026-06-02
   VLCC: 2026-06-07
   Suezmax: 2026-06-07

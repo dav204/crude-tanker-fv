@@ -23,10 +23,12 @@
 # older vintage (their staleness is tracked by their own trigger/note, not
 # by the lane). Top-level sibling key — invisible to loaders._scalar_map.
 as_of:
-  default: 2026-08-06       # dry bulk re-proxied from the 06-Aug FFA print
+  default: 2026-08-07       # containers MB W32 (8/09 event); dry-bulk 06-Aug FFA = explicit holds
                             # (owner-authorized 2026-08-09 round, ffa_promotion_
                             # 2026-08-09.md); all other classes below carry their
                             # own prior-event dates
+  Cape: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
+  Supra-Ultra: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
   VLCC: 2026-07-02
   Suezmax: 2026-07-02
   Aframax: 2026-07-02
