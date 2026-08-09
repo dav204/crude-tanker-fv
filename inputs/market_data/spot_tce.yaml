@@ -23,9 +23,9 @@
 # older vintage (their staleness is tracked by their own trigger/note, not
 # by the lane). Top-level sibling key — invisible to loaders._scalar_map.
 as_of:
-  default: 2026-07-24       # dry bulk re-proxied from the 24-Jul FFA print (owner
-                            # "eyeball + promote" 2026-07-24, ffa_promotion_
-                            # 2026-07-24.md); all other classes below carry their
+  default: 2026-08-06       # dry bulk re-proxied from the 06-Aug FFA print
+                            # (owner-authorized 2026-08-09 round, ffa_promotion_
+                            # 2026-08-09.md); all other classes below carry their
                             # own prior-event dates
   VLCC: 2026-07-02
   Suezmax: 2026-07-02
@@ -39,9 +39,9 @@ as_of:
   LNGC: 2026-06-07          # held — no LNG spot print in the 2-Jul daily
   MGC: 2026-06-07           # held, as LNGC
   Handy-Bulk: 2026-07-10    # BHSI week-close print (no FFA panel, no Pareto column)
-  Ctr-Feeder: 2026-07-17    # MB W29 container promote (2026-07-22 event)
-  Ctr-Intermediate: 2026-07-17
-  Ctr-Large: 2026-07-17
+  Ctr-Feeder: 2026-08-07    # MB W32 container refresh (2026-08-09 event, packet 2026-08-09)
+  Ctr-Intermediate: 2026-08-07
+  Ctr-Large: 2026-08-07
 spot_tce:
   VLCC: 285500          # TD3C eco (Pareto 2-Jul; -1.1% d/d). MEG-China war premium only
                         # partially unwound (TD22 USG-China printed $127,600 same day).
@@ -58,13 +58,13 @@ spot_tce:
   Handymax: 35600       # chem-Handy proxies MR (convention unchanged, §11.5)
   LR1_clean: 71700      # LR1 eco (Pareto 2-Jul; +0.1% d/d)
   LR2_clean: 89000      # LR2 eco (Pareto 2-Jul; -8.5% d/d)
-  Cape: 35175           # FFA front-month (jul) proxy, 24-Jul eyeballed print
-                        # (decisions/ffa_promotion_2026-07-24.md; Pareto seasonal silence to
-                        # ~Sep-1 — revert to daily spot prints when dailies resume,
-                        # trigger drybulk_spot_daily_resumes)
-  Pana: 19600           # FFA front-month (jul), same record
-  Post-Panamax: 19600   # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  Supra-Ultra: 19450    # FFA front-month (jul), same record
+  Cape: 39875           # FFA front-month (aug) proxy, 06-Aug image-verified print
+                        # (decisions/ffa_promotion_2026-08-09.md; Pareto dry silence CONTINUES —
+                        # the 8/7 daily has prose only, "cape-rates above $40,000/day in early
+                        # August" corroborates; trigger drybulk_spot_daily_resumes stands)
+  Pana: 20325           # FFA front-month (aug), same record
+  Post-Panamax: 20325   # shares the Pana freight basin (§11.7.10, 2026-06-29)
+  Supra-Ultra: 18550    # FFA front-month (aug), same record
   Handy-Bulk: 16466     # §11.7.11 (2026-07-14): BHSI 38k 7TC avg earnings, week-close
                         # 10-Jul-2026 (Baltic Exchange via xclusiv W28 p.1; 13-Jul print
                         # 16,445 corroborates). Gross basis like the dry family rows; no
@@ -76,4 +76,4 @@ spot_tce:
   # (mirror surface; the 12M assessment is the single determinant).
   Ctr-Feeder: 24250
   Ctr-Intermediate: 46350   # A3 TEU-weighted, re-derived 2026-07-06; W29 flat
-  Ctr-Large: 63000
+  Ctr-Large: 64000   # 6,500-TEU bucket 66,000->68,000 at MB W30, held W31/W32; avg(60,000, 68,000) — container_mb_refresh_packet_2026-08-09.md

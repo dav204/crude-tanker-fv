@@ -26,7 +26,7 @@
 # Held classes carry their own trigger (tanker_forward_print_lands /
 # container_mb_refresh); agreement with vintage_notes is suite-tested.
 as_of:
-  default: 2026-07-24       # dry bulk promoted from the 24-Jul FFA print (owner
+  default: 2026-08-06       # dry bulk promoted from the 24-Jul FFA print (owner
                             # "eyeball + promote" 2026-07-24, ffa_promotion_
                             # 2026-07-24.md — first promotion from the Palun
                             # captures); prior default event (containers, MB W29
@@ -44,19 +44,21 @@ as_of:
   LR2_clean: 2026-06-07
   LNGC: 2026-06-07
   MGC: 2026-06-07
-  Ctr-Feeder: 2026-07-17    # MB W29 container promote (2026-07-22 event)
-  Ctr-Intermediate: 2026-07-17
-  Ctr-Large: 2026-07-17
+  Ctr-Feeder: 2026-08-07    # MB W32 container refresh (2026-08-09 event)
+  Ctr-Intermediate: 2026-08-07
+  Ctr-Large: 2026-08-07
   Handy-Bulk: 2026-07-10    # own cadence (MB Dry Bulk weekly) — NO Handy FFA exists at any
                             # tenor; its curve row below is DERIVED (= Supra-Ultra x 0.90,
                             # §11.7.11 locked basis), regenerated with any supra promotion
 vintage_notes:
   - "Supra-Ultra 2027+2028 strip legs HELD at the 13-Jul synthesis (Cal-27 14,175):
     the Smax Cal27 row is cropped from every capture of the new source
-    (Chris.Palun, 2026-07-20 →) — front (q1/q2/12M/spot) IS the 24-Jul print.
-    Held-node bracket per ffa_promotion_2026-07-24.md; retires at the first
-    capture showing Smax Cal27 (owner channel-ask staged). Handy-Bulk derived
-    row inherits the same mix via the x0.90 identity."
+    (Chris.Palun, 2026-07-20 →) — front (q1/q2/12M/spot) IS the 06-Aug print
+    (ffa_promotion_2026-08-09.md). NEW: the 06-Aug capture PRINTS Smax Q1-27
+    14,325 vs the held q3 15,075 — the held year reads ~5% RICH (one-sided
+    disclosure). Held-node bracket retires at the first capture showing Smax
+    Cal27 (owner channel-ask staged). Handy-Bulk derived row inherits the same
+    mix via the x0.90 identity."
   - "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean)
     HELD at the 2026-06-07 vintage — TERM PRINT EXISTS (DHT 6-K 2026-07-13: 3-yr VLCC
     TC $75k/day Sep-26 start; Q3 QTD bookings $139.7k corroborate the front within ~5%;
@@ -209,40 +211,42 @@ ffa_forward_curve:
   - 42000
   - 41000
   - 40000
-  Cape:              # FFA 24-Jul (eyeballed print, ffa_promotion_2026-07-24.md): Qn 34891 /
-                     # Qf 35725 / Cal-27 29175 — front back to CONTANGO (13-Jul was backwardated)
-  - 34900
-  - 35725
-  - 30675
-  - 29675
-  - 28675
-  - 27675
-  - 27175
-  - 26675
-  Pana:              # FFA 24-Jul: Qn 19158 / Qf 19100 / Cal-27 16425
-  - 19150
-  - 19100
-  - 17325
-  - 16725
-  - 16125
-  - 15525
-  - 15125
-  - 14825
+  Cape:              # FFA 06-Aug (image-verified, ffa_promotion_2026-08-09.md): q1 = mean(Aug,Sep)
+                     # 38800; Q4 37250; Q1-27 25875 PRINTED (new tenor set); q4-q6 make the
+                     # Cal-27 29900 identity exact; 2028 committed deltas -500/-500
+  - 38800
+  - 37250
+  - 25875
+  - 31225
+  - 31250
+  - 31250
+  - 30750
+  - 30250
+  Pana:              # FFA 06-Aug: q1 mean(Aug,Sep) 20500; Q4 20325; Q1-27 16250; Cal-27 16975
+                     # identity exact; 2028 deltas -400/-300
+  - 20500
+  - 20325
+  - 16250
+  - 17200
+  - 17225
+  - 17225
+  - 16825
+  - 16525
   Post-Panamax:     # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  - 19150
-  - 19100
-  - 17325
-  - 16725
-  - 16125
-  - 15525
-  - 15125
-  - 14825
-  Supra-Ultra:       # FFA 24-Jul front (Qn 19108 / Qf 18450); 2027+2028 legs HELD at the
-                     # 13-Jul synthesis (Cal-27 14175) — the Smax Cal27 row is CROPPED from
-                     # every capture of the new source; held-node bracket, retires at the
-                     # next full capture (ffa_promotion_2026-07-24.md §judgment)
-  - 19100
-  - 18450
+  - 20500
+  - 20325
+  - 16250
+  - 17200
+  - 17225
+  - 17225
+  - 16825
+  - 16525
+  Supra-Ultra:       # FFA 06-Aug front (q1 mean(Aug,Sep) 19200 / Q4 19158); 2027+2028 legs HELD at
+                     # the 13-Jul synthesis (Cal-27 14175) — Smax Cal27 STILL cropped (8/05+8/06);
+                     # the printed Smax Q1-27 14325 vs held q3 15075 = held year ~5% RICH,
+                     # one-sided disclosure (ffa_promotion_2026-08-09.md §judgment 3)
+  - 19200
+  - 19158
   - 15075
   - 14475
   - 13875
@@ -251,8 +255,8 @@ ffa_forward_curve:
   - 12675
   Handy-Bulk:      # DERIVED = Supra-Ultra x 0.90 (§11.7.11 locked basis; same guard family as
                    # the scenario deck) — regenerated with the 24-Jul supra front; held legs ride
-  - 17190
-  - 16600
+  - 17280
+  - 17240
   - 13570
   - 13030
   - 12490
@@ -294,14 +298,15 @@ ffa_forward_curve:
   - 39225
   - 38225
   - 37200
-  Ctr-Large:
-  - 63000
-  - 61500
-  - 59500
-  - 58000
-  - 56500
-  - 54500
-  - 53000
-  - 51500
-  - 49500
+  Ctr-Large:   # W32 refresh: start 64,000 (12M avg incl. the W30 6,500-bucket tick) -> same
+               # terminal 48,000, linear-to-250 (container_mb_refresh_packet_2026-08-09.md)
+  - 64000
+  - 62250
+  - 60500
+  - 58750
+  - 57000
+  - 55250
+  - 53500
+  - 51750
+  - 50000
   - 48000

@@ -1,5 +1,41 @@
 # CMBT — Decision Log
 
+## 2026-08-09T12:37:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.29
+- Single-point FV: $15.93
+- Scenario PW FV: $13.86 (EV -14.9%)
+- NAV / share: $16.46
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +29.2pp (k_broker 1.21)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:34:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.29
+- Single-point FV: $15.93
+- Scenario PW FV: $13.86 (EV -14.9%)
+- NAV / share: $16.46
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +29.2pp (k_broker 1.21)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.6% | Δscenario FV: -3.4% | ΔNAV: no change | Δspread: -0.6pp
+
+**Decision:** FFA DRY-BULK PROMOTION 2026-08-09 (8/06 print): dry carve-out legs re-mix (front +13% spot proxy, 12M -4.4% Pana on the tenor roll) — EV -18.1% -> -14.9% (+3.2pp, WHOLE-CO). NO FLIP - TRIM/SHORT stands.
+
+---
+
 ## 2026-08-09T12:29:58+00:00 — Pipeline run (auto)
 
 **Model state:**

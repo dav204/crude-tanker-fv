@@ -29,10 +29,9 @@ rate_basis:
   default: tc_assessment
   VLGC: realized_tce
 as_of:
-  default: 2026-07-24       # dry bulk promoted from the 24-Jul FFA print (owner
-                            # "eyeball + promote" 2026-07-24, ffa_promotion_
-                            # 2026-07-24.md); prior default event (containers,
-                            # MB W29 7/17) now explicit holds below
+  default: 2026-08-06       # dry bulk promoted from the 06-Aug FFA print (owner-
+                            # authorized 2026-08-09 promotion round, ffa_promotion_
+                            # 2026-08-09.md); prior default event 2026-07-24
   VLGC: 2026-06-02
   VLCC: 2026-06-07
   Suezmax: 2026-06-07
@@ -47,9 +46,9 @@ as_of:
   LR1_clean: 2026-06-07
   LR2_clean: 2026-06-07
   Handy-Bulk: 2026-07-10    # MB Dry Bulk Weekly 28 (own cadence — no Handy FFA panel)
-  Ctr-Feeder: 2026-07-17    # MB W29 container promote (2026-07-22 event)
-  Ctr-Intermediate: 2026-07-17
-  Ctr-Large: 2026-07-17
+  Ctr-Feeder: 2026-08-07    # MB W32 container refresh (2026-08-09 event, packet 2026-08-09)
+  Ctr-Intermediate: 2026-08-07
+  Ctr-Large: 2026-08-07
 twelve_month_tc:
   VLCC: 111500          # STALE Jun-7 war vintage — held, no 2-Jul TC print (see header)
   Suezmax: 61250        # STALE Jun-7 — held
@@ -74,11 +73,16 @@ twelve_month_tc:
   # last parsed 2026-06-11) are NOT promoted — Phase-0 convention. Refresh on
   # trigger vlgc_realized_tce_refresh (each validator quarterly disclosure).
   VLGC: 63615           # Dorian Q1-2026 realized TCE — disclosure-cluster vintage 2026-06-02 (held)
-  Cape: 35300           # (34891 Qn + 35725 Qf)/2 = 35308, FFA 24-Jul eyeballed print
+  Cape: 31550           # (37250 Q4 + 25875 Q1-27)/2 = 31562, FFA 06-Aug image-verified print
+                        # (ffa_promotion_2026-08-09.md). NOTE: the quoted quarterlies ROLLED
+                        # to Q4+Q1 — the proxy now contains the winter-trough quarter; the
+                        # like-for-like Q4 tenor FIRMED +4.3% vs 7/24. Composition, not level.
                         # (ffa_promotion_2026-07-24.md) — UNCHANGED vs 13-Jul by coincidence
-  Pana: 19150           # (19158 + 19100)/2, FFA 24-Jul (was 19500 13-Jul)
-  Post-Panamax: 19150   # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  Supra-Ultra: 18800    # (19108 + 18450)/2 = 18779, FFA 24-Jul (was 18350 13-Jul)
+  Pana: 18300           # (20325 Q4 + 16250 Q1-27)/2, FFA 06-Aug (was 19150 24-Jul; composition note at Cape)
+  Post-Panamax: 18300   # shares the Pana freight basin (§11.7.10, 2026-06-29)
+  Supra-Ultra: 16750    # (19158 Q4 + 14325 Q1-27)/2 = 16742, FFA 06-Aug (was 18800 24-Jul;
+                        # sits -13% vs MB Ultramax 1yr 19,250 — the FFA winter leg vs MB's
+                        # modern-Japanese-prompt premium basis; composition note at Cape)
   Handy-Bulk: 14500     # §11.7.11 (2026-07-14): MB Dry Bulk Weekly 28 (4-10 Jul) 1-yr TC,
                         # 38k dwt modern Japanese, net of address comm (printed basis). NO
                         # Handy FFA panel — refreshes on the MB weekly, NOT the FFA promote
@@ -95,5 +99,5 @@ twelve_month_tc:
                             # exact-TEU weights CANONICAL; buckets 2500: 11.5% / 2700:
                             # 21.8% / 3500: 25.3% / 4250: 41.4% display-rounded);
                             # W29 buckets re-assessed FLAT
-  Ctr-Large: 63000          # avg(5,500: 60,000 / 6,500: 66,000); 5,400 WB excluded (design
+  Ctr-Large: 64000   # 6,500-TEU bucket 66,000->68,000 at MB W30, held W31/W32; avg(60,000, 68,000) — container_mb_refresh_packet_2026-08-09.md
                             # premium); W29 re-assessed FLAT

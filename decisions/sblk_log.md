@@ -1,5 +1,42 @@
 # SBLK — Decision Log
 
+## 2026-08-09T12:37:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.90
+- Single-point FV: $32.10
+- Scenario PW FV: $30.00 (EV +3.8%)
+- NAV / share: $33.04
+- Position: **HOLD (fairly valued)**
+- Broker spread: +11.4pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:34:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.90
+- Single-point FV: $32.10
+- Scenario PW FV: $30.00 (EV +3.8%)
+- NAV / share: $33.04
+- Position: **HOLD (fairly valued)**
+- Broker spread: +11.4pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: no change | Δsingle FV: +0.8% | Δscenario FV: -2.5% | ΔNAV: no change | Δspread: -0.3pp
+
+**Decision:** FFA DRY-BULK PROMOTION 2026-08-09 (ffa_promotion_2026-08-09.md, 8/06 print): the 12M proxy stepped down on the TENOR ROLL (Supra 18,800->16,750 / Cape 35,300->31,550 — the quoted quarterlies now span Q4-26 + the Q1-27 winter trough; like-for-like Q4 FIRMED +4.3%). SBLK EV +6.4% -> +3.8% (-2.6pp, NAV move exactly 0.0 — pure strip/cycle leg), BUY -> HOLD band-mech. THE FLIP IS 12M-COMPOSITION-DRIVEN, NOT MARKET-LEVEL — per the promotion doc's pre-registered discipline it is FROZEN-FOR-OWNER-REVIEW (G6-family): the mechanical band prints HOLD; the governance handoff carries the freeze note; disposition at the owner review with the Stage-A questions. Context: the 8/05 SBLK Q3-coverage slide (62% @ $23,547 fleet-wide) sits ABOVE the new 12M line — corroborates composition-not-weakness.
+
+---
+
 ## 2026-08-09T12:29:58+00:00 — Pipeline run (auto)
 
 **Model state:**

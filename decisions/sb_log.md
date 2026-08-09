@@ -1,5 +1,41 @@
 # SB — Decision Log
 
+## 2026-08-09T12:37:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.60
+- Single-point FV: $10.24
+- Scenario PW FV: $9.53 (EV +25.4%)
+- NAV / share: $10.58
+- Position: **BUY (undervalued)**
+- Broker spread: -21.4pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:34:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.60
+- Single-point FV: $10.24
+- Scenario PW FV: $9.53 (EV +25.4%)
+- NAV / share: $10.58
+- Position: **BUY (undervalued)**
+- Broker spread: -21.4pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.3% | Δscenario FV: -4.4% | ΔNAV: no change | Δspread: +0.6pp
+
+**Decision:** FFA DRY-BULK PROMOTION 2026-08-09 (8/06 print, tenor-roll composition — see sblk_log): EV +31.1% -> +25.4% (-5.7pp; NAV unchanged — strip/cycle leg only). NO FLIP, BUY (VALIDATED-TIGHT) stands with wide margin. The 12M step-down is seasonal-composition (Q1-27 trough entering the proxy window); like-for-like Q4 tenors FIRMED.
+
+---
+
 ## 2026-08-09T12:29:58+00:00 — Pipeline run (auto)
 
 **Model state:**

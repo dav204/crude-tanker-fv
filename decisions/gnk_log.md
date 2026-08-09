@@ -1,5 +1,41 @@
 # GNK — Decision Log
 
+## 2026-08-09T12:37:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.33
+- Single-point FV: $24.83
+- Scenario PW FV: $22.89 (EV -9.7%)
+- NAV / share: $25.38
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +9.9pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:34:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.33
+- Single-point FV: $24.83
+- Scenario PW FV: $22.89 (EV -9.7%)
+- NAV / share: $25.38
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +9.9pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.9% | Δscenario FV: -2.7% | ΔNAV: no change | Δspread: -0.3pp
+
+**Decision:** FFA DRY-BULK PROMOTION 2026-08-09 (8/06 print): EV -11.6% -> -9.6% (+2.0pp; NAV unchanged this event). NO FLIP - TRIM/SHORT stands. Driver mix: front-month spot proxy +13% (Cape 39,875) + softer 12M on the tenor roll -> cycle-position/terminal legs re-mix; see ffa_promotion_2026-08-09.md composition note.
+
+---
+
 ## 2026-08-09T12:29:58+00:00 — Pipeline run (auto)
 
 **Model state:**

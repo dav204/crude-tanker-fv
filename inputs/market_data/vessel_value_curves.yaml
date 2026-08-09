@@ -202,7 +202,7 @@ classes:
     dwt: 23500
     newbuild: 32000000          # MB 1,800 TEU China
     five_year_benchmark: 30000000
-    ten_year_benchmark: 29000000  # MB 1,700 TEU 10yr (W29 2026-07-17 re-assessed FLAT; 29.0 since W27 2026-07-03, was 28.0 at the Apr-01 freeze)
+    ten_year_benchmark: 29500000  # MB 1,700 TEU 10yr 29.5 (W32 2026-08-07, +0.5 — the only container value move W29->W32; 15-yr 23.0->23.5 same direction corroborates; was 29.0 since W27 7/03 — container_mb_refresh_packet_2026-08-09.md)
     scrap_25yr: 4000000           # ~8,500 LDT ESTIMATE
     scrubber_premium: 0
     eco_premium_pct: 0.05
