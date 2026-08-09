@@ -1,5 +1,59 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-08-09T12:29:58+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.14
+- Single-point FV: $60.15
+- Scenario PW FV: $57.16 (EV +46.0%)
+- NAV / share: $88.16
+- Position: **BUY (undervalued)**
+- Broker spread: +40.1pp (k_broker 1.22)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:22:09+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.14
+- Single-point FV: $60.15
+- Scenario PW FV: $57.16 (EV +46.0%)
+- NAV / share: $88.16
+- Position: **BUY (undervalued)**
+- Broker spread: +40.1pp (k_broker 1.22)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.1% | Δscenario FV: +0.1% | ΔNAV: +0.1% | Δspread: -0.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:12:00+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.14
+- Single-point FV: $60.10
+- Scenario PW FV: $57.11 (EV +45.9%)
+- NAV / share: $88.07
+- Position: **BUY (undervalued)**
+- Broker spread: +40.3pp (k_broker 1.22)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.5% | Δscenario FV: +0.5% | ΔNAV: +0.6% | Δspread: -0.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-09T02:55:38+00:00 — Pipeline run (auto)
 
 **Model state:**

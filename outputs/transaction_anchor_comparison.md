@@ -18,7 +18,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2025-06-19 • age 17 • $31.0M • Pareto Shipping Daily 2025-06-19 — Yasa disclosure
   - 2025-09-23 • age 17 • $29.5M • Pareto Shipping Daily 2025-09-23 — broker reports
   - 2026-06-12 • age 17 • $52.5M • MB Shipbrokers Tanker Weekly 24/2026 — S&P column
-- **Cape** (35 prints, as_of 2026-06-09):
+- **Cape** (38 prints, as_of 2026-06-09):
   - 2025-12-15 • age 5 • $73.5M • Pareto Shipping Daily 2025-12-17 — broker reports
   - 2026-01-09 • age 5 • $76.25M • Pareto Shipping Daily 2026-01-09 — Norden disclosure
   - 2025-09-26 • age 5 • $69.67M • Pareto Shipping Daily 2025-09-26 — 2020 Bulkers disclosure
@@ -54,7 +54,10 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-06-29 • age 13 • $46.2M • banchero W26 (per-vessel price printed)
   - 2026-07-20 • age 14 • $37.5M • advanced W30 + banchero W29 (exact) + xclusiv 7/20 ("region 37"); 3-house
   - 2026-07-20 • age 16 • $34.5M • advanced W30 (exact) + xclusiv 7/20 ("low/mid 34")
-- **LR2** (13 prints, as_of 2026-06-09):
+  - 2026-08-07 • age 15 • $36.5M • MB Dry Bulk Weekly 32 (2026-08-07, exact)
+  - 2026-08-07 • age 14 • $36.9M • MB Dry Bulk Weekly 32 (2026-08-07, exact); banchero issue-W30 $37.5 (older, superseded per G5 newest-wins)
+  - 2026-07-31 • age 14 • $37.5M • advanced W31 (2026-07-31, exact)
+- **LR2** (14 prints, as_of 2026-06-09):
   - 2026-03-31 • age 10 • $52.3M • Scorpio Tankers (STNG) press release Dec 2025; closing Q1 2026
   - 2026-03-31 • age 10 • $52.3M • Scorpio Tankers (STNG) press release Dec 2025; closing Q1 2026
   - 2025-01-10 • age 13 • $45.3M • Pareto Shipping Daily 2025-01-10 — Affinity broker reports
@@ -68,6 +71,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-04-21 • age 12 • $65.0M • Pareto Shipping Daily 2026-04-21 — Scorpio Tankers disclosure
   - 2026-06-12 • age 0 • $90.0M, newbuild_resale (+0%) • MB Shipbrokers Tanker Weekly 24/2026 — S&P column
   - 2026-07-03 • age 17 • $44.0M • advanced W27 (GE Shipping prose, $44m); xclusiv 7/06 table $44.1
+  - 2026-07-27 • age 17 • $47.5M • xclusiv W31 (2026-07-27, exact) + advanced W31 + banchero issue-W30 + intermodal issue-W30 — 4-source exact
 - **MR** (26 prints, as_of 2026-06-09):
   - 2026-03-31 • age 12 • $32.0M • Scorpio Tankers (STNG) press release Nov 2025; closing Q1 2026
   - 2026-06-30 • age 11 • $35.0M • Scorpio Tankers (STNG) 6-K — closing Q2 2026
@@ -95,7 +99,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-01-23 • age -3 • $45.4M • d'Amico (DIS) press release / Splash247
   - 2025-12-15 • age -3 • $43.2M • d'Amico (DIS) press release / Marine Link
   - 2026-07-10 • age 15 • $25.1M • MB Tanker Weekly 28 (2026-07-10, exact)
-- **Pana** (11 prints, as_of 2026-06-12):
+- **Pana** (16 prints, as_of 2026-06-12):
   - 2025-09-19 • age 9 • $27.5M • Pareto Shipping Daily 2025-09-19 — broker reports
   - 2025-10-06 • age 9 • $26.5M • Pareto Shipping Daily 2025-10-06 — broker reports
   - 2026-06-12 • age 11 • $26.0M • MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
@@ -107,12 +111,22 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-07-06 • age 14 • $20.8M • xclusiv 7/06 + MB Dry W28 + banchero W28 (exact; advanced $21m)
   - 2026-07-20 • age 4 • $37.5M • advanced W30 (exact per-vessel, "USD 37,5 mill each")
   - 2026-07-20 • age 4 • $37.5M • advanced W30 (exact per-vessel)
-- **Post-Panamax** (5 prints, as_of 2026-07-18):
+  - 2026-07-31 • age 11 • $28.5M • MB Dry W29 exact + intermodal issue-W30 exact (banchero "mid 28") — the 7/28 §B hold upgraded promote-grade
+  - 2026-08-07 • age 7 • $38.2M • MB Dry Bulk Weekly 32 (2026-08-07, exact)
+  - 2026-08-07 • age 11 • $30.8M • MB Dry Bulk Weekly 32 (2026-08-07, exact)
+  - 2026-08-07 • age 14 • $23.5M • MB Dry Bulk Weekly 32 (2026-08-07, exact)
+  - 2026-08-07 • age 14 • $22.0M, tc_attached (+0%) • MB Dry Bulk Weekly 32 + intermodal issue-W30 + advanced W31 (all exact 22.0)
+- **Post-Panamax** (10 prints, as_of 2026-07-18):
   - 2026-07-13 • age 15 • $15.25M • banchero W28 + MB Dry W28 + xclusiv 7/13 + advanced W28 (exact, multi-house)
   - 2026-07-10 • age 16 • $14.5M • MB Dry Weekly 28 (en-bloc pair, per-vessel prices printed)
   - 2026-07-10 • age 15 • $14.3M • MB Dry Weekly 28 (en-bloc pair, per-vessel prices printed)
   - 2026-07-10 • age 16 • $12.0M, tc_attached (+0%) • MB Dry W28 + banchero W28 + advanced W28
   - 2026-06-29 • age 15 • $15.75M • xclusiv issue 2026-06-29 ("bss delivery Oct")
+  - 2026-07-24 • age 15 • $15.25M • MB Dry W29 (2026-07-17, exact) — the 7/28 §I3 upgrade, promote-grade
+  - 2026-08-07 • age 15 • $19.7M • MB Dry Bulk Weekly 32 (2026-08-07, exact)
+  - 2026-08-07 • age 16 • $18.25M • MB Dry Bulk Weekly 32 (2026-08-07, exact)
+  - 2026-08-07 • age 15 • $19.7M • MB Dry Bulk Weekly 32 (2026-08-07, exact)
+  - 2026-07-31 • age 5 • $36.0M • advanced W31 (2026-07-31, exact) + intermodal issue-W30 exact
 - **Suezmax** (25 prints, as_of 2026-06-09):
   - 2026-05-15 • age 17 • $53.5M • TNK Q2 2026 ER (subsequent-events disclosure — disposal of 2009-built Suezmax)
   - 2025-08-15 • age 6 • $96.0M • trade press (Splash247 / TradeWinds S&P column, Aug 2025 — modern Suezmax market commentary)
@@ -139,7 +153,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-02-15 • age 0 • $95.0M, newbuild_resale (+0%) • Compass Maritime weekly (Olympic Star + Daehan Hull 5118 NB resale)
   - 2026-03-02 • age -2.5 • $81.5M • Performance Shipping (PSHG) press release (2x Suezmax NB order at SWS)
   - 2026-07-10 • age 10 • $81.0M • MB Tanker Weekly 28 (2026-07-10, exact); xclusiv/intermodal/banchero "low/mid $80s" corroborate
-- **Supra-Ultra** (41 prints, as_of 2026-06-12):
+- **Supra-Ultra** (52 prints, as_of 2026-06-12):
   - 2025-09-19 • age 4 • $32.0M • Pareto Shipping Daily 2025-09-19 — CMB → HMM disclosure
   - 2025-09-19 • age 5 • $30.0M • Pareto Shipping Daily 2025-09-19 — broker reports
   - 2025-10-06 • age 6 • $30.5M • Pareto Shipping Daily 2025-10-06 — broker reports
@@ -173,15 +187,26 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-07-06 • age 17 • $15.3M • xclusiv 7/06 + advanced W28 + MB Dry W28 (exact)
   - 2026-07-20 • age 6 • $37.5M, prompt_premium (+0%) • xclusiv 7/20 (table "37.5 EACH"); advanced W30 "low $37 each" (tension noted)
   - 2026-07-20 • age 6 • $37.5M, prompt_premium (+0%) • xclusiv 7/20; advanced W30
-  - 2026-07-20 • age 7 • $35.2M, prompt_premium (+0%) • xclusiv 7/20 (exact); identity registry-verified IMO 9860635 (63,447/2019 Tadotsu)
+  - 2026-07-20 • age 7 • $35.5M, prompt_premium (+0%) • xclusiv 7/20 ($35.2); REVISED per G5 newest-print-wins — MB Dry W31 35.50 exact + advanced W31 35.5 (marks_trail_triage_2026-08-09 §B); identity registry-verified IMO 9860635 (63,447/2019 Tadotsu)
   - 2026-07-20 • age 3 • $41.6M, prompt_premium (+0%) • advanced W30 (exact, table); CORROBORATED out-of-feed by Compass Maritime (owner-supplied 2026-07-28 - 66,628/4-2023 Tsuneishi Zhoushan, offers due 6-Jul, "in excess of $41M")
   - 2026-07-20 • age 10 • $30.0M • banchero W29 (exact)
   - 2026-07-20 • age 12 • $25.5M • banchero W29 (exact)
   - 2026-07-20 • age 14 • $22.0M • banchero W29 (exact) + xclusiv 7/20 ("region 22", buyer ADNOC)
   - 2026-07-20 • age 12 • $23.3M • intermodal W29 (exact) + xclusiv 7/20 ("mid 23")
   - 2026-07-20 • age 13 • $19.5M • intermodal W29 (exact)
-  - 2026-07-20 • age 16 • $16.8M • advanced W30 (exact)
-- **VLCC** (13 prints, as_of 2026-06-09):
+  - 2026-07-20 • age 16 • $16.6M • advanced W30 ($16.8); REVISED per G5 newest-print-wins — MB Dry W31 16.60 exact + xclusiv W31 16.6 (2 newer exacts; marks_trail_triage_2026-08-09 §B)
+  - 2026-07-27 • age 15 • $22.3M • MB Dry W29/W30 exact (22.30) + xclusiv W31 (2026-07-27) 22.3 "basis SS/DD passed"; intermodal issue-W30 22.0 variance recorded — the 7/28 §B hold upgraded
+  - 2026-07-27 • age 16 • $22.0M • xclusiv W31 (2026-07-27, exact)
+  - 2026-07-31 • age 16 • $16.5M • MB Dry W31 (2026-07-31, exact); advanced W31 "Mid 16" + xclusiv W31 "MID 16"
+  - 2026-07-28 • age 14 • $19.0M • intermodal issue-W30 (2026-07-28, exact "each") + banchero issue-W30 19 — the 7/28 §B hold upgraded
+  - 2026-07-28 • age 14 • $19.0M • as United Halo (merged en-bloc price cell)
+  - 2026-07-31 • age 16 • $13.3M • advanced W31 (2026-07-31, exact)
+  - 2026-08-07 • age 15 • $13.1M • MB Dry Bulk Weekly 32 (2026-08-07, exact)
+  - 2026-08-07 • age 13 • $16.8M • MB Dry Bulk Weekly 32 (2026-08-07, exact); advanced W31 "High 16"
+  - 2026-08-07 • age 15 • $15.0M • MB Dry Bulk Weekly 32 (2026-08-07, exact); advanced W31 "Low 15"
+  - 2026-08-07 • age 17 • $11.75M • MB Dry Bulk Weekly 32 (2026-08-07, exact)
+  - 2026-07-28 • age 17 • $13.0M • banchero issue-W30 (2026-07-28, exact) + advanced W31 exact
+- **VLCC** (16 prints, as_of 2026-06-09):
   - 2026-01-15 • age 4 • $125.0M • trade press (Splash247 — two 4-yr-old VLCCs sold to European buyer)
   - 2026-01-31 • age 5 • $112.0M • Splash247 (CSSC Liaoning sale to Greek interests)
   - 2026-03-15 • age 10.5 • $103.9M • Frontline (FRO) Q1 2026 ER (8-VLCC en bloc disposal)
@@ -195,6 +220,9 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-03-31 • age 12 • $71.0M • Veson / IndexBox (Sinokor 2026 VLCC buying campaign Q1 summary)
   - 2026-01-08 • age 0 • $136.0M, newbuild_resale (+0%) • Frontline (FRO) press release / Splash247 (9 latest-gen ECO VLCC NBs from Fredriksen affiliate)
   - 2026-06-29 • age 14 • $52.0M, tc_attached (+0%) • xclusiv issue 2026-06-29 (table + prose)
+  - 2026-08-07 • age 13 • $120.0M • MB Tanker Weekly 32 (2026-08-07, exact)
+  - 2026-08-07 • age 10 • $128.0M • MB Tanker Weekly 32 (2026-08-07, exact); advanced W31 $123M (older print, superseded per G5 newest-wins)
+  - 2026-08-07 • age 9 • $130.0M • MB Tanker Weekly 32 (2026-08-07, exact)
 - **VLGC** (10 prints, as_of 2026-07-10):
   - 2025-12-12 • age 9 • $80.0M • Pareto Shipping Daily 2025-12-12 — broker S&P column
   - 2026-03-15 • age 10 • $84.0M • Riviera Maritime (broker-reported), ~Mar-2026 — sec99 print hunt 2026-07-06
@@ -212,29 +240,29 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | Name | NAV base→txn | Δ% | EV base→txn | Δpp | Position |
 |---|--:|--:|--:|--:|---|
 | CCEC | $25.70→$25.70 | +0.0% | +50.7%→+50.7% | +0.0 | BUY→BUY |
-| TEN | $94.58→$87.57 | -7.4% | +55.7%→+45.2% | -10.5 | BUY→BUY |
-| SB | $9.67→$10.03 | +3.8% | +19.8%→+24.6% | +4.8 | BUY→BUY |
-| CMDB | $31.44→$31.92 | +1.5% | +12.7%→+14.2% | +1.5 | BUY→BUY |
-| TRMD | $31.65→$30.30 | -4.2% | +12.0%→+8.1% | -3.9 | BUY→BUY |
-| SBLK | $31.53→$32.39 | +2.7% | +2.0%→+4.6% | +2.5 | HOLD→HOLD |
+| TEN | $94.58→$88.16 | -6.8% | +55.7%→+46.0% | -9.7 | BUY→BUY |
+| SB | $9.67→$10.58 | +9.4% | +19.8%→+31.1% | +11.3 | BUY→BUY |
+| CMDB | $31.44→$32.43 | +3.1% | +12.7%→+15.8% | +3.1 | BUY→BUY |
+| TRMD | $31.65→$30.22 | -4.5% | +12.0%→+7.8% | -4.2 | BUY→BUY |
+| SBLK | $31.53→$33.04 | +4.8% | +2.0%→+6.4% | +4.4 | HOLD→BUY ⚠️ |
 | TNK | $89.65→$84.60 | -5.6% | +8.5%→+3.4% | -5.1 | BUY→HOLD ⚠️ |
 | ASC | $17.38→$17.37 | -0.0% | +2.4%→+2.4% | -0.0 | HOLD→HOLD |
 | GSL | $41.20→$41.20 | +0.0% | +1.4%→+1.4% | +0.0 | HOLD→HOLD |
-| BRUT | $8.80→$8.80 | +0.0% | +2.5%→+0.7% | -1.7 | HOLD→HOLD |
+| BRUT | $8.80→$8.80 | +0.0% | +2.5%→+1.3% | -1.2 | HOLD→HOLD |
 | FLNG | $28.45→$28.45 | +0.0% | -0.5%→-0.5% | +0.0 | HOLD→HOLD |
-| STNG | $79.63→$76.42 | -4.0% | +0.6%→-3.1% | -3.7 | HOLD→HOLD |
-| CAPT | $15.61→$15.49 | -0.8% | -2.4%→-4.0% | -1.6 | HOLD→HOLD |
-| GNK | $24.77→$25.26 | +2.0% | -9.1%→-7.5% | +1.6 | TRIM/SHORT→TRIM/SHORT |
-| CMBT **(WHOLE-CO)** | $15.84→$16.19 | +2.2% | -15.3%→-13.4% | +1.9 | TRIM/SHORT→TRIM/SHORT |
-| HAFN | $5.69→$5.57 | -2.1% | -15.7%→-17.1% | -1.4 | TRIM/SHORT→TRIM/SHORT |
-| 2343 | $0.41→$0.41 | -1.0% | -16.7%→-17.5% | -0.7 | TRIM/SHORT→TRIM/SHORT |
+| STNG | $79.63→$76.22 | -4.3% | +0.6%→-3.3% | -3.9 | HOLD→HOLD |
+| CAPT | $15.61→$15.48 | -0.8% | -2.4%→-3.9% | -1.5 | HOLD→HOLD |
+| GNK | $24.77→$25.38 | +2.5% | -9.1%→-7.1% | +2.0 | TRIM/SHORT→TRIM/SHORT |
+| CMBT **(WHOLE-CO)** | $15.84→$16.46 | +3.9% | -15.3%→-11.9% | +3.4 | TRIM/SHORT→TRIM/SHORT |
+| HAFN | $5.69→$5.56 | -2.2% | -15.7%→-17.1% | -1.4 | TRIM/SHORT→TRIM/SHORT |
+| 2343 | $0.41→$0.41 | -1.0% | -16.7%→-17.4% | -0.7 | TRIM/SHORT→TRIM/SHORT |
 | MPCC | $2.04→$2.04 | +0.0% | -19.4%→-19.4% | +0.0 | TRIM/SHORT→TRIM/SHORT |
-| DHT | $16.30→$13.83 | -15.2% | -17.1%→-28.0% | -10.9 | TRIM/SHORT→TRIM/SHORT |
+| DHT | $16.30→$15.01 | -8.0% | -17.1%→-22.8% | -5.7 | TRIM/SHORT→TRIM/SHORT |
 | LPG | $35.70→$35.69 | -0.0% | -30.4%→-30.5% | -0.0 | TRIM/SHORT→TRIM/SHORT |
 | BWLP | $15.81→$15.80 | -0.1% | -33.0%→-33.0% | -0.0 | TRIM/SHORT→TRIM/SHORT |
-| INSW **(WHOLE-CO)** | $57.91→$52.48 | -9.4% | -36.4%→-41.1% | -4.7 | TRIM/SHORT→TRIM/SHORT |
-| FRO | $28.47→$24.11 | -15.3% | -32.4%→-41.8% | -9.4 | TRIM/SHORT→TRIM/SHORT |
-| ECO | $43.80→$37.65 | -14.0% | -34.0%→-42.3% | -8.3 | TRIM/SHORT→TRIM/SHORT |
+| FRO | $28.47→$25.34 | -11.0% | -32.4%→-39.0% | -6.7 | TRIM/SHORT→TRIM/SHORT |
+| ECO | $43.80→$39.54 | -9.7% | -34.0%→-39.7% | -5.7 | TRIM/SHORT→TRIM/SHORT |
+| INSW **(WHOLE-CO)** | $57.91→$53.88 | -7.0% | -36.4%→-39.8% | -3.5 | TRIM/SHORT→TRIM/SHORT |
 | NAT | $3.32→$2.85 | -14.2% | -51.0%→-56.8% | -5.8 | TRIM/SHORT→TRIM/SHORT |
 
 _Δ% = (txn − base) / base. Names with no exposure to a recalibrated class show Δ ≈ 0 — useful as a control. ⚠️ flags a position-call flip._
