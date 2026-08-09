@@ -3208,3 +3208,19 @@ anchor round: TIER_SUBREASON basis-pending removed → VALIDATED-TIGHT (the 7th)
 to two registered boundary checkpoints (sub-material cap check confirmed; the W-frag
 sign-instability [EV family −10.1/+8.4] prints beside the tier — owner eyeballs at the
 boundary). Execution spec: PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md.
+
+## 2026-08-08 — 6-K triage (NOT the Q2 report) + refresh scheduling
+
+**Decision:** The 8/7 6-K (acc 0000919574-26-004877) is a MAJOR SHAREHOLDER
+ANNOUNCEMENT, not results: Oaktree's indirect holding in TORM went to ZERO as of
+2026-07-31 via a change in Njord Luxco's ownership — **Brookfield Corporation is now
+the ultimate controlling shareholder of Njord Luxco**; Njord's direct stake is
+UNCHANGED (20,329,874 Class A = 19.86%). §15 read: the bloc SIZE and structure are
+unchanged (no new concentration, no related-party mechanics changed); the ultimate
+controller swaps a credit fund (Oaktree) for Brookfield. NO §15 haircut basis arises
+(TRMD carries none); WATCH ITEM: any Brookfield-era change in board representation,
+related-party dealings, or bloc accumulation re-opens the screen. The Q2 BALANCE-SHEET
+REFRESH CANNOT RUN YET — TORM's Q2 report is **August 26** (issuer financial calendar,
+confirmed; adherence validated on Q1). TRMD is the LAST backlog name with a scheduled
+date; the refresh + the LR1 contract-floor boundary checkpoints + the
+VALIDATED-TIGHT promotion all queue to the post-Stage-A anchor round as pre-registered.
