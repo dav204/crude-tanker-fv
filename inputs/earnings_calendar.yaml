@@ -1,5 +1,5 @@
 meta:
-  last_date_sweep: 2026-07-28
+  last_date_sweep: 2026-08-09
   quarter: 2026-Q2
   vetted: 2026-07-03
 names:
@@ -67,13 +67,12 @@ names:
     window_end: 2026-08-27
     window_start: 2026-08-27
   CMDB:
-    basis: 'Still NO H1 date-PR at the 2026-07-28 sweep (newest issuer items: 7/17 AGM notice + 7/27 proxy 6-K family).
-      H1-2025 pattern (~Jul-31 pre-market, ~5d notice) keeps the window open from 7/29 (WIDENED-START stands).'
+    basis: 'RESULTS ANNOUNCED 2026-08-03 (Q2 6-K acc 0001171843-26-005131 - landed at the WIDENED-START edge as the window note anticipated) - refreshed at the 8/9 drain close.'
     disclosure_type: 6-K (H1/six-month report)
-    status: expected
+    status: confirmed
     venue: NYSE
-    window_end: 2026-08-14
-    window_start: 2026-07-29
+    window_end: 2026-08-03
+    window_start: 2026-08-03
   DHT:
     basis: 'CONFIRMED 2026-07-28 sweep: GlobeNewswire 2026-07-22 + dhtankers.com — Q2 results AFTER CLOSE Wed Aug-5,
       call Thu Aug-6 8:00 ET. Landed on the ~2wk-ahead date-PR pattern.'
@@ -117,14 +116,12 @@ names:
     window_end: 2026-08-05
     window_start: 2026-08-05
   GSL:
-    basis: 'WIDENED 2026-07-21: no PR yet (latest GSL releases 6/24 NB orders). Q1-2026 released unusually late
-      (May-22, notice May-12 = 10d ahead); aggregator est. Aug-21. Short-notice name — the earnings PR may land
-      ~1wk before whatever the date is.'
+    basis: 'RESULTS ANNOUNCED 2026-08-05 (earnings-release 6-K) + H1 interim 8/6 (acc 0001140361-26-031697) - refreshed at the 8/8 drain; the short-notice pattern note stands for Q3.'
     disclosure_type: 6-K
-    status: expected
+    status: confirmed
     venue: NYSE
-    window_end: 2026-08-21
-    window_start: 2026-08-04
+    window_end: 2026-08-05
+    window_start: 2026-08-05
   HAFN:
     basis: 'Hafnia Financial Calendar 2025-2027 (IR PDF): Q2-26 Aug-28; calendar adherence validated on the Q1-26
       slot (May-27 = actual)'
@@ -134,22 +131,19 @@ names:
     window_end: 2026-08-28
     window_start: 2026-08-28
   INSW:
-    basis: No PR yet as of the 2026-07-21 sweep. Last year's Q2 notice ~Jul-24 for Aug-7 pre-market; Q1-26 notice
-      4/23 for 5/7. Aggregator est. Aug-5. Notice due within days.
+    basis: 'CONFIRMED 2026-08-09 sweep: official Business Wire date-PR 2026-07-24 - Q2 results BEFORE market open Monday Aug-10, call 9:00 ET. Supersedes the aggregator 8/4-8/7 window.'
     disclosure_type: 10-Q
-    status: expected
+    status: confirmed
     venue: NYSE
-    window_end: 2026-08-07
-    window_start: 2026-08-04
+    window_end: 2026-08-10
+    window_start: 2026-08-10
   LPG:
-    basis: Still NO official Business Wire PR at the 2026-07-28 sweep; aggregator est. moved to ~Aug-7 4pm (TipRanks,
-      unlabeled). FQ1-FY2027. Last year's notice Jul-25 for Jul-31 pre-market — notice overdue vs pattern; keep
-      window 7/30-8/06, re-sweep with the SBLK late-July batch.
+    basis: 'RESULTS ANNOUNCED 2026-08-05 (FQ1-2027 10-Q acc 0001596993-26-000035 + earnings-release 8-K) - refreshed at the 8/8 drain; entry historical until the Q3 re-seed.'
     disclosure_type: 10-Q (US domestic filer; fiscal year ends Mar-31)
-    status: expected
+    status: confirmed
     venue: NYSE
-    window_end: 2026-08-06
-    window_start: 2026-07-30
+    window_end: 2026-08-05
+    window_start: 2026-08-05
   MPCC:
     basis: 'MFN financial calendar announcement (2025-12-30): half-yearly/Q2 report 26.08.2026'
     disclosure_type: Oslo newsweb/MFN (half-yearly)
@@ -158,21 +152,19 @@ names:
     window_end: 2026-08-26
     window_start: 2026-08-26
   NAT:
-    basis: No announcement as of the 2026-07-21 sweep; NAT publishes without date-setting PRs (Q1-26 report 5/28
-      carried no next date). Aggregator est. Aug-31 (TipRanks/MarketBeat).
+    basis: 'SWEPT 2026-08-09: aggregators (MarketBeat et al.) point ~Aug-31; NO issuer date-PR yet (NAT pattern: terse GlobeNewswire report-day releases, thin advance notice). Window held 8/26-8/31, aggregator grade.'
     disclosure_type: 6-K
     status: expected
     venue: NYSE
     window_end: 2026-08-31
     window_start: 2026-08-26
   PANL:
-    basis: 'No PR yet as of the 2026-07-21 sweep (StockTitan latest: 5/11 Q1 results; call-date PRs come ~1wk ahead,
-      AFTER-close + 8:00 ET next-morning call; last year''s Q2 call-PR Aug-4). MarketBeat est. Aug-6.'
+    basis: 'CONFIRMED 2026-08-09 sweep: issuer PR - Q2 results AFTER close Monday Aug-10, call Tue Aug-11 8:00 ET. (Name not onboarded; seed arms the pollers.)'
     disclosure_type: 10-Q (US domestic filer)
-    status: expected
+    status: confirmed
     venue: Nasdaq
-    window_end: 2026-08-14
-    window_start: 2026-08-04
+    window_end: 2026-08-10
+    window_start: 2026-08-10
   SB:
     basis: 'CONFIRMED 2026-07-28 sweep: sets-date PR GlobeNewswire 2026-07-22 ''Safe Bulkers, Inc. Sets Date for
       the Second Quarter 2026 Results'' — results AFTER CLOSE Tue Jul-28 (TONIGHT), call Wed Jul-29 10:30 ET. The
@@ -183,15 +175,12 @@ names:
     window_end: 2026-07-28
     window_start: 2026-07-28
   SBLK:
-    basis: 'CORRECTED 2026-07-21: the prior ''confirmed Aug-5'' had NO official PR behind it (starbulk.com + StockTitan
-      + GlobeNewswire verified — latest company release Q1 results 5/20, last date-PR 5/4). Aggregator est. Aug-5
-      (stockanalysis, unlabeled). Pattern: date-PR ~2wk ahead, AFTER-close release, call next morning 11:00 ET.
-      Expect the sets-date PR late July.'
+    basis: 'RESULTS ANNOUNCED 2026-08-05 (earnings-release 6-K acc 0000950157-26-000846) + interim 6-K 8/7 - refreshed at the 8/8 drain; entry historical until the Q3 re-seed.'
     disclosure_type: 6-K
-    status: expected
+    status: confirmed
     venue: NASDAQ
-    window_end: 2026-08-07
-    window_start: 2026-08-03
+    window_end: 2026-08-05
+    window_start: 2026-08-05
   STNG:
     basis: 'OFFICIAL PR 2026-07-20 (scorpiotankers.com/GlobeNewswire): Q2 results IN THE MORNING (pre-market) Thu
       Jul-30; call same day 8:00 ET. Swept 2026-07-21.'
@@ -201,9 +190,7 @@ names:
     window_end: 2026-07-30
     window_start: 2026-07-30
   TEN:
-    basis: 'No announcement as of the 2026-07-21 sweep (tenn.gr latest: 5/21 Q1). H1 reporter, historically September
-      pre-market + morning call. MarketBeat est. Wed Sep-16 (labeled estimate). Ignore aggregator ''Jul-1 Q2'' claims
-      — inconsistent with semi-annual reporting.'
+    basis: 'SWEPT 2026-08-09: no date-PR yet - consistent with the ~2wk-ahead pattern for a September H1 reporter; re-sweep ~late Aug. (H1 reporter - Q2 lands in SEPTEMBER; the standing cadence quirk.)'
     disclosure_type: 6-K (H1 report)
     status: expected
     venue: NYSE

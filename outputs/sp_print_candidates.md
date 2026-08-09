@@ -16,3 +16,22 @@ scrap anchor, NOT the mid-age fit).
 ## Supra-Ultra (1)
 
 - `2026-07-20` Even more impressive; a 2009-built LR2 which is due for its drydock has reportedly gone to a Greek buyer for $44m, we would value her at $41m in our NAVs • A 2020-built (high quality) ultramax has been sold for $36.5m, again above our $35m valuation – while a similar ship built in 2016 that just came out of drydock got $30.7m (our value $28m) • Our product tanker names trade at 8 – 31% GAV discounts, with STNG the stand-out name on the low side here.
+
+---
+## Disposition 2026-08-09 (reviewed; promotion QUEUED to the Stage-A marks round)
+
+All four prints in the three candidate sentences are REAL broker-reported S&P
+prints (Pareto daily 2026-07-20), reviewed and QUEUED for one batched promotion
+at the Stage-A marks round (≤2026-08-15) rather than two fits-rerun/drift
+cascades in the same week:
+
+- LR2 2009-built (drydock-due) → $44.0M "to a Greek buyer" (Pareto NAV $41M) —
+  a mid-age LR2 resale node, Stage-A-adjacent (the product legs re-anchor).
+- Ultramax 2020-built (high-quality) → $36.5M (Pareto $35M).
+- Ultramax 2016-built (post-drydock) → $30.7M (Pareto $28M).
+- MR 2011-built pumproom → $27.0M (Pareto generic-Korea $26.5M).
+
+All are broker-reported without vessel identities ("reportedly") — promote as
+pareto-sourced unnamed rows per the established convention; none is an en-bloc
+needing a split. The dry-bulk pair also feeds the Supra-Ultra fit refresh that
+rides the owner's pending FFA-promotion decision.
