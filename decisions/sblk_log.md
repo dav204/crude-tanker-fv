@@ -1,5 +1,42 @@
 # SBLK — Decision Log
 
+## 2026-08-09T12:22:09+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.90
+- Single-point FV: $31.84
+- Scenario PW FV: $30.76 (EV +6.5%)
+- NAV / share: $33.04
+- Position: **BUY (undervalued)**
+- Broker spread: +11.7pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:12:00+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.90
+- Single-point FV: $31.84
+- Scenario PW FV: $30.76 (EV +6.5%)
+- NAV / share: $33.04
+- Position: **BUY (undervalued)**
+- Broker spread: +11.7pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- Δprice: no change | Δsingle FV: +1.8% | Δscenario FV: +1.8% | ΔNAV: +2.0% | Δspread: -1.9pp
+
+**Decision:** MARKS-TRAIL PROMOTION 2026-08-09 (triage §A #9-32): the dry batch (Cape 36.5-37.5 @14-15, Kamsarmax 22.0-38.2 @7-14, Ultramax 11.75-22.3 @13-17) nudges SBLK NAV +2.0% -> $33.04, EV +4.5% -> +6.4% (+1.9pp) - ACROSS the +5% BUY boundary. HOLD -> BUY, BAND-MECH per D-M5 (flip inside the fv interval); individually eyeballed per house rule anyway: multi-house-corroborated prints (MB W31/W32 + advanced + intermodal + banchero + xclusiv), direction consistent with the firm dry tape (MB ladder Kmax 5yr +1.0, Cape resale +2.0 same week). The 7/28 G6 freeze concern (single-batch, MB absent) does NOT apply - MB is the primary source here with 4-house corroboration in-batch. Flip ACCEPTED; surfaced to owner in the session summary.
+
+---
+
 ## 2026-08-09T02:55:38+00:00 — Pipeline run (auto)
 
 **Model state:**

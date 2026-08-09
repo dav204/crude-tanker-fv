@@ -1,5 +1,41 @@
 # CMBT — Decision Log
 
+## 2026-08-09T12:22:09+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.29
+- Single-point FV: $15.83
+- Scenario PW FV: $14.35 (EV -11.9%)
+- NAV / share: $16.46
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +29.8pp (k_broker 1.21)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.1% | Δscenario FV: +0.1% | ΔNAV: +0.1% | Δspread: -0.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:12:00+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.29
+- Single-point FV: $15.81
+- Scenario PW FV: $14.34 (EV -12.0%)
+- NAV / share: $16.44
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +29.9pp (k_broker 1.21)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +1.5% | Δscenario FV: +1.6% | ΔNAV: +1.5% | Δspread: -1.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-09T02:55:38+00:00 — Pipeline run (auto)
 
 **Model state:**
@@ -2581,3 +2617,15 @@ sourced fact pack in `outputs/cmbt_multisleeve_methodology_2026-06-26.md` +
   if the FSOs sit in the equity-JV line); G&A / interest are Q1-annualised estimates;
   chemical/Windcat segment books are Dec-2025 vintage; consensus_fwd_pe APPROX (Q1 EPS
   distorted by ~$290M one-off vessel-sale gains).
+
+---
+
+## 2026-08-09 — Correction footnote: CMB JORDAENS disposal attribution (marks-trail §B)
+
+The 7/28 triage carried "CMB-COMPLEX DISPOSAL (ex-Bocimar hull)" on the CMB Jordaens
+print (63,447/2019 Tadotsu, sold ~$35.5M). The two newest sources name the seller as
+"Nova" (MB Dry W31) / "Keiyo Kisen" (advanced W31 p1 prose) — neither corroborates a
+CMB-complex disposal at THIS sale; the "CMB" prefix in the vessel name may reflect a
+prior ownership/charter era. QUERY, not assertion: no CMBT NAV input moved on that
+claim (the print was never in-fit — prompt_premium). Print price revised 35.2 -> 35.5
+per G5 newest-wins (marks_trail_triage_2026-08-09.md §B).

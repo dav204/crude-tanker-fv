@@ -7,6 +7,42 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-09T12:22:09+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $92.41
+- Single-point FV: $39.76
+- Scenario PW FV: $55.59 (EV -39.9%)
+- NAV / share: $53.88
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +27.0pp (k_broker 1.54)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: -0.1% | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:12:00+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $92.41
+- Single-point FV: $39.75
+- Scenario PW FV: $55.61 (EV -39.8%)
+- NAV / share: $53.91
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +27.0pp (k_broker 1.54)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +3.2% | Δscenario FV: +2.1% | ΔNAV: +2.7% | Δspread: -1.4pp
+
+**Decision:** MARKS-TRAIL PROMOTION 2026-08-09 (triage §A #1-5): the VLCC/Suezmax print batch lifts the crude carve-out NAV +2.7% -> $53.91 (EV +1.2pp, sub-bar; NAV leg breached alone). NO FLIP - TRIM/SHORT stands (WHOLE-CO). Print-driven, same event as DHT/ECO/FRO. Q2 refresh lands TOMORROW 8/10 pre-market - the fresh sheet rides on top of this re-anchored curve.
+
+---
+
 ## 2026-08-09T02:55:38+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -184,3 +184,7 @@ prints:
     source: MB Tanker Weekly 28 (2026-07-10, exact); xclusiv/intermodal/banchero "low/mid $80s" corroborate
     quality_flag: standard
     notes: GH Holiday (157,543 dwt, 2016 New Times, scrubber; seller Hayfin, buyer GNMTC per intermodal). Age-10 print at ~the txn-anchored 10yr level.
+  # 2026-08-09 marks-trail sweep: NO new Suezmax rows — the TNK May-2026 $53.5M age-17
+  # realization queued at stage_a_basis §3 was ALREADY this file's PRIMARY ANCHOR (top
+  # row); duplicate add caught by test_load_suezmax_yaml_round_trip and reverted
+  # (marks_trail_triage_2026-08-09.md §B-dedupe).

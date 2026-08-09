@@ -1,5 +1,43 @@
 # SB — Decision Log
 
+## 2026-08-09T12:22:09+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.60
+- Single-point FV: $10.21
+- Scenario PW FV: $9.97 (EV +31.1%)
+- NAV / share: $10.58
+- Position: **BUY (undervalued)**
+- Broker spread: -22.0pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:12:00+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.60
+- Single-point FV: $10.21
+- Scenario PW FV: $9.97 (EV +31.1%)
+- NAV / share: $10.58
+- Position: **BUY (undervalued)**
+- Broker spread: -22.0pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ broker spread -6.2pp
+- ⚑ NAV/sh +5.5%
+- Δprice: no change | Δsingle FV: +5.3% | Δscenario FV: +5.3% | ΔNAV: +5.5% | Δspread: -6.2pp
+
+**Decision:** MARKS-TRAIL PROMOTION 2026-08-09 (triage §A #12-32): PPMX gains 5 prints (Ocean Rhea $15.25M clean @15 + 3x Anglo 114k scrubber @15-16 + Pont Rouge $36.0M @5 - the class's FIRST young node) and Supra-Ultra gains 11; the fit lifts SB's PPMX-heavy book. NAV $10.03 -> $10.58 (+5.5%), EV +24.5% -> +31.1% (+6.6pp). NO FLIP - BUY (VALIDATED-TIGHT) strengthens. Band-invariance: the 7/18 flag-not-cap ruling's LOO band never threatened the BUY, and the evidence base just doubled (10 prints); MARK_WIDE_NODES band re-derive still WAITS for ppmx_txn_refit (young condition 1 of 2 - Pont Rouge). The 7/18 secondary-falsifier checkpoint direction (curve mildly rich) did NOT recur - this batch prints AT/ABOVE curve.
+
+---
+
 ## 2026-08-09T02:55:38+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -295,11 +295,11 @@ prints:
   - date: 2026-07-20
     vessel_age_at_sale: 7
     dwt: 63447
-    sale_price_usd_m: 35.2
-    source: xclusiv 7/20 (exact); identity registry-verified IMO 9860635 (63,447/2019 Tadotsu)
+    sale_price_usd_m: 35.5
+    source: xclusiv 7/20 ($35.2); REVISED per G5 newest-print-wins — MB Dry W31 35.50 exact + advanced W31 35.5 (marks_trail_triage_2026-08-09 §B); identity registry-verified IMO 9860635 (63,447/2019 Tadotsu)
     quality_flag: prompt_premium
     in_fit: false
-    notes: CMB Jordaens (2019 Tadotsu); buyer Meghna. CMB-COMPLEX DISPOSAL (ex-Bocimar) -
+    notes: CMB Jordaens (2019 Tadotsu); buyer Meghna. Seller per MB W31 "Nova" / advanced prose "Keiyo Kisen" — the CMB-COMPLEX DISPOSAL (ex-Bocimar) claim is now UNSUPPORTED by the two newest sources (cmbt_log correction footnote 2026-08-09). Original cell -
       cmbt_log 2026-07-28 note. Distinct from Compass's 63,547/2020 Iwagi Meghna unit at
       $36.5M (a THIRD Meghna vessel; candidate print, out-of-feed). §G2/G3. #7.
   - date: 2026-07-20
@@ -353,7 +353,85 @@ prints:
   - date: 2026-07-20
     vessel_age_at_sale: 16
     dwt: 55499
-    sale_price_usd_m: 16.8
-    source: advanced W30 (exact)
+    sale_price_usd_m: 16.6
+    source: advanced W30 ($16.8); REVISED per G5 newest-print-wins — MB Dry W31 16.60 exact + xclusiv W31 16.6 (2 newer exacts; marks_trail_triage_2026-08-09 §B)
     quality_flag: standard
-    notes: Capt Eugene (2010 Mitsui); seller Graham Shipping. #14.
+    notes: Capt Eugene (2010 Mitsui); seller Graham Shipping. #14. Cross-week revision 16.8 -> 16.6 applied 2026-08-09.
+  # ---- 2026-08-09 marks-trail promotion (decisions/marks_trail_triage_2026-08-09.md §A) ----
+  - date: 2026-07-27
+    vessel_age_at_sale: 15
+    dwt: 61456
+    sale_price_usd_m: 22.3
+    source: MB Dry W29/W30 exact (22.30) + xclusiv W31 (2026-07-27) 22.3 "basis SS/DD passed"; intermodal issue-W30 22.0 variance recorded — the 7/28 §B hold upgraded
+    quality_flag: standard
+    notes: Amis Wisdom VI (2011 Shin Kasado). banchero narrative "91,456 dwt Kamsarmax" is its own transposition (its table prints 61,456). #22.
+  - date: 2026-07-27
+    vessel_age_at_sale: 16
+    dwt: 61611
+    sale_price_usd_m: 22.0
+    source: xclusiv W31 (2026-07-27, exact)
+    quality_flag: standard
+    notes: Amis Wisdom II (2010 Oshima); basis delivery SS/DD passed. #23.
+  - date: 2026-07-31
+    vessel_age_at_sale: 16
+    dwt: 57982
+    sale_price_usd_m: 16.5
+    source: MB Dry W31 (2026-07-31, exact); advanced W31 "Mid 16" + xclusiv W31 "MID 16"
+    quality_flag: standard
+    notes: St Paul (2010 Tsuneishi Cebu); Ship Finance Maritime -> Vietnamese. #24.
+  - date: 2026-07-28
+    vessel_age_at_sale: 14
+    dwt: 55848
+    sale_price_usd_m: 19.0
+    source: intermodal issue-W30 (2026-07-28, exact "each") + banchero issue-W30 19 — the 7/28 §B hold upgraded
+    quality_flag: standard
+    notes: United Halo; en-bloc pair with Venus Halo (ONE transaction, two per-vessel prints; seller Yano Kaiun per 7/28 record). BUILT-YEAR CONFLICT - banchero 2010 vs intermodal + 7/28 record 2012 -> 2012 adopted (2-1), conflict annotated. #25.
+  - date: 2026-07-28
+    vessel_age_at_sale: 14
+    dwt: 55848
+    sale_price_usd_m: 19.0
+    source: as United Halo (merged en-bloc price cell)
+    quality_flag: standard
+    notes: Venus Halo; en-bloc pair (see above). #26.
+  - date: 2026-07-31
+    vessel_age_at_sale: 16
+    dwt: 56722
+    sale_price_usd_m: 13.3
+    source: advanced W31 (2026-07-31, exact)
+    quality_flag: standard
+    notes: Agios Nektarios I (2010 Jiangsu, Chinese-built); seller Atlantides Shipping. Yard spread vs St Paul (16.5, Tsuneishi) is real. #27.
+  - date: 2026-08-07
+    vessel_age_at_sale: 15
+    dwt: 56603
+    sale_price_usd_m: 13.1
+    source: MB Dry Bulk Weekly 32 (2026-08-07, exact)
+    quality_flag: standard
+    notes: Ebury Trader (2011 China Shipping Ind, Chinese-built); SS/DD due; Lomar -> Chinese. #28.
+  - date: 2026-08-07
+    vessel_age_at_sale: 13
+    dwt: 56425
+    sale_price_usd_m: 16.8
+    source: MB Dry Bulk Weekly 32 (2026-08-07, exact); advanced W31 "High 16"
+    quality_flag: standard
+    notes: Lila Frostburg (2013 Hantong, eco); seller Lila Global. #29.
+  - date: 2026-08-07
+    vessel_age_at_sale: 15
+    dwt: 53815
+    sale_price_usd_m: 15.0
+    source: MB Dry Bulk Weekly 32 (2026-08-07, exact); advanced W31 "Low 15"
+    quality_flag: standard
+    notes: Nikos N (2011 Chengxi); seller Am Nomikos. #30.
+  - date: 2026-08-07
+    vessel_age_at_sale: 17
+    dwt: 54279
+    sale_price_usd_m: 11.75
+    source: MB Dry Bulk Weekly 32 (2026-08-07, exact)
+    quality_flag: standard
+    notes: Viva Eclipse (2009 Jiangsu Eastern); Unity Navigation -> Chinese. Window-edge age 17. #31.
+  - date: 2026-07-28
+    vessel_age_at_sale: 17
+    dwt: 53507
+    sale_price_usd_m: 13.0
+    source: banchero issue-W30 (2026-07-28, exact) + advanced W31 exact
+    quality_flag: standard
+    notes: Lianson Hermes (2009 Zhejiang-Ningbo); seller Liannex, buyer Indian. Window-edge age 17. #32.

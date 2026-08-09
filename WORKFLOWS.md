@@ -147,6 +147,10 @@ sit in CLAUDE.md; the full list lives here.
   than the cursor, writes the review queue to `outputs/sp_print_candidates.md`. Human-classified into
   `transactions/<class>.yaml`; **never auto-promote.** Every `sp_scan` mode is local-only BY
   CONSTRUCTION (network download lives in `fetch_links`).
+  **Before promoting an UNNAMED broker print, sweep the class file for same-age/similar-price rows in
+  the trailing ~6 weeks — unnamed prints are re-report magnets** (2026-08-09: all 4 queued unnamed
+  Pareto prints resolved to already-promoted deals — Jag Lokesh, WF Artemis, Wooyang Belos, Singapore
+  Spirit/TNK; marks_trail_triage_2026-08-09.md §B-dedupe).
 - **Daily price refresh:** `python -m crude_tanker_fv.price_refresh` — fetches watchlist closes (Yahoo)
   into the automation-writable `prices_daily.yaml`; launchd 18:30 daily. Pipeline values at the live
   close; watchlist statics stay as the consensus_pnav/fwd_pe vintage anchors. Flagged quotes (>15% day

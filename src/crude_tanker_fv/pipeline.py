@@ -765,8 +765,9 @@ def _write_broker_sweep(rows: list[BrokerSweepRow], outputs_dir: Path) -> Path:
       "EV% = probability-weighted scenario FV vs price (crude-allocated for hybrids). "
       "k_broker is two-regime: on transaction-anchored sectors (crude/product/dry-bulk) "
       "it is the broker premium over transaction levels, and validated pure-plays are "
-      f"EXPECTED inside the uniform band k {lo:.2f}-{hi:.2f} (~1.12-1.14 at the Jun-2026 "
-      "fit, ~+13-17pp spread); on un-anchored sectors (LNG, containerships) it keeps the "
+      f"EXPECTED inside the uniform band k {lo:.2f}-{hi:.2f} (re-pinned 2026-08-09 at the "
+      "marks-trail war-tape fit, ~1.00-1.04 observed; was 1.05-1.25 at the Jun-2026 fit); "
+      "on un-anchored sectors (LNG, containerships) it keeps the "
       "original broker-vs-independent-curve reading (validated ≈ 1.0). The **Read** column "
       "is mechanical spread width only — per-name mark-driven / mark-validated "
       "classification lives in METHODOLOGY 6.\n")

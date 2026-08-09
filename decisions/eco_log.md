@@ -1,5 +1,41 @@
 # ECO — Decision Log
 
+## 2026-08-09T12:22:09+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $61.86
+- Single-point FV: $42.03
+- Scenario PW FV: $37.31 (EV -39.7%)
+- NAV / share: $39.54
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +8.3pp (k_broker 1.13)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.1% | Δscenario FV: +0.1% | ΔNAV: +0.1% | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:12:00+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $61.86
+- Single-point FV: $41.99
+- Scenario PW FV: $37.27 (EV -39.8%)
+- NAV / share: $39.49
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +8.3pp (k_broker 1.13)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +4.3% | Δscenario FV: +4.4% | ΔNAV: +4.9% | Δspread: -2.4pp
+
+**Decision:** MARKS-TRAIL PROMOTION 2026-08-09 (triage §A #1-5): VLCC prints ($120-130M at 9-13y) + the TNK Suezmax age-17 realization ($53.5M) move the crude mid-age anchors. NAV +4.9% -> $39.49, EV +2.5pp -> -39.7%. NO FLIP - TRIM/SHORT stands. Print-driven, same event as DHT/FRO/INSW.
+
+---
+
 ## 2026-08-09T02:55:38+00:00 — Pipeline run (auto)
 
 **Model state:**

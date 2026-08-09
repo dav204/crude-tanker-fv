@@ -32,12 +32,19 @@ _K_LO, _K_HI = 0.3, 4.0
 
 # Post-2026-06-09 k_broker semantics (tool marks = transaction-anchored):
 # on txn-anchored sectors k_broker is the broker premium over transaction
-# levels, and validated pure-plays carry a tight UNIFORM premium (~1.12-1.14
-# at the Jun-2026 fit) — mark-validated means INSIDE this band with
-# cross-name uniformity, not k ≈ 1.0 (METHODOLOGY 9 items 9-10, Appendix A
-# 2026-06-12 B4). Un-anchored sectors (LNG, containerships) keep the
-# original k ≈ 1.0 reading.
-TXN_PURE_PLAY_K_BAND = (1.05, 1.25)
+# levels, and validated pure-plays carry a tight UNIFORM premium — mark-
+# validated means INSIDE this band with cross-name uniformity, not a pinned
+# level (METHODOLOGY 9 items 9-10, Appendix A 2026-06-12 B4). Un-anchored
+# sectors (LNG, containerships) keep the original k ≈ 1.0 reading.
+# Band RE-PINNED 2026-08-09 (was (1.05, 1.25) at the Jun-2026 fit, ~1.12-1.14
+# observed): the ratified 8/09 marks-trail promotion moved the VLCC/Suez/LR2
+# mid-age anchors onto the fresh war tape, collapsing the broker premium to
+# ~1.00-1.04 (DHT 1.005 / ECO 0.996 / FRO 1.040) — the brokers' NAVs were
+# ALREADY on that tape; our marks caught up. The discrimination signal
+# (uniformity; hybrids like INSW ~1.38 sit far outside) is unchanged.
+# Part of the level shift is consensus-pnav vintage skew (static ~7/24
+# Pareto vs 8/09 marks) — re-examine at the watchlist vintage rebase.
+TXN_PURE_PLAY_K_BAND = (0.95, 1.15)
 TXN_PURE_PLAY_K_UNIFORMITY = 0.05
 
 

@@ -135,3 +135,39 @@ prints:
     source: advanced W30 (exact per-vessel)
     quality_flag: standard
     notes: Nord Andromeda; en-bloc pair with Nord Antares (see above). #4.
+  # ---- 2026-08-09 marks-trail promotion (decisions/marks_trail_triage_2026-08-09.md §A) ----
+  - date: 2026-07-31
+    vessel_age_at_sale: 11
+    dwt: 78184
+    sale_price_usd_m: 28.5
+    source: MB Dry W29 exact + intermodal issue-W30 exact (banchero "mid 28") — the 7/28 §B hold upgraded promote-grade
+    quality_flag: standard
+    notes: Yarra (2015 Sasebo, eco); buyer Chinese. #17.
+  - date: 2026-08-07
+    vessel_age_at_sale: 7
+    dwt: 82192
+    sale_price_usd_m: 38.2
+    source: MB Dry Bulk Weekly 32 (2026-08-07, exact)
+    quality_flag: standard
+    notes: Aquavita Aim (2019 Oshima Kamsarmax, eco); buyer European. Age 7 = inside the G1 7-16 fit band (not young-flagged). #18.
+  - date: 2026-08-07
+    vessel_age_at_sale: 11
+    dwt: 81011
+    sale_price_usd_m: 30.8
+    source: MB Dry Bulk Weekly 32 (2026-08-07, exact)
+    quality_flag: standard
+    notes: Royal Hope (2015 JMU Kamsarmax, eco); seller Tokei Kaiun. #19.
+  - date: 2026-08-07
+    vessel_age_at_sale: 14
+    dwt: 82030
+    sale_price_usd_m: 23.5
+    source: MB Dry Bulk Weekly 32 (2026-08-07, exact)
+    quality_flag: standard
+    notes: Velos Jasper (2012 Tsuneishi Kamsarmax); scrubber, SS/DD due; buyer Chinese. #20.
+  - date: 2026-08-07
+    vessel_age_at_sale: 14
+    dwt: 82113
+    sale_price_usd_m: 22.0
+    source: MB Dry Bulk Weekly 32 + intermodal issue-W30 + advanced W31 (all exact 22.0)
+    quality_flag: tc_attached
+    notes: Mont Fort (2012 Tsuneishi Kamsarmax); scrubber, TC ATTACHED at sale (terms undisclosed) — flag documents, price unadjusted; seller Union Maritime (Japanese owners per advanced prose), buyer Greek. #21.

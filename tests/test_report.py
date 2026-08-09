@@ -22,8 +22,10 @@ def test_value_company_assembles_consistent_report(dht_report):
     assert r.blended.fair_value_per_share == pytest.approx(expected)
     # Band re-based 2026-06-09 (txn-anchored marks default-on, ~16.5→~14.3) then
     # 2026-06-22 (cycle-conditional terminal §9.2: DHT late-cycle/peak → 0.9x
-    # mean-reversion of the terminal fleet value, ~14.3→~14.0).
-    assert 13.5 < r.blended.fair_value_per_share < 15.0
+    # mean-reversion of the terminal fleet value, ~14.3→~14.0); re-based 2026-08-09
+    # (marks-trail promotion: 3 war-tape VLCC prints @ 9-13y lift the mid-age
+    # anchors, ~14.9→~16.0 — ratified, marks_trail_triage_2026-08-09.md).
+    assert 15.0 < r.blended.fair_value_per_share < 17.0
 
 
 def test_write_company_report_creates_md_and_xlsx(dht_report, tmp_path):
@@ -34,7 +36,7 @@ def test_write_company_report_creates_md_and_xlsx(dht_report, tmp_path):
 
     text = md.read_text()
     for needle in ["# DHT", "NAV breakdown", "Dividend strip", "Implied breakeven TCE",
-                   "Sensitivity", "Divergence diagnosis", "$14.91", "FFA spot",
+                   "Sensitivity", "Divergence diagnosis", "$15.97", "FFA spot",
                    "Data validation warnings"]:
         assert needle in text
 
@@ -54,7 +56,7 @@ def test_write_watchlist_summary(dht_report, tmp_path):
     row = [c.value for c in ws[2]]
     assert row[0] == "DHT"
     assert row[1] == "whole-company"   # DHT is a pure-play
-    assert row[3] == pytest.approx(14.91, abs=0.01)   # re-pinned 2026-08-08 (DHT Q2 refresh, band-verified +1.8%: debt relief + Bauhinia realized; was 14.68 since the 7/18 C. Innovator re-pin)
+    assert row[3] == pytest.approx(15.97, abs=0.01)   # re-pinned 2026-08-09 (marks-trail promotion, ratified: VLCC war-tape prints @ 9-13y; was 14.91 since the 8/08 Q2 refresh)
 
 
 def test_run_watchlist_end_to_end(tmp_path):

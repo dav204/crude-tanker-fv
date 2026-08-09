@@ -136,3 +136,10 @@ prints:
     source: advanced W27 (GE Shipping prose, $44m); xclusiv 7/06 table $44.1
     quality_flag: standard
     notes: Jag Lokesh (105,599 dwt, 2009 HHI, scrubber, coated); buyer Greek/Y-KNOT. Window-edge age 17.
+  # ---- 2026-08-09 marks-trail promotion (decisions/marks_trail_triage_2026-08-09.md §A) ----
+  - date: 2026-07-27
+    vessel_age_at_sale: 17
+    sale_price_usd_m: 47.5
+    source: xclusiv W31 (2026-07-27, exact) + advanced W31 + banchero issue-W30 + intermodal issue-W30 — 4-source exact
+    quality_flag: standard
+    notes: Ellie Lady (109,999 dwt, 2009 Sungdong, eco + scrubber); Western Shipping -> Trafigura. Window-edge age 17. DISTINCT from the Pareto 7/20 unnamed 2009 LR2 at $44.0M (different buyer/price/condition) — cross-ref flag both rows. #6.

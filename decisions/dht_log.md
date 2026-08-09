@@ -1,5 +1,42 @@
 # DHT — Decision Log
 
+## 2026-08-09T12:22:09+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.76
+- Single-point FV: $15.98
+- Scenario PW FV: $14.48 (EV -22.8%)
+- NAV / share: $15.01
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +6.2pp (k_broker 1.09)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.1% | Δscenario FV: +0.1% | ΔNAV: +0.1% | Δspread: -0.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:12:00+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.76
+- Single-point FV: $15.97
+- Scenario PW FV: $14.47 (EV -22.9%)
+- NAV / share: $14.99
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +6.3pp (k_broker 1.09)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ NAV/sh +8.4%
+- Δprice: no change | Δsingle FV: +7.1% | Δscenario FV: +7.1% | ΔNAV: +8.4% | Δspread: -4.9pp
+
+**Decision:** MARKS-TRAIL PROMOTION 2026-08-09 (decisions/marks_trail_triage_2026-08-09.md §A #1-4): three fresh war-tape VLCC prints (Celeste Nova 2013 $120M / Donoussa 2016 $128M / Seapassion 2017 $130M — MB Tanker W32, 8/7) + the TNK Feb-agreement realization ($84.5M, 2013-built) recalibrate the VLCC mid-age anchors UP. NAV $13.83 -> $14.99 (+8.4%), EV -28.0% -> -22.9% (+5.1pp; price static). k_broker second-diff -0.08 = FV-side move against a static consensus pnav. NO FLIP - TRIM/SHORT stands (rich - cycle). First VLCC mid-age prints since 6/09; the 9-13y war bid runs ABOVE the old curve, partially offsetting the 8/8 'curve mildly rich vs realizations' old-age finding.
+
+---
+
 ## 2026-08-09T02:55:38+00:00 — Pipeline run (auto)
 
 **Model state:**

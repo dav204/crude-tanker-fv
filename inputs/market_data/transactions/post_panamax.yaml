@@ -51,3 +51,41 @@ prints:
     source: xclusiv issue 2026-06-29 ("bss delivery Oct")
     quality_flag: standard
     notes: Cornelie Oldendorf (2011 Yangfan); buyer Greek.
+  # ---- 2026-08-09 marks-trail promotion (decisions/marks_trail_triage_2026-08-09.md §A) ----
+  # NOTE: MARK_WIDE_NODES band re-derive WAITS for ppmx_txn_refit (>=8 prints AND >=2 at
+  # age <=12; after this batch: 10 prints, young condition 1 of 2 — Pont Rouge only).
+  - date: 2026-07-24
+    vessel_age_at_sale: 15
+    dwt: 92648
+    sale_price_usd_m: 15.25
+    source: MB Dry W29 (2026-07-17, exact) — the 7/28 §I3 upgrade, promote-grade
+    quality_flag: standard
+    notes: Ocean Rhea (2011); seller Wei Xu, buyer Chinese, no condition note. The CLEAN PPMX print the 7/28 sweep called its highest-value find. #12.
+  - date: 2026-08-07
+    vessel_age_at_sale: 15
+    dwt: 114674
+    sale_price_usd_m: 19.7
+    source: MB Dry Bulk Weekly 32 (2026-08-07, exact)
+    quality_flag: standard
+    notes: Anglo Marie Louise (2011 New Times); scrubber; seller Anglo International. 114k post-panamax hull — dwt-scaling carries the size; basin assignment flagged for the ppmx refit review. #13.
+  - date: 2026-08-07
+    vessel_age_at_sale: 16
+    dwt: 114664
+    sale_price_usd_m: 18.25
+    source: MB Dry Bulk Weekly 32 (2026-08-07, exact)
+    quality_flag: standard
+    notes: Anglo Jessica (2010 New Times); scrubber. #14.
+  - date: 2026-08-07
+    vessel_age_at_sale: 15
+    dwt: 114248
+    sale_price_usd_m: 19.7
+    source: MB Dry Bulk Weekly 32 (2026-08-07, exact)
+    quality_flag: standard
+    notes: Anglo Alexandria (2011 New Times); scrubber. #15.
+  - date: 2026-07-31
+    vessel_age_at_sale: 5
+    dwt: 99992
+    sale_price_usd_m: 36.0
+    source: advanced W31 (2026-07-31, exact) + intermodal issue-W30 exact
+    quality_flag: standard
+    notes: Pont Rouge (2021 Tsuneishi Zhoushan, eco); Q4-2026 FORWARD delivery -> standard per the 7/28 §H Oldendorff precedent (forward != prompt premium). First young PPMX print (ppmx_txn_refit young condition 1 of 2). #16.
