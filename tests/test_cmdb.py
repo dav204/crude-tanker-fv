@@ -6,6 +6,7 @@ See decisions/cmdb_log.md for the onboarding entry, the CBI trading-platform
 exclusion, and the §15-candidate flag.
 """
 
+from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
 
 from crude_tanker_fv.loaders import load_company_inputs
@@ -14,7 +15,7 @@ from crude_tanker_fv.pipeline import value_company
 
 @pytest.fixture(scope="module")
 def cmdb_inputs():
-    return load_company_inputs("CMDB", "2026-Q1")
+    return load_company_inputs("CMDB", BOOK_QUARTER)
 
 
 def test_inputs_load(cmdb_inputs):
@@ -37,7 +38,7 @@ def test_fleet_shape(cmdb_inputs):
 def test_cmdb_valuation_runs_and_reconciles():
     """NAV computes and the tool↔APPROX-book gap stays inside the ±50% sanity
     bar (APPROX broker NAV = book value $27.98/sh — spinoff fair-value basis)."""
-    r = value_company("CMDB", "2026-Q1", current_price=17.25, analyst_target=27.98)
+    r = value_company("CMDB", BOOK_QUARTER, current_price=17.25, analyst_target=27.98)
     nav = r.nav.nav_per_share
     approx_broker_nav = 27.98
     gap = nav / approx_broker_nav - 1.0

@@ -1,5 +1,40 @@
 # CMDB — Decision Log
 
+## 2026-08-09T02:48:48+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.80
+- Single-point FV: $20.87
+- Scenario PW FV: $20.33 (EV +14.2%)
+- NAV / share: $31.92
+- Position: **BUY (undervalued)**
+- Broker spread: -10.6pp (k_broker 0.89)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -2.2% | Δscenario FV: -2.2% | ΔNAV: -2.2% | Δspread: +2.4pp
+
+**Decision:** Q2 REPORT-DAY REFRESH (backlog drain #10 — the census had MISSED this
+filing: staged 8/3, before the 8/4-8/7 window the handoff list covered; caught at the
+TRMD triage). Source: Q2 6-K acc 0001171843-26-005131 (8/3), exh_992. NO subsequent
+events in either exhibit (and still no dividend/buyback — the §15 zero-return leg
+INTACT, haircut 0.30 unchanged). NAV $32.65→$31.92 (−2.2%) — INSIDE the pre-registered
+band [30.17, 34.02] (point −1.7%): cash −23.7 + WC +25.8 (incl Bermondi HFS at its
+disclosed carrying FLOOR 12.6 — "fair value less costs to sell exceeded carrying", no
+price; hull off the curve, no double-count) + debt-relief +3.5 − leases −13.7 (the
+chartered-in book gains a non-current leg — the CBI NB tenor) − fleet −4.5 (+Astros
+ex-Koushun 2018 Ultramax delivered Q2 at the dwt-scaled mark; −Bermondi's ~equal mark;
++0.5y aging). Census 29→29 rows (one-in-one-out); Clara/Miracle were Q1 sales (H1 gain
+$7.7M net, Q2 column nil — NO per-vessel prices, no prints). NO FLIP — BUY stands
+(EV +16.8%→+14.2%), GOVERNED-WIDE stands, family WEIGHT-ROBUST BUY. Both halves
+verified (234.8/29.6/137.9/34.3/0.0). Forward invariance held (24 names 0.0).
+Ratified same day. **THIS COMPLETES THE DRAINABLE BACKLOG: 10 of 11 names refreshed
+to Q2 vintage; TRMD queues to its confirmed 8/26 report; INSW has no filing staged
+(notice overdue vs the aggregator estimate — the sentinel's FILING-OVERDUE check
+covers it).
+
+---
+
 ## 2026-08-09T02:36:18+00:00 — Pipeline run (auto)
 
 **Model state:**

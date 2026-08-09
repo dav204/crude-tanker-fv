@@ -1,0 +1,56 @@
+# Costamare Bulkers Holdings (NYSE:CMDB) balance sheet — METHODOLOGY §4.2. USD.
+# Source: Q2-2026 6-K (EDGAR acc 0001171843-26-005131, filed 2026-08-03), exh_992
+# financial report, Consolidated Balance Sheet 2026-06-30 column (right; left is
+# audited Dec-31). Q2 refresh 2026-08-08. Subsequent events: NONE disclosed in
+# either exhibit (no dividend — consistent with the §15 zero-return-to-common
+# leg); H1 fleet events all in-period (Astros delivered Q2; Clara/Miracle sold
+# in Q1 with the H1 $7.7M net gain — Q2-column gain is nil; no per-vessel
+# prices disclosed → no marks-trail prints; Bermondi classified HFS in Q2).
+
+ticker: CMDB
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/2033535/000117184326005131/
+retrieved_at: 2026-08-08
+filing_period_end: 2026-06-30
+
+# Cash 229,931 + restricted current 150 + restricted non-current 4,700 = 234,781.
+# Margin deposits (11,979 — FFA/bunker-swap collateral) NOT in cash; they sit in
+# working capital (Q1 convention).
+cash_and_equivalents: 234781000
+
+# Working capital net (non-cash, non-debt; Q1 convention):
+# Assets: margin deposits 11,979 + AR 13,947 + inventories 15,393
+#   + due-from-related 4,151 + insurance claims 3,847 + derivative FV 22
+#   + prepayments 31,920 = 81,259
+# Liabilities: total current 97,374 LESS current debt 16,369 LESS current
+#   operating-lease liabilities 16,699 = 64,306
+# Net = 16,953
+# + Bermondi held-for-sale at CARRYING 12,600 (exh_992: "fair value less costs
+#   to sell exceeded the vessel's carrying value" — carrying is the disclosed
+#   FLOOR, no agreed price; the hull is OFF the manifest, no double-count)
+# = 29,553.
+working_capital_net: 29553000
+
+# Total debt: long-term 121,512 + current portion 16,369 = 137,881 (BS lines,
+# net of unamortized financing — Q1 basis).
+total_debt: 137881000
+
+# Operating lease liabilities (CBI chartered-in book): current 16,699 +
+# non-current 17,622 = 34,321 (the book now carries a non-current leg — the
+# chartered-in NB tenor). RoU asset (34,789) NOT added — not owned, not in
+# the manifest (Q1/SBLK convention).
+lease_liabilities: 34321000
+
+# No owned newbuild commitments (the one chartered-in NB Kamsarmax, Q2-27/Q1-28
+# delivery, stays excluded with the charter-in book — Q1 convention).
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+# Q2-2026 weighted average (basic = diluted; Financial Summary).
+diluted_shares_outstanding: 24241646
+
+preferred_equity: 0
+# §15 structural haircut UNCHANGED (TEN-precedent 30%, set at onboarding):
+# related-party service flows + zero return to common + family control +
+# persistent ~0.6× P/BV. Q2 adds no new §15 facts (still no dividend/buyback).
+governance_discount_pct: 0.30
