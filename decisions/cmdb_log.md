@@ -1,5 +1,95 @@
 # CMDB — Decision Log
 
+## 2026-08-09T14:17:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.80
+- Single-point FV: $21.30
+- Scenario PW FV: $20.27 (EV +13.9%)
+- NAV / share: $32.43
+- Position: **BUY (undervalued)**
+- Broker spread: -12.0pp (k_broker 0.87)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:43:53+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.80
+- Single-point FV: $21.30
+- Scenario PW FV: $20.27 (EV +13.9%)
+- NAV / share: $32.43
+- Position: **BUY (undervalued)**
+- Broker spread: -12.0pp (k_broker 0.87)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:39:26+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.80
+- Single-point FV: $21.30
+- Scenario PW FV: $20.27 (EV +13.9%)
+- NAV / share: $32.43
+- Position: **BUY (undervalued)**
+- Broker spread: -12.0pp (k_broker 0.87)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:37:28+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.80
+- Single-point FV: $21.30
+- Scenario PW FV: $20.27 (EV +13.9%)
+- NAV / share: $32.43
+- Position: **BUY (undervalued)**
+- Broker spread: -12.0pp (k_broker 0.87)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:34:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.80
+- Single-point FV: $21.30
+- Scenario PW FV: $20.27 (EV +13.9%)
+- NAV / share: $32.43
+- Position: **BUY (undervalued)**
+- Broker spread: -12.0pp (k_broker 0.87)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.7% | Δscenario FV: -1.6% | ΔNAV: no change | Δspread: +0.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-09T12:29:58+00:00 — Pipeline run (auto)
 
 **Model state:**

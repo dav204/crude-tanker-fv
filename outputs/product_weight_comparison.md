@@ -21,8 +21,8 @@
 | Ticker | Set A PW FV | Set B PW FV | Δ FV | Set A EV | Set B EV | Position change |
 |---|--:|--:|--:|--:|--:|---|
 | ASC | $15.75 | **$16.48** | $+0.73 (+4.7%) | -5.7% (TRIM/SHORT) | -1.4% (**HOLD**) | **FLIP** |
-| STNG | $64.05 | **$68.90** | $+4.85 (+7.6%) | -15.8% (TRIM/SHORT) | -9.4% (**TRIM/SHORT**) | unchanged |
-| INSW | $51.78 | **$53.17** | $+1.39 (+2.7%) | -44.0% (TRIM/SHORT) | -42.5% (**TRIM/SHORT**) | unchanged |
+| STNG | $63.91 | **$68.75** | $+4.84 (+7.6%) | -16.0% (TRIM/SHORT) | -9.6% (**TRIM/SHORT**) | unchanged |
+| INSW | $52.91 | **$54.30** | $+1.39 (+2.6%) | -42.7% (TRIM/SHORT) | -41.2% (**TRIM/SHORT**) | unchanged |
 
 ## INSW preservation invariant — HOLDS THROUGH SET B (notable property)
 

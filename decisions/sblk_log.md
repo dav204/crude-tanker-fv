@@ -1,5 +1,59 @@
 # SBLK — Decision Log
 
+## 2026-08-09T14:17:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.90
+- Single-point FV: $32.10
+- Scenario PW FV: $30.00 (EV +3.8%)
+- NAV / share: $33.04
+- Position: **HOLD (fairly valued)**
+- Broker spread: +11.4pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:43:53+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.90
+- Single-point FV: $32.10
+- Scenario PW FV: $30.00 (EV +3.8%)
+- NAV / share: $33.04
+- Position: **HOLD (fairly valued)**
+- Broker spread: +11.4pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-09T12:39:26+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.90
+- Single-point FV: $32.10
+- Scenario PW FV: $30.00 (EV +3.8%)
+- NAV / share: $33.04
+- Position: **HOLD (fairly valued)**
+- Broker spread: +11.4pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-09T12:37:28+00:00 — Pipeline run (auto)
 
 **Model state:**
