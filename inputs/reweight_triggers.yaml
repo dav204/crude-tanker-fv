@@ -35,7 +35,7 @@ crude_mou_implementation_check:
 
 crude_pause_talks_watch:
   sector: crude
-  due: 2026-08-07
+  due: 2026-08-07   # RECORDED 2026-08-09 (2d late; drain-occupied 8/8) -> BRANCH 3
   observable: >
     Successor to crude_ceasefire_mediation_watch (B' executed 2026-07-31). The
     strike PAUSE (US, ~7/26-27, at Iran's request) + mediator-reported progress
@@ -49,7 +49,11 @@ crude_pause_talks_watch:
     Ambiguous pause persists -> record; the Aug-16 toll-cliff venue (9d later)
     does the full re-derivation regardless. LESSON ENCODED from the 7/29 check:
     this card names THREE branches, not two.
-  status: armed
+  status: done   # 2026-08-09: branch (3) AMBIGUOUS PAUSE PERSISTS — US pause holds,
+                 # Oman framework close-not-convened, Iran conditions reopening, 8/8 ADNOC
+                 # tanker hit = the in-pause vessel-attack pattern continuing. RECORD ONLY;
+                 # B' stands; full re-derivation at crude_day60_toll_cliff 8/16.
+                 # decisions/crude_pause_talks_watch_2026-08-09.md
   added: 2026-07-31
 
 crude_day60_toll_cliff:
