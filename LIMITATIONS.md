@@ -419,3 +419,8 @@ For long-form treatment of any item above, see:
 - [METHODOLOGY §11.5 Product sector + Handysize gap](METHODOLOGY.md#115-product-sector--formalised-2026-06-01)
 - [METHODOLOGY §9 Open methodology decisions](METHODOLOGY.md#9-open-methodology-decisions)
 - [METHODOLOGY §6 Company-specific notes](METHODOLOGY.md#6-company-specific-notes) — per-ticker validation status and known gaps
+
+- **Interpreter EOL (recorded 2026-08-10, reviewer catch):** the engine venv runs Python
+  3.9.6, end-of-life since October 2025 — an unsupported interpreter under the whole
+  suite. Not urgent (stdlib-stable code, no known CVE exposure in our usage); the fix
+  rides the next environment rebuild (pair with the `.venv310` consolidation question).

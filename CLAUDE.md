@@ -79,7 +79,7 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
 - **Quarterly reports (IR PDFs) are the source of record** for fleet counts + balance sheets at
   quarter-end. The live IR fleet *page* disagrees at quarter-end — **trust the report.** (FRO 2026-05.)
 - **Pareto Shipping Daily** is the source for `consensus_pnav` / `consensus_fwd_pe`. Pareto does NOT
-  publish P/NAV for **NAT / ASC / CCEC** — those carry APPROX values; `/reconcile` flags + downweights.
+  publish P/NAV for **NAT / ASC / CCEC / MPCC** — those carry APPROX values; `/reconcile` flags + downweights.
 - **VIE (Catlin/Mintzmyer) and MB Shipbrokers are independent cross-checks, NOT calibration inputs** —
   track disagreements in §6 footnotes; do NOT bulk-update from them without a per-class methodology decision.
 

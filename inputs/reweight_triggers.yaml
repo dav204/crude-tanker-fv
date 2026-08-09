@@ -391,7 +391,13 @@ drybulk_spot_daily_resumes:
     the FFA-proxy fallback ONLY on editions with no Smax spot row (the 2-Jul
     precedent). Diagnostic surface — no strip impact; annotate only if a band
     moves.
-  status: armed
+  status: fired-pending-execution   # FIRED 2026-08-10: the 8/7 daily prints
+                    # Capesize $42,313 / Panamax $20,473 / Ultramax $20,326
+                    # (verified on the RENDERED page — the text layer hides the
+                    # section, which is why the resume went unnoticed since at
+                    # least 8/6). Execution batched into the 8/10 Stage-A-day
+                    # spot_tce rider (stage_a_computation_draft_2026-08-09.md §4)
+                    # — one spot_tce promotion event, not two.
   added: 2026-07-13
 
 handy_bulk_txn_refit:

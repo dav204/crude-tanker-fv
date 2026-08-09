@@ -131,8 +131,9 @@ LNG feed feeds the FLNG/CCEC cross-check (`outputs/mb_lng_crosscheck_*.md`).
 The daily essentials (tests / pipeline / reconcile / drift gate / fetch_pdf / two-venvs) also
 sit in CLAUDE.md; the full list lives here.
 
-- **Tests:** `PYTHONPATH=src .venv/bin/python -m pytest -q` (174 baseline 2026-06-05; should only
-  ever grow). Never bare `pytest` — the package isn't installed.
+- **Tests:** `PYTHONPATH=src .venv/bin/python -m pytest -q` (count grows monotonically; the
+  current census lives in README — do not hardcode it here, it rots). Never bare `pytest` —
+  the package isn't installed.
 - **Pipeline:** `python -m crude_tanker_fv.pipeline <QUARTER>` (e.g. `2026-Q1`).
 - **Pre-flight (what's stale / missing):** `python -m crude_tanker_fv.refresh` — its §0 consumes
   `inputs/earnings_calendar.yaml` (hand-maintained; update on sight when the weekly digest flags a
@@ -169,7 +170,7 @@ sit in CLAUDE.md; the full list lives here.
   + live-event names) into a dated digest. Review-only; promotion is human-only.
 - **PDFs:** the `.venv/` has `pypdf`. `.venv/bin/python scripts/fetch_pdf.py <url>` (WebFetch fails on
   many FlateDecode PDFs). Raw `curl` works but prompts.
-- **Two venvs:** the engine + all `crude_tanker_fv` code + the 315-test suite run on `.venv` (Python
+- **Two venvs:** the engine + all `crude_tanker_fv` code + the full suite run on `.venv` (Python
   **3.9.6**). The vendored `shipping_harvester` (broker-weekly parser for the Test 1 backfill) requires
   **3.10+**, so a dedicated `.venv310` (Python 3.12, gitignored, provisioned via `uv`) is used ONLY for
   it: `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python -m pytest -q` (57 tests). Never run
@@ -248,11 +249,23 @@ pages when due; the recapture is ONE sitting, one source:
    note its date — that date becomes every touched name's `as_of`.
 2. For every covered name: transcribe price, P/NAV, fwd P/E from THAT daily. Never mix days,
    never keep an old pnav against a new price.
-3. APPROX names (NAT / ASC / CCEC — Pareto publishes no P/NAV): update price + fwd P/E from
-   the daily, keep the pnav flagged APPROX with its own basis note — flag, don't fake.
+3. APPROX names (NAT / ASC / CCEC / MPCC — Pareto publishes no P/NAV; roster corrected
+   2026-08-10, MPCC was omitted when the workflow was written three weeks after its
+   onboarding): update price + fwd P/E from the daily, keep the pnav flagged APPROX with
+   its own basis note — flag, don't fake. NOTE the residual: k_broker = price ÷
+   consensus_pnav, so APPROX names carry a mixed-vintage pair BY DESIGN — any k-band
+   test allowance retired at a rebase needs a scoped APPROX-name replacement.
 4. Rebase `inputs/watchlist.yaml` in one commit; run the gate loop (pytest -> reconcile ->
    drift annotate/ratify). Band flips from the price move follow the isolate-commit
    discipline (memory: isolate commit from price drift).
+   **FX rule (codified 2026-08-10):** conversion applies to the PRICE leg only — pnav and
+   fwd P/E are unit-free ratios — at the DAILY's date FX, never the promote date (the
+   MPCC/CAPT machinery: e.g. "kr 24.0 × 0.101838 Jul-3 FX"). Applies to every non-USD
+   quote (NOK: BRUT/CAPT/BWLP/MPCC; HKD: 2343 when sourced).
+   **Staging pattern (sanctioned 2026-08-10):** transcription may land first as
+   `inputs/watchlist_rebase_<date>.yaml.draft` with a NOT-APPLIED marker — transcription
+   and promotion are separate acts; the draft is the sanctioned artifact, and the
+   promote consumes + deletes it.
 5. Re-arm the trigger to the next quarter boundary; record the sitting in decisions/.
 
 ## Ops gotcha — long-running nohup jobs (migrated from CLAUDE.md 2026-07-18)
