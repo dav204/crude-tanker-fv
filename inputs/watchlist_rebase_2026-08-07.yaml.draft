@@ -1,0 +1,46 @@
+# Watchlist consensus-pair rebase DRAFT — transcribed 2026-08-09 from the Pareto
+# Shipping Daily 7 AUG 2026 p.1 share-price table (ONE daily, one vintage — the
+# WORKFLOWS §Consensus-pair recapture discipline). NOT APPLIED: promotion is the
+# owner's deliberate step (this retires the k-vintage-skew debt — the 8/09
+# marks promotion collapsed pure-play k to ~1.00-1.04 partly on the stale pnav
+# vintage, and the REFRESH_VINTAGE_SKEW test allowance retires with it).
+# On promote: rebase price + consensus_pnav + consensus_fwd_pe TOGETHER into
+# watchlist.yaml with as_of 2026-08-07; APPROX names keep flags (price+PE only);
+# names ABSENT from Pareto's table (TEN / SB / CMDB / 2343 / GSL) keep their
+# current basis untouched — their price leg rides prices_daily, not this table.
+# kr-quoted rows (BRUT / CAPT / BWLP / MPCC) are transcribed AS PRINTED — apply
+# the standing FX conversion at promote, same-day NOK/USD.
+
+as_of: 2026-08-07
+source: Pareto Shipping Daily 2026-08-07 (issue 520031), p.1 "Share prices"
+
+pareto_basis:            # price (as printed) / Pareto P/NAV / consensus P/E 1Y fwd
+  DHT:  {price_usd: 18.4,  consensus_pnav: 1.08, consensus_fwd_pe: 9.7}
+  FRO:  {price_usd: 39.6,  consensus_pnav: 1.31, consensus_fwd_pe: 9.9}
+  ECO:  {price_usd: 63.8,  consensus_pnav: 1.34, consensus_fwd_pe: 10.9}
+  INSW: {price_usd: 93.2,  consensus_pnav: 1.17, consensus_fwd_pe: 12.8}
+  TNK:  {price_usd: 77.1,  consensus_pnav: 0.80, consensus_fwd_pe: 8.9}
+  STNG: {price_usd: 76.4,  consensus_pnav: 0.71, consensus_fwd_pe: 13.0}
+  TRMD: {price_usd: 29.5,  consensus_pnav: 0.86, consensus_fwd_pe: 9.9}
+  HAFN: {price_usd: 7.6,   consensus_pnav: 0.92, consensus_fwd_pe: 9.5}
+  CMBT: {price_usd: 16.4,  consensus_pnav: 0.85, consensus_fwd_pe: 10.2}
+  GNK:  {price_usd: 25.1,  consensus_pnav: 0.92, consensus_fwd_pe: 13.7}
+  SBLK: {price_usd: 28.6,  consensus_pnav: 0.89, consensus_fwd_pe: 7.2}
+  LPG:  {price_usd: 44.4,  consensus_pnav: 0.96, consensus_fwd_pe: 12.2}
+  FLNG: {price_usd: 31.0,  consensus_pnav: 1.43, consensus_fwd_pe: 14.9}
+  BRUT: {price_kr: 60.0,   consensus_pnav: 0.86, consensus_fwd_pe: 22.6}   # NOK — FX at promote
+  CAPT: {price_kr: 134.2,  consensus_pnav: 0.71, consensus_fwd_pe: 22.2}   # NOK — FX at promote
+  BWLP: {price_kr: 206.6,  consensus_pnav: 1.13, consensus_fwd_pe: 11.6}   # NOK — FX at promote
+
+approx_basis:            # Pareto publishes NO P/NAV — price + fwd P/E legs only, pnav stays APPROX-flagged
+  ASC:  {price_usd: 17.0, consensus_fwd_pe: 15.5}
+  NAT:  {price_usd: 6.4,  consensus_fwd_pe: 18.7}
+  CCEC: {price_usd: 22.8, consensus_fwd_pe: 7.9}
+  MPCC: {price_kr: 24.2,  consensus_fwd_pe: 8.1}    # NOK — FX at promote
+
+absent_from_table:       # keep current basis; price leg rides prices_daily
+  - TEN
+  - SB
+  - CMDB
+  - "2343"
+  - GSL

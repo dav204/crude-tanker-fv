@@ -5,6 +5,29 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-08-09 — THE PROMOTION MEGA-ROUND (owner-authorized) + STAGE A RULED.** Three
+  data events in one session, each with its own record/gate cycle: **marks-trail**
+  (28 in-window S&P prints incl. three war-tape VLCCs $120-130M @ 9-13y; 4 unnamed-print
+  DUPLICATES caught by the suezmax round-trip guard + dedupe review — Jag Lokesh /
+  WF Artemis / Wooyang Belos / TNK Singapore Spirit were all re-reports; new WORKFLOWS
+  rule: sweep the class file before promoting any unnamed print; k_broker pure-play
+  premium collapsed to ~1.00-1.04 → TXN_PURE_PLAY_K_BAND re-pinned (0.95, 1.15));
+  **dry-bulk FFA 8/06** (tenor set ROLLED → 12M proxies stepped down on window
+  composition, the Q1-27 trough entering — like-for-like Q4 firmed +4.3%; SBLK
+  BUY→HOLD band-mech was purely 12M-composition → FROZEN-FOR-OWNER-REVIEW);
+  **containers MB W32** (Ctr-Large 64,000 + feeder 10yr 29.5 — TC+value joint,
+  NAV-halt verified, MPCC +0.5% only). Vintage-coherence guard forced the same-round
+  multi-promotion as_of restructure (newest event = default, older = explicit holds);
+  the hygiene guard forced the family-diagnostics re-run (weight_sign_stable nulls).
+  **Stage A computed to the frozen prereg's letter** with the §5 breaches investigated
+  (both trace to ECO's verified $206.6k QTD print; the bands pre-date the 7/20
+  blockade escalation) and **FOUR OWNER RULINGS recorded**: wait-for-INSW (wires
+  8/10) · breaches accepted · VLCC 12M = Mount Horizon $105,700 single-print ·
+  LR2_clean term = §4-letter 28,000 flagged. INSW pre-registered ($56.30 point,
+  [51.50, 61.00]); the watchlist consensus-pair rebase transcribed from the 8/7
+  daily and STAGED as a draft. Records: marks_trail_triage_2026-08-09.md ·
+  ffa_promotion_2026-08-09.md · container_mb_refresh_packet_2026-08-09.md ·
+  stage_a_computation_draft_2026-08-09.md · insw_q2_prereg_2026-08-09.md.
 - **2026-08-08 — THE Q2 TRANSITION EXECUTED (block 1: SB/TNK/ASC) — the 7/31 half-application
   arc CLOSES on paired inputs.** Sequence per the owner-ruled split: guards commit → price-absorb
   ratify (8/07 tape, ΔNAV 0.0 all rows, 4 flips eyeballed) → transition on the frozen tape.

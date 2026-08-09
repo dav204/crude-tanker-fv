@@ -72,3 +72,9 @@ the cluster basis (joins ECO's VLCC/Suezmax Q3 prints, TNK Suez $104.8k/44%, the
 3-yr terms banked 7/31, ASC MR ~$29.6k — note STNG MR Q3 booking $29.0k ≈ ASC's $29.6k,
 a two-issuer MR front bracket). Fresh 8-year LR2 term print also on the list: STI Rambla
 $30,500/day (Mar-26 start, fleet-list fn 17) — term-structure node for the promote.
+
+**§3 POINTER CLOSED 2026-08-09:** the "next triage batch" ran (marks_trail_triage_
+2026-08-09.md) — OCEAN RHEA / AMIS WISDOM VI / YARRA promoted; the two TNK issuer
+prints turned out to be ALREADY IN the transaction files (Singapore Spirit VLCC;
+the Suezmax primary anchor) — the owner-gate pointer here was stale, recorded as
+the §B-dedupe lesson.

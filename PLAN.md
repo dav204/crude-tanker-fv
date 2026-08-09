@@ -5,89 +5,67 @@ A new agent reads CLAUDE.md, then this file, then starts. This is a
 forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
-**Current state (2026-08-08, Saturday — SESSION HANDOFF).** Read this block, then §THE BLOCKER,
-then start. **Suite 611 green + 15 xfailed · drift gate 0/0 · tree clean · producer 2 ahead,
-governance 4 ahead (both need a push).** Committed outputs are at the **2026-07-31 price basis**
-and the **2026-Q1 quarter** — deliberately, see below.
 
-**✅ THE BLOCKER IS CLEARED — Q2 transition mechanism RULED + LANDED 2026-08-08** (Decision
-block in `decisions/q2_cluster_transition_2026-07-31.md`; CHANGELOG same date). Loader-vintage
-fallback (newest-at-or-before, self-reporting) + pair guard (manifest label == resolved vintage,
-in-loader AND a fail-before-writes pipeline preflight) + scorecard/JSON vintage disclosure
-(schema 2.7, consumer wired) + provenance-at-ingest on ≥Q2 sheets. Suite 627 green + 15 xfailed;
-the four proposal case rows are named tests in `tests/test_quarter_coherence.py`.
-**`sb/tnk/asc_2026-Q2.yaml` remain STAGED** (now carrying the provenance trio); the three logs'
-VOID banners stand — the SB/TNK curve attributions are HYPOTHESES to re-test on paired inputs.
-**SEQUENCE COMPLETE 2026-08-08: (1) price-absorb ratified** (8/07 tape, ΔNAV 0.0 × 25, flips
-TNK/GNK/GSL/BRUT eyeballed, owner go) → **(2) transition EXECUTED on the frozen tape**: preflight
-clean at 2026-Q2, **forward invariance HELD (22 lagging names delta 0.0 everywhere)**, all three
-pre-registered bands HIT (TNK +8.8% center-band · ASC −2.5% sign-opposite-confirmed · SB −0.4%,
-its 7/31 band miss VANISHED on paired inputs), both-halves consumption verified per fv_report,
-baseline ratified. **The book now runs 2026-Q2** (22 names lagging Q1 by design, disclosed).
-**TNK returned to VALIDATED-TIGHT** (the 7/31 read-flips entry was artifact-borne; fragility
-rides weight_sign_stable=False). NEXT: drain the 11-name backlog by report date under the new
-mechanism (each name: sheet + manifest land TOGETHER), then Stage A ≤ 8/15.
+**Current state (2026-08-09, Sunday EVE — SESSION HANDOFF).** Read this block, then start at
+§NEXT BLOCK step 1 (tomorrow is INSW morning). **Suite 636 green + 15 xfailed · drift gate 0/0
+· tree clean at db53188+ · producer ~9 commits ahead — NEEDS A PUSH (owner-gated).** The book
+runs 2026-Q2 on the 8/07 price basis; every Q2 sheet is on file (the 14-name drain closed 8/08
+with every pre-registered band HIT).
 
-**UNPROCESSED BACKLOG (a full Q2 cluster, nothing touched since 7/31).** 11 names carry
-STALE-BALANCE-SHEET: **2343 · CCEC · CMDB · DHT · ECO · GNK · GSL · INSW · LPG · SBLK · STNG**,
-plus the 3 staged (SB/TNK/ASC) = 14. Filings staged this week and unread: ECO 6-K ×2 (8/4),
-LPG 10-Q + 8-K (8/5), GSL 6-K ×2 (8/5, 8/6), DHT 6-K (8/5), GNK 10-Q + 8-K (8/5), SBLK 6-K ×2
-(8/5, 8/7), 2343 Interim (8/6), TRMD 6-K (8/7). **Sequence them behind the transition ruling.**
+**THE 8/09 PROMOTION ROUND IS CLOSED (owner-authorized, three ratified/verified events):**
+(1) **Marks-trail** (`decisions/marks_trail_triage_2026-08-09.md`): 28 in-window S&P prints —
+war-tape VLCCs $120-130M @ 9-13y, Ellie Lady LR2 $47.5M @17, 5 PPMX incl. the first young node
+(Pont Rouge @5), 11 Supra — plus 2 G5 revisions; **4 unnamed-print duplicates caught and
+unwound** (the whole queued Pareto disposition was re-reports — new WORKFLOWS rule: sweep the
+class file before promoting ANY unnamed print). DHT NAV +8.4%; SB EV +31% (TIGHT BUY
+strengthened, PPMX evidence base now 10 prints); **k_broker pure-play premium COLLAPSED to
+~1.00-1.04 → `TXN_PURE_PLAY_K_BAND` re-pinned (0.95, 1.15)** — partly pnav-vintage skew, the
+REBASE IS NOW PRESSING (draft staged, see below). (2) **Dry-bulk FFA, 8/06 print**
+(`ffa_promotion_2026-08-09.md`): tenor set rolled to Aug/Sep/Q4/Q1-27/Cal27 — 12M proxies
+stepped DOWN on window COMPOSITION (Q1-trough entered; like-for-like Q4 FIRMED +4.3%): Cape
+31,550 / Pana 18,300 / Supra 16,750; Smax Cal27 still cropped (held 2027-28 legs disclosed ~5%
+rich vs the now-printed Q1-27). **SBLK BUY→HOLD band-mech = purely 12M-composition (ΔNAV 0.0)
+→ FROZEN-FOR-OWNER-REVIEW** (one-word disposition owed; its Q3-coverage slide 62% @ $23,547
+corroborates composition-not-weakness). (3) **Containers, MB W32**
+(`container_mb_refresh_packet_2026-08-09.md`): Ctr-Large 12M 64,000 + feeder 10yr mark 29.5
+(TC+VALUE joint; NAV-halt verified — MPCC +0.5% only); trigger re-armed 9/07.
 
-**ALSO UNPROMOTED (market data, all owner-gated):** dry-bulk FFA has run hard — the OCR queue
-reads Cape **~$39-41k** vs the promoted 7/24 anchor **$35,175** (+12-16%), Pmax ~$20.3-21.5k vs
-19,150; 4 `UNINGESTED-PRINTS` surfaces (marks-trail, ffa_forward_curve, twelve_month_tc,
-spot_tce). The 7/28 marks-trail promote-list is still pending (**OCEAN RHEA** — the clean PPMX
-print that is the alternative to the impaired INDUS hold — plus AMIS WISDOM VI, YARRA, and the
-two issuer-grade prints from TNK's filing: 2009 Suezmax $53.5M, 2013 VLCC $84.5M).
-**Stage-A basis inventory is OPEN and rich** (`decisions/stage_a_basis_2026-07-31.md`): TNK Q3
-bookings Suezmax $104.8k/44%, STNG 3-yr term charters $23.9-25.0k bracketing MB's assessed 3yr,
-ASC MR front ~$29.6k, DHT Jaguar 36mo $75k double-sourced. **Stage A is UNCONDITIONAL by
-2026-08-15 — one week out.**
+**STAGE A: COMPUTED + RULED, WIRES TOMORROW (8/10) AFTER THE INSW PRE-MARKET PRINT.**
+`decisions/stage_a_computation_draft_2026-08-09.md` carries the §§1-4 construction, the §5
+scoreboard (VLCC front 179.65k BREACH-HIGH + term-implied 48.85k BREACH-LOW, both traced to
+ECO's verified $206.6k QTD print, tape-corroborated), and the FOUR OWNER RULINGS: wait-for-INSW
+· breaches ACCEPTED post-investigation · VLCC 12M = Mount Horizon $105,700 single-print (BRUT
+is all-VLCC) · LR2_clean term = §4-letter 28,000 flagged. The INSW refresh itself is
+PRE-REGISTERED (`decisions/insw_q2_prereg_2026-08-09.md`: point $56.30, band [51.50, 61.00],
+forward-invariance + subsequent-events-first + the Q3-QTD-extraction step that feeds §6).
 
-**CRUDE WEIGHTS:** B′ EXECUTED 2026-07-31 (0.25 / 0.57 / 0.05 / 0.13) per the 7/22 frozen
-conditional; Set A′ registered in the §9.10 family; baseline ratified. Successor
-`crude_pause_talks_watch` is **DUE 2026-08-07 (overdue)** — three named branches this time.
-`crude_day60_toll_cliff` 8/16 remains the full MoU re-derivation venue.
+**STAGED FOR THE OWNER'S WORD:** `inputs/watchlist_rebase_2026-08-07.yaml.draft` — the full
+consensus-pair transcription from the 8/7 Pareto daily (16 pareto-basis + 4 approx names;
+kr-quoted rows flagged for FX at promote). Promoting it retires the k-vintage-skew test debt.
 
-**GOVERNANCE (consumer side, `../portfolio-governance`).** Hynix restore **EXECUTED 8/03: BUY 11
-@ ₩1,642,000** (below the staged ₩1,718,000 limit-up spike — the GTC caught a better Monday
-tape), funded by the 135-share SGOV sale. **But the position is now ₩1,465,000, −10.8% from the
-fill, and the weight is ~17.0% — STILL BELOW the 20-25% band floor, and underwater (avg
-₩2,115,890).** The restore card's add condition is SPENT; any further add is a NEW prereg.
-G1-G5 all cleared at the 7/29 print. **NEW WATCH ITEM from the 8/01 monitor: CXMT** ($8.6B IPO,
-+531% debut, HBM packaging fab targeted end-2026) — the first credible NAMED vector for the
-structural-HBM-share-loss falsifier leg; the monitor recommends adding it to the card's dated
-checkpoints (not yet done). **CCEC t2 FILLED 7/31** (200 @ $22.50 → 420 sh, 3.2%, condition
-spent). **SBLK trim leg-2 is STILL UNRATIFIED** — the card deadlined it to the 8/01 monitor;
-leg 1 filled 7/29 @ $28.10 (+$410.66), price now $29.28, proposed but unratified line/quantum
-~87 sh @ $31.30 then the rest toward street $34.50. Stage it as a standing GTC once ruled, so
-firing = filling.
+**NEXT BLOCK — theme: STAGE A LANDS, then the date-driven tail.**
+(1) **Mon 8/10 pre-market:** INSW Q2 refresh per the frozen prereg (pair flow, band-checked) →
+extract Q3 QTD bookings + fixtures → stage_a_basis §6 update → RECOMPUTE the §2 medians/§5
+checks → **wire Stage A** per the rulings + the §4 riders (DHT Jaguar coverage 0.55→0.52 ·
+spot_tce promotion incl. LNGC 65,000 from MB W32 · C-2 rerun) → ADDENDUM flip inventory (TRMD
+BUY toward the +5 boundary is EXPECTED-direction; ANY flip toward BUY = halt-and-investigate)
+→ one ratify citing the prereg → re-arm the trigger. PANL reports 8/10 after close (seed
+decision = owner's). (2) **Owner words pending:** SBLK frozen-flip disposition (+ leg-2
+interplay, governance side) · watchlist rebase promote · push both repos. (3) **Wed 8/13:**
+BRUT H1 (Rider 4 alert: any BRUT 12M/FFA print supersedes for its classes). (4) **Sat 8/16:**
+`crude_day60_toll_cliff` — the pre-registered crude+product re-derivation venue (regardless of
+Hormuz outcome; branch state at 8/09: ambiguous pause persists, Oman channel live). (5) **Stage
+B window 8/26→9/04** (TRMD 8/26 · CMBT 8/27 · HAFN 8/28 · FRO 8/31): ±10% class-bucket gate;
+the LR2_clean-term war-ratio distortion corrects HERE; TRMD 7th-TIGHT candidacy at the
+post-Stage-A anchor round. Standing docket unchanged: Compass feed build · WF Artemis
+G3-retroactivity · Diana SPA zombie watch · 2343 commitments true-up at the full Interim.
 
-**FEEDS:** Gmail connector is WORKING (verified 7/28 — the earlier "reconnect" item was wrong);
-the MB weeklies simply have not been harvested since W30, so all four `mb:*` read stale (W31/32
-outstanding). **Compass Maritime onboarding is RULED (a)-via-WEB** with six binding design notes
-(`decisions/compass_feed_onboarding_2026-07-28.md`) — public date-patterned PDF, parallel to
-Gmail, content-level sentinel from day one, conflict-flag ingestion, key = name+year+price,
-ladder ingest as deliverable #1. Not built yet. RC ingest, EDGAR poll, price refresh, news-pull
-all green this week.
-
-**OPEN OWNER ITEMS (nothing else is blocked on the agent):** (1) the Q2 transition mechanism
-ruling — everything queues behind it; (2) SBLK leg-2 line + quantum; (3) the marks-trail
-promote word (and the INDUS-vs-OCEAN-RHEA PPMX call); (4) dry-bulk FFA promotion at the new
-levels; (5) push both repos; (6) the Compass subscription email (fallback channel only);
-(7) WF Artemis G3-retroactivity (prompt-delivery print sitting in-fit as `standard`).
-
-**BACKGROUND TASKS SPAWNED (may land independently):** decision-log anchor fix (DONE, merged
-`a9b99dc`), price-overlay loud-fallback guard, manifest/balance-sheet coherence guard.
-
-**NEXT BLOCK — theme: UNBLOCK THE Q2 CLUSTER, THEN DRAIN IT (before Stage A on 8/15).**
-Suggested order: (1) get the transition ruling and implement it; (2) re-run SB/TNK/ASC together
-from their staged sheets as the first coherent block; (3) drain the 11-name backlog by report
-date, subsequent-events-note FIRST, pre-registering bands each time and verifying the run
-consumed BOTH halves before attributing any miss; (4) record `crude_pause_talks_watch` (overdue);
-(5) Stage A by 8/15 — the basis inventory is already rich enough to execute. Owner-gated items
-in parallel: FFA promotion, marks-trail promotion, SBLK leg-2.
+**PRIOR WEEK (2026-08-03) — theme: UNBLOCK THE Q2 CLUSTER, THEN DRAIN IT — DONE IN FULL.**
+The transition mechanism ruled+shipped 8/08 (pair guard + preflight + vintage disclosure,
+schema 2.7); SB/TNK/ASC re-run as the first coherent block (all bands hit, TNK back to
+VALIDATED-TIGHT); the 11-name backlog drained by report date (every prereg band HIT, zero
+unexplained gate rows); `crude_pause_talks_watch` recorded (branch 3); the 8/09 promotion
+round + Stage A prep closed the week (this block above).
 
 **PRIOR WEEK (2026-07-27) — theme: THE Q2 CLUSTER LANDS + the 7/29 quad-day.** Calendar-driven:
 (1) **Mon 7/28** — GNK/Diana tender outcome PR expected (census recorded 7/26, gnk_log;
