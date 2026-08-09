@@ -250,7 +250,7 @@ pages when due; the recapture is ONE sitting, one source:
 2. For every covered name: transcribe price, P/NAV, fwd P/E from THAT daily. Never mix days,
    never keep an old pnav against a new price.
 3. APPROX names (NAT / ASC / CCEC / MPCC — Pareto publishes no P/NAV; roster corrected
-   2026-08-10, MPCC was omitted when the workflow was written three weeks after its
+   2026-08-09, MPCC was omitted when the workflow was written three weeks after its
    onboarding): update price + fwd P/E from the daily, keep the pnav flagged APPROX with
    its own basis note — flag, don't fake. NOTE the residual: k_broker = price ÷
    consensus_pnav, so APPROX names carry a mixed-vintage pair BY DESIGN — any k-band
@@ -258,11 +258,11 @@ pages when due; the recapture is ONE sitting, one source:
 4. Rebase `inputs/watchlist.yaml` in one commit; run the gate loop (pytest -> reconcile ->
    drift annotate/ratify). Band flips from the price move follow the isolate-commit
    discipline (memory: isolate commit from price drift).
-   **FX rule (codified 2026-08-10):** conversion applies to the PRICE leg only — pnav and
+   **FX rule (codified 2026-08-09):** conversion applies to the PRICE leg only — pnav and
    fwd P/E are unit-free ratios — at the DAILY's date FX, never the promote date (the
    MPCC/CAPT machinery: e.g. "kr 24.0 × 0.101838 Jul-3 FX"). Applies to every non-USD
    quote (NOK: BRUT/CAPT/BWLP/MPCC; HKD: 2343 when sourced).
-   **Staging pattern (sanctioned 2026-08-10):** transcription may land first as
+   **Staging pattern (sanctioned 2026-08-09):** transcription may land first as
    `inputs/watchlist_rebase_<date>.yaml.draft` with a NOT-APPLIED marker — transcription
    and promotion are separate acts; the draft is the sanctioned artifact, and the
    promote consumes + deletes it.

@@ -51,14 +51,14 @@ absent_from_table:       # keep the FULL consensus-pair anchor at its CURRENT vi
   - GSL
 
 promote_checklist:       # (WORKFLOWS §Consensus-pair recapture steps 4-5 — the
-  # off-cycle sitting still owes ALL of it; reviewer catch 2026-08-10)
+  # off-cycle sitting still owes ALL of it; reviewer catch 2026-08-09)
   - "One commit rebasing watchlist.yaml from this draft (FX rule: price leg only, daily-date FX; delete this draft in the same commit)"
   - "Gate loop: pytest -> /reconcile --all -> drift gate. k_broker WILL move on its second difference (that is the rebase's purpose) -> annotate movers, then ratify"
   - "Drafted ratify cause: 'watchlist consensus-pair rebase to the 2026-08-07 Pareto daily (one vintage, 20 names; APPROX flags kept on NAT/ASC/CCEC/MPCC; retires the 8/09 k-vintage-skew — re-examine TXN_PURE_PLAY_K_BAND and the REFRESH_VINTAGE_SKEW allowance at this ratify, with a scoped APPROX-name replacement for the retired allowance)'"
   - "Record the sitting in decisions/ (this file's header is the transcription record); re-arm all_sectors_consensus_pair_recapture from due 2026-10-02 to promote-date + 3 months"
   - "Band flips from the price move: isolate-commit discipline, individual eyeballs"
 
-verified_cells_2026-08-10:  # re-checked against the RENDERED p.1 (200dpi crop) after
+verified_cells_2026-08-09:  # re-checked against the RENDERED p.1 (200dpi crop) after
   # the reviewer flagged them — NO column bleed, all as printed:
   - "BRUT P/E 22.6x and CAPT 22.2x are genuine (the only >19x rows; consensus 1Y-fwd on collapsing post-war NOK-name estimates — eyeball at promote, market read not artifact)"
   - "GNK 13.7x vs SBLK 7.2x at ~equal P/NAV: genuine as printed"

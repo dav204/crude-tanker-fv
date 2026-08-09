@@ -99,7 +99,7 @@ which is verified real).
   24,600 noted) · Handies 31,500 (proxy MR, convention) — plus **LNGC 65,000 / DFDE
   basis from MB W32** (first LNG spot print since the 6/07 hold; corroborated by the
   Pareto 8/7 daily's own TFDE row $65,125; MGC stays held) — plus **the DRY-BULK SPOT
-  REVERT: trigger `drybulk_spot_daily_resumes` FIRED 2026-08-10** (the 8/7 daily
+  REVERT: trigger `drybulk_spot_daily_resumes` FIRED 2026-08-09** (the 8/7 daily
   prints Capesize $42,313 / Panamax $20,473 / Ultramax $20,326 — the seasonal-silence
   FFA front-month proxies retire; verified on the rendered page, the text layer hides
   the section).
