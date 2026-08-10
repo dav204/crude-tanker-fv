@@ -43,7 +43,26 @@ forward-invariance + subsequent-events-first + the Q3-QTD-extraction step that f
 consensus-pair transcription from the 8/7 Pareto daily (16 pareto-basis + 4 approx names;
 kr-quoted rows flagged for FX at promote). Promoting it retires the k-vintage-skew test debt.
 
-**NEXT BLOCK — theme: STAGE A LANDS, then the date-driven tail.**
+**2026-08-10 EOD UPDATE — STAGE A LANDED (commits d510311/1a6086d/7c991a5, pushed).**
+INSW band-HIT ($54.64 in [51.50,61.00]; ER carried NO QTD bookings — basis closed on the
+8/09 values); all four rulings executed; the Jun-7 war vintage is RETIRED. **THE HALT
+FIRED AND WAS DISPOSED (B):** three flips toward BUY (BRUT +44.3pp / CAPT +17.8 / TNK
++5.0) = the war-calibrated ABSOLUTE scenario deck double-counting the Jaguar
+de-escalation now embedded in the base (decisions/stage_a_halt_investigation_
+2026-08-10.md) — CAPT/TNK joined BRUT in POSITION_UNRELIABLE, retiring at the 8/16
+re-derivation. **8/16 IS NOW THE CRITICAL DATE (double duty): the pre-registered
+toll-cliff crude+product reweight + the deck re-expression against the landed base**
+(un-voids the three reads; every tanker scenario band re-pins there — they carry
+dated deck-lift re-pins from today). Handysize 12M split from the MR war-identity
+(donor Handymax). SBLK leg-2 GTC LIVE at $31.30 (governance, instruction id 100).
+Remaining calendar: **BRUT 8/13** (Rider-4 watch) · **Fri 8/14** healthchecks
+validation (green check or a page by ~11pm — prompt hardened both copies) · **8/16**
+· TRMD 8/26 + Stage B (the 7th-TIGHT gate chain). Owner words open: watchlist rebase
+promote (draft staged; retires the k-skew debt — clean to run any day now that Stage A
+is down) · TEN alternative-anchor docket item.
+
+**NEXT BLOCK — theme: STAGE A LANDS, then the date-driven tail.** _(written 8/09;
+step 1 DONE per the update above)_
 (1) **Mon 8/10 pre-market:** INSW Q2 refresh per the frozen prereg (pair flow, band-checked) →
 extract Q3 QTD bookings + fixtures → stage_a_basis §6 update → RECOMPUTE the §2 medians/§5
 checks → **wire Stage A** per the rulings + the §4 riders (DHT Jaguar coverage 0.55→0.52 ·
