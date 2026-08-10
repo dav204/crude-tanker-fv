@@ -78,3 +78,13 @@ $30,500/day (Mar-26 start, fleet-list fn 17) — term-structure node for the pro
 prints turned out to be ALREADY IN the transaction files (Singapore Spirit VLCC;
 the Suezmax primary anchor) — the owner-gate pointer here was stale, recorded as
 the §B-dedupe lesson.
+
+**§7 — BASIS CLOSES 2026-08-10 (the D-4 wait resolves):** INSW's Q2 print landed 8/10
+pre-market with **NO Q3 QTD bookings disclosure** (verified against the full ER with six
+phrasings — genuinely absent from the print, not a parse miss; INSW gives QTD on calls,
+not releases, this quarter). Zero qualifying §1 evidence: Q2 realized TCEs (VLCC spot
+$118.9k / Suez $100.5k / Afra $69.1k) are actuals, not front bookings; the 13-TC book
+($240M future revenues, 1.5y avg) is an aggregate without per-fixture rate+tenor. The
+Stage-A evidence set therefore CLOSES exactly as computed in
+stage_a_computation_draft_2026-08-09.md — Aframax stays single-print, LR1 derived — and
+the promotion wires TODAY per the four owner rulings. BRUT 8/13 remains a Rider-4 watch.

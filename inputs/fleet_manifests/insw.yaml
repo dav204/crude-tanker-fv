@@ -5,8 +5,11 @@
 # only OWNED, ON-WATER vessels (the NAV / value-allocation basis). EXCLUDED:
 #   - 8 chartered-in vessels (3 VLCC DSME-2023, 1 LR1, 4 MR) — operating leases,
 #     not owned tonnage; they earn a thin charter-in spread we don't model.
-#   - 3 LR1 newbuildings under construction (CRISTOBAL/DELGADA/MAGELLAN) — these
-#     are PRODUCT-sleeve, with their $122M remaining commitment and the LR1-secured
+#   - Q2-2026 refresh (2026-08-10, 10-Q acc 0001104659-26-093061): CRISTOBAL DELIVERED
+#     in Q2 (4th of six, now an operating row below); DELGADA/MAGELLAN deliver Q3-26;
+#     PLUS four NEW LR1s contracted (K Shipbuilding, $244M aggregate, 2H-2028, no
+#     payments at 6/30). ALL undelivered LR1s remain PRODUCT-sleeve-excluded, with
+#     the ~$73M (original) + $244M (new) commitments and the LR1-secured
 #     ECA debt handled outside the crude sleeve (see balance sheet + carveout.py).
 #
 # SLEEVE TAGGING for the crude carve-out (METHODOLOGY 6):
@@ -17,27 +20,28 @@
 # scrubber/eco flags are best-effort (INSW scrubber-fitted its larger crude units);
 # product-class curves are already eco/scrubber-inclusive so those flags are moot there.
 ticker: INSW
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
   # ---- VLCC (7 owned; 3 DSME-2023 chartered-in EXCLUDED) ----
-  - {id: VLCC_2016_sws, class: VLCC, dwt: 300000, age: 10, scrubber: true, eco: false, yard: SWS, sleeve: crude, count: 5}  # Liberty/Triton/Cape Henry/Diamond Head/Hendricks
-  - {id: VLCC_2015_sws, class: VLCC, dwt: 300000, age: 11, scrubber: true, eco: false, yard: SWS, sleeve: crude, count: 1}  # Tybee
-  - {id: VLCC_2020_hsho, class: VLCC, dwt: 300000, age: 6, scrubber: true, eco: true, yard: Hyundai Samho, sleeve: crude, count: 1}  # Gibbs Hill
+  - {id: VLCC_2016_sws, class: VLCC, dwt: 300000, age: 10.5, scrubber: true, eco: false, yard: SWS, sleeve: crude, count: 5}  # Liberty/Triton/Cape Henry/Diamond Head/Hendricks
+  - {id: VLCC_2015_sws, class: VLCC, dwt: 300000, age: 11.5, scrubber: true, eco: false, yard: SWS, sleeve: crude, count: 1}  # Tybee
+  - {id: VLCC_2020_hsho, class: VLCC, dwt: 300000, age: 6.5, scrubber: true, eco: true, yard: Hyundai Samho, sleeve: crude, count: 1}  # Gibbs Hill
   # ---- Suezmax (13 owned) ----
-  - {id: SMX_2012_hhi, class: Suezmax, dwt: 159000, age: 14, scrubber: false, eco: false, yard: Hyundai, sleeve: crude, count: 4}  # Red/Rio Grande/San Saba/Frio
-  - {id: SMX_2012_sam, class: Suezmax, dwt: 158500, age: 14, scrubber: false, eco: false, yard: Samsung, sleeve: crude, count: 4}  # Colorado/Brazos/Sabine/Pecos
-  - {id: SMX_2016_hhi, class: Suezmax, dwt: 158700, age: 10, scrubber: true, eco: false, yard: Hyundai, sleeve: crude, count: 2}  # Trinity/San Jacinto
-  - {id: SMX_2017_hsho, class: Suezmax, dwt: 158400, age: 9, scrubber: true, eco: false, yard: Hyundai Samho, sleeve: crude, count: 2}  # Hatteras/Montauk
-  - {id: SMX_2016_nt, class: Suezmax, dwt: 157500, age: 10, scrubber: false, eco: false, yard: New Times, sleeve: crude, count: 1}  # Loire (Chinese yard discount)
+  - {id: SMX_2012_hhi, class: Suezmax, dwt: 159000, age: 14.5, scrubber: false, eco: false, yard: Hyundai, sleeve: crude, count: 4}  # Red/Rio Grande/San Saba/Frio
+  - {id: SMX_2012_sam, class: Suezmax, dwt: 158500, age: 14.5, scrubber: false, eco: false, yard: Samsung, sleeve: crude, count: 4}  # Colorado/Brazos/Sabine/Pecos
+  - {id: SMX_2016_hhi, class: Suezmax, dwt: 158700, age: 10.5, scrubber: true, eco: false, yard: Hyundai, sleeve: crude, count: 2}  # Trinity/San Jacinto
+  - {id: SMX_2017_hsho, class: Suezmax, dwt: 158400, age: 9.5, scrubber: true, eco: false, yard: Hyundai Samho, sleeve: crude, count: 2}  # Hatteras/Montauk
+  - {id: SMX_2016_nt, class: Suezmax, dwt: 157500, age: 10.5, scrubber: false, eco: false, yard: New Times, sleeve: crude, count: 1}  # Loire (Chinese yard discount)
   # ---- Aframax (4 owned) ----
-  - {id: AFRA_2017_dh, class: Aframax, dwt: 113700, age: 9, scrubber: true, eco: false, yard: Daehan, sleeve: crude, count: 1}  # Reyes
-  - {id: AFRA_2009_nt, class: Aframax, dwt: 112900, age: 17, scrubber: false, eco: false, yard: New Times, sleeve: crude, count: 2}  # Yellowstone/Yosemite
-  - {id: AFRA_2013_spp, class: Aframax, dwt: 112800, age: 13, scrubber: false, eco: false, yard: SPP, sleeve: crude, count: 1}  # Redwood
+  - {id: AFRA_2017_dh, class: Aframax, dwt: 113700, age: 9.5, scrubber: true, eco: false, yard: Daehan, sleeve: crude, count: 1}  # Reyes
+  - {id: AFRA_2009_nt, class: Aframax, dwt: 112900, age: 17.5, scrubber: false, eco: false, yard: New Times, sleeve: crude, count: 2}  # Yellowstone/Yosemite
+  - {id: AFRA_2013_spp, class: Aframax, dwt: 112800, age: 13.5, scrubber: false, eco: false, yard: SPP, sleeve: crude, count: 1}  # Redwood
   # ---- LR2 (1 owned) -> PRODUCT sleeve (overrides the LR2-defaults-to-crude rule) ----
-  - {id: LR2_2014_spp, class: LR2, dwt: 112700, age: 12, sleeve: product, count: 1}  # Shenandoah
+  - {id: LR2_2014_spp, class: LR2, dwt: 112700, age: 12.5, sleeve: product, count: 1}  # Shenandoah
   # ---- LR1 (7 owned on-water) -> dual-use, 30% crude / 70% product ----
-  - {id: LR1_old, class: LR1, dwt: 74500, age: 16, sleeve: product, crude_fraction: 0.30, count: 4}  # Guayaquil/Eagle/Leyte/Samar (2009-2011)
-  - {id: LR1_2025_ksb, class: LR1, dwt: 73600, age: 1, sleeve: product, crude_fraction: 0.30, count: 2}  # Alacran/Balboa
+  - {id: LR1_old, class: LR1, dwt: 74500, age: 16.5, sleeve: product, crude_fraction: 0.30, count: 4}  # Guayaquil/Eagle/Leyte/Samar (2009-2011)
+  - {id: LR1_2025_ksb, class: LR1, dwt: 73600, age: 1.5, sleeve: product, crude_fraction: 0.30, count: 2}  # Alacran/Balboa
+  - {id: LR1_2026_ksb, class: LR1, dwt: 73600, age: 0.5, sleeve: product, crude_fraction: 0.30, count: 1}  # Cristobal (delivered Q2-2026, 4th of six; 10-Q acc 0001104659-26-093061)
   - {id: LR1_2026_ksb, class: LR1, dwt: 73600, age: 0, sleeve: product, crude_fraction: 0.30, count: 1}  # Bonita
   # ---- MR (24 owned) -> PRODUCT sleeve ----
   - {id: MR_2008, class: MR, dwt: 50000, age: 18, sleeve: product, count: 2}  # Spirit/Lily (Hyundai Mipo)

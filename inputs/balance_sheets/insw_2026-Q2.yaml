@@ -1,0 +1,54 @@
+# International Seaways balance sheet snapshot — METHODOLOGY.md §4.2, §6 (WHOLE-CO
+# hybrid, crude+product carve-outs). USD. Source: Q2-2026 10-Q (EDGAR acc
+# 0001104659-26-093061, filed 2026-08-10) Condensed Consolidated Balance Sheet
+# 2026-06-30 column + the Q2 ER 8-K (acc 0001104659-26-093033, ex-99.1, same day).
+# Q2 refresh 2026-08-10 per the frozen prereg (decisions/insw_q2_prereg_2026-08-09.md).
+# SUBSEQUENT EVENTS (XBRL-verified — the ONLY tagged post-6/30 event): the Q3 dividend
+# $5.05/sh DECLARED 2026-08-07 (record 9/10, pay 9/24) — EXCLUDED from this snapshot;
+# the $4.55/sh June dividend is in-quarter (H1 dividends paid 331,754).
+ticker: INSW
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1679049/000110465926093033/
+retrieved_at: 2026-08-10
+filing_period_end: 2026-06-30
+
+# Cash 159,397 + short-term investments 250,000 (time deposits; the Q1 cash+STI
+# convention) = 409,397.
+cash_and_equivalents: 409397000
+
+# working_capital_net = non-cash current assets − non-debt/non-lease current liabilities
+# (Q1 construction): (voyage receivables 306,658 + other receivables 28,225 +
+# inventories 24,915 + prepaid/other 14,077) − AP/accrued/other 91,231
+# = 373,875 − 91,231 = 282,644. Voyage receivables at a record 306.7 on the war-rate
+# tape (was 242.5 at Q1). Goodwill 7,369 (Tankers International, acquired sole
+# ownership 1/27) EXCLUDED — not NAV-economic (2343 convention). Pool working capital
+# deposits 21,843 non-current, excluded (Q1 convention).
+working_capital_net: 282644000
+
+# Total interest-bearing debt: current installments 39,204 + long-term 606,418
+# = 645,622 (was 602,061 — ECA draws on the LR1 deliveries + net revolver +8.5,
+# less $13M H1 scheduled amortization).
+total_debt: 645622000
+
+# Operating lease liabilities: current 1,334 + long-term 5,810 = 7,144.
+lease_liabilities: 7144000
+
+# PRODUCT-sleeve newbuild program — EXCLUDED from the crude carve-out (Q1 convention:
+# the crude sleeve bears no product newbuild capex; left 0 so pro-rata allocation
+# cannot push it onto crude). For the record at 6/30: original six-LR1 program ~$73M
+# remaining (ECA-funded; Cristobal DELIVERED Q2, Delgada/Magellan deliver Q3-26) +
+# FOUR NEW LR1s contracted at K Shipbuilding, $244M aggregate, 2H-2028 delivery,
+# "no payments made as of June 30, 2026" (ER verbatim).
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+# Q2-2026 weighted average diluted (ER income statement).
+diluted_shares_outstanding: 49857565
+
+# Vessel-secured debt allocated DIRECTLY to a sleeve (METHODOLOGY 6): the LR1 ECA
+# facility (DNB/K-Sure, up to $240M, six-LR1-secured) — H1 nonrevolving borrowings
+# 85,209 less nonrevolving repayments 2,037 = 83,172 product-secured at 6/30 (was
+# 43,000 at Q1; draws fund each delivery). Remaining ~$559-562M corporate/cross-
+# collateralized pro-rates by vessel-value share.
+crude_specific_debt: 0
+product_specific_debt: 83172000

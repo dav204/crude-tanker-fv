@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-10T17:59:46+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $92.41
+- Single-point FV: $40.13
+- Scenario PW FV: $56.64 (EV -38.7%)
+- NAV / share: $54.64
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +26.4pp (k_broker 1.53)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.9% | Δscenario FV: +1.9% | ΔNAV: +1.4% | Δspread: -0.6pp
+
+**Decision:** Q2 REPORT-DAY REFRESH (the final drainable name — 11 of 11 at Q2 vintage; prereg decisions/insw_q2_prereg_2026-08-09.md, band FROZEN pre-print). Source: 10-Q acc 0001104659-26-093061 + ER 8-K acc 0001104659-26-093033 (both 8/10). Subsequent events EXCLUDED (XBRL-verified sole tagged event: Q3 dividend $5.05 declared 8/07, record 9/10). NAV $53.88 -> $54.64 (+1.4%) — INSIDE the pre-registered band [51.50, 61.00] (point 56.30): cash+STI +32.6 + WC +53.4 (record voyage receivables on the war tape) − debt +43.6 (ECA draws on the LR1 deliveries) + Cristobal delivered (operating LR1 row) − 0.25y aging. RECORD quarter: net income $295M / $5.91 diluted, FCF $261M, dividend $5.05 declared (21% trailing yield). FOUR NEW LR1 NBs contracted ($244M, K Shipbuilding, 2H-2028, no payments at 6/30) — product-sleeve-excluded per convention. Both halves verified (409.4/282.6/645.6/7.1); forward invariance held (24 names 0.0). NO FLIP — TRIM/SHORT relabeled (rich · cycle) stands, EV −38.7%. GATE: GREEN SUB-THRESHOLD (+1.1pp) — baseline rides (the DHT precedent). STAGE-A NOTE: the ER carries NO Q3 QTD bookings — zero qualifying §1 evidence; the basis closes as computed 8/09 (see stage_a_basis §7). The Pareto 8/03 gain-only VLCC sentence does NOT resolve to INSW (its Q1 sales were 2 VLCCs + 5 MRs, not 6 VLCCs + 2 capes) — stays pending-ID.
+
+---
+
 ## 2026-08-09T22:35:33+00:00 — Pipeline run (auto)
 
 **Model state:**
