@@ -487,7 +487,7 @@ def test_product_rate_remap_uses_clean_variants():
     """Product carve-out remaps LR1 / LR2 / MR rate entries to the clean variants."""
     from crude_tanker_fv.carveout import product_carve_out
     from crude_tanker_fv.loaders import load_company_inputs
-    insw = load_company_inputs("INSW", "2026-Q1")
+    insw = load_company_inputs("INSW", BOOK_QUARTER)   # was a 2026-Q1 literal — pair-guarded at the INSW Q2 advance (2026-08-10)
     pco = product_carve_out(insw)
     md = pco.product_inputs.market_data
     base = insw.market_data

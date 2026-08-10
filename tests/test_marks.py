@@ -21,7 +21,7 @@ def test_scale_marks_identity_and_monotone():
 
 
 def test_solve_broker_premium_round_trips():
-    ci = load_company_inputs("INSW", "2026-Q1")
+    ci = load_company_inputs("INSW", BOOK_QUARTER)   # was a 2026-Q1 literal — pair-guarded at the INSW Q2 advance (2026-08-10)
     target = 79.18  # INSW broker NAV (76.80 / 0.97)
     k = solve_broker_premium(ci, target)
     assert compute_nav(scale_vessel_marks(ci, k)).nav_per_share == pytest.approx(target, abs=0.05)

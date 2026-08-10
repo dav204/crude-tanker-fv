@@ -1,5 +1,97 @@
 # CAPT — Decision Log
 
+## 2026-08-10T19:35:56+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.94
+- Single-point FV: $15.10
+- Scenario PW FV: $15.88 (EV +13.9%)
+- NAV / share: $15.48
+- Position: **BUY (undervalued)**
+- Broker spread: +31.2pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T19:34:48+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.94
+- Single-point FV: $15.10
+- Scenario PW FV: $15.88 (EV +13.9%)
+- NAV / share: $15.48
+- Position: **BUY (undervalued)**
+- Broker spread: +31.2pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** STAGE A LANDED + HALT DISPOSED (B) 2026-08-10: +17.8pp EV / HOLD->BUY = deck-incoherence artifact (see stage_a_halt_investigation_2026-08-10.md; the de-escalation legs' vessel-flex collapsed against the re-anchored base). CAPT ADDED to POSITION_UNRELIABLE — BUY prints not-actionable, RETIRES at the 8/16 toll-cliff re-derivation. NAV unchanged (rates never touch NAV). The ADDENDUM's expected-direction was CAPT toward TRIM — the opposite print is precisely why the halt rule existed.
+
+---
+
+## 2026-08-10T18:06:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.94
+- Single-point FV: $15.10
+- Scenario PW FV: $15.88 (EV +13.9%)
+- NAV / share: $15.48
+- Position: **BUY (undervalued)**
+- Broker spread: +31.2pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T18:05:19+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.94
+- Single-point FV: $15.10
+- Scenario PW FV: $15.88 (EV +13.9%)
+- NAV / share: $15.48
+- Position: **BUY (undervalued)**
+- Broker spread: +31.2pp (k_broker 1.17)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- ⚑ scenario PW FV +18.6%
+- Δprice: no change | Δsingle FV: -5.9% | Δscenario FV: +18.6% | ΔNAV: no change | Δspread: +3.0pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T17:59:46+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $13.94
+- Single-point FV: $16.05
+- Scenario PW FV: $13.39 (EV -3.9%)
+- NAV / share: $15.48
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.2pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-09T22:35:33+00:00 — Pipeline run (auto)
 
 **Model state:**

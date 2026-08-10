@@ -1,5 +1,95 @@
 # ASC — Decision Log
 
+## 2026-08-10T19:35:56+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.71
+- Single-point FV: $17.22
+- Scenario PW FV: $16.38 (EV -2.0%)
+- NAV / share: $17.37
+- Position: **HOLD (fairly valued)**
+- Broker spread: +25.1pp (k_broker 1.27)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T19:34:48+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.71
+- Single-point FV: $17.22
+- Scenario PW FV: $16.38 (EV -2.0%)
+- NAV / share: $17.37
+- Position: **HOLD (fairly valued)**
+- Broker spread: +25.1pp (k_broker 1.27)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** STAGE A TANKER RE-ANCHOR 2026-08-10 (one ratify; prereg frozen 7/15, four owner rulings; the Jun-7 war vintage RETIRED): EV increment via the scenario legs' re-expression against the new base (NAV 0.0 by construction — rates never touch NAV). The book-wide BUY-ward drift is the KNOWN deck-incoherence documented in stage_a_halt_investigation_2026-08-10.md — three names VOIDed (BRUT/CAPT/TNK), every other read stands with this increment explained; the deck re-expresses at the 8/16 toll-cliff re-derivation.
+
+---
+
+## 2026-08-10T18:06:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.71
+- Single-point FV: $17.22
+- Scenario PW FV: $16.38 (EV -2.0%)
+- NAV / share: $17.37
+- Position: **HOLD (fairly valued)**
+- Broker spread: +25.1pp (k_broker 1.27)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T18:05:19+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.71
+- Single-point FV: $17.22
+- Scenario PW FV: $16.38 (EV -2.0%)
+- NAV / share: $17.37
+- Position: **HOLD (fairly valued)**
+- Broker spread: +25.1pp (k_broker 1.27)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.5% | Δscenario FV: -4.3% | ΔNAV: no change | Δspread: -1.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T17:59:46+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.71
+- Single-point FV: $17.13
+- Scenario PW FV: $17.11 (EV +2.4%)
+- NAV / share: $17.37
+- Position: **HOLD (fairly valued)**
+- Broker spread: +26.3pp (k_broker 1.27)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-09T22:35:33+00:00 — Pipeline run (auto)
 
 **Model state:**

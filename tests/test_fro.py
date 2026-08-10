@@ -54,9 +54,9 @@ def test_fleet_schedule_ramps_vlcc_in_strip(fro):
 
 def test_cycle_is_fleet_weighted_peak(fro):
     cyc = compute_cycle(fro)
-    # Per-class ratios ~2.79/2.21/2.04; value-weighted blend in the peak band.
+    # Per-class ratios re-pinned 2026-08-10 (Stage A): VLCC 2.6425; blend stays peak-band.
     assert set(cyc.cycle_position_by_class) == {"VLCC", "Suezmax", "LR2"}
-    assert cyc.cycle_position_by_class["VLCC"] == pytest.approx(2.7875)
+    assert cyc.cycle_position_by_class["VLCC"] == pytest.approx(2.6425)
     assert 2.0 < cyc.cycle_position < 2.79     # blended, VLCC-weighted
     assert (cyc.w_nav, cyc.w_earn) == (0.70, 0.30)
 

@@ -26,26 +26,14 @@
 # Held classes carry their own trigger (tanker_forward_print_lands /
 # container_mb_refresh); agreement with vintage_notes is suite-tested.
 as_of:
-  default: 2026-08-07       # containers, MB W32 refresh (2026-08-09 event, packet
-                            # 2026-08-09) — the newest deliberate refresh; the
-                            # same-round dry-bulk FFA promotion (06-Aug print,
-                            # ffa_promotion_2026-08-09.md) is the explicit
-                            # 2026-08-06 hold set below
+  default: 2026-08-10       # STAGE A tanker promotion (newest event; tanker strips ride
+                            # default). Explicit holds: containers 8/07 (W32) · dry-bulk
+                            # 8/06 FFA · VLGC/LNGC/MGC own-cadence holds below
   Cape: 2026-08-06
   Pana: 2026-08-06
   Post-Panamax: 2026-08-06
   Supra-Ultra: 2026-08-06
   VLGC: 2026-06-02
-  VLCC: 2026-06-07
-  Suezmax: 2026-06-07
-  Aframax: 2026-06-07
-  LR2: 2026-06-07
-  LR1: 2026-06-07
-  MR: 2026-06-07
-  Handysize: 2026-06-07
-  Handymax: 2026-06-07
-  LR1_clean: 2026-06-07
-  LR2_clean: 2026-06-07
   LNGC: 2026-06-07
   MGC: 2026-06-07
   Ctr-Feeder: 2026-08-07    # MB W32 container refresh (2026-08-09 event)
@@ -63,18 +51,17 @@ vintage_notes:
     disclosure). Held-node bracket retires at the first capture showing Smax
     Cal27 (owner channel-ask staged). Handy-Bulk derived row inherits the same
     mix via the x0.90 identity."
-  - "Tanker forward curves (VLCC/Suezmax/Aframax/LR2/LR1/MR/Handies/LR1_clean/LR2_clean)
-    HELD at the 2026-06-07 vintage — TERM PRINT EXISTS (DHT 6-K 2026-07-13: 3-yr VLCC
-    TC $75k/day Sep-26 start; Q3 QTD bookings $139.7k corroborate the front within ~5%;
-    back-half implied 40-55% below this vintage). Promotion deferred to the Q2-cluster
-    re-anchor by owner ruling 2026-07-14, SIGNED 2026-07-15
-    (decisions/tanker_forward_print_ruling_2026-07-14.md): Stage A no later than
-    2026-08-15 (unconditional — DHT-print fallback if cluster basis insufficient),
-    Stage B true-up ≤2026-09-04 band-gated. Estimated strip overhang while held: −3 to
-    −4% FV on peak-weighted crude, direction-safe (can only make rich names richer; the
-    one qualified case — TRMD's post-re-tilt BUY — is in the Stage-A eyeball inventory,
-    ruling ADDENDUM). Method: PRE_REGISTRATION_TANKER_CLUSTER_REANCHOR.md (frozen at
-    signature)."
+  - "Tanker forward curves PROMOTED 2026-08-10 — STAGE A (PRE_REGISTRATION_TANKER_
+    CLUSTER_REANCHOR.md, frozen 2026-07-15; four owner rulings recorded in
+    stage_a_computation_draft_2026-08-09.md: wait-for-INSW / §5 breaches accepted
+    post-investigation / VLCC 12M = Mount Horizon single-print / LR2_clean term =
+    §4-letter). The 2026-06-07 war vintage is RETIRED. Per-class provenance tags on
+    the strip headers above. §5 for the record: VLCC front 179,650 BREACH-HIGH and
+    term-implied 48,850 BREACH-LOW both trace to ECO's verified $206.6k QTD print
+    (tape-corroborated MB 242-247k / Pareto TD3C 489k; bands pre-date the 7/20
+    blockade escalation). INSW (8/10) carried no QTD bookings — basis closed on the
+    8/09 computed values; BRUT 8/13 remains a Rider-4 watch; Stage B 8/26-9/04
+    re-checks class-bucket medians ±10%."
   - "Dry-bulk curves (Cape/Pana/Post-Panamax/Supra-Ultra) RE-ANCHORED 2026-07-13
     from the 13-Jul FFA OCR widget (status ok; owner-ratified promotion, all
     three classes; decisions/ffa_promotion_2026-07-13.md). Cape front flipped
@@ -89,96 +76,96 @@ vintage_notes:
     guard-tested; regenerate BOTH with any supra promotion). as_of 2026-07-10 = the
     MB Dry Bulk Weekly 28 vintage (own cadence, not a hold awaiting a print)."
 ffa_forward_curve:
-  VLCC:
-  - 147500
-  - 183500
-  - 165500
-  - 123500
-  - 111500
-  - 135500
-  - 147500
-  - 105500
-  Suezmax:
-  - 81500
-  - 99000
-  - 92000
-  - 67500
-  - 60000
-  - 78000
-  - 81500
-  - 56500
-  Aframax:
-  - 75000
-  - 88000
-  - 82000
-  - 64000
-  - 59000
-  - 70000
-  - 74000
-  - 56000
-  LR2:
-  - 75000
-  - 88000
-  - 82000
-  - 64000
-  - 59000
-  - 70000
-  - 74000
-  - 56000
-  LR1:
-  - 75000
-  - 88000
-  - 82000
-  - 64000
-  - 59000
-  - 70000
-  - 74000
-  - 56000
-  MR:
-  - 22000
-  - 30000
-  - 28000
-  - 19000
-  - 18000
-  - 23000
-  - 26000
-  - 18000
-  Handysize:
-  - 22000
-  - 30000
-  - 28000
-  - 19000
-  - 18000
-  - 23000
-  - 26000
-  - 18000
-  Handymax:
-  - 22000
-  - 30000
-  - 28000
-  - 19000
-  - 18000
-  - 23000
-  - 26000
-  - 18000
-  LR1_clean:
-  - 35000
-  - 45000
-  - 42000
-  - 32000
-  - 30000
+  VLCC:   # STAGE A 2026-08-10 (prereg frozen 7/15, 4 owner rulings 8/09-10): front direct N=2 (ECO 206.6k/48% + DHT 152.7k/58% QTD) · 12M = Mount Horizon 12-15mo print RULED D-2b (single-print, spec-premium dual-fuel NB) · term = Jaguar 36mo 75k §3-decomposed (§5 breaches ACCEPTED post-investigation)
+  - 179650
+  - 179650
+  - 105700
+  - 105700
+  - 48850
+  - 48850
+  - 48850
+  - 48850
+  Suezmax:   # STAGE A 2026-08-10 (prereg frozen 7/15, 4 owner rulings 8/09-10): front direct N=2 (TNK 104.8k/44% + ECO 133k/42%) · 12M+term derived-ratio donor VLCC (Jun-7 ratios .549/.552)
+  - 118900
+  - 118900
+  - 58050
+  - 58050
+  - 26950
+  - 26950
+  - 26950
+  - 26950
+  Aframax:   # STAGE A 2026-08-10 (prereg frozen 7/15, 4 owner rulings 8/09-10): front single-print (TNK Afra/LR2 blended 59.9k/44%) · 12M derived-interp · term = Blue Moon 24mo printed year-2 leg 38k
+  - 59900
+  - 59900
+  - 51450
+  - 51450
   - 38000
-  - 40000
-  - 30000
-  LR2_clean:
-  - 50000
-  - 62000
-  - 58000
-  - 45000
-  - 42000
-  - 52000
-  - 55000
-  - 42000
+  - 38000
+  - 38000
+  - 38000
+  LR2:   # STAGE A 2026-08-10 (prereg frozen 7/15, 4 owner rulings 8/09-10): = Aframax (TNK blends the classes; Jun-7 strips identical) — blended tag
+  - 59900
+  - 59900
+  - 51450
+  - 51450
+  - 38000
+  - 38000
+  - 38000
+  - 38000
+  LR1:   # STAGE A 2026-08-10 (prereg frozen 7/15, 4 owner rulings 8/09-10): derived-ratio donor LR2 dirty (Jun-7 ratio 1.0) — no LR1 print landed (INSW ER carried no QTD)
+  - 59900
+  - 59900
+  - 51450
+  - 51450
+  - 38000
+  - 38000
+  - 38000
+  - 38000
+  MR:   # STAGE A 2026-08-10 (prereg frozen 7/15, 4 owner rulings 8/09-10): ALL DIRECT: front N=2 (STNG 29k/46% + ASC ~29.6k) · 12M N=4 median (Baltic Champion/Sea Eagle/Golden Horizon/Midnight Glory) · term N=5 median (STI Notting Hill/Westminster/Bronx 3y + Midnight Glory 36mo + Sunny Beach 24mo)
+  - 29300
+  - 29300
+  - 29250
+  - 29250
+  - 25000
+  - 25000
+  - 25000
+  - 25000
+  Handysize:   # STAGE A 2026-08-10 (prereg frozen 7/15, 4 owner rulings 8/09-10): derived-ratio donor Handymax
+  - 20800
+  - 20800
+  - 20750
+  - 20750
+  - 17750
+  - 17750
+  - 17750
+  - 17750
+  Handymax:   # STAGE A 2026-08-10 (prereg frozen 7/15, 4 owner rulings 8/09-10): front single-print (STNG 20.8k/38%) · 12M/term MR-shape scaled x.71
+  - 20800
+  - 20800
+  - 20750
+  - 20750
+  - 17750
+  - 17750
+  - 17750
+  - 17750
+  LR1_clean:   # STAGE A 2026-08-10 (prereg frozen 7/15, 4 owner rulings 8/09-10): derived-ratio off LR2_clean (Jun-7 per-bucket .714/.718/.723) — 12M 37.0k lands EXACTLY on MB LR1[TC5] 1yr assessment (cross-check, not calibration)
+  - 46400
+  - 46400
+  - 37000
+  - 37000
+  - 20250
+  - 20250
+  - 20250
+  - 20250
+  LR2_clean:   # STAGE A 2026-08-10 (prereg frozen 7/15, 4 owner rulings 8/09-10): front single-print (STNG LR2 65k/34%) · 12M = Torm Herdis 12mo 51.5k single-print · term RULED D-3i §4-letter 28k (war-inverted Jun-7 clean/dirty ratio FLAGGED; Stage B HAFN 8/28 / TRMD 8/26 = correction venue)
+  - 65000
+  - 65000
+  - 51500
+  - 51500
+  - 28000
+  - 28000
+  - 28000
+  - 28000
   LNGC:
   - 50000
   - 80000

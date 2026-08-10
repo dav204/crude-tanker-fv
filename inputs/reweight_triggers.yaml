@@ -223,28 +223,20 @@ tanker_forward_print_lands:
   sector: crude+product
   due: null
   observable: >
-    Standing event-watch (reviewer condition, 2026-07-02): any tanker FFA or
-    1-year T/C forward print landing in the dailies/weeklies. The tanker
-    forward curves + 12M TC lines are HELD at the 2026-06-07 vintage (owner
-    decision, option (i) — no market forward print existed at the Jul-2
-    refresh; a re-anchor off a single spot print the week spot fell 33% would
-    manufacture an anchor). The hold must not go stale silently — the
-    mtime-based preflight staleness check cannot see a held VALUE.
+    Standing event-watch (reviewer condition, 2026-07-02; RE-ARMED to original
+    text at Stage A per prereg §8.4): any tanker FFA or 1-year T/C forward
+    print landing in the dailies/weeklies. The mtime-based preflight staleness
+    check cannot see a held VALUE — this watch is the guard.
   action: >
     Refresh the ffa_forward_curve + twelve_month_tc tanker lines from the
-    print, rerun the C-2 rates layer (the Jul-2 decomposition's tanker
-    rate-effect is understated pending this), record in decisions/.
-  status: fired-ruled-deferred   # RULED 2026-07-15 (owner signature "sign as specified"):
-                  # (i-continue) two-stage per decisions/tanker_forward_print_ruling_2026-07-14.md.
-                  # The 2026-07-14 print: DHT 6-K (acc 0000950157-26-000799) — 3-yr VLCC TC
-                  # $75,000/day (Jaguar, Sep-26 start) + Q3 QTD bookings $139.7k (front
-                  # corroborated ~5%; back-half implied 40-55% below the held vintage).
-                  # Sentinel: AMBER-deferred (refresh.py) — surfaces every run with the
-                  # Stage-A date, ESCALATES red past the deadline (Rider 2 unconditional).
-                  # Rider 4: the original observable/action below stay LIVE — a dailies/
-                  # weeklies FFA or 12M TC print promotes immediately, superseding Stage A.
-  ruled: 2026-07-15
-  stage_a_deadline: 2026-08-15
+    print, rerun the C-2 rates layer, record in decisions/.
+  status: armed   # STAGE A EXECUTED 2026-08-10 (one ratify; RATIFY_LOG row):
+                  # the 2026-06-07 war vintage RETIRED per the frozen prereg +
+                  # four owner rulings (stage_a_computation_draft_2026-08-09.md).
+                  # STAGE B stands: window 2026-08-26..09-04, band-gated ±10%
+                  # per class-bucket (TRMD 8/26 · CMBT 8/27 · HAFN 8/28 · FRO
+                  # 8/31); LR2_clean term (war-ratio-derived 28k, D-3 flag) is
+                  # the registered correction candidate there.
   stage_b_window: 2026-08-26..2026-09-04
   ruling: decisions/tanker_forward_print_ruling_2026-07-14.md
   added: 2026-07-02
@@ -391,13 +383,11 @@ drybulk_spot_daily_resumes:
     the FFA-proxy fallback ONLY on editions with no Smax spot row (the 2-Jul
     precedent). Diagnostic surface — no strip impact; annotate only if a band
     moves.
-  status: fired-pending-execution   # FIRED 2026-08-09: the 8/7 daily prints
-                    # Capesize $42,313 / Panamax $20,473 / Ultramax $20,326
-                    # (verified on the RENDERED page — the text layer hides the
-                    # section, which is why the resume went unnoticed since at
-                    # least 8/6). Execution batched into the 8/10 Stage-A-day
-                    # spot_tce rider (stage_a_computation_draft_2026-08-09.md §4)
-                    # — one spot_tce promotion event, not two.
+  status: done   # FIRED 2026-08-09 (8/7 daily prints Cape 42,313 / Pmax 20,473 /
+                 # Umax 20,326, verified on the RENDERED page) → EXECUTED 2026-08-10
+                 # in the Stage-A-day spot_tce promote: dry rows reverted to the
+                 # daily's spot prints, FFA front-month proxy era ENDED. Retire —
+                 # the daily column is back; normal spot_tce cadence resumes.
   added: 2026-07-13
 
 handy_bulk_txn_refit:

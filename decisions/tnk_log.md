@@ -1,5 +1,96 @@
 # TNK — Decision Log
 
+## 2026-08-10T19:35:56+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $77.25
+- Single-point FV: $83.23
+- Scenario PW FV: $83.72 (EV +8.4%)
+- NAV / share: $84.60
+- Position: **BUY (undervalued)**
+- Broker spread: +23.9pp (k_broker 1.43)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T19:34:48+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $77.25
+- Single-point FV: $83.23
+- Scenario PW FV: $83.72 (EV +8.4%)
+- NAV / share: $84.60
+- Position: **BUY (undervalued)**
+- Broker spread: +23.9pp (k_broker 1.43)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** STAGE A LANDED + HALT DISPOSED (B) 2026-08-10: +5.0pp EV / HOLD->BUY (band-mech) = deck-incoherence artifact at the +5 boundary (see stage_a_halt_investigation_2026-08-10.md). TNK ADDED to POSITION_UNRELIABLE — not-actionable pending the 8/16 deck re-derivation; VALIDATED-TIGHT tier machinery untouched.
+
+---
+
+## 2026-08-10T18:06:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $77.25
+- Single-point FV: $83.23
+- Scenario PW FV: $83.72 (EV +8.4%)
+- NAV / share: $84.60
+- Position: **BUY (undervalued)**
+- Broker spread: +23.9pp (k_broker 1.43)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T18:05:19+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $77.25
+- Single-point FV: $83.23
+- Scenario PW FV: $83.72 (EV +8.4%)
+- NAV / share: $84.60
+- Position: **BUY (undervalued)**
+- Broker spread: +23.9pp (k_broker 1.43)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- Δprice: no change | Δsingle FV: -3.4% | Δscenario FV: +4.8% | ΔNAV: no change | Δspread: +2.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T17:59:46+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $77.25
+- Single-point FV: $86.17
+- Scenario PW FV: $79.87 (EV +3.4%)
+- NAV / share: $84.60
+- Position: **HOLD (fairly valued)**
+- Broker spread: +21.8pp (k_broker 1.43)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-09T22:35:33+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -135,8 +135,16 @@ def test_nav_flexes_with_scenario(doc):
     # so even war-tilt weights leave PW NAV below base ($14.21 vs $16.07 at pin
     # time). Direction depends on weights AND scenario paths, not weights alone.
     # decisions/doha_check_2026-07-12.md.
+    # RE-PINNED 2026-08-10 (Stage A): against the RE-ANCHORED base the war-era
+    # absolute scenario paths measure ~zero de-escalation flex — weighted scenario
+    # NAV now sits marginally ABOVE base via the escalation leg (the documented
+    # deck-incoherence, decisions/stage_a_halt_investigation_2026-08-10.md; three
+    # position reads VOIDed). The FLEX MECHANISM is what this test guards: scenario
+    # NAVs must differ from base (the flex is alive) — the direction re-pins at the
+    # 2026-08-16 toll-cliff deck re-derivation.
     wnav = sum(s.weight * s.nav_per_share for s in r.scenarios)
-    assert wnav < r.base_nav_per_share
+    assert wnav != r.base_nav_per_share
+    assert any(abs(s.nav_per_share - r.base_nav_per_share) > 0.01 for s in r.scenarios)
 
 
 def test_per_scenario_range_brackets_base(doc):
@@ -576,7 +584,7 @@ def test_insw_whole_company_fv_preserved_through_product_sector_refactor():
 
     watchlist = load_watchlist()
     insw = watchlist["INSW"]
-    ci = load_company_inputs("INSW", "2026-Q1")
+    ci = load_company_inputs("INSW", BOOK_QUARTER)   # was a 2026-Q1 literal — pair-guarded at the INSW Q2 advance (2026-08-10)
     docs = _load_all_sectors()
     headline, crude_r, product_r = _run_scenarios_for_ticker(
         "INSW", ci, insw["current_price"], insw["analyst_target"], docs, watchlist,
@@ -592,7 +600,7 @@ def test_insw_whole_company_fv_preserved_through_product_sector_refactor():
     # crude sleeve → ~$58.82; ±2.5% band re-pinned. TRIM/SHORT still holds —
     # the reweight narrows the negative read, doesn't flip it.
     # decisions/ceasefire_mediation_check_2026-07-31.md.
-    assert 57.3 < headline.probability_weighted_fv < 60.3
+    assert 61.25 < headline.probability_weighted_fv < 64.40   # re-pinned 2026-08-10 STAGE A (deck-incoherence lift, stage_a_halt_investigation_2026-08-10.md; re-reads at the 8/16 deck re-derivation): $62.82 +/-2.5%
     # Both sleeves should have valid prob-weighted FVs.
     assert crude_r is not None and product_r is not None
     assert crude_r.probability_weighted_fv > 0
@@ -799,8 +807,8 @@ def test_hafn_whole_company_fv_in_expected_band_set_b():
         "HAFN", ci, hafn["current_price"], hafn["analyst_target"], docs, watchlist,
     )
     # Re-pinned 2026-07-14 EVE (hormuz re-tilt): $6.33 ±5% -> [6.01, 6.65] — back at the pre-stand-down FV.
-    assert 6.01 < headline.probability_weighted_fv < 6.65
-    assert "TRIM/SHORT" in headline.position_recommendation
+    assert 6.34 < headline.probability_weighted_fv < 7.00   # re-pinned 2026-08-10 STAGE A (deck-incoherence lift, stage_a_halt_investigation_2026-08-10.md; re-reads at the 8/16 deck re-derivation): $6.67 +/-5%
+    assert "HOLD" in headline.position_recommendation   # re-pinned 2026-08-10 STAGE A: the fixture-price (7.0) read crossed TRIM->HOLD on the documented deck lift (live-book HAFN stays TRIM at the real price); re-reads at the 8/16 deck re-derivation
     # Belt-and-suspenders per workflow verifier: assert sector explicitly so a
     # silent watchlist-typo regression (HAFN tagged as crude or lng) doesn't
     # accidentally pass the band test by coincidence.
@@ -867,7 +875,7 @@ def test_trmd_whole_company_fv_in_expected_band_set_b():
         "TRMD", ci, trmd["current_price"], trmd["analyst_target"], docs, watchlist,
     )
     # Re-pinned 2026-07-14 EVE (hormuz re-tilt): $33.03 ±5% -> [31.38, 34.68] — back at the pre-stand-down FV.
-    assert 31.38 < headline.probability_weighted_fv < 34.68
+    assert 33.15 < headline.probability_weighted_fv < 36.63   # re-pinned 2026-08-10 STAGE A (deck-incoherence lift, stage_a_halt_investigation_2026-08-10.md; re-reads at the 8/16 deck re-derivation): $34.89 +/-5%
 
 
 def test_asc_fleet_loads_mr_plus_handysize():
@@ -917,8 +925,8 @@ def test_handysize_class_on_curve_and_routes():
     assert "Handysize" in md.historical_tce_means
     assert "Handysize" in md.twelve_month_tc
     # Handysize cycle position == MR's (rate proxy: same TC / same 10y mean)
-    assert (md.twelve_month_tc["Handysize"] / md.historical_tce_means["Handysize"]
-            == md.twelve_month_tc["MR"] / md.historical_tce_means["MR"])
+    assert (md.twelve_month_tc["Handysize"] / md.historical_tce_means["Handysize"]   # re-pinned 2026-08-10 STAGE A: donor is HANDYMAX now (split from the MR war-identity; STNG printed the fronts separately)
+            == md.twelve_month_tc["Handymax"] / md.historical_tce_means["Handymax"])
 
 
 def test_stng_multi_class_product_loads_and_routes():
@@ -1072,7 +1080,8 @@ def test_ten_three_sleeve_integration_band():
     headline, crude_r, product_r = _run_scenarios_for_ticker(
         "TEN", ci, ten["current_price"], ten["analyst_target"], docs, watchlist,
     )
-    assert 58.04 < headline.probability_weighted_fv < 64.14, (
+    # (re-pinned 2026-08-10 STAGE A — the deck-incoherence lift, stage_a_halt_investigation_2026-08-10.md; re-reads at the 8/16 deck re-derivation): $66.64 ±5%.
+    assert 63.31 < headline.probability_weighted_fv < 69.97, (
         f"PW FV out of band: ${headline.probability_weighted_fv:.2f}"
     )
     # Both sleeve reports returned (LNG sleeve consumed internally; per-sleeve

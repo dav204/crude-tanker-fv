@@ -1,5 +1,95 @@
 # GSL — Decision Log
 
+## 2026-08-10T19:35:56+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $42.44
+- Single-point FV: $44.02
+- Scenario PW FV: $42.88 (EV +1.0%)
+- NAV / share: $41.20
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.2pp (k_broker 1.32)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T19:34:48+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $42.44
+- Single-point FV: $44.02
+- Scenario PW FV: $42.88 (EV +1.0%)
+- NAV / share: $41.20
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.2pp (k_broker 1.32)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T18:06:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $42.44
+- Single-point FV: $44.02
+- Scenario PW FV: $42.88 (EV +1.0%)
+- NAV / share: $41.20
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.2pp (k_broker 1.32)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T18:05:19+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $42.44
+- Single-point FV: $44.02
+- Scenario PW FV: $42.88 (EV +1.0%)
+- NAV / share: $41.20
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.2pp (k_broker 1.32)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-10T17:59:46+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $42.44
+- Single-point FV: $44.02
+- Scenario PW FV: $42.88 (EV +1.0%)
+- NAV / share: $41.20
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.2pp (k_broker 1.32)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-09T22:35:33+00:00 — Pipeline run (auto)
 
 **Model state:**

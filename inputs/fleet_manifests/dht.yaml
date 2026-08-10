@@ -170,9 +170,13 @@ vessels:
     age: 11.5     # built 2015
     scrubber: true
     eco: true
-    charter_status: spot
-    charter_rate: null
-    charter_end: null
+    charter_status: time_charter   # 3-yr TC $75,000/day from Sep-2026 (the Stage-A trigger
+                                   # print; 6-K acc 0000950157-26-000799, double-sourced MB
+                                   # W29 fixture table; Q2 ER term-book avg 75,900 contains
+                                   # it) — coverage update BATCHED at Stage A per ruling §7
+                                   # (dht_log §7), executed 2026-08-10
+    charter_rate: 75000
+    charter_end: 2029-08-31
   - id: DHT_Taiga
     class: VLCC
     dwt: 318130
@@ -236,7 +240,8 @@ vessels:
     charter_rate: null
     charter_end: null
 spot_coverage_pct:
-  VLCC: 0.55   # 12 of 22 retained vessels on spot at 2026-03-31 (not used by NAV)
+  VLCC: 0.52   # 12 of 23 operating on spot after the Jaguar TC flip (Sep-26 start;
+               # Stage-A batched update 2026-08-10 — was 0.55 = 12/22 at 2026-03-31)
 fleet_summary:
   VLCC_count: 22                 # retained operating fleet (excl Impala, Bauhinia)
   vessels_under_construction: 1  # DHT Impala, delivered June 2026

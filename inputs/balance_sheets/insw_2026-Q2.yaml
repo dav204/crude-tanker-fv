@@ -3,7 +3,7 @@
 # 0001104659-26-093061, filed 2026-08-10) Condensed Consolidated Balance Sheet
 # 2026-06-30 column + the Q2 ER 8-K (acc 0001104659-26-093033, ex-99.1, same day).
 # Q2 refresh 2026-08-10 per the frozen prereg (decisions/insw_q2_prereg_2026-08-09.md).
-# SUBSEQUENT EVENTS (XBRL-verified — the ONLY tagged post-6/30 event): the Q3 dividend
+# SUBSEQUENT EVENTS (XBRL-verified in acc 0001104659-26-093061 — the ONLY tagged post-6/30 event): the Q3 dividend
 # $5.05/sh DECLARED 2026-08-07 (record 9/10, pay 9/24) — EXCLUDED from this snapshot;
 # the $4.55/sh June dividend is in-quarter (H1 dividends paid 331,754).
 ticker: INSW

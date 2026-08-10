@@ -132,7 +132,13 @@ NAV_DERIVED_VOID: set[str] = set()
 # (Was "not one is a name-specific short" — stale since the 2026-07-02 relabel rework; fixed 2026-07-10.)
 POSITION_CYCLE_RELABEL = {"DHT", "FRO", "ECO", "INSW", "HAFN", "NAT",  # NAT: the §12 archetype (de-voided 2026-06-30). ASC left 2026-07-01: the reconciliation lifted NAV $15.96->$17.80, so it reads mildly CHEAP (0.90x), not rich -> raw BUY; the product-cycle caveat on the near-peak earnings/strip leg lives in asc_log, not a rich-relabel
                           "LPG", "BWLP"}  # 2026-07-10 (WO3 Phase-4 onboarding): both VLGC validators read rich AT a 1.59x war-elevated cycle (w_nav 0.70) — the same §12 late-cycle shape as DHT/FRO/ECO, not name-specific shorts; charter B-4 (read the sector honestly) cuts BOTH ways — no flattering tier, and no fake short signal either
-POSITION_UNRELIABLE = {"MPCC", "BRUT"}  # BRUT 2026-07-01: the position cell must reflect the untrustworthiness, not the 0.59x discount, so it can't sit as a raw BUY next to PROVISIONAL⛔NO (the ASC "rich·cycle" holdover lesson)
+POSITION_UNRELIABLE = {"MPCC", "BRUT",  # BRUT 2026-07-01: the position cell must reflect the untrustworthiness, not the 0.59x discount, so it can't sit as a raw BUY next to PROVISIONAL⛔NO (the ASC "rich·cycle" holdover lesson)
+                       "CAPT", "TNK"}  # 2026-08-10 Stage-A halt disposition (owner RULED B,
+# decisions/stage_a_halt_investigation_2026-08-10.md): the war-calibrated ABSOLUTE scenario
+# deck against the re-anchored base makes the de-escalation legs near-no-ops — the BUY-ward
+# flips (BRUT +44.3pp / CAPT +17.8 / TNK +5.0) are deck-incoherence ARTIFACTS, not signal.
+# RETIRES for CAPT/TNK (and re-reads for BRUT) at the crude_day60_toll_cliff re-derivation
+# (2026-08-16) which re-expresses the deck against the landed Stage-A base.
 
 # Newbuild carried at $0 NAV pending a FILED contract price — the name discloses the order but not the
 # price, and the only price is a broker LOI (not out of the figure-provenance queue), so the §9.6

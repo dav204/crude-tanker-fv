@@ -44,12 +44,13 @@ def test_cycle_position_rejects_nonpositive_mean():
 def test_dht_cycle_uses_12m_tc():
     ci = load_company_inputs("DHT", BOOK_QUARTER)
     cyc = compute_cycle(ci)
-    # Cycle uses the Compass 12M TC ($111.5k), NOT the FFA strip: 111500/40000 = 2.7875x.
-    assert cyc.cycle_position == pytest.approx(2.7875)
-    assert cyc.twelve_month_tc_by_class == {"VLCC": pytest.approx(111_500)}
+    # Cycle uses the 12M TC line, NOT the FFA strip. Re-pinned 2026-08-10 (STAGE A,
+    # Mount Horizon ruling): 105700/40000 = 2.6425x (was 111500/40000 = 2.7875 war vintage).
+    assert cyc.cycle_position == pytest.approx(2.6425)
+    assert cyc.twelve_month_tc_by_class == {"VLCC": pytest.approx(105_700)}   # re-pinned 2026-08-10 STAGE A (Mount Horizon)
     assert cyc.band_label == "late-cycle/peak"          # still > 1.5x -> peak band
     assert (cyc.w_nav, cyc.w_earn) == (0.70, 0.30)
-    assert cyc.cycle_position_by_class == {"VLCC": pytest.approx(2.7875)}
+    assert cyc.cycle_position_by_class == {"VLCC": pytest.approx(2.6425)}
 
 
 def test_blend_arithmetic():
@@ -115,4 +116,4 @@ def test_dht_fair_value_end_to_end():
     # Peak weighting puts 70% on NAV, so FV sits between NAV and the strip price.
     assert nav.nav_per_share < fv.fair_value_per_share < strip.implied_price
     # ~$17.33 un-anchored (DHT Impala newbuild on the curve, §9.6 2026-06-30 — was ~$16.x).
-    assert 17.0 < fv.fair_value_per_share < 17.7
+    assert 16.4 < fv.fair_value_per_share < 17.3   # re-pinned 2026-08-10 (STAGE A, 12M -> Mount Horizon 105.7k; was 17.0-17.7)

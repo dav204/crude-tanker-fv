@@ -36,7 +36,7 @@ def test_write_company_report_creates_md_and_xlsx(dht_report, tmp_path):
 
     text = md.read_text()
     for needle in ["# DHT", "NAV breakdown", "Dividend strip", "Implied breakeven TCE",
-                   "Sensitivity", "Divergence diagnosis", "$15.97", "FFA spot",
+                   "Sensitivity", "Divergence diagnosis", "$15.32", "FFA spot",
                    "Data validation warnings"]:
         assert needle in text
 
@@ -56,7 +56,7 @@ def test_write_watchlist_summary(dht_report, tmp_path):
     row = [c.value for c in ws[2]]
     assert row[0] == "DHT"
     assert row[1] == "whole-company"   # DHT is a pure-play
-    assert row[3] == pytest.approx(15.97, abs=0.01)   # re-pinned 2026-08-09 (marks-trail promotion, ratified: VLCC war-tape prints @ 9-13y; was 14.91 since the 8/08 Q2 refresh)
+    assert row[3] == pytest.approx(15.32, abs=0.01)   # re-pinned 2026-08-10 (STAGE A ratified: 12M -> Mount Horizon 105.7k; was 15.97 at the 8/09 marks promotion)
 
 
 def test_run_watchlist_end_to_end(tmp_path):
@@ -100,5 +100,6 @@ def test_fv_attribution_block_foots_to_blend_fv(dht_report, tmp_path):
     asset_share = (r.cycle.w_nav
                    + r.cycle.w_earn * r.strip.discounted_terminal_value / r.strip.implied_price)
     assert 0.0 < asset_share < 1.0
-    # DHT at peak weighting: the memo's ~0.84 effective asset share reproduces.
-    assert asset_share == pytest.approx(0.84, abs=0.03)
+    # DHT at peak weighting. Re-pinned 2026-08-10 (STAGE A): the terminal/strip mix
+    # shifted with the re-anchored back half — ~0.87 (was ~0.84 at the war strip).
+    assert asset_share == pytest.approx(0.87, abs=0.03)

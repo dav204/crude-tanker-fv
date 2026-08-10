@@ -23,50 +23,34 @@
 # older vintage (their staleness is tracked by their own trigger/note, not
 # by the lane). Top-level sibling key — invisible to loaders._scalar_map.
 as_of:
-  default: 2026-08-07       # containers MB W32 (8/09 event); dry-bulk 06-Aug FFA = explicit holds
+  default: 2026-08-07       # the 8/7 Pareto daily (tanker + RESUMED dry spot, Stage-A-day
+                            # promote 2026-08-10) + containers MB W32 (8/09 event); the
+                            # 06-Aug FFA dry proxies RETIRED at the resume trigger
                             # (owner-authorized 2026-08-09 round, ffa_promotion_
                             # 2026-08-09.md); all other classes below carry their
                             # own prior-event dates
-  Cape: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
-  Supra-Ultra: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
-  VLCC: 2026-07-02
-  Suezmax: 2026-07-02
-  Aframax: 2026-07-02
-  LR2: 2026-07-02
-  MR: 2026-07-02
-  Handysize: 2026-07-02
-  Handymax: 2026-07-02
-  LR1_clean: 2026-07-02
-  LR2_clean: 2026-07-02
-  LNGC: 2026-06-07          # held — no LNG spot print in the 2-Jul daily
+  LNGC: 2026-08-06         # MB LNG W32 print date (rides near-default; the 6/07 hold RETIRES)
   MGC: 2026-06-07           # held, as LNGC
   Handy-Bulk: 2026-07-10    # BHSI week-close print (no FFA panel, no Pareto column)
   Ctr-Feeder: 2026-08-07    # MB W32 container refresh (2026-08-09 event, packet 2026-08-09)
   Ctr-Intermediate: 2026-08-07
   Ctr-Large: 2026-08-07
 spot_tce:
-  VLCC: 285500          # TD3C eco (Pareto 2-Jul; -1.1% d/d). MEG-China war premium only
-                        # partially unwound (TD22 USG-China printed $127,600 same day).
-  Suezmax: 124800       # TD20 eco (Pareto 2-Jul; +4.7% d/d — WAFR supported)
-  Aframax: 42400        # Pareto 2-Jul (-8.2% d/d)
-  LR2: 42400            # crude-context LR2 proxies Aframax dirty (convention unchanged)
-  LNGC: 40000           # NO 2-Jul print in the daily — Jun-7 value HELD, flagged stale;
-                        # refresh when an LNG spot print lands (breakeven display only)
+  VLCC: 488900    # 2026-08-10 promote: TD3C eco (Pareto 8/7; +11.2% d/d — war tape; TD22 USG-China 128,300 same day, convention note stands)
+  Suezmax: 77600    # 2026-08-10 promote: TD20 eco (Pareto 8/7; +0.3% d/d)
+  Aframax: 75400    # 2026-08-10 promote: Pareto 8/7 (-5.3% d/d)
+  LR2: 75400    # 2026-08-10 promote: crude-context LR2 proxies Aframax dirty (convention unchanged)
+  LNGC: 65000    # 2026-08-10 promote: MB LNG W32 X-DF spot (8/6) — FIRST LNG print since the 6/07 hold; Pareto 8/7 TFDE $65,125 corroborates
   MGC: 25000            # as LNGC — held, stale
-  MR: 35600             # MR (East) eco (Pareto 2-Jul; +2.7% d/d). East basis matches the
-                        # §11.5 chem-Handy TCE validation range (STNG Q1/Q2 $32-36k);
-                        # MR (West) printed $18,800 same day.
-  Handysize: 35600      # clean-Handy proxies MR (convention unchanged, §11.5)
-  Handymax: 35600       # chem-Handy proxies MR (convention unchanged, §11.5)
-  LR1_clean: 71700      # LR1 eco (Pareto 2-Jul; +0.1% d/d)
-  LR2_clean: 89000      # LR2 eco (Pareto 2-Jul; -8.5% d/d)
-  Cape: 39875           # FFA front-month (aug) proxy, 06-Aug image-verified print
-                        # (decisions/ffa_promotion_2026-08-09.md; Pareto dry silence CONTINUES —
-                        # the 8/7 daily has prose only, "cape-rates above $40,000/day in early
-                        # August" corroborates; trigger drybulk_spot_daily_resumes stands)
-  Pana: 20325           # FFA front-month (aug), same record
-  Post-Panamax: 20325   # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  Supra-Ultra: 18550    # FFA front-month (aug), same record
+  MR: 31500    # 2026-08-10 promote: MR (East) eco (Pareto 8/7; -1.7% d/d); West printed 24,600
+  Handysize: 31500    # 2026-08-10 promote: clean-Handy proxies MR (convention unchanged, §11.5)
+  Handymax: 31500    # 2026-08-10 promote: chem-Handy proxies MR (convention unchanged, §11.5)
+  LR1_clean: 95300    # 2026-08-10 promote: LR1 eco (Pareto 8/7; +0.3% d/d)
+  LR2_clean: 92200    # 2026-08-10 promote: LR2 eco (Pareto 8/7; +0.1% d/d)
+  Cape: 42313    # 2026-08-10 promote: Pareto 8/7 DAILY SPOT — drybulk_spot_daily_resumes EXECUTED (proxy era ends; section verified on the rendered page)
+  Pana: 20473    # 2026-08-10 promote: Pareto 8/7 daily spot (Panamax row) — proxy era ends
+  Post-Panamax: 20473    # 2026-08-10 promote: shares the Pana freight basin (§11.7.10)
+  Supra-Ultra: 20326    # 2026-08-10 promote: Pareto 8/7 daily spot (Ultramax row) — proxy era ends
   Handy-Bulk: 16466     # §11.7.11 (2026-07-14): BHSI 38k 7TC avg earnings, week-close
                         # 10-Jul-2026 (Baltic Exchange via xclusiv W28 p.1; 13-Jul print
                         # 16,445 corroborates). Gross basis like the dry family rows; no

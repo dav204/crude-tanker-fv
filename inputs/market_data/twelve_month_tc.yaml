@@ -1,5 +1,8 @@
 # 12-month time-charter assessments by class.
 #
+# STAGE A PROMOTED 2026-08-10 (prereg frozen 7/15; rulings in stage_a_computation_
+# draft_2026-08-09.md) — the Jun-7 war vintage is RETIRED on every tanker line below.
+# Historical header (the hold era, kept for the record):
 # PARTIAL REFRESH 2026-07-02 (audit F-5 / reweight vintage): the Pareto Shipping
 # Daily carries SPOT prints only — no 1-year T/C table — so the TANKER entries
 # below are the 2026-06-07 vintage HELD. TERM PRINT EXISTS (DHT 6-K 2026-07-13:
@@ -29,53 +32,34 @@ rate_basis:
   default: tc_assessment
   VLGC: realized_tce
 as_of:
-  default: 2026-08-07       # containers MB W32 (8/09 event); dry 06-Aug FFA holds (owner-
-                            # authorized 2026-08-09 promotion round, ffa_promotion_
-                            # 2026-08-09.md); prior default event 2026-07-24
+  default: 2026-08-10       # STAGE A tanker promotion (the newest deliberate refresh
+                            # event; tanker classes ride default). Explicit holds below:
+                            # containers 8/07 (W32) · dry-bulk 8/06 (FFA) · VLGC 6/02 ·
+                            # LNGC/MGC 6/07 (own-cadence holds) · Handy-Bulk 7/10
   Cape: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
   Pana: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
   Post-Panamax: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
   Supra-Ultra: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
   VLGC: 2026-06-02
-  VLCC: 2026-06-07
-  Suezmax: 2026-06-07
-  Aframax: 2026-06-07
-  LR2: 2026-06-07
-  LR1: 2026-06-07
   LNGC: 2026-06-07
   MGC: 2026-06-07
-  MR: 2026-06-07
-  Handysize: 2026-06-07
-  Handymax: 2026-06-07
-  LR1_clean: 2026-06-07
-  LR2_clean: 2026-06-07
   Handy-Bulk: 2026-07-10    # MB Dry Bulk Weekly 28 (own cadence — no Handy FFA panel)
   Ctr-Feeder: 2026-08-07    # MB W32 container refresh (2026-08-09 event, packet 2026-08-09)
   Ctr-Intermediate: 2026-08-07
   Ctr-Large: 2026-08-07
 twelve_month_tc:
-  VLCC: 111500          # STALE Jun-7 war vintage — held, no 2-Jul TC print (see header)
-  Suezmax: 61250        # STALE Jun-7 — held
-  Aframax: 56250        # STALE Jun-7 — held
-  LR2: 56250            # STALE Jun-7 — held
-  LR1: 56250            # STALE Jun-7 — held
+  VLCC: 105700    # STAGE A 2026-08-10: Mount Horizon 12-15mo print (RULED D-2b; single-print + spec-premium tags)
+  Suezmax: 58050    # STAGE A 2026-08-10: derived-ratio .549 x VLCC (Jun-7 joint vintage); MB W32 assesses 75,000 — cross-check only
+  Aframax: 51450    # STAGE A 2026-08-10: derived-interp avg(front 59.9k, Blue Moon yr-1 43k); MB 52,500 corroborates
+  LR2: 51450    # STAGE A 2026-08-10: = Aframax (TNK-blended source)
+  LR1: 51450    # STAGE A 2026-08-10: derived-ratio donor LR2 (Jun-7 1.0)
   LNGC: 60000           # STALE Jun-7 — held
   MGC: 28000            # STALE Jun-7 — held
-  MR: 22000             # STALE Jun-7 — held
-  Handysize: 22000      # STALE Jun-7 — held
-  Handymax: 22000       # STALE Jun-7 — held
-  LR1_clean: 38000      # STALE Jun-7 — held
-  LR2_clean: 45000      # STALE Jun-7 — held
-  # VLGC (WO3 Phase 3, 2026-07-09) — REALIZED-TCE basis, DELIBERATE (ratified
-  # 2026-07-07): the LPG cycle multiple is realized-vs-realized (this numerator
-  # ÷ the $40k realized anchor = 1.59×, the ratified late-cycle/peak
-  # war-elevated read; a 1-yr-TC numerator over the realized anchor is the
-  # mixed-basis read the ratification VOIDED). Value = Dorian Q1-2026 realized
-  # fleet TCE per the ratified Phase-0 evidence table; the BW Pampero 1-yr TC
-  # ~$60k (Q1-2026 call) is the documented CROSS-CHECK (0.94× — coherent). The
-  # war-spiked vlgc_* spot dailies (usgom ~$155k, me_asia route-dislocated,
-  # last parsed 2026-06-11) are NOT promoted — Phase-0 convention. Refresh on
-  # trigger vlgc_realized_tce_refresh (each validator quarterly disclosure).
+  MR: 29250    # STAGE A 2026-08-10: DIRECT N=4 fixture median; MB 29,000 corroborates
+  Handysize: 20750    # STAGE A 2026-08-10: derived (donor Handymax)
+  Handymax: 20750    # STAGE A 2026-08-10: MR-shape scaled x.71 on the STNG 20.8k front
+  LR1_clean: 37000    # STAGE A 2026-08-10: derived .7184 x LR2_clean; lands EXACTLY on MB LR1[TC5] 37,000
+  LR2_clean: 51500    # STAGE A 2026-08-10: Torm Herdis 12mo print (single-print); MB 52,500 corroborates
   VLGC: 63615           # Dorian Q1-2026 realized TCE — disclosure-cluster vintage 2026-06-02 (held)
   Cape: 31550           # (37250 Q4 + 25875 Q1-27)/2 = 31562, FFA 06-Aug image-verified print
                         # (ffa_promotion_2026-08-09.md). NOTE: the quoted quarterlies ROLLED
