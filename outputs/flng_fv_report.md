@@ -78,7 +78,7 @@ The current price requires the fleet to run at **3.28× the current forward curv
 | **Implied breakeven (blended)** | **207,648** | — |
 | 10-year mean | 85,000 | 2.44× |
 | 12-month FFA | 63,250 | 3.28× |
-| Current spot | 40,000 | 5.19× |
+| Current spot | 65,000 | 3.19× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 

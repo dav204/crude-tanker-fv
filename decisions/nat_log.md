@@ -1,5 +1,23 @@
 # NAT — Decision Log
 
+## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.46
+- Single-point FV: $2.97
+- Scenario PW FV: $3.05 (EV -52.8%)
+- NAV / share: $2.85
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +64.1pp (k_broker 2.23)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-10T19:35:56+00:00 — Pipeline run (auto)
 
 **Model state:**

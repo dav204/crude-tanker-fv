@@ -80,7 +80,7 @@ The current price requires the fleet to run at **1.79× the current forward curv
 | **Implied breakeven (blended)** | **29,068** | — |
 | 10-year mean | 13,477 | 2.16× |
 | 12-month FFA | 16,275 | 1.79× |
-| Current spot | 17,700 | 1.64× |
+| Current spot | 18,581 | 1.56× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|

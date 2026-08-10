@@ -80,7 +80,7 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 | **Implied breakeven (blended)** | **0** | — |
 | 10-year mean | 13,690 | 0.00× |
 | 12-month FFA | 20,811 | 0.00× |
-| Current spot | 23,304 | 0.00× |
+| Current spot | 23,801 | 0.00× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
