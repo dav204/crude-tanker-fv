@@ -20,5 +20,752 @@
   "primary_doc": "ef20077832_6k.htm",
   "staged_path": "inputs/filings/GSL/0001140361-26-028451_6-K_ef20077832_6k.htm",
   "amended": false
+ },
+ {
+  "ts": "2026-07-17T14:20:05+00:00",
+  "ticker": "BWLP",
+  "cik": "0001649313",
+  "accession": "0001213900-26-078478",
+  "form": "6-K",
+  "filed": "2026-07-16",
+  "primary_doc": "ea0298197-6k_bwlpg.htm",
+  "staged_path": "inputs/filings/BWLP/0001213900-26-078478_6-K_ea0298197-6k_bwlpg.htm",
+  "amended": false
+ },
+ {
+  "ts": "2026-07-17T14:20:05+00:00",
+  "ticker": "CMDB",
+  "cik": "0002033535",
+  "accession": "0001171843-26-004745",
+  "form": "6-K",
+  "filed": "2026-07-17",
+  "primary_doc": "f6k_071726.htm",
+  "staged_path": "inputs/filings/CMDB/0001171843-26-004745_6-K_f6k_071726.htm",
+  "amended": false
+ },
+ {
+  "ts": "2026-07-17T14:20:05+00:00",
+  "ticker": "LPG",
+  "cik": "0001596993",
+  "accession": "0001596993-26-000031",
+  "form": "8-K",
+  "filed": "2026-07-16",
+  "primary_doc": "lpg-20260716x8k.htm",
+  "staged_path": "inputs/filings/LPG/0001596993-26-000031_8-K_lpg-20260716x8k.htm",
+  "amended": false
+ },
+ {
+  "ts": "2026-07-21T17:20:05+00:00",
+  "ticker": "BWLP",
+  "cik": "0001649313",
+  "accession": "0001213900-26-079614",
+  "form": "6-K",
+  "filed": "2026-07-20",
+  "primary_doc": "ea0298567-6k_bwlpg.htm",
+  "staged_path": "inputs/filings/BWLP/0001213900-26-079614_6-K_ea0298567-6k_bwlpg.htm",
+  "exhibits": [
+   {
+    "doc": "ea029856701ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/BWLP/0001213900-26-079614_6-K_ea029856701ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-23T06:22:11+00:00",
+  "ticker": "STNG",
+  "cik": "0001483934",
+  "accession": "0001628280-26-049198",
+  "form": "6-K",
+  "filed": "2026-07-22",
+  "primary_doc": "stng6k-07222026.htm",
+  "staged_path": "inputs/filings/STNG/0001628280-26-049198_6-K_stng6k-07222026.htm",
+  "exhibits": [
+   {
+    "doc": "stngexhibit991-07222026.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/STNG/0001628280-26-049198_6-K_stngexhibit991-07222026.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-24T20:20:20+00:00",
+  "ticker": "2343",
+  "cik": "hkex:7703",
+  "accession": "hkex-12255247",
+  "form": "Announcements and Notices - [Date of Board Meeting]",
+  "filed": "2026-07-24",
+  "primary_doc": "/listedco/listconews/sehk/2026/0724/2026072400392.pdf",
+  "staged_path": "inputs/filings/2343/12255247_2026072400392.pdf",
+  "amended": false,
+  "source": "hkexnews"
+ },
+ {
+  "ts": "2026-07-27T20:20:06+00:00",
+  "ticker": "SB",
+  "cik": "0001434754",
+  "accession": "0000930413-26-002185",
+  "form": "6-K",
+  "filed": "2026-07-27",
+  "primary_doc": "c117114_6k.htm",
+  "staged_path": "inputs/filings/SB/0000930413-26-002185_6-K_c117114_6k.htm",
+  "exhibits": [
+   {
+    "doc": "c117114_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/SB/0000930413-26-002185_6-K_c117114_ex99-1.htm"
+   },
+   {
+    "doc": "c117114_ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/SB/0000930413-26-002185_6-K_c117114_ex99-2.htm"
+   },
+   {
+    "doc": "c117114_ex99-3.htm",
+    "type": "EX-99.3",
+    "staged_path": "inputs/filings/SB/0000930413-26-002185_6-K_c117114_ex99-3.htm"
+   },
+   {
+    "doc": "c117114_ex99-4.htm",
+    "type": "EX-99.4",
+    "staged_path": "inputs/filings/SB/0000930413-26-002185_6-K_c117114_ex99-4.htm"
+   },
+   {
+    "doc": "c117114_ex99-5.htm",
+    "type": "EX-99.5",
+    "staged_path": "inputs/filings/SB/0000930413-26-002185_6-K_c117114_ex99-5.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-27T23:20:05+00:00",
+  "ticker": "DHT",
+  "cik": "0001331284",
+  "accession": "0000950157-26-000813",
+  "form": "6-K",
+  "filed": "2026-07-27",
+  "primary_doc": "form6k.htm",
+  "staged_path": "inputs/filings/DHT/0000950157-26-000813_6-K_form6k.htm",
+  "exhibits": [
+   {
+    "doc": "ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/DHT/0000950157-26-000813_6-K_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-29T12:20:07+00:00",
+  "ticker": "ASC",
+  "cik": "0001577437",
+  "accession": "0001104659-26-087836",
+  "form": "6-K",
+  "filed": "2026-07-29",
+  "primary_doc": "asc-20260729x6k.htm",
+  "staged_path": "inputs/filings/ASC/0001104659-26-087836_6-K_asc-20260729x6k.htm",
+  "exhibits": [
+   {
+    "doc": "asc-20260729xex99d1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/ASC/0001104659-26-087836_6-K_asc-20260729xex99d1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-29T12:20:07+00:00",
+  "ticker": "ASC",
+  "cik": "0001577437",
+  "accession": "0001104659-26-087834",
+  "form": "6-K",
+  "filed": "2026-07-29",
+  "primary_doc": "asc-20260630x6k.htm",
+  "staged_path": "inputs/filings/ASC/0001104659-26-087834_6-K_asc-20260630x6k.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-29T17:45:45+00:00",
+  "ticker": "SB",
+  "cik": "0001434754",
+  "accession": "0001317861-26-000037",
+  "form": "6-K",
+  "filed": "2026-07-29",
+  "primary_doc": "f072926sb6k.htm",
+  "staged_path": "inputs/filings/SB/0001317861-26-000037_6-K_f072926sb6k.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-29T20:32:21+00:00",
+  "ticker": "TNK",
+  "cik": "0001419945",
+  "accession": "0001419945-26-000054",
+  "form": "6-K",
+  "filed": "2026-07-29",
+  "primary_doc": "tnkq2-26erdocument.htm",
+  "staged_path": "inputs/filings/TNK/0001419945-26-000054_6-K_tnkq2-26erdocument.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-30T14:24:06+00:00",
+  "ticker": "ECO",
+  "cik": "0001964954",
+  "accession": "0001104659-26-088444",
+  "form": "6-K",
+  "filed": "2026-07-30",
+  "primary_doc": "tm2621682d1_6k.htm",
+  "staged_path": "inputs/filings/ECO/0001104659-26-088444_6-K_tm2621682d1_6k.htm",
+  "exhibits": [
+   {
+    "doc": "tm2621682d1_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/ECO/0001104659-26-088444_6-K_tm2621682d1_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-30T20:33:52+00:00",
+  "ticker": "LPG",
+  "cik": "0001596993",
+  "accession": "0001104659-26-088672",
+  "form": "8-K",
+  "filed": "2026-07-30",
+  "primary_doc": "lpg-20260724x8k.htm",
+  "staged_path": "inputs/filings/LPG/0001104659-26-088672_8-K_lpg-20260724x8k.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-30T20:33:52+00:00",
+  "ticker": "STNG",
+  "cik": "0001483934",
+  "accession": "0001628280-26-051064",
+  "form": "6-K",
+  "filed": "2026-07-30",
+  "primary_doc": "stng6k-q22026epr.htm",
+  "staged_path": "inputs/filings/STNG/0001628280-26-051064_6-K_stng6k-q22026epr.htm",
+  "exhibits": [
+   {
+    "doc": "q22026earnings-exhibit991.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/STNG/0001628280-26-051064_6-K_q22026earnings-exhibit991.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-31T03:34:08+00:00",
+  "ticker": "ECO",
+  "cik": "0001964954",
+  "accession": "0001104659-26-088713",
+  "form": "6-K",
+  "filed": "2026-07-30",
+  "primary_doc": "tm2621702d1_6k.htm",
+  "staged_path": "inputs/filings/ECO/0001104659-26-088713_6-K_tm2621702d1_6k.htm",
+  "exhibits": [
+   {
+    "doc": "tm2621702d1_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/ECO/0001104659-26-088713_6-K_tm2621702d1_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-31T16:24:41+00:00",
+  "ticker": "TNK",
+  "cik": "0001419945",
+  "accession": "0001419945-26-000056",
+  "form": "6-K",
+  "filed": "2026-07-31",
+  "primary_doc": "tnk6-kq1x261.htm",
+  "staged_path": "inputs/filings/TNK/0001419945-26-000056_6-K_tnk6-kq1x261.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-07-31T16:24:55+00:00",
+  "ticker": "2343",
+  "cik": "hkex:7703",
+  "accession": "hkex-12264309",
+  "form": "Monthly Returns",
+  "filed": "2026-07-31",
+  "primary_doc": "/listedco/listconews/sehk/2026/0731/2026073101096.pdf",
+  "staged_path": "inputs/filings/2343/12264309_2026073101096.pdf",
+  "amended": false,
+  "source": "hkexnews"
+ },
+ {
+  "ts": "2026-08-03T10:20:06+00:00",
+  "ticker": "CMDB",
+  "cik": "0002033535",
+  "accession": "0001171843-26-005131",
+  "form": "6-K",
+  "filed": "2026-08-03",
+  "primary_doc": "f6k_073126.htm",
+  "staged_path": "inputs/filings/CMDB/0001171843-26-005131_6-K_f6k_073126.htm",
+  "exhibits": [
+   {
+    "doc": "exh_991.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/CMDB/0001171843-26-005131_6-K_exh_991.htm"
+   },
+   {
+    "doc": "exh_992.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/CMDB/0001171843-26-005131_6-K_exh_992.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-03T21:20:10+00:00",
+  "ticker": "2343",
+  "cik": "hkex:7703",
+  "accession": "hkex-12269205",
+  "form": "Announcements and Notices - [Terms of Reference of the Remuneration Committee]",
+  "filed": "2026-08-03",
+  "primary_doc": "/listedco/listconews/sehk/2026/0803/2026080303447.pdf",
+  "staged_path": "inputs/filings/2343/12269205_2026080303447.pdf",
+  "amended": false,
+  "source": "hkexnews"
+ },
+ {
+  "ts": "2026-08-03T21:20:10+00:00",
+  "ticker": "2343",
+  "cik": "hkex:7703",
+  "accession": "hkex-12269183",
+  "form": "Announcements and Notices - [Terms of Reference of the Audit Committee]",
+  "filed": "2026-08-03",
+  "primary_doc": "/listedco/listconews/sehk/2026/0803/2026080303425.pdf",
+  "staged_path": "inputs/filings/2343/12269183_2026080303425.pdf",
+  "amended": false,
+  "source": "hkexnews"
+ },
+ {
+  "ts": "2026-08-03T21:20:10+00:00",
+  "ticker": "2343",
+  "cik": "hkex:7703",
+  "accession": "hkex-12269175",
+  "form": "Announcements and Notices - [Other - Corporate Governance Related Matters]",
+  "filed": "2026-08-03",
+  "primary_doc": "/listedco/listconews/sehk/2026/0803/2026080303417.pdf",
+  "staged_path": "inputs/filings/2343/12269175_2026080303417.pdf",
+  "amended": false,
+  "source": "hkexnews"
+ },
+ {
+  "ts": "2026-08-04T08:20:06+00:00",
+  "ticker": "CMBT",
+  "cik": "0001604481",
+  "accession": "0000919574-26-004739",
+  "form": "6-K",
+  "filed": "2026-08-03",
+  "primary_doc": "p15041800_6k.htm",
+  "staged_path": "inputs/filings/CMBT/0000919574-26-004739_6-K_p15041800_6k.htm",
+  "exhibits": [
+   {
+    "doc": "p15041800_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/CMBT/0000919574-26-004739_6-K_p15041800_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-04T19:20:07+00:00",
+  "ticker": "CCEC",
+  "cik": "0001392326",
+  "accession": "0001193125-26-330964",
+  "form": "6-K",
+  "filed": "2026-08-04",
+  "primary_doc": "d13735d6k.htm",
+  "staged_path": "inputs/filings/CCEC/0001193125-26-330964_6-K_d13735d6k.htm",
+  "exhibits": [
+   {
+    "doc": "d13735dex99i.htm",
+    "type": "EX-99.(I)",
+    "staged_path": "inputs/filings/CCEC/0001193125-26-330964_6-K_d13735dex99i.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-04T21:20:06+00:00",
+  "ticker": "ECO",
+  "cik": "0001964954",
+  "accession": "0001104659-26-090446",
+  "form": "6-K",
+  "filed": "2026-08-04",
+  "primary_doc": "tm2622199d1_6k.htm",
+  "staged_path": "inputs/filings/ECO/0001104659-26-090446_6-K_tm2622199d1_6k.htm",
+  "exhibits": [
+   {
+    "doc": "tm2622199d1_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/ECO/0001104659-26-090446_6-K_tm2622199d1_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-04T21:20:06+00:00",
+  "ticker": "ECO",
+  "cik": "0001964954",
+  "accession": "0001104659-26-090431",
+  "form": "6-K",
+  "filed": "2026-08-04",
+  "primary_doc": "tm2622199d2_6k.htm",
+  "staged_path": "inputs/filings/ECO/0001104659-26-090431_6-K_tm2622199d2_6k.htm",
+  "exhibits": [
+   {
+    "doc": "tm2622199d2_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/ECO/0001104659-26-090431_6-K_tm2622199d2_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-04T21:20:06+00:00",
+  "ticker": "ECO",
+  "cik": "0001964954",
+  "accession": "0001104659-26-090429",
+  "form": "6-K",
+  "filed": "2026-08-04",
+  "primary_doc": "eco-20260630x6k.htm",
+  "staged_path": "inputs/filings/ECO/0001104659-26-090429_6-K_eco-20260630x6k.htm",
+  "exhibits": [
+   {
+    "doc": "eco-20260630xex99d1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/ECO/0001104659-26-090429_6-K_eco-20260630xex99d1.htm"
+   },
+   {
+    "doc": "eco-20260630xex99d2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/ECO/0001104659-26-090429_6-K_eco-20260630xex99d2.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-05T10:20:06+00:00",
+  "ticker": "LPG",
+  "cik": "0001596993",
+  "accession": "0001596993-26-000038",
+  "form": "8-K",
+  "filed": "2026-08-05",
+  "primary_doc": "lpg-20260805x8k.htm",
+  "staged_path": "inputs/filings/LPG/0001596993-26-000038_8-K_lpg-20260805x8k.htm",
+  "exhibits": [
+   {
+    "doc": "lpg-20260805xex99d1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/LPG/0001596993-26-000038_8-K_lpg-20260805xex99d1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-05T10:20:06+00:00",
+  "ticker": "LPG",
+  "cik": "0001596993",
+  "accession": "0001596993-26-000035",
+  "form": "10-Q",
+  "filed": "2026-08-05",
+  "primary_doc": "lpg-20260630x10q.htm",
+  "staged_path": "inputs/filings/LPG/0001596993-26-000035_10-Q_lpg-20260630x10q.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-05T20:20:05+00:00",
+  "ticker": "GSL",
+  "cik": "0001430725",
+  "accession": "0001140361-26-031416",
+  "form": "6-K",
+  "filed": "2026-08-05",
+  "primary_doc": "ef20079506_6k.htm",
+  "staged_path": "inputs/filings/GSL/0001140361-26-031416_6-K_ef20079506_6k.htm",
+  "exhibits": [
+   {
+    "doc": "ef20079506_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/GSL/0001140361-26-031416_6-K_ef20079506_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-05T21:20:05+00:00",
+  "ticker": "DHT",
+  "cik": "0001331284",
+  "accession": "0000950157-26-000847",
+  "form": "6-K",
+  "filed": "2026-08-05",
+  "primary_doc": "form6k.htm",
+  "staged_path": "inputs/filings/DHT/0000950157-26-000847_6-K_form6k.htm",
+  "exhibits": [
+   {
+    "doc": "ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/DHT/0000950157-26-000847_6-K_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-05T21:20:05+00:00",
+  "ticker": "GNK",
+  "cik": "0001326200",
+  "accession": "0001104659-26-091231",
+  "form": "10-Q",
+  "filed": "2026-08-05",
+  "primary_doc": "gnk-20260630x10q.htm",
+  "staged_path": "inputs/filings/GNK/0001104659-26-091231_10-Q_gnk-20260630x10q.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-05T21:20:05+00:00",
+  "ticker": "GNK",
+  "cik": "0001326200",
+  "accession": "0001140361-26-031442",
+  "form": "8-K",
+  "filed": "2026-08-05",
+  "primary_doc": "ef20079211_8k.htm",
+  "staged_path": "inputs/filings/GNK/0001140361-26-031442_8-K_ef20079211_8k.htm",
+  "exhibits": [
+   {
+    "doc": "ef20079211_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/GNK/0001140361-26-031442_8-K_ef20079211_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-05T21:20:05+00:00",
+  "ticker": "SBLK",
+  "cik": "0001386716",
+  "accession": "0000950157-26-000846",
+  "form": "6-K",
+  "filed": "2026-08-05",
+  "primary_doc": "form6-k.htm",
+  "staged_path": "inputs/filings/SBLK/0000950157-26-000846_6-K_form6-k.htm",
+  "exhibits": [
+   {
+    "doc": "ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-000846_6-K_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-06T10:20:13+00:00",
+  "ticker": "2343",
+  "cik": "hkex:7703",
+  "accession": "hkex-12275597",
+  "form": "Announcements and Notices - [Dividend or Distribution (Announcement Form)]",
+  "filed": "2026-08-06",
+  "primary_doc": "/listedco/listconews/sehk/2026/0806/2026080601247.pdf",
+  "staged_path": "inputs/filings/2343/12275597_2026080601247.pdf",
+  "amended": false,
+  "source": "hkexnews"
+ },
+ {
+  "ts": "2026-08-06T10:20:13+00:00",
+  "ticker": "2343",
+  "cik": "hkex:7703",
+  "accession": "hkex-12275567",
+  "form": "Announcements and Notices - [Interim Results &#x2f; Dividend or Distribution &#x",
+  "filed": "2026-08-06",
+  "primary_doc": "/listedco/listconews/sehk/2026/0806/2026080601217.pdf",
+  "staged_path": "inputs/filings/2343/12275567_2026080601217.pdf",
+  "amended": false,
+  "source": "hkexnews"
+ },
+ {
+  "ts": "2026-08-06T21:20:05+00:00",
+  "ticker": "GSL",
+  "cik": "0001430725",
+  "accession": "0001140361-26-031697",
+  "form": "6-K",
+  "filed": "2026-08-06",
+  "primary_doc": "ef20078201_6k.htm",
+  "staged_path": "inputs/filings/GSL/0001140361-26-031697_6-K_ef20078201_6k.htm",
+  "exhibits": [
+   {
+    "doc": "ef20078201_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/GSL/0001140361-26-031697_6-K_ef20078201_ex99-1.htm"
+   },
+   {
+    "doc": "ef20078201_ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/GSL/0001140361-26-031697_6-K_ef20078201_ex99-2.htm"
+   },
+   {
+    "doc": "ef20078201_ex99-3.htm",
+    "type": "EX-99.3",
+    "staged_path": "inputs/filings/GSL/0001140361-26-031697_6-K_ef20078201_ex99-3.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-07T13:20:02+00:00",
+  "ticker": "SBLK",
+  "cik": "0001386716",
+  "accession": "0000950157-26-000860",
+  "form": "6-K",
+  "filed": "2026-08-07",
+  "primary_doc": "sblk-20260630.htm",
+  "staged_path": "inputs/filings/SBLK/0000950157-26-000860_6-K_sblk-20260630.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-08T01:20:38+00:00",
+  "ticker": "TRMD",
+  "cik": "0001655891",
+  "accession": "0000919574-26-004877",
+  "form": "6-K",
+  "filed": "2026-08-07",
+  "primary_doc": "p15046186_6k.htm",
+  "staged_path": "inputs/filings/TRMD/0000919574-26-004877_6-K_p15046186_6k.htm",
+  "exhibits": [
+   {
+    "doc": "p15046186ex-99_1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/TRMD/0000919574-26-004877_6-K_p15046186ex-99_1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-10T12:22:28+00:00",
+  "ticker": "INSW",
+  "cik": "0001679049",
+  "accession": "0001104659-26-093061",
+  "form": "10-Q",
+  "filed": "2026-08-10",
+  "primary_doc": "insw-20260630x10q.htm",
+  "staged_path": "inputs/filings/INSW/0001104659-26-093061_10-Q_insw-20260630x10q.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-10T12:22:28+00:00",
+  "ticker": "INSW",
+  "cik": "0001679049",
+  "accession": "0001104659-26-093033",
+  "form": "8-K",
+  "filed": "2026-08-10",
+  "primary_doc": "tm2622617d1_8k.htm",
+  "staged_path": "inputs/filings/INSW/0001104659-26-093033_8-K_tm2622617d1_8k.htm",
+  "exhibits": [
+   {
+    "doc": "tm2622617d1_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/INSW/0001104659-26-093033_8-K_tm2622617d1_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-10T21:20:04+00:00",
+  "ticker": "PANL",
+  "cik": "0001606909",
+  "accession": "0001628280-26-055346",
+  "form": "8-K",
+  "filed": "2026-08-10",
+  "primary_doc": "panl-20260810.htm",
+  "staged_path": "inputs/filings/PANL/0001628280-26-055346_8-K_panl-20260810.htm",
+  "exhibits": [
+   {
+    "doc": "q22026earningspressrelease.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/PANL/0001628280-26-055346_8-K_q22026earningspressrelease.htm"
+   },
+   {
+    "doc": "a06302026earningspresent.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/PANL/0001628280-26-055346_8-K_a06302026earningspresent.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-10T22:20:06+00:00",
+  "ticker": "PANL",
+  "cik": "0001606909",
+  "accession": "0001628280-26-055365",
+  "form": "10-Q",
+  "filed": "2026-08-10",
+  "primary_doc": "panl-20260630.htm",
+  "staged_path": "inputs/filings/PANL/0001628280-26-055365_10-Q_panl-20260630.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-11T03:25:09+00:00",
+  "ticker": "CCEC",
+  "cik": "0001392326",
+  "accession": "0001193125-26-342613",
+  "form": "6-K",
+  "filed": "2026-08-10",
+  "primary_doc": "d104403d6k.htm",
+  "staged_path": "inputs/filings/CCEC/0001193125-26-342613_6-K_d104403d6k.htm",
+  "exhibits": [
+   {
+    "doc": "d104403dex99i.htm",
+    "type": "EX-99.(I)",
+    "staged_path": "inputs/filings/CCEC/0001193125-26-342613_6-K_d104403dex99i.htm"
+   },
+   {
+    "doc": "d104403dex99ii.htm",
+    "type": "EX-99.(II)",
+    "staged_path": "inputs/filings/CCEC/0001193125-26-342613_6-K_d104403dex99ii.htm"
+   },
+   {
+    "doc": "d104403dex99iii.htm",
+    "type": "EX-99.(III)",
+    "staged_path": "inputs/filings/CCEC/0001193125-26-342613_6-K_d104403dex99iii.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-11T11:32:38+00:00",
+  "ticker": "SBLK",
+  "cik": "0001386716",
+  "accession": "0000950157-26-000874",
+  "form": "6-K",
+  "filed": "2026-08-11",
+  "primary_doc": "form6-k.htm",
+  "staged_path": "inputs/filings/SBLK/0000950157-26-000874_6-K_form6-k.htm",
+  "exhibits": [
+   {
+    "doc": "ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-000874_6-K_ex99-1.htm"
+   },
+   {
+    "doc": "ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-000874_6-K_ex99-2.htm"
+   }
+  ],
+  "amended": false
  }
 ]
