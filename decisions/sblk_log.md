@@ -3732,3 +3732,17 @@ pipeline prepends a structured model-state entry above this line.]_
 just under the BUY band. Shallow crossing on a rising dry tape, NOT a thesis event; SBLK
 stays weight-sign-stable-positive per WO4. Explain-not-accept: absorbed at the owner's
 baseline ratify (2343 onboarding cause). Recross watch armed (the GSL/STNG rule).
+
+---
+
+## 2026-08-11 — FILING TRIAGE: the Diana SPA zombie TERMINATED (watch resolved, one quarter early)
+
+6-K acc 0000950157-26-000874 (filed 8/11, event 8/10): SBLK and Diana Shipping
+TERMINATED the conditional 16-vessel $470.5M purchase agreement (the one contingent
+on Diana's proposed Genco acquisition; the tender had already expired per GNK's 10-Q).
+The Q2 sheet's zombie-conditional treatment is VINDICATED: never booked (condition
+unsatisfied), so termination moves NOTHING — NAV impact zero, no regen owed. The
+"WATCH for termination/renegotiation next quarter" armed at the 8/09 Q2 refresh
+RETIRES today. Governance-side note (cluster context): declining to chase the
+conditional into a dead tender is a FAVORABLE print for the leader-specific
+capital-allocation falsifier leg. Termination letter Ex-99.1, PR Ex-99.2.
