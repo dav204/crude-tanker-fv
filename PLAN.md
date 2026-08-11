@@ -43,6 +43,30 @@ forward-invariance + subsequent-events-first + the Q3-QTD-extraction step that f
 consensus-pair transcription from the 8/7 Pareto daily (16 pareto-basis + 4 approx names;
 kr-quoted rows flagged for FX at promote). Promoting it retires the k-vintage-skew test debt.
 
+**2026-08-11 EOD UPDATE (Tuesday triage sitting — HANDOFF CURRENT).** Suite green ·
+gate 0/0 · both repos pushed. Done today: **Diana SPA TERMINATED** (SBLK 6-K 8/11 —
+zombie treatment vindicated, zero NAV impact, watch retired; governance-favorable) ·
+**CCEC AGM slate CLEAN** (DiFiore in; proxy read — two routine proposals, no
+related-party items; NOT the F-2 observable, that is PANL's slate) · **harvester
+REVIVED** (Sat 8/8 launchd firing missed while the machine slept; manually kicked, all
+five broker feeds backfilled W32 + xclusiv W33 — marks-trail feed restocked) · drift
+absorbed · PANL Q2 skimmed (NI $10.2M/$0.16, cash $105.7M).
+**THE WEEK FROM HERE:** (1) **Wed 8/12:** BRUT AGM watch · WRITE BRUT'S PREREG BAND
+before Thursday (the INSW pattern) · sweep the PANL Q2 CALL TRANSCRIPT (call was Tue
+8:00 ET) for the B3 spot-split — if absent, the owner sends the staged IR query
+(funnels/drybulk_2026H2/panl_b3_ir_query_draft.md). (2) **Thu 8/13:** BRUT H1
+refresh (pair flow, band-checked) + Rider-4 check (any BRUT 12M/FFA print supersedes
+for its classes). (3) **Fri 8/14:** governance monitor + the healthchecks validation
+(green check or a page by ~11pm; step-7b makes ping status a log fact). (4) **Sat
+8/16 — THE CRITICAL DATE:** crude_day60_toll_cliff = the pre-registered crude+product
+reweight on the toll outcome + the scenario-deck re-expression against the landed
+Stage-A base (un-voids BRUT/CAPT/TNK; every tanker scenario read is
+suspect-optimistic until then). (5) **Next week:** the PANL SEED (Stage-3 producer
+onboarding — own block; the Handy-curve §9.9 ruling made explicitly at onboarding;
+E2 completes at reconciliation) · TRMD 8/26 + Stage B. **Owner words open:**
+watchlist rebase promote (draft + checklist staged — retires the k-skew debt) · TEN
+alternative-anchor · SBLK GTC riding (line $31.30, tape ~$28.4, ex-div re-read 8/19).
+
 **2026-08-10 EOD UPDATE — STAGE A LANDED (commits d510311/1a6086d/7c991a5, pushed).**
 INSW band-HIT ($54.64 in [51.50,61.00]; ER carried NO QTD bookings — basis closed on the
 8/09 values); all four rulings executed; the Jun-7 war vintage is RETIRED. **THE HALT
