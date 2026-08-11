@@ -63,7 +63,12 @@ reweight on the toll outcome + the scenario-deck re-expression against the lande
 Stage-A base (un-voids BRUT/CAPT/TNK; every tanker scenario read is
 suspect-optimistic until then). (5) **Next week:** the PANL SEED (Stage-3 producer
 onboarding — own block; the Handy-curve §9.9 ruling made explicitly at onboarding;
-E2 completes at reconciliation) · TRMD 8/26 + Stage B. **Owner words open:**
+E2 completes at reconciliation) · TRMD 8/26 + Stage B. **CI NOTE (8/11 EVE):** sentinel-lite sat RED for 10+ runs unnoticed (unpinned ruff
+drifted ahead of local — 461 phantom violations; FIXED: ruff==0.15.21 pinned, 8 real
+violations cleaned, actions bumped). THE PATTERN (healthchecks, now CI): watchdogs
+failing silently. **Handoff item: give the local sentinel a CI-status lane** (one
+`gh run list` check — red CI on main = a sentinel line in the morning email).
+**Owner words open:**
 watchlist rebase promote (draft + checklist staged — retires the k-skew debt) · TEN
 alternative-anchor · SBLK GTC riding (line $31.30, tape ~$28.4, ex-div re-read 8/19).
 

@@ -37,7 +37,6 @@ def test_the_two_senses_are_disjoint():
 
 
 def test_every_approx_name_is_on_the_watchlist():
-    from pathlib import Path
     from crude_tanker_fv.loaders import load_watchlist
     wl = set(load_watchlist())
     missing = APPROX_PNAV_TICKERS - wl

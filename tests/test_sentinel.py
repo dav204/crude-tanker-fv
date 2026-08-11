@@ -651,7 +651,7 @@ def test_earnings_unconfirmed_pages_near_expected_windows(tmp_path, monkeypatch)
     whose status is not 'confirmed' must page EARNINGS-UNCONFIRMED; a confirmed
     one must not; a >7d-stale last_date_sweep with any window inside 21d must
     page EARNINGS-SWEEP-STALE."""
-    from datetime import date, datetime, timezone, timedelta
+    from datetime import date, datetime, timezone
     from crude_tanker_fv.sentinel import _filing_event_flags
 
     now = datetime(2026, 7, 21, 12, 0, tzinfo=timezone.utc)
@@ -663,7 +663,6 @@ def test_earnings_unconfirmed_pages_near_expected_windows(tmp_path, monkeypatch)
     meta_stale = {"quarter": "2026-Q2", "last_date_sweep": date(2026, 7, 10)}
     meta_fresh = {"quarter": "2026-Q2", "last_date_sweep": date(2026, 7, 20)}
 
-    import crude_tanker_fv.sentinel as S
     import crude_tanker_fv.refresh as R
     monkeypatch.setattr(R, "load_earnings_calendar", lambda *_a, **_k: (meta_stale, cal))
     monkeypatch.setattr(R, "check_earnings_calendar", lambda *_a, **_k: [])

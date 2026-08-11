@@ -24,7 +24,11 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",
-    "ruff>=0.5",
+    # PINNED 2026-08-11: an unpinned ruff let CI's version drift ahead of local —
+    # new defaults exploded 8 real violations into 461 phantom ones and CI sat RED
+    # for 10+ runs unnoticed. "Hold the line" requires the ruler not to move; bump
+    # this pin DELIBERATELY (fix new findings in the same commit).
+    "ruff==0.15.21",
 ]
 
 [project.scripts]
@@ -48,3 +52,9 @@ src = ["src", "tests"]
 # CI now runs `ruff check` so NEW violations cannot accumulate; delete an ignore
 # here when its class is cleaned up.
 ignore = ["E741", "E701", "E702", "F841"]
+
+# 2026-08-11: the family-diagnostic scripts bootstrap BOOK_QUARTER (and sys.path)
+# BEFORE importing the package — that order is the point (the 8/08 quarter-roll
+# conversion). E402 is structural there, not sloppiness.
+[tool.ruff.lint.per-file-ignores]
+"scripts/*" = ["E402"]
