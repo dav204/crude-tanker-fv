@@ -60,9 +60,10 @@ swept 8/12) — ALL ABSENT** on the COA/spot split, rendered-source-verified
 (keyword census 0 across affreightment/COA/spot/voyage); prior-call premise
 REFUTED — Q1'26 (Fool) + Q2'25 (Investing.com) transcripts carry zero COA-cover
 characterization. Recorded as a dated ADDENDUM in the governance packet
-(funnels/drybulk_2026H2/panl.md); B3 stays PASS-WITH-EXCEPTION; **the packet's
-"if absent → owner sends the staged IR query" condition has FIRED — the IR query
-is the only live B3 path; send/discard = owner.** Q3 QTD bookings from the call:
+(funnels/drybulk_2026H2/panl.md); B3 stays PASS-WITH-EXCEPTION; the packet's
+"if absent → owner sends the staged IR query" condition FIRED and **the owner SENT
+the IR query same-day (8/12) — B3 is now WAITING-ON-IR; watch the reply ahead of
+next week's Stage-3 seed.** Q3 QTD bookings from the call:
 4,873 days @ $20,258 (+14% premium, as-of 8/10) + 2,200 charter-in days @
 ~$17,537 — seed-relevant color.
 NOTE for 8/16 context: today's daily reports fresh
