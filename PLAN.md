@@ -54,7 +54,16 @@ VOID through the print — 8/16 is the only un-void venue.** Report 8/13, no sta
 time (Euronext calendar; watch newsweb from the open). **AGM was today 8/12** —
 outcomes route to the §15 screen; any pre-print AGM news amends the prereg dated,
 pre-print only. Feeds silent on Q2 placements (brokers through W33, dailies through
-8/12; BRUT kr 59.6 −0.7% today). NOTE for 8/16 context: today's daily reports fresh
+8/12; BRUT kr 59.6 −0.7% today). **PANL B3 TRANSCRIPT SWEEP EXECUTED** (the other
+Wed item): Q2'26 PR + call coverage ABSENT on the COA/spot split; the FULL transcript
+is NOT YET PUBLISHED on free venues as of 8/12 (retry leg open, 1-3 days typical);
+prior-call premise REFUTED — Q1'26 (Fool) + Q2'25 (Investing.com) transcripts carry
+zero COA-cover characterization. Recorded as a dated ADDENDUM in the governance
+packet (funnels/drybulk_2026H2/panl.md); B3 stays PASS-WITH-EXCEPTION; **owner word:
+send the staged IR query now (agent rec — weak transcript prior) or hold for the
+transcript.** Q3 QTD bookings noted from call coverage: 4,873 days @ $20,258 (+14%
+premium, as-of 8/10) + 2,200 charter-in days @ ~$17,537 — seed-relevant color.
+NOTE for 8/16 context: today's daily reports fresh
 attacks on vessels in BOTH the Red Sea and Gulf of Oman (day after Maersk/Hapag
 announced a Gemini-service Suez return); Brent ~$90 — the toll-cliff branch state
 is moving, not settling.
