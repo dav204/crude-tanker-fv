@@ -146,8 +146,11 @@ quick-ref price unless the note itself is being updated.)
   the pre-§9.6 onboarding read). BUY held (EV +22.4%). **2026-07-18: band now HOLD (EV −1.9% at the 7/17 tape; the war-tilt/price path since 7/12 — see the 7/13 doha_check pre-approval); no longer the deepest-discount crude name.** See capt_log.
 
 - **BRUT** — 20th name, the CAPT natural-experiment comp. Pure-play VLCC
-  newbuild vehicle (Trøim/Magni; Koch 26% / Trøim 20% / float 54%; NO >50%
-  controller), Oslo Growth/NOK (`yahoo_symbol: BRUT.OL`). 12 firm VLCC NB
+  newbuild vehicle (Trøim-sponsored: Drew Holdings 48.15% at the Nov-2024
+  admission, since diluted by four issuances, current % unresolved; managers
+  2020 Bulkers Management + Himalaya Shipping, Magni support at zero fee —
+  the prior "Koch 26% / dispersed" block was FABRICATED, corrected 2026-07-01),
+  Oslo Growth/NOK (`yahoo_symbol: BRUT.OL`). 12 firm VLCC NB
   (8 NTS 300k + 4 CIMC 319k), **0 on the water** — first delivers Jul-2026,
   last Q3-2029. The name that **resolved §9.6**: raw delivered-less-commitment
   NAV was +116% vs Pareto (SANITY=FAIL — the $175M VLCC mark on a 100%-NB book,

@@ -43,6 +43,22 @@ forward-invariance + subsequent-events-first + the Q3-QTD-extraction step that f
 consensus-pair transcription from the 8/7 Pareto daily (16 pareto-basis + 4 approx names;
 kr-quoted rows flagged for FX at promote). Promoting it retires the k-vintage-skew test debt.
 
+**2026-08-12 UPDATE (Wednesday).** BRUT H1 PREREG WRITTEN + FROZEN
+(`decisions/brut_h1_prereg_2026-08-12.md`): point $9.68 note-gross / $8.87 note-net
+(the ledger fork is BIMODAL — (cash − commitments) is deposit-invariant, so the 7/01
+double-conservative corner un-double-counts by +$0.81/sh iff Note-15's CIMC $499.0M
+was gross), band **[8.50, 10.00]**, halt-outside; Rider-4 hooks named (Mount Horizon
+IS the live VLCC 12M single-print; Vision's index-linked TC); §15 screen +
+cash-flag resolution + expected gate-row/ratify pre-registered; **position stays
+VOID through the print — 8/16 is the only un-void venue.** Report 8/13, no stated
+time (Euronext calendar; watch newsweb from the open). **AGM was today 8/12** —
+outcomes route to the §15 screen; any pre-print AGM news amends the prereg dated,
+pre-print only. Feeds silent on Q2 placements (brokers through W33, dailies through
+8/12; BRUT kr 59.6 −0.7% today). NOTE for 8/16 context: today's daily reports fresh
+attacks on vessels in BOTH the Red Sea and Gulf of Oman (day after Maersk/Hapag
+announced a Gemini-service Suez return); Brent ~$90 — the toll-cliff branch state
+is moving, not settling.
+
 **2026-08-11 EOD UPDATE (Tuesday triage sitting — HANDOFF CURRENT).** Suite green ·
 gate 0/0 · both repos pushed. Done today: **Diana SPA TERMINATED** (SBLK 6-K 8/11 —
 zombie treatment vindicated, zero NAV impact, watch retired; governance-favorable) ·
