@@ -220,9 +220,9 @@ TIER_SUBREASON = {
     # (Note 9), exactly at the resolution date the 2026-07-01 fork pre-registered. Clearing the
     # figure queue MECHANICALLY moved the tier PROVISIONAL -> GOVERNED-WIDE (the tier function
     # keys off the queue). That is the consequence of a correct pre-registered action, NOT a
-    # tier ruling: the owner-reserved question — whether the going-concern §15 doubt, still
-    # stated verbatim by the issuer at 6/30, should hold BRUT at PROVISIONAL independently of
-    # the cash flag — is OPEN and surfaced, not decided here. Note the governance seam: WIDE
+    # tier ruling: RULED BY OWNER 2026-08-13 — GOVERNED-WIDE STANDS. The going-concern §15
+    # doubt does NOT hold BRUT at PROVISIONAL independently of the cash flag; §15 stays a
+    # prominent qualitative flag (and this subreason), not a tier floor. Note the governance seam: WIDE
     # caps size where PROVISIONAL was NO_DEPLOY-on-the-anchor (governance dated rule 2026-06-29),
     # so this is a live handoff change. The position cell stays POSITION_UNRELIABLE regardless.
     "BRUT": "going-concern-unfinanced", "HAFN": "pool-gross-up-pending",
