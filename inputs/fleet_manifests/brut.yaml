@@ -20,21 +20,21 @@
 # move shifts NAV ~40%). Pareto NAV includes +$19M/ship for 2 LNG-DF vessels;
 # our curves carry no DF premium (Pareto ex-LNG NAV NOK 61 vs 66 headline).
 ticker: BRUT
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
   # Per-vessel delivery cohorts (bruton-ltd.com/fleet/), with years_to_delivery
   # from the snapshot (2026-06-22) — drives the §9.6 time-to-delivery PV discount
   # in compute_nav (a 2029 ship is NOT worth today's delivered price). 8x NTS
   # (300k) + 4x CIMC (319k). Q-only dates dated to mid-quarter.
-  - {id: VLCC_vision,    class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 0.1}   # Mount Vision, Jul-26
-  - {id: VLCC_horizon,   class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 0.6}   # Mount Horizon, Jan-27
-  - {id: VLCC_frontier,  class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 1.1}   # Mount Frontier, Aug-27
-  - {id: VLCC_summit,    class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 1.3}   # Mount Summit, Oct-27
-  - {id: VLCC_cimc_2028, class: VLCC, dwt: 319000, age: 0, scrubber: true, eco: true, count: 4, years_to_delivery: 2.0}   # Vanguard/Pursuit/Pinnacle/Discovery, 2028 (intra-year est.)
-  - {id: VLCC_endeavour, class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.4}   # Mount Endeavour, Q4-28
-  - {id: VLCC_odyssey,   class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.6}   # Mount Odyssey, Q1-29
-  - {id: VLCC_venture,   class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.9}   # Mount Venture, Q2-29
-  - {id: VLCC_voyager,   class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 3.1}   # Mount Voyager, Q3-29
+  - {id: VLCC_vision,    class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 0.02}  # Mount Vision, delivered Jul-08-26 (post-6/30 = subsequent event; still under construction AT the snapshot)
+  - {id: VLCC_horizon,   class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 0.38}  # Mount Horizon, MID-NOV-2026 per the 8/06 TC release + H1 BoD report (was Jan-27 est — a ~2mo PULL-FORWARD)
+  - {id: VLCC_frontier,  class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 1.17}  # Mount Frontier, Aug-27
+  - {id: VLCC_summit,    class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 1.34}  # Mount Summit, Oct-27
+  - {id: VLCC_cimc_2028, class: VLCC, dwt: 319000, age: 0, scrubber: true, eco: true, count: 4, years_to_delivery: 1.98}  # Vanguard/Pursuit/Pinnacle/Discovery, 2028 (intra-year est. UNCHANGED — the H1 report gives no per-vessel dates, only Note-10 yearly commitment tranches)
+  - {id: VLCC_endeavour, class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.38}  # Mount Endeavour, Q4-28
+  - {id: VLCC_odyssey,   class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.63}  # Mount Odyssey, Q1-29
+  - {id: VLCC_venture,   class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 2.88}  # Mount Venture, Q2-29
+  - {id: VLCC_voyager,   class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 3.13}  # Mount Voyager, Q3-29
 
 # Mount Vision is on an index-linked TC ($95k/day net Jul-26→Mar-27, then
 # index-linked, expires 2031) — index-linked ≈ spot for v1; the rest are open.
@@ -47,7 +47,7 @@ spot_coverage_pct:
 # 2028+ (mid-point Apr'28 per Pareto → ~half delivered by q2'28). CIMC intra-2028
 # timing is our estimate.
 fleet_schedule:
-  VLCC: [1, 1, 2, 2, 3, 4, 4, 6]
+  VLCC: [1, 2, 2, 2, 3, 4, 4, 6]   # q4'26 now 2 — Horizon pulled forward to mid-Nov-26 (was q1'27)
 
 fleet_summary:
   VLCC_count: 12

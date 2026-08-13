@@ -5,13 +5,15 @@ newbuilds (first delivers Jul-2026, last Q3-2029), so without the discount its
 delivered-less-commitment NAV is ~$15.6/sh = +116% vs the Pareto anchor
 (SANITY=FAIL); PV-discounting the deliveries lands it ~$9.4 (≈ +30%, OK)."""
 
+from conftest import BOOK_QUARTER
+
 from crude_tanker_fv.loaders import load_company_inputs
 from crude_tanker_fv.nav import compute_nav
 
 
 def test_inputs_load_and_fleet_shape():
     """12 firm VLCC newbuilds, none on the water, all future-delivery."""
-    ci = load_company_inputs("BRUT", "2026-Q1")
+    ci = load_company_inputs("BRUT", BOOK_QUARTER)
     assert ci is not None
     vlcc = [v for v in ci.fleet.vessels if v.cls == "VLCC"]
     assert sum(v.count for v in vlcc) == 12
@@ -22,10 +24,13 @@ def test_inputs_load_and_fleet_shape():
 def test_time_to_delivery_discount_pulls_nav_into_sanity_band():
     """The §9.6 discount must materially reduce a pure-newbuild NAV. Undiscounted
     delivered-less-commitment NAV is ~$15.6/sh; PV-discounting the 2026-29
-    deliveries lands it ~$9.40 — well below undiscounted and inside the ±50%
-    SANITY bar vs Pareto's ~$7.20. (age-0 = xclusiv Resale $175M; Amendment B
-    reverted the Thread-1 $145M, which was actually the xclusiv 5yr value.)"""
-    nav = compute_nav(load_company_inputs("BRUT", "2026-Q1")).nav_per_share
+    deliveries lands it ~$9.6 — well below undiscounted and inside the ±50%
+    SANITY bar vs Pareto's ~$7.36. (age-0 = xclusiv Resale $175M; Amendment B
+    reverted the Thread-1 $145M, which was actually the xclusiv 5yr value.)
+    Quarter follows BOOK_QUARTER: BRUT advanced to 2026-Q2 at the 8/13 H1
+    refresh, and the pair guard reds a hardcoded quarter the moment the
+    manifest moves."""
+    nav = compute_nav(load_company_inputs("BRUT", BOOK_QUARTER)).nav_per_share
     assert 8.5 < nav < 10.5      # discounted band
     assert nav < 12.0            # proves the discount fired (undiscounted ~$15.6)
 

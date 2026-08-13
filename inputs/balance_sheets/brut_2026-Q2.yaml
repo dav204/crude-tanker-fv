@@ -1,0 +1,83 @@
+# BRUT (Bruton Ltd) balance sheet — METHODOLOGY.md §4.2. USD.
+# H1-2026 report (half-yearly reporter; first issuer snapshot since the FY2025 Annual Report).
+# THE CASH FLAG RESOLVES HERE — `cash-pending-H1-report`, booked 2026-07-01 as a conservative
+# $66M floor, is now a SOURCED ACTUAL. BRUT exits NAV_FIGURE_ESTIMATE_QUEUE.
+# Prereg: decisions/brut_h1_prereg_2026-08-12.md (frozen pre-print 8/12).
+#
+# SUBSEQUENT EVENTS READ FIRST (Note 13) — all five are POST-6/30 and are OUT of this snapshot:
+# Mount Vision delivered + TC commenced (Jul); sale-leaseback signed for the 4 NTS hulls (Jul);
+# board-approved DEMERGER of 8 VLCC NBs to OMC Tankers Ltd, conditional on that entity's listing
+# (Jul); CEO change to Lars-Christian Svensen + 100,000 options redeemed for cash (Jul); Mount
+# Horizon 12-15mo TC at $105,700/day net commencing mid-Nov (Aug). At 2026-06-30 the company had
+# ZERO vessels on the water and TWELVE under construction (Note 10) — the "1 in operation"
+# framing in the release is as-of publication, not as-of the balance-sheet date.
+ticker: BRUT
+quarter: 2026-Q2
+
+source_url: https://storage.mfn.se/5f289f8c-1e21-4c4e-86c1-76ea0f6452a2/bruton-limited-fs-june-30-2026.pdf
+retrieved_at: 2026-08-13
+filing_period_end: 2026-06-30
+
+# CASH — SOURCED ACTUAL, no longer an estimate. Unaudited Consolidated Balance Sheet, Note 9.
+# Dec-31-2025 $89.661M + Feb-2026 placement net $48.391M − H1 newbuilding installments $125.5M
+# (BoD report MD&A) − G&A/burn + $1.3M interest income = $11.828M. The H1 cash-flow statement
+# ties: net decrease $(77.833)M on an opening $89.661M.
+# NOTE vs the booked $66M floor: the floor was never a forecast of the 6/30 balance — it was a
+# 3/31 figure carrying an unknown CIMC deposit. The Q2 installment run (circa $125.5M) is what moved
+# cash, and it is NAV-NEUTRAL by construction (§9.6: installments are sunk, advances stay 0, and
+# the commitment falls by what was paid). See the ledger note below.
+cash_and_equivalents: 11828000
+
+# Prepayments and other current assets $96k − trade payables $372k − accrued expenses $410k.
+# (Q1 carried 0 on a $161k total-liability base; now itemised.)
+working_capital_net: -686000
+
+# ZERO interest-bearing debt at 6/30. Total liabilities $782k = trade payables + accruals only.
+# The sale-leaseback (85-90% of newbuilding cost, 15y, fixed bareboat) was signed in JULY — a
+# subsequent event; the first drawdown sits in the Q3 snapshot, not this one.
+total_debt: 0
+
+lease_liabilities: 0
+
+# REMAINING newbuild commitments at 2026-06-30 — Note 10, issuer-stated, twelve tankers under
+# construction: 2026 (remaining 6 months) $211.428M + 2027 $361.298M + 2028 $357.050M +
+# 2029 $342.200M = $1,271.976M.
+#
+# THE LEDGER FORK IS RESOLVED (prereg §Registered band). The 2026-07-01 booking took the
+# double-conservative corner: the $66M deposit-paid cash floor AND the gross CIMC commitment.
+# (cash − commitments) was booked at −$1,307.1M for 3/31. The issuer's own 6/30 pair is
+# −$1,260.1M. Netting the circa-$125.5M of H1 installments (which move both legs together and are
+# NAV-neutral), the corner was carrying roughly $47M of double-count — the NOTE-GROSS reading
+# the prereg called the more likely mode, and close to its +$50M estimate. The conservative
+# corner cost circa $0.76/sh of understated NAV for six weeks, exactly as pre-registered.
+newbuild_capex_commitments: 1271976000
+newbuild_advances_paid: 0            # §9.6/FRO/CAPT convention (delivered-market less remaining commitment)
+
+# Note 12 / statement of changes in equity: 61,923,808 issued and outstanding at 6/30 (Dec-2025:
+# 52,399,998). UNCHANGED from the Q1 basis — no placement in H1 beyond the February one already
+# carried. The prereg's "expected zeros" held.
+diluted_shares_outstanding: 61923808
+
+preferred_equity: 0
+shuttle_contracted_book: 0
+
+# §15 — GOING CONCERN: THE DOUBT PERSISTS. The prereg named this print as the resolution venue
+# and pre-registered three branches; the issuer's own words put us in branch (a)-with-progress,
+# NOT branch (b). Verbatim (Note 2, Going concern): "a material uncertainty exists that raises
+# substantial doubt about the Company's ability to continue as a going concern", and — as of the
+# 6/30 date — "The Company does not currently have sufficient financing to pay for the future
+# shipyard installments" and "does not have sufficient working capital to fund its committed
+# capital program for the next 12 months."
+# The July sale-leaseback covers 85-90% of cost on FOUR of twelve hulls (Vision at 90%) and is
+# disclosed inside the same note as a post-period mitigant. So financing clarity ARRIVED but is
+# PARTIAL and post-date: eight hulls remain unfinanced at the snapshot, and the demerger that
+# would move them off this balance sheet is conditional on a listing that has not happened.
+# governance_discount_pct stays 0 — unchanged owner doctrine (2026-07-01): a survival binary is
+# not a tunable knob, and inventing a % here would fabricate precision. The TIER call (does
+# PROVISIONAL still bind once 4 hulls are financed and 8 are leaving?) is RESERVED TO THE OWNER
+# and is not taken in this file.
+governance_discount_pct: 0
+
+# Related parties (Note 11) — Drew Holdings (Trøim) holds 48.1% of common shares at 6/30,
+# resolving the "current % UNRESOLVED pending the register" flag carried since 2026-07-01.
+# Magni corporate support at zero cost in the period; secondment fee $8,333/month.

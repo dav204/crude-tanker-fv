@@ -107,8 +107,12 @@ _MONEY_RE = _re.compile(r"\$\s?[\d,]+|\b\d+(?:\.\d+)?\s?(?:M\b|bn\b|million|bill
 # a name can't leave by deleting the figure. THIS GATES THE CONVENTION QUEUE: a name here has an
 # uncited NAV-driver, so wiring its newbuilds on-curve (§9.6) would build the move on sand.
 NAV_FIGURE_ESTIMATE_QUEUE = {
-    "brut", "cmbt", "flng", "hafn",
-}  # nat/asc/stng left; trmd left 2026-07-02; ten left 2026-07-15 (full reconciliation vs the Q1-2026 6-K condensed BS + FY2025 20-F — decisions/ten_reconciliation_prereg_2026-07-15.md)
+    "cmbt", "flng", "hafn",
+}  # BRUT LEFT 2026-08-13 — the xfail-strict xpassed, which is the queue working: cash was the
+   # single uncited NAV figure, booked 2026-07-01 as a $66M conservative floor with a named
+   # resolution date, and the H1-2026 report sourced it to $11.828M (Note 9). Cleared by SOURCING,
+   # not by hiding the marker. nat/asc/stng left; trmd left 2026-07-02; ten left 2026-07-15 (full
+   # reconciliation vs the Q1-2026 6-K condensed BS + FY2025 20-F — decisions/ten_reconciliation_prereg_2026-07-15.md)
 
 
 def _nav_figure_estimate_flagged(path: str) -> bool:
@@ -127,7 +131,11 @@ def _nav_figure_estimate_flagged(path: str) -> bool:
 
 
 def _nav_balance_sheets():
-    return {p.split("/")[-1].replace("_2026-Q1.yaml", ""): p for p in sorted(_glob.glob("inputs/balance_sheets/*.yaml"))}
+    # Strip ANY quarter suffix, not a hardcoded one: a name that advanced to Q2 used to keep
+    # its full filename here, never match a queue ticker, and so drop out of this guard's
+    # coverage silently. Caught 2026-08-13 when BRUT advanced.
+    return {_re.sub(r"_\d{4}-Q\d$", "", p.split("/")[-1].removesuffix(".yaml")): p
+            for p in sorted(_glob.glob("inputs/balance_sheets/*.yaml"))}
 
 
 def test_every_estimate_flagged_nav_figure_is_queued():

@@ -9,6 +9,26 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.26
+- Single-point FV: $9.63
+- Scenario PW FV: $10.13 (EV +61.8%)
+- NAV / share: $9.62
+- Position: **BUY (undervalued)**
+- Broker spread: -14.1pp (k_broker 0.97)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -15.6pp
+- ⚑ NAV/sh +9.3%
+- Δprice: -0.15 | Δsingle FV: +9.1% | Δscenario FV: +8.6% | ΔNAV: +9.3% | Δspread: -15.6pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — ARCHIVE-HOLE AUDIT: the 7/03→7/14 gap is SOURCE-QUIET, not an un-backfilled outage (attribution corrected)
 
 Owner-directed backfill attempt executed today; result: **nothing existed to backfill.**
@@ -92,7 +112,17 @@ WORKFLOWS.md §Report-day refresh; archive backfill flagged.
 **Deltas since last run:** _(no material moves)_
 - Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
 
-**Decision:** _[pending annotation]_
+**Decision:** **H1-2026 REFRESH EXECUTED — PREREG BAND HIT.** NAV/sh **$9.62** inside the frozen band **[8.50, 10.00]** (prereg `decisions/brut_h1_prereg_2026-08-12.md`, written 8/12 pre-print). The bimodal ledger call RESOLVED TO THE NOTE-GROSS MODE: predicted $9.68 gross / $8.87 net, landed $9.62 — six cents off the mode the prereg called more likely. The 2026-07-01 double-conservative corner (deposit-paid $66M cash floor AND gross CIMC commitment) was carrying ~$47M of double-count, ≈$0.76/sh of understated NAV, exactly as pre-registered. Sourced 6/30: cash **$11.828M** (Note 9), remaining commitments **$1,271.976M** (Note 10, twelve hulls), debt **0**, WC **−$0.686M**, shares **61,923,808** unchanged. The cash collapse vs the $66M floor is NOT a miss — $125.5M of H1 installments moved cash and commitments together, NAV-neutral by §9.6 construction, as the prereg predicted. **CASH FLAG RESOLVED:** `cash-pending-H1-report` retires; BRUT exits `NAV_FIGURE_ESTIMATE_QUEUE` on a clean citation. **Drew Holdings 48.1%** now sourced, closing the "current % UNRESOLVED" flag open since 7/01.
+
+**Halt conditions, each discharged:** (1) subsequent-events note read FIRST — all five post-6/30 events (Vision delivery, sale-leaseback, demerger approval, CEO change, Horizon TC) held OUT of the snapshot; the release's "1 vessel in operation" is as-of publication, and Note 10's "twelve tankers under construction" is the 6/30 truth. (2) Pair landed together — sheet + manifest `report_date` in one commit. (3) **Forward invariance CONFIRMED**: every other name's single-point FV, scenario FV and NAV/sh read "no change" in the delta report; the position/spread moves are the committed 8/11→8/13 price vintage absorbing at this regen, not model motion. (4) **RIDER-4 DISCHARGED — CORROBORATION, NOT CORRECTION:** the issuer's 8/06 release fixes Mount Horizon at **$105,700/day net, 12-15 months**, confirming the ruled VLCC 12M line VERBATIM. The Stage-A D-2 ruling stands unaltered; no input correction, no supersession. (5) **§15 SCREEN — branch (a)-with-progress, NOT branch (b):** the going-concern doubt PERSISTS in the issuer's own words at 6/30 ("a material uncertainty exists that raises substantial doubt"; "does not have sufficient working capital to fund its committed capital program for the next 12 months"). The July sale-leaseback covers 85-90% of cost on FOUR of twelve hulls and is a post-period mitigant; eight hulls remain unfinanced at the snapshot and the demerger that would move them is conditional on a listing that has not occurred. `governance_discount_pct` stays **0** (survival binary, not a knob — 7/01 doctrine unchanged). (6) SANITY **OK** at +30.7% vs broker.
+
+**MANIFEST re-dated:** Horizon pulled forward to **mid-Nov-2026** (was Jan-27 est) per the 8/06 TC release + BoD report — `fleet_schedule` q4'26 1→2; all `years_to_delivery` re-stamped to the 6/30 basis. CIMC 2028 dates stay estimates (the H1 report gives no per-vessel schedule, only Note-10 yearly tranches).
+
+**RESERVED TO THE OWNER, not taken here:** (a) the **TIER call** — does PROVISIONAL still bind now that 4 hulls are financed, 8 are contracted to leave, and the cash flag is closed? The remaining binding reason is going-concern §15 + max-torque. (b) **How the model carries the DEMERGER** — eight VLCCs transfer to **OMC Tankers Ltd** (Bermuda), conditional on its listing; a 12-ship NAV stops being the right object once it completes. Own decision doc; it compounds with the 8/16 deck re-expression. (c) Monthly dividends → `dividend_policies/brut.yaml` (currently zero-payout).
+
+**POSITION STAYS VOID.** BRUT prints BUY (EV +61.8%) and it remains NOT-ACTIONABLE: `POSITION_UNRELIABLE` holds through this refresh by pre-registration (condition 7), and un-voids only at the 8/16 toll-cliff deck re-derivation. The scenario PW FV prints against the incoherent war-calibrated deck — recorded, not read.
+
+**Gate:** drift red with 10 UNEXPLAINED rows — BRUT is the pre-registered one; the other nine all show NAV +0.0% and are the 8/10→8/13 price-vintage absorption. NOT ratified here (human-gated, and the nine are not this prereg's business). **SBLK flipped HOLD→BUY on the price drop while its leg-2 trim GTC is LIVE at $31.30** — surfaced for the owner, not acted on.
 
 ---
 
