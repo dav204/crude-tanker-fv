@@ -2,12 +2,15 @@
 # Pareto-free reference for tests/test_drift_gate.py. Re-ratify deliberately
 # via scripts/ratify_baseline.sh "<cause>" — never hand-edit the numbers.
 meta:
-  ratified_at: '2026-08-13T17:15:23+00:00'
-  ratified_commit: 54276ea
+  ratified_at: '2026-08-13T20:46:39+00:00'
+  ratified_commit: bffdbfe
   quarter: 2026-Q2
-  cause: BRUT H1-2026 refresh (prereg band HIT $9.62 in [8.50,10.00], cash flag resolved) + the 8/10->8/13
-    committed price vintage absorbed at the first pipeline run since 8/10 — 9 EV-only rows, NAV +0.0%
-    on every one; owner ruled RATIFY 2026-08-13
+  cause: 'watchlist consensus-pair rebase to the 2026-08-07 Pareto daily (one vintage, 20 names; APPROX
+    flags kept on NAT/ASC/CCEC/MPCC; 2343 issuer-NAV derived pnav 0.98->0.91; GNK anchor re-pointed to
+    Pareto NAV 28.40) — retires the 8/09 k-vintage-skew: DHT/FRO rejoined the k band cleanly, ECO''s 1.161
+    stands as a REAL matched-vintage exceedance, REFRESH_VINTAGE_SKEW allowance retired; SBLK demoted
+    VALIDATED-TIGHT->GOVERNED-WIDE on a read-flip the stale pnav had been masking (surfaced to owner,
+    not acted on)'
 thresholds:
   ev_pct_pp: 2.0
   nav_pct: 2.0
@@ -18,7 +21,7 @@ names:
     ev_pct: 1.36
     tool_nav: 0.41
     position_band: HOLD (fairly valued)
-    k_broker: 0.98
+    k_broker: 1.05
     sector: dry_bulk
   ASC:
     pnav_basis: approx
@@ -32,21 +35,21 @@ names:
     ev_pct: 61.83
     tool_nav: 9.62
     position_band: BUY (undervalued)
-    k_broker: 0.97
+    k_broker: 0.92
     sector: crude
   BWLP:
     pnav_basis: pareto
     ev_pct: -34.49
     tool_nav: 15.8
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.35
+    k_broker: 1.19
     sector: lpg
   CAPT:
     pnav_basis: pareto
     ev_pct: 11.0
     tool_nav: 15.48
     position_band: BUY (undervalued)
-    k_broker: 1.19
+    k_broker: 1.17
     sector: crude
   CCEC:
     pnav_basis: approx
@@ -60,7 +63,7 @@ names:
     ev_pct: -14.17
     tool_nav: 16.46
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.23
+    k_broker: 1.12
     sector: crude
   CMDB:
     pnav_basis: approx
@@ -74,35 +77,35 @@ names:
     ev_pct: -15.19
     tool_nav: 15.01
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.09
+    k_broker: 1.14
     sector: crude
   ECO:
     pnav_basis: pareto
     ev_pct: -34.09
     tool_nav: 39.54
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.14
+    k_broker: 1.15
     sector: crude
   FLNG:
     pnav_basis: pareto
     ev_pct: 3.98
     tool_nav: 28.45
     position_band: HOLD (fairly valued)
-    k_broker: 0.88
+    k_broker: 0.85
     sector: lng
   FRO:
     pnav_basis: pareto
     ev_pct: -30.32
     tool_nav: 25.34
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.09
+    k_broker: 1.13
     sector: crude
   GNK:
     pnav_basis: pareto
     ev_pct: -10.24
     tool_nav: 25.12
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.1
+    k_broker: 1.07
     sector: dry_bulk
   GSL:
     pnav_basis: approx
@@ -116,21 +119,21 @@ names:
     ev_pct: -12.47
     tool_nav: 5.56
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.48
+    k_broker: 1.39
     sector: product
   INSW:
     pnav_basis: pareto
     ev_pct: -35.71
     tool_nav: 54.64
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.53
+    k_broker: 1.45
     sector: crude
   LPG:
     pnav_basis: pareto
     ev_pct: -28.85
     tool_nav: 35.69
     position_band: TRIM/SHORT (overvalued)
-    k_broker: 1.53
+    k_broker: 1.33
     sector: lpg
   MPCC:
     pnav_basis: approx
@@ -158,14 +161,14 @@ names:
     ev_pct: 6.81
     tool_nav: 32.78
     position_band: BUY (undervalued)
-    k_broker: 1.08
+    k_broker: 0.96
     sector: dry_bulk
   STNG:
     pnav_basis: pareto
     ev_pct: 0.76
     tool_nav: 76.22
     position_band: HOLD (fairly valued)
-    k_broker: 1.56
+    k_broker: 1.51
     sector: product
   TEN:
     pnav_basis: approx
@@ -179,12 +182,12 @@ names:
     ev_pct: 3.5
     tool_nav: 84.6
     position_band: HOLD (fairly valued)
-    k_broker: 1.53
+    k_broker: 1.33
     sector: crude
   TRMD:
     pnav_basis: pareto
     ev_pct: 15.9
     tool_nav: 30.22
     position_band: BUY (undervalued)
-    k_broker: 1.14
+    k_broker: 1.09
     sector: product
