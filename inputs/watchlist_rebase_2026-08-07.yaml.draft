@@ -47,8 +47,54 @@ absent_from_table:       # keep the FULL consensus-pair anchor at its CURRENT vi
   - TEN
   - SB
   - CMDB
-  - "2343"
   - GSL
+  # "2343" MOVED OUT 2026-08-13 -> issuer_sourced below. It is still absent from
+  # Pareto's table (that is unchanged and always will be — no HK names), but its
+  # anchor was never Pareto's: it is an ISSUER-COMPOSITE derivation, and the issuer
+  # just republished the input. Keeping it in this bucket would have held a Dec-2025
+  # value vintage that the 2026 Interim has already superseded.
+
+issuer_sourced:            # ADDED 2026-08-13 — names whose consensus_pnav is derived
+  # from an ISSUER-published fleet value, not a broker table. These rebase on the
+  # issuer's OWN reporting calendar, not Pareto's daily, so they are a separate lane
+  # with a separate as_of. Do not merge them into pareto_basis.
+  "2343":
+    nav_per_share_usd: 0.4297      # <- PROMOTE THIS, then compute pnav from it
+    basis_as_of: 2026-06-30
+    source: >
+      HKEX doc 12275567_2026080601217 (2026 Interim Results, published 2026-08-06),
+      Business Review: "As at 30 June 2026, the estimated market value of our owned
+      fleet was about US$2,070.6 million, which was significantly above its net book
+      value of US$1,557.0 million."
+    derivation: >
+      NAV = fleet 2,070.6 + cash 206.530 + working capital 85.838 - debt 49.309
+      - lease liabilities 93.957 = US$2,219.7M / 5,165.247803M shares = $0.4297/sh.
+      Balance-sheet legs are the LANDED 2026-Q2 sheet (inputs/balance_sheets/
+      2343_2026-Q2.yaml, same filing), so fleet value and balance sheet share one
+      2026-06-30 vintage — no cross-vintage mixing inside the anchor itself.
+    supersedes: >
+      The Dec-2025 basis: fleet 1,958.3 + VUC 39.6 + cash 270.6 + WC 26.4 - debt 136.5
+      - leases 93.9 = US$2,064.5M / 5,165.2M = $0.3997/sh (AR2025 p.6, 31-Dec-2025).
+      Fleet +5.7%, NAV/sh +7.5%. This lands where the old watchlist comment predicted
+      ("the true current pnav runs LOWER, ~0.87-0.9") — a reproduction check, not a
+      coincidence: the derivation was re-run from the issuer figures, not back-solved.
+    double_count_check: >
+      The Dec-2025 line carried a SEPARATE vessels-under-construction leg (+39.6). The
+      Q2 sheet books newbuilds through newbuild_capex_commitments (344.5) under the
+      §9.6 convention, so VUC is NOT added again here. Adding it would have silently
+      inflated NAV/sh by ~$0.008. Verify this stays true if the sheet convention changes.
+    known_gap: >
+      The Interim gives a SINGLE AGGREGATE fleet value. The AR2025 published a PER-CLASS
+      composite (Handysize/Supramax/Ultramax). The derivation only ever consumed the
+      total, so nothing breaks — but a future per-class refinement cannot be sourced
+      from this document. Next per-class disclosure: AR2026 (~Mar-2027).
+    pnav_rule: >
+      DO NOT hardcode a pnav. consensus_pnav = promoted_price / 0.4297, computed at
+      promote from whatever price leg is promoted in the SAME commit. At the current
+      stale $0.390 (2026-07-14 close) that is 0.91 (was 0.98). Deriving it this way
+      makes a price/pnav vintage skew structurally impossible for this name — the
+      TEN $44 lesson, enforced by construction rather than by discipline.
+    flags_unchanged: APPROX stays (no broker coverage); /reconcile keeps downweighting.
 
 promote_checklist:       # (WORKFLOWS §Consensus-pair recapture steps 4-5 — the
   # off-cycle sitting still owes ALL of it; reviewer catch 2026-08-09)
@@ -57,6 +103,8 @@ promote_checklist:       # (WORKFLOWS §Consensus-pair recapture steps 4-5 — t
   - "Drafted ratify cause: 'watchlist consensus-pair rebase to the 2026-08-07 Pareto daily (one vintage, 20 names; APPROX flags kept on NAT/ASC/CCEC/MPCC; retires the 8/09 k-vintage-skew — re-examine TXN_PURE_PLAY_K_BAND and the REFRESH_VINTAGE_SKEW allowance at this ratify, with a scoped APPROX-name replacement for the retired allowance)'"
   - "Record the sitting in decisions/ (this file's header is the transcription record); re-arm all_sectors_consensus_pair_recapture from due 2026-10-02 to promote-date + 3 months"
   - "Band flips from the price move: isolate-commit discipline, individual eyeballs"
+  - "2343 (issuer_sourced lane): promote nav_per_share_usd 0.4297 and COMPUTE consensus_pnav = promoted_price / 0.4297 in the same commit — never paste a pnav. Expect ~0.98 -> ~0.91 at an unchanged price. Its consensus_fwd_pe (13.0, stockanalysis 2026-07-14) is a SEPARATE aggregator vintage untouched by the Interim — leave it, and say so in the commit rather than letting it look refreshed"
+  - "2343 re-arm: the next issuer-composite refresh is AR2026 (~Mar-2027, per-class values return there). The 2026 Interim trigger is now SPENT — retire the 'Re-derive at the 2026 Interim' line from the watchlist comment at promote so a future reader does not chase a fired trigger"
 
 verified_cells_2026-08-09:  # re-checked against the RENDERED p.1 (200dpi crop) after
   # the reviewer flagged them — NO column bleed, all as printed:
