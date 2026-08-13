@@ -207,6 +207,16 @@ TIER_SUBREASON = {
     "INSW": "pending-anchor",
     "TEN": "mixed",
     "CMDB": "read-flips", "GNK": "read-flips",
+    # SBLK ADDED 2026-08-13 at the consensus-pair rebase — VALIDATED-TIGHT -> GOVERNED-WIDE.
+    # NOT a thesis change and NOT a new input: the justified-P/NAV read now flips
+    # (cheap/fair) across the two normalization bases, so the cheap call no longer survives
+    # the basis choice. It was held TIGHT by a STALE pnav — 0.78 carried a 2026-07-03 vintage
+    # against an August price; rebased to 0.89 at one 08-07 vintage the corroboration fails.
+    # This is precisely the k-vintage-skew the rebase existed to retire, landing on a held
+    # name. GOVERNANCE SEAM: TIGHT -> WIDE caps size below what the same discount would
+    # justify (governance dated rule 2026-06-29), and SBLK has a LIVE leg-2 trim GTC at
+    # $31.30 — surfaced to the owner, not acted on here.
+    "SBLK": "read-flips",
     # TNK: the 2026-07-31 "read-flips" entry was REGISTERED ON THE VOIDED half-applied
     # inputs (artifact FV 76.95/EV -3.8% -> family HOLD,HOLD,T/S,T/S,T/S,T/S) and died
     # with them at the 2026-08-08 paired transition: on both halves the family reads

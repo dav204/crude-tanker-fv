@@ -1,5 +1,55 @@
 # SBLK — Decision Log
 
+## 2026-08-13T20:46:39+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.89
+- Single-point FV: $31.88
+- Scenario PW FV: $29.79 (EV +6.8%)
+- NAV / share: $32.78
+- Position: **BUY (undervalued)**
+- Broker spread: -4.3pp (k_broker 0.96)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ broker spread -13.1pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -13.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13 (PM) — TIER DEMOTED at the consensus-pair rebase: VALIDATED-TIGHT -> GOVERNED-WIDE
+
+**Not a thesis change, not a new input, and not a price move — a STALE ANCHOR COMING OFF.**
+
+The 2026-08-07 watchlist rebase put price + consensus_pnav + fwd P/E on one vintage. SBLK's
+pnav moved **0.78 -> 0.89**; the 0.78 carried a **2026-07-03** vintage while the tool NAV and
+the tape had both moved on to August. Rebased, the **justified-P/NAV read now FLIPS
+(cheap/fair)** across the two normalization bases, so `robust != "robust"` and the tier falls
+through rule 2 to GOVERNED-WIDE. Every other tier input is unchanged and clean: nav_basis
+resale-uniform, weight_sign_stable TRUE, family EV range +2.6%..+10.7% (sign-stable).
+
+**This is exactly what the rebase was for.** The 8/09 promotion round recorded that the
+pure-play k_broker premium had "COLLAPSED to ~1.00-1.04 partly on pnav vintage skew" and made
+the rebase urgent. The skew was flattering SBLK's corroboration: on a matched vintage the cheap
+call does NOT survive the basis choice. The read that looked TIGHT was a vintage artifact.
+
+**GOVERNANCE SEAM — this is the part that matters to the book.** Per the governance dated rule
+2026-06-29, the tier rides into `TRADE_PREREG` #4: VALIDATED-TIGHT lets valuation bear full
+size; GOVERNED-WIDE caps size below what the same discount would justify. So SBLK's sizing
+basis just weakened, and **SBLK has a LIVE leg-2 trim GTC at $31.30** (governance instruction
+id 100). The book-wide consequence is on the scorecard's own face: the
+validated-and-actionable-long surface drops from **2 (SB, SBLK) to 1 (SB)**.
+
+**SURFACED, NOT ACTED ON.** No trim, no order change, no re-sizing here — the demotion is
+recorded, `TIER_SUBREASON["SBLK"] = "read-flips"` (joining CMDB/GNK), and the disposition is
+the owner's. Note the interaction: SBLK's 8/09 BUY->HOLD band-mech flip is still
+FROZEN-FOR-OWNER-REVIEW, and today's regen prints SBLK BUY again on the price drop. Three
+separate SBLK threads now converge on one owner sitting.
+
+---
+
 ## 2026-08-13T17:32:31+00:00 — Pipeline run (auto)
 
 **Model state:**

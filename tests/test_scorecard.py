@@ -197,7 +197,7 @@ def test_write_scorecard_emits_consolidated_verdict_when_valuation_present(tmp_p
         if r.confidence_tier == "PROVISIONAL":
             assert "⛔" in text
     # the opportunity-set finding (BUY positions here ⇒ the 2 cheap TIGHT names qualify as longs)
-    assert "validated-and-actionable-long surface is **2 (SB, SBLK" in text
+    assert "validated-and-actionable-long surface is **1 (SB" in text   # 2 -> 1 at the 2026-08-13 rebase: SBLK fell to GOVERNED-WIDE (justified-pnav read flips cheap/fair once the stale 0.78 pnav is rebased to 0.89 on one vintage)
 
 
 def test_verdict_applies_owner_label_corrections(tmp_path, rows, monkeypatch):

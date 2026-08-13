@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-13T20:46:39+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.55
+- Single-point FV: $2.22
+- Scenario PW FV: $2.07 (EV -18.8%)
+- NAV / share: $2.05
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.3pp (k_broker 1.11)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — 6/25 acquisition + financing READ (7 weeks late) and H1 PRE-REGISTERED; two digest errors corrected
 
 Surfaced as item M2 of the first scheduled news-pull digest (outputs/news_digest_2026-08-13.md)

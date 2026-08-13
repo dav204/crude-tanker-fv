@@ -1,5 +1,23 @@
 # DHT — Decision Log
 
+## 2026-08-13T20:46:39+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.72
+- Single-point FV: $15.32
+- Scenario PW FV: $15.88 (EV -15.2%)
+- NAV / share: $15.01
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +11.1pp (k_broker 1.14)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +4.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13T17:32:31+00:00 — Pipeline run (auto)
 
 **Model state:**

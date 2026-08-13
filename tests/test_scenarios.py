@@ -808,7 +808,12 @@ def test_hafn_whole_company_fv_in_expected_band_set_b():
     )
     # Re-pinned 2026-07-14 EVE (hormuz re-tilt): $6.33 ±5% -> [6.01, 6.65] — back at the pre-stand-down FV.
     assert 6.34 < headline.probability_weighted_fv < 7.00   # re-pinned 2026-08-10 STAGE A (deck-incoherence lift, stage_a_halt_investigation_2026-08-10.md; re-reads at the 8/16 deck re-derivation): $6.67 +/-5%
-    assert "HOLD" in headline.position_recommendation   # re-pinned 2026-08-10 STAGE A: the fixture-price (7.0) read crossed TRIM->HOLD on the documented deck lift (live-book HAFN stays TRIM at the real price); re-reads at the 8/16 deck re-derivation
+    assert "TRIM/SHORT" in headline.position_recommendation   # re-pinned 2026-08-13 at the
+    # consensus-pair rebase: this test reads the LIVE watchlist price, which moved 7.0 -> 7.6
+    # (2026-08-07 Pareto daily). The 8/10 STAGE-A note said the fixture-price read had crossed
+    # TRIM->HOLD on the deck lift "while live-book HAFN stays TRIM at the real price" — the
+    # rebase moved the fixture ONTO the real price, so the two agree again and it reads TRIM.
+    # Still re-reads at the 8/16 deck re-derivation.
     # Belt-and-suspenders per workflow verifier: assert sector explicitly so a
     # silent watchlist-typo regression (HAFN tagged as crude or lng) doesn't
     # accidentally pass the band test by coincidence.

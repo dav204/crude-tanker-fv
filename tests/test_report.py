@@ -71,7 +71,7 @@ def test_run_watchlist_end_to_end(tmp_path):
 def test_watchlist_loader_reads_dht():
     wl = load_watchlist()
     # re-pinned 2026-07-06 at the consensus-pair recapture (Pareto 3 Jul daily)
-    assert wl["DHT"]["current_price"] == pytest.approx(17.20)
+    assert wl["DHT"]["current_price"] == pytest.approx(18.40)   # re-pinned 2026-08-13: consensus-pair rebase to the 2026-08-07 Pareto daily
     assert wl["DHT"]["analyst_target"] == pytest.approx(16.00)
     assert wl["FRO"]["analyst_target"] == pytest.approx(30.50)
     assert wl["ECO"]["analyst_target"] == pytest.approx(45.00)
