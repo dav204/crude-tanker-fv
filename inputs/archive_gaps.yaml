@@ -17,11 +17,54 @@
 lookback_days: 120          # how far back the check looks
 limit_business_days: 3      # a run of >= this many missing business days flags
 
-accepted: []
-  # - feed: pareto_research
-  #   from: 2026-12-24
-  #   to: 2026-12-26
-  #   reason: "Pareto does not publish the Shipping Daily over Christmas (verified
-  #            in-channel); no issue exists to backfill."
-  #   accepted_by: owner
-  #   dated: 2026-12-27
+# EVIDENCE STANDARD, set by the first four entries below: an accepted gap cites a
+# CHANNEL-SIDE check proving no issue existed — not an inference from the archive's
+# own emptiness (which is the thing being explained). The 2026-08-13 audit is the
+# template: an uncapped Rocket.Chat history walk (--since 2026-07-01, 2,379 messages)
+# found zero Pareto-lane posts across these windows while the sibling FFA image lane
+# ingested normally, and the archive was shown to equal the channel exactly for
+# 2026-07-01 .. 2026-08-13. That is source-quiet; nothing was lost in transit.
+#
+# NOTE the correction this records: the BRUT-miss narrative first blamed "an
+# un-backfilled outage." It was wrong. No Pareto daily ever carried the 7/07 BRUT
+# release, because Pareto published nothing that week — so the load-bearing cause is
+# the MISSING ISSUER CHANNEL (Oslo NewsWeb), not a lost file. Keeping that straight
+# matters: the two causes have different fixes, and only one of them was real.
+
+accepted:
+  - feed: pareto_research
+    from: 2026-07-06
+    to: 2026-07-13
+    reason: >
+      Pareto Jul/Aug reduced cadence — source-quiet, verified channel-side by the
+      2026-08-13 RC history walk (zero Pareto posts; FFA lane live through the window).
+      The owner's 2026-07-12 seasonal-silence note in rocketchat_sources.yaml was
+      recorded DURING this window and describes exactly it. This is the window that
+      did NOT carry the BRUT 7/07 release — no issue existed to carry it.
+    accepted_by: owner-directed audit (decisions/brut_log.md 2026-08-13 PM)
+    dated: 2026-08-13
+  - feed: pareto_research
+    from: 2026-07-15
+    to: 2026-07-19
+    reason: "Same Jul/Aug cadence, same 2026-08-13 RC-walk evidence."
+    accepted_by: owner-directed audit (decisions/brut_log.md 2026-08-13 PM)
+    dated: 2026-08-13
+  - feed: pareto_research
+    from: 2026-07-21
+    to: 2026-07-27
+    reason: "Same Jul/Aug cadence, same 2026-08-13 RC-walk evidence."
+    accepted_by: owner-directed audit (decisions/brut_log.md 2026-08-13 PM)
+    dated: 2026-08-13
+  - feed: pareto_research
+    from: 2026-07-29
+    to: 2026-08-02
+    reason: "Same Jul/Aug cadence, same 2026-08-13 RC-walk evidence."
+    accepted_by: owner-directed audit (decisions/brut_log.md 2026-08-13 PM)
+    dated: 2026-08-13
+
+# DELIBERATELY NOT ACCEPTED — 2026-06-01..2026-06-03 (3 business days).
+# The RC walk that cleared the July windows started 2026-07-01, so it says nothing
+# about June. Accepting this one on the strength of "the July ones were fine" would
+# be exactly the inference this file exists to forbid. It stays flagged until someone
+# walks the channel for that window. A nagging check is the correct state for an
+# unexplained hole.
