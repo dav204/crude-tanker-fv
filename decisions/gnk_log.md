@@ -126,6 +126,44 @@
 
 ---
 
+## 2026-08-13 (PM) — Watchlist anchor: the tender basis is dead, but $24.80 is NOT simply a dead number
+
+Follow-through on the 8/13 news-digest item M3 and the 8/08 refresh's "TENDER REGIME OVER".
+The MODEL side was already correct (tender closure sourced to the Q2 10-Q Item 1A at the 8/08
+pair). What stayed stale was the WATCHLIST surface: `analyst_target: 24.80` with a comment
+still reading "Diana Shipping LIVE CASH TENDER ... deadline Jun 26 2026".
+
+**Verified primary-side today** (Genco statement 2026-07-27, investors.gencoshipping.com —
+the domain was allowlisted in 941fb95 the same day, so this read a primary rather than a
+search summary):
+- The tender EXPIRED 2026-07-24 17:00 NY; Diana did NOT extend or reinstate.
+- A NON-BINDING INDICATIVE PROPOSAL CONTINUES: "$24.80 per share in cash and one Diana share".
+- Diana ascribes $2.54 to the share leg (-> $27.34 implied); Genco disputes it on the record,
+  noting Diana's actual close was $2.25 on 07-24 (-> $27.05 implied).
+- Board position: "any offer needs to adequately compensate shareholders for the full
+  underlying value of our assets (NAV) and provide an appropriate control premium to NAV".
+
+**The correction that matters.** The 8/13 digest framed this as "the anchor is now dead". That
+is not quite right, and the difference is load-bearing: **$24.80 survives as the CASH LEG of a
+live two-leg proposal.** So the watchlist is not carrying a dead number — it is carrying a HALF
+number wearing a dead label, understating the live external marker by the share component.
+Deleting it as "dead" would have been as wrong as leaving it. The digest also quoted "$27.34
+implied" without the dispute; that is the BIDDER's mark, and Genco contests exactly that cell.
+
+**STAGED, NOT PROMOTED** — `inputs/watchlist_rebase_2026-08-07.yaml.draft`, new
+`anchor_corrections` section: four costed options (rec: Pareto NAV $28.40, 8/06 0.9x — dated,
+static, sourced, and consistent with this field's original justification for GNK, with an
+explicit "broker NAV, not a sell-side PT" note so the report's 'Analyst target' line is not
+misread). Owner ruling required; the watchlist stays human-gated.
+
+**Do NOT delete the DEAL CAVEAT** — rewrite it. The tape is un-PINNED but still M&A-influenced,
+and GNK sits ON its band boundary (three label changes in two weeks, band-mech each). A reader
+who sees the caveat vanish will over-read the TRIM/SHORT print. A re-check is registered in the
+promote checklist: the proposal is live and non-binding, so this anchor can die a second time
+on either outcome.
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - Q2 (Pareto 8/06–8/07): beat, DPS $0.80 (13% running yield, "12.5%" in the 8/06 wording), "showing

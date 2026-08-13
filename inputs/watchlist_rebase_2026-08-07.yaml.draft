@@ -96,6 +96,48 @@ issuer_sourced:            # ADDED 2026-08-13 — names whose consensus_pnav is 
       TEN $44 lesson, enforced by construction rather than by discipline.
     flags_unchanged: APPROX stays (no broker coverage); /reconcile keeps downweighting.
 
+anchor_corrections:        # ADDED 2026-08-13 — `analyst_target` rows whose BASIS died,
+  # which is a different failure from a stale value: the number can look plausible
+  # while the regime it described no longer exists. These do NOT ride the Pareto
+  # price rebase; each needs its own sourced re-point and an owner ruling.
+  GNK:
+    current_value: 24.80
+    current_basis_is_DEAD: >
+      The comment reads "Diana Shipping LIVE CASH TENDER $24.80/sh ... deadline Jun 26
+      2026" with a DEAL CAVEAT. The tender EXPIRED 2026-07-24 17:00 NY and Diana did
+      NOT extend or reinstate it. Already sourced primary-side in decisions/gnk_log.md
+      (Q2 10-Q Item 1A, acc 0001104659-26-091231) — the model side was handled at the
+      8/08 refresh; only this watchlist surface stayed stale.
+    but_the_number_is_not_simply_dead: >
+      $24.80 SURVIVES as the CASH LEG of a still-live NON-BINDING INDICATIVE PROPOSAL:
+      "$24.80 per share in cash and one Diana share" (Genco statement 2026-07-27,
+      investors.gencoshipping.com). So the field is wrong in a SPECIFIC way — it books
+      one leg of a two-leg proposal and understates the live external marker by the
+      share component. It is not a dead number; it is a HALF number wearing a dead label.
+    implied_totals_disputed: >
+      Diana ascribes $2.54 to the share leg -> $27.34 implied. Genco disputes exactly
+      that: the 2026-07-27 statement notes Diana's actual close was $2.25 on 07-24
+      -> $27.05 implied. NOTE the 2026-08-13 news digest cited "$27.34 implied" without
+      this dispute — that figure is the BIDDER's mark, not a neutral one. Either implied
+      total also FLOATS daily with DSX's share price, which is a live vintage hazard
+      for a static watchlist field.
+    genco_board_position: >
+      "any offer needs to adequately compensate shareholders for the full underlying
+      value of our assets (NAV) and provide an appropriate control premium to NAV"
+      (same statement) — i.e. the board itself frames NAV-plus-premium as the yardstick.
+    options:
+      - "(a) RECOMMENDED — Pareto NAV $28.40 (8/06 daily, 0.9x; 0.93x in the 8/10 dry cohort, decisions/gnk_log.md 2026-08-13 PM triage). Dated, static, sourced, and consistent with the field's ORIGINAL justification for this name ('the most concrete external value marker'). Does not float with a third party's share price. Same source family as the consensus_pnav this draft already rebases, so one vintage. CAVEAT to carry in the comment: this is a BROKER NAV, not a sell-side price target — say so, or a future reader misreads the report's 'Analyst target' line."
+      - "(b) $27.05 — cash leg + Diana's actual 07-24 close. Market-marked rather than bidder-marked, but stale the next trading day and re-floats every day the proposal lives."
+      - "(c) $27.34 — Diana's own ascribed value. REJECT unless deliberately booking the bidder's mark: Genco disputes it on the record."
+      - "(d) An independent sell-side consensus PT. Cleanest semantically (it is what the field NAME means) but not verified in this session — needs a sourced aggregator pull before it can be booked."
+    owner_ruling_required: true
+    do_not: >
+      Do not simply delete the DEAL CAVEAT. The tape is UN-PINNED but still
+      M&A-influenced (gnk_log 8/08: "a non-binding indicative offer continues"), so the
+      caveat should be REWRITTEN to the live regime, not retired. GNK also sits ON its
+      band boundary (three label changes in two weeks, band-mech each time) — a reader
+      who sees the caveat vanish will over-read the TRIM/SHORT print.
+
 promote_checklist:       # (WORKFLOWS §Consensus-pair recapture steps 4-5 — the
   # off-cycle sitting still owes ALL of it; reviewer catch 2026-08-09)
   - "One commit rebasing watchlist.yaml from this draft (FX rule: price leg only, daily-date FX; delete this draft in the same commit)"
@@ -105,6 +147,8 @@ promote_checklist:       # (WORKFLOWS §Consensus-pair recapture steps 4-5 — t
   - "Band flips from the price move: isolate-commit discipline, individual eyeballs"
   - "2343 (issuer_sourced lane): promote nav_per_share_usd 0.4297 and COMPUTE consensus_pnav = promoted_price / 0.4297 in the same commit — never paste a pnav. Expect ~0.98 -> ~0.91 at an unchanged price. Its consensus_fwd_pe (13.0, stockanalysis 2026-07-14) is a SEPARATE aggregator vintage untouched by the Interim — leave it, and say so in the commit rather than letting it look refreshed"
   - "2343 re-arm: the next issuer-composite refresh is AR2026 (~Mar-2027, per-class values return there). The 2026 Interim trigger is now SPENT — retire the 'Re-derive at the 2026 Interim' line from the watchlist comment at promote so a future reader does not chase a fired trigger"
+  - "GNK (anchor_corrections): OWNER RULES the analyst_target basis before promoting — the four options are costed in-file, rec is (a) Pareto NAV $28.40 with an explicit 'broker NAV, not a sell-side PT' note. REWRITE the DEAL CAVEAT to the live non-binding-proposal regime; do NOT delete it (the tape is un-pinned but still M&A-influenced, and GNK sits on its band boundary)"
+  - "GNK watch: the Diana proposal is LIVE and non-binding, so this anchor can die again. Register a re-check rather than assuming permanence — either outcome (deal agreed / Diana walks) changes the basis a second time"
 
 verified_cells_2026-08-09:  # re-checked against the RENDERED p.1 (200dpi crop) after
   # the reviewer flagged them — NO column bleed, all as printed:
