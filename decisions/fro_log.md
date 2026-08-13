@@ -1,5 +1,17 @@
 # FRO — Decision Log
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- **8/04 (Pareto 8/05): FRO confirmed the sale of two 2017-built VLCCs — "extreme prices", rumoured
+  prior.** NOT in `vlcc.yaml` and NOT in the 8/03→8/07 print queue (the sale sentence carries no
+  price; the 8/09 MB W32 promotions — Celeste Nova / Donoussa / Seapassion — do not include this
+  pair). **OPEN PRINT FLAG:** promote only when a per-vessel price lands (MB W33/W34 or the FRO Q2
+  report) via the standard prints→rerun→drift loop.
+- Pareto NAV statements in-window: Q2 NAV **$27** (7/28 daily; scenario ~$29.5 at $125k/d VLCC /
+  $90k/d Suezmax); 8/11 — FRO in the 1.1–1.3× NAV premium cohort (with DHT/OET); 8/05 — HOLD
+  reiterated (with OET/INSW). Consensus-pair cross-check at the next watchlist rebase.
+- Sweep negative on the 7/14 and 7/20 issues (no FRO text) — the July hole carries no missed FRO item.
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,5 +1,14 @@
 # SBLK — Decision Log
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- Q2 (reported 8/05 after close): Pareto 8/06 — "far ahead"; 13% running yield, limited Q3 revisions;
+  8/10 review — 0.86× NAV, buybacks + double-digit yield, "confidence is high" on drybulk. 7/20:
+  "the odd one out valuation-wise" — 20% GAV discount vs crude names at 15–30% premiums.
+  Consensus-pair cross-check at the next watchlist rebase.
+- 8/10: Diana 32–36-month capesize TC ('Florida', with NYK) — period-rate color only (the Diana SPA
+  was terminated/retired 8/11); no action.
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

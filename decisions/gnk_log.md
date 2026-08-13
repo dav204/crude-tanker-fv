@@ -1,5 +1,12 @@
 # GNK — Decision Log
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- Q2 (Pareto 8/06–8/07): beat, DPS $0.80 (13% running yield, "12.5%" in the 8/06 wording), "showing
+  the potential — more to come", estimates raised. Pareto NAV **$28.4/sh** (0.9× NAV, 8/06), then
+  0.93× in the 8/10 drybulk cohort (CMBT 0.84× / GNK 0.93× / SBLK 0.86×). No stance change stated;
+  consensus-pair cross-check at the next watchlist rebase.
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -5,6 +5,25 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-08-13 — JULY ARCHIVE-HOLE AUDIT (owner-directed backfill): NOTHING TO BACKFILL —
+  attribution corrected + full-window name sweep.** The 7/03→7/14 Pareto gap that hid the BRUT
+  7/07 chain is SOURCE-QUIET (Pareto's Jul/Aug cadence; the owner's 7/12 seasonal note in
+  `rocketchat_sources.yaml` covered it, recorded during the window), NOT an un-backfilled ingest
+  outage: a full RC history walk (uncapped, since 7/01, 2,379 msgs) shows zero Pareto-lane posts
+  7/04–7/13 while the sibling FFA lane ingested daily (7/06 arrivals on disk); the archive equals
+  the channel exactly for 7/01→8/13. The "harvester outage" was the weekly broker-marks lane (one
+  missed Saturday, revived 8/11 with W32/W33) — and a deep 40-page HSN+CapitalLink recrawl (1,449
+  raw issues) recovered NO July-window weeklies either: per-broker scatter (advanced W29, banchero
+  W28, fearnleys W27+W29, intermodal W28) against healthy July crons = mirror-side non-publication;
+  allied confirmed dead in 2026; W33 banchero+fearnleys were the only pickups. Remediation
+  therefore shifts to the surviving causes — untriaged name-text and NO ISSUER-RELEASE CHANNEL
+  (Oslo NewsWeb) for non-EDGAR names. Executed: manifest rebuilt (→8/13), `--names all` sweep over
+  issues 7/14→8/13 (mention files kept OUT of the tree, scratchpad-only), 15 decision logs given
+  dated triage entries; two OPEN PRINT FLAGS recorded, not promoted (FRO 2×2017 VLCCs — priceless
+  as yet; CMBT 'Bristol' suezmax — beyond the 8/07 print cursor, expected in the 8/15 queue); the
+  7/20 unnamed prints verified already dispositioned (8/09 round). No regen run; `prices_daily.yaml`
+  untouched. WORKFLOWS §Report-day clause + PLAN 8/13 AM block corrected; brut_log carries the
+  audit record.
 - **2026-08-09 — THE PROMOTION MEGA-ROUND (owner-authorized) + STAGE A RULED.** Three
   data events in one session, each with its own record/gate cycle: **marks-trail**
   (28 in-window S&P prints incl. three war-tape VLCCs $120-130M @ 9-13y; 4 unnamed-print

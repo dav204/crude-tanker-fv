@@ -1,5 +1,15 @@
 # TRMD — Decision Log
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- 8/05: TORM reportedly ordering 6 firm + 2 optional MRs in China, 2029–30 delivery, ~$46M/ship
+  scrubber-fitted (Pareto: parity ~$23k/d at 12% WACC; first order since 2018; MR/handy orderbook
+  15% of fleet vs 24%/52% aged 20Y+/15Y+). ALREADY dispositioned at the 8/09 marks-trail triage
+  (NB-anchor corroboration + trmd_log note scheduled at the 8/26 refresh) — recorded here so the log
+  carries the trace. Manifest/commitments untouched pending TORM's own disclosure.
+- Pareto pegs: DKK 223, 0.86× NAV (8/05) — "decent discount to HAFNI (0.93×)". Consensus-pair
+  cross-check at the 8/26 refresh.
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

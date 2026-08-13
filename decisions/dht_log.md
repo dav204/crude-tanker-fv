@@ -1,5 +1,11 @@
 # DHT — Decision Log
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- Pareto "Research focus: DHT" twice in-window: 7/20 (updating model with Q2/Q3 guidance) and 8/07
+  (Q2 review — "more confidence in 2027 estimates"); 8/11 — DHT in the 1.1–1.3× NAV premium cohort
+  (with FRO/OET). No stance change stated; consensus-pair cross-check at the next watchlist rebase.
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

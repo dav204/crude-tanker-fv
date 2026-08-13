@@ -7,6 +7,13 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- 7/28: Pareto updated estimates for the June-18 guidance + the convertible ahead of the Q2 report;
+  8/04 Q2 review — "nothing new under the sun" after the strong summer. 7/20: STNG the stand-out low
+  in the product GAV-discount bracket (8–31%). No stance change stated in-window. Pareto text only —
+  the staged 7/31 cluster work governs the Q2 pair itself.
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

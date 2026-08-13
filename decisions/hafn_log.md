@@ -1,5 +1,10 @@
 # HAFN — Decision Log
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- 8/05: Pareto pegs HAFNI at 0.93× NAV (in the TORM DKK 223 / 0.86× comparison). Only in-window
+  mention; consensus-pair cross-check at the next watchlist rebase.
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

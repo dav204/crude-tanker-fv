@@ -58,7 +58,8 @@ PDF archive is silent) + one issuer-newsflow search for names with no filing
 channel (Oslo/Euronext names have no EDGAR sentinel). A daily consumed for one
 print is NOT a triaged daily. (The BRUT H1 prereg froze 8/12 blind to the
 issuer's 7/07 delivery + sale-leaseback + DEMERGER + CEO release: the 7/03→7/14
-archive hole was never backfilled after the harvester outage, and the 8/06
+archive hole is Pareto's Jul/Aug cadence — SOURCE-QUIET, audited 8/13 PM: the RC
+history walk found no dailies ever existed to backfill (brut_log) — and the 8/06
 daily's BRUT paragraph sat untriaged beside the FFA prints taken from the same
 issue. The prereg's band survived on subsequent-events routing — the miss was
 recoverable luck, not process.) Cadence quirks worth

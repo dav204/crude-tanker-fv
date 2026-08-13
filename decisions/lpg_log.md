@@ -9,6 +9,16 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- 7/16 (Pareto 7/20): quarterly (irregular) dividend DECLARED at $1/sh for the quarter — same as the
+  prior quarter; policy cadence intact (cross-check `dividend_policies` at the next refresh). Pareto:
+  ~zero net debt a year out at a continued $1/sh; the ~5% NAV discount "attractive" against
+  conservative asset values.
+- Fiscal Q1'27 (reported ~8/05 before open; Pareto 8/06): EBITDA $130m / EPS $2.5, ~15% above
+  estimates (EPS); Pareto NAV **$46**, BUY, TP $54. Consensus-pair cross-check at the next rebase
+  (LPG is an APPROX name — price leg only).
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

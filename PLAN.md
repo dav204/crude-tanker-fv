@@ -43,6 +43,28 @@ forward-invariance + subsequent-events-first + the Q3-QTD-extraction step that f
 consensus-pair transcription from the 8/7 Pareto daily (16 pareto-basis + 4 approx names;
 kr-quoted rows flagged for FX at promote). Promoting it retires the k-vintage-skew test debt.
 
+**2026-08-13 PM UPDATE (July-hole audit — owner-directed backfill executed).**
+Result: **NOTHING TO BACKFILL — attribution corrected** (full record: brut_log 8/13 PM
+entry). The 7/03→7/14 Pareto gap is SOURCE-QUIET (Pareto's Jul/Aug cadence; the 7/12
+seasonal note in `rocketchat_sources.yaml` covered it): full RC history walk (uncapped,
+since 7/01, 2,379 msgs) = zero Pareto posts in the window while the sibling FFA lane
+ingested daily; archive == channel exactly for 7/01→8/13. The "harvester outage" was the
+weekly broker-marks lane (revived 8/11) — a deep 40-page HSN+CapitalLink recrawl
+recovered NO July weeklies either (mirror-side non-publication; W33 banchero/fearnleys
+picked up; allied dead in 2026). So the BRUT-miss remediation rests on the surviving
+causes: untriaged name-text + NO ISSUER CHANNEL (NewsWeb) — the latter is now the
+load-bearing gap. **Full-window `--names all` sweep executed** (issues 7/14→8/13, manifest
+rebuilt to 8/13): 15 decision logs triaged. **TWO OPEN PRINT FLAGS (not promoted):**
+FRO 2×2017-built VLCCs (8/04, "extreme prices", NO price disclosed yet — watch MB
+W33/W34 + FRO Q2) · CMBT 'Bristol' 2024 suezmax (8/11, $57m Q4 gain, beyond the 8/07
+print cursor — expect in the Sat 8/15 queue). **HEADS-UP for tonight: OET trades ex-div
+$5.25 Oslo 8/13 / NY 8/14** — don't read the price drop as drift; the staged 8/07
+watchlist-rebase draft pre-dates the ex-date. No prints promoted, no regen run
+(prices_daily untouched by this work). NOTE the interaction with the 8b ARCHIVE-GAP
+check landed in parallel (block below): its flagged July/early-Aug Pareto holes are this
+same verified cadence — accepted-gap entries for `inputs/archive_gaps.yaml` are now
+evidence-backed by the RC walk.
+
 **2026-08-13 PM — WATCHDOG REMEDIATION (owner-directed after the BRUT miss).**
 Root cause of the 5-week blindness was NOT a crash: `/news-pull`'s agent half ran
 TWICE (6/10, 6/21), its orchestration was **deferred by owner 2026-06-14 under the
@@ -95,9 +117,9 @@ financed" subject to completion (83% capex outstanding 8/12), **Horizon joins
 MID-NOV-26 at $106k/d** (manifest says Jan-27 — re-date at the pair; ≈ the ruled
 $105.7k print, Rider-4 corroboration). **AGM 8/12 results:** routine slate + share
 premium −$226.04M → contributed surplus eff. 8/12 (the dividend plumbing). Why
-missed: 7/03→7/14 archive hole (harvester outage, never backfilled) + the 8/06
-daily's BRUT paragraph untriaged at the FFA sitting → dated rule added to
-WORKFLOWS §Report-day refresh; backfill flagged. **The frozen prereg band
+missed: 7/03→7/14 archive hole (CORRECTED 8/13 PM: source-quiet — no dailies existed;
+see the PM block above) + the 8/06 daily's BRUT paragraph untriaged at the FFA sitting
+→ dated rule added to WORKFLOWS §Report-day refresh; backfill CLOSED (nothing to pull). **The frozen prereg band
 [8.50,10.00] still governs the mechanical 6/30 pair** (all of the above is
 post-6/30 subsequent events; routing already correct). **OWNER WORDS NOW OPEN:**
 run the H1 refresh per the prereg · demerger modeling (structural split, own

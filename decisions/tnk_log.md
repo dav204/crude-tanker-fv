@@ -1,5 +1,12 @@
 # TNK — Decision Log
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- 8/05 Q2 review: "best quarter on record", strong Q3 start, Pareto makes "overdue revisions (in line
+  with cons.)" — still "firmly in the deep-value bracket". 7/28 pre-report: no estimate changes;
+  value-bracket framing (discount attributed to lower payout; HOLD). Pareto text only — the staged
+  7/31 cluster work governs the Q2 pair itself.
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

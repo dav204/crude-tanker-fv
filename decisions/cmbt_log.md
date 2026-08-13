@@ -1,5 +1,17 @@
 # CMBT — Decision Log
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- **8/11: 'Bristol' (2024-built suezmax) sale announced — $57m gain to be taken in Q4; Pareto:
+  "another proof of value", NAV ~NOK 190.** No price in the daily's text, and the 8/10–8/13 issues sit
+  beyond the 8/07 print-scan cursor — expect it in the Sat 8/15 queue; promote only via the standard
+  prints→rerun→drift loop (`suezmax.yaml`'s newest row is 7/10). Pareto also notes the sale of one of
+  their YOUNGEST ships (fleet-renewal read).
+- Donoussa cross-ref (already promoted 8/09 at $128M, MB W32 exact): Pareto 8/03 corroborates — price
+  "far above our generic quotes ($106m)"; their +15% tanker-value markup lifts CMBT Q2 NAV
+  $19.9 → $21.1 (0.77× NAV).
+- 8/10 drybulk cohort: CMBT 0.84× NAV. Consensus-pair cross-check at the next rebase.
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

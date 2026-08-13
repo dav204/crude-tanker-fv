@@ -1,5 +1,13 @@
 # CAPT — Decision Log
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- Pareto in-window color (no stance line printed): 7/28 — "CAPT stands out" in the value bracket;
+  "Q3 NAV would be pushing NOK 200", discount near 40% "far too harsh", dividend yield possibly >5%
+  with one of 15 VLCCs in the water. 8/06 — at a $100k/d 2027 VLCC assumption CAPT "perhaps most
+  interesting" ("massive discount", $2.5–3 EPS potential with many vessels undelivered). Growth-fleet
+  framing consistent with the §9.6 delivered-less-commitment treatment; nothing value-moving to ingest.
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

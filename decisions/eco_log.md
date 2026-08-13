@@ -1,5 +1,17 @@
 # ECO — Decision Log
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- OET Q2 (reported 8/04 after close): Pareto 8/05–8/06 — "out of the park"; possible 2026 EPS ~$18,
+  payout ~$15/sh; NAV path stated 1.5× (Q2 basis) → just below 1.3× (post-beat + Q3 cashflow) → 1.15×
+  with +10% asset values; HOLD reiterated (with FRO/INSW). 7/28: Q2 NAV $39.2 → scenario $43.3 at
+  $125k/d VLCC / $90k/d Suezmax.
+- **8/13: OET trades ex-dividend $5.25 in Oslo TODAY (New York tomorrow 8/14)** — tonight's price
+  refresh will print the drop; do NOT read it as drift, and note the STAGED watchlist rebase draft
+  (8/07 vintage) pre-dates the ex-date.
+- 8/03 color: Pareto pre-flagged "one of the most spectacular quarterly tanker reports ever"; OET
+  lifted CPC cargoes in July near $300k/d.
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

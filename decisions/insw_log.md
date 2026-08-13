@@ -7,6 +7,15 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- Pareto NAV pegs in-window: ~1.15× (8/07 — "very respectable pricing"), 1.11× (8/11, premium cohort
+  with DHT/FRO/OET); 8/13 Q2 review — "top performing tanker name" of 2026, historical NAV-discount
+  closed; 8/05 HOLD reiterated (with OET/FRO). Consensus-pair cross-check at the next watchlist rebase
+  (the staged 8/07 draft pre-dates the 8/11/8/13 statements).
+- First in-window INSW text is 8/05 — the July-hole issues carry no missed INSW item. (Stage-A 8/10
+  band-HIT already recorded in the Stage-A docs.)
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

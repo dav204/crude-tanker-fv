@@ -7,6 +7,12 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
+
+- 8/13: container-liner guidance raises (a second upward revision inside two months, after
+  Hapag-Lloyd's a month ago) called out as "positive for MPCC — BUY, TP NOK 30". Only in-window
+  mention; consensus-pair cross-check at the next watchlist rebase.
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

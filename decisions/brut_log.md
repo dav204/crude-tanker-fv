@@ -9,6 +9,31 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-13 (PM) — ARCHIVE-HOLE AUDIT: the 7/03→7/14 gap is SOURCE-QUIET, not an un-backfilled outage (attribution corrected)
+
+Owner-directed backfill attempt executed today; result: **nothing existed to backfill.**
+
+- Full Rocket.Chat channel-history walk (uncapped, `--since 2026-07-01`, 2,379 messages): ZERO
+  Pareto-lane posts between 7/03 and 7/14 — while the channel itself and the sibling FFA image lane
+  were live through the window (7/06 FFA arrivals on disk). Sender-record inspection confirms the
+  same quiet weeks.
+- The archive exactly equals the channel content for 7/01→8/13 (August complete incl. today's daily).
+  The July holes (7/06–13, and likewise 7/15–17 / 7/21–27 / 7/29–31) are **Pareto's Jul/Aug cadence** —
+  the owner's 7/12 seasonal-silence note in `rocketchat_sources.yaml` covered exactly this, recorded
+  DURING the window. The "harvester outage" in the AM entry below was a different lane (weekly
+  broker-marks harvester, one missed Saturday, revived 8/11 with W32/W33).
+- Consequence for the miss narrative: cause (a) was NOT a lost daily — **no Pareto daily existed to
+  carry the 7/07 release**, and the sweep confirms the 8/06 daily's paragraph was Pareto's FIRST BRUT
+  text in the archive (no BRUT mention in 7/14 / 7/20 / 7/28). Causes (b) untriaged name-text and
+  (c) no issuer-release channel stand UNCHANGED and are the real remediation surface — (c) is now the
+  load-bearing one.
+- Broker-weekly leg of the same audit: deep 40-page recrawl (HSN + Capital Link, 1,449 raw issues)
+  recovered NO additional July-window weeklies (advanced W29 / banchero W28 / fearnleys W27+W29 /
+  intermodal W28 absent at the mirrors themselves; W33 banchero + fearnleys picked up); allied
+  confirmed dead in 2026.
+
+---
+
 ## 2026-08-13 — Feed check (owner-requested, PRE-refresh): AGM outcomes + a MISSED 5-week structural chain surfaced
 
 **AGM results (held 8/12, 9:00 Bermuda; NewsWeb via modular-finance syndication):** routine slate —
