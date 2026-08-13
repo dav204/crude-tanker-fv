@@ -9,7 +9,51 @@ where you annotate what you actually did and why.
 
 ---
 
-## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
+## 2026-08-13 — Feed check (owner-requested, PRE-refresh): AGM outcomes + a MISSED 5-week structural chain surfaced
+
+**AGM results (held 8/12, 9:00 Bermuda; NewsWeb via modular-finance syndication):** routine slate —
+board max 7, casual-vacancy authority, Isaksen + Yoon re-appointed, aggregate director fees ≤$400k —
+plus ONE structural item: **share premium reduced by US$226,039,548 → contributed surplus, effective
+2026-08-12**. That is the Bermuda dividend-capacity plumbing for the monthly-dividend intention below.
+No demerger resolution at the AGM (it proceeds on the 7/07 board resolution + listing process).
+
+**H1-2026 IS OUT (8/13 morning; Pareto 8/13 daily covers it** — "the numbers themselves are of limited
+interest"). The structural tape, assembled today:
+- **2026-07-07 issuer release — MISSED FOR 5 WEEKS:** Mount Vision DELIVERED 7/08 + commenced a
+  3+1+1-year index-linked TC ($95k/day fixed first 9 months, international trading company);
+  **sale-leaseback definitive docs signed** for the 4 NTS hulls (Chinese leasing house, 85–90% of
+  newbuilding cost — Vision 90% — 15y bareboat ≈ 5.6% interest-equivalent); **DEMERGER announced**:
+  BRUT keeps the 4 × 2026-27 hulls as a monthly-dividend cashflow company, the 8 × 2028-29 hulls
+  (4 CIMC + 4 NTS) demerge into a new Euronext Growth Oslo listing by END-AUG; BRUT itself uplists
+  to Expand/Oslo Børs by end-Sep; **interim CEO Lars-Christian Svensen**. Program $1,472M; equity
+  raised $216M.
+- **Pareto 8/13:** demerger "going according to schedule"; subject to completion the remaining 4
+  VLCCs are **"fully financed"** (83% of capex outstanding as of 8/12); **monthly dividends from
+  August**; **Mount Horizon joins the fleet MID-NOV-2026 at $106k/day** (manifest carries Jan-27 —
+  a ~2-month pull-forward to re-date at the pair); Pareto NAV NOK 71 (0.83×), FCF/sh $0.71 (2 ships)
+  / $1.46 (4 ships) annualized at avg $101k/day.
+
+**Why it was missed (recorded, not excused):** (a) the Pareto daily archive has a Hole exactly over
+the release week — 7/03 → 7/14, the harvester-outage era, never backfilled (the 8/11 revival
+backfilled W32/W33 only); (b) the first in-repo trace — the 8/06 daily's BRUT paragraph (Horizon
+fixture + "in the event of a demerger") — was consumed for FFA prints the same day but its name text
+went untriaged; (c) no issuer-release channel watches Oslo NewsWeb for BRUT. Dated rule added to
+WORKFLOWS.md §Report-day refresh; archive backfill flagged.
+
+**Pre-refresh implications (surfaced for the owner, NOT decided here):**
+1. The frozen prereg band **[8.50, 10.00] still governs the mechanical 6/30 pair** — everything
+   above is post-6/30 subsequent events; the prereg's routing (subsequent-events-first, §15 screen,
+   Rider-4) already sends each item to the right place. The prereg stays frozen; no post-print edit.
+2. **§15 going-concern: transformed, not merely clarified** — the rump becomes "fully financed"
+   (subject to demerger completion) and the unfinanced 8-ship program EXITS to the demerged entity.
+   This is the financing-clarity event the 7/01 fork named as the resolution venue. Tier/flag calls
+   are the owner's at the refresh.
+3. **Rider-4:** Horizon "$106k/day" ≈ the ruled $105,700 single-print — corroboration, not a
+   contradiction; verify the exact figure in the H1 doc at the refresh.
+4. **The demerger is a structural split the model must decide how to carry** (one 12-ship NAV today
+   vs pre/post-demerger entities; effective end-Aug) — owner decision, its own decision doc; note it
+   compounds with the 8/16 deck re-expression.
+5. Monthly dividends → `dividend_policies/brut.yaml` update at the pair (currently zero-payout).
 
 **Model state:**
 - Current price: $6.41

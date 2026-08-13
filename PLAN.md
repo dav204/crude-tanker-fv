@@ -43,6 +43,27 @@ forward-invariance + subsequent-events-first + the Q3-QTD-extraction step that f
 consensus-pair transcription from the 8/7 Pareto daily (16 pareto-basis + 4 approx names;
 kr-quoted rows flagged for FX at promote). Promoting it retires the k-vintage-skew test debt.
 
+**2026-08-13 AM UPDATE (Thursday — BRUT report day).** H1 IS OUT (Pareto 8/13 daily
+covers it) and the owner-requested AGM/feed check surfaced a **MISSED 5-WEEK
+STRUCTURAL CHAIN** (full record: brut_log 2026-08-13 entry): issuer release
+**7/07** — Vision DELIVERED 7/08 on a 3+1+1y index-linked TC ($95k/d fixed 9mo),
+sale-leaseback signed for the 4 NTS hulls (85-90% of cost, 15y BB ~5.6%),
+**DEMERGER announced** (BRUT keeps 4×2026-27 as a monthly-dividend cashflow co;
+8×2028-29 demerge to a new Euronext Growth listing by END-AUG; BRUT uplists by
+end-Sep), interim CEO Svensen. 8/13 daily: demerger on schedule, rump "fully
+financed" subject to completion (83% capex outstanding 8/12), **Horizon joins
+MID-NOV-26 at $106k/d** (manifest says Jan-27 — re-date at the pair; ≈ the ruled
+$105.7k print, Rider-4 corroboration). **AGM 8/12 results:** routine slate + share
+premium −$226.04M → contributed surplus eff. 8/12 (the dividend plumbing). Why
+missed: 7/03→7/14 archive hole (harvester outage, never backfilled) + the 8/06
+daily's BRUT paragraph untriaged at the FFA sitting → dated rule added to
+WORKFLOWS §Report-day refresh; backfill flagged. **The frozen prereg band
+[8.50,10.00] still governs the mechanical 6/30 pair** (all of the above is
+post-6/30 subsequent events; routing already correct). **OWNER WORDS NOW OPEN:**
+run the H1 refresh per the prereg · demerger modeling (structural split, own
+decision doc — compounds with 8/16) · §15 tier/flag call at the refresh
+(financing-clarity event has arrived, by restructuring).
+
 **2026-08-12 UPDATE (Wednesday).** BRUT H1 PREREG WRITTEN + FROZEN
 (`decisions/brut_h1_prereg_2026-08-12.md`): point $9.68 note-gross / $8.87 note-net
 (the ledger fork is BIMODAL — (cash − commitments) is deposit-invariant, so the 7/01

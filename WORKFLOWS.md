@@ -49,7 +49,19 @@ the consensus_pnav plumbing (TRMD $34 stated vs $33.98 implied).
 (`python -m crude_tanker_fv.refresh`) flags 🔴 REFRESH DUE when a window
 opens with no target-quarter balance sheet on file, and 🟡 reports-soon
 within 14 days. The weekly `/news-pull` digest catches newly-announced
-dates — update the calendar when it does. Cadence quirks worth
+dates — update the calendar when it does.
+
+**2026-08-13 — before FREEZING a report-day prereg, sweep the name's full trail
+since its last decision-log entry:** `sp_scan --names <TICKER>` over the daily
+archive + an archive-GAP check for the window (`ls` the period — a hole in the
+PDF archive is silent) + one issuer-newsflow search for names with no filing
+channel (Oslo/Euronext names have no EDGAR sentinel). A daily consumed for one
+print is NOT a triaged daily. (The BRUT H1 prereg froze 8/12 blind to the
+issuer's 7/07 delivery + sale-leaseback + DEMERGER + CEO release: the 7/03→7/14
+archive hole was never backfilled after the harvester outage, and the 8/06
+daily's BRUT paragraph sat untriaged beside the FFA prints taken from the same
+issue. The prereg's band survived on subsequent-events routing — the miss was
+recoverable luck, not process.) Cadence quirks worth
 remembering: TEN reports Q2 in SEPTEMBER (H1 reporter); FLNG's calendar
 slot is Aug-28 but 2025's release came Aug-20; the early cluster
 (STNG/ASC/TNK/CCEC) opens Jul-28.
