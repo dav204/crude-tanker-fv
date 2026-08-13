@@ -24,8 +24,15 @@ duties:
   - name: news_pull_digest
     artifact_glob: "news_digest_*.md"     # under outputs/
     cadence_days: 7
-    scheduled: false                      # ← the open item: agent-half orchestration,
-                                          #   deferred 2026-06-14, never re-docketed
+    scheduled: true                       # SCHEDULED 2026-08-13 — Claude scheduled-task
+                                          # `crude-fv-weekly-news-pull`, Sat 09:03 local
+                                          # (after the 08:00 mechanical chain, so the
+                                          # archive is fresh). This CLOSES the agent-half
+                                          # orchestration deferred 2026-06-14 under the
+                                          # crude-edge freeze and never re-docketed when
+                                          # the freeze lifted 6/21 — an 8-week hole.
+                                          # The digest's age (checked here) IS the
+                                          # heartbeat: if the task dies, 8c flags it.
     command: "/news-pull"
     why: >
       The only channel that reads COMPANY news (demergers, financings, deliveries,

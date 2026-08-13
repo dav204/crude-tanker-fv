@@ -43,6 +43,46 @@ forward-invariance + subsequent-events-first + the Q3-QTD-extraction step that f
 consensus-pair transcription from the 8/7 Pareto daily (16 pareto-basis + 4 approx names;
 kr-quoted rows flagged for FX at promote). Promoting it retires the k-vintage-skew test debt.
 
+**2026-08-13 PM — WATCHDOG REMEDIATION (owner-directed after the BRUT miss).**
+Root cause of the 5-week blindness was NOT a crash: `/news-pull`'s agent half ran
+TWICE (6/10, 6/21), its orchestration was **deferred by owner 2026-06-14 under the
+crude-edge freeze**, the freeze lifted 6/21 and the deferral was never re-docketed —
+while the MECHANICAL job sharing its name reported `outcome=ok` every Saturday.
+THREE FIXES LANDED (commit 40a3496 + this one, suite 639 green):
+(1) **ARCHIVE-GAP (8b)** — every prior staleness check read the NEWEST artifact
+(alive-now) and was blind to a hole BEHIND the head. Now counts missing business
+days; accepted publication holidays go in `inputs/archive_gaps.yaml`. Live tree
+shows **5 gaps**, incl. the 6-day July hole that hid the BRUT release (plus
+7/15-19, 7/21-27, 7/29-8/02 — previously unknown). News read from a gap window is
+UNSUPPORTED, not absent.
+(2) **AGENT-TASK-DUE (8c)** — check 6 sees jobs with plists, check 8 sees feeds
+with artifacts; a duty living as a slash command was invisible to both.
+`inputs/agent_duties.yaml` now registers such duties.
+(3) **SCHEDULED the sweep** — Claude scheduled-task `crude-fv-weekly-news-pull`,
+**Sat 09:03** (after the 08:00 chain). Closes the 6/14 deferral. The digest's age
+IS its heartbeat: if the task dies, 8c flags it. Prompt carries the absence-isn't-
+evidence rule (must state window + sources searched, never a bare "nothing found")
+and an archive-gap check. **OWNER: click "Run now" once** to pre-approve its tools
+— an unapproved tool prompt at 09:03 Saturday aborts the run silently (the exact
+failure that killed the governance monitor's 8/07 run).
+(4) Check 6 also now flags **3 consecutive `skipped-*` runs** (a skip writes a
+FRESH heartbeat by design, so a job standing down forever looked healthy — a
+forgotten PAUSE would silence all six jobs with six green hearts), and the weekly
+limit tightened 9d→8d.
+**URGENT, OWNER-ONLY — THE PAGER IS OFF:** `~/.config/crude-tanker-fv.env:8-10`
+still has `CRUDE_FV_HEALTHCHECK_URL` **commented out from the 2026-07-13 drill
+whose own restore date was 7/15** — 29 days. `state/sentinel_cron.log`:
+**PING-SENT 0 / PING-SKIPPED 30**. The ping is the ONLY mechanism that pages on
+ABSENCE, so with it off the sentinel is an unwatched watcher — this is why all
+four deaths went unseen, and why the 8/09 allowlist-matcher fix didn't restore it.
+Uncomment that line. Also open from the sweep: `pareto_research silence_days: 14`
+is 7× loose (its premise retired 8/09 when `drybulk_spot_daily_resumes` fired) on
+the book's most fragile single-sender feed · `inputs/overlays.yaml` has 3 overlays
+scoped to the RETIRED Jun-9 weights and `retire_trigger` is read by no code · 2
+zombie `ctxprobe` launchd jobs still firing 6 weeks past a 7-day window · two
+sentinel tags (`EARNINGS-UNCONFIRMED`, `EARNINGS-SWEEP-STALE`) unrouted so they
+page every run, the latter with a trailing-colon bug in the tag itself.
+
 **2026-08-13 AM UPDATE (Thursday — BRUT report day).** H1 IS OUT (Pareto 8/13 daily
 covers it) and the owner-requested AGM/feed check surfaced a **MISSED 5-WEEK
 STRUCTURAL CHAIN** (full record: brut_log 2026-08-13 entry): issuer release
