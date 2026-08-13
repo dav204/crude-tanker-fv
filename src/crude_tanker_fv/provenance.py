@@ -210,8 +210,11 @@ TIER_SUBREASON = {
     # SBLK ADDED 2026-08-13 at the consensus-pair rebase — VALIDATED-TIGHT -> GOVERNED-WIDE.
     # NOT a thesis change and NOT a new input: the justified-P/NAV read now flips
     # (cheap/fair) across the two normalization bases, so the cheap call no longer survives
-    # the basis choice. It was held TIGHT by a STALE pnav — 0.78 carried a 2026-07-03 vintage
-    # against an August price; rebased to 0.89 at one 08-07 vintage the corroboration fails.
+    # the basis choice. MECHANISM (corrected 8/13 EVE — first record blamed consensus_pnav,
+    # which feeds nothing here): the WATCHLIST PRICE leg moved 25.20 -> 28.60 at the rebase
+    # while tool NAV sat unchanged ($32.78), so pnav_mkt = price/NAV crossed the cheap|fair
+    # boundary on the historical-mean basis (flip price $27.72). Boundary-adjacent: the live
+    # tape sits ~0.6% above re-promotion — expect possible flip-back at the next vintage.
     # This is precisely the k-vintage-skew the rebase existed to retire, landing on a held
     # name. GOVERNANCE SEAM: TIGHT -> WIDE caps size below what the same discount would
     # justify (governance dated rule 2026-06-29), and SBLK has a LIVE leg-2 trim GTC at

@@ -41,11 +41,17 @@
 
 **Not a thesis change, not a new input, and not a price move — a STALE ANCHOR COMING OFF.**
 
-The 2026-08-07 watchlist rebase put price + consensus_pnav + fwd P/E on one vintage. SBLK's
-pnav moved **0.78 -> 0.89**; the 0.78 carried a **2026-07-03** vintage while the tool NAV and
-the tape had both moved on to August. Rebased, the **justified-P/NAV read now FLIPS
-(cheap/fair)** across the two normalization bases, so `robust != "robust"` and the tier falls
-through rule 2 to GOVERNED-WIDE. Every other tier input is unchanged and clean: nav_basis
+The 2026-08-07 watchlist rebase put price + consensus_pnav + fwd P/E on one vintage.
+**MECHANISM CORRECTED 2026-08-13 EVE (the original version of this entry mis-attributed it):**
+the driver was the **PRICE leg**, not the consensus_pnav leg — Pareto's consensus_pnav feeds
+NOTHING in the tier (justified_pnav.py:309 is explicit: "no consensus_fwd_pe / consensus_pnav").
+What happened: the watchlist price moved 25.20 -> 28.60 (+13.5%) while the tool NAV sat
+byte-identical at $32.78, so **pnav_mkt = price / TOOL NAV moved 0.769 -> 0.873**, crossing the
+cheap|fair boundary on the historical-mean basis (flip price $27.72 = NAV x J_hist/1.1). The
+**justified-P/NAV read now FLIPS (cheap/fair)** across the two normalization bases, so
+`robust != "robust"` and the tier falls through rule 2 to GOVERNED-WIDE. NOTE: at the live tape
+(~$27.9) SBLK sits ~0.6% ABOVE the re-promotion boundary — this tier can flip back on the next
+vintage promote; treat the demotion as boundary-adjacent, not settled. Every other tier input is unchanged and clean: nav_basis
 resale-uniform, weight_sign_stable TRUE, family EV range +2.6%..+10.7% (sign-stable).
 
 **This is exactly what the rebase was for.** The 8/09 promotion round recorded that the
