@@ -2,11 +2,11 @@
 
 > **Valuation basis:** WHOLE-COMPANY = crude sleeve (65.0% of vessel value) + product sleeve (35.0%) AGGREGATED. Compared to the WHOLE-COMPANY tape price (not the crude-allocated proxy). Each sleeve is probability-weighted by its OWN sector's scenario weights (cross-sector independence; METHODOLOGY 6 v2, rank-1 pairing removed 2026-07-02).
 
-- **Current price:** $92.41
+- **Current price:** $92.38
 - **Analyst target:** $79.50
 - **NAV / share (reference, unflexed):** $54.64 _(flexes per scenario via vessel-value elasticity — see table)_
 - **Probability-weighted fair value:** $59.39 (-35.7% vs price)
-- **Breakeven TCE (scenario-invariant):** $469,118/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
+- **Breakeven TCE (scenario-invariant):** $468,801/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** TRIM/SHORT (overvalued)
 
 ## Per-scenario fair value
@@ -23,9 +23,9 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $-12.00
-- **Downside (worst scenario − price):** $-52.22
-- **Expected value vs current** (weighted FV − price): $-33.02 (-35.7%)
+- **Upside (best scenario − price):** $-11.97
+- **Downside (worst scenario − price):** $-52.19
+- **Expected value vs current** (weighted FV − price): $-32.99 (-35.7%)
 - **Position:** TRIM/SHORT (overvalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_
@@ -34,8 +34,8 @@ _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SH
 
 | Sleeve | Share | Allocated price | Weighted FV | EV% | Position |
 |---|--:|--:|--:|--:|---|
-| Crude | 65.0% | $60.03 | $39.06 | -34.9% | TRIM/SHORT |
-| Product | 35.0% | $32.38 | $20.34 | -37.2% | TRIM/SHORT |
-| **WHOLE-COMPANY** | 100% | **$92.41** | **$59.39** | **-35.7%** | **TRIM/SHORT** |
+| Crude | 65.0% | $60.01 | $39.06 | -34.9% | TRIM/SHORT |
+| Product | 35.0% | $32.37 | $20.34 | -37.2% | TRIM/SHORT |
+| **WHOLE-COMPANY** | 100% | **$92.38** | **$59.39** | **-35.7%** | **TRIM/SHORT** |
 
 _Whole-company FV = crude FV + product FV (both per shares-outstanding); compared against the whole-company tape price, not the carved proxy. The product sleeve uses CLEAN trading rates (LR1/LR2 via clean curves, MR via its own scenario forwards). The product sleeve carries MORE downside than crude because product is leading the MoU rate normalisation (MR -52% w/w, LR2 -28% w/w as of 2026-05-29) — flagged in METHODOLOGY 6 v2._

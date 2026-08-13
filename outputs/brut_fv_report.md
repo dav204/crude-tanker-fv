@@ -1,8 +1,8 @@
 # BRUT — Fair Value Report
 
-- **Report date:** 2026-Q1
-- **Current price:** $6.41
-- **Model fair value:** $8.83
+- **Report date:** 2026-Q2
+- **Current price:** $6.26
+- **Model fair value:** $9.63
 - **Analyst target:** $7.13
 
 ## Data validation warnings
@@ -13,23 +13,23 @@
 
 | Item | $M |
 |---|---:|
-| Fleet value — VLCC | 1,851.9 |
-| + Cash & equivalents | 66.0 |
-| + Working capital (net) | 0.0 |
+| Fleet value — VLCC | 1,856.7 |
+| + Cash & equivalents | 11.8 |
+| + Working capital (net) | -0.7 |
 | − Total debt | 0.0 |
 | − Lease liabilities | 0.0 |
-| − Newbuild commitments | 1,373.1 |
+| − Newbuild commitments | 1,272.0 |
 | + Newbuild advances | 0.0 |
-| **= NAV total** | **544.8** |
+| **= NAV total** | **595.8** |
 | Diluted shares | 61,923,808 |
-| **NAV / share** | **$8.80** |
+| **NAV / share** | **$9.62** |
 
 ## Dividend strip (r = 11%)
 
 | Quarter | FFA spot (VLCC, $/day) | Blended TCE ($/day) | EPS | DPS | Disc. DPS |
 |---|---:|---:|---:|---:|---:|
 | Q1 | 179,650 | 179,650 | 0.187 | 0.000 | 0.000 |
-| Q2 | 179,650 | 179,650 | 0.187 | 0.000 | 0.000 |
+| Q2 | 179,650 | 179,650 | 0.435 | 0.000 | 0.000 |
 | Q3 | 105,700 | 105,700 | 0.221 | 0.000 | 0.000 |
 | Q4 | 105,700 | 105,700 | 0.221 | 0.000 | 0.000 |
 | Q5 | 48,850 | 48,850 | 0.116 | 0.000 | 0.000 |
@@ -37,8 +37,8 @@
 | Q7 | 48,850 | 48,850 | 0.174 | 0.000 | 0.000 |
 | Q8 | 48,850 | 48,850 | 0.292 | 0.000 | 0.000 |
 | Σ discounted DPS | | | | | 0.00 |
-| Terminal value (NAV, q9) | | | | 11.27 | 8.92 |
-| **DivStrip implied price** | | | | | **$8.92** |
+| Terminal value (NAV, q9) | | | | 12.22 | 9.66 |
+| **DivStrip implied price** | | | | | **$9.66** |
 
 _FFA spot is the VLCC forward curve that drives the strip cash flows; its 12-month average is **$142,675/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$105,700/day** — not this FFA average._
 
@@ -49,17 +49,17 @@ _FFA spot is the VLCC forward curve that drives the strip cash flows; its 12-mon
 
 ## Blended fair value
 
-0.70 × $8.80 (NAV) + 0.30 × $8.92 (strip) = **$8.83**
+0.70 × $9.62 (NAV) + 0.30 × $9.66 (strip) = **$9.63**
 
 ### FV attribution
 
 | Term | $/sh | share of FV |
 |---|---:|---:|
-| Vessel marks | 20.93 | 237% |
-| Balance-sheet net | -14.78 | -167% |
+| Vessel marks | 20.99 | 218% |
+| Balance-sheet net | -14.25 | -148% |
 | Discounted DPS (strip, 8-10q) | 0.00 | 0% |
-| Discounted terminal (aged NAV) | 2.67 | 30% |
-| **Blend FV** | **8.83** | 100% |
+| Discounted terminal (aged NAV) | 2.90 | 30% |
+| **Blend FV** | **9.63** | 100% |
 
 _Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 × 1.00 = **100%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
 
@@ -67,15 +67,15 @@ _Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $8.87 |
-| 95% | $8.88 |
-| 100% | $8.88 |
+| 80% | $9.68 |
+| 95% | $9.69 |
+| 100% | $9.69 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-**NAV alone covers the price.** NAV/share **$8.80** ≥ price **$6.41** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
+**NAV alone covers the price.** NAV/share **$9.62** ≥ price **$6.26** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
@@ -88,17 +88,17 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $3.02 | $5.84 | $8.67 | $11.49 | $14.32 |
-| **-15%** | $3.10 | $5.93 | $8.75 | $11.58 | $14.40 |
-| **+0%** | $3.18 | $6.01 | $8.83 | $11.66 | $14.48 |
-| **+15%** | $3.27 | $6.09 | $8.92 | $11.74 | $14.57 |
-| **+30%** | $3.35 | $6.17 | $9.00 | $11.82 | $14.65 |
+| **-30%** | $3.79 | $6.62 | $9.45 | $12.28 | $15.11 |
+| **-15%** | $3.89 | $6.71 | $9.54 | $12.37 | $15.20 |
+| **+0%** | $3.98 | $6.81 | $9.63 | $12.46 | $15.29 |
+| **+15%** | $4.07 | $6.90 | $9.73 | $12.55 | $15.38 |
+| **+30%** | $4.16 | $6.99 | $9.82 | $12.65 | $15.48 |
 
-_Current price $6.41. Cycle weights held at base across the grid._
+_Current price $6.26. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$8.83** is +37.9% vs the current price ($6.41) and +23.9% vs the analyst target ($7.13). NAV alone covers the price (NAV/sh $8.80 ≥ $6.41); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
+Tool fair value **$9.63** is +54.0% vs the current price ($6.26) and +35.1% vs the analyst target ($7.13). NAV alone covers the price (NAV/sh $9.62 ≥ $6.26); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
 
 ## Modeling notes
 

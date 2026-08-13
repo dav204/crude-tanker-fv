@@ -11,7 +11,7 @@ one-way bullish override — audit E-3.)
 | NAT | Y | 2.04× | +2.95 | >strip | 4.0 | TRIM stands (value trap) |
 | 2343 | · | 0.96× | -0.02 | — | 4.0 | n/a (gate) |
 | ASC | · | 0.86× | -2.47 | — | 8.0 | n/a (gate) |
-| BRUT | · | 0.60× | -3.50 | — | 8.0 | n/a (gate) |
+| BRUT | · | 0.55× | -4.32 | — | 8.0 | n/a (gate) |
 | BWLP | · | 1.17× | +2.72 | — | 7.0 | n/a (gate) |
 | CAPT | · | 0.86× | -2.17 | — | 6.8 | n/a (gate) |
 | CCEC | · | 0.84× | -4.10 | — | 0.9 | n/a (gate) |

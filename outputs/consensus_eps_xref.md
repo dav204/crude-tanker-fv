@@ -9,11 +9,11 @@ The **earnings-leg analog of the broker-NAV sweep** (METHODOLOGY §9.11 / §9.9)
 | Name | Sector | Price | Cons. fwd P/E | Cons. fwd EPS | Tool fwd EPS | Tool impl. P/E | EPS gap | Cons. earn. yld | Cycle (band) | w_earn | Read |
 |---|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|---|
 | NAT | crude | $5.80 | 19.2× | $0.30 | $1.51 | 3.8× | +401% | 5.2% | 2.09× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| BRUT | crude | $5.30 | 19.0× | $0.28 | $1.06 | 5.0× | +281% | 5.3% | 2.64× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | CAPT | crude | $13.31 | 15.5× | $0.86 | $2.91 | 4.6× | +238% | 6.5% | 2.32× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | ASC | product | $14.90 | 13.2× | $1.13 | $3.59 | 4.2× | +218% | 7.6% | 1.68× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | INSW **(WHOLE-CO)** | crude | $82.40 | 12.0× | $6.87 | $20.63 | 4.0× | +200% | 8.3% | 2.10× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | CCEC | lng | $21.60 | 8.1× | $2.67 | $7.95 | 2.7× | +198% | 12.3% | 0.78× (below-mid) | 0.60 | earnings-driven (tool>cons) |
-| BRUT | crude | $5.30 | 19.0× | $0.28 | $0.82 | 6.5× | +193% | 5.3% | 2.64× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | GNK | dry_bulk | $24.50 | 14.2× | $1.73 | $4.99 | 4.9× | +189% | 7.0% | 1.28× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | TRMD | product | $27.70 | 9.3× | $2.98 | $8.26 | 3.4× | +177% | 10.8% | 1.85× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | DHT | crude | $17.20 | 9.3× | $1.85 | $5.03 | 3.4× | +172% | 10.8% | 2.64× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |

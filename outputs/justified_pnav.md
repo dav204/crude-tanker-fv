@@ -39,7 +39,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | CAPT | crude | $15.48 | $13.31 | 0.860× | 11.0% | — | 10.8% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | MPCC | containerships | $2.05 | $2.44 | 1.190× | n/a | — | 49.3% | — | no anchor → newbuild-heavy (unreliable) | n/a |
 | GSL | containerships | $41.20 | $38.99 | 0.946× | n/a | — | 47.8% | 4.877× | no anchor → cheap | n/a |
-| BRUT | crude | $8.80 | $5.30 | 0.602× | 23.7% | — | 22.3% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
+| BRUT | crude | $9.62 | $5.30 | 0.551× | 21.6% | — | 20.4% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | CMBT **(WHOLE-CO)** | crude | $16.46 | $14.60 | 0.887× | n/a | — | 7.0% | 0.597× | no anchor → rich | n/a |
 | LPG | lpg | $35.69 | $36.00 | 1.009× | n/a | — | 6.9% | 0.594× | no anchor → rich | n/a |
 | BWLP | lpg | $15.80 | $18.52 | 1.172× | n/a | — | 13.2% | 1.220× | no anchor → fair | n/a |
