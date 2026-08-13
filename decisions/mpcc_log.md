@@ -7,6 +7,59 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-13 (PM) — 6/25 acquisition + financing READ (7 weeks late) and H1 PRE-REGISTERED; two digest errors corrected
+
+Surfaced as item M2 of the first scheduled news-pull digest (outputs/news_digest_2026-08-13.md)
+— the second instance of the BRUT failure: an Oslo issuer with no EDGAR lane and, until today,
+no issuer-release channel watching NewsWeb.
+
+**The model was never wrong.** MPCC is a HALF-YEARLY reporter (next print 2026-08-26, MFN
+calendar); its 2026-Q1 (3/31) vintage is correct and the 6/25 events post-date that snapshot.
+Only our AWARENESS lagged, so nothing is promoted here and no input moves.
+
+**Verified primary-side today** (issuer release 2026-06-25 via modular-finance syndication;
+mpc-container.com and newsweb.oslobors.no both serve JS shells to a fetcher):
+- 4x 2023/24-built 7,000 TEU eco-conventional, USD 340M total, each on a 3-yr fixed TC to a
+  top-5 liner (USD 180M revenue / 140M EBITDA over the charter); delivery Oct-Nov 2026;
+  funded by "a combination of bank debt and existing cash resources".
+- USD 375M senior secured term loan financing **TEN OF THE 16 NEWBUILDINGS ordered last year**
+  — 10-yr tenor as of delivery, SocGen-underwritten (BNP/CrédAg/ING/KfW IPEX); +USD 75M
+  credit-approved for two 4,500 TEU.
+- Divestments NAMED AND PRICED: **AS Angelina USD 17M** (handover Q3-26), **AS Selina USD 24M**
+  (handover Q4-26/Q1-27).
+- Forward-fixed: AS Pamela 24-27mo (delivers Q4-26), AS Anne 30-32mo (delivers Q2-27).
+- Backlog USD 2.2bn; coverage 99% (2026) / 74% (2027) / 48% (2028).
+
+**TWO DIGEST ERRORS CORRECTED** (the digest declared its own figures lead-quality and asked for
+exactly this check — the mechanism worked): (1) it read the $375M loan as ACQUISITION financing;
+it is NEWBUILD financing, a different balance-sheet lane. (2) it described "two non-strategic
+vessels" as unnamed and unpriced; both are named and priced. A prereg built on the digest's
+version would have carried the wrong halt conditions.
+
+**H1 PRE-REGISTERED: `decisions/mpcc_h1_prereg_2026-08-13.md`** — point NAV $2.05/sh under the
+expected fork, band [1.90, 2.30], frozen 13 days before the print.
+
+**THE DOMINANT ISSUE IS A METHODOLOGY FORK, NOT A DATA REFRESH.** The four acquired hulls are
+7,000 TEU = class **Ctr-Large**, which MPCC does not currently hold (24 Ctr-Feeder + 42
+Ctr-Intermediate) and which `basis_status.yaml` marks **structural-unavailable** — no container
+resale mark exists. Wiring $340M of committed Ctr-Large tonnage on-curve would reproduce the
+GSL artifact ruled at the 2026-08-08 Q2 refresh ("no Ctr resale mark §A1.4; naive on-curve
+wiring reads −$200M-class PV-asymmetry artifacts"), whose disposition was ADVANCES-ONLY
+(Group-B structural). That precedent is strong but was an OWNER RULING, and this is a new class
+entering the book — **RESERVED, not defaulted.**
+
+**HALT registered:** debt must NOT jump ~$375M at 6/30 — the facility draws AT DELIVERY of
+newbuildings spanning 2026-2029, so it should be substantially undrawn at the snapshot.
+
+**S&P prints flagged, NOT promotable + an anomaly recorded:** no container transactions file
+exists (containers have no §9.9 fit; the class rides broker-static MB marks), so Angelina/Selina
+are cross-check evidence only. **Selina is SMALLER (1,700 vs 2,000 TEU) and OLDER (18.5 vs 18.0)
+yet sold 41% HIGHER** — the age/size curve inverts on its face. Do NOT infer a feeder level from
+this pair until the inversion is explained (attached charter? spec/survey? handover timing?).
+Candidate resolution: the H1 disposal note, or the MB container weekly.
+
+---
+
 ## 2026-08-13T17:32:31+00:00 — Pipeline run (auto)
 
 **Model state:**
