@@ -31,6 +31,13 @@ routes:
                           # PAGE immediately inside an open earnings window
     - FLEET-TRANSACTION   # unreviewed S&P candidates (ack: sp_scan --mark-reviewed)
     - DISK-PRESSURE
+    - AGENT-TASK-DUE      # a recurring duty with no plist/heartbeat is overdue
+                          # (8c). Escalates like any digest tag — the nag IS the
+                          # interim control until the duty gets scheduled.
+    - ARCHIVE-GAP         # a hole BEHIND the feed head (8b). Digest, not page:
+                          # it is historical, not an outage — but it does not
+                          # self-heal, so the escalation is what forces the
+                          # backfill-or-accept decision.
   record_only:     # state log only, never mailed (delivery failure can't
                    # page through the channel that failed — the healthchecks
                    # ping-withhold is its pager)

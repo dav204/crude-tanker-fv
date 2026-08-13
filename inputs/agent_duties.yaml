@@ -1,0 +1,35 @@
+# Recurring AGENT/HUMAN duties — the ones with no plist and no heartbeat.
+#
+# WHY THIS FILE EXISTS (2026-08-13): the sentinel could only ever see two kinds
+# of liveness — a committed plist's heartbeat (check 6) and a staged artifact's
+# freshness (check 8). A duty that lives as a slash command, a checklist line, or
+# a habit was invisible to BOTH, so its death was undetectable by construction.
+#
+# That is not hypothetical. `/news-pull` — the agent web-sweep that reads company
+# news the scanners cannot — ran twice (2026-06-10, 2026-06-21) and then stopped.
+# Its automation was deferred by the owner on 2026-06-14 during the crude-edge
+# FREEZE; the freeze lifted 6/21 and the deferral was never re-docketed. Meanwhile
+# the MECHANICAL job sharing its name (news_pull_cron.sh) kept reporting
+# outcome=ok every Saturday, so the dashboard showed "news-pull: healthy" while
+# the half that catches corporate actions had been dead seven weeks. A BRUT
+# demerger sat unread for five of them.
+#
+# A duty listed here flags AGENT-TASK-DUE when its artifact goes stale. This is
+# the WEAK form of the fix — a nag. The STRONG form is to schedule the duty so it
+# has a heartbeat like any other job; `scheduled: false` marks the ones still
+# owed that treatment, so the gap between "reminded" and "automated" is itself
+# visible rather than forgotten.
+
+duties:
+  - name: news_pull_digest
+    artifact_glob: "news_digest_*.md"     # under outputs/
+    cadence_days: 7
+    scheduled: false                      # ← the open item: agent-half orchestration,
+                                          #   deferred 2026-06-14, never re-docketed
+    command: "/news-pull"
+    why: >
+      The only channel that reads COMPANY news (demergers, financings, deliveries,
+      CEO changes, stance changes) for names with no EDGAR filing lane — every
+      Oslo/Euronext name in the book (BRUT, MPCC, ODL). The mechanical scanners
+      read only what is already in the Pareto archive, so they cannot see an event
+      the archive missed.

@@ -1,0 +1,27 @@
+# Accepted holes in the dated broker archives (sentinel check 8b, ARCHIVE-GAP).
+#
+# WHY THIS FILE EXISTS (2026-08-13): every other staleness check reads the NEWEST
+# staged artifact — it answers "is the feed alive today" and is structurally blind
+# to a hole BEHIND the head. The 2026-07-03 → 07-14 Pareto outage sat in a tree
+# whose newest file kept advancing, so no check fired; the BRUT 7/07 demerger
+# release went unread for five weeks and a report-day prereg was frozen on a
+# confident "feeds are silent" that was really "our copy of the feed has a hole."
+#
+# An unflagged gap is a claim you cannot make: news read from a gap window is
+# UNSUPPORTED, not absent. So a gap either gets BACKFILLED or gets accepted here,
+# dated and reasoned — never left to age out silently.
+#
+# Accepting a gap is an owner judgment (the feed genuinely did not publish), not
+# a way to quiet the alarm. If the reason is "we failed to fetch it," backfill.
+
+lookback_days: 120          # how far back the check looks
+limit_business_days: 3      # a run of >= this many missing business days flags
+
+accepted: []
+  # - feed: pareto_research
+  #   from: 2026-12-24
+  #   to: 2026-12-26
+  #   reason: "Pareto does not publish the Shipping Daily over Christmas (verified
+  #            in-channel); no issue exists to backfill."
+  #   accepted_by: owner
+  #   dated: 2026-12-27

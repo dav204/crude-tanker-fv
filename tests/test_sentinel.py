@@ -674,3 +674,117 @@ def test_earnings_unconfirmed_pages_near_expected_windows(tmp_path, monkeypatch)
     monkeypatch.setattr(R, "load_earnings_calendar", lambda *_a, **_k: (meta_fresh, cal))
     flags = _filing_event_flags(tmp_path, {"AAA": {}, "BBB": {}}, [], now=now)
     assert not any(f.startswith("EARNINGS-SWEEP-STALE") for f in flags)
+
+
+def test_archive_gap_sees_hole_behind_a_live_head(tmp_path):
+    """8b: the hole the other checks CANNOT see. Every lane above reads the
+    newest artifact, so a feed that resumed looks healthy while a week is
+    missing behind it — the 2026-07-03..07-14 Pareto outage that hid the BRUT
+    demerger. Accepted holes are silent; unaccepted ones flag until backfilled."""
+    from datetime import date, timedelta
+
+    inputs, outputs = _fixture(tmp_path)
+    staged = inputs / "research_pareto" / "2026"
+    staged.mkdir(parents=True)
+
+    # A feed with a live head — every other check is satisfied — but a 6
+    # business-day hole sitting two weeks back.
+    today = date.today()
+    for i in range(0, 40):
+        d = today - timedelta(days=i)
+        if d.weekday() >= 5:
+            continue
+        if 14 <= i <= 21:          # the hole
+            continue
+        (staged / f"{d.isoformat()}_daily.pdf").write_bytes(b"x")
+
+    flags = [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV)
+             if f.startswith("ARCHIVE-GAP")]
+    assert len(flags) == 1, flags
+    assert "pareto_research" in flags[0] and "business days" in flags[0]
+    assert "unsupported" in flags[0]
+
+    # Accepting it (an owner judgment: the feed genuinely did not publish)
+    # silences it — and nothing else does.
+    hole_start = today - timedelta(days=21)
+    hole_end = today - timedelta(days=14)
+    (inputs / "archive_gaps.yaml").write_text(yaml.safe_dump({
+        "lookback_days": 120, "limit_business_days": 3,
+        "accepted": [{"feed": "pareto_research", "from": hole_start.isoformat(),
+                      "to": hole_end.isoformat(), "reason": "no issue published"}],
+    }))
+    assert [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV)
+            if f.startswith("ARCHIVE-GAP")] == []
+
+
+def test_archive_gap_tag_is_routed(tmp_path):
+    """A new tag that nobody routed PAGES by design (notify.py) — which is safe
+    but wrong for a historical condition. Assert the route is deliberate."""
+    from crude_tanker_fv.notify import load_routes
+
+    routes = load_routes(Path("inputs"))["routes"]
+    assert "ARCHIVE-GAP" in routes["digest"]
+    assert "ARCHIVE-GAP" not in routes["page"]
+
+
+def test_agent_task_due_for_unscheduled_habit(tmp_path):
+    """8c: a duty with no plist and no heartbeat — invisible to checks 6 and 8
+    by construction. /news-pull ran twice and died while its mechanical namesake
+    reported outcome=ok every Saturday."""
+    from datetime import date, timedelta
+
+    inputs, outputs = _fixture(tmp_path)
+    (inputs / "agent_duties.yaml").write_text(yaml.safe_dump({
+        "duties": [{"name": "news_pull_digest", "artifact_glob": "news_digest_*.md",
+                    "cadence_days": 7, "scheduled": False, "command": "/news-pull"}]}))
+
+    # Never run at all.
+    flags = [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV)
+             if f.startswith("AGENT-TASK-DUE")]
+    assert len(flags) == 1 and "never run" in flags[0]
+    assert "STILL UNSCHEDULED" in flags[0]
+
+    # Fresh digest clears it.
+    fresh = date.today() - timedelta(days=2)
+    (outputs / f"news_digest_{fresh.isoformat()}.md").write_text("x")
+    assert [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV)
+            if f.startswith("AGENT-TASK-DUE")] == []
+
+    # Stale digest flags again with its age.
+    (outputs / f"news_digest_{fresh.isoformat()}.md").unlink()
+    old = date.today() - timedelta(days=53)
+    (outputs / f"news_digest_{old.isoformat()}.md").write_text("x")
+    flags = [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV)
+             if f.startswith("AGENT-TASK-DUE")]
+    assert len(flags) == 1 and "53d" in flags[0]
+
+
+def test_forever_skipping_job_is_not_healthy(tmp_path):
+    """Check 6: a skip writes a FRESH heartbeat by design, so a job standing
+    down forever (PAUSE left on, network never back) looked identical to one
+    doing its work."""
+    inputs, outputs = _fixture(tmp_path)
+    hb = tmp_path / "state" / "heartbeat"
+    hb.mkdir(parents=True)
+    scripts = tmp_path / "scripts"
+    scripts.mkdir()
+    import plistlib
+    (scripts / "com.crude-tanker-fv.demo.plist").write_bytes(plistlib.dumps({
+        "Label": "com.crude-tanker-fv.demo",
+        "StartCalendarInterval": {"Hour": 8, "Minute": 0}}))
+    (hb / "demo").write_text("ts=x job=demo outcome=skipped-paused rc=0 note=\n")
+
+    # One skip is a live job standing down — not a flag.
+    (tmp_path / "state" / "automation_runs.log").write_text(
+        "t job=demo initiator=i outcome=ok rc=0\n"
+        "t job=demo initiator=i outcome=skipped-paused rc=0\n")
+    assert [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV)
+            if "consecutive" in f] == []
+
+    # Three in a row is a job that has done nothing, wearing a green badge.
+    (tmp_path / "state" / "automation_runs.log").write_text(
+        "t job=demo initiator=i outcome=ok rc=0\n"
+        + "t job=demo initiator=i outcome=skipped-paused rc=0\n" * 3)
+    flags = [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV)
+             if "consecutive" in f]
+    assert len(flags) == 1 and "skipped-paused" in flags[0] and "PAUSE" in flags[0]

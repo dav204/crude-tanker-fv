@@ -219,13 +219,16 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
     #    fresh, non-errored heartbeat. Cadence from the plist itself (one
     #    source of truth); daily jobs get 2d, weekly 9d (coalesced-wake slack).
     import plistlib
+    import re
 
     hb_dir = inputs_dir.parent / "state" / "heartbeat"
     now = datetime.now(timezone.utc)
     for plist in sorted((inputs_dir.parent / "scripts").glob("com.crude-tanker-fv.*.plist")):
         pdoc = plistlib.loads(plist.read_bytes())
         job = pdoc["Label"].replace("com.crude-tanker-fv.", "")
-        limit = 9 if "Weekday" in (pdoc.get("StartCalendarInterval") or {}) else 2
+        # Weekly: a missed Saturday is 7d + slack. 9d let a whole skipped week
+        # look healthy until the Monday after; 8d catches it the next day.
+        limit = 8 if "Weekday" in (pdoc.get("StartCalendarInterval") or {}) else 2
         hb = hb_dir / job
         if not hb.exists():
             flags.append(f"FETCH-FAILED {job}: no heartbeat — job has never run "
@@ -238,6 +241,27 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
         elif "outcome=error" in hb.read_text():
             flags.append(f"FETCH-FAILED {job}: last run errored "
                          f"({hb.read_text().strip()})")
+        else:
+            # A skip writes a FRESH heartbeat by design ("a live job standing
+            # down, not a dead one") — so a job that stands down forever looks
+            # identical to one that works. A forgotten PAUSE file, or a network
+            # that never comes back, is invisible until someone reads a log.
+            m = re.search(r"outcome=(skipped-\S+)", hb.read_text())
+            if m:
+                ledger = inputs_dir.parent / "state" / "automation_runs.log"
+                streak = 0
+                if ledger.exists():
+                    for line in reversed(ledger.read_text().splitlines()):
+                        if f"job={job} " not in line:
+                            continue
+                        if "outcome=skipped-" in line:
+                            streak += 1
+                        else:
+                            break
+                if streak >= 3:
+                    flags.append(f"FETCH-FAILED {job}: {streak} consecutive "
+                                 f"{m.group(1)} runs — heartbeat is fresh but the "
+                                 f"job has done nothing (PAUSE left on? network?)")
 
     # 7. UNINGESTED-PRINTS (WO2 1.2) — staged material more than 7d newer than
     #    a determinant's last deliberate refresh EVENT (as_of.default). Held
@@ -297,6 +321,59 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
             elif (today - newest).days > (10 if s["expect_cadence"] == "weekly" else 3):
                 flags.append(f"STALE-INPUT {s['name']}: newest artifact {newest} "
                              f"({(today - newest).days}d, cadence {s['expect_cadence']}){who}")
+
+    # 8b. ARCHIVE-GAP — interior holes in a dated feed's history. The lanes
+    #     above all read the NEWEST artifact (alive-now); this reads the run of
+    #     missing business days BEHIND the head, which no other check can see.
+    #     Accepted holes (publication schedules) live in archive_gaps.yaml.
+    gaps_cfg_path = inputs_dir / "archive_gaps.yaml"
+    gaps_cfg = {}
+    if gaps_cfg_path.exists():
+        import yaml
+
+        gaps_cfg = yaml.safe_load(gaps_cfg_path.read_text()) or {}
+    lookback = int(gaps_cfg.get("lookback_days", 120))
+    today = date.today()
+    for feed, sub in (("pareto_research", "research_pareto"),):
+        for start, end, n in _archive_gaps(
+            inputs_dir / sub, today - timedelta(days=lookback), today,
+            int(gaps_cfg.get("limit_business_days", 3)),
+        ):
+            if _accepted_gap(gaps_cfg, feed, start, end):
+                continue
+            flags.append(f"ARCHIVE-GAP {feed}: no artifact {start}..{end} "
+                         f"({n} business days) — a hole behind the head; backfill "
+                         f"or accept it in inputs/archive_gaps.yaml (news read from "
+                         f"this window is unsupported)")
+
+    # 8c. AGENT-TASK-DUE — recurring duties with no plist and no heartbeat
+    #     (slash commands, checklists, habits). Check 6 sees jobs; check 8 sees
+    #     feeds; neither can see a duty someone has to REMEMBER. /news-pull ran
+    #     twice and died, and its mechanical namesake's green heartbeat hid it.
+    duties_path = inputs_dir / "agent_duties.yaml"
+    if duties_path.exists():
+        import re
+
+        import yaml
+
+        today = date.today()
+        for d in (yaml.safe_load(duties_path.read_text()) or {}).get("duties", []):
+            newest = None
+            for p in outputs_dir.glob(d["artifact_glob"]):
+                m = re.match(r".*?(\d{4}-\d{2}-\d{2})", p.name)
+                if m:
+                    dt = date.fromisoformat(m.group(1))
+                    newest = dt if newest is None or dt > newest else newest
+            cadence = int(d["cadence_days"])
+            never = "never run" if newest is None else f"last {newest}"
+            age = None if newest is None else (today - newest).days
+            if newest is None or age > cadence:
+                unautomated = "" if d.get("scheduled") else \
+                    " — STILL UNSCHEDULED (no heartbeat can catch this; automate it)"
+                flags.append(
+                    f"AGENT-TASK-DUE {d['name']}: {never}"
+                    f"{'' if age is None else f' ({age}d)'}, cadence {cadence}d — "
+                    f"run {d['command']}{unautomated}")
 
     # Harvester lanes (WO2 1.3) — mirror silence (10d incl mirror latency) +
     # the marks trail: broker weeklies staged newer than the newest PROMOTED
@@ -482,6 +559,53 @@ def _newest_dated_file(root: Path):
             if best is None or d > best:
                 best = d
     return best
+
+
+def _archive_gaps(root: Path, since: date, until: date, limit_bdays: int):
+    """Interior business-day holes in a dated staging tree.
+
+    Every other staleness check reads the NEWEST artifact, which answers "is the
+    feed alive now" and is blind to a hole behind the head: the 2026-07-03→07-14
+    Pareto outage sat inside a tree whose newest file kept advancing, so nothing
+    flagged it and a BRUT demerger stayed unread for five weeks. Absence of a
+    file is not evidence of absence of news — but only if something counts the
+    missing days.
+    """
+    import re
+
+    if not root.exists():
+        return []
+    seen = set()
+    for p in root.rglob("*"):
+        m = re.match(r"(\d{4}-\d{2}-\d{2})", p.name)
+        if m:
+            d = date.fromisoformat(m.group(1))
+            if since <= d <= until:
+                seen.add(d)
+    if not seen:
+        return []
+    gaps, run_start, d = [], None, min(seen)
+    while d <= until:
+        if d.weekday() < 5 and d not in seen:
+            run_start = run_start or d
+        elif d.weekday() < 5:
+            if run_start:
+                n = _business_days_between(run_start, d)
+                if n >= limit_bdays:
+                    gaps.append((run_start, d - timedelta(days=1), n))
+                run_start = None
+        d += timedelta(days=1)
+    return gaps
+
+
+def _accepted_gap(cfg: dict, feed: str, start: date, end: date) -> bool:
+    """An owner-accepted publication hole (a holiday week, a summer schedule)."""
+    for a in (cfg or {}).get("accepted", []):
+        if a.get("feed") != feed:
+            continue
+        if date.fromisoformat(str(a["from"])) <= start and end <= date.fromisoformat(str(a["to"])):
+            return True
+    return False
 
 
 def _newest_csv_date(path: Path):

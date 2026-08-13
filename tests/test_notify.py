@@ -48,7 +48,8 @@ def test_real_routing_table_covers_every_live_sentinel_tag():
             "SIDECAR-STALE", "NOTIFY-UNCONFIGURED", "FETCH-FAILED",
             "UNINGESTED-PRINTS", "TRIGGER-EVIDENCE", "FILING-LANDED",
             "FILING-OVERDUE", "STALE-BALANCE-SHEET", "CALENDAR-UNSEEDED",
-            "EARNINGS-DUE", "DIRTY-TOO-LONG", "FLEET-TRANSACTION"}
+            "EARNINGS-DUE", "DIRTY-TOO-LONG", "FLEET-TRANSACTION",
+            "ARCHIVE-GAP", "AGENT-TASK-DUE"}
     assert live <= routed, f"unrouted sentinel tags: {live - routed}"
     overlap = set(routes["page"]) & set(routes["digest"])
     assert not overlap, f"tags routed both ways: {overlap}"
