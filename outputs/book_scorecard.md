@@ -42,7 +42,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | 2343 | dry_bulk | GOVERNED-WIDE · pending-anchor | $0.39 | $0.40 | 0.33–0.46 | +1% | HOLD (fairly valued) | $0.40 | $0.41 | $0.43 (apx) | -5% | n-a | ready | **⚠ sign flips** |
 | CMDB | dry_bulk | GOVERNED-WIDE · read-flips | $17.68 | $20.11 | 16.51–23.95 | +14% | BUY (undervalued) | $21.13 | $32.13 | $28.52 (apx) | +13% | n-a | ready | stable |
 | GNK | dry_bulk | GOVERNED-WIDE · read-flips | $25.26 | $22.67 | 17.42–28.59 | -10% | TRIM/SHORT (overvalued) | $24.61 | $25.12 | $27.46 | -9% | OK | ready | stable |
-| SBLK | dry_bulk | GOVERNED-WIDE | $27.89 | $29.79 | 23.27–36.79 | +7% | BUY (undervalued) | $31.88 | $32.78 | $31.34 | +5% | OK | ready | stable |
+| SBLK | dry_bulk | GOVERNED-WIDE · read-flips | $27.89 | $29.79 | 23.27–36.79 | +7% | BUY (undervalued) | $31.88 | $32.78 | $31.34 | +5% | OK | ready | stable |
 | CCEC | lng | GOVERNED-WIDE · structural-class | $22.59 | $33.70 | 16.27–47.20 | +49% | BUY (undervalued) | $29.97 | $25.70 | $25.10 (apx) | +2% | n-a | ready | stable |
 | FLNG | lng | GOVERNED-WIDE · structural-class | $29.50 | $30.67 | 20.36–39.36 | +4% | HOLD (fairly valued) | $28.16 | $28.45 | $20.63 | +38% | OK | ready | **⚠ sign flips** |
 | GSL | containerships | GOVERNED-WIDE · structural-class | $41.24 | $42.88 | 38.58–46.64 | +4% | HOLD (fairly valued) | $44.02 | $41.20 | $54.99 (apx) | -25% | n-a | ready | — |

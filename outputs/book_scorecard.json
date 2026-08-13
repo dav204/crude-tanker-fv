@@ -1,7 +1,7 @@
 {
   "schema_version": "2.7",
-  "generated_at": "2026-08-13T20:46:29+00:00",
-  "source_commit": "e2354a5-dirty",
+  "generated_at": "2026-08-13T20:59:55+00:00",
+  "source_commit": "a2d46ca",
   "quarter": "2026-Q2",
   "price_basis": {
     "total": 25,
@@ -534,7 +534,7 @@
       "ticker": "SBLK",
       "sector": "dry_bulk",
       "confidence_tier": "GOVERNED-WIDE",
-      "tier_subreason": null,
+      "tier_subreason": "read-flips",
       "handoff_ready": true,
       "nav_basis": "resale-uniform",
       "void": false,
