@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-08T12:03:23.033553+00:00",
+  "generated_at": "2026-08-13T14:41:33.124611+00:00",
   "archive_roots": [
     "inputs/research_pareto",
     "inputs/research_pareto_other"
   ],
-  "total_files": 867,
+  "total_files": 873,
   "files": [
     {
       "path": "inputs/research_pareto/2024/06/2024-06-26_d'AmicoInternationalShipping-CompanyReport-InitiatingCoverage-2024-06-26-364456.pdf",
@@ -5625,6 +5625,72 @@
       "parsed_at": null,
       "page_count": 2,
       "size_bytes": 160453,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-10_Periodical-ShippingDaily-2026-08-10-520295.pdf",
+      "filename": "2026-08-10_Periodical-ShippingDaily-2026-08-10-520295.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-10",
+      "downloaded_at": "2026-08-10T11:00:03.975636+00:00",
+      "parsed_at": null,
+      "page_count": 1,
+      "size_bytes": 144607,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-11_Periodical-ShippingDaily-2026-08-11-520601.pdf",
+      "filename": "2026-08-11_Periodical-ShippingDaily-2026-08-11-520601.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-11",
+      "downloaded_at": "2026-08-11T11:00:06.295063+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 162510,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-11_SeadrillLtd-CompanyReport-Update-2026-08-11-520602.pdf",
+      "filename": "2026-08-11_SeadrillLtd-CompanyReport-Update-2026-08-11-520602.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-11",
+      "downloaded_at": "2026-08-11T11:00:05.478311+00:00",
+      "parsed_at": null,
+      "page_count": 8,
+      "size_bytes": 395175,
+      "classification_signal": "filename:CompanyReport"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-12_Periodical-ShippingDaily-2026-08-12-521087.pdf",
+      "filename": "2026-08-12_Periodical-ShippingDaily-2026-08-12-521087.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-12",
+      "downloaded_at": "2026-08-12T11:00:06.715748+00:00",
+      "parsed_at": null,
+      "page_count": 1,
+      "size_bytes": 148658,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-13_BorrDrillingLimited-CompanyReport-Update-2026-08-13-521395.pdf",
+      "filename": "2026-08-13_BorrDrillingLimited-CompanyReport-Update-2026-08-13-521395.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-13",
+      "downloaded_at": "2026-08-13T11:00:06.760719+00:00",
+      "parsed_at": null,
+      "page_count": 11,
+      "size_bytes": 493018,
+      "classification_signal": "filename:CompanyReport"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-13_Periodical-ShippingDaily-2026-08-13-521718.pdf",
+      "filename": "2026-08-13_Periodical-ShippingDaily-2026-08-13-521718.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-13",
+      "downloaded_at": "2026-08-13T11:00:05.367792+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 162263,
       "classification_signal": "filename:ShippingDaily"
     },
     {
