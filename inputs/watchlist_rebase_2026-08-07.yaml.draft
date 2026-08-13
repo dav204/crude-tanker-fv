@@ -130,7 +130,15 @@ anchor_corrections:        # ADDED 2026-08-13 — `analyst_target` rows whose BA
       - "(b) $27.05 — cash leg + Diana's actual 07-24 close. Market-marked rather than bidder-marked, but stale the next trading day and re-floats every day the proposal lives."
       - "(c) $27.34 — Diana's own ascribed value. REJECT unless deliberately booking the bidder's mark: Genco disputes it on the record."
       - "(d) An independent sell-side consensus PT. Cleanest semantically (it is what the field NAME means) but not verified in this session — needs a sourced aggregator pull before it can be booked."
-    owner_ruling_required: true
+    OWNER_RULED_2026-08-13: >
+      Option (a) — Pareto NAV $28.40. PROMOTE analyst_target: 28.40 with a comment that
+      states, in terms, that this is a BROKER NAV (Pareto 8/06 daily, 0.9x; 0.93x in the
+      8/10 dry cohort) and NOT a sell-side price target, so the report's "Analyst target"
+      line is not misread. Rejected: the two implied totals ($27.05 market-marked /
+      $27.34 Diana-ascribed) both re-float daily with DSX and re-create the vintage
+      hazard this rebase exists to remove; $27.34 is additionally the bidder's own mark
+      on the cell Genco disputes.
+    owner_ruling_required: false   # RULED 2026-08-13 (above)
     do_not: >
       Do not simply delete the DEAL CAVEAT. The tape is UN-PINNED but still
       M&A-influenced (gnk_log 8/08: "a non-binding indicative offer continues"), so the

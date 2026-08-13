@@ -65,8 +65,19 @@ exactly that artifact, at a scale that dwarfs everything else in this refresh.
 - **Fork B — on-curve:** requires a defensible Ctr-Large age-0 mark, which does not exist today.
   **NOT an agent default.** If taken, it needs a mark decision doc first.
 
-**RESERVED TO THE OWNER.** Do not resolve this by wiring at the refresh; the GSL precedent is
-strong but it was an owner ruling, and this is a new class entering the book.
+**RULED BY OWNER 2026-08-13: FORK A — ADVANCES-ONLY.** The four Ctr-Large hulls enter as a
+commitment with advances-paid-to-date only; NO Ctr-Large hull rows go on-curve at the 8/26
+refresh. This extends the 2026-08-08 GSL Group-B disposition to a second name and, in doing so,
+makes it the standing treatment for committed container tonnage on a structural-unavailable
+basis rather than a one-off. Fork B is closed unless and until a defensible Ctr-Large age-0 mark
+exists — which would need its own mark decision doc, not a refresh-day call.
+
+**Consequence to carry into the refresh:** with the hulls off-curve, the $340M commitment
+subtracts while no offsetting hull value is added, so the acquisition reads NAV-DILUTIVE on the
+model surface even though it is economically accretive (3-year fixed charters, USD 140M expected
+EBITDA). That asymmetry is the KNOWN COST of the structural basis, not a signal — record it
+plainly in the refresh annotation so nobody reads the dilution as a deteriorating thesis. It is
+the same artifact GSL carries, and it resolves only when containers get a resale mark.
 
 ## Registered band
 
