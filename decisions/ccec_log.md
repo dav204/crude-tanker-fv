@@ -1,5 +1,59 @@
 # CCEC — Decision Log
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $22.59
+- Single-point FV: $29.97
+- Scenario PW FV: $33.70 (EV +49.2%)
+- NAV / share: $25.70
+- Position: **BUY (undervalued)**
+- Broker spread: -2.5pp (k_broker 0.99)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $22.59
+- Single-point FV: $29.97
+- Scenario PW FV: $33.70 (EV +49.2%)
+- NAV / share: $25.70
+- Position: **BUY (undervalued)**
+- Broker spread: -2.5pp (k_broker 0.99)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $22.59
+- Single-point FV: $29.97
+- Scenario PW FV: $33.70 (EV +49.2%)
+- NAV / share: $25.70
+- Position: **BUY (undervalued)**
+- Broker spread: -2.5pp (k_broker 0.99)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.22 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.0pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-10T19:51:31+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -9,6 +9,60 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.73
+- Single-point FV: $33.93
+- Scenario PW FV: $31.82 (EV -28.9%)
+- NAV / share: $35.69
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +32.6pp (k_broker 1.53)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.73
+- Single-point FV: $33.93
+- Scenario PW FV: $31.82 (EV -28.9%)
+- NAV / share: $35.69
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +32.6pp (k_broker 1.53)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.73
+- Single-point FV: $33.93
+- Scenario PW FV: $31.82 (EV -28.9%)
+- NAV / share: $35.69
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +32.6pp (k_broker 1.53)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -1.03 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -1.5pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - 7/16 (Pareto 7/20): quarterly (irregular) dividend DECLARED at $1/sh for the quarter — same as the

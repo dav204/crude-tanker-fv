@@ -1,5 +1,59 @@
 # CMBT — Decision Log
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.75
+- Single-point FV: $15.65
+- Scenario PW FV: $14.38 (EV -14.2%)
+- NAV / share: $16.46
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +32.1pp (k_broker 1.23)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.75
+- Single-point FV: $15.65
+- Scenario PW FV: $14.38 (EV -14.2%)
+- NAV / share: $16.46
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +32.1pp (k_broker 1.23)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.75
+- Single-point FV: $15.65
+- Scenario PW FV: $14.38 (EV -14.2%)
+- NAV / share: $16.46
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +32.1pp (k_broker 1.23)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.46 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - **8/11: 'Bristol' (2024-built suezmax) sale announced — $57m gain to be taken in Q4; Pareto:

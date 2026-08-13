@@ -1,5 +1,59 @@
 # HAFN — Decision Log
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.49
+- Single-point FV: $5.71
+- Scenario PW FV: $6.56 (EV -12.5%)
+- NAV / share: $5.56
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +38.8pp (k_broker 1.48)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.49
+- Single-point FV: $5.71
+- Scenario PW FV: $6.56 (EV -12.5%)
+- NAV / share: $5.56
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +38.8pp (k_broker 1.48)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $7.49
+- Single-point FV: $5.71
+- Scenario PW FV: $6.56 (EV -12.5%)
+- NAV / share: $5.56
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +38.8pp (k_broker 1.48)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.02 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -0.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - 8/05: Pareto pegs HAFNI at 0.93× NAV (in the TORM DKK 223 / 0.86× comparison). Only in-window

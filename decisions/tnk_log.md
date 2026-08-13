@@ -1,5 +1,60 @@
 # TNK — Decision Log
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $80.89
+- Single-point FV: $83.23
+- Scenario PW FV: $83.72 (EV +3.5%)
+- NAV / share: $84.60
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.2pp (k_broker 1.53)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $80.89
+- Single-point FV: $83.23
+- Scenario PW FV: $83.72 (EV +3.5%)
+- NAV / share: $84.60
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.2pp (k_broker 1.53)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $80.89
+- Single-point FV: $83.23
+- Scenario PW FV: $83.72 (EV +3.5%)
+- NAV / share: $84.60
+- Position: **HOLD (fairly valued)**
+- Broker spread: +28.2pp (k_broker 1.53)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: +3.64 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +4.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - 8/05 Q2 review: "best quarter on record", strong Q3 start, Pareto makes "overdue revisions (in line

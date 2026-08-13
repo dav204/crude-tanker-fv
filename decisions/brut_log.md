@@ -9,6 +9,42 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.26
+- Single-point FV: $9.63
+- Scenario PW FV: $10.13 (EV +61.8%)
+- NAV / share: $9.62
+- Position: **BUY (undervalued)**
+- Broker spread: -14.1pp (k_broker 0.97)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** **H1-2026 REFRESH — PREREG BAND HIT (clean-stamp regen).** NAV/sh **$9.62** inside the frozen band **[8.50, 10.00]** (`decisions/brut_h1_prereg_2026-08-12.md`, written pre-print). Bimodal ledger call resolved to the **NOTE-GROSS** mode: predicted $9.68 gross / $8.87 net, landed $9.62. Full record — sourced figures, the five subsequent events held out of the snapshot, forward-invariance, the Rider-4 corroboration, the §15 screen, and the owner-reserved tier/demerger/dividend calls — is in the 2026-08-13 entry below (the pair-landing annotation) and in commit 2f76184. Cash flag RESOLVED; BRUT out of `NAV_FIGURE_ESTIMATE_QUEUE`. **Position stays VOID** (`POSITION_UNRELIABLE`) through this refresh by pre-registration; un-voids at the 8/16 deck re-derivation. This entry is the clean-stamp regen off commit 6287deb.
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.26
+- Single-point FV: $9.63
+- Scenario PW FV: $10.13 (EV +61.8%)
+- NAV / share: $9.62
+- Position: **BUY (undervalued)**
+- Broker spread: -14.1pp (k_broker 0.97)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
 
 **Model state:**

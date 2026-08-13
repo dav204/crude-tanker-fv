@@ -1,5 +1,59 @@
 # CAPT — Decision Log
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $14.31
+- Single-point FV: $15.10
+- Scenario PW FV: $15.88 (EV +11.0%)
+- NAV / share: $15.48
+- Position: **BUY (undervalued)**
+- Broker spread: +33.8pp (k_broker 1.19)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $14.31
+- Single-point FV: $15.10
+- Scenario PW FV: $15.88 (EV +11.0%)
+- NAV / share: $15.48
+- Position: **BUY (undervalued)**
+- Broker spread: +33.8pp (k_broker 1.19)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $14.31
+- Single-point FV: $15.10
+- Scenario PW FV: $15.88 (EV +11.0%)
+- NAV / share: $15.48
+- Position: **BUY (undervalued)**
+- Broker spread: +33.8pp (k_broker 1.19)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.37 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.6pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - Pareto in-window color (no stance line printed): 7/28 — "CAPT stands out" in the value bracket;

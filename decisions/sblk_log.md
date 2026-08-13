@@ -1,5 +1,60 @@
 # SBLK — Decision Log
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.89
+- Single-point FV: $31.88
+- Scenario PW FV: $29.79 (EV +6.8%)
+- NAV / share: $32.78
+- Position: **BUY (undervalued)**
+- Broker spread: +8.8pp (k_broker 1.08)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.89
+- Single-point FV: $31.88
+- Scenario PW FV: $29.79 (EV +6.8%)
+- NAV / share: $32.78
+- Position: **BUY (undervalued)**
+- Broker spread: +8.8pp (k_broker 1.08)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.89
+- Single-point FV: $31.88
+- Scenario PW FV: $29.79 (EV +6.8%)
+- NAV / share: $32.78
+- Position: **BUY (undervalued)**
+- Broker spread: +8.8pp (k_broker 1.08)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- Δprice: -1.01 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -3.4pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - Q2 (reported 8/05 after close): Pareto 8/06 — "far ahead"; 13% running yield, limited Q3 revisions;

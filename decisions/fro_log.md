@@ -1,5 +1,59 @@
 # FRO — Decision Log
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.57
+- Single-point FV: $25.94
+- Scenario PW FV: $27.57 (EV -30.3%)
+- NAV / share: $25.34
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +8.1pp (k_broker 1.09)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.57
+- Single-point FV: $25.94
+- Scenario PW FV: $27.57 (EV -30.3%)
+- NAV / share: $25.34
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +8.1pp (k_broker 1.09)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $39.57
+- Single-point FV: $25.94
+- Scenario PW FV: $27.57 (EV -30.3%)
+- NAV / share: $25.34
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +8.1pp (k_broker 1.09)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.17 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -0.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - **8/04 (Pareto 8/05): FRO confirmed the sale of two 2017-built VLCCs — "extreme prices", rumoured

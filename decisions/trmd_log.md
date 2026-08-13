@@ -1,5 +1,59 @@
 # TRMD — Decision Log
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.97
+- Single-point FV: $29.98
+- Scenario PW FV: $33.58 (EV +15.9%)
+- NAV / share: $30.22
+- Position: **BUY (undervalued)**
+- Broker spread: +16.3pp (k_broker 1.14)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.97
+- Single-point FV: $29.98
+- Scenario PW FV: $33.58 (EV +15.9%)
+- NAV / share: $30.22
+- Position: **BUY (undervalued)**
+- Broker spread: +16.3pp (k_broker 1.14)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $28.97
+- Single-point FV: $29.98
+- Scenario PW FV: $33.58 (EV +15.9%)
+- NAV / share: $30.22
+- Position: **BUY (undervalued)**
+- Broker spread: +16.3pp (k_broker 1.14)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.52 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -1.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - 8/05: TORM reportedly ordering 6 firm + 2 optional MRs in China, 2029–30 delivery, ~$46M/ship

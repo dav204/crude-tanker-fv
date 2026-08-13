@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-13T17:07:40+00:00
-- **Previous run:** 2026-08-13T16:58:50+00:00
+- **This run:** 2026-08-13T17:11:21+00:00
+- **Previous run:** 2026-08-13T17:07:40+00:00
 
 ## Headline changes (material moves)
 
@@ -9,7 +9,7 @@
 
 ## Input files changed since last run
 
-- `inputs/balance_sheets/brut_2026-Q2.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 

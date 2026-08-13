@@ -1,5 +1,59 @@
 # DHT — Decision Log
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.72
+- Single-point FV: $15.32
+- Scenario PW FV: $15.88 (EV -15.2%)
+- NAV / share: $15.01
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +6.8pp (k_broker 1.09)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.72
+- Single-point FV: $15.32
+- Scenario PW FV: $15.88 (EV -15.2%)
+- NAV / share: $15.01
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +6.8pp (k_broker 1.09)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.72
+- Single-point FV: $15.32
+- Scenario PW FV: $15.88 (EV -15.2%)
+- NAV / share: $15.01
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +6.8pp (k_broker 1.09)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.04 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -0.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - Pareto "Research focus: DHT" twice in-window: 7/20 (updating model with Q2/Q3 guidance) and 8/07

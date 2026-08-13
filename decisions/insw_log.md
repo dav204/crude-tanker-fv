@@ -7,6 +7,60 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $92.38
+- Single-point FV: $37.59
+- Scenario PW FV: $59.39 (EV -35.7%)
+- NAV / share: $54.64
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +28.0pp (k_broker 1.53)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $92.38
+- Single-point FV: $37.59
+- Scenario PW FV: $59.39 (EV -35.7%)
+- NAV / share: $54.64
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +28.0pp (k_broker 1.53)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $92.38
+- Single-point FV: $37.59
+- Scenario PW FV: $59.39 (EV -35.7%)
+- NAV / share: $54.64
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +28.0pp (k_broker 1.53)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.03 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - Pareto NAV pegs in-window: ~1.15× (8/07 — "very respectable pricing"), 1.11× (8/11, premium cohort

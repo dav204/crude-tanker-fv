@@ -7,6 +7,60 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.55
+- Single-point FV: $2.22
+- Scenario PW FV: $2.07 (EV -18.8%)
+- NAV / share: $2.05
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.3pp (k_broker 1.11)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.55
+- Single-point FV: $2.22
+- Scenario PW FV: $2.07 (EV -18.8%)
+- NAV / share: $2.05
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.3pp (k_broker 1.11)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.55
+- Single-point FV: $2.22
+- Scenario PW FV: $2.07 (EV -18.8%)
+- NAV / share: $2.05
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.3pp (k_broker 1.11)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.01 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -0.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - 8/13: container-liner guidance raises (a second upward revision inside two months, after

@@ -1,5 +1,59 @@
 # GNK — Decision Log
 
+## 2026-08-13T17:11:21+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.26
+- Single-point FV: $24.61
+- Scenario PW FV: $22.67 (EV -10.2%)
+- NAV / share: $25.12
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.5pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T17:07:40+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.26
+- Single-point FV: $24.61
+- Scenario PW FV: $22.67 (EV -10.2%)
+- NAV / share: $25.12
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.5pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-13T16:58:50+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.26
+- Single-point FV: $24.61
+- Scenario PW FV: $22.67 (EV -10.2%)
+- NAV / share: $25.12
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.5pp (k_broker 1.10)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.07 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -0.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-13 (PM) — Pareto name-text triage (July-hole audit sweep, issues 7/14→8/13)
 
 - Q2 (Pareto 8/06–8/07): beat, DPS $0.80 (13% running yield, "12.5%" in the 8/06 wording), "showing
