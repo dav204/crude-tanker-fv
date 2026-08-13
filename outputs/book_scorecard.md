@@ -34,7 +34,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | TNK | crude | VALIDATED-TIGHT | $80.89 | $83.72 | 71.90–102.30 | +4% | unreliable read (not actionable) | $83.23 | $84.60 | $110.81 | -24% | OK | ready | **⚠ sign flips** |
 | SB | dry_bulk | VALIDATED-TIGHT | $7.46 | $9.53 | 7.33–12.13 | +28% | BUY (undervalued) | $10.24 | $10.58 | $8.48 (apx) | +25% | n-a | ready | stable |
 | SBLK | dry_bulk | VALIDATED-TIGHT | $27.89 | $29.79 | 23.27–36.79 | +7% | BUY (undervalued) | $31.88 | $32.78 | $35.76 | -8% | OK | ready | stable |
-| BRUT | crude | GOVERNED-WIDE · cash-pending | $6.26 | $10.13 | 3.42–18.11 | +62% | unreliable read (not actionable) | $9.63 | $9.62 | $8.69 | +11% | OK | ready | — |
+| BRUT | crude | GOVERNED-WIDE · going-concern-unfinanced | $6.26 | $10.13 | 3.42–18.11 | +62% | unreliable read (not actionable) | $9.63 | $9.62 | $8.69 | +11% | OK | ready | — |
 | CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $14.31 | $15.88 | 9.52–24.43 | +11% | unreliable read (not actionable) | $15.10 | $15.48 | $20.73 | -25% | OK | ready | **⚠ sign flips** |
 | CMBT | crude | GOVERNED-WIDE · structural-class | $16.75 | $14.38 | 9.24–20.88 | -14% | TRIM/SHORT (overvalued) | $15.65 | $16.46 | $22.95 | -28% | OK | ready | stable |
 | INSW | crude | GOVERNED-WIDE · pending-anchor | $92.38 | $59.39 | 42.71–80.41 | -36% | rich · cycle position (not a short) | $37.59 | $54.64 | $83.23 | -34% | OK | ready | stable |

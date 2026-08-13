@@ -216,7 +216,16 @@ TIER_SUBREASON = {
     # — the D-M5/W-frag channel built for exactly this; the tier does not double-count
     # it. tnk_log 2026-08-08.
     "NAT": "newbuild-indeterminate",
-    "BRUT": "cash-pending", "HAFN": "pool-gross-up-pending",
+    # BRUT 2026-08-13: `cash-pending` RETIRED — the H1-2026 report sourced cash to $11.828M
+    # (Note 9), exactly at the resolution date the 2026-07-01 fork pre-registered. Clearing the
+    # figure queue MECHANICALLY moved the tier PROVISIONAL -> GOVERNED-WIDE (the tier function
+    # keys off the queue). That is the consequence of a correct pre-registered action, NOT a
+    # tier ruling: the owner-reserved question — whether the going-concern §15 doubt, still
+    # stated verbatim by the issuer at 6/30, should hold BRUT at PROVISIONAL independently of
+    # the cash flag — is OPEN and surfaced, not decided here. Note the governance seam: WIDE
+    # caps size where PROVISIONAL was NO_DEPLOY-on-the-anchor (governance dated rule 2026-06-29),
+    # so this is a live handoff change. The position cell stays POSITION_UNRELIABLE regardless.
+    "BRUT": "going-concern-unfinanced", "HAFN": "pool-gross-up-pending",
     "STNG": "off-curve",
     "TRMD": "basis-pending",
     "LPG": "v1-lock-miss", "BWLP": "v1-lock-miss",
