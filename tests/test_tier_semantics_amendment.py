@@ -220,6 +220,17 @@ def test_read_flag_state_roundtrip_drops_blocked_names(tmp_path: Path):
     assert load_read_flag_state(tmp_path / "absent.json") == {}
 
 
+def test_write_scorecard_does_not_write_machine_state(tmp_path: Path):
+    """A test run must never write governed state into the shared tree (2026-07-18 rule). The
+    tests drive write_scorecard directly, some with synthetic rows, so persistence lives in the
+    production entry (run_scorecard_xref) — not in the writer."""
+    before = sc.READ_FLAG_STATE_FILE.read_bytes() if sc.READ_FLAG_STATE_FILE.exists() else None
+    rows = sc.compute_scorecard(BOOK_QUARTER, read_flag_state={})
+    sc.write_scorecard(rows, outputs_dir=tmp_path)
+    after = sc.READ_FLAG_STATE_FILE.read_bytes() if sc.READ_FLAG_STATE_FILE.exists() else None
+    assert after == before, "write_scorecard mutated the machine-local read-flag state"
+
+
 def test_prior_state_cannot_reach_the_tier(tmp_path: Path):
     """The governed flag is stateful BY DESIGN; the tier must not be. A hostile prior state must
     leave every tier untouched — otherwise run order could restate a sizing input."""

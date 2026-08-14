@@ -698,11 +698,7 @@ def write_scorecard(
     rate_basis: Optional[list[str]] = None,
     family_basis: Optional[dict] = None,
     bs_basis: Optional[dict] = None,
-    read_flag_state_path: Optional[Path] = None,
 ) -> Path:
-    """``read_flag_state_path`` persists the governed read flags forward (the hysteresis needs a
-    prior). Defaults to the machine-local state file; pass an explicit path in a test so a run
-    cannot mutate the shared tree (2026-07-18 rule)."""
     outputs_dir.mkdir(parents=True, exist_ok=True)
     out: list[str] = []
     w = out.append
@@ -916,10 +912,6 @@ def write_scorecard(
     if valuation is not None:
         _write_handoff_json(rows, valuation, outputs_dir, price_basis, quarter, fragility,
                             rate_basis, family_basis, bs_basis)
-    # Carry the governed read flags forward — the deadband needs a prior to hold against.
-    save_read_flag_state({r.ticker: r.read_flag for r in rows},
-                         path=read_flag_state_path or READ_FLAG_STATE_FILE,
-                         asof=(price_basis or {}).get("oldest_static_as_of", "") or (quarter or ""))
     return md_path
 
 
@@ -1178,6 +1170,12 @@ def run_scorecard_xref(
     if rows:
         path = write_scorecard(rows, outputs_dir, valuation, price_basis, quarter, fragility,
                                rate_basis, family_basis, bs_basis)
+        # Carry the governed read flags forward — the deadband needs a prior to hold against.
+        # Persisted HERE, in the production entry, and not in write_scorecard: the tests drive
+        # write_scorecard directly (some with synthetic rows), and a test run must never write
+        # machine state into the shared tree (2026-07-18 rule).
+        save_read_flag_state({r.ticker: r.read_flag for r in rows},
+                             asof=(price_basis or {}).get("oldest_static_as_of") or quarter or "")
         n_uniform = sum(1 for r in rows if r.nav_basis == "resale-uniform")
         n_ready = sum(1 for r in rows if is_handoff_ready(r.confidence_tier))
         tag = "CONSOLIDATED verdict+matrix" if valuation else "validation matrix"
