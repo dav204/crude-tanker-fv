@@ -5,6 +5,52 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-08-13 — TIER SEMANTICS AMENDMENT: read-corroboration OUT of the confidence tier
+  (owner-ratified ruling + Addendum A).** The tier now certifies ONE thing — **how the NAV is
+  BUILT** (traced resale-uniform basis, sourced NAV-driving figures, on-convention, known-gap
+  surfaces immaterial). **A price movement may never change a tier**, which extends the ECO
+  2026-07-01 doctrine ("VALIDATED-TIGHT means the NAV is SOLID, NOT that ECO is cheap") from prose
+  into the gate. *Why the 6/30 wiring was wrong:* it accepted two-basis read-AGREEMENT as internal
+  corroboration "of comparable force" to a broker cross-foot — but a broker cross-foot is
+  **estimate-level** (their NAV vs ours) while read-agreement is **call-level**, a function of
+  where the price sits. The two coincide only at deep discounts, which is why the flaw stayed
+  invisible until SBLK drifted into the seam. *The reductio:* SBLK's 8/13 demotion was driven by
+  the watchlist PRICE leg (25.20→28.60) crossing the hist-basis cheap|fair boundary at **$27.72**
+  with tool NAV byte-identical at $32.78 — and with the tape at $27.89, **0.62% above the
+  boundary, a 62 bp red open would have UPGRADED the grade** hours after a data repair degraded it.
+  `robust` therefore LEAVES the tier and ships beside `weight_sign_stable` as the
+  read-corroboration line (the TNK precedent: the tier does not double-count it). The 2026-06-29
+  sizing seam is amended — construction failures cap via tier, read-flips caps independently, and
+  **where both bind the SMALLER authorization applies; the two never stack** as a repeated discount
+  penalty. **ADDENDUM A (owner ruling, raised by the implementing agent before any code changed):**
+  simulating the drafted §1 showed it promoted FIVE names, not three — BRUT and CAPT ride on
+  `robust = "n/a"`, which is not read-agreement at all but the §17 multiple being *blocked* by the
+  newbuild-heavy guard. Ruled: **TIGHT gates on EVALUABILITY, never on agreement.**
+  `confidence_tier` takes `read_blocked` (the blocker's label, else None); a name whose multiple
+  cannot be produced is a CONSTRUCTION defect and stays GOVERNED-WIDE, so BRUT's same-day
+  going-concern ruling and CAPT's `newbuild-heavy` subreason both stand. Supporting finding:
+  **every blocking guard in `evaluate()` is price-INDEPENDENT** — only the cheap/fair/rich read is
+  price-dependent — which is what lets `read_blocked` stay in the tier without reopening the hole.
+  Shipped with it: the **§17 margin block** finally reaching paper (`J_par`/`J_hist`, per-basis
+  boundary PRICE, signed `flip_margin_pct` — the table previously printed the verdict of the
+  comparison but never the numbers compared), and a **governed `read_flag`** with a
+  `READ_FLAG_HYST_PCT = 2.0` deadband so a name parked on a boundary reports one stable sizing
+  input instead of strobing (governance consumes `read_flag`; `robust` is display). Guards:
+  `test_tier_is_price_invariant` (regression **SBLK-2026-08-13**; ±20% price-only perturbation,
+  every tier byte-identical) — which is ALSO the standing guard on future blockers, since any
+  price-dependent guard later added to `evaluate()` reds it — plus a companion asserting the
+  perturbation actually MOVES the reads so the invariance test can't pass vacuously, and a guard
+  that `read-flips` can never re-enter `TIER_SUBREASON`. Regen: **{SBLK, CMDB, GNK} → VALIDATED-
+  TIGHT** each carrying `read_flag = flips`, 22 of 25 rows unchanged, **edge-cleared long set {SB}
+  before and after**, **drift gate 0 UNEXPLAINED / +0.0pp / +0.0% on all 25 rows** — the amendment
+  relocates a label without moving a number. Handoff JSON 2.7→**2.8** (additive). Record:
+  `decisions/tier_semantics_amendment_2026-08-13.md`; governance TRADE_PREREG #4 rewrite routed
+  SEPARATELY (§6) and `read_flag` must not enter any prereg gate until the RATIFY_LOG entry exists.
+  Two items carried to the owner: the edge-cleared filter gates on `read_flag == "robust"` rather
+  than §4's literal wording (which would have admitted TNK — robust, raw-BUY, but rich/rich and
+  `POSITION_UNRELIABLE` — enlarging the actionable surface against §7); and the §17 margin measures
+  the **watchlist vintage** price the read is computed on (SBLK +3.18%), not the tape (+0.62%), so
+  **the live surface does not currently flag the strobe zone the deadband was written for.**
 - **2026-08-13 — JULY ARCHIVE-HOLE AUDIT (owner-directed backfill): NOTHING TO BACKFILL —
   attribution corrected + full-window name sweep.** The 7/03→7/14 Pareto gap that hid the BRUT
   7/07 chain is SOURCE-QUIET (Pareto's Jul/Aug cadence; the owner's 7/12 seasonal note in

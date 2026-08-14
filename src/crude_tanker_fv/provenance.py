@@ -3,23 +3,34 @@
 The queues here are imported by the guards (test_newbuild_convention, test_scrubber_provenance,
 test_manifest_provenance) AND by the confidence tier, so the two can never drift.
 
-The **confidence tier** answers ONE question for portfolio-governance handoff: how much can a sizing
-decision lean on this FV. It reads FV-MATERIAL validation strength, NOT paperwork completeness (that
-is the guards' job — a row can be a legitimate audit red while being tier-immaterial). Owner decision
-tree (2026-06-30):
+The **confidence tier** answers ONE question for portfolio-governance handoff: how the NAV is BUILT —
+traced resale-uniform basis, sourced NAV-driving figures, on-convention, known-gap surfaces immaterial.
+It reads FV-MATERIAL validation strength, NOT paperwork completeness (that is the guards' job — a row
+can be a legitimate audit red while being tier-immaterial). **A price movement may never change a
+tier** (tier semantics amendment 2026-08-13; ECO doctrine 2026-07-01 — "VALIDATED-TIGHT means the NAV
+is SOLID, NOT that ECO is cheap"). Owner decision tree (2026-06-30, amended 2026-08-13):
 
   1. A NAV-driving FIGURE that does not trace — an uncited commitment/advance (figure-provenance
      queue) on a non-structural name, or a FIXABLE name still off the §9.6 curve (NAV on the wrong
      basis) -> **PROVISIONAL**. The number itself isn't sound; not handoff-ready, flag don't pass.
 
-  2. Else, traced inputs (resale-uniform NAV basis) AND a STRONG corroboration -- external (broker
-     P/NAV) OR internal (justified P/NAV robust across BOTH bases) -- AND no FV-material untraced
-     surface -> **VALIDATED-TIGHT**. APPROX-pnav does NOT demote here: the missing broker check is
-     replaced by the two-basis internal corroboration (SB earns tightness internally).
+  2. Else, traced inputs (resale-uniform NAV basis) AND no FV-material untraced surface AND the §17
+     justified-P/NAV multiple is EVALUABLE -> **VALIDATED-TIGHT**. APPROX-pnav does NOT demote: an
+     external broker cross-foot is estimate-level evidence that may inform the tier where coverage
+     exists, never a requirement (SB earns tightness without one).
 
-  3. Else (traced but no strong corroboration — a structural-unavailable input that breaks the second
-     basis, a read that flips between bases, or an FV-material untraced surface) -> **GOVERNED-WIDE**.
-     Usable as a directional anchor, but the band is wide (CMBT: APPROX + structural container class).
+  3. Else (traced but structurally incomplete — a structural-unavailable input, a §17-blocked name
+     whose multiple cannot be produced at all, or an FV-material untraced surface) ->
+     **GOVERNED-WIDE**. A directional anchor with a wide band (CMBT: APPROX + structural container class).
+
+EVALUABILITY, NEVER AGREEMENT (Addendum A, 2026-08-13). Rule 2 asks whether a §17 read was
+*producible*, not what it *said*. `read_blocked` (the blocking guard's label, else None) is a
+CONSTRUCTION fact — a fleet whose multiple cannot be computed has a NAV the tier cannot certify.
+Read AGREEMENT across the two §17 bases (`justified_pnav.robust`) is an EDGE fact — a function of
+where the price sits — and has LEFT the tier; it ships beside `weight_sign_stable` as the
+read-corroboration line and caps size independently. The tier never sees what the read said.
+INVARIANT: every §17 blocker must be price-independent, or rule 2 leaks price back into the tier —
+`test_tier_is_price_invariant` is the standing guard.
 
 Materiality: an uncited OPERATING-scrubber flag widens the tier ONLY if its max possible FV error
 (scrubber premium x uncited hulls on that name) is large relative to the sizing band. The common
@@ -30,6 +41,7 @@ must not drag a clean name (SB: ~5% NAV worst-case) into a wider tier.
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Optional
 
 import yaml
 
@@ -184,13 +196,16 @@ MARK_WIDE_NODES = {
 # Tier sub-reason — why the band is wide / why PROVISIONAL, and thus the resolution PATH. Surfaced
 # in the verdict's tier cell so GOVERNED-WIDE / PROVISIONAL aren't junk drawers.
 #   structural-class : dominant class has no clean resale market (LNG/container Group-B) — not resolvable w/o a new data regime
-#   newbuild-heavy   : justified leg can't price it (NAV PV-haircut vs strip full-year) — resolves only as hulls deliver
+#   newbuild-heavy   : justified leg can't price it (NAV PV-haircut vs strip full-year) — resolves only as hulls
+#                  deliver. A §17 BLOCKER, so it is also derivable from read_blocked (tier_subreason falls back
+#                  to the blocker label for any unregistered blocked name); CAPT/BRUT carry it live.
 #   pending-anchor   : a sleeve's mark is unsourced but SOURCEABLE now (Thread 1A) — resolvable
 #   basis-pending    : figures all sourced + queues cleared, but the name's product resale-curve marks are
 #                  sourceable-but-pending (nav_basis 'pending-sourceable'; thread P1c product newbuild_contract
 #                  marks) — GOVERNED-WIDE not TIGHT until those land (TRMD; the product analog of resale-uniform)
 #   mixed            : two of the above (TEN: structural LNGC sleeve + pending-anchor Handy/LR1)
-#   read-flips       : read flips cheap<->fair across the §17 bases — needs the §18.5 gate data
+#   read-flips       : RETIRED 2026-08-13 (tier semantics amendment). A flipping read is an EDGE fact and no
+#                  longer widens a tier, so it can never be a tier sub-reason; it ships as `read_flag` instead.
 #   newbuild-indeterminate : newbuild parked at $0 pending a FILED price (NEWBUILD_PRICE_PENDING) — GOVERNED-WIDE
 #   cash-pending : PROVISIONAL but sourced EXCEPT one NAV figure pending a known future issuer report
 #                  (BRUT: cash → H1-2026 report 2026-08-13) — a well-specified "waiting" state, not "broken"
@@ -206,20 +221,18 @@ TIER_SUBREASON = {
     "CAPT": "newbuild-heavy",
     "INSW": "pending-anchor",
     "TEN": "mixed",
-    "CMDB": "read-flips", "GNK": "read-flips",
-    # SBLK ADDED 2026-08-13 at the consensus-pair rebase — VALIDATED-TIGHT -> GOVERNED-WIDE.
-    # NOT a thesis change and NOT a new input: the justified-P/NAV read now flips
-    # (cheap/fair) across the two normalization bases, so the cheap call no longer survives
-    # the basis choice. MECHANISM (corrected 8/13 EVE — first record blamed consensus_pnav,
-    # which feeds nothing here): the WATCHLIST PRICE leg moved 25.20 -> 28.60 at the rebase
-    # while tool NAV sat unchanged ($32.78), so pnav_mkt = price/NAV crossed the cheap|fair
-    # boundary on the historical-mean basis (flip price $27.72). Boundary-adjacent: the live
-    # tape sits ~0.6% above re-promotion — expect possible flip-back at the next vintage.
-    # This is precisely the k-vintage-skew the rebase existed to retire, landing on a held
-    # name. GOVERNANCE SEAM: TIGHT -> WIDE caps size below what the same discount would
-    # justify (governance dated rule 2026-06-29), and SBLK has a LIVE leg-2 trim GTC at
-    # $31.30 — surfaced to the owner, not acted on here.
-    "SBLK": "read-flips",
+    # SBLK / CMDB / GNK "read-flips" entries REMOVED 2026-08-13 by the tier semantics amendment
+    # (decisions/tier_semantics_amendment_2026-08-13.md). SUPERSEDED, not reversed on the facts:
+    # the GOVERNANCE SEAM paragraph that stood here — TIGHT -> WIDE caps size below what the same
+    # discount would justify — was the 2026-06-29 sizing rule applied to a READ defect. Read-flips
+    # no longer demotes: it is an EDGE fact that caps size on its own channel (`read_flag`), while
+    # the tier certifies construction only. The reductio that forced it: SBLK's demotion driver was
+    # the WATCHLIST PRICE leg (25.20 -> 28.60, tool NAV byte-identical at $32.78) crossing the
+    # cheap|fair boundary on the historical-mean basis at $27.72 — with the tape then sitting 0.62%
+    # above it, a 62 bp red open would have UPGRADED the grade hours after a data repair degraded
+    # it. Read state is now computed LIVE from §17 every run and never registered here. The demotion
+    # history stays in decisions/sblk_log.md as history. The live leg-2 trim GTC at $31.30 is
+    # surfaced to the owner, not acted on. Guard: test_read_flips_never_reenters_tier_subreason.
     # TNK: the 2026-07-31 "read-flips" entry was REGISTERED ON THE VOIDED half-applied
     # inputs (artifact FV 76.95/EV -3.8% -> family HOLD,HOLD,T/S,T/S,T/S,T/S) and died
     # with them at the 2026-08-08 paired transition: on both halves the family reads
@@ -250,6 +263,21 @@ TIER_SUBREASON = {
    # resolution = the owner's Phase-5 lock ruling (accept the documented miss or re-fit off the trio splits)
 
 
+def tier_subreason(ticker: str, read_blocked: Optional[str] = None) -> Optional[str]:
+    """The resolution PATH behind a wide/provisional tier: registry first, else the §17 blocker.
+
+    Addendum A (2026-08-13) prints a §17-blocked name's blocker label as its sub-reason, so a name
+    the amendment holds WIDE on evaluability always explains itself. The registry still wins where
+    an entry exists — it carries the owner's ruled ground (BRUT: going-concern-unfinanced, ruled
+    STANDS 2026-08-13 and independently sufficient), which is more specific than the blocker."""
+    registered = TIER_SUBREASON.get(ticker)
+    if registered is not None:
+        return registered
+    if read_blocked is None:
+        return None
+    return read_blocked.split(" (")[0]
+
+
 # Sectors whose v1 calibration lock has NOT passed (CLAUDE.md: new sectors ship >=70% of
 # validators within +/-10% of broker NAV at lock-time). While a sector sits here its names
 # are capped at PROVISIONAL — the WO3 letter ("document the miss and hold PROVISIONAL"):
@@ -274,16 +302,18 @@ def _structural_nb_names(inputs_dir: Path = INPUTS_DIR) -> set[str]:
 def confidence_tier(
     ticker: str,
     nav_basis: str,
-    robust: str,
     *,
+    read_blocked: Optional[str] = None,
     op_scrubber_error_pct: float = 0.0,
     sector: str = "",
     inputs_dir: Path = INPUTS_DIR,
 ) -> str:
     """Compute the tier from the existing validation state (no new model).
 
-    nav_basis / robust come from the scorecard; op_scrubber_error_pct is the materiality
-    (premium x uncited hulls / NAV)."""
+    nav_basis / read_blocked come from the scorecard; op_scrubber_error_pct is the materiality
+    (premium x uncited hulls / NAV). ``read_blocked`` is the §17 blocking guard's label when the
+    justified-P/NAV multiple could not be produced, else None — EVALUABILITY, not agreement. What
+    the read SAID (cheap/fair/rich, and whether it agrees across bases) is not an input here."""
     t = ticker.upper()
     structural = (t in _structural_nb_names(inputs_dir)) or (nav_basis == "structural-unavailable")
 
@@ -310,13 +340,15 @@ def confidence_tier(
     if t in UNANCHORED_VALUE_CLASS_CAP:
         return "GOVERNED-WIDE"
 
-    # 2. VALIDATED-TIGHT — traced + strong (two-basis robust) internal corroboration + immaterial gap.
+    # 2. VALIDATED-TIGHT — traced + immaterial gap + an EVALUABLE §17 multiple. (Rule 2's content
+    # changed at the 2026-08-13 amendment: it formerly also required two-basis read AGREEMENT, so
+    # a log entry predating that reading "falls through rule 2" may mean the retired robust leg.)
     traced = nav_basis == "resale-uniform"
     op_scrubber_material = op_scrubber_error_pct > OPERATING_SCRUBBER_MATERIAL_PCT
-    if traced and robust == "robust" and not op_scrubber_material:
+    if traced and read_blocked is None and not op_scrubber_material:
         return "VALIDATED-TIGHT"
 
-    # 3. GOVERNED-WIDE — traces, but structural / not-robust / FV-material untraced surface.
+    # 3. GOVERNED-WIDE — traces, but structural / §17-unevaluable / FV-material untraced surface.
     return "GOVERNED-WIDE"
 
 

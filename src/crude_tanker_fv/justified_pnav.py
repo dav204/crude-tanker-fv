@@ -44,6 +44,7 @@ dwt-scaling caveats.
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass, replace
 from pathlib import Path
 from statistics import median
@@ -83,6 +84,13 @@ NEWBUILD_HEAVY_SHARE = 0.25
 # |Justified P/NAV − P/NAV(mkt)| within this fraction of P/NAV(mkt) reads "fair".
 FAIR_BAND = 0.10
 
+# Deadband on the GOVERNED read flag (tier semantics amendment 2026-08-13, §3; owner-set at
+# ratification). The instantaneous `robust` is truthful every run and is DISPLAY; `read_flag` is
+# what governance consumes, and it adopts a new state only once the price sits this far (in %)
+# beyond the boundary that changed it. Motivation: SBLK closed 0.62% off its re-promotion
+# boundary — inside a strobe zone where a 62 bp move restates the sizing input either way.
+READ_FLAG_HYST_PCT = 2.0
+
 _NTM_QUARTERS = 4
 
 
@@ -97,6 +105,114 @@ def justified_pnav(ronav_norm: float, r: float, g: float) -> float:
 def justified_pnav_resid(ronav_norm: float, r: float, g: float) -> float:
     """Residual-income form: 1 + (RONAV_norm − r) / (r − g). Equals the Gordon form."""
     return 1.0 + (ronav_norm - r) / (r - g)
+
+
+def cheap_fair_boundary(nav_per_share: float, justified: float) -> float:
+    """Price at which this basis stops reading `cheap`: NAV × J / (1 + FAIR_BAND).
+
+    Inverts the band form in ``_read_from`` — which measures the gap as a fraction of P/NAV(mkt),
+    not of J — so `cheap` is pnav_mkt < J/(1+FAIR_BAND), i.e. price below this. The boundary price
+    itself reads `fair` (the comparison is <=)."""
+    return nav_per_share * justified / (1.0 + FAIR_BAND)
+
+
+def fair_rich_boundary(nav_per_share: float, justified: float) -> float:
+    """Price at which this basis starts reading `rich`: NAV × J / (1 − FAIR_BAND)."""
+    return nav_per_share * justified / (1.0 - FAIR_BAND)
+
+
+def _robust_from(read: str, read_hist: str) -> str:
+    """Does the cheap/rich call survive the basis choice? Single definition, shared by the row
+    property and the boundary scan so a margin can never disagree with the flag it measures."""
+    if read in ("cheap", "fair", "rich") and read_hist in ("cheap", "fair", "rich"):
+        return "robust" if read == read_hist else f"flips ({read}/{read_hist})"
+    return "n/a"
+
+
+def _robust_at_price(nav_per_share: float, j_par: Optional[float],
+                     j_hist: Optional[float], price: float) -> str:
+    """Recompute the robust state at an arbitrary price (both J's and NAV held fixed)."""
+    pnav = price / nav_per_share if nav_per_share > 0 else None
+    return _robust_from(_read_from(j_par, pnav, None), _read_from(j_hist, pnav, None))
+
+
+def boundary_prices(nav_per_share: float, j_par: Optional[float],
+                    j_hist: Optional[float]) -> dict:
+    """The four §17 band edges as PRICES, keyed ``<basis>_<edge>``. None where the basis is blocked."""
+    out: dict = {}
+    for basis, j in (("par", j_par), ("hist", j_hist)):
+        out[f"{basis}_cheap_fair"] = cheap_fair_boundary(nav_per_share, j) if j is not None else None
+        out[f"{basis}_fair_rich"] = fair_rich_boundary(nav_per_share, j) if j is not None else None
+    return out
+
+
+# Relative nudge used to test whether crossing a boundary changes the robust state. Far below any
+# economically meaningful move, far above double-precision noise at these price magnitudes.
+_BOUNDARY_PROBE = 1e-9
+
+
+def flip_margin_pct(nav_per_share: float, j_par: Optional[float],
+                    j_hist: Optional[float], price: float) -> Optional[float]:
+    """Signed % distance from the nearest boundary whose crossing would change the robust state.
+
+    Not every band edge qualifies: crossing one changes a single basis's read, which only matters
+    where that moves AGREEMENT. Each candidate is therefore probed either side and kept only if the
+    robust state actually differs across it — so the margin always measures the distance to a real
+    state change, never to a cosmetic one. Positive = price sits above the boundary.
+
+    None when no boundary can change the state (a §17-blocked name has no read to flip)."""
+    if nav_per_share <= 0 or price <= 0:
+        return None
+    changing = [
+        b for b in boundary_prices(nav_per_share, j_par, j_hist).values()
+        if b is not None and b > 0
+        and _robust_at_price(nav_per_share, j_par, j_hist, b * (1 - _BOUNDARY_PROBE))
+        != _robust_at_price(nav_per_share, j_par, j_hist, b * (1 + _BOUNDARY_PROBE))
+    ]
+    if not changing:
+        return None
+    nearest = min(changing, key=lambda b: abs(price - b) / b)
+    return (price - nearest) / nearest * 100.0
+
+
+READ_FLAG_STATE_FILE = Path(__file__).resolve().parents[2] / "state" / "read_flag_state.json"
+
+
+def govern_read_flag(instantaneous: str, margin_pct: Optional[float],
+                     prior: Optional[str]) -> str:
+    """Apply the READ_FLAG_HYST_PCT deadband to the instantaneous read state.
+
+    A transition is adopted only once the price sits at least the deadband beyond the boundary that
+    caused it; inside the band the prior state HOLDS, so a name parked on a boundary reports one
+    stable sizing input instead of strobing between two. Bootstraps to the instantaneous state when
+    there is no prior (state/ is machine-local and regenerated, so a fresh clone starts here).
+
+    A ``None`` margin with a changed state means no boundary can explain the change — the J's
+    themselves moved (new quarter data), which is an estimate change, not a strobe: adopt it."""
+    if instantaneous == "n/a":
+        return "n/a"
+    if prior is None or prior == "n/a" or prior == instantaneous:
+        return instantaneous
+    if margin_pct is None or abs(margin_pct) >= READ_FLAG_HYST_PCT:
+        return instantaneous
+    return prior
+
+
+def load_read_flag_state(path: Path = READ_FLAG_STATE_FILE) -> dict:
+    """Prior governed read flags, ``{ticker: read_flag}``. Missing file = no priors."""
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text()).get("flags", {})
+
+
+def save_read_flag_state(flags: dict, path: Path = READ_FLAG_STATE_FILE,
+                         asof: str = "") -> None:
+    """Persist the governed flags. Blocked names are NOT written (Addendum A §2): a name with no
+    producible read has no governed state to carry forward."""
+    keep = {t: f for t, f in flags.items() if f != "n/a"}
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({"asof": asof, "hyst_pct": READ_FLAG_HYST_PCT,
+                                "flags": keep}, indent=1, sort_keys=True) + "\n")
 
 
 def ronav_implied(price: float, nav_per_share: float, r: float, g: float) -> float:
@@ -223,11 +339,36 @@ class JustifiedPnavRow:
 
     @property
     def robust(self) -> str:
-        """Does the cheap/rich call survive the basis choice? The P1 deliverable."""
-        a, b = self.read, self.read_hist
-        if a in ("cheap", "fair", "rich") and b in ("cheap", "fair", "rich"):
-            return "robust" if a == b else f"flips ({a}/{b})"
-        return "n/a"
+        """Does the cheap/rich call survive the basis choice? The P1 deliverable.
+
+        INSTANTANEOUS and display-only since the 2026-08-13 tier semantics amendment: it is an EDGE
+        fact (a function of where the price sits), so it no longer feeds the confidence tier, and
+        governance consumes the hysteresis-governed ``read_flag`` rather than this."""
+        return _robust_from(self.read, self.read_hist)
+
+    @property
+    def read_blocked(self) -> Optional[str]:
+        """The §17 blocking guard's label when no multiple could be produced, else None.
+
+        The CONSTRUCTION half of the §17 signal and the tier's only §17 input (Addendum A
+        2026-08-13): the tier asks whether a read was producible, never what it said. Every blocker
+        in ``evaluate`` is price-independent, which is what keeps the tier price-invariant —
+        ``test_tier_is_price_invariant`` is the standing guard on that."""
+        return self.flag or self.flag_hist
+
+    @property
+    def boundary_prices(self) -> dict:
+        """The four §17 band edges as prices (``par_cheap_fair`` … ``hist_fair_rich``)."""
+        return boundary_prices(self.nav_per_share, self.justified_pnav, self.justified_pnav_hist)
+
+    @property
+    def flip_margin_pct(self) -> Optional[float]:
+        """Signed % distance from the nearest boundary that would change ``robust``.
+
+        Measured at the row's own (watchlist-vintage) price, the same price every other §17 number
+        on the row uses — NOT the live tape, which moves between vintage promotes."""
+        return flip_margin_pct(self.nav_per_share, self.justified_pnav,
+                               self.justified_pnav_hist, self.price)
 
 
 def _g_by_sector(inputs_dir: Path) -> dict[str, float]:

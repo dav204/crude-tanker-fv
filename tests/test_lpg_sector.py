@@ -166,12 +166,12 @@ def test_sector_v1_lock_caps_tier_at_provisional():
     )
 
     assert "lpg" in SECTOR_V1_UNLOCKED  # remove ONLY via the owner's lock ruling
-    tier = confidence_tier("LPG", "pending-sourceable", "n/a", sector="lpg")
+    tier = confidence_tier("LPG", "pending-sourceable", sector="lpg")
     assert tier == "PROVISIONAL"
     assert not is_handoff_ready(tier)
     # The cap is the SECTOR lock, not the name: the same state in a locked
     # sector reads GOVERNED-WIDE.
-    assert confidence_tier("LPG", "pending-sourceable", "n/a", sector="") == "GOVERNED-WIDE"
+    assert confidence_tier("LPG", "pending-sourceable", sector="") == "GOVERNED-WIDE"
 
 
 def test_mark_wide_nodes_registry_sane():

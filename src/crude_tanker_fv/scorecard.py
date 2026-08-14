@@ -27,7 +27,15 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-from .justified_pnav import JustifiedPnavRow, compute_justified_pnav_rows
+from .justified_pnav import (
+    READ_FLAG_HYST_PCT,
+    READ_FLAG_STATE_FILE,
+    JustifiedPnavRow,
+    compute_justified_pnav_rows,
+    govern_read_flag,
+    load_read_flag_state,
+    save_read_flag_state,
+)
 from .loaders import (
     ALLOWED_CLASSES,
     INPUTS_DIR,
@@ -53,6 +61,7 @@ from .provenance import (
     TIER_SUBREASON,
     confidence_tier,
     is_handoff_ready,
+    tier_subreason,
 )
 from .reconcile import APPROX_PNAV_TICKERS
 from .report import OUTPUTS_DIR
@@ -93,7 +102,7 @@ class ScorecardRow:
     pnav_mkt: Optional[float]
     read_par: str
     read_hist: str
-    robust: str
+    robust: str                    # INSTANTANEOUS §17 read agreement — display; not a tier input
     justified_flag: Optional[str]
     parity_band: str               # clears / OUT:<cls> / unvalidated / mixed
     gate_5a: str                   # pending / pass / reject / n-a
@@ -104,6 +113,15 @@ class ScorecardRow:
     # §9.9 wide-node exposure ("VLGC@five_year"): tonnage whose interpolated value materially
     # rests on an EXTRAPOLATED fitted anchor (MARK_WIDE_NODES registry). Empty = none.
     mark_wide_nodes: tuple = ()
+    # --- §17 margin block (tier semantics amendment 2026-08-13) ---------------------------------
+    # The numbers BEHIND the read comparison, which previously reached paper nowhere: the table
+    # printed the verdict of the comparison but never the quantities compared.
+    read_blocked: Optional[str] = None     # §17 blocker label, else None — the tier's only §17 input
+    j_par: Optional[float] = None          # justified P/NAV, parity basis
+    j_hist: Optional[float] = None         # justified P/NAV, historical-mean basis
+    boundary_price: Optional[float] = None  # nearest price that would change the read state
+    flip_margin_pct: Optional[float] = None  # signed % from that boundary
+    read_flag: str = "n/a"                 # GOVERNED read state (hysteresis) — what governance consumes
 
 
 def _nav_basis_composite(classes: list[str], status: dict[str, str]) -> tuple[str, str]:
@@ -193,8 +211,13 @@ def _verdict(nav_basis: str, justified_flag: Optional[str], robust: str,
     return "comparable; §18.5 gates pending (read n/a)"
 
 
-def compute_scorecard(quarter: str, inputs_dir: Path = INPUTS_DIR) -> list[ScorecardRow]:
+def compute_scorecard(quarter: str, inputs_dir: Path = INPUTS_DIR,
+                      read_flag_state: Optional[dict] = None) -> list[ScorecardRow]:
+    """``read_flag_state`` is the prior governed read state ({ticker: flag}); None loads the
+    machine-local state file. Pass an explicit dict to keep a test deterministic — the tier does
+    NOT depend on it (that is the point of the amendment), only the governed read flag does."""
     classes = sorted(ALLOWED_CLASSES)
+    prior_flags = load_read_flag_state() if read_flag_state is None else read_flag_state
     status = load_basis_status(inputs_dir)
     parity = {c: nr.parity for c, nr in normal_rate_table(quarter, classes, inputs_dir=inputs_dir).items()}
     mr = mean_reversion_gate_table(quarter, classes, inputs_dir=inputs_dir)
@@ -212,10 +235,19 @@ def compute_scorecard(quarter: str, inputs_dir: Path = INPUTS_DIR) -> list[Score
         nav_basis, detail = _nav_basis_composite(held, status)
         jr = jrows.get(ticker)
         robust = jr.robust if jr else "n/a"
+        # EVALUABILITY, not agreement: the tier asks whether a §17 multiple could be PRODUCED, never
+        # what it said (Addendum A 2026-08-13). `robust` below is display + the read_flag source.
+        read_blocked = jr.read_blocked if jr else "no justified row"
+        margin = jr.flip_margin_pct if jr else None
+        read_flag = govern_read_flag(robust, margin, prior_flags.get(ticker))
         # Operating-scrubber surface is only uncited (and so tier-relevant) for queued names.
         op_err = _op_scrubber_error_pct(ci) if ticker.upper() in OPERATING_SCRUBBER_QUEUE else 0.0
-        tier = confidence_tier(ticker, nav_basis, robust, op_scrubber_error_pct=op_err,
+        tier = confidence_tier(ticker, nav_basis, read_blocked=read_blocked,
+                               op_scrubber_error_pct=op_err,
                                sector=entry.get("sector", "crude"), inputs_dir=inputs_dir)
+        boundary = None
+        if jr is not None and margin is not None:
+            boundary = jr.price / (1.0 + margin / 100.0)
         rows.append(ScorecardRow(
             ticker=ticker,
             sector=entry.get("sector", "crude"),
@@ -236,6 +268,12 @@ def compute_scorecard(quarter: str, inputs_dir: Path = INPUTS_DIR) -> list[Score
             governance_discount_pct=(jr.governance_discount_pct if jr else 0.0),
             confidence_tier=tier,
             mark_wide_nodes=_mark_wide_exposure(ci.fleet.vessels),
+            read_blocked=read_blocked,
+            j_par=(jr.justified_pnav if jr else None),
+            j_hist=(jr.justified_pnav_hist if jr else None),
+            boundary_price=boundary,
+            flip_margin_pct=margin,
+            read_flag=read_flag,
         ))
     return rows
 
@@ -528,9 +566,9 @@ def _verdict_position(ticker: str, raw: str) -> str:
     return raw
 
 
-def _verdict_tier(ticker: str, tier: str) -> str:
+def _verdict_tier(ticker: str, tier: str, read_blocked: Optional[str] = None) -> str:
     """Tier cell + its sub-reason (the resolution path) + the PROVISIONAL gate mark."""
-    sub = TIER_SUBREASON.get(ticker)
+    sub = tier_subreason(ticker, read_blocked)
     return tier + (f" · {sub}" if sub else "") + (" ⛔" if tier == "PROVISIONAL" else "")
 
 
@@ -539,11 +577,18 @@ def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation
     """The consolidated Verdict table — one row per name, the single handoff surface. Carries the
     owner's three corrections: cycle-position relabel, tier sub-reasons, and voided derived numbers."""
     by = {r.ticker: r for r in rows}
+    # EDGE-CLEARED: construction-validated AND the cheap call survives the basis choice AND BUY.
+    # The read_flag conjunct is load-bearing since the 2026-08-13 amendment — the tier no longer
+    # requires read agreement, so a flipping name can now be TIGHT and `read_hist == "cheap"`
+    # alone would admit one whose cheapness dies on the other basis. Governance consumes the
+    # HYSTERESIS-governed flag, never the instantaneous `robust` (§6).
     longs = sorted(
         r.ticker for r in rows
-        if r.confidence_tier == "VALIDATED-TIGHT" and r.read_hist == "cheap"
+        if r.confidence_tier == "VALIDATED-TIGHT" and r.read_flag == "robust"
+        and r.read_hist == "cheap"
         and valuation.get(r.ticker) and valuation[r.ticker].position.startswith("BUY")
     )
+    n_tight = sum(1 for r in rows if r.confidence_tier == "VALIDATED-TIGHT")
     n_wide = sum(1 for r in rows if r.confidence_tier == "GOVERNED-WIDE")
     n_prov = sum(1 for r in rows if r.confidence_tier == "PROVISIONAL")
     # Every name-specific sentence below is DERIVED from the rows, never hand-written:
@@ -586,15 +631,22 @@ def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation
     w("FV vs current price, position, and the broker-NAV bug-gate on the **same row** as the confidence "
       "tier — **the single handoff surface** for a sizing decision. The per-gate evidence behind each "
       "tier is the Validation matrix below (same names, same file).\n")
-    w(f"**What this says about the opportunity set:** of {len(rows)} names, the validated-and-actionable-"
-      f"long surface is **{len(longs)} ({', '.join(longs)}{long_color})**. "
+    w(f"**What this says about the opportunity set:** of {len(rows)} names, **{n_tight} are "
+      f"construction-validated** (VALIDATED-TIGHT — the NAV is soundly built), and of those the "
+      f"validated-and-actionable-long surface is **{len(longs)} ({', '.join(longs)}{long_color})**. "
       f"{n_wide} are directional-only (GOVERNED-WIDE); {n_prov} are not yet trustworthy enough to act on "
       f"(PROVISIONAL ⛔). {rich_sentence}{shorts_sentence}The thin actionable "
       f"list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.\n")
+    w("**These are two different questions, and the gap between the counts is the point.** "
+      "Construction-validated says the ESTIMATE is sound; edge-cleared adds that the cheap call "
+      "survives the choice of §17 normalization basis and the position is a BUY. A name can be "
+      "construction-validated and still not edge-cleared — its NAV is trustworthy while its "
+      "discount is basis-dependent. Since 2026-08-13 those two failures cap size on separate "
+      "channels and never stack (tier semantics amendment §0.3).\n")
     w("**Reading the labels:** the tier cell carries a **sub-reason = resolution path** "
       "(`structural-class` needs a new data regime; `pending-anchor` is sourceable now; `newbuild-heavy` "
       "resolves as hulls deliver; `newbuild-indeterminate` = a newbuild parked at $0 pending a filed "
-      "price; `read-flips` needs the §18.5 gate data; `void` = a derived number rests "
+      "price; `void` = a derived number rests "
       "on a contradicted figure). A **`cycle position`** in Position is a NAV-relative read (§12), NOT a "
       "directional short. A **void** row prints no derived numbers — they are known-suspect, not data.\n")
     fragility = fragility or {}
@@ -603,7 +655,7 @@ def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation
     w("|---|---|---|--:|--:|:--|--:|:--|--:|--:|--:|--:|:--|:--|:--|")
     torder = {"VALIDATED-TIGHT": 0, "GOVERNED-WIDE": 1, "PROVISIONAL": 2}
     for r in sorted(rows, key=lambda r: (torder.get(r.confidence_tier, 9), order.get(r.sector, 9), r.ticker)):
-        tier = _verdict_tier(r.ticker, r.confidence_tier)
+        tier = _verdict_tier(r.ticker, r.confidence_tier, r.read_blocked)
         ready = "ready" if is_handoff_ready(r.confidence_tier) else "**NO**"
         frag = _fragility_cell(r.ticker, fragility)
         v = valuation.get(r.ticker)
@@ -646,7 +698,11 @@ def write_scorecard(
     rate_basis: Optional[list[str]] = None,
     family_basis: Optional[dict] = None,
     bs_basis: Optional[dict] = None,
+    read_flag_state_path: Optional[Path] = None,
 ) -> Path:
+    """``read_flag_state_path`` persists the governed read flags forward (the hysteresis needs a
+    prior). Defaults to the machine-local state file; pass an explicit path in a test so a run
+    cannot mutate the shared tree (2026-07-18 rule)."""
     outputs_dir.mkdir(parents=True, exist_ok=True)
     out: list[str] = []
     w = out.append
@@ -756,23 +812,49 @@ def write_scorecard(
     w("**Gates per name:** (1) NAV-basis (resale-uniform ⇒ comparable; else flagged); "
       "(2) Justified P/NAV both bases (§17); (3) parity band (§A1.2); (4) §18.5a mean-reversion "
       "(Thread 3, data-pending); (5) §18.5b orderbook cross-check (Thread 5, data-pending); "
-      "(6) robust vs flips (does the read survive the parity↔historical choice).\n")
+      "(6) robust vs flips (does the read survive the parity↔historical choice). Gate 6 is a "
+      "read-CORROBORATION line, not a construction gate — it does not feed the tier.\n")
 
-    w("**Confidence tier (governance handoff):** the FV's reliability for a sizing decision, read "
-      "from the validation state above — **VALIDATED-TIGHT** (traced basis + robust across both §17 "
-      "bases — broker OR internal two-basis corroboration; SB-class), **GOVERNED-WIDE** (NAV traces "
-      "but rests on a structural-unavailable input or a read that flips — usable directional anchor, "
-      "wide band; CMBT-class), **PROVISIONAL** (a NAV-driving figure is uncited / off-basis — "
-      "**NOT handoff-ready, flag don't pass**; NAT-class). APPROX-pnav does not demote a robust name; "
-      "an immaterial uncited operating-scrubber surface does not either (see provenance.py).\n")
-    w("| Ticker | Sector | **Tier** | NAV-basis | P/NAV(mkt) | Read par→hist | Robust? | Parity band | "
-      "§18.5a | §18.5b | Verdict |")
-    w("|---|---|---|---|--:|---|---|---|---|---|---|")
+    w("**Confidence tier (governance handoff):** how the NAV is BUILT — and ONLY that. "
+      "**VALIDATED-TIGHT** = traced resale-uniform basis, NAV-driving figures sourced, on-convention, "
+      "known-gap surfaces immaterial, and the §17 multiple is EVALUABLE (SB-class). **GOVERNED-WIDE** = "
+      "the NAV traces but rests on a structural-unavailable input, or no §17 multiple can be produced "
+      "at all — a usable directional anchor with a wide band (CMBT-class). **PROVISIONAL** = a "
+      "NAV-driving figure is uncited / off-basis — **NOT handoff-ready, flag don't pass** (NAT-class). "
+      "APPROX-pnav does not demote: an external broker cross-foot is estimate-level evidence that may "
+      "inform the tier where coverage exists, never a requirement. An immaterial uncited "
+      "operating-scrubber surface does not demote either (see provenance.py).\n")
+    w("**A price movement may never change a tier** (amendment 2026-08-13; `test_tier_is_price_"
+      "invariant`). Whether the §17 read AGREES across bases is an EDGE fact, not a construction "
+      "fact: it is a function of where the price sits, so it left the tier and now ships as the "
+      "read-corroboration line (`Robust?` / `read_flag` below), standing BESIDE the tier exactly as "
+      "`weight_sign_stable` does. **The tier does not double-count either of them** — each caps size "
+      "on its own channel and the two never stack as a repeated discount penalty (TNK precedent).\n")
+    w(f"**Reading the §17 margin block:** `J par`/`J hist` are the justified P/NAV under the two "
+      f"normalization bases and `Boundary` is the nearest price at which the read state would "
+      f"change; `Margin%` is the signed distance to it. `read_flag` is the GOVERNED read state that "
+      f"governance consumes — it adopts a new state only once `|Margin%|` clears "
+      f"±{READ_FLAG_HYST_PCT:.1f}%, so a name parked on a boundary reports one stable sizing input "
+      f"instead of strobing. `Robust?` is the instantaneous read and is display only.\n")
+    w("| Ticker | Sector | **Tier** | NAV-basis | P/NAV(mkt) | Read par→hist | Robust? | J par | "
+      "J hist | Boundary | Margin% | read_flag | Parity band | §18.5a | §18.5b | Verdict |")
+    w("|---|---|---|---|--:|---|---|--:|--:|--:|--:|---|---|---|---|---|")
     for r in sorted(rows, key=lambda r: (order.get(r.sector, 9), r.ticker)):
         pm = f"{r.pnav_mkt:.2f}×" if r.pnav_mkt is not None else "n/a"
         tier = r.confidence_tier + (" ⛔" if r.confidence_tier == "PROVISIONAL" else "")
+        # A blocked name has no multiple to compare, so the margin block prints *blocked* rather
+        # than an em-dash that would read as "computed, came out empty". The specific blocker is
+        # already on the same row twice (Read par→hist, Verdict), so it is not repeated here.
+        if r.read_blocked is not None:
+            jp = jh = bd = mg = "*blocked*"
+        else:
+            jp = f"{r.j_par:.3f}×" if r.j_par is not None else "n/a"
+            jh = f"{r.j_hist:.3f}×" if r.j_hist is not None else "n/a"
+            bd = f"${r.boundary_price:,.2f}" if r.boundary_price is not None else "n/a"
+            mg = f"{r.flip_margin_pct:+.2f}%" if r.flip_margin_pct is not None else "n/a"
         w(f"| {r.ticker} | {r.sector} | {tier} | {r.nav_basis} | {pm} | {r.read_par}→{r.read_hist} | "
-          f"{r.robust} | {r.parity_band} | {r.gate_5a} | {r.gate_5b} | {r.verdict} |")
+          f"{r.robust} | {jp} | {jh} | {bd} | {mg} | {r.read_flag} | {r.parity_band} | "
+          f"{r.gate_5a} | {r.gate_5b} | {r.verdict} |")
 
     # Summary
     def _count(key) -> dict[str, int]:
@@ -786,8 +868,15 @@ def write_scorecard(
     w("**NAV-basis (comparability boundary):** " +
       ", ".join(f"{k} {v}" for k, v in sorted(nb.items())) + ".")
     rob = _count(lambda r: "flips" if r.robust.startswith("flips") else r.robust)
-    w("\n**Read robustness (parity↔historical):** " +
+    w("\n**Read robustness (parity↔historical), instantaneous:** " +
       ", ".join(f"{k} {v}" for k, v in sorted(rob.items())) + ".")
+    rfl = _count(lambda r: "flips" if r.read_flag.startswith("flips") else r.read_flag)
+    strobe = sorted(r.ticker for r in rows if r.flip_margin_pct is not None
+                    and abs(r.flip_margin_pct) < READ_FLAG_HYST_PCT)
+    w(f"\n**Read flag (GOVERNED — what governance consumes, ±{READ_FLAG_HYST_PCT:.1f}% deadband):** " +
+      ", ".join(f"{k} {v}" for k, v in sorted(rfl.items())) + "." +
+      (f" Inside the deadband (a small move would restate the read): {', '.join(strobe)}."
+       if strobe else " No name sits inside the deadband."))
     tiers = _count(lambda r: r.confidence_tier)
     provisional = sorted(r.ticker for r in rows if r.confidence_tier == "PROVISIONAL")
     w("\n**Confidence tier (handoff):** " +
@@ -827,6 +916,10 @@ def write_scorecard(
     if valuation is not None:
         _write_handoff_json(rows, valuation, outputs_dir, price_basis, quarter, fragility,
                             rate_basis, family_basis, bs_basis)
+    # Carry the governed read flags forward — the deadband needs a prior to hold against.
+    save_read_flag_state({r.ticker: r.read_flag for r in rows},
+                         path=read_flag_state_path or READ_FLAG_STATE_FILE,
+                         asof=(price_basis or {}).get("oldest_static_as_of", "") or (quarter or ""))
     return md_path
 
 
@@ -917,7 +1010,7 @@ def _write_handoff_json(
             "ticker": r.ticker,
             "sector": r.sector,
             "confidence_tier": r.confidence_tier,
-            "tier_subreason": TIER_SUBREASON.get(r.ticker),
+            "tier_subreason": tier_subreason(r.ticker, r.read_blocked),
             "handoff_ready": is_handoff_ready(r.confidence_tier) and not void,
             "nav_basis": r.nav_basis,
             "void": void,
@@ -963,6 +1056,16 @@ def _write_handoff_json(
             "weight_sign_stable": frag.get("ev_sign_stable") if frag else None,
             "ev_pct_family_min": frag.get("ev_min_pct"),
             "ev_pct_family_max": frag.get("ev_max_pct"),
+            # 2.8 (tier semantics amendment 2026-08-13): the read-corroboration channel, standing
+            # BESIDE the tier exactly as weight_sign_stable does. `read_flag` is GOVERNED (the
+            # ±READ_FLAG_HYST_PCT deadband) and is the field a sizing decision consumes; `robust`
+            # is the instantaneous read, exported for transparency, NOT for sizing. The tier no
+            # longer encodes either — read-flips caps size on this channel, construction failures
+            # cap via the tier, and where both bind the SMALLER authorization applies (never both).
+            "read_flag": r.read_flag,
+            "robust": r.robust,
+            "flip_margin_pct": _num(r.flip_margin_pct),
+            "read_flag_hyst_pct": READ_FLAG_HYST_PCT,
             # 2.3: §9.9 wide-node exposure — null = none; else ["VLGC@five_year", ...]
             # (the name's NAV rests materially on an EXTRAPOLATED fitted anchor;
             # band + record in provenance.MARK_WIDE_NODES).
@@ -1011,7 +1114,7 @@ def _write_handoff_json(
         # same datum on the row the consumer's per-name seam diff operates on;
         # derived from the one map, never recomputed). Minor bump: additive,
         # consumer asserts major == 2.
-        "schema_version": "2.7",
+        "schema_version": "2.8",
         **_vintage_stamp(),
         "quarter": quarter,
         "price_basis": price_basis,

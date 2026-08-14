@@ -278,7 +278,12 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
     # the stale-run alert's counting set).
     # 2.7 (2026-08-08): + balance_sheet_basis + names[].balance_sheet_vintage
     # (the Q2-transition disclosure; per-row field derives from the one map).
-    assert doc["schema_version"] == "2.7"
+    # 2.8 (2026-08-13, tier semantics amendment): + names[].read_flag / robust /
+    # flip_margin_pct / read_flag_hyst_pct — the read-corroboration channel that
+    # left the tier. ADDITIVE: confidence_tier keeps its name and meaning-of-record
+    # (construction), so a 2.7 consumer still reads it correctly; it simply stops
+    # encoding the read. Governance must migrate to read_flag for the edge cap.
+    assert doc["schema_version"] == "2.8"
     assert doc["schema_version"].split(".")[0] == "2"
     assert doc["quarter"] == QUARTER
     # The per-row vintage and the run-level map are ONE datum on two surfaces
