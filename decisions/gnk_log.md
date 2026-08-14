@@ -1,5 +1,41 @@
 # GNK — Decision Log
 
+## 2026-08-14T15:08:45+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.26
+- Single-point FV: $24.61
+- Scenario PW FV: $22.67 (EV -10.2%)
+- NAV / share: $25.12
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +7.6pp (k_broker 1.07)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** **TIER RESTORED GOVERNED-WIDE → VALIDATED-TIGHT — a SEMANTIC AMENDMENT, not new
+information about GNK.** `decisions/tier_semantics_amendment_2026-08-13.md` removed read-agreement
+from the tier: it certifies how the NAV is BUILT, and a flipping read is an EDGE fact that caps size
+on its own channel. GNK's only WIDE ground was `read-flips`, so clearing that registry entry
+MECHANICALLY moved the tier (the tier function keys off construction state alone). That is the
+consequence of a correct amendment, NOT a tier ruling and NOT a re-grading of this name — **nothing
+was learned about GNK.** Construction inputs unchanged and already clean: nav_basis resale-uniform
+(Volunteer on-curve, Predator out, census exact per the Q2 drain), figure queues clear, §17 multiple
+evaluable. GNK also carried the retired rule's own test pin — `test_confidence_tier.py` line 53 was
+literally `confidence_tier("GNK", …, "flips (cheap/fair)") == GOVERNED-WIDE`; it is rewritten to the
+new semantics (construction-clean → TIGHT regardless of read).
+
+**The read still flips, and still caps size.** `read_flag = flips (cheap/fair)` (par 1.134× cheap /
+hist 1.019× fair; boundary $25.90, margin −3.08% — outside the ±2.0% deadband, so the flag is
+settled, not strobing; note GNK sits nearer its boundary than the other two). **No position
+authorization is enlarged** — GNK is TRIM/SHORT and is not in the edge-cleared long set before or
+after ({SB} both sides). A now-TIGHT tier on a TRIM/SHORT name is exactly the intended reading:
+**the estimate is soundly built; that says nothing about the name being cheap.** Drift gate
++0.0pp/+0.0%/stable.
+
+---
+
 ## 2026-08-13T21:00:06+00:00 — Pipeline run (auto)
 
 **Model state:**

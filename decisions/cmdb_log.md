@@ -1,5 +1,37 @@
 # CMDB — Decision Log
 
+## 2026-08-14T15:08:45+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.68
+- Single-point FV: $21.13
+- Scenario PW FV: $20.11 (EV +13.7%)
+- NAV / share: $32.13
+- Position: **BUY (undervalued)**
+- Broker spread: -11.8pp (k_broker 0.87)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** **TIER RESTORED GOVERNED-WIDE → VALIDATED-TIGHT — a SEMANTIC AMENDMENT, not new
+information about CMDB.** `decisions/tier_semantics_amendment_2026-08-13.md` removed read-agreement
+from the tier: it certifies how the NAV is BUILT, and a flipping read is an EDGE fact that caps size
+on its own channel. CMDB's only WIDE ground was `read-flips`, so clearing that registry entry
+MECHANICALLY moved the tier (the tier function keys off construction state alone). That is the
+consequence of a correct amendment, NOT a tier ruling and NOT a re-grading of this name — **nothing
+was learned about CMDB.** Every construction input is unchanged and was already clean: nav_basis
+resale-uniform, figure queues clear, §17 multiple evaluable.
+
+**The read still flips, and still caps size.** `read_flag = flips (cheap/fair)` (par 0.683× cheap /
+hist 0.554× fair; boundary $16.17, margin +6.68% — outside the ±2.0% deadband, so the flag is
+settled, not strobing). Under the amended seam CMDB sizes to the WEAKER-basis read until the edge
+clears it; the tier no longer double-counts that. **No position authorization is enlarged** — CMDB
+is not in the edge-cleared long set before or after ({SB} both sides). §15 governance discount
+unchanged. Drift gate +0.0pp/+0.0%/stable.
+
+---
+
 ## 2026-08-13T21:00:06+00:00 — Pipeline run (auto)
 
 **Model state:**

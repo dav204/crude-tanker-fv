@@ -1,5 +1,50 @@
 # SBLK — Decision Log
 
+## 2026-08-14T15:08:45+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.89
+- Single-point FV: $31.88
+- Scenario PW FV: $29.79 (EV +6.8%)
+- NAV / share: $32.78
+- Position: **BUY (undervalued)**
+- Broker spread: -4.3pp (k_broker 0.96)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** **TIER RESTORED GOVERNED-WIDE → VALIDATED-TIGHT — a SEMANTIC AMENDMENT, not new
+information about SBLK, and NOT a reversal of the 8/13 demotion on its facts.** The demotion entry
+below stands as history and its mechanism was correctly traced: the watchlist PRICE leg moved
+25.20 → 28.60 at the rebase with tool NAV byte-identical at $32.78, crossing the cheap|fair boundary
+on the historical-mean basis at **$27.72**. What the amendment
+(`decisions/tier_semantics_amendment_2026-08-13.md`) rules is that **that fact should never have
+touched a tier.** SBLK is the name the flaw was found on: with the tape at $27.89, 0.62% above the
+boundary, a 62 bp red open would have UPGRADED the grade hours after a data repair degraded it, NAV
+byte-identical through both. That reductio is the amendment's evidence base, and the regression it
+names is **SBLK-2026-08-13** (`tests/test_tier_semantics_amendment.py::test_tier_is_price_invariant`
+— tiers must be byte-identical under a price-only ±20% perturbation).
+
+Clearing the `read-flips` registry entry MECHANICALLY moved the tier; the tier function keys off
+construction state alone. Every construction input was already unchanged and clean (recorded at the
+demotion): nav_basis resale-uniform, weight_sign_stable TRUE, family EV range sign-stable.
+
+**The read still flips, and still caps size.** `read_flag = flips (cheap/fair)` (par 1.116× cheap /
+hist 0.930× fair; boundary **$27.72**, margin +3.18% at the $28.60 watchlist vintage — outside the
+±2.0% deadband). NOTE the two price bases: the row's margin is measured at the vintage price the
+read itself is computed on, while the 0.62% knife-edge is the $27.89 **tape**, i.e. where the read
+would sit once the watchlist rebases. **As built, the live surface therefore does NOT flag the
+strobe zone** the deadband was written for — carried to the owner in the amendment record, not
+resolved here.
+
+**No position authorization is enlarged** — SBLK is not in the edge-cleared long set before or after
+({SB} both sides). **The three-thread SBLK owner sitting stands as docketed and nothing here acts on
+it:** the leg-2 trim GTC $31.30 (instruction id 100) is untouched, and the frozen 8/09 BUY→HOLD
+band-mech flip stays frozen. Surfaced, not acted. Drift gate +0.0pp/+0.0%/stable.
+
+---
+
 ## 2026-08-13T21:00:06+00:00 — Pipeline run (auto)
 
 **Model state:**
