@@ -14,6 +14,7 @@ Coverage targets:
 
 import os
 from datetime import date, datetime, timezone
+from pathlib import Path
 
 import pytest
 import yaml
@@ -199,7 +200,11 @@ def test_build_checklist_and_write_smoke(tmp_path):
     # don't require test rebases. The data_sources subset assertion below
     # provides per-name coverage verification.
     assert len(checklist.balance_sheets) >= 11
-    assert len(checklist.market_data) == 5
+    # Derived, not hardcoded: the count is exactly the monitored-file list, so
+    # adding or retiring a fast-mover doesn't need a test rebase. Went 5 -> 4 on
+    # 2026-08-16 when historical_tce_means.yaml moved to the trigger registry
+    # (test_tce_means_cadence_has_an_owner pins that it kept a cadence).
+    assert len(checklist.market_data) == len(MARKET_DATA_FILES)
     assert len(checklist.watchlist) >= 11
     assert len(checklist.per_ticker_ages) >= 11
     # Data sources must cover every ticker that's actually on the watchlist
@@ -411,3 +416,39 @@ def test_reweight_trigger_fired_ruled_deferred_ambers_then_escalates(tmp_path):
     after = {i.label: i for i in check_reweight_triggers(tmp_path, today=date(2026, 8, 16))}
     assert after["deferred_one"].status == "missing"
     assert "BREACHED" in after["deferred_one"].detail
+
+
+def test_tce_means_cadence_has_an_owner():
+    """historical_tce_means.yaml left the 30d mtime check (2026-08-16) because a
+    TRAILING 10-YEAR mean is not a rate print — the clock built for spot/FFA data
+    held it permanently stale while saying nothing about what actually degrades
+    it, the window rolling. But a file dropped from a check with nothing put in
+    its place is a SILENT gap, which is worse than a noisy one. So the two moves
+    are pinned together: it may be absent from MARKET_DATA_FILES only while an
+    armed periodic review covers it in the trigger registry.
+
+    The review must cover EVERY class. Only lpg carried one before this (armed at
+    WO3 onboarding); the legacy classes were set 2026-06-07 and had never been
+    re-derived. 'It drifts each cycle' is a property of a trailing mean, not a
+    property of VLGC.
+    """
+    import yaml as _yaml
+
+    root = Path(__file__).resolve().parents[1]
+    assert "historical_tce_means.yaml" not in MARKET_DATA_FILES, (
+        "back on the 30d clock — either restore the trigger rationale or delete it")
+
+    triggers = _yaml.safe_load(
+        (root / "inputs" / "reweight_triggers.yaml").read_text()) or {}
+    review = triggers.get("tce_means_semiannual_review")
+    assert review is not None, (
+        "historical_tce_means.yaml is on NO cadence: it left MARKET_DATA_FILES and "
+        "tce_means_semiannual_review is gone — the 10-yr means would roll unwatched")
+    assert review.get("status") == "armed", review.get("status")
+    assert review.get("sector") == "all", (
+        f"the review must span every class, not {review.get('sector')!r} — the "
+        "trailing-mean drift is class-agnostic")
+    assert review.get("due") is not None
+
+    # LPG keeps its own filing-tied annual re-derivation; the sweep defers to it.
+    assert triggers.get("lpg_anchor_annual_review", {}).get("status") == "armed"

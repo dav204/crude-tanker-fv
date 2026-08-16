@@ -287,6 +287,47 @@ all_sectors_consensus_pair_recapture:
                      # from that edition and left at their documented vintages;
                      # re-armed quarterly. decisions/consensus_recapture_2026-07-06.md
 
+tce_means_semiannual_review:
+  sector: all
+  due: 2026-12-07
+  observable: >
+    EVERY entry in inputs/market_data/historical_tce_means.yaml is a TRAILING
+    10-year mean, so every one of them DRIFTS as the window rolls — it drops
+    the oldest year and adds the newest. The owner instruction of 2026-07-06
+    ("a dated determinant, not a constant") was recorded against the VLGC
+    anchor because that was the class on the table, but the property is
+    class-agnostic: VLCC's $40,000 is a TD3C 10-yr average and Suezmax's
+    $27,747 a TD20 10-yr average, both equally trailing. Until now ONLY lpg
+    carried a review (lpg_anchor_annual_review, armed at WO3 onboarding); the
+    legacy classes were set 2026-06-07 and have NEVER been re-derived —
+    every subsequent commit to the file was a class onboarding or a bug fix
+    (Handy-Bulk 7/14, LPG 7/08, Post-Panamax 6/29, Aframax BUG-1 6/22,
+    containerships 6/12), never a window roll. That gap is what this closes.
+    SEMIANNUAL, not annual: at ~5% window turnover per review the lag stays
+    small, and the crude/product classes have a war-elevated tape ENTERING
+    the window while the 2020-22 trough leaves it — the two largest
+    distortions on the book are both live in the roll right now.
+  action: >
+    Re-derive the trailing 10-yr mean for EVERY class off its documented route
+    benchmark / basis (VLCC TD3C, Suezmax TD20, etc. — the per-class basis and
+    its caveats are commented in the file itself). TC-ANCHORED throughout, not
+    spot — re-run METHODOLOGY §8.3's self-check that no spot-anchored component
+    has crept in. Do NOT bulk-update from VIE: the ~14-58% VIE gaps are
+    deliberate base-period / outlier-handling differences and switching base
+    shifts FVs across the whole watchlist (per-class methodology decision
+    required, §8.3 Step 3). Update values + as_of, re-run the cycle layer,
+    check the drift gate, gate-annotate every class whose EV moves >2pp, and
+    re-arm +6mo. LPG DEFERS to lpg_anchor_annual_review, whose realized-TCE
+    basis is tied to the Dorian 10-K / BW LPG 20-F filing cadence — this sweep
+    records LPG as "covered by the annual trigger", it does not re-derive it.
+  status: armed
+  added: 2026-08-16   # owner-ruled: the review is needed for ALL classes, not
+                      # just the one class that happened to get a trigger.
+                      # Replaces historical_tce_means.yaml's 30d mtime check in
+                      # refresh.MARKET_DATA_FILES, which held a 10-year mean to
+                      # the cadence built for spot/FFA/curve files and so read
+                      # stale permanently. Guard: test_tce_means_cadence_has_an_owner.
+
 lpg_anchor_annual_review:
   sector: lpg
   due: 2027-06-30

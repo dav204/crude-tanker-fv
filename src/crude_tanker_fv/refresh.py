@@ -53,13 +53,22 @@ WATCHLIST_STALE_DAYS = 42        # consensus-pair vintage (owner 2026-07-06 at t
 FLEET_STALE_DAYS = 90            # fleet manifest (vessels enter / exit)
 COST_DIVIDEND_STALE_DAYS = 180   # cost structure / dividend policy
 
-# Market data files to monitor (relative to inputs/market_data/)
+# Market data files to monitor (relative to inputs/market_data/). Everything here
+# is a FAST mover on the 30d clock above — spot / 12M TC / FFA / vessel value curves.
+#
+# historical_tce_means.yaml REMOVED 2026-08-16 (owner-ruled). It is a TRAILING
+# 10-YEAR mean, not a rate print: an mtime clock built for daily data held it
+# permanently stale (33d at removal) while saying nothing about the thing that
+# actually degrades it — the window ROLLING. Its cadence now lives where a dated
+# determinant belongs, the trigger registry: `tce_means_semiannual_review` covers
+# every class, and `lpg_anchor_annual_review` keeps LPG's filing-tied basis.
+# Removing it from a check WITHOUT that replacement would be a silent gap, so the
+# pairing is guarded: tests/test_refresh.py::test_tce_means_cadence_has_an_owner.
 MARKET_DATA_FILES = [
     "vessel_value_curves.yaml",
     "spot_tce.yaml",
     "twelve_month_tc.yaml",
     "ffa_forward_curve.yaml",
-    "historical_tce_means.yaml",
 ]
 
 
