@@ -6,229 +6,30 @@ forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
 
-**Current state (2026-08-09, Sunday EVE — SESSION HANDOFF).** Read this block, then start at
-§NEXT BLOCK step 1 (tomorrow is INSW morning). **Suite 636 green + 15 xfailed · drift gate 0/0
-· tree clean at db53188+ · producer ~9 commits ahead — NEEDS A PUSH (owner-gated).** The book
-runs 2026-Q2 on the 8/07 price basis; every Q2 sheet is on file (the 14-name drain closed 8/08
-with every pre-registered band HIT).
+**Current state (2026-08-16, Saturday EVE — WEEK CLOSED, SESSION HANDOFF).** Read this block, then start at §NEXT BLOCK step 1. **Suite 700 passed / 0 skipped / 14 xfailed (gate AWAKE) · drift gate 25 rows, 0 UNEXPLAINED · ratified @ e92fa8a (RATIFY_LOG 2026-08-16T20:09Z) · pushed.** The book runs 2026-Q2 on the **8/14 close** (Fri/Sat price-cron DNS stand-downs; 8/14 fetched manually 8/16); crude weights **0.25/0.62/0.00/0.13** (toll-cliff C2 — `mou_base` retired AT ZERO, kept as a leg for series continuity); watchlist consensus pairs at the 8/07 Pareto vintage — **except 2343, whose pair is STALE and URGENT (below)**.
 
-**THE 8/09 PROMOTION ROUND IS CLOSED (owner-authorized, three ratified/verified events):**
-(1) **Marks-trail** (`decisions/marks_trail_triage_2026-08-09.md`): 28 in-window S&P prints —
-war-tape VLCCs $120-130M @ 9-13y, Ellie Lady LR2 $47.5M @17, 5 PPMX incl. the first young node
-(Pont Rouge @5), 11 Supra — plus 2 G5 revisions; **4 unnamed-print duplicates caught and
-unwound** (the whole queued Pareto disposition was re-reports — new WORKFLOWS rule: sweep the
-class file before promoting ANY unnamed print). DHT NAV +8.4%; SB EV +31% (TIGHT BUY
-strengthened, PPMX evidence base now 10 prints); **k_broker pure-play premium COLLAPSED to
-~1.00-1.04 → `TXN_PURE_PLAY_K_BAND` re-pinned (0.95, 1.15)** — partly pnav-vintage skew, the
-REBASE IS NOW PRESSING (draft staged, see below). (2) **Dry-bulk FFA, 8/06 print**
-(`ffa_promotion_2026-08-09.md`): tenor set rolled to Aug/Sep/Q4/Q1-27/Cal27 — 12M proxies
-stepped DOWN on window COMPOSITION (Q1-trough entered; like-for-like Q4 FIRMED +4.3%): Cape
-31,550 / Pana 18,300 / Supra 16,750; Smax Cal27 still cropped (held 2027-28 legs disclosed ~5%
-rich vs the now-printed Q1-27). **SBLK BUY→HOLD band-mech = purely 12M-composition (ΔNAV 0.0)
-→ FROZEN-FOR-OWNER-REVIEW** (one-word disposition owed; its Q3-coverage slide 62% @ $23,547
-corroborates composition-not-weakness). (3) **Containers, MB W32**
-(`container_mb_refresh_packet_2026-08-09.md`): Ctr-Large 12M 64,000 + feeder 10yr mark 29.5
-(TC+VALUE joint; NAV-halt verified — MPCC +0.5% only); trigger re-armed 9/07.
+**Five structural facts a new agent needs this week:**
+1. **Tier = CONSTRUCTION only (amendment ruled 8/13, Addenda A/B 8/13–14, landed + ratified).** A price move can never change a tier; TIGHT gates on EVALUABILITY (`read_blocked`), never on agreement. The read ships beside the tier: governed `read_flag` with a `READ_FLAG_HYST_PCT = 2.0` deadband; **edge-cleared long = TIGHT ∧ `read_flag == robust` ∧ `read_par == cheap` ∧ BUY = {SB}**, before and after. Migrations exactly {SBLK, CMDB, GNK} → VALIDATED-TIGHT (each `read_flag = flips`); BRUT/CAPT stay WIDE (read-blocked is a construction fact). Handoff JSON **2.7 → 2.8** (additive). Tape-basis strobe lives on the **delta/monitor layer ONLY** (Addendum B2; scorecard stays single-vintage). Governance TRADE_PREREG #4 rewrite is an OWNER action in the other repo — `read_flag` enters no prereg gate before it.
+2. **Toll cliff RESOLVED 8/16 (decisions/crude_day60_toll_cliff_2026-08-16.md): C2 executed.** Neither pre-registered branch fired — the window expired into interdiction (traffic 17% of pre-conflict, blockade, Iran attacking the traffic it proposes to bill). Successors: `hormuz_fee_collection_watch` (standing, LABEL-AGNOSTIC — fires on systematic COLLECTION, not the word "toll"; **due date OWED, owner sets**) + `escalation_pause_corroboration` (**due 8/23**, PRIMARY sources only; if the 8/09 "pause HOLDS" record is contradicted → correction-annotate THAT record FIRST).
+3. **R4: the Stage-A voids STAND.** BRUT/CAPT/TNK retire ONLY at the deck re-expression against the landed Stage-A base — **docketed as its own work order, not yet scheduled (owner word)**. Corrected framing (wf_8b0d1184): **CAPT is the ONE BUY-ward void at tape** (+9–10%); TNK reads HOLD at the tape (the BUY-ward TNK read was a stale-static artifact); BRUT does not re-read until the WO executes.
+4. **Two-cause ratify 8/16 @ e92fa8a (weight leg + 8/12→8/14 price leg, adversarially verified exact, max residual 0.05pp).** Three flips eyeballed individually: **2343 HOLD→T/S band-EXIT = STATIC-FALLBACK RELEASE** — the stale 7/14 watchlist static (0.39) stopped tripping the ±30% guard and a genuine month-long HKG rally absorbed in ONE step (+26.9%) → **watchlist rebase OWED, urgent**; ASC HOLD→T/S band-mech (pre-warned oscillator); SBLK BUY→HOLD band-mech (FV-line whipsaw; the three-thread SBLK sitting stands, GTC $31.30 untouched).
+5. **The filing-venue net is now COMPLETE + attributable:** `newsweb_poll` (Oslo/Euronext — BRUT/MPCC/CAPT finally have a mechanical channel; 4 historical misses pinned as test fixtures) + `cron_lane` per-lane outcomes (`note=edgar=ok,hkex=ok,newsweb=rc1` — red-on-a-sibling no longer masks two live lanes). TCE means moved OFF the 30d mtime clock onto `tce_means_semiannual_review` (due 12/07).
 
-**STAGE A: COMPUTED + RULED, WIRES TOMORROW (8/10) AFTER THE INSW PRE-MARKET PRINT.**
-`decisions/stage_a_computation_draft_2026-08-09.md` carries the §§1-4 construction, the §5
-scoreboard (VLCC front 179.65k BREACH-HIGH + term-implied 48.85k BREACH-LOW, both traced to
-ECO's verified $206.6k QTD print, tape-corroborated), and the FOUR OWNER RULINGS: wait-for-INSW
-· breaches ACCEPTED post-investigation · VLCC 12M = Mount Horizon $105,700 single-print (BRUT
-is all-VLCC) · LR2_clean term = §4-letter 28,000 flagged. The INSW refresh itself is
-PRE-REGISTERED (`decisions/insw_q2_prereg_2026-08-09.md`: point $56.30, band [51.50, 61.00],
-forward-invariance + subsequent-events-first + the Q3-QTD-extraction step that feeds §6).
+**URGENT — first sitting of the week (Mon 8/18):**
+- **Watchlist vintage rebase for 2343** (pair = price + issuer-NAV pnav + fwd_pe from ONE vintage; the static guard is dead weight until re-pinned). Whole-book rebase if a fresh Pareto daily has landed (the Fri 8/14 daily is absent — 1 missing business day, sub-threshold; Aug cadence just resuming).
+- **MPCC prereg AMENDMENT before 8/26** — the 6/30–7/02 COMPLETED placement is **+44,370,027 shares = exactly +10.0%** the model doesn't carry (digest M4), plus the 6/25 acquisition; `mpcc_h1_prereg_2026-08-13.md`'s band is wrong as written. Dated pre-print amendment (the BRUT 8/12 precedent).
+- **NAT date sweep** — window 8/26–31 is aggregator-grade (EARNINGS-UNCONFIRMED); land a date-PR or record the sweep.
 
-**STAGED FOR THE OWNER'S WORD:** `inputs/watchlist_rebase_2026-08-07.yaml.draft` — the full
-consensus-pair transcription from the 8/7 Pareto daily (16 pareto-basis + 4 approx names;
-kr-quoted rows flagged for FX at promote). Promoting it retires the k-vintage-skew test debt.
+**NEXT BLOCK — theme: THE EARNINGS TRAIN (8/26–28) + STAGE B — write every band BEFORE its print; no void retires outside the deck re-expression work order.**
+(1) **Mon 8/18:** the URGENT sitting above · fold GNK **Diana-withdrawal** (offer withdrawn 8/14, digest M1 — retire the live-proposal watchlist caveat; the 28.40 Pareto-NAV value may stand; re-read: current T/S is the last *with-deal* read) · triage the **2 unreviewed S&P candidates** (`outputs/sp_print_candidates.md`: CMBT 'Bristol' 2024 suezmax + the 8/10 Kamsarmax pair $38.2/23.5M) then `sp_scan --mark-reviewed` · FRO 2×VLCC print watch stands (MB W33/W34; P1 unpromoted — blocker is vessel names, GlobeNewswire primary timed out 3×).
+(2) **Wed 8/19:** SBLK ex-div re-read (GTC $31.30 id 100 riding; three-thread sitting unchanged — don't read the ex-div drop as drift).
+(3) **Sat 8/22:** weekly news-pull auto-runs 09:03 — verify `cron_lane` outcomes + the digest's age (its age IS its heartbeat). **Sun 8/23:** `escalation_pause_corroboration` due — PRIMARY sources only (CENTCOM, UKMTO log, dated wires); correction-annotate-first rule applies.
+(4) **The earnings train — prereg BEFORE each print (INSW/BRUT pattern), subsequent-events note FIRST, term-rate disclosures captured as Stage-B class-bucket basis:** **8/26** TRMD Q2 (+ the LR1/anchor-round TIGHT candidacy queues behind it) + MPCC H1 (amended prereg) + NAT window opens · **8/27** CMBT · **8/28** FLNG (early-release risk stands) + HAFN + BWLP (§9.6 first instalment on the 8-hull order, NCI re-derivation if the curve moved, R-2 orderbook re-read) · **8/31** FRO · **9/01** CAPT (the M2/M3 deliveries vs the 31-Mar sheet land here; SLB vs senior-secured — the ECO double-count trap on the first only).
+(5) **Stage B 8/26→9/04:** ±10% band-gate per class-bucket; **LR2_clean term (war-ratio 28k, D-3 flag) is the registered correction candidate**. Then the post-Stage-A queue in ONE-FV-EVENT-AT-A-TIME order: LR1 contract-floor execution (TRMD → VALIDATED-TIGHT, frozen prereg + mr_secondhand §5 extract-refresh rider) → D-M2 sweep → D1 round (D-M3/D-M4) → STNG 10-hull §9.6 prereg.
+(6) **Owner words open:** deck re-expression WO (R4) scheduling · `hormuz_fee_collection_watch` due date · June 1–3 Pareto archive gap (RC walk for the JUNE window, then accept-or-backfill — do NOT accept on July evidence) · news-pull limitations backlog (the 8-item 8/16 digest handoff — GlobeNewswire 60s timeout, sec.gov/efts 403 EDGAR route, hellenic/splash 403s, PDF-primaries→fetch_pdf, JS-shell IR pages, Glob/Grep restore-or-bless, the missing 8/14 daily; the NewsWeb item CLOSED same day by `newsweb_poll`) · PANL seed scheduling (Stage-3; B3 WAITING-ON-IR since 8/12) · TEN alternative-anchor · BRUT demerger modeling (demerger end-Aug, uplist end-Sep — newsweb now watches the releases) · watchdog-sweep residuals (sentinel CI-status lane; EARNINGS-* tags unrouted + trailing-colon; overlays.yaml Jun-9 scopes + dead `retire_trigger`; 2 zombie ctxprobe plists) · `_fetch` URLError exposure shared by hkex/newsweb (module-level fix, per df67019).
+**Definition of done:** every landed print reconciled-or-queued with its log entry AND a band written before it; 8/23 watch recorded; the 2343 static retired via the rebase; gate 0 unexplained at close; no void retired outside the R4 work order; suite green; pushed.
 
-**2026-08-13 PM UPDATE (July-hole audit — owner-directed backfill executed).**
-Result: **NOTHING TO BACKFILL — attribution corrected** (full record: brut_log 8/13 PM
-entry). The 7/03→7/14 Pareto gap is SOURCE-QUIET (Pareto's Jul/Aug cadence; the 7/12
-seasonal note in `rocketchat_sources.yaml` covered it): full RC history walk (uncapped,
-since 7/01, 2,379 msgs) = zero Pareto posts in the window while the sibling FFA lane
-ingested daily; archive == channel exactly for 7/01→8/13. The "harvester outage" was the
-weekly broker-marks lane (revived 8/11) — a deep 40-page HSN+CapitalLink recrawl
-recovered NO July weeklies either (mirror-side non-publication; W33 banchero/fearnleys
-picked up; allied dead in 2026). So the BRUT-miss remediation rests on the surviving
-causes: untriaged name-text + NO ISSUER CHANNEL (NewsWeb) — the latter is now the
-load-bearing gap. **Full-window `--names all` sweep executed** (issues 7/14→8/13, manifest
-rebuilt to 8/13): 15 decision logs triaged. **TWO OPEN PRINT FLAGS (not promoted):**
-FRO 2×2017-built VLCCs (8/04, "extreme prices", NO price disclosed yet — watch MB
-W33/W34 + FRO Q2) · CMBT 'Bristol' 2024 suezmax (8/11, $57m Q4 gain, beyond the 8/07
-print cursor — expect in the Sat 8/15 queue). **HEADS-UP for tonight: OET trades ex-div
-$5.25 Oslo 8/13 / NY 8/14** — don't read the price drop as drift; the staged 8/07
-watchlist-rebase draft pre-dates the ex-date. No prints promoted, no regen run
-(prices_daily untouched by this work). NOTE the interaction with the 8b ARCHIVE-GAP
-check landed in parallel (block below): its flagged July/early-Aug Pareto holes are this
-same verified cadence — accepted-gap entries for `inputs/archive_gaps.yaml` are now
-evidence-backed by the RC walk.
-
-**2026-08-13 PM — WATCHDOG REMEDIATION (owner-directed after the BRUT miss).**
-Root cause of the 5-week blindness was NOT a crash: `/news-pull`'s agent half ran
-TWICE (6/10, 6/21), its orchestration was **deferred by owner 2026-06-14 under the
-crude-edge freeze**, the freeze lifted 6/21 and the deferral was never re-docketed —
-while the MECHANICAL job sharing its name reported `outcome=ok` every Saturday.
-THREE FIXES LANDED (commit 40a3496 + this one, suite 639 green):
-(1) **ARCHIVE-GAP (8b)** — every prior staleness check read the NEWEST artifact
-(alive-now) and was blind to a hole BEHIND the head. Now counts missing business
-days; accepted publication holidays go in `inputs/archive_gaps.yaml`. Live tree
-shows **5 gaps**, incl. the 6-day July hole that hid the BRUT release (plus
-7/15-19, 7/21-27, 7/29-8/02 — previously unknown). News read from a gap window is
-UNSUPPORTED, not absent.
-(2) **AGENT-TASK-DUE (8c)** — check 6 sees jobs with plists, check 8 sees feeds
-with artifacts; a duty living as a slash command was invisible to both.
-`inputs/agent_duties.yaml` now registers such duties.
-(3) **SCHEDULED the sweep** — Claude scheduled-task `crude-fv-weekly-news-pull`,
-**Sat 09:03** (after the 08:00 chain). Closes the 6/14 deferral. The digest's age
-IS its heartbeat: if the task dies, 8c flags it. Prompt carries the absence-isn't-
-evidence rule (must state window + sources searched, never a bare "nothing found")
-and an archive-gap check. **OWNER: click "Run now" once** to pre-approve its tools
-— an unapproved tool prompt at 09:03 Saturday aborts the run silently (the exact
-failure that killed the governance monitor's 8/07 run).
-(4) Check 6 also now flags **3 consecutive `skipped-*` runs** (a skip writes a
-FRESH heartbeat by design, so a job standing down forever looked healthy — a
-forgotten PAUSE would silence all six jobs with six green hearts), and the weekly
-limit tightened 9d→8d.
-**URGENT, OWNER-ONLY — THE PAGER IS OFF:** `~/.config/crude-tanker-fv.env:8-10`
-still has `CRUDE_FV_HEALTHCHECK_URL` **commented out from the 2026-07-13 drill
-whose own restore date was 7/15** — 29 days. `state/sentinel_cron.log`:
-**PING-SENT 0 / PING-SKIPPED 30**. The ping is the ONLY mechanism that pages on
-ABSENCE, so with it off the sentinel is an unwatched watcher — this is why all
-four deaths went unseen, and why the 8/09 allowlist-matcher fix didn't restore it.
-Uncomment that line. Also open from the sweep: `pareto_research silence_days: 14`
-is 7× loose (its premise retired 8/09 when `drybulk_spot_daily_resumes` fired) on
-the book's most fragile single-sender feed · `inputs/overlays.yaml` has 3 overlays
-scoped to the RETIRED Jun-9 weights and `retire_trigger` is read by no code · 2
-zombie `ctxprobe` launchd jobs still firing 6 weeks past a 7-day window · two
-sentinel tags (`EARNINGS-UNCONFIRMED`, `EARNINGS-SWEEP-STALE`) unrouted so they
-page every run, the latter with a trailing-colon bug in the tag itself.
-
-**2026-08-13 AM UPDATE (Thursday — BRUT report day).** H1 IS OUT (Pareto 8/13 daily
-covers it) and the owner-requested AGM/feed check surfaced a **MISSED 5-WEEK
-STRUCTURAL CHAIN** (full record: brut_log 2026-08-13 entry): issuer release
-**7/07** — Vision DELIVERED 7/08 on a 3+1+1y index-linked TC ($95k/d fixed 9mo),
-sale-leaseback signed for the 4 NTS hulls (85-90% of cost, 15y BB ~5.6%),
-**DEMERGER announced** (BRUT keeps 4×2026-27 as a monthly-dividend cashflow co;
-8×2028-29 demerge to a new Euronext Growth listing by END-AUG; BRUT uplists by
-end-Sep), interim CEO Svensen. 8/13 daily: demerger on schedule, rump "fully
-financed" subject to completion (83% capex outstanding 8/12), **Horizon joins
-MID-NOV-26 at $106k/d** (manifest says Jan-27 — re-date at the pair; ≈ the ruled
-$105.7k print, Rider-4 corroboration). **AGM 8/12 results:** routine slate + share
-premium −$226.04M → contributed surplus eff. 8/12 (the dividend plumbing). Why
-missed: 7/03→7/14 archive hole (CORRECTED 8/13 PM: source-quiet — no dailies existed;
-see the PM block above) + the 8/06 daily's BRUT paragraph untriaged at the FFA sitting
-→ dated rule added to WORKFLOWS §Report-day refresh; backfill CLOSED (nothing to pull). **The frozen prereg band
-[8.50,10.00] still governs the mechanical 6/30 pair** (all of the above is
-post-6/30 subsequent events; routing already correct). **OWNER WORDS NOW OPEN:**
-run the H1 refresh per the prereg · demerger modeling (structural split, own
-decision doc — compounds with 8/16) · §15 tier/flag call at the refresh
-(financing-clarity event has arrived, by restructuring).
-
-**2026-08-12 UPDATE (Wednesday).** BRUT H1 PREREG WRITTEN + FROZEN
-(`decisions/brut_h1_prereg_2026-08-12.md`): point $9.68 note-gross / $8.87 note-net
-(the ledger fork is BIMODAL — (cash − commitments) is deposit-invariant, so the 7/01
-double-conservative corner un-double-counts by +$0.81/sh iff Note-15's CIMC $499.0M
-was gross), band **[8.50, 10.00]**, halt-outside; Rider-4 hooks named (Mount Horizon
-IS the live VLCC 12M single-print; Vision's index-linked TC); §15 screen +
-cash-flag resolution + expected gate-row/ratify pre-registered; **position stays
-VOID through the print — 8/16 is the only un-void venue.** Report 8/13, no stated
-time (Euronext calendar; watch newsweb from the open). **AGM was today 8/12** —
-outcomes route to the §15 screen; any pre-print AGM news amends the prereg dated,
-pre-print only. Feeds silent on Q2 placements (brokers through W33, dailies through
-8/12; BRUT kr 59.6 −0.7% today). **PANL B3 TRANSCRIPT SWEEP EXECUTED** (the other
-Wed item): Q2'26 PR + call coverage + **FULL TRANSCRIPT (published 8/11 eve,
-swept 8/12) — ALL ABSENT** on the COA/spot split, rendered-source-verified
-(keyword census 0 across affreightment/COA/spot/voyage); prior-call premise
-REFUTED — Q1'26 (Fool) + Q2'25 (Investing.com) transcripts carry zero COA-cover
-characterization. Recorded as a dated ADDENDUM in the governance packet
-(funnels/drybulk_2026H2/panl.md); B3 stays PASS-WITH-EXCEPTION; the packet's
-"if absent → owner sends the staged IR query" condition FIRED and **the owner SENT
-the IR query same-day (8/12) — B3 is now WAITING-ON-IR; watch the reply ahead of
-next week's Stage-3 seed.** Q3 QTD bookings from the call:
-4,873 days @ $20,258 (+14% premium, as-of 8/10) + 2,200 charter-in days @
-~$17,537 — seed-relevant color.
-NOTE for 8/16 context: today's daily reports fresh
-attacks on vessels in BOTH the Red Sea and Gulf of Oman (day after Maersk/Hapag
-announced a Gemini-service Suez return); Brent ~$90 — the toll-cliff branch state
-is moving, not settling.
-
-**2026-08-11 EOD UPDATE (Tuesday triage sitting — HANDOFF CURRENT).** Suite green ·
-gate 0/0 · both repos pushed. Done today: **Diana SPA TERMINATED** (SBLK 6-K 8/11 —
-zombie treatment vindicated, zero NAV impact, watch retired; governance-favorable) ·
-**CCEC AGM slate CLEAN** (DiFiore in; proxy read — two routine proposals, no
-related-party items; NOT the F-2 observable, that is PANL's slate) · **harvester
-REVIVED** (Sat 8/8 launchd firing missed while the machine slept; manually kicked, all
-five broker feeds backfilled W32 + xclusiv W33 — marks-trail feed restocked) · drift
-absorbed · PANL Q2 skimmed (NI $10.2M/$0.16, cash $105.7M).
-**THE WEEK FROM HERE:** (1) **Wed 8/12:** BRUT AGM watch · WRITE BRUT'S PREREG BAND
-before Thursday (the INSW pattern) · sweep the PANL Q2 CALL TRANSCRIPT (call was Tue
-8:00 ET) for the B3 spot-split — if absent, the owner sends the staged IR query
-(funnels/drybulk_2026H2/panl_b3_ir_query_draft.md). (2) **Thu 8/13:** BRUT H1
-refresh (pair flow, band-checked) + Rider-4 check (any BRUT 12M/FFA print supersedes
-for its classes). (3) **Fri 8/14:** governance monitor + the healthchecks validation
-(green check or a page by ~11pm; step-7b makes ping status a log fact). (4) **Sat
-8/16 — THE CRITICAL DATE:** crude_day60_toll_cliff = the pre-registered crude+product
-reweight on the toll outcome + the scenario-deck re-expression against the landed
-Stage-A base (un-voids BRUT/CAPT/TNK; every tanker scenario read is
-suspect-optimistic until then). (5) **Next week:** the PANL SEED (Stage-3 producer
-onboarding — own block; the Handy-curve §9.9 ruling made explicitly at onboarding;
-E2 completes at reconciliation) · TRMD 8/26 + Stage B. **CI NOTE (8/11 EVE):** sentinel-lite sat RED for 10+ runs unnoticed (unpinned ruff
-drifted ahead of local — 461 phantom violations; FIXED: ruff==0.15.21 pinned, 8 real
-violations cleaned, actions bumped). THE PATTERN (healthchecks, now CI): watchdogs
-failing silently. **Handoff item: give the local sentinel a CI-status lane** (one
-`gh run list` check — red CI on main = a sentinel line in the morning email).
-**Owner words open:**
-watchlist rebase promote (draft + checklist staged — retires the k-skew debt) · TEN
-alternative-anchor · SBLK GTC riding (line $31.30, tape ~$28.4, ex-div re-read 8/19).
-
-**2026-08-10 EOD UPDATE — STAGE A LANDED (commits d510311/1a6086d/7c991a5, pushed).**
-INSW band-HIT ($54.64 in [51.50,61.00]; ER carried NO QTD bookings — basis closed on the
-8/09 values); all four rulings executed; the Jun-7 war vintage is RETIRED. **THE HALT
-FIRED AND WAS DISPOSED (B):** three flips toward BUY (BRUT +44.3pp / CAPT +17.8 / TNK
-+5.0) = the war-calibrated ABSOLUTE scenario deck double-counting the Jaguar
-de-escalation now embedded in the base (decisions/stage_a_halt_investigation_
-2026-08-10.md) — CAPT/TNK joined BRUT in POSITION_UNRELIABLE, retiring at the 8/16
-re-derivation. **8/16 IS NOW THE CRITICAL DATE (double duty): the pre-registered
-toll-cliff crude+product reweight + the deck re-expression against the landed base**
-(un-voids the three reads; every tanker scenario band re-pins there — they carry
-dated deck-lift re-pins from today). Handysize 12M split from the MR war-identity
-(donor Handymax). SBLK leg-2 GTC LIVE at $31.30 (governance, instruction id 100).
-Remaining calendar: **BRUT 8/13** (Rider-4 watch) · **Fri 8/14** healthchecks
-validation (green check or a page by ~11pm — prompt hardened both copies) · **8/16**
-· TRMD 8/26 + Stage B (the 7th-TIGHT gate chain). Owner words open: watchlist rebase
-promote (draft staged; retires the k-skew debt — clean to run any day now that Stage A
-is down) · TEN alternative-anchor docket item.
-
-**NEXT BLOCK — theme: STAGE A LANDS, then the date-driven tail.** _(written 8/09;
-step 1 DONE per the update above)_
-(1) **Mon 8/10 pre-market:** INSW Q2 refresh per the frozen prereg (pair flow, band-checked) →
-extract Q3 QTD bookings + fixtures → stage_a_basis §6 update → RECOMPUTE the §2 medians/§5
-checks → **wire Stage A** per the rulings + the §4 riders (DHT Jaguar coverage 0.55→0.52 ·
-spot_tce promotion incl. LNGC 65,000 from MB W32 · C-2 rerun) → ADDENDUM flip inventory (TRMD
-BUY toward the +5 boundary is EXPECTED-direction; ANY flip toward BUY = halt-and-investigate)
-→ one ratify citing the prereg → re-arm the trigger. PANL reports 8/10 after close (seed
-decision = owner's). (2) **Owner words pending:** watchlist rebase promote (draft
-staged, checklist in-file) · SBLK leg-2 (governance; producer FV $31.28 ≈ the proposed
-$31.30 line, ex-div ~8/21) · **TEN alternative-anchor decision** (the roster pin
-codifies TEN as never-Pareto-recapturable — the $44-lesson name; guard
-test_ten_untabled_is_tracked_not_fine keeps it visibly tracked, but the real fix is an
-alternative anchor [VIE? company-implied?] or an accepted explicit-staleness stance). (3) **Wed 8/13:**
-BRUT H1 (Rider 4 alert: any BRUT 12M/FFA print supersedes for its classes). (4) **Sat 8/16:**
-`crude_day60_toll_cliff` — the pre-registered crude+product re-derivation venue (regardless of
-Hormuz outcome; branch state at 8/09: ambiguous pause persists, Oman channel live). (5) **Stage
-B window 8/26→9/04** (TRMD 8/26 · CMBT 8/27 · HAFN 8/28 · FRO 8/31): ±10% class-bucket gate;
-the LR2_clean-term war-ratio distortion corrects HERE; TRMD 7th-TIGHT candidacy at the
-post-Stage-A anchor round. Standing docket unchanged: Compass feed build · WF Artemis
-G3-retroactivity · Diana SPA zombie watch · 2343 commitments true-up at the full Interim.
-
-**PRIOR WEEK (2026-08-03) — theme: UNBLOCK THE Q2 CLUSTER, THEN DRAIN IT — DONE IN FULL.**
-The transition mechanism ruled+shipped 8/08 (pair guard + preflight + vintage disclosure,
-schema 2.7); SB/TNK/ASC re-run as the first coherent block (all bands hit, TNK back to
-VALIDATED-TIGHT); the 11-name backlog drained by report date (every prereg band HIT, zero
-unexplained gate rows); `crude_pause_talks_watch` recorded (branch 3); the 8/09 promotion
-round + Stage A prep closed the week (this block above).
+**PRIOR WEEK (2026-08-10) — theme: STAGE A LANDS → the tier learns what it certifies → the toll cliff resolves into the observed state — DONE IN FULL.** Stage A landed 8/10 (Jun-7 war vintage retired; halt fired → disposed B, BRUT/CAPT/TNK voided pending R4); BRUT H1 8/13 (band HIT $9.62, cash flag resolved → GOVERNED-WIDE·going-concern-unfinanced mechanically); the 8/07 consensus-pair rebase PROMOTED 8/13 (k-skew debt retired; its SBLK demotion became the tier amendment's reductio); tier semantics amendment ruled + landed 8/13–14 (schema 2.8, migrations SBLK/CMDB/GNK→TIGHT, edge-cleared {SB}, B2 strobe → delta layer); 8/16: toll-cliff C2 + two-cause ratify + newsweb_poll + cron_lane + TCE-means trigger + sentinel weekday-test fix; pager re-armed (PING-SENT). Full narrative: CHANGELOG 2026-08-16 week-close entry + the dated entries above it.
 
 **PRIOR WEEK (2026-07-27) — theme: THE Q2 CLUSTER LANDS + the 7/29 quad-day.** Calendar-driven:
 (1) **Mon 7/28** — GNK/Diana tender outcome PR expected (census recorded 7/26, gnk_log;
@@ -604,7 +405,8 @@ GOVERNED-WIDE / PROVISIONAL aren't junk drawers; (3) NAT's derived NAV + gap WER
 rested on the contradicted $17M-advance figure) — **NAT was DE-VOIDED 2026-06-30** by the P0
 reconciliation (advance sourced to $0, whole balance sheet re-sourced); the void-rendering path is
 retained as coverage for the next contradicted-figure name (`NAV_DERIVED_VOID` now empty). The verdict header states the **opportunity-set finding**:
-of 22 names the validated-actionable-long surface is **2 (SB, SBLK)** — the tool refusing to
+of 25 names the validated-and-actionable-long surface is **1 (SB — the edge-cleared set, 8/16;
+construction-validated count 8 prints beside it since the amendment)** — the tool refusing to
 manufacture conviction, not a gap.
 
 The xfail-strict guard queues ARE the visible work queue — `provenance.py` is their single
@@ -635,10 +437,16 @@ source of truth (imported by both the guards and the tier, so they can't drift):
    "Present but uncited" fails like "absent".
 
 **Confidence tier (governance handoff, `provenance.confidence_tier`)** — read from the existing
-validation state, NOT a new model: **VALIDATED-TIGHT** (5: DHT, FRO, SB, SBLK, **ECO** — TNK LEFT 2026-07-31 at its Q2 refresh → GOVERNED-WIDE·read-flips, label fragility at fair value, figures all trace — traced +
-robust two-basis; ECO cleared 2026-07-01 via the §9.6 on-curve fix + scrubber verification, but is
-validated-but-RICH [rich · cycle position], NOT a new long), **GOVERNED-WIDE** (13 — traces but
-structural-unavailable input, read flips, or newbuild parked/absent: **NAT** `newbuild-indeterminate`;
+validation state, NOT a new model, and **since 2026-08-13 certifying CONSTRUCTION ONLY**
+(`decisions/tier_semantics_amendment_2026-08-13.md`: a price move can never change a tier —
+guard `test_tier_is_price_invariant`; TIGHT gates on evaluability via `read_blocked`, never on
+read agreement; the read ships beside the tier as governed `read_flag`, ±2.0% deadband, schema
+2.8; edge-cleared long = TIGHT ∧ read_flag robust ∧ read_par cheap ∧ BUY = **{SB}**):
+**VALIDATED-TIGHT** (8: DHT, ECO, FRO, TNK, SB + the 8/13 migrations SBLK, CMDB, GNK — each
+migration carrying `read_flag = flips`, NOT edge-cleared; ECO validated-but-RICH [rich · cycle
+position], NOT a long; TNK's fragility reaches the consumer via weight_sign_stable, no longer
+the tier), **GOVERNED-WIDE** (13 — traces but structural-unavailable input, §17-unevaluable,
+or newbuild parked/absent: **NAT** `newbuild-indeterminate`;
 **ASC** `structural-class`; **TRMD** `basis-pending` — cleared 2026-07-02, all figures sourced + all 3 queues
 cleared, but product nav_basis is `pending-sourceable` [**LR1 the LAST non-uniform class** after the
 2026-07-15 MR clear — **LR1 RULED 2026-07-15: contract-floor + resale-corroborated; TRMD →
@@ -865,10 +673,10 @@ rates — landed this push-block; removed from this list.
 3. **SB open items** (in `sb_log.md`): refresh `consensus_pnav` if a VIE SB NAV is obtained
    (currently P/BV common-book proxy); confirm the finance-lease current/non-current split,
    the exact €950/day + €5.0M mgmt-fee figures, and the buyback authorization from the raw 20-F.
-4. **GNK/Diana tender — EXTENDED to 2026-07-24** (checks fired: Jun-26 → extended to Jul-10;
-   Jul-13 scheduled check → extended AGAIN to Jul-24, 29.7% tendered, branch-(c) muddle —
-   gnk_log 2026-07-13). GNK stays a normal on-curve name; SBLK's conditional 16-vessel purchase
-   inactive; consumer P-1 PENDING holds. Next outcome check 2026-07-24.
+4. **GNK/Diana — CLOSED (8/08-14).** Tender regime OVER 8/08 (10-Q); Diana-SBLK SPA
+   terminated 8/11 (zombie-conditional never booked); Diana WITHDREW 8/14. Next-week step:
+   retire the watchlist live-proposal caveat (the $28.40 Pareto-NAV anchor may stand) and
+   re-read GNK post-withdrawal — the current T/S is the last with-deal read.
 
 ## Standing operational threads (carry forward)
 
@@ -883,34 +691,19 @@ rates — landed this push-block; removed from this list.
 - **TEN (Sep, H1):** TCM fee-load (§15 anchor); ten_log Q2 kit deltas. **CMDB:** Astros sale.
 
 ### Standing threads
-- **Daily price-refresh re-ratify pending (deferred 2026-06-30).** The 2026-06-30 close refresh
-  moved 9 names' EV vs the baseline (ΔNAV 0% — pure price), incl. two price-driven BAND FLIPS
-  (DHT TRIM/SHORT→HOLD +3.8pp, FLNG HOLD→BUY +4.6pp). It was kept OUT of the NAT reconciliation
-  commit (owner: don't launder market drift through a sourcing commit) and reverted from the tree
-  to isolate NAT. Handle as its OWN deliberate re-ratify on the next refresh: accept the 7 pure-EV
-  drifts as routine, but **eyeball whether the DHT/FLNG flips are trivial boundary-crossings or real
-  position signals before absorbing them** — don't batch-accept a band flip.
-- **FFA feed LIVE again — the "DORMANT since 2026-06-12" note was STALE (probed 2026-07-10 at
-  owner prompt).** Ground truth from the archive + curves.json: the poster genuinely went quiet
-  Jun-13→Jun-21 (zero images — the dormancy call was right when made), RESUMED Jun-22, near-daily
-  parses since (the Jul-2 promotion already used the resumed feed). The OCR leg separately broke
-  Jul-4→Jul-6 (launchd bare-PATH/tesseract, fixed 1dba1d1) and now runs daily at 07:00 via the
-  ingest wrapper — today's widget parsed clean, staleness alarm quiet (0 days). **PENDING OWNER
-  PROMOTION (human-only):** the pipeline dry-bulk curve sits at the Jul-2 vintage while the Jul-10
-  parse reads Cape Qn +9.2% / Qf +4.5% / Cal27 +2.5% (Pana +3.3/+5.8/+2.9) — a MATERIAL front-end
-  move on the held-name sector (SB/SBLK strips); promote via the normal promote→rerun→drift loop.
-  LESSON for the WO2 install: the sentinel's source-silence check (cadence keys already in
-  rocketchat_sources.yaml) would have paged the go-quiet AND cleared on resume — stale prose notes
-  like this one retire when checklist item 4 lands.
-- **Weekly /news-pull** — Saturday cadence AUTO-RESUMES tomorrow (Jul-11 08:00): the Jul-4 failure
-  was the same launchd-PATH bug, fixed 1dba1d1; the five harvest steps before ffa_ocr completed
-  even on Jul-4, so nothing was lost.
+- **Live dated cards only** (registry = `inputs/reweight_triggers.yaml`; superseded 6/30-7/10
+  prose threads retired at the 8/16 week-close — price re-ratifies absorbed at the 7/18/7/26/8/16
+  ratifies, FFA promotion done 8/09, news-pull scheduled as `crude-fv-weekly-news-pull`):
+  **8/23** escalation_pause_corroboration · **~9/01** pareto Aug-cadence override review ·
+  **9/07** container W-cadence · **10/02** product_glut_arrival_timing + demand-destruction
+  revisit + charter-coverage re-read · **11/13** lpg v1 lock re-run · **12/07**
+  tce_means_semiannual_review · standing event-watches: hormuz_fee_collection (due OWNER),
+  transit_normalization, brent_reopening, tanker_forward_print (re-armed), handy_bulk +
+  ppmx refit triggers, vlgc_realized_tce.
 - **OWNER ACTION pending:** ratify-or-revise the A1 horizon (10 strip quarters = end-2028).
 - **MB weeklies:** container current-rate refresh (owner-gated); Pana anchor flagged
   structurally low; LNG weekly not yet delivered.
-- **Hormuz weight-revisit trigger** — standing (trigger NOT met).
-- **Deferred by owner:** /news-pull agent-half orchestration; Task-3 weight adjuster;
-  demand-destruction overlay; FFA Stage 2.
+
 
 ### Methodology-soundness remediation — Tier-4 backlog (manage/document; owner judgment)
 Per `outputs/METHODOLOGY_AUDIT_2026-06-22.md` §A–G: cycle step-band vs logistic (C-1);
@@ -929,9 +722,12 @@ HYPOTHESIS — pre-registered out-of-sample/multi-cycle confirmation runs at +8q
 a paid feed. Net: not a name-ranker (Test 1 null), plausibly a cycle/value timer (Test 2), unproven.
 
 ## Verification gate (run before any handoff / Week-close)
-- `PYTHONPATH=src .venv/bin/python -m pytest -q` — main suite, **440 passed / 25 xfailed** at
-  2026-07-01 (includes the Phase 2 drift gate, which can legitimately go red on accepted drift —
-  annotate + re-ratify; and the xfail-strict provenance queues — an xfail CLEARING is the work).
+- `PYTHONPATH=src .venv/bin/python -m pytest -q` — main suite, **700 passed / 0 skipped /
+  14 xfailed** at 2026-08-16 HEAD (includes the drift gate, which can legitimately go red on
+  accepted drift — annotate + re-ratify; and the xfail-strict provenance queues — an xfail
+  CLEARING is the work). **Gate-asleep lesson (8/16):** a green immediately after a
+  weight/inputs commit can be green-with-the-gate-ASLEEP — stale `state/` SKIPS the three
+  freshness tests (live drift gate + both reconcile); regen first, then trust the green.
 - `PYTHONPATH=. .venv/bin/python -m pytest backtest/ -q` — backtest (**13**; separate).
 - (optional) `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python -m pytest -q` — **57**.
 - `python -m crude_tanker_fv.pipeline 2026-Q1` runs clean.

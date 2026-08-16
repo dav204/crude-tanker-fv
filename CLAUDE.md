@@ -103,10 +103,8 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   sheets resolve newest-at-or-before with scorecard disclosure — `tests/test_quarter_coherence.py`).
   Still verify the run's own NAV breakdown before attributing a band miss; a satisfying explanation is
   not a verified one (2026-07-31 + Decision 2026-08-08, q2_cluster_transition_2026-07-31.md).
-- **Scrubber flags are sourced per-vessel; the count must cross-foot to the issuer's disclosed
-  aggregate at onboarding** (2026-07-01, SB; the CAPT peer-borrowed-flag bug). Guard-enforced:
-  `test_verified_operating_scrubber_count` + `test_scrubber_provenance` — work the queue at
-  onboarding, don't ship a blanket default.
+- **Scrubber flags: per-vessel sourced, cross-foot to the issuer aggregate at onboarding**
+  (2026-07-01; guards `test_verified_operating_scrubber_count` + `test_scrubber_provenance`).
 - **A run must never write SHARED state** (2026-07-18 + 08-14 doctrine) — worktree-isolate
   read-only agents (pytest/pipeline regenerate outputs+logs); write governed state
   ONLY from the production entry, never a library call a test reaches
@@ -132,11 +130,9 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   UNDERvalues; NAT archetype) and §15 (governance/value-trap — tool OVERvalues; `governance_discount_pct`
   applied at blend + strip terminal but NOT to `compute_nav`; TEN archetype). The haircut is judgmental —
   store it auditably per-name with a rationale.
-- **An output column must not encode a NAV-relative read as a trade signal** (2026-06-30). A §12
-  cycle-rich position is RELABELED ("rich · cycle position (not a short)"); a number derived off a
-  CONTRADICTED figure is VOIDED in the output (not just its FV); a wide/provisional tier carries a
-  **sub-reason = resolution path**. Registry in `provenance.py` (`POSITION_CYCLE_RELABEL`,
-  `POSITION_UNRELIABLE`, `NAV_DERIVED_VOID`, `TIER_SUBREASON`), no-drift-tested.
+- **An output column must not encode a NAV-relative read as a trade signal** (2026-06-30): cycle-rich
+  RELABELED, contradicted-figure numbers VOIDED, wide/provisional tiers carry a **sub-reason =
+  resolution path**. Registries in `provenance.py`, no-drift-tested.
 - **An incidental identity is NOT an invariant — two surfaces assumed to agree need a TEST that they
   agree** (2026-07-02, 3× same day; guards: test_scorecard F-13, test_outputs_hygiene, test_carveout).
 - **Gate expectations scale by determinant LEG, not past event** (2026-07-22, owner catch): the 7/06
@@ -144,9 +140,11 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   HALT (frozen file touched). Predicted-impact blocks state which files may move and which are frozen.
 - **Weight-set names are sector-namespaced** ("Crude Set A", "LNG Set B-revised"). A cross-sector "Set B"
   without a prefix is a methodology error.
-- **ECO sale-leaseback is in "borrowings"** — no separate operating-lease line; don't double-count.
-- **Frontline's SWS yard is Chinese**, not Korean. **TC anchors, not spot** — `historical_tce_means` is
-  TC-anchored, VIE multipliers spot-anchored; they don't numerically compose (§10).
+- **A price move may never change a tier — the tier certifies CONSTRUCTION only**; the read rides
+  beside it as governed `read_flag` (±2% deadband); edge-cleared = TIGHT ∧ robust ∧ read_par cheap
+  ∧ BUY (2026-08-13; guard `test_tier_is_price_invariant`; decisions/tier_semantics_amendment).
+- **TC anchors, not spot** — `historical_tce_means` is TC-anchored, VIE multipliers spot-anchored;
+  they don't numerically compose (§10).
 
 ## Workflows (full steps in WORKFLOWS.md)
 

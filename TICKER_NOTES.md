@@ -10,7 +10,8 @@ quick-ref price unless the note itself is being updated.)
 
 - **DHT** — pure VLCC, single-class methodology validator. If DHT is weird,
   the methodology has a bug.
-- **FRO** — LR2 classification choice (crude vs product) is open (§9.3).
+- **FRO** — LR2 classification choice (crude vs product) is open (§9.3). SWS newbuild yard is
+  CHINESE, not Korean (evicted from CLAUDE.md 2026-08-16, rule stands).
   Trust the report counts, not the fleet page.
 - **ECO** — all-spot, modern fleet; sale-leaseback in borrowings; TLS chain
   fails WebFetch.
@@ -28,7 +29,11 @@ quick-ref price unless the note itself is being updated.)
   non-uniform class; the ruled contract-floor wiring books INSW **+$7.80M**
   at the post-Stage-A round (registered — don't read it as drift).
 - **TNK** — Atlantic-skewed; Aframax transaction anchor; both mark-driven
-  AND weight-driven.
+  AND weight-driven. **2026-08-10: position POSITION_UNRELIABLE** (Stage-A
+  deck-incoherence void; retires at the docketed deck re-expression, owed
+  post-8/16 toll-cliff). Tier stays VALIDATED-TIGHT — the 8/13 amendment's
+  no-double-count precedent: weight fragility reaches the consumer via
+  weight_sign_stable=False, not a tier demotion.
 - **FLNG** — tool above broker (k_broker 0.87); mature TC-heavy book.
 - **CCEC** — BUY, **sign-stable across the §9.10 family since the 7/14 LNG
   re-tilt** (point +58.3 / family-min +38.0 — was "weight-driven"); tier
@@ -45,8 +50,11 @@ quick-ref price unless the note itself is being updated.)
   queues cleared, k 1.03 — the book's tightest tool↔broker spread). **P1c arc
   2026-07-15: MR cleared to resale-uniform → LR1 is TRMD's LAST basis blocker;
   LR1 contract-floor + `resale-corroborated` RULED (frozen) → VALIDATED-TIGHT
-  (the 7th) scheduled at the post-Stage-A anchor round** (TRMD an exact-zero
-  control in that wiring). ⚠ weight-sign-unstable (family −10.1/+8.4); its
+  (then counted as "the 7th") scheduled at the post-Stage-A anchor round**
+  (TRMD an exact-zero control in that wiring). **2026-08-16 status: promotion
+  NOT yet landed — tier GOVERNED-WIDE·basis-pending (LR1 marks sourceable-but-
+  pending); expected at the 8/26 Q2 refresh + LR1 contract-floor wiring. The
+  ordinal is obsolete — the book counts 8 TIGHT since the 8/13 migrations.** ⚠ weight-sign-unstable (family −10.1/+8.4); its
   post-re-tilt BUY sits in the Stage-A expected-flips inventory.
 - **TEN** — three-sleeve crude+product+LNG (`THREE_SLEEVE_TICKERS`); DP2
   shuttle off-curve at contracted book (§11.6); **first §15 case**
@@ -72,22 +80,31 @@ quick-ref price unless the note itself is being updated.)
   ($19.6M). Tool HOLD at live prices (band-edge; was TRIM/SHORT at the
   Jun-5 static — see sblk_log 2026-06-11), broker BUY. §15.7-screened
   OUT (self-managed, ~100% payout). Onboarded + transaction-anchored
-  2026-06-09. GNK (k 1.04 on identical curves) isolates SBLK's gap as
+  2026-06-09. GNK (k 1.04 on identical curves) isolated SBLK's gap as
   name-specific — likely the 46-vessel Pana book on the thinnest fit.
+  **2026-08-16: BUY→HOLD band-mech at $29.05** (two-cause ratify; FV-line
+  whipsaw; the three-thread sitting stands, leg-2 GTC $31.30 untouched, ex-div
+  ~8/21). Tier VALIDATED-TIGHT since the 8/13 amendment (the SBLK price-leg
+  demotion was its reductio; mechanism = PRICE leg, not consensus_pnav —
+  fc7fee3); read_flag=flips, hist boundary $27.72 (+3.18% vintage margin);
+  ⚠ weight-sign-flips. The June −21% methodological-gap read has since CLOSED
+  (~+0.0% at 8/16 after the 7/13 FFA re-anchor + 8/09 marks promotion + 8/07
+  pair rebase) — treat that paragraph as history.
 - **GNK** — second dry-bulk validator; VALIDATES the transaction-anchored
   dry-bulk curves (k_broker 1.04, gap −5.2% — within the v1 ±10% bar on
   the same marks where SBLK reads −21%). No Pana exposure (19 Cape /
   25 Supra-Ultra at Mar-31). US domestic issuer — 10-Q not 6-K; per-vessel
-  employment table lives in the 10-Q MD&A. **LIVE DEAL (updated 2026-07-18):
-  Diana lost the Jun-18 proxy fight (pill ratified, hostile path blocked) but
-  did NOT withdraw — the $24.80 tender was EXTENDED to **2026-07-24** (Form 425
-  7/13; 29.7% of non-Diana shares tendered, the branch-(c) muddle). Position is
-  **HOLD** at the 7/18 state (TRIM/SHORT→HOLD band-mech on the 7/18 spot
-  re-proxy; the earlier HOLD→TRIM/SHORT was price-led + FFA, tender-pinned) —
-  NOT a BUY; the pre-2026-07 "hold BUY as event-contingent" guidance is
-  RETIRED. Census check 7/24: on a lapse with no deal, drop the overlay and
-  expect reversion toward the pre-bid 0.66-0.75× Pareto-NAV regime. See
-  gnk_log 2026-07-13/18.**
+  employment table lives in the 10-Q MD&A. **DEAL CLOSED OUT (2026-08-08/14):** tender regime OVER 8/08 (10-Q confirms
+  expiry; Diana-SBLK SPA terminated 8/11 — the zombie-conditional never booked,
+  NAV impact zero; Diana WITHDREW 8/14). The pre-registered HOLD→T/S band-edge
+  flip fired 8/08 (band-mech, D-M5). Anchor re-pointed to Pareto NAV $28.40
+  (owner ruling e2354a5 at the 8/13 rebase — $24.80 was the cash leg of a live
+  proposal, not a dead tender price). Tier VALIDATED-TIGHT since 8/14 (semantic
+  amendment, not a re-grade) with read_flag=flips (cheap/fair), boundary $25.90,
+  vintage margin −3.08% — NOTE: at the 8/16 tape GNK sits INSIDE the ±2.0%
+  deadband (+0.35% at the 8/13 tape), so the next vintage rebase may restate
+  the flag. Dated history: the 7/18 tender-pinned HOLD state is retired — see
+  gnk_log 2026-07-13/18 and 2026-08-08/14.
   No §15 haircut (event risk ≠ realisation impairment). v1 lock outcome:
   1/2 (50%) FAIL-with-explanation — the miss is the documented SBLK case;
   no curve tuning per the back-solve rule. Onboarded 2026-06-09/10.
@@ -104,12 +121,17 @@ quick-ref price unless the note itself is being updated.)
   initiation. Consolidated EPS includes the trading platform → §9.11
   xref reads structurally hot. Watch Q2 for the Astros price (clean
   age-8 Ultramax print). **2026-07-18: HOLD→BUY band-mech (EV +6.8%) on the
-  ratified 13-Jul spot re-proxy application; tier GOVERNED-WIDE·read-flips.**
+  ratified 13-Jul spot re-proxy application; tier then GOVERNED-WIDE·read-flips.**
+  **2026-08-13: tier VALIDATED-TIGHT** (read-flips retired as a sub-reason by the
+  tier-semantics amendment; read_flag=flips caps size on its own channel — NOT
+  edge-cleared). 2026-08-09 Q2 drain: Astros watch RESOLVED (in-census; Bermondi
+  HFS at carrying floor).
   Onboarded 2026-06-10; Week 2 closed.
 
 - **SB** — 4th dry-bulk validator (Safe Bulkers, NYSE:SB); the book's **lone
-  VALIDATED-TIGHT BUY** (SBLK sits HOLD/band-edge since 7/13; re-flipped
-  band-mech BUY 7/18 on the spot re-proxy — eyeball-free per D-M5). Cheap on both bases (~0.63× P/NAV);
+  EDGE-CLEARED long** (2026-08-13 semantics: TIGHT ∧ read_flag robust ∧
+  read_par cheap ∧ BUY; CMDB is also a VALIDATED-TIGHT BUY but its read_flag
+  flips). Cheap on both bases (~0.63× P/NAV);
   APPROX consensus_pnav (P/BV proxy, no Pareto). Hajioannou-controlled; §15
   DECLINED (market-rate mgmt fees, pari-passu dividends). Onboarded 2026-06-27.
   **AUDIT-CORRECTED 2026-07-01 (data-integrity, not a market move):** NAV
@@ -143,7 +165,12 @@ quick-ref price unless the note itself is being updated.)
   discount then rolled out across the NB cohorts (now on exact Q1-release
   delivery dates) → NAV $15.03, gap **−17.5%, k_broker 1.17** — the tool is
   now more conservative on NB timing than Pareto (the −2.6%/k-1.04 above was
-  the pre-§9.6 onboarding read). BUY held (EV +22.4%). **2026-07-18: band now HOLD (EV −1.9% at the 7/17 tape; the war-tilt/price path since 7/12 — see the 7/13 doha_check pre-approval); no longer the deepest-discount crude name.** See capt_log.
+  the pre-§9.6 onboarding read). BUY held (EV +22.4%). **2026-07-18: band now HOLD (EV −1.9% at the 7/17 tape; the war-tilt/price path since 7/12 — see the 7/13 doha_check pre-approval); no longer the deepest-discount crude name.** **2026-08-10: position VOIDed
+  to POSITION_UNRELIABLE** (Stage-A halt disposition B — the BUY-ward flip is a
+  deck-incoherence artifact; retires at the docketed deck re-expression against
+  the Stage-A base, owed post-8/16 toll-cliff). Do not read the raw band (BUY
+  at 8/16) as actionable. Tier GOVERNED-WIDE·newbuild-heavy; ⚠ weight-sign-flips.
+  See capt_log.
 
 - **BRUT** — 20th name, the CAPT natural-experiment comp. Pure-play VLCC
   newbuild vehicle (Trøim-sponsored: Drew Holdings 48.15% at the Nov-2024
@@ -157,11 +184,17 @@ quick-ref price unless the note itself is being updated.)
   "max torque"); the time-to-delivery PV discount lands it at +30.6% (OK), NAV
   $9.40, BUY (EV +97%) — **since relabeled: NAV $8.80 (cash floor 2026-07-01),
   position prints "unreliable read (not actionable)" (`POSITION_UNRELIABLE`);
-  binding flags cash-pending-H1 + going-concern (§15) per the 2026-07-15
-  thread-(d) close.** Real Pareto coverage (NOT APPROX; 0.75× NAV). Pre-
+  binding flags at the 2026-07-15 thread-(d) close: cash-pending-H1 +
+  going-concern (§15).** Real Pareto coverage (NOT APPROX; 0.75× NAV). Pre-
   operational max-torque + ~75% LTV (equity-raise/dilution risk); §15:
-  going-concern is the headline risk (haircut judgment pending the prospectus). Half-yearly reporter —
-  H1-2026 (Aug-13) confirms the Pareto-estimate financials. Onboarded 2026-06-22.
+  going-concern is the headline risk (haircut judgment pending the prospectus).
+  **2026-08-13 H1 LANDED: prereg band HIT ($9.62 ∈ [8.50, 10.00]); cash sourced
+  $11.828M (Note 9) — the cash-pending flag RESOLVED; tier PROVISIONAL→
+  GOVERNED-WIDE mechanically, owner ruled STANDS, sub-reason
+  going-concern-unfinanced (§15 stays a qualitative flag, not a tier floor).
+  Position stays POSITION_UNRELIABLE on two grounds: going-concern + the 8/10
+  Stage-A deck-incoherence VOID (+44.3pp artifact); re-reads at the docketed
+  deck re-expression (post-8/16 toll-cliff).** Onboarded 2026-06-22.
 
 - **MPCC** — 1st containerships validator (Oslo/NOK; `yahoo_symbol:
   MPCC.OL`). 51 on-water (21 feeder / 30 intermediate, ~129k TEU) + 15
@@ -177,7 +210,11 @@ quick-ref price unless the note itself is being updated.)
   ESTIMATES (deck has no built years) + NB delivery quarters — refine at
   Q2 (reports 2026-08-26). §11.8.5(b) marks-tilt ledger row ACTIVE; its
   3 disclosed sale prints show tool old-age marks 0-33% BELOW realized
-  (deliberate, conservative). Onboarded 2026-06-12.
+  (deliberate, conservative). Onboarded 2026-06-12. 2026-08-13: 6/25
+  acquisition READ + H1 PRE-REGISTERED (mpcc_h1_prereg — NOTE: prereg predates
+  the read of the COMPLETED +10.0% placement; share-count amendment owed
+  before 8/26); owner ruled Ctr-Large ADVANCES-ONLY (Fork A).
+  POSITION_UNRELIABLE unchanged.
 - **GSL** — 2nd containerships validator, the charter-book stress test.
   71 vessels (0 feeder / 30 intermediate / 41 large; 18.2-yr
   TEU-weighted), full per-vessel charter table from the 6-K PR;
@@ -199,12 +236,19 @@ quick-ref price unless the note itself is being updated.)
 - **2343** — Pacific Basin, 25th name, 1st HKEX, 1st Handy-Bulk carrier
   (§11.7.11; 40.7% Handy). GOVERNED-WIDE·pending-anchor via
   `UNANCHORED_VALUE_CLASS_CAP` (empties at the `handy_bulk_txn_refit`
-  §9.9 fit — the cleanest TIGHT path after TRMD). HOLD; NAV $0.39;
+  §9.9 fit — the cleanest TIGHT path after TRMD). TRIM/SHORT since 8/16
+  (band-EXIT); NAV $0.41;
   issuer-composite APPROX anchor (AR publishes per-class broker values —
   the strongest APPROX basis). Chartered-in trading book P&L-ONLY (the
   CMDB/CBI convention — now cited as precedent by the TEN recon). Interim
   ~Aug (window 7/27–8/14, unvetted): F-1 orderbook re-test + post-April
-  NB conversion. Onboarded 2026-07-14.
+  NB conversion. Onboarded 2026-07-14. **2026-08-16: HOLD→T/S band-EXIT at
+  the static-fallback RELEASE** (a month-long HKG rally absorbed late in one
+  +26.9% step — the ±30% guard vs the stale 7/14 static stopped tripping;
+  watchlist rebase OWED, until it lands the name can re-enter fallback on any
+  ≥30% divergence print). 2026 Interim READ 8/08-13: F-1 orderbook re-test
+  ~9.3% (did not fire), census 107 confirmed, issuer composite corroborates
+  tool marks within ~3%; pnav re-derived 0.91 at the 8/13 pair rebase.
 - **LPG** — Dorian, VLGC validator #1 (WO3 Phase 4). PROVISIONAL·
   v1-lock-miss (sector cap `SECTOR_V1_UNLOCKED`; re-run 11/13) —
   handoff NO regardless of per-name state. Rich · cycle position

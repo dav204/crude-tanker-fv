@@ -258,6 +258,22 @@ Set B-revised).
   product-universe gap that remains is the chemical Handy/Handymax residual
   (§2) and pure-chemical parcel operators. See METHODOLOGY §1.
 
+**Closed this cycle (marked closed, per the never-delete rule):**
+
+- **Oslo/Euronext issuer-filing channel — CLOSED 2026-08-16.** Previously EDGAR+HKEX-only
+  polling left the Oslo names (BRUT / MPCC / CAPT / BWLP) invisible to the FILING-OVERDUE
+  net — the gap behind the BRUT 7/07 demerger and MPCC's +10.0% placement going unread.
+  `newsweb_poll` is the third venue lane (arrivals to `state/edgar_manifest.jsonl`
+  `source:newsweb`; ob/mfn mirror dedup pinned by `tests/test_newsweb_poll.py`).
+- **§17 justified-P/NAV numbers did not reach the decision surface — CLOSED 2026-08-13/14.**
+  The scorecard printed the verdict of the two-basis comparison but not the numbers
+  compared; the margin block now prints J par / J hist, the boundary price, signed
+  Margin%, and the governed `read_flag`; `flip_margin_pct` ships in the 2.8 JSON contract.
+- **Read-corroboration was bundled into the confidence tier — CLOSED 2026-08-13** (tier
+  semantics amendment): the tier certifies construction only and is price-invariant
+  (regression SBLK-2026-08-13; migrations SBLK/CMDB/GNK → VALIDATED-TIGHT); read
+  agreement is a separate governed channel with a ±2.0% deadband.
+
 ## 3. Known approximations (documented, not blockers)
 
 ### Per-ticker
@@ -363,11 +379,18 @@ Set B-revised).
   calibration discipline ever calls for it. See METHODOLOGY §10 and
   `outputs/vie_market_rates_xref.md` for back-computed values.
 
+- **Interpreter EOL (recorded 2026-08-09, reviewer catch):** the engine venv runs Python
+  3.9.6, end-of-life since October 2025 — an unsupported interpreter under the whole
+  suite. Not urgent (stdlib-stable code, no known CVE exposure in our usage); the fix
+  rides the next environment rebuild (pair with the `.venv310` consolidation question).
+
 ## 4. What the tool was validated against
 
 - **Per-sector validators:** DHT (pure VLCC) for crude; FLNG (pure modern
   LNGCs) for LNG; ASC (pure MR) for product; SBLK + GNK + CMDB for dry
-  bulk (transaction-anchored curves; GNK k_broker 1.04 validates them);
+  bulk (transaction-anchored curves; GNK k_broker 1.04 at lock — live k 1.11 in
+  `outputs/broker_nav_sweep.md`; all three migrated to VALIDATED-TIGHT under the
+  2026-08-13 construction-only tier semantics);
   MPCC + GSL for containerships (no broker NAV exists — validated via
   marks-consistency substitutes, §11.8.7). Each validator's fair value
   is band-locked in tests so structural regressions surface immediately
@@ -420,7 +443,3 @@ For long-form treatment of any item above, see:
 - [METHODOLOGY §9 Open methodology decisions](METHODOLOGY.md#9-open-methodology-decisions)
 - [METHODOLOGY §6 Company-specific notes](METHODOLOGY.md#6-company-specific-notes) — per-ticker validation status and known gaps
 
-- **Interpreter EOL (recorded 2026-08-09, reviewer catch):** the engine venv runs Python
-  3.9.6, end-of-life since October 2025 — an unsupported interpreter under the whole
-  suite. Not urgent (stdlib-stable code, no known CVE exposure in our usage); the fix
-  rides the next environment rebuild (pair with the `.venv310` consolidation question).

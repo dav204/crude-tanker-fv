@@ -18,7 +18,7 @@ itself the working example of that workflow. Concretely, and verifiable in
 the history:
 
 - Effectively every commit is agent-written under human direction: all but
-  ~14 (early scaffolding) carry `Co-Authored-By: Claude` trailers, and the merged
+  ~20 (early scaffolding + merges) carry `Co-Authored-By: Claude` trailers, and the merged
   PRs (#1, #2) plus the `claude/*` branches are cloud agents opening PRs
   against the repo for review.
 - **Sprint handoffs are spec-first:** [PLAN.md](PLAN.md) is the rolling
@@ -29,7 +29,7 @@ the history:
   dated, mistake-derived rules with a build-enforced size cap
   (`tests/test_docs_stay_lean.py`), so the always-loaded rulebook cannot
   grow without evicting: when a rule can be a test, it becomes a test.
-- **The ~600-test suite is what lets agents extend the system safely:**
+- **The ~700-test suite is what lets agents extend the system safely:**
   validator fair values are band-locked, doc counts are census-guarded,
   data-provenance rules are enforced as xfail-strict queues (an xfail
   *clearing* is the work), and an owner-ratified drift baseline turns any
@@ -65,7 +65,7 @@ significance needs a pre-2024 backfill
 [outputs/epistemic_soundness_memo_2026-06-22.md](outputs/epistemic_soundness_memo_2026-06-22.md)).
 Use the reads as one disciplined input to a position call, sized accordingly.
 
-## Status (2026-08-09)
+## Status (2026-08-16)
 
 - **25 tickers** across 6 sectors: crude (10, incl. **TEN** the 3-sleeve hybrid,
   **CAPT** the first Oslo/NOK listing, **BRUT** the pure-play VLCC newbuild
@@ -95,6 +95,9 @@ Use the reads as one disciplined input to a position call, sized accordingly.
   convention — closes the TEN architectural blocker), §15 (governance /
   structural-NAV-trap discount — the inverse of §12; first applied to TEN
   at 30% haircut for controlled-FPI + related-party + low-payout drivers)
+- **Tier semantics amended 2026-08-13/14** (construction-only tier, price-invariant by
+  guard; governed `read_flag` read channel with ±2.0% deadband; SBLK/CMDB/GNK →
+  VALIDATED-TIGHT, roster 8; edge-cleared long set {SB}; handoff schema 2.8)
 - **External counter-signals tracked:** VIE Coverage Universe cross-reference
   (Catlin / Mintzmyer) — full 10-of-10 overlap; CCEC / ASC / TRMD / HAFN
   direct opposite-direction signals documented in §6 footnotes
@@ -108,8 +111,8 @@ long to find.)
 
 | Surface | What it is | Consumer |
 |---|---|---|
-| `outputs/book_scorecard.md` | **THE handoff** — Verdict table (tier·sub-reason, price, Model FV, FV range, upside, position, Blend FV, NAV/sh, broker NAV, gap, SANITY, handoff-ready, W-frag) + Validation matrix. Header discloses price basis, rate basis (incl. any held-curve state), weight-family vintage | Humans: the single surface a sizing decision reads |
-| `outputs/book_scorecard.json` | The same content as a **schema-versioned machine contract** (currently 2.5; consumer asserts major == 2). Adds `fv_low`/`fv_high`, `weight_sign_stable` + family EV ranges, `mark_wide_nodes`, hybrid sleeve FVs, vintage stamps (`generated_at`, `source_commit`) | The governance repo's monitor (its §4 seam check) |
+| `outputs/book_scorecard.md` | **THE handoff** — Verdict table (tier·sub-reason, price, Model FV, FV range, upside, position, Blend FV, NAV/sh, broker NAV, gap, SANITY, handoff-ready, W-frag) + Validation matrix. Header discloses price basis, rate basis (incl. any held-curve state), weight-family vintage; Validation matrix carries the §17 margin block (J par / J hist / boundary / Margin%) and the governed `read_flag` column | Humans: the single surface a sizing decision reads |
+| `outputs/book_scorecard.json` | The same content as a **schema-versioned machine contract** (currently 2.8; consumer asserts major == 2). 2.8 adds the read channel per row: `read_flag` (governed), `flip_margin_pct`, `read_flag_hyst_pct`, `tier_subreason`. Adds `fv_low`/`fv_high`, `weight_sign_stable` + family EV ranges, `mark_wide_nodes`, hybrid sleeve FVs, vintage stamps (`generated_at`, `source_commit`) | The governance repo's monitor (its §4 seam check) |
 | `outputs/<ticker>_fv_report.md` / `.xlsx` | Per-name single-point build: NAV breakdown, dividend strip, cycle weighting, blend + FV attribution, breakeven, 5×5 grid, divergence diagnosis | Per-name deep dives |
 | `outputs/<ticker>_scenarios.md` | The scenario deck + probability-weighted FV that feeds the Verdict | Per-name deep dives |
 | `baselines/reconcile_baseline.yaml` + `RATIFY_LOG.md` | The accepted-state anchor + the dated, cause-carrying record of every ratify (the drift gate reds on unexplained moves against it) | The audit trail; the governance monitor reads RATIFY_LOG weekly |
@@ -119,8 +122,17 @@ long to find.)
 Trust markers on any copy: it is committed at HEAD, its `source_commit` stamp is
 clean (a `-dirty` stamp on a committed scorecard reds the suite), and the whole
 tree regenerates byte-identical from a cold clone (verified by both external
-audits). Handoff rule: a PROVISIONAL tier never hands off a governed FV —
+audits). Handoff rule: **the tier certifies CONSTRUCTION only — a price move can never
+change it** (tier semantics amendment 2026-08-13,
+`decisions/tier_semantics_amendment_2026-08-13.md`; guard
+`test_tier_is_price_invariant`; the tier carries `read_blocked` where the §17
+multiple is unevaluable). A PROVISIONAL tier never hands off a governed FV —
 flag, don't pass; only VALIDATED-TIGHT and GOVERNED-WIDE are handoff-ready.
+Price-side read-corroboration ships on a separate GOVERNED `read_flag` channel
+(±2.0% boundary deadband, `READ_FLAG_HYST_PCT`) standing beside
+`weight_sign_stable`; edge-cleared = VALIDATED-TIGHT ∧ robust `read_flag` ∧
+cheap on the §17 parity basis ∧ BUY. The two channels cap size separately and
+never stack.
 
 ## What this tool does
 
@@ -133,8 +145,10 @@ flag, don't pass; only VALIDATED-TIGHT and GOVERNED-WIDE are handoff-ready.
 
 2. **Scenario sensitivity.** Each sector has 4-5 macro scenarios with their
    own probability weights, vessel-value multipliers, and forward curves. The
-   crude sector uses a three-phase MoU framework (escalation / pre-MoU
-   baseline / MoU base / MoU bear); LNG runs glut-cycle scenarios with a
+   crude sector uses the MoU scenario framework (escalation / pre-MoU
+   baseline / MoU base / MoU bear — mou_base retired at zero weight by the
+   2026-08-16 toll-cliff C2 ruling, its re-entry governed by the
+   `hormuz_fee_collection_watch` + `escalation_pause_corroboration` triggers); LNG runs glut-cycle scenarios with a
    `vessel_scale_multiplier`-driven structural-reset tail; product runs
    refinery-margin / glut scenarios.
 
@@ -223,9 +237,9 @@ Pre-empting the "where does this go wrong?" question — see
 | Ticker | Company | Fleet shape |
 |---|---|---|
 | SBLK | Star Bulk Carriers | 135 bulkers (Cape 31 / Pana 46 / Supra-Ultra 58) — first dry-bulk validator; §6 mark-driven |
-| GNK  | Genco Shipping | 44 bulkers (Cape 20 / Supra-Ultra 24, no Pana — Q2: Volunteer in, Predator out) — dry validator for the txn-anchored curves (k 1.10 at 2026-08-09; live value in outputs/broker_nav_sweep.md) |
+| GNK  | Genco Shipping | 44 bulkers (Cape 20 / Supra-Ultra 24, no Pana — Q2: Volunteer in, Predator out) — dry validator for the txn-anchored curves (k 1.11 at 2026-08-14; live value in outputs/broker_nav_sweep.md) |
 | CMDB | Costamare Bulkers | 30 owned older bulkers + P&L-only chartered-in platform; §15 case (30% haircut), APPROX anchor |
-| SB   | Safe Bulkers | 44 operating + 1 HFS + 8 NB (Cape/Pana/PPMX mix) — the lone VALIDATED-TIGHT BUY (added 2026-06-27) |
+| SB   | Safe Bulkers | 44 operating + 1 HFS + 8 NB (Cape/Pana/PPMX mix) — the book's lone edge-cleared BUY — VALIDATED-TIGHT with a robust read_flag, cheap on both §17 bases (added 2026-06-27) |
 | 2343 | Pacific Basin | ~110 owned Handy-Bulk/Supra (40.7% Handy) + P&L-only chartered-in book; 1st HKEX; §11.7.11 (added 2026-07-14) |
 
 **LPG sector (`sectors.lpg` — WO3 Phase-4 validators, 2026-07-10; sector
@@ -295,7 +309,7 @@ otherwise — notifier death is detectable by the digest's absence and by the
 healthchecks dead-man ping, which fires only after a completed run whose sends
 succeeded). Tags: `TRIGGER-DUE`, `STALE-INPUT`, `SURFACE-INCOHERENT`,
 `PRICE-BASIS`, `SIDECAR-STALE`, `NOTIFY-UNCONFIGURED`, `FETCH-FAILED`,
-`UNINGESTED-PRINTS`, `TRIGGER-EVIDENCE` (+`DIRTY-TOO-LONG` in dirty meta-mode);
+`UNINGESTED-PRINTS`, `TRIGGER-EVIDENCE`, `FILING-OVERDUE`/`FILING-LANDED` (+`DIRTY-TOO-LONG` in dirty meta-mode; representative — full vocabulary in `sentinel.py`);
 routing in `inputs/notify.yaml`. On a dirty tree the sentinel runs META-MODE
 (content checks suspended, liveness alive); tracked-tree writers skip outright;
 staging-only fetchers keep fetching (`PAUSE` file stops everything). A GitHub
@@ -307,10 +321,12 @@ as the off-machine backstop. Every drift-gate re-ratify appends a row to
 python -m crude_tanker_fv.sentinel --log state/sentinel.log --notify --ping
 ```
 
-Five launchd jobs (plists in `scripts/`, installation human-only — see
+Six launchd jobs (plists in `scripts/`, installation human-only — see
 `decisions/launchagents_reconciliation_2026-07-03.md`): RC ingest (daily
-07:00), sentinel (daily 08:15), price refresh (daily 18:30), news-pull chain
-(Sat 08:00), broker-marks harvester (Sat 09:00). Every wrapper heartbeats to
+07:00), sentinel (daily 08:15), filings poller (hourly :20 — three venue
+lanes EDGAR / HKEX / Oslo NewsWeb, per-lane outcomes via `cron_lane` so one
+venue's rc can never mask the others), price refresh (daily 18:30), news-pull
+chain (Sat 08:00), broker-marks harvester (Sat 09:00). Every wrapper heartbeats to
 `state/heartbeat/<job>` (even on SKIP) and ledgers to
 `state/automation_runs.log` with its initiator — launchd label vs
 `manual:user@tty` — the no-human-fetches instrument. launchd

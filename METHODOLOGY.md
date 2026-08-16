@@ -368,7 +368,7 @@ effective_tax_rate: 0.02    # tanker shipping is largely tax-advantaged
 | Vessel market values | Triangulate from: disclosed company sales transactions, newbuild order prices, broker indices in industry press (Hellenic Shipping News, TradeWinds, Splash247) | Free with effort | Quarterly |
 | Spot TCE rates | Baltic Exchange daily indices: TD3C (VLCC MEG-China), TD20 (Suezmax W. Africa-UKC), TD25 (Aframax US Gulf-UKC). Free tier exists; company weekly reports (FRO Friday updates) as cross-check | Free (limited) | Weekly |
 | FFA forward curve | Baltic settlement data (public lag), broker indications in industry press | Partial (delayed) | Weekly |
-| Historical TCE means | Computed from Baltic historical indices, supplemented with academic / industry datasets | Free with effort | Annual update |
+| Historical TCE means | Computed from Baltic historical indices, supplemented with academic / industry datasets | Free with effort | Semiannual re-derivation (`tce_means_semiannual_review` trigger, 2026-08-16; LPG realized anchor annual via `lpg_anchor_annual_review`) |
 | Dividend policies | Company quarterly earnings releases, capital allocation policies | Free | Quarterly |
 | Diluted share counts | Latest 10-Q / 6-K cover page | Free | Quarterly |
 
@@ -685,7 +685,7 @@ The mark-robust vs mark-driven discrimination diagnostic (§9.9). Per-name row:
 
 | Name | Cons. P/NAV | k_broker | EV @tool | EV @mid | EV @broker | Pos tool→broker | Breakeven tool→broker | Spread (pp) | Read |
 
-`k_broker` is the uniform vessel-mark premium that lifts tool NAV to the consensus broker NAV (price ÷ consensus P/NAV); the EV%-spread is the headline mark-driven-ness signal. Hybrid names labeled `**(WHOLE-CO)**`. *(Restated 2026-06-12, B4:)* on transaction-anchored sectors, mark-validated names show the *uniform pure-play band premium* (k 1.05-1.25, ~+13-17pp spread at the Jun-2026 fit) — NOT ~0pp, which was the pre-2026-06-09 signature; mark-driven names sit outside the band (either direction). On un-anchored sectors (LNG, containerships) validated still reads k ≈ 1.0 / ~0pp. The `Read` column is mechanical spread width (`wide-spread` / `narrow-spread`); per-name classification is in §6 and §9 item 9.
+`k_broker` is the uniform vessel-mark premium that lifts tool NAV to the consensus broker NAV (price ÷ consensus P/NAV); the EV%-spread is the headline mark-driven-ness signal. Hybrid names labeled `**(WHOLE-CO)**`. *(Restated 2026-06-12, B4:)* on transaction-anchored sectors, mark-validated names show the *uniform pure-play band premium* (k 1.05-1.25, ~+13-17pp spread at the Jun-2026 fit) — NOT ~0pp, which was the pre-2026-06-09 signature; mark-driven names sit outside the band (either direction). *(Band RE-PINNED 2026-08-09: `TXN_PURE_PLAY_K_BAND = (0.95, 1.15)` — the ratified marks-trail promotion collapsed the validated pure-play premium to ~1.00-1.04; the 1.05-1.25 / +13-17pp figures above are the Jun-2026 fit vintage. The 8/13 consensus-pair rebase retired the k-vintage-skew allowance; ECO 1.161 stands as a real matched-vintage exceedance under test. Constants in `marks.py` remain the shared source.)* On un-anchored sectors (LNG, containerships) validated still reads k ≈ 1.0 / ~0pp. The `Read` column is mechanical spread width (`wide-spread` / `narrow-spread`); per-name classification is in §6 and §9 item 9.
 
 ### 7.5b Consensus forward-EPS cross-check (`outputs/consensus_eps_xref.md` + `.xlsx`)
 
@@ -697,7 +697,7 @@ The **earnings-leg analog of the §7.5 broker-NAV sweep** (full methodology in �
 
 ### 7.6 Transaction-anchored recalibration comparison (`outputs/transaction_anchor_comparison.md` + `.xlsx`)
 
-Diagnostic showing per-name NAV/EV impact of applying the transaction-anchored mid-age curves (currently Aframax + Suezmax; opt-in toggle, default off in production). Per-name row:
+Diagnostic showing per-name NAV/EV impact of applying the transaction-anchored mid-age curves (the txn-anchored marks ARE the production headline — default ON since 2026-06-09; this diagnostic shows per-name impact vs the un-anchored base curves. Classes with own fits: VLCC / Suezmax / Aframax / LR2 / MR / Cape / Pana / Supra-Ultra, + VLGC §11.10.4, PPMX seeded 2026-07-18. Original wiring note: opt-in toggle, default off in production). Per-name row:
 
 | Name | NAV base→txn | Δ% | EV base→txn | Δpp | Position (with `⚠️` if call flipped) |
 
@@ -781,9 +781,9 @@ Required when an existing-sector name has fleet outside the current class covera
 The refresh has a **pre-flight check** before the data assembly proper — run the refresh checklist first to see exactly what's stale and what's missing for the target quarter.
 
 **Step 0: Pre-flight check.** Run `python -m crude_tanker_fv.refresh` to generate `outputs/refresh_checklist.md`. The checklist:
-- Infers the **target quarter** (the most recently closed quarter as of today — see §7.x for the inference rule, or pass an explicit quarter as CLI arg).
+- Infers the **target quarter** (the most recently closed quarter as of today — inference rule documented in `refresh.py` (default = the quarter just completed as of today), or pass an explicit quarter as CLI arg).
 - Reports which **balance sheets are missing** for the target quarter, with per-ticker IR press-release URLs, SEC EDGAR filer URLs, and fleet-page URLs sourced from `inputs/data_sources.yaml`.
-- Flags **stale market data** (files older than 30 days), **stale watchlist `as_of` dates** (older than 14 days), and **APPROX consensus_pnav entries** still flagged in the watchlist YAML comments.
+- Flags **stale market data** (files older than 30 days), **stale watchlist `as_of` dates** (older than 42 days — owner 2026-07-06; quarterly recapture + staleness-floor triggers as hard backstops), and **APPROX consensus_pnav entries** still flagged in the watchlist YAML comments.
 - Surfaces a per-ticker **file age table** (fleet / BS / cost / dividend with their respective thresholds: 90d / required for target quarter / 180d / 180d) so multi-quarter drift surfaces explicitly.
 - Closes with the **full IR URL playbook** — a per-ticker table of IR home, press releases archive, SEC EDGAR filings, fleet page — for ad-hoc lookups outside the refresh cycle.
 
@@ -799,9 +799,12 @@ This turns refresh from a "remember what to update" half-day grind into a struct
 6. Per-company Q+1 inputs (balance sheets, cost structures) refreshed from each name's latest filing — use the IR URLs from the checklist's playbook section.
 7. Run `python -m crude_tanker_fv.pipeline {quarter}` + scan for `validate.py` warnings (extreme spot prints, constructed curves, etc.) and tag any new ones. The pipeline now ends with a delta report (§7.7) and per-ticker decision-log entries (§7.8) — those become the post-refresh review surface.
 
-**Staleness thresholds** (locked 2026-06-01, defined in `src/crude_tanker_fv/refresh.py`):
-- Market data: 30 days
-- Watchlist `as_of`: 14 days
+**Staleness thresholds** (locked 2026-06-01; watchlist threshold amended 2026-07-06; TCE-means clock removed 2026-08-16 — defined in `src/crude_tanker_fv/refresh.py`):
+- Market data: 30 days — the FAST movers only (spot / 12M TC / FFA / vessel value curves).
+  `historical_tce_means.yaml` left this clock 2026-08-16: a trailing 10-yr mean is not a rate
+  print; its cadence is trigger-owned (`tce_means_semiannual_review`, all classes; LPG annual via
+  `lpg_anchor_annual_review`; pairing guard `test_tce_means_cadence_has_an_owner`)
+- Watchlist `as_of`: 42 days
 - Fleet manifest: 90 days (vessel sales / purchases happen quarterly)
 - Cost structure & dividend policy: 180 days (rarely change; revisit annually)
 
@@ -821,7 +824,7 @@ Decisions that should be revisited as the model matures or new data becomes avai
 8. **Sanctioned / dark fleet ton-mile effects** — not currently modeled explicitly, but show up implicitly through spot TCE rates. Could be made explicit as a forward demand multiplier if structural shifts (Russia, Iran) persist.
 9. **Vessel-mark level (tool vs broker)** — the tool's value curves are conservative independent marks; brokers (Compass / VesselsValue / Clarksons) mark the modern and product fleet higher. Disposal data (the only ground truth) validates the **old-age leg** of the tool curve; the mid-age and product anchors are looser (thin second-hand deal flow). Handled via two complementary diagnostics:
 
-    - **Broker-NAV sweep** (`marks.py`, `pipeline.run_broker_sweep`): each name is valued at tool marks (k=1.00), midpoint, and broker-equivalent (the uniform vessel-mark premium k that lifts tool NAV to the consensus broker NAV = price / consensus P/NAV). The **tool→broker EV spread** shows how much of a name's call is a genuine price-vs-value signal vs a NAV-mark choice. **Classification semantics are two-regime since the 2026-06-09 txn-anchored default flip (restated 2026-06-12, B4):** on transaction-anchored sectors (crude / product / dry bulk), k_broker reads as the *broker premium over transaction levels*, and **mark-validated** means k inside the uniform pure-play band `TXN_PURE_PLAY_K_BAND = (1.05, 1.25)` with cross-name uniformity < 0.05 (DHT 1.14 / ECO 1.12 / FRO 1.12 at the Jun-2026 fit — the ~+13-17pp spread these names carry is the EXPECTED signature, not mark uncertainty); **mark-driven** means k outside the band in either direction (INSW 1.52, HAFN 1.45, ASC 1.33, SBLK 1.27, TNK/STNG per their §6 entries). The discrimination signal is *consistency of the premium across validated pure-plays*, not a zero premium. On un-anchored sectors (LNG, containerships — no transaction sample per the §9.9 scope discipline), the original semantics survive: k_broker is the broker premium over our independent curve and mark-validated ≈ 1.0 (CCEC ~0.96 validated; FLNG 0.87 mark-driven, tool-above-broker). *(Pre-2026-06-09 semantics, preserved for the dated entries below: mark-validated read as k_broker≈0.99 ~0pp spread — DHT/FRO/ECO then; TNK 1.18 / +10pp and INSW 1.37 / +21pp were the mark-driven exemplars.)*
+    - **Broker-NAV sweep** (`marks.py`, `pipeline.run_broker_sweep`): each name is valued at tool marks (k=1.00), midpoint, and broker-equivalent (the uniform vessel-mark premium k that lifts tool NAV to the consensus broker NAV = price / consensus P/NAV). The **tool→broker EV spread** shows how much of a name's call is a genuine price-vs-value signal vs a NAV-mark choice. **Classification semantics are two-regime since the 2026-06-09 txn-anchored default flip (restated 2026-06-12, B4):** on transaction-anchored sectors (crude / product / dry bulk), k_broker reads as the *broker premium over transaction levels*, and **mark-validated** means k inside the uniform pure-play band `TXN_PURE_PLAY_K_BAND = (1.05, 1.25)` with cross-name uniformity < 0.05 (DHT 1.14 / ECO 1.12 / FRO 1.12 at the Jun-2026 fit — the ~+13-17pp spread these names carry is the EXPECTED signature, not mark uncertainty); **mark-driven** means k outside the band in either direction (INSW 1.52, HAFN 1.45, ASC 1.33, SBLK 1.27, TNK/STNG per their §6 entries). The discrimination signal is *consistency of the premium across validated pure-plays*, not a zero premium. On un-anchored sectors (LNG, containerships — no transaction sample per the §9.9 scope discipline), the original semantics survive: k_broker is the broker premium over our independent curve and mark-validated ≈ 1.0 (CCEC ~0.96 validated; FLNG 0.87 mark-driven, tool-above-broker). *(Pre-2026-06-09 semantics, preserved for the dated entries below: mark-validated read as k_broker≈0.99 ~0pp spread — DHT/FRO/ECO then; TNK 1.18 / +10pp and INSW 1.37 / +21pp were the mark-driven exemplars.)* *(Band RE-PINNED 2026-08-09: (0.95, 1.15), uniformity 0.05 unchanged — validated premium now ~1.00-1.04 (DHT 1.005 / ECO 0.996 / FRO 1.040); the (1.05, 1.25) / DHT 1.14-class figures in this item are the Jun-2026 vintage. 8/13 rebase retired the vintage-skew allowance; ECO 1.161 = real matched-vintage exceedance, owner-flagged for band re-examination.)*
     - **Transaction-anchored curve recalibration** (`transactions.py`, `pipeline.run_transaction_anchored_comparison`): opt-in toggle (`use_transaction_anchored=True`) that replaces the mid-age (5yr, 10yr) anchors of any class with a populated `inputs/market_data/transactions/<class>.yaml`. Newbuild + old-age legs are NOT touched (newbuilds publicly priced; old-age disposal-validated). The fit is a recency-weighted (~15-month half-life) WLS regression of clean prices (quality-flag uplifts: financing +5%, distressed +10%) on age, in the mid-age window [3, 17]; slope must be negative or the fit falls back. The v1 LR2-as-Aframax proxy propagates the Aframax fit to LR2 automatically.
 
     *Scope discipline:* recalibrate one class at a time, anchor to disclosed transactions, stop when the transaction sample is exhausted.
@@ -927,6 +930,10 @@ sectors:
       structural_decline:  {weight: 0.00, vessel_scale_multiplier: 0.90, …}
     cycle_anchors:       {mr: {ten_year_mean: 16000, …}, lr1_clean: …, lr2_clean: …}
 ```
+
+*(Weights shown are the 2026-06-01 v2-vintage illustration — the YAML is the live source. Crude
+since the 2026-08-16 toll-cliff C2: escalation 0.25 / pre_mou_baseline 0.62 / mou_base 0.00
+(retired-at-zero, leg retained for series continuity) / mou_bear 0.13.)*
 
 `load_scenarios(sector=...)` returns one sector's `{scenarios, cycle_anchors, sector}` sub-doc; `run_scenarios(...)` consumes that sub-doc unchanged (the engine itself stays sector-agnostic). The sector name is stamped onto the returned `ScenarioReport.sector` so the markdown title flexes per sector ("three-phase MoU framework" vs "LNG glut-cycle framework") and the roll-up writes one Excel sheet per sector with that sector's scenario columns.
 
@@ -1089,6 +1096,13 @@ residual triggers `crude_day60_toll_cliff` (scope crude+product) and
 `product_glut_arrival_timing` in `inputs/reweight_triggers.yaml`. Impact: STNG BUY→HOLD
 (+10.9%→+2.0%), TRMD BUY holds (+21.5%→+9.1%), ASC BUY holds (+18.1%→+14.2%), HAFN TRIM
 deepens. Decision chain: `decisions/crude_reweight_proposal_2026-07-02.md` §15.
+*(2026-07-14: war shapes RESTORED with the crude re-tilt — Set B v2 stood 12 days; live product
+set back to the Jun-9 v3 shape 0.25/0.30/0.30/0.15/0.00.)*
+*(2026-08-16: `crude_day60_toll_cliff` CONSUMED at the toll-cliff venue — C2 executed, crude
+0.25/0.62/0.00/0.13, mou_base retired-at-zero; product revisit ruled a recorded NO-OP, the
+7/14 shapes stand. Successors: `hormuz_fee_collection_watch` + `escalation_pause_corroboration`;
+`product_glut_arrival_timing` (10/02) remains the product family's live card.
+decisions/crude_day60_toll_cliff_2026-08-16.md.)*
 
 The product sector was the third sector formalised, closing the v2 INSW shortcut: MR / LR1_clean / LR2_clean forwards previously lived under `sectors.crude.scenarios.<scenario>.mr` (and the LR2_clean entry was shared between crude dual-use LR2 and product LR2). After the refactor, all product-class forwards live cleanly under `sectors.product` and the INSW carve-out routes its **product sleeve through `sectors.product`** while keeping its **crude sleeve through `sectors.crude`**.
 
@@ -2413,7 +2427,7 @@ leg reproduces the 18yr/$57M and 23yr/$48M out-of-window prints within $2-3M; th
 no-scrappage-lever cell priced). Fit: n=7, slope −$2.40M/yr; **age-10 is the STRONG node**
 ($80.3M, stable under every exclusion cut); **age-5 is EXTRAPOLATED** (zero 5-yr prints) —
 **flagged WIDE $89.7-95.9M**, machine-readable via `provenance.MARK_WIDE_NODES` → per-name
-`mark_wide_nodes` in `book_scorecard.json` (schema 2.5 at 2026-07-15; consumers assert major==2) for tonnage aged 2.5-7.5 (the ≥50%
+`mark_wide_nodes` in `book_scorecard.json` (schema 2.5 at 2026-07-15, 2.8 since 2026-08-13 — consumers assert major==2) for tonnage aged 2.5-7.5 (the ≥50%
 node-sensitivity window). Related-party prints (BW Chinook/Pampero) downweighted mechanically
 by recency; the BW Yushi purchase-OPTION strike is documentation only, never fit. Sample watch
 items: Dorian trio per-vessel splits (Q4-26 filings), Advanced full-year re-harvest.
@@ -2432,7 +2446,7 @@ New-sector bar (CLAUDE.md): **v1 lock = ≥70% of validators within ±10% of bro
 lock-time** (2 validators ⇒ both, or document the miss and hold PROVISIONAL). Pareto prints
 P/NAV for both (BWLP 1.02 / LPG 1.01) — consensus pairs rebase together, same-vintage. §15
 screen on the BW-Group bloc in BWLP (no pre-assumed haircut); Dorian widely-held, no flag
-expected. k_broker reads on TXN-ANCHORED semantics from birth (expect below the crude
+expected. k_broker reads on TXN-ANCHORED semantics from birth (crude premium ~1.00-1.04 since the 2026-08-09 band re-pin — the figure following is the Jul-09 vintage; expect below the crude
 1.12-1.14 premium — the fitted age-10 sits ~+11% ABOVE Pareto's generic quote). **Status
 (2026-07-09): Phases 1-3 landed (scenario family / marks / rates); Phase 4 (validator
 onboarding) next; names land PROVISIONAL by definition until reconciled — a PROVISIONAL or ⚠
@@ -2593,7 +2607,10 @@ A structural supply-side factor **not currently parametrically modeled** in the 
 > from the Jun-9 Appendix A entry; §14.4 overlay rows in the overlay
 > ledger (§16) carry this interaction note. *(Active per-name
 > applications are registered in the ledger — a §14.4 read not in the
-> ledger is not active.)*
+> ledger is not active.)* *(2026-08-16: applies a fortiori under the
+> toll-cliff C2 set 0.25/0.62/0.00/0.13 — mou_base retired-at-zero, the
+> war-persistence view is now almost entirely inside the weights; only
+> the infrastructure-lag residual remains applicable.)*
 
 - **Treat near-term (Q3-Q4 2026) Phase 2 TCEs as conservative on rate level.** Mental adjustment: +10-15% on Q3 pre_mou_baseline / moderate forwards; +5-10% on Q4. Phase 1 (escalation / tight) may extend through Q4 2026 rather than resolving in Q3. *(Subject to the double-count warning above.)*
 - **High-spot crude names (ECO, FRO, DHT VLCC):** the framework's near-term bearishness may be premature. Expect actual rates to lag the framework's normalisation assumption by **1-2 quarters**. For position decisions where the call rests primarily on the Q3-Q4 2026 forward decline, weight the qualitative MEG-drag overlay alongside the model's TRIM signal.
@@ -3061,6 +3078,29 @@ its justified P/NAV (~0.78) sits above the market's 0.674 and SB reads **cheap**
 vs justified. (The figure moves with the marked NAV; the tests pin the identity,
 not the dollar NAV.)
 
+### 17.9 Read governance — display vs governed channel (tier semantics amendment 2026-08-13)
+
+The §17 read now feeds two channels with distinct semantics
+(`decisions/tier_semantics_amendment_2026-08-13.md` + Addenda A/B):
+
+- **`robust`** (read == read_hist) is INSTANTANEOUS and **display-only** — truthful every run,
+  never consumed by governance.
+- **`read_flag`** is the GOVERNED channel: it adopts the instantaneous state only when
+  `|flip_margin_pct| ≥ READ_FLAG_HYST_PCT` (2.0%) beyond the state-changing boundary; inside the
+  deadband it holds prior state (persisted machine-locally in `state/read_flag_state.json`), so a
+  name parked on a band edge reports one stable sizing input instead of strobing. The margin block
+  (J par / J hist / boundary price / `flip_margin_pct`) prints on the scorecard tier table and in
+  the handoff JSON (schema 2.8).
+- **The confidence tier consumes NEITHER.** The tier certifies construction only; its sole §17
+  input is `read_blocked` (evaluability — was a multiple producible at all). A price movement may
+  never change a tier (`test_tier_is_price_invariant`, regression SBLK-2026-08-13).
+- **Edge-cleared long** = TIGHT ∧ `read_flag == "robust"` ∧ `read_par == "cheap"` ∧ BUY (Addendum
+  B1 — agreement is symmetric, actionability is directional, so the conjunct is the headline
+  parity basis).
+- The **tape-basis** strobe (where the read would sit once the watchlist rebases to today's close)
+  lives on the delta/monitor layer ONLY (Addendum B2) — a tape margin beside a watchlist-vintage
+  read would re-create the k-vintage mismatch the 8/07 rebase retired.
+
 ## 18. Through-cycle normal-rate layer — parity vs historical-mean (added 2026-06-29)
 
 The §17 justified leg pins RONAV to a single through-cycle anchor. P1 replaces that
@@ -3160,6 +3200,16 @@ signal is not a result** until the orderbook data confirms it (§18.5b).
 ## Appendix A. Changelog
 
 Dated record of material framework changes. Lock dates use UTC.
+
+### 2026-08-16 — Week close (Aug-10 → Aug-16): tier semantics amendment — read-corroboration OUT of the tier; toll-cliff C2 — mou_base retired-at-zero; newsweb third venue lane + per-lane cron outcomes; TCE means to the trigger registry; two-cause ratify, 3 band flips (schema 2.8)
+
+- **Tier semantics AMENDED (owner-ratified 2026-08-13 + Addenda A/B 8/13-8/14; `decisions/tier_semantics_amendment_2026-08-13.md`).** The confidence tier certifies **estimate CONSTRUCTION only** — VALIDATED-TIGHT / GOVERNED-WIDE / PROVISIONAL say how the NAV is BUILT; **a price movement may never change a tier**. `robust` (two-basis §17/§18.3 read agreement) is real information in the wrong channel — call-level, not estimate-level — and leaves the TIGHT gate; **TIGHT gates on evaluability, never agreement** (Addendum A): `confidence_tier` takes `read_blocked` (the §17 guard label; every blocker price-independent by invariant), non-None → GOVERNED-WIDE (CAPT "newbuild-heavy"). The read ships beside `weight_sign_stable` as the governed **`read_flag`**: hysteresis `READ_FLAG_HYST_PCT = 2.0`% deadband on `flip_margin_pct` vs per-basis boundary prices (SBLK 8/13 fixture: boundary $27.72 vs close $27.89 = +0.62% — the reductio that forced the amendment: under the old wiring a 62 bp red open would have UPGRADED the tier hours after a data repair degraded it, NAV byte-identical through both); governed state writable from the production entry ONLY (B4, elevated to the CLAUDE.md field-general "a run must never write SHARED state"). **Handoff schema 2.7 → 2.8.** Edge-cleared long ⇐ **TIGHT ∧ `read_flag` robust ∧ `read_par` cheap ∧ BUY** (B1 correction: the DIRECTIONAL parity read, not agreement — TNK rich/rich stays out; pinned by `test_edge_cleared_uses_the_directional_read_not_agreement`). Migrations exactly **{SBLK, CMDB, GNK} → VALIDATED-TIGHT** (each `read_flag = flips`; SUPERSEDED-not-reversed — the 8/13 demotion history stands in the logs); BRUT/CAPT remain GOVERNED-WIDE (read-blocked = construction; BRUT's going-concern ruling independently sufficient). **Edge-cleared set {SB} before and after — the amendment relocates the constraint, enlarges nothing.** Guards: `test_tier_is_price_invariant` (±20% price-only perturbation, every tier byte-identical; regression SBLK-2026-08-13) + `test_read_flips_never_reenters_tier_subreason`.
+- **Addendum B (owner, 8/14) — the tape-strobe lives on the delta/monitor layer ONLY.** The scorecard is a single-vintage surface; a tape-basis margin beside a watchlist-basis read would re-create the k-vintage mismatch the 8/07 rebase retired (B2). Instead, for each `read_flag = flips` name the delta report prints tape price vs the weaker-basis boundary and the signed % distance, with a ⚡ strobe inside the ±2.0% deadband — monitor-layer context that never governs (`delta.py`, Addendum B2 block).
+- **Toll-cliff C2 EXECUTED at the 8/16 venue** (`decisions/crude_day60_toll_cliff_2026-08-16.md`; trigger armed 7/02 as a re-weight date "REGARDLESS OF OUTCOME"). Neither pre-registered branch fired cleanly — fee INTENT documented (PGSA "service fees", the UNCLOS fig leaf) but COLLECTION not evidenced; no extension; the Oman framework never convened; traffic 17% of pre-conflict under an active blockade — so evidence went to the owner rather than a forced read. Ruling R1: **C2 executes — crude 0.25/0.57/0.05/0.13 → 0.25/0.62/0.00/0.13**. **`mou_base` RETIRED-AT-ZERO**: the leg was held expressly "CONDITIONAL: assumes the toll cliff resolves benignly" and did not so resolve by either route; destination pre_mou (its registered meaning IS the observed state; mou_bear's "tolls imposed post-day-60" premise is contradicted); leg retained at zero for series continuity per the Jul-02 semantic-marker pattern. Successors ARMED (R3): **`hormuz_fee_collection_watch`** (standing) + **`escalation_pause_corroboration`**.
+- **Two-cause ratify 8/16** (e92fa8a, per the d1403e0 precedent; adversarially verified two-cause, max residual 0.05pp): (1) the C2 reweight — weight leg +0.2..+2.5pp EV-positive, ΔNAV 0.0% on all 25 rows; (2) the 8/12→8/14 price vintage (Fri/Sat price-cron DNS stand-downs; the 8/14 close fetched manually 8/16). **Three band flips, eyeballed individually:** **2343 HOLD→T/S band-EXIT** — a static-fallback RELEASE, the stale 7/14 static guard stopped tripping and a genuine month-long HKG rally absorbed in one +26.9% step (watchlist rebase owed); **ASC HOLD→T/S** band-mech (pre-warned oscillator); **SBLK BUY→HOLD** band-mech (FV-line whipsaw; the three-thread owner sitting stands as docketed, GTC untouched). k_broker breaches (INSW/LPG/STNG/TNK) price-mechanical.
+- **`newsweb_poll` — the Oslo/Euronext issuer channel EXISTS (third venue adapter).** BRUT/MPCC/CAPT had NO mechanical filing lane; the bill was four items long, incl. MPCC's COMPLETED placement of exactly +10.0% of the share count no scanner could see — all four misses now pinned as live-tag fixtures (`test_known_historical_misses_survive_the_filter`). MFN JSON feed, staging-only, on the hourly edgar-poll row; relevance is a DENY-list of one tag (the obvious allow-list drops CAPT's vessel deliveries); dedup is collapse-THEN-filter on (date, normalized title) — punctuation is not identity, words are; 21 live collapses audited, zero false. Same-day adversarial review caught a **safety-net regression the build itself introduced** — a routine ex-dividend would have silenced FILING-OVERDUE; fixed with a `report:` gate on the manifest line, guard verified RED pre-fix — plus six more (filter-defeating untagged twin, inverted seen-ids cap, watermark wipe on empty 200, and friends). **`cron_lane` per-lane outcomes:** three venue adapters on one launchd row can no longer alias — caught live when an mfn URLError set a bare `outcome=error` while EDGAR and HKEX had both succeeded (red-on-a-sibling, the inverse of the 7/18 camouflage rule); each lane records its own status, a failing lane still surfaces `error`, and `CRON_NOTE` names it (`test_multi_lane_outcome_names_the_failing_lane`; no `|| true`).
+- **TCE means OFF the 30d clock (owner-ruled 8/16).** `historical_tce_means.yaml` removed from the refresh checklist's market-data staleness set — a TRAILING 10-yr mean is not a rate print; an mtime clock built for daily data held it permanently stale (33d at removal) while saying nothing about what actually degrades it, the window ROLLING. Cadence now lives where a dated determinant belongs, the trigger registry: **`tce_means_semiannual_review`** (all classes; `lpg_anchor_annual_review` keeps LPG's filing-tied realized basis). Removal-without-replacement is guarded: `test_tce_means_cadence_has_an_owner`.
+- **Week-close mechanics:** sentinel weekday-dependent test FIXED (`test_archive_gap_sees_hole_behind_a_live_head` staged BUSINESS days but asserted CALENDAR offsets — red on exactly Fri/Sat, pre-existing at fc7fee3; acceptance window now derived from the staged calendar itself; seven-weekday faked-today sweep all-PASS vs pre-fix failing exactly Fri+Sat; `sentinel.py` correct as written — the test measured the wrong thing). Suite at week close 700 passed / 0 skipped / 14 xfailed (HEAD 4029e09, drift gate AWAKE), ruff clean; drift gate quiet outside the ratified rows.
 
 ### 2026-07-18 — Week close (Jul-13 → Jul-18): 2343 + Handy-Bulk; crude war-tilt restored; forward-print ruling signed (Stage A ≤ Aug-15); D-M2/3/4/5 ruled; thread (d) / MR / LR1 basis arcs; TEN reconciliation (schema 2.5)
 
