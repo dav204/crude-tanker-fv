@@ -29,6 +29,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
+from .justified_pnav import READ_FLAG_HYST_PCT, flip_margin_pct
 from .price_refresh import PRICE_FRESH_DAYS, STALE_PRICE_ALERT_MIN_NAMES
 from .scenarios import detect_mixed_anchor_basis, format_mixed_anchor_basis
 
@@ -313,24 +314,150 @@ def _classify_material(d: TickerDelta) -> tuple[bool, list[str]]:
 
 
 # ----------------------------------------------------------------------------
+# §17 read-flip strobe (tier semantics amendment 2026-08-13, Addendum B2)
+# ----------------------------------------------------------------------------
+# The scorecard is a SINGLE-VINTAGE surface: `justified_pnav` prices off the watchlist static
+# (`as_of_price`), the §17 read is computed there, and `flip_margin_pct` measures the deadband
+# there — the flag and the margin governing it must share a price or they disagree. A tape-basis
+# margin therefore may NOT go on that surface (it re-creates the k-vintage mismatch the 2026-08-07
+# rebase retired), which is what Addendum B2 ruled.
+#
+# It belongs HERE instead. The same margin measured at the tape answers the other question — where
+# the read would sit once the watchlist rebases to today's close — and that is a MONITOR fact, not
+# a sizing input. SBLK 2026-08-13 is the case: +3.18% on its row at the $28.60 vintage, +0.62% at
+# the $27.89 tape, i.e. one absorb cadence from restating the flag with nothing on paper saying so.
+
+# Edge keys from ``justified_pnav.boundary_prices`` rendered for a reader. The band-edge pipe is
+# backslash-escaped: these land in a markdown table cell, where a bare `|` is a column separator.
+_EDGE_LABELS = {
+    "par_cheap_fair": r"parity · cheap\|fair",
+    "par_fair_rich": r"parity · fair\|rich",
+    "hist_cheap_fair": r"hist · cheap\|fair",
+    "hist_fair_rich": r"hist · fair\|rich",
+}
+
+
+@dataclass
+class ReadFlipStrobe:
+    """One flipping name's distance from settling its flip, measured at the tape."""
+    ticker: str
+    read_flag: str                  # the GOVERNED state (scorecard) — always a `flips (…)` here
+    tape_price: float               # the price this run values at (prices_daily overlay)
+    vintage_price: float            # the watchlist static the row's own §17 numbers price off
+    boundary_price: float           # nearest band edge whose crossing settles the flip
+    boundary_edge: str              # which basis / edge that is
+    tape_margin_pct: float          # signed % of tape from the boundary — the forward-looking read
+    vintage_margin_pct: Optional[float]   # the row's own margin, for contrast (never replaced)
+    in_deadband: bool               # |tape_margin| < READ_FLAG_HYST_PCT — the strobe zone
+
+
+def read_flip_strobes(
+    jrows: list,                          # list[JustifiedPnavRow]
+    read_flags: dict[str, str],           # {ticker: read_flag} from the scorecard rows
+    tape_prices: dict[str, float],        # {ticker: price} the run values at
+) -> list[ReadFlipStrobe]:
+    """Build the strobe rows for every name whose GOVERNED read flag is a flips state.
+
+    Reuses the §17 primitives wholesale — ``flip_margin_pct`` re-runs its own state-change probe at
+    the tape, so the edge selected here is the same kind of edge the row selects, chosen for the
+    tape rather than the vintage. Nothing about the read, the flag, or the row is recomputed.
+    """
+    by_ticker = {r.ticker: r for r in jrows}
+    out: list[ReadFlipStrobe] = []
+    for ticker, flag in sorted(read_flags.items()):
+        if not flag.startswith("flips"):
+            continue
+        jr = by_ticker.get(ticker)
+        tape = tape_prices.get(ticker)
+        if jr is None or tape is None:
+            continue
+        margin = flip_margin_pct(jr.nav_per_share, jr.justified_pnav,
+                                 jr.justified_pnav_hist, tape)
+        if margin is None:
+            continue
+        boundary = tape / (1.0 + margin / 100.0)
+        edges = {k: v for k, v in jr.boundary_prices.items() if v is not None}
+        edge = min(edges, key=lambda k: abs(edges[k] - boundary))
+        out.append(ReadFlipStrobe(
+            ticker=ticker,
+            read_flag=flag,
+            tape_price=tape,
+            vintage_price=jr.price,
+            boundary_price=boundary,
+            boundary_edge=_EDGE_LABELS.get(edge, edge),
+            tape_margin_pct=margin,
+            vintage_margin_pct=jr.flip_margin_pct,
+            in_deadband=abs(margin) < READ_FLAG_HYST_PCT,
+        ))
+    return out
+
+
+def _render_read_flip_strobe(strobes: list[ReadFlipStrobe]) -> list[str]:
+    lines: list[str] = []
+    lines.append("## §17 read-flip strobe — tape vs the flip boundary\n")
+    if not strobes:
+        lines.append("- _(no name carries a flipping `read_flag` this run)_")
+        lines.append("")
+        return lines
+    hot = [s for s in strobes if s.in_deadband]
+    if hot:
+        names = ", ".join(f"{s.ticker} ({s.tape_margin_pct:+.2f}%)" for s in hot)
+        lines.append(f"> ⚡ **STROBE ZONE — {len(hot)} name(s) inside the ±"
+                     f"{READ_FLAG_HYST_PCT:.1f}% deadband at the tape: {names}.** "
+                     f"The governed `read_flag` holds its state on the watchlist vintage, but at "
+                     f"today's close the read sits close enough to its settling boundary that the "
+                     f"next vintage rebase could restate it — and `read_flag` caps position size. "
+                     f"This is the hazard the deadband exists for: surfaced, not acted on.\n")
+    lines.append("| Ticker | read_flag | Tape | Flip boundary | Edge | Tape margin | "
+                 "Row margin (vintage) | |")
+    lines.append("|---|---|---|---|---|---|---|---|")
+    for s in strobes:
+        row_margin = ("—" if s.vintage_margin_pct is None
+                      else f"{s.vintage_margin_pct:+.2f}% (@ ${s.vintage_price:.2f})")
+        tape_margin = (f"**{s.tape_margin_pct:+.2f}%**" if s.in_deadband
+                       else f"{s.tape_margin_pct:+.2f}%")
+        mark = (f"⚡ inside ±{READ_FLAG_HYST_PCT:.1f}% deadband" if s.in_deadband
+                else "clear of the deadband")
+        lines.append(
+            f"| {s.ticker} | {s.read_flag} | ${s.tape_price:.2f} | ${s.boundary_price:.2f} | "
+            f"{s.boundary_edge} | {tape_margin} | {row_margin} | {mark} |"
+        )
+    lines.append("")
+    lines.append("_MONITOR layer, forward-looking. `Tape margin` is the signed distance from the "
+                 "price this run values at to the nearest band edge whose crossing would settle "
+                 "the flip — i.e. where the read would sit once the watchlist rebases to today's "
+                 "tape. It is NOT a scorecard number and never governs: `read_flag` and the "
+                 "deadband are measured on the watchlist vintage (`Row margin`), the same price "
+                 "the read itself is computed on (Addendum B2, 2026-08-14). The two differ by "
+                 "exactly the drift between the two vintages._")
+    return lines
+
+
+# ----------------------------------------------------------------------------
 # Markdown rendering — delta report
 # ----------------------------------------------------------------------------
 def write_delta_report(report: DeltaReport, outputs_dir: Path = OUTPUTS_DIR,
-                       stale_prices: Optional[dict[str, str]] = None) -> Path:
+                       stale_prices: Optional[dict[str, str]] = None,
+                       strobes: Optional[list[ReadFlipStrobe]] = None) -> Path:
     """Render the delta report to ``outputs/delta_report.md`` and return path.
 
     ``stale_prices`` is ``loaders.stale_price_fallbacks(...)`` for the run —
     at ``STALE_PRICE_ALERT_MIN_NAMES`` names the report leads with a banner:
     that many freshness-gate fallbacks means the overlay vintage itself aged
     out, and every flip below may be a phantom on month-old statics
-    (2026-07-31 — the delta report said nothing while TNK/STNG/ASC flipped)."""
+    (2026-07-31 — the delta report said nothing while TNK/STNG/ASC flipped).
+
+    ``strobes`` is ``read_flip_strobes(...)`` — the §17 tape-basis flip distances for names whose
+    governed ``read_flag`` flips (Addendum B2). None omits the block entirely; an empty list prints
+    it as quiet. This is the ONLY surface that number is allowed on."""
     outputs_dir.mkdir(parents=True, exist_ok=True)
     path = outputs_dir / "delta_report.md"
-    path.write_text(_render_delta_md(report, stale_prices))
+    path.write_text(_render_delta_md(report, stale_prices, strobes))
     return path
 
 
-def _render_delta_md(r: DeltaReport, stale_prices: Optional[dict[str, str]] = None) -> str:
+def _render_delta_md(r: DeltaReport, stale_prices: Optional[dict[str, str]] = None,
+                     strobes: Optional[list[ReadFlipStrobe]] = None) -> str:
     lines: list[str] = []
     lines.append("# Pipeline Delta Report\n")
     if stale_prices and len(stale_prices) >= STALE_PRICE_ALERT_MIN_NAMES:
@@ -350,6 +477,8 @@ def _render_delta_md(r: DeltaReport, stale_prices: Optional[dict[str, str]] = No
         lines.append(f"- **First run.** {len(r.deltas)} tickers captured; no deltas computed yet.")
         lines.append("- Future runs will surface position flips, FV moves > 10%, "
                      "broker spread shifts > 5pp, and NAV moves > 5% here.\n")
+        if strobes is not None:
+            lines.extend(_render_read_flip_strobe(strobes))
         lines.append("## Input files captured this run\n")
         for p in r.new_input_files:
             lines.append(f"- `{p}` (new)")
@@ -379,6 +508,10 @@ def _render_delta_md(r: DeltaReport, stale_prices: Optional[dict[str, str]] = No
             reasons = "; ".join(d.material_reasons)
             lines.append(f"- **{d.ticker}:** {reasons}")
     lines.append("")
+
+    # --- §17 read-flip strobe (Addendum B2) ---
+    if strobes is not None:
+        lines.extend(_render_read_flip_strobe(strobes))
 
     # --- Input file changes ---
     lines.append("## Input files changed since last run\n")
