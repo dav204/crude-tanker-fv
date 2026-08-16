@@ -2,6 +2,7 @@
 tree or a PAUSE file — automation never runs through live surgery (the
 2026-07-02 18:52 price cron fired mid-F-13 fix)."""
 
+import re
 import subprocess
 from pathlib import Path
 
@@ -96,3 +97,45 @@ def test_drift_only_dirt_does_not_skip(tmp_path, script):
     (repo / "a.txt").write_text("surgery\n")
     r = _run(script, repo)
     assert r.returncode == 0 and "SKIPPED: dirty-tree (a.txt)" in r.stdout
+
+
+# --- Multi-lane wrappers: one outcome word, three venues (2026-08-16) --------
+# edgar_poll_cron.sh runs THREE venue adapters (SEC / HKEX / Oslo) on one row,
+# so a single `outcome=error` cannot say which lane died. Caught live: mfn.se
+# threw URLError, `set -e` killed the wrapper before CRON_OUTCOME was set, and
+# the sentinel flagged a bare `outcome=error rc=1 note=` while EDGAR and HKEX
+# had both already succeeded — red-on-a-sibling masking a healthy lane, the
+# inverse of the 2026-07-18 camouflage rule. Text-level, like test_plists:
+# green on a clean clone, and it fails the day a fourth adapter is appended as
+# a bare line.
+MULTI_LANE = ROOT / "scripts" / "edgar_poll_cron.sh"
+
+
+def test_every_venue_adapter_runs_through_a_named_lane():
+    """No adapter may be invoked bare — a bare line aborts the wrapper under
+    `set -e` and takes the sibling lanes' outcome with it."""
+    text = MULTI_LANE.read_text()
+    bare = [ln.strip() for ln in text.splitlines()
+            if re.match(r"^\s*\./\.venv/bin/python -m crude_tanker_fv\.\w*_poll\b", ln)]
+    assert not bare, f"adapter(s) invoked outside cron_lane: {bare}"
+    lanes = re.findall(r"^\s*cron_lane\s+(\w+)\s+\./\.venv/bin/python -m crude_tanker_fv\.(\w+)",
+                       text, re.M)
+    assert {m for _, m in lanes} == {"edgar_poll", "hkex_poll", "newsweb_poll"}, lanes
+
+
+def test_multi_lane_outcome_names_the_failing_lane():
+    """The wrapper must record per-lane status in CRON_NOTE and still report
+    `error` when any lane fails — visible AND attributable. A `|| true` that
+    merely silenced the failure would make a persistent outage look like a
+    quiet week, which is the silent-watchdog failure this repo has been bitten
+    by; assert the loud half too."""
+    text = MULTI_LANE.read_text()
+    # CODE only — the wrapper's comments discuss `|| true` precisely to explain
+    # why it is not used, and a naive substring check reads that as the bug.
+    code = "\n".join(ln for ln in text.splitlines() if not ln.lstrip().startswith("#"))
+    assert "CRON_NOTE=" in code and "CRON_LANE_FAILED" in code
+    assert "CRON_OUTCOME=error" in code, "a failing lane must still surface as error"
+    assert "|| true" not in code, "lane failures must not be swallowed"
+    # `cmd || var=$?` is the only set -e-safe form that preserves the real rc;
+    # `if cmd; then` records every failure as rc0 (the bug this was written with).
+    assert '"$@" || cron_lane_rc=$?' in text
