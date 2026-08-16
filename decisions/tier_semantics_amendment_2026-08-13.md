@@ -177,6 +177,60 @@ it is why §5's perturbation test is the right guard on the invariant.
 
 ---
 
+# ADDENDUM B — post-implementation dispositions (owner ruling, 2026-08-14)
+
+Appended beneath Addendum A; amends §4, §2 scope, §8.
+
+**B1. Edge-cleared filter — RATIFIED as implemented.** §4's literal "TIGHT ∧ robust ∧ BUY" was
+defective: **`robust` is agreement and agreement is symmetric; actionability is directional.**
+Operative definition:
+
+> edge-cleared long ⇐ TIGHT ∧ `read_flag == "robust"` ∧ `read == "cheap"`
+
+TNK (rich/rich, `POSITION_UNRELIABLE`) stays out; {SB} preserved. **DOCKETED, not ruled:** whether
+`POSITION_UNRELIABLE` becomes an explicit conjunct — moot while the read excludes TNK, live the day
+a name is robust-cheap and weight-fragile.
+
+**B2. Margin vintage — RATIFIED as built; NO second column on the scorecard.** The scorecard is a
+single-vintage surface; a tape-basis margin beside a watchlist-basis read re-creates the
+k-vintage mismatch the 8/07 rebase retired. Deadband at absorb cadence is deadband where the flag
+can move. **FOLLOW-ON (own chip, delta layer):** for each `read_flag = flips` name, the delta report
+prints tape price vs weaker-basis boundary and the signed % distance. Monitor-layer, never
+scorecard-layer.
+
+**B3. RATIFY_LOG — correctly withheld.** Sequence stands: Friday-test chip → suite green → owner
+runs `ratify_baseline.sh`. The weekly monitor's migration to `read_flag` rides the governance-repo
+TRADE_PREREG #4 rewrite (§6), which is an owner action, not agent scope.
+
+**B4. State-write discipline (efbc4af) — RATIFIED and elevated to doctrine:** governed state
+(hysteresis memory) is writable only from the production entry point, never from library calls a
+test can reach; the guard is permanent. Exposure was confined to the flag channel; tiers were
+pinned throughout.
+
+## Addendum B implementation record (2026-08-14)
+
+* **B1 — one material correction on landing.** The filter shipped gating on `read_hist == "cheap"`;
+  B1's operative definition says `read == "cheap"`, i.e. the **parity/headline** basis. Under an
+  *instantaneous* robust the two bases agree and the choice is moot — but `read_flag` is
+  **governed**, so inside the deadband it holds "robust" while the instantaneous reads have already
+  separated, and in that window the two candidate conjuncts return OPPOSITE answers. Corrected to
+  `read_par`. Pinned by `test_governed_flag_can_outlive_agreement_so_the_basis_choice_is_material`
+  (built from SBLK's real J's at $28.60: parity cheap, hist fair) and
+  `test_edge_cleared_uses_the_directional_read_not_agreement` (TNK is TIGHT + robust + raw-BUY yet
+  rich/rich — the case §4's literal wording would have admitted). The docketed
+  `POSITION_UNRELIABLE` question is recorded in the TNK test as a comment, not wired.
+  Edge-cleared long set unchanged: **{SB}**.
+* **B2 — no scorecard change made.** The tape-basis margin stays off this surface. Follow-on chip
+  raised against the **delta report** layer.
+* **B3 — nothing written.** RATIFY_LOG untouched; the Friday-test fix is running as its own task.
+* **B4 — doctrine recorded.** `CLAUDE.md` rule generalized rather than appended: the 2026-07-18
+  "read-only agents must not run pytest/pipeline in the shared tree" line and this one are the same
+  field-general rule — **a run must never write SHARED state** — so the specific was folded in per
+  the compounding-knowledge habit (rule 2: on the Nth instance, generalize and delete the
+  specifics). The router stayed **inside its 16,000-char budget (15,980)**; the cap was not raised.
+
+---
+
 ## Implementation record (2026-08-14)
 
 Landed as specified above, with Addendum A. Verified:
@@ -195,7 +249,9 @@ Landed as specified above, with Addendum A. Verified:
   consumer still reads it correctly — it simply stops encoding the read. **Governance must migrate
   to `read_flag` for the edge cap** (§6, separate work order).
 
-**Two items carried to the owner rather than decided here:**
+**Two items carried to the owner rather than decided here** — both since RULED, see Addendum B
+(B1 ratifies the filter with the parity-basis correction; B2 keeps the margin as built and routes
+the tape view to the delta layer):
 
 1. **The edge-cleared filter gates on `read_flag == "robust"`, not §4's literal "TIGHT ∧ robust ∧
    BUY".** Taken literally that phrase admits TNK — robust, raw-BUY, but reading *rich/rich* and

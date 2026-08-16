@@ -107,8 +107,10 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   aggregate at onboarding** (2026-07-01, SB; the CAPT peer-borrowed-flag bug). Guard-enforced:
   `test_verified_operating_scrubber_count` + `test_scrubber_provenance` — work the queue at
   onboarding, don't ship a blanket default.
-- **"Read-only" agents must not run pytest/pipeline in the shared tree** (2026-07-18) — the run
-  regenerates outputs+logs; one agent's stash swept live session work. Worktree-isolate them.
+- **A run must never write SHARED state** (2026-07-18 + 08-14 doctrine) — worktree-isolate
+  read-only agents (pytest/pipeline regenerate outputs+logs); write governed state
+  ONLY from the production entry, never a library call a test reaches
+  (`test_write_scorecard_does_not_write_machine_state`).
 - **Revert `prices_daily.yaml` before any promote/ingest regen** (2026-07-26, bit 2×) — the daily
   refresher dirties it; a dirty-tree regen launders the price vintage into the sourcing event.
   Prices absorb only as their own deliberate commit.

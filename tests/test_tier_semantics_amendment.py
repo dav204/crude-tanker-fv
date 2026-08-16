@@ -27,7 +27,12 @@ from crude_tanker_fv.justified_pnav import (
     load_read_flag_state,
     save_read_flag_state,
 )
-from crude_tanker_fv.provenance import TIER_SUBREASON, confidence_tier, tier_subreason
+from crude_tanker_fv.provenance import (
+    POSITION_UNRELIABLE,
+    TIER_SUBREASON,
+    confidence_tier,
+    tier_subreason,
+)
 
 # SBLK at the 2026-08-13 rebase — the worked example the amendment is pinned to (§2).
 SBLK_NAV = 32.785
@@ -128,13 +133,46 @@ def test_read_blocked_names_hold_governed_wide():
 
 
 def test_edge_cleared_long_set_is_unchanged_by_the_amendment():
-    """§7: the amendment RELOCATES the constraint; it must not enlarge position authorization.
-    The edge-cleared set gates on the GOVERNED flag, so a now-TIGHT flipping name cannot enter."""
+    """§7 + Addendum B1: TIGHT ∧ read_flag == "robust" ∧ read_par == "cheap" ∧ BUY. The amendment
+    RELOCATES the constraint; it must not enlarge position authorization. Gates on the GOVERNED
+    flag, so a now-TIGHT flipping name cannot enter."""
     rows = sc.compute_scorecard(BOOK_QUARTER, read_flag_state={})
     edge_cleared = sorted(r.ticker for r in rows
                           if r.confidence_tier == "VALIDATED-TIGHT"
-                          and r.read_flag == "robust" and r.read_hist == "cheap")
+                          and r.read_flag == "robust" and r.read_par == "cheap")
     assert edge_cleared == ["SB"]
+
+
+def test_edge_cleared_uses_the_directional_read_not_agreement():
+    """Addendum B1's reason for pinning the PARITY read: agreement is symmetric, actionability is
+    directional. TNK is robust and raw-BUY but reads rich/rich — §4's literal "TIGHT ∧ robust ∧
+    BUY" would have admitted it and enlarged the actionable surface against §7."""
+    rows = {r.ticker: r for r in sc.compute_scorecard(BOOK_QUARTER, read_flag_state={})}
+    tnk = rows["TNK"]
+    assert tnk.confidence_tier == "VALIDATED-TIGHT" and tnk.read_flag == "robust"
+    assert tnk.read_par == "rich" and tnk.read_hist == "rich"
+    assert "TNK" in POSITION_UNRELIABLE     # B1's docketed second guard, not yet a conjunct
+
+
+def test_governed_flag_can_outlive_agreement_so_the_basis_choice_is_material():
+    """Why B1 names a specific basis at all, rather than leaving it to whichever reads "cheap".
+
+    `read_flag` is GOVERNED: inside the deadband it HOLDS "robust" while the instantaneous reads
+    have already diverged. In that window read_par and read_hist genuinely disagree, so the two
+    candidate conjuncts give OPPOSITE answers — the filter must say which basis it means. Built
+    from SBLK's real J's at its real price, since no live row currently sits in that window."""
+    # the deadband holds the prior flag even though the reads have separated
+    held = govern_read_flag("flips (cheap/fair)", READ_FLAG_HYST_PCT / 2, "robust")
+    assert held == "robust", "precondition: a sub-deadband move must not move the flag"
+
+    pnav = 28.60 / SBLK_NAV
+    read_par = jp._read_from(SBLK_J_PAR, pnav, None)
+    read_hist = jp._read_from(SBLK_J_HIST, pnav, None)
+    assert read_par == "cheap" and read_hist == "fair", (read_par, read_hist)
+
+    # B1's conjunct admits this row; the read_hist form would have rejected it. Opposite answers
+    # from the same state is exactly what makes the ruling load-bearing rather than cosmetic.
+    assert (read_par == "cheap") is not (read_hist == "cheap")
 
 
 # --- §2 boundary prices + flip margin -----------------------------------------------------------

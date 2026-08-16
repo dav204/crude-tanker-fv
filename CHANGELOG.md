@@ -51,6 +51,24 @@ live rules distilled from it.
   `POSITION_UNRELIABLE` — enlarging the actionable surface against §7); and the §17 margin measures
   the **watchlist vintage** price the read is computed on (SBLK +3.18%), not the tape (+0.62%), so
   **the live surface does not currently flag the strobe zone the deadband was written for.**
+  **ADDENDUM B (owner, 2026-08-14) ruled both.** *B1:* the edge-cleared filter is RATIFIED —
+  §4's literal wording was defective because **`robust` is agreement and agreement is symmetric,
+  while actionability is directional**; operative definition is TIGHT ∧ `read_flag == "robust"` ∧
+  `read == "cheap"` ∧ BUY. That named the **parity/headline** basis, which corrected the landed
+  code: it had shipped on `read_hist`. Moot under an *instantaneous* robust (the bases agree), but
+  `read_flag` is **governed** — inside the deadband it holds "robust" while the reads have already
+  separated, and there the two conjuncts return opposite answers. Now pinned by a test built from
+  SBLK's real J's. Whether `POSITION_UNRELIABLE` becomes an explicit conjunct is DOCKETED, not
+  ruled — moot while the read excludes TNK, live the day a name is robust-cheap and weight-fragile.
+  *B2:* margin vintage RATIFIED as built and **no second scorecard column** — the scorecard is a
+  single-vintage surface and a tape-basis margin beside a watchlist-basis read would re-create the
+  k-vintage mismatch the 8/07 rebase retired; the tape view routes to the **delta/monitor layer**
+  as its own chip. *B3:* RATIFY_LOG correctly withheld. *B4:* the state-write fix is elevated to
+  **doctrine** — governed state is writable only from the production entry, never a library call a
+  test can reach. Recorded in CLAUDE.md by GENERALIZING the 2026-07-18 "read-only agents must not
+  run pytest in the shared tree" line into one field-general rule ("a run must never write SHARED
+  state") rather than appending a fourth instance — router held at 15,980 of its 16,000-char
+  budget, cap not raised.
 - **2026-08-13 — JULY ARCHIVE-HOLE AUDIT (owner-directed backfill): NOTHING TO BACKFILL —
   attribution corrected + full-window name sweep.** The 7/03→7/14 Pareto gap that hid the BRUT
   7/07 chain is SOURCE-QUIET (Pareto's Jul/Aug cadence; the owner's 7/12 seasonal note in

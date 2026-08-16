@@ -577,15 +577,20 @@ def _write_verdict(w, rows: list[ScorecardRow], valuation: dict[str, "_Valuation
     """The consolidated Verdict table — one row per name, the single handoff surface. Carries the
     owner's three corrections: cycle-position relabel, tier sub-reasons, and voided derived numbers."""
     by = {r.ticker: r for r in rows}
-    # EDGE-CLEARED: construction-validated AND the cheap call survives the basis choice AND BUY.
-    # The read_flag conjunct is load-bearing since the 2026-08-13 amendment — the tier no longer
-    # requires read agreement, so a flipping name can now be TIGHT and `read_hist == "cheap"`
-    # alone would admit one whose cheapness dies on the other basis. Governance consumes the
-    # HYSTERESIS-governed flag, never the instantaneous `robust` (§6).
+    # EDGE-CLEARED LONG (Addendum B1, ratified 2026-08-14):
+    #     TIGHT ∧ read_flag == "robust" ∧ read_par == "cheap" ∧ BUY.
+    # Two conjuncts carry the ruling. `read_flag` is load-bearing since the amendment — the tier no
+    # longer requires read agreement, so a flipping name can now be TIGHT, and governance consumes
+    # the HYSTERESIS-governed flag, never the instantaneous `robust` (§6). The DIRECTIONAL conjunct
+    # is the headline (parity) read, not `read_hist`: agreement is symmetric, actionability is not,
+    # so the cheap call must be asserted on the basis the row leads with. Under an instantaneous
+    # robust the two bases agree and the choice is moot — but `read_flag` is governed, so it can
+    # hold "robust" through a transient disagreement, and that is exactly when it must not matter
+    # which basis is consulted.
     longs = sorted(
         r.ticker for r in rows
         if r.confidence_tier == "VALIDATED-TIGHT" and r.read_flag == "robust"
-        and r.read_hist == "cheap"
+        and r.read_par == "cheap"
         and valuation.get(r.ticker) and valuation[r.ticker].position.startswith("BUY")
     )
     n_tight = sum(1 for r in rows if r.confidence_tier == "VALIDATED-TIGHT")
