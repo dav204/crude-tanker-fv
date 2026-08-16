@@ -795,3 +795,50 @@ def test_forever_skipping_job_is_not_healthy(tmp_path):
     flags = [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV)
              if "consecutive" in f]
     assert len(flags) == 1 and "skipped-paused" in flags[0] and "PAUSE" in flags[0]
+
+
+def test_non_report_newsweb_arrival_does_not_silence_filing_overdue(tmp_path):
+    """The Oslo poller (2026-08-16) writes a manifest line for EVERY issuer
+    release. FILING-OVERDUE is the Oslo names' only net, and it clears on
+    arrival — so counting a routine ex-dividend or financial-calendar notice
+    as "the filing arrived" would have silently removed that net while
+    ostensibly adding a channel. Only a `report` arrival may clear it.
+
+    edgar/hkex lines carry no `report` key and must keep clearing it, which the
+    default-True in sentinel preserves (asserted in the sibling test above).
+    """
+    from datetime import date as _date
+
+    inputs, outputs = _fixture(tmp_path)
+    state = tmp_path / "state"
+    state.mkdir(exist_ok=True)
+    now = datetime.now(timezone.utc)
+    old_end = _date.today() - timedelta(days=10)
+    (inputs / "earnings_calendar.yaml").write_text(yaml.safe_dump({
+        "meta": {"quarter": "2026-Q2"},
+        "names": {"DHT": {"window_start": old_end - timedelta(days=2),
+                          "window_end": old_end,
+                          "status": "confirmed", "basis": "t"}}}))
+
+    def _line(**kw):
+        base = {"ts": now.isoformat(timespec="seconds"), "ticker": "DHT",
+                "cik": "newsweb:some-issuer", "accession": "mfn-abc",
+                "filed": _date.today().isoformat(), "staged_path": None,
+                "amended": False, "source": "newsweb"}
+        base.update(kw)
+        return json.dumps(base) + "\n"
+
+    # An ex-dividend notice inside the window: it landed, but it is NOT the report.
+    (state / "edgar_manifest.jsonl").write_text(
+        _line(form="corporate action", report=False, title="Ex Dividend Date"))
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert any(f.startswith("FILING-OVERDUE DHT") for f in flags), (
+        "a non-report release silenced the Oslo names' only net")
+    # The headline is carried onto the pager line, not just the form code.
+    assert any("Ex Dividend Date" in f for f in flags if f.startswith("FILING-LANDED"))
+
+    # The actual interim report clears it.
+    (state / "edgar_manifest.jsonl").write_text(
+        _line(form="interim report", report=True, title="Results for the six months"))
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert not any(f.startswith("FILING-OVERDUE") for f in flags)

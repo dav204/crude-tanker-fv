@@ -5,6 +5,74 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-08-16 — THE OSLO/EURONEXT ISSUER CHANNEL EXISTS: `newsweb_poll.py`, the third venue
+  adapter, closes the last venue with no filing lane.** *Why:* BRUT/MPCC/CAPT carry
+  `sec_edgar: null` and no HKEX id, so nothing mechanical could see their corporate actions —
+  `edgar_poll.covered_ciks` said as much in its own docstring ("their net is the calendar +
+  FILING-OVERDUE **until the Oslo poller follow-up**"). This is that follow-up, and the bill for
+  its absence is now four items long: BRUT 7/07 (demerger + delivery + SLB + CEO, unread 5 weeks),
+  MPCC 6/25 ($340m of ships + $375m loan, unread 7 weeks), MPCC 6/30–7/02 (a COMPLETED placement of
+  44,370,027 shares = **exactly +10.0%** of the share count `mpcc_2026-Q1.yaml` still carries — a
+  denominator change no scanner in the repo could see), and CAPT 8/06 + 8/13 (two §9.6 deliveries
+  plus $117.5m of financing, missed by the agent sweep built to catch them). *Mechanism:* MFN's
+  JSON Feed 1.1 at `mfn.se/all/a/<slug>.json`, slugs from new `mfn_slug:` keys in
+  `data_sources.yaml`; staging-only; rides the hourly edgar-poll launchd row exactly as `hkex_poll`
+  does; bodies + PDF attachments to `inputs/filings/<ticker>/`, arrivals to
+  `state/edgar_manifest.jsonl` with `source: "newsweb"`. *Two design traps, both found by
+  simulating the spec against the LIVE feeds before writing the filter:* (1) the obvious relevance
+  allow-list (`:regulatory` + `inside-information`) **drops CAPT's vessel deliveries**, which carry
+  `ext:ob:non-regulatory` — the same tag as the noise bucket — i.e. the natural filter would have
+  missed the exact releases motivating the module; so relevance is a DENY-list of one tag
+  (`sub:ci:insider`), affordable because post-dedup volume is ~2–4 releases/issuer/month. (2) each
+  release can arrive TWICE, `source: "ob"` (Oslo Børs mirror) and `source: "mfn"` (issuer), seconds
+  apart under different `news_id` **and** different `group_id` — so identity keys on (date,
+  normalized title). A whitespace-only normalization still leaked CAPT's 2026-06-04 ex-dividend
+  twin because the mirror renders the issuer's en-dash as whitespace; punctuation is not identity,
+  words are. Audited every collapse on live data: 21 collapsed, all true twins (19 ob/mfn pairs +
+  2 same-day duplicate "Financial calendar" filings), zero false collapses. *Guard, not prose:*
+  `tests/test_newsweb_poll.py::test_known_historical_misses_survive_the_filter` pins all four
+  historical misses as fixtures with their verbatim live tags, so any future tightening of
+  `NOISE_TAGS` into an allow-list reds the suite instead of silently re-opening the hole.
+  CLAUDE.md deliberately **not** touched — it sits 20 chars under its cap and the rule is
+  guard-enforced, which is exactly the case the compounding-knowledge habit says to carry as a test
+  and not a sentence.
+  **ADVERSARIAL REVIEW, SAME DAY — and it caught a SAFETY-NET REGRESSION the build itself
+  introduced.** A four-lens review (correctness / conventions / integration / operational) with
+  per-finding refutation agents was run over the new module. Six defects were confirmed — by the
+  review with live reproduction, or by me reading the code — and all six are fixed with guards:
+  (1) **FILING-OVERDUE was being silenced.** `sentinel._filing_event_flags` clears that flag on ANY
+  manifest arrival with `filed >= window_start`, and its own text calls it "the Oslo trio's net."
+  Before this poller those four names had NO manifest lines at all, so the net always held; after
+  it, a routine ex-dividend or financial-calendar notice would clear it for a report that never
+  landed. **Adding the channel would have removed the net.** Fixed by putting `report: bool` on the
+  manifest line (MFN's `sub:report*` namespace — verified more precise than title keywords: it
+  excludes "Results of Annual General Meeting" and "Q2 Financial Report Release ... on 28 August")
+  and gating `arrived` on it; edgar/hkex lines carry no such key and default True, so their
+  behaviour is byte-for-byte unchanged. Guarded by
+  `test_non_report_newsweb_arrival_does_not_silence_filing_overdue`, verified to RED against the
+  pre-fix sentinel and green after — the guard is not vacuous.
+  (2) **The noise deny-list was defeated by the untagged twin.** Filtering per-copy *before* the
+  collapse makes the filter only as strong as the weaker-tagged copy: BRUT's real 2026-06-19 PDMR
+  notice carries `sub:ci:insider` on the mfn copy and a bare `:regulatory` on the ob copy, so
+  filter-then-collapse dropped the tagged one and emitted the untagged one. Reproduced on the live
+  feed (shipped order emitted 1, corrected order emits 0) — and it was already latent in the
+  bootstrapped state file. Now collapse-then-filter.
+  (3) **`seen_ids[:200]` kept the OLDEST ids** — `dedupe()` returns ascending where both sibling
+  pollers' upstream indexes are newest-first, inverting the property that makes the cap safe.
+  (4) **A 200 response with an empty item list wiped `seen_ids`**, so the next good poll would
+  re-emit and re-download everything above the watermark. (5) The remote `publish_date` was
+  interpolated into a staged filename unsanitized. (6) Attachments were downloaded but never
+  referenced on the manifest line, and a cap-dropped attachment left no trace; both now recorded.
+  Also: `form` carried raw tag soup that the FILING-LANDED pager rendered verbatim — it now carries
+  a human label ("interim report", "inside information", "corporate action") and the pager appends
+  the headline. **Caveat on the review:** 13 of its 29 agents died on connection errors, so its
+  own `rejected_count: 18` is NOT evidence of refutation — the surviving findings were re-verified
+  by hand against the live feeds rather than taken on the workflow's arithmetic.
+  A seventh followed from the same review and is also fixed: the collapse elected a winner by tag
+  richness but persisted only the WINNER's `news_id`, so if the two copies were indexed in
+  different polls (ob first, mfn second) the flip re-emitted the release; every id in a collapsed
+  group is now marked seen. 27 new poller tests + 1 sentinel guard; full suite **694 passed /
+  3 skipped / 14 xfailed**, ruff clean, drift gate unaffected (no NAV surface touched).
 - **2026-08-16 — WEEKDAY-DEPENDENT TEST FIX: `test_archive_gap_sees_hole_behind_a_live_head` staged
   on BUSINESS days but asserted on CALENDAR offsets.** The test reds whenever the suite runs on a
   **Friday or Saturday** — pre-existing at `fc7fee3` (reproduced in a clean detached worktree),

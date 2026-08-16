@@ -259,6 +259,9 @@ CAPT:
   press_releases: https://www.capitaltankers.com/news/
   sec_edgar: null   # Oslo-listed (Euronext Oslo Bors, NOK) — no SEC filings;
                     # primary disclosures via newsweb.oslobors.no + company IR.
+  mfn_slug: capital-tankers   # VERIFIED 2026-08-16 against mfn.se/all/a/capital-tankers.json
+                              # (ticker XOSL:CAPT in the feed's author block); pinned in
+                              # tests/test_newsweb_poll.py. Polled by newsweb_poll.py.
   fleet_page: https://www.capitaltankers.com/fleet/
   official_filings: "Euronext Growth Oslo (newsweb.oslobors.no / live.euronext.com) is the
     official disclosure channel — NOT 'Pareto-only'. In repo: research_issuer/2026-03_capt_euronext_information_document.pdf
@@ -279,6 +282,11 @@ BRUT:
   fleet_page: https://bruton-ltd.com/fleet/   # PRIMARY for the per-vessel NB schedule
   sec_edgar: null   # Oslo-listed (Euronext Growth Oslo, NOK) — no SEC filings;
                     # primary disclosures via newsweb.oslobors.no + company IR.
+  mfn_slug: bruton-limited   # VERIFIED 2026-08-16 against mfn.se/all/a/bruton-limited.json
+                             # (ISIN NO0013036814, ticker MERK:BRUT); pinned in
+                             # tests/test_newsweb_poll.py. Polled by newsweb_poll.py — this
+                             # is the channel whose absence hid the 2026-07-07 demerger
+                             # release for five weeks.
   official_filings: "Euronext Growth Oslo (newsweb.oslobors.no / live.euronext.com) is the
     official channel. Pulled 2026-06-30 (closes the brut_log:405 'MISSING admission prospectus'
     gap): research_issuer/2024-11-26_brut_euronext_information_document.pdf (admission) +
@@ -296,6 +304,12 @@ BRUT:
 
 MPCC:
   ir_page: https://www.mpc-container.com/investors/
+  mfn_slug: mpc-container-ships   # VERIFIED 2026-08-16 against
+                                  # mfn.se/all/a/mpc-container-ships.json; pinned in
+                                  # tests/test_newsweb_poll.py. Polled by newsweb_poll.py —
+                                  # the channel that would have caught the 2026-06-25
+                                  # acquisition AND the 2026-06-30..07-02 placement
+                                  # (+44,370,027 shares = +10.0% of the modelled count).
   fleet_page: https://www.mpc-container.com/fleet/our-fleet/
   q1_2026_report: https://storage.mfn.se/d21d1573-1b5f-4477-ba71-96119e8ee953/mpcc-q1-2026-financial-report.pdf
   q1_2026_deck: https://storage.mfn.se/9d52caf5-68af-4d4e-b473-2f6f9fdc4fcc/mpcc-q1-2026-earnings-call.pdf
@@ -376,6 +390,11 @@ BWLP:
   ir_home: https://www.bwlpg.com/investors/
   press_releases: https://www.bwlpg.com/media/press-releases/
   sec_edgar: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001649313&type=6-K
+  mfn_slug: bw-lpg   # VERIFIED 2026-08-16 against mfn.se/all/a/bw-lpg.json; pinned in
+                     # tests/test_newsweb_poll.py. BWLP is the one DUAL-lane name — Oslo
+                     # primary (newsweb_poll) AND NYSE FPI (edgar_poll). Oslo announcements
+                     # mirror to 6-Ks, so the same event can land in both manifests under
+                     # different accessions; dedupe at read time, not in either poller.
   fleet_page: https://www.bwlpg.com/fleet/
   reporting_pattern: "NYSE FPI + Oslo primary (Bermuda inc., Singapore HQ) — 20-F annual
     (FY2025 filed 2026-03-31, acc 0001104659-26-037215) + quarterly 6-K interim reports

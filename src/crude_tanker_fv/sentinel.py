@@ -678,9 +678,12 @@ def _filing_event_flags(inputs_dir: Path, watchlist: dict,
             continue
         if (now - ts).total_seconds() <= 48 * 3600:
             am = " AMENDED" if e.get("amended") else ""
+            # Issuer-release lines carry a headline; a form code alone does not
+            # tell the owner what happened.
+            head = f" — {e.get('title')}" if e.get("title") else ""
             flags.append(f"FILING-LANDED {e.get('ticker')}: {e.get('form')}{am} "
                          f"{e.get('accession')} filed {e.get('filed')} -> "
-                         f"{e.get('staged_path') or 'manifest-only'}")
+                         f"{e.get('staged_path') or 'manifest-only'}{head}")
 
     meta, cal = load_earnings_calendar(inputs_dir)
     if not cal or not watchlist:
@@ -758,7 +761,15 @@ def _filing_event_flags(inputs_dir: Path, watchlist: dict,
         if bs.exists():
             continue
         start = entry["window_start"]
+        # A REPORT clears this flag; a routine release must not. The Oslo poller
+        # (2026-08-16) writes a manifest line for every issuer release — ex-div
+        # notices, financial-calendar updates, S&P announcements — and before it
+        # existed the Oslo names had NO manifest lines at all, so any arrival
+        # meant a filing. Counting all of them would have silently silenced the
+        # one net those names have. edgar/hkex lines carry no `report` key and
+        # default True, so their behaviour is byte-for-byte unchanged.
         arrived = any(str(e.get("filed", "")) >= start.isoformat()
+                      and e.get("report", True)
                       for e in by_ticker.get(ticker, []))
         if not arrived:
             flags.append(f"FILING-OVERDUE {ticker}: window ended {end}, +3bd "

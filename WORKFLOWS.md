@@ -175,6 +175,9 @@ sit in CLAUDE.md; the full list lives here.
 - **Weekly news pull (mechanical):** `scripts/news_pull_cron.sh` — launchd Sat 08:00, chains RC ingest
   → `sp_scan` → `--links` → `fetch_links` → `pareto_archive --build-manifest` → `ffa_ocr`. The download
   step is its own module `crude_tanker_fv.fetch_links` so every `sp_scan` mode stays local-only.
+- **Oslo issuer poller:** `python -m crude_tanker_fv.newsweb_poll [--dry-run] [--all]` — the Oslo/
+  Euronext issuer-release channel for BRUT/MPCC/CAPT/BWLP (added 2026-08-16). Staging-only, rides
+  the hourly edgar-poll row; mechanics + the two filter traps in §Data-sources below.
 - **FFA widget OCR (incremental):** `python -m crude_tanker_fv.ffa_ocr` — parses the daily 3-panel
   Cape/Pmax/Smax screenshot into `state/ffa_ocr_curves.json` + review queue; `--staleness` exits 1 if
   the feed is >7 days quiet. Promotion to `inputs/market_data/ffa_forward_curve.yaml` is HUMAN-ONLY.
@@ -223,6 +226,22 @@ quirks live here:
   data_sources URLs). Arrivals land in `state/edgar_manifest.jsonl` with `source: "hkexnews"` —
   sentinel FILING-LANDED + draft queue work unchanged. HK cadence is SEMI-ANNUAL (Annual ~Mar,
   Interim ~Jul/Aug) + Monthly Returns (share count).
+- **Oslo/Euronext NewsWeb (BRUT / MPCC / CAPT / BWLP)** — `python -m crude_tanker_fv.newsweb_poll`
+  (added 2026-08-16; rides the same hourly edgar-poll row). Closes the LAST venue with no filing
+  lane: these names have `sec_edgar: null` and no HKEX id, so before this the only thing that could
+  see a demerger or a placement was the weekly agent sweep — and when that lapsed, BRUT's 7/07
+  demerger sat unread five weeks, MPCC's 6/25 acquisition seven, MPCC's +10.0% share placement
+  (6/30–7/02) and CAPT's 8/06 + 8/13 deliveries likewise. Feed is MFN's JSON Feed 1.1
+  (`mfn.se/all/a/<slug>.json`; slugs from `mfn_slug:` keys in data_sources.yaml, pinned in
+  `tests/test_newsweb_poll.py`). **Two mechanics worth knowing before you touch the filter:**
+  (1) relevance is a DENY-list (only `sub:ci:insider` is dropped), because CAPT's vessel deliveries
+  are tagged `ext:ob:non-regulatory` — an allow-list on `:regulatory` would drop the very releases
+  the module exists for; (2) each release can arrive TWICE — `source: "ob"` (Oslo Børs mirror,
+  `TICKER: ` title prefix, `<pre>` body) and `source: "mfn"` (issuer distribution, richer tags) —
+  under different news_id *and* different group_id, so dedup keys on (date, punctuation-stripped
+  title) and keeps the richer copy. Release bodies stage as `.txt` + any PDF attachments into
+  `inputs/filings/<ticker>/`; arrivals land in `state/edgar_manifest.jsonl` with `source: "newsweb"`.
+  **BWLP is dual-lane** (Oslo primary + NYSE FPI) and is polled by BOTH — dedupe at read time.
 
 ## Earnings-date sweep — the recurring verification (added 2026-07-21, owner directive)
 

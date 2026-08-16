@@ -35,8 +35,18 @@ duties:
                                           # heartbeat: if the task dies, 8c flags it.
     command: "/news-pull"
     why: >
-      The only channel that reads COMPANY news (demergers, financings, deliveries,
-      CEO changes, stance changes) for names with no EDGAR filing lane — every
-      Oslo/Euronext name in the book (BRUT, MPCC, ODL). The mechanical scanners
-      read only what is already in the Pareto archive, so they cannot see an event
-      the archive missed.
+      Reads COMPANY news (demergers, financings, deliveries, CEO changes, stance
+      changes) with agent judgment — trade press, broker stance, aggregator context —
+      which no scanner can do. The mechanical scanners read only what is already in
+      the Pareto archive, so they cannot see an event the archive missed.
+      ROSTER CORRECTION 2026-08-16: this note previously named "BRUT, MPCC, ODL" as
+      the Oslo/Euronext names. ODL is Odfjell Drilling — a portfolio-governance
+      HOLDING, not a producer-repo name; it is absent from inputs/watchlist.yaml and
+      was never sweepable. The actual non-US-listed roster is BRUT, MPCC, CAPT,
+      BWLP (.OL) and 2343 (.HK). The 2026-08-13 digest flagged the error; the
+      2026-08-16 digest confirmed it against the watchlist.
+      NO LONGER THE ONLY CHANNEL 2026-08-16: `crude_tanker_fv.newsweb_poll` now
+      polls the Oslo/Euronext issuer feeds hourly (BRUT/MPCC/CAPT/BWLP), so a
+      missed issuer release no longer depends on this duty running. That is the
+      STRUCTURAL fix; this duty remains the judgment layer on top of it, and its
+      digest is still the heartbeat 8c watches.
