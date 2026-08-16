@@ -690,12 +690,14 @@ def test_archive_gap_sees_hole_behind_a_live_head(tmp_path):
     # A feed with a live head — every other check is satisfied — but a 6
     # business-day hole sitting two weeks back.
     today = date.today()
+    staged_dates = []
     for i in range(0, 40):
         d = today - timedelta(days=i)
         if d.weekday() >= 5:
             continue
         if 14 <= i <= 21:          # the hole
             continue
+        staged_dates.append(d)
         (staged / f"{d.isoformat()}_daily.pdf").write_bytes(b"x")
 
     flags = [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV)
@@ -705,9 +707,14 @@ def test_archive_gap_sees_hole_behind_a_live_head(tmp_path):
     assert "unsupported" in flags[0]
 
     # Accepting it (an owner judgment: the feed genuinely did not publish)
-    # silences it — and nothing else does.
-    hole_start = today - timedelta(days=21)
-    hole_end = today - timedelta(days=14)
+    # silences it — and nothing else does. The window is the CALENDAR hole the
+    # detector reports (first missing business day .. the day before the feed
+    # resumes), not the day offsets that punched it: which weekday the suite
+    # runs on decides how many weekend days ride along on either edge.
+    hole_start = max(d for d in staged_dates if d < today - timedelta(days=21)) \
+        + timedelta(days=1)
+    hole_end = min(d for d in staged_dates if d > today - timedelta(days=14)) \
+        - timedelta(days=1)
     (inputs / "archive_gaps.yaml").write_text(yaml.safe_dump({
         "lookback_days": 120, "limit_business_days": 3,
         "accepted": [{"feed": "pareto_research", "from": hole_start.isoformat(),

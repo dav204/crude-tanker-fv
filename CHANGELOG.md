@@ -5,6 +5,28 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-08-16 — WEEKDAY-DEPENDENT TEST FIX: `test_archive_gap_sees_hole_behind_a_live_head` staged
+  on BUSINESS days but asserted on CALENDAR offsets.** The test reds whenever the suite runs on a
+  **Friday or Saturday** — pre-existing at `fc7fee3` (reproduced in a clean detached worktree),
+  unrelated to the tier work it surfaced beside. *Mechanism:* the fixture stages `i` in 0..39
+  skipping weekends and skipping `i` in [14,21] to punch the hole, then accepted the gap with the
+  raw window `today−21 .. today−14`. But `_archive_gaps` reports the hole in **calendar** terms —
+  first missing business day `..` the day *before* the feed resumes (`d − 1` where `d` is the next
+  staged business day) — so a hole that resumes on a Monday drags the reported end across the
+  weekend. On Fri 2026-08-14 the detector reported `2026-07-24..2026-08-02` while acceptance
+  reached only `2026-07-31`, so `_accepted_gap`'s `end <= to` leg failed, the flag survived, and
+  the final assertion red. *Fix:* derive the accepted window from the staged calendar itself —
+  last staged date before the hole `+1` .. first staged date after the hole `−1` — which is
+  **exactly** what the detector reports on every weekday, not a widened one; the assertion is
+  untouched, so "acceptance silences it, and nothing else does" still binds, and a blanket window
+  would still be wrong. *Verified:* seven-weekday sweep with a faked `date.today()` (patched on
+  `datetime`, the test module, and `sentinel`), Mon 2026-08-10 → Sun 2026-08-16, all PASS; the same
+  sweep run against the **pre-fix** test from HEAD fails on exactly Fri + Sat and passes the other
+  five, which bounds the bug and proves the harness wasn't agreeing with itself. Full suite green
+  (657 passed / 4 skipped / 14 xfailed). No engine change — `sentinel.py` is correct as written;
+  the test was measuring the wrong thing. Field-general lesson, guard-carried rather than
+  prose-carried: **a fixture that stages on business days must assert on the calendar the detector
+  reports, never on the day offsets that punched the hole.**
 - **2026-08-13 — TIER SEMANTICS AMENDMENT: read-corroboration OUT of the confidence tier
   (owner-ratified ruling + Addendum A).** The tier now certifies ONE thing — **how the NAV is
   BUILT** (traced resale-uniform basis, sourced NAV-driving figures, on-convention, known-gap
