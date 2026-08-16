@@ -72,8 +72,62 @@ crude_day60_toll_cliff:
     mou_bear/pre_mou AND revisit the product family the same day. Toll-free
     extended/waived: pre_mou toward 0. Rerun the §9.10 diagnostics, reweight,
     annotate, ratify.
-  status: armed
+  status: done   # 2026-08-16, owner venue ruling — decisions/crude_day60_toll_cliff_2026-08-16.md
+  resolution: >
+    NEITHER pre-registered branch fired. Fees: intent documented (PGSA "service
+    fees", the UNCLOS-safe framing); collection NOT evidenced. Extension: not
+    evidenced. Oman framework: not convened. The window expired into
+    interdiction — UKMTO traffic 17% of the pre-conflict average, US naval
+    blockade in force, Iran attacking the traffic it proposes to bill. R1: C2
+    EXECUTED, crude 0.25/0.57/0.05/0.13 -> 0.25/0.62/0.00/0.13, mou_base retired
+    to ZERO but retained as a leg (series continuity). R2: product revisit a
+    recorded NO-OP, 7/14 shapes stand. R5: C3 (escalation tilt) DECLINED.
+    Successors: hormuz_fee_collection_watch + escalation_pause_corroboration.
   added: 2026-07-02
+
+hormuz_fee_collection_watch:
+  sector: crude+product
+  due: null
+  observable: >
+    SUCCESSOR to crude_day60_toll_cliff (owner ruling R3, 2026-08-16). Standing
+    event-watch, deliberately LABEL-AGNOSTIC: Iran's foreign ministry frames the
+    regime as "service fees" for navigation/environmental protection rather than
+    tolls (transit passage cannot lawfully be tolled under UNCLOS), so the thing
+    will NOT arrive wearing the word "toll" — do not watch for the word. Fires on
+    evidence of SYSTEMATIC COLLECTION: a published fee schedule, corroborated
+    payments by transiting owners/charterers, or the Oman strait-management
+    framework convening. Distinguish collection from the intent that has been on
+    the record since Qalibaf's 2026-06-18 statement — intent is already priced.
+  action: >
+    On fire, revisit the pre_mou_baseline -> mou_bear mass: a functioning fee
+    regime is mou_bear's registered premise ("framework holds, tolls imposed
+    post-day-60"), which the 8/16 observed state contradicted and which
+    systematic collection would restore. Rerun §9.10, reweight, annotate, ratify.
+  status: armed
+  added: 2026-08-16
+  # DUE DATE OWED — the ruling left "Due: [owner sets]" unfilled. Registered as a
+  # standing event-watch (due: null) so it cannot silently expire, per the
+  # vlgc_realized_tce_refresh pattern. Set a date if a review cadence is wanted.
+
+escalation_pause_corroboration:
+  sector: crude
+  due: 2026-08-23
+  observable: >
+    Registered by owner ruling R5 (2026-08-16) when C3's escalation tilt was
+    DECLINED partly for resting on an uncorroborated pause status. The
+    2026-08-09 record states "the US strike pause HOLDS"; secondary summaries
+    encountered in the 8/16 sweep assert US-Iran strikes resumed in July, and the
+    8/16 sweep could NOT corroborate either from dated primary reporting.
+    PRIMARY SOURCES ONLY: CENTCOM releases, the UKMTO incident log, dated wires.
+    Aggregator syntheses do not settle this (they conflate the early-July fraying
+    with the current state — that is how the ambiguity arose).
+  action: >
+    If the 8/09 "pause HOLDS" record is CONTRADICTED: correction-annotate that
+    record FIRST, then docket the escalation question against the corrected
+    record — never re-base the escalation leg on an uncorrected premise. If
+    CONFIRMED: record and re-arm, escalation stays untouched at 0.25.
+  status: armed
+  added: 2026-08-16
 
 product_glut_arrival_timing:
   sector: product
@@ -94,6 +148,13 @@ product_glut_arrival_timing:
     revision + lock-test re-pin.
   status: armed
   added: 2026-07-02
+  routed_in: >
+    2026-08-16 (toll-cliff owner ruling R2): the IEA stockpile-drawdown
+    observation lands HERE, not at the toll-cliff venue. The toll cliff's
+    same-day product revisit executed as a recorded NO-OP — the fee-driven
+    re-tilt condition never occurred, so the restored 2026-07-14 product shapes
+    stand unchanged. Stockpile drawdown is a cargo-mile/inventory question on
+    this card's clock (due 2026-10-02), not a Hormuz-fee question.
 
 crude_doha_talks_resumption:
   sector: crude

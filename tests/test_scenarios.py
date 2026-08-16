@@ -49,10 +49,22 @@ def test_scenarios_parse_and_weights_sum_to_one(doc):
     # mediation-watch check (pause-without-talks; owner ruled the letter governs).
     # Retires dead-MoU mass; escalation untouched; Aug-16 = the full re-derivation.
     # decisions/ceasefire_mediation_check_2026-07-31.md.
+    # Re-pinned 2026-08-16 (C2 at the toll-cliff venue, owner ruling R1:
+    # 0.25/0.57/0.05/0.13 -> 0.25/0.62/0.00/0.13). mou_base was held expressly
+    # conditional on the day-60 cliff "resolving benignly"; it resolved to NEITHER
+    # pre-registered branch (no collection evidenced, no extension, no Oman framework)
+    # and the observed state IS pre_mou_baseline's registered meaning, so the
+    # benign-conditional mass retires there. escalation untouched (C3 declined).
+    # decisions/crude_day60_toll_cliff_2026-08-16.md.
     assert {n: doc["scenarios"][n]["weight"] for n in names} == {
-        "escalation": pytest.approx(0.25), "pre_mou_baseline": pytest.approx(0.57),
-        "mou_base": pytest.approx(0.05), "mou_bear": pytest.approx(0.13),
+        "escalation": pytest.approx(0.25), "pre_mou_baseline": pytest.approx(0.62),
+        "mou_base": pytest.approx(0.00), "mou_bear": pytest.approx(0.13),
     }
+    # The retired leg STAYS in the deck at zero — series continuity (the Jul-02
+    # semantic-marker pattern): a scenario that disappears breaks a backtest's ability
+    # to detect the break. Deleting it would also silently narrow fv_low/fv_high, which
+    # are taken over weight>0 scenarios.
+    assert "mou_base" in doc["scenarios"], "retired leg must persist at zero, not vanish"
     # Sector layer (METHODOLOGY §11): the default load returns the crude sub-doc
     # with its own cycle_anchors, and the sector name is stamped in.
     assert doc["sector"] == "crude"

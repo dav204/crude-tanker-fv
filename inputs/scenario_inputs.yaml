@@ -214,7 +214,16 @@ sectors:
         # the dead-MoU mass (framework repudiated by both principals; mou_base 0.05 =
         # rapid-revival tail); escalation UNTOUCHED (B, the escalation bump, was NOT
         # pre-registered). Full re-derivation stays the Aug-16 toll-cliff venue.
-        weight: 0.57
+        # C2 EXECUTED 2026-08-16 at that venue (owner ruling R1;
+        # decisions/crude_day60_toll_cliff_2026-08-16.md): 0.57 -> 0.62, receiving
+        # mou_base's retired 0.05. The toll cliff resolved to NEITHER pre-registered
+        # branch — no fees evidenced as collected, no extension, no Oman framework — and
+        # the observed state (UKMTO: traffic 17% of the pre-conflict average, US naval
+        # blockade in force, Iran attacking the traffic it proposes to bill) is what THIS
+        # leg is registered to mean. escalation UNTOUCHED again: the +3pp tilt (C3) was
+        # DECLINED as exceeding the registered action and resting on one week's tape plus
+        # an uncorroborated pause status (successor: escalation_pause_corroboration).
+        weight: 0.62
         semantics_changed: 2026-07-02
         description: >
           MoU-INEFFECTIVE (semantic shift 2026-07-02; key name kept to avoid YAML/
@@ -281,7 +290,21 @@ sectors:
         # confidence with a known binary inside the horizon.
         # RESTORED 0.18 (2026-07-12, Jun-9 shape; doha trigger fired — the benign-path
         # mass moves back to the war/ineffective legs. decisions/doha_check_2026-07-12.md).
-        weight: 0.05
+        # RETIRED TO ZERO 2026-08-16 at the toll-cliff venue (owner ruling R1, C2 executes;
+        # decisions/crude_day60_toll_cliff_2026-08-16.md). 0.05 -> 0.00, the 0.05 to
+        # pre_mou_baseline: crude 0.25/0.57/0.05/0.13 -> 0.25/0.62/0.00/0.13. This leg was
+        # held expressly "CONDITIONAL: assumes the day-60 toll cliff resolves benignly" (see
+        # above) and it did NOT so resolve — by EITHER route. No benign resolution. Fees:
+        # intent documented (PGSA "service fees"); collection not evidenced. Extension: not
+        # evidenced. Oman framework: not convened. The window expired into interdiction; the
+        # benign-conditional mass retires to the observed-state leg. WITHIN the card's
+        # registered action ("shift mou_base toward mou_bear/pre_mou") — no override needed.
+        # DESTINATION: pre_mou, not mou_bear — mou_bear's registered premise ("framework
+        # holds ... tolls imposed post-day-60") is CONTRADICTED by the observed state, while
+        # pre_mou_baseline's registered meaning IS the observed state.
+        # LEG RETAINED AT ZERO, not deleted — series continuity, the Jul-02 semantic-marker
+        # pattern: a scenario that vanishes breaks backtest detection of the break.
+        weight: 0.00
         description: >
           MoU signs, three-phase path materializes: ~30 days of Phase 1 backlog
           clearance (MEG-loading routes spike on fixture scramble) followed by
