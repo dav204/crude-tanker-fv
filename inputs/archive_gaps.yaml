@@ -61,10 +61,24 @@ accepted:
     reason: "Same Jul/Aug cadence, same 2026-08-13 RC-walk evidence."
     accepted_by: owner-directed audit (decisions/brut_log.md 2026-08-13 PM)
     dated: 2026-08-13
+  - feed: pareto_research
+    from: 2026-06-01
+    to: 2026-06-03
+    reason: >
+      Source-quiet, verified channel-side for the JUNE window itself (the July walk
+      said nothing about June — this entry waited two weeks for its own evidence
+      rather than inheriting July's). 2026-08-16 RC history walk to 2026-05-27
+      (5,004 messages): Pareto dailies posted 5/27, 5/28, 5/29, then ZERO Pareto
+      PDFs 6/01-6/03, resuming 6/04 + 6/05. Decisive extra: the sender's own
+      6/02 text-only message reads "Unfortunately they havent published it this
+      week otherwise Id share it" — direct contemporaneous confirmation of
+      non-publication, not an inference from our archive's emptiness. Archive
+      equals channel for the window; nothing was lost in transit.
+    accepted_by: owner triage directive 2026-08-16 (week-close item 7) + the
+      channel-walk evidence above
+    dated: 2026-08-16
 
-# DELIBERATELY NOT ACCEPTED — 2026-06-01..2026-06-03 (3 business days).
-# The RC walk that cleared the July windows started 2026-07-01, so it says nothing
-# about June. Accepting this one on the strength of "the July ones were fine" would
-# be exactly the inference this file exists to forbid. It stays flagged until someone
-# walks the channel for that window. A nagging check is the correct state for an
-# unexplained hole.
+# 2026-06-01..2026-06-03 was DELIBERATELY HELD OPEN 8/13-8/16 (the July walk started
+# 7/01 and could say nothing about June; accepting on "the July ones were fine" is
+# exactly the inference this file forbids). Closed 8/16 by its own walk — the nagging
+# check did its job: it nagged until the right evidence existed.
