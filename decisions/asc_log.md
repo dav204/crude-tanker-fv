@@ -1,5 +1,23 @@
 # ASC — Decision Log
 
+## 2026-08-16T20:06:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.61
+- Single-point FV: $17.22
+- Scenario PW FV: $16.38 (EV -7.0%)
+- NAV / share: $17.37
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +29.7pp (k_broker 1.33)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.30 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.5pp
+
+**Decision:** **PRICE-VINTAGE ABSORB — band-mech HOLD→TRIM/SHORT (−5.2pp EV, price +5.6%).** Gate absorb, TWO causes (adversarially verified two-cause, max residual 0.05pp — workflow wf_8b0d1184, 2026-08-16): (1) toll-cliff C2 reweight, crude-only (decisions/crude_day60_toll_cliff_2026-08-16.md, owner ruling R1); (2) the 8/12→8/14 price-vintage absorb (8/13 fetch committed 55b3a75; 8/14 Friday close fetched manually 2026-08-16 after Fri/Sat cron DNS stand-downs, committed e92fa8a). ΔNAV 0.0%. ASC is the PRE-WARNED OSCILLATOR (7/26 ratify row: "ASC pre-warned oscillation") sitting at its band edge; a +5.6% two-session rally against a fixed FV walks it mechanically across. D-M5 price-inside-interval; no thesis content. NAV unchanged $17.37.
+
+---
+
 ## 2026-08-14T15:08:45+00:00 — Pipeline run (auto)
 
 **Model state:**

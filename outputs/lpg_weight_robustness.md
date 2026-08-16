@@ -28,29 +28,29 @@ Mark-spread robustness is the OTHER dimension — cross-read with `outputs/broke
 
 | Ticker | Set A EV | Set B EV | Set C EV | Robustness | Notes |
 |---|--:|--:|--:|---|---|
-| LPG | -30.5% (TRIM/SHORT) | -28.2% (TRIM/SHORT) | -32.3% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
-| BWLP | -33.0% (TRIM/SHORT) | -30.4% (TRIM/SHORT) | -35.2% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
+| LPG | -32.8% (TRIM/SHORT) | -30.7% (TRIM/SHORT) | -34.6% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
+| BWLP | -36.4% (TRIM/SHORT) | -33.9% (TRIM/SHORT) | -38.5% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
 
 ## Per-name detail
 
-### LPG — price $45.76, target $54.00
+### LPG — price $47.37, target $54.00
 
 **Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 3 weight sets.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| LPG Set A (locked 2026-07-07, evidence-first overhang-tilted) | $31.82 | -30.5% | TRIM/SHORT |
-| LPG Set B (arb-bull / PDH-recovery bracket) | $32.84 | -28.2% | TRIM/SHORT |
-| LPG Set C (deep-overhang bracket) | $31.00 | -32.3% | TRIM/SHORT |
+| LPG Set A (locked 2026-07-07, evidence-first overhang-tilted) | $31.82 | -32.8% | TRIM/SHORT |
+| LPG Set B (arb-bull / PDH-recovery bracket) | $32.84 | -30.7% | TRIM/SHORT |
+| LPG Set C (deep-overhang bracket) | $31.00 | -34.6% | TRIM/SHORT |
 
-### BWLP — price $21.60, target $17.52
+### BWLP — price $22.75, target $17.52
 
 **Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 3 weight sets.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| LPG Set A (locked 2026-07-07, evidence-first overhang-tilted) | $14.46 | -33.0% | TRIM/SHORT |
-| LPG Set B (arb-bull / PDH-recovery bracket) | $15.04 | -30.4% | TRIM/SHORT |
-| LPG Set C (deep-overhang bracket) | $14.00 | -35.2% | TRIM/SHORT |
+| LPG Set A (locked 2026-07-07, evidence-first overhang-tilted) | $14.46 | -36.4% | TRIM/SHORT |
+| LPG Set B (arb-bull / PDH-recovery bracket) | $15.04 | -33.9% | TRIM/SHORT |
+| LPG Set C (deep-overhang bracket) | $14.00 | -38.5% | TRIM/SHORT |
 
 See METHODOLOGY §9.9 (mark robustness) and §9.10 (weight robustness). This is the §9.10 output for the LPG sector; crude / LNG / dry-bulk analogues live in `outputs/weight_robustness_diagnostic.md` / `outputs/lng_weight_robustness.md` / `outputs/dry_bulk_weight_robustness.md`.

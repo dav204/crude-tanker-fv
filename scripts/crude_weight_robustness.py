@@ -56,10 +56,20 @@ CRUDE_WEIGHT_SETS = {
     # Set A refreshed 2026-07-02 to the ACTUAL locked weights — it had silently
     # kept the pre-Jun-9 v1 set after the Jun-9 escalation reweight, so the
     # "current locked" column was not the production prior for three weeks.
+    # Set A'' adopted 2026-08-16 — C2 executed at the toll-cliff venue (owner
+    # ruling R1, decisions/crude_day60_toll_cliff_2026-08-16.md): the day-60
+    # window expired into interdiction with neither pre-registered branch
+    # firing; mou_base's benign-conditional 0.05 retires to the observed-state
+    # leg. mou_base retained at zero (series continuity); escalation untouched
+    # (C3 declined).
+    "Crude Set A'' (C2 toll-cliff, production 2026-08-16)": {
+        "escalation": 0.25, "pre_mou_baseline": 0.62,
+        "mou_base":   0.00, "mou_bear":         0.13,
+    },
     # Set A' adopted 2026-07-31 — the B' reweight executed per the 7/22 frozen
     # conditional (mou_scenario_reweight_proposal_2026-07-22.md; owner "Execute
     # B'" 7/31): dead-MoU mass retired into pre_mou; escalation untouched.
-    "Crude Set A' (B' reweight, production 2026-07-31)": {
+    "Crude Set A' (B' reweight, history bracket)": {
         "escalation": 0.25, "pre_mou_baseline": 0.57,
         "mou_base":   0.05, "mou_bear":         0.13,
     },

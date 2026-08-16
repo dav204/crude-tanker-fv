@@ -1,5 +1,23 @@
 # SBLK — Decision Log
 
+## 2026-08-16T20:06:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $29.05
+- Single-point FV: $31.88
+- Scenario PW FV: $29.79 (EV +2.5%)
+- NAV / share: $32.78
+- Position: **HOLD (fairly valued)**
+- Broker spread: -0.4pp (k_broker 1.00)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.31 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.0pp
+
+**Decision:** **PRICE-VINTAGE ABSORB — band-mech BUY→HOLD (−4.3pp EV, price $27.89 → $29.05, +4.2%).** Gate absorb, TWO causes (adversarially verified two-cause, max residual 0.05pp — workflow wf_8b0d1184, 2026-08-16): (1) toll-cliff C2 reweight, crude-only (decisions/crude_day60_toll_cliff_2026-08-16.md, owner ruling R1); (2) the 8/12→8/14 price-vintage absorb (8/13 fetch committed 55b3a75; 8/14 Friday close fetched manually 2026-08-16 after Fri/Sat cron DNS stand-downs, committed e92fa8a). ΔNAV 0.0%. Another FV-line whipsaw, the same boundary the 8/09 rounds crossed twice: price converging on the blend FV ($29.79) compresses EV below the BUY band. Band-mech, D-M5. **The three-thread SBLK owner sitting stands as docketed and nothing here acts on it** — the leg-2 trim GTC $31.30 (instruction id 100) untouched, ex-div ~8/21 ($0.90). Tier VALIDATED-TIGHT unchanged (construction); read_flag stays flips (cheap/fair) — at $29.05 the tape sits further above the $27.72 hist boundary, so the flip margin widened, not narrowed. NAV unchanged $32.78.
+
+---
+
 ## 2026-08-14T15:08:45+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,5 +1,23 @@
 # CMBT — Decision Log
 
+## 2026-08-16T20:06:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.24
+- Single-point FV: $15.65
+- Scenario PW FV: $14.41 (EV -16.4%)
+- NAV / share: $16.46
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +18.4pp (k_broker 1.14)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.28 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-14T15:08:45+00:00 — Pipeline run (auto)
 
 **Model state:**

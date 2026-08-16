@@ -1,5 +1,23 @@
 # ECO — Decision Log
 
+## 2026-08-16T20:06:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $60.29
+- Single-point FV: $39.73
+- Scenario PW FV: $41.71 (EV -30.8%)
+- NAV / share: $39.54
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +8.1pp (k_broker 1.11)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -3.63 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -3.4pp
+
+**Decision:** **THE SIGN-OPPOSITE ROW (+3.3pp EV, k −0.04): ECO FELL while the book rallied** ($63.81 → $60.29, −5.5% over the two sessions). Gate absorb, TWO causes (adversarially verified two-cause, max residual 0.05pp — workflow wf_8b0d1184, 2026-08-16): (1) toll-cliff C2 reweight, crude-only (decisions/crude_day60_toll_cliff_2026-08-16.md, owner ruling R1); (2) the 8/12→8/14 price-vintage absorb (8/13 fetch committed 55b3a75; 8/14 Friday close fetched manually 2026-08-16 after Fri/Sat cron DNS stand-downs, committed e92fa8a). ΔNAV 0.0%. A rich name getting cheaper compresses toward fair — EV improves mechanically. TRIM/SHORT (rich · cycle position, §12 relabel) stands; VALIDATED-TIGHT unchanged. NAV unchanged $39.54.
+
+---
+
 ## 2026-08-14T15:08:45+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -9,6 +9,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-16T20:06:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.74
+- Single-point FV: $9.63
+- Scenario PW FV: $10.28 (EV +52.5%)
+- NAV / share: $9.62
+- Position: **BUY (undervalued)**
+- Broker spread: -25.2pp (k_broker 0.94)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread +7.8pp
+- Δprice: +0.36 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +7.8pp
+
+**Decision:** **TWO OFFSETTING-SIGN LEGS LANDING TOGETHER (−9.3pp EV net).** Gate absorb, TWO causes (adversarially verified two-cause, max residual 0.05pp — workflow wf_8b0d1184, 2026-08-16): (1) toll-cliff C2 reweight, crude-only (decisions/crude_day60_toll_cliff_2026-08-16.md, owner ruling R1); (2) the 8/12→8/14 price-vintage absorb (8/13 fetch committed 55b3a75; 8/14 Friday close fetched manually 2026-08-16 after Fri/Sat cron DNS stand-downs, committed e92fa8a). ΔNAV 0.0%. BRUT is the one name where BOTH causes are material: C2's weight leg is EV-POSITIVE ≈ +2.3pp (family table A′′ +52.5 vs A′ +50.2 at the live tape — the toll-cliff ruling's anticipated "≤+2.5pp BRUT annotation" is THIS leg), while the price leg is ≈ −11.6pp (price +7.8% over two sessions, $6.2576 → $6.7429, against a +60%-EV name — big rallies compress big EVs fastest). The ruling expected the weight leg to be the gate event; at the live tape the price leg dominates it 5:1. BUY band stands with wide margin. POSITION_UNRELIABLE stands — the 8/10 Stage-A void retires only at the deck re-expression (docketed, ruling R4), not here. NAV unchanged $9.62.
+
+---
+
 ## 2026-08-14T15:08:45+00:00 — Pipeline run (auto)
 
 **Model state:**

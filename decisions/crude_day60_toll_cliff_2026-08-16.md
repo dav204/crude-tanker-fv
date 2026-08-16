@@ -228,8 +228,42 @@ pinned the baselines for the figures that are actually on file rather than recon
 number I cannot source. If a ~4% figure exists in the governance-repo monitor or an external
 note, it needs the same baseline treatment there.
 
+## CORRECTIONS — adversarial review, 2026-08-16 EVE (workflow wf_8b0d1184, 4 agents)
+
+Three errors in this record as first written, each verified against the repo before the
+ratify. The RULING is unaffected — C2 was and remains the right call — but the record a
+future reader learns from must carry the true mechanics:
+
+1. **§4's blast radius priced at watchlist STATICS, not the production tape.** The sim
+   called `load_watchlist` with `live_prices` defaulted False, so every row used the
+   consensus-vintage statics (TNK $77.10; TEN's static is a **Jun-10** vintage $37.14;
+   BRUT $6.32) — despite §9.10's own `main()` mandating `live_prices=True`, a lesson this
+   repo already recorded on 2026-07-02. The candidate DELTAS (the C1 no-op, C2's ≤+2.5pp,
+   C3's gate breach) survive — verified by re-computation at the live tape (max residual
+   0.05pp) — but §4's EV *levels* match the production baseline nowhere.
+2. **§6's "CAPT and TNK still read BUY-ward under every candidate" is half wrong.** TNK's
+   BUY-ward read was a stale-price artifact of error 1: at the committed tapes TNK is
+   **HOLD on both vintages** (baseline +3.5% at $80.89; +0.47% at $83.54; −1.4% at the
+   8/14 close). CAPT's BUY-ward read does hold at the live tape (+10.3%, +9.1% at 8/14).
+   The R4 deck-re-expression docket should carry the corrected framing: one void name
+   reads BUY-ward at tape, not two.
+3. **R6's "BRUT gate annotation (≤+2.5pp)" was mooted at the gate.** The weight leg is
+   real (+2.3pp at the 8/14 tape) but lands simultaneously with a −11.6pp price leg
+   (BRUT +7.8% over two sessions), netting −9.3pp — the record as issued planned an
+   annotation for a name expected at +2.5pp and none for the 21 rows that actually
+   breached on the price vintage. Annotated per-name in the decision logs instead;
+   BRUT's carries the two-leg decomposition.
+
+Also verified by the review, for the record: the two-cause attribution is computationally
+exact (every gate row = price leg + weight leg, max residual 0.05pp — no third cause); the
+weight leg is EV-positive for all ten crude names (+0.20 BRUT-ex … +2.47 BRUT); crude
+weights are unreachable from the 15 non-crude names anywhere in the scenario routing; and
+the "suite green" at the C2 commit was **green-with-the-gate-asleep** — `state/` was three
+days stale, so the three state-freshness tests (live drift gate + both reconcile) were
+SKIPPED at that moment and armed one minute later when the regen refreshed the state.
+
 ## Status
 
 `crude_day60_toll_cliff` → **DONE** (ruling executed, this record). Successors registered:
 `hormuz_fee_collection_watch` (label-agnostic, standing) and `escalation_pause_corroboration`
-(2026-08-23). Deck re-expression docketed separately — R4.
+(2026-08-23). Deck re-expression docketed separately — R4, carrying correction 2 above.

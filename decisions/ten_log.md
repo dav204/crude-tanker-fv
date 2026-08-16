@@ -1,5 +1,23 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-08-16T20:06:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $41.45
+- Single-point FV: $59.21
+- Scenario PW FV: $62.66 (EV +51.2%)
+- NAV / share: $88.16
+- Position: **BUY (undervalued)**
+- Broker spread: +51.1pp (k_broker 1.27)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.64 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.1pp
+
+**Decision:** **PRICE-VINTAGE ABSORB, minor C2 assist (−7.8pp EV = ≈ −8.3pp price +5.4% / ≈ +0.5pp weight).** Gate absorb, TWO causes (adversarially verified two-cause, max residual 0.05pp — workflow wf_8b0d1184, 2026-08-16): (1) toll-cliff C2 reweight, crude-only (decisions/crude_day60_toll_cliff_2026-08-16.md, owner ruling R1); (2) the 8/12→8/14 price-vintage absorb (8/13 fetch committed 55b3a75; 8/14 Friday close fetched manually 2026-08-16 after Fri/Sat cron DNS stand-downs, committed e92fa8a). ΔNAV 0.0%. TEN is crude-sleeved so it carries a small positive C2 leg (family A′′ +51.2 vs A′ +50.7); the drift is the rally. BUY stands with wide margin (+51% EV at A′′). §15 governance discount unchanged. NAV unchanged $88.16.
+
+---
+
 ## 2026-08-14T15:08:45+00:00 — Pipeline run (auto)
 
 **Model state:**

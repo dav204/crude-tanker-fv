@@ -1,5 +1,23 @@
 # TNK — Decision Log
 
+## 2026-08-16T20:06:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $85.13
+- Single-point FV: $83.23
+- Scenario PW FV: $83.93 (EV -1.4%)
+- NAV / share: $84.60
+- Position: **HOLD (fairly valued)**
+- Broker spread: +22.4pp (k_broker 1.44)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +1.59 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.6pp
+
+**Decision:** **PRICE-VINTAGE ABSORB, minor C2 assist (−4.9pp EV = ≈ −5.2pp price +5.2% / ≈ +0.3pp weight); k_broker +0.11 breach is PRICE-MECHANICAL** (broker NAV static while price moved — k rides the tape between consensus recaptures). Gate absorb, TWO causes (adversarially verified two-cause, max residual 0.05pp — workflow wf_8b0d1184, 2026-08-16): (1) toll-cliff C2 reweight, crude-only (decisions/crude_day60_toll_cliff_2026-08-16.md, owner ruling R1); (2) the 8/12→8/14 price-vintage absorb (8/13 fetch committed 55b3a75; 8/14 Friday close fetched manually 2026-08-16 after Fri/Sat cron DNS stand-downs, committed e92fa8a). ΔNAV 0.0%. HOLD stands on both committed vintages — RECORDING THE CORRECTION from the toll-cliff review: the evidence record's §6 claimed TNK "still reads BUY-ward under every candidate"; that was a stale-price artifact of the blast-radius sim pricing at watchlist statics ($77.10). At live tape TNK is HOLD throughout (baseline +3.5%, now −1.4% at A′′). POSITION_UNRELIABLE stands (Stage-A void, retires at the deck re-expression only, ruling R4). NAV unchanged $84.60.
+
+---
+
 ## 2026-08-14T15:08:45+00:00 — Pipeline run (auto)
 
 **Model state:**

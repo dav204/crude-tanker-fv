@@ -1,7 +1,7 @@
 # BRUT — Fair Value Report
 
 - **Report date:** 2026-Q2
-- **Current price:** $6.26
+- **Current price:** $6.74
 - **Model fair value:** $9.63
 - **Analyst target:** $7.13
 
@@ -75,7 +75,7 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-**NAV alone covers the price.** NAV/share **$9.62** ≥ price **$6.26** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
+**NAV alone covers the price.** NAV/share **$9.62** ≥ price **$6.74** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
@@ -94,11 +94,11 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 | **+15%** | $4.07 | $6.90 | $9.73 | $12.55 | $15.38 |
 | **+30%** | $4.16 | $6.99 | $9.82 | $12.65 | $15.48 |
 
-_Current price $6.26. Cycle weights held at base across the grid._
+_Current price $6.74. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$9.63** is +54.0% vs the current price ($6.26) and +35.1% vs the analyst target ($7.13). NAV alone covers the price (NAV/sh $9.62 ≥ $6.26); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
+Tool fair value **$9.63** is +42.9% vs the current price ($6.74) and +35.1% vs the analyst target ($7.13). NAV alone covers the price (NAV/sh $9.62 ≥ $6.74); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
 
 ## Modeling notes
 
