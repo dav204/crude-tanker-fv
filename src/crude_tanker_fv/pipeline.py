@@ -1027,10 +1027,10 @@ def main() -> None:
     run_consensus_eps_xref(quarter)
     print("--- justified P/NAV diagnostic ---")
     from crude_tanker_fv.justified_pnav import run_justified_pnav_xref
-    run_justified_pnav_xref(quarter)
+    jpnav_rows = run_justified_pnav_xref(quarter)
     print("--- book-wide scorecard (Thread 4) — consolidated verdict + validation ---")
     from crude_tanker_fv.scorecard import run_scorecard_xref
-    run_scorecard_xref(
+    scorecard_rows = run_scorecard_xref(
         quarter,
         fv_reports=fv_reports,
         scenario_reports=scenario_reports,
@@ -1042,12 +1042,18 @@ def main() -> None:
     print("--- transaction-anchor comparison ---")
     run_transaction_anchored_comparison(quarter, live_prices=True)
     print("--- delta + decision log ---")
-    _run_delta_and_decision_log(quarter, fv_reports, scenario_reports, broker_rows)
+    _run_delta_and_decision_log(quarter, fv_reports, scenario_reports, broker_rows,
+                                jpnav_rows, scorecard_rows)
 
 
-def _run_delta_and_decision_log(quarter, fv_reports, scenario_reports, broker_rows) -> None:
+def _run_delta_and_decision_log(quarter, fv_reports, scenario_reports, broker_rows,
+                                jpnav_rows=None, scorecard_rows=None) -> None:
     """Snapshot the current run, diff vs the last one, write delta report and
     prepend per-ticker decision-log entries (METHODOLOGY §7.7, §7.8).
+
+    ``jpnav_rows`` / ``scorecard_rows`` are the objects the two upstream steps already returned —
+    passed in rather than recomputed, so the strobe measures the same §17 rows and the same
+    governed flags that printed to paper. Omitting them drops the strobe block only.
 
     Imported locally so the delta module doesn't pollute the top-level pipeline
     import graph — keeps the original pipeline path identical when called
@@ -1057,15 +1063,23 @@ def _run_delta_and_decision_log(quarter, fv_reports, scenario_reports, broker_ro
     from crude_tanker_fv.loaders import stale_price_fallbacks
     from crude_tanker_fv.price_refresh import STALE_PRICE_ALERT_MIN_NAMES
 
-    stale = stale_price_fallbacks(load_watchlist(live_prices=True))
+    live = load_watchlist(live_prices=True)
+    stale = stale_price_fallbacks(live)
     if len(stale) >= STALE_PRICE_ALERT_MIN_NAMES:
         print(f"⚠ STALE-PRICE RUN: {len(stale)} names fell back past the freshness gate "
               f"({', '.join(sorted(stale))}) — prices_daily.yaml has aged out; delta report "
               f"and scorecard header carry the banner", file=sys.stderr)
+    strobes = None
+    if jpnav_rows is not None and scorecard_rows is not None:
+        strobes = delta.read_flip_strobes(
+            jpnav_rows,
+            {r.ticker: r.read_flag for r in scorecard_rows},
+            {t: e["current_price"] for t, e in live.items()},
+        )
     current = delta.snapshot_current_run(quarter, fv_reports, scenario_reports, broker_rows)
     previous = delta.load_previous_snapshot()
     report = delta.compute_deltas(current, previous)
-    delta_path = delta.write_delta_report(report, stale_prices=stale)
+    delta_path = delta.write_delta_report(report, stale_prices=stale, strobes=strobes)
     touched = delta.prepend_decision_log_entries(report)
     delta.save_snapshot(current)
 
@@ -1076,6 +1090,13 @@ def _run_delta_and_decision_log(quarter, fv_reports, scenario_reports, broker_ro
         new_count = sum(1 for d in report.deltas if d.is_new)
         print(f"delta report ({material_count} material, {new_count} new, "
               f"{len(report.changed_input_files)} input files changed) -> {delta_path}")
+    hot = [s for s in (strobes or []) if s.in_deadband]
+    if hot:
+        print(f"⚡ READ-FLIP STROBE: {len(hot)} name(s) inside the ±"
+              f"{delta.READ_FLAG_HYST_PCT:.1f}% deadband at the tape "
+              f"({', '.join(f'{s.ticker} {s.tape_margin_pct:+.2f}%' for s in hot)}) — "
+              f"read_flag could restate at the next vintage rebase; see the delta report",
+              file=sys.stderr)
     print(f"decision logs updated: {len(touched)} files (decisions/*.md)")
 
 

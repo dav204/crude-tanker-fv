@@ -41,6 +41,8 @@ SBLK_J_HIST = 0.930
 SBLK_BOUNDARY = 27.72      # NAV x J_hist / (1 + FAIR_BAND)
 SBLK_TAPE_CLOSE = 27.89    # the 8/13 live close
 SBLK_MARGIN_PCT = 0.62     # +0.62% — inside the deadband, the strobe zone that motivated it
+SBLK_VINTAGE_PRICE = 28.60  # the watchlist static the row's own §17 numbers price off
+SBLK_ROW_MARGIN_PCT = 3.18  # +3.18% — the SAME boundary measured at the vintage; OUTSIDE the band
 
 
 def _scale_prices(monkeypatch, factor: float) -> None:
@@ -277,3 +279,131 @@ def test_prior_state_cannot_reach_the_tier(tmp_path: Path):
     seeded = {r.ticker: r.confidence_tier
               for r in sc.compute_scorecard(BOOK_QUARTER, read_flag_state=hostile)}
     assert seeded == clean
+
+
+# --- Addendum B2 — the tape-basis strobe, DELTA layer only ---------------------------------------
+# B2 ruled the scorecard is a SINGLE-VINTAGE surface and gets no tape column; the forward-looking
+# view ships on the monitor layer instead. These guards hold both halves of that: the number exists
+# where it was routed, and the surface it was kept OFF of did not move.
+
+def _sblk_jrow(price: float = SBLK_VINTAGE_PRICE) -> jp.JustifiedPnavRow:
+    """The 8/13 SBLK row from the pinned scalars. Only NAV, the two J's and the price drive any
+    §17 boundary or margin — the rest of the row is carried for shape."""
+    pnav = price / SBLK_NAV
+    return jp.JustifiedPnavRow(
+        ticker="SBLK", hybrid=False, sector="dry_bulk", nav_per_share=SBLK_NAV, price=price,
+        pnav_mkt=pnav, ronav_implied=None, r=jp.COST_OF_EQUITY, g=0.0,
+        ronav_norm=None, justified_pnav=SBLK_J_PAR, justified_fv=None, gap=None, flag=None,
+        ronav_norm_hist=None, justified_pnav_hist=SBLK_J_HIST, gap_hist=None, flag_hist=None,
+    )
+
+
+def test_sblk_tape_strobe_pins_the_reference_case():
+    """REFERENCE SBLK-2026-08-13. NAV 32.785, J_hist 0.930 -> boundary $27.72; tape close $27.89
+    -> +0.62%, INSIDE the ±2.0% deadband. This is the row the ruling cites as the strobe zone and
+    that, before this work, reached no surface at all."""
+    from crude_tanker_fv.delta import read_flip_strobes
+
+    strobes = read_flip_strobes([_sblk_jrow()], {"SBLK": "flips (cheap/fair)"},
+                                {"SBLK": SBLK_TAPE_CLOSE})
+    assert len(strobes) == 1
+    s = strobes[0]
+    assert s.tape_price == SBLK_TAPE_CLOSE
+    assert s.boundary_price == pytest.approx(SBLK_BOUNDARY, abs=0.005)
+    assert s.tape_margin_pct == pytest.approx(SBLK_MARGIN_PCT, abs=0.005)
+    assert s.in_deadband is True, "the reference case IS the deadband case — it must flag"
+    # the settling edge names itself: hist is the basis that would come into agreement
+    assert "hist" in s.boundary_edge
+
+
+def test_strobe_does_not_restate_the_rows_own_vintage_margin():
+    """The two margins measure the SAME boundary at DIFFERENT prices and must coexist untouched:
+    +3.18% governs (it is the price the read is computed on), +0.62% warns. Conflating them is
+    exactly the k-vintage mismatch B2 refused to re-create."""
+    from crude_tanker_fv.delta import read_flip_strobes
+
+    row = _sblk_jrow()
+    assert row.flip_margin_pct == pytest.approx(SBLK_ROW_MARGIN_PCT, abs=0.005)
+    assert abs(row.flip_margin_pct) > READ_FLAG_HYST_PCT, "the row sits OUTSIDE the deadband"
+    s = read_flip_strobes([row], {"SBLK": "flips (cheap/fair)"}, {"SBLK": SBLK_TAPE_CLOSE})[0]
+    assert s.vintage_margin_pct == pytest.approx(SBLK_ROW_MARGIN_PCT, abs=0.005)
+    assert s.vintage_price == SBLK_VINTAGE_PRICE
+    # and the row is unchanged by having been measured at the tape
+    assert row.price == SBLK_VINTAGE_PRICE
+    assert row.flip_margin_pct == pytest.approx(SBLK_ROW_MARGIN_PCT, abs=0.005)
+
+
+def test_strobe_covers_flipping_names_only():
+    """§B2 scope: the block answers "would this flip settle?", so a robust name has nothing to
+    settle and a §17-blocked name has no read to settle. Neither may produce a row."""
+    from crude_tanker_fv.delta import read_flip_strobes
+
+    rows = [_sblk_jrow()]
+    tape = {"SBLK": SBLK_TAPE_CLOSE}
+    assert read_flip_strobes(rows, {"SBLK": "robust"}, tape) == []
+    assert read_flip_strobes(rows, {"SBLK": "n/a"}, tape) == []
+    assert len(read_flip_strobes(rows, {"SBLK": "flips (cheap/fair)"}, tape)) == 1
+
+
+def test_strobe_renders_the_deadband_warning_and_both_bases():
+    """The rendered block must carry the three numbers the follow-on names — tape, boundary, signed
+    distance — and must say plainly when the distance is inside the deadband, since that is the
+    case the hysteresis exists for."""
+    from crude_tanker_fv.delta import _render_read_flip_strobe, read_flip_strobes
+
+    text = "\n".join(_render_read_flip_strobe(
+        read_flip_strobes([_sblk_jrow()], {"SBLK": "flips (cheap/fair)"},
+                          {"SBLK": SBLK_TAPE_CLOSE})))
+    assert "STROBE ZONE" in text and "SBLK (+0.62%)" in text
+    assert f"±{READ_FLAG_HYST_PCT:.1f}% deadband" in text
+    assert "$27.89" in text and "$27.72" in text and "+0.62%" in text
+    assert "+3.18% (@ $28.60)" in text, "the vintage margin must print beside it, not instead of it"
+    assert "MONITOR layer" in text
+
+
+def test_strobe_reaches_the_delta_report_and_nowhere_else(tmp_path: Path):
+    """Routing: the delta report carries the block, and only when the pipeline hands it the rows."""
+    import crude_tanker_fv.delta as dl
+
+    snap = dl.RunSnapshot(run_at="2026-08-14T00:00:00+00:00", quarter=BOOK_QUARTER,
+                          tickers={}, input_file_hashes={})
+    report = dl.compute_deltas(snap, previous=None)
+    strobes = dl.read_flip_strobes([_sblk_jrow()], {"SBLK": "flips (cheap/fair)"},
+                                   {"SBLK": SBLK_TAPE_CLOSE})
+    with_block = dl.write_delta_report(report, outputs_dir=tmp_path, strobes=strobes).read_text()
+    assert "read-flip strobe" in with_block and "STROBE ZONE" in with_block
+    # omitted entirely when the caller passes nothing (standalone renders stay byte-compatible)
+    assert "read-flip strobe" not in dl.write_delta_report(report, outputs_dir=tmp_path).read_text()
+    # and prints as quiet, not absent, when there is simply nothing flipping
+    quiet = dl.write_delta_report(report, outputs_dir=tmp_path, strobes=[]).read_text()
+    assert "read-flip strobe" in quiet and "STROBE ZONE" not in quiet
+
+
+def test_scorecard_surface_is_unchanged_by_the_strobe(tmp_path: Path):
+    """B2's other half, and the one that can only be broken silently: the tape-basis margin must
+    NOT have landed on the scorecard. Both committed artefacts predate this work, so a regenerated
+    scorecard that still matches them field-for-field and column-for-column is the proof."""
+    import json as _json
+
+    committed_md = (sc.OUTPUTS_DIR / "book_scorecard.md").read_text()
+    committed_json = _json.loads((sc.OUTPUTS_DIR / "book_scorecard.json").read_text())
+
+    rows = sc.compute_scorecard(BOOK_QUARTER, read_flag_state={})
+    val = {r.ticker: sc._Valuation(price=10.0, fv=12.0, upside_pct=20.0,
+                                   position="BUY (undervalued)", nav_ps=11.0, broker_nav=11.5,
+                                   gap_pct=-4.3, sanity="OK", approx=False) for r in rows}
+    fresh_md = sc.write_scorecard(rows, outputs_dir=tmp_path, valuation=val,
+                                  quarter=BOOK_QUARTER).read_text()
+    fresh_json = _json.loads((tmp_path / "book_scorecard.json").read_text())
+
+    def _tier_header(text: str) -> str:
+        return next(ln for ln in text.splitlines() if ln.startswith("| Ticker | Sector | **Tier**"))
+
+    assert _tier_header(fresh_md) == _tier_header(committed_md), "the tier table gained a column"
+    assert fresh_json["schema_version"] == committed_json["schema_version"] == "2.8"
+    assert set(fresh_json) == set(committed_json), "the handoff JSON gained a top-level key"
+    assert (set(fresh_json["names"][0]) == set(committed_json["names"][0])), \
+        "the handoff JSON gained a per-name field — the tape margin belongs to the monitor layer"
+    # the row's margin is still the VINTAGE one (nothing swapped a tape number in under the name)
+    by = {n["ticker"]: n for n in fresh_json["names"]}
+    assert by["SBLK"]["flip_margin_pct"] == pytest.approx(SBLK_ROW_MARGIN_PCT, abs=0.005)
