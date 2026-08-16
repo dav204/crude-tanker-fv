@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-13T14:41:33.124611+00:00",
+  "generated_at": "2026-08-15T12:02:05.879924+00:00",
   "archive_roots": [
     "inputs/research_pareto",
     "inputs/research_pareto_other"
   ],
-  "total_files": 873,
+  "total_files": 882,
   "files": [
     {
       "path": "inputs/research_pareto/2024/06/2024-06-26_d'AmicoInternationalShipping-CompanyReport-InitiatingCoverage-2024-06-26-364456.pdf",
@@ -9553,6 +9553,105 @@
       "page_count": 6,
       "size_bytes": 460777,
       "classification_signal": "content:QUARTERLY PREVIEW"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-08-06_linked-519481.pdf",
+      "filename": "2026-08-06_linked-519481.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-06",
+      "downloaded_at": "2026-08-15T12:00:13.117636+00:00",
+      "parsed_at": null,
+      "page_count": 8,
+      "size_bytes": 543328,
+      "classification_signal": "content:QUARTERLY REVIEW"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-08-07_linked-519956.pdf",
+      "filename": "2026-08-07_linked-519956.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-07",
+      "downloaded_at": "2026-08-15T12:00:14.499186+00:00",
+      "parsed_at": null,
+      "page_count": 8,
+      "size_bytes": 541509,
+      "classification_signal": "content:QUARTERLY REVIEW"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-08-07_linked-520013.pdf",
+      "filename": "2026-08-07_linked-520013.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-07",
+      "downloaded_at": "2026-08-15T12:00:15.873505+00:00",
+      "parsed_at": null,
+      "page_count": 8,
+      "size_bytes": 563688,
+      "classification_signal": "content:QUARTERLY REVIEW"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-08-10_linked-520234.pdf",
+      "filename": "2026-08-10_linked-520234.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-10",
+      "downloaded_at": "2026-08-15T12:00:17.361020+00:00",
+      "parsed_at": null,
+      "page_count": 8,
+      "size_bytes": 562561,
+      "classification_signal": "content:QUARTERLY REVIEW"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-08-11_linked-520476.pdf",
+      "filename": "2026-08-11_linked-520476.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-11",
+      "downloaded_at": "2026-08-15T12:00:18.513110+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 73600,
+      "classification_signal": "content:NEWSFLASH"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-08-12_linked-520812.pdf",
+      "filename": "2026-08-12_linked-520812.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-12",
+      "downloaded_at": "2026-08-15T12:00:19.966238+00:00",
+      "parsed_at": null,
+      "page_count": 10,
+      "size_bytes": 638616,
+      "classification_signal": "content:QUARTERLY REVIEW"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-08-12_linked-520814.pdf",
+      "filename": "2026-08-12_linked-520814.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-12",
+      "downloaded_at": "2026-08-15T12:00:21.416857+00:00",
+      "parsed_at": null,
+      "page_count": 10,
+      "size_bytes": 648364,
+      "classification_signal": "content:QUARTERLY PREVIEW"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-08-13_linked-521204.pdf",
+      "filename": "2026-08-13_linked-521204.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-13",
+      "downloaded_at": "2026-08-15T12:00:22.776408+00:00",
+      "parsed_at": null,
+      "page_count": 8,
+      "size_bytes": 543324,
+      "classification_signal": "content:QUARTERLY REVIEW"
+    },
+    {
+      "path": "inputs/research_pareto_other/linked/2026-08-13_linked-521458.pdf",
+      "filename": "2026-08-13_linked-521458.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-13",
+      "downloaded_at": "2026-08-15T12:00:24.145412+00:00",
+      "parsed_at": null,
+      "page_count": 8,
+      "size_bytes": 557496,
+      "classification_signal": "content:QUARTERLY REVIEW"
     },
     {
       "path": "inputs/research_pareto_other/other/2024/12/2024-12-18_Clarksons Brokers Dry Bulk Markets 2024 Review & Outlook for 2025.pdf",
