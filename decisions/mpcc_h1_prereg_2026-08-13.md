@@ -128,3 +128,61 @@ survey position, different handover timing — are exactly that, plausible. **Do
 to infer a feeder level until the inversion is explained**; a two-print "curve" built across an
 unexplained inversion is worse than no print at all. Candidate resolution: the H1 report's own
 disposal note, or the MB container weekly.
+
+---
+
+# AMENDMENT (2026-08-18, 8 days before the print) — the 6/30–7/03 equity placement
+
+Dated pre-print amendment, the BRUT 8/12 precedent. Trigger: news-digest 2026-08-16 M4 (Run 1)
++ M2 (Run 2) — a **completed private placement of 44,370,027 new shares at NOK 24.00**, gross
+proceeds ~USD 107M, that this prereg as frozen 8/13 does not mention anywhere. Sequence:
+"Contemplated" 6/30 16:39 → "Successfully Completed" 7/01 → "Registration of share capital
+increase" 7/02 09:52 (share capital **NOK 488,070,306**) → settlement **DVP on/about 3-Jul**.
+Six-month lock-ups (management/board/largest holders). Sources: mfn.se issuer feed (existence
++ dates, primary), modular-finance syndication + Reuters (terms).
+
+## What the amendment CORRECTS about the plan, and what it does not
+
+**PLAN 8/16 carried "the band is wrong as written" (+10.0% denominator). That is SUPERSEDED by
+the settlement date:** DVP ~3-Jul is AFTER the 30-Jun period end, so under the AS-OF discipline
+(the ASC/HAFN/TRMD subsequent-event pattern, applied in reverse) the H1 snapshot count is
+**still 443,700,279** and the ~$107M is **not** in 6/30 cash. **The registered band [1.90, 2.30]
+on the 443.7M denominator STANDS.** What was actually missing was the placement in the
+subsequent-events expectations and the halt conditions — added below.
+
+## Cross-foots that pin the count (resolves Run 2's NOK-par caveat as far as it can be)
+
+- 44,370,027 = **exactly 10.000%** of 443,700,279 (the Oslo no-prospectus limit — a designed
+  number, corroborating both figures).
+- Registered capital NOK **488,070,306** = 443,700,279 + 44,370,027 exactly. For this to hold
+  at any par other than NOK 1.00, the capital-to-count coincidence would have to hold **twice**
+  (pre- and post-placement). Doubly corroborated; the residual owner-confirm is reading the par
+  line in the H1 report itself, which lands 8/26 anyway.
+- MPC Capital AG dilution 20.12% → 18.29% (7/01 flagging notice) implies a ~10.0% count
+  increase independently. Folketrygdfondet 10.2M shares = 5.6% ⇒ ~488M total (10.2/0.056 ≈ 182M
+  — NO: 5.6% of 488M = 27.3M ≠ 10.2M. The 5.6% must be of a DIFFERENT base or the stake is
+  partly pre-existing — **do not use the Folketrygdfondet notice as a count cross-foot**; the
+  other three legs suffice. Flagged rather than silently dropped.)
+
+## Amended halt/verification conditions (ADDITIVE — conditions 1–8 above stand)
+
+9. **Share count at 6/30 must print ~443.7M, NOT ~488M.** A ~488M count at the period end
+   means settlement was booked pre-period-end or the equity note says something we have not
+   read — **halt and read the equity/subsequent-events note before accepting any NAV/sh.**
+10. **Cash at 6/30 must NOT carry the raise** (~$107M gross). A cash line ~$100M+ above the
+    operating walk → same halt, same note.
+11. **The Subsequent Events note is EXPECTED to carry (in addition to condition 1's list):**
+    the placement (44,370,027 sh @ NOK 24.00, settlement 3-Jul, registered capital
+    NOK 488,070,306) and any early term-loan drawdown. An H1 report whose subsequent-events
+    note OMITS the placement contradicts the primary feed → halt, re-read the filing.
+12. **Post-report forward walk (registered now so the next vintage is not hand-derived):**
+    the FIRST post-H1 surface that carries the placement moves to **488,070,306 shares** and
+    ~+$107M gross cash (less fees, gross-vs-net UNRESOLVED — syndicator figure). Issued at
+    NOK 24 ≈ $2.41–2.53 vs model NAV $2.05 ≈ 1.2× NAV ⇒ accretive ≈ **+1.6% NAV/sh gross**
+    (2.05×443.700 + 107)/488.070 = $2.083 — a DERIVED figure, fees excluded, and it must be
+    co-modeled with the Fork-A acquisition treatment (which reads NAV-dilutive by construction)
+    or the net is meaningless. Neither leg moves anything before the 8/26 refresh lands.
+13. **Balance-sheet YAML discipline:** `diluted_shares_outstanding` in `mpcc_2026-Q2.yaml`
+    follows the REPORT (condition 9), with the placement recorded in the YAML comment as the
+    dated subsequent event and its registration figure cited — so the H2 vintage bump to 488M
+    is a comment-anticipated move, not a surprise.
