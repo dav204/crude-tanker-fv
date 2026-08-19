@@ -1,5 +1,358 @@
 # News digest — 2026-08-16
 
+> **This file carries TWO runs of the same day.** The scheduled task fired twice: once
+> finishing **04:15 PDT** (Run 1, window 08-13 → 08-16) and again at **19:10 PDT** (Run 2,
+> window 08-16 04:15 → 08-16 19:15). **Run 2 is written below; Run 1 is preserved verbatim
+> underneath it, unedited.** Run 2 did not overwrite Run 1 — an overwrite would have
+> destroyed 33 KB of the only channel record for the 8/13–8/16 window.
+
+---
+
+# RUN 2 — 2026-08-16 19:10 PDT (02:10 UTC 08-17)
+
+## Run header
+
+- **Window swept:** **2026-08-16 04:15 → 2026-08-16 19:15 PDT** — the back half of one
+  **Sunday**. Prior digest = this same file's Run 1, established by listing `outputs/`
+  (`news_digest_2026-06-10 / 06-21 / 08-13 / 08-16` are the only four).
+- **A 15-hour weekend window is near-worthless on its own, and I did not pretend otherwise.**
+  The load-bearing work of this run is therefore (a) a **primary-source liveness check on the
+  three ingest lanes**, which is now the strongest coverage claim any of these digests has been
+  able to make, and (b) **closing or verifying Run 1's open items** rather than re-reporting them.
+- **Names swept:** 25/25, the full `inputs/watchlist.yaml` roster — but see the depth note.
+  DHT · ECO · FRO · INSW · TNK · NAT · FLNG · CCEC · STNG · HAFN · TRMD · ASC · TEN · CMDB ·
+  SBLK · GNK · CAPT · MPCC · GSL · BRUT · CMBT · SB · LPG · BWLP · 2343.
+- **Depth weighting.** DEEP on the four Oslo issuer feeds (BRUT, MPCC, CAPT, BWLP) read at
+  `mfn.se` primary; DEEP on NAT (`nat.bm` primary) and FRO (open promotable P1); DEEP on
+  GNK (live event). The remaining names were covered **by the local ingest lanes rather than
+  by individual web searches** — see the coverage note, which is a genuine upgrade, not a shortcut.
+- **Sources searched.** Primary: `mfn.se/all/a/{capital-tankers,bruton-limited,mpc-container-ships,
+  bw-lpg}.json`, `nat.bm`, `frontlineplc.cy`, `shippingtelegraph.com`. Search sweeps over Genco/
+  Diana, FRO S&P, and general mid-August tanker tape. Repo-side: `state/edgar_manifest.jsonl`,
+  `state/{edgar_poll.log,edgar_poll.err,newsweb_poll.json,hkex_poll.json}`,
+  `scripts/edgar_poll_cron.sh`, `src/crude_tanker_fv/{newsweb_poll.py,reconcile.py}`,
+  `inputs/{watchlist,archive_gaps,data_sources}.yaml`, `inputs/research_pareto/2026/08/`,
+  and the heads of `decisions/{gnk,capt,mpcc,brut}_log.md`.
+
+### Coverage limits of THIS run
+
+1. **The US lane is, for the first time, swept PRIMARY — and not by WebFetch.** All three SEC
+   hosts refuse WebFetch: `sec.gov/cgi-bin/browse-edgar` and `efts.sec.gov` **403** (as Run 1
+   recorded), and **`data.sec.gov/submissions/CIK…json` also returns `HTTP 403 Forbidden`** —
+   tested this run, a new data point. So EDGAR cannot be enumerated by fetch from any host.
+   **But it does not need to be.** `state/edgar_poll.log` shows the repo's own poller running
+   **hourly and clean** through **18:20 today** — `polled 22 names: 0 new filing(s)` on every
+   pass — and `state/edgar_manifest.jsonl` ends at **CMDB 8/14**. The US-listed "nothing found"
+   below is therefore machine-verified against EDGAR itself, not inferred from search silence.
+   **This retires Run 1's caveat** ("a low-profile 8-K/6-K … would not have been caught" / "I
+   would not call this lane fully swept") **and re-points its owner item 5a**: the fix was never
+   an EDGAR fetch route, it is *reading the local manifest first*. Recorded so no future run
+   spends effort on the 403 again.
+   - The `state/edgar_poll.err` tail carries a `URLError: [Errno 54] Connection reset by peer`
+     traceback, but that file's mtime is **06:28**, older than every clean run in the log. It is
+     a historical failure from this morning, **not** a current one. Saying so explicitly because
+     a stale `.err` is exactly the kind of thing that reads as a live outage.
+2. **HK lane likewise primary:** `state/hkex_poll.json` polled **00:20 UTC 08-17**, 0 new.
+3. **Oslo lane primary at the issuer feed** (all four `mfn.se` slugs fetched directly this run),
+   **but see M1 — the local Oslo poller has never actually carried an arrival.**
+4. **Measured fetch failures this run** (fresh results, not copied):
+   - `globenewswire.com` — **`timeout of 60000ms exceeded`** on the FRO 8/04 primary. **Third
+     consecutive run** this domain has timed out. Treat it as reliably unavailable, not flaky.
+   - `data.sec.gov` — **`HTTP 403 Forbidden`** (new).
+   - `marinelog.com` — **`HTTP 403 Forbidden`** (new).
+   - Fetched fine: all four `mfn.se` slugs, `nat.bm`, `frontlineplc.cy`, `shippingtelegraph.com`.
+5. **Tool note, unchanged from Run 1:** `Glob`/`Grep` are absent from this session; read-only
+   `Bash` (`ls`, `find`, `grep`, `head`, `cat`, `wc`) was used for repo enumeration, per the
+   task file's standing allowance. No writes, no `git`, no project code executed.
+
+### Archive gaps
+
+- **`inputs/research_pareto/2026/08/` still ends 2026-08-13.** The Friday **2026-08-14** Shipping
+  Daily remains absent — **1 missing business day**, under `limit_business_days: 3`, so check 8b
+  will not fire. 8/15–8/16 are a weekend, so **no new business days accrued since Run 1**; this is
+  unchanged, not worsening. Any "nothing found" in the *Pareto* lane for 8/14 stays **unsupported
+  rather than absent**. If the 8/17 daily lands and 8/14 does not, that is the point to decide
+  backfill-or-accept.
+- **`inputs/archive_gaps.yaml` gained its fifth accepted entry today** (mtime 15:00, after Run 1):
+  `pareto_research 2026-06-01..2026-06-03`, accepted on its **own** channel-side walk to 2026-05-27
+  (5,004 messages), including the sender's contemporaneous 6/02 message that Pareto had not
+  published that week. **That was the last deliberately-open gap.** The file's own closing note
+  records why it was held open for three days rather than inheriting July's evidence — the
+  standard of evidence held. Nothing for me to do here; recorded as closed.
+
+---
+
+## MATERIAL — needs an owner decision or a model-input change
+
+### M1 · PROCESS — the missing NewsWeb issuer channel **was built today**, is **live**, and has **never carried an arrival**
+**What happened.** `src/crude_tanker_fv/newsweb_poll.py` exists (**18,129 bytes, mtime 06:43
+today** — i.e. written *after* Run 1 finished at 04:15), is wired into `scripts/edgar_poll_cron.sh`
+line 78 as `cron_lane newsweb ./.venv/bin/python -m crude_tanker_fv.newsweb_poll`, and is polling
+**hourly**: `state/newsweb_poll.json` shows `last_polled: 2026-08-17T01:20:06Z` across all four
+slugs, and `edgar_poll.log` logs `polled 4 names: 0 new release(s), 0 doc(s) staged` on every pass.
+`inputs/data_sources.yaml` now carries `mfn_slug:` keys for all four Oslo names, each marked
+**VERIFIED 2026-08-16** and pinned in `tests/test_newsweb_poll.py`.
+**This closes, in mechanism, the gap named as load-bearing in all three previous digests** — the
+one the 8/13 audit proved was the real cause of the BRUT five-week miss.
+**The catch, and it is the whole reason this is MATERIAL rather than a footnote.** Every slug in
+`state/newsweb_poll.json` reads **`"bootstrapped": true`** with `seen_ids` seeded from the full
+existing history. Consequently:
+- **0** records with `source: "newsweb"` in `state/edgar_manifest.jsonl` (52 lines, all
+  `edgar`/`hkexnews`; newest is CMDB **8/14**).
+- **0** files matching `inputs/filings/*/newsweb_*` — I checked by `find`, not by inference.
+
+That is **correct bootstrap behaviour** (seed the seen-set, don't re-stage history). It is also
+exactly the state in which a new watchdog looks green and has proven nothing: **no release has
+ever travelled this channel end-to-end.** The task file already instructs future runs to "READ THE
+LOCAL ISSUER CHANNEL FIRST … they are primary text, already local" — today that instruction would
+have returned an empty directory, and a run that trusted it *instead of* fetching `mfn.se` would
+have swept the Oslo lane with nothing at all.
+**Model surface.** None directly — this is the sweep's own plumbing. But it governs whether the
+next Oslo release is read on the day or five weeks late, which is the failure this task exists for.
+**What I think it means.** The **first live test is dated and close**: MPCC Q2 **8/26**, BWLP
+**8/28**, CAPT half-year **9/01**, plus the BRUT demerger completion **by end-August**. If a
+`newsweb_*` file and a `source: "newsweb"` manifest line do not appear within hours of MPCC's
+8/26 release, the channel is built but not working, and the 8/29 sweep must go back to fetching
+`mfn.se` directly. Until one arrival lands, **`mfn.se` remains the Oslo lane of record and the
+next sweep should still fetch all four feeds**, not substitute the local channel for them.
+**What I am NOT sure of.** Whether the bootstrap watermark is set such that a release published
+*between* the 06:43 bootstrap and the first arrival could fall into the seen-set unstaged; I did
+not read the poller's watermark logic, only its state file. The HKEX poller's state carries an
+explicit `"watermark": "2026-06-30"` field and the NewsWeb state, as far as the head I read shows,
+does not — that asymmetry may be nothing or may be the gap. Worth an owner eyeball before 8/26.
+**Status.** Not referenced in any decision log — it is infrastructure, not a name. **UNREAD** in
+the sense that no digest has yet recorded the channel exists.
+
+### M2 · MPCC — Run 1's derived post-issue share count is now **confirmed at the issuer primary**
+**What happened.** Run 1 derived a post-placement count of **488,070,306 shares** from
+443,700,279 + 44,370,027, and flagged it as *its own arithmetic*. The issuer's **2026-07-02 07:52**
+release, "MPC Container Ships ASA: Registration of share capital increase," states the registered
+share capital is **NOK 488,070,306** — read directly off the `mfn.se` feed this run.
+**Two further releases surfaced that Run 1 did not report**, both **2026-07-01**, both flagging
+notices confirming the dilution from the other side: **MPC Capital AG-affiliated holdings fell
+20.12% → 18.29%**, and **Folketrygdfondet acquired 10.2m shares for a 5.6% stake**.
+**Source.** `mfn.se/all/a/mpc-container-ships.json`, primary feed.
+**Model surface.** `inputs/balance_sheets/mpcc_2026-Q1.yaml` →
+`diluted_shares_outstanding: 443,700,279`. The denominator Run 1 flagged as stale is now
+**primary-sourced rather than derived**, which is the difference between a lead and an input.
+**What I think it means.** The 20.12% → 18.29% dilution of MPC Capital cross-foots independently:
+a holder diluted by that ratio implies a share count increase of ~10.0%, matching the placement
+exactly. Three independent legs (issuer share capital, two flagging notices, Run 1's arithmetic)
+now agree on 488,070,306. Run 1's accretion estimate (~+1.6% NAV/share) rested on that count and
+survives unchanged.
+**What I am NOT sure of.** That NOK 488,070,306 of share *capital* equals 488,070,306 *shares*
+requires a **NOK 1.00 par value**, which I inferred from the exact numeric match rather than read
+in the release. It is a strong inference — the coincidence is otherwise absurd — but it is an
+inference, and it is the one thing an owner should confirm before the count is typed anywhere.
+**Status.** `decisions/mpcc_log.md` head is the **8/16 20:06 UTC** auto-run (price $2.72); still
+**no reference to the placement**. **UNREAD**, now eight weeks.
+
+### M3 · BRUT — the AGM approved a **$226,039,548 share premium account reduction**, unreported until now
+**What happened.** The **2026-08-12 17:15** AGM-results release records shareholder approval of
+board composition, amended bye-laws, auditor reappointment, **and a reduction of the share premium
+account of $226,039,548**. Run 1 read this release and reported it only as "AGM results."
+**Source.** `mfn.se/all/a/bruton-limited.json`, primary feed.
+**Model surface.** `inputs/balance_sheets/brut` — the equity block. A share-premium reduction is
+customarily a Bermuda-law step to **create distributable reserves**, which is a **dividend-capacity**
+change, and BRUT's forward dividend strip is half of what this tool values.
+**What I think it means.** For a pre-operational VLCC vehicle that has just reported **H1 net
+income of $0.3m** and is about to demerge, converting a quarter-billion of share premium into
+distributable reserves is a *preparatory* act — most plausibly for the **demerger** (distributing
+the 8-ship spin to shareholders needs distributable reserves) rather than for a cash dividend.
+That reading makes it a **structural** item, not a payout signal, and it lines up with the
+end-August demerger completion already on the watch list.
+**What I am NOT sure of — and this is a real limit.** I have the *amount* and the *approval*, from
+a feed summary. I have **not** read the release body or the AGM notice, so I do not know the stated
+**purpose**, whether it is conditional on court or shareholder confirmation, or its effective date.
+**Do not enter this on a balance sheet from this digest.** It is total equity-neutral in any case
+(a transfer between equity lines, not a change in equity), so the NAV effect is plausibly zero and
+the real question is the dividend-policy one. Treat as a lead requiring the primary.
+**Status.** `decisions/brut_log.md` head is the 8/16 auto-run. **UNREAD.**
+
+### M4 · BRUT — a **rate discrepancy** on the Mount Horizon fixture: $105,700/day here vs **$106,000/day** in Run 1
+**What happened.** The **2026-08-06 06:00** release reads, per the issuer feed: a **12–15 month**
+time charter for **Mount Horizon** at **$105,700 per day**, delivery **mid-November 2026**, taking
+the average charter rate for BRUT's first two VLCCs to **$101k/day**. Run 1 recorded the same
+fixture as "the **$106,000/day** print."
+**Source.** `mfn.se/all/a/bruton-limited.json` (this run) vs Run 1's own reading of the same release.
+**Model surface.** A **charter fixture with a stated rate and tenor** is precisely the class of item
+the task lists as able to **supersede a curve input** — and BRUT is a pre-operational name whose
+entire near-term revenue picture is two fixtures. A $300/day error is ~0.3%, immaterial to NAV, but
+it is **load-bearing for provenance**: an uncited or mis-transcribed figure that moves a value is
+the exact failure `test_manifest_provenance` exists to red.
+**What I think it means.** Most likely one of the two readings rounded. I would not guess which:
+$105,700 is the more specific figure and came from the feed this run, but I read it through a
+fetch summary, not the release body, so I cannot claim it as verbatim.
+**What I am NOT sure of.** Which figure is the issuer's. **Neither number should be promoted until
+someone opens the 8/06 release body**, which is now the single cheapest verification on this list —
+and which the NewsWeb channel (M1) will stage automatically once it is carrying arrivals.
+**Status.** `brut_log.md` records the fixture; the discrepancy is new and **UNREAD**.
+
+### M5 · GNK — the model **has now seen a post-withdrawal price**; Run 1's central caveat is spent
+**What happened.** No new Genco or Diana news 8/15–8/16 (searched; Diana's withdrawal release of
+**8/14** and Genco's 8/14 board letter remain the newest items). What changed is the **model**:
+the **8/16 20:06 UTC** pipeline run carries **price $26.34, NAV/sh $25.12, PW FV $22.67,
+EV −13.9%, broker spread +10.9pp, TRIM/SHORT**.
+**Model surface.** `decisions/gnk_log.md`; `inputs/watchlist.yaml` → `GNK.analyst_target: 28.40`.
+**What I think it means.** Run 1 warned, correctly at the time, that its TRIM/SHORT print
+(price $25.26, EV −10.2%) was "the last **with-deal** read." **That warning is now spent** — the
+price has moved **+$1.08 (+4.3%)** and EV has widened to **−13.9%** on an unchanged NAV. So the
+market repriced GNK **upward** after the acquirer walked, which is the opposite of the deal-premium
+unwind one might have assumed, and the overvaluation signal **strengthened** rather than softened.
+That is worth an owner eyeball precisely because it inverts the intuitive read.
+**What I am NOT sure of.** Whether $26.34 is a **8/14 close** carried forward across the weekend or
+a later mark — the pipeline values at the live close, and 8/15–8/16 are non-trading days, so it is
+almost certainly Friday 8/14's close, i.e. **the first and only post-withdrawal close so far**. One
+close is thin evidence for "the market repriced upward"; the 8/17 close is the confirmation.
+**Status.** `decisions/gnk_log.md` has **no annotation of the Diana withdrawal** — the newest
+Diana-related text in the file is the pre-withdrawal tender/proposal block. Still **UNREAD**,
+now two days, against a board-set **8/24** response date that Diana pre-empted.
+
+---
+
+## PROMOTABLE CANDIDATES
+
+**Nothing new this window.** No dated S&P print or fixture with the promotion fields landed
+8/16 04:15 → 19:15.
+
+**P1 · FRO 2×VLCC — the blocker is now identified, and it is not ours to fix.**
+Run 1 left P1 open with "vessel names remain unconfirmed … the GlobeNewswire primary is the place
+they would be." I chased that this run. The GlobeNewswire primary **timed out again** (third
+consecutive run), **but the names are not there to find**: Splash247, IndexBox, Cyprus Shipping
+News, Shipping Herald, iMarine, Argus and Marine Log all cover the 8/04–8/05 release and **none
+names the vessels or the buyer** — the consistent phrasing is that the ships and buyer were **not
+identified**, with delivery expected during **Q3**. **This is issuer non-disclosure, not a fetch
+failure.** Consequence for promotion: the duplicate-sweep required by the 2026-08-09 standing rule
+**cannot** be run on vessel names for this print. Either promote on class/built/price alone with
+the non-disclosure recorded as the reason, or wait for FRO's Q3 report to name the hulls. **That is
+an owner call, and it is now a clean one** — the missing information has a known cause.
+*(Legs unchanged: 2 × VLCC, built 2017, $135.0m each / $270m aggregate, 2026-08-04. Confirmed
+absent from `inputs/market_data/transactions/vlcc.yaml`, which still ends 2026-08-07 / MB Week 32.)*
+
+**P2a / P2b (TNK Suezmax 2009 $53.5m; TNK VLCC 2013 $84.5m, both 2026-07-29) and P3 (STNG
+*STI Solidarity*, LR2 2015, $60.0m, agreed ~2026-03-05)** — carried forward from Run 1 unchanged.
+Not re-verified this run; no new information surfaced on any of them.
+
+### Aggregator re-dating — **two more traps caught this run**
+
+Run 1 recorded the NAT re-dating trap. A general FRO search this run surfaced **two more**, both of
+which look like current August news in a search framed on August dates:
+
+1. **"Frontline sells eight older VLCCs and buys nine newbuilds"** (Marine Log; also Splash247,
+   gCaptain, Seatrade, Globe and Mail) — **8 VLCCs built 2015–2016 for $831.5m** against **9
+   scrubber-fitted ECO VLCC newbuildings from a Hemen Holding affiliate for $1,224.0m**, 6 at
+   Hengli / 3 at Dalian, 7 delivering 2026 Q3-onwards. A ~$2bn transaction, and on its face
+   enormously material. **It is dated 2026-01-08.** Confirmed at the issuer's own page
+   (`frontlineplc.cy`, "FRO – Strategic Fleet Renewal and Expansion", **January 8, 2026**).
+   **Seven months pre-window.**
+2. **"Frontline's fleet renewal push rolls on as sells oldest suezmax pair"** (Shipping Telegraph)
+   — 2 Suezmaxes built 2014/2015 for **$140m**, ~$106m net proceeds, ~$55m gain. Promotable-shaped
+   for a §9.9 Suezmax anchor. **Published 26/05/2026**, agreement reached **April 2026**.
+   **Pre-window.**
+
+Both were killed by the task file's own rule — open the issuer page and read the internal dates
+before believing the aggregator's. Recording them because the pattern is now **three instances in
+two runs**, always on an APPROX or high-interest name, and always surfaced by a date-framed search:
+**a search engine's notion of "recent" is not a publication date.** The 7-month-old FRO item is the
+sharpest example yet — it would have been reported as the largest event in the digest.
+
+---
+
+## WATCH
+
+- **The first live test of the NewsWeb channel (M1) is MPCC Q2 on 2026-08-26.** Check for a
+  `source: "newsweb"` line in `state/edgar_manifest.jsonl` and a file under
+  `inputs/filings/MPCC/newsweb_*` within hours of the release. Green-on-`edgar_poll.log`
+  is **not** evidence the NewsWeb lane works — the log prints `0 new release(s)` identically
+  whether the lane is healthy-and-quiet or silently broken.
+- **BRUT demerger completes by end-August**, 8-ship spin listing on Euronext Growth Oslo, with
+  BRUT's own uplisting to Expand / Oslo Børs targeted **end-September**. **Two weeks out and still
+  unresolved:** how the model carries one 12-ship NAV today vs two entities shortly. The M3 share
+  premium reduction is plausibly a step in this. This is the largest unmodelled structural event
+  on the book.
+- **Reporting inside two weeks:** **FLNG 8/19** · **GNK 8/24 (Diana response date)** ·
+  **2343 ex-div 8/20, record 8/24, payable 9/03** · **TRMD 8/26** · **MPCC 8/26** · **CMBT 8/27** ·
+  **BWLP 8/28** · **HAFN 8/28** · **NAT ~8/31** · **CAPT 9/01**.
+- **MPCC 8/26 is doing double duty** — first NewsWeb test *and* the first balance sheet to carry
+  both the placement (M2) and the 6/25 acquisition. Run 1's point stands: if
+  `decisions/mpcc_h1_prereg_2026-08-13.md` pre-registers a band on **443.7m** shares, the band is
+  wrong before it is run. Cheapest thing on the list to get ahead of, and now confirmed at primary.
+- **CAPT runs on a 31-Mar-2026 balance sheet until 9/01** while carrying, unmodelled: the June
+  VLCC acquisition, the 8/06 LR2 delivery + $50.0m senior secured facility, and the 8/13 Suezmax
+  delivery + $67.5m sale-and-leaseback. The **SLB-vs-senior-secured distinction (ECO precedent —
+  SLB into borrowings, no separate operating-lease line) is the double-count hazard**; the model
+  print today reads BUY, EV +9.1%, broker spread +32.8pp, on that stale sheet.
+- **Pareto 8/14 daily still absent** — 1 business day, below threshold. Decide at the 8/17 daily.
+- **Watchlist price drift vs the 8/07 vintage keeps widening.** Today's run: **GNK $26.34** vs
+  `current_price: 25.1`; **CAPT $14.68** vs `14.14`; **MPCC $2.72** vs `2.55`. Reads are current
+  (pipeline values live), but `consensus_pnav` / `consensus_fwd_pe` stay paired to 8/07. The staged
+  `inputs/watchlist_rebase_2026-08-07.yaml.draft` is still awaiting the owner.
+
+---
+
+## NO-ACTION — swept, nothing in the window
+
+Every line means: **searched over 2026-08-16 04:15 → 19:15 PDT, nothing found that moves a model
+surface.** For the US-listed names this is now backed by the hourly EDGAR poller (0 new filings
+since 8/14), not by search silence — a stronger claim than Run 1 could make.
+
+- **BRUT · MPCC · CAPT · BWLP** — all four issuer feeds fetched directly at `mfn.se`. Newest items
+  are **BRUT 8/13 06:00** (H1 results), **CAPT 8/13 05:32** (Suezmax delivery), **BWLP 8/14 05:00**
+  (Q2 date notice), **MPCC 7/02** (share capital registration). **Nothing dated 8/15–8/16 on any
+  of them.** Primary-sourced negative. *(Note: each release appears twice in these feeds — an `ob`
+  Oslo Børs mirror titled `TICKER: …` and an `mfn` issuer copy. Counted as one event each.)*
+- **NAT** — `nat.bm` read directly again: **nothing in August 2026**; newest are 7/23, 7/14, 7/10.
+  Independently re-confirms Run 1's finding against the re-dated Cyprus Shipping News item. Q2 ~8/31.
+- **2343** — HKEX poller clean at 00:20 UTC; nothing new since the 8/06 Interim. Dividend timetable
+  forward-dated (see WATCH).
+- **GNK** — searched; no Genco or Diana release dated 8/15–8/16. The model moved, not the news (M5).
+- **FRO** — searched deeply for the P1 vessel names; nothing new in-window, and the two apparently
+  fresh items proved to be January and May (above).
+- **DHT · ECO · INSW · TNK · STNG · SBLK · LPG · HAFN · TRMD · FLNG · CMBT · ASC · CCEC · TEN ·
+  CMDB · GSL · SB** — no new EDGAR filing since **CMDB 8/14**, verified against
+  `state/edgar_manifest.jsonl` and hourly poller logs through 18:20 today. No web search was run
+  per-name for these; the manifest is the stronger check and I am naming that substitution rather
+  than implying 17 individual sweeps.
+
+**A genuinely quiet 15-hour Sunday window — and that finding is supported**, not assumed: three
+ingest lanes polled clean through 18:20, four Oslo feeds read at primary, one issuer newsroom read
+directly. The substance of this run is M1 through M5 and the two re-dating catches, none of which
+came from the window itself.
+
+---
+
+## Owner summary — what I'd action first
+
+1. **M1 — the NewsWeb channel is built and live but has never carried an arrival.** Verify the
+   bootstrap watermark before **8/26**, and treat MPCC's Q2 as its first real test. Until one
+   release lands end-to-end, the next sweep must keep fetching `mfn.se` directly rather than
+   trusting the local channel — the task file's "read the local channel first" instruction would
+   have returned an empty directory today.
+2. **M2 — MPCC's +10.0% share count is now primary-confirmed** (issuer share capital NOK
+   488,070,306, plus two flagging notices that cross-foot). The only open question is the NOK 1.00
+   par assumption. If the 8/13 H1 prereg carries 443.7m shares, fix it before 8/26.
+3. **M5 — GNK repriced UP after Diana walked** ($25.26 → $26.34, EV −10.2% → −13.9%), which
+   inverts the expected deal-premium unwind and *strengthens* the TRIM/SHORT. The log still has no
+   Diana-withdrawal annotation. Confirm on the 8/17 close before reading much into one print.
+4. **M3/M4 — two BRUT items needing the release body, both cheap.** The $226,039,548 share premium
+   reduction (purpose and conditionality unknown; likely demerger plumbing, equity-neutral) and the
+   **$105,700 vs $106,000/day** Mount Horizon rate discrepancy. The second is a fixture figure that
+   could reach a curve input, so pin it before anything uses it.
+5. **P1 FRO — the blocker is issuer non-disclosure, not a failed fetch.** No source names the
+   vessels or buyer. Promote on class/built/price with the non-disclosure recorded, or wait for
+   FRO's Q3 report. A decision is now possible; it was not last week.
+6. **Process, and narrower again than Run 1's.** (a) **Stop trying to reach EDGAR by fetch** — all
+   three SEC hosts 403, including `data.sec.gov` tested this run; the local manifest is complete,
+   current, and the better check. (b) **`globenewswire.com` has timed out on three consecutive
+   runs** — treat as unavailable and route to syndicators immediately rather than burning three
+   attempts. (c) Aggregator re-dating has now produced **three** false in-window items in two runs;
+   the issuer-page date check should be considered mandatory, not a nicety.
+
+---
+---
+
+# RUN 1 — 2026-08-16 04:15 PDT (preserved verbatim, unedited)
+
 Agent web-sweep (the AGENT half of `/news-pull`), scheduled task `crude-fv-weekly-news-pull`.
 **Review-only — nothing here is promoted; this file is the only write of the run.** Promotion
 of any item is a human follow-up (promote → rerun → drift loop).
