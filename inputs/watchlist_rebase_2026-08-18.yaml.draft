@@ -1,0 +1,130 @@
+# Watchlist consensus-pair rebase DRAFT — transcribed 2026-08-18 EVE from the Pareto
+# Shipping Daily 18 AUG 2026 p.1 share-price table (ONE daily, one vintage — the
+# WORKFLOWS §Consensus-pair recapture discipline). NOT APPLIED: promotion is the
+# owner's deliberate step. THIS IS THE 2343 STATIC-FALLBACK FIX (PLAN 8/18 URGENT):
+# tonight's 8/18 fetch prints 2343 $0.51 = +31.4% vs the 0.39 static — the ±30%
+# guard RE-TRIPPED, so the name is valuing on the stale 7/14 static AGAIN. The
+# whole-book variant fires because fresh dailies landed 8/17 + 8/18 (PLAN: "whole-
+# book rebase if a fresh Pareto daily has landed"; the 8/14 daily never printed —
+# recorded single-day gap, archive_gaps decision at the 8/16 close stands).
+# On promote: rebase price + consensus_pnav + consensus_fwd_pe TOGETHER into
+# watchlist.yaml with as_of 2026-08-18; APPROX names keep flags (price+PE only);
+# names ABSENT from Pareto's table (TEN / SB / CMDB / GSL) keep their current
+# static pair untouched; 2343 promotes via the issuer_sourced lane below.
+# kr-quoted rows (BRUT / CAPT / BWLP / MPCC) are transcribed AS PRINTED — apply
+# the standing FX conversion at promote: NOK/USD 0.106322 (2026-08-18, committed
+# prices_daily @ e8395ac — the DAILY's-date FX per the codified 2026-08-09 rule;
+# note the table's Last-price rows are Mon-8/17 closes, same off-by-one the 8/07
+# precedent carried with its 8/07 FX).
+
+as_of: 2026-08-18
+source: Pareto Shipping Daily 2026-08-18 (issue 522989), p.1 "Share prices"
+transcription_verified: rendered p.1 at 300dpi (pypdf text-extract DROPS this table
+  entirely — absence-isn't-evidence rule; crops in session scratchpad 2026-08-18)
+
+pareto_basis:            # price (as printed) / Pareto P/NAV / consensus P/E 1Y fwd
+  DHT:  {price_usd: 18.9,  consensus_pnav: 1.20, consensus_fwd_pe: 9.7}
+  FRO:  {price_usd: 42.2,  consensus_pnav: 1.39, consensus_fwd_pe: 10.2}
+  ECO:  {price_usd: 62.7,  consensus_pnav: 1.48, consensus_fwd_pe: 9.6}
+  INSW: {price_usd: 98.4,  consensus_pnav: 1.21, consensus_fwd_pe: 13.8}
+  TNK:  {price_usd: 89.1,  consensus_pnav: 0.93, consensus_fwd_pe: 8.9}
+  STNG: {price_usd: 80.3,  consensus_pnav: 0.75, consensus_fwd_pe: 13.7}
+  TRMD: {price_usd: 30.6,  consensus_pnav: 0.89, consensus_fwd_pe: 10.3}
+  HAFN: {price_usd: 7.9,   consensus_pnav: 0.96, consensus_fwd_pe: 9.9}
+  CMBT: {price_usd: 17.4,  consensus_pnav: 0.88, consensus_fwd_pe: 10.8}
+  GNK:  {price_usd: 26.2,  consensus_pnav: 0.97, consensus_fwd_pe: 14.2}
+  SBLK: {price_usd: 30.1,  consensus_pnav: 0.90, consensus_fwd_pe: 7.6}
+  LPG:  {price_usd: 48.4,  consensus_pnav: 1.04, consensus_fwd_pe: 13.3}
+  FLNG: {price_usd: 30.9,  consensus_pnav: 1.42, consensus_fwd_pe: 14.8}
+  BRUT: {price_kr: 64.8,   consensus_pnav: 0.91, consensus_fwd_pe: 23.0}   # NOK — x0.106322 = $6.89
+  CAPT: {price_kr: 142.0,  consensus_pnav: 0.73, consensus_fwd_pe: 23.8}   # NOK — x0.106322 = $15.10
+  BWLP: {price_kr: 218.8,  consensus_pnav: 1.21, consensus_fwd_pe: 12.4}   # NOK — x0.106322 = $23.26
+
+approx_basis:            # Pareto publishes NO P/NAV — price + fwd P/E legs only, pnav stays APPROX-flagged
+  ASC:  {price_usd: 18.1, consensus_fwd_pe: 10.9}   # P/E 15.5 -> 10.9 is a BIG estimate move — eyeball at promote, but plausible (product estimates rebuilding post-war)
+  NAT:  {price_usd: 6.8,  consensus_fwd_pe: 19.9}
+  CCEC: {price_usd: 22.7, consensus_fwd_pe: 7.9}
+  MPCC: {price_kr: 26.1,  consensus_fwd_pe: 8.9}    # NOK — x0.106322 = $2.77
+
+absent_from_table:       # keep the FULL consensus-pair anchor at its CURRENT vintage.
+  # The pipeline already values every name at the live prices_daily close — what
+  # these four keep is the watchlist STATIC pair as one older vintage. NEVER move
+  # a watchlist price against a stale pnav (the TEN $44 lesson).
+  - TEN
+  - SB
+  - CMDB
+  - GSL
+
+issuer_sourced:            # 2343 — consensus_pnav derived from the ISSUER-published
+  # fleet value (2026 Interim, 30-Jun basis), promoted 2026-08-13. The NAV anchor
+  # does NOT move tonight (next re-derivation venue: AR2026 ~Mar-2027). What moves
+  # is the PRICE LEG — the whole point of this sitting for 2343:
+  "2343":
+    nav_per_share_usd: 0.4297      # UNCHANGED (2026 Interim issuer-composite, 30-Jun)
+    price_leg: >
+      Promote the NEWEST HK CLOSE in prices_daily at promote time — NOT tonight's
+      fetched $0.5126, which is a LIVE Wed-8/19 11:59-HKT intraday tick (the fetch
+      ran during the HK morning session). At the Tue-8/18 close the print was ~$0.50;
+      Wed's close will have printed by the owner sitting. Cite close + HKD FX from
+      the prices_daily entry promoted in the same commit.
+    pnav_rule: >
+      consensus_pnav = promoted_price / 0.4297, computed at promote — never pasted
+      (structural TEN-$44 protection, per the 8/13 lane rules). At ~$0.50 that is
+      ~1.16 (was 0.91 at the stale $0.390): the month-long HKG rally moved the name
+      from a discount to a ~16% PREMIUM over issuer-composite NAV. That is a REAL
+      read change (the T/S the 8/16 ratify eyeballed), not an artifact.
+    fwd_pe_rule: >
+      RECOMPUTE this sitting: price / FY2026 consensus EPS US$0.03 -> ~0.50/0.03
+      = ~16.7x (2-dp aggregator EPS, stockanalysis 7/14 — estimate leg unchanged).
+      NOTE this DEVIATES from the 8/13 promote, which deliberately left 13.0 —
+      correctly, because THAT promote held the price leg at 7/14 too (both legs one
+      vintage). Tonight the price leg MOVES, so holding the old ratio would pair a
+      new price with an old-price-derived P/E — the exact mixing the pair rule bans.
+    static_guard_effect: >
+      Re-pinning current_price ~0.50 resets the ±30% guard base — the live feed
+      re-applies (tonight's flag clears at the next fetch), the static-fallback
+      regime ends, and the guard means something again (fires at ~0.35 / ~0.65).
+
+anchor_maintenance:        # GNK — the 8/13-ruled DEAL CAVEAT rewrite fires NOW
+  GNK:
+    what_happened: >
+      Diana WITHDREW the non-binding indicative proposal 2026-08-14 (Diana release
+      8/14 + Genco board letter 8/14; digest 2026-08-16 M1/M5). The re-check the
+      8/13 draft registered ("either outcome re-points this field") has FIRED on
+      the Diana-walks branch. The 8/24 board response date is pre-empted, moot.
+    analyst_target_28_40: >
+      STANDS as ruled (broker NAV basis, owner 8/13) — the basis did not die with
+      the proposal; it was chosen precisely because it does not depend on the deal.
+      NOTE for a future re-pin, not this promote: the 8/18 daily implies a FRESH
+      Pareto NAV ~$27.0 (26.2 / 0.97) vs the pinned $28.40 (8/06 daily, 0.9x) —
+      a ~5% drift. Owner may re-pin at the next GNK ruling; do not move it silently.
+    caveat_rewrite: >
+      REWRITE (not delete) the DEAL CAVEAT block in the watchlist comment: the tape
+      is now FULLY un-pinned — no live proposal, no tender. First post-withdrawal
+      close moved UP (+4.3% to $26.34 on 8/14) and EV widened to -13.9%: the
+      market repriced GNK ABOVE the dead deal's implied totals, inverting the
+      deal-premium-unwind intuition (digest M5; one close = thin evidence, but 8/17
+      $26.2 daily print + 8/18 $26.05 close both HELD the level — confirmed, not a
+      one-print artifact). Keep the band-boundary warning: GNK sits ON its band
+      edge; do not read T/S prints as thesis deterioration.
+    log_annotation_owed: decisions/gnk_log.md still carries NO Diana-withdrawal
+      annotation — land it with this promote (drafted in the promote checklist).
+
+promote_checklist:
+  - "One commit rebasing watchlist.yaml from this draft (FX rule: price leg only, 0.106322 8/18 NOK FX; delete this draft in the same commit)"
+  - "2343: promote newest HK close + compute pnav = price/0.4297 + recompute fwd_pe = price/0.03 in the SAME commit (rules above)"
+  - "GNK: rewrite the deal caveat to the withdrawn regime (text above); annotate gnk_log with the withdrawal + the post-withdrawal repricing read; analyst_target 28.40 stands"
+  - "Gate loop: pytest -> /reconcile --all -> drift gate. k_broker moves on its second difference (the rebase's purpose) -> annotate movers, then ratify"
+  - "Drafted ratify cause: 'watchlist consensus-pair rebase to the 2026-08-18 Pareto daily (one vintage, 20 names + 2343 price-leg re-pin; APPROX flags kept on NAT/ASC/CCEC/MPCC; retires the 2343 static-fallback regime flagged at the 8/16 two-cause ratify) + the 8/18 price vintage (e8395ac, two-session catch-up after Mon+Tue DNS stand-downs)'"
+  - "Band flips: isolate-commit discipline, individual eyeballs. EXPECTED: 2343's T/S re-reads on the applied live price (the static-fallback release becomes a real premium read); ASC oscillator may flip again (pre-warned); SBLK three-thread sitting UNTOUCHED by rule (its own docket, Wed ex-div re-read). ANY flip toward BUY = halt-and-investigate (standing ADDENDUM rule)"
+  - "FLNG reports TOMORROW 8/19 pre-market: the rebase commit and the FLNG report-day refresh stay SEPARATE commits whatever the order (prereg flng_q2_prereg_2026-08-18.md condition 8)"
+  - "Re-arm all_sectors_consensus_pair_recapture to promote-date + 3 months"
+
+verified_cells_2026-08-18:  # re-checked against the RENDERED p.1 (300dpi crops) —
+  # pypdf text extraction returned ZERO table content (the table is a graphics
+  # object): every cell below was read off the rendered image, not extracted text.
+  - "BRUT P/E 23.0x / CAPT 23.8x remain the only >20x rows (the 8/09-verified collapsing-estimate class, still a market read not an artifact)"
+  - "TNK P/NAV 0.93x (was 0.80x 8/07): a +16% P/NAV jump on a +15.6% price week — Pareto NAV roughly FLAT (~95.8 vs 96.4), coherent"
+  - "ECO 1.48x = the daily's own commentary name ('assuming $120,000/day across the Okeanis fleet through 2027 and marking assets 10% higher our NAV would go from $42.5 as of Q3 to $67 as of YE27') — the 1.48x is against the CURRENT conservative NAV"
+  - "ASC P/E 15.5 -> 10.9 eyeballed (big move, flagged in approx_basis)"
+  - "MPCC/NAT/CCEC/ASC P/NAV all print '-' — the APPROX partition is UNCHANGED from 8/13 (test_approx_roster pin holds, no deliberate move needed)"
