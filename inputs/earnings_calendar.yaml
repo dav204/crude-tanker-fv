@@ -1,5 +1,5 @@
 meta:
-  last_date_sweep: 2026-08-09
+  last_date_sweep: 2026-08-18
   quarter: 2026-Q2
   vetted: 2026-07-03
 names:
@@ -91,14 +91,15 @@ names:
     window_end: 2026-08-04
     window_start: 2026-08-04
   FLNG:
-    basis: 'RE-VERIFIED 2026-07-21: flexlng.com calendar still ''28.08.2026 - Half-yearly Report 2026''; no updated/earlier
-      date announced (press feed ends 5/13 Q1). EARLY-RELEASE RISK stands (2025 came ~1wk early) — re-check mid-Aug
-      for the earnings-release notice.'
+    basis: 'MOVED TO AUG-19 — the early-release risk this entry carried FIRED (9 days early, vs ~1wk in 2025).
+      CONFIRMED 2026-08-18 at the issuer primary: flexlng.com ''Flex LNG - Invitation to the 2026 Second Quarter
+      Presentation'' — Q2 results ~07:00 CEST (~01:00 ET) Wed Aug-19, webcast 15:00 CEST. Prereg band frozen
+      pre-print: decisions/flng_q2_prereg_2026-08-18.md [25.40, 29.80]. Supersedes the 28.08 calendar entry.'
     disclosure_type: 6-K (half-yearly report)
     status: confirmed
     venue: NYSE + Oslo
-    window_end: 2026-08-28
-    window_start: 2026-08-28
+    window_end: 2026-08-19
+    window_start: 2026-08-19
   FRO:
     basis: 'frontlineplc.cy/calendar (announced 2026-05-22): Q2-2026 report Aug-31; narrowed from the expected Aug-26..31
       window'
@@ -152,7 +153,12 @@ names:
     window_end: 2026-08-26
     window_start: 2026-08-26
   NAT:
-    basis: 'SWEPT 2026-08-09: aggregators (MarketBeat et al.) point ~Aug-31; NO issuer date-PR yet (NAT pattern: terse GlobeNewswire report-day releases, thin advance notice). Window held 8/26-8/31, aggregator grade.'
+    basis: 'RE-SWEPT 2026-08-18 (the PLAN 8/18 URGENT sweep): PRIMARY CLEAN — nat.bm newest release is still
+      7/23 (optimistic summer message), NO date-PR exists. Aggregators now SPLIT: MarketBeat/AAII ~Aug-27 vs
+      Investing.com ~Aug-31 — disagreement is itself evidence the date is aggregator-inferred, not sourced.
+      Window HELD 8/26-8/31, aggregator grade (EARNINGS-UNCONFIRMED). NAT pattern stands: terse report-day
+      GlobeNewswire releases, thin advance notice — the 6-K lands via the hourly EDGAR poller same-day
+      regardless, so the window rides the poller, not a pre-announcement. Prior sweep 2026-08-09 (~8/31).'
     disclosure_type: 6-K
     status: expected
     venue: NYSE
