@@ -7,6 +7,11 @@ automation never writes pipeline-loaded YAMLs.
 
 | Date | Status | Cape (m1/m2/Qn/Qf/Cal) | Pmax | Smax | Issues | Source |
 |---|---|---|---|---|---|---|
+| 2026-08-25 | flagged | 39450/42375/28800/42125/32625 | 19750/20925/17375/21550/17775 | 18600/19875/14950/15625 | incomplete grid {'cape': 5, 'pmax': 5, 'smax': 4} (expect 5 tenors/panel) | inputs/ffa_drybulk/2026/08/2026-08-25_Clipboard - 25 augustus 2026 09:36.png |
+| 2026-08-24 | ok | 39625/43000/28725/42125/32400 | 19800/21325/17375/21791/17850 | 18625/20275/15150/20275/15700 | — | inputs/ffa_drybulk/2026/08/2026-08-24_Clipboard - 24 augustus 2026 09:22.png |
+| 2026-08-21 | flagged | 38950/40675/40166 | 19725/20825/17150/21300/17675 | 18625/20000/14800/19983/15550 | incomplete grid {'cape': 3, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel) | inputs/ffa_drybulk/2026/08/2026-08-21_Clipboard - 21 augustus 2026 08:49.png |
+| 2026-08-20 | ok | 38700/40025/27125/39341/31100 | 19725/20725/16950/21225/17650 | 18700/20125/14775/20066/15400 | — | inputs/ffa_drybulk/2026/08/2026-08-20_Clipboard - 20 augustus 2026 09:29.png |
+| 2026-08-19 | flagged | 38575/26675/38875/30800 | 19725/20275/16675/20700/17350 | 18650/19700/14575/19683/15275 | incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel) | inputs/ffa_drybulk/2026/08/2026-08-19_Clipboard - 19 augustus 2026 08:07.png |
 | 2026-08-18 | flagged | 38625/26675/38716/30725 | 19900/20425/16725/20858/17450 | 18700/19750/14700/19858/15300 | incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel) | inputs/ffa_drybulk/2026/08/2026-08-18_Clipboard - 18 augustus 2026 10:01.png |
 | 2026-08-17 | ok | 39550/40175/26750/39091/30925 | 20200/20975/16700/20950/17450 | 18700/20200/14700/19900/15300 | — | inputs/ffa_drybulk/2026/08/2026-08-17_Clipboard - 17 augustus 2026 09:15.png |
 | 2026-08-13 | ok | 39125/38200/25750/37683/29875 | 20575/21250/16525/20983/17250 | 18650/19975/14325/19633/15000 | — | inputs/ffa_drybulk/2026/08/2026-08-13_Clipboard - 13 augustus 2026 09:48.png |
