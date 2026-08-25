@@ -1,5 +1,10 @@
 # Flex LNG (FLNG) fleet manifest — METHODOLOGY.md sections 4.1, 11
 # Source: Flex LNG Q1 2026 ER fleet table (as of 2026-05-13).
+# Q2-2026 refresh (2026-08-25, 6-K acc 0001628280-26-057822 filed 8/19): fleet
+# UNCHANGED — 13 hulls, no S&P, no orders (investing activities $0; the 6-K
+# restates the same 13-vessel fleet). Ages +0.5 per the refresh convention
+# (INSW d510311 precedent). Q2 TCE $86,119/day (Q1 $65,729) — the variable-hire
+# upside quarter the guidance anticipated; revenue $106.8M, highest since Q4-21.
 # 13 modern 174k cbm two-stroke LNG carriers, all Korean-built (Hanwha Ocean
 # (formerly DSME) = HO; Samsung Heavy Industries = SHI; Hyundai Samho Heavy
 # Industries = HSHI). Propulsion mix: MEGI / MEGI+PRS / MEGI+FRS (Hanwha Ocean)
@@ -12,25 +17,25 @@
 # Average disclosed fleet TCE Q1 2026 = $65,729/day; FY26 guidance $73-78k.
 # No newbuilds on order.
 ticker: FLNG
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
   # ---- 2018 builds (age 8) — 4 vessels ----
-  - {id: Flex_Endeavour,     class: LNGC, dwt: 174000, age: 8, scrubber: false, eco: false, yard: Hanwha Ocean, charter_status: time_charter, charter_rate: 80000, count: 1}
-  - {id: Flex_Enterprise,    class: LNGC, dwt: 174000, age: 8, scrubber: false, eco: false, yard: Hanwha Ocean, charter_status: time_charter, charter_rate: 80000, count: 1}
-  - {id: Flex_Ranger,        class: LNGC, dwt: 174000, age: 8, scrubber: false, eco: false, yard: Samsung,      charter_status: time_charter, charter_rate: 80000, count: 1}
-  - {id: Flex_Rainbow,       class: LNGC, dwt: 174000, age: 8, scrubber: false, eco: false, yard: Samsung,      charter_status: time_charter, charter_rate: 80000, count: 1}
+  - {id: Flex_Endeavour,     class: LNGC, dwt: 174000, age: 8.5, scrubber: false, eco: false, yard: Hanwha Ocean, charter_status: time_charter, charter_rate: 80000, count: 1}
+  - {id: Flex_Enterprise,    class: LNGC, dwt: 174000, age: 8.5, scrubber: false, eco: false, yard: Hanwha Ocean, charter_status: time_charter, charter_rate: 80000, count: 1}
+  - {id: Flex_Ranger,        class: LNGC, dwt: 174000, age: 8.5, scrubber: false, eco: false, yard: Samsung,      charter_status: time_charter, charter_rate: 80000, count: 1}
+  - {id: Flex_Rainbow,       class: LNGC, dwt: 174000, age: 8.5, scrubber: false, eco: false, yard: Samsung,      charter_status: time_charter, charter_rate: 80000, count: 1}
   # ---- 2019 builds (age 7) — 2 vessels ----
-  - {id: Flex_Constellation, class: LNGC, dwt: 174000, age: 7, scrubber: false, eco: false, yard: Hanwha Ocean, charter_status: time_charter, charter_rate: 85000, count: 1}
-  - {id: Flex_Courageous,    class: LNGC, dwt: 174000, age: 7, scrubber: false, eco: false, yard: Hanwha Ocean, charter_status: time_charter, charter_rate: 85000, count: 1}
+  - {id: Flex_Constellation, class: LNGC, dwt: 174000, age: 7.5, scrubber: false, eco: false, yard: Hanwha Ocean, charter_status: time_charter, charter_rate: 85000, count: 1}
+  - {id: Flex_Courageous,    class: LNGC, dwt: 174000, age: 7.5, scrubber: false, eco: false, yard: Hanwha Ocean, charter_status: time_charter, charter_rate: 85000, count: 1}
   # ---- 2020 builds (age 6) — 4 vessels ----
-  - {id: Flex_Aurora,        class: LNGC, dwt: 174000, age: 6, scrubber: false, eco: false, yard: Hyundai,      charter_status: time_charter, charter_rate: 88000, count: 1}
-  - {id: Flex_Amber,         class: LNGC, dwt: 174000, age: 6, scrubber: false, eco: false, yard: Hyundai,      charter_status: time_charter, charter_rate: 88000, count: 1}
-  - {id: Flex_Artemis,       class: LNGC, dwt: 174000, age: 6, scrubber: false, eco: false, yard: Hanwha Ocean, charter_status: time_charter, charter_rate: 88000, count: 1}
-  - {id: Flex_Resolute,      class: LNGC, dwt: 174000, age: 6, scrubber: false, eco: false, yard: Hanwha Ocean, count: 1}   # spot/open
+  - {id: Flex_Aurora,        class: LNGC, dwt: 174000, age: 6.5, scrubber: false, eco: false, yard: Hyundai,      charter_status: time_charter, charter_rate: 88000, count: 1}
+  - {id: Flex_Amber,         class: LNGC, dwt: 174000, age: 6.5, scrubber: false, eco: false, yard: Hyundai,      charter_status: time_charter, charter_rate: 88000, count: 1}
+  - {id: Flex_Artemis,       class: LNGC, dwt: 174000, age: 6.5, scrubber: false, eco: false, yard: Hanwha Ocean, charter_status: time_charter, charter_rate: 88000, count: 1}
+  - {id: Flex_Resolute,      class: LNGC, dwt: 174000, age: 6.5, scrubber: false, eco: false, yard: Hanwha Ocean, count: 1}   # spot/open
   # ---- 2021 builds (age 5) — 3 vessels ----
-  - {id: Flex_Freedom,       class: LNGC, dwt: 174000, age: 5, scrubber: false, eco: false, yard: Hanwha Ocean, charter_status: time_charter, charter_rate: 95000, count: 1}
-  - {id: Flex_Volunteer,     class: LNGC, dwt: 174000, age: 5, scrubber: false, eco: false, yard: Hyundai,      count: 1}   # spot/open
-  - {id: Flex_Vigilant,      class: LNGC, dwt: 174000, age: 5, scrubber: false, eco: false, yard: Hyundai,      count: 1}   # spot/open
+  - {id: Flex_Freedom,       class: LNGC, dwt: 174000, age: 5.5, scrubber: false, eco: false, yard: Hanwha Ocean, charter_status: time_charter, charter_rate: 95000, count: 1}
+  - {id: Flex_Volunteer,     class: LNGC, dwt: 174000, age: 5.5, scrubber: false, eco: false, yard: Hyundai,      count: 1}   # spot/open
+  - {id: Flex_Vigilant,      class: LNGC, dwt: 174000, age: 5.5, scrubber: false, eco: false, yard: Hyundai,      count: 1}   # spot/open
 # Charter coverage: 10 of 13 on long-term TCs (~77% TC-out), 3 on spot/open
 # trading (Resolute, Volunteer, Vigilant). 91% of 2026 fleet-days are booked.
 spot_coverage_pct:
@@ -38,6 +43,6 @@ spot_coverage_pct:
 fleet_summary:
   LNGC_count: 13
   newbuild_orders_post_q1: 0
-  avg_age_approx: 6.7
+  avg_age_approx: 7.2
   tc_backlog_years_min: 54
   tc_backlog_years_max: 81

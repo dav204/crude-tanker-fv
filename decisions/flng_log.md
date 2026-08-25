@@ -7,6 +7,65 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-25T22:03:10+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $31.93
+- Single-point FV: $27.01
+- Scenario PW FV: $29.47 (EV -7.7%)
+- NAV / share: $27.22
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: -14.2pp (k_broker 0.91)
+- Sector: lng
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: +0.93 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.4pp
+
+**Decision:** **Q2 REPORT-DAY REFRESH EXECUTED (6 days post-print, at the frozen prereg) —
+BAND HIT.** The print landed 8/19 pre-market; the week-long automation network stand-down
+delayed the refresh to tonight's manual sitting. Executed per
+`decisions/flng_q2_prereg_2026-08-18.md` (frozen 8/18, the night before the print):
+**NAV $27.22 ∈ [25.40, 29.80]** (point est. $27.6, miss −1.4%). Pair landed in one commit
+(`flng_2026-Q2.yaml` + manifest ages +0.5, 6-K acc 0001628280-26-057822). Subsequent-events
+note audited FIRST: the ONLY item is the 8/18 Q2 dividend declaration ($0.75, 20th
+consecutive — prereg condition 5 PASS, no policy change), correctly excluded. **ΔNAV −$1.23/sh
+(−4.3%) decomposes exactly:** WC plug retirement −$1.06 (the Q1 sheet's "~$10M assumed" other
+current liabilities was actually $44.4M-class — all six WC components now filing-cited, net
+−$0.7M) + aging −$0.85 + H1 debt paydown +$0.50 + cash build +$0.15 ≈ −$1.26. **FLNG LEAVES
+`NAV_FIGURE_ESTIMATE_QUEUE`** (condition 4 — the queue's purpose served: the uncited plug was
+hiding a real −$1/sh). No S&P, no orders, fleet 13 unchanged; TCE $86,119/day (Q1 $65,729),
+revenue $106.8M highest since Q4-21 — LNGC context only, no Stage-B basis (condition 6).
+**Position flip HOLD→T/S eyeballed individually:** band-mech, JOINT legs — FV down (−3.9% pair
+refresh) + tape up (+3.7% to $31.93, 8/25 close) crossed the T/S edge at EV −7.7%. NOT toward
+BUY → no halt (condition 7). Forward invariance: the pair regen moved only FLNG (other 24
+ΔNAV 0.0 — condition 3 PASS; the same evening's EV% moves on other names are the 8/25 PRICE
+vintage leg, a separate cause in the ratify draft). Tier GOVERNED-WIDE·structural-class
+unchanged; k_broker 0.91 (broker NAV $35.1 vs tool $27.22 — the §6 LNGC spread persists,
+mark-driven).
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-25T22:00:05+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $31.00
+- Single-point FV: $27.01
+- Scenario PW FV: $29.47 (EV -4.9%)
+- NAV / share: $27.22
+- Position: **HOLD (fairly valued)**
+- Broker spread: -16.6pp (k_broker 0.90)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.20 | Δsingle FV: -4.1% | Δscenario FV: -3.9% | ΔNAV: -4.3% | Δspread: +4.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-16T20:06:34+00:00 — Pipeline run (auto)
 
 **Model state:**

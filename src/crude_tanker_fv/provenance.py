@@ -106,7 +106,7 @@ UNANCHORED_VALUE_CLASS_CAP = {"2343"}
 
 # --- NAV-equation figure provenance (test_manifest_provenance) ----------------------------------
 # Names with an uncited estimate on a NAV-equation figure (lowercase, as the scan emits).
-NAV_FIGURE_ESTIMATE_QUEUE = {"cmbt", "flng", "hafn"}  # BRUT LEFT 2026-08-13 (H1-2026: cash $11.828M sourced to Note 9 — the `cash-pending-H1-report` flag booked 7/01 resolved exactly at its pre-registered venue); nat/asc/stng left; trmd left 2026-07-02; ten left 2026-07-15 (full reconciliation vs Q1-2026 6-K condensed BS + FY2025 20-F — advances/WC/debt all filing-cited, NCI netted, 4 not-owned hulls out of the manifest; stays OFF_CONVENTION + OPERATING_SCRUBBER)
+NAV_FIGURE_ESTIMATE_QUEUE = {"cmbt", "hafn"}  # FLNG LEFT 2026-08-25 (Q2 refresh at the frozen prereg: the Q1 "~$10M assumed" other-current-liabilities WC plug retired — all six WC components filing-cited to 6-K 0001628280-26-057822 F-3, net -$0.7M); BRUT LEFT 2026-08-13 (H1-2026: cash $11.828M sourced to Note 9 — the `cash-pending-H1-report` flag booked 7/01 resolved exactly at its pre-registered venue); nat/asc/stng left; trmd left 2026-07-02; ten left 2026-07-15 (full reconciliation vs Q1-2026 6-K condensed BS + FY2025 20-F — advances/WC/debt all filing-cited, NCI netted, 4 not-owned hulls out of the manifest; stays OFF_CONVENTION + OPERATING_SCRUBBER)
 
 # Operating-scrubber materiality: max possible FV error as a fraction of NAV above which an uncited
 # operating-scrubber surface widens the tier. Below it, the surface is a tracked-but-immaterial

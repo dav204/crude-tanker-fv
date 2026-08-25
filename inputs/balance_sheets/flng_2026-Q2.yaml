@@ -1,0 +1,40 @@
+# Flex LNG (FLNG) balance sheet — METHODOLOGY.md section 4.2
+# Source: FLNG Q2 2026 6-K acc 0001628280-26-057822 (filed 2026-08-19, staged
+# inputs/filings/FLNG/0001628280-26-057822_6-K_flng-20260630.htm), Unaudited
+# Interim Condensed Consolidated Balance Sheet as of 2026-06-30. USD.
+# Subsequent-events note audited FIRST (F-15): the ONLY item is the Q2 dividend
+# declaration 8/18 ($0.75/sh, ex ~9/03, payable ~9/17) — post-quarter, excluded.
+# Refresh executed per the frozen prereg decisions/flng_q2_prereg_2026-08-18.md.
+ticker: FLNG
+quarter: 2026-Q2
+
+# Cash & equivalents: $397,382k (6-K F-3). Restricted cash: $0 (was $65k at 12/31).
+cash_and_equivalents: 397382000
+
+# Working capital constructed FROM DISCLOSED COMPONENTS (retires the Q1 sheet's
+# "other current liabilities assumed small ~$10M" plug — the 6-K's own 12/31
+# column shows that line was $44,412k, so the Q1 construction overstated WC by
+# ~$35-40M; this was the uncited figure that held FLNG in NAV_FIGURE_ESTIMATE_QUEUE):
+#   inventory 7,473 + receivables due from related parties 490 + other current
+#   assets 50,105 − payables due to related parties 1,191 − accounts payable
+#   6,118 − other current liabilities 51,470 = −711k (6-K F-3, every line as
+#   printed). Derivative instruments (asset 22,343 non-current / other
+#   non-current asset 7,466 vs other non-current liability 7,466) excluded from
+#   NAV per the standing construction (rate hedges, not operating WC).
+working_capital_net: -711000
+
+# Total interest-bearing debt: current portion $110,820k + long-term $1,682,848k
+# = $1,793,668k (6-K F-3). H1 scheduled repayments $55,514k; RCF drawn/repaid
+# flat ($747,350k both ways); no new debt, no prepayment (cash-flow stmt F-4).
+total_debt: 1793668000
+
+# No operating-lease line on the condensed BS (head office only, as at Q1).
+lease_liabilities: 0
+
+# No newbuild orders (investing activities $0; no commitments note in the 6-K).
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+# Shares outstanding 54,092,376 at 30-Jun-2026 (statement of changes in equity,
+# F-5: 54,520,325 issued − 427,949 treasury; count unchanged from 12/31).
+diluted_shares_outstanding: 54092376
