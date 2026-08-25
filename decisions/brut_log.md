@@ -9,6 +9,49 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-25T22:03:10+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.32
+- Single-point FV: $9.63
+- Scenario PW FV: $10.28 (EV +62.7%)
+- NAV / share: $9.62
+- Position: **BUY (undervalued)**
+- Broker spread: -34.3pp (k_broker 0.92)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** **DEMERGER EXECUTED — ex-date print landed TODAY (8/25, −36.6% native, guard-held).**
+The 8/20 releases (NewsWeb channel's first live end-to-end catch) resolve the distribution:
+8 hulls + $873.9M-class commitment + $50M cash → OMC Tankers, 1:1, distribution 8/27, OMC lists
+8/28. This run still values the 12-hull object on the $6.32 static — CORRECT pending the carry
+ruling: the flagged ex-price must not meet a 12-hull NAV. **Owner decision doc:
+`decisions/brut_demerger_carry_2026-08-25.md` (rec: Option A, 4-hull BRUT; joint manifest+sheet+
+watchlist absorb; §15 re-run; R4 scope word).** POSITION_UNRELIABLE stands throughout.
+
+---
+
+## 2026-08-25T22:00:05+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.32
+- Single-point FV: $9.63
+- Scenario PW FV: $10.28 (EV +62.7%)
+- NAV / share: $9.62
+- Position: **BUY (undervalued)**
+- Broker spread: -34.3pp (k_broker 0.92)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -9.1pp
+- Δprice: -0.42 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -9.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-16T20:06:34+00:00 — Pipeline run (auto)
 
 **Model state:**
