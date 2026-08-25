@@ -107,10 +107,14 @@ _MONEY_RE = _re.compile(r"\$\s?[\d,]+|\b\d+(?:\.\d+)?\s?(?:M\b|bn\b|million|bill
 # a name can't leave by deleting the figure. THIS GATES THE CONVENTION QUEUE: a name here has an
 # uncited NAV-driver, so wiring its newbuilds on-curve (§9.6) would build the move on sand.
 NAV_FIGURE_ESTIMATE_QUEUE = {
-    "cmbt", "flng", "hafn",
-}  # BRUT LEFT 2026-08-13 — the xfail-strict xpassed, which is the queue working: cash was the
-   # single uncited NAV figure, booked 2026-07-01 as a $66M conservative floor with a named
-   # resolution date, and the H1-2026 report sourced it to $11.828M (Note 9). Cleared by SOURCING,
+    "cmbt", "hafn",
+}  # FLNG LEFT 2026-08-25 — xfail-strict xpassed at the Q2 refresh: the Q1 WC construction's
+   # "other current liabilities assumed ~$10M" was the single uncited figure; the Q2 6-K
+   # (0001628280-26-057822 F-3) sources all six WC components (the assumed line was actually
+   # $44.4M-class — the plug hid ~-$1/sh). Cleared by SOURCING at the pre-registered venue
+   # (flng_q2_prereg_2026-08-18.md condition 4). BRUT LEFT 2026-08-13 — cash was the single
+   # uncited NAV figure, booked 2026-07-01 as a $66M conservative floor with a named resolution
+   # date, and the H1-2026 report sourced it to $11.828M (Note 9). Cleared by SOURCING,
    # not by hiding the marker. nat/asc/stng left; trmd left 2026-07-02; ten left 2026-07-15 (full
    # reconciliation vs the Q1-2026 6-K condensed BS + FY2025 20-F — decisions/ten_reconciliation_prereg_2026-07-15.md)
 

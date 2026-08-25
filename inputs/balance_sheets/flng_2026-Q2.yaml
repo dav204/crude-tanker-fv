@@ -7,6 +7,9 @@
 # Refresh executed per the frozen prereg decisions/flng_q2_prereg_2026-08-18.md.
 ticker: FLNG
 quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1772253/000162828026057822/
+retrieved_at: 2026-08-25
+filing_period_end: 2026-06-30
 
 # Cash & equivalents: $397,382k (6-K F-3). Restricted cash: $0 (was $65k at 12/31).
 cash_and_equivalents: 397382000
