@@ -47,7 +47,7 @@ def test_decaying_coverage_blends_each_quarter_independently():
     # Covered quarters earn the contracted rate; as cov_q decays, each
     # quarter's blended TCE slides toward that quarter's curve value.
     # (FLNG's DPS is fixed-only, so assert at the TCE level, not NPV.)
-    ci = load_company_inputs("FLNG", "2026-Q1")
+    ci = load_company_inputs("FLNG", "2026-Q2")  # fixture advanced at the 8/25 Q2 refresh (pair guard)
     nav = compute_nav(ci)
     classes = {v.cls for v in ci.fleet.vessels}
     full = {cls: [1.0] * 8 for cls in classes}

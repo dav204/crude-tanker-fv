@@ -6,6 +6,30 @@ forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
 
+**STATE INSERT (2026-08-25, Tuesday EVE — the outage week absorbed; read this, then the block below for standing context).**
+The 8/17–8/24 week was a NETWORK-OUTAGE week: launchd DNS stand-downs killed price-refresh
+(7 days), edgar-poll (~100 hourly skips, self-recovered 8/24 ~21:00Z), rocketchat; the Fri
+8/21 governance monitor never fired (re-run 8/24). Tonight's sitting (all repo state as of
+these commits): **FLNG Q2 refresh EXECUTED band-HIT** ($27.22 ∈ [25.40,29.80]; reported
+8/19 — the 8/18-frozen prereg held; FLNG LEFT the figure-estimate queue on the sourced WC);
+**TRMD prereg FROZEN** ([28.00,32.80], reports TOMORROW 8/26) — MPCC's amended prereg
+stands from 8/18; **BRUT DEMERGER EXECUTED by the issuer** (ex 8/25 −36.6% guard-held ·
+distribution 8/27 · OMC lists 8/28) — **owner ruling doc `decisions/
+brut_demerger_carry_2026-08-25.md` (rec: Option A, 4-hull carry) is THE clock item**;
+8/25 price vintage committed (SB +36% and 2343 +37% static-guard trips — BOTH statics need
+re-pins: 2343 via the staged `inputs/watchlist_rebase_2026-08-18.yaml.draft` promote, SB
+its own owner re-pin); drift gate: FLNG explained, **19 EV%-only price-vintage rows await
+the owner's two-cause ratify** (5 band flips eyeballed individually, none toward BUY —
+2343's T/S→HOLD is the static-guard RECAPTURE artifact, the true tape read stays T/S);
+`escalation_pause_corroboration` EXECUTED-CONFIRMED (re-armed 9/01; UKMTO 120-26 tanker
+hit 8/24 routed to the fee-collection watch); governance: 8/21+8/24 monitor lines
+committed, **Hynix second-leg prereg DRAFTED at the fired stabilization gate** (owner
+rules), SBLK ex-div rider FIRED (GTC $31.30 economically stale, post-div line ~$30.40,
+tape $31.11 — the three-thread sitting is due). Earnings train: **8/26 TRMD + MPCC + NAT
+window opens · 8/27 CMBT + BRUT distribution · 8/28 HAFN + BWLP + OMC lists · 8/31 FRO ·
+9/01 CAPT.** FRO + CAPT preregs still to freeze (by 8/30). Pareto archive gap 8/19–8/21
+at limit — owner adjudication owed.
+
 **Current state (2026-08-16, Saturday EVE — WEEK CLOSED, SESSION HANDOFF).** Read this block, then start at §NEXT BLOCK step 1. **Suite 700 passed / 0 skipped / 14 xfailed (gate AWAKE) · drift gate 25 rows, 0 UNEXPLAINED · ratified @ e92fa8a (RATIFY_LOG 2026-08-16T20:09Z) · pushed.** The book runs 2026-Q2 on the **8/14 close** (Fri/Sat price-cron DNS stand-downs; 8/14 fetched manually 8/16); crude weights **0.25/0.62/0.00/0.13** (toll-cliff C2 — `mou_base` retired AT ZERO, kept as a leg for series continuity); watchlist consensus pairs at the 8/07 Pareto vintage — **except 2343, whose pair is STALE and URGENT (below)**.
 
 **Five structural facts a new agent needs this week:**

@@ -185,9 +185,9 @@ def test_toggle_on_changes_exposed_names_only(tmp_path):
     assert on_dht < base_dht
     # Pure-LNG: FLNG and CCEC are now the only no-exposure controls (no class
     # with a transactions file overlaps with their fleets).
-    base_flng = value_company("FLNG", "2026-Q1", 26.40, 28.00,
+    base_flng = value_company("FLNG", "2026-Q2", 26.40, 28.00,
                               use_transaction_anchored=False).nav.nav_per_share
-    on_flng = value_company("FLNG", "2026-Q1", 26.40, 28.00).nav.nav_per_share
+    on_flng = value_company("FLNG", "2026-Q2", 26.40, 28.00).nav.nav_per_share
     assert on_flng == pytest.approx(base_flng)
 
 

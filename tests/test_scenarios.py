@@ -275,7 +275,7 @@ def test_flng_runs_through_lng_scenarios(lng_doc):
     not the crude one. The report's scenario list and sector tag are the
     canonical signal that the sector layer is wired correctly end-to-end.
     """
-    ci = load_company_inputs("FLNG", "2026-Q1")
+    ci = load_company_inputs("FLNG", "2026-Q2")  # fixture advanced at the 8/25 Q2 refresh (pair guard)
     r = run_scenarios(ci, 30.23, 25.00, lng_doc)
     scen_names = [s.name for s in r.scenarios]
     assert scen_names == [
@@ -323,7 +323,7 @@ def test_flng_v3_set_b_revised_fv_band(lng_doc):
     weight set in inputs/scenario_inputs.yaml has been modified, or (b)
     whether a structural change to the LNG scenario forwards has landed.
     """
-    ci = load_company_inputs("FLNG", "2026-Q1")
+    ci = load_company_inputs("FLNG", "2026-Q2")  # fixture advanced at the 8/25 Q2 refresh (pair guard)
     r = run_scenarios(ci, 30.23, 25.00, lng_doc)
     assert 28.24 < r.probability_weighted_fv < 31.22
     # The weighted-FV identity (already covered for crude) holds in LNG too —
@@ -343,7 +343,7 @@ def test_flng_v3_locked_weights_position(lng_doc):
     reweight (tight_resurgence gains mass on Hormuz/Qatar exposure) lifted
     FLNG inside the HOLD band — pinned HOLD at the 2026-06-11 re-pin.
     """
-    ci = load_company_inputs("FLNG", "2026-Q1")
+    ci = load_company_inputs("FLNG", "2026-Q2")  # fixture advanced at the 8/25 Q2 refresh (pair guard)
     r = run_scenarios(ci, 30.23, 25.00, lng_doc)
     assert "HOLD" in r.position_recommendation, (
         f"FLNG position should be HOLD under Jun-9 v4 weights; got "
