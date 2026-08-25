@@ -14,7 +14,22 @@
 **Deltas since last run:** _(no material moves)_
 - Δprice: +0.35 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.1pp
 
-**Decision:** _[pending annotation]_
+**Decision:** **DIANA WITHDREW — the M&A regime ENDED 2026-08-14 (annotated 2026-08-18).**
+Diana withdrew its non-binding indicative proposal ("$24.80 cash + one Diana share") on
+2026-08-14, pre-empting Genco's board-set 8/24 response date (now moot); Genco's board letter
+landed the same day (digest 2026-08-16 M1/M5). The re-check registered at the 8/13 watchlist
+draft ("either outcome re-points this field") FIRED on the Diana-walks branch. **This run's
+$26.34 print is the FIRST post-withdrawal read** — and the market repriced GNK UP (+4.3% from
+the last with-deal read at $25.26), widening EV to −13.9% on an unchanged NAV: the opposite of
+the deal-premium unwind one would assume, so the TRIM/SHORT signal STRENGTHENED when its M&A
+prop was removed. Level CONFIRMED, not one-print: 8/17 Pareto daily prints $26.2, 8/18 close
+$26.05. Dispositions: (1) `analyst_target: 28.40` (broker-NAV basis, owner-ruled 8/13) STANDS
+— chosen precisely because it never depended on the deal; note the 8/18 daily implies a fresh
+Pareto NAV ~$27.0 (26.2/0.97) vs the pinned 8/06 print, a ~5% drift for the next owner ruling,
+not a silent move. (2) The watchlist DEAL CAVEAT rewrite (un-pinned tape, band-boundary warning
+KEPT) is staged in `inputs/watchlist_rebase_2026-08-18.yaml.draft` §anchor_maintenance — lands
+at the owner promote. (3) The 7/24-registered "live-proposal" watch is RETIRED. Read stays
+TRIM/SHORT band-mech at tape; no position, no action.
 
 ---
 
