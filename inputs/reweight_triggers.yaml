@@ -111,7 +111,13 @@ hormuz_fee_collection_watch:
 
 escalation_pause_corroboration:
   sector: crude
-  due: 2026-08-23
+  due: 2026-09-01   # re-armed 2026-08-25: check EXECUTED (2 days late, network-outage
+                    # week) -> the 8/09 "pause HOLDS" record CONFIRMED on primaries (no
+                    # CENTCOM-confirmed strike inside Iran through 8/23 = 24 consecutive
+                    # nights since the ~8/01 cancellation; pause SURVIVED the 8/17
+                    # ceasefire expiry; Treasury 8/20 ties max-pressure to no-restart).
+                    # decisions/escalation_pause_check_2026-08-25.md. Weekly cadence kept
+                    # (expired ceasefire + live tanker-attack tape, UKMTO 120-26 8/24).
   observable: >
     Registered by owner ruling R5 (2026-08-16) when C3's escalation tilt was
     DECLINED partly for resting on an uncorroborated pause status. The
