@@ -11,6 +11,14 @@
 # Horizon 12-15mo TC at $105,700/day net commencing mid-Nov (Aug). At 2026-06-30 the company had
 # ZERO vessels on the water and TWELVE under construction (Note 10) — the "1 in operation"
 # framing in the release is as-of publication, not as-of the balance-sheet date.
+# AS-ADJUSTED FOR THE OMC DEMERGER — COMPLETED POST-6/30, ABSORBED 2026-08-29 AT OWNER RULING
+# (Option A, decisions/brut_demerger_carry_2026-08-25.md §RULED+EXECUTED): the Note-13
+# "conditional on listing" subsequent event RESOLVED — distribution 8/27, OMC Tankers listed
+# Euronext Growth Oslo 8/28 (8/20 releases, newsweb-staged primaries). 8 hulls + $873.9M
+# remaining commitment + $50.0M cash left; BRUT = the 4-hull entity (Vision/Horizon/Frontier/
+# Summit). This file is the 6/30 sheet CARRIED AS-ADJUSTED for that one completed structural
+# event — the joint-leg absorb the pair guard demands (a 12-hull commitment against a 4-hull
+# manifest double-counts). Pre-absorb figures preserved below in comments + git history.
 ticker: BRUT
 quarter: 2026-Q2
 
@@ -26,6 +34,11 @@ filing_period_end: 2026-06-30
 # 3/31 figure carrying an unknown CIMC deposit. The Q2 installment run (circa $125.5M) is what moved
 # cash, and it is NAV-NEUTRAL by construction (§9.6: installments are sunk, advances stay 0, and
 # the commitment falls by what was paid). See the ledger note below.
+# KNOWN-UNKNOWN (2026-08-29 absorb): the $50.0M contributed to OMC and the July SLB
+# drawdowns that funded it are BOTH post-6/30 and neither is separately disclosed — the
+# 6/30 cited actual stands as the best citable figure; true post-demerger cash/debt
+# resolve at the Oslo Børs uplisting prospectus (~end-Sep 2026) or the FY2026 report
+# (half-yearly reporter). Flagged in brut_log; the read is VOID regardless (R4).
 cash_and_equivalents: 11828000
 
 # Prepayments and other current assets $96k − trade payables $372k − accrued expenses $410k.
@@ -50,7 +63,15 @@ lease_liabilities: 0
 # NAV-neutral), the corner was carrying roughly $47M of double-count — the NOTE-GROSS reading
 # the prereg called the more likely mode, and close to its +$50M estimate. The conservative
 # corner cost circa $0.76/sh of understated NAV for six weeks, exactly as pre-registered.
-newbuild_capex_commitments: 1271976000
+# AS-ADJUSTED (2026-08-29): retained-4 remaining = 6/30 Note-10 total $1,271.976M − the
+# departing $873.9M (8/20 release, issuer arithmetic: NTS 472.0−47.2 + CIMC 499.0−49.9;
+# the "paid" legs are the exact-10% signing deposits, stable across 6/30→8/20 — the two
+# figures net cleanly). Pre-absorb value: 1271976000 (the full-12 Note-10 schedule).
+# VISION STAYS A §9.6 ROW deliberately: its final installment inside this figure stands in
+# for the undisclosed July SLB draw (SLB = 90% of cost ≈ the post-deposit installment —
+# economic equivalence, documented in the carry doc) — flipping Vision to operating would
+# require fabricating a debt figure no filing states.
+newbuild_capex_commitments: 398076000
 newbuild_advances_paid: 0            # §9.6/FRO/CAPT convention (delivered-market less remaining commitment)
 
 # Note 12 / statement of changes in equity: 61,923,808 issued and outstanding at 6/30 (Dec-2025:

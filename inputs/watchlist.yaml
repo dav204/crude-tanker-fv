@@ -265,25 +265,30 @@ GSL:
   as_of: 2026-06-12
 
 BRUT:
-  current_price: 6.32    # Pareto 7 Aug 2026 (kr 60.0 x 0.105379 Aug-7 FX)
-                               # (report-implied). OSLO-LISTED, NOK-quoted — watchlist
-                               # carries USD for cross-name comparability; the daily
-                               # refresh fetches BRUT.OL and converts (yahoo_symbol +
-                               # quote_currency below). 20th name, onboarded 2026-06-22.
-  analyst_target: 7.13         # Pareto TP NOK 66 (= current NAV; BUY since the 2026-04-22
-                               # initiation) / 9.26.
-  consensus_pnav: 0.86    # Pareto 7 Aug 2026, same daily as price
-                               # implied broker NAV = 5.40/0.75 = $7.20 ≈ NOK 66.7 ≈
-                               # Pareto's published NAV NOK 66). Real Pareto coverage —
-                               # a genuine broker NAV, not a placeholder/proxy anchor. Series
-                               # in pareto_share_prices.csv (0.73-0.79x).
-  consensus_fwd_pe: 22.6    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-                               # pre-operational (first vessel delivers Jul-2026); EPS-xref
-                               # reads as noise for BRUT until vessels are on the water.
-  sector: crude                # pure-play VLCC newbuild vehicle (12x firm NB).
+  current_price: 4.70    # Pareto 28 Aug 2026 (kr 44.0 x 0.106791 Aug-28 FX) — the FIRST
+                               # POST-DEMERGER pair (OMC distribution 8/27, listed 8/28;
+                               # owner ruling Option A 8/29: BRUT = the 4-hull entity).
+                               # Re-pinned via the joint absorb (manifest+sheet+pair one
+                               # sitting, carry doc §RULED+EXECUTED) — the pre-split
+                               # $6.32/0.86/7.13 triplet valued 12 hulls and died at the
+                               # ex-date. Static guard re-based here (8/28 close $4.94 =
+                               # +5.1% vs this static — feed re-applies). OSLO-LISTED,
+                               # NOK-quoted; USD carried. 20th name, onboarded 2026-06-22.
+  analyst_target: 4.56         # IMPLIED Pareto post-split NAV: 44.0/1.03 = kr 42.7 x
+                               # 0.106791. A BROKER NAV, NOT a sell-side price target (GNK
+                               # 28.40 convention — say so or the report line misreads).
+                               # Pareto's actual post-split TP is not yet in the corpus —
+                               # refresh at the next BRUT research note.
+  consensus_pnav: 1.03    # Pareto 28 Aug 2026, same daily as price (post-split print;
+                               # pre-split series 0.73-0.91x is a DIFFERENT object — do
+                               # not chart across the 8/25 ex-date).
+  consensus_fwd_pe: 14.4    # Pareto 28 Aug 2026, same daily (1Y FWD P/E). Vision on the
+                               # water since Jul-08 + Horizon fixed from Nov — EPS starts
+                               # meaning something from H2-26; xref stays weak until then.
+  sector: crude                # pure-play VLCC vehicle (4 hulls: 1 operating + 3 NB).
   yahoo_symbol: BRUT.OL        # bare "BRUT" on Yahoo is the wrong issuer — use BRUT.OL.
   quote_currency: NOK          # refresh converts NOK close → USD via NOK=X.
-  as_of: 2026-08-07
+  as_of: 2026-08-28
 
 # CMB.TECH NV (ex-Euronav) — first crude+dry_bulk+containerships MULTI-SLEEVE
 # hybrid (METHODOLOGY §11.9; MULTI_SLEEVE_TICKERS). Onboarded 2026-06-26.

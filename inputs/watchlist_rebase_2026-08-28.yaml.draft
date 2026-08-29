@@ -34,7 +34,10 @@ pareto_basis:            # price (as printed) / Pareto P/NAV / consensus P/E 1Y 
   CAPT: {price_kr: 150.4,  consensus_pnav: 0.72, consensus_fwd_pe: 25.5}   # NOK — x0.106791 = $16.06
   BWLP: {price_kr: 226.4,  consensus_pnav: 1.27, consensus_fwd_pe: 11.8}   # NOK — x0.106791 = $24.18
 
-conditional_on_demerger_ruling:   # BRUT — do NOT promote in the 20-name sweep.
+conditional_on_demerger_ruling:   # CONSUMED 2026-08-29 — the owner ruled Option A and the
+  # BRUT pair below was promoted inside the joint absorb (manifest+sheet+watchlist one
+  # sitting, carry doc §RULED+EXECUTED). Kept for the record; the main-sweep promote must
+  # NOT re-apply BRUT (already at the 8/28 vintage).
   # The 8/28 daily prints BRUT POST-demerger: kr 44.0 / 1.03x / 14.4x — the matched
   # replacement pair the carry doc needs (Pareto's post-split NAV ≈ NOK 43 ≈ the 8/25
   # daily's NOK 45 fresh strike). But the watchlist BRUT block re-pins ONLY inside the
