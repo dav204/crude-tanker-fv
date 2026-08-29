@@ -845,7 +845,7 @@ def test_trmd_full_three_class_product_loads_and_routes():
 
     watchlist = load_watchlist()
     trmd = watchlist["TRMD"]
-    ci = load_company_inputs("TRMD", "2026-Q1")
+    ci = load_company_inputs("TRMD", "2026-Q2")  # fixture advanced at the 8/29 Q2 refresh (pair guard); Q2 PW FV $35.79 sits inside the standing 8/10 pin
     docs = _load_all_sectors()
     headline, crude_r, product_r = _run_scenarios_for_ticker(
         "TRMD", ci, trmd["current_price"], trmd["analyst_target"], docs, watchlist,
@@ -886,13 +886,13 @@ def test_trmd_whole_company_fv_in_expected_band_set_b():
 
     watchlist = load_watchlist()
     trmd = watchlist["TRMD"]
-    ci = load_company_inputs("TRMD", "2026-Q1")
+    ci = load_company_inputs("TRMD", "2026-Q2")  # fixture advanced at the 8/29 Q2 refresh (pair guard); Q2 PW FV $35.79 sits inside the standing 8/10 pin
     docs = _load_all_sectors()
     headline, _, _ = _run_scenarios_for_ticker(
         "TRMD", ci, trmd["current_price"], trmd["analyst_target"], docs, watchlist,
     )
     # Re-pinned 2026-07-14 EVE (hormuz re-tilt): $33.03 ±5% -> [31.38, 34.68] — back at the pre-stand-down FV.
-    assert 33.15 < headline.probability_weighted_fv < 36.63   # re-pinned 2026-08-10 STAGE A (deck-incoherence lift, stage_a_halt_investigation_2026-08-10.md; re-reads at the 8/16 deck re-derivation): $34.89 +/-5%
+    assert 35.21 < headline.probability_weighted_fv < 38.91   # re-pinned 2026-08-29 Q2 REFRESH (trmd_q2_prereg_2026-08-25.md band-HIT; the six §9.6 newbuild-resales + sourced sheet legs lift scenario PW FV $34.89->$37.06): $37.06 +/-5%. Prior: 8/10 Stage A $34.89 +/-5%
 
 
 def test_asc_fleet_loads_mr_plus_handysize():
