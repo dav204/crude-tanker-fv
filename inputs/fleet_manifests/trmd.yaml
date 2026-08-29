@@ -7,10 +7,14 @@
 #   - 22 LR2 (valued via LR2/Aframax-equivalent curve)
 #   - 10 LR1 (Torm calls these "Handysize-LR1"; valued via LR1 curve)
 #   - 63 MR  (valued via MR curve)
-# PLUS 2 MR resales on the §9.6 curve (below) delivering Q2-2026.
+# PLUS 6 MR newbuild-resales on the §9.6 curve (below), deliveries Q1-2027 through 2028.
+# Q2-2026 refresh (2026-08-29, 6-K acc 0001628280-26-058979 filed 8/26): fleet 95->97
+# (Dehradun/Dapitan delivered); ages +0.5 per the refresh convention.
 #
 # Off-manifest (subsequent events, excluded from the 3/31 snapshot):
-#   - 6 × MR resales bought "after the end of the quarter" (Note 11), delivering 2027-2028
+#   - 6 × MR NEWBUILDINGS ordered post-Q2 (+2 options), deliveries 2029 (options 2030) — Q2 6-K
+#     subsequent-events note; enters at the H2 snapshot with its own commitment schedule
+#   - $217M financing secured post-Q2 for ten vessels (subsequent event, no 6/30 debt effect)
 #   - the Q3-2026 sale-leaseback purchase-option repurchases (vessels already owned in-snapshot)
 # In Q1 2026 TORM took delivery of 2× 2016-built LR2 + 1× 2018-built MR (Helga/Hedwig/Fortune) and
 # delivered out the 2008-built LR2 TORM Maren; those are reflected in the counts below.
@@ -24,41 +28,41 @@
 # age = 2026 - year built. eco = built post-2014 (METHODOLOGY §3.1). Pre-2014 LR1/MR cohort sits at eco:false
 # on the eco-inclusive curve — small over-valuation flagged in §6 TRMD entry (same gap as ASC/STNG).
 ticker: TRMD
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
   # ============================================================
   # LR2 fleet — 22 vessels; avg age 10.5. All eco; ALL scrubber-fitted.
   # ============================================================
   # ---- 2016 builds (age 10) — 2 LR2 acquired in Q1 2026, scrubber-fitted ----
-  - {id: TRMD_LR2_2016, class: LR2, dwt: 110000, age: 10, scrubber: true, eco: true, charter_status: spot, count: 2}
+  - {id: TRMD_LR2_2016, class: LR2, dwt: 110000, age: 10.5, scrubber: true, eco: true, charter_status: spot, count: 2}
   # ---- 2015 builds (age 11) — 8 LR2; all scrubber ----
-  - {id: TRMD_LR2_2015, class: LR2, dwt: 110000, age: 11, scrubber: true, eco: true, charter_status: spot, count: 8}
+  - {id: TRMD_LR2_2015, class: LR2, dwt: 110000, age: 11.5, scrubber: true, eco: true, charter_status: spot, count: 8}
   # ---- 2014 builds (age 12) — 8 LR2; all scrubber ----
-  - {id: TRMD_LR2_2014, class: LR2, dwt: 110000, age: 12, scrubber: true, eco: true, charter_status: spot, count: 8}
+  - {id: TRMD_LR2_2014, class: LR2, dwt: 110000, age: 12.5, scrubber: true, eco: true, charter_status: spot, count: 8}
   # ---- 2017 builds (age 9) — 4 LR2; all scrubber ----
-  - {id: TRMD_LR2_2017, class: LR2, dwt: 110000, age: 9,  scrubber: true, eco: true, charter_status: spot, count: 4}
+  - {id: TRMD_LR2_2017, class: LR2, dwt: 110000, age: 9.5,  scrubber: true, eco: true, charter_status: spot, count: 4}
 
   # ============================================================
   # LR1 fleet — 10 vessels ("Handysize-LR1"); avg age ~13. NON-scrubber (vintage;
   # the disclosed 85 scrubber = all LR2+MR — LR1s run compliant fuel).
   # ============================================================
   # ---- 2013 builds (age 13) — 6 LR1; eco false ----
-  - {id: TRMD_LR1_2013, class: LR1, dwt: 75000, age: 13, scrubber: false, eco: false, charter_status: spot, count: 6}
+  - {id: TRMD_LR1_2013, class: LR1, dwt: 75000, age: 13.5, scrubber: false, eco: false, charter_status: spot, count: 6}
   # ---- 2012 builds (age 14) — 4 LR1; eco false ----
-  - {id: TRMD_LR1_2012, class: LR1, dwt: 75000, age: 14, scrubber: false, eco: false, charter_status: spot, count: 4}
+  - {id: TRMD_LR1_2012, class: LR1, dwt: 75000, age: 14.5, scrubber: false, eco: false, charter_status: spot, count: 4}
 
   # ============================================================
   # MR fleet — 63 vessels; avg age 11.5. ALL scrubber-fitted (modern fleet).
   # 2013 cohort eco false per §3.1.
   # ============================================================
   # ---- 2018 builds (age 8) — 1 MR; Q1 2026 acquisition ----
-  - {id: TRMD_MR_2018, class: MR, dwt: 50000, age: 8, scrubber: true, eco: true, charter_status: spot, count: 1}
+  - {id: TRMD_MR_2018, class: MR, dwt: 50000, age: 8.5, scrubber: true, eco: true, charter_status: spot, count: 1}
   # ---- 2016 builds (age 10) — 20 MR; all scrubber ----
-  - {id: TRMD_MR_2016, class: MR, dwt: 50000, age: 10, scrubber: true, eco: true, charter_status: spot, count: 20}
+  - {id: TRMD_MR_2016, class: MR, dwt: 50000, age: 10.5, scrubber: true, eco: true, charter_status: spot, count: 20}
   # ---- 2015 builds (age 11) — 22 MR; all scrubber ----
-  - {id: TRMD_MR_2015, class: MR, dwt: 50000, age: 11, scrubber: true, eco: true, charter_status: spot, count: 22}
+  - {id: TRMD_MR_2015, class: MR, dwt: 50000, age: 11.5, scrubber: true, eco: true, charter_status: spot, count: 22}
   # ---- 2013 builds (age 13) — 20 MR; eco false per §3.1; all scrubber ----
-  - {id: TRMD_MR_2013, class: MR, dwt: 50000, age: 13, scrubber: true, eco: false, charter_status: spot, count: 20}
+  - {id: TRMD_MR_2013, class: MR, dwt: 50000, age: 13.5, scrubber: true, eco: false, charter_status: spot, count: 20}
 
   # ---- 2 MR RESALES on the §9.6 curve (owner decision 2026-07-02): TORM Dehradun / TORM Dapitan,
   #      2015-built (age 11), agreed in Q1 2026, delivery Q2 2026 (~0.12 yr). Valued at the age-11 MR
@@ -66,7 +70,20 @@ vessels:
   #      sheet); advances → 0 there. scrubber=FALSE: the Q1 6-K makes NO scrubber statement about these
   #      resales (the disclosed 85 is the EXISTING fleet; defaulting the premium = the SB peer-trap).
   #      See newbuild_specs.yaml. ----
-  - {id: TRMD_MR_resale_2015, class: MR, dwt: 50000, age: 11, scrubber: false, eco: true, charter_status: spot, count: 2, years_to_delivery: 0.12}
+  - {id: TRMD_MR_resale_2015, class: MR, dwt: 50000, age: 11.5, scrubber: false, eco: true, charter_status: spot, count: 2}   # DELIVERED Q2 (Dehradun/Dapitan, Business Highlights p.2) — operating; $31.2M commitment SPENT
+
+  # ---- 6 MR NEWBUILD-RESALES acquired IN Q2 (Business Highlights p.2: "acquired six MR resale
+  #      vessels, with deliveries scheduled from the first quarter of 2027 through 2028").
+  #      §9.6 on-curve per the standing TRMD convention (owner decision 2026-07-02): age-0 MR
+  #      delivered-market mark PV-discounted 1.11^(-ytd), LESS the Note-10 commitment (263.7 on
+  #      the Q2 sheet); advances 29.3 there. Implied all-in ~$48.8M/hull (293.0/6) corroborates
+  #      the newbuild-resale read (an 11-year secondhand runs ~$40M). Per-hull split UNDISCLOSED:
+  #      cohorted 2/3/1 to match the Note-10 maturity buckets (90.9 ≤1y / 129.6 1-2y / 43.2 2-3y)
+  #      — a documented modeled split of cited totals, not an estimate marker. scrubber=FALSE
+  #      (no NB-spec statement; the SB peer-trap rule). ----
+  - {id: TRMD_MR_resale_2027H1, class: MR, dwt: 50000, age: 0, scrubber: false, eco: true, charter_status: spot, count: 2, years_to_delivery: 0.6}
+  - {id: TRMD_MR_resale_2027H2, class: MR, dwt: 50000, age: 0, scrubber: false, eco: true, charter_status: spot, count: 3, years_to_delivery: 1.5}
+  - {id: TRMD_MR_resale_2028H2, class: MR, dwt: 50000, age: 0, scrubber: false, eco: true, charter_status: spot, count: 1, years_to_delivery: 2.4}
 
 # Charter coverage (Q2 2026 expected days, May 2026 disclosure): LR2 64% @ $70,764/d, LR1 60% @ $61,774/d,
 # MR 54% @ $73,485/d; fleet Q2 ~57% @ $71,494/d. Torm runs predominantly spot; modelled here as all spot
@@ -78,11 +95,11 @@ spot_coverage_pct:
 fleet_summary:
   LR2_count: 22
   LR1_count: 10
-  MR_count: 63
-  on_curve_total: 97              # all rows on the curve = 95 operating + 2 MR resale newbuilds
-  total_operating: 95             # on-water at 3/31 (excl. the 2 MR resale newbuilds)
-  mr_resale_newbuilds: 2          # Dehradun/Dapitan, on the §9.6 curve, Q2-2026 delivery
-  newbuild_orders_q1: 2           # the 2 MR resales (the 6 MR resales are a subsequent event — post-quarter)
+  MR_count: 65
+  on_curve_total: 103             # 97 operating + 6 MR newbuild-resales (Q2-acquired)
+  total_operating: 97             # on-water at 6/30 (Dehradun/Dapitan delivered in Q2)
+  mr_resale_newbuilds: 6          # the Q2-acquired resales (2027-2028 deliveries), §9.6
+  newbuild_orders_q1: 6           # the Q2-acquired resales; the POST-Q2 6×MR NEWBUILDING order (+2 options, 2029/30) is a subsequent event — OFF this snapshot
   operating_scrubber_count: 85    # all 22 LR2 + all 63 MR (FY2025 20-F: 85 fitted Dec-2025); 10 LR1s none
   avg_age_LR2_approx: 10.5
   avg_age_LR1_approx: 13.0

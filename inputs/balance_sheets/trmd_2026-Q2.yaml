@@ -1,0 +1,53 @@
+# TORM plc (TRMD) balance sheet — METHODOLOGY.md section 4.2
+# Source: TRMD Q2 2026 6-K acc 0001628280-26-058979 (filed 2026-08-26, staged
+# inputs/filings/TRMD/0001628280-26-058979_6-K_trmd-20260630_d2.htm), Unaudited
+# Condensed Consolidated Balance Sheet as of 2026-06-30 (USDm) + Note 10.
+# Subsequent-events note audited FIRST — all post-6/30, all EXCLUDED from this
+# snapshot: Q2 dividend $2.40/sh (~$245.7M, 73% of net profit; ex 9/09-9/10 CPH/NY,
+# payable 9/24; "not recognized as liabilities as at 30 June 2026"), the NEW
+# 6×MR NEWBUILDING order (+2 options; deliveries 2029/2030 — enters at H2/Q3),
+# and $217M financing secured for ten vessels. Refresh executed per the frozen
+# prereg decisions/trmd_q2_prereg_2026-08-25.md.
+ticker: TRMD
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1655891/000162828026058979/
+retrieved_at: 2026-08-29
+filing_period_end: 2026-06-30
+
+# "Cash and cash equivalents incl. restricted cash" 368.2 (BS as printed).
+cash_and_equivalents: 368200000
+
+# Working capital from DISCLOSED components (all lines as printed on the BS):
+#   Inventories 111.8 + Trade receivables 322.4 + Other receivables 28.1 +
+#   Prepayments 16.1 = 478.4; less Trade payables 81.8 + Other liabilities 46.8
+#   + Provisions 0.4 + Prepayments from customers 6.6 + Current tax 0.1 = 135.7
+#   -> net 342.7. Same construction as the Q1 sheet (excludes cash and
+#   borrowings; deferred/held-over tax liabilities excluded as non-operating,
+#   Q1 convention). The war quarter built receivables hard (322.4 vs 214.7 at
+#   FY25) — real revenue timing, fully printed, no estimate.
+working_capital_net: 342700000
+
+# Borrowings (Note 5): non-current 839.2 + current 237.0 = 1,076.2. The Q1
+# convention carries the ROU vessel lease INSIDE total borrowings (TORM bought
+# out its SLBs in 2025; only a ~$10M ROU remained at Q1) — same treatment here,
+# so lease_liabilities stays 0 (no double-count).
+total_debt: 1076200000
+lease_liabilities: 0
+
+# Second-hand vessels commitments (Note 10): 90.9 within 1y + 129.6 in 1-2y +
+# 43.2 in 2-3y = 263.7 TOTAL — the SIX MR RESALE vessels acquired in Q2
+# (deliveries Q1-2027 through 2028, Business Highlights p.2). The Q1 sheet's
+# 31.2 (Dehradun/Dapitan) is SPENT — both delivered in Q2, fleet now 97.
+# Committed scrubber installations + minor investments (7.5) excluded per the
+# Q1 convention (non-vessel-value minor commitments).
+newbuild_capex_commitments: 263700000
+# "Prepayments on vessels" 29.3 (BS non-current assets) — advances paid on the
+# six resale contracts (was 14.1 at FY25 / 0 at Q1 post-delivery-basis).
+newbuild_advances_paid: 29300000
+
+# Diluted shares: H1 net profit 460.7 / H1 diluted EPS 4.43 = 103.99M ->
+# 104,000,000 (derived from two printed figures; the Q1 sheet's convention of
+# carrying the LARGER diluted count vs the 102.4M EOP ex-treasury basic that
+# TORM's own NAV/share $36.5 uses — conservative direction). H1 capital
+# increase +$21.4M share premium moved the count 101.3M -> 102.4M EOP.
+diluted_shares_outstanding: 104000000

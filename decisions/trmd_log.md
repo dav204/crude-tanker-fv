@@ -1,5 +1,49 @@
 # TRMD — Decision Log
 
+## 2026-08-29T20:38:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $32.62
+- Single-point FV: $32.14
+- Scenario PW FV: $35.79 (EV +9.7%)
+- NAV / share: $32.30
+- Position: **BUY (undervalued)**
+- Broker spread: +16.0pp (k_broker 1.15)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ NAV/sh +6.9%
+- Δprice: +1.15 | Δsingle FV: +7.2% | Δscenario FV: +6.6% | ΔNAV: +6.9% | Δspread: -2.8pp
+
+**Decision:** **Q2 REPORT-DAY REFRESH EXECUTED (print 8/26, refresh 8/29 — the outage-week
+backlog) — BAND HIT.** Per the frozen prereg `decisions/trmd_q2_prereg_2026-08-25.md`:
+**NAV $32.30 ∈ [28.00, 32.80]** (point est. $30.40 — landed high in band, decomposed and
+verified, not just satisfying: sheet legs +$0.64 [cash 368.2 + WC 342.7 all-components-cited
+− debt 1,076.2 − commit 263.7 + adv 29.3] · diluted-count 104.0M −$0.20 · aging −$0.53 ·
+**+~$2.2 from the six Q2-acquired MR newbuild-resales wired §9.6 on-curve** — $293.0M all-in
+cost vs war-elevated age-0 MR marks; the exact mark-vs-cost gap condition 6 anticipated,
+commitment+advances filing-cited so the gap is the CURVE's claim, not an input estimate).
+Pair landed one commit (sheet trio + manifest: fleet 95→97 Dehradun/Dapitan delivered, ages
++0.5, 6 resale rows cohorted 2/3/1 to the Note-10 maturity buckets — documented modeled
+split of cited totals). **Subsequent events audited FIRST, all excluded:** Q2 dividend
+$2.40/sh (~$245.7M, 73% of NP, ex 9/09-9/10, payable 9/24) · the NEW post-Q2 6×MR NEWBUILDING
+order (+2 options, 2029/30) · $217M ten-vessel financing. **Figure queues: TRMD stays CLEAR**
+(every NAV figure printed+cited; condition 6 satisfied). **No TRMD flip** (BUY→BUY, EV +9.7%
+at the 8/28 close); GSL T/S→HOLD price-mech flip eyeballed separately (away-from-short,
+8/28 tape). **STAGE-B BASIS CAPTURED (condition 5) — the report's own coverage table, as of
+2026-08-18:** Q3-26 LR2 83% @ $49,255 · **LR1 61% @ $32,608 — the FIRST direct LR1 front
+print, the anchor-round class** · MR 71% @ $35,247 · total 73% @ $38,606; FY26 LR2 79% @
+52,231 / LR1 66% @ 44,080 / MR 68% @ 42,933. TORM's own market narrative: "in early Q3, the
+ceasefire collapsed, leading to another effective closure of the Strait of Hormuz" + Houthis
+resumed Bab el-Mandeb attacks — the war regime persists into Q3 on the issuer's own words.
+**Sequencing held (condition 4): the LR1 contract-floor execution (TRMD → VALIDATED-TIGHT
+candidacy) and Stage B's ±10% class-bucket re-check remain their OWN dockets — nothing
+bundled here.** TORM's own broker-marks NAV $36.50/sh (30-Jun, ex-charter-commitments) vs
+tool $32.30 → k 1.15, the spread direction unchanged. Ratify: rides the pending two-cause
+draft (pair leg + price legs), owner.
+
+---
+
 ## 2026-08-25T22:33:03+00:00 — Pipeline run (auto)
 
 **Model state:**
