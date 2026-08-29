@@ -67,3 +67,33 @@ funnel pass. Not a refresh-day call (the MPCC Fork-B precedent: a mark/name deci
 No manifest/sheet/watchlist edit, no OMC scaffold, no §15 re-run — the carry decision is the
 owner's. The only tonight-action was documentation + the price-guard state (mechanically
 correct as-is).
+
+---
+
+# RULED + EXECUTED (2026-08-29)
+
+**OWNER RULED 2026-08-29: Option A — "keep the new BRUT only. final answer."** OMC is not
+carried; onboarding it later remains a funnel decision. NOT ruled (residuals, still open):
+the OMC release-capture-only watch (rec: yes, newsweb slug, no model surface) · the R4
+scope word (rec: re-read 4-hull BRUT, the live object).
+
+**CORRECTION to §Mechanics (recorded, not silently edited):** retained remaining commitment
+is **$398.076M**, not "~$496M" — the ~$496M subtracted the departing $873.9M from the stale
+manifest-header base (~$1,369.9M); the H1 print's Note 10 re-based the 6/30 total to
+**$1,271.976M**, and 1,271.976 − 873.9 = 398.076. Same-day-class error as the 8/16 workflow
+catches; caught pre-execution.
+
+**Construction executed (the citable-figures-only variant):** manifest −8 rows (4-hull,
+schedule [1,2,2,2,3,4,4,4]); sheet commitments → 398.076 (two issuer figures netted, vintage
+nuance noted: the departing legs' "paid" are the 10% signing deposits, stable across 6/30→8/20);
+**Vision KEPT as a §9.6 row (ytd 0.02) rather than flipped operating** — its final installment
+inside the retained commitment stands in for the undisclosed July SLB draw (SLB = 90% of cost
+≈ the post-deposit installment; economic equivalence documented in the sheet header), which
+avoids fabricating a debt figure; **cash 11.828 stands as the 6/30 cited actual** with the
+known-unknown flagged: the $50M OMC contribution and the SLB inflows that funded it are BOTH
+post-6/30 and neither is separately disclosed — true post-demerger cash/debt resolve at the
+**Oslo Børs uplisting prospectus (~end-Sep) or FY2026**, the named venue. Watchlist re-pinned
+from the 8/28 daily's post-split pair (the rebase draft's conditional lane, hereby consumed):
+price $4.70 (kr 44.0), pnav 1.03, fwd_pe 14.4, analyst_target $4.56 = the IMPLIED Pareto
+post-split NAV (44.0/1.03 = kr 42.7 — a BROKER NAV, not a sell-side PT; refresh at the next
+BRUT research note). POSITION_UNRELIABLE and the Stage-A void STAND until R4.
