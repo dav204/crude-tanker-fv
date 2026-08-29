@@ -32,6 +32,6 @@ one-way bullish override — audit E-3.)
 | STNG | · | 1.00× | +0.18 | — | 8.0 | n/a (gate) |
 | TEN | · | 0.42× | -51.02 | — | 6.0 | n/a (gate) |
 | TNK | · | 0.91× | -7.50 | — | 5.8 | n/a (gate) |
-| TRMD | · | 0.98× | -0.72 | — | 8.0 | n/a (gate) |
+| TRMD | · | 0.91× | -2.80 | — | 8.0 | n/a (gate) |
 
 **Gated** (high-payout single-class names at peak with a large market premium): NAT.

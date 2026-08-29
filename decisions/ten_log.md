@@ -1,5 +1,41 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-08-29T20:44:37+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $42.52
+- Single-point FV: $59.21
+- Scenario PW FV: $62.66 (EV +47.4%)
+- NAV / share: $88.16
+- Position: **BUY (undervalued)**
+- Broker spread: +54.5pp (k_broker 1.30)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-29T20:38:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $42.52
+- Single-point FV: $59.21
+- Scenario PW FV: $62.66 (EV +47.4%)
+- NAV / share: $88.16
+- Position: **BUY (undervalued)**
+- Broker spread: +54.5pp (k_broker 1.30)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.25 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +0.8pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-25T22:33:03+00:00 — Pipeline run (auto)
 
 **Model state:**

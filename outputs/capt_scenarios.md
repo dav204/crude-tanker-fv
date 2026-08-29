@@ -1,29 +1,29 @@
 # CAPT — Scenario Fair Value (three-phase MoU framework)
 
-- **Current price:** $16.53
+- **Current price:** $16.46
 - **Analyst target:** $18.90
 - **NAV / share (reference, unflexed):** $15.48 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $16.02 (-3.1% vs price)
-- **Breakeven TCE (scenario-invariant):** $212,404/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
+- **Probability-weighted fair value:** $16.02 (-2.7% vs price)
+- **Breakeven TCE (scenario-invariant):** $207,375/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** HOLD (fairly valued)
 
 ## Per-scenario fair value
 
 | Scenario | Weight | Vessel× | NAV/sh | FV (base) | FV [low–high] | Cycle | w_nav | Strip NPV | Assumed TCE (12M) | Assumed / Breakeven |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| Escalation | 25% | 1.25× | $22.49 | $24.43 | $23.66–$25.32 | 7.00× | 0.70 | $28.97 | $246,259 | 1.16× |
-| Pre-MoU baseline | 62% | 0.96× | $14.30 | $13.99 | $13.71–$14.30 | 2.32× | 0.70 | $13.27 | $81,132 | 0.38× |
-| MoU base case | 0% | 0.86× | $11.59 | $11.17 | $10.92–$11.41 | 1.90× | 0.70 | $10.20 | $66,149 | 0.31× |
-| MoU bear | 13% | 0.80× | $9.77 | $9.52 | $9.25–$9.79 | 1.50× | 0.60 | $9.15 | $51,983 | 0.24× |
+| Escalation | 25% | 1.25× | $22.49 | $24.43 | $23.66–$25.32 | 7.00× | 0.70 | $28.97 | $246,259 | 1.19× |
+| Pre-MoU baseline | 62% | 0.96× | $14.30 | $13.99 | $13.71–$14.30 | 2.32× | 0.70 | $13.27 | $81,132 | 0.39× |
+| MoU base case | 0% | 0.86× | $11.59 | $11.17 | $10.92–$11.41 | 1.90× | 0.70 | $10.20 | $66,149 | 0.32× |
+| MoU bear | 13% | 0.80× | $9.77 | $9.52 | $9.25–$9.79 | 1.50× | 0.60 | $9.15 | $51,983 | 0.25× |
 | **Probability-weighted** | | | | **$16.02** | | | | | | |
 
 _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate assumption, NOT a breakeven). Assumed/Breakeven < 1 ⇒ that scenario's rates fall short of justifying the price; > 1 ⇒ they clear it._
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $+7.90
-- **Downside (worst scenario − price):** $-7.01
-- **Expected value vs current** (weighted FV − price): $-0.51 (-3.1%)
+- **Upside (best scenario − price):** $+7.97
+- **Downside (worst scenario − price):** $-6.94
+- **Expected value vs current** (weighted FV − price): $-0.44 (-2.7%)
 - **Position:** HOLD (fairly valued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

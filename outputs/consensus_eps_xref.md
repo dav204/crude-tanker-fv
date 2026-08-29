@@ -12,8 +12,8 @@ The **earnings-leg analog of the broker-NAV sweep** (METHODOLOGY §9.11 / §9.9)
 | NAT | crude | $6.40 | 18.7× | $0.34 | $1.51 | 4.2× | +343% | 5.3% | 2.09× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | BRUT | crude | $6.32 | 22.6× | $0.28 | $1.06 | 5.9× | +281% | 4.4% | 2.64× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | ASC | product | $17.00 | 15.5× | $1.10 | $3.59 | 4.7× | +227% | 6.5% | 1.68× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| TRMD | product | $29.50 | 9.9× | $2.98 | $8.63 | 3.4× | +190% | 10.1% | 1.84× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | INSW **(WHOLE-CO)** | crude | $93.20 | 12.8× | $7.28 | $20.63 | 4.5× | +183% | 7.8% | 2.10× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| TRMD | product | $29.50 | 9.9× | $2.98 | $8.26 | 3.6× | +177% | 10.1% | 1.85× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | CCEC | lng | $22.80 | 7.9× | $2.89 | $7.95 | 2.9× | +175% | 12.7% | 0.78× (below-mid) | 0.60 | earnings-driven (tool>cons) |
 | GNK | dry_bulk | $25.10 | 13.7× | $1.83 | $4.99 | 5.0× | +172% | 7.3% | 1.28× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | CMDB | dry_bulk | $17.25 | 10.5× | $1.64 | $4.36 | 4.0× | +165% | 9.5% | 1.31× (elevated) | 0.40 | earnings-driven (tool>cons) |
