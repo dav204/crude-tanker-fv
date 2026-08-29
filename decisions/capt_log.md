@@ -1,5 +1,41 @@
 # CAPT — Decision Log
 
+## 2026-08-25T22:33:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.53
+- Single-point FV: $15.10
+- Scenario PW FV: $16.02 (EV -3.1%)
+- NAV / share: $15.48
+- Position: **HOLD (fairly valued)**
+- Broker spread: +43.7pp (k_broker 1.28)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-25T22:30:02+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.53
+- Single-point FV: $15.10
+- Scenario PW FV: $16.02 (EV -3.1%)
+- NAV / share: $15.48
+- Position: **HOLD (fairly valued)**
+- Broker spread: +43.7pp (k_broker 1.28)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-16T20:06:34+00:00 — Pipeline run (auto)
 
 **Model state:**

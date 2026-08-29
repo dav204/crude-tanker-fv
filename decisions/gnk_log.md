@@ -1,5 +1,41 @@
 # GNK — Decision Log
 
+## 2026-08-25T22:33:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.32
+- Single-point FV: $24.61
+- Scenario PW FV: $22.67 (EV -17.0%)
+- NAV / share: $25.12
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +13.7pp (k_broker 1.14)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-08-25T22:30:02+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.32
+- Single-point FV: $24.61
+- Scenario PW FV: $22.67 (EV -17.0%)
+- NAV / share: $25.12
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +13.7pp (k_broker 1.14)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-16T20:06:34+00:00 — Pipeline run (auto)
 
 **Model state:**

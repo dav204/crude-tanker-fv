@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-15T12:02:05.879924+00:00",
+  "generated_at": "2026-08-29T20:25:08.991251+00:00",
   "archive_roots": [
     "inputs/research_pareto",
     "inputs/research_pareto_other"
   ],
-  "total_files": 882,
+  "total_files": 894,
   "files": [
     {
       "path": "inputs/research_pareto/2024/06/2024-06-26_d'AmicoInternationalShipping-CompanyReport-InitiatingCoverage-2024-06-26-364456.pdf",
@@ -5691,6 +5691,138 @@
       "parsed_at": null,
       "page_count": 2,
       "size_bytes": 162263,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-17_Periodical-ShippingDaily-2026-08-17-522622.pdf",
+      "filename": "2026-08-17_Periodical-ShippingDaily-2026-08-17-522622.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-17",
+      "downloaded_at": "2026-08-18T14:00:10.059335+00:00",
+      "parsed_at": null,
+      "page_count": 1,
+      "size_bytes": 146090,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-18_Periodical-ShippingDaily-2026-08-18-522989.pdf",
+      "filename": "2026-08-18_Periodical-ShippingDaily-2026-08-18-522989.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-18",
+      "downloaded_at": "2026-08-18T14:00:06.742476+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 157079,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-19_Periodical-ShippingDaily-2026-08-19-523673.pdf",
+      "filename": "2026-08-19_Periodical-ShippingDaily-2026-08-19-523673.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-19",
+      "downloaded_at": "2026-08-25T14:09:01.087540+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 157957,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-20_Periodical-ShippingDaily-2026-08-20-524373.pdf",
+      "filename": "2026-08-20_Periodical-ShippingDaily-2026-08-20-524373.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-20",
+      "downloaded_at": "2026-08-25T14:08:48.677542+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 156873,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-24_GolarLNG-CompanyReport-QuarterlyReview-2026-08-24-525372.pdf",
+      "filename": "2026-08-24_GolarLNG-CompanyReport-QuarterlyReview-2026-08-24-525372.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-24",
+      "downloaded_at": "2026-08-25T14:03:16.783357+00:00",
+      "parsed_at": null,
+      "page_count": 8,
+      "size_bytes": 461991,
+      "classification_signal": "filename:CompanyReport"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-24_Periodical-ShippingDaily-2026-08-24-525211.pdf",
+      "filename": "2026-08-24_Periodical-ShippingDaily-2026-08-24-525211.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-24",
+      "downloaded_at": "2026-08-25T14:03:20.076000+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 159482,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-25_Periodical-ShippingDaily-2026-08-25-525644.pdf",
+      "filename": "2026-08-25_Periodical-ShippingDaily-2026-08-25-525644.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-25",
+      "downloaded_at": "2026-08-25T14:03:08.181271+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 160293,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-26_Periodical-ShippingDaily-2026-08-26-526047.pdf",
+      "filename": "2026-08-26_Periodical-ShippingDaily-2026-08-26-526047.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-26",
+      "downloaded_at": "2026-08-29T20:21:26.651779+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 162313,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-27_Periodical-ShippingDaily-2026-08-27-526489.pdf",
+      "filename": "2026-08-27_Periodical-ShippingDaily-2026-08-27-526489.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-27",
+      "downloaded_at": "2026-08-29T20:21:15.414205+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 161754,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-28_Container+Weekly+22+August+-+28+August++2026.pdf",
+      "filename": "2026-08-28_Container+Weekly+22+August+-+28+August++2026.pdf",
+      "type": "container_weekly",
+      "report_date": "2026-08-28",
+      "downloaded_at": "2026-08-29T20:20:45.782218+00:00",
+      "parsed_at": null,
+      "page_count": 3,
+      "size_bytes": 1536030,
+      "classification_signal": "filename:Container Weekly"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-28_Frontline-CompanyComments-Newsflash-2026-08-28-526821.pdf",
+      "filename": "2026-08-28_Frontline-CompanyComments-Newsflash-2026-08-28-526821.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-28",
+      "downloaded_at": "2026-08-29T20:20:53.219108+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 70749,
+      "classification_signal": "content:NEWSFLASH"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-28_Periodical-ShippingDaily-2026-08-28-527074.pdf",
+      "filename": "2026-08-28_Periodical-ShippingDaily-2026-08-28-527074.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-28",
+      "downloaded_at": "2026-08-29T20:20:52.422913+00:00",
+      "parsed_at": null,
+      "page_count": 1,
+      "size_bytes": 146656,
       "classification_signal": "filename:ShippingDaily"
     },
     {

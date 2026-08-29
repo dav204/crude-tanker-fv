@@ -113,64 +113,64 @@ weight_sets:
       arb_collapse: 0.17
 names:
   '2343':
-    ev_min_pct: -22.1
-    ev_max_pct: -18.4
-    ev_sign_stable: true
+    ev_min_pct: -1.1
+    ev_max_pct: 3.6
+    ev_sign_stable: false
     positions:
-    - TRIM/SHORT
-    - TRIM/SHORT
-    - TRIM/SHORT
+    - HOLD
+    - HOLD
+    - HOLD
   ASC:
-    ev_min_pct: -12.9
-    ev_max_pct: -7.0
+    ev_min_pct: -14.8
+    ev_max_pct: -9.0
     ev_sign_stable: true
     positions:
     - TRIM/SHORT (overvalued)
     - TRIM/SHORT (overvalued)
     - TRIM/SHORT (overvalued)
   BRUT:
-    ev_min_pct: -14.5
-    ev_max_pct: 52.5
+    ev_min_pct: -8.8
+    ev_max_pct: 62.7
     ev_sign_stable: false
     positions:
     - BUY
     - BUY
     - BUY
-    - HOLD
+    - BUY
     - BUY
     - TRIM/SHORT
-    - HOLD
+    - BUY
   BWLP:
-    ev_min_pct: -38.5
-    ev_max_pct: -33.9
+    ev_min_pct: -44.2
+    ev_max_pct: -40.0
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
   CAPT:
-    ev_min_pct: -20.9
-    ev_max_pct: 9.1
-    ev_sign_stable: false
+    ev_min_pct: -29.7
+    ev_max_pct: -3.1
+    ev_sign_stable: true
     positions:
-    - BUY
-    - BUY
-    - BUY
+    - HOLD
+    - HOLD
+    - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
   CCEC:
-    ev_min_pct: 29.1
-    ev_max_pct: 49.1
+    ev_min_pct: 29.0
+    ev_max_pct: 49.0
     ev_sign_stable: true
     positions:
     - BUY (undervalued)
     - BUY (undervalued)
     - BUY (undervalued)
   CMBT:
-    ev_min_pct: -23.1
-    ev_max_pct: -16.4
+    ev_min_pct: -27.1
+    ev_max_pct: -20.7
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
@@ -181,16 +181,16 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   CMDB:
-    ev_min_pct: 6.7
-    ev_max_pct: 13.5
-    ev_sign_stable: true
+    ev_min_pct: -5.6
+    ev_max_pct: 0.5
+    ev_sign_stable: false
     positions:
-    - BUY
-    - BUY
-    - BUY
+    - HOLD
+    - HOLD
+    - TRIM/SHORT
   DHT:
-    ev_min_pct: -33.0
-    ev_max_pct: -18.2
+    ev_min_pct: -31.8
+    ev_max_pct: -16.7
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
@@ -201,8 +201,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   ECO:
-    ev_min_pct: -46.1
-    ev_max_pct: -30.8
+    ev_min_pct: -50.0
+    ev_max_pct: -35.9
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
@@ -213,16 +213,16 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   FLNG:
-    ev_min_pct: -9.5
-    ev_max_pct: -0.4
+    ev_min_pct: -16.3
+    ev_max_pct: -7.7
     ev_sign_stable: true
     positions:
     - TRIM/SHORT (overvalued)
-    - HOLD (fairly valued)
+    - TRIM/SHORT (overvalued)
     - TRIM/SHORT (overvalued)
   FRO:
-    ev_min_pct: -49.5
-    ev_max_pct: -32.6
+    ev_min_pct: -52.1
+    ev_max_pct: -36.1
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
@@ -233,24 +233,24 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   GNK:
-    ev_min_pct: -17.9
-    ev_max_pct: -10.4
+    ev_min_pct: -20.8
+    ev_max_pct: -13.6
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
   HAFN:
-    ev_min_pct: -28.1
-    ev_max_pct: -15.3
+    ev_min_pct: -32.1
+    ev_max_pct: -19.9
     ev_sign_stable: true
     positions:
     - TRIM/SHORT (overvalued)
     - TRIM/SHORT (overvalued)
     - TRIM/SHORT (overvalued)
   INSW:
-    ev_min_pct: -45.9
-    ev_max_pct: -38.6
+    ev_min_pct: -47.0
+    ev_max_pct: -39.8
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
@@ -261,16 +261,16 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   LPG:
-    ev_min_pct: -34.6
-    ev_max_pct: -30.7
+    ev_min_pct: -39.0
+    ev_max_pct: -35.3
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
   NAT:
-    ev_min_pct: -64.1
-    ev_max_pct: -54.3
+    ev_min_pct: -65.1
+    ev_max_pct: -55.5
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
@@ -281,32 +281,32 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   SB:
-    ev_min_pct: 17.7
-    ev_max_pct: 28.0
+    ev_min_pct: 42.8
+    ev_max_pct: 55.2
     ev_sign_stable: true
     positions:
     - BUY
     - BUY
     - BUY
   SBLK:
-    ev_min_pct: -1.5
-    ev_max_pct: 6.2
-    ev_sign_stable: false
+    ev_min_pct: -8.0
+    ev_max_pct: -0.8
+    ev_sign_stable: true
     positions:
     - HOLD
-    - BUY
     - HOLD
+    - TRIM/SHORT
   STNG:
-    ev_min_pct: -12.9
-    ev_max_pct: -3.4
+    ev_min_pct: -10.4
+    ev_max_pct: -0.6
     ev_sign_stable: true
     positions:
     - TRIM/SHORT (overvalued)
     - HOLD (fairly valued)
     - TRIM/SHORT (overvalued)
   TEN:
-    ev_min_pct: 34.6
-    ev_max_pct: 51.2
+    ev_min_pct: 32.0
+    ev_max_pct: 48.2
     ev_sign_stable: true
     positions:
     - BUY
@@ -317,20 +317,20 @@ names:
     - BUY
     - BUY
   TNK:
-    ev_min_pct: -11.0
-    ev_max_pct: -1.4
+    ev_min_pct: -15.8
+    ev_max_pct: -6.8
     ev_sign_stable: true
     positions:
-    - HOLD
-    - HOLD
-    - HOLD
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
   TRMD:
-    ev_min_pct: -5.7
-    ev_max_pct: 11.6
+    ev_min_pct: -9.9
+    ev_max_pct: 6.7
     ev_sign_stable: false
     positions:
     - HOLD (fairly valued)
