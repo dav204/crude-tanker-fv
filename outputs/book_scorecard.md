@@ -36,7 +36,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | GNK | dry_bulk | VALIDATED-TIGHT | $25.88 | $22.67 | 17.42–28.59 | -12% | TRIM/SHORT (overvalued) | $24.61 | $25.12 | $28.13 | -11% | OK | ready | stable |
 | SB | dry_bulk | VALIDATED-TIGHT | $6.39 | $9.53 | 7.33–12.13 | +49% | BUY (undervalued) | $10.24 | $10.58 | $7.26 (apx) | +46% | n-a | ready | stable |
 | SBLK | dry_bulk | VALIDATED-TIGHT | $30.48 | $29.79 | 23.27–36.79 | -2% | HOLD (fairly valued) | $31.88 | $32.78 | $34.25 | -4% | OK | ready | **⚠ sign flips** |
-| BRUT | crude | GOVERNED-WIDE · going-concern-unfinanced | $4.94 | $10.28 | 3.42–18.11 | +108% | unreliable read (not actionable) | $9.63 | $9.62 | $5.75 | +67% | FAIL | ready | stable |
+| BRUT | crude | GOVERNED-WIDE · going-concern-unfinanced | $4.94 | $5.12 | 2.33–8.54 | +4% | unreliable read (not actionable) | $4.70 | $4.92 | $4.80 | +3% | OK | ready | **⚠ sign flips** |
 | CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $16.46 | $16.02 | 9.52–24.43 | -3% | unreliable read (not actionable) | $15.10 | $15.48 | $23.19 | -33% | OK | ready | stable |
 | CMBT | crude | GOVERNED-WIDE · structural-class | $18.35 | $14.41 | 9.24–20.88 | -21% | TRIM/SHORT (overvalued) | $15.65 | $16.46 | $21.59 | -24% | OK | ready | stable |
 | INSW | crude | GOVERNED-WIDE · pending-anchor | $98.81 | $59.59 | 42.71–80.41 | -40% | rich · cycle position (not a short) | $37.59 | $54.64 | $84.45 | -35% | OK | ready | stable |
@@ -72,12 +72,12 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 
 | Ticker | Sector | **Tier** | NAV-basis | P/NAV(mkt) | Read par→hist | Robust? | J par | J hist | Boundary | Margin% | read_flag | Parity band | §18.5a | §18.5b | Verdict |
 |---|---|---|---|--:|---|---|--:|--:|--:|--:|---|---|---|---|---|
-| BRUT | crude | GOVERNED-WIDE | resale-uniform | 0.66× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
+| BRUT | crude | GOVERNED-WIDE | resale-uniform | 0.96× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
 | CAPT | crude | GOVERNED-WIDE | resale-uniform | 0.91× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
 | CMBT | crude | GOVERNED-WIDE | structural-unavailable | 1.00× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
-| DHT | crude | VALIDATED-TIGHT | resale-uniform | 1.23× | rich→rich | robust | 0.805× | 0.747× | $13.42 | +37.13% | robust | clears | pending | pending | comparable; §18.5 gates pending |
-| ECO | crude | VALIDATED-TIGHT | resale-uniform | 1.61× | rich→rich | robust | 0.568× | 0.456× | $24.97 | +155.48% | robust | clears | pending | pending | comparable; §18.5 gates pending |
-| FRO | crude | VALIDATED-TIGHT | resale-uniform | 1.56× | rich→rich | robust | 0.903× | 0.818× | $25.43 | +55.71% | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| DHT | crude | VALIDATED-TIGHT | resale-uniform | 1.23× | rich→rich | robust | 0.808× | 0.747× | $13.47 | +36.57% | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| ECO | crude | VALIDATED-TIGHT | resale-uniform | 1.61× | rich→rich | robust | 0.570× | 0.456× | $25.05 | +154.68% | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| FRO | crude | VALIDATED-TIGHT | resale-uniform | 1.56× | rich→rich | robust | 0.906× | 0.818× | $25.50 | +55.27% | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | INSW | crude | GOVERNED-WIDE | pending-sourceable | 1.71× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
 | NAT | crude | GOVERNED-WIDE | resale-uniform | 2.25× | rich→rich | robust | 1.191× | 0.865× | $3.76 | +70.06% | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | TEN | crude | GOVERNED-WIDE | structural-unavailable | 0.42× | no anchor→cheap | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |

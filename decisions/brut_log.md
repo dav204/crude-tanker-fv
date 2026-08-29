@@ -9,6 +9,43 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-29T21:35:19+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $4.94
+- Single-point FV: $4.70
+- Scenario PW FV: $5.12 (EV +3.6%)
+- NAV / share: $4.92
+- Position: **HOLD (fairly valued)**
+- Broker spread: -2.2pp (k_broker 0.99)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- ⚑ single-point FV -51.2%
+- ⚑ scenario PW FV -50.2%
+- ⚑ broker spread +72.5pp
+- ⚑ NAV/sh -48.9%
+- Δprice: no change | Δsingle FV: -51.2% | Δscenario FV: -50.2% | ΔNAV: -48.9% | Δspread: +72.5pp
+
+**Decision:** **DEMERGER ABSORBED AT OWNER RULING (Option A, 8/29 — carry doc §RULED+EXECUTED).**
+This run is the FIRST on the 4-hull entity: NAV $9.62 → **$4.92** (−48.9%, the departing 8 hulls +
+$873.9M commitment + the pair re-pin), price basis LIVE again ($4.94, 8/28 close — the ±15%/±30%
+guards released at the new $4.70 static), **EV +3.6% HOLD, k_broker 0.99, broker spread −2.2pp —
+the tightest tool↔broker agreement BRUT has ever printed** (the 12-hull era's divergence lived in
+the unfunded tail, now OMC's problem). BUY→HOLD is the EVENT, not a read change — the guard-held
++62.7% BUY was the pre-demerger artifact the carry doc named. Forward invariance held (24 names
+ΔNAV 0.0). Known-unknown carried: post-6/30 cash/debt (the $50M OMC contribution vs the July SLB
+draws) resolves at the uplisting prospectus (~end-Sep) or FY2026 — sheet header + carry doc.
+§15 re-read on the smaller object: the "eight unfinanced hulls" clause is GONE with the hulls;
+retained exposure = Frontier/Summit 2027 tails inside $398.1M, against a revenue-producing front
+(Vision earning since Jul-08, Horizon fixed from Nov). PROVISIONAL/tier call stays RESERVED TO
+THE OWNER (unchanged); POSITION_UNRELIABLE + the Stage-A void STAND until R4 (scope word owed:
+rec = re-read the 4-hull live object). Residual also owed: the OMC release-capture watch ruling.
+Ratify: this row rides the pending multi-cause draft as its own EVENT leg.
+
+---
+
 ## 2026-08-29T20:49:33+00:00 — Pipeline run (auto)
 
 **Model state:**

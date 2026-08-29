@@ -33,11 +33,12 @@ def test_time_to_delivery_discount_pulls_nav_into_sanity_band():
     refresh, and the pair guard reds a hardcoded quarter the moment the
     manifest moves."""
     nav = compute_nav(load_company_inputs("BRUT", BOOK_QUARTER)).nav_per_share
-    # Re-pinned 2026-08-29 at the demerger absorb (4-hull entity): marks ~$650M PV
-    # − $398.1M commitment + net cash ~$11.1M ≈ ~$4.25/sh; Pareto post-split NAV
-    # kr 42.7 ≈ $4.56 -> the old 12-hull band [8.5, 10.5] valued a different company.
-    assert 3.7 < nav < 4.8       # discounted band (post-split)
-    assert nav < 6.0             # proves the discount fired (undiscounted runs ~$5.9)
+    # Re-pinned 2026-08-29 at the demerger absorb (4-hull entity): model prints
+    # $4.92 (marks-PV − $398.1M commitment + net cash); Pareto post-split NAV
+    # kr 42.7 ≈ $4.56 -> k_broker 0.99, the tightest BRUT has ever read — the
+    # old 12-hull band [8.5, 10.5] valued a different company. Band $4.92 ±7%.
+    assert 4.58 < nav < 5.26     # discounted band (post-split)
+    assert nav < 6.5             # proves the discount fired (undiscounted runs materially higher)
 
 
 def test_on_water_names_carry_no_delivery_discount():

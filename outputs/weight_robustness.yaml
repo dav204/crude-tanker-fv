@@ -129,17 +129,17 @@ names:
     - TRIM/SHORT (overvalued)
     - TRIM/SHORT (overvalued)
   BRUT:
-    ev_min_pct: 16.6
-    ev_max_pct: 108.0
-    ev_sign_stable: true
+    ev_min_pct: -34.0
+    ev_max_pct: 3.6
+    ev_sign_stable: false
     positions:
-    - BUY
-    - BUY
-    - BUY
-    - BUY
-    - BUY
-    - BUY
-    - BUY
+    - HOLD
+    - HOLD
+    - HOLD
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
+    - TRIM/SHORT
   BWLP:
     ev_min_pct: -41.8
     ev_max_pct: -37.5

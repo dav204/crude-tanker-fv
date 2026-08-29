@@ -1,11 +1,11 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-29T20:49:33+00:00
-- **Previous run:** 2026-08-29T20:44:37+00:00
+- **This run:** 2026-08-29T21:35:19+00:00
+- **Previous run:** 2026-08-29T20:49:33+00:00
 
 ## Headline changes (material moves)
 
-- **No material changes.** All tickers within thresholds (|ΔFV%|≤10%, |Δspread|≤5pp, |ΔNAV%|≤5%) and no position flips.
+- **BRUT:** position BUY (undervalued) → HOLD (fairly valued); single-point FV -51.2%; scenario PW FV -50.2%; broker spread +72.5pp; NAV/sh -48.9%
 
 ## §17 read-flip strobe — tape vs the flip boundary
 
@@ -20,7 +20,9 @@
 _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the price this run values at to the nearest band edge whose crossing would settle the flip — i.e. where the read would sit once the watchlist rebases to today's tape. It is NOT a scorecard number and never governs: `read_flag` and the deadband are measured on the watchlist vintage (`Row margin`), the same price the read itself is computed on (Addendum B2, 2026-08-14). The two differ by exactly the drift between the two vintages._
 ## Input files changed since last run
 
-- _(no input file changes detected — hashes match)_
+- `inputs/balance_sheets/brut_2026-Q2.yaml` (modified)
+- `inputs/fleet_manifests/brut.yaml` (modified)
+- `inputs/watchlist.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -45,7 +47,7 @@ _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the p
 | CAPT | $16.46 (no change) | $15.10 (no change) | $16.02 (no change) | $15.48 (no change) | HOLD (fairly valued) | +43.4pp (no change) |
 | MPCC | $2.85 (no change) | $2.22 (no change) | $2.07 (no change) | $2.05 (no change) | TRIM/SHORT (overvalued) | +19.2pp (no change) |
 | GSL | $44.52 (no change) | $44.02 (no change) | $42.88 (no change) | $41.20 (no change) | HOLD (fairly valued) | +31.8pp (no change) |
-| BRUT | $4.94 (no change) | $9.63 (no change) | $10.28 (no change) | $9.62 (no change) | BUY (undervalued) | -74.7pp (no change) |
+| BRUT ⚑ | $4.94 (no change) | $4.70 (-51.2%) | $5.12 (-50.2%) | $4.92 (-48.9%) | HOLD (fairly valued) ⟵ | -2.2pp (+72.5pp) |
 | CMBT | $18.35 (no change) | $15.65 (no change) | $14.41 (no change) | $16.46 (no change) | TRIM/SHORT (overvalued) | +23.2pp (no change) |
 | SB | $6.39 (no change) | $10.24 (no change) | $9.53 (no change) | $10.58 (no change) | BUY (undervalued) | -43.5pp (no change) |
 | LPG | $49.78 (no change) | $33.93 (no change) | $31.82 (no change) | $35.69 (no change) | TRIM/SHORT (overvalued) | +27.0pp (no change) |
