@@ -169,6 +169,11 @@ sit in CLAUDE.md; the full list lives here.
   into the automation-writable `prices_daily.yaml`; launchd 18:30 daily. Pipeline values at the live
   close; watchlist statics stay as the consensus_pnav/fwd_pe vintage anchors. Flagged quotes (>15% day
   move, >30% vs static) are written but never applied.
+- **Regen sequencing (2026-08-29; bit 2× in one week — FLNG 8/25, TRMD 8/29):** COMMIT the
+  pair/inputs FIRST, regen SECOND. A regen over uncommitted inputs stamps `source_commit
+  -dirty` and the hygiene guard reds it AFTER the ~8-min run — the guard catches it, but a
+  wasted regen each time. Corollary: an uncommitted regen also blocks the price cron's
+  dirty-tree stand-down (8/25-8/29: four stale sessions from one uncommitted tree).
 - **Flush automation drift:** `./scripts/commit_drift.sh` — stages + commits (one step) the 8
   automation-written files the launchd jobs churn. COMMIT-ONLY (push stays manual). Decision logs +
   per-name pipeline outputs EXCLUDED — commit those deliberately with their annotations.
