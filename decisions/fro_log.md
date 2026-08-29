@@ -1,5 +1,30 @@
 # FRO — Decision Log
 
+## 2026-08-29T20:38:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.19
+- Single-point FV: $25.94
+- Scenario PW FV: $27.79 (EV -37.1%)
+- NAV / share: $25.34
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +17.2pp (k_broker 1.22)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.73 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +0.9pp
+
+**Decision:** **Q2 PRINT LANDED 8/28 — THREE DAYS EARLY (calendar said 8/31, frontlineplc.cy;
+the FLNG early-release pattern repeating) — REFRESH QUEUED. BAND-MISS RECORDED (outage week +
+early release; the prereg was scheduled for freeze by 8/30).** Known going in (digest 8/29
+M2): the Q2 report CONFIRMS the P1 $270M / 2×VLCC-2017 sale at issuer level but the vessel
+names REMAIN undisclosed — P1's disposition (promote on class/built/price with non-disclosure
+recorded, or wait for names) is now a clean owner call at the refresh; PLUS two promotable-
+class fixtures: 2×VLCC @ $120,000/day × 1yr (ISSUER-sourced — above modelled rates, Stage-B
+adjacent) and the 8/28 Pareto Newsflash staged locally. Subsequent-events note FIRST.
+
+---
+
 ## 2026-08-25T22:33:03+00:00 — Pipeline run (auto)
 
 **Model state:**

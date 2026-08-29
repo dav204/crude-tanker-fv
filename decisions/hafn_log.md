@@ -1,5 +1,28 @@
 # HAFN — Decision Log
 
+## 2026-08-29T20:38:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $8.47
+- Single-point FV: $5.71
+- Scenario PW FV: $6.56 (EV -22.6%)
+- NAV / share: $5.56
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +39.8pp (k_broker 1.55)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.28 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.1pp
+
+**Decision:** **Q2 PRINT LANDED 8/28 — REFRESH QUEUED. BAND-MISS RECORDED (outage week — see
+cmbt_log same date).** Known going in (digest 8/29 M6): HAFN publishes ITS OWN NAV $8.89/sh —
+a rare independent triangulation landing ~10% from both the watchlist-implied and
+Pareto-implied NAV (record at the refresh; the pool-gross-up-pending PROVISIONAL flag and the
+figure-queue membership are the refresh's chance to clear on sourced WC components — the FLNG
+precedent). Pareto cut its target same window (8/28 daily prints 1.03x at $8.3).
+
+---
+
 ## 2026-08-25T22:33:03+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,5 +1,30 @@
 # BWLP — Decision Log
 
+## 2026-08-29T20:38:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.05
+- Single-point FV: $15.43
+- Scenario PW FV: $14.46 (EV -39.9%)
+- NAV / share: $15.80
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +18.9pp (k_broker 1.27)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -1.03 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -2.3pp
+
+**Decision:** **Q2 PRINT LANDED 8/28 (newsweb-staged, results + dividend key-info) — REFRESH
+QUEUED. BAND-MISS RECORDED (outage week).** Known going in: the §9.6 first-instalment wiring on
+the 8×90k-cbm order (the standing carry-forward: NCI re-derivation if the VLGC curve moved +
+the R-2 orderbook re-read toward the >38% void bar) + digest 8/29 M3: a three-vessel S&P
+programme + broker NAV well above the watchlist anchor (8/28 daily 1.27x vs 1.13 held; the
+8/28 rebase draft carries the fresh pair) + a 5-year TC at mid-high $40,000s (issuer — LPG
+curve context). The stale 2025-09-02 Pareto TP NOK 172 on analyst_target: this report is the
+refresh venue flagged at onboarding.
+
+---
+
 ## 2026-08-25T22:33:03+00:00 — Pipeline run (auto)
 
 **Model state:**

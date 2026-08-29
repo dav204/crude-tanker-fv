@@ -1,5 +1,30 @@
 # CMBT — Decision Log
 
+## 2026-08-29T20:38:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.35
+- Single-point FV: $15.65
+- Scenario PW FV: $14.41 (EV -21.5%)
+- NAV / share: $16.46
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +23.2pp (k_broker 1.19)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.18 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +0.7pp
+
+**Decision:** **Q2 PRINT LANDED 8/27 — REFRESH QUEUED. BAND-MISS RECORDED: no prereg was
+frozen for CMBT (the 8/17-8/24 outage week swallowed the freeze window; bands-before-prints
+broken for CMBT/HAFN/BWLP/FRO).** The refresh therefore runs with post-hoc verification
+discipline (the BRUT-H1 pattern: no band to check against — every figure double-verified,
+subsequent-events note FIRST, no same-sitting promotions). Known going in (digest 8/29 M5):
+NINE newbuild deliveries with exact dates + four more vessel sales + the 8/27 venue was where
+the Bristol Suezmax price might print (~$57M gain was priced-undisclosed — check the report).
+Multi-sleeve name: predicted-impact block required before the regen (frozen-leg discipline).
+
+---
+
 ## 2026-08-25T22:33:03+00:00 — Pipeline run (auto)
 
 **Model state:**

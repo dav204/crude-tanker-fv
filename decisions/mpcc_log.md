@@ -7,6 +7,33 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-29T20:38:03+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.85
+- Single-point FV: $2.22
+- Scenario PW FV: $2.07 (EV -27.5%)
+- NAV / share: $2.05
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +19.2pp (k_broker 1.20)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: -0.16 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -3.0pp
+
+**Decision:** **Q2 PRINT LANDED 8/26 — REFRESH QUEUED (prereg frozen 8/13 + AMENDED 8/18, band
+[1.90, 2.30] on 443.7M sh).** Release-level checks (newsweb-staged primary, the channel's first
+live test PASSED): CFO confirms the $107M placement completed "shortly after quarter-end" —
+amendment conditions 9-10 SUPPORTED at release level (6/30 count/cash should exclude it); the
+$375M loan finances the 16-NB program (one NB delivered in AUGUST = post-Q2 subsequent event);
+backlog $2.2B, coverage 99/85/60/39%, TCE $24,951, 65 vessels/17 NBs, div $0.04/q. NO NAV
+statement and NO balance sheet in the release (digest 8/29 M9) — the FULL refresh (Fork-A
+advances-only wiring per the 8/13 ruling + conditions 1-13) runs on the Q2 report PDF (mfn
+attachment; fetch next sitting). Seven Maersk fixtures with rates/tenors in the report =
+charter-context evidence, not prints. POSITION_UNRELIABLE holds throughout (condition 8).
+
+---
+
 ## 2026-08-25T22:33:03+00:00 — Pipeline run (auto)
 
 **Model state:**
