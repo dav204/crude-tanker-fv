@@ -1,0 +1,117 @@
+# Watchlist consensus-pair rebase DRAFT — transcribed 2026-08-29 from the Pareto
+# Shipping Daily 28 AUG 2026 p.1 share-price table (ONE daily, one vintage — the
+# WORKFLOWS §Consensus-pair recapture discipline). NOT APPLIED: promotion is the
+# owner's deliberate step. **SUPERSEDES `watchlist_rebase_2026-08-18.yaml.draft`**
+# (never promoted; the 8/28 daily is now the newest with the full table — the 8/18
+# transcription is retired with this file's promote, its 2343/GNK/SB riders carried
+# forward here). Clears THREE WEEKS of vintage drift (watchlist pairs still at 8/07)
+# incl. the 2343 + SB static-guard trips that have both names on stale-static
+# fallback. Cell verification: digest 8/29 M10 transcription CHECKED against the
+# RENDERED p.1 at 300dpi THIS SITTING — all 20 rows match, zero corrections
+# (pypdf drops the table object; the render is the source of record).
+# FX for kr rows: NOK/USD 0.106791 (2026-08-28, committed prices_daily — the
+# DAILY's-date FX per the codified 2026-08-09 rule).
+
+as_of: 2026-08-28
+source: Pareto Shipping Daily 2026-08-28 (issue 527074), p.1 "Share prices"
+transcription_verified: rendered p.1 at 300dpi 2026-08-29 (session scratchpad
+  table828-1.png); digest M10 values confirmed cell-perfect against the render
+
+pareto_basis:            # price (as printed) / Pareto P/NAV / consensus P/E 1Y fwd
+  DHT:  {price_usd: 19.4,  consensus_pnav: 1.14, consensus_fwd_pe: 9.9}
+  FRO:  {price_usd: 43.8,  consensus_pnav: 1.33, consensus_fwd_pe: 10.3}
+  ECO:  {price_usd: 66.3,  consensus_pnav: 1.47, consensus_fwd_pe: 10.1}
+  INSW: {price_usd: 99.3,  consensus_pnav: 1.21, consensus_fwd_pe: 13.9}
+  TNK:  {price_usd: 88.2,  consensus_pnav: 0.91, consensus_fwd_pe: 8.8}
+  STNG: {price_usd: 77.4,  consensus_pnav: 0.73, consensus_fwd_pe: 14.0}
+  TRMD: {price_usd: 31.8,  consensus_pnav: 0.92, consensus_fwd_pe: 10.6}
+  HAFN: {price_usd: 8.3,   consensus_pnav: 1.03, consensus_fwd_pe: 10.4}
+  CMBT: {price_usd: 18.3,  consensus_pnav: 0.86, consensus_fwd_pe: 10.3}
+  GNK:  {price_usd: 25.8,  consensus_pnav: 0.95, consensus_fwd_pe: 12.3}
+  SBLK: {price_usd: 30.4,  consensus_pnav: 0.91, consensus_fwd_pe: 7.1}
+  LPG:  {price_usd: 49.3,  consensus_pnav: 1.06, consensus_fwd_pe: 12.9}
+  FLNG: {price_usd: 31.3,  consensus_pnav: 1.44, consensus_fwd_pe: 14.6}
+  CAPT: {price_kr: 150.4,  consensus_pnav: 0.72, consensus_fwd_pe: 25.5}   # NOK — x0.106791 = $16.06
+  BWLP: {price_kr: 226.4,  consensus_pnav: 1.27, consensus_fwd_pe: 11.8}   # NOK — x0.106791 = $24.18
+
+conditional_on_demerger_ruling:   # BRUT — do NOT promote in the 20-name sweep.
+  # The 8/28 daily prints BRUT POST-demerger: kr 44.0 / 1.03x / 14.4x — the matched
+  # replacement pair the carry doc needs (Pareto's post-split NAV ≈ NOK 43 ≈ the 8/25
+  # daily's NOK 45 fresh strike). But the watchlist BRUT block re-pins ONLY inside the
+  # JOINT demerger absorb (manifest −8 hulls + sheet −$873.9M/−$50M + pair together;
+  # decisions/brut_demerger_carry_2026-08-25.md) — promoting the pair against the
+  # 12-hull manifest re-creates the exact incoherence the guard is currently blocking.
+  BRUT: {price_kr: 44.0, consensus_pnav: 1.03, consensus_fwd_pe: 14.4}   # NOK — x0.106791 = $4.70
+
+approx_basis:            # Pareto prints NO P/NAV — price + fwd P/E legs only, pnav stays APPROX-flagged
+  ASC:  {price_usd: 17.7, consensus_fwd_pe: 10.6}   # P/E 15.5 -> 10.6 confirmed on the render (the big 8/18-noted estimate move persists)
+  NAT:  {price_usd: 6.8,  consensus_fwd_pe: 17.7}
+  CCEC: {price_usd: 22.8, consensus_fwd_pe: 7.9}
+  MPCC: {price_kr: 27.2,  consensus_fwd_pe: 8.4}    # NOK — x0.106791 = $2.90
+
+absent_from_table:       # keep the FULL static pair at its CURRENT vintage (TEN $44 rule)
+  - TEN
+  - CMDB
+  - GSL
+  - SB    # SB's ±30% static guard is TRIPPED (tape $8.52 vs static $6.39, 6/26 vintage)
+          # — the lone edge-cleared long is valuing on stale statics and its printed EV
+          # is INFLATED (~+49% static-basis vs ~+22% tape-basis). Pareto cannot fix it
+          # (never covered) -> OWNER re-pin, own basis (P/BV proxy: price + pnav =
+          # price/common-book recomputed together; Q2 book from the 8/05 print).
+
+issuer_sourced:            # 2343 — the price-leg re-pin (NAV anchor 0.4297 unchanged)
+  "2343":
+    nav_per_share_usd: 0.4297      # 2026 Interim issuer-composite, 30-Jun — UNCHANGED
+    price_leg: >
+      Promote the NEWEST HK close in prices_daily at promote time — 8/28 close $0.5326
+      (HK$4.175 x 0.12756) as of this draft. The ±30% guard has been TRIPPED since 8/18
+      (static 0.390, +36.6% at the 8/28 close) — the name is on stale-static fallback and
+      its current HOLD print is the guard artifact, not the market (true tape read ~T/S
+      at a ~24% premium to issuer NAV).
+    pnav_rule: >
+      consensus_pnav = promoted_price / 0.4297, computed at promote — never pasted.
+      At $0.5326 that is 1.24 (was 0.91 at the stale $0.390).
+    fwd_pe_rule: >
+      RECOMPUTE: price / FY2026 consensus EPS US$0.03 -> ~17.8x at $0.5326 (the price leg
+      moves, so the ratio moves with it — the 8/18 draft's reasoning carries).
+    per_class_refinement: >
+      RIDER (digest 8/24 M3 + owner summary #4): the 8/21 Interim REPORT publishes the
+      per-class split of the SAME 2,070.6 aggregate (Handysize 58/952.6 · Supra-Ultra
+      48/1,100.0 · Cape-bareboat 1/18.0, ex-NBs) — a free resolution upgrade at an
+      unchanged anchor; retires the "needs AR2026 ~Mar-2027" watchlist comment. Fold the
+      comment rewrite into this promote. ALSO note the H1 buyback (~9.5M sh for ~$3.5M,
+      programme up to $40M): verify whether the 5,165.247803M derivation count is the
+      30-Jun count (post-buyback) before re-deriving anything — recompute, never edit.
+  # HAFN rider (digest 8/29 M6): the Q2 report publishes HAFN's OWN NAV $8.89/sh — an
+  # independent triangulation ~10% from both the watchlist-implied and Pareto-implied
+  # NAV. Record in hafn_log at its refresh; no watchlist field moves on it (HAFN is a
+  # real Pareto print, 1.03x this daily).
+
+anchor_maintenance:        # GNK — carried FORWARD from the 8/18 draft, now 3 digests old
+  GNK:
+    what_happened: >
+      Diana withdrew 8/14 (gnk_log annotated 8/18); the 8/17 open letter guided Q3+Q4
+      dividends >$2.00/sh cumulative and stated Genco's own NAV ~$27.50; the 8/24
+      response date lapsed; and per digest 8/29 M8 Diana is now a SELLER of its GNK
+      stake at ~$27 — the M&A regime is fully dead, in both directions.
+    analyst_target_28_40: >
+      STANDS as ruled (broker-NAV basis, owner 8/13). The 8/28 daily implies Pareto NAV
+      ~$27.2 (25.8/0.95) and Genco's own letter says ~$27.50 — both ~4% under the pinned
+      8/06 $28.40. Flag for an owner re-pin to ~27.2-27.5 at this promote (three sources
+      now cluster there); do not move it silently.
+    caveat_rewrite: >
+      REWRITE (not delete) the watchlist DEAL CAVEAT: no live proposal, no tender; Diana
+      is a seller at ~$27 ("REMAINS LIVE" has been false since 8/14 — third digest
+      flagging it). Keep the band-boundary warning; note the dividend-guidance
+      cross-check owed on dividend_policies/gnk.yaml (payout_ratio 1.00 vs the guided
+      >560% YoY Q3 step — cross-check, not necessarily an edit).
+
+promote_checklist:
+  - "One commit rebasing watchlist.yaml from this draft (FX rule: price leg only, 0.106791 8/28 NOK FX; DELETE this draft AND the superseded 8/18 draft in the same commit)"
+  - "2343: newest HK close + computed pnav + recomputed fwd_pe in the SAME commit; per-class comment rewrite rides along"
+  - "GNK: caveat rewrite + the 28.40->~27.2-27.5 re-pin question surfaced to the owner in the promote sitting"
+  - "BRUT: SKIP in this sweep — its pair promotes ONLY inside the demerger-carry joint absorb (conditional lane above)"
+  - "SB: surface the static re-pin as its own owner item (cannot ride this Pareto sweep)"
+  - "Gate loop: pytest -> /reconcile --all -> drift gate. Expect k_broker second-difference moves book-wide (the rebase's purpose) + the guard releases on 2343 (static-fallback ends; its HOLD artifact re-reads at tape) -> annotate movers, ratify with the two-cause pattern (rebase leg + price legs since 8/16)"
+  - "Band flips: isolate-commit discipline, individual eyeballs; ANY flip toward BUY = halt-and-investigate (standing). NOTE the read-flip strobe: GNK sits -0.07% INSIDE the deadband at the 8/28 tape — this rebase will likely RESTATE GNK's read_flag; that is the deadband doing its job, document it in the ratify"
+  - "Re-arm all_sectors_consensus_pair_recapture to promote-date + 3 months"
