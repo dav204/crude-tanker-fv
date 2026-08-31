@@ -42,7 +42,7 @@ SBLK_BOUNDARY = 27.72      # NAV x J_hist / (1 + FAIR_BAND)
 SBLK_TAPE_CLOSE = 27.89    # the 8/13 live close
 SBLK_MARGIN_PCT = 0.62     # +0.62% — inside the deadband, the strobe zone that motivated it
 SBLK_VINTAGE_PRICE = 28.60  # the watchlist static the row's own §17 numbers price off
-SBLK_ROW_MARGIN_PCT = 3.18  # +3.18% — the SAME boundary measured at the vintage; OUTSIDE the band
+SBLK_ROW_MARGIN_PCT = 3.18   # +3.18% — the SAME boundary measured at the vintage; OUTSIDE the band. SYNTHETIC 8/13-era fixture value, paired with SBLK_VINTAGE_PRICE above — does NOT track the live watchlist (the live-surface test carries its own dated literal)
 
 
 def _scale_prices(monkeypatch, factor: float) -> None:
@@ -406,4 +406,4 @@ def test_scorecard_surface_is_unchanged_by_the_strobe(tmp_path: Path):
         "the handoff JSON gained a per-name field — the tape margin belongs to the monitor layer"
     # the row's margin is still the VINTAGE one (nothing swapped a tape number in under the name)
     by = {n["ticker"]: n for n in fresh_json["names"]}
-    assert by["SBLK"]["flip_margin_pct"] == pytest.approx(SBLK_ROW_MARGIN_PCT, abs=0.005)
+    assert by["SBLK"]["flip_margin_pct"] == pytest.approx(-8.60, abs=0.005)  # LIVE surface value, re-pinned 2026-08-29 (8/28 vintage: boundary $33.26 vs the $30.40 static; was +3.18 on the 8/07 vintage — moves with each consensus-pair rebase)

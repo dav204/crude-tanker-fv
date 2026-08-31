@@ -273,11 +273,14 @@ def test_sb_worked_example_identity():
     # Pin the IDENTITY and loose bands, never the moving dollar NAV (P2/P1 shift it).
     nav = sb.nav_per_share
     assert 8.5 < nav < 11.0
-    assert sb.price == pytest.approx(6.39)
+    assert sb.price == pytest.approx(8.52)   # re-pinned 2026-08-29: SB own-basis re-pin (owner-ruled rebase rider; was 6.39, the 6/26 static)
     assert sb.pnav_mkt == pytest.approx(sb.price / nav)
     assert sb.ronav_implied == pytest.approx(0.01 + (sb.price / nav) * (R - 0.01))
-    # The market prices SB's fleet to earn ~7-8% on NAV through cycle (g=0.01).
-    assert 0.065 < sb.ronav_implied < 0.085
+    # The market prices SB's fleet to earn ~7-9% on NAV through cycle (g=0.01).
+    # Band re-based 2026-08-29 with the price re-pin (6.39 -> 8.52): implied rose
+    # ~7.0% -> ~9.1%, still BELOW ronav_norm (the cheap call survives — and reads
+    # robust on both bases at the honest vintage).
+    assert 0.07 < sb.ronav_implied < 0.10
     # RONAV_norm exceeds implied -> SB cheap vs justified (a thin call by design).
     assert sb.ronav_norm > sb.ronav_implied and sb.read == "cheap"
 
