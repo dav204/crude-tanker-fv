@@ -1399,6 +1399,47 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-31 — Q2 REFRESH EXECUTED (the 8/28 EARLY print; band-less — miss recorded 8/29; post-hoc verification block written BEFORE the regen)
+
+**Blocking artifact resolved first:** the poller's outage catch-up staged only
+the 6-K COVER — the ex-1 (all financials) was fetched direct from EDGAR today
+and read in full. Subsequent events audited FIRST (no formal note; prose):
+P1 2×2017-VLCC $270.0M JULY agreements (post-period → NO HFS at 6/30, hulls
+stay in the snapshot; names still undisclosed — the $135M/each split is
+INFERENCE; MB W33's Front Vefsna→Adnoc $135.0M is the probable first leg,
+marks_trail_triage_2026-08-31 §C; **P1 promote stays blocked on per-vessel
+disclosure, pre-ruled on-class**); NB deliveries Jul/Aug ($313.0M paid);
+July step-down TC-outs (2-yr avg 90k / 3-yr avg 75k); the August financing
+wave (margin 178→126bps); dividends $2.61 + $0.80-special-contingent-on-P1.
+
+**Sheet walk (pair commit):** cash 471.7→322.3 (−149.4; dividends 345.1 paid
+in H1) · WC 295.6→368.0 (+72.5) · debt 2,631.1→2,434.8 (+196.2 — H1 repaid
+887.9 vs issued 256.4) · NB commitment 925.0→601.1 (+323.9; 3 hulls delivered
+by 6/30) · leases 0 · shares 222,622,889 flat. Manifest: 36 VLCC on-water
+(+3 delivered NBs, 2@110k + 1@120k TCs) · Suezmax 21→19 (the $140M pair
+delivered, gain $54.7M — gain-only per-vessel, NOT promotable) · TC book
+rebuilt to the disclosed fixtures (15 VLCC + 1 SMX + 1 LR2 >12mo) · ages
++0.5 · NB rows re-based (6 remaining, ytd 0.25/0.5/0.75).
+
+**Predicted NAV: $25.34 → ≈ $26.2-26.5 (net legs ≈ +$1.0/sh: +196.2 debt
++323.9 commitment +72.5 WC −149.4 cash −~140 Suezmax-pair fleet leg −~80 age
+decay). Band [25.3, 27.5].** Outside → HALT, investigate the INPUT. **The
+k_broker 1.2006 exceedance (named at the 8/28 rebase re-pins) should RESOLVE
+here** — NAV up ~4% at the pinned pnav → k ≈ 1.15, back inside the band.
+Forward invariance: the other 24 names delta 0.0.
+
+**Stage-B basis captured (rider):** VLCC 1-yr direct prints 110k/120k (May-26
+fixtures) + 2-yr 90k avg + 3-yr 75k avg step-downs + Jan-26 7×76.9k — the
+FIRST direct VLCC 12M-class prints since Mount Horizon (which was single-print
+RULED D-2b); Q3 QTD spot VLCC 86%@156.9k / SMX 79%@117.4k / LR2 70%@81.0k;
+breakevens 23.8/25.7/22.2k. Routes to the Stage-B class-bucket re-check
+(8/26→9/04) — NOT promoted here (Stage B is its own gated step).
+
+**Decision:** refresh pair landed per the walk above; regen verdict appended
+at the run entry.
+
+---
+
 ## 2026-07-28T15:58:58+00:00 — Pipeline run (auto)
 
 **Model state:**

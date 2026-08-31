@@ -1,69 +1,89 @@
 # Frontline plc fleet manifest — METHODOLOGY.md section 4.1
-# Source: FRO Q1 2026 results (fleet as of 2026-03-31: 33 VLCC + 21 Suezmax +
-# 18 LR2 = 72 vessels, ALL ECO, 46 scrubber-fitted, avg age 7.5y) cross-checked
-# against the fleet page. The website table is a later snapshot and disagreed
-# with the report counts, so this manifest is built as representative GROUPS
-# (count = sister vessels) matching the report's authoritative class counts and
-# the known yard/age/scrubber mix. eco=true fleet-wide (per the report).
+# Q2-2026 REFRESH 2026-08-31 (6-K acc 0000919574-26-005942 ex-1, BS 2026-06-30;
+# the exhibit staged direct from EDGAR — the poller's outage catch-up had only
+# the cover). On-water at 6/30: 36 VLCC (33 + 3 Hemen NB deliveries Apr-30 /
+# May-20 / Jun-22) + 19 Suezmax (2014/2015-built pair DELIVERED in Q2 — the
+# $140.0M April sale, gain $54.7M) + 18 LR2 = 73. Remaining NB orderbook 6
+# (Jul-3 / Aug-18 / Aug-26 delivered POST-quarter + 2 in Q4-26 + 1 in Q1-27);
+# commitment $601.1M on the balance sheet. Ages +0.5 at the quarter bump.
+# P1 (subsequent event, JULY agreements): 2× 2017-built VLCCs sold $270.0M
+# total, names NOT disclosed by the issuer (MB W33 names Front Vefsna → Adnoc
+# $135.0M as one probable leg — marks_trail_triage_2026-08-31 §C; the P1
+# promote is pre-ruled ON-CLASS and stays blocked on per-vessel disclosure);
+# hull 1 delivered early Aug, hull 2 expected early Sep. Both hulls REMAIN in
+# this 6/30 snapshot at curve value (the Q1 April-sale precedent) — they sit
+# in the 2017 cohort rows below; they leave at the Q3 refresh.
+# TC book rebuilt to the report's disclosed fixtures (report-date coverage,
+# strip-side): 15 VLCC + 1 Suezmax + 1 LR2 on >12mo TC — 7 @ $76,900 (Jan-26
+# 1-yr, 2016-2018 builds) + 2 @ $110,000 (Apr-26 1-yr, delivered NBs) + 2 @
+# $120,000 (May-26 1-yr, delivered 6/22 + the Jul-3 NB row) + 1 @ $90,000-avg
+# (2-yr step-down 110/70) + 1 @ $75,000-avg (3-yr step-down 110/70/45; both
+# 2016-built — carried on a dedicated stepdown row at the blended $82,500) +
+# 2 @ $85,000 (residual of the prior book). Representative GROUPS as before.
 #
-# LR2 sleeve is modeled as Aframax-equivalent (crude/dirty proxy) for v1.
-# yard drives the yard-quality discount (see vessel_value_curves.yaml).
+# LR2 sleeve modeled as Aframax-equivalent (crude/dirty proxy) for v1.
 ticker: FRO
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
-  # ---- VLCC (33 on-water at 2026-03-31; the 9 Hemen newbuilds are in the
-  #      balance-sheet newbuild lines, and ramp into the strip via fleet_schedule) ----
-  - {id: VLCC_2016_kr, class: VLCC, dwt: 300000, age: 10, scrubber: true,  eco: true, yard: Hyundai,       count: 3}
-  - {id: VLCC_2017_subic, class: VLCC, dwt: 300000, age: 9, scrubber: false, eco: true, yard: Hanjin Subic, count: 2}
-  - {id: VLCC_2017_kr_ns, class: VLCC, dwt: 300000, age: 9, scrubber: false, eco: true, yard: Hyundai,      count: 3}
-  - {id: VLCC_2017_kr_s,  class: VLCC, dwt: 300000, age: 9, scrubber: true,  eco: true, yard: Hyundai,      count: 3}
-  - {id: VLCC_2018_kr,    class: VLCC, dwt: 300000, age: 8, scrubber: true,  eco: true, yard: DSME,         count: 2}
-  - {id: VLCC_2019_kr,    class: VLCC, dwt: 300000, age: 7, scrubber: true,  eco: true, yard: HHI,
-     charter_status: time_charter, charter_rate: 85000, count: 5}
-  - {id: VLCC_2020_kr,    class: VLCC, dwt: 300000, age: 6, scrubber: true,  eco: true, yard: HSHI,         count: 2}
-  - {id: VLCC_2021_kr,    class: VLCC, dwt: 300000, age: 5, scrubber: true,  eco: true, yard: Daewoo,       count: 4}
-  - {id: VLCC_2022_kr,    class: VLCC, dwt: 300000, age: 4, scrubber: true,  eco: true, yard: HHI,          count: 4}
-  - {id: VLCC_2023_kr,    class: VLCC, dwt: 300000, age: 3, scrubber: true,  eco: true, yard: HSHI,         count: 5}
-  # ---- 9 Hemen VLCC newbuilds (under construction at 2026-03-31), valued at
-  #      DELIVERED market value (age 0) less the remaining commitment handled in
-  #      the balance sheet. Resolves open decision 9.6 toward market for material
-  #      orderbooks: at cost they would understate NAV by the embedded value of
-  #      these cheaply-contracted ships in a hot market (~$5.7/sh). Hengli/Dalian
-  #      = modern top-tier Chinese (5% yard discount). They earn in the strip via
-  #      the fleet_schedule ramp, not from the static manifest count.
-  # years_to_delivery (§9.6) from the Mar-31 snapshot: the 9 Hemen NBs deliver
-  # Apr'26 → Q1'27 (per the fleet_schedule note) — all near-term, so the PV
-  # discount is small (~2-6%). Hengli earlier (avg ~0.35yr), Dalian later (~0.6).
-  - {id: VLCC_nb_hengli,  class: VLCC, dwt: 306000, age: 0, scrubber: true,  eco: true, yard: Hengli,       count: 6, years_to_delivery: 0.35}
-  - {id: VLCC_nb_dalian,  class: VLCC, dwt: 300000, age: 0, scrubber: true,  eco: true, yard: Dalian,       count: 3, years_to_delivery: 0.6}
-  # ---- Suezmax (21 at 2026-03-31; 2 oldest Chinese sold April 2026 -> strip uses 19) ----
-  - {id: SMX_2019_kr,     class: Suezmax, dwt: 157000, age: 7,  scrubber: true,  eco: true, yard: HSHI,
-     charter_status: time_charter, charter_rate: 60000, count: 11}
-  - {id: SMX_2016_nt,     class: Suezmax, dwt: 157000, age: 9,  scrubber: false, eco: true, yard: New Times, count: 8}
-  - {id: SMX_2015_rs,     class: Suezmax, dwt: 157000, age: 11, scrubber: true,  eco: true, yard: Rongsheng, count: 1}
-  - {id: SMX_2014_nt,     class: Suezmax, dwt: 157000, age: 12, scrubber: false, eco: true, yard: New Times, count: 1}
+  # ---- VLCC (36 on-water at 2026-06-30) ----
+  - {id: VLCC_2016_kr, class: VLCC, dwt: 300000, age: 10.5, scrubber: true,  eco: true, yard: Hyundai,
+     charter_status: time_charter, charter_rate: 76900, count: 3}   # Jan-26 1-yr fixtures
+  - {id: VLCC_2016_stepdown, class: VLCC, dwt: 300000, age: 10.5, scrubber: true, eco: true, yard: Hyundai,
+     charter_status: time_charter, charter_rate: 82500, count: 2}   # Jul-26 2-yr avg 90k (110/70) + 3-yr avg 75k (110/70/45) — blended
+  - {id: VLCC_2017_subic, class: VLCC, dwt: 300000, age: 9.5, scrubber: false, eco: true, yard: Hanjin Subic,
+     charter_status: time_charter, charter_rate: 76900, count: 2}   # Jan-26 1-yr fixtures
+  - {id: VLCC_2017_kr_ns, class: VLCC, dwt: 300000, age: 9.5, scrubber: false, eco: true, yard: Hyundai,      count: 3}
+  - {id: VLCC_2017_kr_s,  class: VLCC, dwt: 300000, age: 9.5, scrubber: true,  eco: true, yard: Hyundai,      count: 1}
+  # ^ the P1 pair (2017-built, sold July $270M total) sits in these 2017 cohorts until delivered (Aug/Sep)
+  - {id: VLCC_2018_kr,    class: VLCC, dwt: 300000, age: 8.5, scrubber: true,  eco: true, yard: DSME,
+     charter_status: time_charter, charter_rate: 76900, count: 2}   # Jan-26 1-yr fixtures (completes the 7)
+  - {id: VLCC_2019_kr_tc, class: VLCC, dwt: 300000, age: 7.5, scrubber: true,  eco: true, yard: HHI,
+     charter_status: time_charter, charter_rate: 85000, count: 2}   # residual of the prior TC book
+  - {id: VLCC_2019_kr,    class: VLCC, dwt: 300000, age: 7.5, scrubber: true,  eco: true, yard: HHI,          count: 3}
+  - {id: VLCC_2020_kr,    class: VLCC, dwt: 300000, age: 6.5, scrubber: true,  eco: true, yard: HSHI,         count: 2}
+  - {id: VLCC_2021_kr,    class: VLCC, dwt: 300000, age: 5.5, scrubber: true,  eco: true, yard: Daewoo,       count: 4}
+  - {id: VLCC_2022_kr,    class: VLCC, dwt: 300000, age: 4.5, scrubber: true,  eco: true, yard: HHI,          count: 4}
+  - {id: VLCC_2023_kr,    class: VLCC, dwt: 300000, age: 3.5, scrubber: true,  eco: true, yard: HSHI,         count: 5}
+  # ---- Hemen NBs DELIVERED by 6/30 (Apr-30, May-20, Jun-22) — on-water ----
+  - {id: VLCC_2026_dlv_110, class: VLCC, dwt: 306000, age: 0.5, scrubber: true, eco: true, yard: Hengli,
+     charter_status: time_charter, charter_rate: 110000, count: 2}  # Apr-26 1-yr TCs from delivery
+  - {id: VLCC_2026_dlv_120, class: VLCC, dwt: 306000, age: 0.5, scrubber: true, eco: true, yard: Hengli,
+     charter_status: time_charter, charter_rate: 120000, count: 1}  # May-26 1-yr TC (delivered 6/22)
+  # ---- 6 Hemen NBs remaining on order at 6/30 ($601.1M commitment on the
+  #      balance sheet; delivered-market convention). years_to_delivery from
+  #      the 6/30 snapshot: Jul-3/Aug-18/Aug-26 → 0.25; 2× Q4-26 → 0.5;
+  #      1× Q1-27 → 0.75. The Jul-3 hull carries the second $120k 1-yr TC. ----
+  - {id: VLCC_nb_q3,    class: VLCC, dwt: 306000, age: 0, scrubber: true, eco: true, yard: Hengli,
+     charter_status: time_charter, charter_rate: 120000, count: 3, years_to_delivery: 0.25}
+  - {id: VLCC_nb_q4,    class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, yard: Dalian, count: 2, years_to_delivery: 0.5}
+  - {id: VLCC_nb_q1_27, class: VLCC, dwt: 300000, age: 0, scrubber: true, eco: true, yard: Dalian, count: 1, years_to_delivery: 0.75}
+  # ---- Suezmax (19 at 2026-06-30; the 2014/2015 pair delivered in Q2) ----
+  - {id: SMX_2019_kr_tc,  class: Suezmax, dwt: 157000, age: 7.5, scrubber: true,  eco: true, yard: HSHI,
+     charter_status: time_charter, charter_rate: 60000, count: 1}   # 1 Suezmax on >12mo TC per the report
+  - {id: SMX_2019_kr,     class: Suezmax, dwt: 157000, age: 7.5, scrubber: true,  eco: true, yard: HSHI,      count: 10}
+  - {id: SMX_2016_nt,     class: Suezmax, dwt: 157000, age: 9.5, scrubber: false, eco: true, yard: New Times, count: 8}
   # ---- LR2 / Aframax (18, all Chinese-built; modeled as Aframax) ----
-  - {id: LR2_2021_sws,    class: LR2, dwt: 110000, age: 5,  scrubber: true,  eco: true, yard: SWS,
-     charter_status: time_charter, charter_rate: 55000, count: 4}
-  - {id: LR2_2017_nt,     class: LR2, dwt: 110000, age: 8,  scrubber: false, eco: true, yard: New Times, count: 8}
-  - {id: LR2_2016_cosco,  class: LR2, dwt: 110000, age: 10, scrubber: false, eco: true, yard: Cosco,     count: 4}
-  - {id: LR2_2016_lx,     class: LR2, dwt: 110000, age: 10, scrubber: false, eco: true, yard: Longxue,   count: 2}
+  - {id: LR2_2021_sws_tc, class: LR2, dwt: 110000, age: 5.5, scrubber: true,  eco: true, yard: SWS,
+     charter_status: time_charter, charter_rate: 55000, count: 1}   # 1 LR2 on >12mo TC per the report
+  - {id: LR2_2021_sws,    class: LR2, dwt: 110000, age: 5.5, scrubber: true,  eco: true, yard: SWS,       count: 3}
+  - {id: LR2_2017_nt,     class: LR2, dwt: 110000, age: 8.5, scrubber: false, eco: true, yard: New Times, count: 8}
+  - {id: LR2_2016_cosco,  class: LR2, dwt: 110000, age: 10.5, scrubber: false, eco: true, yard: Cosco,     count: 4}
+  - {id: LR2_2016_lx,     class: LR2, dwt: 110000, age: 10.5, scrubber: false, eco: true, yard: Longxue,   count: 2}
 spot_coverage_pct:
-  VLCC: 0.70      # ~30% on >12mo TC coverage (Q1 call)
-  Suezmax: 0.90
-  LR2: 0.90
-# Earning fleet over the 8-quarter strip (Q3'26..Q2'28). VLCC ramps as the 9
-# Hemen newbuilds deliver (Apr'26: +1, May: +1, late-Jun: +2, Q3: +2, Q4: +2,
-# Q1'27: +1 -> 42); Suezmax drops to 19 (2 sold Apr'26); LR2 flat at 18.
-# NAV stays anchored to the 2026-03-31 counts (33/21/18); the newbuild balance-
-# sheet lines handle the cash side.
+  VLCC: 0.60      # 15 of ~40 pro-forma on >12mo TC (report-date book); Q3 QTD spot 86% booked @ $156,900/day
+  Suezmax: 0.95   # 1 of 19 on TC; Q3 QTD spot 79% @ $117,400/day
+  LR2: 0.94       # 1 of 18 on TC; Q3 QTD spot 70% @ $81,000/day
+# Earning fleet over the 8-quarter strip (Q3'26..Q2'28). VLCC: 36 at 6/30,
+# +3 NB deliveries Q3 (Jul-3/Aug-18/Aug-26), −2 P1 sales (Aug/Sep), +2 NB Q4,
+# +1 NB Q1'27 → 40 steady-state (= the report's pro-forma 77-vessel fleet:
+# 40 VLCC / 19 Suezmax / 18 LR2). Suezmax 19 flat; LR2 18 flat.
 fleet_schedule:
-  VLCC:    [38, 40, 41.5, 42, 42, 42, 42, 42]
+  VLCC:    [37, 39.5, 40, 40, 40, 40, 40, 40]
   Suezmax: [19, 19, 19, 19, 19, 19, 19, 19]
   LR2:     [18, 18, 18, 18, 18, 18, 18, 18]
 fleet_summary:
-  VLCC_count: 33
-  Suezmax_count: 21
+  VLCC_count: 36
+  Suezmax_count: 19
   LR2_count: 18
-  vlcc_newbuilds_committed: 9     # Hemen, $925M remaining commitment
-  avg_age: 7.5
+  vlcc_newbuilds_committed: 6     # Hemen, $601.1M remaining commitment at 6/30
+  avg_age: 6.6                    # report pro-forma ("approximately 6.6 years")

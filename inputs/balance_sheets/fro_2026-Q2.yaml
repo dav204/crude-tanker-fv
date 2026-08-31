@@ -1,0 +1,56 @@
+# Frontline plc balance sheet snapshot — 2026-06-30 (Q2 2026)
+# Source of record: Q2-2026 6-K acc 0000919574-26-005942 ex-1 (filed 2026-08-28;
+# the exhibit was MISSING from the poller's outage catch-up — staged 2026-08-31
+# direct from EDGAR; inputs/filings/FRO/..._ex-1.htm). Statement of Financial
+# Position as of 2026-06-30 (USD'000). The exhibit carries NO statement notes —
+# post-6/30 events are prose-disclosed and audited FIRST:
+#   (1) P1: agreements JULY 2026 to sell 2× 2017-built VLCCs, $270.0M total
+#       ("to an unrelated party"; names NOT disclosed; $135M/each is inference
+#       not disclosure) — net proceeds ~$179.0M, Q3 gain ~$110.0M; hull 1
+#       delivered early Aug, hull 2 expected early Sep. POST-period agreements
+#       → NO held-for-sale at 6/30 (none presented); both hulls stay in this
+#       snapshot's fleet at curve value (the Q1 April-sale precedent).
+#   (2) NB deliveries Jul-3 / Aug-18 / Aug-26 ($313.0M paid on delivery).
+#   (3) July TC-outs: 2-yr avg $90k/day + 3-yr avg $75k/day (2016-built VLCCs,
+#       step-down structures) — report-date charter book, strip-side.
+#   (4) August financing wave: $410.6M BoC-HK Sinosure NB facility (undrawn) +
+#       Deka/ING/KfW facilities + the $1,286.0M TL converted to an RCF (fully
+#       repaid, $790.3M available); margin 178bps → 126bps on completion.
+#   (5) Dividends declared post-period: $2.61 regular + $0.80 special
+#       CONTINGENT on P1 completion (~$179.0M returned).
+ticker: FRO
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/913290/000091957426005942/
+retrieved_at: 2026-08-31
+filing_period_end: 2026-06-30
+
+cash_and_equivalents: 322307000      # cash 321,424 + marketable securities 883 ($k)
+
+# working_capital_net = "Other current assets" 590,097 − "Other current payables"
+# 222,074 ($k) — the exhibit's single-lump current lines, same construction as Q1
+# (excludes cash and the current debt portion, which the NAV formula handles).
+working_capital_net: 368023000
+
+total_debt: 2434842000               # short-term + current portion 265,911 +
+                                     # long-term 2,168,931 ($k); gross down from
+                                     # 3,067.7M at 12/31 (H1 repaid 887.9 vs
+                                     # issued 256.4 — the deleveraging leg)
+
+lease_liabilities: 0                  # lease repayments $0 both 2026 periods;
+                                      # no finance-lease/SLB line in the exhibit
+
+# Hemen VLCC newbuilding program (9 hulls, $1,224.0M aggregate; 6 Hengli /
+# 3 Dalian): 3 DELIVERED by 6/30 (Apr-30, May-20, Jun-22 — moved on-water in
+# the manifest), 6 remaining on order at 6/30. "As of June 30, 2026, the
+# remaining commitment under the agreements was $601.1 million, of which
+# $313.0 million was paid in July and August 2026 upon delivery of three
+# vessels, $198.3 million is due within 2026, and $89.8 million is due within
+# 2027." (Exhibit, verbatim.)
+newbuild_capex_commitments: 601100000
+# Advances 0 by the Q1 convention: the remaining NBs are valued at DELIVERED
+# market on the manifest rows (the $225,770k "Newbuildings" carrying value is
+# embedded in that market value — never double-count it).
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 222622889   # constant across all periods shown;
+                                        # no buybacks, no issuance
