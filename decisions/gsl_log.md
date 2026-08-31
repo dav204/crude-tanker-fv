@@ -1,5 +1,23 @@
 # GSL — Decision Log
 
+## 2026-08-31T17:10:22+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.52
+- Single-point FV: $44.02
+- Scenario PW FV: $42.88 (EV -3.7%)
+- NAV / share: $41.20
+- Position: **HOLD (fairly valued)**
+- Broker spread: +31.8pp (k_broker 1.38)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-31T15:03:54+00:00 — Pipeline run (auto)
 
 **Model state:**

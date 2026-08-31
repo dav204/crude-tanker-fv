@@ -1,5 +1,30 @@
 # SBLK — Decision Log
 
+## 2026-08-31T17:10:22+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $30.48
+- Single-point FV: $32.46
+- Scenario PW FV: $28.74 (EV -5.7%)
+- NAV / share: $32.88
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +1.6pp (k_broker 1.02)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: no change | Δsingle FV: +1.8% | Δscenario FV: -3.5% | ΔNAV: +0.3% | Δspread: -0.3pp
+
+**Decision:** **FFA-PROMOTE FLIP — FROZEN-FOR-OWNER-REVIEW (G6-family discipline).** The 8/31
+round promoted the 24-Aug FFA print (12M 31,550→35,425); single FV UP +1.8% ($32.46), NAV +0.3%,
+but cycle position deepened 1.33×→1.47× elevated and the scenario reweight faded the strength:
+PW FV −3.5% ($28.74) → HOLD→T/S at an unchanged price. The flip rides the 12M leg ALONE → frozen,
+owner disposes (ffa_promotion_2026-08-31.md §4). Governance context: leg-2 trim FILLED 8/31
+(87 @ 30.57); the 88-sh remainder rides toward $34.50 — a producer T/S label is directionally
+consistent with the trim posture, no forced action. k 1.02, spread +1.6pp — tight.
+
+---
+
 ## 2026-08-31T15:03:54+00:00 — Pipeline run (auto)
 
 **Model state:**

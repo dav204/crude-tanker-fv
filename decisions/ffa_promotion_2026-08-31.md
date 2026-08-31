@@ -46,3 +46,20 @@ age-7 node (young-side support). Non-dry names delta exactly 0.0. Family diagnos
 re-run (dry_bulk + the multi-sleeve). Any dry flip TOWARD BUY = halt-and-investigate
 (standing); band-mech flips eyeballed individually. Ratify: this round joins the pending
 multi-cause draft as its own two legs (FFA 8/24 + marks #22).
+
+## 4. ADDENDUM (same sitting) — predicted-impact partially WRONG, mechanism verified, flips FROZEN
+
+§3 predicted "dry EV/FV UP." HALF right: single-point FV/NAV rose as predicted (SBLK FV
++1.8%, NAV +0.3%). MISSED: the SCENARIO side — cycle position deepened 1.33× → **1.47×
+elevated** (12M $35,425 / 10-yr mean $23,650) and the elevated-cycle scenario reweight
+FADES rate strength (§12-class discipline, by design), dragging scenario PW FV ~−3.5% and
+dry EV ~−3pp book-wide. Verified in the model's own attribution (sblk_fv_report: DivStrip
+$31.83 UP, cycle weights 0.60/0.40, PW FV $28.74 DOWN). LESSON: an FFA-promote
+predicted-impact block must state BOTH channels — the direct rate lift AND the
+cycle-reweight fade; their NET sign on scenario-EV is ambiguous ex ante.
+
+**Per the standing G6-family discipline ("any dry flip triggered by the 12M leg alone is
+frozen-for-owner-review"): SBLK HOLD→T/S and CMDB BUY→HOLD are FROZEN-FOR-OWNER-REVIEW**
+(Δprice 0 both; the flips ride the cycle reweight alone). Owner disposes. The other dry
+rows (2343/CMBT/SB/GNK EV-only) are the same mechanism without a band crossing — they ride
+the pending multi-cause ratify.

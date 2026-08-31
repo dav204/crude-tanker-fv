@@ -99,7 +99,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-01-23 • age -3 • $45.4M • d'Amico (DIS) press release / Splash247
   - 2025-12-15 • age -3 • $43.2M • d'Amico (DIS) press release / Marine Link
   - 2026-07-10 • age 15 • $25.1M • MB Tanker Weekly 28 (2026-07-10, exact)
-- **Pana** (16 prints, as_of 2026-06-12):
+- **Pana** (17 prints, as_of 2026-06-12):
   - 2025-09-19 • age 9 • $27.5M • Pareto Shipping Daily 2025-09-19 — broker reports
   - 2025-10-06 • age 9 • $26.5M • Pareto Shipping Daily 2025-10-06 — broker reports
   - 2026-06-12 • age 11 • $26.0M, tc_attached (+0%) • MB Shipbrokers Dry Bulk Weekly 24/2026 — S&P table
@@ -116,6 +116,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
   - 2026-08-07 • age 11 • $30.8M • MB Dry Bulk Weekly 32 (2026-08-07, exact)
   - 2026-08-07 • age 14 • $23.5M • MB Dry Bulk Weekly 32 (2026-08-07, exact)
   - 2026-08-07 • age 14 • $22.0M, tc_attached (+0%) • MB Dry Bulk Weekly 32 + intermodal issue-W30 + advanced W31 (all exact 22.0)
+  - 2026-08-10 • age 7 • $38.2M • Pareto Shipping Daily 2026-08-10 ("reportedly"; triaged sp_candidates_triage_2026-08-16.md, promoted at owner go 2026-08-31)
 - **Post-Panamax** (10 prints, as_of 2026-07-18):
   - 2026-07-13 • age 15 • $15.25M • banchero W28 + MB Dry W28 + xclusiv 7/13 + advanced W28 (exact, multi-house)
   - 2026-07-10 • age 16 • $14.5M • MB Dry Weekly 28 (en-bloc pair, per-vessel prices printed)
@@ -241,23 +242,23 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 |---|--:|--:|--:|--:|---|
 | CCEC | $25.70→$25.70 | +0.0% | +48.3%→+48.3% | +0.0 | BUY→BUY |
 | TEN | $94.58→$88.16 | -6.8% | +57.2%→+47.4% | -9.8 | BUY→BUY |
-| SB | $9.67→$10.58 | +9.4% | +2.1%→+11.9% | +9.8 | HOLD→BUY ⚠️ |
 | TRMD | $33.69→$32.30 | -4.1% | +13.6%→+9.7% | -3.9 | BUY→BUY |
+| SB | $9.67→$10.65 | +10.2% | -2.1%→+8.4% | +10.4 | HOLD→BUY ⚠️ |
 | BRUT | $4.92→$4.92 | +0.0% | +5.1%→+3.6% | -1.5 | BUY→HOLD ⚠️ |
 | STNG | $79.63→$76.22 | -4.3% | +2.4%→-1.7% | -4.0 | HOLD→HOLD |
-| CMDB | $31.44→$32.13 | +2.2% | -3.8%→-2.0% | +1.8 | HOLD→HOLD |
-| SBLK | $31.53→$32.78 | +4.0% | -5.6%→-2.3% | +3.4 | TRIM/SHORT→HOLD ⚠️ |
 | CAPT | $15.61→$15.48 | -0.8% | -1.3%→-2.7% | -1.4 | HOLD→HOLD |
 | GSL | $41.20→$41.20 | +0.0% | -3.7%→-3.7% | +0.0 | HOLD→HOLD |
+| CMDB | $31.44→$32.20 | +2.4% | -6.8%→-4.8% | +1.9 | TRIM/SHORT→HOLD ⚠️ |
 | TNK | $89.65→$84.60 | -5.6% | -0.5%→-5.4% | -4.9 | HOLD→TRIM/SHORT ⚠️ |
 | ASC | $17.38→$17.37 | -0.0% | -5.7%→-5.7% | -0.0 | TRIM/SHORT→TRIM/SHORT |
+| SBLK | $31.53→$32.88 | +4.3% | -9.2%→-5.7% | +3.5 | TRIM/SHORT→TRIM/SHORT |
 | FLNG | $27.22→$27.22 | +0.0% | -6.4%→-6.4% | +0.0 | TRIM/SHORT→TRIM/SHORT |
-| GNK | $24.77→$25.12 | +1.4% | -13.4%→-12.4% | +1.1 | TRIM/SHORT→TRIM/SHORT |
+| GNK | $24.77→$25.12 | +1.4% | -17.4%→-16.3% | +1.0 | TRIM/SHORT→TRIM/SHORT |
 | DHT | $16.30→$15.01 | -8.0% | -12.7%→-18.8% | -6.1 | TRIM/SHORT→TRIM/SHORT |
-| CMBT **(WHOLE-CO)** | $15.84→$16.46 | +3.9% | -24.2%→-21.5% | +2.7 | TRIM/SHORT→TRIM/SHORT |
 | HAFN | $5.69→$5.56 | -2.2% | -21.2%→-22.6% | -1.3 | TRIM/SHORT→TRIM/SHORT |
-| 2343 | $0.41→$0.41 | -1.9% | -24.5%→-25.8% | -1.2 | TRIM/SHORT→TRIM/SHORT |
+| CMBT **(WHOLE-CO)** | $15.84→$16.50 | +4.2% | -27.2%→-24.4% | +2.8 | TRIM/SHORT→TRIM/SHORT |
 | MPCC | $2.05→$2.05 | +0.0% | -27.5%→-27.5% | +0.0 | TRIM/SHORT→TRIM/SHORT |
+| 2343 | $0.41→$0.41 | -1.9% | -28.0%→-29.2% | -1.2 | TRIM/SHORT→TRIM/SHORT |
 | LPG | $35.70→$35.69 | -0.0% | -36.0%→-36.1% | -0.0 | TRIM/SHORT→TRIM/SHORT |
 | FRO | $28.47→$25.34 | -11.0% | -30.4%→-37.1% | -6.7 | TRIM/SHORT→TRIM/SHORT |
 | ECO | $43.80→$39.54 | -9.7% | -31.8%→-37.6% | -5.8 | TRIM/SHORT→TRIM/SHORT |
