@@ -1,5 +1,53 @@
 # BWLP — Decision Log
 
+## 2026-08-31 — Q2 REFRESH EXECUTED (the 8/28 print; band-less — outage-week miss recorded; post-hoc verification block written BEFORE the regen)
+
+**Subsequent events (Note 12, audited FIRST):** BW Elm (India, Jul agreement,
+delivered "by August") + BW Birch (India, Aug agreement, delivery mid-Nov) +
+BW Levant (parent, Jul agreement, delivery mid-Nov) — all POST-6/30 → all
+three hulls stay in this snapshot; gains ~$36/37/17M, net cash ~$64/64/38M;
+**sale PRICES still undisclosed** (Ex 99.1 frames Elm+Birch as "second-hand
+sales at a value equivalent to a newbuilding price of ~US$248M") — the
+MB/Xclusiv print-watch stands (log item #1). Post-period also: $0.95 dividend
+(8/27; 100% of Shipping NPAT = 120% of attributable profit; pay ~9/16) and a
+5-yr TC-out at mid-high-$40k/day on a 2016 dual-fuel retrofit.
+
+**THE 8-HULL ORDER: the Q2 report is TOTALLY SILENT** (no commitments note,
+vessels cost flat, advances $0 = positive finding) — the planned "§9.6 first
+instalment" wiring has nothing issuer-side to cite, and the three candidate
+treatments span ~$6/sh. **OWNER FORK RAISED:
+decisions/bwlp_nb_order_fork_2026-08-31.md (rec: advances-only interim,
+folded into the pending GSL/CMBT commitment-net prereg). The order is HELD
+OUT of this snapshot pending the ruling** — matching its own 6/30 statement
+presentation; loudly flagged, not silently resolved.
+
+**Sheet walk (pair commit):** cash 273.1→303.9 (+30.8; broker margin
+96.9→1.4 inside it) · WC 176.6→256.8 (+80.2 — the PS gross derivative books
+collapsed symmetrically) · debt 763.9→814.2 (−50.3; trust receipts
+39.8→132.2) · leases 133.9→118.4 (+15.5) · NCI-via-preferred 199.0→216.3
+(−17.3; live-curve re-derivation, Note 10 Q2 statics, guard test updated in
+the same commit — rider (a)) · shares 151,814.6k flat · manifest ages +0.5
+(owned fleet UNCHANGED — the −1 VLGC in Q2 was a chartered-in redelivery,
+not an owned hull; vessels cost flat proves it). No India listing exists
+(zero IPO language — the "listed stake" premise in older notes corrected).
+
+**Predicted NAV: $15.80 → ≈ $15.90-16.00 (net legs ≈ +$0.1-0.2/sh: +30.8
++80.2 −50.3 +15.5 −17.3 ≈ +59M, less ~−40M age decay). Band [15.40, 16.40].**
+Outside → HALT. Forward invariance: the other 24 names delta 0.0. Position
+TRIM/SHORT (−~40% EV) stands; PROVISIONAL·v1-lock-miss unchanged
+(flag-don't-pass; the Nov-13 lock re-run path untouched).
+
+**R-2 watch input (governance seam):** VLGC orderbook 155 hulls = 35% of
+fleet (report; slide says "157") vs the 38% charter-VOID bar — 3pp headroom.
+**Q3 coverage (Stage-B rider):** Q3 92% fixed @ ~$88k/day (TC 41% @ $44.3k);
+2H TC 41% @ $44.1k + 4% FFA @ $48k; Q2 TCE $74,030/available day (spot
+$85.2k, TC 53% @ $64k); FFA balance-2026 Ras Tanura-Chiba ~$180k/day thin.
+
+**Decision:** refresh pair landed per the walk above; the NB-order fork goes
+to the owner; regen verdict appended at the run entry.
+
+---
+
 ## 2026-08-31T18:47:26+00:00 — Pipeline run (auto)
 
 **Model state:**

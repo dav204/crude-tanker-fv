@@ -1,0 +1,79 @@
+# BW LPG Limited balance sheet snapshot — 2026-06-30 (Q2 2026)
+# Source of record: Q2-2026 6-K acc 0001104659-26-102581 (filed 2026-08-28; Ex 99.2
+# interim financial report = the statements; Ex 99.1 results release; Ex 99.3 deck;
+# newsweb dividend key info). US$'000, IFRS, unaudited. Cross-verified against the
+# rendered IR PDF (pypdf-drops-tables rule).
+# SUBSEQUENT EVENTS (Note 12, audited FIRST — the note in full): BW LPG India agreed
+# to sell BW Elm (Jul; delivered Jul-Aug window "by August") and BW Birch (Aug;
+# delivery by mid-Nov) — 100%-basis gains ~$36M/~$37M, net cash ~$64M each; parent
+# agreed to sell 2015-built BW Levant (Jul; delivery by mid-Nov) — gain ~$17M, net
+# cash ~$38M. ALL post-6/30 agreements → all three hulls STAY in this snapshot
+# (no HFS at 6/30). Sale PRICES not disclosed (gains/proceeds only — the log's
+# MB/Xclusiv print-watch stands). Also post-period: $0.95/sh Q2 dividend approved
+# 8/27 (ex 9/07-08, pay ~9/16); a 5-yr TC-out on a 2016 dual-fuel retrofit at
+# mid-high-$40k/day (delivery end-2026).
+ticker: BWLP
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1963583/000110465926102581/
+retrieved_at: 2026-08-31
+filing_period_end: 2026-06-30
+
+cash_and_equivalents: 303856000      # BS caption; broker-margin inside it is now only
+                                     # $1.4M (was $96.9M at 3/31 — the Product Services
+                                     # margin collapsed with the gross derivative books;
+                                     # counted per the Q1 rationale).
+
+# working_capital_net = current, non-cash, non-debt (US$'000), Q1 construction:
+#   assets: inventories 174,295 + trade and other receivables 426,158 + derivative FI
+#     48,235 + finance lease receivables 7,440 + equity FVPL 2,294 (FVOCI now 0 —
+#     Confidence exited, $14.8M cash received in H1) = 658,422
+#   liabilities: trade and other payables 325,332 + derivative FI 60,369
+#     + current income tax 15,938 = 401,639
+#   net = 256,783.  (Q1: 176,607 — the derivative books collapsed symmetrically.)
+working_capital_net: 256783000
+
+# Borrowings, current 202,642 + non-current 611,606 = 814,248 (Note 6: bank 503,359 +
+# lease financing arrangement 175,994 [Capella/Polaris/Kyoto bareboat financings] +
+# trust receipts 132,183 [Product Services trade finance, up from 39.8M] + interest
+# 2,712). $670.7M vessel-mortgage-secured; covenants complied.
+total_debt: 814248000
+
+# Lease liabilities, current 64,438 + non-current 53,946 = 118,384 — the capitalized
+# chartered-in book (RoU vessels 101,284 not added; CMDB/SBLK convention).
+lease_liabilities: 118384000
+
+# THE 8×90k-cbm PANAMAX-VLGC ORDER (~US$940M, SIGNED 30-MAY-2026 = IN-QUARTER; 6-K acc
+# 0001213900-26-063117; deliveries early-2029 → Q2-2030): **THE Q2 REPORT IS TOTALLY
+# SILENT** — no commitments note (IAS 34), no instalment schedule, no under-construction
+# line; vessels cost FLAT (2,994,895 vs 2,994,896) and H1 investing outflow $2.9M net →
+# ADVANCES PAID THROUGH 6/30 = $0 is a POSITIVE finding. The §9.6 wiring the PLAN
+# anticipated ("first instalment") has no issuer-side schedule to cite, and the three
+# candidate treatments differ by up to ~$6/sh — **OWNER FORK, decisions/
+# bwlp_nb_order_fork_2026-08-31.md; the order is HELD OUT of this snapshot (both
+# sides at 0, matching its 6/30 statement presentation) pending the ruling.** This is
+# the same family as the owner-flagged GSL/CMBT commitment-net fork.
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 151814600  # 159,282.0k issued − 7,467.4k treasury at 6/30
+                                       # (both unchanged from 3/31). Q2 weighted:
+                                       # basic 151.8M / diluted 152.3M.
+
+# NON-CONTROLLING INTERESTS deduction (NCI-via-preferred_equity, owner-ratified
+# 2026-07-13 with riders; guard tests/test_bwlp_nci.py re-derives off the LIVE curve):
+#   BW LPG India (52%/48% NCI): 8 hulls at VLGC curve marks (post-bump ages; live
+#     derivation 2026-08-31 = $505.6M) + current assets 99,018 − current liabilities
+#     33,963 − non-current borrowings 166,974 (Note 10 summarised BS) → sub-NAV
+#     $403.7M → 48% ≈ $193.8M. India loses Elm + Birch POST-quarter (2 of 8) —
+#     re-derive at Q3 with the proceeds inside the sub-BS.
+#   BW Product Services (81%/19% NCI): net assets at book $118,826 (Note 10) → 19%
+#     ≈ $22.6M. (Book NCI on the BS: 136,269 — the curve basis runs richer on India.)
+#   Total ≈ $216.3M (test statics updated in this same commit — the rider (a) rule).
+preferred_equity: 216300000
+
+shuttle_contracted_book: 0
+
+# §15 screen unchanged (BW Group 31.99%; ~1.0-1.16x P/NAV; related-party India sale
+# tripwires stand). NO India IPO/listing language anywhere in the Q2 filing set —
+# the stake is unlisted; the "listed stake" phrasing in older notes is corrected.
+governance_discount_pct: 0

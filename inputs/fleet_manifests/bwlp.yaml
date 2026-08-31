@@ -37,51 +37,51 @@
 # India hulls carry time_charter (Q1 report: India income "mainly from fixed-rate time
 # charters"). Rates/ends undisclosed per-vessel -> null.
 ticker: BWLP
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
   # ---- Parent-owned (20-F owned-fleet table, 28 hulls) ----
-  - {id: BW_Avior,    class: VLGC, dwt: 59000, age: 3,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2023 DSME, 91,344 cbm, DF
-  - {id: BW_Rigel,    class: VLGC, dwt: 59000, age: 3,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2023 DSME, 91,344 cbm, DF
-  - {id: BW_Messina,  class: VLGC, dwt: 55000, age: 9,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2017 DSME, 84,177 cbm, compliant fuel
-  - {id: BW_Mindoro,  class: VLGC, dwt: 55000, age: 9,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2017 DSME, 84,180 cbm, DF
-  - {id: BW_Balder,   class: VLGC, dwt: 55000, age: 10, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,142 cbm, DF
-  - {id: BW_Brage,    class: VLGC, dwt: 55000, age: 10, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,114 cbm, DF
-  - {id: BW_Freyja,   class: VLGC, dwt: 55000, age: 10, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,143 cbm, DF
-  - {id: BW_Frigg,    class: VLGC, dwt: 55000, age: 10, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,136 cbm, DF; loan collateral
-  - {id: BW_Magellan, class: VLGC, dwt: 55000, age: 10, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 DSME, 84,171 cbm, DF
-  - {id: BW_Malacca,  class: VLGC, dwt: 55000, age: 10, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 DSME, 84,105 cbm, DF
-  - {id: BW_Njord,    class: VLGC, dwt: 55000, age: 10, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,107 cbm, DF
-  - {id: BW_Tucana,   class: VLGC, dwt: 55000, age: 10, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,113 cbm, DF
-  - {id: BW_Var,      class: VLGC, dwt: 55000, age: 10, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 83,839 cbm, DF
-  - {id: BW_Volans,   class: VLGC, dwt: 55000, age: 10, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,134 cbm, DF
-  - {id: BW_Breeze,   class: VLGC, dwt: 55000, age: 11, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,121 cbm, scrubber
-  - {id: BW_Carina,   class: VLGC, dwt: 55000, age: 11, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 HHI, 84,154 cbm, scrubber
-  - {id: BW_Gemini,   class: VLGC, dwt: 55000, age: 11, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 HHI, 84,134 cbm, DF
-  - {id: BW_Leo,      class: VLGC, dwt: 55000, age: 11, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 HHI, 84,161 cbm, DF
-  - {id: BW_Levant,   class: VLGC, dwt: 55000, age: 11, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,114 cbm, scrubber
-  - {id: BW_Libra,    class: VLGC, dwt: 55000, age: 11, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 HHI, 84,196 cbm, DF
-  - {id: BW_Mistral,  class: VLGC, dwt: 55000, age: 11, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,134 cbm, scrubber
-  - {id: BW_Monsoon,  class: VLGC, dwt: 55000, age: 11, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,129 cbm, scrubber
-  - {id: BW_Orion,    class: VLGC, dwt: 55000, age: 11, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 HHI, 84,196 cbm, DF
-  - {id: BW_Passat,   class: VLGC, dwt: 55000, age: 11, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,115 cbm, scrubber
-  - {id: BW_Sirocco,  class: VLGC, dwt: 55000, age: 11, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,114 cbm, scrubber
-  - {id: BW_Aries,    class: VLGC, dwt: 55000, age: 12, scrubber: true,  eco: false, charter_status: spot, charter_rate: null, charter_end: null}  # 2014 HHI, 84,196 cbm, scrubber
-  - {id: BW_Yushi,    class: VLGC, dwt: 55000, age: 6,  scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2020 Mitsubishi, 83,315 cbm, scrubber
-  - {id: BW_Kizoku,   class: VLGC, dwt: 55000, age: 7,  scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2019 Mitsubishi, 83,325 cbm, scrubber
+  - {id: BW_Avior,    class: VLGC, dwt: 59000, age: 3.5,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2023 DSME, 91,344 cbm, DF
+  - {id: BW_Rigel,    class: VLGC, dwt: 59000, age: 3.5,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2023 DSME, 91,344 cbm, DF
+  - {id: BW_Messina,  class: VLGC, dwt: 55000, age: 9.5,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2017 DSME, 84,177 cbm, compliant fuel
+  - {id: BW_Mindoro,  class: VLGC, dwt: 55000, age: 9.5,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2017 DSME, 84,180 cbm, DF
+  - {id: BW_Balder,   class: VLGC, dwt: 55000, age: 10.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,142 cbm, DF
+  - {id: BW_Brage,    class: VLGC, dwt: 55000, age: 10.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,114 cbm, DF
+  - {id: BW_Freyja,   class: VLGC, dwt: 55000, age: 10.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,143 cbm, DF
+  - {id: BW_Frigg,    class: VLGC, dwt: 55000, age: 10.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,136 cbm, DF; loan collateral
+  - {id: BW_Magellan, class: VLGC, dwt: 55000, age: 10.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 DSME, 84,171 cbm, DF
+  - {id: BW_Malacca,  class: VLGC, dwt: 55000, age: 10.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 DSME, 84,105 cbm, DF
+  - {id: BW_Njord,    class: VLGC, dwt: 55000, age: 10.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,107 cbm, DF
+  - {id: BW_Tucana,   class: VLGC, dwt: 55000, age: 10.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,113 cbm, DF
+  - {id: BW_Var,      class: VLGC, dwt: 55000, age: 10.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 83,839 cbm, DF
+  - {id: BW_Volans,   class: VLGC, dwt: 55000, age: 10.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2016 HHI, 84,134 cbm, DF
+  - {id: BW_Breeze,   class: VLGC, dwt: 55000, age: 11.5, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,121 cbm, scrubber
+  - {id: BW_Carina,   class: VLGC, dwt: 55000, age: 11.5, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 HHI, 84,154 cbm, scrubber
+  - {id: BW_Gemini,   class: VLGC, dwt: 55000, age: 11.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 HHI, 84,134 cbm, DF
+  - {id: BW_Leo,      class: VLGC, dwt: 55000, age: 11.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 HHI, 84,161 cbm, DF
+  - {id: BW_Levant,   class: VLGC, dwt: 55000, age: 11.5, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,114 cbm, scrubber
+  - {id: BW_Libra,    class: VLGC, dwt: 55000, age: 11.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 HHI, 84,196 cbm, DF
+  - {id: BW_Mistral,  class: VLGC, dwt: 55000, age: 11.5, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,134 cbm, scrubber
+  - {id: BW_Monsoon,  class: VLGC, dwt: 55000, age: 11.5, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,129 cbm, scrubber
+  - {id: BW_Orion,    class: VLGC, dwt: 55000, age: 11.5, scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 HHI, 84,196 cbm, DF
+  - {id: BW_Passat,   class: VLGC, dwt: 55000, age: 11.5, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,115 cbm, scrubber
+  - {id: BW_Sirocco,  class: VLGC, dwt: 55000, age: 11.5, scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,114 cbm, scrubber
+  - {id: BW_Aries,    class: VLGC, dwt: 55000, age: 12.5, scrubber: true,  eco: false, charter_status: spot, charter_rate: null, charter_end: null}  # 2014 HHI, 84,196 cbm, scrubber
+  - {id: BW_Yushi,    class: VLGC, dwt: 55000, age: 6.5,  scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2020 Mitsubishi, 83,315 cbm, scrubber
+  - {id: BW_Kizoku,   class: VLGC, dwt: 55000, age: 7.5,  scrubber: true,  eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2019 Mitsubishi, 83,325 cbm, scrubber
   # ---- Lease-financed bareboat hulls (20-F fn (1); financing inside borrowings) ----
-  - {id: BW_Capella,  class: VLGC, dwt: 59000, age: 4,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2022 DSME, 91,286 cbm, DF
-  - {id: BW_Polaris,  class: VLGC, dwt: 59000, age: 4,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2022 DSME, 91,285 cbm, DF
-  - {id: BW_Kyoto,    class: VLGC, dwt: 55000, age: 16, scrubber: true,  eco: false, charter_status: spot, charter_rate: null, charter_end: null}  # 2010 Mitsubishi, 83,299 cbm, scrubber
+  - {id: BW_Capella,  class: VLGC, dwt: 59000, age: 4.5,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2022 DSME, 91,286 cbm, DF
+  - {id: BW_Polaris,  class: VLGC, dwt: 59000, age: 4.5,  scrubber: false, eco: true,  charter_status: spot, charter_rate: null, charter_end: null}  # 2022 DSME, 91,285 cbm, DF
+  - {id: BW_Kyoto,    class: VLGC, dwt: 55000, age: 16.5, scrubber: true,  eco: false, charter_status: spot, charter_rate: null, charter_end: null}  # 2010 Mitsubishi, 83,299 cbm, scrubber
   # ---- BW LPG India (consolidated 52%-owned; 48% NCI deducted in balance sheet) ----
   # Q1 report: India TCE "mainly from fixed-rate time charters" -> time_charter status.
-  - {id: BW_Chinook,  class: VLGC, dwt: 55000, age: 11, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,106 cbm
-  - {id: BW_Pampero,  class: VLGC, dwt: 55000, age: 11, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,131 cbm
-  - {id: BW_Pine,     class: VLGC, dwt: 55000, age: 15, scrubber: false, eco: false, charter_status: time_charter, charter_rate: null, charter_end: null}  # 2011 Kawasaki, 80,156 cbm
-  - {id: BW_Loyalty,  class: VLGC, dwt: 55000, age: 18, scrubber: true,  eco: false, charter_status: time_charter, charter_rate: null, charter_end: null}  # 2008 DSME, 84,601 cbm, scrubber
-  - {id: BW_Oak,      class: VLGC, dwt: 55000, age: 18, scrubber: false, eco: false, charter_status: time_charter, charter_rate: null, charter_end: null}  # 2008 HHI, 82,253 cbm
-  - {id: BW_Tyr,      class: VLGC, dwt: 55000, age: 18, scrubber: false, eco: false, charter_status: time_charter, charter_rate: null, charter_end: null}  # 2008 HHI, 82,303 cbm
-  - {id: BW_Birch,    class: VLGC, dwt: 55000, age: 19, scrubber: false, eco: false, charter_status: time_charter, charter_rate: null, charter_end: null}  # 2007 HHI, 82,303 cbm
-  - {id: BW_Elm,      class: VLGC, dwt: 55000, age: 19, scrubber: false, eco: false, charter_status: time_charter, charter_rate: null, charter_end: null}  # 2007 HHI, 82,291 cbm
+  - {id: BW_Chinook,  class: VLGC, dwt: 55000, age: 11.5, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,106 cbm
+  - {id: BW_Pampero,  class: VLGC, dwt: 55000, age: 11.5, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: null, charter_end: null}  # 2015 Jiangnan, 83,131 cbm
+  - {id: BW_Pine,     class: VLGC, dwt: 55000, age: 15.5, scrubber: false, eco: false, charter_status: time_charter, charter_rate: null, charter_end: null}  # 2011 Kawasaki, 80,156 cbm
+  - {id: BW_Loyalty,  class: VLGC, dwt: 55000, age: 18.5, scrubber: true,  eco: false, charter_status: time_charter, charter_rate: null, charter_end: null}  # 2008 DSME, 84,601 cbm, scrubber
+  - {id: BW_Oak,      class: VLGC, dwt: 55000, age: 18.5, scrubber: false, eco: false, charter_status: time_charter, charter_rate: null, charter_end: null}  # 2008 HHI, 82,253 cbm
+  - {id: BW_Tyr,      class: VLGC, dwt: 55000, age: 18.5, scrubber: false, eco: false, charter_status: time_charter, charter_rate: null, charter_end: null}  # 2008 HHI, 82,303 cbm
+  - {id: BW_Birch,    class: VLGC, dwt: 55000, age: 19.5, scrubber: false, eco: false, charter_status: time_charter, charter_rate: null, charter_end: null}  # 2007 HHI, 82,303 cbm
+  - {id: BW_Elm,      class: VLGC, dwt: 55000, age: 19.5, scrubber: false, eco: false, charter_status: time_charter, charter_rate: null, charter_end: null}  # 2007 HHI, 82,291 cbm
 spot_coverage_pct:
   VLGC: 0.47   # Q1-2026 time-charter coverage was 53% of available days (Q1 report) ->
                # spot share ~0.47 (fleet-level; per-vessel employment not disclosed)
