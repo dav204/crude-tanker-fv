@@ -9,6 +9,26 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-31T14:32:26+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $4.94
+- Single-point FV: $4.70
+- Scenario PW FV: $5.12 (EV +3.6%)
+- NAV / share: $4.92
+- Position: **HOLD (fairly valued)**
+- Broker spread: -2.2pp (k_broker 0.99)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** re-annotation of the SAME event on the final 8/29 run — the demerger absorb
+(see the prior entry's full annotation): BUY→HOLD = the 4-hull re-basing, NAV $4.92, k 0.99.
+Rides the ratify as the demerger-event leg.
+
+---
+
 ## 2026-08-29T21:35:19+00:00 — Pipeline run (auto)
 
 **Model state:**

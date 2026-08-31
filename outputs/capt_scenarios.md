@@ -4,7 +4,7 @@
 - **Analyst target:** $18.90
 - **NAV / share (reference, unflexed):** $15.48 _(flexes per scenario via vessel-value elasticity — see table)_
 - **Probability-weighted fair value:** $16.02 (-2.7% vs price)
-- **Breakeven TCE (scenario-invariant):** $207,375/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
+- **Breakeven TCE (scenario-invariant):** $207,425/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** HOLD (fairly valued)
 
 ## Per-scenario fair value

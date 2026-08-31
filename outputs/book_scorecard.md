@@ -1,6 +1,6 @@
 # Book-wide scorecard (Thread 4)
 
-> **Price basis: 2 of 25 prices are STATIC-FALLBACK** (oldest as-of 2026-06-26): 2343, SB. Those rows value the book at watchlist statics, not the tape — treat their Price/Upside as stale.
+> **Price basis: 2 of 25 prices are STATIC-FALLBACK** (oldest as-of 2026-08-28): 2343, SB. Those rows value the book at watchlist statics, not the tape — treat their Price/Upside as stale.
 
 > **Balance-sheet basis: 8 of 25 names on a pre-2026-Q2 vintage:** BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), FRO (2026-Q1), HAFN (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), TEN (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
 
@@ -20,7 +20,7 @@ This file lists each name **twice, by design** — once in the **Verdict** (the 
 
 FV vs current price, position, and the broker-NAV bug-gate on the **same row** as the confidence tier — **the single handoff surface** for a sizing decision. The per-gate evidence behind each tier is the Validation matrix below (same names, same file).
 
-**What this says about the opportunity set:** of 25 names, **8 are construction-validated** (VALIDATED-TIGHT — the NAV is soundly built), and of those the validated-and-actionable-long surface is **1 (SB — dry bulk, cheap on both NAV bases)**. 13 are directional-only (GOVERNED-WIDE); 4 are not yet trustworthy enough to act on (PROVISIONAL ⛔). **Name-specific shorts: ASC, CMBT, FLNG, GNK** — every other TRIM/SHORT row is cycle-position, unreliable-read, or void. The thin actionable list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.
+**What this says about the opportunity set:** of 25 names, **8 are construction-validated** (VALIDATED-TIGHT — the NAV is soundly built), and of those the validated-and-actionable-long surface is **1 (SB — dry bulk, cheap on both NAV bases)**. 13 are directional-only (GOVERNED-WIDE); 4 are not yet trustworthy enough to act on (PROVISIONAL ⛔). **Name-specific shorts: 2343, ASC, CMBT, FLNG, GNK** — every other TRIM/SHORT row is cycle-position, unreliable-read, or void. The thin actionable list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.
 
 **These are two different questions, and the gap between the counts is the point.** Construction-validated says the ESTIMATE is sound; edge-cleared adds that the cheap call survives the choice of §17 normalization basis and the position is a BUY. A name can be construction-validated and still not edge-cleared — its NAV is trustworthy while its discount is basis-dependent. Since 2026-08-13 those two failures cap size on separate channels and never stack (tier semantics amendment §0.3).
 
@@ -28,31 +28,31 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 
 | Ticker | Sector | **Tier · why** | Price | Model FV | FV range | Upside | Position | Blend FV† | NAV/sh | Broker NAV | Gap | SANITY | Handoff | W-frag |
 |---|---|---|--:|--:|:--|--:|:--|--:|--:|--:|--:|:--|:--|:--|
-| DHT | crude | VALIDATED-TIGHT | $19.66 | $15.97 | 11.64–21.53 | -19% | rich · cycle position (not a short) | $15.32 | $15.01 | $18.20 | -18% | OK | ready | stable |
-| ECO | crude | VALIDATED-TIGHT | $66.86 | $41.71 | 28.08–60.70 | -38% | rich · cycle position (not a short) | $39.73 | $39.54 | $49.90 | -21% | OK | ready | stable |
-| FRO | crude | VALIDATED-TIGHT | $44.19 | $27.79 | 17.32–41.59 | -37% | rich · cycle position (not a short) | $25.94 | $25.34 | $33.73 | -25% | OK | ready | stable |
-| TNK | crude | VALIDATED-TIGHT | $88.70 | $83.93 | 71.90–102.30 | -5% | unreliable read (not actionable) | $83.23 | $84.60 | $110.88 | -24% | OK | ready | stable |
+| DHT | crude | VALIDATED-TIGHT | $19.66 | $15.97 | 11.64–21.53 | -19% | rich · cycle position (not a short) | $15.32 | $15.01 | $17.25 | -13% | OK | ready | stable |
+| ECO | crude | VALIDATED-TIGHT | $66.86 | $41.71 | 28.08–60.70 | -38% | rich · cycle position (not a short) | $39.73 | $39.54 | $45.48 | -13% | OK | ready | stable |
+| FRO | crude | VALIDATED-TIGHT | $44.19 | $27.79 | 17.32–41.59 | -37% | rich · cycle position (not a short) | $25.94 | $25.34 | $33.23 | -24% | OK | ready | stable |
+| TNK | crude | VALIDATED-TIGHT | $88.70 | $83.93 | 71.90–102.30 | -5% | unreliable read (not actionable) | $83.23 | $84.60 | $97.47 | -13% | OK | ready | stable |
 | CMDB | dry_bulk | VALIDATED-TIGHT | $20.52 | $20.11 | 16.51–23.95 | -2% | HOLD (fairly valued) | $21.13 | $32.13 | $33.10 (apx) | -3% | n-a | ready | **⚠ sign flips** |
-| GNK | dry_bulk | VALIDATED-TIGHT | $25.88 | $22.67 | 17.42–28.59 | -12% | TRIM/SHORT (overvalued) | $24.61 | $25.12 | $28.13 | -11% | OK | ready | stable |
-| SB | dry_bulk | VALIDATED-TIGHT | $6.39 | $9.53 | 7.33–12.13 | +49% | BUY (undervalued) | $10.24 | $10.58 | $7.26 (apx) | +46% | n-a | ready | stable |
-| SBLK | dry_bulk | VALIDATED-TIGHT | $30.48 | $29.79 | 23.27–36.79 | -2% | HOLD (fairly valued) | $31.88 | $32.78 | $34.25 | -4% | OK | ready | **⚠ sign flips** |
+| GNK | dry_bulk | VALIDATED-TIGHT | $25.88 | $22.67 | 17.42–28.59 | -12% | TRIM/SHORT (overvalued) | $24.61 | $25.12 | $27.24 | -8% | OK | ready | stable |
+| SB | dry_bulk | VALIDATED-TIGHT | $8.52 | $9.53 | 7.33–12.13 | +12% | BUY (undervalued) | $10.24 | $10.58 | $7.54 (apx) | +40% | n-a | ready | stable |
+| SBLK | dry_bulk | VALIDATED-TIGHT | $30.48 | $29.79 | 23.27–36.79 | -2% | HOLD (fairly valued) | $31.88 | $32.78 | $33.49 | -2% | OK | ready | **⚠ sign flips** |
 | BRUT | crude | GOVERNED-WIDE · going-concern-unfinanced | $4.94 | $5.12 | 2.33–8.54 | +4% | unreliable read (not actionable) | $4.70 | $4.92 | $4.80 | +3% | OK | ready | **⚠ sign flips** |
-| CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $16.46 | $16.02 | 9.52–24.43 | -3% | unreliable read (not actionable) | $15.10 | $15.48 | $23.19 | -33% | OK | ready | stable |
-| CMBT | crude | GOVERNED-WIDE · structural-class | $18.35 | $14.41 | 9.24–20.88 | -21% | TRIM/SHORT (overvalued) | $15.65 | $16.46 | $21.59 | -24% | OK | ready | stable |
-| INSW | crude | GOVERNED-WIDE · pending-anchor | $98.81 | $59.59 | 42.71–80.41 | -40% | rich · cycle position (not a short) | $37.59 | $54.64 | $84.45 | -35% | OK | ready | stable |
+| CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $16.46 | $16.02 | 9.52–24.43 | -3% | unreliable read (not actionable) | $15.10 | $15.48 | $22.87 | -32% | OK | ready | stable |
+| CMBT | crude | GOVERNED-WIDE · structural-class | $18.35 | $14.41 | 9.24–20.88 | -21% | TRIM/SHORT (overvalued) | $15.65 | $16.46 | $21.34 | -23% | OK | ready | stable |
+| INSW | crude | GOVERNED-WIDE · pending-anchor | $98.81 | $59.59 | 42.71–80.41 | -40% | rich · cycle position (not a short) | $37.59 | $54.64 | $81.66 | -33% | OK | ready | stable |
 | NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $6.77 | $3.07 | 2.14–4.54 | -55% | rich · cycle position (not a short) | $2.97 | $2.85 | $7.96 (apx) | -64% | n-a | ready | stable |
 | TEN | crude | GOVERNED-WIDE · mixed | $42.52 | $62.66 | 47.21–82.53 | +47% | BUY (undervalued) | $59.21 | $88.16 | $125.06 (apx) | -30% | n-a | ready | stable |
 | ASC | product | GOVERNED-WIDE · structural-class | $17.36 | $16.38 | 12.66–19.55 | -6% | TRIM/SHORT (overvalued) | $17.22 | $17.37 | $23.15 (apx) | -25% | n-a | ready | stable |
-| TRMD | product | GOVERNED-WIDE · basis-pending | $32.62 | $35.79 | 21.87–47.75 | +10% | BUY (undervalued) | $32.14 | $32.30 | $37.93 | -15% | OK | ready | **⚠ sign flips** |
-| 2343 | dry_bulk | GOVERNED-WIDE · pending-anchor | $0.39 | $0.40 | 0.33–0.46 | +1% | HOLD (fairly valued) | $0.40 | $0.41 | $0.43 (apx) | -5% | n-a | ready | **⚠ sign flips** |
+| TRMD | product | GOVERNED-WIDE · basis-pending | $32.62 | $35.79 | 21.87–47.75 | +10% | BUY (undervalued) | $32.14 | $32.30 | $35.46 | -9% | OK | ready | **⚠ sign flips** |
+| 2343 | dry_bulk | GOVERNED-WIDE · pending-anchor | $0.53 | $0.40 | 0.33–0.46 | -26% | TRIM/SHORT (overvalued) | $0.40 | $0.41 | $0.43 (apx) | -5% | n-a | ready | stable |
 | CCEC | lng | GOVERNED-WIDE · structural-class | $22.72 | $33.70 | 16.27–47.20 | +48% | BUY (undervalued) | $29.97 | $25.70 | $25.24 (apx) | +2% | n-a | ready | stable |
-| FLNG | lng | GOVERNED-WIDE · structural-class | $31.48 | $29.47 | 19.34–38.00 | -6% | TRIM/SHORT (overvalued) | $27.01 | $27.22 | $22.01 | +24% | OK | ready | stable |
+| FLNG | lng | GOVERNED-WIDE · structural-class | $31.48 | $29.47 | 19.34–38.00 | -6% | TRIM/SHORT (overvalued) | $27.01 | $27.22 | $21.86 | +25% | OK | ready | stable |
 | GSL | containerships | GOVERNED-WIDE · structural-class | $44.52 | $42.88 | 38.58–46.64 | -4% | HOLD (fairly valued) | $44.02 | $41.20 | $59.36 (apx) | -31% | n-a | ready | — |
 | MPCC | containerships | GOVERNED-WIDE · structural-class | $2.85 | $2.07 | 1.69–2.21 | -28% | unreliable read (not actionable) | $2.22 | $2.05 | $2.74 (apx) | -25% | n-a | ready | — |
-| HAFN | product | PROVISIONAL · pool-gross-up-pending ⛔ | $8.47 | $6.56 | 4.01–8.86 | -23% | rich · cycle position (not a short) | $5.71 | $5.56 | $9.21 | -40% | OK | **NO** | stable |
-| STNG | product | PROVISIONAL · off-curve ⛔ | $78.03 | $76.73 | 56.46–92.63 | -2% | HOLD (fairly valued) | $72.23 | $76.22 | $109.90 | -31% | OK | **NO** | stable |
-| BWLP | lpg | PROVISIONAL · v1-lock-miss ⛔ | $24.05 | $14.46 | 10.82–18.27 | -40% | rich · cycle position (not a short) | $15.43 | $15.80 | $21.28 | -26% | OK | **NO** | stable |
-| LPG | lpg | PROVISIONAL · v1-lock-miss ⛔ | $49.78 | $31.82 | 25.61–38.58 | -36% | rich · cycle position (not a short) | $33.93 | $35.69 | $51.85 | -31% | OK | **NO** | stable |
+| HAFN | product | PROVISIONAL · pool-gross-up-pending ⛔ | $8.47 | $6.56 | 4.01–8.86 | -23% | rich · cycle position (not a short) | $5.71 | $5.56 | $8.22 | -32% | OK | **NO** | stable |
+| STNG | product | PROVISIONAL · off-curve ⛔ | $78.03 | $76.73 | 56.46–92.63 | -2% | HOLD (fairly valued) | $72.23 | $76.22 | $106.89 | -29% | OK | **NO** | stable |
+| BWLP | lpg | PROVISIONAL · v1-lock-miss ⛔ | $24.05 | $14.46 | 10.82–18.27 | -40% | rich · cycle position (not a short) | $15.43 | $15.80 | $18.94 | -17% | OK | **NO** | stable |
+| LPG | lpg | PROVISIONAL · v1-lock-miss ⛔ | $49.78 | $31.82 | 25.61–38.58 | -36% | rich · cycle position (not a short) | $33.93 | $35.69 | $46.96 | -24% | OK | **NO** | stable |
 
 _Model FV / Upside = the SCENARIO-probability-weighted FV — the same basis as Position and every proposal/decomposition table (F-13, 2026-07-02: the two columns previously mixed bases and printed '+28% upside · TRIM/SHORT' rows the day the bases diverged). Blend FV† = the single-point NAV+strip blend at CURRENT market forwards — for tanker classes the HELD Jun-7 curves (see Rate basis above); a large Blend-vs-Model gap IS the scenario-dependence signal, not a discrepancy._
 
@@ -73,30 +73,30 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | Ticker | Sector | **Tier** | NAV-basis | P/NAV(mkt) | Read par→hist | Robust? | J par | J hist | Boundary | Margin% | read_flag | Parity band | §18.5a | §18.5b | Verdict |
 |---|---|---|---|--:|---|---|--:|--:|--:|--:|---|---|---|---|---|
 | BRUT | crude | GOVERNED-WIDE | resale-uniform | 0.96× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
-| CAPT | crude | GOVERNED-WIDE | resale-uniform | 0.91× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
-| CMBT | crude | GOVERNED-WIDE | structural-unavailable | 1.00× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
-| DHT | crude | VALIDATED-TIGHT | resale-uniform | 1.23× | rich→rich | robust | 0.808× | 0.747× | $13.47 | +36.57% | robust | clears | pending | pending | comparable; §18.5 gates pending |
-| ECO | crude | VALIDATED-TIGHT | resale-uniform | 1.61× | rich→rich | robust | 0.570× | 0.456× | $25.05 | +154.68% | robust | clears | pending | pending | comparable; §18.5 gates pending |
-| FRO | crude | VALIDATED-TIGHT | resale-uniform | 1.56× | rich→rich | robust | 0.906× | 0.818× | $25.50 | +55.27% | robust | clears | pending | pending | comparable; §18.5 gates pending |
-| INSW | crude | GOVERNED-WIDE | pending-sourceable | 1.71× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
-| NAT | crude | GOVERNED-WIDE | resale-uniform | 2.25× | rich→rich | robust | 1.191× | 0.865× | $3.76 | +70.06% | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| CAPT | crude | GOVERNED-WIDE | resale-uniform | 1.04× | newbuild-heavy (unreliable)→newbuild-heavy (unreliable) | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears | pending | pending | no justified multiple (newbuild-heavy (unreliable)) |
+| CMBT | crude | GOVERNED-WIDE | structural-unavailable | 1.11× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
+| DHT | crude | VALIDATED-TIGHT | resale-uniform | 1.29× | rich→rich | robust | 0.808× | 0.747× | $13.47 | +43.99% | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| ECO | crude | VALIDATED-TIGHT | resale-uniform | 1.68× | rich→rich | robust | 0.570× | 0.456× | $25.05 | +164.66% | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| FRO | crude | VALIDATED-TIGHT | resale-uniform | 1.73× | rich→rich | robust | 0.906× | 0.818× | $25.50 | +71.74% | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| INSW | crude | GOVERNED-WIDE | pending-sourceable | 1.82× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
+| NAT | crude | GOVERNED-WIDE | resale-uniform | 2.39× | rich→rich | robust | 1.191× | 0.865× | $3.76 | +80.69% | robust | clears | pending | pending | comparable; §18.5 gates pending |
 | TEN | crude | GOVERNED-WIDE | structural-unavailable | 0.42× | no anchor→cheap | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: structural-unavailable |
-| TNK | crude | VALIDATED-TIGHT | resale-uniform | 0.91× | rich→rich | robust | 0.589× | 0.716× | $67.27 | +14.62% | robust | clears | pending | pending | comparable; §18.5 gates pending |
-| ASC | product | GOVERNED-WIDE | pending-sourceable | 0.98× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
-| HAFN | product | PROVISIONAL ⛔ | pending-sourceable | 1.37× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
-| STNG | product | PROVISIONAL ⛔ | pending-sourceable | 1.00× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
-| TRMD | product | GOVERNED-WIDE | pending-sourceable | 0.91× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
-| 2343 | dry_bulk | GOVERNED-WIDE | resale-uniform | 0.96× | cheap→cheap | robust | 1.100× | 1.158× | $0.41 | -4.14% | robust | clears (+unvalidated) | pending | pending | comparable; §18.5 gates pending |
+| TNK | crude | VALIDATED-TIGHT | resale-uniform | 1.04× | rich→rich | robust | 0.589× | 0.716× | $67.27 | +31.12% | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| ASC | product | GOVERNED-WIDE | pending-sourceable | 1.02× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
+| HAFN | product | PROVISIONAL ⛔ | pending-sourceable | 1.49× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
+| STNG | product | PROVISIONAL ⛔ | pending-sourceable | 1.02× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
+| TRMD | product | GOVERNED-WIDE | pending-sourceable | 0.98× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | clears (+unvalidated) | pending | pending | NAV basis: pending-sourceable |
+| 2343 | dry_bulk | GOVERNED-WIDE | resale-uniform | 1.31× | rich→rich | robust | 1.100× | 1.158× | $0.52 | +1.75% | robust | clears (+unvalidated) | pending | pending | comparable; §18.5 gates pending |
 | CMDB | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.54× | cheap→fair | flips (cheap/fair) | 0.683× | 0.554× | $16.17 | +6.68% | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
-| GNK | dry_bulk | VALIDATED-TIGHT | resale-uniform | 1.00× | cheap→fair | flips (cheap/fair) | 1.134× | 1.019× | $25.90 | -3.08% | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
-| SB | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.60× | cheap→cheap | robust | 1.381× | 0.892× | $8.58 | -25.50% | robust | clears | pending | pending | comparable; §18.5 gates pending |
-| SBLK | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.87× | cheap→fair | flips (cheap/fair) | 1.116× | 0.930× | $27.72 | +3.18% | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
+| GNK | dry_bulk | VALIDATED-TIGHT | resale-uniform | 1.03× | cheap→fair | flips (cheap/fair) | 1.134× | 1.019× | $25.90 | -0.38% | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
+| SB | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.81× | cheap→cheap | robust | 1.381× | 0.892× | $8.58 | -0.67% | robust | clears | pending | pending | comparable; §18.5 gates pending |
+| SBLK | dry_bulk | VALIDATED-TIGHT | resale-uniform | 0.93× | cheap→fair | flips (cheap/fair) | 1.116× | 0.930× | $33.26 | -8.60% | flips (cheap/fair) | clears | pending | pending | read flips — normalization-dependent |
 | CCEC | lng | GOVERNED-WIDE | structural-unavailable | 0.89× | no anchor→cheap | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
-| FLNG | lng | GOVERNED-WIDE | structural-unavailable | 1.14× | no anchor→cheap | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
+| FLNG | lng | GOVERNED-WIDE | structural-unavailable | 1.15× | no anchor→cheap | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | GSL | containerships | GOVERNED-WIDE | structural-unavailable | 0.95× | no anchor→cheap | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
-| MPCC | containerships | GOVERNED-WIDE | structural-unavailable | 1.24× | no anchor→newbuild-heavy (unreliable) | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
-| BWLP | lpg | PROVISIONAL ⛔ | pending-sourceable | 1.38× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: pending-sourceable |
-| LPG | lpg | PROVISIONAL ⛔ | pending-sourceable | 1.24× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: pending-sourceable |
+| MPCC | containerships | GOVERNED-WIDE | structural-unavailable | 1.41× | no anchor→newbuild-heavy (unreliable) | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
+| BWLP | lpg | PROVISIONAL ⛔ | pending-sourceable | 1.53× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: pending-sourceable |
+| LPG | lpg | PROVISIONAL ⛔ | pending-sourceable | 1.38× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: pending-sourceable |
 
 ## Summary
 
@@ -104,7 +104,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 
 **Read robustness (parity↔historical), instantaneous:** flips 3, n/a 15, robust 7.
 
-**Read flag (GOVERNED — what governance consumes, ±2.0% deadband):** flips 3, n/a 15, robust 7. No name sits inside the deadband.
+**Read flag (GOVERNED — what governance consumes, ±2.0% deadband):** flips 3, n/a 15, robust 7. Inside the deadband (a small move would restate the read): 2343, GNK, SB.
 
 **Confidence tier (handoff):** GOVERNED-WIDE 13, PROVISIONAL 4, VALIDATED-TIGHT 8.
 

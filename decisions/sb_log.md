@@ -1,5 +1,29 @@
 # SB — Decision Log
 
+## 2026-08-31T14:32:26+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $8.52
+- Single-point FV: $10.24
+- Scenario PW FV: $9.53 (EV +11.9%)
+- NAV / share: $10.58
+- Position: **BUY (undervalued)**
+- Broker spread: -29.9pp (k_broker 0.83)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ broker spread +13.6pp
+- Δprice: +2.13 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +13.6pp
+
+**Decision:** **THE EDGE DEFLATES TO HONEST — the SB own-basis re-pin landed (owner-ruled
+rider, 8/29):** static 6.39 (6/26) → 8.52, pnav recomputed 0.88→1.13 on the Q2 common book
+($7.564/sh, 6-K Table 3), P/E 6.5 on Q2 EPS ×4. The printed EV deflates ~+49%→~+25% (−11.1pp)
+— NOT a thesis change: the stale static was inflating the denominator. SB stays BUY, stays the
+edge-cleared long, now measured on a coherent vintage. SB now trades ABOVE its book anchor —
+a real re-rating (Q2 beat, dividend raise, 52wk high). Rides the ratify (rebase-rider leg).
+
+---
+
 ## 2026-08-29T21:35:19+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -239,12 +239,11 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 
 | Name | NAV base→txn | Δ% | EV base→txn | Δpp | Position |
 |---|--:|--:|--:|--:|---|
-| SB | $9.67→$10.58 | +9.4% | +36.1%→+49.2% | +13.1 | BUY→BUY |
 | CCEC | $25.70→$25.70 | +0.0% | +48.3%→+48.3% | +0.0 | BUY→BUY |
 | TEN | $94.58→$88.16 | -6.8% | +57.2%→+47.4% | -9.8 | BUY→BUY |
+| SB | $9.67→$10.58 | +9.4% | +2.1%→+11.9% | +9.8 | HOLD→BUY ⚠️ |
 | TRMD | $33.69→$32.30 | -4.1% | +13.6%→+9.7% | -3.9 | BUY→BUY |
 | BRUT | $4.92→$4.92 | +0.0% | +5.1%→+3.6% | -1.5 | BUY→HOLD ⚠️ |
-| 2343 | $0.41→$0.41 | -1.9% | +3.1%→+1.4% | -1.7 | HOLD→HOLD |
 | STNG | $79.63→$76.22 | -4.3% | +2.4%→-1.7% | -4.0 | HOLD→HOLD |
 | CMDB | $31.44→$32.13 | +2.2% | -3.8%→-2.0% | +1.8 | HOLD→HOLD |
 | SBLK | $31.53→$32.78 | +4.0% | -5.6%→-2.3% | +3.4 | TRIM/SHORT→HOLD ⚠️ |
@@ -257,6 +256,7 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | DHT | $16.30→$15.01 | -8.0% | -12.7%→-18.8% | -6.1 | TRIM/SHORT→TRIM/SHORT |
 | CMBT **(WHOLE-CO)** | $15.84→$16.46 | +3.9% | -24.2%→-21.5% | +2.7 | TRIM/SHORT→TRIM/SHORT |
 | HAFN | $5.69→$5.56 | -2.2% | -21.2%→-22.6% | -1.3 | TRIM/SHORT→TRIM/SHORT |
+| 2343 | $0.41→$0.41 | -1.9% | -24.5%→-25.8% | -1.2 | TRIM/SHORT→TRIM/SHORT |
 | MPCC | $2.05→$2.05 | +0.0% | -27.5%→-27.5% | +0.0 | TRIM/SHORT→TRIM/SHORT |
 | LPG | $35.70→$35.69 | -0.0% | -36.0%→-36.1% | -0.0 | TRIM/SHORT→TRIM/SHORT |
 | FRO | $28.47→$25.34 | -11.0% | -30.4%→-37.1% | -6.7 | TRIM/SHORT→TRIM/SHORT |

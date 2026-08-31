@@ -1,5 +1,26 @@
 # TRMD — Decision Log
 
+## 2026-08-31T14:32:26+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $32.62
+- Single-point FV: $32.14
+- Scenario PW FV: $35.79 (EV +9.7%)
+- NAV / share: $32.30
+- Position: **BUY (undervalued)**
+- Broker spread: +9.0pp (k_broker 1.08)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ broker spread -7.0pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -7.0pp
+
+**Decision:** re-annotation on the final 8/29 run — the Q2 pair refresh (band HIT $32.30,
+full annotation on the earlier 8/29 entry) + the pair re-pin (0.86→0.92, k −0.05 second-diff).
+NAV +6.9% is the pair leg, eyeballed there. Rides the ratify.
+
+---
+
 ## 2026-08-29T21:35:19+00:00 — Pipeline run (auto)
 
 **Model state:**

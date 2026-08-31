@@ -1,5 +1,28 @@
 # TNK — Decision Log
 
+## 2026-08-31T14:32:26+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $88.70
+- Single-point FV: $83.23
+- Scenario PW FV: $83.93 (EV -5.4%)
+- NAV / share: $84.60
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.7pp (k_broker 1.26)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -13.2pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -13.2pp
+
+**Decision:** **HOLD→T/S eyeballed individually — price-led, away from BUY; the k −0.18 is
+the PNAV RE-PIN, not a broker-NAV move.** The stale 8/07 pnav 0.80 vs the 8/28 print 0.91:
+implied broker NAV 77.1/0.80 = $96.4 → 88.2/0.91 = $96.9 — Pareto's NAV is FLAT; the k
+second-difference is the price leg riding a re-pinned ratio, exactly the vintage-skew class
+this rebase exists to retire. Rides the ratify (rebase leg).
+
+---
+
 ## 2026-08-29T21:35:19+00:00 — Pipeline run (auto)
 
 **Model state:**

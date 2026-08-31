@@ -1,14 +1,14 @@
 # S&P print candidates — Pareto Shipping Daily scan
 
-Scanned 4 reports (2026-08-10 → 2026-08-13); 2 candidate sentences. Review each hit and promote real prints to
+Scanned 9 reports (2026-08-17 → 2026-08-28); 2 candidate sentences. Review each hit and promote real prints to
 `inputs/market_data/transactions/<class>.yaml` (en-bloc packages: one
 row per vessel; rumours: note as unconfirmed; demolitions go to the
 scrap anchor, NOT the mid-age fit).
 
-## Suezmax (1)
-
-- `2026-08-11` Q3 estimates are currently for EBITDA / DPS to be back up again to Q1 levels ($145 – 150m / NOK ~5 per share) – and there could be some risk here CMBT: Another vessel sale • This morning, CMBT announced the sale of its 2024-built suezmax ‘Bristol’, with a gain of $57m to be taken in Q4.
-
 ## Pana (1)
 
-- `2026-08-10` our generic quotes of $34.3m • Two kamsarmaxes built in 2019 and 2012 have reportedly been sold for $38.2 / 23.5m, respectively – both far ahead of our generic quotes ($34.8 / 20.1m) • A premium should probably be expected for Japanese-built vessels but these are still very firm prices across the board.
+- `2026-08-18` A Japanese build is likely worthy of a premium, and some reports the ship might have been bareboated back to the seller do make the picture less clear-cut • A trio of 2015 – 16 built kamsarmaxes from China and Japan have been sold for prices in the $29–31m range, firmly ahead of our $26–27m generic quotes • To round things off, a 2019-built ultramax built at NACKS has changed hands for $34.5m, some ~5% ahead of our $32.7m generic quote with no Tier-1 yard premium in play here • Our drybulk coverage space has – like “all” of shipping – been on a strong run YTD, with total returns (in $) of ~50–90%.
+
+## Supra-Ultra (1)
+
+- `2026-08-18` A Japanese build is likely worthy of a premium, and some reports the ship might have been bareboated back to the seller do make the picture less clear-cut • A trio of 2015 – 16 built kamsarmaxes from China and Japan have been sold for prices in the $29–31m range, firmly ahead of our $26–27m generic quotes • To round things off, a 2019-built ultramax built at NACKS has changed hands for $34.5m, some ~5% ahead of our $32.7m generic quote with no Tier-1 yard premium in play here • Our drybulk coverage space has – like “all” of shipping – been on a strong run YTD, with total returns (in $) of ~50–90%.

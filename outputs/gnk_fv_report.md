@@ -3,7 +3,7 @@
 - **Report date:** 2026-Q2
 - **Current price:** $25.88
 - **Model fair value:** $24.61
-- **Analyst target:** $28.40
+- **Analyst target:** $27.20
 
 ## NAV breakdown
 
@@ -100,7 +100,7 @@ _Current price $25.88. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$24.61** is -4.9% vs the current price ($25.88) and -13.3% vs the analyst target ($28.40). The current price implies the fleet earning a value-weighted blended **$35,200/day** (1.28× the current forward) — 1.7× the value-weighted 10-yr mean ($20,184, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$24.61** is -4.9% vs the current price ($25.88) and -9.5% vs the analyst target ($27.20). The current price implies the fleet earning a value-weighted blended **$35,200/day** (1.28× the current forward) — 1.7× the value-weighted 10-yr mean ($20,184, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

@@ -1,5 +1,27 @@
 # CMDB — Decision Log
 
+## 2026-08-31T14:32:26+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $20.52
+- Single-point FV: $21.13
+- Scenario PW FV: $20.11 (EV -2.0%)
+- NAV / share: $32.13
+- Position: **HOLD (fairly valued)**
+- Broker spread: +2.7pp (k_broker 1.03)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** **BUY→HOLD eyeballed individually — LIVE-TAPE-LED, away from BUY.** CMDB values
+at the live close ($20.52, +19% off the 6/26-vintage static, inside the ±30% guard) and the EV
+compressed −12.3pp through the band edge; its pair was NOT touched by the rebase (absent from
+Pareto — own vintage stands). read_flag "flips" clear of the deadband (+2.87% tape margin).
+Rides the ratify (price leg).
+
+---
+
 ## 2026-08-29T21:35:19+00:00 — Pipeline run (auto)
 
 **Model state:**

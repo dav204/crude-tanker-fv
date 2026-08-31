@@ -1,7 +1,7 @@
 # GNK — Scenario Fair Value (Bulk Set A (China-driven))
 
 - **Current price:** $25.88
-- **Analyst target:** $28.40
+- **Analyst target:** $27.20
 - **NAV / share (reference, unflexed):** $25.12 _(flexes per scenario via vessel-value elasticity — see table)_
 - **Probability-weighted fair value:** $22.67 (-12.4% vs price)
 - **Breakeven TCE (scenario-invariant):** $35,200/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.

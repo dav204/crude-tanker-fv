@@ -1,15 +1,15 @@
-fetched_at: '2026-08-29T20:33:06+00:00'
+fetched_at: '2026-08-31T01:30:18+00:00'
 prices:
   '2343':
-    asof: '2026-08-28T08:08:31+00:00'
-    day_change_pct: 0.6
+    asof: '2026-08-31T01:29:31+00:00'
+    day_change_pct: 0.12
     exchange: HKG
-    flag: "+36.6% vs watchlist static 0.39 exceeds \xB130% band"
+    flag: "+36.7% vs watchlist static 0.39 exceeds \xB130% band"
     native_currency: HKD
-    native_price: 4.175
-    prev_close: 0.5294
-    price: 0.5326
-    usd_per_unit_fx: 0.127566
+    native_price: 4.18
+    prev_close: 0.5326
+    price: 0.5332
+    usd_per_unit_fx: 0.127558
   ASC:
     asof: '2026-08-28T20:00:03+00:00'
     day_change_pct: -1.7
@@ -22,27 +22,27 @@ prices:
     exchange: OSL
     native_currency: NOK
     native_price: 46.3
-    prev_close: 4.6988
-    price: 4.9444
-    usd_per_unit_fx: 0.106791
+    prev_close: 4.699
+    price: 4.9446
+    usd_per_unit_fx: 0.106795
   BWLP:
     asof: '2026-08-28T14:26:35+00:00'
     day_change_pct: -0.53
     exchange: OSL
     native_currency: NOK
     native_price: 225.2
-    prev_close: 24.1774
-    price: 24.0493
-    usd_per_unit_fx: 0.106791
+    prev_close: 24.1785
+    price: 24.0503
+    usd_per_unit_fx: 0.106795
   CAPT:
     asof: '2026-08-28T14:28:58+00:00'
     day_change_pct: 2.51
     exchange: OSL
     native_currency: NOK
     native_price: 154.16
-    prev_close: 16.0592
-    price: 16.4629
-    usd_per_unit_fx: 0.106791
+    prev_close: 16.0599
+    price: 16.4636
+    usd_per_unit_fx: 0.106795
   CCEC:
     asof: '2026-08-28T20:00:00+00:00'
     day_change_pct: -0.26
@@ -121,9 +121,9 @@ prices:
     exchange: OSL
     native_currency: NOK
     native_price: 26.72
-    prev_close: 2.9026
-    price: 2.8535
-    usd_per_unit_fx: 0.106791
+    prev_close: 2.9027
+    price: 2.8536
+    usd_per_unit_fx: 0.106795
   NAT:
     asof: '2026-08-28T20:00:02+00:00'
     day_change_pct: 0.15

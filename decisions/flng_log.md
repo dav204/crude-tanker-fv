@@ -7,6 +7,26 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-31T14:32:26+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $31.48
+- Single-point FV: $27.01
+- Scenario PW FV: $29.47 (EV -6.4%)
+- NAV / share: $27.22
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: -15.8pp (k_broker 0.90)
+- Sector: lng
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -0.5pp
+
+**Decision:** re-annotation on the final 8/29 run — the Q2 pair refresh (band HIT $27.22,
+full annotation on the 8/25 22:03 entry) + the tape leg. HOLD→T/S stands as eyeballed there
+(joint FV-down/tape-up, not toward BUY). Rides the ratify as the FLNG-pair leg.
+
+---
+
 ## 2026-08-29T21:35:19+00:00 — Pipeline run (auto)
 
 **Model state:**

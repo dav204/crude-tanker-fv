@@ -1,5 +1,27 @@
 # CAPT — Decision Log
 
+## 2026-08-31T14:32:26+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.46
+- Single-point FV: $15.10
+- Scenario PW FV: $16.02 (EV -2.7%)
+- NAV / share: $15.48
+- Position: **HOLD (fairly valued)**
+- Broker spread: +41.5pp (k_broker 1.26)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -1.9pp
+
+**Decision:** **BUY→HOLD eyeballed individually — PRICE-LED, away from BUY.** CAPT rallied
+kr 134.2→150.4 (+12%) across the rebase window while FV held (ΔNAV 0.0); EV compressed through
+the +5% band edge (−11.8pp). The pair re-pin (0.71→0.72 pnav, one vintage) contributes the
+k +0.07 second-difference. Not a thesis read — the 9/01 half-year print (prereg owed Mon 8/31)
+is the next real information. Rides the ratify (price + rebase legs).
+
+---
+
 ## 2026-08-29T21:35:19+00:00 — Pipeline run (auto)
 
 **Model state:**
