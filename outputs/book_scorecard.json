@@ -1,7 +1,7 @@
 {
   "schema_version": "2.8",
-  "generated_at": "2026-08-31T19:06:24+00:00",
-  "source_commit": "83a6afb",
+  "generated_at": "2026-08-31T19:22:28+00:00",
+  "source_commit": "a8e9914",
   "quarter": "2026-Q2",
   "price_basis": {
     "total": 25,
@@ -46,10 +46,7 @@
       "lpg": "9ae8876b3da4"
     },
     "current_sha": "9ae8876b3da4",
-    "lagging": [],
-    "ev_lagging": [
-      "FRO"
-    ]
+    "lagging": []
   },
   "sleeves_note": "sleeves[*].fv_contribution_per_share are per-share scenario-weighted FVs; sum(sleeves) == fv to the cent (C-3 per-sleeve identity). Corporate-level balance-sheet items (debt, working capital, preferred, shuttle contracted book) are pro-rated INTO the sleeve carve-outs (carveout.py), so nothing sits outside the per-sleeve lines.",
   "names": [
@@ -134,9 +131,9 @@
       "gap_pct": -21.6,
       "governance_discount_pct": 0.0,
       "sleeves": null,
-      "weight_sign_stable": null,
-      "ev_pct_family_min": null,
-      "ev_pct_family_max": null,
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -50.9,
+      "ev_pct_family_max": -36.0,
       "read_flag": "robust",
       "robust": "robust",
       "flip_margin_pct": 77.97,
@@ -474,8 +471,8 @@
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": -64.4,
-      "ev_pct_family_max": -54.7,
+      "ev_pct_family_min": -65.2,
+      "ev_pct_family_max": -55.8,
       "read_flag": "robust",
       "robust": "robust",
       "flip_margin_pct": 80.1,
@@ -769,8 +766,8 @@
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": -34.3,
-      "ev_pct_family_max": -22.6,
+      "ev_pct_family_min": -44.9,
+      "ev_pct_family_max": -34.0,
       "read_flag": "n/a",
       "robust": "n/a",
       "flip_margin_pct": null,
@@ -831,8 +828,8 @@
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": -41.8,
-      "ev_pct_family_max": -37.5,
+      "ev_pct_family_min": -41.5,
+      "ev_pct_family_max": -37.3,
       "read_flag": "n/a",
       "robust": "n/a",
       "flip_margin_pct": null,

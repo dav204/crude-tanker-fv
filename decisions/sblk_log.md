@@ -1,5 +1,23 @@
 # SBLK — Decision Log
 
+## 2026-08-31T19:22:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $30.48
+- Single-point FV: $32.46
+- Scenario PW FV: $28.74 (EV -5.7%)
+- NAV / share: $32.88
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +1.6pp (k_broker 1.02)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-31T19:06:39+00:00 — Pipeline run (auto)
 
 **Model state:**

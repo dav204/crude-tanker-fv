@@ -1,11 +1,11 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-31T19:06:39+00:00
-- **Previous run:** 2026-08-31T18:47:26+00:00
+- **This run:** 2026-08-31T19:22:44+00:00
+- **Previous run:** 2026-08-31T19:06:39+00:00
 
 ## Headline changes (material moves)
 
-- **HAFN:** single-point FV -15.4%; scenario PW FV -14.8%; broker spread +10.7pp; NAV/sh -16.5%
+- **No material changes.** All tickers within thresholds (|ΔFV%|≤10%, |Δspread|≤5pp, |ΔNAV%|≤5%) and no position flips.
 
 ## §17 read-flip strobe — tape vs the flip boundary
 
@@ -20,14 +20,10 @@
 _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the price this run values at to the nearest band edge whose crossing would settle the flip — i.e. where the read would sit once the watchlist rebases to today's tape. It is NOT a scorecard number and never governs: `read_flag` and the deadband are measured on the watchlist vintage (`Row margin`), the same price the read itself is computed on (Addendum B2, 2026-08-14). The two differ by exactly the drift between the two vintages._
 ## Input files changed since last run
 
-- `inputs/balance_sheets/bwlp_2026-Q2.yaml` (new)
-- `inputs/balance_sheets/fro_2026-Q2.yaml` (new)
-- `inputs/balance_sheets/hafn_2026-Q2.yaml` (new)
-- `inputs/balance_sheets/nat_2026-Q2.yaml` (new)
-- `inputs/fleet_manifests/bwlp.yaml` (modified)
-- `inputs/fleet_manifests/fro.yaml` (modified)
+- `inputs/balance_sheets/hafn_2026-Q2.yaml` (modified)
+- `inputs/balance_sheets/mpcc_2026-Q2.yaml` (modified)
 - `inputs/fleet_manifests/hafn.yaml` (modified)
-- `inputs/fleet_manifests/nat.yaml` (modified)
+- `inputs/market_data/newbuild_specs.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -35,14 +31,14 @@ _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the p
 |---|---|---|---|---|---|---|
 | DHT | $19.66 (no change) | $15.32 (no change) | $15.97 (no change) | $15.01 (no change) | TRIM/SHORT (overvalued) | +10.2pp (no change) |
 | ECO | $66.86 (no change) | $39.73 (no change) | $41.71 (no change) | $39.54 (no change) | TRIM/SHORT (overvalued) | +8.0pp (no change) |
-| FRO | $44.19 (no change) | $26.58 (+2.5%) | $28.29 (+1.8%) | $26.04 (+2.8%) | TRIM/SHORT (overvalued) | +14.7pp (-1.4pp) |
+| FRO | $44.19 (no change) | $26.58 (no change) | $28.29 (no change) | $26.04 (no change) | TRIM/SHORT (overvalued) | +14.7pp (no change) |
 | INSW | $98.81 (no change) | $37.59 (no change) | $59.59 (no change) | $54.64 (no change) | TRIM/SHORT (overvalued) | +24.8pp (no change) |
 | TNK | $88.70 (no change) | $83.23 (no change) | $83.93 (no change) | $84.60 (no change) | TRIM/SHORT (overvalued) | +12.7pp (no change) |
-| NAT | $6.77 (no change) | $2.89 (-2.7%) | $3.00 (-2.3%) | $2.76 (-3.2%) | TRIM/SHORT (overvalued) | +67.1pp (+1.0pp) |
+| NAT | $6.77 (no change) | $2.89 (no change) | $3.00 (no change) | $2.76 (no change) | TRIM/SHORT (overvalued) | +67.1pp (no change) |
 | FLNG | $31.48 (no change) | $27.01 (no change) | $29.47 (no change) | $27.22 (no change) | TRIM/SHORT (overvalued) | -15.8pp (no change) |
 | CCEC | $22.72 (no change) | $29.97 (no change) | $33.70 (no change) | $25.70 (no change) | BUY (undervalued) | -1.9pp (no change) |
 | STNG | $78.03 (no change) | $72.23 (no change) | $76.73 (no change) | $76.22 (no change) | HOLD (fairly valued) | +36.5pp (no change) |
-| HAFN ⚑ | $8.47 (no change) | $4.83 (-15.4%) | $5.59 (-14.8%) | $4.64 (-16.5%) | TRIM/SHORT (overvalued) | +39.7pp (+10.7pp) |
+| HAFN | $8.47 (no change) | $4.83 (no change) | $5.59 (no change) | $4.64 (no change) | TRIM/SHORT (overvalued) | +39.7pp (no change) |
 | TRMD | $32.62 (no change) | $32.14 (no change) | $35.79 (no change) | $32.30 (no change) | BUY (undervalued) | +9.0pp (no change) |
 | ASC | $17.36 (no change) | $17.22 (no change) | $16.38 (no change) | $17.37 (no change) | TRIM/SHORT (overvalued) | +28.4pp (no change) |
 | TEN | $42.52 (no change) | $59.21 (no change) | $62.66 (no change) | $88.16 (no change) | BUY (undervalued) | +54.5pp (no change) |
@@ -56,7 +52,7 @@ _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the p
 | CMBT | $18.35 (no change) | $15.83 (no change) | $13.87 (no change) | $16.50 (no change) | TRIM/SHORT (overvalued) | +21.3pp (no change) |
 | SB | $8.52 (no change) | $10.34 (no change) | $9.23 (no change) | $10.65 (no change) | BUY (undervalued) | -29.9pp (no change) |
 | LPG | $49.78 (no change) | $33.93 (no change) | $31.82 (no change) | $35.69 (no change) | TRIM/SHORT (overvalued) | +18.8pp (no change) |
-| BWLP | $24.05 (no change) | $15.48 (+0.3%) | $14.52 (+0.4%) | $15.83 (+0.2%) | TRIM/SHORT (overvalued) | +10.7pp (-0.1pp) |
+| BWLP | $24.05 (no change) | $15.48 (no change) | $14.52 (no change) | $15.83 (no change) | TRIM/SHORT (overvalued) | +10.7pp (no change) |
 | 2343 | $0.53 (no change) | $0.41 (no change) | $0.38 (no change) | $0.41 (no change) | TRIM/SHORT (overvalued) | +3.5pp (no change) |
 
 _⚑ flags a material change (position flip, |ΔFV%| > 10%, |Δspread| > 5pp, or |ΔNAV%| > 5%). ⟵ marks a position flip._

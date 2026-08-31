@@ -14,8 +14,6 @@
 
 > **Rate basis:** Handy-Bulk (§11.7.11, added 2026-07-14): NO market FFA at any tenor — its curve row + scenario deck are both DERIVED = supra x 0.90 (locked basis, identity guard-tested; regenerate BOTH with any supra promotion). as_of 2026-07-10 = the MB Dry Bulk Weekly 28 vintage (own cadence, not a hold awaiting a print).
 
-> **Weight-family EV vintage: LAGGING for FRO** — the live point EV sits outside the §9.10 sidecar's family range, so an EV-moving determinant outside the scenario_inputs.yaml stamp (marks / tape) changed after the diagnostic last ran. Family fields for these names are withheld (null), never printed out-of-range — re-run the family diagnostic scripts at the current tape.
-
 This file lists each name **twice, by design** — once in the **Verdict** (the decision surface: FV vs price, position, tier) and once in the **Validation matrix** below (the per-gate evidence behind that tier). The Verdict is what you act on; the matrix is why. One row per name *within* each table.
 
 ## Verdict — the consolidated read (the decision surface)
@@ -32,7 +30,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 |---|---|---|--:|--:|:--|--:|:--|--:|--:|--:|--:|:--|:--|:--|
 | DHT | crude | VALIDATED-TIGHT | $19.66 | $15.97 | 11.64–21.53 | -19% | rich · cycle position (not a short) | $15.32 | $15.01 | $17.25 | -13% | OK | ready | stable |
 | ECO | crude | VALIDATED-TIGHT | $66.86 | $41.71 | 28.08–60.70 | -38% | rich · cycle position (not a short) | $39.73 | $39.54 | $45.48 | -13% | OK | ready | stable |
-| FRO | crude | VALIDATED-TIGHT | $44.19 | $28.29 | 18.35–41.29 | -36% | rich · cycle position (not a short) | $26.58 | $26.04 | $33.23 | -22% | OK | ready | — |
+| FRO | crude | VALIDATED-TIGHT | $44.19 | $28.29 | 18.35–41.29 | -36% | rich · cycle position (not a short) | $26.58 | $26.04 | $33.23 | -22% | OK | ready | stable |
 | TNK | crude | VALIDATED-TIGHT | $88.70 | $83.93 | 71.90–102.30 | -5% | unreliable read (not actionable) | $83.23 | $84.60 | $97.47 | -13% | OK | ready | stable |
 | CMDB | dry_bulk | VALIDATED-TIGHT | $20.52 | $19.53 | 16.12–23.14 | -5% | HOLD (fairly valued) | $21.48 | $32.20 | $33.10 (apx) | -3% | n-a | ready | stable |
 | GNK | dry_bulk | VALIDATED-TIGHT | $25.88 | $21.66 | 16.75–27.14 | -16% | TRIM/SHORT (overvalued) | $25.02 | $25.12 | $27.24 | -8% | OK | ready | stable |

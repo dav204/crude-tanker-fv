@@ -1,5 +1,23 @@
 # NAT — Decision Log
 
+## 2026-08-31T19:22:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.77
+- Single-point FV: $2.89
+- Scenario PW FV: $3.00 (EV -55.8%)
+- NAV / share: $2.76
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +67.1pp (k_broker 2.40)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** final clean-HEAD regen of the 2026-08-31 refresh drain (sidecar fields re-emitted; delta 0 material). The Q2-refresh movement is verified + explained in the dated 2026-08-31 refresh entry and the annotated run entry below; rides the next owner ratify.
+
+---
+
 ## 2026-08-31T19:06:39+00:00 — Pipeline run (auto)
 
 **Model state:**

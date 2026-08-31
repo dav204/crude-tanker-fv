@@ -6,6 +6,51 @@ forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
 
+**STATE INSERT (2026-08-31 EVE — the digest-drain + refresh-backlog session; read this, then the 8/25 insert below).**
+The 8/31 owner sitting had closed with the seven-cause ratify — but HALF-COMMITTED
+(the RATIFY_LOG row went in; the re-anchored baseline file sat uncommitted): completed
+at ffa7fbc after a gate verify. The post-ratify suite then surfaced the FFA-promote's
+three unfinished legs — Handy-Bulk row missing the locked nearest-10 rounding, as_of
+coherence (default→8/24, tankers pinned 8/10 Stage-A holds), the SBLK flip-margin
+re-pin −8.58 — fixed + regenerated clean (0 material). **Digest flags ALL DRAINED:**
+MB weeklies harvested (12 reports W33-35 → the four STALE-INPUT flags clear) ·
+earnings-date sweep done (**TEN CONFIRMED Sep-10 pre-open**, issuer PR 8/20; CAPT 9/01
+re-verified on the 8/26 scheduling release; NAT window resolved — its 8/27 6-K WAS the
+Q2 report) · S&P candidates triaged (marks_trail_triage_2026-08-31: Kamsarmax "trio"
+resolved to NAMED MB prints Presinge $31.0M + Bbg Wuzhou $29.0M-auction; the 2019
+NACKS ultramax $34.5M dedupe-clean unnamed-rec; **10-row owner promotion set staged**;
+**Bristol price-watch FIRED — MB W33: CMB → Naftomar $123.0M**; **Front Vefsna
+$135.0M = probable P1 named leg**, routes via the FRO record) · FFA queue reviewed
+(8/25-8/31 flagged rows = MONTH-END TENOR ROLL-OFF, not bad captures; the 8/31 print
+image-verified + staged as the Rider-4 candidate, dry 12M proxies +4-5%) · spot_tce
+hold annotated (defers behind CAPT + the owner round). **REFRESH BACKLOG DRAINED 5 of
+6, every band HIT, no flips, gate 0 UNEXPLAINED / 5 explained:** MPCC $2.05→$2.10
+[1.90,2.30] (Fork-A advances-only; placement post-period verified; Selina 2012-built
+re-age resolves the prereg anomaly; acquisition hulls named Emilie/Elise/Eve/Estelle,
+Nov takeover) · NAT $2.85→$2.76 [2.70,3.00] (park re-verified; HFS→1 at $26M) · FRO
+$25.34→$26.04 [25.3,27.5] (**exhibit was NEVER STAGED by the outage catch-up — fetched
+from EDGAR; k 1.2006 exceedance RESOLVED**; 36 VLCC on-water, TC book rebuilt to the
+disclosed fixtures incl 110/120k 1-yr VLCC prints + 2yr/3yr step-downs = Stage-B
+basis) · HAFN $5.56→$4.64 [4.40,5.45] (**THE JV CORRECTION**: 16 JV hulls were at
+100%/no-JV-debt — now 8×50% equivalents + $197.75M debt netted, provable
+four-for-four; ten-hull HHI commitment $503.6M in, 8 firm on-curve, 2 parked; k~1.55
+breach pre-annotated denominator-driven) · BWLP $15.80→$15.83 [15.40,16.40]
+(NCI re-derived 216.3M live-curve + guard statics same-commit; **8-hull order: Q2
+report TOTALLY SILENT, advances $0 → OWNER FORK bwlp_nb_order_fork_2026-08-31.md,
+rec advances-only in the GSL/CMBT commitment-net family — order HELD OUT pending
+ruling**). **CMBT DEFERRED to 9/03** (the 8/27 6-K is the noteless condensed PR; the
+half-year report with commitments/HFS/FSO notes lands 9/03 — extraction banked in
+cmbt_log, 9/03 is wiring not reading). Governance seam: R-2 re-vintaged 30%→**35%
+(155/437, 3pp to the 38% VOID bar)** at the BWLP refresh + F-1 catch-up (9.3% PASS,
+met). **Stage-B fixture inventory now LOUD: direct Suezmax 12M prints 74.5-80k vs
+held 58,050 (~25-28% low) + MB 1yr VLCC 122.5k vs held 105.7k — the ±10% band-gate
+will trip; Stage B window closes 9/04.** OWNER OWES: pushes (both repos) · the
+5-cause-class ratify of this drain (5 explained gate rows) · the S&P promotion round
+(10 rows + the 8/31 FFA print) · the BWLP NB fork ruling · spot promote disposition.
+NEXT: **9/01 CAPT print vs the frozen band [14.70,17.30]** → CMBT 9/03 → Stage B
+(by 9/04) → TEN 9/10.
+
+
 **STATE INSERT (2026-08-25, Tuesday EVE — the outage week absorbed; read this, then the block below for standing context).**
 The 8/17–8/24 week was a NETWORK-OUTAGE week: launchd DNS stand-downs killed price-refresh
 (7 days), edgar-poll (~100 hourly skips, self-recovered 8/24 ~21:00Z), rocketchat; the Fri

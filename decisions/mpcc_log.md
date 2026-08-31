@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-31T19:22:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.85
+- Single-point FV: $2.29
+- Scenario PW FV: $2.15 (EV -24.8%)
+- NAV / share: $2.10
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +17.7pp (k_broker 1.19)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** final clean-HEAD regen of the 2026-08-31 refresh drain (sidecar fields re-emitted; delta 0 material). The Q2-refresh movement is verified + explained in the dated 2026-08-31 refresh entry and the annotated run entry below; rides the next owner ratify.
+
+---
+
 ## 2026-08-31T19:06:39+00:00 — Pipeline run (auto)
 
 **Model state:**

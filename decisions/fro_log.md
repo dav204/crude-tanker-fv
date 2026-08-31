@@ -1,5 +1,23 @@
 # FRO — Decision Log
 
+## 2026-08-31T19:22:44+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.19
+- Single-point FV: $26.58
+- Scenario PW FV: $28.29 (EV -36.0%)
+- NAV / share: $26.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +14.7pp (k_broker 1.20)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** final clean-HEAD regen of the 2026-08-31 refresh drain (sidecar fields re-emitted; delta 0 material). The Q2-refresh movement is verified + explained in the dated 2026-08-31 refresh entry and the annotated run entry below; rides the next owner ratify.
+
+---
+
 ## 2026-08-31T19:06:39+00:00 — Pipeline run (auto)
 
 **Model state:**
