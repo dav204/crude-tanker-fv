@@ -1,117 +1,83 @@
-# Hafnia Limited (HAFN / NYSE:HAFN, OSL:HAFNI via Norwegian deposit receipts)
-# fleet manifest — METHODOLOGY §4.1, §11.5
-# Source: Hafnia Q1 2026 6-K (filed 2026-05-27); cross-checked against IR
-# investor presentation + earnings call transcript. Balance sheet 2026-03-31.
+# Hafnia Limited (HAFN / NYSE:HAFN, OSL:HAFNI) fleet manifest — METHODOLOGY §4.1, §11.5
+# Q2-2026 REBUILD 2026-08-31. Source: Q2-2026 6-K acc 0001140361-26-034767 Ex 99.1
+# ("Fleet" section + footnotes 1/2/8, quoted in hafn_log 2026-08-31). BS 2026-06-30.
 #
-# Scope (109 OWNED vessels on-curve, by class):
-#   - 10 LR2  (~110k DWT, valued via LR2/Aframax-equivalent curve)
-#   - 25 LR1  (~75k DWT, valued via LR1 curve)  — 4 pending sale into Q2 2026
-#   - 49 MR   (~50k DWT, valued via MR curve)   — incl. 13 IMO II
+# THE JV CORRECTION (this refresh's structural finding): the Q1 cohort manifest
+# carried the 16 JV hulls at 100% count with NO JV-level debt — CONTRADICTED by the
+# Q2 footnote 2 ("six LR1s and four LR2s owned through 50% ownership in the Vista
+# Shipping Joint Venture and four IMO II MRs ... Ecomar ... two MRs ... H&A ...
+# held for sale") and provable four-for-four by class arithmetic (the JVs all
+# pre-date 3/31: H&A Jul-2021, Ecomar Jun-2023, Vista hulls 2019-built). Q2 basis:
+# JV hulls enter at 50% HULL-EQUIVALENT counts; their external debt nets at 50%
+# on the balance sheet (Note 7 per-facility: Vista $239.1M + Ecomar $156.4M =
+# $395.5M -> 50% $197.75M inside working_capital_net); shareholder loans cancel
+# pro-rata. Fleet at 6/30 (filed): 103 owned incl BB-in/JV + 9 TC-in = 112 total;
+# wholly-owned ex-BB-in on-curve = 84 (LR2 6 / LR1 18 / MR 41 / Handy 19).
+# Chartered-in (2 BB LR1 + 1 BB Handy + 9 TC) via lease_liabilities, not here.
+# Q2 disposals: 1 LR1 + 2 MR + 3 Handy delivered (proceeds $152.4M; H1 total
+# 4/4/4 for $281.3M) — no names/prices filed; cohort allocation approximate.
+# Ages: cohort estimates +0.5 at the quarter bump (2026.5 − build year).
 #
-# Off-curve (entered via balance_sheet working_capital_net):
-#   - 22 Handysize  (~37k DWT) — Hafnia is WINDING DOWN the Handy pool;
-#     4 hulls pending Q2 sale, broader segment exit planned over time.
-#     Same §11.5 framework gap as ASC's 6 hulls and STNG's 14 Handymax —
-#     no Handysize class in vessel_value_curves.yaml.
-#
-# Chartered-in vessels (NOT on-curve manifest; captured via lease_liabilities):
-#   - 4 LR1 (2 bareboat + 2 time-charter-in)
-#   - 7 MR  (time-charter-in)
-#   - 1 Handy (bareboat)
-#
-# Newbuild orderbook: 8 firm + 2 optional MR at Hyundai Heavy Industries (~$405M firm, delivery
-#   Q3-2028→Q2-2029). SIGNED 3 APRIL 2026 — a SUBSEQUENT EVENT (6-K Note 7), so EXCLUDED from the
-#   2026-Q1 (3/31) snapshot entirely (newbuild_capex_commitments = 0). To be wired on-curve in Q2 (§9.6).
-#
-# Per-vessel detail is in the Hafnia Q1 2026 investor presentation PDF
-# (s201.q4cdn.com/891122012/...). Aggregated here by class × build-year
-# × scrubber/eco status using `count: N` rows. Distribution approximates
-# Hafnia's disclosed avg fleet age of 9.6 yrs and the ~80% eco / ~70%
-# scrubber sector reads. Refresh per-vessel when the Q1 PDF fleet table
-# is pulled.
-#
-# age = 2026 - year built. eco = built post-2014 (METHODOLOGY §3.1).
+# NEWBUILDS (Note 8: TEN MR construction contracts, $503.6M remaining):
+# the 8 FIRM hulls (April order, delivery Q3-2028→Q2-2029 disclosed) ON-CURVE
+# below per the Q1-reconciliation pre-decision; the 2 ADDED hulls have NO
+# delivery disclosure -> hull value PARKED (NAT pattern), commitment share
+# still subtracts. Scrubber=false on all NB rows (no NB scrubber statement —
+# the SB/ECO value-flag rule).
 ticker: HAFN
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
-  # ============================================================
-  # LR2 fleet — 10 vessels; segment winding down per management.
-  # Mix of mid-2010s and earlier vintages. ~50% scrubber (Hafnia
-  # has been less scrubber-aggressive than STNG on LR2 cohort).
-  # ============================================================
-  - {id: HAFN_LR2_2015, class: LR2, dwt: 110000, age: 11, scrubber: true,  eco: true,  charter_status: spot, count: 4}
-  - {id: HAFN_LR2_2014, class: LR2, dwt: 110000, age: 12, scrubber: true,  eco: true,  charter_status: spot, count: 3}
-  - {id: HAFN_LR2_2013, class: LR2, dwt: 110000, age: 13, scrubber: false, eco: false, charter_status: spot, count: 3}
+  # ---- LR2, 6 wholly-owned ----
+  - {id: HAFN_LR2_2015, class: LR2, dwt: 110000, age: 11.5, scrubber: true,  eco: true,  charter_status: spot, count: 3}
+  - {id: HAFN_LR2_2013, class: LR2, dwt: 110000, age: 13.5, scrubber: false, eco: false, charter_status: spot, count: 3}
+  # ---- LR1, 18 wholly-owned ex-BB (the 4 Q1 pending-sale hulls all delivered by 6/30;
+  #      Q2's one LR1 disposal allocated to the retired HFS cohort) ----
+  - {id: HAFN_LR1_2014, class: LR1, dwt: 75000, age: 12.5, scrubber: true,  eco: true,  charter_status: spot, count: 7}
+  - {id: HAFN_LR1_2013, class: LR1, dwt: 75000, age: 13.5, scrubber: false, eco: false, charter_status: spot, count: 7}
+  - {id: HAFN_LR1_2012, class: LR1, dwt: 75000, age: 14.5, scrubber: false, eco: false, charter_status: spot, count: 4}
+  # ---- MR, 41 wholly-owned (13 IMO II incl. JV Ecomar; IMO II = flexibility flag,
+  #      no curve discount). Q2's two MR disposals + the 6 JV hulls removed from
+  #      the cohorts (allocation approximate) ----
+  - {id: HAFN_MR_2017, class: MR, dwt: 50000, age: 9.5,  scrubber: true,  eco: true,  charter_status: spot, count: 11}
+  - {id: HAFN_MR_2015, class: MR, dwt: 50000, age: 11.5, scrubber: true,  eco: true,  charter_status: spot, count: 11}
+  - {id: HAFN_MR_2014, class: MR, dwt: 50000, age: 12.5, scrubber: true,  eco: true,  charter_status: spot, count: 10}
+  - {id: HAFN_MR_2013, class: MR, dwt: 50000, age: 13.5, scrubber: false, eco: false, charter_status: spot, count: 9}
+  # ---- Handysize, 19 wholly-owned ex-BB (3 sold in Q2; wind-down continues) ----
+  - {id: HAFN_Handy_2008, class: Handysize, dwt: 37000, age: 18.5, scrubber: false, eco: false, charter_status: spot, count: 19}
+  # ---- JV hull-equivalents at 50% (footnote 2; the Q2 correction) ----
+  - {id: HAFN_JV_Vista_LR2, class: LR2, dwt: 110000, age: 7.5, scrubber: false, eco: true, charter_status: spot, count: 2}
+    # 4 Vista LR2s x 50% (2019-built — e.g. Hafnia Triton Oct-19 per the fleet list)
+  - {id: HAFN_JV_Vista_LR1, class: LR1, dwt: 75000, age: 7.5, scrubber: false, eco: true, charter_status: spot, count: 3}
+    # 6 Vista LR1s x 50% (2019-20 cohort estimate — same JV program vintage)
+  - {id: HAFN_JV_Ecomar_MR, class: MR, dwt: 50000, age: 1.0, scrubber: false, eco: true, charter_status: spot, count: 2}
+    # 4 Ecomar IMO-II MRs x 50% (delivered Jan-25 → Jan-26 per the fleet list)
+  - {id: HAFN_JV_HA_MR_HFS, class: MR, dwt: 50000, age: 3.5, scrubber: false, eco: true, charter_status: spot, count: 1}
+    # 2 H&A MRs x 50%, JV-classified held-for-sale at 6/30; SOLD 27-Jul (Note 12,
+    # $13.3M gain to the Group). Age est. sale-value-corroborated: Hafnia's 50%
+    # committed-sale share $42M ≈ one modern-MR curve mark. Leaves at Q3.
+  # ---- 8 firm HHI MR newbuilds ON-CURVE (April order; delivery Q3-2028→Q2-2029;
+  #      years_to_delivery from the 6/30 snapshot). The 2 added hulls: PARKED. ----
+  - {id: HAFN_NB_2028a, class: MR, dwt: 50000, age: 0, scrubber: false, eco: true, count: 3, years_to_delivery: 2.25}
+  - {id: HAFN_NB_2028b, class: MR, dwt: 50000, age: 0, scrubber: false, eco: true, count: 3, years_to_delivery: 2.5}
+  - {id: HAFN_NB_2029,  class: MR, dwt: 50000, age: 0, scrubber: false, eco: true, count: 2, years_to_delivery: 2.75}
 
-  # ============================================================
-  # LR1 fleet — 25 OWNED vessels (4 pending sale Q2 2026: 2008-2010
-  # builds — Shinano / Yangtze / Seine / Zambesi). Q1 LR1 TCE
-  # $38,194/day OUTPERFORMED LR2 ($35,316) due to coated-LR2 dirty-
-  # switching dynamic (§14.6.1 framework gap — same mechanism that
-  # applies to STNG's LR2 fleet, but here it shows up as LR1 strength
-  # because the LR1 clean market tightened when LR2s defected dirty).
-  # ============================================================
-  # Pending-sale cohort (4× 2008-2010) — included here at on-curve
-  # value until delivery completes; framework will catch the
-  # adjustment via the working_capital_net pending-sale line on the
-  # balance sheet at next refresh.
-  - {id: HAFN_LR1_2009_HFS, class: LR1, dwt: 75000, age: 17, scrubber: false, eco: false, charter_status: spot, count: 4}
-  # Continuing LR1 cohort
-  - {id: HAFN_LR1_2014, class: LR1, dwt: 75000, age: 12, scrubber: true,  eco: true,  charter_status: spot, count: 8}
-  - {id: HAFN_LR1_2013, class: LR1, dwt: 75000, age: 13, scrubber: false, eco: false, charter_status: spot, count: 8}
-  - {id: HAFN_LR1_2012, class: LR1, dwt: 75000, age: 14, scrubber: false, eco: false, charter_status: spot, count: 5}
-
-  # ============================================================
-  # MR fleet — 49 OWNED vessels; 13 IMO II-capable (those are
-  # valued the same as standard MRs at the curve — IMO II is an
-  # operating-flexibility flag, not a curve discount).
-  # 8 firm + 2 option NBs (delivery 2028-2029) in newbuild_capex.
-  # 7 MR chartered-in (operating leases via IFRS 16 lease_liabilities).
-  # 2 pending sale Q2 2026 (2012-2013 builds Crux + Leo).
-  # ============================================================
-  - {id: HAFN_MR_HFS,  class: MR, dwt: 50000, age: 13, scrubber: false, eco: false, charter_status: spot, count: 2}
-  - {id: HAFN_MR_2017, class: MR, dwt: 50000, age: 9,  scrubber: true,  eco: true,  charter_status: spot, count: 14}
-  - {id: HAFN_MR_2015, class: MR, dwt: 50000, age: 11, scrubber: true,  eco: true,  charter_status: spot, count: 12}
-  - {id: HAFN_MR_2014, class: MR, dwt: 50000, age: 12, scrubber: true,  eco: true,  charter_status: spot, count: 11}
-  - {id: HAFN_MR_2013, class: MR, dwt: 50000, age: 13, scrubber: false, eco: false, charter_status: spot, count: 10}
-
-  # ============================================================
-  # Handysize fleet — 22 owned (clean-product ~37k DWT). ON-CURVE as of
-  # 2026-06-05 (Handysize class added to vessel_value_curves.yaml; §11.5 gap
-  # retired for clean-product Handies). Hafnia is winding down the segment, so
-  # the cohort skews OLD — modelled at age 18 (≈2008 builds), which the
-  # Handysize curve values at ~$14.5M/vessel (~$320M aggregate), reproducing
-  # the prior off-curve estimate (22 × ~$15M = $330M) without the 10% wind-down
-  # liquidity haircut the off-curve sleeve carried (the framework has no
-  # on-curve liquidity-discount mechanism — net effect ~+$0.04/sh, §6 note).
-  # No per-vessel Handy ages were disclosed; age 18 is the value-pinned cohort
-  # estimate. Refresh with the per-vessel build years from the Q1 IR deck.
-  - {id: HAFN_Handy_2008, class: Handysize, dwt: 37000, age: 18, scrubber: false, eco: false, charter_status: spot, count: 22}
-
-# Charter coverage (Q2 2026 expected days, 13 May 2026 disclosure):
-#   Fleet-wide: 73% covered @ $46,600/day weighted
-# Modelled here as all spot — Hafnia operates through its own product-
-# tanker POOL (the world's largest), so "spot" earnings are pool-derived
-# (net pool admin fees, bunker volatility). This is methodologically
-# distinct from STNG's direct-spot but functionally captures the same
-# rate level; modelled identically since the framework's spot/12M TC
-# rate inputs are sector-level anyway. Flagged in §6 HAFN entry.
+# Pool-operated: "spot" = pool-derived earnings (world's largest product pool);
+# modelled all-spot as before (§6 HAFN note). Q3-26 QTD (17-Aug): 80% covered
+# @ $30,716/day fleet-wide — LR2 93%@39.2k / LR1 75%@35.9k / MR 77%@29.6k /
+# Handy 89%@25.6k. Spot wk-of-8/17 pool: LR1 $74.4k / MR $27.8k / Handy $27.0k.
 spot_coverage_pct:
   LR2: 1.00
   LR1: 1.00
   MR:  1.00
   Handysize: 1.00
 fleet_summary:
-  LR2_count: 10
-  LR1_count: 25
-  MR_count: 49
-  Handysize_count: 22            # ON-CURVE as of 2026-06-05 (was off-curve via working_capital_net)
-  on_curve_total: 106            # 10 LR2 + 25 LR1 + 49 MR + 22 Handysize on the curve
-  owned_total: 106               # all 106 owned now on-curve (Handysize gap retired)
-  chartered_in_count: 12          # 4 LR1 (2 BB + 2 TC) + 7 MR TC + 1 Handy BB — IFRS 16 lease_liabilities
-  newbuild_orders: 8              # 8 firm MR + 2 option (option not in fleet count)
-  avg_age_LR2_approx: 11.9
-  avg_age_LR1_approx: 13.3
-  avg_age_MR_approx: 10.7
-  avg_age_owned: 9.6              # per Hafnia disclosure (averages across all owned)
-  pool_operated: true             # Hafnia runs the world's largest product tanker pool
+  LR2_count: 8               # 6 wholly + 2 JV-equivalents
+  LR1_count: 21              # 18 wholly + 3 JV-equivalents
+  MR_count: 44               # 41 wholly + 3 JV-equivalents (incl 1 H&A HFS)
+  Handysize_count: 19
+  on_curve_total: 92         # 84 wholly-owned + 8 JV hull-equivalents
+  owned_total_filed: 103     # issuer basis: incl BB-in + 16 JV hulls at 100%
+  chartered_in_count: 12     # 2 BB LR1 + 1 BB Handy + 9 TC-in — lease_liabilities
+  newbuild_orders: 10        # 8 firm on-curve + 2 added hulls PARKED (no delivery data)
+  avg_age_owned: 9.9         # cohort-implied post-bump
+  pool_operated: true

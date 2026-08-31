@@ -1,0 +1,77 @@
+# Hafnia Limited (HAFN) balance sheet snapshot — METHODOLOGY §4.2, §11.5. IFRS. USD.
+# Source of record: Hafnia Q2-2026 6-K, EDGAR acc 0001140361-26-034767 (Ex 99.1 interim
+# financials + Ex 99.2 press release + Ex 99.3 dividend key info), as-of 2026-06-30.
+# Hafnia's OWN disclosed NAV/sh = $8.89 at 6/30 (the sanity anchor; Q1 was $8.09).
+# SUBSEQUENT EVENTS (Note 12, audited FIRST — the note in full): 27-Jul-2026 H&A JV
+# completed the sale of MT Yellow Stars + MT PS Stars (gain $13.3M to the Group; JV to
+# be liquidated) — the JV-HFS hull-equivalent stays in this 6/30 snapshot. Also
+# post-period: Q2 dividend $0.5003/sh approved 8/27 (not accrued); CEO transition 9/01.
+ticker: HAFN
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1898496/000114036126034767/
+retrieved_at: 2026-08-31
+filing_period_end: 2026-06-30
+
+cash_and_equivalents: 270983000          # BS "Cash at bank and on hand". Excludes the
+                                          # $82.2M pool custodial cash (usable only for
+                                          # pool-vessel operations, footnote 2) and the
+                                          # $20.0M non-current FFA collateral (both
+                                          # genuinely restricted; Q1 convention).
+
+# working_capital_net = operating-WC FLOOR + TORM stake − 50% JV external debt (§11.5).
+#
+#   1. OPERATING WC — POOL-GROSS-UP-PENDING conservative FLOOR (unchanged convention;
+#      the Q2 filing AGAIN discloses no pool vs own-account receivables split).
+#      BS-literal operating WC = receivables 607,246 + inventories 109,754 − payables
+#      410,051 = 306,949 — REJECTED for the custodial gross-up (owner 2026-07-01);
+#      floor = own-account INVENTORY 109,754. [ESTIMATE] floor — pool-gross-up-pending.
+#
+#   2. TORM 13.97% stake at $277.2M — the issuer's lower-of-market-or-purchase-price
+#      NAV basis, HELD BY DERIVATION: Q2 prints the method (net-LTV definition) but no
+#      figure; market $369.0M at 6/30 (Level-1 369,272), no H1 purchases (CF disposals
+#      105 only) → lower-of = the Q1-derived purchase price ≈ $277.2M stands.
+#
+#   3. JV EXTERNAL DEBT, 50% share = −197,750. NEW LEG (2026-08-31 refresh): the Q2
+#      fleet correction puts the 16 JV hulls on-curve at 50% hull-equivalents (see
+#      the manifest — the Q1 cohort manifest had carried them at 100% with NO JV
+#      debt, contradicted by the Q2 footnotes), so the JV's external facilities net
+#      against them: Note 7 per-facility table, Vista 4 facilities $239.1M + Ecomar
+#      4 French tax leases $156.4M = $395.5M at 100% → 50% = $197.75M. Shareholder
+#      loans cancel algebraically (both partners lend pro-rata: Hafnia's receivable
+#      = its share of the JV's shareholder-loan liability), so the group's JV claim
+#      = 50% x (hulls at curve − external debt) — this construction. H&A carries
+#      zero facilities at 6/30 (both repaid/terminated 30-Jun).
+#
+#   Total working_capital_net = 109.754 + 277.200 − 197.750 = 189.204 ($M).
+working_capital_net: 189204000
+
+# Total interest-bearing BANK borrowings (ex-lease), Note 7: current 197,949 +
+# non-current 610,350 = 808,299; Note 9 fair-value table ties ("Bank borrowings
+# (808,299)"). Seven facilities (the $40M repaid+terminated, the $303M undrawn
+# terminated, both 30-Jun); w.a. effective rate 4.8%. H1 net paydown ~$241M.
+total_debt: 808299000
+
+# SLB (5,774 + 28,559 = 34,333) + other lease liabilities (27,778 + 14,953 = 42,731),
+# Note 7; Note 9 aggregate 77,064 ties. The 9 chartered-in vessels' book.
+lease_liabilities: 77064000
+
+# NEWBUILDS — Note 8: construction contracts for TEN MR newbuilds (the 3-Apr-2026
+# HHI order, now ten — the 8-firm+2-option structure appears simply as "ten"; no
+# yard, no per-vessel deliveries, no option narration in the Q2 filing). Contracted
+# payments remaining after 6/30: <1yr 151,080 + 1-2yr 102,070 + 2-5yr 250,450 =
+# 503,600 — implies ~$50.4M/hull remaining ≈ the April ~$50.6M/hull, i.e. nothing
+# material yet paid (consistent: NO vessels-under-construction line in PP&E, H1
+# PP&E outflow $41.3M "mainly drydocking"-scale).
+# §9.6 WIRING (pre-decided at the Q1 reconciliation: "to be wired on-curve in Q2,
+# delivery Q3-2028→Q2-2029"): the 8 FIRM hulls go ON-CURVE in the manifest at the
+# April order's disclosed delivery window (years_to_delivery 2.25/2.5/2.75 from
+# 6/30); the 2 ADDED hulls carry NO delivery disclosure anywhere → their hull
+# value is PARKED (NAT park pattern) while their commitment share stays inside
+# the 503,600 subtract — conservative by construction, resolves on disclosure.
+newbuild_capex_commitments: 503600000
+newbuild_advances_paid: 0                # no advances line exists; positive finding
+
+# Q2-2026 diluted weighted-average shares (6-K EPS table; basic 499,177,614; issued
+# 499,842,279 less 60,974 treasury at 6/30 — 12,721,253 treasury shares cancelled
+# in H1; dividend-implied ~499.7M). Q1 convention: diluted WA.
+diluted_shares_outstanding: 506029778

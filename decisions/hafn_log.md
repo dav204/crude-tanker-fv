@@ -1393,6 +1393,63 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-31 — Q2 REFRESH EXECUTED (the 8/28 print; band-less — outage-week miss recorded; post-hoc verification block written BEFORE the regen)
+
+**Subsequent events (Note 12, audited FIRST, the note in full):** H&A JV sold
+MT Yellow Stars + MT PS Stars 27-Jul ($13.3M gain to the Group; JV to be
+liquidated) — the JV-HFS hull-equivalent stays at 6/30. Post-period elsewhere:
+$0.5003 dividend approved 8/27 (90% payout, LTV<20% tier; ex 9/07-08, pay
+~9/18-23); CEO transition 9/01 (Skov → Steenberg Jensen).
+
+**STRUCTURAL FINDING — the JV correction.** The Q1 cohort manifest carried the
+16 JV hulls (4+6 Vista LR2/LR1, 4 Ecomar MR, 2 H&A MR) at 100% count with NO
+JV debt. The Q2 footnotes contradict it (fn 2 verbatim in the manifest header;
+provable four-for-four by class arithmetic — all three JVs pre-date 3/31).
+Fixed at this refresh: JV hulls → 50% hull-equivalents (8), JV external debt
+→ −50% × $395.5M = −$197.75M (Note 7 per-facility table) inside
+working_capital_net; shareholder loans cancel pro-rata (both partners lend in
+proportion — the group's receivable equals its share of the JV liability).
+This is a NAV-DOWN correction of a latent onboarding overstatement, not a
+market read.
+
+**§9.6 wiring (pre-decided at the Q1 reconciliation):** commitment $503.6M
+(Note 8, now TEN hulls) enters; the 8 FIRM hulls go ON-CURVE (ytd 2.25-2.75
+per the April delivery window Q3-2028→Q2-2029); the 2 ADDED hulls' value is
+PARKED (no delivery disclosure anywhere in the filing — implied ~$50.4M/hull
+remaining ≈ the April $50.6M, so ~nothing yet paid) while their commitment
+share subtracts — conservative, resolves on disclosure. Advances 0 = a
+positive finding (no under-construction line; H1 PP&E outflow drydock-scale).
+
+**Sheet walk (pair commit):** cash 146.5→271.0 (+124.5) · WC 362.9→189.2
+(−173.7: floor re-footed to Q2 inventory 109.8, TORM 277.2 held-by-derivation
+[market 369.0, no purchases], NEW −197.75 JV-debt leg) · debt 953.9→808.3
+(+145.6 — H1 paydown ~$241M net, two facilities terminated) · leases
+71.6→77.1 (−5.5) · commitments 0→−503.6 · NB hulls on-curve ≈ +340 (8 × MR
+age-0 × PV) · shares 505.3M→506.0M · fleet: 6 sold hulls out (−~130 at cohort
+marks; proceeds inside cash), JV correction ≈ −100±100 (younger true ages
+partially offset the halving), ages +0.5 (~−60).
+
+**Predicted NAV: $5.56 → ≈ $4.85, band [4.40, 5.45]** (wide — the JV-leg
+curve values and cohort allocations carry real spread). Outside → HALT,
+investigate the INPUT. SANITY: ~−38% vs broker NAV — inside ±50%, documented
+mark-driven. **k_broker will breach high (~1.6)** — annotated here in advance:
+the denominator (tool NAV) fell on the JV correction + commitment leg while
+the pinned 8/28 pnav stands; a real spread widening to re-read at the next
+consensus-pair rebase, NOT a re-tuning license. Forward invariance: the other
+24 names delta 0.0. Position TRIM/SHORT (rich · cycle position) expected to
+STAND; tier PROVISIONAL·pool-gross-up-pending UNCHANGED (the Q2 filing again
+declines the pool split — floor holds; still flag-don't-pass).
+
+**Stage-B basis captured (rider):** Q2 TCE by class LR2 46.9k / LR1 52.1k /
+MR 43.8k / Handy 35.9k (spot legs 131.2/55.9/50.9/38.2); TC-out book LR2
+30.0k / LR1 30.1k / MR 22.8k / Handy 22.5k; Q3 QTD 80%@30.7k fleet-wide;
+FY27 fixed 17%@25.7k. Routes to the Stage-B class-bucket re-check.
+
+**Decision:** refresh pair landed per the walk above; regen verdict appended
+at the run entry.
+
+---
+
 ## 2026-07-28T15:58:58+00:00 — Pipeline run (auto)
 
 **Model state:**
