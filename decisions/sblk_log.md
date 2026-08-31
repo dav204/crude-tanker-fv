@@ -19,7 +19,7 @@
 round promoted the 24-Aug FFA print (12M 31,550→35,425); single FV UP +1.8% ($32.46), NAV +0.3%,
 but cycle position deepened 1.33×→1.47× elevated and the scenario reweight faded the strength:
 PW FV −3.5% ($28.74) → HOLD→T/S at an unchanged price. The flip rides the 12M leg ALONE → frozen,
-owner disposes (ffa_promotion_2026-08-31.md §4). Governance context: leg-2 trim FILLED 8/31
+owner disposes (ffa_promotion_2026-08-31.md §4). **DISPOSED SAME SITTING — OWNER ACCEPTED the T/S label (2026-08-31: "accept both frozen flips")**: the cycle-fade read stands; directionally consistent with the filled leg-2 trim and the 88-sh remainder's $34.50 line. Governance context: leg-2 trim FILLED 8/31
 (87 @ 30.57); the 88-sh remainder rides toward $34.50 — a producer T/S label is directionally
 consistent with the trim posture, no forced action. k 1.02, spread +1.6pp — tight.
 
