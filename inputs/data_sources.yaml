@@ -287,6 +287,21 @@ BRUT:
                              # tests/test_newsweb_poll.py. Polled by newsweb_poll.py — this
                              # is the channel whose absence hid the 2026-07-07 demerger
                              # release for five weeks.
+
+# OMC Tankers Ltd — RELEASE-CAPTURE-ONLY watch (owner-ruled 2026-08-31, the BRUT-demerger
+# residual): NOT a covered name, NO model surface, NO watchlist row — the poller stages its
+# releases so the financing round / first fixture / uplisting that would send OMC to the
+# onboarding funnel lands in the digest the day it happens (the BRUT five-week-miss lesson).
+# 8 VLCC NBs (ex-BRUT 2028-29 tail), listed Euronext Growth Oslo 2026-08-28.
+OMC:
+  ir_page: null     # none known yet (first day of trading 8/28)
+  sec_edgar: null   # Oslo-listed — no SEC lane
+  mfn_slug: omc-tankers   # VERIFIED 2026-08-31 against mfn.se/all/a/omc-tankers (first
+                          # release: 2026-08-28 07:55 "First day of trading and publication
+                          # of Information Document" + PDF — that Information Document is a
+                          # STAGED LEAD: listing docs carry per-vessel/commitment detail,
+                          # possibly fresh BRUT-side figures too). Pinned in
+                          # tests/test_newsweb_poll.py; release-capture only.
   official_filings: "Euronext Growth Oslo (newsweb.oslobors.no / live.euronext.com) is the
     official channel. Pulled 2026-06-30 (closes the brut_log:405 'MISSING admission prospectus'
     gap): research_issuer/2024-11-26_brut_euronext_information_document.pdf (admission) +

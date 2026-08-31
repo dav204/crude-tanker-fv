@@ -97,3 +97,11 @@ from the 8/28 daily's post-split pair (the rebase draft's conditional lane, here
 price $4.70 (kr 44.0), pnav 1.03, fwd_pe 14.4, analyst_target $4.56 = the IMPLIED Pareto
 post-split NAV (44.0/1.03 = kr 42.7 — a BROKER NAV, not a sell-side PT; refresh at the next
 BRUT research note). POSITION_UNRELIABLE and the Stage-A void STAND until R4.
+
+**RESIDUALS RULED 2026-08-31 (owner: "approved" on the item-5 recs):** (1) **OMC
+release-capture-only watch WIRED** — data_sources.yaml OMC entry, mfn_slug omc-tankers
+(verified 2026-08-31; first release 8/28 incl. the Euronext Information Document PDF =
+a staged lead), test pin moved deliberately; no model surface, onboarding stays a funnel
+decision. (2) **R4 SCOPE WORD: the deck re-expression work order re-reads the LIVE 4-hull
+BRUT** — not the historical 12-hull object; the Stage-A void and POSITION_UNRELIABLE
+retire (or not) against the entity that exists. Both residual lines above are CLOSED.

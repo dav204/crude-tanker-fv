@@ -42,11 +42,14 @@ def _fake_fetch(payload, doc_body=b"%PDF release", status=200):
     return fetch
 
 
-# The four covered Oslo/Euronext names. A slug change must be re-verified
+# The covered Oslo/Euronext names. A slug change must be re-verified
 # against the live feed and re-pinned here (same two-surfaces rule as the
-# EDGAR CIK pin and the HKEX stockId pin).
+# EDGAR CIK pin and the HKEX stockId pin). OMC added 2026-08-31 (owner-ruled
+# release-capture-only watch — no model surface; slug verified against
+# mfn.se/all/a/omc-tankers, first release 8/28).
 VERIFIED_SLUGS = {"BRUT": "bruton-limited", "BWLP": "bw-lpg",
-                  "CAPT": "capital-tankers", "MPCC": "mpc-container-ships"}
+                  "CAPT": "capital-tankers", "MPCC": "mpc-container-ships",
+                  "OMC": "omc-tankers"}
 
 
 def test_covered_slugs_match_the_verified_pin():
