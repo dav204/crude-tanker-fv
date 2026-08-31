@@ -24,7 +24,10 @@ cash_and_equivalents: 270983000          # BS "Cash at bank and on hand". Exclud
 #      the Q2 filing AGAIN discloses no pool vs own-account receivables split).
 #      BS-literal operating WC = receivables 607,246 + inventories 109,754 − payables
 #      410,051 = 306,949 — REJECTED for the custodial gross-up (owner 2026-07-01);
-#      floor = own-account INVENTORY 109,754. [ESTIMATE] floor — pool-gross-up-pending.
+#      book the conservative floor ≈ the clean own-account INVENTORY 109,754
+#      (pool-grossed receivables/payables netted to ~0). [ESTIMATE] floor ~$109.8M —
+#      pool-gross-up-pending; resolves if a filing discloses the pool net. This keeps
+#      HAFN PROVISIONAL on WC.
 #
 #   2. TORM 13.97% stake at $277.2M — the issuer's lower-of-market-or-purchase-price
 #      NAV basis, HELD BY DERIVATION: Q2 prints the method (net-LTV definition) but no

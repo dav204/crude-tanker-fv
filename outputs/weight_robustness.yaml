@@ -141,8 +141,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   BWLP:
-    ev_min_pct: -41.8
-    ev_max_pct: -37.5
+    ev_min_pct: -41.5
+    ev_max_pct: -37.3
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
@@ -221,8 +221,8 @@ names:
     - TRIM/SHORT (overvalued)
     - TRIM/SHORT (overvalued)
   FRO:
-    ev_min_pct: -52.9
-    ev_max_pct: -37.1
+    ev_min_pct: -50.9
+    ev_max_pct: -36.0
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
@@ -241,8 +241,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   HAFN:
-    ev_min_pct: -34.3
-    ev_max_pct: -22.6
+    ev_min_pct: -44.9
+    ev_max_pct: -34.0
     ev_sign_stable: true
     positions:
     - TRIM/SHORT (overvalued)
@@ -269,8 +269,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   NAT:
-    ev_min_pct: -64.4
-    ev_max_pct: -54.7
+    ev_min_pct: -65.2
+    ev_max_pct: -55.8
     ev_sign_stable: true
     positions:
     - TRIM/SHORT

@@ -1,5 +1,23 @@
 # NAT — Decision Log
 
+## 2026-08-31T19:06:39+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $6.77
+- Single-point FV: $2.89
+- Scenario PW FV: $3.00 (EV -55.8%)
+- NAV / share: $2.76
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +67.1pp (k_broker 2.40)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: -2.7% | Δscenario FV: -2.3% | ΔNAV: -3.2% | Δspread: +1.0pp
+
+**Decision:** Q2 REFRESH REGEN — NAV $2.85→$2.76 INSIDE the registered band [2.70, 3.00] (point sat 2.83-2.88; age-decay leg ran ~$15M heavier than the sketch — inside band, accepted). TRIM/SHORT stands (§12 archetype). Gate row = the snapshot advance, EXPLAINED; rides the next owner ratify. Full verification block in the dated 2026-08-31 refresh entry below.
+
+---
+
 ## 2026-08-31T18:47:26+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,5 +1,23 @@
 # BWLP — Decision Log
 
+## 2026-08-31T19:06:39+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $24.05
+- Single-point FV: $15.48
+- Scenario PW FV: $14.52 (EV -39.6%)
+- NAV / share: $15.83
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +10.7pp (k_broker 1.16)
+- Sector: lpg
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.3% | Δscenario FV: +0.4% | ΔNAV: +0.2% | Δspread: -0.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-31 — Q2 REFRESH EXECUTED (the 8/28 print; band-less — outage-week miss recorded; post-hoc verification block written BEFORE the regen)
 
 **Subsequent events (Note 12, audited FIRST):** BW Elm (India, Jul agreement,

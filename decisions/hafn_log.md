@@ -1,5 +1,27 @@
 # HAFN — Decision Log
 
+## 2026-08-31T19:06:39+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $8.47
+- Single-point FV: $4.83
+- Scenario PW FV: $5.59 (EV -34.0%)
+- NAV / share: $4.64
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +39.7pp (k_broker 1.55)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ single-point FV -15.4%
+- ⚑ scenario PW FV -14.8%
+- ⚑ broker spread +10.7pp
+- ⚑ NAV/sh -16.5%
+- Δprice: no change | Δsingle FV: -15.4% | Δscenario FV: -14.8% | ΔNAV: -16.5% | Δspread: +10.7pp
+
+**Decision:** Q2 REFRESH REGEN — NAV $5.56→$4.64 INSIDE the registered band [4.40, 5.45] (point 4.85; the JV-correction + ten-hull-commitment legs decomposed in the dated block below). EV −11.4pp, k_broker +0.150 to ~1.55 — the k breach was PRE-ANNOTATED in the refresh block: denominator-driven (JV correction + commitment), a real spread widening to re-read at the next consensus-pair rebase, NOT a re-tuning license. TRIM/SHORT (rich · cycle position) stands; PROVISIONAL·pool-gross-up-pending unchanged, flag-don't-pass. Gate row EXPLAINED; rides the next owner ratify.
+
+---
+
 ## 2026-08-31T18:47:26+00:00 — Pipeline run (auto)
 
 **Model state:**

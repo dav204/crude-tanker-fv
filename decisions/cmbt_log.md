@@ -1,5 +1,23 @@
 # CMBT — Decision Log
 
+## 2026-08-31T19:06:39+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.35
+- Single-point FV: $15.83
+- Scenario PW FV: $13.87 (EV -24.4%)
+- NAV / share: $16.50
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +21.3pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-31 — Q2 REFRESH DEFERRED TO 2026-09-03 (dated hold, not a miss)
 
 The 8/27 print's 6-K (acc 0000919574-26-005821, read in full today) is the

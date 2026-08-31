@@ -75,7 +75,7 @@ fleet_summary:
   LR1_count: 21              # 18 wholly + 3 JV-equivalents
   MR_count: 44               # 41 wholly + 3 JV-equivalents (incl 1 H&A HFS)
   Handysize_count: 19
-  on_curve_total: 92         # 84 wholly-owned + 8 JV hull-equivalents
+  on_curve_total: 100        # 84 wholly-owned + 8 JV hull-equivalents + 8 firm NB rows
   owned_total_filed: 103     # issuer basis: incl BB-in + 16 JV hulls at 100%
   chartered_in_count: 12     # 2 BB LR1 + 1 BB Handy + 9 TC-in — lease_liabilities
   newbuild_orders: 10        # 8 firm on-curve + 2 added hulls PARKED (no delivery data)

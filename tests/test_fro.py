@@ -15,13 +15,13 @@ from crude_tanker_fv.sensitivity import payout_sensitivity
 
 @pytest.fixture
 def fro():
-    return load_company_inputs("FRO", "2026-Q1")
+    return load_company_inputs("FRO", "2026-Q2")
 
 
 def test_fleet_counts_match_report(fro):
     counts = _class_counts(fro)
-    assert counts["VLCC"] == 42   # 33 on-water + 9 newbuilds in the manifest
-    assert counts["Suezmax"] == 21
+    assert counts["VLCC"] == 42   # 36 on-water (incl 3 delivered NBs) + 6 NB rows (Q2 refresh 2026-08-31)
+    assert counts["Suezmax"] == 19  # the 2014/2015 pair delivered in Q2 ($140M)
     assert counts["LR2"] == 18
 
 
@@ -35,12 +35,13 @@ def test_yard_discount_lowers_nav(fro):
 
 def test_nav_reconciles_to_consensus_pnav(fro):
     nav = compute_nav(fro)
-    # Pareto consensus P/NAV 1.21x at $34.50 -> NAV ~$28.5; newbuilds valued at
-    # market are what get us there (cost-based would read ~$23). age-0 = xclusiv
-    # Resale $175M (Amendment B reverted the Thread-1 5yr-as-age-0; FRO's young
-    # tonnage is VLCC, so it reverts exactly to ~$28.5 / implied ~1.21).
-    implied_pnav = 34.50 / nav.nav_per_share
-    assert 1.15 < implied_pnav < 1.27
+    # Re-pinned 2026-08-31 (Q2 refresh): this fixture computes the UN-ANCHORED
+    # base-curve NAV (~$29.2; the txn-anchored headline is $26.04, band-verified
+    # [25.3, 27.5]). At the 8/28 tape $44.19 the implied price/base-NAV is ~1.51
+    # — the documented mark-driven spread, k ~1.19 post-refresh (the 1.2006
+    # exceedance resolved at this refresh).
+    implied_pnav = 44.19 / nav.nav_per_share
+    assert 1.43 < implied_pnav < 1.60
 
 
 def test_fleet_schedule_ramps_vlcc_in_strip(fro):
@@ -49,7 +50,7 @@ def test_fleet_schedule_ramps_vlcc_in_strip(fro):
     # the same-TCE final quarters reflects more vessels than a static 33.
     sched = fro.fleet.fleet_schedule["VLCC"]
     assert sched[0] < sched[-1]               # ramps up
-    assert sched[-1] == pytest.approx(42)
+    assert sched[-1] == pytest.approx(40)     # pro-forma 77-vessel fleet (Q2: 2 P1 hulls sold)
 
 
 def test_cycle_is_fleet_weighted_peak(fro):
@@ -69,5 +70,5 @@ def test_payout_sensitivity_monotonic(fro):
 def test_constructed_ffa_warning_surfaces():
     from crude_tanker_fv.pipeline import value_company
 
-    report = value_company("FRO", "2026-Q1", current_price=34.50, analyst_target=30.50)
+    report = value_company("FRO", "2026-Q2", current_price=44.19, analyst_target=30.50)
     assert any("CONSTRUCTED" in w and "LR2" in w for w in report.warnings)

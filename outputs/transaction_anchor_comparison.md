@@ -255,16 +255,16 @@ Each name valued twice: with the existing curve (baseline) and with the mid-age 
 | FLNG | $27.22→$27.22 | +0.0% | -6.4%→-6.4% | +0.0 | TRIM/SHORT→TRIM/SHORT |
 | GNK | $24.77→$25.12 | +1.4% | -17.4%→-16.3% | +1.0 | TRIM/SHORT→TRIM/SHORT |
 | DHT | $16.30→$15.01 | -8.0% | -12.7%→-18.8% | -6.1 | TRIM/SHORT→TRIM/SHORT |
-| HAFN | $5.69→$5.56 | -2.2% | -21.2%→-22.6% | -1.3 | TRIM/SHORT→TRIM/SHORT |
 | CMBT **(WHOLE-CO)** | $15.84→$16.50 | +4.2% | -27.2%→-24.4% | +2.8 | TRIM/SHORT→TRIM/SHORT |
 | MPCC | $2.10→$2.10 | +0.0% | -24.8%→-24.8% | +0.0 | TRIM/SHORT→TRIM/SHORT |
 | 2343 | $0.41→$0.41 | -1.9% | -28.0%→-29.2% | -1.2 | TRIM/SHORT→TRIM/SHORT |
+| HAFN | $4.73→$4.64 | -2.0% | -33.0%→-34.0% | -1.1 | TRIM/SHORT→TRIM/SHORT |
+| FRO | $29.18→$26.04 | -10.7% | -29.3%→-36.0% | -6.7 | TRIM/SHORT→TRIM/SHORT |
 | LPG | $35.70→$35.69 | -0.0% | -36.0%→-36.1% | -0.0 | TRIM/SHORT→TRIM/SHORT |
-| FRO | $28.47→$25.34 | -11.0% | -30.4%→-37.1% | -6.7 | TRIM/SHORT→TRIM/SHORT |
 | ECO | $43.80→$39.54 | -9.7% | -31.8%→-37.6% | -5.8 | TRIM/SHORT→TRIM/SHORT |
+| BWLP | $15.84→$15.83 | -0.1% | -39.6%→-39.6% | -0.0 | TRIM/SHORT→TRIM/SHORT |
 | INSW **(WHOLE-CO)** | $58.55→$54.64 | -6.7% | -36.2%→-39.7% | -3.5 | TRIM/SHORT→TRIM/SHORT |
-| BWLP | $15.81→$15.80 | -0.1% | -39.8%→-39.9% | -0.0 | TRIM/SHORT→TRIM/SHORT |
-| NAT | $3.32→$2.85 | -14.2% | -48.7%→-54.7% | -6.0 | TRIM/SHORT→TRIM/SHORT |
+| NAT | $3.21→$2.76 | -13.9% | -50.1%→-55.8% | -5.7 | TRIM/SHORT→TRIM/SHORT |
 
 _Δ% = (txn − base) / base. Names with no exposure to a recalibrated class show Δ ≈ 0 — useful as a control. ⚠️ flags a position-call flip._
 

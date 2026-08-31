@@ -160,7 +160,7 @@ def test_nav_flexes_with_scenario(doc):
 
 
 def test_per_scenario_range_brackets_base(doc):
-    ci = load_company_inputs("FRO", "2026-Q1")
+    ci = load_company_inputs("FRO", "2026-Q2")
     r = run_scenarios(ci, 34.50, 30.50, doc)
     for s in r.scenarios:
         assert s.fair_value_low <= s.fair_value <= s.fair_value_high
@@ -181,7 +181,7 @@ def test_bear_softer_than_base(doc):
 def test_lr2_maps_to_clean_curve(doc):
     # FRO's LR2 sleeve uses the scenario lr2_clean curve (spike-sensitive), not
     # the static Aframax proxy. Sanity: the run completes with 3 classes priced.
-    ci = load_company_inputs("FRO", "2026-Q1")
+    ci = load_company_inputs("FRO", "2026-Q2")
     r = run_scenarios(ci, 34.50, 30.50, doc)
     # HOLD at the Jun-9 re-pin. (age-0 = xclusiv Resale $175M; Amendment B reverted
     # the Thread-1 5yr-as-age-0, so FRO's static NAV returns to ~$28.5 and the
@@ -772,7 +772,7 @@ def test_hafn_full_three_class_product_loads_and_routes():
 
     watchlist = load_watchlist()
     hafn = watchlist["HAFN"]
-    ci = load_company_inputs("HAFN", "2026-Q1")
+    ci = load_company_inputs("HAFN", "2026-Q2")
     docs = _load_all_sectors()
     headline, crude_r, product_r = _run_scenarios_for_ticker(
         "HAFN", ci, hafn["current_price"], hafn["analyst_target"], docs, watchlist,
@@ -816,13 +816,16 @@ def test_hafn_whole_company_fv_in_expected_band_set_b():
 
     watchlist = load_watchlist()
     hafn = watchlist["HAFN"]
-    ci = load_company_inputs("HAFN", "2026-Q1")
+    ci = load_company_inputs("HAFN", "2026-Q2")
     docs = _load_all_sectors()
     headline, _, _ = _run_scenarios_for_ticker(
         "HAFN", ci, hafn["current_price"], hafn["analyst_target"], docs, watchlist,
     )
     # Re-pinned 2026-07-14 EVE (hormuz re-tilt): $6.33 ±5% -> [6.01, 6.65] — back at the pre-stand-down FV.
-    assert 6.34 < headline.probability_weighted_fv < 7.00   # re-pinned 2026-08-10 STAGE A (deck-incoherence lift, stage_a_halt_investigation_2026-08-10.md; re-reads at the 8/16 deck re-derivation): $6.67 +/-5%
+    # Re-pinned 2026-08-31 at the Q2 refresh (band-verified NAV $4.64 in [4.40,5.45]):
+    # the JV correction (16 hulls at 100% -> 8 x 50% equivalents + $197.75M debt netted)
+    # + the ten-hull HHI commitment (8 firm on-curve) move PW FV $6.67 -> $5.59; ±5%.
+    assert 5.31 < headline.probability_weighted_fv < 5.87
     assert "TRIM/SHORT" in headline.position_recommendation   # re-pinned 2026-08-13 at the
     # consensus-pair rebase: this test reads the LIVE watchlist price, which moved 7.0 -> 7.6
     # (2026-08-07 Pareto daily). The 8/10 STAGE-A note said the fixture-price read had crossed

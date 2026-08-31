@@ -165,3 +165,16 @@ GNK:
     eco via §3.1 post-2014 build rule (2019). Committed secondhand acquisition on-curve
     via years_to_delivery (TRMD §9.6 resale precedent); delivers August 2026. Registered
     2026-08-08 at the Q2 refresh.
+HAFN:
+  eco: true
+  scrubber: false
+  scrubber_verified: true
+  source: >
+    Q2-2026 6-K (acc 0001140361-26-034767) Note 8: "construction contracts for ten MR
+    newbuilds" — the 8 firm hulls wired on-curve 2026-08-31 (April order delivery window
+    Q3-2028→Q2-2029; the 2 added hulls PARKED, no delivery disclosure). eco: TRUE by the
+    §3.1 mechanical rule (2028-29 delivery >> 2014). scrubber=FALSE: the Q2 filing contains
+    NO scrubber statement of any kind (the word appears only in the "Vessels and scrubbers"
+    PP&E caption — fleet-aggregate accounting, not an NB equipment claim), so the flag books
+    conservative zero per the SB/ECO rule: silence about these hulls is not evidence of
+    scrubbers. Registered 2026-08-31 at the Q2 refresh.

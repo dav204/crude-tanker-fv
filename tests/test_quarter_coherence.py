@@ -241,10 +241,11 @@ def test_current_book_quarter_reads_state(tmp_path):
 def test_balance_sheet_basis_summary_lagging_and_current():
     from crude_tanker_fv.scorecard import balance_sheet_basis_summary
 
-    # FRO is the lagging specimen (no Q2 filing staged; DHT advanced 2026-08-08).
-    s = balance_sheet_basis_summary("2026-Q2", ["SB", "FRO", "TNK"])
-    assert s["lagging"] == {"FRO": "2026-Q1"} and s["missing"] == []
-    s = balance_sheet_basis_summary("2026-Q1", ["FRO"])
+    # CMBT is the lagging specimen (Q2 refresh deferred to the 9/03 half-year
+    # report, cmbt_log 2026-08-31; FRO advanced 2026-08-31).
+    s = balance_sheet_basis_summary("2026-Q2", ["SB", "CMBT", "TNK"])
+    assert s["lagging"] == {"CMBT": "2026-Q1"} and s["missing"] == []
+    s = balance_sheet_basis_summary("2026-Q1", ["CMBT"])
     assert s["lagging"] == {} and s["total"] == 1
 
 

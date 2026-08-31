@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-31T19:06:39+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.85
+- Single-point FV: $2.29
+- Scenario PW FV: $2.15 (EV -24.8%)
+- NAV / share: $2.10
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +17.7pp (k_broker 1.19)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** batch-regen re-run of the verified Q2 refresh (NAV $2.10 band-inside; see the 18:47 entry + the dated 2026-08-31 refresh block below) — no new movement this run; row stays EXPLAINED (snapshot advance, rides the next owner ratify).
+
+---
+
 ## 2026-08-31T18:47:26+00:00 — Pipeline run (auto)
 
 **Model state:**

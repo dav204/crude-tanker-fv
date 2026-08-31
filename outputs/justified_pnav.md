@@ -25,14 +25,14 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | 2343 | dry_bulk | $0.41 | $0.53 | 1.309× | 12.0% | 1.100× | 12.6% | 1.158× | rich → rich | robust |
 | TNK | crude | $84.60 | $88.20 | 1.043× | 6.9% | 0.589× | 8.2% | 0.716× | rich → rich | robust |
 | DHT | crude | $15.01 | $19.40 | 1.293× | 9.1% | 0.808× | 8.5% | 0.747× | rich → rich | robust |
-| FRO | crude | $25.34 | $43.80 | 1.729× | 10.1% | 0.906× | 9.2% | 0.818× | rich → rich | robust |
-| ECO | crude | $39.54 | $66.30 | 1.677× | 6.7% | 0.570× | 5.6% | 0.456× | rich → rich | robust |
-| NAT | crude | $2.85 | $6.80 | 2.390× | 12.9% | 1.191× | 9.7% | 0.865× | rich → rich | robust |
+| FRO | crude | $26.04 | $43.80 | 1.682× | 9.5% | 0.850× | 8.7% | 0.769× | rich → rich | robust |
+| ECO | crude | $39.54 | $66.30 | 1.677× | 6.7% | 0.571× | 5.6% | 0.456× | rich → rich | robust |
+| NAT | crude | $2.76 | $6.80 | 2.461× | 13.3% | 1.230× | 9.9% | 0.894× | rich → rich | robust |
 | INSW **(WHOLE-CO)** | crude | $54.64 | $99.30 | 1.817× | n/a | — | 9.7% | 0.873× | no anchor → rich | n/a |
 | FLNG | lng | $27.22 | $31.30 | 1.150× | n/a | — | 15.3% | 1.479× | no anchor → cheap | n/a |
 | CCEC | lng | $25.70 | $22.80 | 0.887× | n/a | — | 30.0% | 3.112× | no anchor → cheap | n/a |
 | STNG | product | $76.22 | $77.40 | 1.015× | n/a | — | 3.5% | 0.248× | no anchor → rich | n/a |
-| HAFN | product | $5.56 | $8.30 | 1.492× | n/a | — | 13.2% | 1.218× | no anchor → rich | n/a |
+| HAFN | product | $4.64 | $8.30 | 1.790× | n/a | — | 13.7% | 1.269× | no anchor → rich | n/a |
 | TRMD | product | $32.30 | $31.80 | 0.984× | n/a | — | 7.4% | 0.641× | no anchor → rich | n/a |
 | ASC | product | $17.37 | $17.70 | 1.019× | n/a | — | 7.2% | 0.621× | no anchor → rich | n/a |
 | TEN **(WHOLE-CO)** | crude | $88.16 | $37.14 | 0.421× | n/a | — | 12.1% | 1.106× | no anchor → cheap | n/a |
@@ -42,14 +42,14 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | BRUT | crude | $4.92 | $4.70 | 0.955× | 10.9% | — | 10.0% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | CMBT **(WHOLE-CO)** | crude | $16.50 | $18.30 | 1.109× | n/a | — | 7.0% | 0.595× | no anchor → rich | n/a |
 | LPG | lpg | $35.69 | $49.30 | 1.381× | n/a | — | 6.9% | 0.594× | no anchor → rich | n/a |
-| BWLP | lpg | $15.80 | $24.18 | 1.530× | n/a | — | 13.2% | 1.220× | no anchor → rich | n/a |
+| BWLP | lpg | $15.83 | $24.18 | 1.527× | n/a | — | 13.2% | 1.217× | no anchor → rich | n/a |
 
 ## Subsector vector — median Justified P/NAV (parity headline, historical cross-check)
 
 | Sector | Median Just P/NAV (parity) | Median (historical) | n |
 |---|--:|--:|--:|
 | dry_bulk | 1.113× | 0.927× | 5 |
-| crude | 0.808× | 0.783× | 5 |
+| crude | 0.808× | 0.758× | 5 |
 
 _The two columns ARE the signal: where parity ≫ historical, the sector reads cheaper under replacement economics than under its (boom/firm-window-biased) historical anchor — the §18 under-ordering. The §17.6 anchor-bias caveats apply to the historical column only; parity is independent of those biases (it is built from newbuild cost, not a rate-history window)._
 

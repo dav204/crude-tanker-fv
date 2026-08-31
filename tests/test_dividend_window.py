@@ -14,7 +14,7 @@ def test_trigger_gate_nat_in_dht_out():
     """§12.5 gate fires for NAT (single-class, 100% payout, peak, large market
     premium over the tool floor) but NOT for DHT (premium ~1.27× < the 1.5× gate)."""
     wl = load_watchlist()
-    nat = evaluate("NAT", "2026-Q1", wl["NAT"])
+    nat = evaluate("NAT", "2026-Q2", wl["NAT"])
     dht = evaluate("DHT", BOOK_QUARTER, wl["DHT"])
     assert nat.gated is True
     assert dht.gated is False
@@ -27,7 +27,7 @@ def test_nat_trim_stands_not_undervaluation():
     'treat FV as a floor, do not act on the TRIM' override no longer fires for NAT —
     its TRIM is a computed value-trap call (the resolution of audit E-3)."""
     wl = load_watchlist()
-    nat = evaluate("NAT", "2026-Q1", wl["NAT"])
+    nat = evaluate("NAT", "2026-Q2", wl["NAT"])
     assert nat.q_star is None
     assert nat.classification == "TRIM-stands"
 

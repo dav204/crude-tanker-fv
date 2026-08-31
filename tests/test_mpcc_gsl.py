@@ -11,12 +11,13 @@ from crude_tanker_fv.pipeline import value_company
 
 
 def test_mpcc_onboarding_baseline():
-    r = value_company("MPCC", "2026-Q1", current_price=2.78, analyst_target=2.63,
+    r = value_company("MPCC", "2026-Q2", current_price=2.85, analyst_target=2.63,
                       strip_horizon=10)
-    # NAV $2.02 (re-pinned 2026-06-22 from $2.27): the §9.6 time-to-delivery
-    # discount rolled out to the 15 owned NBs (q1-q13 out) trims ~$0.25/sh.
-    # 51 on-water + 15 owned NB rows net of $633.7M commitments.
-    assert 1.92 < r.nav.nav_per_share < 2.12
+    # NAV $2.10 (re-pinned 2026-08-31 at the Q2 refresh, band-verified
+    # [1.90, 2.30]: sold trio out, Selina 2012-built re-age, +$93M BS legs,
+    # Fork-A acquisition enters nothing). 48 on-water + 15 owned NB rows net
+    # of $631.7M commitments.
+    assert 2.00 < r.nav.nav_per_share < 2.20
     assert r.nav.preferred_equity == 0
     assert len(r.strip.dps_by_quarter) == 10  # sector horizon, not the default 8
 
@@ -43,10 +44,10 @@ def test_gsl_coverage_schedule_decays_with_charter_expiries():
 
 
 def test_mpcc_fleet_schedule_ramps_with_owned_newbuilds():
-    ci = load_company_inputs("MPCC", "2026-Q1")
+    ci = load_company_inputs("MPCC", "2026-Q2")
     fs = ci.fleet.fleet_schedule
-    # Sold trio departs pre-strip (earning fleet < manifest rows at q0);
-    # owned NBs ramp the intermediate count by q4_2028.
+    # Q2 ramp: NBs lift the intermediate count into 2028 (earning fleet at q0
+    # < manifest rows, which include the 12 undelivered intermediate NBs).
     assert fs["Ctr-Intermediate"][0] < fs["Ctr-Intermediate"][9]
     rows = sum(v.count for v in ci.fleet.vessels if v.cls == "Ctr-Intermediate")
     assert fs["Ctr-Intermediate"][0] < rows  # NB rows + sold not yet/no longer earning

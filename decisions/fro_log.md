@@ -1,5 +1,23 @@
 # FRO — Decision Log
 
+## 2026-08-31T19:06:39+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.19
+- Single-point FV: $26.58
+- Scenario PW FV: $28.29 (EV -36.0%)
+- NAV / share: $26.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +14.7pp (k_broker 1.20)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +2.5% | Δscenario FV: +1.8% | ΔNAV: +2.8% | Δspread: -1.4pp
+
+**Decision:** Q2 REFRESH REGEN — NAV $25.34→$26.04 INSIDE the registered band [25.3, 27.5]; EV −37.1→−36.0pp (single-FV leg); **the k_broker 1.2006 exceedance RESOLVED as predicted (k −0.010 to ~1.19, back toward band)** — the named resolution at the 8/28 rebase re-pins executes here. TRIM/SHORT stands. Gate row = the snapshot advance (deliveries + P1-era sheet legs), EXPLAINED; rides the next owner ratify. Full verification block + Stage-B fixture inventory in the dated 2026-08-31 refresh entry below.
+
+---
+
 ## 2026-08-31T18:47:26+00:00 — Pipeline run (auto)
 
 **Model state:**

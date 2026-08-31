@@ -18,10 +18,10 @@ The **earnings-leg analog of the broker-NAV sweep** (METHODOLOGY §9.11 / §9.9)
 | GNK | dry_bulk | $25.80 | 12.3× | $2.10 | $5.54 | 4.7× | +164% | 8.1% | 1.41× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | 2343 | dry_bulk | $0.53 | 17.8× | $0.03 | $0.08 | 6.7× | +164% | 5.6% | 1.20× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | DHT | crude | $19.40 | 9.9× | $1.96 | $5.03 | 3.9× | +157% | 10.1% | 2.64× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| HAFN | product | $8.30 | 10.4× | $0.80 | $1.96 | 4.2× | +145% | 9.6% | 1.79× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | CMBT | crude | $18.30 | 10.3× | $1.78 | $4.35 | 4.2× | +145% | 9.7% | 1.71× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| FRO | crude | $43.80 | 10.3× | $4.25 | $10.23 | 4.3× | +141% | 9.7% | 2.43× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| FRO | crude | $43.80 | 10.3× | $4.25 | $9.90 | 4.4× | +133% | 9.7% | 2.43× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | ECO | crude | $66.30 | 10.1× | $6.56 | $14.82 | 4.5× | +126% | 9.9% | 2.38× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| HAFN | product | $8.30 | 10.4× | $0.80 | $1.76 | 4.7× | +120% | 9.6% | 1.80× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | ASC | product | $17.70 | 10.6× | $1.67 | $3.59 | 4.9× | +115% | 9.4% | 1.68× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | TEN | crude | $37.14 | 4.6× | $8.07 | $15.88 | 2.3× | +97% | 21.7% | 1.67× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | TNK | crude | $88.20 | 8.8× | $10.02 | $18.53 | 4.8× | +85% | 11.4% | 1.78× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |

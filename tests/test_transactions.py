@@ -252,9 +252,9 @@ def test_suezmax_recalibration_lowers_nat_nav():
     both 5yr and 10yr Suezmax anchors; pure-Suezmax NAT NAV must therefore
     drop with the recalibration. Documented in CLAUDE.md 2026-06-09 entry.
     """
-    base = value_company("NAT", "2026-Q1", 5.40, 6.00,
+    base = value_company("NAT", "2026-Q2", 6.77, 6.00,
                          use_transaction_anchored=False).nav.nav_per_share
-    on = value_company("NAT", "2026-Q1", 5.40, 6.00).nav.nav_per_share
+    on = value_company("NAT", "2026-Q2", 6.77, 6.00).nav.nav_per_share
     assert on < base
 
 
