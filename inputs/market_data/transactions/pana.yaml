@@ -175,3 +175,10 @@ prints:
     source: MB Dry Bulk Weekly 32 + intermodal issue-W30 + advanced W31 (all exact 22.0)
     quality_flag: tc_attached
     notes: Mont Fort (2012 Tsuneishi Kamsarmax); scrubber, TC ATTACHED at sale (terms undisclosed) — flag documents, price unadjusted; seller Union Maritime (Japanese owners per advanced prose), buyer Greek. #21.
+  - date: 2026-08-10
+    vessel_age_at_sale: 7
+    dwt: 82000
+    sale_price_usd_m: 38.2
+    source: Pareto Shipping Daily 2026-08-10 ("reportedly"; triaged sp_candidates_triage_2026-08-16.md, promoted at owner go 2026-08-31)
+    quality_flag: standard
+    notes: UNNAMED 2019-built Kamsarmax (Pareto commentary print; dwt = class-nominal 82k pending identification). Firm vs the Pareto generic $34.8M (+10%, Japanese-premium-consistent per the 2025-09-19 precedent). RE-REPORT RISK carried per the unnamed convention - the round-trip check runs on subsequent dailies/weeklies; its PAIRED 2012-built $23.5M leg was DISMISSED 2026-08-31 as a re-report of Velos Jasper (#20, MB W32 8/07, same year + exact price, 3-day lag) - the 8/16 triage's clean-sweep claim was stale-wrong, see the promotion record. #22.

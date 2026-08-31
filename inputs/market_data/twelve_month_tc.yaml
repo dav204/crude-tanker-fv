@@ -36,10 +36,10 @@ as_of:
                             # event; tanker classes ride default). Explicit holds below:
                             # containers 8/07 (W32) · dry-bulk 8/06 (FFA) · VLGC 6/02 ·
                             # LNGC/MGC 6/07 (own-cadence holds) · Handy-Bulk 7/10
-  Cape: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
-  Pana: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
-  Post-Panamax: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
-  Supra-Ultra: 2026-08-06   # 06-Aug FFA print (ffa_promotion_2026-08-09.md)
+  Cape: 2026-08-24   # 24-Aug FFA print (ffa_promotion_2026-08-31.md)
+  Pana: 2026-08-24   # 24-Aug FFA print (ffa_promotion_2026-08-31.md)
+  Post-Panamax: 2026-08-24   # 24-Aug FFA print (ffa_promotion_2026-08-31.md)
+  Supra-Ultra: 2026-08-24   # 24-Aug FFA print (ffa_promotion_2026-08-31.md)
   VLGC: 2026-06-02
   LNGC: 2026-06-07
   MGC: 2026-06-07
@@ -61,16 +61,15 @@ twelve_month_tc:
   LR1_clean: 37000    # STAGE A 2026-08-10: derived .7184 x LR2_clean; lands EXACTLY on MB LR1[TC5] 37,000
   LR2_clean: 51500    # STAGE A 2026-08-10: Torm Herdis 12mo print (single-print); MB 52,500 corroborates
   VLGC: 63615           # Dorian Q1-2026 realized TCE — disclosure-cluster vintage 2026-06-02 (held)
-  Cape: 31550           # (37250 Q4 + 25875 Q1-27)/2 = 31562, FFA 06-Aug image-verified print
-                        # (ffa_promotion_2026-08-09.md). NOTE: the quoted quarterlies ROLLED
-                        # to Q4+Q1 — the proxy now contains the winter-trough quarter; the
-                        # like-for-like Q4 tenor FIRMED +4.3% vs 7/24. Composition, not level.
-                        # (ffa_promotion_2026-07-24.md) — UNCHANGED vs 13-Jul by coincidence
-  Pana: 18300           # (20325 Q4 + 16250 Q1-27)/2, FFA 06-Aug (was 19150 24-Jul; composition note at Cape)
-  Post-Panamax: 18300   # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  Supra-Ultra: 16750    # (19158 Q4 + 14325 Q1-27)/2 = 16742, FFA 06-Aug (was 18800 24-Jul;
-                        # sits -13% vs MB Ultramax 1yr 19,250 — the FFA winter leg vs MB's
-                        # modern-Japanese-prompt premium basis; composition note at Cape)
+  Cape: 35425           # (42125 Q4 + 28725 Q1-27)/2 = 35425 exact, FFA 24-Aug image-verified
+                        # print (ffa_promotion_2026-08-31.md; was 31550 8/06 — +12.3%, LEVEL
+                        # not composition this time: same Q4+Q1 tenor set, both legs firmed
+                        # with the Cape cash rally)
+  Pana: 19583           # (21791 Q4 + 17375 Q1-27)/2 = 19583 exact, FFA 24-Aug (was 18300 8/06; +7.0%)
+  Post-Panamax: 19583   # shares the Pana freight basin (§11.7.10, 2026-06-29)
+  Supra-Ultra: 17713    # (20275 Q4 + 15150 Q1-27)/2 = 17712.5, FFA 24-Aug (was 16750 8/06;
+                        # +5.7%; the MB-Ultramax-premium gap narrows with the level move —
+                        # re-read at the next MB dry weekly)
   Handy-Bulk: 14500     # §11.7.11 (2026-07-14): MB Dry Bulk Weekly 28 (4-10 Jul) 1-yr TC,
                         # 38k dwt modern Japanese, net of address comm (printed basis). NO
                         # Handy FFA panel — refreshes on the MB weekly, NOT the FFA promote

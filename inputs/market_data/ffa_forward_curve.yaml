@@ -29,10 +29,10 @@ as_of:
   default: 2026-08-10       # STAGE A tanker promotion (newest event; tanker strips ride
                             # default). Explicit holds: containers 8/07 (W32) · dry-bulk
                             # 8/06 FFA · VLGC/LNGC/MGC own-cadence holds below
-  Cape: 2026-08-06
-  Pana: 2026-08-06
-  Post-Panamax: 2026-08-06
-  Supra-Ultra: 2026-08-06
+  Cape: 2026-08-24
+  Pana: 2026-08-24
+  Post-Panamax: 2026-08-24
+  Supra-Ultra: 2026-08-24
   VLGC: 2026-06-02
   LNGC: 2026-06-07
   MGC: 2026-06-07
@@ -202,58 +202,62 @@ ffa_forward_curve:
   - 42000
   - 41000
   - 40000
-  Cape:              # FFA 06-Aug (image-verified, ffa_promotion_2026-08-09.md): q1 = mean(Aug,Sep)
-                     # 38800; Q4 37250; Q1-27 25875 PRINTED (new tenor set); q4-q6 make the
-                     # Cal-27 29900 identity exact; 2028 committed deltas -500/-500
-  - 38800
-  - 37250
-  - 25875
-  - 31225
-  - 31250
-  - 31250
-  - 30750
-  - 30250
-  Pana:              # FFA 06-Aug: q1 mean(Aug,Sep) 20500; Q4 20325; Q1-27 16250; Cal-27 16975
-                     # identity exact; 2028 deltas -400/-300
-  - 20500
-  - 20325
-  - 16250
-  - 17200
-  - 17225
-  - 17225
-  - 16825
-  - 16525
+  Cape:              # FFA 24-Aug (image-verified, ffa_promotion_2026-08-31.md): q1 = mean(Aug 39625,
+                     # Sep 43000) = 41313; Q4 42125; Q1-27 28725; q4-q6 make the Cal-27 32400
+                     # identity exact (33625 x3); 2028 committed deltas -500/-500. Whole curve
+                     # FIRMED 8-13pp vs 8/06 (the Cape rally: index 4,429, earnings ~$40k/day).
+  - 41313
+  - 42125
+  - 28725
+  - 33625
+  - 33625
+  - 33625
+  - 33125
+  - 32625
+  Pana:              # FFA 24-Aug: q1 mean(Aug 19800, Sep 21325) = 20563; Q4 21791; Q1-27 17375;
+                     # Cal-27 17850 identity exact (18009/18008/18008); 2028 deltas -400/-300
+  - 20563
+  - 21791
+  - 17375
+  - 18009
+  - 18008
+  - 18008
+  - 17608
+  - 17308
   Post-Panamax:     # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  - 20500
-  - 20325
-  - 16250
-  - 17200
-  - 17225
-  - 17225
-  - 16825
-  - 16525
-  Supra-Ultra:       # FFA 06-Aug front (q1 mean(Aug,Sep) 19200 / Q4 19158); 2027+2028 legs HELD at
-                     # the 13-Jul synthesis (Cal-27 14175) — Smax Cal27 STILL cropped (8/05+8/06);
-                     # the printed Smax Q1-27 14325 vs held q3 15075 = held year ~5% RICH,
-                     # one-sided disclosure (ffa_promotion_2026-08-09.md §judgment 3)
-  - 19200
-  - 19158
-  - 15075
-  - 14475
-  - 13875
-  - 13275
-  - 12975
-  - 12675
+  - 20563
+  - 21791
+  - 17375
+  - 18009
+  - 18008
+  - 18008
+  - 17608
+  - 17308
+  Supra-Ultra:       # FFA 24-Aug — THE HOLD RETIRES: this capture PRINTS Smax Cal27 15700 (first
+                     # since the crop began), the registered retirement condition for the 13-Jul
+                     # synthesis legs (ffa_promotion_2026-08-31.md). Full print construction:
+                     # q1 mean(Aug 18625, Sep 20275) = 19450; Q4 20275; Q1-27 15150; q4-q6 make
+                     # Cal-27 15700 identity exact (15884/15883/15883); 2028 deltas -300/-300
+                     # (the held tail's own step). The owner channel-ask for Smax Cal27 is MOOT.
+  - 19450
+  - 20275
+  - 15150
+  - 15884
+  - 15883
+  - 15883
+  - 15583
+  - 15283
   Handy-Bulk:      # DERIVED = Supra-Ultra x 0.90 (§11.7.11 locked basis; same guard family as
-                   # the scenario deck) — regenerated with the 24-Jul supra front; held legs ride
-  - 17280
-  - 17240
-  - 13570
-  - 13030
-  - 12490
-  - 11950
-  - 11680
-  - 11410
+                   # the scenario deck) — REGENERATED 2026-08-31 with the full 24-Aug supra print
+                   # (identity re-derived on ALL 8 legs per the re-derive-BOTH rule)
+  - 17505
+  - 18248
+  - 13635
+  - 14296
+  - 14295
+  - 14295
+  - 14025
+  - 13755
   # Containerships (§11.8) — NO FFA exists; synthesised current-market
   # forward per the synthesised-from-spot convention: starts at the MB TC
   # assessment, mean-reverts toward the FY21-25 anchor (between

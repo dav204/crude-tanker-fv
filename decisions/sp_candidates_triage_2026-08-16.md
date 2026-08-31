@@ -41,3 +41,17 @@ what follows is one dismissal and one staged recommendation.
 
 `sp_scan --mark-reviewed` advances `candidates_reviewed` 224 → 226 (the review is this record;
 promotion pending ≠ review pending). FLEET-TRANSACTION flag clears.
+
+---
+
+## CORRECTION (2026-08-31, at the promotion round — recorded, not silently edited)
+
+Item 2's dedup-sweep claim ("transactions/pana.yaml holds 2008/2010/2015/2016-built prints
+only — no 2012 kamsarmax, no $38.2/23.5 figures") was **FALSE when written**: Velos Jasper
+(2012 Tsuneishi Kamsarmax, $23.5M, MB W32 8/07) and Mont Fort (2012, $22.0M) were committed
+to pana.yaml in the 8/09 marks-trail promotion (adf7a6e) — a week before this triage. At the
+owner-approved promotion round the pair was therefore SPLIT: the 2019-built $38.2M leg
+promoted (#22, genuinely new); the 2012-built $23.5M leg DISMISSED as a re-report of Velos
+Jasper (same build year, exact price, 3-day lag, "reportedly"-unnamed). Fifth instance of
+the unnamed-print re-report pattern; the promotion round now re-runs the sweep itself
+rather than trusting a triage-time sweep. Record: decisions/ffa_promotion_2026-08-31.md §2.
