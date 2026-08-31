@@ -1,5 +1,47 @@
 # CMBT — Decision Log
 
+## 2026-08-31 — Q2 REFRESH DEFERRED TO 2026-09-03 (dated hold, not a miss)
+
+The 8/27 print's 6-K (acc 0000919574-26-005821, read in full today) is the
+condensed press release ONLY — **no notes section exists**: no subsequent-events
+note, no commitments note, no restricted-cash split, no HFS composition. The
+8/13 6-K states "The half year report will be published on 3 September 2026" —
+that filing carries the notes. Deferring the sheet build 3 days buys: (a) the
+newbuild commitment schedule (23-hull orderbook — undisclosed in the condensed
+BS beyond assets-under-construction 532,660k), (b) the HFS 219,985k composition
+(presumed Brest/Brugge/Bristol/Donoussa — unverifiable without notes), (c) the
+FSO owned-vs-JV question (open item #2 — the equity-accounted line grew
+111.3→154.2M with H1 share-of-profit 21.5M, materially above the Q1 framing;
+the half-year notes are where it closes).
+
+**Extraction findings banked now (so 9/03 is wiring, not reading):** IB debt
+ex-IFRS-16 5,447,060k (bank 3,064,405 + other-borrowings/SLB 2,179,036 + 2026
+notes 203,619 CURRENT — maturity/refi event pending); leases 5,601k; cash
+151,574 + ST inv 8,271; receivables 415,688 curr + 98,018 non-curr; inventory
+120,674; HFS 219,985; AUC 532,660; payables 235,139; shares 290,169,769
+ex-treasury (treasury 25,807,878 unchanged, no buybacks); NCI zero; goodwill
+comparative RESTATED 190,689→177,022 (~13.7M PPA measurement-period adj —
+excluded from NAV anyway). Q2 deliveries: 8 NBs (Cap Grace/Cap Joseph Suez,
+Windcat Haarlem CSOV, Mineral Latvija/Eesti/Magyar/Lietuva NMax, Morini VLCC).
+Q2 S&P delivered: Ilma+Ingrid (2012 VLCCs, gain ~98.2M) + Sienna (2007 Suez,
+gain 29.2M). Pending deliveries: Brest+Brugge (Q3, gain ~100.2M) +
+Donoussa (Q4, ~74.3M — supersedes the 8/03 74.4) + Bristol (Q4, ~56.9M).
+**Bristol price-watch FIRED external-side: MB W33 prints CMB → Naftomar
+$123.0M** (marks_trail_triage_2026-08-31 §C — the 6-K itself stays
+price-silent; the MB print is the promotable evidence, owner round).
+Distribution INTENTION $0.64/sh (0.21 dividend + 0.43 share-premium
+WHT-exempt), gated on a Special Shareholders' Meeting, payment expected
+October. Fortescue: up-to-12 ammonia NMax charter agreement. Backlog $3.26B.
+Q3 QTD: NMax 43.1k (85%) / Cape 32.9k (77%) / Kams 19.1k (84%) / VLCC 125.4k
+(83%) / Suez 117.6k (73%) — Stage-B rider. Contracted disposal-gain pipeline
+H2: ~$231.4M.
+
+**Decision:** refresh DEFERRED to the 9/03 half-year report (notes-bearing
+filing) — AS-OF discipline, not a queue miss; the sentinel flag stands 3 more
+days with this dated reason. Extraction banked above; wiring runs 9/03.
+
+---
+
 ## 2026-08-31T18:47:26+00:00 — Pipeline run (auto)
 
 **Model state:**
