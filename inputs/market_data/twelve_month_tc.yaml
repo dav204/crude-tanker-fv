@@ -32,14 +32,21 @@ rate_basis:
   default: tc_assessment
   VLGC: realized_tce
 as_of:
-  default: 2026-08-10       # STAGE A tanker promotion (the newest deliberate refresh
-                            # event; tanker classes ride default). Explicit holds below:
-                            # containers 8/07 (W32) · dry-bulk 8/06 (FFA) · VLGC 6/02 ·
-                            # LNGC/MGC 6/07 (own-cadence holds) · Handy-Bulk 7/10
-  Cape: 2026-08-24   # 24-Aug FFA print (ffa_promotion_2026-08-31.md)
-  Pana: 2026-08-24   # 24-Aug FFA print (ffa_promotion_2026-08-31.md)
-  Post-Panamax: 2026-08-24   # 24-Aug FFA print (ffa_promotion_2026-08-31.md)
-  Supra-Ultra: 2026-08-24   # 24-Aug FFA print (ffa_promotion_2026-08-31.md)
+  default: 2026-08-24       # 24-Aug FFA dry promote (ffa_promotion_2026-08-31.md; the
+                            # newest deliberate refresh event — Cape/Pana/Post-Panamax/
+                            # Supra-Ultra ride default). Explicit holds below: tankers
+                            # 8/10 Stage A (held to Stage B 8/26→9/04) · containers 8/07
+                            # (W32) · VLGC 6/02 · LNGC/MGC 6/07 · Handy-Bulk 7/10
+  VLCC: 2026-08-10          # STAGE A tanker promotion — held to Stage B
+  Suezmax: 2026-08-10
+  Aframax: 2026-08-10
+  LR2: 2026-08-10
+  LR1: 2026-08-10
+  MR: 2026-08-10
+  Handysize: 2026-08-10
+  Handymax: 2026-08-10
+  LR1_clean: 2026-08-10
+  LR2_clean: 2026-08-10
   VLGC: 2026-06-02
   LNGC: 2026-06-07
   MGC: 2026-06-07

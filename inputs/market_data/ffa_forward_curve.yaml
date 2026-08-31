@@ -26,13 +26,21 @@
 # Held classes carry their own trigger (tanker_forward_print_lands /
 # container_mb_refresh); agreement with vintage_notes is suite-tested.
 as_of:
-  default: 2026-08-10       # STAGE A tanker promotion (newest event; tanker strips ride
-                            # default). Explicit holds: containers 8/07 (W32) · dry-bulk
-                            # 8/06 FFA · VLGC/LNGC/MGC own-cadence holds below
-  Cape: 2026-08-24
-  Pana: 2026-08-24
-  Post-Panamax: 2026-08-24
-  Supra-Ultra: 2026-08-24
+  default: 2026-08-24       # 24-Aug FFA dry promote (ffa_promotion_2026-08-31.md; newest
+                            # event — Cape/Pana/Post-Panamax/Supra-Ultra ride default).
+                            # Explicit holds: tankers 8/10 Stage A (Stage B window
+                            # 8/26→9/04) · containers 8/07 (W32) · VLGC/LNGC/MGC
+                            # own-cadence holds below
+  VLCC: 2026-08-10          # STAGE A tanker promotion — held to Stage B
+  Suezmax: 2026-08-10
+  Aframax: 2026-08-10
+  LR2: 2026-08-10
+  LR1: 2026-08-10
+  MR: 2026-08-10
+  Handysize: 2026-08-10
+  Handymax: 2026-08-10
+  LR1_clean: 2026-08-10
+  LR2_clean: 2026-08-10
   VLGC: 2026-06-02
   LNGC: 2026-06-07
   MGC: 2026-06-07
@@ -249,15 +257,17 @@ ffa_forward_curve:
   - 15283
   Handy-Bulk:      # DERIVED = Supra-Ultra x 0.90 (§11.7.11 locked basis; same guard family as
                    # the scenario deck) — REGENERATED 2026-08-31 with the full 24-Aug supra print
-                   # (identity re-derived on ALL 8 legs per the re-derive-BOTH rule)
-  - 17505
-  - 18248
-  - 13635
-  - 14296
-  - 14295
-  - 14295
-  - 14025
-  - 13755
+                   # (identity re-derived on ALL 8 legs per the re-derive-BOTH rule; rounded to
+                   # nearest 10 per the locked convention — the 8/31 promote first landed the
+                   # unrounded x0.90 values, corrected same day)
+  - 17500
+  - 18250
+  - 13640
+  - 14300
+  - 14290
+  - 14290
+  - 14020
+  - 13750
   # Containerships (§11.8) — NO FFA exists; synthesised current-market
   # forward per the synthesised-from-spot convention: starts at the MB TC
   # assessment, mean-reverts toward the FY21-25 anchor (between
