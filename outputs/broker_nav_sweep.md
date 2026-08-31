@@ -26,7 +26,7 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | FRO | 1.33× | 1.21 | -37.1% | -29.1% | -21.0% | TRIM/SHORT→TRIM/SHORT | $682,553→$465,663 | +16 | wide-spread |
 | SB | 1.13× | 0.82 | +8.4% | -6.6% | -21.5% | BUY→TRIM/SHORT | NAV>px→$58,110 | -30 | wide-spread |
 | FLNG | 1.44× | 0.90 | -6.4% | -14.3% | -22.2% | TRIM/SHORT→TRIM/SHORT | $304,350→$553,442 | -16 | wide-spread |
-| 2343 | 1.24× | 1.05 | -29.2% | -27.5% | -25.7% | TRIM/SHORT→TRIM/SHORT | $40,554→$36,892 | +4 | narrow-spread |
+| 2343 | 1.24× | 1.05 | -29.2% | -27.5% | -25.7% | TRIM/SHORT→TRIM/SHORT | $40,559→$36,896 | +4 | narrow-spread |
 | BWLP | 1.27× | 1.16 | -39.9% | -34.4% | -29.0% | TRIM/SHORT→TRIM/SHORT | $253,816→$188,145 | +11 | wide-spread |
 | ECO | 1.47× | 1.12 | -37.6% | -33.6% | -29.6% | TRIM/SHORT→TRIM/SHORT | $623,698→$524,309 | +8 | narrow-spread |
 

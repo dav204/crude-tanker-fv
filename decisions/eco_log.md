@@ -1,5 +1,23 @@
 # ECO — Decision Log
 
+## 2026-08-31T18:22:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $66.86
+- Single-point FV: $39.73
+- Scenario PW FV: $41.71 (EV -37.6%)
+- NAV / share: $39.54
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +8.0pp (k_broker 1.12)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-08-31T17:10:22+00:00 — Pipeline run (auto)
 
 **Model state:**
