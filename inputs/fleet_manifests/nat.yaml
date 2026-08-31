@@ -1,4 +1,10 @@
 # Nordic American Tankers (NAT) fleet manifest — METHODOLOGY.md section 4.1
+# Q2-2026 REFRESH 2026-08-31 (6-K acc 0000919574-26-005786, BS 2026-06-30):
+# "17 well maintained Suezmax tankers and two newbuildings" = 16 OPERATING
+# (unchanged rows below) + 1 held-for-sale (balance sheet, $26M contracted;
+# delivered early Q3 — Hormuz-trapped delay). Ages +0.5 at the quarter bump.
+# The 2005-build HFS vessel delivered IN Q2 (~$39.1M proceeds, gain $21.3M).
+# Newbuilds: still NO filed price ("delivery in 2028") — park stands.
 # RECONCILED 2026-06-30 against the FY2025 20-F (acc 0001140361-26-017809) +
 # Q1-2026 6-K (acc 0000919574-26-003779). See decisions/nat_reconciliation_prereg_2026-06-30.md.
 #
@@ -19,24 +25,24 @@
 #
 # Yards: 2003-2016 builds, almost entirely Korean (Samsung / Hyundai / Sungdong).
 ticker: NAT
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
   # ---- 5 fixed-rate (TC-out, Q1 2026 disclosed TCE ~$44k blended) ----
-  - {id: NAT_tc, class: Suezmax, dwt: 158500, age: 16, scrubber: false, eco: false, yard: Hyundai,
+  - {id: NAT_tc, class: Suezmax, dwt: 158500, age: 16.5, scrubber: false, eco: false, yard: Hyundai,
      charter_status: time_charter, charter_rate: 44000, count: 5}
   # ---- 11 spot (operating; excludes the 2 held-for-sale) ----
-  - {id: NAT_2016_sungdong, class: Suezmax, dwt: 158500, age: 10, scrubber: false, eco: false, yard: Sungdong, count: 2}
-  - {id: NAT_2013_samsung,  class: Suezmax, dwt: 158500, age: 13, scrubber: false, eco: false, yard: Samsung, count: 2}
-  - {id: NAT_2011_samsung,  class: Suezmax, dwt: 158500, age: 15, scrubber: false, eco: false, yard: Samsung, count: 2}
-  - {id: NAT_2010_hyundai,  class: Suezmax, dwt: 158500, age: 16, scrubber: false, eco: false, yard: Hyundai, count: 2}
-  - {id: NAT_2009_samsung,  class: Suezmax, dwt: 158500, age: 17, scrubber: false, eco: false, yard: Samsung, count: 2}
-  - {id: NAT_2007_samsung,  class: Suezmax, dwt: 158500, age: 19, scrubber: false, eco: false, yard: Samsung, count: 1}
+  - {id: NAT_2016_sungdong, class: Suezmax, dwt: 158500, age: 10.5, scrubber: false, eco: false, yard: Sungdong, count: 2}
+  - {id: NAT_2013_samsung,  class: Suezmax, dwt: 158500, age: 13.5, scrubber: false, eco: false, yard: Samsung, count: 2}
+  - {id: NAT_2011_samsung,  class: Suezmax, dwt: 158500, age: 15.5, scrubber: false, eco: false, yard: Samsung, count: 2}
+  - {id: NAT_2010_hyundai,  class: Suezmax, dwt: 158500, age: 16.5, scrubber: false, eco: false, yard: Hyundai, count: 2}
+  - {id: NAT_2009_samsung,  class: Suezmax, dwt: 158500, age: 17.5, scrubber: false, eco: false, yard: Samsung, count: 2}
+  - {id: NAT_2007_samsung,  class: Suezmax, dwt: 158500, age: 19.5, scrubber: false, eco: false, yard: Samsung, count: 1}
 # Q1 2026: 5 TC (avg ~$44k) + 11 spot of 16 operating per 20-F/6-K segment data.
 spot_coverage_pct:
   Suezmax: 0.6875       # 11 spot of 16 operating
 fleet_summary:
   Suezmax_count: 16                    # OPERATING (16); + 2 held-for-sale (balance sheet) = 18 owned
-  held_for_sale_vessels: 2             # 2003-build $25M + 2005-build $40M, Q2-2026 close (20-F Note 15)
+  held_for_sale_vessels: 1             # the 2003-build at $26M (Q2-26 release; $1M above the Feb 20-F figure) — DELIVERED early Q3 (Hormuz-trapped delay); the 2005-build delivered IN Q2 (~$39.1M proceeds)
   newbuild_orders_post_q1: 2           # 2 Suezmax NB, signed Jan'26, delivery H2-2028; PARKED at $0 (price undisclosed)
   avg_age_approx: 14.4
   disposals_h1_2026: 4                 # Sprinter+Luna delivered Jan (2004/2005); 2003+2005 builds agreed-sold Q1 (deliver Q2)

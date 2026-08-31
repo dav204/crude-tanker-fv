@@ -1379,6 +1379,37 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-31 — Q2 REFRESH EXECUTED (the 8/27 print; band-less by the aggregator-window miss, post-hoc verification block written BEFORE the regen)
+
+**Subsequent events audited FIRST** (no formal note — NAT's terse-release
+pattern): the 2003-build sale vessel delivered EARLY Q3 (Hormuz-trapped delay;
+stays HFS on the 6/30 sheet at the letter's $26M — supersedes the Feb $25M);
+Black Sea attack ~late July (vessel safe); letter-date cash $175M (post-quarter,
+not booked); Q2 dividend $0.27 declared 8/27 (116th consecutive; payable 9/24).
+
+**Sheet walk (pair commit):** cash 81.1→133.3 (+52.2) · WC 53.6→44.9 (−8.7) ·
+HFS 65.0→26.0 (−39.0; the 2005-build delivered in Q2, ~$39.1M proceeds into
+cash) · debt 415.4→406.6 (+8.8) · leases ~0 · newbuilds PARKED 0/0 unchanged
+(Q2 release still prices nothing; H1 CF shows no advance outflow — the park's
+evidentiary basis re-verified) · shares 211,750,663 flat ("not utilized any ATM
+offerings in 2026", explicit). Manifest: 16 operating rows unchanged, ages
++0.5, HFS count 2→1.
+
+**Predicted NAV ≈ $2.83–2.88 (essentially flat vs $2.85; balance-sheet legs
+≈ +$0.4M net, fleet age-decay ~−$13M). Band [2.70, 3.00]** — landing outside →
+HALT, investigate the INPUT. Forward invariance: other 24 names delta 0.0.
+
+**Q2 color for the record:** TCE $63,000/day INCL $14.6M loss-of-hire
+recoveries (3 Hormuz-trapped hulls; underlying ex-recovery ≈ low-$50s/day —
+NAT does not state it); Q3 QTD ~75% booked @ ~$54,000/day; net income $68.3M
+($0.32); adj EBITDA $67.6M. §12 archetype color unchanged: high-payout
+pure-play at peak — the tool's structural undervaluation stands.
+
+**Decision:** refresh pair landed per the walk above; regen verdict appended
+at the run entry.
+
+---
+
 ## 2026-07-28T15:58:58+00:00 — Pipeline run (auto)
 
 **Model state:**

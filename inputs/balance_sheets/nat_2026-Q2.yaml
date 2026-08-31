@@ -1,0 +1,59 @@
+# Nordic American Tankers balance sheet — 2026-06-30 (Q2 2026)
+# Source of record: Q2-2026 6-K, acc 0000919574-26-005786 (filed 2026-08-27; ex-1
+# "Report as per June 30, 2026" = the dividend + earnings PR with the CONSOLIDATED
+# CONDENSED BALANCE SHEET at Jun-30-2026; staged inputs/filings/NAT/). NAT's
+# report-day releases carry NO statement notes — no formal subsequent-events note;
+# post-6/30 events are prose-disclosed and audited FIRST:
+#   (1) the SECOND sale vessel (2003-build) DELIVERED at the beginning of Q3 —
+#       delayed because the hull was trapped inside the Strait of Hormuz; still
+#       held-for-sale on this 6/30 sheet (the letter prices it at $26M, $1M above
+#       the Feb-2026 $25M agreement figure — release supersedes);
+#   (2) a NAT ship attacked in the Black Sea ~late July, "out of danger";
+#   (3) letter-date cash "$175 million" (post-quarter datapoint, not booked);
+#   (4) the Q2 dividend itself declared 8/27 (not accrued at 6/30).
+ticker: NAT
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1000177/000091957426005786/
+retrieved_at: 2026-08-31
+filing_period_end: 2026-06-30
+
+cash_and_equivalents: 133294000       # 6-K BS Jun-30-2026 (Dec-31: 45,863; H1 op CF
+                                      # 98.6M + vessel proceeds 89.3M − dividends
+                                      # 82.6M − debt repay 18.0M)
+
+# WORKING CAPITAL (net, ex-cash / ex-debt / ex-held-for-sale), Q1 construction:
+#   current assets ex-cash ex-HFS = AR 21,809 + Prepaid 16,297 + Inventory 15,138
+#     + Voyages-in-Progress 18,811 + Other 5,886 = 77,941
+#   less current liabilities ex-debt = AP 3,565 + Accrued Voyage 17,425
+#     + Other CL 12,040 = 33,030
+#   net = 44,911.
+working_capital_net: 44911000         # 6-K BS Jun-30-2026 (footed)
+
+# HELD FOR SALE — ONE vessel remains at 6/30 (the 2003-build; BS book $12,845K),
+# carried at its CONTRACTED price per the Q1 realizable-value convention. The
+# release letter states "sold at USD 26 million" — supersedes the 20-F Note 15
+# $25M agreement figure. (The 2005-build delivered IN Q2: gain $21,288K on
+# disposed book $17,794K ≈ $39.1M proceeds ≈ its $40M contract; its value left
+# this line and entered cash.)
+held_for_sale: 26000000               # Q2-2026 6-K ex-1 letter (the 2003-build)
+
+# TOTAL DEBT — 6-K BS Jun-30-2026: current portion 35,404 + long-term 371,162 =
+# 406,566 (net of ~$3.1M deferred finance costs). Facilities: CLMG/Beal $139.0M
+# (7 vessels) + Ocean Yield $270.7M (8 vessels) = gross $409.7M. No new
+# borrowings in 2026; H1 repayments $18.0M.
+total_debt: 406566000
+
+# Other Non-Current Liabilities line (the lease residual) — immaterial.
+lease_liabilities: 278000             # 6-K BS Jun-30-2026 "Other Non-Current Liabilities"
+
+# NEWBUILDS — PARKED at $0 net NAV (owner decision 2026-06-30, UNCHANGED at Q2):
+# "two newbuildings on order for delivery in 2028" — the Q2 release again
+# discloses NO price, NO commitment, NO advance; H1 CF "Investment in Vessels"
+# +$10K (no advance outflow). The only price anywhere remains the Pareto
+# 2025-11-04 LOI (~$86M/ship) — not a filed figure. Park stands.
+newbuild_capex_commitments: 0         # parked pending a filed price
+newbuild_advances_paid: 0             # no advance outflow through 6/30 (H1 CF)
+
+# Share count — unchanged across every column of the release; "We have not
+# utilized any ATM offerings in 2026" (explicit).
+diluted_shares_outstanding: 211750663
