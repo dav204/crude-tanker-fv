@@ -7,6 +7,54 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-31 — Q2/H1 REFRESH EXECUTED (the queued 8/26 print; prereg mpcc_h1_prereg_2026-08-13 + 8/18 amendment)
+
+**Pre-regen verification block (written BEFORE the pipeline run — the post-hoc
+analog of the frozen prereg; the print landed band-less on the report PDF lag,
+recorded 8/29).**
+
+**Halt-condition scorecard (conditions 1–13): ALL PASS.**
+(1) Subsequent-events note (Note 14) audited FIRST — exactly four items:
+placement registered 7/02 (44,370,027 sh @ NOK 24, ~$107M gross; capital
+NOK 488,070,306), $375M SocGen-led NB term loan signed JULY ("no amounts drawn
+... as at June 30"), AS Friederike delivered Aug ($21.5M final installment),
+AS Angelina sale completed Aug. (2) Debt did NOT jump: 436.8M vs 462.9M at Q1,
+facility undrawn. (9) Count printed 443,700,279. (10) Cash 314.1M carries no
+raise. (11) Note 14 carries the placement. (3) pair lands one commit. (5)
+prices_daily clean. (6) fleet-list age refinement attempted — the deck's
+employment table (pp.26-28, read today) has NO built years for the on-water
+fleet, so only the two report-cited fixes land (Selina 2012 → 14.5; Angelina
+2007 → 19.5); refinement stays open by source limitation. (7) Angelina
+(delivered Aug) + Selina (delivery ~Nov) STAY in the manifest per the Predator
+convention; the Q2-delivered trio (Felicia/Alva/Clementina, aggregate $53.5M,
+gain $30.4M) leaves. (8) POSITION_UNRELIABLE + GOVERNED-WIDE hold.
+
+**Fork A applied as ruled (8/13):** the four 7,000-TEU hulls — now NAMED
+AS Emilie/Elise/Eve/Estelle ($44,300/day, takeover Nov-2026; report $343.4M vs
+deck en-bloc $340M, statements govern) — enter NOTHING: zero advances paid at
+6/30 (no acquisition outflow in the H1 CF), commitment + hulls both out on the
+GSL Group-B advances-only registry. The NAV surface is acquisition-neutral at
+this snapshot by construction, NOT a thesis read.
+
+**Predicted walk vs the $2.05 basis (band [1.90, 2.30] on 443,700,279 sh):**
+balance-sheet legs +$93.0M (cash +44.8, WC-deposits +14.9, debt −26.1→+26.1,
+commitments −2.0→+2.0, NB advances +5.2) ≈ +$0.21/sh; fleet legs ≈ −$0.14 to
+−0.17/sh (three sold hulls leave at tool marks ~$44M; ages +0.5 book-wide;
+Selina re-age partially offsets UP). **Point prediction ≈ $2.09-2.12, inside
+the band.** Landing outside [1.90, 2.30] → HALT, investigate the INPUT.
+Forward invariance: the other 24 names delta exactly 0.0.
+
+**S&P evidence (cross-check only — no container transactions file):** deck p.4
+prints the per-vessel split the statements withhold: Felicia 2006/$12.3M ·
+Clementina 2006/$24.0M · Alva 2008/$22.3M · Selina 2012/$24.3M · Angelina
+2007/$16.8M. The prereg's Selina/Angelina price-inversion anomaly is RESOLVED:
+Selina is 2012-built (youngest sold, charter-attached) — the manifest cohort
+age was wrong, not the market.
+
+_Regen result appended below after the run._
+
+---
+
 ## 2026-08-31T18:22:13+00:00 — Pipeline run (auto)
 
 **Model state:**

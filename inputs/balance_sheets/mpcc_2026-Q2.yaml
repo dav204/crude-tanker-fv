@@ -1,0 +1,75 @@
+# MPC Container Ships balance sheet — 2026-06-30 (Q2/H1 2026)
+# Source: Q2 2026 financial report (published 2026-08-26, mfn.se attachment PDF,
+# staged inputs/filings/MPCC/d9624eca-eec3-41d4-ab31-db7fd1af7aba_mpcc-q2-2026-
+# financial-report.pdf; Statement of Financial Position p.17 + Notes 7/8/9/12/14).
+# Refresh executed per the FROZEN prereg decisions/mpcc_h1_prereg_2026-08-13.md
+# + its 8/18 placement amendment — conditions 1-13 ALL PASS (scorecard in the
+# 2026-08-31 mpcc_log annotation).
+#
+# SUBSEQUENT-EVENTS NOTE AUDITED FIRST (Note 14 p.26) — all post-6/30, all
+# EXCLUDED from this snapshot: (1) the 44,370,027-share private placement at
+# NOK 24 (~$107M gross) REGISTERED 2026-07-02 — post-period, so the 6/30 count
+# stays 443,700,279 and 6/30 cash carries none of the raise (amendment
+# conditions 9+10 verified); post-placement capital NOK 488,070,306 =
+# 488,070,306 shares; (2) the $375.0M senior secured term loan (SocGen-led,
+# 10 of the 16 2025-ordered NBs) signed JULY 2026 — "no amounts were drawn and
+# no related balances are recognized as at June 30, 2026" (condition 2
+# verified: debt did NOT jump); (3) AS Friederike delivered Aug-2026 (final
+# installment $21.5M); (4) AS Angelina sale COMPLETED Aug-2026.
+#
+# FORK A (owner-ruled 2026-08-13, the GSL Group-B advances-only registry
+# extended): the 2026-06-25 four-vessel 7,000-TEU acquisition (USD 343.4M per
+# the report, vs 340M in the 6/25 release; deliveries latest Nov-2026; 3-yr
+# fixed TCs to a top-5 liner) enters NOTHING on this sheet — zero
+# advances/deposits paid at 6/30 (no acquisition outflow in the H1 cash flow),
+# remaining commitment and undelivered Ctr-Large hulls BOTH out (no Ctr-Large
+# age-0 mark; newbuild_convention §A1.4). The hulls enter at DELIVERY
+# (Oct-Nov 2026) under whatever treatment the mark state then supports.
+ticker: MPCC
+quarter: 2026-Q2
+source_url: https://mfn.se/ob/a/mpc-container-ships/mpc-container-ships-reports-q2-2026-results-d9624eca
+retrieved_at: 2026-08-29
+filing_period_end: 2026-06-30
+
+cash_and_equivalents: 314052000      # cash 305,371k + restricted 8,681k (p.17;
+                                     # Note 8 "USD 314.1m incl. USD 8.7m
+                                     # restricted") — Q1 convention keeps the
+                                     # small restricted balance in
+working_capital_net: 100763000       # "Other current financial assets" =
+                                     # USD 100.0M six-month fixed-rate bank
+                                     # deposits (Note 11 p.25) — SAME
+                                     # construction as the Q1 sheet: the
+                                     # quasi-liquid money-market leg only
+                                     # (HAFN TORM-stake precedent; company's
+                                     # own net-debt framing counts it)
+total_debt: 436789000                # statement carrying: non-current 385,596k
+                                     # + current 51,193k (p.17; Note 9 gross
+                                     # 447,605k less issuance costs 10,816k —
+                                     # bonds 200,000k 7.375% Oct-29 + bank
+                                     # 242,481k incl. the 21,058k
+                                     # sale-leaseback INSIDE debt + other
+                                     # 5,124k). $375M facility UNDRAWN at 6/30.
+lease_liabilities: 0                 # "Lease liabilities – long-term" prints
+                                     # "–" (p.17); HCOB facility prepaid
+                                     # ($32.4M) + terminated Jan-2026
+newbuild_capex_commitments: 631700000  # 15 OWNED hulls (Note 7 p.23): 73.4
+                                       # (2026) + 180.0 (2027) + 295.4 (2028)
+                                       # + 82.9 (2029). Uthaldan JV (AS Maike/
+                                       # AS Marthe) 50% share $23.1M EXCLUDED
+                                       # both sides (Q1 convention, Note 5).
+newbuild_advances_paid: 118137000    # "Newbuildings" carrying at 6/30 incl.
+                                     # $4.9M capitalized borrowing costs
+                                     # (Note 7); H1 yard installments $77.4M
+diluted_shares_outstanding: 443700279  # Note 12 p.25, basic = diluted; the
+                                       # placement's 44,370,027 shares are
+                                       # POST-period (registered 7/02, Note 14)
+                                       # — the FIRST post-H1 surface walks to
+                                       # 488,070,306 sh + the ~$107M gross
+                                       # (amendment condition 12/13; issued at
+                                       # ~1.2x NAV, ≈ +1.6% NAV/sh gross)
+preferred_equity: 0                  # NCI $0.6M residual (Greenbox 9.9%
+                                     # bought Jan-26 for $3.8M) — immaterial,
+                                     # not modeled
+shuttle_contracted_book: 0
+governance_discount_pct: 0           # §15.7 screen unchanged (2026-06-12 pass;
+                                     # no control block, payout channel open)

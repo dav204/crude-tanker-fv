@@ -1,27 +1,28 @@
 # Refresh Checklist — 2026-Q2 (target quarter)
 
-- **Today:** 2026-08-13
+- **Today:** 2026-08-31
 - **Target quarter:** 2026-Q2
 - **Workflow:** work through the sections below, then run `python -m crude_tanker_fv.pipeline` to refresh outputs.
 
 ## Status summary
 
-- ⚠ **Balance sheets:** 14 of 25 present for 2026-Q2 — missing: FRO, NAT, FLNG, HAFN, TRMD, TEN, CAPT, MPCC, BRUT, CMBT, BWLP
-- ✓ **Market data:** 5 of 5 fresh (< 30 days)
+- ⚠ **Balance sheets:** 17 of 25 present for 2026-Q2 — missing: FRO, NAT, HAFN, TEN, CAPT, MPCC, CMBT, BWLP
+- ✓ **Market data:** 4 of 4 fresh (< 30 days)
 - ⚠ **Watchlist:** 14 of 25 clean — 0 stale, 11 APPROX consensus_pnav
-- ⚠ **Earnings:** REFRESH DUE: BRUT — upcoming/check: NAT, TRMD, MPCC, CMBT
-- ✓ **§13.3 reweight triggers:** none due — upcoming: crude_day60_toll_cliff
+- ⚠ **Earnings:** REFRESH DUE: FRO, NAT, HAFN, MPCC, CMBT, BWLP — upcoming/check: TEN, CAPT
+- ✓ **§13.3 reweight triggers:** none due — upcoming: escalation_pause_corroboration, container_mb_refresh
 
 ## 0a. Scenario-weight re-evaluation triggers (`inputs/reweight_triggers.yaml`)
 
 | Trigger | Status | Detail |
 |---|---|---|
-| crude_day60_toll_cliff | 🟡 | [crude+product] due in 3d (2026-08-16). Islamabad Memorandum toll-free window expires (~Jun-17 + 60d; the released text makes Hormuz toll-free for 60 days only — Iran asserts a fee |
+| container_mb_refresh | 🟡 | [containerships] due in 7d (2026-09-07). Monthly re-capture of the container determinants (Ctr-* TC + value assessments) from the newest staged MB Container Weekly — the §11.8 sourc |
+| escalation_pause_corroboration | 🟡 | [crude] due in 1d (2026-09-01). Registered by owner ruling R5 (2026-08-16) when C3's escalation tilt was DECLINED partly for resting on an uncorroborated pause status. The  |
 | all_sectors_consensus_pair_recapture | — | [all] due 2026-10-02. Watchlist consensus vintages (as_of) are 23-72d old (BRUT worst) vs the 14d freshness threshold — the pure sentinel + the Action issue carry |
 | all_sectors_quarterly_staleness_floor | — | [all] due 2026-10-02. Any sector's locked weight set older than one quarter (roll this due forward to decision-date + 1 quarter on every reweight). Backstop, not  |
-| container_mb_refresh | — | [containerships] due 2026-09-07. Monthly re-capture of the container determinants (Ctr-* TC + value assessments) from the newest staged MB Container Weekly — the §11.8 sourc |
 | crude_brent_reopening | — | [crude] standing event-watch. Standing event-watch: Brent sustained above pre-war ($72.48, Feb-27-2026 reference) + $10/bbl — macro confirmation the stand-down is failing |
 | crude_ceasefire_mediation_watch | — | [crude] done |
+| crude_day60_toll_cliff | — | [crude+product] done |
 | crude_doha_round2_outcome | — | [crude] done |
 | crude_doha_round3_watch | — | [crude] done |
 | crude_doha_talks_resumption | — | [crude] done |
@@ -30,42 +31,44 @@
 | crude_transit_normalization | — | [crude] standing event-watch. Standing event-watch: mine-clearance confirmation / UKMTO-JMIC advisories lifted / war-risk insurance premia normalize. Premia level current |
 | drybulk_spot_daily_resumes | — | [dry_bulk] done |
 | handy_bulk_txn_refit | — | [dry_bulk] standing event-watch. Standing event-watch (§11.7.11 Option B, owner-ratified 2026-07-14): the dry-Handysize classified print sample reaches >=10 human-classified |
+| hormuz_fee_collection_watch | — | [crude+product] standing event-watch. SUCCESSOR to crude_day60_toll_cliff (owner ruling R3, 2026-08-16). Standing event-watch, deliberately LABEL-AGNOSTIC: Iran's foreign ministr |
 | lpg_anchor_annual_review | — | [lpg] due 2027-06-30. The VLGC 10-yr through-cycle TCE anchor (~$40,000/day, as_of 2026-07-07, WO3 decisions/lpg_methodology_2026-07-07.md) is a TRAILING 10-yr av |
 | lpg_v1_lock_rerun | — | [lpg] due 2026-11-13. Dorian trio per-vessel sale splits (Corsair 2014 + two unnamed 2015-built VLGCs, $256M en bloc agreed Jun-23-2026, deliveries "by" Q4-2026). |
 | ppmx_txn_refit | — | [dry_bulk] standing event-watch. Standing event-watch (PPMX §9.9 seed, owner-ruled 2026-07-18): the Post-Panamax classified print sample reaches >=8 in-window prints includi |
 | product_glut_arrival_timing | — | [product] due 2026-10-02. The product family's central live uncertainty (reviewer rider 1): does the clean-tonnage glut arrive on the 2027 schedule the glut_base leg  |
 | tanker_forward_print_lands | — | [crude+product] standing event-watch. Standing event-watch (reviewer condition, 2026-07-02; RE-ARMED to original text at Stage A per prereg §8.4): any tanker FFA or 1-year T/C fo |
+| tce_means_semiannual_review | — | [all] due 2026-12-07. EVERY entry in inputs/market_data/historical_tce_means.yaml is a TRAILING 10-year mean, so every one of them DRIFTS as the window rolls — it |
 | vlgc_realized_tce_refresh | — | [lpg] standing event-watch. Standing event-watch (WO3 Phase 3, 2026-07-09): any new VLGC realized-TCE disclosure (Dorian / BW LPG quarterly reports — next cluster ~Aug- |
 
 ## 0. Earnings calendar (report-day refresh runbook in CLAUDE.md)
 
 | Ticker | Status | Detail |
 |---|---|---|
-| BRUT | 🔴 DUE | report window open (2026-08-13, confirmed) and no 2026-Q2 balance sheet on file — refresh due. RE-VERIFIED 2026-07-21 via the Euronext company-information calendar (exchange-published): Half-yearly Report 13/08/2026; AGM 12/08/2026. No timing stated. (Issuer legal name Bruton Limited.) Original NewsWeb filing not retrievable — calendar-grade source. |
-| CMBT | 🟡 | reports in 14d (2026-08-27, confirmed). CMB.TECH PR (GlobeNewswire 2026-06-29): Q2-2026 announcement Aug-27; SEEDED 2026-07-03 (was absent from the Jun-11 sweep) |
-| MPCC | 🟡 | reports in 13d (2026-08-26, confirmed). MFN financial calendar announcement (2025-12-30): half-yearly/Q2 report 26.08.2026 |
-| NAT | 🟡 | reports in 13d (2026-08-26 → 2026-08-31, expected). SWEPT 2026-08-09: aggregators (MarketBeat et al.) point ~Aug-31; NO issuer date-PR yet (NAT pattern: terse GlobeNewswire report-day releases, thin advance notice). Window held 8/26-8/31, aggregator grade. |
-| TRMD | 🟡 | reports in 13d (2026-08-26, confirmed). TORM 'Financial Calendar 2026' announcement (2025-12-19): Q2 Aug-26; adherence validated on Q1 (May-13 = actual) |
+| BWLP | 🔴 DUE | report OUT (2026-08-28, confirmed) and no 2026-Q2 balance sheet on file — refresh due. Q2-2026 date CONFIRMED by the issuer: 6-K 0001213900-26-078478 ex-99.1 (7/16 Product Services pre-announcement) states 'the BW LPG Q2 2026 results ... will be released on 28 August 2026'. (Was cadence-derived 8/25-8/28, seeded 2026-07-10.) |
+| CMBT | 🔴 DUE | report OUT (2026-08-27, confirmed) and no 2026-Q2 balance sheet on file — refresh due. CMB.TECH PR (GlobeNewswire 2026-06-29): Q2-2026 announcement Aug-27; SEEDED 2026-07-03 (was absent from the Jun-11 sweep) |
+| FRO | 🔴 DUE | report window open (2026-08-31, confirmed) and no 2026-Q2 balance sheet on file — refresh due. frontlineplc.cy/calendar (announced 2026-05-22): Q2-2026 report Aug-31; narrowed from the expected Aug-26..31 window |
+| HAFN | 🔴 DUE | report OUT (2026-08-28, confirmed) and no 2026-Q2 balance sheet on file — refresh due. Hafnia Financial Calendar 2025-2027 (IR PDF): Q2-26 Aug-28; calendar adherence validated on the Q1-26 slot (May-27 = actual) |
+| MPCC | 🔴 DUE | report OUT (2026-08-26, confirmed) and no 2026-Q2 balance sheet on file — refresh due. MFN financial calendar announcement (2025-12-30): half-yearly/Q2 report 26.08.2026 |
+| NAT | 🔴 DUE | report OUT (2026-08-27, confirmed) and no 2026-Q2 balance sheet on file — refresh due. REPORT LANDED 2026-08-27 (recorded at the 2026-08-31 sweep): 6-K acc 0000919574-26-005786 filed 8/27 = the Q2-2026 dividend + earnings report (ex-1 PR dated Aug-27) — caught by the hourly EDGAR poller exactly per the standing NAT pattern (terse report-day release, no pre-announcement; the 8/18 sweep's aggregator SPLIT ~8/27 vs ~8/31 resolved to the 8/27 side). Entry historical until the Q3 re-seed; Q2 refresh queued. |
+| CAPT | 🟡 | reports in 1d (2026-09-01, confirmed). Oslo Bors Newspoint financial calendar (published 2026-03-12): HALF-YEARLY report Sep-1-2026 — the Jun-11 sweep missed this calendar; replaces the expected Aug-17..31 window. RE-VERIFIED 2026-08-31 sweep (in-14d early-release check): issuer scheduling release 8/26 (newsweb mfn c5ae112b, on file inputs/filings/CAPT/) confirms results BEFORE Euronext Growth Oslo open Tue Sep-1, call 14:30 CET / 8:30 ET — no early-release risk. |
+| TEN | 🟡 | reports in 10d (2026-09-10, confirmed). CONFIRMED 2026-08-31 sweep: issuer date-PR GlobeNewswire 3348799 (2026-08-20 16:05 ET, rendered-page verified): Q2 + six-months results "prior to the open of the market in New York on Thursday, September 10, 2026"; call same day 10:00 ET. The ~2wk-ahead pattern held (PR 8/20 for a 9/10 print). Prior sweeps 8/09 + 8/18: no PR yet. |
 | 2343 | — | 2026-08-06 (confirmed). Aug-6 now FORMALLY confirmed: HKEX board-meeting notice filed 2026-07-24 (hkex-12255247, staged inputs/filings/2343/12255247_2026072400392.pdf) — Board meets 6 Aug 2026 to approve H1-2026 interims + consider interim dividend. Supersedes the IR-calendar-only basis. |
 | ASC | — | 2026-07-29 (confirmed). CONFIRMED 2026-07-28 sweep: issuer PR 'Ardmore Shipping Announces Second Quarter 2026 Conference Call' (StockTitan/PRNewswire) — Q2 results PRE-MARKET Wed Jul-29, call 10:00 ET same day, replay to Aug-5. Was expected/no-PR at the 7/22 sweep. |
-| BWLP | — | 2026-08-28 (confirmed). Q2-2026 date CONFIRMED by the issuer: 6-K 0001213900-26-078478 ex-99.1 (7/16 Product Services pre-announcement) states 'the BW LPG Q2 2026 results ... will be released on 28 August 2026'. (Was cadence-derived 8/25-8/28, seeded 2026-07-10.) |
-| CAPT | — | 2026-09-01 (confirmed). Oslo Bors Newspoint financial calendar (published 2026-03-12): HALF-YEARLY report Sep-1-2026 — the Jun-11 sweep missed this calendar; replaces the expected Aug-17..31 window |
+| BRUT | — | 2026-08-13 (confirmed). RE-VERIFIED 2026-07-21 via the Euronext company-information calendar (exchange-published): Half-yearly Report 13/08/2026; AGM 12/08/2026. No timing stated. (Issuer legal name Bruton Limited.) Original NewsWeb filing not retrievable — calendar-grade source. |
 | CCEC | — | 2026-07-29 (confirmed). CONFIRMED 2026-07-22 by the issuer's date-setting announcement PR (GlobeNewswire 2026-07-22, Athens), landed exactly on the predicted ~Jul-22-24 pattern: 'Capital Clean Energy Carriers Corp. Schedules Second Quarter 2026 Earnings Release, Conference Call and Webcast' — Q2 results BEFORE the Nasdaq open Wed Jul-29; interactive call same day 9:00 a.m. ET. ALSO the governance CCEC t2 print-gate venue (window 7/29-8/06 in the gov prereg; the print lands at its OPEN). |
 | CMDB | — | 2026-08-03 (confirmed). RESULTS ANNOUNCED 2026-08-03 (Q2 6-K acc 0001171843-26-005131 - landed at the WIDENED-START edge as the window note anticipated) - refreshed at the 8/9 drain close. |
 | DHT | — | 2026-08-05 (confirmed). CONFIRMED 2026-07-28 sweep: GlobeNewswire 2026-07-22 + dhtankers.com — Q2 results AFTER CLOSE Wed Aug-5, call Thu Aug-6 8:00 ET. Landed on the ~2wk-ahead date-PR pattern. |
 | ECO | — | 2026-08-04 (confirmed). RE-VERIFIED 2026-07-21 unchanged: official financial calendar (GlobeNewswire 2025-12-19 + okeanisecotankers.com): '04.08.2026 - Half-yearly Report', all releases AFTER NYSE close. Q2 webcast invitation expected ~end-July (Q1 pattern ~5d ahead). |
-| FLNG | — | 2026-08-28 (confirmed). RE-VERIFIED 2026-07-21: flexlng.com calendar still '28.08.2026 - Half-yearly Report 2026'; no updated/earlier date announced (press feed ends 5/13 Q1). EARLY-RELEASE RISK stands (2025 came ~1wk early) — re-check mid-Aug for the earnings-release notice. |
-| FRO | — | 2026-08-31 (confirmed). frontlineplc.cy/calendar (announced 2026-05-22): Q2-2026 report Aug-31; narrowed from the expected Aug-26..31 window |
+| FLNG | — | 2026-08-19 (confirmed). MOVED TO AUG-19 — the early-release risk this entry carried FIRED (9 days early, vs ~1wk in 2025). CONFIRMED 2026-08-18 at the issuer primary: flexlng.com 'Flex LNG - Invitation to the 2026 Second Quarter Presentation' — Q2 results ~07:00 CEST (~01:00 ET) Wed Aug-19, webcast 15:00 CEST. Prereg band frozen pre-print: decisions/flng_q2_prereg_2026-08-18.md [25.40, 29.80]. Supersedes the 28.08 calendar entry. |
 | GNK | — | 2026-08-05 (confirmed). OFFICIAL PR 2026-07-14 (GlobeNewswire 3327275): Q2 results AFTER CLOSE Wed Aug-5; call Thu Aug-6 8:30 ET. Swept 2026-07-21. |
 | GSL | — | 2026-08-05 (confirmed). RESULTS ANNOUNCED 2026-08-05 (earnings-release 6-K) + H1 interim 8/6 (acc 0001140361-26-031697) - refreshed at the 8/8 drain; the short-notice pattern note stands for Q3. |
-| HAFN | — | 2026-08-28 (confirmed). Hafnia Financial Calendar 2025-2027 (IR PDF): Q2-26 Aug-28; calendar adherence validated on the Q1-26 slot (May-27 = actual) |
 | INSW | — | 2026-08-10 (confirmed). CONFIRMED 2026-08-09 sweep: official Business Wire date-PR 2026-07-24 - Q2 results BEFORE market open Monday Aug-10, call 9:00 ET. Supersedes the aggregator 8/4-8/7 window. |
 | LPG | — | 2026-08-05 (confirmed). RESULTS ANNOUNCED 2026-08-05 (FQ1-2027 10-Q acc 0001596993-26-000035 + earnings-release 8-K) - refreshed at the 8/8 drain; entry historical until the Q3 re-seed. |
 | SB | — | 2026-07-28 (confirmed). CONFIRMED 2026-07-28 sweep: sets-date PR GlobeNewswire 2026-07-22 'Safe Bulkers, Inc. Sets Date for the Second Quarter 2026 Results' — results AFTER CLOSE Tue Jul-28 (TONIGHT), call Wed Jul-29 10:30 ET. The 7/22 sweep just missed it (PR landed same day, later). No August slip. |
 | SBLK | — | 2026-08-05 (confirmed). RESULTS ANNOUNCED 2026-08-05 (earnings-release 6-K acc 0000950157-26-000846) + interim 6-K 8/7 - refreshed at the 8/8 drain; entry historical until the Q3 re-seed. |
 | STNG | — | 2026-07-30 (confirmed). OFFICIAL PR 2026-07-20 (scorpiotankers.com/GlobeNewswire): Q2 results IN THE MORNING (pre-market) Thu Jul-30; call same day 8:00 ET. Swept 2026-07-21. |
-| TEN | — | 2026-09-08 → 2026-09-17 (expected). SWEPT 2026-08-09: no date-PR yet - consistent with the ~2wk-ahead pattern for a September H1 reporter; re-sweep ~late Aug. (H1 reporter - Q2 lands in SEPTEMBER; the standing cadence quirk.) |
 | TNK | — | 2026-07-29 (confirmed). OFFICIAL joint Teekay Group PR 2026-07-14 (GlobeNewswire 3327260): Q2 results AFTER CLOSE Wed Jul-29; call Thu Jul-30 11:00 ET. Swept 2026-07-21. |
+| TRMD | — | 2026-08-26 (confirmed). TORM 'Financial Calendar 2026' announcement (2025-12-19): Q2 Aug-26; adherence validated on Q1 (May-13 = actual) |
 
 ## 1. Missing quarterly balance sheets
 
@@ -85,13 +88,6 @@ For each missing name below, pull the 2026-Q2 results from the listed IR URLs an
 - **Reporting pattern:** Q-end results typically mid-second month of following quarter (Q1 ≈ mid-May)
 - **Notes:** Bermuda-domiciled FPI; small-cap so analyst coverage is thin — Pareto / Cleaves are the consensus_pnav anchors. Watch for vessel sales/purchases (active fleet turnover).
 
-### FLNG
-- **Press releases:** https://www.flexlng.com/press-releases/
-- **SEC EDGAR filings:** https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001772253&type=6-K
-- **Fleet page:** https://www.flexlng.com/our-fleet/
-- **Reporting pattern:** Q-end results typically mid-second month of following quarter (Q1 ≈ mid-May; Q1 2026 was 2026-05-13)
-- **Notes:** Bermuda-domiciled FPI dual-listed NYSE + Oslo. TC backlog table on the IR site is the source for charter coverage refresh (separate from fleet table).
-
 ### HAFN
 - **Press releases:** https://www.hafniabw.com/investors/announcements/
 - **SEC EDGAR filings:** https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001815779&type=6-K
@@ -110,22 +106,6 @@ stake ($395M) generates dividend income but isn't reflected in our schema
 via dedicated line; Hafnia operates the world's largest product tanker
 POOL — "spot" earnings are pool-derived (net of pool admin fees);
 BW Group ownership dynamics affect free float and consensus P/NAV reads.
-
-
-### TRMD
-- **Press releases:** https://www.torm.com/investors/announcements/
-- **SEC EDGAR filings:** https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001655891&type=6-K
-- **Fleet page:** https://www.torm.com/our-fleet/
-- **Reporting pattern:** Q-end results typically early-mid second month of following quarter (Q1 2026 was 2026-05-08; Q4 results released in March with FY outlook)
-- **Notes:** UK-incorporated, dual-listed Nasdaq Copenhagen (TRMD A) + Nasdaq New York (TRMD).
-Files 6-K via SEC. UK tonnage tax regime (~1.5% effective rate).
-Single Class A common share class; one controlling shareholder ~65%.
-Q1 2026 interim report PDF (s202.q4cdn.com/126069760/files/doc_financials/...)
-contains the per-vessel fleet detail, bank-vs-lease debt split, and held-for-sale
-book values that the 6-K summary doesn't break out — refresh from PDF each quarter.
-Watch items: SLB exposure (down to 2 vessels at Q1 2026 vs 16+ in 2024 peak),
-NB resale program (currently 8 outstanding: 2 Q2 2026 + 6 2027-2028), dividend
-payout ratio variability (58-82% of NI; quarterly Board discretion, not formula).
 
 
 ### TEN
@@ -168,12 +148,6 @@ Watch items:
 - **Reporting pattern:** Oslo quarterly via MFN; Q1-26 published 2026-05-27. Pareto covers (HOLD TP NOK 25, 2026-05-28 review on disk via linked-report harvest) on EV/EBITDA — publishes NO NAV (§11.8.2).
 - **Notes:** Onboarded 2026-06-12 (1st container validator). Fleet-employment table in the earnings deck is the per-vessel source (rates + redelivery windows); built years NOT disclosed there — cohort age estimates pending the issuer fleet list. 17-ship NB program (2 in Uthalden JV, excluded).
 
-### BRUT
-- **Press releases:** https://bruton-ltd.com/news/
-- **Fleet page:** https://bruton-ltd.com/fleet/
-- **Reporting pattern:** HALF-YEARLY reporter — H1-2026 due 2026-08-13 (owner- confirmed); no Q1/Q3 interims. Pareto covers (initiation 2026-04-22, BUY TP NOK 66) — the dailies + the initiation are the running source until H1.
-- **Notes:** Bruton Ltd — pure-play VLCC newbuild vehicle (Magni Partners / Tor Olav Trøim; Koch ~26% / Trøim ~20% / float ~54%), listed Oslo late-2024. 12 firm VLCC NB (8 NTS 300k + 4 CIMC Raffles 319k), 0 on the water, deliveries Jul-2026 → Q3-2029. Onboarded 2026-06-22 via the §9.6 time-to-delivery discount (raw delivered-less-commitment NAV was +116% vs Pareto; PV- discounting the NB deliveries lands it at +30.6%, SANITY OK).
-
 ### CMBT
 - **Press releases:** https://cmb.tech/news
 - **SEC EDGAR filings:** https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001604481&type=6-K
@@ -196,31 +170,31 @@ _All market data files were updated within 30 days. ✓_
 
 | Ticker | as_of status | Detail |
 |---|---|---|
-| DHT | ✓ | as_of 2026-07-03 (41d ago) |
-| ECO | ✓ | as_of 2026-07-03 (41d ago) |
-| FRO | ✓ | as_of 2026-07-03 (41d ago) |
-| INSW | ✓ | as_of 2026-07-03 (41d ago) |
-| TNK | ✓ | as_of 2026-07-03 (41d ago) |
-| NAT | ⚠ APPROX | as_of 2026-07-03 (41d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| FLNG | ✓ | as_of 2026-07-03 (41d ago) |
-| CCEC | ⚠ APPROX | as_of 2026-07-03 (41d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| STNG | ⚠ APPROX | as_of 2026-07-03 (41d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| HAFN | ✓ | as_of 2026-07-03 (41d ago) |
-| TRMD | ⚠ APPROX | as_of 2026-07-03 (41d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| ASC | ⚠ APPROX | as_of 2026-07-03 (41d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| TEN | ⚠ APPROX | as_of 2026-06-10 (64d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| CMDB | ⚠ APPROX | as_of 2026-06-10 (64d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| SBLK | ✓ | as_of 2026-07-03 (41d ago) |
-| GNK | ✓ | as_of 2026-07-03 (41d ago) |
-| CAPT | ✓ | as_of 2026-07-03 (41d ago) |
-| MPCC | ⚠ APPROX | as_of 2026-07-03 (41d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| GSL | ⚠ APPROX | as_of 2026-06-12 (62d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| BRUT | ✓ | as_of 2026-07-03 (41d ago) |
-| CMBT | ⚠ APPROX | as_of 2026-07-03 (41d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| SB | ⚠ APPROX | as_of 2026-06-26 (48d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| LPG | ✓ | as_of 2026-07-03 (41d ago) |
-| BWLP | ✓ | as_of 2026-07-03 (41d ago) |
-| 2343 | ✓ | as_of 2026-07-14 (30d ago) |
+| DHT | ✓ | as_of 2026-08-28 (3d ago) |
+| ECO | ✓ | as_of 2026-08-28 (3d ago) |
+| FRO | ✓ | as_of 2026-08-28 (3d ago) |
+| INSW | ✓ | as_of 2026-08-28 (3d ago) |
+| TNK | ✓ | as_of 2026-08-28 (3d ago) |
+| NAT | ⚠ APPROX | as_of 2026-08-28 (3d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| FLNG | ✓ | as_of 2026-08-28 (3d ago) |
+| CCEC | ⚠ APPROX | as_of 2026-08-28 (3d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| STNG | ⚠ APPROX | as_of 2026-08-28 (3d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| HAFN | ✓ | as_of 2026-08-28 (3d ago) |
+| TRMD | ⚠ APPROX | as_of 2026-08-28 (3d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| ASC | ⚠ APPROX | as_of 2026-08-28 (3d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| TEN | ⚠ APPROX | as_of 2026-06-10 (82d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| CMDB | ⚠ APPROX | as_of 2026-06-10 (82d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| SBLK | ✓ | as_of 2026-08-28 (3d ago) |
+| GNK | ✓ | as_of 2026-08-28 (3d ago) |
+| CAPT | ✓ | as_of 2026-08-28 (3d ago) |
+| MPCC | ⚠ APPROX | as_of 2026-08-28 (3d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| GSL | ⚠ APPROX | as_of 2026-06-12 (80d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| BRUT | ✓ | as_of 2026-08-28 (3d ago) |
+| CMBT | ⚠ APPROX | as_of 2026-08-28 (3d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| SB | ⚠ APPROX | as_of 2026-08-28 (3d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| LPG | ✓ | as_of 2026-08-28 (3d ago) |
+| BWLP | ✓ | as_of 2026-08-28 (3d ago) |
+| 2343 | ✓ | as_of 2026-08-28 (3d ago) |
 
 _11 ticker(s) carry APPROX consensus_pnav comments — replace with authoritative broker NAV print (Pareto / Cleaves / Clarksons) when the Q-end research notes land._
 
@@ -228,31 +202,31 @@ _11 ticker(s) carry APPROX consensus_pnav comments — replace with authoritativ
 
 | Ticker | Fleet (≤90d) | BS for 2026-Q2 | Cost (≤180d) | Dividend (≤180d) |
 |---|---|---|---|---|
-| DHT | ✓ 3d | ✓ 5d ago | ✓ 76d | ✓ 76d |
-| ECO | ✓ 5d | ✓ 5d ago | ✓ 76d | ✓ 76d |
-| FRO | ✓ 52d | ✗ missing | ✓ 76d | ✓ 76d |
-| INSW | ✓ 3d | ✓ 3d ago | ✓ 76d | ✓ 76d |
-| TNK | ✓ 5d | ✓ 5d ago | ✓ 76d | ✓ 76d |
-| NAT | ✓ 43d | ✗ missing | ✓ 73d | ✓ 73d |
-| FLNG | ✓ 73d | ✗ missing | ✓ 73d | ✓ 73d |
-| CCEC | ✓ 5d | ✓ 5d ago | ✓ 73d | ✓ 73d |
-| STNG | ✓ 5d | ✓ 5d ago | ✓ 69d | ✓ 73d |
-| HAFN | ✓ 43d | ✗ missing | ✓ 70d | ✓ 70d |
-| TRMD | ✓ 42d | ✗ missing | ✓ 70d | ✓ 70d |
-| ASC | ✓ 5d | ✓ 5d ago | ✓ 73d | ✓ 73d |
-| TEN | ✓ 29d | ✗ missing | ✓ 68d | ✓ 68d |
-| CMDB | ✓ 4d | ✓ 4d ago | ✓ 64d | ✓ 64d |
-| SBLK | ✓ 4d | ✓ 4d ago | ✓ 65d | ✓ 65d |
-| GNK | ✓ 5d | ✓ 5d ago | ✓ 64d | ✓ 64d |
-| CAPT | ✓ 44d | ✗ missing | ✓ 63d | ✓ 63d |
-| MPCC | ✓ 44d | ✗ missing | ✓ 62d | ✓ 62d |
-| GSL | ✓ 5d | ✓ 5d ago | ✓ 62d | ✓ 62d |
-| BRUT | ✓ 43d | ✗ missing | ✓ 52d | ✓ 52d |
-| CMBT | ✓ 47d | ✗ missing | ✓ 48d | ✓ 48d |
-| SB | ✓ 5d | ✓ 5d ago | ✓ 45d | ✓ 46d |
-| LPG | ✓ 5d | ✓ 5d ago | ✓ 34d | ✓ 34d |
-| BWLP | ✓ 34d | ✗ missing | ✓ 34d | ✓ 34d |
-| 2343 | ✓ 5d | ✓ 5d ago | ✓ 30d | ✓ 30d |
+| DHT | ✓ 21d | ✓ 23d ago | ✓ 94d | ✓ 94d |
+| ECO | ✓ 23d | ✓ 23d ago | ✓ 94d | ✓ 94d |
+| FRO | ✓ 70d | ✗ missing | ✓ 94d | ✓ 94d |
+| INSW | ✓ 21d | ✓ 21d ago | ✓ 94d | ✓ 94d |
+| TNK | ✓ 23d | ✓ 23d ago | ✓ 94d | ✓ 94d |
+| NAT | ✓ 61d | ✗ missing | ✓ 91d | ✓ 91d |
+| FLNG | ✓ 6d | ✓ 6d ago | ✓ 91d | ✓ 91d |
+| CCEC | ✓ 23d | ✓ 23d ago | ✓ 91d | ✓ 91d |
+| STNG | ✓ 23d | ✓ 23d ago | ✓ 87d | ✓ 91d |
+| HAFN | ✓ 61d | ✗ missing | ✓ 88d | ✓ 88d |
+| TRMD | ✓ 2d | ✓ 2d ago | ✓ 88d | ✓ 88d |
+| ASC | ✓ 23d | ✓ 23d ago | ✓ 91d | ✓ 91d |
+| TEN | ✓ 47d | ✗ missing | ✓ 86d | ✓ 86d |
+| CMDB | ✓ 22d | ✓ 22d ago | ✓ 82d | ✓ 82d |
+| SBLK | ✓ 22d | ✓ 22d ago | ✓ 83d | ✓ 83d |
+| GNK | ✓ 23d | ✓ 23d ago | ✓ 82d | ✓ 82d |
+| CAPT | ✓ 62d | ✗ missing | ✓ 81d | ✓ 81d |
+| MPCC | ✓ 62d | ✗ missing | ✓ 80d | ✓ 80d |
+| GSL | ✓ 23d | ✓ 23d ago | ✓ 80d | ✓ 80d |
+| BRUT | ✓ 2d | ✓ 2d ago | ✓ 70d | ✓ 70d |
+| CMBT | ✓ 65d | ✗ missing | ✓ 66d | ✓ 66d |
+| SB | ✓ 23d | ✓ 23d ago | ✓ 63d | ✓ 64d |
+| LPG | ✓ 23d | ✓ 23d ago | ✓ 52d | ✓ 52d |
+| BWLP | ✓ 52d | ✗ missing | ✓ 52d | ✓ 52d |
+| 2343 | ✓ 23d | ✓ 23d ago | ✓ 48d | ✓ 48d |
 
 _Thresholds: fleet manifest 90d (vessel sales/purchases happen quarterly); cost + dividend 180d (rarely change but should be re-validated annually)._
 
