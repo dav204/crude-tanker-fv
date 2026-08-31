@@ -63,3 +63,8 @@ frozen-for-owner-review"): SBLK HOLD→T/S and CMDB BUY→HOLD are FROZEN-FOR-OW
 (Δprice 0 both; the flips ride the cycle reweight alone). Owner disposes. The other dry
 rows (2343/CMBT/SB/GNK EV-only) are the same mechanism without a band crossing — they ride
 the pending multi-cause ratify.
+
+**FREEZE DISPOSED (same sitting): owner ACCEPTED both labels** ("accept both frozen
+flips", 2026-08-31) — SBLK T/S and CMDB HOLD stand as the cycle-fade reads; recross
+watches armed; the G6 freeze served its purpose (flip → freeze → owner eyeball → ruling,
+zero mechanical absorption).

@@ -17,7 +17,10 @@
 **Decision:** **FFA-PROMOTE FLIP — FROZEN-FOR-OWNER-REVIEW (G6-family discipline).** BUY→HOLD
 at an unchanged price on the 8/31 FFA promote: the cycle reweight (1.33×→1.47× elevated) faded
 the scenario PW FV while single FV/NAV rose (+0.2% NAV). The 12M-leg-alone class → frozen, owner
-disposes (ffa_promotion_2026-08-31.md §4). AWAY from BUY — no halt trigger.
+disposes (ffa_promotion_2026-08-31.md §4). AWAY from BUY — no halt trigger. **DISPOSED SAME
+SITTING — OWNER ACCEPTED the HOLD label (2026-08-31: "accept both frozen flips")**: the
+cycle-fade read stands; recross watch armed (a later vintage re-crossing the BUY edge =
+a NEW eyeball, not noise).
 
 ---
 
