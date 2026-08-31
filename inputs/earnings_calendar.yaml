@@ -1,5 +1,5 @@
 meta:
-  last_date_sweep: 2026-08-18
+  last_date_sweep: 2026-08-31
   quarter: 2026-Q2
   vetted: 2026-07-03
 names:
@@ -41,7 +41,9 @@ names:
     window_start: 2026-08-28
   CAPT:
     basis: 'Oslo Bors Newspoint financial calendar (published 2026-03-12): HALF-YEARLY report Sep-1-2026 — the Jun-11
-      sweep missed this calendar; replaces the expected Aug-17..31 window'
+      sweep missed this calendar; replaces the expected Aug-17..31 window. RE-VERIFIED 2026-08-31 sweep (in-14d
+      early-release check): issuer scheduling release 8/26 (newsweb mfn c5ae112b, on file inputs/filings/CAPT/)
+      confirms results BEFORE Euronext Growth Oslo open Tue Sep-1, call 14:30 CET / 8:30 ET — no early-release risk.'
     disclosure_type: Oslo newsweb (half-yearly)
     status: confirmed
     venue: Euronext Growth Oslo
@@ -153,17 +155,15 @@ names:
     window_end: 2026-08-26
     window_start: 2026-08-26
   NAT:
-    basis: 'RE-SWEPT 2026-08-18 (the PLAN 8/18 URGENT sweep): PRIMARY CLEAN — nat.bm newest release is still
-      7/23 (optimistic summer message), NO date-PR exists. Aggregators now SPLIT: MarketBeat/AAII ~Aug-27 vs
-      Investing.com ~Aug-31 — disagreement is itself evidence the date is aggregator-inferred, not sourced.
-      Window HELD 8/26-8/31, aggregator grade (EARNINGS-UNCONFIRMED). NAT pattern stands: terse report-day
-      GlobeNewswire releases, thin advance notice — the 6-K lands via the hourly EDGAR poller same-day
-      regardless, so the window rides the poller, not a pre-announcement. Prior sweep 2026-08-09 (~8/31).'
+    basis: 'REPORT LANDED 2026-08-27 (recorded at the 2026-08-31 sweep): 6-K acc 0000919574-26-005786 filed 8/27
+      = the Q2-2026 dividend + earnings report (ex-1 PR dated Aug-27) — caught by the hourly EDGAR poller exactly
+      per the standing NAT pattern (terse report-day release, no pre-announcement; the 8/18 sweep''s aggregator
+      SPLIT ~8/27 vs ~8/31 resolved to the 8/27 side). Entry historical until the Q3 re-seed; Q2 refresh queued.'
     disclosure_type: 6-K
-    status: expected
+    status: confirmed
     venue: NYSE
-    window_end: 2026-08-31
-    window_start: 2026-08-26
+    window_end: 2026-08-27
+    window_start: 2026-08-27
   PANL:
     basis: 'CONFIRMED 2026-08-09 sweep: issuer PR - Q2 results AFTER close Monday Aug-10, call Tue Aug-11 8:00 ET. (Name not onboarded; seed arms the pollers.)'
     disclosure_type: 10-Q (US domestic filer)
@@ -196,12 +196,15 @@ names:
     window_end: 2026-07-30
     window_start: 2026-07-30
   TEN:
-    basis: 'SWEPT 2026-08-09: no date-PR yet - consistent with the ~2wk-ahead pattern for a September H1 reporter; re-sweep ~late Aug. (H1 reporter - Q2 lands in SEPTEMBER; the standing cadence quirk.)'
+    basis: 'CONFIRMED 2026-08-31 sweep: issuer date-PR GlobeNewswire 3348799 (2026-08-20 16:05 ET, rendered-page
+      verified): Q2 + six-months results "prior to the open of the market in New York on Thursday, September 10,
+      2026"; call same day 10:00 ET. The ~2wk-ahead pattern held (PR 8/20 for a 9/10 print). Prior sweeps 8/09 +
+      8/18: no PR yet.'
     disclosure_type: 6-K (H1 report)
-    status: expected
+    status: confirmed
     venue: NYSE
-    window_end: 2026-09-17
-    window_start: 2026-09-08
+    window_end: 2026-09-10
+    window_start: 2026-09-10
   TNK:
     basis: 'OFFICIAL joint Teekay Group PR 2026-07-14 (GlobeNewswire 3327260): Q2 results AFTER CLOSE Wed Jul-29;
       call Thu Jul-30 11:00 ET. Swept 2026-07-21.'
