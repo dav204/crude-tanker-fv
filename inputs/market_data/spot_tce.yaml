@@ -16,6 +16,12 @@
 # queue's alphabetical tenor sort made AUG (true front month jul was 18975) —
 # see decisions/ffa_promotion_2026-07-13.md; today's proxies use the true
 # front month from state/ffa_ocr_curves.json.
+# HOLD ANNOTATED 2026-08-31 (digest UNINGESTED-PRINTS lane): Pareto dailies staged
+# through 8/31 vs the 8/07 vintage below — promotion DELIBERATELY DEFERRED to the next
+# owner round (the 8/31 seven-cause ratify closed today; refresh backlog MPCC/CMBT/HAFN/
+# BWLP/FRO/NAT + the 9/01 CAPT print run first, one FV-event at a time). Spot feeds the
+# breakeven diagnostic + validate warning only, NOT the strip — staleness here is
+# display-grade. Rider 4 stays live for 12M/FFA prints (see ffa_capture_review_2026-08-31).
 # Machine vintage (WO2 1.2) — the structured mirror of the per-row comments;
 # read by the sentinel's UNINGESTED-PRINTS lane (newest staged Pareto daily vs
 # default) + agreement-tested against the held-class comments. default = the
