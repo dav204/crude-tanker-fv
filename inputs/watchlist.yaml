@@ -29,102 +29,102 @@
 # inputs/scenario_inputs.yaml (LNG glut-cycle scenarios). Future sectors: product,
 # dry_bulk.
 DHT:
-  current_price: 18.4    # Pareto 7 Aug 2026
+  current_price: 19.4    # Pareto 28 Aug 2026
   analyst_target: 16.00
-  consensus_pnav: 1.08    # Pareto 7 Aug 2026, same daily as price
-  consensus_fwd_pe: 9.7    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-  as_of: 2026-08-07
+  consensus_pnav: 1.14    # Pareto 28 Aug 2026, same daily as price
+  consensus_fwd_pe: 9.9    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
+  as_of: 2026-08-28
 ECO:
-  current_price: 63.8    # Pareto 7 Aug 2026
+  current_price: 66.3    # Pareto 28 Aug 2026
   analyst_target: 45.00
-  consensus_pnav: 1.34    # Pareto 7 Aug 2026, same daily as price
-  consensus_fwd_pe: 10.9    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-  as_of: 2026-08-07
+  consensus_pnav: 1.47    # Pareto 28 Aug 2026, same daily as price
+  consensus_fwd_pe: 10.1    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
+  as_of: 2026-08-28
 FRO:
-  current_price: 39.6    # Pareto 7 Aug 2026
+  current_price: 43.8    # Pareto 28 Aug 2026
   analyst_target: 30.50
-  consensus_pnav: 1.31    # Pareto 7 Aug 2026, same daily as price
-  consensus_fwd_pe: 9.9    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-  as_of: 2026-08-07
+  consensus_pnav: 1.33    # Pareto 28 Aug 2026, same daily as price
+  consensus_fwd_pe: 10.3    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
+  as_of: 2026-08-28
 INSW:
-  current_price: 93.2    # Pareto 7 Aug 2026
+  current_price: 99.3    # Pareto 28 Aug 2026
   analyst_target: 79.50    # crude carve-out compares vs the crude-ALLOCATED price (x crude_share).
-  consensus_pnav: 1.17    # Pareto 7 Aug 2026, same daily as price
-  consensus_fwd_pe: 12.8    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-  as_of: 2026-08-07
+  consensus_pnav: 1.21    # Pareto 28 Aug 2026, same daily as price
+  consensus_fwd_pe: 13.9    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
+  as_of: 2026-08-28
 TNK:
-  current_price: 77.1    # Pareto 7 Aug 2026
+  current_price: 88.2    # Pareto 28 Aug 2026
   analyst_target: 75.00
-  consensus_pnav: 0.8    # Pareto 7 Aug 2026, same daily as price
-  consensus_fwd_pe: 8.9    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-  as_of: 2026-08-07
+  consensus_pnav: 0.91    # Pareto 28 Aug 2026, same daily as price
+  consensus_fwd_pe: 8.8    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
+  as_of: 2026-08-28
 NAT:
-  current_price: 6.4    # Pareto 7 Aug 2026
+  current_price: 6.8    # Pareto 28 Aug 2026
   analyst_target: 6.00     # consensus analyst target (public sources)
   consensus_pnav: 0.85    # APPROX retained (no Pareto P/NAV); px + P/E rebased 3 Jul 2026
                            # kept at midpoint of NAT's historical 0.7-1.0x P/NAV band. Genuinely unanchored.
-  consensus_fwd_pe: 18.7    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-  as_of: 2026-08-07
+  consensus_fwd_pe: 17.7    # Pareto 28 Aug 2026, same daily (1Y FWD P/E); pnav APPROX flag UNCHANGED (still '-' in the table)
+  as_of: 2026-08-28
 FLNG:
-  current_price: 31.0    # Pareto 7 Aug 2026
+  current_price: 31.3    # Pareto 28 Aug 2026
   analyst_target: 25.00    # analyst consensus (modest bearish; rate normalisation theme)
-  consensus_pnav: 1.43    # Pareto 7 Aug 2026, same daily as price
+  consensus_pnav: 1.44    # Pareto 28 Aug 2026, same daily as price
   sector: lng              # valued through sectors.lng scenarios (METHODOLOGY §11)
-  consensus_fwd_pe: 14.9    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-  as_of: 2026-08-07
+  consensus_fwd_pe: 14.6    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
+  as_of: 2026-08-28
 CCEC:
-  current_price: 22.8    # Pareto 7 Aug 2026
+  current_price: 22.8    # Pareto 28 Aug 2026
   analyst_target: 25.17    # analyst consensus
   consensus_pnav: 0.90    # APPROX retained (no Pareto P/NAV); px + P/E rebased 3 Jul 2026
                            # kept at ~book. Genuinely unanchored.
   sector: lng              # valued through sectors.lng scenarios (METHODOLOGY §11)
-  consensus_fwd_pe: 7.9    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-  as_of: 2026-08-07
+  consensus_fwd_pe: 7.9    # Pareto 28 Aug 2026, same daily (1Y FWD P/E); pnav APPROX flag UNCHANGED (still '-' in the table)
+  as_of: 2026-08-28
 STNG:
-  current_price: 76.4    # Pareto 7 Aug 2026
+  current_price: 77.4    # Pareto 28 Aug 2026
                            # name; outperformed on 3-Jun per Pareto commentary.
   analyst_target: 94.00    # median of ~6 active analysts (BofA $76 / Jefferies $90 /
                            # Evercore ISI $96 / BTIG $100); Strong Buy consensus
-  consensus_pnav: 0.71    # Pareto 7 Aug 2026, same daily as price
+  consensus_pnav: 0.73    # Pareto 28 Aug 2026, same daily as price
                            # by 0.17). Real Pareto P/NAV 0.70x → broker NAV = 75.60 / 0.70
                            # = $108.0/sh. STNG is far more mark-driven than the stale APPROX
                            # implied; broker NAV now ABOVE VIE NAV ($103.62). See vie_nav_xref.md.
   sector: product          # valued through sectors.product scenarios (METHODOLOGY §11.5)
-  consensus_fwd_pe: 13.0    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-  as_of: 2026-08-07
+  consensus_fwd_pe: 14.0    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
+  as_of: 2026-08-28
 HAFN:
-  current_price: 7.6    # Pareto 7 Aug 2026
+  current_price: 8.3    # Pareto 28 Aug 2026
                            # Pareto price is the US-listed line, 4-Jun print.
   analyst_target: 10.00    # Median 3-broker Wall Street consensus.
                            # Pareto (Haavaldsen): Hold $8.50. MarketBeat $10.00.
-  consensus_pnav: 0.92    # Pareto 7 Aug 2026, same daily as price
+  consensus_pnav: 1.03    # Pareto 28 Aug 2026, same daily as price
                            # 0.05). Real Pareto P/NAV 0.95x → broker NAV = 7.70 / 0.95
                            # = $8.11/sh. ≈ VIE NAV ($8.55). HAFN now a real Pareto print.
   sector: product          # valued through sectors.product (METHODOLOGY §11.5)
-  consensus_fwd_pe: 9.5    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-  as_of: 2026-08-07
+  consensus_fwd_pe: 10.4    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
+  as_of: 2026-08-28
 TRMD:
-  current_price: 29.5    # Pareto 7 Aug 2026
+  current_price: 31.8    # Pareto 28 Aug 2026
   analyst_target: 25.00    # Median of public coverage range $17-34:
                            # Public.com avg $23.33, Evercore raised to $34
                            # (Outperform post-Q1), Yahoo/TipRanks median ~$25
-  consensus_pnav: 0.86    # Pareto 7 Aug 2026, same daily as price
+  consensus_pnav: 0.92    # Pareto 28 Aug 2026, same daily as price
                            # by 0.17). Real Pareto P/NAV 0.83x → broker NAV = 28.20 / 0.83
                            # = $33.98/sh. TRMD far more mark-driven than the stale APPROX
                            # implied; broker NAV now ABOVE VIE NAV ($30.83). See vie_nav_xref.md.
   sector: product          # valued through sectors.product (METHODOLOGY §11.5)
-  consensus_fwd_pe: 9.9    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-  as_of: 2026-08-07
+  consensus_fwd_pe: 10.6    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
+  as_of: 2026-08-28
 ASC:
-  current_price: 17.0    # Pareto 7 Aug 2026
+  current_price: 17.7    # Pareto 28 Aug 2026
                            # the stale price was materially too high; -2% on the week per Pareto).
   analyst_target: 17.95    # median of 9 analysts (range $14.90-$21.00); Public.com / MarketBeat
   consensus_pnav: 0.75    # APPROX retained (no Pareto P/NAV); px + P/E rebased 3 Jul 2026
                            # 4 Jun). Kept at ~75% per aggregator commentary; broker NAV implied
                            # = 16.00 / 0.75 = $21.33/sh. Genuinely unanchored to a Pareto print.
   sector: product          # valued through sectors.product scenarios (METHODOLOGY §11.5)
-  consensus_fwd_pe: 15.5    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
-  as_of: 2026-08-07
+  consensus_fwd_pe: 10.6    # Pareto 28 Aug 2026, same daily (1Y FWD P/E); pnav APPROX flag UNCHANGED (still '-' in the table)
+  as_of: 2026-08-28
 TEN:
   current_price: 37.14     # NYSE close 10 Jun 2026 (Yahoo + stockanalysis.com agree;
                            # prior close $36.92). CORRECTS the $44.00 input error — Q1 6-K
@@ -168,66 +168,64 @@ CMDB:
   as_of: 2026-06-10
 
 SBLK:
-  current_price: 28.6    # Pareto 7 Aug 2026
+  current_price: 30.4    # Pareto 28 Aug 2026
   analyst_target: 34.50        # VIE Coverage Universe (Catlin / Mintzmyer) Bullish $34.50
                                # → 26.8% upside vs price (cross-checks with Pareto P/NAV
                                # implied: $27.20 / 0.82 = $33.17 broker NAV, close to VIE).
-  consensus_pnav: 0.89    # Pareto 7 Aug 2026, same daily as price
+  consensus_pnav: 0.91    # Pareto 28 Aug 2026, same daily as price
                                # is one of three Pareto-anchored dry bulk validators per
                                # METHODOLOGY §11.7.2 — SBLK / GNK / HSHP).
-  consensus_fwd_pe: 7.2    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
+  consensus_fwd_pe: 7.1    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
   sector: dry_bulk
-  as_of: 2026-08-07
+  as_of: 2026-08-28
 
 GNK:
-  current_price: 25.1    # Pareto 7 Aug 2026
-  analyst_target: 28.40        # OWNER-RULED 2026-08-13. This is a BROKER NAV, NOT a
-                               # sell-side price target — read the report's "Analyst target"
-                               # line accordingly. Pareto NAV $28.4/sh (8/06 daily, 0.9x;
-                               # 0.93x in the 8/10 dry cohort), recorded in gnk_log.
-                               # REPLACES the $24.80 Diana tender price. THE TENDER EXPIRED
-                               # 2026-07-24 17:00 NY and Diana did NOT extend or reinstate it
-                               # (Q2 10-Q Item 1A; Genco statement 2026-07-27).
-                               # ** DEAL CAVEAT — REWRITTEN, NOT RETIRED: ** the tape is
-                               # UN-PINNED but still M&A-INFLUENCED. A NON-BINDING INDICATIVE
-                               # PROPOSAL REMAINS LIVE: "$24.80 per share in cash and one Diana
-                               # share" (Genco 2026-07-27). Implied totals are DISPUTED — Diana
-                               # ascribes $2.54 to the share leg ($27.34); Genco cites Diana's
-                               # actual $2.25 close on 07-24 ($27.05). Both float daily with DSX,
-                               # which is why neither anchors this field. Genco's board yardstick
-                               # is full NAV plus a control premium.
-                               # RE-CHECK REGISTERED: the proposal is live and non-binding, so
-                               # this basis can die a SECOND time — either outcome (deal agreed /
-                               # Diana walks) re-points this field. GNK also sits ON its band
-                               # boundary (three label changes in two weeks, band-mech each), so
-                               # do not read the TRIM/SHORT print as thesis deterioration.
-  consensus_pnav: 0.92    # Pareto 7 Aug 2026, same daily as price
+  current_price: 25.8    # Pareto 28 Aug 2026
+  analyst_target: 27.20        # OWNER-RULED 2026-08-29 re-pin (basis ruled 8/13). This is a
+                               # BROKER NAV, NOT a sell-side price target — read the report's
+                               # "Analyst target" line accordingly. IMPLIED from the 8/28
+                               # daily's own pair (25.8 / 0.95 = 27.16), so the whole block is
+                               # ONE vintage; corroborated by Genco's own ~$27.50 NAV claim
+                               # (8/17 open letter, syndicator-sourced) and supersedes the
+                               # 8/06 printed $28.40 (~4% above the fresh cluster).
+                               # ** M&A REGIME ENDED — caveat rewritten 8/29, not deleted: **
+                               # Diana WITHDREW the non-binding proposal 2026-08-14, the 8/24
+                               # board response date lapsed unanswered, and per the 8/29
+                               # digest Diana is now a SELLER of its GNK stake at ~$27. The
+                               # tape is fully un-pinned in BOTH directions; no live proposal,
+                               # no tender. KEEP: GNK sits ON its band boundary (band-mech
+                               # label changes; read_flag inside the ±2% deadband at the 8/28
+                               # tape — a restatement at this rebase is the deadband working,
+                               # not news). Dividend-guidance cross-check owed on
+                               # dividend_policies/gnk.yaml (guided Q3 >$1.00/sh vs
+                               # payout_ratio 1.00 — verify it reproduces, then leave alone).
+  consensus_pnav: 0.95    # Pareto 28 Aug 2026, same daily as price
                                # the second of three Pareto-anchored dry bulk validators
                                # per METHODOLOGY §11.7.2 — SBLK / GNK / HSHP).
-  consensus_fwd_pe: 13.7    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
+  consensus_fwd_pe: 12.3    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
   sector: dry_bulk
-  as_of: 2026-08-07
+  as_of: 2026-08-28
 
 CAPT:
-  current_price: 14.14    # Pareto 7 Aug 2026 (kr 134.2 x 0.105379 Aug-7 FX)
+  current_price: 16.06    # Pareto 28 Aug 2026 (kr 150.4 x 0.106791 Aug-28 FX)
                                # 9.5221 (Yahoo NOK=X, Jun-10). OSLO-LISTED, NOK-quoted —
                                # watchlist carries USD for cross-name comparability; the
                                # daily refresh fetches CAPT.OL and converts (yahoo_symbol
                                # + quote_currency below). 17th name, onboarded 2026-06-11.
   analyst_target: 18.90        # Pareto TP NOK 180 (= YE'26 NAV; BUY since Apr-19
                                # initiation, reiterated May-27 review) / 9.5221.
-  consensus_pnav: 0.71    # Pareto 7 Aug 2026, same daily as price
+  consensus_pnav: 0.72    # Pareto 28 Aug 2026, same daily as price
                                # implied broker NAV = 12.20/0.67 = $18.21 ≈ NOK 173 —
                                # consistent with Pareto's published NAV path 158 (Apr-19)
                                # → 166 (May-27), rising as newbuilds near delivery).
-  consensus_fwd_pe: 22.2    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
+  consensus_fwd_pe: 25.5    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
   sector: crude                # pure crude+LR2 (LR2 crude-routed, FRO precedent §9.3).
   yahoo_symbol: CAPT.OL        # bare "CAPT" on Yahoo is Captivision (Nasdaq) — wrong issuer.
   quote_currency: NOK          # price_refresh converts via NOK=X to USD.
-  as_of: 2026-08-07
+  as_of: 2026-08-28
 
 MPCC:
-  current_price: 2.55    # Pareto 7 Aug 2026 (kr 24.2 x 0.105379 Aug-7 FX)
+  current_price: 2.9    # Pareto 28 Aug 2026 (kr 27.2 x 0.106791 Aug-28 FX)
                                # OSLO-LISTED, NOK-quoted — USD carried for cross-name
                                # comparability (CAPT machinery). Onboarded 2026-06-12.
   analyst_target: 2.63         # Pareto TP NOK 25 (2026-05-28 quarterly review, HOLD,
@@ -240,12 +238,12 @@ MPCC:
                                # company-implied NAV (~NOK 25.5), 11 months stale,
                                # pre-dating the 2026 charter market. WEAK anchor;
                                # /reconcile treats as n/a-APPROX and downweights.
-  consensus_fwd_pe: 8.1    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
+  consensus_fwd_pe: 8.4    # Pareto 28 Aug 2026, same daily (1Y FWD P/E); pnav APPROX flag UNCHANGED
                                # MPC at P/E 8x").
   sector: containerships
   yahoo_symbol: MPCC.OL
   quote_currency: NOK
-  as_of: 2026-08-07
+  as_of: 2026-08-28
 
 GSL:
   current_price: 38.99         # Yahoo GSL close Jun-11-2026 (chart API).
@@ -293,41 +291,52 @@ BRUT:
 # CMB.TECH NV (ex-Euronav) — first crude+dry_bulk+containerships MULTI-SLEEVE
 # hybrid (METHODOLOGY §11.9; MULTI_SLEEVE_TICKERS). Onboarded 2026-06-26.
 CMBT:
-  current_price: 16.4    # Pareto 7 Aug 2026
+  current_price: 18.3    # Pareto 28 Aug 2026
                                # matched price + P/NAV from the same report (TEN-gotcha discipline).
   analyst_target: 16.59        # Consensus PT (MarketBeat ~14 analysts, Jun-2026). Pareto rates it
                                # "deep value" and pegs NAV ~$20/sh (NOK 189) — the bull/NAV anchor.
-  consensus_pnav: 0.85    # Pareto 7 Aug 2026, same daily as price
+  consensus_pnav: 0.86    # Pareto 28 Aug 2026, same daily as price
                                # from a 0.90 APPROX placeholder set at onboarding; CMBT is genuinely
                                # Pareto-covered, the onboarding "no broker NAV" read was wrong).
                                # broker NAV = 14.90/0.74 = $20.14 ≈ Pareto's stated "$20/share" NAV.
                                # Pareto: "sub-0.75x NAV, the lowest priced name in our drybulk
                                # coverage" (tracked monthly: 0.62x Dec-25 → 0.77x May → 0.74x Jun-26).
-  consensus_fwd_pe: 10.2    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
+  consensus_fwd_pe: 10.3    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
   sector: crude                # LEAD sleeve (drives the watchlist default lookup + strip horizon).
                                # Actual valuation = crude + dry_bulk + containerships MULTI-SLEEVE
                                # (MULTI_SLEEVE_TICKERS dispatch, METHODOLOGY §11.9). Chemical /
                                # offshore / FSO / HFS / newbuild book held off-curve.
-  as_of: 2026-08-07
+  as_of: 2026-08-28
 
 # Safe Bulkers Inc. (NYSE: SB) — 4th dry-bulk validator. Onboarded 2026-06-27.
 SB:
-  current_price: 6.39          # Yahoo 2026-06-26 (NYSE, USD). NO Pareto coverage
-                               # (verified: 0 "Safe Bulkers" mentions in 135 2026 dailies).
-  analyst_target: 7.10         # Wall Street consensus PT (~$6.90-7.38 range, Jun-2026).
-  consensus_pnav: 0.88         # APPROX, P/BV proxy — NO Pareto NAV (CMDB convention). Anchored
-                               # to COMMON book per share: total equity $843.2M − $100M preferred
-                               # = $743.2M / 101.83M sh = $7.30 common book. broker NAV = 6.39/0.88
-                               # = $7.26 ≈ common book. SB carries vessels near broker marks, so book
-                               # is a reasonable independent NAV anchor; /reconcile downweights (APPROX,
-                               # SANITY n/a). VIE covers SB but its NAV is paywalled — refresh if obtained.
-  consensus_fwd_pe: 8.0        # APPROX — price / annualised Q1-26 EPS ($0.20 × 4 = $0.80).
+  current_price: 8.52          # Yahoo 2026-08-28 close (NYSE, USD). RE-PINNED at the 8/29
+                               # promote (OWNER-RULED rider) — the 6.39 static (6/26!) had
+                               # the ±30% guard TRIPPED since ~8/25: the edge-cleared long
+                               # was printing EV ~+49% on the stale static vs ~+22% at tape.
+                               # Guard re-based here. SB stays ABSENT from Pareto's table —
+                               # own-basis lane, cannot ride the Pareto sweep.
+  analyst_target: 7.10         # Wall Street consensus PT (~$6.90-7.38 range, Jun-2026) —
+                               # STALE-flagged 8/29 (pre-dates the Q2 beat + 52wk-high run);
+                               # refresh at the next sourced consensus pull. Note the card's
+                               # take-profit is "trim toward the marks (~$10)", not this.
+  consensus_pnav: 1.13         # APPROX, P/BV proxy — NO Pareto NAV (CMDB convention),
+                               # RECOMPUTED 8/29 with the price leg (pair discipline):
+                               # Q2-2026 shareholders' equity $870.276M (6-K acc
+                               # 0001317861-26-000037, Table 3, 6/30 column) − $100.0M
+                               # preferred = $770.276M / 101,833,473 sh = $7.564 common
+                               # book; 8.52 / 7.564 = 1.13. SB now trades ABOVE book (was
+                               # 0.88x at the 6/26 pin) — the Q2 beat + dividend raise +
+                               # 52wk-high run is a real re-rating, not a proxy artifact.
+                               # /reconcile keeps downweighting (APPROX, SANITY n/a).
+  consensus_fwd_pe: 6.5        # APPROX — price / annualised Q2-26 EPS ($0.33 × 4 = $1.32;
+                               # same convention as the Q1 pin; headline EPS, Table on p.1).
   sector: dry_bulk
-  as_of: 2026-06-26
+  as_of: 2026-08-28
 
 # Dorian LPG Ltd. (NYSE: LPG) — 1st LPG/VLGC validator (WO3 Phase 4). Onboarded 2026-07-10.
 LPG:
-  current_price: 44.4    # Pareto 7 Aug 2026
+  current_price: 49.3    # Pareto 28 Aug 2026
                                # "Dorian LPG $36.0" (USD, NYSE). Same-vintage pair below.
                                # NOTE: the 3-Jul row was missing from pareto_share_prices.csv
                                # (parser gap — CSV's last LPG row is Jun-11); re-extracted
@@ -335,15 +344,15 @@ LPG:
   analyst_target: 54.00        # Pareto TP $54 ("55 ex-div"), BUY, 3 Jul 2026 research note
                                # ("Recent weakness offers attractive entry at 0.8x NAV";
                                # ~1.1x YE NAV). Supersedes the Nov-2025 HOLD/TP $30.
-  consensus_pnav: 0.96    # Pareto 7 Aug 2026, same daily as price
-  consensus_fwd_pe: 12.2    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
+  consensus_pnav: 1.06    # Pareto 28 Aug 2026, same daily as price
+  consensus_fwd_pe: 12.9    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
   sector: lpg
-  as_of: 2026-08-07
+  as_of: 2026-08-28
 
 # BW LPG Limited (Oslo primary BWLP, NYSE secondary) — 2nd LPG/VLGC validator (WO3 Phase 4).
 # Onboarded 2026-07-10. Oslo NOK-quoted; USD carried (MPCC/BRUT convention).
 BWLP:
-  current_price: 21.77    # Pareto 7 Aug 2026 (kr 206.6 x 0.105379 Aug-7 FX)
+  current_price: 24.18    # Pareto 28 Aug 2026 (kr 226.4 x 0.106791 Aug-28 FX)
                                # x 0.101838 (the repo's Jul-3 NOK->USD FX, same vintage
                                # as the MPCC/BRUT Jul-3 rebase). NYSE line cross-check:
                                # $19.06 close Jul-9 (Yahoo) — consistent.
@@ -351,47 +360,50 @@ BWLP:
                                # TP in the corpus) x 0.101838. Pareto NAV re-pegged NOK 171
                                # on 2026-05-13; no fresher TP print found at onboarding —
                                # refresh at the next BWLP research note.
-  consensus_pnav: 1.13    # Pareto 7 Aug 2026, same daily as price
-  consensus_fwd_pe: 11.6    # Pareto 7 Aug 2026, same daily (1Y FWD P/E)
+  consensus_pnav: 1.27    # Pareto 28 Aug 2026, same daily as price
+  consensus_fwd_pe: 11.8    # Pareto 28 Aug 2026, same daily (1Y FWD P/E)
   sector: lpg
   yahoo_symbol: BWLPG.OL       # daily feed reads the Oslo line (Oslo ticker is
                                # BWLPG, not the NYSE's BWLP — fixed 2026-07-12
                                # after 3 runs of FETCH-FAILED on BWLP.OL 404s)...
   quote_currency: NOK          # ...and price_refresh converts via NOK=X to USD.
-  as_of: 2026-08-07
+  as_of: 2026-08-28
 
 # Pacific Basin Shipping (HKEX: 2343) — 5th dry-bulk name; Stage-3 intake survivor
 # (governance dry-bulk funnel). Onboarded 2026-07-14. FIRST HKEX name (hkex_poll F-3
 # adapter; semi-annual reporter — balance-sheet vintage 31-Dec-2025, manifest header).
 "2343":
-  current_price: 0.390         # Yahoo 2343.HK close 2026-07-14 HK$3.06 x 0.12759
-                               # (HKDUSD=X same day). HKD-quoted; USD carried
-                               # (CAPT/MPCC/BRUT convention). Mkt cap ~US$2.02B.
+  current_price: 0.5326        # Yahoo 2343.HK close 2026-08-28 HK$4.175 x 0.12756
+                               # (prices_daily 8/28 vintage). RE-PINNED at the 8/29
+                               # promote — the 0.390 static (7/14) had the ±30% guard
+                               # TRIPPED since 8/18 (stale-static fallback; the 8/16
+                               # ratify's band-EXIT and the 8/25-8/29 HOLD prints were
+                               # the MECHANISM, not the market). Guard re-based here.
+                               # HKD-quoted; USD carried (CAPT/MPCC/BRUT convention).
   analyst_target: 0.443        # stockanalysis.com avg target HK$3.47 (7 analysts,
                                # updated 2026-06-12, consensus Buy; range 3.25-3.80)
                                # x 0.12759. Aggregator-consensus, not Pareto.
-  consensus_pnav: 0.91         # DERIVED 2026-08-13, not pasted: promoted_price / NAV/sh
-                               # = 0.390 / 0.4297. APPROX — no Pareto coverage (no HK names).
-                               # BASIS: ISSUER-COMPOSITE NAV re-derived at the 2026 INTERIM
-                               # (HKEX doc 12275567_2026080601217, 2026-08-06): "the estimated
-                               # market value of our owned fleet was about US$2,070.6 million"
-                               # at 30-Jun-2026. NAV = 2,070.6 fleet + 206.530 cash + 85.838 WC
-                               # − 49.309 debt − 93.957 leases = US$2,219.7M / 5,165.247803M sh
-                               # = $0.4297/sh. Legs are the LANDED 2026-Q2 sheet (same filing),
-                               # so fleet value and balance sheet share one 30-Jun vintage.
-                               # SUPERSEDES the Dec-2025 AR2025 basis ($1,958.3M -> $0.3997/sh,
-                               # pnav 0.98): fleet +5.7%, NAV/sh +7.5%. Landed inside the old
-                               # comment's own forecast ("~0.87-0.9") — a reproduction check.
-                               # NOTE the Interim gives a SINGLE AGGREGATE; AR2025 gave per-class
-                               # values, so a future per-class refinement needs AR2026 (~Mar-2027)
-                               # — which is also the next re-derivation venue. The "Re-derive at
-                               # the 2026 Interim" trigger is SPENT. Price leg stays 2026-07-14
-                               # (2343 is absent from Pareto's table); recompute this ratio from
-                               # the price whenever the price moves — never edit it alone.
-  consensus_fwd_pe: 13.0       # APPROX — price $0.390 / FY2026 consensus EPS US$0.03
-                               # (stockanalysis, S&P Global-sourced, 7 analysts, 2-dp
-                               # precision only; accessed 2026-07-14).
+  consensus_pnav: 1.24         # DERIVED 2026-08-29, never pasted: promoted_price / NAV/sh
+                               # = 0.5326 / 0.4297. APPROX — no Pareto coverage (no HK names).
+                               # BASIS UNCHANGED: issuer-composite NAV $0.4297/sh (2026 Interim,
+                               # 30-Jun — fleet US$2,070.6M + the Q2 sheet legs / 5,165.247803M
+                               # sh). The month-long HKG rally moved the name from a 9% discount
+                               # to a ~24% PREMIUM over issuer NAV — a REAL read change the
+                               # stale static was hiding. PER-CLASS RESOLUTION LANDED EARLY
+                               # (Interim REPORT 8/21, hkex-12293993): Handysize 58 / $952.6M ·
+                               # Supra-Ultra 48 / $1,100.0M · Cape-bareboat 1 / $18.0M = the
+                               # SAME $2,070.6M aggregate, ex-NBs — the "needs AR2026
+                               # (~Mar-2027)" deferral is RETIRED; per-class refinement is now
+                               # sourceable any time. RE-DERIVATION RIDER: the H1 buyback
+                               # (~9.5M sh for ~$3.5M, programme to $40M) — VERIFY whether
+                               # 5,165.247803M is the 30-Jun post-buyback count before the
+                               # next re-derivation; recompute the ratio, never edit it alone.
+  consensus_fwd_pe: 17.8       # APPROX — price $0.5326 / FY2026 consensus EPS US$0.03
+                               # (stockanalysis 7/14 estimate leg UNCHANGED, 2-dp precision;
+                               # recomputed 8/29 because the PRICE leg moved — holding the
+                               # old ratio would pair a new price with an old-price-derived
+                               # P/E, the exact mixing the pair rule bans).
   sector: dry_bulk
   yahoo_symbol: 2343.HK        # HKEX line; daily feed converts via HKD=X
   quote_currency: HKD
-  as_of: 2026-07-14
+  as_of: 2026-08-28
