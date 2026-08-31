@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-31T18:22:13+00:00
-- **Previous run:** 2026-08-31T17:10:22+00:00
+- **This run:** 2026-08-31T18:47:26+00:00
+- **Previous run:** 2026-08-31T18:22:13+00:00
 
 ## Headline changes (material moves)
 
@@ -20,10 +20,10 @@
 _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the price this run values at to the nearest band edge whose crossing would settle the flip — i.e. where the read would sit once the watchlist rebases to today's tape. It is NOT a scorecard number and never governs: `read_flag` and the deadband are measured on the watchlist vintage (`Row margin`), the same price the read itself is computed on (Addendum B2, 2026-08-14). The two differ by exactly the drift between the two vintages._
 ## Input files changed since last run
 
-- `inputs/archive_gaps.yaml` (modified)
-- `inputs/data_sources.yaml` (modified)
-- `inputs/market_data/ffa_forward_curve.yaml` (modified)
-- `inputs/market_data/twelve_month_tc.yaml` (modified)
+- `inputs/balance_sheets/mpcc_2026-Q2.yaml` (new)
+- `inputs/earnings_calendar.yaml` (modified)
+- `inputs/fleet_manifests/mpcc.yaml` (modified)
+- `inputs/market_data/spot_tce.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -46,7 +46,7 @@ _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the p
 | SBLK | $30.48 (no change) | $32.46 (no change) | $28.74 (no change) | $32.88 (no change) | TRIM/SHORT (overvalued) | +1.6pp (no change) |
 | GNK | $25.88 (no change) | $25.02 (no change) | $21.66 (no change) | $25.12 (no change) | TRIM/SHORT (overvalued) | +6.4pp (no change) |
 | CAPT | $16.46 (no change) | $15.10 (no change) | $16.02 (no change) | $15.48 (no change) | HOLD (fairly valued) | +41.5pp (no change) |
-| MPCC | $2.85 (no change) | $2.22 (no change) | $2.07 (no change) | $2.05 (no change) | TRIM/SHORT (overvalued) | +19.2pp (no change) |
+| MPCC | $2.85 (no change) | $2.29 (+3.2%) | $2.15 (+3.9%) | $2.10 (+2.4%) | TRIM/SHORT (overvalued) | +17.7pp (-1.5pp) |
 | GSL | $44.52 (no change) | $44.02 (no change) | $42.88 (no change) | $41.20 (no change) | HOLD (fairly valued) | +31.8pp (no change) |
 | BRUT | $4.94 (no change) | $4.70 (no change) | $5.12 (no change) | $4.92 (no change) | HOLD (fairly valued) | -2.2pp (no change) |
 | CMBT | $18.35 (no change) | $15.83 (no change) | $13.87 (no change) | $16.50 (no change) | TRIM/SHORT (overvalued) | +21.3pp (no change) |

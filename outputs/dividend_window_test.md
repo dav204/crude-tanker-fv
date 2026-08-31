@@ -26,7 +26,7 @@ one-way bullish override — audit E-3.)
 | HAFN | · | 1.49× | +2.74 | — | 8.0 | n/a (gate) |
 | INSW | · | 2.71× | +62.73 | — | 6.2 | n/a (gate) |
 | LPG | · | 1.38× | +13.61 | — | 7.0 | n/a (gate) |
-| MPCC | · | 1.41× | +0.85 | — | 8.8 | n/a (gate) |
+| MPCC | · | 1.38× | +0.80 | — | 8.9 | n/a (gate) |
 | SB | · | 0.80× | -2.13 | — | 8.0 | n/a (gate) |
 | SBLK | · | 0.92× | -2.48 | — | 8.0 | n/a (gate) |
 | STNG | · | 1.02× | +1.18 | — | 8.0 | n/a (gate) |

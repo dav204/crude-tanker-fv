@@ -2,7 +2,7 @@
 
 > **Price basis: 2 of 25 prices are STATIC-FALLBACK** (oldest as-of 2026-08-28): 2343, SB. Those rows value the book at watchlist statics, not the tape — treat their Price/Upside as stale.
 
-> **Balance-sheet basis: 8 of 25 names on a pre-2026-Q2 vintage:** BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), FRO (2026-Q1), HAFN (2026-Q1), MPCC (2026-Q1), NAT (2026-Q1), TEN (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
+> **Balance-sheet basis: 7 of 25 names on a pre-2026-Q2 vintage:** BWLP (2026-Q1), CAPT (2026-Q1), CMBT (2026-Q1), FRO (2026-Q1), HAFN (2026-Q1), NAT (2026-Q1), TEN (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
 
 > **Rate basis:** Supra-Ultra 2027+2028 strip legs HELD at the 13-Jul synthesis (Cal-27 14,175): the Smax Cal27 row is cropped from every capture of the new source (Chris.Palun, 2026-07-20 →) — front (q1/q2/12M/spot) IS the 06-Aug print (ffa_promotion_2026-08-09.md). NEW: the 06-Aug capture PRINTS Smax Q1-27 14,325 vs the held q3 15,075 — the held year reads ~5% RICH (one-sided disclosure). Held-node bracket retires at the first capture showing Smax Cal27 (owner channel-ask staged). Handy-Bulk derived row inherits the same mix via the x0.90 identity.
 
@@ -48,7 +48,7 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | CCEC | lng | GOVERNED-WIDE · structural-class | $22.72 | $33.70 | 16.27–47.20 | +48% | BUY (undervalued) | $29.97 | $25.70 | $25.24 (apx) | +2% | n-a | ready | stable |
 | FLNG | lng | GOVERNED-WIDE · structural-class | $31.48 | $29.47 | 19.34–38.00 | -6% | TRIM/SHORT (overvalued) | $27.01 | $27.22 | $21.86 | +25% | OK | ready | stable |
 | GSL | containerships | GOVERNED-WIDE · structural-class | $44.52 | $42.88 | 38.58–46.64 | -4% | HOLD (fairly valued) | $44.02 | $41.20 | $59.36 (apx) | -31% | n-a | ready | — |
-| MPCC | containerships | GOVERNED-WIDE · structural-class | $2.85 | $2.07 | 1.69–2.21 | -28% | unreliable read (not actionable) | $2.22 | $2.05 | $2.74 (apx) | -25% | n-a | ready | — |
+| MPCC | containerships | GOVERNED-WIDE · structural-class | $2.85 | $2.15 | 1.78–2.28 | -25% | unreliable read (not actionable) | $2.29 | $2.10 | $2.74 (apx) | -23% | n-a | ready | — |
 | HAFN | product | PROVISIONAL · pool-gross-up-pending ⛔ | $8.47 | $6.56 | 4.01–8.86 | -23% | rich · cycle position (not a short) | $5.71 | $5.56 | $8.22 | -32% | OK | **NO** | stable |
 | STNG | product | PROVISIONAL · off-curve ⛔ | $78.03 | $76.73 | 56.46–92.63 | -2% | HOLD (fairly valued) | $72.23 | $76.22 | $106.89 | -29% | OK | **NO** | stable |
 | BWLP | lpg | PROVISIONAL · v1-lock-miss ⛔ | $24.05 | $14.46 | 10.82–18.27 | -40% | rich · cycle position (not a short) | $15.43 | $15.80 | $18.94 | -17% | OK | **NO** | stable |
@@ -94,7 +94,7 @@ Every covered name on ONE consistent, validated machine. **The product is the *b
 | CCEC | lng | GOVERNED-WIDE | structural-unavailable | 0.89× | no anchor→cheap | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | FLNG | lng | GOVERNED-WIDE | structural-unavailable | 1.15× | no anchor→cheap | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | GSL | containerships | GOVERNED-WIDE | structural-unavailable | 0.95× | no anchor→cheap | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
-| MPCC | containerships | GOVERNED-WIDE | structural-unavailable | 1.41× | no anchor→newbuild-heavy (unreliable) | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
+| MPCC | containerships | GOVERNED-WIDE | structural-unavailable | 1.38× | no anchor→newbuild-heavy (unreliable) | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: structural-unavailable |
 | BWLP | lpg | PROVISIONAL ⛔ | pending-sourceable | 1.53× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: pending-sourceable |
 | LPG | lpg | PROVISIONAL ⛔ | pending-sourceable | 1.38× | no anchor→rich | n/a | *blocked* | *blocked* | *blocked* | *blocked* | n/a | unvalidated | pending | pending | NAV basis: pending-sourceable |
 

@@ -37,7 +37,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | ASC | product | $17.37 | $17.70 | 1.019× | n/a | — | 7.2% | 0.621× | no anchor → rich | n/a |
 | TEN **(WHOLE-CO)** | crude | $88.16 | $37.14 | 0.421× | n/a | — | 12.1% | 1.106× | no anchor → cheap | n/a |
 | CAPT | crude | $15.48 | $16.06 | 1.037× | 11.1% | — | 10.8% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
-| MPCC | containerships | $2.05 | $2.90 | 1.414× | n/a | — | 49.3% | — | no anchor → newbuild-heavy (unreliable) | n/a |
+| MPCC | containerships | $2.10 | $2.90 | 1.378× | n/a | — | 46.0% | — | no anchor → newbuild-heavy (unreliable) | n/a |
 | GSL | containerships | $41.20 | $38.99 | 0.946× | n/a | — | 47.8% | 4.877× | no anchor → cheap | n/a |
 | BRUT | crude | $4.92 | $4.70 | 0.955× | 10.9% | — | 10.0% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | CMBT **(WHOLE-CO)** | crude | $16.50 | $18.30 | 1.109× | n/a | — | 7.0% | 0.595× | no anchor → rich | n/a |

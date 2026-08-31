@@ -7,6 +7,24 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-08-31T18:47:26+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $2.85
+- Single-point FV: $2.29
+- Scenario PW FV: $2.15 (EV -24.8%)
+- NAV / share: $2.10
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +17.7pp (k_broker 1.19)
+- Sector: containerships
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +3.2% | Δscenario FV: +3.9% | ΔNAV: +2.4% | Δspread: -1.5pp
+
+**Decision:** Q2/H1 REFRESH REGEN (this run) — NAV $2.05→$2.10 INSIDE the prereg band [1.90,2.30], predicted 2.09-2.12; EV −27.5→−24.8pp; TRIM/SHORT + POSITION_UNRELIABLE stand; forward invariance 0.0 on 24 names. Full verification block + halt-condition scorecard in the dated 2026-08-31 refresh entry below. Gate row (+2.7pp EV / +2.4% NAV) = the snapshot advance, EXPLAINED; rides the next owner ratify.
+
+---
+
 ## 2026-08-31 — Q2/H1 REFRESH EXECUTED (the queued 8/26 print; prereg mpcc_h1_prereg_2026-08-13 + 8/18 amendment)
 
 **Pre-regen verification block (written BEFORE the pipeline run — the post-hoc
@@ -51,7 +69,16 @@ Clementina 2006/$24.0M · Alva 2008/$22.3M · Selina 2012/$24.3M · Angelina
 Selina is 2012-built (youngest sold, charter-attached) — the manifest cohort
 age was wrong, not the market.
 
-_Regen result appended below after the run._
+**Decision:** REGEN VERIFIED — NAV/sh $2.05 → **$2.10**, INSIDE the registered
+band [1.90, 2.30] and on the predicted $2.09-2.12 point (balance-sheet legs
++$0.21/sh, fleet legs −$0.16/sh net). EV −27.5% → −24.8%, position TRIM/SHORT
+UNCHANGED (POSITION_UNRELIABLE holds), k_broker 1.20 → 1.19. Forward
+invariance: the other 24 names delta 0.0 (delta report: no material changes).
+The gate's +2.7pp EV / +2.4% NAV row = THIS refresh (Q1→Q2 snapshot advance,
+prereg-verified) — explained here, rides the next owner ratify. Tier
+GOVERNED-WIDE·structural-class stands; nothing here makes MPCC actionable.
+Fleet walk for the record: sold trio out (−3 hulls), Selina re-age +4 years of
+curve value, ages +0.5, NB ytd −0.25; sheet legs per the pair commit a901315.
 
 ---
 

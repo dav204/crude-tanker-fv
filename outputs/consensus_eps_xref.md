@@ -28,8 +28,8 @@ The **earnings-leg analog of the broker-NAV sweep** (METHODOLOGY §9.11 / §9.9)
 | STNG | product | $77.40 | 14.0× | $5.53 | $9.68 | 8.0× | +75% | 7.1% | 1.81× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | FLNG | lng | $31.30 | 14.6× | $2.14 | $3.74 | 8.4× | +74% | 6.8% | 0.71× (below-mid) | 0.60 | earnings-driven (tool>cons) |
 | SB | dry_bulk | $8.52 | 6.5× | $1.31 | $2.14 | 4.0× | +63% | 15.4% | 1.62× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
+| MPCC | containerships | $2.90 | 8.4× | $0.35 | $0.55 | 5.3× | +59% | 11.9% | 1.32× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | BWLP | lpg | $24.18 | 11.8× | $2.05 | $3.23 | 7.5× | +58% | 8.5% | 1.59× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
-| MPCC | containerships | $2.90 | 8.4× | $0.35 | $0.54 | 5.4× | +57% | 11.9% | 1.32× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | SBLK | dry_bulk | $30.40 | 7.1× | $4.28 | $6.56 | 4.6× | +53% | 14.1% | 1.47× (elevated) | 0.40 | earnings-driven (tool>cons) |
 | GSL | containerships | $38.99 | 3.8× | $10.26 | $14.08 | 2.8× | +37% | 26.3% | 1.51× (late-cycle/peak) | 0.30 | earnings-driven (tool>cons) |
 | LPG | lpg | $49.30 | 12.9× | $3.82 | $4.36 | 11.3× | +14% | 7.8% | 1.59× (late-cycle/peak) | 0.30 | earnings-aligned |
