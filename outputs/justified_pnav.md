@@ -24,9 +24,9 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | GNK | dry_bulk | $25.12 | $25.80 | 1.027× | 12.3% | 1.134× | 11.2% | 1.019× | cheap → fair | flips (cheap/fair) |
 | 2343 | dry_bulk | $0.41 | $0.53 | 1.309× | 12.0% | 1.100× | 12.6% | 1.158× | rich → rich | robust |
 | TNK | crude | $84.60 | $88.20 | 1.043× | 6.9% | 0.589× | 8.2% | 0.716× | rich → rich | robust |
-| DHT | crude | $15.01 | $19.40 | 1.293× | 9.1% | 0.808× | 8.5% | 0.747× | rich → rich | robust |
-| FRO | crude | $26.04 | $43.80 | 1.682× | 9.5% | 0.850× | 8.7% | 0.769× | rich → rich | robust |
-| ECO | crude | $39.54 | $66.30 | 1.677× | 6.7% | 0.571× | 5.6% | 0.456× | rich → rich | robust |
+| DHT | crude | $15.01 | $19.40 | 1.293× | 9.1% | 0.807× | 8.5% | 0.747× | rich → rich | robust |
+| FRO | crude | $26.04 | $43.80 | 1.682× | 9.5% | 0.849× | 8.7% | 0.769× | rich → rich | robust |
+| ECO | crude | $39.54 | $66.30 | 1.677× | 6.7% | 0.570× | 5.6% | 0.456× | rich → rich | robust |
 | NAT | crude | $2.76 | $6.80 | 2.461× | 13.3% | 1.230× | 9.9% | 0.894× | rich → rich | robust |
 | INSW **(WHOLE-CO)** | crude | $54.64 | $99.30 | 1.817× | n/a | — | 9.7% | 0.873× | no anchor → rich | n/a |
 | FLNG | lng | $27.22 | $31.30 | 1.150× | n/a | — | 15.3% | 1.479× | no anchor → cheap | n/a |
@@ -36,7 +36,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | TRMD | product | $32.30 | $31.80 | 0.984× | n/a | — | 7.4% | 0.641× | no anchor → rich | n/a |
 | ASC | product | $17.37 | $17.70 | 1.019× | n/a | — | 7.2% | 0.621× | no anchor → rich | n/a |
 | TEN **(WHOLE-CO)** | crude | $88.16 | $37.14 | 0.421× | n/a | — | 12.1% | 1.106× | no anchor → cheap | n/a |
-| CAPT | crude | $15.48 | $16.06 | 1.037× | 11.1% | — | 10.8% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
+| CAPT | crude | $17.32 | $16.06 | 0.927× | 11.4% | — | 11.1% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | MPCC | containerships | $2.10 | $2.90 | 1.378× | n/a | — | 46.0% | — | no anchor → newbuild-heavy (unreliable) | n/a |
 | GSL | containerships | $41.20 | $38.99 | 0.946× | n/a | — | 47.8% | 4.877× | no anchor → cheap | n/a |
 | BRUT | crude | $4.92 | $4.70 | 0.955× | 10.9% | — | 10.0% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
@@ -49,7 +49,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | Sector | Median Just P/NAV (parity) | Median (historical) | n |
 |---|--:|--:|--:|
 | dry_bulk | 1.113× | 0.927× | 5 |
-| crude | 0.808× | 0.758× | 5 |
+| crude | 0.807× | 0.758× | 5 |
 
 _The two columns ARE the signal: where parity ≫ historical, the sector reads cheaper under replacement economics than under its (boom/firm-window-biased) historical anchor — the §18 under-ordering. The §17.6 anchor-bias caveats apply to the historical column only; parity is independent of those biases (it is built from newbuild cost, not a rate-history window)._
 
@@ -65,7 +65,7 @@ _The headline vector covers the COMPOSABLE sectors only (crude / product / dry_b
 | RONAV_norm \ g | g=0% | g=1% | g=2% |
 |---|--:|--:|--:|
 | 7.1% | 0.64× | 0.61× | 0.56× |
-| 9.1% | 0.83× | 0.81× | 0.79× |
+| 9.1% | 0.82× | 0.81× | 0.79× |
 | 11.1% | 1.01× | 1.01× | 1.01× |
 
 **dry_bulk** (base RONAV_norm 12.1%)

@@ -13,7 +13,7 @@ one-way bullish override — audit E-3.)
 | ASC | · | 1.02× | +0.33 | — | 8.0 | n/a (gate) |
 | BRUT | · | 0.96× | -0.22 | — | 8.0 | n/a (gate) |
 | BWLP | · | 1.53× | +8.35 | — | 7.0 | n/a (gate) |
-| CAPT | · | 1.04× | +0.58 | — | 6.8 | n/a (gate) |
+| CAPT | · | 0.93× | -1.26 | — | 6.9 | n/a (gate) |
 | CCEC | · | 0.89× | -2.90 | — | 0.9 | n/a (gate) |
 | CMBT | · | 1.11× | +1.80 | — | 7.4 | n/a (gate) |
 | CMDB | · | 0.54× | -14.95 | — | 8.0 | n/a (gate) |

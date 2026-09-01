@@ -4,7 +4,8 @@
 # quarter-2026-financial-results.pdf — Unaudited Condensed Consolidated Statement
 # of Financial Position p.13 + Newbuilding CAPEX Schedule p.8-9). USD'000.
 # Refresh executed per the FROZEN prereg decisions/capt_h1_prereg_2026-08-31.md.
-# SUBSEQUENT EVENTS (note audited FIRST — conditions 1+2 verified): M/T Athinagoras
+# SUBSEQUENT EVENTS (note audited FIRST — conditions 1+2 checked against the release's
+# Subsequent Event Highlights p.9-10): M/T Athinagoras
 # (LR2) delivered 8/06 + $50.0M senior secured; M/T Aristodimos (Suezmax) delivered
 # 8/13 + $67.5M SLB — both OUT of this snapshot exactly as registered ($117.5M
 # drawn subsequent = 50.0 + 67.5, ties the highlights). The prereg's digest-sourced
@@ -41,8 +42,10 @@ total_debt: 520836000                # statement carrying: long-term 493,111 +
 lease_liabilities: 0                 # NO lease line on the statement — the three
                                      # SLBs (Aristoklis 64.5 / Archelaos 67.5 /
                                      # [subsequent] Aristodimos 67.5) are financial
-                                     # liabilities inside borrowings (ECO precedent;
-                                     # prereg condition 2 verified)
+                                     # liabilities inside borrowings per the release's
+                                     # per-vessel financing prose p.5-6 + the statement
+                                     # itself, which prints no lease caption (ECO
+                                     # precedent; prereg condition 2)
 
 # 20 newbuildings at 6/30 (18 under construction at the report date + the 2
 # August-delivered hulls whose final instalments were due Q3): per-vessel

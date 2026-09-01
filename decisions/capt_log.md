@@ -1,5 +1,45 @@
 # CAPT — Decision Log
 
+## 2026-09-01T13:46:15+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.46
+- Single-point FV: $16.95
+- Scenario PW FV: $17.56 (EV +6.7%)
+- NAV / share: $17.32
+- Position: **BUY (undervalued)**
+- Broker spread: +31.2pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** HALT-INVESTIGATION RESOLVED, print ACCEPTED — NAV $15.48→$17.32 landed $0.02 (0.1%) ABOVE the frozen band [14.70,17.30]. Decomposition (capt_fv_report bridge, ties exactly): BS legs −$256.2M; fleet +$501.4M, of which the June 3-contract acquisition contributes ≈ +$229M (+$1.71/sh) = 3 × VLCC age-0 curve $184.2M × PV(1.25) − $256.2M remaining commitment. THE INPUT IS CORRECT (contract price filing-cited; the curve is the standing ratified txn-anchored level) — what broke was the prereg's '≈ NAV-neutral if bought at market' assumption: the trio was bought at locked 2025 CONTRACT pricing, ~$65M/hull below the war-market curve mark (direction corroborated by the issuer's own 8/18 appraisals pricing the sister options $253.7M in the money). §5-breach-accepted pattern: annotated, not re-tuned. CONDITION 5 ENFORCED: the HOLD→BUY band flip is RECORDED-NOT-ACTIONABLE — POSITION_UNRELIABLE holds (verdict renders 'unreliable read'), no void retires outside R4; the crude family sidecar re-ran at the new tape: CAPT reads WEIGHT-DRIVEN (+6.7% BUY Set A ↔ −21.2% TRIM at the conservative brackets — sign-flips across weight sets, the void's substance visible in the diagnostic). k_broker 1.26→1.17 (spread narrows toward Pareto as our NB book absorbs the acquisition value they carried via options). Gate row (+9.4pp EV / +11.9% NAV / band-mech / k) = THIS refresh, EXPLAINED; rides the next owner ratify. Stage-B capture + full walk in the dated 2026-09-01 refresh entry below.
+
+---
+
+## 2026-09-01T13:44:11+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.46
+- Single-point FV: $16.95
+- Scenario PW FV: $17.56 (EV +6.7%)
+- NAV / share: $17.32
+- Position: **BUY (undervalued)**
+- Broker spread: +31.2pp (k_broker 1.17)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- ⚑ single-point FV +12.3%
+- ⚑ broker spread -10.3pp
+- ⚑ NAV/sh +11.9%
+- Δprice: no change | Δsingle FV: +12.3% | Δscenario FV: +9.6% | ΔNAV: +11.9% | Δspread: -10.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-01 — H1/Q2 REFRESH EXECUTED (the 9/01 pre-open print; prereg capt_h1_prereg_2026-08-31 FROZEN the night before — verification block written BEFORE the regen)
 
 **Print:** landed exactly on the re-verified schedule (pre-open Oslo, poller

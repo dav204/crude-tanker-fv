@@ -149,13 +149,13 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   CAPT:
-    ev_min_pct: -29.4
-    ev_max_pct: -2.7
-    ev_sign_stable: true
+    ev_min_pct: -21.2
+    ev_max_pct: 6.7
+    ev_sign_stable: false
     positions:
+    - BUY
+    - BUY
     - HOLD
-    - HOLD
-    - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT
     - TRIM/SHORT

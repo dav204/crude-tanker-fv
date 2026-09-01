@@ -6,7 +6,7 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 |---|--:|--:|--:|--:|--:|---|--:|--:|---|
 | TEN | 0.34× | 1.30 | +47.4% | +74.6% | +101.9% | BUY→BUY | NAV>px→NAV>px | +54 | wide-spread |
 | CCEC | 0.90× | 1.00 | +48.3% | +47.4% | +46.4% | BUY→BUY | NAV>px→NAV>px | -2 | narrow-spread |
-| CAPT | 0.72× | 1.26 | -2.7% | +18.1% | +38.9% | HOLD→BUY | $207,425→NAV>px | +42 | wide-spread |
+| CAPT | 0.72× | 1.17 | +6.7% | +22.3% | +37.8% | BUY→BUY | $63,532→NAV>px | +31 | wide-spread |
 | STNG | 0.73× | 1.50 | -1.7% | +16.6% | +34.9% | HOLD→BUY | $81,099→NAV>px | +37 | wide-spread |
 | GSL | 0.75× | 1.38 | -3.7% | +12.2% | +28.1% | HOLD→BUY | $106,820→NAV>px | +32 | wide-spread |
 | ASC | 0.75× | 1.31 | -5.7% | +8.6% | +22.8% | TRIM/SHORT→BUY | $28,607→NAV>px | +28 | wide-spread |

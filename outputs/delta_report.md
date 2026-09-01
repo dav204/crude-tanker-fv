@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-08-31T19:22:44+00:00
-- **Previous run:** 2026-08-31T19:06:39+00:00
+- **This run:** 2026-09-01T13:46:15+00:00
+- **Previous run:** 2026-09-01T13:44:11+00:00
 
 ## Headline changes (material moves)
 
@@ -20,10 +20,7 @@
 _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the price this run values at to the nearest band edge whose crossing would settle the flip — i.e. where the read would sit once the watchlist rebases to today's tape. It is NOT a scorecard number and never governs: `read_flag` and the deadband are measured on the watchlist vintage (`Row margin`), the same price the read itself is computed on (Addendum B2, 2026-08-14). The two differ by exactly the drift between the two vintages._
 ## Input files changed since last run
 
-- `inputs/balance_sheets/hafn_2026-Q2.yaml` (modified)
-- `inputs/balance_sheets/mpcc_2026-Q2.yaml` (modified)
-- `inputs/fleet_manifests/hafn.yaml` (modified)
-- `inputs/market_data/newbuild_specs.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 
@@ -45,7 +42,7 @@ _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the p
 | CMDB | $20.52 (no change) | $21.48 (no change) | $19.53 (no change) | $32.20 (no change) | HOLD (fairly valued) | +2.4pp (no change) |
 | SBLK | $30.48 (no change) | $32.46 (no change) | $28.74 (no change) | $32.88 (no change) | TRIM/SHORT (overvalued) | +1.6pp (no change) |
 | GNK | $25.88 (no change) | $25.02 (no change) | $21.66 (no change) | $25.12 (no change) | TRIM/SHORT (overvalued) | +6.4pp (no change) |
-| CAPT | $16.46 (no change) | $15.10 (no change) | $16.02 (no change) | $15.48 (no change) | HOLD (fairly valued) | +41.5pp (no change) |
+| CAPT | $16.46 (no change) | $16.95 (no change) | $17.56 (no change) | $17.32 (no change) | BUY (undervalued) | +31.2pp (no change) |
 | MPCC | $2.85 (no change) | $2.29 (no change) | $2.15 (no change) | $2.10 (no change) | TRIM/SHORT (overvalued) | +17.7pp (no change) |
 | GSL | $44.52 (no change) | $44.02 (no change) | $42.88 (no change) | $41.20 (no change) | HOLD (fairly valued) | +31.8pp (no change) |
 | BRUT | $4.94 (no change) | $4.70 (no change) | $5.12 (no change) | $4.92 (no change) | HOLD (fairly valued) | -2.2pp (no change) |
