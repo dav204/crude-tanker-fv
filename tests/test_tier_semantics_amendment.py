@@ -406,4 +406,4 @@ def test_scorecard_surface_is_unchanged_by_the_strobe(tmp_path: Path):
         "the handoff JSON gained a per-name field — the tape margin belongs to the monitor layer"
     # the row's margin is still the VINTAGE one (nothing swapped a tape number in under the name)
     by = {n["ticker"]: n for n in fresh_json["names"]}
-    assert by["SBLK"]["flip_margin_pct"] == pytest.approx(-8.58, abs=0.005)  # LIVE surface value, re-pinned 2026-08-31 with the 24-Aug FFA dry promote (12M leg moved SBLK's FV boundary ~0.02pp; was -8.60 on the 8/28 rebase pin, +3.18 on the 8/07 vintage — moves with each consensus-pair rebase or FV-moving promote)
+    assert by["SBLK"]["flip_margin_pct"] == pytest.approx(-8.48, abs=0.005)  # LIVE surface value, re-pinned 2026-09-01 with the S&P promotion round (marks+FFA legs moved the boundary 33.22; was -8.58 at the 24-Aug promote, -8.60 on the 8/28 rebase — moves with each consensus-pair rebase or FV-moving promote)

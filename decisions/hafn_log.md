@@ -1,5 +1,41 @@
 # HAFN — Decision Log
 
+## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $8.47
+- Single-point FV: $4.83
+- Scenario PW FV: $5.59 (EV -34.0%)
+- NAV / share: $4.64
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +39.7pp (k_broker 1.55)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
+## 2026-09-01T17:53:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $8.47
+- Single-point FV: $4.83
+- Scenario PW FV: $5.59 (EV -34.0%)
+- NAV / share: $4.64
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +39.7pp (k_broker 1.55)
+- Sector: product
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-01T13:46:15+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,5 +1,41 @@
 # CMDB — Decision Log
 
+## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $20.52
+- Single-point FV: $21.83
+- Scenario PW FV: $19.51 (EV -4.9%)
+- NAV / share: $32.60
+- Position: **HOLD (fairly valued)**
+- Broker spread: +1.3pp (k_broker 1.02)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** S&P promotion round 2026-09-01: CMDB NAV +1.2% / spread -1.1pp — INSIDE the frozen band; HOLD STANDS (the pre-eyeballed HOLD->T/S fade risk did NOT fire; recross watch stays armed). Boundary 19.94->19.90, tape margin +3.09% clear of the deadband. Sub-gate-threshold.
+
+---
+
+## 2026-09-01T17:53:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $20.52
+- Single-point FV: $21.83
+- Scenario PW FV: $19.51 (EV -4.9%)
+- NAV / share: $32.60
+- Position: **HOLD (fairly valued)**
+- Broker spread: +1.3pp (k_broker 1.02)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +1.6% | Δscenario FV: -0.1% | ΔNAV: +1.2% | Δspread: -1.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-01T13:46:15+00:00 — Pipeline run (auto)
 
 **Model state:**

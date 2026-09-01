@@ -1,5 +1,41 @@
 # SB — Decision Log
 
+## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $8.52
+- Single-point FV: $10.42
+- Scenario PW FV: $9.09 (EV +6.7%)
+- NAV / share: $10.72
+- Position: **BUY (undervalued)**
+- Broker spread: -30.1pp (k_broker 0.82)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** S&P promotion round 2026-09-01: SB NAV +0.7% / spread -0.2pp — INSIDE the frozen band; BUY stands (single-FV up vs EV fade, as predicted). Edge-cleared {SB} unchanged.
+
+---
+
+## 2026-09-01T17:53:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $8.52
+- Single-point FV: $10.42
+- Scenario PW FV: $9.09 (EV +6.7%)
+- NAV / share: $10.72
+- Position: **BUY (undervalued)**
+- Broker spread: -30.1pp (k_broker 0.82)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.8% | Δscenario FV: -1.5% | ΔNAV: +0.7% | Δspread: -0.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-01T13:46:15+00:00 — Pipeline run (auto)
 
 **Model state:**

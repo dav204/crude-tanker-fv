@@ -55,7 +55,7 @@ OFF_CONVENTION_QUEUE = {"CMBT", "GSL", "STNG", "TEN"}  # NAT/ASC/ECO/HAFN left; 
 SCRUBBER_UNVERIFIED_QUEUE: set[str] = set()   # NEWBUILD-value scrubber flag unverified (now empty)
 
 # --- Operating-scrubber audit (test_scrubber_provenance) ---------------------------------------
-OPERATING_SCRUBBER_VERIFIED = {"CAPT": 5, "TRMD": 85,   # name -> audited operating scrubber-fitted count
+OPERATING_SCRUBBER_VERIFIED = {"CAPT": 8, "TRMD": 85,   # name -> audited operating scrubber-fitted count; CAPT 5->8 at the Q2 refresh 2026-09-01 (release p.2: 9 of 15 SAILING scrubber-fitted at report date, less Aristodimos delivered 8/13 subsequent = 8 on-water at 6/30 — ties the manifest rows exactly)
                                # ECO 16->17 at the 2026-08-08 Q2 refresh: Nissos Tigani
                                # delivered 5/26 -> operating; issuer aggregate in the 8/4
                                # H1 release ex-99.1 ("ten modern scrubber-fitted Suezmax

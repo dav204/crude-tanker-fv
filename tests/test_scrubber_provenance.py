@@ -30,7 +30,7 @@ from conftest import BOOK_QUARTER as QUARTER  # follows the book across quarter 
 # only after its operating-fleet scrubber flags are traced to its own disclosure; the count is
 # asserted, so a later manifest change that contradicts the audited ledger hard-fails.
 OPERATING_SCRUBBER_VERIFIED = {
-    "CAPT": 5,   # full Pareto initiation 2026-04-20 per-vessel ledger (all 30 vessels) verified 2026-06-30
+    "CAPT": 8,   # Q2-2026 results release p.2 (9 of 15 SAILING scrubber-fitted at report date, less Aristodimos delivered 8/13 subsequent = 8 on-water at 6/30: Aristotelis II + 5 Suez + Aisopos/Aiolos — ties the manifest rows exactly). Q2 refresh 2026-09-01 (was 5 at 3/31, Pareto initiation ledger verified 2026-06-30)
     "SB": 19,    # FY2025 20-F (acc 0001628280-26-014408) 21-vessel set, ftn-15 per-vessel; at 6/30 Michalis H (scrubber Cape) SOLD + Xenia (scrubber PPMX) HFS -> 19 operating. Q2 refresh 2026-07-31 (was 20 at 3/31)
     "ECO": 17,   # H1-2026 6-K (acc 0001104659-26-090429) ex-99.1 "ten modern scrubber-fitted Suezmax + eight scrubber-fitted VLCC" (sailing fleet incl. Tigani, delivered 5/26 -> 17 operating at 6/30; Vous NB). Q2 refresh 2026-08-08 (was 16 at 3/31)
     "TRMD": 85,  # FY2025 20-F (acc 0001628280-26-011954) "installed scrubbers on 85 of our vessels" = all 22 LR2 + all 63 MR (10 vintage LR1s none). Verified 2026-07-02

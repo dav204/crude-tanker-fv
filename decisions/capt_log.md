@@ -1,5 +1,41 @@
 # CAPT — Decision Log
 
+## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.46
+- Single-point FV: $16.95
+- Scenario PW FV: $17.56 (EV +6.7%)
+- NAV / share: $17.32
+- Position: **BUY (undervalued)**
+- Broker spread: +31.2pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** promotion-round regen (marks+FFA legs — CAPT untouched by both: no crude in-fit rows, no tanker rate line moved; delta this run 0.0). The gate row remains the 9/01 H1-refresh movement, verified + explained in the dated 2026-09-01 refresh entry and its annotated run entry below; VOID holds (condition 5); rides the next owner ratify (R4 Phase 5).
+
+---
+
+## 2026-09-01T17:53:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.46
+- Single-point FV: $16.95
+- Scenario PW FV: $17.56 (EV +6.7%)
+- NAV / share: $17.32
+- Position: **BUY (undervalued)**
+- Broker spread: +31.2pp (k_broker 1.17)
+- Sector: crude
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-01T13:46:15+00:00 — Pipeline run (auto)
 
 **Model state:**

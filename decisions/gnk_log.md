@@ -1,5 +1,41 @@
 # GNK — Decision Log
 
+## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.88
+- Single-point FV: $25.42
+- Scenario PW FV: $21.45 (EV -17.1%)
+- NAV / share: $25.37
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +5.6pp (k_broker 1.06)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** S&P promotion round 2026-09-01: GNK NAV +1.0% / spread -0.8pp — INSIDE the frozen band; T/S stands. NOTE the strobe: tape margin crossed -0.07% -> +0.02% (the round moved the boundary through the tape) — still inside the ±2.0% deadband, surfaced not acted on; the read_flag holds on the vintage per B2.
+
+---
+
+## 2026-09-01T17:53:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $25.88
+- Single-point FV: $25.42
+- Scenario PW FV: $21.45 (EV -17.1%)
+- NAV / share: $25.37
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +5.6pp (k_broker 1.06)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +1.6% | Δscenario FV: -1.0% | ΔNAV: +1.0% | Δspread: -0.8pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-01T13:46:15+00:00 — Pipeline run (auto)
 
 **Model state:**

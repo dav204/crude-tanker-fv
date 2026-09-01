@@ -113,8 +113,8 @@ weight_sets:
       arb_collapse: 0.17
 names:
   '2343':
-    ev_min_pct: -30.9
-    ev_max_pct: -27.7
+    ev_min_pct: -31.1
+    ev_max_pct: -27.9
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
@@ -169,8 +169,8 @@ names:
     - BUY (undervalued)
     - BUY (undervalued)
   CMBT:
-    ev_min_pct: -30.7
-    ev_max_pct: -24.4
+    ev_min_pct: -32.0
+    ev_max_pct: -25.7
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
@@ -181,8 +181,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   CMDB:
-    ev_min_pct: -7.8
-    ev_max_pct: -2.1
+    ev_min_pct: -7.9
+    ev_max_pct: -2.2
     ev_sign_stable: true
     positions:
     - HOLD
@@ -233,8 +233,8 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   GNK:
-    ev_min_pct: -20.1
-    ev_max_pct: -13.0
+    ev_min_pct: -20.8
+    ev_max_pct: -13.9
     ev_sign_stable: true
     positions:
     - TRIM/SHORT
@@ -281,16 +281,16 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   SB:
-    ev_min_pct: 3.8
-    ev_max_pct: 12.7
+    ev_min_pct: 2.3
+    ev_max_pct: 10.9
     ev_sign_stable: true
     positions:
     - BUY
     - BUY
     - HOLD
   SBLK:
-    ev_min_pct: -9.3
-    ev_max_pct: -2.4
+    ev_min_pct: -9.8
+    ev_max_pct: -3.0
     ev_sign_stable: true
     positions:
     - TRIM/SHORT

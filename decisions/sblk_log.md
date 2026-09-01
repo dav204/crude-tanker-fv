@@ -1,5 +1,41 @@
 # SBLK — Decision Log
 
+## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $30.48
+- Single-point FV: $32.67
+- Scenario PW FV: $28.59 (EV -6.2%)
+- NAV / share: $33.27
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +0.6pp (k_broker 1.01)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: no change
+
+**Decision:** S&P promotion round 2026-09-01 (sp_promotion_round doc; owner-ratified): pana #23-25 marks leg + FFA 31-Aug dry 12M (+4.9-5.3% Cape/Pana legs). SBLK NAV +1.2% / spread -1.0pp — INSIDE the frozen band [0,+3% / -3,+1pp]; T/S stands (no flip; the G6-accepted direction). Flip-margin pin re-based -8.58 -> -8.48 with the round (boundary 33.22). Sub-gate-threshold; no ratify row needed.
+
+---
+
+## 2026-09-01T17:53:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $30.48
+- Single-point FV: $32.67
+- Scenario PW FV: $28.59 (EV -6.2%)
+- NAV / share: $33.27
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +0.6pp (k_broker 1.01)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: +0.6% | Δscenario FV: -0.5% | ΔNAV: +1.2% | Δspread: -1.0pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-01T13:46:15+00:00 — Pipeline run (auto)
 
 **Model state:**
