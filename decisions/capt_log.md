@@ -1,5 +1,69 @@
 # CAPT — Decision Log
 
+## 2026-09-01 — H1/Q2 REFRESH EXECUTED (the 9/01 pre-open print; prereg capt_h1_prereg_2026-08-31 FROZEN the night before — verification block written BEFORE the regen)
+
+**Print:** landed exactly on the re-verified schedule (pre-open Oslo, poller
+catch 01:31 ET). Net income $92.9M ($0.70/sh) · TCE $116,260/day fleetwide
+(Suez spot $166,754 / Afra-LR2 $104,229 / VLCC TC $97,076) · Adjusted EBITDA
+$104.2M · Q3 QTD ~78% of spot days @ $115,268 · dividend NOK 3.00/sh declared
+(ex 9/10, pay ~9/18; ~$40M — return of paid-in capital; NOT the maiden: $16.3M
+was already declared+paid in H1, contra the prereg's no-dividend assumption —
+flagged as registered, not absorbed).
+
+**Halt-condition scorecard — ALL PASS:**
+(1) Subsequent-events note FIRST: Athinagoras (LR2) 8/06 + $50.0M senior
+secured, Aristodimos (Suez) 8/13 + $67.5M SLB — both OUT of the 6/30 snapshot
+exactly as registered; the $117.5M post-quarter draw ties (50.0+67.5).
+Investigation note: identical financings ALSO closed in-quarter on sister
+hulls (Androklos $50.0M, Archelaos $67.5M SLB, Aristoklis $64.5M SLB) — the
+digest pairing was right AND the amounts recur; no mis-dated booking.
+(2) ECO SLB trap: NO lease line exists on the statement — all three SLBs are
+financial liabilities inside borrowings. Verified, not assumed.
+(3) Pair one commit, provenance trio. (8) prices_daily reverted (evening cron
+had dirtied it).
+**June-acquisition ambiguity RESOLVED (the registered fork):** three NEW
+Hengli VLCC shipbuilding contracts beyond the 12-program (Aspidoforos /
+Armonikos / Aftarkis, Oct-2027 deliveries, $85.4M remaining each = $256.2M
+inside the 6/30 CAPEX schedule), acquired from Capital Maritime at
+shipbuilding CONTRACT price via the $336.9M contribution in kind. Every
+figure filing-cited. §15: the sponsor transfer was at-contract (the issuer's
+own 8/18 appraisals price the remaining 13 options $253.7M IN the money —
+transfers favorable to CAPT); tripwires stand, none fired, haircut stays 0.
+
+**Sheet walk (pair commit):** cash 405.0→350.2 (unrestricted convention) ·
+WC 13.0→42.0 (resolved to issuer line items — the Q1 scheduled to-do) · debt
+217.0→520.8 ($308.6M Q2 draws; fully floating 3.2%) · commitments
+1,880.0→1,806.6 (instalments paid ~$330M; +$256.2M acquired-trio added) ·
+shares 133,692,593 · leases 0. Manifest: 13 on-water at 6/30 (7 Q2
+deliveries in), 20 NB rows re-based to the issuer's per-vessel dates, the
+acquired trio at scrubber=false-unverified (specs registry updated same
+commit), fleet_schedule NOW ISSUER-DERIVED from the expected-available-days
+table (the Pareto-waypoint ramp retired), coverage per the printed table
+(VLCC 100% TC / Suez 78% spot / Afra+LR2 spot).
+
+**Predicted NAV vs the frozen band [14.70, 17.30], point $16.00:** BS legs
+≈ −$256M net (≈ the acquired trio's commitment) offset by +3 age-0 VLCC hulls
+at curve×PV (~+$330-390M) + the PV unwind (+$0.30-0.45/sh) + operating cash
+(+$0.15-0.30/sh) − aging (−$0.10/sh) → **point ≈ $16.0-16.8, INSIDE the
+band** unless the VLCC age-0 mark surprises. Landing outside → HALT per the
+prereg. Forward invariance: the other 24 names delta exactly 0.0.
+
+**VOID DISCIPLINE (condition 5): POSITION_UNRELIABLE HOLDS regardless of the
+band print — no void retires outside R4.** Whatever the read surface shows
+post-regen is recorded and eyeballed, NOT actionable.
+
+**Stage-B basis captured (condition 6):** VLCC 1-yr-class TC $97,076/day
+printed (Aristotelis II, 100% of Q2 days) — joins FRO's 110/120k 1-yr prints
+in the VLCC bucket; Suez TC sliver $37,021 (22% of days — likely an
+index/short-period fixing, flag not basis); Q3 QTD 78% @ $115,268 fleetwide;
+record Suez spot $166,754. Extracted BEFORE Stage B's bucket re-check, as
+registered.
+
+**Decision:** refresh pair landed per the walk above; regen verdict appended
+at the run entry. Watchlist pair stays at the 8/28 vintage (condition 7).
+
+---
+
 ## 2026-08-31T19:22:44+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,89 +1,87 @@
 # CAPT (Capital Tankers) fleet manifest — METHODOLOGY.md section 4.1
-# Oslo-listed Mar-17-2026 (~75% Marinakis). 30 firm vessels at Q1-2026:
-# 9 on-water at Mar-31 + 21 newbuildings delivering through mid-2028.
-# Sources: Pareto initiation 2026-04-19 + quarterly review 2026-05-27
-# (both archived in inputs/research_pareto_other/linked/) + Shipping Daily
-# mentions (outputs/pareto_mentions_capt.md): Mar-16 "delivery of two
-# suezmaxes and one aframax earlier this month"; Apr-15 "exit April with
-# 11x vessels — 17x by Nov'26, 24x by YE'27, 30x by mid-28, ahead of
-# schedule". Class table (review): VLCC 12x 310k / Suezmax 10x 156k /
-# Aframax 4x 113k avg age 7.8 / LR2 4x 114k avg age 0.5.
+# Q2-2026 REFRESH 2026-09-01 (issuer Q2 results release, BS 2026-06-30; per-vessel
+# sailing + under-construction + CAPEX tables pp.6-9 — the first FULL per-vessel
+# delivery schedule; the Q1 Pareto-waypoint ramp is retired). 33 firm vessels:
+# 15 VLCC / 10 Suezmax / 4 Aframax / 4 LR2 = 13 ON-WATER at 6/30 + 20 newbuildings.
+# Q2 deliveries (7, all named+dated): Ataraktos + Aristoklis (Suez, Apr-14),
+# Ameinon (Apr-8) + Areios (Apr-15) + Andreios (Apr-16) (Aframax — MOA hulls, no
+# debt at 6/30), Androklos (LR2, May-21), Archelaos (Suez, Jun-8). SUBSEQUENT
+# (out of this snapshot): Athinagoras (LR2, 8/06) + Aristodimos (Suez, 8/13).
+# THE JUNE-15 ACQUISITION (prereg ambiguity RESOLVED): three NEW Hengli VLCC
+# shipbuilding contracts from Capital Maritime (Aspidoforos / Armonikos /
+# Aftarkis, deliveries Oct-27-2027, $85.4M remaining each) — NB rows below,
+# scrubber=false UNVERIFIED-conservative (no equipment disclosure for the trio;
+# newbuild_specs.yaml updated same commit).
 #
-# NEWBUILD CONVENTION (§3.1 / §9.6, FRO precedent): NBs carried at age-0
-# DELIVERED market value in this manifest; the $1,880M remaining capex
-# commitment (Q1'26) sits in the balance sheet. They earn in the strip
-# via fleet_schedule, not the static counts. The 13 options at cost
-# (11 VLCC + 2 Suez, lapse YE'26) are EXCLUDED from NAV entirely —
-# Pareto adds ~$204M option value; we do not value optionality.
-# All vessels scrubber-fitted and/or LNG dual-fuel ("future-proof");
-# our curves carry no DF premium (Pareto adds $14-18M/vessel; their
-# no-LNG NAV is NOK 138 vs headline 158 at initiation — see capt_log).
+# NEWBUILD CONVENTION (§3.1/§9.6, FRO precedent): NBs at age-0 DELIVERED market;
+# the $1,806.6M remaining commitment (6/30 schedule) sits in the balance sheet;
+# they earn in the strip via fleet_schedule. The 13 options (11 VLCC + 2 Suez,
+# exercisable at contract price to 12/31/2026; issuer appraisals 8/18: $253.7M
+# in the money) stay EXCLUDED from NAV — we do not value optionality (the
+# k_broker spread driver, now issuer-quantified).
+# Scrubber ledger cross-foot (release p.2): 9 of the 15 SAILING are scrubber-
+# fitted = Aristotelis II + 6 Suez (incl. subsequent Aristodimos) + Aisopos +
+# Aiolos — ties the rows below exactly (8 on-water at 6/30 + Aristodimos).
 ticker: CAPT
-report_date: 2026-Q1
+report_date: 2026-Q2
 vessels:
-  # ---- VLCC: years_to_delivery (§9.6) from the Q1-release per-vessel dates,
-  #      measured from the Mar-31-2026 snapshot. Aristotelis II delivered
-  #      Feb-10-2026 (pre-snapshot → on the water, ytd 0); the rest deliver
-  #      Apr'27 (Alexandros) → Jun'28 (Aktor). 7 in 2027 (avg ~1.25yr), 4 in 2028
-  #      (Amyntas Jan / Arkesios Feb / Atromitos Apr / Aktor Jun → avg ~2.0yr).
-  - {id: VLCC_deliv,   class: VLCC, dwt: 310000, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 0.0}
-  # Scrubber split (verified 2026-06-30 vs Pareto initiation 2026-04-20 per-vessel ledger +
-  # Euronext Information Doc §7.3.2 + Q1 release): CAPT is 18/30 scrubber-fitted (~60%), NOT all.
-  # Of the 11 VLCC NBs: 5 scrubber-fitted (Alterego/Alexandros/Apollonas + Arkesios/Aktor),
-  # 6 LNG-dual-fuel WITHOUT scrubber. The LNG-only vessels carry NO fabricated scrubber premium.
-  - {id: VLCC_nb_2027,     class: VLCC, dwt: 310000, age: 0, scrubber: true,  eco: true, count: 3, years_to_delivery: 1.25}   # scrubber-fitted
-  - {id: VLCC_nb_2027_lng, class: VLCC, dwt: 310000, age: 0, scrubber: false, eco: true, count: 4, years_to_delivery: 1.25}   # LNG dual-fuel, no scrubber
-  - {id: VLCC_nb_2028,     class: VLCC, dwt: 310000, age: 0, scrubber: true,  eco: true, count: 2, years_to_delivery: 2.0}    # scrubber-fitted
-  - {id: VLCC_nb_2028_lng, class: VLCC, dwt: 310000, age: 0, scrubber: false, eco: true, count: 2, years_to_delivery: 2.0}    # LNG dual-fuel, no scrubber
-  # ---- Suezmax: 2 delivered by Mar-31 (Alkinoos/Archigos Mar-5, on-water). The
-  #      8 NB (Q1-release dates from Mar-31): 6 near-term — Ataraktos/Aristoklis
-  #      Apr-14 (~0.05), Archelaos Jun-08 (0.19), Aristodimos Aug-21 (0.39),
-  #      Ayrton Oct-08 (0.52), Amor Nov-18 (0.63), avg ~0.3 — and 2 in 2028
-  #      (Akeraios Feb-16 / Alkaios Mar-09, ~1.9).
-  - {id: SUEZ_2026,     class: Suezmax, dwt: 156000, age: 0, scrubber: true, eco: true, count: 2}
-  - {id: SUEZ_nb_2026,  class: Suezmax, dwt: 156000, age: 0, scrubber: true, eco: true, count: 6, years_to_delivery: 0.3}
-  - {id: SUEZ_nb_2028,  class: Suezmax, dwt: 156000, age: 0, scrubber: true, eco: true, count: 2, years_to_delivery: 1.9}
-  # ---- Aframax: all 4 are 2018-2019 HD Hyundai Samho sisters, delivered (on the
-  #      water), Dual-Fuel-LNG-capable but NOT scrubber-fitted. Sources: issuer Q1
-  #      release sailing-fleet table p6 (Alimedon Jul-18 / Andreios Oct-18 / Areios
-  #      Nov-18 / Ameinon Apr-19) + Pareto initiation per-vessel table (Scrubber=No
-  #      all four). The p5 fleet note "five scrubber-fitted, four LNG dual-fuel" —
-  #      the four DF-only are exactly these Aframax. Mean age 7.4 as of the
-  #      Mar-31-2026 snapshot; the curve is linear over [5,10] so one count-4 cohort
-  #      at 7.4 reproduces the exact aggregate. years_to_delivery 0 (all delivered).
-  #      Corrected 2026-06-30: the prior 3x age-10 + 1x age-0 "fresh Mar-2026
-  #      delivery" split was wrong — there is no 2026-built Aframax. (Pareto review
-  #      class-table cited avg 7.8; the issuer per-vessel build dates give 7.4.)
-  - {id: AFRA_2018, class: Aframax, dwt: 113000, age: 7.4, scrubber: false, eco: true, count: 4, years_to_delivery: 0.0}
-  # ---- LR2 (crude-routed, same as FRO's LR2 book): class avg 0.5.
-  - {id: LR2_2025,  class: LR2,     dwt: 114000, age: 1,  scrubber: true,  eco: true, count: 2}   # Aisopos, Aiolos — scrubber-fitted (ledger Yes)
-  - {id: LR2_2026,  class: LR2,     dwt: 114000, age: 0,  scrubber: false, eco: true, count: 2}   # Androklos, Athinagoras — LNG-only, no scrubber (ledger No)
+  # ---- ON-WATER at 6/30 (13) ----
+  - {id: VLCC_Aristotelis2, class: VLCC, dwt: 306113, age: 0.5, scrubber: true, eco: true, count: 1,
+     charter_status: time_charter, charter_rate: 97076}   # Feb-10 delivery; Q2 TC 100%, $97,076/day printed
+  - {id: SUEZ_2025_Alkinoos, class: Suezmax, dwt: 155352, age: 1.0, scrubber: true, eco: true, count: 1}   # built Jul-25
+  - {id: SUEZ_2026_onwater,  class: Suezmax, dwt: 156000, age: 0.5, scrubber: true, eco: true, count: 4}   # Archigos (Mar), Ataraktos + Aristoklis (Apr-14), Archelaos (Jun-8)
+  - {id: AFRA_2018, class: Aframax, dwt: 113000, age: 7.9, scrubber: false, eco: true, count: 4}   # Alimedon/Andreios/Areios/Ameinon, 2018-19 HHS sisters (MOA hulls, debt-free at 6/30)
+  - {id: LR2_2025,  class: LR2, dwt: 115600, age: 1.5, scrubber: true,  eco: true, count: 2}   # Aisopos, Aiolos (Jan-25)
+  - {id: LR2_2026_Androklos, class: LR2, dwt: 111734, age: 0.5, scrubber: false, eco: true, count: 1}   # May-21 delivery, LNG-only
+  # ---- NEWBUILDINGS at 6/30 (20; years_to_delivery from the 6/30 snapshot,
+  #      issuer per-vessel dates, quarter-rounded) ----
+  # Suezmax (5): Aristodimos 8/13 + Ayrton Sep-28 (Q3 -> 0.25); Amor Nov-2 (Q4 ->
+  # 0.5); Akeraios Feb-16-28 + Alkaios Mar-15-28 (-> 1.75). All scrubber-fitted
+  # (ledger 10/10 Suez; release confirms per-vessel on the delivered sisters).
+  - {id: SUEZ_nb_q3,   class: Suezmax, dwt: 155500, age: 0, scrubber: true, eco: true, count: 2, years_to_delivery: 0.25}
+  - {id: SUEZ_nb_q4,   class: Suezmax, dwt: 155500, age: 0, scrubber: true, eco: true, count: 1, years_to_delivery: 0.5}
+  - {id: SUEZ_nb_2028, class: Suezmax, dwt: 157000, age: 0, scrubber: true, eco: true, count: 2, years_to_delivery: 1.75}
+  # LR2 (1): Athinagoras 8/06 (Q3 -> 0.25), LNG-only.
+  - {id: LR2_nb_q3, class: LR2, dwt: 111791, age: 0, scrubber: false, eco: true, count: 1, years_to_delivery: 0.25}
+  # VLCC (14). Original-program 2027 hulls: scrubber trio Alterego II (Jan-15) /
+  # Alexandros II (Apr-14) / Apollonas II (May-28) -> avg 0.75; LNG quartet
+  # Amfitrion II (Apr-28) / Alexander The Great II (Jul-20) / Anemos II (Oct-9) /
+  # Akadimos (Dec-31) -> avg 1.25. Acquired trio Aspidoforos / Armonikos /
+  # Aftarkis (all Oct-27-27) -> 1.25, scrubber UNVERIFIED -> false. 2028: Arkesios
+  # (Feb-28) + Aktor (Apr-30) scrubber-fitted; Amyntas II (Mar-17) + Atromitos II
+  # (May-20) LNG -> all 1.75.
+  - {id: VLCC_nb_2027_scr, class: VLCC, dwt: 313000, age: 0, scrubber: true,  eco: true, count: 3, years_to_delivery: 0.75}
+  - {id: VLCC_nb_2027_lng, class: VLCC, dwt: 310000, age: 0, scrubber: false, eco: true, count: 4, years_to_delivery: 1.25}
+  - {id: VLCC_nb_acq,      class: VLCC, dwt: 306000, age: 0, scrubber: false, eco: true, count: 3, years_to_delivery: 1.25}
+  - {id: VLCC_nb_2028_scr, class: VLCC, dwt: 306000, age: 0, scrubber: true,  eco: true, count: 2, years_to_delivery: 1.75}
+  - {id: VLCC_nb_2028_lng, class: VLCC, dwt: 307000, age: 0, scrubber: false, eco: true, count: 2, years_to_delivery: 1.75}
 
-# All-spot (Q1 fleet-wide TCE $162k/day on spot voyages; Q2 fixtures are
-# spot-period fixings, no disclosed TC book).
+# Coverage per the Q2 operational table: VLCC 0% spot (Aristotelis II on TC,
+# $97,076/day); Suezmax 78% spot (TC sliver at $37,021); Aframax + LR2 100%
+# spot. Q3-26 QTD: ~78% of fleetwide spot days booked @ $115,268/day
+# (discharge-to-discharge) — Q2 spot TCE printed: Suez $166,754 / Afra-LR2
+# $104,229; fleetwide TCE $116,260.
 spot_coverage_pct:
-  VLCC: 1.0
-  Suezmax: 1.0
+  VLCC: 0.0
+  Suezmax: 0.78
   Aframax: 1.0
   LR2: 1.0
 
-# On-water count ramp for the strip (8 quarters, q3_2026 -> q2_2028),
-# anchored to Pareto-confirmed waypoints: 11 end-Apr-26, 17 by Nov-26,
-# 24 by YE-27, 30 by mid-28 ("one delivery every ~six weeks"). VLCC
-# back-loaded (class avg own-years -1.3), Suezmax front-loaded (-0.3);
-# the per-class split between the waypoints is our estimate.
+# Earning-fleet ramp NOW ISSUER-DERIVED: the release's expected-available-days
+# table (8 quarters, Q3-26 -> Q2-28) ÷ ~91.3 days; Afra/LR2 published combined,
+# split 4 + balance-to-LR2. Replaces the Pareto-waypoint estimate ramp.
 fleet_schedule:
-  VLCC:    [1, 3, 4, 5, 5, 6, 8, 10]
-  Suezmax: [4, 6, 7, 8, 9, 10, 10, 10]
-  Aframax: [4, 4, 4, 4, 4, 4, 4, 4]
-  LR2:     [4, 4, 4, 4, 4, 4, 4, 4]
+  VLCC:    [1.0, 1.0, 1.8, 3.9, 5.8, 9.1, 11.5, 14.1]
+  Suezmax: [5.6, 7.7, 7.9, 8.0, 8.1, 8.1, 8.7, 10.0]
+  Aframax: [4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0]
+  LR2:     [3.7, 4.1, 3.9, 4.0, 4.1, 4.1, 4.0, 4.0]
 
 fleet_summary:
-  VLCC_count: 12
+  VLCC_count: 15               # 12-program + the 3 acquired Hengli contracts
   Suezmax_count: 10
   Aframax_count: 4
   LR2_count: 4
-  on_water_at_quarter_end: 9
-  newbuilds_committed: 21      # $1,880M remaining commitment (Q1'26)
-  options_excluded: 13         # 11 VLCC + 2 Suez at cost, lapse YE'26 — NOT in NAV
-  avg_age: 0.0
+  on_water_at_quarter_end: 13  # 15 sailing at report date less the 2 subsequent deliveries
+  newbuilds_committed: 20      # $1,806.6M remaining commitment (6/30 schedule)
+  options_excluded: 13         # 11 VLCC + 2 Suez at contract price, exercisable to 12/31/26 — NOT in NAV ($253.7M in the money per issuer appraisals 8/18)
+  avg_age: 2.2                 # issuer, weighted, at 6/30

@@ -52,15 +52,21 @@ BRUT:
     corroborates. All 12 scrubber-fitted. Adversarially verified 2026-06-30.
 CAPT:
   eco: true
-  scrubber: mixed            # 18/30 scrubber-fitted (per-vessel in the manifest); not uniform
-  scrubber_nb_count: 13      # NB rows (years_to_delivery>0) scrubber-fitted: 5 VLCC (3+2) + 8 Suezmax (6+2); the 6 VLCC LNG NBs are false
-  scrubber_verified: true    # corrected to 18/30 2026-06-30 (VLCC/LR2 split + the merged Aframax slice)
+  scrubber: mixed            # mixed fleet; per-vessel in the manifest, not uniform
+  scrubber_nb_count: 10      # NB rows (years_to_delivery>0) scrubber-fitted at the Q2-2026
+                             # snapshot: 5 VLCC (3x2027 + 2x2028) + 5 Suezmax (Aristodimos/
+                             # Ayrton/Amor/Akeraios/Alkaios); the 6 original LNG VLCCs, the
+                             # LR2 Athinagoras AND the 3 ACQUIRED Hengli VLCCs are false
+  scrubber_verified: true    # 18/30 basis corrected 2026-06-30; Q2 re-based 2026-09-01
   source: >
     OFFICIAL (Norway) + research: CAPT Euronext Information Document (2026-03) §7.3.2 operating
-    table + Q1-2026 earnings release (per-vessel scrubber/fuel prose) + Pareto initiation
-    2026-04-20 per-vessel ledger ("~60% scrubber-fitted" = 18/30: VLCC 6/12, Suezmax 10/10,
-    Aframax 0/4, LR2 2/4). The 12 LNG-dual-fuel vessels carry NO scrubber. Adversarially verified
-    2026-06-30; manifest corrected (Aframax via PR #3, VLCC/LR2 split here).
+    table + Q1-2026 earnings release + Pareto initiation 2026-04-20 per-vessel ledger (VLCC 6/12,
+    Suezmax 10/10, Aframax 0/4, LR2 2/4; LNG-dual-fuel hulls carry NO scrubber). Q2-2026 release
+    (2026-09-01) cross-foots the sailing fleet at 9/15 scrubber-fitted — ties the manifest rows
+    exactly. THE THREE JUNE-ACQUIRED HENGLI VLCC CONTRACTS (Aspidoforos/Armonikos/Aftarkis):
+    the Q2 release discloses NO equipment detail for the trio -> scrubber=FALSE conservative
+    per the SB/ECO silence rule, NOT a peer default; re-verify at the next filing with
+    equipment prose. Adversarially verified 2026-06-30 (base fleet); trio pending.
 FRO:
   eco: true
   scrubber: true

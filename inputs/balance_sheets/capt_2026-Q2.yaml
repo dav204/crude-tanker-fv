@@ -1,0 +1,73 @@
+# Capital Tankers balance sheet snapshot — 2026-06-30 (Q2/H1 2026)
+# Source of record: issuer Q2-2026 results release (2026-09-01 pre-open Oslo, mfn
+# df41fdce; staged inputs/filings/CAPT/..._capital-tankers-corp-announces-second-
+# quarter-2026-financial-results.pdf — Unaudited Condensed Consolidated Statement
+# of Financial Position p.13 + Newbuilding CAPEX Schedule p.8-9). USD'000.
+# Refresh executed per the FROZEN prereg decisions/capt_h1_prereg_2026-08-31.md.
+# SUBSEQUENT EVENTS (note audited FIRST — conditions 1+2 verified): M/T Athinagoras
+# (LR2) delivered 8/06 + $50.0M senior secured; M/T Aristodimos (Suezmax) delivered
+# 8/13 + $67.5M SLB — both OUT of this snapshot exactly as registered ($117.5M
+# drawn subsequent = 50.0 + 67.5, ties the highlights). The prereg's digest-sourced
+# pairing was right for the subsequent hulls; IDENTICAL financings also closed
+# in-quarter on sister hulls (Androklos $50.0M senior secured May-21; Archelaos
+# $67.5M SLB Jun-08; Aristoklis $64.5M SLB Apr-14) — the ECO SLB TRAP CHECKS OUT:
+# all SLBs book as financial liabilities INSIDE borrowings, NO separate lease line
+# exists on the statement.
+ticker: CAPT
+quarter: 2026-Q2
+source_url: https://mfn.se/a/capital-tankers/capital-tankers-corp-announces-second-quarter-2026-financial-results
+retrieved_at: 2026-09-01
+filing_period_end: 2026-06-30
+
+cash_and_equivalents: 350205000      # BS "Cash and cash equivalents" — UNRESTRICTED
+                                     # (Q1 convention); the $6.5M restricted (minimum
+                                     # liquidity covenant) sits in non-current assets
+                                     # and is excluded. Release headline $356.7M = incl.
+                                     # restricted.
+
+# working_capital_net resolved to the ISSUER line items (the Q1 note's scheduled
+# to-do): inventories 17,430 + trade AR 44,519 + claims 1,908 + prepayments and
+# other 5,347 = 69,204; less trade AP 15,569 + accrued 9,646 + due to related
+# parties 2,011 = 27,226 -> net 41,978. (Q1 carried the Pareto-bridge $13M.)
+working_capital_net: 41978000
+
+total_debt: 520836000                # statement carrying: long-term 493,111 +
+                                     # current portion 27,725 (net of fees; release
+                                     # headline "$523.9M" is the gross figure).
+                                     # Walk: 217.0 (3/31) + 308.6 Q2 draws − sched
+                                     # repayments − fee amortization ≈ ties. Fully
+                                     # floating, w.a. 3.2%.
+
+lease_liabilities: 0                 # NO lease line on the statement — the three
+                                     # SLBs (Aristoklis 64.5 / Archelaos 67.5 /
+                                     # [subsequent] Aristodimos 67.5) are financial
+                                     # liabilities inside borrowings (ECO precedent;
+                                     # prereg condition 2 verified)
+
+# 20 newbuildings at 6/30 (18 under construction at the report date + the 2
+# August-delivered hulls whose final instalments were due Q3): per-vessel
+# Newbuilding CAPEX Schedule as of June 30, 2026 totals $1,806.6M (Q3-26 239.4 /
+# Q4-26 122.1 / Q1-27 171.9 / Q2-27 251.5 / Q3-27 117.1 / Q4-27 421.5 / Q1-28
+# 313.1 / Q2-28 170.0). INCLUDES the three June-15 acquired Hengli VLCC contracts
+# (Aspidoforos / Armonikos / Aftarkis, $85.4M remaining each, deliveries
+# Oct-27-2027) — the prereg's June-acquisition ambiguity RESOLVED: three NEW
+# hulls beyond the 12-program, acquired from Capital Maritime at shipbuilding
+# contract price, paid via the $336.9M shareholders' contribution in kind
+# (equity statement). Advances at 0: NBs valued at DELIVERED market in the
+# manifest (FRO convention; "Vessels under construction" $893.3M embedded).
+newbuild_capex_commitments: 1806600000
+newbuild_advances_paid: 0
+
+diluted_shares_outstanding: 133692593   # BS-date count after the April partial
+                                        # over-allotment exercise (NOK 134, $37.5M)
+
+preferred_equity: 0
+shuttle_contracted_book: 0
+
+# §15 stance unchanged (six named tripwires stand, none fired): the June related-
+# party acquisition transferred the 3 contracts AT SHIPBUILDING CONTRACT PRICE
+# from the sponsor — the disclosed Optional-Fleet mechanism working as documented
+# (third-party appraisals 8/18 put the remaining 13 options $253.7M in the money,
+# i.e. contract < market: transfers favorable to CAPT, not extractive). Logged,
+# not a haircut.
+governance_discount_pct: 0
