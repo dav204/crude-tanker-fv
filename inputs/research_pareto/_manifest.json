@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-29T20:25:08.991251+00:00",
+  "generated_at": "2026-09-01T17:48:17.616920+00:00",
   "archive_roots": [
     "inputs/research_pareto",
     "inputs/research_pareto_other"
   ],
-  "total_files": 894,
+  "total_files": 898,
   "files": [
     {
       "path": "inputs/research_pareto/2024/06/2024-06-26_d'AmicoInternationalShipping-CompanyReport-InitiatingCoverage-2024-06-26-364456.pdf",
@@ -5823,6 +5823,50 @@
       "parsed_at": null,
       "page_count": 1,
       "size_bytes": 146656,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-31_Frontline-CompanyReport-QuarterlyReview-2026-08-30-527242.pdf",
+      "filename": "2026-08-31_Frontline-CompanyReport-QuarterlyReview-2026-08-30-527242.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-31",
+      "downloaded_at": "2026-08-31T14:00:11.139602+00:00",
+      "parsed_at": null,
+      "page_count": 8,
+      "size_bytes": 407844,
+      "classification_signal": "filename:CompanyReport"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-31_HafniaLtd.-CompanyReport-QuarterlyReview-2026-08-30-527243.pdf",
+      "filename": "2026-08-31_HafniaLtd.-CompanyReport-QuarterlyReview-2026-08-30-527243.pdf",
+      "type": "company_report",
+      "report_date": "2026-08-31",
+      "downloaded_at": "2026-08-31T14:00:10.157250+00:00",
+      "parsed_at": null,
+      "page_count": 8,
+      "size_bytes": 407421,
+      "classification_signal": "filename:CompanyReport"
+    },
+    {
+      "path": "inputs/research_pareto/2026/08/2026-08-31_Periodical-ShippingDaily-2026-08-31-527406.pdf",
+      "filename": "2026-08-31_Periodical-ShippingDaily-2026-08-31-527406.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-08-31",
+      "downloaded_at": "2026-08-31T14:00:09.266319+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 162799,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/09/2026-09-01_Periodical-ShippingDaily-2026-09-01-527926.pdf",
+      "filename": "2026-09-01_Periodical-ShippingDaily-2026-09-01-527926.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-09-01",
+      "downloaded_at": "2026-09-01T14:00:11.558850+00:00",
+      "parsed_at": null,
+      "page_count": 1,
+      "size_bytes": 144813,
       "classification_signal": "filename:ShippingDaily"
     },
     {

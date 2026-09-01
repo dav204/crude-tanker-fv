@@ -182,3 +182,27 @@ prints:
     source: Pareto Shipping Daily 2026-08-10 ("reportedly"; triaged sp_candidates_triage_2026-08-16.md, promoted at owner go 2026-08-31)
     quality_flag: standard
     notes: UNNAMED 2019-built Kamsarmax (Pareto commentary print; dwt = class-nominal 82k pending identification). Firm vs the Pareto generic $34.8M (+10%, Japanese-premium-consistent per the 2025-09-19 precedent). RE-REPORT RISK carried per the unnamed convention - the round-trip check runs on subsequent dailies/weeklies; its PAIRED 2012-built $23.5M leg was DISMISSED 2026-08-31 as a re-report of Velos Jasper (#20, MB W32 8/07, same year + exact price, 3-day lag) - the 8/16 triage's clean-sweep claim was stale-wrong, see the promotion record. #22.
+  # ---- 2026-09-01 S&P promotion round (decisions/sp_promotion_round_2026-09-01.md;
+  # owner: 'run the S&P promotion round with your recs'; triage marks_trail_triage_2026-08-31
+  # §A-1/§B; HEAD re-sweep 9/01 clean — no re-reports in the 8/31 + 9/01 dailies) ----
+  - date: 2026-08-14
+    vessel_age_at_sale: 11
+    dwt: 81886
+    sale_price_usd_m: 31.0
+    source: MB Dry Bulk Weekly 33 (2026-08-14, exact)
+    quality_flag: standard
+    notes: Presinge (2015 Tsuneishi Zhoushan Kamsarmax, eco m/e); Swissmarine Holdings -> Great Eastern Shipping. One of the Pareto 8/18 "trio of 2015-16 kamsarmaxes $29-31m" — resolved to NAMED prints at the 8/31 triage (the range sentence itself was never promotable). #23.
+  - date: 2026-08-21
+    vessel_age_at_sale: 10
+    dwt: 81895
+    sale_price_usd_m: 29.0
+    source: MB Dry Bulk Weekly 34 (2026-08-21, exact)
+    quality_flag: distressed
+    notes: Bbg Wuzhou (2016 Tsuneishi Zhoushan Kamsarmax, eco m/e); AUCTION sale, China Development Bank Financial Leasing -> Indian — distressed-family flag per the fit's +10% uplift (owner-ratified with the round). Second named leg of the Pareto 8/18 trio; third leg (Japanese-built) still unidentified, watch rides. #24.
+  - date: 2026-08-21
+    vessel_age_at_sale: 16
+    dwt: 82174
+    sale_price_usd_m: 20.0
+    source: MB Dry Bulk Weekly 34 (2026-08-21, exact)
+    quality_flag: standard
+    notes: Efraim A (2010 Tsuneishi Zhoushan Kamsarmax); Mykonos Shipping -> undisclosed. #25.

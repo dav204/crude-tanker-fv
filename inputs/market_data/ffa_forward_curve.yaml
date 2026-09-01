@@ -26,8 +26,10 @@
 # Held classes carry their own trigger (tanker_forward_print_lands /
 # container_mb_refresh); agreement with vintage_notes is suite-tested.
 as_of:
-  default: 2026-08-24       # 24-Aug FFA dry promote (ffa_promotion_2026-08-31.md; newest
-                            # event — Cape/Pana/Post-Panamax/Supra-Ultra ride default).
+  default: 2026-08-31       # 31-Aug FFA dry promote (sp_promotion_round_2026-09-01.md;
+                            # month-end 4-tenor capture, image-verified in
+                            # ffa_capture_review_2026-08-31.md — Cape/Pana/Post-Panamax/
+                            # Supra-Ultra ride default).
                             # Explicit holds: tankers 8/10 Stage A (Stage B window
                             # 8/26→9/04) · containers 8/07 (W32) · VLGC/LNGC/MGC
                             # own-cadence holds below
@@ -210,64 +212,61 @@ ffa_forward_curve:
   - 42000
   - 41000
   - 40000
-  Cape:              # FFA 24-Aug (image-verified, ffa_promotion_2026-08-31.md): q1 = mean(Aug 39625,
-                     # Sep 43000) = 41313; Q4 42125; Q1-27 28725; q4-q6 make the Cal-27 32400
-                     # identity exact (33625 x3); 2028 committed deltas -500/-500. Whole curve
-                     # FIRMED 8-13pp vs 8/06 (the Cape rally: index 4,429, earnings ~$40k/day).
-  - 41313
-  - 42125
-  - 28725
-  - 33625
-  - 33625
-  - 33625
-  - 33125
-  - 32625
-  Pana:              # FFA 24-Aug: q1 mean(Aug 19800, Sep 21325) = 20563; Q4 21791; Q1-27 17375;
-                     # Cal-27 17850 identity exact (18009/18008/18008); 2028 deltas -400/-300
-  - 20563
-  - 21791
-  - 17375
-  - 18009
-  - 18008
-  - 18008
-  - 17608
-  - 17308
+  Cape:              # FFA 31-Aug (image-verified, ffa_capture_review_2026-08-31.md; promoted at
+                     # the owner-ratified 9/01 round under the MONTH-END MAPPING VARIANT ruled
+                     # there — Aug rolled off, q1 = Sep alone): q1 Sep 45250; Q4 44475; Q1-27
+                     # 30125; q4-q6 make the Cal-27 33300 identity exact; 2028 committed deltas
+                     # -500/-500. Dry firmed a further ~3-5% vs the 24-Aug print.
+  - 45250
+  - 44475
+  - 30125
+  - 34359
+  - 34358
+  - 34358
+  - 33858
+  - 33358
+  Pana:              # FFA 31-Aug (month-end variant): q1 Sep 21900; Q4 22900; Q1-27 18200;
+                     # Cal-27 18175 identity exact (18167/18167/18166); 2028 deltas -400/-300
+  - 21900
+  - 22900
+  - 18200
+  - 18167
+  - 18167
+  - 18166
+  - 17766
+  - 17466
   Post-Panamax:     # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  - 20563
-  - 21791
-  - 17375
-  - 18009
-  - 18008
-  - 18008
-  - 17608
-  - 17308
-  Supra-Ultra:       # FFA 24-Aug — THE HOLD RETIRES: this capture PRINTS Smax Cal27 15700 (first
-                     # since the crop began), the registered retirement condition for the 13-Jul
-                     # synthesis legs (ffa_promotion_2026-08-31.md). Full print construction:
-                     # q1 mean(Aug 18625, Sep 20275) = 19450; Q4 20275; Q1-27 15150; q4-q6 make
-                     # Cal-27 15700 identity exact (15884/15883/15883); 2028 deltas -300/-300
-                     # (the held tail's own step). The owner channel-ask for Smax Cal27 is MOOT.
-  - 19450
-  - 20275
-  - 15150
-  - 15884
-  - 15883
-  - 15883
-  - 15583
-  - 15283
+  - 21900
+  - 22900
+  - 18200
+  - 18167
+  - 18167
+  - 18166
+  - 17766
+  - 17466
+  Supra-Ultra:       # FFA 31-Aug (month-end variant): q1 Sep 19875; Q4 20933; Q1-27 16000;
+                     # Cal-27 16125 identity exact (16167/16167/16166); 2028 deltas -300/-300.
+                     # Smax Cal27 prints a second consecutive capture (the 13-Jul crop-era
+                     # hold stays retired since 24-Aug).
+  - 19875
+  - 20933
+  - 16000
+  - 16167
+  - 16167
+  - 16166
+  - 15866
+  - 15566
   Handy-Bulk:      # DERIVED = Supra-Ultra x 0.90 (§11.7.11 locked basis; same guard family as
-                   # the scenario deck) — REGENERATED 2026-08-31 with the full 24-Aug supra print
-                   # (identity re-derived on ALL 8 legs per the re-derive-BOTH rule; rounded to
-                   # nearest 10 per the locked convention — the 8/31 promote first landed the
-                   # unrounded x0.90 values, corrected same day)
-  - 17500
-  - 18250
-  - 13640
-  - 14300
-  - 14290
-  - 14290
-  - 14020
-  - 13750
+                   # the scenario deck) — REGENERATED 2026-09-01 with the 31-Aug supra print,
+                   # nearest-10 rounding per the locked convention
+  - 17890
+  - 18840
+  - 14400
+  - 14550
+  - 14550
+  - 14550
+  - 14280
+  - 14010
   # Containerships (§11.8) — NO FFA exists; synthesised current-market
   # forward per the synthesised-from-spot convention: starts at the MB TC
   # assessment, mean-reverts toward the FY21-25 anchor (between

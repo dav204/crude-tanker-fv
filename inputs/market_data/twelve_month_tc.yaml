@@ -32,8 +32,8 @@ rate_basis:
   default: tc_assessment
   VLGC: realized_tce
 as_of:
-  default: 2026-08-24       # 24-Aug FFA dry promote (ffa_promotion_2026-08-31.md; the
-                            # newest deliberate refresh event — Cape/Pana/Post-Panamax/
+  default: 2026-08-31       # 31-Aug FFA dry promote (sp_promotion_round_2026-09-01.md;
+                            # month-end 4-tenor capture — Cape/Pana/Post-Panamax/
                             # Supra-Ultra ride default). Explicit holds below: tankers
                             # 8/10 Stage A (held to Stage B 8/26→9/04) · containers 8/07
                             # (W32) · VLGC 6/02 · LNGC/MGC 6/07 · Handy-Bulk 7/10
@@ -68,15 +68,14 @@ twelve_month_tc:
   LR1_clean: 37000    # STAGE A 2026-08-10: derived .7184 x LR2_clean; lands EXACTLY on MB LR1[TC5] 37,000
   LR2_clean: 51500    # STAGE A 2026-08-10: Torm Herdis 12mo print (single-print); MB 52,500 corroborates
   VLGC: 63615           # Dorian Q1-2026 realized TCE — disclosure-cluster vintage 2026-06-02 (held)
-  Cape: 35425           # (42125 Q4 + 28725 Q1-27)/2 = 35425 exact, FFA 24-Aug image-verified
-                        # print (ffa_promotion_2026-08-31.md; was 31550 8/06 — +12.3%, LEVEL
-                        # not composition this time: same Q4+Q1 tenor set, both legs firmed
-                        # with the Cape cash rally)
-  Pana: 19583           # (21791 Q4 + 17375 Q1-27)/2 = 19583 exact, FFA 24-Aug (was 18300 8/06; +7.0%)
-  Post-Panamax: 19583   # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  Supra-Ultra: 17713    # (20275 Q4 + 15150 Q1-27)/2 = 17712.5, FFA 24-Aug (was 16750 8/06;
-                        # +5.7%; the MB-Ultramax-premium gap narrows with the level move —
-                        # re-read at the next MB dry weekly)
+  Cape: 37300           # (44475 Q4 + 30125 Q1-27)/2 = 37300 exact, FFA 31-Aug image-verified
+                        # print (sp_promotion_round_2026-09-01.md; was 35425 24-Aug — +5.3%,
+                        # the dry rally extending; month-end mapping variant ruled at the round)
+  Pana: 20550           # (22900 Q4 + 18200 Q1-27)/2 = 20550 exact, FFA 31-Aug (was 19583 24-Aug; +4.9%)
+  Post-Panamax: 20550   # shares the Pana freight basin (§11.7.10, 2026-06-29)
+  Supra-Ultra: 18467    # (20933 Q4 + 16000 Q1-27)/2 = 18466.5, FFA 31-Aug (was 17713 24-Aug;
+                        # +4.3%; the MB-Ultramax-premium re-read stands queued at the next MB
+                        # dry weekly)
   Handy-Bulk: 14500     # §11.7.11 (2026-07-14): MB Dry Bulk Weekly 28 (4-10 Jul) 1-yr TC,
                         # 38k dwt modern Japanese, net of address comm (printed basis). NO
                         # Handy FFA panel — refreshes on the MB weekly, NOT the FFA promote

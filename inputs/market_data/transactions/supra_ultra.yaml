@@ -440,3 +440,47 @@ prints:
     source: banchero issue-W30 (2026-07-28, exact) + advanced W31 exact
     quality_flag: standard
     notes: Lianson Hermes (2009 Zhejiang-Ningbo); seller Liannex, buyer Indian. Window-edge age 17. #32.
+  # ---- 2026-09-01 S&P promotion round (decisions/sp_promotion_round_2026-09-01.md;
+  # owner-ratified; triage marks_trail_triage_2026-08-31 §A-2/§B; HEAD re-sweep 9/01 clean) ----
+  - date: 2026-08-18
+    vessel_age_at_sale: 7
+    dwt: 64000
+    sale_price_usd_m: 34.5
+    source: Pareto Shipping Daily 2026-08-18 (commentary print; "~5% ahead of our $32.7m generic quote")
+    quality_flag: standard
+    notes: UNNAMED 2019-built NACKS ultramax (dwt = class-nominal 64k pending identification — the pana #22 convention). Dedupe-clean vs the class file trailing 6wk AND MB W33-35 (the only NACKS rows there are Global Oriole 2012 price-undisclosed + Jin Hang Fu Zhan 2004 $9.2M — different hulls). RE-REPORT WATCH ARMED: round-trip check runs on subsequent dailies/weeklies. #32.
+  - date: 2026-08-21
+    vessel_age_at_sale: 13
+    dwt: 63500
+    sale_price_usd_m: 24.4
+    source: MB Dry Bulk Weekly 34 (2026-08-21, exact)
+    quality_flag: standard
+    notes: Amaryllis (2013 Yangzhou Dayang Ultramax, eco m/e); Ng Livanos -> Chinese. #33.
+  - date: 2026-08-28
+    vessel_age_at_sale: 13
+    dwt: 58340
+    sale_price_usd_m: 20.2
+    source: MB Dry Bulk Weekly 35 (2026-08-28, exact)
+    quality_flag: standard
+    notes: African Wagtail (2013 DACKS); MUR Shipping -> undisclosed. #34.
+  - date: 2026-08-28
+    vessel_age_at_sale: 16
+    dwt: 55753
+    sale_price_usd_m: 17.0
+    source: MB Dry Bulk Weekly 35 (2026-08-28, exact)
+    quality_flag: standard
+    notes: Marianna (2010 IHI, eco m/e); Byzantine -> undisclosed. #35.
+  - date: 2026-08-28
+    vessel_age_at_sale: 17
+    dwt: 56799
+    sale_price_usd_m: 12.9
+    source: MB Dry Bulk Weekly 35 (2026-08-28, exact)
+    quality_flag: standard
+    notes: FLC Happiness (2009 Taizhou Kouan); Front Line Capital -> undisclosed. Window-edge age 17 (inclusive, in-fit — the Viva Eclipse #31 precedent). #36.
+  - date: 2026-08-28
+    vessel_age_at_sale: 18
+    dwt: 58779
+    sale_price_usd_m: 13.8
+    source: MB Dry Bulk Weekly 35 (2026-08-28, exact)
+    quality_flag: standard
+    notes: outside [3,17] window; included for documentation. Harvest (2008 Tsuneishi Zhoushan, scrubber); Shang Ji Shipping -> undisclosed. #37.

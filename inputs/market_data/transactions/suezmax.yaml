@@ -188,3 +188,11 @@ prints:
   # realization queued at stage_a_basis §3 was ALREADY this file's PRIMARY ANCHOR (top
   # row); duplicate add caught by test_load_suezmax_yaml_round_trip and reverted
   # (marks_trail_triage_2026-08-09.md §B-dedupe).
+  # ---- 2026-09-01 S&P promotion round (decisions/sp_promotion_round_2026-09-01.md;
+  # owner-ratified; triage marks_trail_triage_2026-08-31 §C; HEAD re-sweep 9/01 clean) ----
+  - date: 2026-08-14
+    vessel_age_at_sale: 2
+    sale_price_usd_m: 123.0
+    source: MB Tanker Weekly 33 (2026-08-14, exact)
+    quality_flag: standard
+    notes: outside [3,17] window (young-end); included for documentation + resale-level corroboration. Bristol (2024 Hyundai Samho, 157,077 dwt, scrubber); CMB -> Naftomar — RESOLVES the 8/16 triage's Bristol price-watch (the CMBT 6-K stays price-silent, gain-only ~$56.9M Q4). Sits beside the 9/01 Pareto print (Delta Tankers acquires a 2028-delivery Suezmax resale from DH Shipbuilding at $107M) — prompt-2024-built vs 2028-forward spread coherent with the prompt-vs-forward gap on the NB-order row above.
