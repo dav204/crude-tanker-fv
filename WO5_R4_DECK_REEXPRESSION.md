@@ -1,8 +1,30 @@
 # WO5 / R4 — crude deck re-expression + Stage-A void dispositions (owner-scheduled)
 
-**Status: DRAFT FOR RATIFICATION (prepped 2026-09-01 at owner go "prep the R4 work
-order"; adversarially verified by a 3-lens panel — discipline / grounding / mechanism
-simulation — and revised to their findings the same sitting).**
+**Status: ISSUED — RATIFIED 2026-09-01 (owner verbatim: "ratify the WO with your
+recs, then push"). Prepped the same sitting at owner go "prep the R4 work order";
+adversarially verified by a 3-lens panel — discipline / grounding / mechanism
+simulation — and revised to their findings before ratification.**
+
+**RATIFICATION RECORD (2026-09-01) — which owner words are RULED now vs held to
+execution day:**
+- **(1) Phase-0 method fork: RULED — Fork B + C** (one-time re-derivation against the
+  post-Stage-B base + the deck-coherence guard; Fork A registered as the Q4
+  refactor-window candidate, not ruled). The embedded sub-decision rides the ruling:
+  `mou_bear` is re-expressed as the normalization-disappoints spread at its FROZEN
+  0.13 weight. The product-deck question stays a routed finding, unruled.
+- **(2) Sequencing gate: RULED — R4 executes 2026-09-04/05, after the Stage B
+  disposition and after CMBT 9/03.** The S&P promotion round is to be ruled before R4
+  where practical; if deferred past it, the marks vintage is recorded and the round
+  arms as a NEW-eyeball trigger on the dispositions' recross watches.
+- **(6) TNK destination registry IF freed: PRE-RULED per rec — POSITION_CYCLE_RELABEL
+  beside its §12 crude peers, NOT a name-specific short** (a genuine short call is a
+  governance-side decision, not a rendering default).
+- **(7) B1: the docket RE-ARMS at TNK's disposition** (trigger: the day a registry
+  name is robust-cheap and weight-fragile) — not ruled YES now, per the panel's
+  trigger correction.
+- **(3-5) The three per-name dispositions are NOT pre-ruled** — they are execution-day
+  owner words on the Phase-3 frozen evidence, by this WO's own law. **(8-9) ratify +
+  push at execution remain owner acts.**
 
 **The full owner surface in this WO (enumerated):** (1) the Phase-0 method fork ·
 (2) the Phase-1 sequencing gate · (3-5) the three per-name void dispositions ·

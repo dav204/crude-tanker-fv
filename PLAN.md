@@ -50,9 +50,11 @@ will trip; Stage B window closes 9/04.** OWNER OWES: pushes (both repos) · the
 NEXT: ~~9/01 CAPT print~~ LANDED 9/01 (NAV $17.32, hairline +0.1% band breach
 investigated-and-accepted — the at-contract below-market 3-VLCC acquisition +$1.71/sh;
 void HELD per condition 5; k 1.26→1.17) → CMBT 9/03 → Stage B (by 9/04) →
-**R4 EXECUTES 9/04-05 per WO5_R4_DECK_REEXPRESSION.md — DRAFTED 9/01 at owner go,
-3-lens adversarial panel passed, AWAITING OWNER RATIFICATION (9 owner words enumerated
-in the header)** → TEN 9/10.
+**R4 EXECUTES 9/04-05 per WO5_R4_DECK_REEXPRESSION.md — RATIFIED 9/01 (owner:
+"ratify the WO with your recs"): Fork B+C ruled, sequencing post-Stage-B/post-CMBT
+ruled, TNK-if-freed pre-ruled cycle-relabel, B1 re-arms at TNK's disposition; the
+three per-name dispositions stay execution-day owner words on the Phase-3 frozen
+evidence** → TEN 9/10.
 
 
 **STATE INSERT (2026-08-25, Tuesday EVE — the outage week absorbed; read this, then the block below for standing context).**
