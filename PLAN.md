@@ -44,9 +44,20 @@ cmbt_log, 9/03 is wiring not reading). Governance seam: R-2 re-vintaged 30%→**
 (155/437, 3pp to the 38% VOID bar)** at the BWLP refresh + F-1 catch-up (9.3% PASS,
 met). **Stage-B fixture inventory now LOUD: direct Suezmax 12M prints 74.5-80k vs
 held 58,050 (~25-28% low) + MB 1yr VLCC 122.5k vs held 105.7k — the ±10% band-gate
-will trip; Stage B window closes 9/04.** OWNER OWES: pushes (both repos) · the
-5-cause-class ratify of this drain (5 explained gate rows) · the S&P promotion round
-(10 rows + the 8/31 FFA print) · the BWLP NB fork ruling · spot promote disposition.
+will trip; Stage B window closes 9/04.** OWNER OWES (updated 9/01 close): the BWLP NB fork ruling
+(bwlp_nb_order_fork_2026-08-31.md, rec advances-only) · spot promote disposition
+(hold annotated) · IBKR id 100/101. DONE 9/01: drain-ratify + pushes EXECUTED at owner
+go; **the S&P promotion round EXECUTED at owner go (sp_promotion_round_2026-09-01.md)
+— pana #23-25 + supra #32-37 + Bristol/Harvest doc-rows + the FFA 31-Aug promote
+(month-end mapping RATIFIED, q1=Sep alone; dry 12M Cape 37,300/Pana 20,550/Supra
+18,467): ALL frozen bands HIT, dry five NAV +0.7..+1.2%, NO flips, non-dry exactly
+0.0, sub-gate-threshold (no ratify row owed), suite 701 green. Round finds: the
+sp_scan MANIFEST was stale-unindexed (8/31+9/01 dailies invisible — rebuilt via
+pareto_archive --build-manifest; check whether the indexer belongs in a cron) · a
+THIRD direct Suezmax 1Y TC print $74.5k (9/01 daily, "firm price achieved") + a
+Delta Tankers 2028-Suezmax resale $107M → Stage-B inventory (the Suezmax trip is
+triple-corroborated) · Front Vefsna stays blocked on issuer disclosure · GNK's tape
+margin crossed to +0.02%, still inside the deadband.**
 NEXT: ~~9/01 CAPT print~~ LANDED 9/01 (NAV $17.32, hairline +0.1% band breach
 investigated-and-accepted — the at-contract below-market 3-VLCC acquisition +$1.71/sh;
 void HELD per condition 5; k 1.26→1.17) → CMBT 9/03 → Stage B (by 9/04) →
