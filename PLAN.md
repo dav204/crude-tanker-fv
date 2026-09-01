@@ -47,8 +47,12 @@ held 58,050 (~25-28% low) + MB 1yr VLCC 122.5k vs held 105.7k — the ±10% band
 will trip; Stage B window closes 9/04.** OWNER OWES: pushes (both repos) · the
 5-cause-class ratify of this drain (5 explained gate rows) · the S&P promotion round
 (10 rows + the 8/31 FFA print) · the BWLP NB fork ruling · spot promote disposition.
-NEXT: **9/01 CAPT print vs the frozen band [14.70,17.30]** → CMBT 9/03 → Stage B
-(by 9/04) → TEN 9/10.
+NEXT: ~~9/01 CAPT print~~ LANDED 9/01 (NAV $17.32, hairline +0.1% band breach
+investigated-and-accepted — the at-contract below-market 3-VLCC acquisition +$1.71/sh;
+void HELD per condition 5; k 1.26→1.17) → CMBT 9/03 → Stage B (by 9/04) →
+**R4 EXECUTES 9/04-05 per WO5_R4_DECK_REEXPRESSION.md — DRAFTED 9/01 at owner go,
+3-lens adversarial panel passed, AWAITING OWNER RATIFICATION (9 owner words enumerated
+in the header)** → TEN 9/10.
 
 
 **STATE INSERT (2026-08-25, Tuesday EVE — the outage week absorbed; read this, then the block below for standing context).**
