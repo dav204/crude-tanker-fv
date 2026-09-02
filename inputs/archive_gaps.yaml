@@ -82,16 +82,19 @@ accepted:
 # 7/01 and could say nothing about June; accepting on "the July ones were fine" is
 # exactly the inference this file forbids). Closed 8/16 by its own walk — the nagging
 # check did its job: it nagged until the right evidence existed.
-
-- window: 2026-08-21
-  business_days: 1
-  disposition: accepted
-  decided: 2026-08-31
-  evidence: >
-    CHANNEL-SIDE: a --since 2026-08-18T12:00Z re-walk of pareto_research at owner go
-    (2026-08-31, the item-5 adjudication) scanned 1,015 messages spanning the whole
-    window — 8/19 and 8/20 dailies present (recovered by the 8/31 morning scheduled
-    walk after the outage week), NO 8/21 daily ever posted. Sender-side non-publication,
-    not a collection miss. NOTE THE PATTERN: second consecutive FRIDAY absence (8/14,
-    also accepted sub-threshold) — if 8/28... exists (it does, issue 527074), the
-    pattern is 2-of-3 Fridays, not systematic; re-look only if a third Friday drops.
+  - feed: pareto_research
+    from: 2026-08-21
+    to: 2026-08-21
+    business_days: 1
+    reason: >
+      CHANNEL-SIDE: a --since 2026-08-18T12:00Z re-walk of pareto_research at owner go
+      (2026-08-31, the item-5 adjudication) scanned 1,015 messages spanning the whole
+      window — 8/19 and 8/20 dailies present (recovered by the 8/31 morning scheduled
+      walk after the outage week), NO 8/21 daily ever posted. Sender-side non-publication,
+      not a collection miss. NOTE THE PATTERN: second consecutive FRIDAY absence (8/14,
+      also accepted sub-threshold) — if 8/28... exists (it does, issue 527074), the
+      pattern is 2-of-3 Fridays, not systematic; re-look only if a third Friday drops.
+    accepted_by: owner-approved adjudication 2026-08-31 (commit a9989f1; entry re-shaped
+      2026-09-01 into the accepted[] schema _accepted_gap reads — the 8/31 append sat at
+      root level as `- window:` and broke the YAML parse, crashing the 09-01 sentinel run)
+    dated: 2026-08-31
