@@ -14,7 +14,7 @@ verified (5-agent workflow) BEFORE this file was written.
 - **Q1-2026 6-K** — acc `0000919574-26-003779`, filed 2026-06-01 (CONSOLIDATED CONDENSED
   BALANCE SHEET at **Mar-31-2026** = the 2026-Q1 quarter date; financing narrative; cash flow).
 - **Pareto Shipping Daily 2025-11-04** — the only dated source for the newbuild price
-  (`outputs/pareto_mentions_nat.md`): "NAT orders suezmaxes at $86m with H2'28 delivery" (LOI stage).
+  (`outputs/pareto_mentions_nat.md (pruned 2026-09-02 — regenerate on demand with `sp_scan --names NAT`)`): "NAT orders suezmaxes at $86m with H2'28 delivery" (LOI stage).
 
 ## Sourced reconciliation (Mar-31-2026 = 2026-Q1), each figure cited
 
