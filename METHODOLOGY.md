@@ -2900,6 +2900,13 @@ each decision log; summary in the Appendix A entry of that date.
 
 ## 16. Overlay ledger — the single registry of qualitative adjustments (added 2026-06-11)
 
+> **RETIRED 2026-09-02 (owner ruling F4, prune ledger row 50).** `inputs/overlays.yaml`, `overlay_ledger.py`
+> and the rendered `outputs/overlay_ledger.md` were deleted: nothing in the pipeline, the scorecard or the
+> governance repo read them, and the ledger's rows were keyed to the Jun-9 weights (three revisions stale).
+> What §16 protected survives where it is machine-derived: the §15 governance haircut rows come from the
+> balance sheets, and the §12.6 dividend-window control lives in `dividend_window.build_rows` + its tests.
+> The retire conditions below stand as prose; re-create a registry only with a ruled consumer.
+
 The actionable view of a name is no longer the pipeline FV alone: it is
 FV plus a composition of documented overlays — §12 dividend-window
 floors, the §14.4 MEG-lag adjustment (subject to its double-count
