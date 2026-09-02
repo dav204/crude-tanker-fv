@@ -90,8 +90,11 @@ def test_readme_test_count_claim_tracks_the_suite():
         len(re.findall(r"^def test_", p.read_text(encoding="utf-8"), re.MULTILINE))
         for p in (ROOT / "tests").glob("*.py")
     )
-    assert defs <= claimed <= int(defs * 1.25), (
-        f"README claims {claimed}+ tests; static census is {defs} defs "
-        f"(collection runs higher via parametrization). Keep the claim in "
-        f"[{defs}, {int(defs * 1.25)}] — update the README, not this band."
+    # 2026-09-02 (prune ledger row 73): the band is now a FLOOR check — the claim
+    # must be <= the census (a true "N+") and the census may not run more than
+    # 25% above it (the N-7 understatement). Adding tests no longer reds the
+    # README; letting the claim rot 25% behind the suite still does.
+    assert claimed <= defs <= int(claimed * 1.25), (
+        f"README claims {claimed}+ tests; static census is {defs} defs. Keep the "
+        f"claim in [{int(defs / 1.25) + 1}, {defs}] — update the README, not this band."
     )

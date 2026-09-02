@@ -22,13 +22,10 @@ sources:
     accept: [pdf]
     dest_dir: inputs/research_pareto
     expect_cadence: business-daily
-    silence_days: 14   # SUMMER OVERRIDE (owner intel via RC channel, 2026-07-12):
-                       # Pareto does not print the Shipping Daily on a daily basis
-                       # in Jul/Aug — silence is seasonal, not a broken lane (the
-                       # FFA image lane from the same channel kept flowing). Prices
-                       # are NOT gated on this feed (live Yahoo daily, 24/24);
-                       # consensus PAIRS age against the 42d threshold as usual.
-                       # REVISIT ~Sep-1: drop back to the business-daily default.
+    # silence_days: business-daily default (2 business days). The Jul/Aug summer
+    # override (14d, owner intel 2026-07-12) was DROPPED 2026-09-02 per its own
+    # "REVISIT ~Sep-1" note — the daily resumed 8/07; the lane had been muted 11
+    # extra days (prune ledger 2026-09-02 row 67).
     single_sender: true
 
   - name: ffa_drybulk

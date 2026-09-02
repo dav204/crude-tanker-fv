@@ -29,7 +29,7 @@ from typing import Optional
 
 from .justified_pnav import (
     READ_FLAG_HYST_PCT,
-    READ_FLAG_STATE_FILE,
+    READ_FLAG_STATE_FILE,  # noqa: F401 — re-exported: the shared-state guard test reads it here
     JustifiedPnavRow,
     compute_justified_pnav_rows,
     govern_read_flag,
@@ -58,7 +58,6 @@ from .provenance import (
     OPERATING_SCRUBBER_QUEUE,
     POSITION_CYCLE_RELABEL,
     POSITION_UNRELIABLE,
-    TIER_SUBREASON,
     confidence_tier,
     is_handoff_ready,
     tier_subreason,
