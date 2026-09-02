@@ -274,7 +274,9 @@ round-3 + census recorded; drift gate 0 unexplained at close; Stage-A basis inve
    uuid form) — owner re-copies it, then sentinel re-run for the PING-SENT receipt.** First live
    sentinel run 2026-07-12 exercised all check families; bonus catches: BWLP Oslo symbol fixed
    (BWLPG.OL, was 404) — feed 24/24; pareto_research 5-business-day silence flagged (see below).
-3. **WO2 residue:** Phase-0 acceptance demonstrations + drill 2.5 UNBLOCKED once the ping URL
+3. **WO2 residue — WRITTEN OFF 2026-09-02 (F6: `close_acceptance.py`, the receipts, the
+   ping-gap drill doc and the ctxprobe scripts/tests deleted; the healthchecks drill itself
+   survives as the Stage-0 gate, owner Q-10):** Phase-0 acceptance demonstrations + drill 2.5 UNBLOCKED once the ping URL
    residual clears; acceptance window Jul-28→Aug-6 (`close_acceptance.py` ready), task #32
    web-agent watchdog (interim single-threaded rule below).
 3b. **Sentinel first-run finds (2026-07-12) — ALL THREE RESOLVED SAME NIGHT:** (i) the doha

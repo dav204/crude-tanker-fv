@@ -338,7 +338,8 @@ chain (Sat 08:00), broker-marks harvester (Sat 09:00). Every wrapper heartbeats 
 `state/automation_runs.log` with its initiator — launchd label vs
 `manual:user@tty` — the no-human-fetches instrument. launchd
 `StartCalendarInterval` COALESCES missed firings: N sleeps collapse to ONE run
-on wake (measured semantics: `decisions/ctxprobe_checklist_2026-07-03.md`);
+on wake (the ctxprobe instrument meant to measure this was retired 2026-09-02 without
+a recorded measurement — prune ledger row 16; coalescing is documented launchd behaviour);
 fetchers are cursor-based, so one coalesced run recovers the whole gap.
 
 #### Staging → ingest map (how data reaches a number)
