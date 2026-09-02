@@ -118,8 +118,8 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   reads as the broker premium over transaction levels (~1.12-1.14 crude). 8 classes have own fits
   (VLCC/Suezmax/Aframax/LR2/MR/Cape/Pana/Supra-Ultra) — **don't add classes without a comparable sample**
   (§9.9); exclude aggregate prints only when no per-vessel split is disclosed (no back-solve).
-- **When new transaction prints land, that IS the drift gate** (2026-06-09) — re-run, read
-  `outputs/transaction_anchor_comparison.md`, annotate every name whose txn-anchored EV moved >2pp / band flipped.
+- **When new transaction prints land, that IS the drift gate** (2026-06-09) — re-run with
+  `--txn-comparison`, annotate every name whose txn-anchored EV moved >2pp / band flipped.
 - **Don't back-solve validator marks to broker NAV** (2026-06-09, SBLK) — a wide validator gap is a
   methodology question (txn-anchor per §9.9, or accept as documented mark-driven), not a license to tune.
 - **Dry-bulk manifest `dwt` is LOAD-BEARING** (§11.7.10) — Cape/Pana/Supra-Ultra/Handy-Bulk curves are

@@ -144,6 +144,10 @@ for the live table.
 
 ### Forward-earnings uncertainty — consensus-EPS cross-check (added 2026-06-04, §9.11)
 
+*RETIRED from the per-regen pipeline 2026-09-02 (prune ledger row 40: zero decisions since
+June, zero scorecard or governance fields). `consensus_eps.run_consensus_eps_xref(<quarter>)`
+still runs on demand; the committed `outputs/consensus_eps_xref.*` were removed.*
+
 The earnings-leg analog of the broker-NAV sweep. Our dividend strip's near-term
 EPS is FFA-forward-curve-implied; at a cycle peak that runs **structurally hotter
 than sell-side consensus**, which prices mean-reversion. The 2026-06-04 run shows

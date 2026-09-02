@@ -1022,9 +1022,6 @@ def main() -> None:
     scenario_reports = run_scenarios_watchlist(quarter, live_prices=True)
     print("--- broker-NAV sweep ---")
     broker_rows = run_broker_sweep(quarter, live_prices=True)
-    print("--- consensus forward-EPS cross-check ---")
-    from crude_tanker_fv.consensus_eps import run_consensus_eps_xref
-    run_consensus_eps_xref(quarter)
     print("--- justified P/NAV diagnostic ---")
     from crude_tanker_fv.justified_pnav import run_justified_pnav_xref
     jpnav_rows = run_justified_pnav_xref(quarter)
@@ -1036,11 +1033,13 @@ def main() -> None:
         scenario_reports=scenario_reports,
         broker_rows=broker_rows,
     )
-    print("--- §12 dividend-window test ---")
-    from crude_tanker_fv.dividend_window import run_dividend_window_xref
-    run_dividend_window_xref(quarter)
-    print("--- transaction-anchor comparison ---")
-    run_transaction_anchored_comparison(quarter, live_prices=True)
+    # Retired from the per-regen path 2026-09-02 (prune ledger rows 39-41): the §12
+    # dividend-window render and the consensus-EPS xref had no reader since June;
+    # the transaction-anchor comparison is the S&P ROUND's audit artifact — run it
+    # with the round (`--txn-comparison`) and commit the md WITH the promotion.
+    if "--txn-comparison" in sys.argv:
+        print("--- transaction-anchor comparison ---")
+        run_transaction_anchored_comparison(quarter, live_prices=True)
     print("--- delta + decision log ---")
     _run_delta_and_decision_log(quarter, fv_reports, scenario_reports, broker_rows,
                                 jpnav_rows, scorecard_rows)

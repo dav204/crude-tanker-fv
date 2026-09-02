@@ -78,7 +78,7 @@ No-action as one line, not a paragraph.
 End the digest with the standing reminder:
 
 > **If any print above is promoted** to a `transactions/<class>.yaml`:
-> re-run the pipeline, read `outputs/transaction_anchor_comparison.md`,
+> re-run the pipeline with `--txn-comparison` (the round's audit artifact),
 > and annotate the decision log of every name whose txn-anchored EV
 > moved >2pp or whose position band flipped (CLAUDE.md drift-gate rule).
 
