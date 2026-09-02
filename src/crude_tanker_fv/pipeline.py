@@ -32,7 +32,7 @@ from .loaders import INPUTS_DIR, load_company_inputs, load_watchlist
 from .marks import (TXN_PURE_PLAY_K_BAND, scale_vessel_marks,
                     solve_broker_premium)
 from .nav import compute_nav
-from .report import OUTPUTS_DIR, CompanyReport, write_company_report, write_watchlist_summary
+from .report import OUTPUTS_DIR, CompanyReport, write_company_report
 from .scenarios import (
     PRODUCT_SCENARIO_CLASS_MAP,
     SCENARIO_CLASS_MAP_BY_SECTOR,
@@ -42,7 +42,6 @@ from .scenarios import (
     position_recommendation,
     run_scenarios,
     write_scenario_report,
-    write_scenario_summary,
 )
 from .sensitivity import compute_sensitivity, payout_sensitivity
 from .transactions import (
@@ -580,9 +579,6 @@ def run_watchlist(
             print(f"  ! {ticker} {warning}")
         reports.append(report)
 
-    if reports:
-        summary = write_watchlist_summary(reports, outputs_dir)
-        print(f"watchlist roll-up -> {summary}")
     return reports
 
 
@@ -642,9 +638,6 @@ def run_scenarios_watchlist(
               f"(EV {ev_pct:+.1f}% -> {report.position_recommendation}) -> {path}")
         reports.append(report)
 
-    if reports:
-        summary = write_scenario_summary(reports, outputs_dir)
-        print(f"scenario roll-up -> {summary}")
     return reports
 
 
@@ -750,10 +743,8 @@ def run_broker_sweep(
 
 
 def _write_broker_sweep(rows: list[BrokerSweepRow], outputs_dir: Path) -> Path:
-    """Render outputs/broker_nav_sweep.md (+ .xlsx) — METHODOLOGY 9 mark-uncertainty band."""
-    from openpyxl import Workbook
-    from openpyxl.styles import Font
-
+    """Render outputs/broker_nav_sweep.md  — METHODOLOGY 9 mark-uncertainty band."""
+        
     outputs_dir.mkdir(parents=True, exist_ok=True)
     out: list[str] = []
     w = out.append
@@ -797,26 +788,6 @@ def _write_broker_sweep(rows: list[BrokerSweepRow], outputs_dir: Path) -> Path:
       "known overshoot); leg-specific recalibration is the follow-up (METHODOLOGY 9)._\n")
     md_path = outputs_dir / "broker_nav_sweep.md"
     md_path.write_text("\n".join(out))
-
-    wb = Workbook()
-    ws = wb.active
-    ws.title = "Broker-NAV sweep"
-    headers = ["ticker", "basis", "consensus_pnav", "k_broker", "ev_tool_pct", "ev_mid_pct",
-               "ev_broker_pct", "pos_tool", "pos_broker", "breakeven_tool", "breakeven_broker",
-               "fv_tool", "fv_broker", "spread_pp"]
-    ws.append(headers)
-    for c in ws[1]:
-        c.font = Font(bold=True)
-    for r in sorted(rows, key=lambda x: x.ev_broker, reverse=True):
-        basis = "WHOLE-COMPANY (hybrid aggregation)" if r.hybrid else "whole-company"
-        ws.append([r.ticker, basis, r.consensus_pnav, round(r.k_broker, 3),
-                   round(r.ev_tool, 1), round(r.ev_mid, 1), round(r.ev_broker, 1),
-                   r.pos_tool, r.pos_broker, round(r.be_tool, 0), round(r.be_broker, 0),
-                   round(r.fv_tool, 2), round(r.fv_broker, 2), round(r.spread, 1)])
-    for col in ws.columns:
-        width = max((len(str(c.value)) for c in col if c.value is not None), default=10)
-        ws.column_dimensions[col[0].column_letter].width = min(width + 2, 26)
-    wb.save(outputs_dir / "broker_nav_sweep.xlsx")
     return md_path
 
 
@@ -869,7 +840,7 @@ def run_transaction_anchored_comparison(
 ) -> list[TxnComparisonRow]:
     """Value every name at baseline vs transaction-anchored marks side-by-side.
 
-    Writes outputs/transaction_anchor_comparison.md / .xlsx and prints a summary.
+    Writes outputs/transaction_anchor_comparison.md and prints a summary.
     Diagnostic for the recalibration: shows which calls flip and by how much.
     """
     sector_docs = _load_all_sectors(inputs_dir)
@@ -919,9 +890,7 @@ def run_transaction_anchored_comparison(
 def _write_txn_comparison(
     rows: list[TxnComparisonRow], inputs_dir: Path, outputs_dir: Path
 ) -> Path:
-    """Render outputs/transaction_anchor_comparison.md / .xlsx (METHODOLOGY 9.9)."""
-    from openpyxl import Workbook
-    from openpyxl.styles import Font
+    """Render outputs/transaction_anchor_comparison.md (METHODOLOGY 9.9)."""
 
     outputs_dir.mkdir(parents=True, exist_ok=True)
     txs = load_all_transactions(inputs_dir)
@@ -961,26 +930,6 @@ def _write_txn_comparison(
 
     md_path = outputs_dir / "transaction_anchor_comparison.md"
     md_path.write_text("\n".join(out))
-
-    wb = Workbook()
-    ws = wb.active
-    ws.title = "Txn anchor comparison"
-    ws.append(["ticker", "basis", "nav_base", "nav_txn", "nav_delta_pct",
-               "ev_base_pct", "ev_txn_pct", "ev_delta_pp",
-               "pos_base", "pos_txn", "fv_base", "fv_txn"])
-    for c in ws[1]:
-        c.font = Font(bold=True)
-    for r in sorted(rows, key=lambda x: x.ev_txn, reverse=True):
-        d_nav = (r.nav_txn / r.nav_base - 1.0) * 100.0 if r.nav_base else 0.0
-        basis = "WHOLE-COMPANY (hybrid aggregation)" if r.hybrid else "whole-company"
-        ws.append([r.ticker, basis, round(r.nav_base, 2), round(r.nav_txn, 2),
-                   round(d_nav, 2), round(r.ev_base, 1), round(r.ev_txn, 1),
-                   round(r.ev_delta, 1), r.pos_base, r.pos_txn,
-                   round(r.fv_base, 2), round(r.fv_txn, 2)])
-    for col in ws.columns:
-        width = max((len(str(c.value)) for c in col if c.value is not None), default=10)
-        ws.column_dimensions[col[0].column_letter].width = min(width + 2, 26)
-    wb.save(outputs_dir / "transaction_anchor_comparison.xlsx")
     return md_path
 
 

@@ -207,7 +207,6 @@ def test_comparison_report_writes_outputs(tmp_path):
     # With current sample, VLCC -9.5% at 10yr beats Suezmax +1.3%, so ECO drops.
     assert by["ECO"].nav_txn < by["ECO"].nav_base
     assert (tmp_path / "transaction_anchor_comparison.md").exists()
-    assert (tmp_path / "transaction_anchor_comparison.xlsx").exists()
 
 
 def test_load_suezmax_yaml_round_trip():

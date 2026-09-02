@@ -574,10 +574,8 @@ def _pct(x: Optional[float], places: int = 1, signed: bool = False) -> str:
 def write_justified_pnav(
     rows: list[JustifiedPnavRow], outputs_dir: Path = OUTPUTS_DIR
 ) -> Path:
-    """Render outputs/justified_pnav.md (+ .xlsx)."""
-    from openpyxl import Workbook
-    from openpyxl.styles import Font
-
+    """Render outputs/justified_pnav.md."""
+        
     outputs_dir.mkdir(parents=True, exist_ok=True)
     r0 = COST_OF_EQUITY
     out: list[str] = []
@@ -711,53 +709,6 @@ def write_justified_pnav(
 
     md_path = outputs_dir / "justified_pnav.md"
     md_path.write_text("\n".join(out))
-
-    wb = Workbook()
-    ws = wb.active
-    ws.title = "Justified PNAV"
-    headers = ["ticker", "basis", "sector", "nav_per_share", "price", "pnav_mkt",
-               "r", "g", "ronav_implied",
-               "ronav_parity", "justified_pnav_parity", "read_parity",
-               "ronav_hist", "justified_pnav_hist", "read_hist",
-               "robust", "flag"]
-    ws.append(headers)
-    for c in ws[1]:
-        c.font = Font(bold=True)
-
-    def _rnd(x, p=4):
-        return round(x, p) if x is not None else None
-
-    for r in sorted(rows, key=_sort_key):
-        basis = "WHOLE-COMPANY (hybrid)" if r.hybrid else "whole-company"
-        ws.append([
-            r.ticker, basis, r.sector, round(r.nav_per_share, 3), round(r.price, 2),
-            _rnd(r.pnav_mkt), round(r.r, 4), round(r.g, 4), _rnd(r.ronav_implied),
-            _rnd(r.ronav_norm), _rnd(r.justified_pnav), r.read,
-            _rnd(r.ronav_norm_hist), _rnd(r.justified_pnav_hist), r.read_hist,
-            r.robust, (r.flag or ""),
-        ])
-    for col in ws.columns:
-        width = max((len(str(c.value)) for c in col if c.value is not None), default=10)
-        ws.column_dimensions[col[0].column_letter].width = min(width + 2, 26)
-
-    ws2 = wb.create_sheet("sensitivity")
-    ws2.append(["sector", "base_ronav_norm", "ronav_norm", *[f"g={gg}" for gg in _GRID_G]])
-    for c in ws2[1]:
-        c.font = Font(bold=True)
-    for s in sorted(bases):
-        base = bases[s]
-        for off in _GRID_RONAV_OFFSETS:
-            ronav = base + off
-            cells = [
-                (round(justified_pnav(ronav, r0, gg), 4) if r0 - gg > 0 else None)
-                for gg in _GRID_G
-            ]
-            ws2.append([s, round(base, 4), round(ronav, 4), *cells])
-    for col in ws2.columns:
-        width = max((len(str(c.value)) for c in col if c.value is not None), default=10)
-        ws2.column_dimensions[col[0].column_letter].width = min(width + 2, 18)
-
-    wb.save(outputs_dir / "justified_pnav.xlsx")
     return md_path
 
 

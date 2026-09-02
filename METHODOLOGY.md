@@ -638,7 +638,12 @@ The VIE Coverage Universe (Catlin / Mintzmyer, accessed 2026-06-03) carries TRMD
 
 Each pipeline run regenerates **seven output families**: a per-company single-point FV report, a per-company scenario report, a watchlist FV roll-up, a sector-segmented scenario roll-up, a broker-NAV sensitivity sweep, a transaction-anchor comparison, and a delta / decision-log pair. All under `outputs/` (durable decision history lives in `decisions/`, machine-local snapshot state in `state/`).
 
-### 7.1 Per-company FV report (`outputs/{ticker}_fv_report.md` + `.xlsx`)
+### 7.1 Per-company FV report (`outputs/{ticker}_fv_report.md`)
+
+> **The `.xlsx` twins of every output (§7.1, §7.3, §7.4, §7.5, §7.6, §9.11, justified P/NAV) were RETIRED
+> 2026-09-02** (owner ruling, prune ledger row 38): 35 committed workbooks, 4,074 blob versions, zero readers
+> outside tmp-dir tests. The markdown carries every section; `fair_value_summary` and `scenario_summary`
+> existed only as workbooks and are gone — `outputs/book_scorecard.md` is the roll-up.
 
 Single-point fair value with full detail. Sections:
 - Header: ticker, report date, current price, model FV, analyst target (and **valuation-basis banner** for hybrid names — INSW shows `CRUDE SLEEVE` here; the whole-company aggregation is in the scenario report)
@@ -664,13 +669,13 @@ The headline whole-company decision view (not the single-point detail). Sections
 - Decision signals: upside (best scenario), downside (worst), expected value vs current
 - **Hybrid sleeve breakdown** appended for INSW: per-sleeve allocated price, FV, EV%, position, plus the whole-company aggregate (METHODOLOGY §6 v2)
 
-### 7.3 Watchlist FV roll-up (`outputs/fair_value_summary.xlsx`)
+### 7.3 Watchlist FV roll-up (`outputs/fair_value_summary.xlsx` — RETIRED 2026-09-02, see §7.1 note)
 
 | Ticker | Basis | Current | Tool FV | Watchlist Target | Tool vs Current | Tool vs Target | Implied Breakeven TCE (blended) | Cycle Position |
 
 `Basis` column reads `whole-company` for pure-plays and `CRUDE SLEEVE (allocated price)` for the v1 INSW single-point detail (the whole-company aggregation lives in the scenario summary).
 
-### 7.4 Scenario summary (`outputs/scenario_summary.xlsx`)
+### 7.4 Scenario summary (`outputs/scenario_summary.xlsx` — RETIRED 2026-09-02, see §7.1 note)
 
 Multi-sheet workbook with one sheet per sector + a cross-sector pair-trade sheet:
 - **Sheet `Scenario summary`** (crude sector): per-name row with the four crude scenario FVs (escalation / pre_mou_baseline / mou_base / mou_bear) + probability-weighted FV + EV% + position
@@ -679,7 +684,7 @@ Multi-sheet workbook with one sheet per sector + a cross-sector pair-trade sheet
 
 `Basis` column propagates the WHOLE-COMPANY-vs-CRUDE-SLEEVE distinction; INSW row reads `WHOLE-COMPANY (hybrid aggregation)` here.
 
-### 7.5 Broker-NAV sensitivity sweep (`outputs/broker_nav_sweep.md` + `.xlsx`)
+### 7.5 Broker-NAV sensitivity sweep (`outputs/broker_nav_sweep.md`)
 
 The mark-robust vs mark-driven discrimination diagnostic (§9.9). Per-name row:
 
@@ -695,7 +700,7 @@ The **earnings-leg analog of the §7.5 broker-NAV sweep** (full methodology in �
 
 `consensus_fwd_eps = price ÷ consensus_fwd_pe` (Pareto 1Y FWD P/E); `tool_fwd_eps` = sum of the first four strip quarters (NTM operating EPS). The `eps_gap` paired with `w_earn` is the headline: a wide gap with a *low* `w_earn` is the cycle weighting compensating for hot near-peak FFA earnings (by design); a wide gap with a *high* `w_earn` is the actionable case (a below-mid-cycle name whose trusted strip earnings the street doesn't share).
 
-### 7.6 Transaction-anchored recalibration comparison (`outputs/transaction_anchor_comparison.md` + `.xlsx`)
+### 7.6 Transaction-anchored recalibration comparison (`outputs/transaction_anchor_comparison.md`, on demand via `--txn-comparison` since 2026-09-02)
 
 Diagnostic showing per-name NAV/EV impact of applying the transaction-anchored mid-age curves (the txn-anchored marks ARE the production headline — default ON since 2026-06-09; this diagnostic shows per-name impact vs the un-anchored base curves. Classes with own fits: VLCC / Suezmax / Aframax / LR2 / MR / Cape / Pana / Supra-Ultra, + VLGC §11.10.4, PPMX seeded 2026-07-18. Original wiring note: opt-in toggle, default off in production). Per-name row:
 

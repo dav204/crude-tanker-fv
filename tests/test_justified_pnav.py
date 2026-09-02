@@ -288,12 +288,11 @@ def test_sb_worked_example_identity():
 # ---------------------------------------------------------------------------
 # Output
 # ---------------------------------------------------------------------------
-def test_writer_emits_md_and_xlsx(tmp_path: Path):
+def test_writer_emits_md(tmp_path: Path):
     rows = compute_justified_pnav_rows(QUARTER)
     write_justified_pnav(rows, outputs_dir=tmp_path)
     md = tmp_path / "justified_pnav.md"
-    xlsx = tmp_path / "justified_pnav.xlsx"
-    assert md.exists() and xlsx.exists()
+    assert md.exists() and not (tmp_path / "justified_pnav.xlsx").exists()
     text = md.read_text()
     assert "Justified P/NAV diagnostic" in text
     assert "Subsector vector" in text

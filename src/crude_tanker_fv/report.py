@@ -2,13 +2,13 @@
 
 Two outputs:
 
-- Per-company report: ``outputs/{ticker}_fv_report.md`` plus
-  ``outputs/{ticker}_fv_report.xlsx``. Sections: header (ticker, date, price,
-  model FV, analyst target), NAV breakdown, dividend-strip table, cycle
+- Per-company report: ``outputs/{ticker}_fv_report.md``. Sections: header (ticker,
+  date, price, model FV, analyst target), NAV breakdown, dividend-strip table, cycle
   weighting, blended fair value, implied breakeven TCE, 5x5 sensitivity grid,
   and a divergence diagnosis.
-- Watchlist roll-up: ``outputs/fair_value_summary.xlsx`` — one sortable row per
-  ticker (Current, Tool FV, Watchlist Target, deltas, implied breakeven, cycle).
+
+The .xlsx twins and the workbook-only roll-ups (fair_value_summary, scenario_summary)
+were retired 2026-09-02 (prune ledger row 38); outputs/book_scorecard.md is the roll-up.
 """
 
 from __future__ import annotations
@@ -16,9 +16,6 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from openpyxl import Workbook
-from openpyxl.styles import Font
-from openpyxl.utils import get_column_letter
 
 from .blend import BlendedFairValue
 from .breakeven import BreakevenResult
@@ -331,164 +328,16 @@ def _discover_sidecar_diagnostics(ticker: str, outputs_dir: Path = OUTPUTS_DIR) 
 
 
 # --------------------------------------------------------------------------- #
-# xlsx
-# --------------------------------------------------------------------------- #
-def _autosize(ws) -> None:
-    for col in ws.columns:
-        width = max((len(str(c.value)) for c in col if c.value is not None), default=8)
-        ws.column_dimensions[get_column_letter(col[0].column)].width = min(width + 2, 40)
-
-
-def _render_xlsx(report: CompanyReport, path: Path) -> None:
-    nav, strip, cyc, fv, be, sens = (
-        report.nav, report.strip, report.cycle, report.blended,
-        report.breakeven, report.sensitivity,
-    )
-    M = 1_000_000
-    cls = _primary_class(report)
-    bold = Font(bold=True)
-    wb = Workbook()
-
-    ws = wb.active
-    ws.title = "Summary"
-    basis_label = "CRUDE SLEEVE (allocated price)" if report.basis else "whole-company"
-    summary = [
-        ("Ticker", report.ticker),
-        ("Valuation basis", basis_label),
-        ("Report date", report.report_date),
-        ("Current price" + (" (crude-allocated)" if report.basis else ""), report.current_price),
-        ("Model fair value", fv.fair_value_per_share),
-        ("Analyst target" + (" (crude-allocated)" if report.basis else ""), report.analyst_target),
-        ("NAV / share", nav.nav_per_share),
-        ("DivStrip implied price", strip.implied_price),
-        (f"12M TC cycle input {cls} ($/day)", cyc.twelve_month_tc_by_class.get(cls)),
-        (f"12M FFA strip {cls} ($/day)", strip.ffa_12m_by_class.get(cls)),
-        ("Cycle position", cyc.cycle_position),
-        ("Cycle band", cyc.band_label),
-        ("w_nav", cyc.w_nav),
-        ("w_earn", cyc.w_earn),
-        ("Implied breakeven blended ($/day)", be.blended_breakeven_tce),
-        ("Breakeven multiplier (× forward)", be.multiplier),
-    ]
-    for r, (k, v) in enumerate(summary, 1):
-        ws.cell(r, 1, k).font = bold
-        ws.cell(r, 2, v)
-    _autosize(ws)
-
-    ws = wb.create_sheet("NAV")
-    ws.append(["Item", "$M"])
-    for c in ws[1]:
-        c.font = bold
-    rows = [(f"Fleet value — {k}", v / M) for k, v in nav.fleet_value_by_class.items()]
-    rows += [
-        ("+ Cash & equivalents", nav.cash_and_equivalents / M),
-        ("+ Working capital (net)", nav.working_capital_net / M),
-        ("- Total debt", -nav.total_debt / M),
-        ("- Lease liabilities", -nav.lease_liabilities / M),
-        ("- Newbuild commitments", -nav.newbuild_capex_commitments / M),
-        ("+ Newbuild advances", nav.newbuild_advances_paid / M),
-        ("= NAV total", nav.nav_total / M),
-        ("Diluted shares", nav.diluted_shares_outstanding),
-        ("NAV / share", nav.nav_per_share),
-        ("NAV / share (ex yard discount)", nav.nav_per_share_ex_yard_discount),
-        ("Yard-discount impact / share", nav.nav_per_share - nav.nav_per_share_ex_yard_discount),
-    ]
-    for k, v in rows:
-        ws.append([k, v])
-    _autosize(ws)
-
-    ws = wb.create_sheet("DivStrip")
-    ws.append(["Quarter", f"FFA spot {cls} ($/day)", "Blended TCE ($/day)",
-               "EPS", "DPS", "Disc. DPS"])
-    for c in ws[1]:
-        c.font = bold
-    labels = _strip_quarter_labels(len(strip.dps_by_quarter))
-    tce_series = strip.blended_tce_by_quarter.get(cls, [None] * len(labels))
-    ffa_series = strip.ffa_spot_by_quarter.get(cls, [None] * len(labels))
-    for i, lab in enumerate(labels):
-        ws.append([lab, ffa_series[i], tce_series[i], strip.eps_by_quarter[i],
-                   strip.dps_by_quarter[i], strip.discounted_dps[i]])
-    ws.append(["Sum disc. DPS", None, None, None, None, sum(strip.discounted_dps)])
-    ws.append(["Terminal value (q9)", None, None, None, strip.terminal_value,
-               strip.discounted_terminal_value])
-    ws.append(["DivStrip implied price", None, None, None, None, strip.implied_price])
-    ws.append(["12M FFA strip (front 4q)", strip.ffa_12m_by_class.get(cls)])
-    _autosize(ws)
-
-    ws = wb.create_sheet("Sensitivity")
-    ws.append(["TCE \\ Vessel"] + [f"{v:+.0%}" for v in sens.vessel_value_shocks])
-    for c in ws[1]:
-        c.font = bold
-    for i, ts in enumerate(sens.tce_shocks):
-        ws.append([f"{ts:+.0%}"] + [sens.grid[i][j] for j in range(len(sens.vessel_value_shocks))])
-    _autosize(ws)
-
-    if report.payout_sensitivity:
-        wsp = wb.create_sheet("Payout")
-        wsp.append(["Dividend payout", "Fair value"])
-        for c in wsp[1]:
-            c.font = bold
-        for payout in sorted(report.payout_sensitivity):
-            wsp.append([payout, round(report.payout_sensitivity[payout], 2)])
-        _autosize(wsp)
-
-    if report.warnings:
-        wsw = wb.create_sheet("Warnings")
-        wsw.append(["Data validation warnings"])
-        wsw["A1"].font = bold
-        for warning in report.warnings:
-            wsw.append([warning])
-        _autosize(wsw)
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    wb.save(path)
-
-
-# --------------------------------------------------------------------------- #
 # public API
 # --------------------------------------------------------------------------- #
 def write_company_report(report: CompanyReport, outputs_dir: Path = OUTPUTS_DIR) -> Path:
-    """Render ``outputs/{ticker}_fv_report.md`` and the matching xlsx; return the .md path."""
+    """Render ``outputs/{ticker}_fv_report.md``; return its path.
+
+    The .xlsx twin was retired 2026-09-02 (prune ledger row 38): 35 committed workbooks,
+    4,074 blob versions, zero readers outside tmp-dir tests — the md carries every section.
+    """
     outputs_dir.mkdir(parents=True, exist_ok=True)
     stem = report.ticker.lower() + "_fv_report"
     md_path = outputs_dir / f"{stem}.md"
     md_path.write_text(_render_markdown(report))
-    _render_xlsx(report, outputs_dir / f"{stem}.xlsx")
     return md_path
-
-
-def write_watchlist_summary(
-    reports: list[CompanyReport], outputs_dir: Path = OUTPUTS_DIR
-) -> Path:
-    """Render the watchlist roll-up ``outputs/fair_value_summary.xlsx`` (section 7)."""
-    outputs_dir.mkdir(parents=True, exist_ok=True)
-    bold = Font(bold=True)
-    wb = Workbook()
-    ws = wb.active
-    ws.title = "Fair value summary"
-    headers = [
-        "Ticker", "Basis", "Current", "Tool FV", "Watchlist Target",
-        "Tool vs Current", "Tool vs Target", "Implied Breakeven TCE (blended)", "Cycle Position",
-    ]
-    ws.append(headers)
-    for c in ws[1]:
-        c.font = bold
-
-    for r in reports:
-        fv = r.blended.fair_value_per_share
-        basis = "CRUDE SLEEVE (allocated price)" if r.basis else "whole-company"
-        ws.append([
-            r.ticker,
-            basis,
-            r.current_price,
-            round(fv, 2),
-            r.analyst_target,
-            f"{_pct(fv, r.current_price):+.1f}%",
-            f"{_pct(fv, r.analyst_target):+.1f}%",
-            round(r.breakeven.blended_breakeven_tce, 0),
-            round(r.cycle.cycle_position, 2),
-        ])
-    _autosize(ws)
-    path = outputs_dir / "fair_value_summary.xlsx"
-    wb.save(path)
-    return path

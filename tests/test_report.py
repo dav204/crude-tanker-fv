@@ -2,11 +2,10 @@
 
 from conftest import BOOK_QUARTER  # follows the book across quarter rolls
 import pytest
-from openpyxl import load_workbook
 
 from crude_tanker_fv.loaders import load_watchlist
 from crude_tanker_fv.pipeline import run_watchlist, value_company
-from crude_tanker_fv.report import write_company_report, write_watchlist_summary
+from crude_tanker_fv.report import write_company_report
 
 
 @pytest.fixture
@@ -28,11 +27,10 @@ def test_value_company_assembles_consistent_report(dht_report):
     assert 15.0 < r.blended.fair_value_per_share < 17.0
 
 
-def test_write_company_report_creates_md_and_xlsx(dht_report, tmp_path):
+def test_write_company_report_creates_md_only(dht_report, tmp_path):
     md = write_company_report(dht_report, outputs_dir=tmp_path)
     assert md.exists() and md.suffix == ".md"
-    xlsx = tmp_path / "dht_fv_report.xlsx"
-    assert xlsx.exists()
+    assert not (tmp_path / "dht_fv_report.xlsx").exists()   # twin retired 2026-09-02
 
     text = md.read_text()
     for needle in ["# DHT", "NAV breakdown", "Dividend strip", "Implied breakeven TCE",
@@ -40,23 +38,6 @@ def test_write_company_report_creates_md_and_xlsx(dht_report, tmp_path):
                    "Data validation warnings"]:
         assert needle in text
 
-    wb = load_workbook(xlsx)
-    assert wb.sheetnames[:4] == ["Summary", "NAV", "DivStrip", "Sensitivity"]
-    assert "Warnings" in wb.sheetnames  # DHT's $462k spot is flagged
-    assert wb["Sensitivity"].max_row == 6 and wb["Sensitivity"].max_column == 6
-
-
-def test_write_watchlist_summary(dht_report, tmp_path):
-    path = write_watchlist_summary([dht_report], outputs_dir=tmp_path)
-    wb = load_workbook(path)
-    ws = wb.active
-    assert ws.max_row == 2  # header + 1 ticker
-    header = [c.value for c in ws[1]]
-    assert header[:5] == ["Ticker", "Basis", "Current", "Tool FV", "Watchlist Target"]
-    row = [c.value for c in ws[2]]
-    assert row[0] == "DHT"
-    assert row[1] == "whole-company"   # DHT is a pure-play
-    assert row[3] == pytest.approx(15.32, abs=0.01)   # re-pinned 2026-08-10 (STAGE A ratified: 12M -> Mount Horizon 105.7k; was 15.97 at the 8/09 marks promotion)
 
 
 def test_run_watchlist_end_to_end(tmp_path):
@@ -65,7 +46,6 @@ def test_run_watchlist_end_to_end(tmp_path):
     assert {"DHT", "FRO"} <= tickers  # both modeled (ECO/INSW skipped, no target yet)
     assert (tmp_path / "dht_fv_report.md").exists()
     assert (tmp_path / "fro_fv_report.md").exists()
-    assert (tmp_path / "fair_value_summary.xlsx").exists()
 
 
 def test_watchlist_loader_reads_dht():

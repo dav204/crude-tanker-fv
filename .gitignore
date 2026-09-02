@@ -92,3 +92,6 @@ inputs/research_issuer/
 
 # On-demand sweep outputs (pruned from git 2026-09-02; sp_scan --names regenerates them)
 outputs/pareto_mentions_*.md
+
+# Spreadsheet twins retired 2026-09-02 (prune ledger row 38): zero readers; md carries every section
+outputs/*.xlsx

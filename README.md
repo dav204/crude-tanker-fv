@@ -360,17 +360,15 @@ accession number).
 | `inputs/market_data/prices_daily.yaml` | price refresh (daily 18:30) | overwrite-per-run | `PRICE-BASIS` flags | watchlist `current_price` | never moves without rebasing consensus from the same vintage |
 | `inputs/filings/<ticker>/` | EDGAR poller (WO2 Phase 2) | `state/edgar_poll.json` | `/filing-packet` drafts | balance sheets, fleet manifests | human reconciliation; SANITY gate; subsequent-events note first |
 
-The 8 output families per pipeline run:
+The output families per pipeline run (the .xlsx twins and the two workbook-only roll-ups were retired 2026-09-02 — the roll-up is `outputs/book_scorecard.md`):
 
 | Output | What it answers |
 |---|---|
-| `{ticker}_fv_report.md` + `.xlsx` | Single-point FV with full NAV breakdown, dividend strip, breakeven, 5×5 sensitivity (per name) |
+| `{ticker}_fv_report.md` | Single-point FV with full NAV breakdown, dividend strip, breakeven, 5×5 sensitivity (per name) |
 | `{ticker}_scenarios.md` | Probability-weighted FV across the sector's scenarios, with EV% and position recommendation (per name) |
-| `fair_value_summary.xlsx` | Watchlist roll-up: tool FV vs current vs analyst target, all names in one table |
-| `scenario_summary.xlsx` | Per-sector scenario sheets + cross-name pair-trade implied returns |
-| `broker_nav_sweep.md` + `.xlsx` | The mark-validated vs mark-driven discrimination diagnostic (shown above) |
-| `transaction_anchor_comparison.md` + `.xlsx` | NAV / EV impact of applying transaction-anchored mid-age curves (Aframax + Suezmax) |
-| `justified_pnav.md` + `.xlsx` | Coverage-independent justified P/NAV per name (does the fleet earn its cost of capital on its marked NAV?) — benchmarks the APPROX names; ordering tool (§17) |
+| `broker_nav_sweep.md` | The mark-validated vs mark-driven discrimination diagnostic (shown above) |
+| `transaction_anchor_comparison.md` (on demand: `pipeline <Q> --txn-comparison`) | NAV / EV impact of applying transaction-anchored mid-age curves (Aframax + Suezmax) |
+| `justified_pnav.md` | Coverage-independent justified P/NAV per name (does the fleet earn its cost of capital on its marked NAV?) — benchmarks the APPROX names; ordering tool (§17) |
 | `delta_report.md` + `decisions/{ticker}_log.md` | What changed since last run + per-ticker decision log with structured model-state entries |
 
 ## Architecture at a glance

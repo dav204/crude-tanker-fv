@@ -84,7 +84,6 @@ def test_broker_sweep_discriminates_hybrid(tmp_path):
     assert by["INSW"].spread > 15
     assert by["INSW"].ev_broker > by["INSW"].ev_tool
     assert (tmp_path / "broker_nav_sweep.md").exists()
-    assert (tmp_path / "broker_nav_sweep.xlsx").exists()
     # B4 (2026-06-12): the rendered sweep must carry the two-regime band
     # language and must NOT claim the retired pre-flip "k ≈ 1.0 = validated"
     # reading as current semantics.

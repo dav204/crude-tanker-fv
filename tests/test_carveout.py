@@ -504,7 +504,6 @@ def test_insw_outputs_are_clearly_labeled_v2_whole_company(tmp_path):
     """Under v2 (METHODOLOGY 6 v2), scenario/sweep/comparison outputs aggregate
     BOTH sleeves into a WHOLE-COMPANY view; only the single-point FV report stays
     crude-sleeve (it's the detail report; whole-co lives in the scenario report)."""
-    from openpyxl import load_workbook
 
     from crude_tanker_fv.pipeline import (
         run_broker_sweep,
@@ -523,9 +522,6 @@ def test_insw_outputs_are_clearly_labeled_v2_whole_company(tmp_path):
     insw_fv = (tmp_path / "insw_fv_report.md").read_text()
     assert "CRUDE SLEEVE" in insw_fv
     assert "Current price (crude-allocated)" in insw_fv
-    wb = load_workbook(tmp_path / "insw_fv_report.xlsx")
-    summary = {row[0].value: row[1].value for row in wb["Summary"].iter_rows()}
-    assert summary.get("Valuation basis") == "CRUDE SLEEVE (allocated price)"
 
     # Scenario report .md is the WHOLE-COMPANY headline now (v2).
     insw_sc = (tmp_path / "insw_scenarios.md").read_text()
@@ -535,29 +531,11 @@ def test_insw_outputs_are_clearly_labeled_v2_whole_company(tmp_path):
     # Whole-company price should NOT carry the (crude-allocated) qualifier
     assert "Current price (crude-allocated)" not in insw_sc
 
-    # Watchlist roll-up reflects the FV report (still crude-sleeve detail).
-    wb = load_workbook(tmp_path / "fair_value_summary.xlsx")
-    rows = list(wb.active.iter_rows(values_only=True))
-    insw_row = next(r for r in rows[1:] if r[0] == "INSW")
-    assert insw_row[1] == "CRUDE SLEEVE (allocated price)"
-
-    # Scenario roll-up now flags WHOLE-COMPANY for INSW.
-    wb = load_workbook(tmp_path / "scenario_summary.xlsx")
-    rows = list(wb.active.iter_rows(values_only=True))
-    insw_row = next(r for r in rows[1:] if r[0] == "INSW")
-    assert insw_row[1] == "WHOLE-COMPANY (hybrid aggregation)"
+    # (The xlsx roll-ups that used to echo these bases were retired 2026-09-02.)
 
     # Broker sweep + transaction-anchor comparison: WHOLE-CO for INSW.
     sweep_md = (tmp_path / "broker_nav_sweep.md").read_text()
     assert "INSW **(WHOLE-CO)**" in sweep_md
-    wb = load_workbook(tmp_path / "broker_nav_sweep.xlsx")
-    rows = list(wb.active.iter_rows(values_only=True))
-    insw_row = next(r for r in rows[1:] if r[0] == "INSW")
-    assert insw_row[1] == "WHOLE-COMPANY (hybrid aggregation)"
 
     txn_md = (tmp_path / "transaction_anchor_comparison.md").read_text()
     assert "INSW **(WHOLE-CO)**" in txn_md
-    wb = load_workbook(tmp_path / "transaction_anchor_comparison.xlsx")
-    rows = list(wb.active.iter_rows(values_only=True))
-    insw_row = next(r for r in rows[1:] if r[0] == "INSW")
-    assert insw_row[1] == "WHOLE-COMPANY (hybrid aggregation)"
