@@ -36,7 +36,7 @@ import json
 import re
 import subprocess
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 from PIL import Image
@@ -219,13 +219,20 @@ def sanity_issues(curves: dict[str, dict[str, int]],
     return issues
 
 
+# How far back an incremental scan re-examines days it has already seen. The poster
+# uploads through the day (2026-09-02: nine 9/01 captures, four of them AFTER the day was
+# first scanned), and a date cursor alone makes every late arrival invisible forever —
+# including the end-of-day print, which is the one a promotion should read.
+LATE_ARRIVAL_LOOKBACK_DAYS = 7
+
+
 def _iter_images(since: date | None):
     for p in sorted(FFA_DIR.rglob("*.png")) + sorted(FFA_DIR.rglob("*.jpg")):
         m = re.match(r"(\d{4}-\d{2}-\d{2})_", p.name)
         if not m:
             continue
         d = date.fromisoformat(m.group(1))
-        if since and d <= since:
+        if since and d <= since - timedelta(days=LATE_ARRIVAL_LOOKBACK_DAYS):
             continue
         yield d, p
 
@@ -239,8 +246,12 @@ def _load_json(path: Path, default):
 def run_scan(since: date | None, full: bool = False) -> tuple[int, int, int]:
     """Walk images newer than the cursor; OCR, classify, parse, queue.
 
-    One curve per calendar day: the first classified FFA hit wins (the
-    poster's morning capture; afternoon reposts are intraday snapshots).
+    One curve per calendar day, BEST-of-day: the entry with the fewest sanity issues
+    wins. Images are tracked individually (``parsed_images`` in the state), so a capture
+    uploaded after its day was first scanned is still read — within
+    ``LATE_ARRIVAL_LOOKBACK_DAYS``. Before 2026-09-02 a day was skipped wholesale once it
+    held any accepted entry, so late captures were never parsed and "best of day" silently
+    meant "best of whatever had arrived by the first scan".
     Returns (n_images, n_widgets, n_flagged).
     """
     state = _load_json(STATE_PATH, {})
@@ -251,6 +262,7 @@ def run_scan(since: date | None, full: bool = False) -> tuple[int, int, int]:
     elif since:
         cursor = since
 
+    parsed_images: set = set(state.get("parsed_images") or [])
     n_images = n_widgets = n_flagged = 0
     newest = cursor
     queue_entries = []
@@ -269,15 +281,24 @@ def run_scan(since: date | None, full: bool = False) -> tuple[int, int, int]:
         by_day.setdefault(d.isoformat(), []).append(path)
 
     for iso in sorted(by_day):
-        if not full and iso in curves_db and curves_db[iso].get("status") != "no_widget":
+        candidates = ([p for p in by_day[iso] if str(p.relative_to(ROOT)) not in parsed_images]
+                      if not full else list(by_day[iso]))
+        if not candidates:
             continue
         # Best-of-day: parse EVERY classified image that day, keep the entry
         # with the fewest issues (a clean afternoon repost beats a mangled
         # morning capture). Continuity is judged against the previous day's
         # accepted curve, not intra-day reposts.
         prev_for_day = _prev_curves(iso)
+        # Carry the day's existing accepted entry into the comparison so a late capture
+        # only displaces it by being STRICTLY cleaner.
         best = None
-        for path in by_day[iso]:
+        if not full:
+            existing = curves_db.get(iso)
+            if existing and existing.get("status") in ("ok", "flagged"):
+                best = existing
+        for path in candidates:
+            parsed_images.add(str(path.relative_to(ROOT)))
             text, words = ocr_image(path)
             if not is_ffa_widget(text):
                 continue
@@ -306,6 +327,7 @@ def run_scan(since: date | None, full: bool = False) -> tuple[int, int, int]:
     CURVES_PATH.parent.mkdir(parents=True, exist_ok=True)
     CURVES_PATH.write_text(json.dumps(curves_db, indent=1, sort_keys=True))
     if newest:
+        state["parsed_images"] = sorted(parsed_images)
         state["last_scanned_date"] = newest.isoformat()
         state["updated_at"] = datetime.now().astimezone().isoformat(timespec="seconds")
         STATE_PATH.write_text(json.dumps(state, indent=1))

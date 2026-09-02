@@ -248,3 +248,65 @@ def test_quarter_tenors_sort_from_the_print_quarter():
     assert sept == ["sep", "oct", "q4", "q1", "cal27"]
     jan = sorted(["q2", "q1", "jan", "feb"], key=lambda t: _tenor_sort_key(t, 1))
     assert jan == ["jan", "feb", "q1", "q2"]
+
+
+def test_late_arriving_capture_is_parsed_after_its_day_was_scanned(tmp_path, monkeypatch):
+    """2026-09-02: the poster uploads through the day. Before this fix a day was skipped
+    wholesale once it held any accepted entry, so a capture arriving after the first scan
+    was never parsed — on 2026-09-01 that hid five of nine captures including the
+    end-of-day print, which is the one a promotion should read. Images are now tracked
+    individually and a late arrival displaces the day's entry only by being cleaner."""
+    import json
+    from datetime import date
+
+    import crude_tanker_fv.ffa_ocr as F
+
+    ffa = tmp_path / "ffa"
+    (ffa / "2026" / "09").mkdir(parents=True)
+    morning = ffa / "2026" / "09" / "2026-09-01_a 09-42.png"
+    evening = ffa / "2026" / "09" / "2026-09-01_b 18-09.png"
+    for p in (morning, evening):
+        p.write_bytes(b"x")
+    state = tmp_path / "state.json"
+    curves = tmp_path / "curves.json"
+    queue = tmp_path / "queue.md"
+    monkeypatch.setattr(F, "FFA_DIR", ffa)
+    monkeypatch.setattr(F, "STATE_PATH", state)
+    monkeypatch.setattr(F, "CURVES_PATH", curves)
+    monkeypatch.setattr(F, "QUEUE_PATH", queue)
+    monkeypatch.setattr(F, "ROOT", tmp_path)
+
+    good = {p: {"sep": 45000, "q4": 44000, "q1": 30000, "cal27": 33000, "oct": 46000}
+            for p in F.PANELS}
+    bad = {p: {"sep": 45000, "q4": 44000} for p in F.PANELS}
+    monkeypatch.setattr(F, "ocr_image", lambda path, psm=6: ("FFA Cape Pmax Smax", []))
+    monkeypatch.setattr(F, "is_ffa_widget", lambda text: True)
+
+    seen = {"n": 0}
+
+    def fake_parse(_words):
+        seen["n"] += 1
+        return bad if seen["n"] == 1 else good      # morning mangled, evening clean
+
+    monkeypatch.setattr(F, "parse_widget", fake_parse)
+
+    # First scan sees ONLY the morning capture and accepts it, flagged.
+    only_morning = [(date(2026, 9, 1), morning)]
+    monkeypatch.setattr(F, "_iter_images", lambda since: iter(only_morning))
+    F.run_scan(None)
+    assert json.loads(curves.read_text())["2026-09-01"]["status"] == "flagged"
+
+    # The evening capture lands afterwards. The day is already accepted — it must still
+    # be read, and being clean it must displace the morning entry.
+    both = [(date(2026, 9, 1), morning), (date(2026, 9, 1), evening)]
+    monkeypatch.setattr(F, "_iter_images", lambda since: iter(both))
+    F.run_scan(None)
+    entry = json.loads(curves.read_text())["2026-09-01"]
+    assert entry["status"] == "ok", "a clean late capture must displace a flagged morning one"
+    assert entry["source"].endswith("b 18-09.png")
+    assert morning.name.split("_")[-1] not in entry["source"]
+
+    # And the morning image is not re-OCR'd on a third run (path-tracked, not date-tracked).
+    before = seen["n"]
+    F.run_scan(None)
+    assert seen["n"] == before, "already-parsed images must not be re-read"
