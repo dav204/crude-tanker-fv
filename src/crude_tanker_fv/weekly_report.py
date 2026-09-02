@@ -387,6 +387,19 @@ def build_report(today: date | None = None, days: int = 7) -> str:
 
     a("## 3. What the machine did")
     a("")
+    try:
+        from .promote import evaluate_price_absorb
+        pv = evaluate_price_absorb()
+        if pv.ok:
+            a(f"- **Standing drift is AUTO-ABSORBABLE** ({pv.rows_considered} gate rows): "
+              f"price-vintage only, no NAV move, no band exit, no BUY-ward flip. This is the "
+              f"shape a one-word ratify takes.")
+        else:
+            a(f"- **Standing drift needs your eye** ({pv.rows_considered} gate rows):")
+            for r in pv.freeze_reasons:
+                a(f"    - {r}")
+    except Exception as exc:
+        a(f"- Lane-D check unavailable: {exc}")
     a(f"- Notifications sent in the window: {pages} page(s), {digests} digest(s)"
       + (f"; last send {last_send}" if last_send else "; **no sends at all — check the notifier**"))
     if ratifies:
