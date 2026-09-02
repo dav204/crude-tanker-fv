@@ -5,6 +5,41 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-09-02 — THE AUTOMATION RULING + STAGE 0 LANDED.** *Owner words (on
+  `decisions/autopilot_authority_2026-09-02.md` — a code promoter with bounded authority inside
+  guard-tested predicates, rolled out A→D behind clean-season gates — and
+  `decisions/prune_ledger_2026-09-02.md`, the 82-row prune ledger):* "adopt Stage 0 · accept all
+  Q recs · accept all F recs except F7 no (keep), F18 no (keep)". Both documents were produced by
+  multi-agent design/audit workflows (4 readers → 3 designs → 9 adversarial verifications → critic;
+  5 auditors → 5 refuters) and re-verified read-only at HEAD 4bb3237. *Stage 0, executed this
+  sitting:* (1) the 8/31 archive-gap entry re-shaped into the `accepted[]` schema — appended at
+  root level it had broken the YAML parse and CRASHED the 9/01 sentinel (no digest, no page, no
+  ping) while the heartbeat recorded a normal `flags` day; `tests/test_live_yaml_parse.py` now
+  loads every live input YAML. (2) CI unblocked: two unused imports had failed `ruff` on every
+  Action run since 7/24, so the clean-clone suite had not executed for six weeks (one import is a
+  re-export the shared-state guard test reads — kept with `noqa`). (3) Sentinel exit codes
+  0/2/1; the wrapper records a traceback as `error`. (4) Routing re-cut (owner Q-9): `page` /
+  `page_once` / `digest` / `record_only`; only `FETCH-FAILED` escalates (F10); `EARNINGS-UNCONFIRMED`
+  and `EARNINGS-SWEEP-STALE` routed explicitly — they had paged ~50× in August through the
+  unknown-tag rule because the routing test's hand-typed tag set omitted them (it now derives the
+  live set from `sentinel.py`); `FILING-LANDED` keyed per accession (94 page instances for 52
+  filings); the sweep-stale trailing colon dropped. (5) `REAUTH-NEEDED`: `reauth.py` +
+  `state/reauth/` (Rocket.Chat 401/403, SMTP auth, two healthchecks 4xx), paged once;
+  `state/ping_status.json` records every ping outcome (it was stdout-only). (6) The daily ingest
+  chain indexes BEFORE it scans (`pareto_archive --build-manifest --incremental`, new PDFs only)
+  and the Saturday chain's full rebuild now precedes the scan — the 9/01 "nothing to scan" was a
+  stale index; `sp_scan` keys on a scanned-path set so a late-arriving older issue is scanned.
+  (7) FFA OCR accepts the ratified month-end 4-tenor grid and sorts Q tenors from the print
+  quarter (the 8/31 column-transposition trap). (8) `price_refresh` writes atomically and a bare
+  run ledgers itself `manual:` (the seven 8/17-24 salvages were invisible to the no-human-fetches
+  instrument). (9) HKEX governance notices (terms of reference, corporate governance,
+  Circulars-[Other]) no longer page. (10) `agent_duties.yaml` gains `artifact_path:`; the
+  governance repo's Friday monitor is a registered duty. (11) The expired summer `silence_days`
+  override dropped. (12) The README test-count guard is a floor check (adding tests no longer
+  reds it). *Owner acts still owed — an agent cannot do them:* `launchctl unload` the two zombie
+  ctxprobe plists; set `SENTINEL_LITE_HC_URL` or record the Action unmonitored; name the two days
+  for the healthchecks ping-gap drill (Q-10); `git push`. *The F-list prune executes in the
+  commits that follow; Stage A (shadow promoter, weekly report, decision queue) is the next build.*
 - **2026-08-16 — THE OSLO/EURONEXT ISSUER CHANNEL EXISTS: `newsweb_poll.py`, the third venue
   adapter, closes the last venue with no filing lane.** *Why:* BRUT/MPCC/CAPT carry
   `sec_edgar: null` and no HKEX id, so nothing mechanical could see their corporate actions —

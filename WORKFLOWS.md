@@ -157,8 +157,11 @@ sit in CLAUDE.md; the full list lives here.
   k_broker on its *second difference*); exit 1 on UNEXPLAINED drift. `tests/test_drift_gate.py` runs it
   as a build gate. Re-anchor ONLY via `./scripts/ratify_baseline.sh "<cause>"` (mandatory cause; human
   commits) — **never hand-edit the numbers.**
-- **S&P print scan (incremental):** `python -m crude_tanker_fv.sp_scan` — scans Pareto dailies newer
-  than the cursor, writes the review queue to `outputs/sp_print_candidates.md`. Human-classified into
+- **S&P print scan (incremental):** `python -m crude_tanker_fv.sp_scan` — scans Pareto dailies not
+  yet scanned (a per-path set since 2026-09-02: a late-arriving older issue is scanned, not hidden
+  behind the date cursor; `--since`/`--full` keep the date semantics) and writes the review queue
+  to `outputs/sp_print_candidates.md`. The scan reads `_manifest.json` — both chains index before
+  they scan (the 2026-09-01 "nothing to scan" was a stale index, guard-tested). Human-classified into
   `transactions/<class>.yaml`; **never auto-promote.** Every `sp_scan` mode is local-only BY
   CONSTRUCTION (network download lives in `fetch_links`).
   **Before promoting an UNNAMED broker print, sweep the class file for same-age/similar-price rows in
@@ -168,7 +171,12 @@ sit in CLAUDE.md; the full list lives here.
 - **Daily price refresh:** `python -m crude_tanker_fv.price_refresh` — fetches watchlist closes (Yahoo)
   into the automation-writable `prices_daily.yaml`; launchd 18:30 daily. Pipeline values at the live
   close; watchlist statics stay as the consensus_pnav/fwd_pe vintage anchors. Flagged quotes (>15% day
-  move, >30% vs static) are written but never applied.
+  move, >30% vs static) are written but never applied. Writes atomically; a bare run outside the
+  wrapper ledgers itself `manual:` in `state/automation_runs.log` (2026-09-02 — the seven 8/17-24
+  outage salvages had been invisible).
+- **Daily ingest chain:** `scripts/ingest_rocketchat_cron.sh` — launchd 07:00, chains RC ingest →
+  `pareto_archive --build-manifest --incremental` (new PDFs only; added 2026-09-02 — before it the
+  weekday scans ran on Saturday's index) → `sp_scan` → `ffa_ocr`.
 - **Regen sequencing (2026-08-29; bit 2× in one week — FLNG 8/25, TRMD 8/29):** COMMIT the
   pair/inputs FIRST, regen SECOND. A regen over uncommitted inputs stamps `source_commit
   -dirty` and the hygiene guard reds it AFTER the ~8-min run — the guard catches it, but a
@@ -178,14 +186,18 @@ sit in CLAUDE.md; the full list lives here.
   automation-written files the launchd jobs churn. COMMIT-ONLY (push stays manual). Decision logs +
   per-name pipeline outputs EXCLUDED — commit those deliberately with their annotations.
 - **Weekly news pull (mechanical):** `scripts/news_pull_cron.sh` — launchd Sat 08:00, chains RC ingest
-  → `sp_scan` → `--links` → `fetch_links` → `pareto_archive --build-manifest` → `ffa_ocr`. The download
-  step is its own module `crude_tanker_fv.fetch_links` so every `sp_scan` mode stays local-only.
+  → `pareto_archive --build-manifest` (full rebuild, reordered ahead of the scan 2026-09-02) →
+  `sp_scan` → `--links` → `fetch_links` → `ffa_ocr`. The download step is its own module
+  `crude_tanker_fv.fetch_links` so every `sp_scan` mode stays local-only.
 - **Oslo issuer poller:** `python -m crude_tanker_fv.newsweb_poll [--dry-run] [--all]` — the Oslo/
   Euronext issuer-release channel for BRUT/MPCC/CAPT/BWLP (added 2026-08-16). Staging-only, rides
   the hourly edgar-poll row; mechanics + the two filter traps in §Data-sources below.
 - **FFA widget OCR (incremental):** `python -m crude_tanker_fv.ffa_ocr` — parses the daily 3-panel
   Cape/Pmax/Smax screenshot into `state/ffa_ocr_curves.json` + review queue; `--staleness` exits 1 if
-  the feed is >7 days quiet. Promotion to `inputs/market_data/ffa_forward_curve.yaml` is HUMAN-ONLY.
+  the feed is >7 days quiet. Promotion to `inputs/market_data/ffa_forward_curve.yaml` is HUMAN-ONLY
+  until the autopilot's lane B lands (Stage B, `decisions/autopilot_authority_2026-09-02.md`).
+  From the 24th the widget drops the expiring month, so a 4-tenor panel is complete (2026-09-02 —
+  the queue no longer flags month-end captures); Q tenors sort from the print's own quarter.
   Scratch under `state/ffa_scratch/` — tesseract can't read /tmp in the agent sandbox.
 - **Weekly news pull (agent-judgment):** `/news-pull` — web-sweeps watchlist names (weighted to APPROX
   + live-event names) into a dated digest. Review-only; promotion is human-only.

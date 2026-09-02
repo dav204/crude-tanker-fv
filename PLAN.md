@@ -6,6 +6,26 @@ forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
 
+**STATE INSERT (2026-09-02 — THE AUTOMATION RULING; read this, then the 8/31 insert below).**
+Owner ruled on the two 2026-09-02 decision documents: "adopt Stage 0 · accept all Q recs · accept
+all F recs except F7 no (keep), F18 no (keep)" — `decisions/autopilot_authority_2026-09-02.md`
+(the autopilot: a CODE promoter with bounded authority, Stages 0→D behind clean-season gates;
+Q-0…Q-12 are RULED at their recommendations) and `decisions/prune_ledger_2026-09-02.md` (F1…F20
+RULED at their recommendations; F7/F18 = keep the FFA image archive and the harvester data).
+**Stage 0 LANDED** (CHANGELOG 2026-09-02 itemises the 12 fixes: sentinel crash + live-YAML guard,
+CI unblocked, exit codes, routing re-cut with page_once, REAUTH-NEEDED, manifest-before-scan,
+OCR month-end grid, atomic prices + manual ledger row, HKEX noise, duty artifact_path). **Gate
+0→A:** one week with every fetch initiator in the ledger, every page joined to a send, the
+healthchecks ping-gap drill RECORDED (Q-10 — OWNER NAMES THE TWO DAYS), owner attestation line.
+**OWNER OWES (new, agent cannot do):** `launchctl unload` ×2 zombie ctxprobe plists (F6) · set the
+`SENTINEL_LITE_HC_URL` repo secret or record the Action unmonitored · name the drill days · push.
+**NEXT BUILD:** the F-list prune (stop-now group first, one commit each) → Stage A (shadow
+`promote check`, weekly report + decision queue, Saturday stager, pin migration) per §6 of the
+autopilot doc. Nothing here changes the 9/03–9/05 sequence below (CMBT 9/03 → Stage B window
+9/04 → R4 9/04-05 → TEN 9/10); F3 (fold the geopolitics cards) and F19 (retire the tanker-forward
+trigger + TRIGGER-EVIDENCE lane) execute AFTER those land.
+
+
 **STATE INSERT (2026-08-31 EVE — the digest-drain + refresh-backlog session; read this, then the 8/25 insert below).**
 The 8/31 owner sitting had closed with the seven-cause ratify — but HALF-COMMITTED
 (the RATIFY_LOG row went in; the re-anchored baseline file sat uncommitted): completed

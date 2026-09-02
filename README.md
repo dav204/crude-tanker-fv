@@ -304,13 +304,20 @@ python -m crude_tanker_fv.pipeline 2026-Q1  # → 8 output families
 ### Operations (unattended watches)
 
 The read-only sentinel answers "does anything need the owner's eyes?" and, with
-`--notify`, emails the owner (PAGE for incidents, one unconditional daily digest
-otherwise — notifier death is detectable by the digest's absence and by the
-healthchecks dead-man ping, which fires only after a completed run whose sends
-succeeded). Tags: `TRIGGER-DUE`, `STALE-INPUT`, `SURFACE-INCOHERENT`,
-`PRICE-BASIS`, `SIDECAR-STALE`, `NOTIFY-UNCONFIGURED`, `FETCH-FAILED`,
-`UNINGESTED-PRINTS`, `TRIGGER-EVIDENCE`, `FILING-OVERDUE`/`FILING-LANDED` (+`DIRTY-TOO-LONG` in dirty meta-mode; representative — full vocabulary in `sentinel.py`);
-routing in `inputs/notify.yaml`. On a dirty tree the sentinel runs META-MODE
+`--notify`, emails the owner. Four routes in `inputs/notify.yaml` (re-cut 2026-09-02,
+owner ruling Q-9): **page** every run (`SURFACE-INCOHERENT`, `FILING-OVERDUE`);
+**page_once** — the first sighting of a key pages, repeats ride the digest
+(`TRIGGER-DUE`, `FILING-LANDED` per accession, `DIRTY-TOO-LONG`, `REAUTH-NEEDED`,
+`EARNINGS-UNCONFIRMED` per name, `EARNINGS-SWEEP-STALE` per stale stamp); **digest** —
+one daily status email, sent on OK days too (its absence is the tell); **record_only**.
+Only `FETCH-FAILED` escalates from the digest (2 consecutive runs; immediately inside
+an open earnings window). `tests/test_notify.py` derives the live tag set from
+`sentinel.py`, so an unrouted tag reds the suite. Exit codes: 0 quiet · 2 flags · 1
+crash (the wrapper records `outcome=error`). Credential failures register under
+`state/reauth/` (Rocket.Chat 401/403, SMTP auth, two healthchecks 4xx) and page once
+as `REAUTH-NEEDED <surface>`; every ping outcome lands in `state/ping_status.json`.
+The healthchecks alert-by-absence path is wired but UNDEMONSTRATED (no receipt on
+file — the Stage-0 ping-gap drill, owner Q-10). On a dirty tree the sentinel runs META-MODE
 (content checks suspended, liveness alive); tracked-tree writers skip outright;
 staging-only fetchers keep fetching (`PAUSE` file stops everything). A GitHub
 Action (`sentinel-lite`) runs the repo-pure subset daily against pushed state
