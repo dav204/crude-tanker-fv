@@ -241,7 +241,7 @@ quirks live here:
   pinned in `tests/test_hkex_poll.py`); the servlet's `result` field is a JSON-encoded STRING;
   filings are English PDFs under `www1.hkexnews.hk/listedco/...` (fetch_pdf-allowlisted via the
   data_sources URLs). Arrivals land in `state/edgar_manifest.jsonl` with `source: "hkexnews"` —
-  sentinel FILING-LANDED + draft queue work unchanged. HK cadence is SEMI-ANNUAL (Annual ~Mar,
+  sentinel FILING-LANDED work unchanged (the never-runnable `draft_queue` was deleted 2026-09-02, prune row 13). HK cadence is SEMI-ANNUAL (Annual ~Mar,
   Interim ~Jul/Aug) + Monthly Returns (share count).
 - **Oslo/Euronext NewsWeb (BRUT / MPCC / CAPT / BWLP)** — `python -m crude_tanker_fv.newsweb_poll`
   (added 2026-08-16; rides the same hourly edgar-poll row). Closes the LAST venue with no filing
