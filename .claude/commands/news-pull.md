@@ -4,7 +4,7 @@ argument-hint: [TICKER,TICKER … — optional subset; default all watchlist nam
 ---
 
 Run the agent-judgment half of the weekly news pull. The mechanical half
-(Rocket.Chat ingest → `sp_scan` → `--links` → `fetch_links` → manifest)
+(Rocket.Chat ingest → manifest rebuild → `sp_scan` → `ffa_ocr`)
 runs Saturdays via `scripts/news_pull_cron.sh`; this command is the
 web-side sweep that the scanners can't do.
 
@@ -48,11 +48,11 @@ Hunt, per name, for items since the last digest (check
   `as_of`.
 - **STANDING (added 2026-07-02, reviewer condition): war-risk insurance
   premia for Gulf/Hormuz voyages** — current level + direction (Lloyd's
-  List, TradeWinds, insurer statements). Leading indicator for the §13.3
-  reweight triggers (`inputs/reweight_triggers.yaml`,
-  `crude_transit_normalization`); the level has been UNCONFIRMED since
-  2026-07-02. Also check each dated trigger in that file whose `due` falls
-  before the next Saturday and note the observable's state in the digest.
+  List, TradeWinds, insurer statements) — one line in the digest's WATCH section
+  (the `crude_transit_normalization` / `crude_brent_reopening` register cards were
+  retired 2026-09-02, owner F8: this line IS the observable now). Also check each
+  dated trigger in `inputs/reweight_triggers.yaml` whose `due` falls before the
+  next Saturday and note the observable's state in the digest.
 
 ## 3. Write the digest — `outputs/news_digest_YYYY-MM-DD.md`
 

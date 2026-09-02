@@ -277,9 +277,14 @@ def test_live_trigger_file_loads_and_renders():
         assert "due" in entry, f"{name} missing due (use null for event-watch)"
     items = check_reweight_triggers(today=date(2026, 7, 2))
     assert len(items) == len(doc)
-    # The two dated 2026 checkpoints from the 2026-07-02 review must be present.
-    assert "crude_mou_implementation_check" in doc and doc["crude_mou_implementation_check"]["due"] == date(2026, 7, 17)
-    assert "crude_day60_toll_cliff" in doc and doc["crude_day60_toll_cliff"]["due"] == date(2026, 8, 16)
+    # The two dated 2026-07-02 checkpoints are DONE and live in the archive since 2026-09-02
+    # (owner F20: the live register carries armed cards only). Pin them there.
+    import re as _re
+    arch = (Path(__file__).resolve().parents[1] / "decisions" / "reweight_trigger_archive.md").read_text()
+    archived = yaml.safe_load(_re.search(r"```yaml\n(.*?)```", arch, _re.S).group(1))
+    assert archived["crude_mou_implementation_check"]["due"] == date(2026, 7, 17)
+    assert archived["crude_day60_toll_cliff"]["due"] == date(2026, 8, 16)
+    assert not any(v.get("status") == "done" for v in doc.values()), "done cards belong in the archive"
 
 
 def test_data_sources_covers_all_watchlist():

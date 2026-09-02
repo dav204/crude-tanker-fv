@@ -292,8 +292,9 @@ stale "confirmed".
 ## Consensus-pair recapture — the quarterly packet (added 2026-07-03, WO2 3.1)
 
 The consensus pair (`current_price` + `consensus_pnav` + `consensus_fwd_pe`) is valid only AS A
-PAIR from one vintage — the TEN $44 lesson. Trigger `all_sectors_consensus_pair_recapture`
-pages when due; the recapture is ONE sitting, one source:
+PAIR from one vintage — the TEN $44 lesson. The 42-day watchlist-vintage lane (`STALE-INPUT`)
+and the ±30% static guard page the recapture (the standalone trigger card was retired
+2026-09-02, owner F20 — only the 7/06 rebase was ever card-driven); it is ONE sitting, one source:
 
 1. Pick ONE Pareto Shipping Daily (the newest with the full share-price/P/NAV/P/E table);
    note its date — that date becomes every touched name's `as_of`.
