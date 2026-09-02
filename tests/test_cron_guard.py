@@ -139,3 +139,24 @@ def test_multi_lane_outcome_names_the_failing_lane():
     # `cmd || var=$?` is the only set -e-safe form that preserves the real rc;
     # `if cmd; then` records every failure as rc0 (the bug this was written with).
     assert '"$@" || cron_lane_rc=$?' in text
+
+
+def _cmd_line_index(text: str, needle: str) -> int:
+    """Index of the first NON-comment line invoking `needle` (comments and the
+    chain header mention modules by name; only a command counts)."""
+    pos = 0
+    for line in text.splitlines(keepends=True):
+        if not line.lstrip().startswith("#") and needle in line:
+            return pos
+        pos += len(line)
+    raise AssertionError(f"no command line runs {needle}")
+
+
+@pytest.mark.parametrize("script", ["ingest_rocketchat_cron.sh", "news_pull_cron.sh"])
+def test_ingest_chains_rebuild_manifest_before_scan(script):
+    """2026-09-02 (Stage 0): sp_scan reads _manifest.json, so both chains must
+    index before they scan — the daily chain never did (9/01 false clean) and
+    the Saturday chain did it after."""
+    text = (ROOT / "scripts" / script).read_text()
+    assert (_cmd_line_index(text, "crude_tanker_fv.pareto_archive --build-manifest")
+            < _cmd_line_index(text, "crude_tanker_fv.sp_scan"))

@@ -38,6 +38,7 @@ Run: ``python -m crude_tanker_fv.price_refresh`` (daily via launchd,
 from __future__ import annotations
 
 import json
+import os
 import sys
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -209,14 +210,40 @@ def run_refresh(inputs_dir: Path = INPUTS_DIR) -> tuple[int, int, int]:
         "prices": prices,
     }
     path = inputs_dir / PRICES_RELPATH
-    path.write_text(yaml.safe_dump(out, sort_keys=True))
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(yaml.safe_dump(out, sort_keys=True))
+    os.replace(tmp, path)   # atomic: no reader ever sees a torn vintage (2026-09-02)
     print(f"{fetched} fetched, {flagged} flagged, {failed} failed -> {path}")
     return fetched, flagged, failed
 
 
+def ledger_bare_run(rc: int, root: Path = INPUTS_DIR.parent, environ=os.environ) -> bool:
+    """A run outside the launchd wrapper leaves a `manual:` row in
+    state/automation_runs.log (2026-09-02, Stage 0). The seven 8/17-24 outage
+    salvages were bare `python -m` runs and wrote nothing — the no-human-fetches
+    instrument could not see them. Under the wrapper (cron_lib.sh exports
+    CRUDE_FV_CRON_WRAPPER) the wrapper ledgers itself; this stays silent."""
+    if environ.get("CRUDE_FV_CRON_WRAPPER"):
+        return False
+    try:
+        tty = os.ttyname(sys.stdin.fileno()).replace("/dev/", "")
+    except Exception:
+        tty = "notty"
+    user = environ.get("USER") or "unknown"
+    path = root / "state" / "automation_runs.log"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a") as fh:
+        fh.write(f"{datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')} "
+                 f"job=price-refresh initiator=manual:{user}@{tty} "
+                 f"outcome={'ok' if rc == 0 else 'error'} rc={rc} note=bare-run\n")
+    return True
+
+
 def main() -> int:
     fetched, _flagged, failed = run_refresh()
-    return 0 if fetched and failed == 0 else (0 if fetched else 1)
+    rc = 0 if fetched and failed == 0 else (0 if fetched else 1)
+    ledger_bare_run(rc)
+    return rc
 
 
 if __name__ == "__main__":

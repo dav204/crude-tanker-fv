@@ -66,6 +66,11 @@ def test_relevance_filter_and_date_parse():
     assert hp._clean("Monthly Returns<br/>") == "Monthly Returns"
     assert not hp._relevant(_row("3", "Next Day Disclosure Return"))
     assert not hp._relevant(_row("4", "Trading Information of Exchange Traded Fund"))
+    # 2026-09-02: governance boilerplate no longer pages (7 of August's 11 HKEX pages)
+    assert not hp._relevant(_row("8", "Announcements and Notices - [Terms of Reference of the Audit Committee]"))
+    assert not hp._relevant(_row("9", "Announcements and Notices - [Other - Corporate Governance Related Matters]"))
+    assert not hp._relevant(_row("10", "Circulars - [Other]"))
+    assert hp._relevant(_row("11", "Circulars - [Major Transaction]"))
     assert hp._filed_date(_row("5", "x", date_time="30/06/2026 16:30")) == "2026-06-30"
     assert hp._filed_date(_row("6", "x", date_time="03/03/2026")) == "2026-03-03"
     assert hp._filed_date(_row("7", "x", date_time="junk")) == ""

@@ -162,23 +162,34 @@ def classify_pdf(path: Path) -> ClassifiedFile:
 
 
 def build_manifest(roots: tuple[Path, ...] = ARCHIVE_ROOTS,
-                   verbose: bool = True) -> list[ClassifiedFile]:
+                   verbose: bool = True, incremental: bool = False) -> list[ClassifiedFile]:
     """Walk the archive roots, classify every PDF, write _manifest.json.
 
     `roots` defaults to (ARCHIVE, ARCHIVE_OTHER) so the manifest stays whole
     after Phase B refoldering moves non-dailies into the sibling tree.
+    `incremental` (2026-09-02, the daily chain): keep the existing entries whose
+    files still exist and classify only PDFs the manifest has never seen — the
+    07:00 ingest can index the morning's dailies in seconds instead of
+    re-reading ~900 first pages; the Saturday chain still rebuilds in full.
     """
     pdfs: list[Path] = []
     for root in roots:
         if root.exists():
             pdfs.extend(root.rglob("*.pdf"))
     pdfs.sort()
-    total = len(pdfs)
     results: list[ClassifiedFile] = []
+    if incremental:
+        prior = load_manifest()
+        present = {str(p.relative_to(ROOT)) for p in pdfs}
+        kept = {r["path"]: r for r in (prior or {}).get("files", []) if r["path"] in present}
+        results.extend(ClassifiedFile(**r) for r in kept.values())
+        pdfs = [p for p in pdfs if str(p.relative_to(ROOT)) not in kept]
+    total = len(pdfs)
     for i, pdf in enumerate(pdfs):
         if verbose and i % 50 == 0:
             sys.stderr.write(f"  [{i}/{total}] {pdf.name[:60]}\n")
         results.append(classify_pdf(pdf))
+    results.sort(key=lambda r: r.path)
 
     manifest = {
         "generated_at": dt.datetime.now(tz=dt.timezone.utc).isoformat(),
@@ -662,6 +673,9 @@ def main() -> int:
     )
     parser.add_argument("--build-manifest", action="store_true",
                         help="walk archive, classify every PDF, write _manifest.json")
+    parser.add_argument("--incremental", action="store_true",
+                        help="with --build-manifest: classify only PDFs not yet in the "
+                             "manifest (the daily chain); Saturday rebuilds in full")
     parser.add_argument("--extract", action="store_true",
                         help="extract right-column data from shipping_daily files to "
                              "inputs/market_data/pareto_daily.csv + pareto_share_prices.csv")
@@ -669,7 +683,7 @@ def main() -> int:
                         help="print summary from existing _manifest.json")
     args = parser.parse_args()
     if args.build_manifest:
-        results = build_manifest()
+        results = build_manifest(incremental=args.incremental)
         print_summary(results)
         return 0
     if args.extract:

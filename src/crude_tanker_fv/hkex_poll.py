@@ -59,6 +59,13 @@ OFF_SEASON_POLL_HOURS = 12
 # monthly returns (the share-count source the Stage-2 packet already used).
 # Deliberately excluded noise: "Next Day Disclosure Return" (daily buyback
 # prints), trading-halt notices, listing documents of other issuers.
+# Excluded governance boilerplate (2026-09-02, prune ledger row 11): committee
+# terms of reference, corporate-governance notices and "Circulars - [Other]"
+# carry no figure, no date and no event — most of August's 2343 pages.
+EXCLUDED_KEYWORDS = (
+    "next day disclosure return", "terms of reference",
+    "corporate governance", "circulars - [other]",
+)
 RELEVANT_KEYWORDS = (
     "annual report", "interim report", "quarterly report",
     "final results", "interim results", "results announcement",
@@ -83,7 +90,7 @@ def _clean(text: str) -> str:
 
 def _relevant(row: dict) -> bool:
     text = f"{_clean(row.get('SHORT_TEXT'))} {_clean(row.get('TITLE'))}".lower()
-    if "next day disclosure return" in text:
+    if any(x in text for x in EXCLUDED_KEYWORDS):
         return False
     return any(k in text for k in RELEVANT_KEYWORDS)
 

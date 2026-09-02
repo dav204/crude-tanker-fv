@@ -255,3 +255,15 @@ def test_price_basis_summary_carries_the_stale_set(tmp_path):
     pb = price_basis_summary(tmp_path)
     assert sorted(pb["stale_fallback"]) == ["T0", "T1", "T2"]
     assert sorted(pb["static_fallback"]) == ["T0", "T1", "T2"]
+
+
+def test_bare_run_writes_a_manual_ledger_row_and_wrapper_runs_do_not(tmp_path):
+    """2026-09-02 (Stage 0): the seven 8/17-24 outage salvages were invisible to
+    state/automation_runs.log — a bare run now ledgers itself as manual:*; under
+    the wrapper (CRUDE_FV_CRON_WRAPPER) the wrapper's own row is the record."""
+    from crude_tanker_fv.price_refresh import ledger_bare_run
+    assert ledger_bare_run(0, root=tmp_path, environ={"USER": "dan"})
+    row = (tmp_path / "state" / "automation_runs.log").read_text().strip()
+    assert "job=price-refresh initiator=manual:dan@" in row and "outcome=ok rc=0 note=bare-run" in row
+    assert not ledger_bare_run(1, root=tmp_path, environ={"USER": "dan", "CRUDE_FV_CRON_WRAPPER": "1"})
+    assert (tmp_path / "state" / "automation_runs.log").read_text().count("\n") == 1

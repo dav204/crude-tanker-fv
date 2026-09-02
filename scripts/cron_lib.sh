@@ -22,6 +22,11 @@
 # fix here covers every wrapper.
 PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 export PATH
+# Tells python entrypoints they run under a ledgering wrapper (2026-09-02):
+# price_refresh.ledger_bare_run stays silent here and writes a `manual:` row
+# only for bare `python -m` runs (the invisible 8/17-24 salvages).
+CRUDE_FV_CRON_WRAPPER=1
+export CRUDE_FV_CRON_WRAPPER
 
 CRON_START_TS=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
 if [ -z "${CRON_INITIATOR:-}" ]; then

@@ -222,3 +222,29 @@ def test_parse_widget_stacked_skips_words_above_first_header():
     assert curves["cape"] == {"jul": 35125}
     assert curves["pmax"] == {"jul": 19600}
     assert curves["smax"] == {}
+
+
+def test_month_end_four_tenor_grid_is_complete():
+    """2026-09-02: from the 24th the widget has dropped the expiring month; a
+    4-tenor panel (m2/Qn/Qf/Cal) is structurally complete — the real 2026-08-31
+    capture (sep/q4/q1/cal27) must not flag; the same shape mid-month must."""
+    from datetime import date
+    from crude_tanker_fv.ffa_ocr import sanity_issues
+    panel = {"sep": 45250, "q4": 44475, "q1": 30125, "cal27": 33300}
+    curves = {"cape": dict(panel), "pmax": {"sep": 21900, "q4": 22900, "q1": 18200, "cal27": 18175},
+              "smax": {"sep": 19875, "q4": 20933, "q1": 16000, "cal27": 16125}}
+    assert not [i for i in sanity_issues(curves, None, print_date=date(2026, 8, 31))
+                if i.startswith("incomplete")]
+    assert [i for i in sanity_issues(curves, None, print_date=date(2026, 8, 15))
+            if i.startswith("incomplete")]
+    three = {**curves, "cape": {"sep": 45250, "q4": 44475, "aug": 39625}}
+    assert [i for i in sanity_issues(three, None, print_date=date(2026, 8, 28))
+            if i.startswith("incomplete")]
+
+
+def test_quarter_tenors_sort_from_the_print_quarter():
+    from crude_tanker_fv.ffa_ocr import _tenor_sort_key
+    sept = sorted(["q1", "q4", "cal27", "sep", "oct"], key=lambda t: _tenor_sort_key(t, 9))
+    assert sept == ["sep", "oct", "q4", "q1", "cal27"]
+    jan = sorted(["q2", "q1", "jan", "feb"], key=lambda t: _tenor_sort_key(t, 1))
+    assert jan == ["jan", "feb", "q1", "q2"]

@@ -235,6 +235,16 @@ def load_scan_state(path: Path = STATE_PATH) -> str | None:
     return json.loads(path.read_text()).get("last_scanned_report_date")
 
 
+def load_scanned_paths(path: Path = STATE_PATH) -> "set[str] | None":
+    """Manifest paths already scanned (2026-09-02, Stage 0). None = a
+    pre-migration state that carries only the date cursor — the caller seeds
+    the set from the manifest at that cursor so nothing is rescanned."""
+    if not path.exists():
+        return None
+    v = json.loads(path.read_text()).get("scanned_paths")
+    return set(v) if v is not None else None
+
+
 def save_scan_state(report_date: str, path: Path = STATE_PATH,
                     extra: dict | None = None) -> None:
     """Merge-write (WO2 1.4): the state carries additive keys now (tanker
@@ -246,26 +256,39 @@ def save_scan_state(report_date: str, path: Path = STATE_PATH,
     path.write_text(json.dumps(prior, indent=2) + "\n")
 
 
-def select_files(manifest: dict, since: str | None) -> list[dict]:
-    """shipping_daily manifest entries strictly after the cursor, oldest first."""
+def select_files(manifest: dict, since: str | None,
+                 scanned: "set[str] | None" = None) -> list[dict]:
+    """shipping_daily manifest entries not yet scanned, oldest first.
+
+    With a `scanned` set (the default incremental mode since 2026-09-02) an
+    entry is due iff its path was never scanned — a late-arriving daily whose
+    report_date predates the cursor is scanned instead of hidden forever (the
+    date cursor alone hid the 8/31 + 9/01 dailies until the manifest was
+    rebuilt, and would hide any backfilled older issue). Without a set the
+    old strictly-after-the-cursor rule applies (`--since`)."""
     files = [f for f in manifest["files"]
              if f["type"] == "shipping_daily" and f.get("report_date")]
-    if since:
+    if scanned is not None:
+        files = [f for f in files if f["path"] not in scanned]
+    elif since:
         files = [f for f in files if f["report_date"] > since]
     return sorted(files, key=lambda f: f["report_date"])
 
 
 def run_scan(since: str | None, manifest_path: Path = MANIFEST_PATH,
-             output_path: Path = OUTPUT_PATH
+             output_path: Path = OUTPUT_PATH,
+             scanned: "set[str] | None" = None
              ) -> tuple[int, int, str | None, list[dict]]:
     """Scan PDFs after `since`; write the review queue. Returns
     (n_files_scanned, n_candidates, newest_report_date, tanker_signals)."""
     from pypdf import PdfReader   # deferred: keeps module import light for tests
 
     manifest = json.loads(manifest_path.read_text())
-    files = select_files(manifest, since)
+    files = select_files(manifest, since, scanned)
     if not files:
         return 0, 0, None, []
+    if scanned is not None:
+        scanned |= {f["path"] for f in files}   # the caller persists the set
 
     hits: dict[str, list[tuple[str, str, bool]]] = {cls: [] for cls in CLASS_KEYWORDS}
     tanker_signals: list[dict] = []
@@ -554,7 +577,19 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     since = None if args.full else (args.since or load_scan_state())
-    n_files, n_hits, newest, tanker_signals = run_scan(since)
+    scanned = None
+    if not args.full and not args.since:
+        scanned = load_scanned_paths()
+        if scanned is None and since:
+            # one-time migration (2026-09-02): everything at or before the cursor
+            # counts as scanned; from here the set, not the date, decides
+            m = json.loads(MANIFEST_PATH.read_text())
+            scanned = {f["path"] for f in m["files"]
+                       if f["type"] == "shipping_daily"
+                       and f.get("report_date") and f["report_date"] <= since}
+        elif scanned is None:
+            scanned = set()
+    n_files, n_hits, newest, tanker_signals = run_scan(since, scanned=scanned)
     if n_files == 0:
         print(f"nothing to scan (cursor at {since})")
         return 0

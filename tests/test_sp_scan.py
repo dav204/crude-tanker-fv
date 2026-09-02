@@ -149,3 +149,19 @@ def test_select_files_filters_by_cursor_and_sorts():
     assert [f["path"] for f in select_files(manifest, "2026-06-04")] == ["b.pdf", "c.pdf"]
     # Cursor at newest: nothing to do
     assert select_files(manifest, "2026-06-08") == []
+
+
+def test_select_files_scans_late_arrivals_behind_the_cursor():
+    """2026-09-02 (Stage 0): with a scanned-path set, a daily whose report_date
+    predates the cursor but was never scanned is due — the date cursor alone
+    hid the 8/31 + 9/01 dailies (and any backfilled issue) until a rebuild."""
+    manifest = {"files": [
+        {"path": "a.pdf", "type": "shipping_daily", "report_date": "2026-06-03"},
+        {"path": "late.pdf", "type": "shipping_daily", "report_date": "2026-06-02"},
+        {"path": "c.pdf", "type": "shipping_daily", "report_date": "2026-06-05"},
+        {"path": "x.pdf", "type": "other", "report_date": "2026-06-04"},
+    ]}
+    scanned = {"a.pdf"}
+    due = [f["path"] for f in select_files(manifest, "2026-06-03", scanned)]
+    assert due == ["late.pdf", "c.pdf"]
+    assert [f["path"] for f in select_files(manifest, "2026-06-03")] == ["c.pdf"]

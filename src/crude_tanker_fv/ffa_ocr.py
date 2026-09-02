@@ -172,12 +172,28 @@ def parse_widget(words: list[dict]) -> dict[str, dict[str, int]]:
     return curves
 
 
+MONTH_END_ROLL_DAY = 24   # from this day of the month the widget has dropped the
+                          # expiring month, so 4 tenors (m2/Qn/Qf/Cal) IS the complete
+                          # grid — the month-end structure ratified 2026-09-01
+                          # (sp_promotion_round_2026-09-01 §Leg 2); the 8/25-8/31 rows
+                          # had flagged structurally complete captures as incomplete.
+
+
+def expected_tenors(curve: dict[str, int], print_date: date | None) -> int:
+    n_months = sum(1 for t in curve if t in MONTHS)
+    if print_date is not None and print_date.day >= MONTH_END_ROLL_DAY and n_months == 1:
+        return 4
+    return 5
+
+
 def sanity_issues(curves: dict[str, dict[str, int]],
-                  prev: dict[str, dict[str, int]] | None = None) -> list[str]:
+                  prev: dict[str, dict[str, int]] | None = None,
+                  print_date: date | None = None) -> list[str]:
     issues = []
     n_tenors = {p: len(c) for p, c in curves.items()}
-    if any(n < 5 for n in n_tenors.values()):
-        issues.append(f"incomplete grid {n_tenors} (expect 5 tenors/panel)")
+    expect = {p: expected_tenors(c, print_date) for p, c in curves.items()}
+    if any(n_tenors[p] < expect[p] for p in curves):
+        issues.append(f"incomplete grid {n_tenors} (expect {expect} tenors/panel)")
     for panel, curve in curves.items():
         if curve and max(curve.values()) > 3 * min(curve.values()):
             issues.append(f"{panel}: intra-curve spread "
@@ -266,7 +282,8 @@ def run_scan(since: date | None, full: bool = False) -> tuple[int, int, int]:
             if not is_ffa_widget(text):
                 continue
             curves = parse_widget(words)
-            issues = sanity_issues(curves, prev_for_day)
+            issues = sanity_issues(curves, prev_for_day,
+                                   print_date=date.fromisoformat(iso))
             entry = {
                 "status": "flagged" if issues else "ok",
                 "source": str(path.relative_to(ROOT)),
@@ -317,7 +334,11 @@ def _tenor_sort_key(tenor: str, print_month: int) -> tuple:
     if tenor in _MONTH_ORDER:
         return (0, (_MONTH_ORDER.index(tenor) + 1 - print_month) % 12)
     if tenor.startswith("q") and tenor[1:].isdigit():
-        return (1, int(tenor[1:]))
+        # Chronological from the print's own quarter (2026-09-02): a September
+        # print's Q1 is NEXT year's and sorts after Q4 — the alphabetical/numeric
+        # order put Q1 first and scrambled the queue's Qn/Qf columns (8/31 trap).
+        print_q = (print_month - 1) // 3 + 1
+        return (1, (int(tenor[1:]) - print_q) % 4)
     return (2, tenor)
 
 

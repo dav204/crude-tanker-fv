@@ -55,6 +55,11 @@ CURRENT_STEP="rocketchat ingest"
 step "$CURRENT_STEP"
 "$PY" -m crude_tanker_fv.ingest_rocketchat
 
+# Full manifest rebuild BEFORE the scan (reordered 2026-09-02 — it ran after).
+CURRENT_STEP="pareto_archive --build-manifest"
+step "$CURRENT_STEP"
+"$PY" -m crude_tanker_fv.pareto_archive --build-manifest
+
 CURRENT_STEP="sp_scan (S&P print scan, incremental)"
 step "$CURRENT_STEP"
 "$PY" -m crude_tanker_fv.sp_scan
@@ -66,10 +71,6 @@ step "$CURRENT_STEP"
 CURRENT_STEP="fetch_links (download new linked reports)"
 step "$CURRENT_STEP"
 "$PY" -m crude_tanker_fv.fetch_links
-
-CURRENT_STEP="pareto_archive --build-manifest"
-step "$CURRENT_STEP"
-"$PY" -m crude_tanker_fv.pareto_archive --build-manifest
 
 CURRENT_STEP="ffa_ocr (FFA widget scan, incremental)"
 step "$CURRENT_STEP"

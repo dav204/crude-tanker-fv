@@ -44,6 +44,14 @@ fi
 ingest_rc=0
 ./.venv/bin/python -m crude_tanker_fv.ingest_rocketchat "$@" || ingest_rc=$?
 
+# Index the morning's dailies BEFORE the scan (2026-09-02, Stage 0). sp_scan
+# reads inputs/research_pareto/_manifest.json; this chain never rebuilt it, so
+# every weekday scan ran on Saturday's index — the 2026-09-01 "nothing to scan"
+# was a false clean over two dailies already on disk. Incremental (new PDFs
+# only); the Saturday news-pull chain still rebuilds in full.
+manifest_rc=0
+./.venv/bin/python -m crude_tanker_fv.pareto_archive --build-manifest --incremental || manifest_rc=$?
+
 # Incremental S&P print scan over the freshly-ingested dailies — local-only,
 # cursor-based. Surfaces prints same-day instead of waiting for the Saturday
 # news-pull cron (added 2026-06-21; closes the up-to-a-week scan lag the Jun-20
@@ -56,9 +64,11 @@ ingest_rc=0
 ocr_rc=0
 ./.venv/bin/python -m crude_tanker_fv.ffa_ocr || ocr_rc=$?
 
-if [ "$ingest_rc" -eq 0 ]; then
+if [ "$ingest_rc" -eq 0 ] && [ "$manifest_rc" -eq 0 ]; then
   CRON_OUTCOME=ok
-else
-  CRON_NOTE="ingest_rc=$ingest_rc ocr_rc=$ocr_rc"
 fi
-exit "$ingest_rc"
+if [ "$ingest_rc" -ne 0 ] || [ "$ocr_rc" -ne 0 ] || [ "$manifest_rc" -ne 0 ]; then
+  CRON_NOTE="ingest_rc=$ingest_rc ocr_rc=$ocr_rc manifest_rc=$manifest_rc"
+fi
+[ "$ingest_rc" -ne 0 ] && exit "$ingest_rc"
+exit "$manifest_rc"
