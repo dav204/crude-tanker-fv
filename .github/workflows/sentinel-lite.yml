@@ -66,7 +66,14 @@ jobs:
                            '```\n' + flags + '\n```\n\n' +
                            `Coverage lags to the last push — the Mac-local sentinel is primary. [run](${runUrl})`;
               if (open.length) {
-                await github.rest.issues.update({owner, repo, issue_number: open[0].number, title, body});
+                // comment-on-change (2026-09-02, F9): re-edit the open issue only when the
+                // flag set moved — issue #6 was silently re-edited daily since 7/14.
+                const prev = ((open[0].body || '').match(/```\n([\s\S]*?)\n```/) || [])[1] || '';
+                if (prev.trim() !== flags.trim()) {
+                  await github.rest.issues.update({owner, repo, issue_number: open[0].number, title, body});
+                  await github.rest.issues.createComment({owner, repo, issue_number: open[0].number,
+                    body: `Flag set changed. [run](${runUrl})`});
+                }
               } else {
                 await github.rest.issues.create({owner, repo, title, body, labels: ['sentinel']});
               }
@@ -84,6 +91,9 @@ jobs:
           if [ -n "$HC" ]; then curl -fsS --retry 3 "$HC" > /dev/null && echo "PING-SENT"; else echo "SENTINEL_LITE_HC_URL unset — ping skipped"; fi
 
   ci:
+    # push-only since 2026-09-02 (F9): the clean-clone guarantee is a per-push fact;
+    # the daily cron row is the sentinel's.
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -97,18 +107,7 @@ jobs:
         run: ruff check src tests backtest scripts
       - name: full suite on a clean clone
         run: PYTHONPATH=src python -m pytest -q
-
-  # audit N-5 (2026-07-14): the vendored harvester's parsers produce the §9.9
-  # transaction prints that anchor every mark — its 60-test suite now runs in CI
-  # instead of only when the owner remembers the .venv310 invocation locally.
-  harvester:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-      - run: pip install -r shipping_harvester/requirements.txt pytest
-      - name: harvester suite
-        working-directory: shipping_harvester
-        run: PYTHONPATH=. python -m pytest -q
+  # The harvester CI job (audit N-5, 2026-07-14) was REMOVED 2026-09-02 (owner F1):
+  # its rationale — parsers anchoring every mark — no longer holds (the 8/31 and 9/01
+  # rounds cited harvester output 0x); the crawl itself stays (F2). Run its 57 tests
+  # locally: cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python -m pytest -q
