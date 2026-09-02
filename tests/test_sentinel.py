@@ -280,8 +280,9 @@ def test_stuck_quote_flags_lagging_asof(tmp_path):
 
 
 def test_uningested_prints_pareto_lane(tmp_path):
-    """WO2 1.2: dailies staged >7d past spot_tce's as_of.default flag; held
-    classes live in overrides and never trip this lane."""
+    """WO2 1.2: dailies staged >7d past twelve_month_tc's as_of.default flag; held
+    classes live in overrides and never trip this lane. (spot_tce left the lane
+    2026-09-02, owner F17 — spot feeds diagnostics only.)"""
     from datetime import date
 
     inputs, outputs = _fixture(tmp_path)
@@ -289,16 +290,16 @@ def test_uningested_prints_pareto_lane(tmp_path):
     staged.mkdir(parents=True)
     (staged / f"{date.today().isoformat()}_Periodical-ShippingDaily.pdf").write_bytes(b"x")
 
-    (inputs / "market_data" / "spot_tce.yaml").write_text(yaml.safe_dump({
+    (inputs / "market_data" / "twelve_month_tc.yaml").write_text(yaml.safe_dump({
         "as_of": {"default": date.today() - timedelta(days=20),
                   "LNGC": date.today() - timedelta(days=40)},   # held — must not flag
-        "spot_tce": {"VLCC": 100000, "LNGC": 40000}}))
+        "twelve_month_tc": {"VLCC": 100000, "LNGC": 40000}}))
     flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
-    assert len(flags) == 1 and flags[0].startswith("UNINGESTED-PRINTS spot_tce.yaml")
+    assert len(flags) == 1 and flags[0].startswith("UNINGESTED-PRINTS twelve_month_tc.yaml")
 
-    (inputs / "market_data" / "spot_tce.yaml").write_text(yaml.safe_dump({
+    (inputs / "market_data" / "twelve_month_tc.yaml").write_text(yaml.safe_dump({
         "as_of": {"default": date.today() - timedelta(days=3)},
-        "spot_tce": {"VLCC": 100000}}))
+        "twelve_month_tc": {"VLCC": 100000}}))
     assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
 
 

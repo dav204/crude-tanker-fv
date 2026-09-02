@@ -49,7 +49,9 @@ and aggregate cycle-timing).
 
 The verdict is taken on data the exploratory pass did NOT use:
 
-1. **Out-of-sample forward quarters.** Re-run each new quarter as it closes
+1. **Out-of-sample forward quarters.** *(DROPPED as a recurring duty 2026-09-02, owner
+   ruling F15 — nobody owned the per-quarter re-run; re-run only if a multi-cycle feed is
+   acquired, item 2.)* Re-run each new quarter as it closes
    (2026Q2 onward). Pre-registered stopping rule: evaluate at **+8 new quarters**
    (≈ end-2028) or earlier if a paid multi-cycle feed lands.
 2. **Multi-cycle history, if acquired.** A paid vessel-value feed (Clarksons SIN /

@@ -836,7 +836,8 @@ a paid feed. Net: not a name-ranker (Test 1 null), plausibly a cycle/value timer
   CLEARING is the work). **Gate-asleep lesson (8/16):** a green immediately after a
   weight/inputs commit can be green-with-the-gate-ASLEEP — stale `state/` SKIPS the three
   freshness tests (live drift gate + both reconcile); regen first, then trust the green.
-- `PYTHONPATH=. .venv/bin/python -m pytest backtest/ -q` — backtest (**13**; separate).
+- (backtest/ is ARCHIVED 2026-09-02 — kept tracked, dropped from the gate; the Test-2
+  per-quarter re-run duty was dropped until a multi-cycle feed exists, owner F15.)
 - (optional) `cd shipping_harvester && PYTHONPATH=. ../.venv310/bin/python -m pytest -q` — **57**.
 - `python -m crude_tanker_fv.pipeline 2026-Q1` runs clean.
 - `python -m crude_tanker_fv.reconcile --all` — SANITY all OK/n-a-APPROX; annotate >2pp drift.

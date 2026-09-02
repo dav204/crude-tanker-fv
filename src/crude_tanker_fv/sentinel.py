@@ -272,7 +272,10 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
     #    and are tracked by their own named trigger, not this lane.
     pareto_newest = _newest_dated_file(inputs_dir / "research_pareto")
     if pareto_newest:
-        for fname in ("spot_tce.yaml", "twelve_month_tc.yaml"):
+        # spot_tce left this lane 2026-09-02 (owner F17): spot feeds only the breakeven /
+        # validate diagnostics, never NAV or the strip, and no spot parser exists to
+        # promote from — the daily nag bought an "annotate the hold" chore, nothing else.
+        for fname in ("twelve_month_tc.yaml",):
             a = _as_of_default(inputs_dir, fname)
             if a and (pareto_newest - a).days > 7:
                 flags.append(f"UNINGESTED-PRINTS {fname}: Pareto dailies staged through "
