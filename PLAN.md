@@ -16,7 +16,12 @@ RULED at their recommendations; F7/F18 = keep the FFA image archive and the harv
 CI unblocked, exit codes, routing re-cut with page_once, REAUTH-NEEDED, manifest-before-scan,
 OCR month-end grid, atomic prices + manual ledger row, HKEX noise, duty artifact_path). **Gate
 0→A:** one week with every fetch initiator in the ledger, every page joined to a send, the
-healthchecks ping-gap drill RECORDED (Q-10 — OWNER NAMES THE TWO DAYS), owner attestation line.
+healthchecks ping-gap drill RECORDED. **DRILL DATES SET 2026-09-02: ARM Sun 9/06 after the
+08:15 run, PAGE expected Tue 9/08 ~14:15 EDT, RESTORE same day** —
+`decisions/healthchecks_pinggap_drill_2026-09-06.md` (owner arms/restores; the mechanism edits
+the env secrets file). Set the `SENTINEL_LITE_HC_URL` repo secret BEFORE arming so the window
+has an off-machine watcher. Chosen to sit in the 9/06-9/09 hole: after R4 (9/04-05), clear of
+TEN (9/10), and off Labor Day Mon 9/07. If R4 slips, slip both dates equally.
 **OWNER OWES (new, agent cannot do):** `launchctl unload` ×2 zombie ctxprobe plists (F6) · set the
 `SENTINEL_LITE_HC_URL` repo secret or record the Action unmonitored · name the drill days · push.
 **NEXT BUILD:** the F-list prune (stop-now group first, one commit each) → Stage A (shadow
