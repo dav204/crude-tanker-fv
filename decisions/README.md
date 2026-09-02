@@ -5,8 +5,13 @@ the **user-curated** counterpart to the auto-generated delta report.
 
 ## How they're populated
 
-Every pipeline run **prepends** a structured "model state" entry to the top of
-each ticker's log file (METHODOLOGY §7.8). Existing content below the new
+A pipeline run **prepends** a structured "model state" entry to the top of a
+ticker's log file (METHODOLOGY §7.8) **only when that name moved**: a material or
+new delta, or a name the committed drift gate reports as other than stable
+(2026-09-02, owner F12 — every run used to write all 25 logs; 5,042 machine
+headers had buried 163 human annotations). A first run still seeds every log.
+The per-run state of the quiet names lives in `outputs/book_scorecard.json`
+history: `git log -p outputs/book_scorecard.json`. Existing content below the new
 entry is preserved verbatim — the tool never edits or deletes prior content.
 
 The auto-prepended entry captures the model state at the moment of the run:

@@ -842,6 +842,6 @@ a paid feed. Net: not a name-ranker (Test 1 null), plausibly a cycle/value timer
 - `python -m crude_tanker_fv.pipeline 2026-Q1` runs clean.
 - `python -m crude_tanker_fv.reconcile --all` — SANITY all OK/n-a-APPROX; annotate >2pp drift.
 - Clean git state; push `origin main`. `.venv310/`, `shipping_harvester/data/`,
-  `backtest/vintages/*/` are gitignored by design. NOTE: every pipeline run auto-prepends a
-  model-state entry to ALL `decisions/<t>_log.md` and regenerates `outputs/*` — commit that
-  churn deliberately (it is expected, mostly "+0.0pp no material moves").
+  `backtest/vintages/*/` are gitignored by design. NOTE: a pipeline run auto-prepends a
+  model-state entry ONLY to the logs of names that moved (material / new / gate-breaching —
+  owner F12, 2026-09-02) and regenerates `outputs/*` — commit that churn deliberately.

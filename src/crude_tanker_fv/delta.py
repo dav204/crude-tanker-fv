@@ -626,15 +626,20 @@ where you annotate what you actually did and why.
 
 def prepend_decision_log_entries(
     report: DeltaReport, decisions_dir: Path = DECISIONS_DIR,
+    tickers: "set[str] | None" = None,
 ) -> list[Path]:
     """Prepend a model-state entry to each ticker's decision log.
 
     Returns the list of file paths touched (for reporting). Files are created
     on first encounter with ``_DECISION_LOG_HEADER`` + the first entry.
+    ``tickers`` (2026-09-02, owner F12) restricts the prepend to the named
+    logs; None keeps the every-name behaviour (tests, first runs).
     """
     decisions_dir.mkdir(parents=True, exist_ok=True)
     touched: list[Path] = []
     for d in report.deltas:
+        if tickers is not None and d.ticker not in tickers:
+            continue
         path = decisions_dir / f"{d.ticker.lower()}_log.md"
         entry = _render_decision_log_entry(d, report)
         if path.exists():

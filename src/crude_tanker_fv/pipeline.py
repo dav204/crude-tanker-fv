@@ -1028,8 +1028,28 @@ def _run_delta_and_decision_log(quarter, fv_reports, scenario_reports, broker_ro
     previous = delta.load_previous_snapshot()
     report = delta.compute_deltas(current, previous)
     delta_path = delta.write_delta_report(report, stale_prices=stale, strobes=strobes)
-    touched = delta.prepend_decision_log_entries(report)
     delta.save_snapshot(current)
+    # Breach-only auto entries (2026-09-02, owner F12; prune ledger row 42): every run
+    # used to prepend 25 machine headers (5,042 vs 163 human ones by 9/01), and the
+    # drift gate reads only a breaching name's TOP entry — the churn buried the
+    # annotations it exists to prompt. An entry now lands for a material or new
+    # delta, and for any name the committed drift gate reports as other than
+    # stable; everyone else's per-run state is in outputs/book_scorecard.json
+    # history (`git log -p`). A first run (no prior snapshot) still seeds every log.
+    wanted = {d.ticker for d in report.deltas if d.material or d.is_new}
+    if report.is_first_run:
+        wanted = None
+    else:
+        import json as _json
+        from crude_tanker_fv import drift_gate
+        try:
+            rows = drift_gate.evaluate(drift_gate.load_baseline(),
+                                       _json.loads(drift_gate.STATE_PATH.read_text()))
+            wanted |= {r.ticker for r in rows if r.status != "stable"}
+        except Exception as exc:   # fresh clone without baseline/state: material-only
+            print(f"drift gate not evaluable for log gating ({exc}) — material/new entries only",
+                  file=sys.stderr)
+    touched = delta.prepend_decision_log_entries(report, tickers=wanted)
 
     if report.is_first_run:
         print(f"delta report (FIRST RUN — no prior snapshot) -> {delta_path}")

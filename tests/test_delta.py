@@ -379,3 +379,16 @@ def test_delta_report_stays_quiet_below_stale_threshold(tmp_path):
         report, outputs_dir=tmp_path, stale_prices=two).read_text()
     assert "STALE-PRICE RUN" not in write_delta_report(
         report, outputs_dir=tmp_path).read_text()
+
+
+def test_decision_log_prepend_can_be_restricted_to_named_tickers(tmp_path):
+    """2026-09-02 (owner F12): the pipeline passes the material / new / gate-breaching set;
+    only those logs gain an auto entry. None keeps the every-name behaviour."""
+    cur = _make_snapshot({"AAA": _base_state(), "BBB": _base_state()},
+                         run_at="2026-09-02T00:00:00+00:00")
+    report = compute_deltas(cur, None)
+    paths = prepend_decision_log_entries(report, decisions_dir=tmp_path, tickers={"BBB"})
+    assert [p.name for p in paths] == ["bbb_log.md"]
+    assert not (tmp_path / "aaa_log.md").exists()
+    paths = prepend_decision_log_entries(report, decisions_dir=tmp_path, tickers=None)
+    assert {p.name for p in paths} == {"aaa_log.md", "bbb_log.md"}
