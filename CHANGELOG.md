@@ -40,6 +40,44 @@ live rules distilled from it.
   ctxprobe plists; set `SENTINEL_LITE_HC_URL` or record the Action unmonitored; name the two days
   for the healthchecks ping-gap drill (Q-10); `git push`. *The F-list prune executes in the
   commits that follow; Stage A (shadow promoter, weekly report, decision queue) is the next build.*
+
+- **2026-09-02 — THE PRUNE ROUND EXECUTED (owner F1-F20 at their recommendations; F7/F18 = keep).**
+  *Why:* the 2026-09-01 audit traced every job, flag, output, trigger and guard to a named consumer
+  (a loader that reads it into a number, a `book_scorecard.json` field the governance repo reads, a
+  ruling that cites it, or a guard with a recorded catch); five refuters then tried to rescue each
+  candidate. What survived the refutation is deleted here, one commit per item, all git-reversible.
+  **Stopped:** the WO2 acceptance ritual (`close_acceptance.py`, its null receipts, the ping-gap
+  drill doc) and the ctxprobe scripts/tests — never run, never measured (F6; the two installed
+  plists are an owner `launchctl` act) · `draft_queue.py`, which shelled to a `claude` CLI this
+  machine does not have and served 0 of 17 preregs · the Baltic index text lane, its parser and the
+  capesize PNG lane — `normal_rates` refuses index points BY CONTRACT (§18.5a) and the README itself
+  said "deliberately unconsumed"; the 769-row CSV is frozen in git, not deleted (F14) · the §16
+  overlay ledger, `inputs/overlays.yaml` and its renderer — no reader anywhere, rows keyed to the
+  Jun-9 weights (F4; the §12.6 dividend-window control survives in `dividend_window.build_rows`) ·
+  the linked-Pareto-report weekly harvest — one basis citation ever against 192 MB of unread PDFs
+  (both modules stay for on-demand onboarding) · `ffa_vs_strip`, the 20 `pareto_mentions_*` sweeps,
+  `state/fdprobe` · **every `.xlsx`**: 35 committed workbooks, 4,074 blob versions, zero readers
+  outside tmp-dir tests — `fair_value_summary` and `scenario_summary` existed ONLY as workbooks and
+  are gone (the roll-up is `outputs/book_scorecard.md`, which is what the consumer repo reads) ·
+  the consensus-EPS xref and the §12 dividend-window render leave the per-regen path; the
+  transaction-anchor comparison becomes the S&P ROUND's artifact (`pipeline <Q> --txn-comparison`) ·
+  the harvester CI job (F1 — its N-5 rationale died when the 8/31 and 9/01 rounds cited harvester
+  output 0×; the Saturday crawl STAYS, F2, because it parses the xclusiv row that IS the age-0 NAV
+  anchor) · `spot_tce` leaves the UNINGESTED lane (F17 — diagnostic-only, and no spot parser exists
+  to promote from) · the Test-2 per-quarter re-run duty (F15 — nobody owned it) · three stale
+  worktrees (F16 — `git cherry` confirmed every commit is in main; the branches are kept).
+  **Simplified:** a pipeline run now writes a decision-log entry ONLY for names that moved
+  (material / new / gate-breaching) — 5,042 machine headers against 163 human ones had buried the
+  annotations the entries exist to prompt (F12) · the trigger register keeps ARMED cards only,
+  23 → 10 and 539 → 270 lines, with eight done cards moved verbatim to
+  `decisions/reweight_trigger_archive.md` and five retired with their reasons (F20, F8) · the
+  `sentinel-lite` issue is re-edited only when the flag set changes, and the clean-clone job is
+  push-only (F9). **Deferred by design:** F3 (fold the two Hormuz cards) and F19 (retire
+  `tanker_forward_print_lands` + the TRIGGER-EVIDENCE lane) wait for WO5 / Stage B on 9/04-05.
+  **Kept against a prune recommendation, on the owner's word:** the 2017-2024 FFA image archive
+  (F7) and `shipping_harvester/data/` (F18) — both irreversible deletions of gitignored disk with
+  no recurring cost. *Full reasoning, per item, with consumer / last-mattered / cost / removal
+  steps:* `decisions/prune_ledger_2026-09-02.md`.
 - **2026-08-16 — THE OSLO/EURONEXT ISSUER CHANNEL EXISTS: `newsweb_poll.py`, the third venue
   adapter, closes the last venue with no filing lane.** *Why:* BRUT/MPCC/CAPT carry
   `sec_edgar: null` and no HKEX id, so nothing mechanical could see their corporate actions —
