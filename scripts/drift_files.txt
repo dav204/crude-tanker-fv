@@ -8,7 +8,6 @@
 # which starved the nightly price refresh behind the WO1 dirty-tree guard two
 # nights running. Drift-only dirt is routine, not surgery.
 inputs/market_data/prices_daily.yaml
-inputs/market_data/baltic_indexes_daily.csv
 inputs/market_data/transactions/_scan_state.json
 inputs/research_pareto/_manifest.json
 outputs/sp_print_candidates.md

@@ -80,7 +80,7 @@ def test_drift_only_dirt_does_not_skip(tmp_path, script):
     fails on the tmp repo's missing venv, which PROVES it got past the skip);
     drift + surgery together still skips."""
     repo = _tmp_repo(tmp_path)
-    drift_file = "inputs/market_data/baltic_indexes_daily.csv"
+    drift_file = "inputs/market_data/transactions/_scan_state.json"
     (repo / drift_file).parent.mkdir(parents=True)
     (repo / drift_file).write_text("date,BDI\n")
     subprocess.run(["git", "add", drift_file], cwd=repo, check=True)

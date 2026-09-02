@@ -73,7 +73,7 @@ Use the reads as one disciplined input to a position call, sized accordingly.
   incl. **2343** Pacific Basin — the first HKEX/HKD listing and the first
   Handy-Bulk carrier, Stage-3 intake 2026-07-14), containerships (2), LPG (2,
   the WO3 Phase-4 validators)
-- **639+ tests passing** end-to-end (ticker count, sector split, AND this test
+- **628+ tests passing** end-to-end (ticker count, sector split, AND this test
   count are guarded by `tests/test_docs_stay_lean.py` — the count asserts
   against the suite's own test-function census within a tolerance band, audit
   N-7 2026-07-14)
@@ -354,7 +354,7 @@ accession number).
 |---|---|---|---|---|---|
 | `inputs/research_pareto/` | RC ingest (daily 07:00) | `state/rocketchat_ingest.json` | `outputs/sp_print_candidates.md`, name sweeps, links | `spot_tce`/`twelve_month_tc` (+`transactions/*.yaml` prints) | human, cited, same-vintage rebase; `UNINGESTED-PRINTS` at >7d |
 | `inputs/ffa_drybulk/` | RC ingest + daily `ffa_ocr` | `state/ffa_ocr_state.json` | `outputs/ffa_ocr_queue.md` | `ffa_forward_curve` + dry-bulk 12M TC | human promotion of the OCR diff (owner eyeballs) |
-| `inputs/market_data/baltic_indexes_daily.csv` | RC ingest (text parse) | same RC cursor | — | **none — deliberately unconsumed** | blocked on a real $/day TC series (§18.5a contract; never scale index points) |
+| `inputs/market_data/baltic_indexes_daily.csv` | RETIRED 2026-09-02 (lane + parser deleted, F14; the 769-row CSV is frozen in git) | — | — | **none — deliberately unconsumed** | blocked on a real $/day TC series (§18.5a contract; never scale index points) |
 | `shipping_harvester/data/` | harvester (Sat 09:00, `.venv310`) | `data/manifest.jsonl` | marks-trail flag → manual triage | `transactions/*.yaml`; Xclusiv Resale cross-checks | human per §9.9; `UNINGESTED-PRINTS marks-trail` at >7d |
 | `inputs/research_mb/<feed>/` | Gmail agent step + `scripts/mb_harvest.py` (Sat session, initiator `session:mb-batch`) | idempotent by filename | manual read of the weekly | container Ctr-* TC/values (§11.8 **source of record**) | cited §11.8 ingest event (trigger `container_mb_refresh`) |
 | `inputs/market_data/prices_daily.yaml` | price refresh (daily 18:30) | overwrite-per-run | `PRICE-BASIS` flags | watchlist `current_price` | never moves without rebasing consensus from the same vintage |

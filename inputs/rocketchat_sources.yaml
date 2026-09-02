@@ -44,49 +44,9 @@ sources:
     expect_cadence: business-daily
     silence_days: 3
 
-  - name: baltic_indexes
-    kind: text
-    senders: [John.Pace, Chris.Palun, Big_P]
-    parser: baltic_indexes
-    dest_file: inputs/market_data/baltic_indexes_daily.csv
-    expect_cadence: business-daily
-    silence_days: 3    # RESTORED 2026-07-24 (was 10, the 7/18 dormancy override): the
-                       # full Baltic-5 panel is LIVE AGAIN under NEW sender Big_P (daily
-                       # since 7/22, channel-verified 7/22+7/23 panels, same format).
-                       # The override's premise — both senders dormant — is retired; the
-                       # 7/18 narrative below retained for the record.
-                       # PRIOR OVERRIDE 2026-07-18 (Week-close probe, was 3): SOURCE-QUIET,
-                       # not fetch-broken — John.Pace's full-panel lane dormant since 7/4
-                       # and Chris.Palun's index TEXT posts stopped after 7/13. IMAGE-DRIFT
-                       # THEORY RETIRED same day (owner eyeball): the 7/15-17 Palun images
-                       # are channel COMMENTARY (Himalaya 5TC chart, Clarksons ZIM note,
-                       # news tweets — one MATERIAL: the 7/16 Bab el-Mandeb closure-threat
-                       # report, routed to the MoU-check escalation observations), NOT
-                       # index screenshots — nothing to hand-enter, no image sub-lane
-                       # needed. Pure summer dormancy on the index panel, both senders.
-                       # Fetch healthy. FV impact LOW (nothing synthesizes from this CSV;
-                       # spot rides the ratified FFA proxy to ~Sep-1). REVISIT Sep-1 —
-                       # drop back to 3. Same pattern as the pareto_research override.
-    # When multiple senders post for the same date, higher priority wins.
-    priority:
-      John.Pace: 2
-      Big_P: 2          # full-panel tier, same as John.Pace (ties go to the newer post)
-      Chris.Palun: 1    # capesize-index text line only
-
-  - name: baltic_capesize_table
-    kind: file
-    sender: CPLazos
-    accept: [image]
-    dest_dir: inputs/baltic_capesize
-    expect_cadence: business-daily
-    silence_days: 7    # tolerant start — new source, cadence unproven
-    # DATED 2026-07-24 (owner ask "is this useful to us?"): CPLazos posts a daily
-    # official-format Baltic Capesize panel (BCI points + C8-C16 route $/day +
-    # C5TC-182 average $/day + C2-C18 $/mt). STAGING-ONLY, NO CONSUMER wired:
-    # the C5TC $/day average is precisely the series the §18.5a mean-reversion
-    # gate is blocked on (P1b "true $/day realized mean") and a clean daily
-    # cross-check on the FFA OCR Cape front — but wiring any determinant from
-    # it is a methodology ruling (owner), not an ingest default. Accumulates
-    # history from 2026-07-24; the §18.5a gate needs ≥12q of history, so this
-    # SEEDS the series (a backfill still needs a paid feed). Never scale the
-    # BCI POINTS — the $/day columns are the only usable cells (§18.5a contract).
+  # baltic_indexes (text lane, John.Pace/Chris.Palun/Big_P) and baltic_capesize_table
+  # (CPLazos PNGs) RETIRED 2026-09-02 (prune ledger rows 4-5, owner F14): no consumer —
+  # normal_rates.py refuses index points by contract (§18.5a), README called the CSV
+  # "deliberately unconsumed", the PNG lane had crashed 8/28 and wedged 7/24-27. The
+  # 769-row inputs/market_data/baltic_indexes_daily.csv stays FROZEN in git; the seed
+  # PNGs stay on disk (gitignored). Re-add a lane here only with a ruled consumer.

@@ -303,10 +303,7 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
         for s in (yaml.safe_load(rc_cfg.read_text()) or {}).get("sources", []):
             if "expect_cadence" not in s:
                 continue
-            if s.get("dest_dir"):
-                newest = _newest_dated_file(inputs_dir.parent / s["dest_dir"])
-            else:
-                newest = _newest_csv_date(inputs_dir.parent / s["dest_file"])
+            newest = _newest_dated_file(inputs_dir.parent / s["dest_dir"])
             who = " — single-sender feed, check the channel" if s.get("single_sender") else ""
             if newest is None:
                 flags.append(f"STALE-INPUT {s['name']}: no staged artifacts at all{who}")
@@ -630,22 +627,6 @@ def _accepted_gap(cfg: dict, feed: str, start: date, end: date) -> bool:
         if date.fromisoformat(str(a["from"])) <= start and end <= date.fromisoformat(str(a["to"])):
             return True
     return False
-
-
-def _newest_csv_date(path: Path):
-    """Max value of a leading ISO-date column in a date-keyed CSV."""
-    if not path.exists():
-        return None
-    best = None
-    for line in path.read_text().splitlines()[1:]:
-        head = line.split(",", 1)[0]
-        try:
-            d = date.fromisoformat(head)
-        except ValueError:
-            continue
-        if best is None or d > best:
-            best = d
-    return best
 
 
 def _business_days_between(a: date, b: date) -> int:

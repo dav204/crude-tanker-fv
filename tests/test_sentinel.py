@@ -319,7 +319,8 @@ def test_uningested_prints_ocr_lane(tmp_path):
 
 def test_source_silence_per_feed(tmp_path):
     """WO2 1.2: per-source silence off the staged artifacts themselves —
-    business-day aware for daily feeds, explicit silence_days respected."""
+    business-day aware for daily feeds, explicit silence_days respected.
+    (Two file lanes since 2026-09-02 — the Baltic text lane was retired.)"""
     from datetime import date
 
     inputs, outputs = _fixture(tmp_path)
@@ -327,9 +328,8 @@ def test_source_silence_per_feed(tmp_path):
         "sources": [
             {"name": "pareto_research", "kind": "file", "single_sender": True,
              "dest_dir": "inputs/research_pareto", "expect_cadence": "business-daily"},
-            {"name": "baltic_indexes", "kind": "text", "silence_days": 3,
-             "dest_file": "inputs/market_data/baltic.csv",
-             "expect_cadence": "business-daily"}]}))
+            {"name": "ffa_drybulk", "kind": "file", "silence_days": 3,
+             "dest_dir": "inputs/ffa_drybulk", "expect_cadence": "business-daily"}]}))
 
     flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
     assert len(flags) == 2 and all("no staged artifacts" in f for f in flags)
@@ -337,19 +337,21 @@ def test_source_silence_per_feed(tmp_path):
     staged = inputs / "research_pareto" / "2026"
     staged.mkdir(parents=True)
     (staged / f"{date.today().isoformat()}_x.pdf").write_bytes(b"x")
-    (inputs / "market_data" / "baltic.csv").write_text(
-        f"date,BDI\n{date.today().isoformat()},2500\n")
+    ffa = inputs / "ffa_drybulk" / "2026"
+    ffa.mkdir(parents=True)
+    (ffa / f"{date.today().isoformat()}_widget.png").write_bytes(b"x")
     assert collect_flags(inputs, outputs, environ=FAKE_ENV) == []
 
     old = (date.today() - timedelta(days=9)).isoformat()
     (staged / f"{date.today().isoformat()}_x.pdf").unlink()
     (staged / f"{old}_x.pdf").write_bytes(b"x")
-    (inputs / "market_data" / "baltic.csv").write_text(f"date,BDI\n{old},2500\n")
+    (ffa / f"{date.today().isoformat()}_widget.png").unlink()
+    (ffa / f"{old}_widget.png").write_bytes(b"x")
     flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
     assert len(flags) == 2
-    pareto = next(f for f in flags if "pareto_research" in f)
-    assert "business days silent" in pareto and "single-sender" in pareto
-    assert any("baltic_indexes" in f and "9d silent (limit 3d)" in f for f in flags)
+    assert any("pareto_research" in f and "business days silent" in f and "single-sender" in f
+               for f in flags)
+    assert any("ffa_drybulk" in f and "9d silent (limit 3d)" in f for f in flags)
 
 
 def test_harvester_silence_and_marks_trail(tmp_path):
