@@ -1,47 +1,58 @@
-# Notification routing (WO2 §3.1, 2026-07-03) — email-only, owner-only.
+# Notification routing (WO2 §3.1, 2026-07-03; re-cut 2026-09-02 Stage 0) — email-only,
+# owner-only.
 #
 # Secrets NEVER live here: SMTP creds + the recipient are env vars
 # (CRUDE_FV_SMTP_HOST / PORT / USER / PASS / TO) in ~/.config/crude-tanker-fv.env
 # (chmod 600), sourced by the cron wrappers. Nothing ever posts to Rocket.Chat
 # or any group channel — RC stays read-only ingest.
 #
-# Change-control: every tag lands with a route entry AND a fixture test; an
-# UNKNOWN tag routes to PAGE (fail loud, never silent).
+# Change-control: every tag lands with a route entry AND a fixture test
+# (tests/test_notify.py derives the live tag set from sentinel.py itself, so an
+# unrouted new tag reds the suite); an UNKNOWN tag routes to PAGE (fail loud,
+# never silent).
+#
+# Four routes (2026-09-02, prune ledger rows 20-32 / autopilot §4.2, owner Q-9):
+#   page        every run while present — the dinner test
+#   page_once   the FIRST sighting of a key pages; repeats ride the digest.
+#               August measured 94 FILING-LANDED page instances for 52 filings
+#               (48h window = every arrival twice) and 50 EARNINGS-* pages that
+#               were not even in this table. Keys: notify.page_once_key.
+#   digest      the daily digest line (sent on OK days too — its absence is the tell)
+#   record_only state log only, never mailed
 subject_prefix: "[crude-fv]"
 routes:
-  page:            # immediate email
-    - TRIGGER-DUE
+  page:
     - SURFACE-INCOHERENT
-    - FILING-LANDED       # AMENDED marker travels in the flag body
     - FILING-OVERDUE
-    - DIRTY-TOO-LONG
-  digest:          # one daily status email — sent on OK days too (the
-                   # unconditional send is what makes notifier death detectable)
+  page_once:
+    - TRIGGER-DUE           # key = tag + trigger label (+ due date); day-2 repeat → digest
+    - FILING-LANDED         # key = ticker · form · accession (the text before " filed ")
+    - DIRTY-TOO-LONG        # key = tag
+    - REAUTH-NEEDED         # key = surface (rocketchat / smtp / healthchecks); clears on success
+    - EARNINGS-UNCONFIRMED  # key = tag + ticker (owner directive 2026-07-21: page per name — once)
+    - EARNINGS-SWEEP-STALE  # key = tag + the stale sweep stamp (F11: digest + one page at >7d)
+  digest:
     - STALE-INPUT
     - SIDECAR-STALE
     - PRICE-BASIS
     - NOTIFY-UNCONFIGURED
     - UNINGESTED-PRINTS
-    - TRIGGER-EVIDENCE
+    - TRIGGER-EVIDENCE      # retires with the tanker-forward trigger at Stage-B close 9/04 (F19)
     - CALENDAR-UNSEEDED
     - EARNINGS-DUE
-    - STALE-BALANCE-SHEET  # report out, sheet pending — the reconciliation
-                           # queue's daily reminder (the LANDED page already fired)
-    - FETCH-FAILED        # override below: pages at 2 consecutive; promoted to
-                          # PAGE immediately inside an open earnings window
-    - FLEET-TRANSACTION   # unreviewed S&P candidates (ack: sp_scan --mark-reviewed)
-    - DISK-PRESSURE
-    - AGENT-TASK-DUE      # a recurring duty with no plist/heartbeat is overdue
-                          # (8c). Escalates like any digest tag — the nag IS the
-                          # interim control until the duty gets scheduled.
-    - ARCHIVE-GAP         # a hole BEHIND the feed head (8b). Digest, not page:
-                          # it is historical, not an outage — but it does not
-                          # self-heal, so the escalation is what forces the
-                          # backfill-or-accept decision.
-  record_only:     # state log only, never mailed (delivery failure can't
-                   # page through the channel that failed — the healthchecks
-                   # ping-withhold is its pager)
+    - STALE-BALANCE-SHEET   # report out, sheet pending — the reconciliation
+                            # queue's daily reminder (the LANDED page already fired)
+    - FETCH-FAILED          # threshold below: pages at 2 consecutive; promoted to
+                            # PAGE immediately inside an open earnings window
+    - FLEET-TRANSACTION     # unreviewed S&P candidates (ack: sp_scan --mark-reviewed)
+    - AGENT-TASK-DUE        # a recurring duty with no plist/heartbeat is overdue
+    - ARCHIVE-GAP           # a hole BEHIND the feed head — historical, not an outage,
+                            # but it does not self-heal
+  record_only:              # never mailed (delivery failure can't page through the
+                            # channel that failed — the healthchecks ping-withhold is its pager)
     - NOTIFY-DOWN
-escalate_after: 3  # a DIGEST tag present N consecutive runs pages ONCE (0.3)
-escalate_after_overrides:
-  FETCH-FAILED: 2  # a fetch layer down two days running is already an incident
+# Only tags listed here escalate from the digest to a one-time page after N
+# consecutive runs (2026-09-02, F10: the generic every-tag streak paged always-on
+# tags — STALE-INPUT, EARNINGS-DUE — and nothing that mattered).
+page_after_consecutive:
+  FETCH-FAILED: 2           # a fetch layer down two days running is already an incident

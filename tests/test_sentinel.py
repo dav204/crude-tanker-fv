@@ -63,10 +63,14 @@ def _fixture(tmp_path: Path, *, trigger_due=False, stale_watchlist=False,
     (outputs / "dht_scenarios.md").write_text(
         "- **Probability-weighted fair value:** $18.00 (+9.1% vs price)\n")
     # Routing table for main(--notify) paths.
+    # Mirrors the production routing shape (2026-09-02): TRIGGER-DUE is page_once
+    # (first sighting pages, repeats ride the digest); FETCH-FAILED escalates at 2.
     (inputs / "notify.yaml").write_text(yaml.safe_dump({
         "subject_prefix": "[crude-fv]",
-        "routes": {"page": ["TRIGGER-DUE"], "digest": ["STALE-INPUT", "FETCH-FAILED"],
-                   "record_only": ["NOTIFY-DOWN"]}}))
+        "routes": {"page": [], "page_once": ["TRIGGER-DUE"],
+                   "digest": ["STALE-INPUT", "FETCH-FAILED"],
+                   "record_only": ["NOTIFY-DOWN"]},
+        "page_after_consecutive": {"FETCH-FAILED": 2}}))
     return inputs, outputs
 
 
@@ -186,7 +190,7 @@ def test_notify_pages_and_ping_withholds_on_send_failure(tmp_path, monkeypatch, 
     dead-man ping (healthchecks pages by absence)."""
     s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch,
                                              sends_succeed=False, trigger_due=True)
-    assert s.main(["--notify", "--ping", "--state", st]) == 1
+    assert s.main(["--notify", "--ping", "--state", st]) == 2
     assert "PAGE: 1 flag(s)" in sent[0][0] and "TRIGGER-DUE" in sent[0][1]
     assert len(sent) == 2   # page + the unconditional digest
     assert not pings
@@ -219,18 +223,25 @@ def test_dark_period_prefix_after_gap(tmp_path, monkeypatch):
     assert sent[0][1].startswith("DARK 3 days — accumulated:")
 
 
-def test_digest_streak_escalates_once(tmp_path, monkeypatch):
-    """0.3: a digest tag present escalate_after (3) consecutive runs pages
-    ONCE, then stays quiet until the tag clears."""
-    s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch,
-                                             stale_watchlist=True)
-    for _ in range(2):
+def test_only_thresholded_tags_escalate(tmp_path, monkeypatch):
+    """2026-09-02 (F10): an always-on digest tag (STALE-INPUT) never escalates;
+    FETCH-FAILED pages once at its page_after_consecutive threshold (2), then
+    stays quiet until the tag clears."""
+    s, inputs, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch,
+                                                    stale_watchlist=True)
+    for _ in range(4):
         s.main(["--notify", "--state", st])
     assert not [x for x in sent if "escalated" in x[0]]
-    s.main(["--notify", "--state", st])   # third consecutive run
+    scripts = inputs.parent / "scripts"
+    scripts.mkdir(exist_ok=True)
+    monkeypatch.setattr(s, "SCRIPTS_DIR", scripts, raising=False)
+    _write_plist(scripts, "com.crude-tanker-fv.price-refresh")   # no heartbeat → FETCH-FAILED
+    s.main(["--notify", "--state", st])
+    assert not [x for x in sent if "escalated" in x[0]]
+    s.main(["--notify", "--state", st])   # second consecutive run
     esc = [x for x in sent if "escalated" in x[0]]
-    assert len(esc) == 1 and "STALE-INPUT" in esc[0][0]
-    s.main(["--notify", "--state", st])   # fourth — no re-page
+    assert len(esc) == 1 and "FETCH-FAILED" in esc[0][0]
+    s.main(["--notify", "--state", st])   # third — no re-page
     assert len([x for x in sent if "escalated" in x[0]]) == 1
 
 
@@ -247,7 +258,7 @@ def test_fetch_failed_promotes_to_page_in_open_window(tmp_path, monkeypatch):
         "meta": {"quarter": "2026-Q2"},
         "names": {"DHT": {"window_start": date.today(), "window_end": date.today(),
                           "status": "confirmed", "basis": "t"}}}))
-    assert s.main(["--notify", "--state", st]) == 1
+    assert s.main(["--notify", "--state", st]) == 2
     pages = [x for x in sent if " PAGE:" in x[0]]
     assert len(pages) == 1 and "FETCH-FAILED price-refresh" in pages[0][1]
 
@@ -592,7 +603,7 @@ def test_drift_only_dirt_stays_in_normal_mode(tmp_path, monkeypatch, capsys):
     (tmp_path / "inputs" / "watchlist.yaml").write_text(
         (tmp_path / "inputs" / "watchlist.yaml").read_text() + "# drift\n")
 
-    assert s.main(["--state", st]) == 1   # content checks RAN: trigger flags
+    assert s.main(["--state", st]) == 2   # content checks RAN: trigger flags
     out = capsys.readouterr().out
     assert "META dirty-tree" not in out and "TRIGGER-DUE" in out
 
@@ -612,7 +623,7 @@ def test_dirty_too_long_pages_at_36h_and_12h_in_window(tmp_path, monkeypatch, ca
     subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
     Path(st).write_text(_json.dumps({
         "dirty_since": (datetime.now(timezone.utc) - timedelta(hours=40)).isoformat()}))
-    assert s.main(["--state", st]) == 1
+    assert s.main(["--state", st]) == 2
     assert "DIRTY-TOO-LONG" in capsys.readouterr().out
 
     # Inside an open window the limit tightens to 12h.
@@ -622,7 +633,7 @@ def test_dirty_too_long_pages_at_36h_and_12h_in_window(tmp_path, monkeypatch, ca
                           "status": "confirmed", "basis": "t"}}}))
     Path(st).write_text(_json.dumps({
         "dirty_since": (datetime.now(timezone.utc) - timedelta(hours=13)).isoformat()}))
-    assert s.main(["--state", st]) == 1
+    assert s.main(["--state", st]) == 2
     assert "earnings window open" in capsys.readouterr().out
 
 
@@ -641,7 +652,7 @@ def test_exit_codes_and_log_format(tmp_path, monkeypatch):
     inputs2, outputs2 = _fixture(tmp_path / "b", trigger_due=True)
     monkeypatch.setattr(s, "INPUTS_DIR", inputs2)
     monkeypatch.setattr(s, "OUTPUTS_DIR", outputs2)
-    assert main(["--log", str(log)]) == 1
+    assert main(["--log", str(log)]) == 2
     last = log.read_text().strip().splitlines()[-1]
     assert " FLAG 1: TRIGGER-DUE" in last
 
@@ -842,3 +853,80 @@ def test_non_report_newsweb_arrival_does_not_silence_filing_overdue(tmp_path):
         _line(form="interim report", report=True, title="Results for the six months"))
     flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
     assert not any(f.startswith("FILING-OVERDUE") for f in flags)
+
+
+def test_page_once_pages_first_sighting_only(tmp_path, monkeypatch):
+    """2026-09-02: a page_once tag (TRIGGER-DUE) pages on the first run; the same
+    key on the next run rides the digest; state remembers the key."""
+    import json as _json
+    s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch, trigger_due=True)
+    s.main(["--notify", "--state", st])
+    assert [x for x in sent if " PAGE:" in x[0]]
+    sent.clear()
+    s.main(["--notify", "--state", st])
+    assert not [x for x in sent if " PAGE:" in x[0]]
+    assert [x for x in sent if "daily digest" in x[0] and "TRIGGER-DUE" in x[1]]
+    assert _json.loads(Path(st).read_text())["paged_once"]
+
+
+def test_reauth_register_pages_and_clears(tmp_path, monkeypatch, capsys):
+    """2026-09-02 (Stage 0): a surface marked in state/reauth/ flags REAUTH-NEEDED
+    (page_once); clearing it silences the flag; the ping writes ping_status.json
+    and two consecutive 4xx mark the healthchecks surface."""
+    import urllib.error
+    from crude_tanker_fv import reauth
+    from crude_tanker_fv.sentinel import collect_flags
+
+    inputs, outputs = _fixture(tmp_path)
+    rdir = tmp_path / "state" / "reauth"
+    reauth.mark("rocketchat", "HTTP 401 from https://rc.example/api", rdir)
+    flags = [f for f in collect_flags(inputs, outputs) if f.startswith("REAUTH-NEEDED")]
+    assert len(flags) == 1 and "rocketchat" in flags[0] and "HTTP 401" in flags[0]
+    assert not [f for f in collect_flags(inputs, outputs, pure=True) if f.startswith("REAUTH")]
+    assert reauth.clear("rocketchat", rdir)
+    assert not [f for f in collect_flags(inputs, outputs) if f.startswith("REAUTH-NEEDED")]
+
+    import crude_tanker_fv.sentinel as s
+    monkeypatch.setenv("CRUDE_FV_HEALTHCHECK_URL", "https://hc.example/ping")
+
+    def boom(url, timeout=None):
+        raise urllib.error.HTTPError(url, 404, "gone", {}, None)
+    monkeypatch.setattr(s, "_urlopen", boom)
+    s._ping(True, state_dir=tmp_path / "state")
+    assert not (rdir / "healthchecks.json").exists()
+    s._ping(True, state_dir=tmp_path / "state")
+    assert (rdir / "healthchecks.json").exists()
+    doc = _json_load(tmp_path / "state" / "ping_status.json")
+    assert doc["status"] == "FAILED-4XX" and doc["consecutive_4xx"] == 2
+    monkeypatch.setattr(s, "_urlopen", lambda url, timeout=None: None)
+    s._ping(True, state_dir=tmp_path / "state")
+    assert not (rdir / "healthchecks.json").exists()
+    assert _json_load(tmp_path / "state" / "ping_status.json")["status"] == "SENT"
+
+
+def _json_load(path):
+    import json as _json
+    return _json.loads(Path(path).read_text())
+
+
+def test_agent_duty_artifact_path_reads_dates_from_content(tmp_path, monkeypatch):
+    """2026-09-02: a duty registered by artifact_path (a log outside outputs/) ages
+    by the newest ISO date in the file; a fresh log is quiet, a stale one flags."""
+    from datetime import date, timedelta
+    from crude_tanker_fv.sentinel import collect_flags
+    import yaml as _yaml
+
+    inputs, outputs = _fixture(tmp_path)
+    log = tmp_path / "other" / "monitor" / "log.md"
+    log.parent.mkdir(parents=True)
+    (inputs / "agent_duties.yaml").write_text(_yaml.safe_dump({"duties": [{
+        "name": "gov_monitor", "artifact_path": str(log), "cadence_days": 8,
+        "scheduled": True, "command": "x"}]}))
+    fresh = (date.today() - timedelta(days=2)).isoformat()
+    log.write_text(f"| 2026-06-05 | ran | 0 flags |\n| {fresh} | ran | 1 flag |\n"
+                   f"| {(date.today() + timedelta(days=30)).isoformat()} | planned |\n")
+    assert not [f for f in collect_flags(inputs, outputs) if "AGENT-TASK-DUE gov_monitor" in f]
+    stale = (date.today() - timedelta(days=12)).isoformat()
+    log.write_text(f"| 2026-06-05 | ran |\n| {stale} | ran |\n")
+    flags = [f for f in collect_flags(inputs, outputs) if "AGENT-TASK-DUE gov_monitor" in f]
+    assert len(flags) == 1 and f"last {stale}" in flags[0]

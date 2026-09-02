@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import smtplib
 import stat
 import sys
@@ -25,6 +26,7 @@ from pathlib import Path
 
 import yaml
 
+from . import reauth
 from .loaders import INPUTS_DIR
 
 ENV_FILE = Path.home() / ".config" / "crude-tanker-fv.env"
@@ -47,6 +49,8 @@ def route_flags(flags: list[str], routes: dict) -> "tuple[list[str], list[str]]"
     a tag someone forgot to route must fail loud, not vanish into a digest."""
     digest_tags = set(routes["routes"]["digest"])
     record_tags = set(routes["routes"].get("record_only", []))
+    # page_once tags are page-class here; sentinel.main demotes a repeat
+    # sighting (same page_once_key) to the digest (2026-09-02).
     page, digest = [], []
     for f in flags:
         tag = f.split()[0]
@@ -55,6 +59,26 @@ def route_flags(flags: list[str], routes: dict) -> "tuple[list[str], list[str]]"
         elif tag not in record_tags:
             page.append(f)
     return page, digest
+
+
+def page_once_key(flag: str) -> str:
+    """What makes two sightings of a page_once flag the SAME event (2026-09-02):
+    FILING-LANDED = ticker·form·accession (never the 48h-window repeat);
+    EARNINGS-SWEEP-STALE = the stale sweep stamp; TRIGGER-DUE = label + due date;
+    DIRTY-TOO-LONG = the tag; otherwise tag + first token (ticker / surface)."""
+    tag, _, rest = flag.partition(" ")
+    if tag == "FILING-LANDED":
+        return flag.split(" -> ")[0].split(" filed ")[0]
+    if tag == "EARNINGS-SWEEP-STALE":
+        m = re.search(r"last_date_sweep is (\S+)", flag)
+        return f"{tag} {m.group(1) if m else ''}"
+    if tag == "DIRTY-TOO-LONG":
+        return tag
+    first = rest.split()[0] if rest.split() else ""
+    if tag == "TRIGGER-DUE":
+        m = re.search(r"due (\d{4}-\d{2}-\d{2})", flag)
+        return f"{tag} {first} {m.group(1) if m else ''}".rstrip()
+    return f"{tag} {first}".rstrip()
 
 
 def record_down(reason: str, state_dir: Path = Path("state")) -> None:
@@ -84,13 +108,19 @@ def send_email(subject: str, body: str, *, environ=os.environ,
             s.starttls()
             s.login(environ["CRUDE_FV_SMTP_USER"], environ["CRUDE_FV_SMTP_PASS"])
             s.send_message(msg)
-        # Send ledger (WO2 close): the acceptance compiler joins flags to
-        # SENT emails — a send that isn't ledgered didn't happen.
+        reauth.clear("smtp", state_dir / "reauth")
+        # Send ledger: a send that isn't ledgered didn't happen.
         state_dir.mkdir(parents=True, exist_ok=True)
         with (state_dir / "notify_sent.log").open("a") as fh:
             fh.write(f"{datetime.now(timezone.utc).isoformat(timespec='seconds')} "
                      f"SENT {subject}\n")
         return True
+    except smtplib.SMTPAuthenticationError as exc:
+        # REAUTH-NEEDED (2026-09-02): the app password is dead, not the network —
+        # the sentinel pages it once from state/reauth/ (it cannot page by email).
+        reauth.mark("smtp", f"SMTP auth refused: {exc}", state_dir / "reauth")
+        record_down(f"send failed (auth): {exc}", state_dir)
+        return False
     except Exception as exc:
         record_down(f"send failed: {exc}", state_dir)
         return False

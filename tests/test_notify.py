@@ -41,18 +41,52 @@ def setup_function(_):
     FakeSMTP.raise_on_send = False
 
 
+# Tags a regex over sentinel.py finds that are NOT flag tags (status words the
+# module prints); keep this list honest — an unknown tag PAGES by design.
+NOT_TAGS = {"META-DIRTY", "PING-SENT", "PING-SKIPPED", "PING-WITHHELD",
+            "PING-FAILED", "FAILED-4XX"}
+
+
+def live_sentinel_tags() -> set:
+    """2026-09-02: derived from the source, not hand-typed — the hand-typed set
+    omitted EARNINGS-UNCONFIRMED and EARNINGS-SWEEP-STALE, which paged for six
+    weeks through the unknown-tag rule while this test stayed green."""
+    import re
+    src = (INPUTS_DIR.parent / "src" / "crude_tanker_fv" / "sentinel.py").read_text()
+    found = set(re.findall(r'"([A-Z]{3,}(?:-[A-Z0-9]{2,})+)(?=[ :"])', src))
+    return found - NOT_TAGS
+
+
 def test_real_routing_table_covers_every_live_sentinel_tag():
     routes = notify.load_routes(INPUTS_DIR)["routes"]
-    routed = set(routes["page"]) | set(routes["digest"])
-    live = {"TRIGGER-DUE", "STALE-INPUT", "SURFACE-INCOHERENT", "PRICE-BASIS",
-            "SIDECAR-STALE", "NOTIFY-UNCONFIGURED", "FETCH-FAILED",
-            "UNINGESTED-PRINTS", "TRIGGER-EVIDENCE", "FILING-LANDED",
-            "FILING-OVERDUE", "STALE-BALANCE-SHEET", "CALENDAR-UNSEEDED",
-            "EARNINGS-DUE", "DIRTY-TOO-LONG", "FLEET-TRANSACTION",
-            "ARCHIVE-GAP", "AGENT-TASK-DUE"}
+    routed = (set(routes["page"]) | set(routes.get("page_once", []))
+              | set(routes["digest"]) | set(routes.get("record_only", [])))
+    live = live_sentinel_tags()
+    assert {"TRIGGER-DUE", "FILING-LANDED", "EARNINGS-UNCONFIRMED",
+            "EARNINGS-SWEEP-STALE", "REAUTH-NEEDED"} <= live
     assert live <= routed, f"unrouted sentinel tags: {live - routed}"
-    overlap = set(routes["page"]) & set(routes["digest"])
-    assert not overlap, f"tags routed both ways: {overlap}"
+    lists = [set(routes["page"]), set(routes.get("page_once", [])),
+             set(routes["digest"]), set(routes.get("record_only", []))]
+    for i, a in enumerate(lists):
+        for b in lists[i + 1:]:
+            assert not (a & b), f"tags routed two ways: {a & b}"
+    # record_only tags are written by other modules (NOTIFY-DOWN by notify.py);
+    # the mailed routes must all have a live emitter in sentinel.py.
+    mailed = set(routes["page"]) | set(routes.get("page_once", [])) | set(routes["digest"])
+    stale = mailed - live
+    assert not stale, f"routed tags no sentinel check emits: {stale}"
+
+
+def test_page_once_keys():
+    k = notify.page_once_key
+    a = k("FILING-LANDED CMBT: 6-K 0000919574-26-005821 filed 2026-08-28 -> inputs/filings/x.htm")
+    b = k("FILING-LANDED CMBT: 6-K 0000919574-26-005821 filed 2026-08-29 -> inputs/filings/x.htm")
+    assert a == b == "FILING-LANDED CMBT: 6-K 0000919574-26-005821"
+    assert k("EARNINGS-UNCONFIRMED CAPT: window opens 2026-09-01 (5d)") == "EARNINGS-UNCONFIRMED CAPT:"
+    assert k("EARNINGS-SWEEP-STALE windows open within 21d but the calendar's last_date_sweep is 2026-08-31 (>7d)") \
+        == "EARNINGS-SWEEP-STALE 2026-08-31"
+    assert k("REAUTH-NEEDED smtp: SMTP auth refused — since 2026-09-02") == "REAUTH-NEEDED smtp:"
+    assert k("DIRTY-TOO-LONG tree dirty 40h") == "DIRTY-TOO-LONG"
 
 
 def test_route_flags_partition_and_unknown_pages():

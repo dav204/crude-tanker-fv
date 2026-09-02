@@ -34,7 +34,9 @@ checks are suspended (they'd read half-finished surgery), but heartbeat,
 digest, and ping still run — a dirty reconciliation week must not look like
 death. DIRTY-TOO-LONG pages at 36h (12h inside an open earnings window).
 
-Exit 0 = quiet. Nonzero = one status line per flag on stdout. Designed for
+Exit 0 = quiet · 2 = flags (one status line per flag on stdout) · 1 = a crash
+(uncaught exception — the wrapper records outcome=error; 2026-09-02: the
+9/01 YAML-crash run had heartbeated a normal `flags` day). Designed for
 cron via scripts/sentinel_cron.sh (which adds the dirty-tree/PAUSE guard —
 V-3: no automation through live surgery).
 """
@@ -43,10 +45,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import re
 import sys
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
+from . import reauth
 from .loaders import INPUTS_DIR, load_watchlist
 from .refresh import (
     check_market_data,
@@ -64,7 +69,6 @@ _PW_FV_RE = None   # compiled lazily
 
 def _scenario_doc_pw_fv(outputs_dir: Path, ticker: str):
     """Parse the committed scenario doc's headline PW FV for the fv-identity scan."""
-    import re
 
     global _PW_FV_RE
     if _PW_FV_RE is None:
@@ -219,7 +223,6 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
     #    fresh, non-errored heartbeat. Cadence from the plist itself (one
     #    source of truth); daily jobs get 2d, weekly 9d (coalesced-wake slack).
     import plistlib
-    import re
 
     hb_dir = inputs_dir.parent / "state" / "heartbeat"
     now = datetime.now(timezone.utc)
@@ -346,20 +349,43 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
                          f"or accept it in inputs/archive_gaps.yaml (news read from "
                          f"this window is unsupported)")
 
+    # 9. REAUTH-NEEDED (2026-09-02, Stage 0) — a surface refused for AUTH reasons
+    #    (state/reauth/<surface>.json, written by the client that was refused and
+    #    cleared by its next success). Machine-local — dropped in pure mode.
+    if not pure:
+        for r in reauth.pending(inputs_dir.parent / "state" / "reauth"):
+            flags.append(f"REAUTH-NEEDED {r['surface']}: {r['reason']} — since "
+                         f"{str(r.get('since', ''))[:10]}; renew the credential in "
+                         f"~/.config/crude-tanker-fv.env (clears on the next success)")
+
     # 8c. AGENT-TASK-DUE — recurring duties with no plist and no heartbeat
     #     (slash commands, checklists, habits). Check 6 sees jobs; check 8 sees
     #     feeds; neither can see a duty someone has to REMEMBER. /news-pull ran
     #     twice and died, and its mechanical namesake's green heartbeat hid it.
     duties_path = inputs_dir / "agent_duties.yaml"
     if duties_path.exists():
-        import re
 
         import yaml
 
         today = date.today()
         for d in (yaml.safe_load(duties_path.read_text()) or {}).get("duties", []):
             newest = None
-            for p in outputs_dir.glob(d["artifact_glob"]):
+            if d.get("artifact_path"):
+                # 2026-09-02: a duty whose artifact lives OUTSIDE outputs/ (the
+                # governance repo's Friday monitor log) — newest ISO date in the
+                # file's content, future dates ignored.
+                p = Path(os.path.expanduser(str(d["artifact_path"])))
+                if not p.is_absolute():
+                    p = (inputs_dir.parent / p).resolve()
+                if p.exists():
+                    for m in re.finditer(r"\b(\d{4}-\d{2}-\d{2})\b", p.read_text(errors="ignore")):
+                        try:
+                            dt = date.fromisoformat(m.group(1))
+                        except ValueError:
+                            continue
+                        if dt <= today and (newest is None or dt > newest):
+                            newest = dt
+            for p in outputs_dir.glob(d.get("artifact_glob") or "\x00"):
                 m = re.match(r".*?(\d{4}-\d{2}-\d{2})", p.name)
                 if m:
                     dt = date.fromisoformat(m.group(1))
@@ -547,7 +573,6 @@ def _as_of_default(inputs_dir: Path, filename: str):
 
 def _newest_dated_file(root: Path):
     """Newest ISO-date filename prefix under a staging tree, at any depth."""
-    import re
 
     best = None
     if not root.exists():
@@ -571,7 +596,6 @@ def _archive_gaps(root: Path, since: date, until: date, limit_bdays: int):
     file is not evidence of absence of news — but only if something counts the
     missing days.
     """
-    import re
 
     if not root.exists():
         return []
@@ -739,7 +763,7 @@ def _filing_event_flags(inputs_dir: Path, watchlist: dict,
     sweep_stamp = meta.get("last_date_sweep")
     if stale_sweep_due and (sweep_stamp is None or (today - sweep_stamp).days > 7):
         flags.append(
-            f"EARNINGS-SWEEP-STALE: windows open within 21d but the calendar's "
+            f"EARNINGS-SWEEP-STALE windows open within 21d but the calendar's "
             f"last_date_sweep is {sweep_stamp or 'ABSENT'} (>7d) — run the full "
             f"date sweep and stamp meta.last_date_sweep")
 
@@ -795,11 +819,35 @@ def _save_state(path: Path, state: dict) -> None:
 _urlopen = None   # stdlib bound lazily; module attr so tests can stub it
 
 
-def _ping(sends_ok: bool) -> None:
+def _ping_status(state_dir: Path, status: str, detail: str = "") -> dict:
+    """state/ping_status.json (2026-09-02): the ping outcome was stdout-only, so a
+    deleted check / dead URL (HTTP 4xx) was invisible to everything but the cron
+    log. Two consecutive 4xx mark the healthchecks surface REAUTH-NEEDED."""
+    path = state_dir / "ping_status.json"
+    prior = {}
+    if path.exists():
+        try:
+            prior = json.loads(path.read_text())
+        except Exception:
+            prior = {}
+    n4 = int(prior.get("consecutive_4xx", 0))
+    n4 = n4 + 1 if status == "FAILED-4XX" else (0 if status == "SENT" else n4)
+    doc = {"ts": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+           "status": status, "detail": detail, "consecutive_4xx": n4}
+    _save_state(path, doc)
+    if n4 >= 2:
+        reauth.mark("healthchecks", f"ping URL answered 4xx {n4}x running: {detail}",
+                    state_dir / "reauth")
+    elif status == "SENT":
+        reauth.clear("healthchecks", state_dir / "reauth")
+    return doc
+
+
+def _ping(sends_ok: bool, state_dir: Path = Path("state")) -> None:
     """Invariant 2: the dead-man ping asserts 'checks ran AND pages reached
     the owner' — withheld on a failed send so healthchecks pages by absence
     (its own channel; the recursion stops there)."""
-    import os
+    import urllib.error
     import urllib.request
 
     global _urlopen
@@ -808,15 +856,23 @@ def _ping(sends_ok: bool) -> None:
     url = os.environ.get("CRUDE_FV_HEALTHCHECK_URL")
     if not url:
         print("PING-SKIPPED: CRUDE_FV_HEALTHCHECK_URL unset")
+        _ping_status(state_dir, "SKIPPED", "CRUDE_FV_HEALTHCHECK_URL unset")
         return
     if not sends_ok:
         print("PING-WITHHELD: a required send failed — healthchecks will page")
+        _ping_status(state_dir, "WITHHELD", "a required send failed")
         return
     try:
         _urlopen(url, timeout=10)
         print("PING-SENT")
+        _ping_status(state_dir, "SENT")
+    except urllib.error.HTTPError as exc:
+        kind = "FAILED-4XX" if 400 <= exc.code < 500 else "FAILED"
+        print(f"PING-FAILED: HTTP {exc.code} — healthchecks will page by absence")
+        _ping_status(state_dir, kind, f"HTTP {exc.code}")
     except Exception as exc:
         print(f"PING-FAILED: {exc} — healthchecks will page by absence")
+        _ping_status(state_dir, "FAILED", str(exc))
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -881,6 +937,23 @@ def main(argv: list[str] | None = None) -> int:
             # A blind fetch layer in reporting season is an incident, not a digest line.
             page += [f for f in digest if f.startswith("FETCH-FAILED")]
             digest = [f for f in digest if not f.startswith("FETCH-FAILED")]
+        # page_once (2026-09-02): the first sighting of a key pages; a repeat rides
+        # the digest. FILING-LANDED paged every arrival twice (48h window) and the
+        # EARNINGS-* checks paged daily — 94 + 50 page instances in August.
+        once_tags = set(routes["routes"].get("page_once") or [])
+        paged_once = dict(state.get("paged_once") or {})
+        first_sightings = []
+        for f in page:
+            if f.split()[0] in once_tags:
+                key = notify.page_once_key(f)
+                if key in paged_once:
+                    digest.append(f)
+                    continue
+                paged_once[key] = now.date().isoformat()
+            first_sightings.append(f)
+        page = first_sightings
+        cutoff = (now - timedelta(days=60)).date().isoformat()
+        paged_once = {k: d for k, d in paged_once.items() if d >= cutoff}
         prefix = routes["subject_prefix"]
         if page:
             body = "PAGE-class flags:\n" + "\n".join(f"  {f}" for f in page)
@@ -889,17 +962,18 @@ def main(argv: list[str] | None = None) -> int:
                          "digest):\n" + "\n".join(f"  {f}" for f in digest))
             sends_ok = notify.send_email(f"{prefix} PAGE: {len(page)} flag(s)", body)
 
-        # Digest-streak escalation (0.3): a tag present escalate_after
-        # consecutive runs pages ONCE, then stays escalated until it clears.
+        # Consecutive-run thresholds (2026-09-02, F10): ONLY tags listed under
+        # page_after_consecutive escalate to a one-time page (FETCH-FAILED at 2);
+        # the former every-tag streak paged always-on tags and nothing that mattered.
         streaks_prev = state.get("streaks") or {}
         escalated = set(state.get("escalated") or [])
         present = {f.split()[0] for f in digest}
         streaks = {t: streaks_prev.get(t, 0) + 1 for t in present}
         escalated &= present   # a cleared tag may escalate again after a new streak
-        overrides = routes.get("escalate_after_overrides") or {}
-        n_default = routes.get("escalate_after", 3)
+        thresholds = routes.get("page_after_consecutive") or {}
         due = sorted(t for t in present
-                     if streaks[t] >= overrides.get(t, n_default) and t not in escalated)
+                     if t in thresholds and streaks[t] >= int(thresholds[t])
+                     and t not in escalated)
         if due:
             body = ("Digest-class tags at their consecutive-run limit "
                     "(one-time escalation):\n" +
@@ -928,10 +1002,11 @@ def main(argv: list[str] | None = None) -> int:
             sends_ok = False
         _save_state(args.state, {"last_run": now.isoformat(), "streaks": streaks,
                                  "escalated": sorted(escalated),
+                                 "paged_once": paged_once,
                                  "dirty_since": dirty_since})
     if args.ping:
-        _ping(sends_ok)
-    return 1 if flags else 0
+        _ping(sends_ok, state_dir=args.state.parent)
+    return 2 if flags else 0
 
 
 if __name__ == "__main__":

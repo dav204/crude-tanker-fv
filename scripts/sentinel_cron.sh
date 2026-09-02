@@ -38,9 +38,13 @@ echo "=== [sentinel] $(date '+%Y-%m-%d %H:%M:%S')"
 rc=0
 ./.venv/bin/python -m crude_tanker_fv.sentinel --log state/sentinel.log \
   --notify --ping || rc=$?
+# rc mapping (2026-09-02, Stage 0): 0 quiet · 2 flags · anything else — including
+# 1, python's uncaught-traceback exit — stays the default `error`. Before this,
+# rc=1 read as a normal flag day: the 2026-09-01 run died on a YAML ParserError
+# in inputs/archive_gaps.yaml and the heartbeat said `outcome=flags`.
 case $rc in
   0) CRON_OUTCOME=ok ;;
-  1) CRON_OUTCOME=flags ;;
+  2) CRON_OUTCOME=flags ;;
 esac
 echo "=== [sentinel] EXIT CODE $rc"
 exit $rc

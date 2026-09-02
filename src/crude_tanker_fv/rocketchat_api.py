@@ -17,6 +17,8 @@ from urllib.parse import quote
 
 import requests
 
+from . import reauth
+
 BATCH_SIZE = 100
 IMAGE_EXTS = (".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp", ".tiff")
 
@@ -38,6 +40,10 @@ def _get(url: str, **kwargs) -> requests.Response:
             last_exc = e
         else:
             if r.status_code != 429 and r.status_code < 500:
+                if r.status_code in (401, 403):
+                    reauth.mark("rocketchat", f"HTTP {r.status_code} from {url}")
+                elif r.status_code == 200:
+                    reauth.clear("rocketchat")
                 return r
             last_exc = requests.exceptions.HTTPError(f"HTTP {r.status_code} from {url}")
         if attempt < RETRY_ATTEMPTS - 1:

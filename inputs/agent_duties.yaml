@@ -50,3 +50,15 @@ duties:
       missed issuer release no longer depends on this duty running. That is the
       STRUCTURAL fix; this duty remains the judgment layer on top of it, and its
       digest is still the heartbeat 8c watches.
+
+  - name: governance_weekly_monitor
+    artifact_path: ../portfolio-governance/monitor/log.md   # newest ISO date in the log
+    cadence_days: 8                       # Friday 17:00 ET desktop task; 8 = one slipped day
+    scheduled: true                       # Claude scheduled-task `portfolio-weekly-monitor`
+    command: "(desktop scheduled task portfolio-weekly-monitor, Fri 17:00 ET — consumer repo)"
+    why: >
+      REGISTERED 2026-09-02 (autopilot §2): the consumer's Friday tripwire monitor reads
+      this repo's book_scorecard.json + RATIFY_LOG.md and is the only thing that turns a
+      producer read into a sizing decision. Its 2026-08-21 silence (the outage week) was
+      invisible here because its log lives in the other repo. Its age now rides this
+      sentinel like any duty; the governance repo's own dead-man ping stays primary.
