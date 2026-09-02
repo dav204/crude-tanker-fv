@@ -62,3 +62,16 @@ duties:
       producer read into a sizing decision. Its 2026-08-21 silence (the outage week) was
       invisible here because its log lives in the other repo. Its age now rides this
       sentinel like any duty; the governance repo's own dead-man ping stays primary.
+
+  - name: weekly_report
+    artifact_glob: "weekly_report_*.md"   # under outputs/
+    cadence_days: 8                       # Saturday, on the back of the 08:15 sentinel run
+    scheduled: true                       # scripts/sentinel_cron.sh, Saturday branch (no new plist)
+    command: "python -m crude_tanker_fv.weekly_report --send"
+    why: >
+      ADDED 2026-09-02: the owner-facing surface that replaces reading a ~30-flag daily digest —
+      what moved in the book, what needs a word, whether the machine is alive, what lands in the
+      next fortnight. It rides the sentinel wrapper rather than its own launchd job precisely so
+      it needs no install. Its age IS its heartbeat: if the Saturday branch stops firing, this
+      duty flags AGENT-TASK-DUE — the /news-pull lesson (a duty nobody could see die ran twice
+      and stopped for eight weeks while its mechanical namesake reported green).

@@ -47,4 +47,18 @@ case $rc in
   2) CRON_OUTCOME=flags ;;
 esac
 echo "=== [sentinel] EXIT CODE $rc"
+
+# WEEKLY REPORT (2026-09-02) — Saturday only, on the back of the run that already has the
+# env sourced and the channel proven. Deliberately NOT a new launchd job: a new plist is an
+# owner install, and this needs none. The report is the owner-facing surface that replaces
+# reading a 30-flag daily digest; its failure must never fail the sentinel, so it is
+# non-fatal and its rc rides the note.
+if [ "$(date +%u)" -eq 6 ]; then
+  echo "=== [weekly-report] $(date '+%Y-%m-%d %H:%M:%S')"
+  report_rc=0
+  ./.venv/bin/python -m crude_tanker_fv.weekly_report --send || report_rc=$?
+  [ "$report_rc" -eq 0 ] || CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}weekly_report=rc${report_rc}"
+  echo "=== [weekly-report] EXIT CODE $report_rc"
+fi
+
 exit $rc
