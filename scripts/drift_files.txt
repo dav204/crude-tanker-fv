@@ -13,5 +13,4 @@ inputs/research_pareto/_manifest.json
 outputs/sp_print_candidates.md
 outputs/refresh_checklist.md
 outputs/ffa_ocr_queue.md
-outputs/pareto_daily_links.json
 inputs/filings/_manifest.json

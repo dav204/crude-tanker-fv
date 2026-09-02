@@ -187,8 +187,9 @@ sit in CLAUDE.md; the full list lives here.
   per-name pipeline outputs EXCLUDED — commit those deliberately with their annotations.
 - **Weekly news pull (mechanical):** `scripts/news_pull_cron.sh` — launchd Sat 08:00, chains RC ingest
   → `pareto_archive --build-manifest` (full rebuild, reordered ahead of the scan 2026-09-02) →
-  `sp_scan` → `--links` → `fetch_links` → `ffa_ocr`. The download step is its own module
-  `crude_tanker_fv.fetch_links` so every `sp_scan` mode stays local-only.
+  `sp_scan` → `ffa_ocr`. The linked-report harvest (`sp_scan --links` → `fetch_links`) left the
+  chain 2026-09-02 (one citation ever); both modules remain for on-demand onboarding, and
+  `fetch_links` stays its own ask-tier module so every `sp_scan` mode is local-only.
 - **Oslo issuer poller:** `python -m crude_tanker_fv.newsweb_poll [--dry-run] [--all]` — the Oslo/
   Euronext issuer-release channel for BRUT/MPCC/CAPT/BWLP (added 2026-08-16). Staging-only, rides
   the hourly edgar-poll row; mechanics + the two filter traps in §Data-sources below.

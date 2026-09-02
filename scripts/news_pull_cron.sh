@@ -4,8 +4,8 @@
 # ~/Library/LaunchAgents/com.crude-tanker-fv.news-pull.plist (Saturday 08:00,
 # after Friday's Shipping Daily has arrived via the 07:00 daily RC ingest).
 #
-# Chain: RC incremental ingest -> sp_scan (prints) -> sp_scan --links
-#        -> fetch_links -> pareto_archive --build-manifest
+# Chain: RC incremental ingest -> pareto_archive --build-manifest -> sp_scan (prints)
+#        -> ffa_ocr (+ --staleness)
 #
 # /bin/sh + PAUSE-guarded + root-override (WO2 1.1). Staging-only writer
 # (invariant 3): PAUSE applies, the dirty-tree guard does NOT — the weekly
@@ -64,13 +64,9 @@ CURRENT_STEP="sp_scan (S&P print scan, incremental)"
 step "$CURRENT_STEP"
 "$PY" -m crude_tanker_fv.sp_scan
 
-CURRENT_STEP="sp_scan --links (link inventory)"
-step "$CURRENT_STEP"
-"$PY" -m crude_tanker_fv.sp_scan --links
-
-CURRENT_STEP="fetch_links (download new linked reports)"
-step "$CURRENT_STEP"
-"$PY" -m crude_tanker_fv.fetch_links
+# The linked-report harvest (sp_scan --links -> fetch_links) was REMOVED from the
+# weekly chain 2026-09-02 (prune ledger row 6): one citation ever, 192 MB of unread
+# PDFs. Both modules stay for on-demand onboarding use (fetch_links is ask-tier).
 
 CURRENT_STEP="ffa_ocr (FFA widget scan, incremental)"
 step "$CURRENT_STEP"
@@ -86,4 +82,4 @@ fi
 
 CURRENT_STEP="done"
 CRON_OUTCOME=ok
-step "chain complete — review queues: outputs/sp_print_candidates.md, outputs/ffa_ocr_queue.md, outputs/pareto_daily_links.json"
+step "chain complete — review queues: outputs/sp_print_candidates.md, outputs/ffa_ocr_queue.md"
