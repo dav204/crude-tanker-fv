@@ -16,12 +16,12 @@ Mark-spread robustness is the OTHER dimension — cross-read with `outputs/broke
 | ECO | ✓ robust | position TRIM/SHORT across all 7 weight sets |
 | FRO | ✓ robust | position TRIM/SHORT across all 7 weight sets |
 | INSW | ✓ robust | position TRIM/SHORT across all 7 weight sets |
-| TNK | ✓ robust | position TRIM/SHORT across all 7 weight sets |
+| TNK | ⚑ driven | HOLD under Set A''; TRIM/SHORT under Set A'/Set A/Set B/Set C/Set D/Set E |
 | NAT | ✓ robust | position TRIM/SHORT across all 7 weight sets |
 | TEN | ✓ robust | position BUY across all 7 weight sets |
 | CMBT | ✓ robust | position TRIM/SHORT across all 7 weight sets |
 | BRUT | ⚑ driven | HOLD under Set A''/Set A'/Set A; TRIM/SHORT under Set B/Set C/Set D/Set E |
-| CAPT | ⚑ driven | BUY under Set A''/Set A'; HOLD under Set A; TRIM/SHORT under Set B/Set C/Set D/Set E |
+| CAPT | ⚑ driven | HOLD under Set A''/Set A'/Set A; TRIM/SHORT under Set B/Set C/Set D/Set E |
 
 ## Weight sets compared
 
@@ -38,158 +38,158 @@ Set B (Catlin-leaning) shifts 10pp from `mou_base` and 5pp from `mou_bear` into 
 
 | Ticker | Set A'' EV | Set A' EV | Set A EV | Set B EV | Set C EV | Set D EV | Set E EV | Robustness | Notes |
 |---|--:|--:|--:|--:|--:|--:|--:|---|---|
-| DHT | -18.8% (TRIM/SHORT) | -19.2% (TRIM/SHORT) | -20.3% (TRIM/SHORT) | -29.3% (TRIM/SHORT) | -26.3% (TRIM/SHORT) | -33.5% (TRIM/SHORT) | -30.0% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
-| ECO | -37.6% (TRIM/SHORT) | -38.0% (TRIM/SHORT) | -38.9% (TRIM/SHORT) | -47.5% (TRIM/SHORT) | -44.7% (TRIM/SHORT) | -51.4% (TRIM/SHORT) | -48.2% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
-| FRO | -36.0% (TRIM/SHORT) | -36.4% (TRIM/SHORT) | -37.5% (TRIM/SHORT) | -46.7% (TRIM/SHORT) | -43.6% (TRIM/SHORT) | -50.9% (TRIM/SHORT) | -47.4% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
-| INSW | -39.7% (TRIM/SHORT) | -39.9% (TRIM/SHORT) | -40.3% (TRIM/SHORT) | -44.9% (TRIM/SHORT) | -43.4% (TRIM/SHORT) | -46.9% (TRIM/SHORT) | -45.2% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
-| TNK | -5.4% (TRIM/SHORT) | -5.6% (TRIM/SHORT) | -6.1% (TRIM/SHORT) | -12.0% (TRIM/SHORT) | -10.0% (TRIM/SHORT) | -14.6% (TRIM/SHORT) | -12.4% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
-| NAT | -55.8% (TRIM/SHORT) | -56.0% (TRIM/SHORT) | -56.6% (TRIM/SHORT) | -62.6% (TRIM/SHORT) | -60.6% (TRIM/SHORT) | -65.2% (TRIM/SHORT) | -63.0% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
-| TEN | +47.4% (BUY) | +46.9% (BUY) | +45.9% (BUY) | +35.7% (BUY) | +39.1% (BUY) | +31.2% (BUY) | +35.1% (BUY) | ✓ robust | position BUY across all 7 weight sets |
-| CMBT | -25.7% (TRIM/SHORT) | -25.9% (TRIM/SHORT) | -26.3% (TRIM/SHORT) | -30.2% (TRIM/SHORT) | -28.9% (TRIM/SHORT) | -32.0% (TRIM/SHORT) | -30.5% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
-| BRUT | +3.6% (HOLD) | +2.3% (HOLD) | -0.5% (HOLD) | -23.2% (TRIM/SHORT) | -15.7% (TRIM/SHORT) | -34.0% (TRIM/SHORT) | -25.3% (TRIM/SHORT) | ⚑ driven | HOLD under Set A''/Set A'/Set A; TRIM/SHORT under Set B/Set C/Set D/Set E |
-| CAPT | +6.7% (BUY) | +5.7% (BUY) | +3.7% (HOLD) | -13.1% (TRIM/SHORT) | -7.6% (TRIM/SHORT) | -21.2% (TRIM/SHORT) | -14.7% (TRIM/SHORT) | ⚑ driven | BUY under Set A''/Set A'; HOLD under Set A; TRIM/SHORT under Set B/Set C/Set D/Set E |
+| DHT | -18.9% (TRIM/SHORT) | -19.4% (TRIM/SHORT) | -20.4% (TRIM/SHORT) | -29.4% (TRIM/SHORT) | -26.4% (TRIM/SHORT) | -33.6% (TRIM/SHORT) | -30.1% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
+| ECO | -38.6% (TRIM/SHORT) | -39.0% (TRIM/SHORT) | -39.9% (TRIM/SHORT) | -48.3% (TRIM/SHORT) | -45.6% (TRIM/SHORT) | -52.2% (TRIM/SHORT) | -49.0% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
+| FRO | -36.2% (TRIM/SHORT) | -36.6% (TRIM/SHORT) | -37.7% (TRIM/SHORT) | -46.8% (TRIM/SHORT) | -43.8% (TRIM/SHORT) | -51.1% (TRIM/SHORT) | -47.6% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
+| INSW | -40.3% (TRIM/SHORT) | -40.5% (TRIM/SHORT) | -40.9% (TRIM/SHORT) | -45.4% (TRIM/SHORT) | -43.9% (TRIM/SHORT) | -47.4% (TRIM/SHORT) | -45.7% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
+| TNK | -4.9% (HOLD) | -5.2% (TRIM/SHORT) | -5.7% (TRIM/SHORT) | -11.6% (TRIM/SHORT) | -9.6% (TRIM/SHORT) | -14.2% (TRIM/SHORT) | -12.0% (TRIM/SHORT) | ⚑ driven | HOLD under Set A''; TRIM/SHORT under Set A'/Set A/Set B/Set C/Set D/Set E |
+| NAT | -56.6% (TRIM/SHORT) | -56.9% (TRIM/SHORT) | -57.5% (TRIM/SHORT) | -63.4% (TRIM/SHORT) | -61.4% (TRIM/SHORT) | -65.9% (TRIM/SHORT) | -63.7% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
+| TEN | +46.3% (BUY) | +45.9% (BUY) | +44.9% (BUY) | +34.8% (BUY) | +38.1% (BUY) | +30.3% (BUY) | +34.1% (BUY) | ✓ robust | position BUY across all 7 weight sets |
+| CMBT | -25.3% (TRIM/SHORT) | -25.5% (TRIM/SHORT) | -25.9% (TRIM/SHORT) | -29.8% (TRIM/SHORT) | -28.5% (TRIM/SHORT) | -31.6% (TRIM/SHORT) | -30.1% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 7 weight sets |
+| BRUT | +2.9% (HOLD) | +1.7% (HOLD) | -1.2% (HOLD) | -23.7% (TRIM/SHORT) | -16.3% (TRIM/SHORT) | -34.5% (TRIM/SHORT) | -25.7% (TRIM/SHORT) | ⚑ driven | HOLD under Set A''/Set A'/Set A; TRIM/SHORT under Set B/Set C/Set D/Set E |
+| CAPT | +4.3% (HOLD) | +3.4% (HOLD) | +1.3% (HOLD) | -15.1% (TRIM/SHORT) | -9.6% (TRIM/SHORT) | -23.0% (TRIM/SHORT) | -16.6% (TRIM/SHORT) | ⚑ driven | HOLD under Set A''/Set A'/Set A; TRIM/SHORT under Set B/Set C/Set D/Set E |
 
 ## Per-name detail
 
-### DHT — price $19.66, target $16.00
+### DHT — price $19.69, target $16.00
 
 **Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 7 weight sets.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $15.97 | -18.8% | TRIM/SHORT |
-| Crude Set A' (B' reweight, history bracket) | $15.88 | -19.2% | TRIM/SHORT |
-| Crude Set A (Jun-9 war tilt, history bracket) | $15.67 | -20.3% | TRIM/SHORT |
-| Crude Set B (Catlin-leaning, slow normalization) | $13.91 | -29.3% | TRIM/SHORT |
-| Crude Set C (bullish, extended Phase 1) | $14.49 | -26.3% | TRIM/SHORT |
-| Crude Set D (bearish, deep normalization) | $13.08 | -33.5% | TRIM/SHORT |
-| Crude Set E (Jul-2 stand-down vintage) | $13.76 | -30.0% | TRIM/SHORT |
+| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $15.97 | -18.9% | TRIM/SHORT |
+| Crude Set A' (B' reweight, history bracket) | $15.88 | -19.4% | TRIM/SHORT |
+| Crude Set A (Jun-9 war tilt, history bracket) | $15.67 | -20.4% | TRIM/SHORT |
+| Crude Set B (Catlin-leaning, slow normalization) | $13.91 | -29.4% | TRIM/SHORT |
+| Crude Set C (bullish, extended Phase 1) | $14.49 | -26.4% | TRIM/SHORT |
+| Crude Set D (bearish, deep normalization) | $13.08 | -33.6% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $13.76 | -30.1% | TRIM/SHORT |
 
-### ECO — price $66.86, target $45.00
-
-**Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 7 weight sets.
-
-| Weight set | PW FV | EV % | Position |
-|---|--:|--:|---|
-| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $41.71 | -37.6% | TRIM/SHORT |
-| Crude Set A' (B' reweight, history bracket) | $41.44 | -38.0% | TRIM/SHORT |
-| Crude Set A (Jun-9 war tilt, history bracket) | $40.83 | -38.9% | TRIM/SHORT |
-| Crude Set B (Catlin-leaning, slow normalization) | $35.10 | -47.5% | TRIM/SHORT |
-| Crude Set C (bullish, extended Phase 1) | $37.00 | -44.7% | TRIM/SHORT |
-| Crude Set D (bearish, deep normalization) | $32.49 | -51.4% | TRIM/SHORT |
-| Crude Set E (Jul-2 stand-down vintage) | $34.66 | -48.2% | TRIM/SHORT |
-
-### FRO — price $44.19, target $30.50
+### ECO — price $67.96, target $45.00
 
 **Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 7 weight sets.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $28.29 | -36.0% | TRIM/SHORT |
-| Crude Set A' (B' reweight, history bracket) | $28.09 | -36.4% | TRIM/SHORT |
-| Crude Set A (Jun-9 war tilt, history bracket) | $27.63 | -37.5% | TRIM/SHORT |
-| Crude Set B (Catlin-leaning, slow normalization) | $23.57 | -46.7% | TRIM/SHORT |
-| Crude Set C (bullish, extended Phase 1) | $24.92 | -43.6% | TRIM/SHORT |
-| Crude Set D (bearish, deep normalization) | $21.68 | -50.9% | TRIM/SHORT |
-| Crude Set E (Jul-2 stand-down vintage) | $23.23 | -47.4% | TRIM/SHORT |
+| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $41.71 | -38.6% | TRIM/SHORT |
+| Crude Set A' (B' reweight, history bracket) | $41.44 | -39.0% | TRIM/SHORT |
+| Crude Set A (Jun-9 war tilt, history bracket) | $40.83 | -39.9% | TRIM/SHORT |
+| Crude Set B (Catlin-leaning, slow normalization) | $35.10 | -48.3% | TRIM/SHORT |
+| Crude Set C (bullish, extended Phase 1) | $37.00 | -45.6% | TRIM/SHORT |
+| Crude Set D (bearish, deep normalization) | $32.49 | -52.2% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $34.66 | -49.0% | TRIM/SHORT |
 
-### INSW — price $98.81, target $79.50
-
-**Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 7 weight sets.
-
-| Weight set | PW FV | EV % | Position |
-|---|--:|--:|---|
-| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $59.59 | -39.7% | TRIM/SHORT |
-| Crude Set A' (B' reweight, history bracket) | $59.39 | -39.9% | TRIM/SHORT |
-| Crude Set A (Jun-9 war tilt, history bracket) | $58.96 | -40.3% | TRIM/SHORT |
-| Crude Set B (Catlin-leaning, slow normalization) | $54.49 | -44.9% | TRIM/SHORT |
-| Crude Set C (bullish, extended Phase 1) | $55.97 | -43.4% | TRIM/SHORT |
-| Crude Set D (bearish, deep normalization) | $52.51 | -46.9% | TRIM/SHORT |
-| Crude Set E (Jul-2 stand-down vintage) | $54.18 | -45.2% | TRIM/SHORT |
-
-### TNK — price $88.70, target $75.00
+### FRO — price $44.32, target $30.50
 
 **Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 7 weight sets.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $83.93 | -5.4% | TRIM/SHORT |
-| Crude Set A' (B' reweight, history bracket) | $83.72 | -5.6% | TRIM/SHORT |
-| Crude Set A (Jun-9 war tilt, history bracket) | $83.25 | -6.1% | TRIM/SHORT |
-| Crude Set B (Catlin-leaning, slow normalization) | $78.07 | -12.0% | TRIM/SHORT |
-| Crude Set C (bullish, extended Phase 1) | $79.79 | -10.0% | TRIM/SHORT |
-| Crude Set D (bearish, deep normalization) | $75.77 | -14.6% | TRIM/SHORT |
-| Crude Set E (Jul-2 stand-down vintage) | $77.71 | -12.4% | TRIM/SHORT |
+| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $28.29 | -36.2% | TRIM/SHORT |
+| Crude Set A' (B' reweight, history bracket) | $28.09 | -36.6% | TRIM/SHORT |
+| Crude Set A (Jun-9 war tilt, history bracket) | $27.63 | -37.7% | TRIM/SHORT |
+| Crude Set B (Catlin-leaning, slow normalization) | $23.57 | -46.8% | TRIM/SHORT |
+| Crude Set C (bullish, extended Phase 1) | $24.92 | -43.8% | TRIM/SHORT |
+| Crude Set D (bearish, deep normalization) | $21.68 | -51.1% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $23.23 | -47.6% | TRIM/SHORT |
 
-### NAT — price $6.77, target $6.00
+### INSW — price $99.76, target $79.50
 
 **Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 7 weight sets.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $3.00 | -55.8% | TRIM/SHORT |
-| Crude Set A' (B' reweight, history bracket) | $2.98 | -56.0% | TRIM/SHORT |
-| Crude Set A (Jun-9 war tilt, history bracket) | $2.94 | -56.6% | TRIM/SHORT |
-| Crude Set B (Catlin-leaning, slow normalization) | $2.53 | -62.6% | TRIM/SHORT |
-| Crude Set C (bullish, extended Phase 1) | $2.67 | -60.6% | TRIM/SHORT |
-| Crude Set D (bearish, deep normalization) | $2.35 | -65.2% | TRIM/SHORT |
-| Crude Set E (Jul-2 stand-down vintage) | $2.51 | -63.0% | TRIM/SHORT |
+| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $59.59 | -40.3% | TRIM/SHORT |
+| Crude Set A' (B' reweight, history bracket) | $59.39 | -40.5% | TRIM/SHORT |
+| Crude Set A (Jun-9 war tilt, history bracket) | $58.96 | -40.9% | TRIM/SHORT |
+| Crude Set B (Catlin-leaning, slow normalization) | $54.49 | -45.4% | TRIM/SHORT |
+| Crude Set C (bullish, extended Phase 1) | $55.97 | -43.9% | TRIM/SHORT |
+| Crude Set D (bearish, deep normalization) | $52.51 | -47.4% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $54.18 | -45.7% | TRIM/SHORT |
 
-### TEN — price $42.52, target $51.50
+### TNK — price $88.30, target $75.00
+
+**Classification:** WEIGHT-DRIVEN. HOLD under Set A''; TRIM/SHORT under Set A'/Set A/Set B/Set C/Set D/Set E.
+
+| Weight set | PW FV | EV % | Position |
+|---|--:|--:|---|
+| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $83.93 | -4.9% | HOLD |
+| Crude Set A' (B' reweight, history bracket) | $83.72 | -5.2% | TRIM/SHORT |
+| Crude Set A (Jun-9 war tilt, history bracket) | $83.25 | -5.7% | TRIM/SHORT |
+| Crude Set B (Catlin-leaning, slow normalization) | $78.07 | -11.6% | TRIM/SHORT |
+| Crude Set C (bullish, extended Phase 1) | $79.79 | -9.6% | TRIM/SHORT |
+| Crude Set D (bearish, deep normalization) | $75.77 | -14.2% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $77.71 | -12.0% | TRIM/SHORT |
+
+### NAT — price $6.91, target $6.00
+
+**Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 7 weight sets.
+
+| Weight set | PW FV | EV % | Position |
+|---|--:|--:|---|
+| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $3.00 | -56.6% | TRIM/SHORT |
+| Crude Set A' (B' reweight, history bracket) | $2.98 | -56.9% | TRIM/SHORT |
+| Crude Set A (Jun-9 war tilt, history bracket) | $2.94 | -57.5% | TRIM/SHORT |
+| Crude Set B (Catlin-leaning, slow normalization) | $2.53 | -63.4% | TRIM/SHORT |
+| Crude Set C (bullish, extended Phase 1) | $2.67 | -61.4% | TRIM/SHORT |
+| Crude Set D (bearish, deep normalization) | $2.35 | -65.9% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $2.51 | -63.7% | TRIM/SHORT |
+
+### TEN — price $42.82, target $51.50
 
 **Classification:** WEIGHT-ROBUST. position BUY across all 7 weight sets.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $62.66 | +47.4% | BUY |
-| Crude Set A' (B' reweight, history bracket) | $62.47 | +46.9% | BUY |
-| Crude Set A (Jun-9 war tilt, history bracket) | $62.05 | +45.9% | BUY |
-| Crude Set B (Catlin-leaning, slow normalization) | $57.72 | +35.7% | BUY |
-| Crude Set C (bullish, extended Phase 1) | $59.15 | +39.1% | BUY |
-| Crude Set D (bearish, deep normalization) | $55.81 | +31.2% | BUY |
-| Crude Set E (Jul-2 stand-down vintage) | $57.42 | +35.1% | BUY |
+| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $62.66 | +46.3% | BUY |
+| Crude Set A' (B' reweight, history bracket) | $62.47 | +45.9% | BUY |
+| Crude Set A (Jun-9 war tilt, history bracket) | $62.05 | +44.9% | BUY |
+| Crude Set B (Catlin-leaning, slow normalization) | $57.72 | +34.8% | BUY |
+| Crude Set C (bullish, extended Phase 1) | $59.15 | +38.1% | BUY |
+| Crude Set D (bearish, deep normalization) | $55.81 | +30.3% | BUY |
+| Crude Set E (Jul-2 stand-down vintage) | $57.42 | +34.1% | BUY |
 
-### CMBT — price $18.35, target $16.59
+### CMBT — price $18.27, target $16.59
 
 **Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 7 weight sets.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $13.63 | -25.7% | TRIM/SHORT |
-| Crude Set A' (B' reweight, history bracket) | $13.60 | -25.9% | TRIM/SHORT |
-| Crude Set A (Jun-9 war tilt, history bracket) | $13.52 | -26.3% | TRIM/SHORT |
-| Crude Set B (Catlin-leaning, slow normalization) | $12.80 | -30.2% | TRIM/SHORT |
-| Crude Set C (bullish, extended Phase 1) | $13.04 | -28.9% | TRIM/SHORT |
-| Crude Set D (bearish, deep normalization) | $12.47 | -32.0% | TRIM/SHORT |
-| Crude Set E (Jul-2 stand-down vintage) | $12.75 | -30.5% | TRIM/SHORT |
+| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $13.65 | -25.3% | TRIM/SHORT |
+| Crude Set A' (B' reweight, history bracket) | $13.62 | -25.5% | TRIM/SHORT |
+| Crude Set A (Jun-9 war tilt, history bracket) | $13.54 | -25.9% | TRIM/SHORT |
+| Crude Set B (Catlin-leaning, slow normalization) | $12.82 | -29.8% | TRIM/SHORT |
+| Crude Set C (bullish, extended Phase 1) | $13.06 | -28.5% | TRIM/SHORT |
+| Crude Set D (bearish, deep normalization) | $12.49 | -31.6% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $12.76 | -30.1% | TRIM/SHORT |
 
-### BRUT — price $4.94, target $4.56
+### BRUT — price $4.98, target $4.56
 
 **Classification:** WEIGHT-DRIVEN. HOLD under Set A''/Set A'/Set A; TRIM/SHORT under Set B/Set C/Set D/Set E.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $5.12 | +3.6% | HOLD |
-| Crude Set A' (B' reweight, history bracket) | $5.06 | +2.3% | HOLD |
-| Crude Set A (Jun-9 war tilt, history bracket) | $4.92 | -0.5% | HOLD |
-| Crude Set B (Catlin-leaning, slow normalization) | $3.80 | -23.2% | TRIM/SHORT |
-| Crude Set C (bullish, extended Phase 1) | $4.17 | -15.7% | TRIM/SHORT |
-| Crude Set D (bearish, deep normalization) | $3.26 | -34.0% | TRIM/SHORT |
-| Crude Set E (Jul-2 stand-down vintage) | $3.70 | -25.3% | TRIM/SHORT |
+| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $5.12 | +2.9% | HOLD |
+| Crude Set A' (B' reweight, history bracket) | $5.06 | +1.7% | HOLD |
+| Crude Set A (Jun-9 war tilt, history bracket) | $4.92 | -1.2% | HOLD |
+| Crude Set B (Catlin-leaning, slow normalization) | $3.80 | -23.7% | TRIM/SHORT |
+| Crude Set C (bullish, extended Phase 1) | $4.17 | -16.3% | TRIM/SHORT |
+| Crude Set D (bearish, deep normalization) | $3.26 | -34.5% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $3.70 | -25.7% | TRIM/SHORT |
 
-### CAPT — price $16.46, target $18.90
+### CAPT — price $16.84, target $18.90
 
-**Classification:** WEIGHT-DRIVEN. BUY under Set A''/Set A'; HOLD under Set A; TRIM/SHORT under Set B/Set C/Set D/Set E.
+**Classification:** WEIGHT-DRIVEN. HOLD under Set A''/Set A'/Set A; TRIM/SHORT under Set B/Set C/Set D/Set E.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $17.56 | +6.7% | BUY |
-| Crude Set A' (B' reweight, history bracket) | $17.41 | +5.7% | BUY |
-| Crude Set A (Jun-9 war tilt, history bracket) | $17.07 | +3.7% | HOLD |
-| Crude Set B (Catlin-leaning, slow normalization) | $14.30 | -13.1% | TRIM/SHORT |
-| Crude Set C (bullish, extended Phase 1) | $15.22 | -7.6% | TRIM/SHORT |
-| Crude Set D (bearish, deep normalization) | $12.98 | -21.2% | TRIM/SHORT |
-| Crude Set E (Jul-2 stand-down vintage) | $14.05 | -14.7% | TRIM/SHORT |
+| Crude Set A'' (C2 toll-cliff, production 2026-08-16) | $17.56 | +4.3% | HOLD |
+| Crude Set A' (B' reweight, history bracket) | $17.41 | +3.4% | HOLD |
+| Crude Set A (Jun-9 war tilt, history bracket) | $17.07 | +1.3% | HOLD |
+| Crude Set B (Catlin-leaning, slow normalization) | $14.30 | -15.1% | TRIM/SHORT |
+| Crude Set C (bullish, extended Phase 1) | $15.22 | -9.6% | TRIM/SHORT |
+| Crude Set D (bearish, deep normalization) | $12.98 | -23.0% | TRIM/SHORT |
+| Crude Set E (Jul-2 stand-down vintage) | $14.05 | -16.6% | TRIM/SHORT |
 
 ## Combined mark + weight robustness framework
 

@@ -4,16 +4,16 @@
 - **Analyst target:** $0.44
 - **NAV / share (reference, unflexed):** $0.41 _(flexes per scenario via vessel-value elasticity — see table)_
 - **Probability-weighted fair value:** $0.38 (-28.7% vs price)
-- **Breakeven TCE (scenario-invariant):** $39,086/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
+- **Breakeven TCE (scenario-invariant):** $38,973/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** TRIM/SHORT (overvalued)
 
 ## Per-scenario fair value
 
 | Scenario | Weight | Vessel× | NAV/sh | FV (base) | FV [low–high] | Cycle | w_nav | Strip NPV | Assumed TCE (12M) | Assumed / Breakeven |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| China acceleration | 20% | 1.04× | $0.43 | $0.43 | $0.42–$0.44 | 1.55× | 0.70 | $0.43 | $20,876 | 0.53× |
+| China acceleration | 20% | 1.04× | $0.43 | $0.43 | $0.42–$0.44 | 1.55× | 0.70 | $0.43 | $20,876 | 0.54× |
 | Moderate growth (base) | 40% | 0.94× | $0.38 | $0.38 | $0.37–$0.39 | 1.21× | 0.60 | $0.37 | $16,295 | 0.42× |
-| China property drag | 25% | 0.91× | $0.37 | $0.37 | $0.35–$0.38 | 1.12× | 0.50 | $0.36 | $15,037 | 0.38× |
+| China property drag | 25% | 0.91× | $0.37 | $0.37 | $0.35–$0.38 | 1.12× | 0.50 | $0.36 | $15,037 | 0.39× |
 | Coordinated slowdown | 15% | 0.83× | $0.33 | $0.31 | $0.30–$0.32 | 0.90× | 0.50 | $0.29 | $12,191 | 0.31× |
 | **Probability-weighted** | | | | **$0.38** | | | | | | |
 

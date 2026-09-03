@@ -26,28 +26,28 @@
 
 | Quarter | FFA spot (Cape, $/day) | Blended TCE ($/day) | EPS | DPS | Disc. DPS |
 |---|---:|---:|---:|---:|---:|
-| Q1 | 45,250 | 45,250 | 2.058 | 1.955 | 1.905 |
-| Q2 | 44,475 | 44,475 | 2.128 | 2.021 | 1.919 |
-| Q3 | 30,125 | 30,125 | 1.354 | 1.286 | 1.189 |
-| Q4 | 34,359 | 34,359 | 1.465 | 1.392 | 1.254 |
-| Q5 | 34,358 | 34,358 | 1.465 | 1.392 | 1.222 |
-| Q6 | 34,358 | 34,358 | 1.465 | 1.392 | 1.190 |
-| Q7 | 33,858 | 33,858 | 1.423 | 1.352 | 1.126 |
-| Q8 | 33,358 | 33,358 | 1.384 | 1.315 | 1.067 |
-| Σ discounted DPS | | | | | 10.87 |
+| Q1 | 45,125 | 45,125 | 2.062 | 1.959 | 1.909 |
+| Q2 | 44,125 | 44,125 | 2.124 | 2.018 | 1.915 |
+| Q3 | 29,925 | 29,925 | 1.340 | 1.273 | 1.177 |
+| Q4 | 34,292 | 34,292 | 1.471 | 1.397 | 1.259 |
+| Q5 | 34,292 | 34,292 | 1.471 | 1.397 | 1.226 |
+| Q6 | 34,291 | 34,291 | 1.471 | 1.397 | 1.195 |
+| Q7 | 33,791 | 33,791 | 1.428 | 1.357 | 1.130 |
+| Q8 | 33,291 | 33,291 | 1.390 | 1.320 | 1.072 |
+| Σ discounted DPS | | | | | 10.88 |
 | Terminal value (NAV, q9) | | | | 25.79 | 20.39 |
-| **DivStrip implied price** | | | | | **$31.26** |
+| **DivStrip implied price** | | | | | **$31.27** |
 
-_FFA spot is the Cape forward curve that drives the strip cash flows; its 12-month average is **$38,552/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$37,300/day** — not this FFA average._
+_FFA spot is the Cape forward curve that drives the strip cash flows; its 12-month average is **$38,367/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$37,025/day** — not this FFA average._
 
 ## Cycle weighting
 
-- Cycle position = 12M TC (Compass) $37,300 / 10-yr mean $23,650 = **1.55×** → **late-cycle/peak**
+- Cycle position = 12M TC (Compass) $37,025 / 10-yr mean $23,650 = **1.54×** → **late-cycle/peak**
 - Weights: w_nav = 0.70, w_earn = 0.30
 
 ## Blended fair value
 
-0.70 × $33.27 (NAV) + 0.30 × $31.26 (strip) = **$32.67**
+0.70 × $33.27 (NAV) + 0.30 × $31.27 (strip) = **$32.67**
 
 ### FV attribution
 
@@ -65,7 +65,7 @@ _Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $32.60 |
+| 80% | $32.61 |
 | 95% | $32.67 |
 | 100% | $32.69 |
 
@@ -77,32 +77,32 @@ The current price requires the fleet to run at **0.69× the current forward curv
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **18,116** | — |
+| **Implied breakeven (blended)** | **18,075** | — |
 | 10-year mean | 16,742 | 1.08× |
-| 12-month FFA | 26,158 | 0.69× |
+| 12-month FFA | 26,116 | 0.69× |
 | Current spot | 28,223 | 0.64× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Cape (36% of fleet value) | 26,700 | 1.13× |
-| Pana (32% of fleet value) | 14,053 | 1.18× |
-| Supra-Ultra (32% of fleet value) | 12,635 | 0.91× |
+| Cape (36% of fleet value) | 26,554 | 1.12× |
+| Pana (32% of fleet value) | 14,128 | 1.19× |
+| Supra-Ultra (32% of fleet value) | 12,595 | 0.90× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $24.14 | $27.62 | $31.09 | $34.56 | $38.03 |
-| **-15%** | $24.93 | $28.41 | $31.88 | $35.35 | $38.82 |
-| **+0%** | $25.72 | $29.19 | $32.67 | $36.14 | $39.61 |
-| **+15%** | $26.51 | $29.98 | $33.45 | $36.93 | $40.40 |
-| **+30%** | $27.30 | $30.77 | $34.24 | $37.72 | $41.19 |
+| **-30%** | $24.15 | $27.62 | $31.09 | $34.56 | $38.04 |
+| **-15%** | $24.94 | $28.41 | $31.88 | $35.35 | $38.83 |
+| **+0%** | $25.72 | $29.20 | $32.67 | $36.14 | $39.61 |
+| **+15%** | $26.51 | $29.99 | $33.46 | $36.93 | $40.40 |
+| **+30%** | $27.30 | $30.78 | $34.25 | $37.72 | $41.19 |
 
 _Current price $31.05. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$32.67** is +5.2% vs the current price ($31.05) and -5.3% vs the analyst target ($34.50). The current price implies the fleet earning a value-weighted blended **$18,116/day** (0.69× the current forward) — 1.1× the value-weighted 10-yr mean ($16,742, i.e. the market is pricing extended peak rates), and the market is below the forward curve.
+Tool fair value **$32.67** is +5.2% vs the current price ($31.05) and -5.3% vs the analyst target ($34.50). The current price implies the fleet earning a value-weighted blended **$18,075/day** (0.69× the current forward) — 1.1× the value-weighted 10-yr mean ($16,742, i.e. the market is pricing extended peak rates), and the market is below the forward curve.
 
 ## Modeling notes
 

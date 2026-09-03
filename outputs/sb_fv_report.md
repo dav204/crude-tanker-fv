@@ -26,28 +26,28 @@
 
 | Quarter | FFA spot (Pana, $/day) | Blended TCE ($/day) | EPS | DPS | Disc. DPS |
 |---|---:|---:|---:|---:|---:|
-| Q1 | 21,900 | 19,128 | 0.574 | 0.172 | 0.168 |
-| Q2 | 22,900 | 19,528 | 0.590 | 0.177 | 0.168 |
-| Q3 | 18,200 | 17,648 | 0.514 | 0.154 | 0.143 |
-| Q4 | 18,167 | 17,635 | 0.513 | 0.154 | 0.139 |
-| Q5 | 18,167 | 17,635 | 0.513 | 0.154 | 0.135 |
-| Q6 | 18,166 | 17,634 | 0.513 | 0.154 | 0.132 |
-| Q7 | 17,766 | 17,474 | 0.507 | 0.152 | 0.127 |
-| Q8 | 17,466 | 17,354 | 0.502 | 0.151 | 0.122 |
-| Σ discounted DPS | | | | | 1.13 |
-| Terminal value (NAV, q9) | | | | 10.86 | 8.59 |
-| **DivStrip implied price** | | | | | **$9.72** |
+| Q1 | 22,200 | 19,248 | 0.579 | 0.174 | 0.169 |
+| Q2 | 23,083 | 19,601 | 0.593 | 0.178 | 0.169 |
+| Q3 | 18,100 | 17,608 | 0.512 | 0.154 | 0.142 |
+| Q4 | 18,267 | 17,675 | 0.515 | 0.154 | 0.139 |
+| Q5 | 18,267 | 17,675 | 0.515 | 0.154 | 0.136 |
+| Q6 | 18,266 | 17,674 | 0.515 | 0.154 | 0.132 |
+| Q7 | 17,866 | 17,514 | 0.508 | 0.152 | 0.127 |
+| Q8 | 17,566 | 17,394 | 0.503 | 0.151 | 0.123 |
+| Σ discounted DPS | | | | | 1.14 |
+| Terminal value (NAV, q9) | | | | 10.87 | 8.60 |
+| **DivStrip implied price** | | | | | **$9.74** |
 
-_FFA spot is the Pana forward curve that drives the strip cash flows; its 12-month average is **$20,292/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$20,550/day** — not this FFA average._
+_FFA spot is the Pana forward curve that drives the strip cash flows; its 12-month average is **$20,412/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$20,592/day** — not this FFA average._
 
 ## Cycle weighting
 
-- Cycle position = 12M TC (Compass) $20,550 / 10-yr mean $11,900 = **1.71×** → **late-cycle/peak**
+- Cycle position = 12M TC (Compass) $20,592 / 10-yr mean $11,900 = **1.71×** → **late-cycle/peak**
 - Weights: w_nav = 0.70, w_earn = 0.30
 
 ## Blended fair value
 
-0.70 × $10.72 (NAV) + 0.30 × $9.72 (strip) = **$10.42**
+0.70 × $10.72 (NAV) + 0.30 × $9.74 (strip) = **$10.42**
 
 ### FV attribution
 
@@ -59,15 +59,15 @@ _FFA spot is the Pana forward curve that drives the strip cash flows; its 12-mon
 | Discounted terminal (aged NAV) | 2.58 | 25% |
 | **Blend FV** | **10.42** | 100% |
 
-_Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 × 0.88 = **97%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
+_Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 × 0.88 = **96%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
 | 80% | $10.49 |
-| 95% | $10.50 |
-| 100% | $10.51 |
+| 95% | $10.51 |
+| 100% | $10.52 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
@@ -79,7 +79,7 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 |---|---:|---:|
 | **Implied breakeven (blended)** | **0** | — |
 | 10-year mean | 13,676 | 0.00× |
-| 12-month FFA | 23,052 | 0.00× |
+| 12-month FFA | 23,127 | 0.00× |
 | Current spot | 23,774 | 0.00× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
@@ -92,11 +92,11 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $7.04 | $8.64 | $10.24 | $11.83 | $13.43 |
-| **-15%** | $7.13 | $8.73 | $10.33 | $11.93 | $13.52 |
-| **+0%** | $7.23 | $8.82 | $10.42 | $12.02 | $13.61 |
-| **+15%** | $7.32 | $8.91 | $10.51 | $12.11 | $13.71 |
-| **+30%** | $7.41 | $9.01 | $10.60 | $12.20 | $13.80 |
+| **-30%** | $7.04 | $8.64 | $10.24 | $11.84 | $13.43 |
+| **-15%** | $7.14 | $8.73 | $10.33 | $11.93 | $13.53 |
+| **+0%** | $7.23 | $8.83 | $10.42 | $12.02 | $13.62 |
+| **+15%** | $7.32 | $8.92 | $10.52 | $12.11 | $13.71 |
+| **+30%** | $7.41 | $9.01 | $10.61 | $12.21 | $13.80 |
 
 _Current price $8.75. Cycle weights held at base across the grid._
 

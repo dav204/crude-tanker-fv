@@ -1,5 +1,26 @@
 # SB — Decision Log
 
+## 2026-09-03T09:06:34+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $8.75
+- Single-point FV: $10.42
+- Scenario PW FV: $9.07 (EV +3.7%)
+- NAV / share: $10.72
+- Position: **HOLD (fairly valued)**
+- Broker spread: -27.4pp (k_broker 0.83)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: -0.2% | ΔNAV: no change | Δspread: no change
+
+**Decision:** 2026-09-02 — see the annotation immediately below (BUY → HOLD accepted as a
+PRICE CROSSING: the 9/01 marks leg + the 9/02 tape, band-mech, away from BUY, NAV untouched).
+Restated only because that run's auto entry landed above it; the pipeline no longer prepends
+for a gate-breaching name that has not moved, so this should not recur.
+
+---
+
 ## 2026-09-03T00:56:13+00:00 — Pipeline run (auto)
 
 **Model state:**

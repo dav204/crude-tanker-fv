@@ -26,23 +26,23 @@
 
 | Quarter | FFA spot (Supra-Ultra, $/day) | Blended TCE ($/day) | EPS | DPS | Disc. DPS |
 |---|---:|---:|---:|---:|---:|
-| Q1 | 19,875 | 19,875 | 1.612 | 0.000 | 0.000 |
-| Q2 | 20,933 | 20,933 | 1.683 | 0.000 | 0.000 |
-| Q3 | 16,000 | 16,000 | 0.953 | 0.000 | 0.000 |
-| Q4 | 16,167 | 16,167 | 1.056 | 0.000 | 0.000 |
-| Q5 | 16,167 | 16,167 | 1.056 | 0.000 | 0.000 |
-| Q6 | 16,166 | 16,166 | 1.056 | 0.000 | 0.000 |
-| Q7 | 15,866 | 15,866 | 1.017 | 0.000 | 0.000 |
-| Q8 | 15,566 | 15,566 | 0.980 | 0.000 | 0.000 |
+| Q1 | 19,775 | 19,775 | 1.611 | 0.000 | 0.000 |
+| Q2 | 20,883 | 20,883 | 1.677 | 0.000 | 0.000 |
+| Q3 | 15,900 | 15,900 | 0.940 | 0.000 | 0.000 |
+| Q4 | 16,234 | 16,234 | 1.061 | 0.000 | 0.000 |
+| Q5 | 16,233 | 16,233 | 1.061 | 0.000 | 0.000 |
+| Q6 | 16,233 | 16,233 | 1.061 | 0.000 | 0.000 |
+| Q7 | 15,933 | 15,933 | 1.022 | 0.000 | 0.000 |
+| Q8 | 15,633 | 15,633 | 0.985 | 0.000 | 0.000 |
 | Σ discounted DPS | | | | | 0.00 |
 | Terminal value (NAV, q9) | | | | 25.74 | 20.35 |
 | **DivStrip implied price** | | | | | **$20.35** |
 
-_FFA spot is the Supra-Ultra forward curve that drives the strip cash flows; its 12-month average is **$18,244/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$18,467/day** — not this FFA average._
+_FFA spot is the Supra-Ultra forward curve that drives the strip cash flows; its 12-month average is **$18,198/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$18,392/day** — not this FFA average._
 
 ## Cycle weighting
 
-- Cycle position = 12M TC (Compass) $18,467 / 10-yr mean $13,930 = **1.49×** → **elevated**
+- Cycle position = 12M TC (Compass) $18,392 / 10-yr mean $13,930 = **1.49×** → **elevated**
 - Weights: w_nav = 0.60, w_earn = 0.40
 
 ## Blended fair value
@@ -78,16 +78,16 @@ The current price requires the fleet to run at **0.66× the current forward curv
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **16,503** | — |
+| **Implied breakeven (blended)** | **16,463** | — |
 | 10-year mean | 16,489 | 1.00× |
-| 12-month FFA | 24,961 | 0.66× |
+| 12-month FFA | 24,908 | 0.66× |
 | Current spot | 27,147 | 0.61× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Supra-Ultra (47% of fleet value) | 12,062 | 0.87× |
-| Cape (31% of fleet value) | 25,488 | 1.08× |
-| Pana (22% of fleet value) | 13,416 | 1.13× |
+| Supra-Ultra (47% of fleet value) | 12,028 | 0.86× |
+| Cape (31% of fleet value) | 25,358 | 1.07× |
+| Pana (22% of fleet value) | 13,492 | 1.13× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -95,15 +95,15 @@ The current price requires the fleet to run at **0.66× the current forward curv
 |---|---:|---:|---:|---:|---:|
 | **-30%** | $17.15 | $18.88 | $20.61 | $22.34 | $24.07 |
 | **-15%** | $17.76 | $19.49 | $21.22 | $22.95 | $24.68 |
-| **+0%** | $18.37 | $20.10 | $21.83 | $23.56 | $25.30 |
-| **+15%** | $18.98 | $20.71 | $22.45 | $24.18 | $25.91 |
+| **+0%** | $18.37 | $20.10 | $21.83 | $23.57 | $25.30 |
+| **+15%** | $18.98 | $20.72 | $22.45 | $24.18 | $25.91 |
 | **+30%** | $19.60 | $21.33 | $23.06 | $24.79 | $26.52 |
 
 _Current price $20.45. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$21.83** is +6.8% vs the current price ($20.45) and -22.0% vs the analyst target ($27.98). The current price implies the fleet earning a value-weighted blended **$16,503/day** (0.66× the current forward) — 1.0× the value-weighted 10-yr mean ($16,489, i.e. the market is pricing extended peak rates), and the market is below the forward curve.
+Tool fair value **$21.83** is +6.8% vs the current price ($20.45) and -22.0% vs the analyst target ($27.98). The current price implies the fleet earning a value-weighted blended **$16,463/day** (0.66× the current forward) — 1.0× the value-weighted 10-yr mean ($16,489, i.e. the market is pricing distress), and the market is below the forward curve.
 
 ## Modeling notes
 
