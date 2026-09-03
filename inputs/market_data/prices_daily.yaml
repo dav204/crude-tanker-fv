@@ -1,170 +1,168 @@
-fetched_at: '2026-08-31T01:30:18+00:00'
+fetched_at: '2026-09-02T01:30:08+00:00'
 prices:
   '2343':
-    asof: '2026-08-31T01:29:31+00:00'
-    day_change_pct: 0.12
+    asof: '2026-09-02T01:26:57+00:00'
+    day_change_pct: -0.0
     exchange: HKG
-    flag: "+36.7% vs watchlist static 0.39 exceeds \xB130% band"
     native_currency: HKD
-    native_price: 4.18
-    prev_close: 0.5326
-    price: 0.5332
-    usd_per_unit_fx: 0.127558
+    native_price: 4.13
+    prev_close: 0.5267
+    price: 0.5267
+    usd_per_unit_fx: 0.127527
   ASC:
-    asof: '2026-08-28T20:00:03+00:00'
-    day_change_pct: -1.7
+    asof: '2026-09-01T20:00:03+00:00'
+    day_change_pct: 1.67
     exchange: NYQ
-    prev_close: 17.66
-    price: 17.36
+    prev_close: 17.39
+    price: 17.68
   BRUT:
-    asof: '2026-08-28T14:25:01+00:00'
-    day_change_pct: 5.23
+    asof: '2026-09-01T14:25:06+00:00'
+    day_change_pct: -0.85
     exchange: OSL
     native_currency: NOK
-    native_price: 46.3
-    prev_close: 4.699
-    price: 4.9446
-    usd_per_unit_fx: 0.106795
+    native_price: 46.4
+    prev_close: 5.0201
+    price: 4.9772
+    usd_per_unit_fx: 0.107267
   BWLP:
-    asof: '2026-08-28T14:26:35+00:00'
-    day_change_pct: -0.53
+    asof: '2026-09-01T14:26:00+00:00'
+    day_change_pct: 1.68
     exchange: OSL
     native_currency: NOK
-    native_price: 225.2
-    prev_close: 24.1785
-    price: 24.0503
-    usd_per_unit_fx: 0.106795
+    native_price: 229.6
+    prev_close: 24.221
+    price: 24.6286
+    usd_per_unit_fx: 0.107267
   CAPT:
-    asof: '2026-08-28T14:28:58+00:00'
-    day_change_pct: 2.51
+    asof: '2026-09-01T14:25:02+00:00'
+    day_change_pct: -1.39
     exchange: OSL
     native_currency: NOK
-    native_price: 154.16
-    prev_close: 16.0599
-    price: 16.4636
-    usd_per_unit_fx: 0.106795
+    native_price: 157.0
+    prev_close: 17.0791
+    price: 16.841
+    usd_per_unit_fx: 0.107267
   CCEC:
-    asof: '2026-08-28T20:00:00+00:00'
-    day_change_pct: -0.26
+    asof: '2026-09-01T20:00:00+00:00'
+    day_change_pct: -1.07
     exchange: NMS
-    prev_close: 22.78
-    price: 22.72
+    prev_close: 22.85
+    price: 22.605
   CMBT:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: 0.38
+    asof: '2026-09-01T20:00:03+00:00'
+    day_change_pct: -0.05
     exchange: NYQ
     prev_close: 18.28
-    price: 18.35
+    price: 18.27
   CMDB:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: 2.45
+    asof: '2026-09-01T20:00:02+00:00'
+    day_change_pct: -0.1
     exchange: NYQ
-    prev_close: 20.03
-    price: 20.52
+    prev_close: 20.47
+    price: 20.45
   DHT:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: 1.6
+    asof: '2026-09-01T20:00:02+00:00'
+    day_change_pct: 0.46
     exchange: NYQ
-    prev_close: 19.35
-    price: 19.66
+    prev_close: 19.6
+    price: 19.69
   ECO:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: 0.78
+    asof: '2026-09-01T20:00:02+00:00'
+    day_change_pct: 1.83
     exchange: NYQ
-    prev_close: 66.34
-    price: 66.86
+    prev_close: 66.74
+    price: 67.96
   FLNG:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: 0.51
+    asof: '2026-09-01T20:00:03+00:00'
+    day_change_pct: -0.6
     exchange: NYQ
-    prev_close: 31.32
-    price: 31.48
+    prev_close: 31.66
+    price: 31.47
   FRO:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: 1.01
+    asof: '2026-09-01T20:00:03+00:00'
+    day_change_pct: 1.23
     exchange: NYQ
-    prev_close: 43.75
-    price: 44.19
+    prev_close: 43.78
+    price: 44.32
   GNK:
-    asof: '2026-08-28T20:00:03+00:00'
-    day_change_pct: 0.27
+    asof: '2026-09-01T20:00:03+00:00'
+    day_change_pct: -0.76
     exchange: NYQ
-    prev_close: 25.81
-    price: 25.88
+    prev_close: 26.23
+    price: 26.03
   GSL:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: -1.04
+    asof: '2026-09-01T20:00:02+00:00'
+    day_change_pct: -0.16
     exchange: NYQ
-    prev_close: 44.99
-    price: 44.52
+    prev_close: 44.55
+    price: 44.48
   HAFN:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: 2.17
+    asof: '2026-09-01T20:00:02+00:00'
+    day_change_pct: 1.78
     exchange: NYQ
-    prev_close: 8.29
-    price: 8.47
+    prev_close: 8.44
+    price: 8.59
   INSW:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: -0.45
+    asof: '2026-09-01T20:00:03+00:00'
+    day_change_pct: 1.14
     exchange: NYQ
-    prev_close: 99.26
-    price: 98.81
+    prev_close: 98.64
+    price: 99.76
   LPG:
-    asof: '2026-08-28T20:00:03+00:00'
-    day_change_pct: 1.01
+    asof: '2026-09-01T20:00:03+00:00'
+    day_change_pct: 1.64
     exchange: NYQ
-    prev_close: 49.28
-    price: 49.78
+    prev_close: 50.04
+    price: 50.86
   MPCC:
-    asof: '2026-08-28T14:25:09+00:00'
-    day_change_pct: -1.69
+    asof: '2026-09-01T14:29:20+00:00'
+    day_change_pct: 0.86
     exchange: OSL
     native_currency: NOK
-    native_price: 26.72
-    prev_close: 2.9027
-    price: 2.8536
-    usd_per_unit_fx: 0.106795
+    native_price: 26.9
+    prev_close: 2.8608
+    price: 2.8855
+    usd_per_unit_fx: 0.107267
   NAT:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: 0.15
+    asof: '2026-09-01T20:00:02+00:00'
+    day_change_pct: 1.17
     exchange: NYQ
-    prev_close: 6.76
-    price: 6.77
+    prev_close: 6.83
+    price: 6.91
   SB:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: 1.19
+    asof: '2026-09-01T20:00:02+00:00'
+    day_change_pct: 1.39
     exchange: NYQ
-    flag: "+33.3% vs watchlist static 6.39 exceeds \xB130% band"
-    prev_close: 8.42
-    price: 8.52
+    prev_close: 8.63
+    price: 8.75
   SBLK:
-    asof: '2026-08-28T20:00:00+00:00'
-    day_change_pct: 0.2
+    asof: '2026-09-01T20:00:00+00:00'
+    day_change_pct: 0.58
     exchange: NMS
-    prev_close: 30.42
-    price: 30.48
+    prev_close: 30.87
+    price: 31.05
   STNG:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: 0.76
+    asof: '2026-09-01T20:00:03+00:00'
+    day_change_pct: 0.95
     exchange: NYQ
-    prev_close: 77.44
-    price: 78.03
+    prev_close: 78.86
+    price: 79.61
   TEN:
-    asof: '2026-08-28T20:00:02+00:00'
-    day_change_pct: 1.02
+    asof: '2026-09-01T20:00:02+00:00'
+    day_change_pct: 0.99
     exchange: NYQ
-    prev_close: 42.09
-    price: 42.52
+    prev_close: 42.4
+    price: 42.82
   TNK:
-    asof: '2026-08-28T20:00:03+00:00'
-    day_change_pct: 0.57
+    asof: '2026-09-01T20:00:02+00:00'
+    day_change_pct: -1.49
     exchange: NYQ
-    prev_close: 88.2
-    price: 88.7
+    prev_close: 89.64
+    price: 88.3
   TRMD:
-    asof: '2026-08-28T20:00:00+00:00'
-    day_change_pct: 2.58
+    asof: '2026-09-01T20:00:00+00:00'
+    day_change_pct: 1.22
     exchange: NMS
-    prev_close: 31.8
-    price: 32.62
+    prev_close: 32.81
+    price: 33.21
 source: yahoo-chart-v8
