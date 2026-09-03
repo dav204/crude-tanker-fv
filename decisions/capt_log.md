@@ -1,5 +1,31 @@
 # CAPT — Decision Log
 
+## 2026-09-03T00:56:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $16.84
+- Single-point FV: $16.95
+- Scenario PW FV: $17.56 (EV +4.3%)
+- NAV / share: $17.32
+- Position: **HOLD (fairly valued)**
+- Broker spread: +33.3pp (k_broker 1.19)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: +0.38 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.1pp
+
+**Decision:** 2026-09-02 — the +11.9% NAV row is the **2026-09-01 H1/Q2 refresh already
+executed and documented** (capt_log 2026-09-01: NAV 15.48 → 17.32, landing 0.02 above the
+frozen band [14.70,17.30]; the hairline breach was investigated and accepted — the
+at-contract below-market 3-VLCC acquisition contributes +$1.71/sh; void HELD per condition
+5; k 1.26 → 1.17). It reads UNEXPLAINED only because the baseline was last ratified 8/31,
+BEFORE that refresh, and this run's auto entry sits above the 9/01 annotation (the gate reads
+the top entry only). Re-stated here so the row is explained against the current baseline. No
+new information; nothing to act on.
+
+---
+
 ## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
 
 **Model state:**

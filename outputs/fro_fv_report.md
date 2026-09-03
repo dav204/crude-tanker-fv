@@ -1,7 +1,7 @@
 # FRO — Fair Value Report
 
 - **Report date:** 2026-Q2
-- **Current price:** $44.19
+- **Current price:** $44.32
 - **Model fair value:** $26.58
 - **Analyst target:** $30.50
 
@@ -80,20 +80,20 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **5.92× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **5.96× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **715,733** | — |
-| 10-year mean | 36,065 | 19.85× |
-| 12-month FFA | 120,838 | 5.92× |
-| Current spot | 357,205 | 2.00× |
+| **Implied breakeven (blended)** | **720,125** | — |
+| 10-year mean | 36,065 | 19.97× |
+| 12-month FFA | 120,838 | 5.96× |
+| Current spot | 357,205 | 2.02× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| VLCC (68% of fleet value) | 845,074 | 21.13× |
-| Suezmax (18% of fleet value) | 524,043 | 18.89× |
-| LR2 (14% of fleet value) | 329,767 | 11.95× |
+| VLCC (68% of fleet value) | 850,260 | 21.26× |
+| Suezmax (18% of fleet value) | 527,259 | 19.00× |
+| LR2 (14% of fleet value) | 331,790 | 12.02× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -105,11 +105,11 @@ The current price requires the fleet to run at **5.92× the current forward curv
 | **+15%** | $20.60 | $23.86 | $27.12 | $30.38 | $33.64 |
 | **+30%** | $21.13 | $24.39 | $27.66 | $30.92 | $34.18 |
 
-_Current price $44.19. Cycle weights held at base across the grid._
+_Current price $44.32. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$26.58** is -39.8% vs the current price ($44.19) and -12.8% vs the analyst target ($30.50). The current price implies the fleet earning a value-weighted blended **$715,733/day** (5.92× the current forward) — 19.8× the value-weighted 10-yr mean ($36,065, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$26.58** is -40.0% vs the current price ($44.32) and -12.8% vs the analyst target ($30.50). The current price implies the fleet earning a value-weighted blended **$720,125/day** (5.96× the current forward) — 20.0× the value-weighted 10-yr mean ($36,065, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

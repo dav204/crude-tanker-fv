@@ -1,5 +1,26 @@
 # SBLK — Decision Log
 
+## 2026-09-03T00:56:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $31.05
+- Single-point FV: $32.67
+- Scenario PW FV: $28.59 (EV -7.9%)
+- NAV / share: $33.27
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +2.1pp (k_broker 1.02)
+- Sector: dry_bulk
+
+**Deltas since last run:** _(no material moves)_
+- Δprice: +0.57 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.5pp
+
+**Decision:** 2026-09-02 — EV -2.2pp / NAV +1.2% accepted, no flip (TRIM/SHORT stands).
+Same two causes as SB: the 9/01 marks leg (+1.2% NAV, sub-threshold, unratified against the
+8/31 baseline) and the 9/02 price vintage (499f0bf). k_broker second difference +0.000 — the
+tool-to-broker relationship did not move. No action.
+
+---
+
 ## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,11 +1,11 @@
 # SB — Scenario Fair Value (Bulk Set A (China-driven))
 
-- **Current price:** $8.52
+- **Current price:** $8.75
 - **Analyst target:** $7.10
 - **NAV / share (reference, unflexed):** $10.72 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $9.09 (+6.7% vs price)
+- **Probability-weighted fair value:** $9.09 (+3.9% vs price)
 - **Breakeven TCE (scenario-invariant):** $0/day — **price justified by NAV alone** (blended FV clears the price even at zero rates; the entire earnings leg is optionality on top of asset coverage).
-- **Position (tool view):** BUY (undervalued)
+- **Position (tool view):** HOLD (fairly valued)
 
 ## Per-scenario fair value
 
@@ -21,9 +21,9 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $+2.97
-- **Downside (worst scenario − price):** $-1.46
-- **Expected value vs current** (weighted FV − price): $+0.57 (+6.7%)
-- **Position:** BUY (undervalued)
+- **Upside (best scenario − price):** $+2.74
+- **Downside (worst scenario − price):** $-1.69
+- **Expected value vs current** (weighted FV − price): $+0.34 (+3.9%)
+- **Position:** HOLD (fairly valued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

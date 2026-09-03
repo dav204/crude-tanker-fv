@@ -1,5 +1,34 @@
 # SB — Decision Log
 
+## 2026-09-03T00:56:13+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $8.75
+- Single-point FV: $10.42
+- Scenario PW FV: $9.09 (EV +3.9%)
+- NAV / share: $10.72
+- Position: **HOLD (fairly valued)**
+- Broker spread: -27.4pp (k_broker 0.83)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: +0.23 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +2.7pp
+
+**Decision:** 2026-09-02 — **BUY → HOLD accepted as a PRICE CROSSING, not a re-read.** Two
+causes, both already on the record and neither a new fact about the name: (a) the 2026-09-01
+S&P promotion round's marks leg lifted dry NAV +0.7% (sp_promotion_round_2026-09-01.md,
+sub-threshold, unratified against the 8/31 baseline); (b) the 2026-09-02 price vintage
+committed at 499f0bf moved SB's tape ~+2.7%, and EV ≈ FV/price − 1, so ~-2.6pp lands on a
+name sitting +7% against a ±5% recommendation band. Gate tags it **band-mech** — the price
+sits INSIDE the fv_low/fv_high interval, so it is a mechanical crossing under D-M5, not a
+band EXIT. Direction is AWAY from BUY, so the halt-and-investigate rule does not fire, and
+the owner's 2026-09-02 Q-0 ruling permits absorbing a band-mech flip away from BUY named in
+the cause. NAV is untouched by a price commit. SB leaves the edge-cleared long set on this
+vintage; nothing about its construction changed.
+
+---
+
 ## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
 
 **Model state:**
