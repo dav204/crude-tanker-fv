@@ -1,11 +1,11 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-09-07T20:16:43+00:00
-- **Previous run:** 2026-09-07T20:11:53+00:00
+- **This run:** 2026-09-07T20:25:11+00:00
+- **Previous run:** 2026-09-07T20:16:43+00:00
 
 ## Headline changes (material moves)
 
-- **CMDB:** position BUY (undervalued) → TRIM/SHORT (overvalued); broker spread +28.9pp
+- **No material changes.** All tickers within thresholds (|ΔFV%|≤10%, |Δspread|≤5pp, |ΔNAV%|≤5%) and no position flips.
 
 ## §17 read-flip strobe — tape vs the flip boundary
 
@@ -20,7 +20,7 @@
 _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the price this run values at to the nearest band edge whose crossing would settle the flip — i.e. where the read would sit once the watchlist rebases to today's tape. It is NOT a scorecard number and never governs: `read_flag` and the deadband are measured on the watchlist vintage (`Row margin`), the same price the read itself is computed on (Addendum B2, 2026-08-14). The two differ by exactly the drift between the two vintages._
 ## Input files changed since last run
 
-- `inputs/notify.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 
@@ -39,7 +39,7 @@ _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the p
 | TRMD | $35.18 (no change) | $32.14 (no change) | $35.79 (no change) | $32.30 (no change) | HOLD (fairly valued) | +15.7pp (no change) |
 | ASC | $18.17 (no change) | $17.22 (no change) | $16.38 (no change) | $17.37 (no change) | TRIM/SHORT (overvalued) | +32.3pp (no change) |
 | TEN | $43.74 (no change) | $59.21 (no change) | $62.66 (no change) | $88.16 (no change) | BUY (undervalued) | +58.1pp (no change) |
-| CMDB ⚑ | $23.95 (+6.70) | $21.83 (no change) | $19.52 (no change) | $32.60 (no change) | TRIM/SHORT (overvalued) ⟵ | +13.8pp (+28.9pp) |
+| CMDB | $23.95 (no change) | $21.83 (no change) | $19.52 (no change) | $32.60 (no change) | TRIM/SHORT (overvalued) | +13.8pp (no change) |
 | SBLK | $32.42 (no change) | $32.67 (no change) | $28.59 (no change) | $33.27 (no change) | TRIM/SHORT (overvalued) | +5.7pp (no change) |
 | GNK | $27.65 (no change) | $25.41 (no change) | $21.48 (no change) | $25.37 (no change) | TRIM/SHORT (overvalued) | +10.4pp (no change) |
 | CAPT | $18.51 (no change) | $16.95 (no change) | $17.56 (no change) | $17.32 (no change) | TRIM/SHORT (overvalued) | +41.9pp (no change) |
