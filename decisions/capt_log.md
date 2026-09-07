@@ -1,5 +1,25 @@
 # CAPT — Decision Log
 
+## 2026-09-07T20:11:53+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.51
+- Single-point FV: $16.95
+- Scenario PW FV: $17.56 (EV -5.1%)
+- NAV / share: $17.32
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +41.9pp (k_broker 1.26)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- ⚑ broker spread +8.6pp
+- Δprice: +1.67 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +8.6pp
+
+**Decision:** ΔNAV +11.9% is NOT this event: it is the 2026-09-01 Q2 pin advance (CAPT test pins → the Q2 pair, operating-scrubber ledger 5→8), explained on 9/01 and RIDING R4 Phase 5 for its ratify; the pipeline's auto entry re-buried that explanation. The EV / band / Δk legs of THIS run are the price leg below. PRICE LEG — the 2026-09-04 close vintage absorbed as its own commit (53a52ca; the daily refresher's output over the dark 9/05–9/06 weekend, 18 names >3%, book ≈ +5%). No input other than prices_daily.yaml moved: ΔNAV is exactly 0.0 on every row except the two named below. ΔEV -2.4pp · ΔNAV +11.9% · band HOLD (fairly valued) → TRIM/SHORT (overvalued) (mechanical crossing on the price leg).
+
+---
+
 ## 2026-09-03T09:06:34+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,5 +1,25 @@
 # TRMD — Decision Log
 
+## 2026-09-07T20:11:53+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $35.18
+- Single-point FV: $32.14
+- Scenario PW FV: $35.79 (EV +1.7%)
+- NAV / share: $32.30
+- Position: **HOLD (fairly valued)**
+- Broker spread: +15.7pp (k_broker 1.16)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- ⚑ broker spread +5.1pp
+- Δprice: +1.97 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +5.1pp
+
+**Decision:** PRICE LEG — the 2026-09-04 close vintage absorbed as its own commit (53a52ca; the daily refresher's output over the dark 9/05–9/06 weekend, 18 names >3%, book ≈ +5%). No input other than prices_daily.yaml moved: ΔNAV is exactly 0.0 on every row except the two named below. ΔEV -8.0pp · band BUY (undervalued) → HOLD (fairly valued) (mechanical crossing on the price leg) · Δk +0.080 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change).
+
+---
+
 ## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
 
 **Model state:**

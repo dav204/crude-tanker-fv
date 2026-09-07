@@ -7,6 +7,25 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-09-07T20:11:53+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $82.35
+- Single-point FV: $72.23
+- Scenario PW FV: $76.73 (EV -6.8%)
+- NAV / share: $76.22
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +41.3pp (k_broker 1.60)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: +2.74 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +3.0pp
+
+**Decision:** PRICE LEG — the 2026-09-04 close vintage absorbed as its own commit (53a52ca; the daily refresher's output over the dark 9/05–9/06 weekend, 18 names >3%, book ≈ +5%). No input other than prices_daily.yaml moved: ΔNAV is exactly 0.0 on every row except the two named below. ΔEV -5.2pp · band HOLD (fairly valued) → TRIM/SHORT (overvalued) (mechanical crossing on the price leg) · Δk +0.100 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change).
+
+---
+
 ## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
 
 **Model state:**

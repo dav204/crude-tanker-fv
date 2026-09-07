@@ -1,5 +1,45 @@
 # CMDB — Decision Log
 
+## 2026-09-07T20:16:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $23.95
+- Single-point FV: $21.83
+- Scenario PW FV: $19.52 (EV -18.5%)
+- NAV / share: $32.60
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +13.8pp (k_broker 1.21)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → TRIM/SHORT (overvalued)
+- ⚑ broker spread +28.9pp
+- Δprice: +6.70 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +28.9pp
+
+**Decision:** The prior regen valued CMDB at a PHANTOM $17.25 — the June watchlist static substituted for a quote the ±30% vs-static band had flagged — and read BUY +13.1%; the flip-toward-BUY halt caught it. Fixed in ec6d34e (a stale static never becomes the live price). This run values at the $23.95 tape; the read below is the real one. STALE-STATIC page raised: rebase the CMDB pair (price + pnav + fwd_pe, one vintage) — owner action. PRICE LEG — the 2026-09-04 close vintage absorbed as its own commit (53a52ca; the daily refresher's output over the dark 9/05–9/06 weekend, 18 names >3%, book ≈ +5%). No input other than prices_daily.yaml moved: ΔNAV is exactly 0.0 on every row except the two named below. ΔEV -13.7pp · ΔNAV +1.2% · band HOLD (fairly valued) → TRIM/SHORT (overvalued) (mechanical crossing on the price leg) · Δk +0.180 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change).
+
+---
+
+## 2026-09-07T20:11:53+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $17.25
+- Single-point FV: $21.83
+- Scenario PW FV: $19.52 (EV +13.1%)
+- NAV / share: $32.60
+- Position: **BUY (undervalued)**
+- Broker spread: -15.1pp (k_broker 0.83)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- ⚑ broker spread -16.1pp
+- Δprice: -3.20 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -16.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
 
 **Model state:**

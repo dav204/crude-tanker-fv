@@ -2,6 +2,8 @@
 
 > **Price basis:** all 25 prices live.
 
+> **Market-event review:** CMDB — the day-band circuit breaker applied fresh prices on a multi-name repricing; eyeball these moves before acting.
+
 > **Balance-sheet basis: 2 of 25 names on a pre-2026-Q2 vintage:** CMBT (2026-Q1), TEN (2026-Q1). Their liability half is the newest sheet at or before the run quarter (loader fallback — coherent with their manifests, guard-enforced); each pair advances TOGETHER at that name's refresh (q2_cluster_transition_2026-07-31).
 
 > **Rate basis:** Supra-Ultra 2027+2028 strip legs HELD at the 13-Jul synthesis (Cal-27 14,175): the Smax Cal27 row is cropped from every capture of the new source (Chris.Palun, 2026-07-20 →) — front (q1/q2/12M/spot) IS the 06-Aug print (ffa_promotion_2026-08-09.md). NEW: the 06-Aug capture PRINTS Smax Q1-27 14,325 vs the held q3 15,075 — the held year reads ~5% RICH (one-sided disclosure). Held-node bracket retires at the first capture showing Smax Cal27 (owner channel-ask staged). Handy-Bulk derived row inherits the same mix via the x0.90 identity.
@@ -20,7 +22,7 @@ This file lists each name **twice, by design** — once in the **Verdict** (the 
 
 FV vs current price, position, and the broker-NAV bug-gate on the **same row** as the confidence tier — **the single handoff surface** for a sizing decision. The per-gate evidence behind each tier is the Validation matrix below (same names, same file).
 
-**What this says about the opportunity set:** of 25 names, **8 are construction-validated** (VALIDATED-TIGHT — the NAV is soundly built), and of those the validated-and-actionable-long surface is **0 ()**. 13 are directional-only (GOVERNED-WIDE); 4 are not yet trustworthy enough to act on (PROVISIONAL ⛔). **Name-specific shorts: 2343, ASC, CMBT, FLNG, GNK, SBLK** — every other TRIM/SHORT row is cycle-position, unreliable-read, or void. The thin actionable list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.
+**What this says about the opportunity set:** of 25 names, **8 are construction-validated** (VALIDATED-TIGHT — the NAV is soundly built), and of those the validated-and-actionable-long surface is **0 ()**. 13 are directional-only (GOVERNED-WIDE); 4 are not yet trustworthy enough to act on (PROVISIONAL ⛔). **Name-specific shorts: 2343, ASC, CMBT, CMDB, FLNG, GNK, GSL, SBLK, STNG** — every other TRIM/SHORT row is cycle-position, unreliable-read, or void. The thin actionable list is the tool refusing to manufacture conviction the validation doesn't support, not a gap.
 
 **These are two different questions, and the gap between the counts is the point.** Construction-validated says the ESTIMATE is sound; edge-cleared adds that the cheap call survives the choice of §17 normalization basis and the position is a BUY. A name can be construction-validated and still not edge-cleared — its NAV is trustworthy while its discount is basis-dependent. Since 2026-08-13 those two failures cap size on separate channels and never stack (tier semantics amendment §0.3).
 
@@ -28,31 +30,31 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 
 | Ticker | Sector | **Tier · why** | Price | Model FV | FV range | Upside | Position | Blend FV† | NAV/sh | Broker NAV | Gap | SANITY | Handoff | W-frag |
 |---|---|---|--:|--:|:--|--:|:--|--:|--:|--:|--:|:--|:--|:--|
-| DHT | crude | VALIDATED-TIGHT | $19.69 | $15.97 | 11.64–21.53 | -19% | rich · cycle position (not a short) | $15.32 | $15.01 | $17.27 | -13% | OK | ready | stable |
-| ECO | crude | VALIDATED-TIGHT | $67.96 | $41.71 | 28.08–60.70 | -39% | rich · cycle position (not a short) | $39.73 | $39.54 | $46.23 | -14% | OK | ready | stable |
-| FRO | crude | VALIDATED-TIGHT | $44.32 | $28.29 | 18.35–41.29 | -36% | rich · cycle position (not a short) | $26.58 | $26.04 | $33.32 | -22% | OK | ready | stable |
-| TNK | crude | VALIDATED-TIGHT | $88.30 | $83.93 | 71.90–102.30 | -5% | unreliable read (not actionable) | $83.23 | $84.60 | $97.03 | -13% | OK | ready | stable |
-| CMDB | dry_bulk | VALIDATED-TIGHT | $20.45 | $19.52 | 16.15–23.08 | -5% | HOLD (fairly valued) | $21.83 | $32.60 | $32.98 (apx) | -1% | n-a | ready | stable |
-| GNK | dry_bulk | VALIDATED-TIGHT | $26.03 | $21.48 | 16.67–26.84 | -17% | TRIM/SHORT (overvalued) | $25.41 | $25.37 | $27.40 | -7% | OK | ready | stable |
-| SB | dry_bulk | VALIDATED-TIGHT | $8.75 | $9.07 | 7.05–11.46 | +4% | HOLD (fairly valued) | $10.42 | $10.72 | $7.74 (apx) | +38% | n-a | ready | **⚠ sign flips** |
-| SBLK | dry_bulk | VALIDATED-TIGHT | $31.05 | $28.59 | 22.54–35.04 | -8% | TRIM/SHORT (overvalued) | $32.67 | $33.27 | $34.12 | -2% | OK | ready | stable |
-| BRUT | crude | GOVERNED-WIDE · going-concern-unfinanced | $4.98 | $5.12 | 2.33–8.54 | +3% | unreliable read (not actionable) | $4.70 | $4.92 | $4.83 | +2% | OK | ready | **⚠ sign flips** |
-| CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $16.84 | $17.56 | 10.58–25.92 | +4% | unreliable read (not actionable) | $16.95 | $17.32 | $23.39 | -26% | OK | ready | **⚠ sign flips** |
-| CMBT | crude | GOVERNED-WIDE · structural-class | $18.27 | $13.65 | 8.77–19.76 | -25% | TRIM/SHORT (overvalued) | $15.94 | $16.54 | $21.24 | -22% | OK | ready | stable |
-| INSW | crude | GOVERNED-WIDE · pending-anchor | $99.76 | $59.59 | 42.71–80.41 | -40% | rich · cycle position (not a short) | $37.59 | $54.64 | $82.45 | -34% | OK | ready | stable |
-| NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $6.91 | $3.00 | 2.09–4.43 | -57% | rich · cycle position (not a short) | $2.89 | $2.76 | $8.13 (apx) | -66% | n-a | ready | stable |
-| TEN | crude | GOVERNED-WIDE · mixed | $42.82 | $62.66 | 47.21–82.53 | +46% | BUY (undervalued) | $59.21 | $88.16 | $125.94 (apx) | -30% | n-a | ready | stable |
-| ASC | product | GOVERNED-WIDE · structural-class | $17.68 | $16.38 | 12.66–19.55 | -7% | TRIM/SHORT (overvalued) | $17.22 | $17.37 | $23.57 (apx) | -26% | n-a | ready | stable |
-| TRMD | product | GOVERNED-WIDE · basis-pending | $33.21 | $35.79 | 21.87–47.75 | +8% | BUY (undervalued) | $32.14 | $32.30 | $36.10 | -11% | OK | ready | **⚠ sign flips** |
-| 2343 | dry_bulk | GOVERNED-WIDE · pending-anchor | $0.53 | $0.38 | 0.31–0.43 | -29% | TRIM/SHORT (overvalued) | $0.41 | $0.41 | $0.42 (apx) | -3% | n-a | ready | stable |
-| CCEC | lng | GOVERNED-WIDE · structural-class | $22.61 | $33.70 | 16.27–47.20 | +49% | BUY (undervalued) | $29.97 | $25.70 | $25.12 (apx) | +2% | n-a | ready | stable |
-| FLNG | lng | GOVERNED-WIDE · structural-class | $31.47 | $29.47 | 19.34–38.00 | -6% | TRIM/SHORT (overvalued) | $27.01 | $27.22 | $21.85 | +25% | OK | ready | stable |
-| GSL | containerships | GOVERNED-WIDE · structural-class | $44.48 | $42.88 | 38.58–46.64 | -4% | HOLD (fairly valued) | $44.02 | $41.20 | $59.31 (apx) | -31% | n-a | ready | — |
-| MPCC | containerships | GOVERNED-WIDE · structural-class | $2.89 | $2.15 | 1.78–2.28 | -26% | unreliable read (not actionable) | $2.29 | $2.10 | $2.77 (apx) | -24% | n-a | ready | — |
-| HAFN | product | PROVISIONAL · pool-gross-up-pending ⛔ | $8.59 | $5.59 | 3.21–7.69 | -35% | rich · cycle position (not a short) | $4.83 | $4.64 | $8.34 | -44% | OK | **NO** | stable |
-| STNG | product | PROVISIONAL · off-curve ⛔ | $79.61 | $76.73 | 56.46–92.63 | -4% | HOLD (fairly valued) | $72.23 | $76.22 | $109.05 | -30% | OK | **NO** | stable |
-| BWLP | lpg | PROVISIONAL · v1-lock-miss ⛔ | $24.63 | $14.52 | 10.92–18.28 | -41% | rich · cycle position (not a short) | $15.48 | $15.83 | $19.39 | -18% | OK | **NO** | stable |
-| LPG | lpg | PROVISIONAL · v1-lock-miss ⛔ | $50.86 | $31.82 | 25.61–38.58 | -37% | rich · cycle position (not a short) | $33.93 | $35.69 | $47.98 | -26% | OK | **NO** | stable |
+| DHT | crude | VALIDATED-TIGHT | $20.87 | $15.97 | 11.64–21.53 | -23% | rich · cycle position (not a short) | $15.32 | $15.01 | $18.31 | -18% | OK | ready | stable |
+| ECO | crude | VALIDATED-TIGHT | $71.43 | $41.71 | 28.08–60.70 | -42% | rich · cycle position (not a short) | $39.73 | $39.54 | $48.59 | -19% | OK | ready | stable |
+| FRO | crude | VALIDATED-TIGHT | $46.12 | $28.29 | 18.35–41.29 | -39% | rich · cycle position (not a short) | $26.58 | $26.04 | $34.68 | -25% | OK | ready | stable |
+| TNK | crude | VALIDATED-TIGHT | $93.37 | $83.93 | 71.90–102.30 | -10% | unreliable read (not actionable) | $83.23 | $84.60 | $102.60 | -18% | OK | ready | stable |
+| CMDB | dry_bulk | VALIDATED-TIGHT | $23.95 | $19.52 | 16.15–23.08 | -19% | TRIM/SHORT (overvalued) | $21.83 | $32.60 | $38.63 (apx) | -16% | n-a | ready | stable |
+| GNK | dry_bulk | VALIDATED-TIGHT | $27.65 | $21.48 | 16.67–26.84 | -22% | TRIM/SHORT (overvalued) | $25.41 | $25.37 | $29.11 | -13% | OK | ready | stable |
+| SB | dry_bulk | VALIDATED-TIGHT | $9.17 | $9.07 | 7.05–11.46 | -1% | HOLD (fairly valued) | $10.42 | $10.72 | $8.12 (apx) | +32% | n-a | ready | **⚠ sign flips** |
+| SBLK | dry_bulk | VALIDATED-TIGHT | $32.42 | $28.59 | 22.54–35.04 | -12% | TRIM/SHORT (overvalued) | $32.67 | $33.27 | $35.63 | -7% | OK | ready | stable |
+| BRUT | crude | GOVERNED-WIDE · going-concern-unfinanced | $5.03 | $5.12 | 2.33–8.54 | +2% | unreliable read (not actionable) | $4.70 | $4.92 | $4.88 | +1% | OK | ready | **⚠ sign flips** |
+| CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $18.51 | $17.56 | 10.58–25.92 | -5% | unreliable read (not actionable) | $16.95 | $17.32 | $25.71 | -33% | OK | ready | stable |
+| CMBT | crude | GOVERNED-WIDE · structural-class | $19.49 | $13.65 | 8.77–19.76 | -30% | TRIM/SHORT (overvalued) | $15.94 | $16.54 | $22.66 | -27% | OK | ready | stable |
+| INSW | crude | GOVERNED-WIDE · pending-anchor | $104.50 | $59.59 | 42.71–80.41 | -43% | rich · cycle position (not a short) | $37.59 | $54.64 | $86.36 | -37% | OK | ready | stable |
+| NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $7.25 | $3.00 | 2.09–4.43 | -59% | rich · cycle position (not a short) | $2.89 | $2.76 | $8.53 (apx) | -68% | n-a | ready | stable |
+| TEN | crude | GOVERNED-WIDE · mixed | $43.74 | $62.66 | 47.21–82.53 | +43% | BUY (undervalued) | $59.21 | $88.16 | $128.65 (apx) | -31% | n-a | ready | stable |
+| ASC | product | GOVERNED-WIDE · structural-class | $18.17 | $16.38 | 12.66–19.55 | -10% | TRIM/SHORT (overvalued) | $17.22 | $17.37 | $24.23 (apx) | -28% | n-a | ready | stable |
+| TRMD | product | GOVERNED-WIDE · basis-pending | $35.18 | $35.79 | 21.87–47.75 | +2% | HOLD (fairly valued) | $32.14 | $32.30 | $38.24 | -16% | OK | ready | **⚠ sign flips** |
+| 2343 | dry_bulk | GOVERNED-WIDE · pending-anchor | $0.54 | $0.38 | 0.31–0.43 | -31% | TRIM/SHORT (overvalued) | $0.41 | $0.41 | $0.44 (apx) | -6% | n-a | ready | stable |
+| CCEC | lng | GOVERNED-WIDE · structural-class | $22.65 | $33.70 | 16.27–47.20 | +49% | BUY (undervalued) | $29.97 | $25.70 | $25.17 (apx) | +2% | n-a | ready | stable |
+| FLNG | lng | GOVERNED-WIDE · structural-class | $31.51 | $29.47 | 19.34–38.00 | -6% | TRIM/SHORT (overvalued) | $27.01 | $27.22 | $21.88 | +24% | OK | ready | stable |
+| GSL | containerships | GOVERNED-WIDE · structural-class | $46.40 | $42.88 | 38.58–46.64 | -8% | TRIM/SHORT (overvalued) | $44.02 | $41.20 | $61.87 (apx) | -33% | n-a | ready | — |
+| MPCC | containerships | GOVERNED-WIDE · structural-class | $2.90 | $2.15 | 1.78–2.28 | -26% | unreliable read (not actionable) | $2.29 | $2.10 | $2.79 (apx) | -25% | n-a | ready | — |
+| HAFN | product | PROVISIONAL · pool-gross-up-pending ⛔ | $9.22 | $5.59 | 3.21–7.69 | -39% | rich · cycle position (not a short) | $4.83 | $4.64 | $8.95 | -48% | OK | **NO** | stable |
+| STNG | product | PROVISIONAL · off-curve ⛔ | $82.35 | $76.73 | 56.46–92.63 | -7% | TRIM/SHORT (overvalued) | $72.23 | $76.22 | $112.81 | -32% | OK | **NO** | stable |
+| BWLP | lpg | PROVISIONAL · v1-lock-miss ⛔ | $23.69 | $14.52 | 10.92–18.28 | -39% | rich · cycle position (not a short) | $15.48 | $15.83 | $18.65 | -15% | OK | **NO** | stable |
+| LPG | lpg | PROVISIONAL · v1-lock-miss ⛔ | $55.20 | $31.82 | 25.61–38.58 | -42% | rich · cycle position (not a short) | $33.93 | $35.69 | $52.08 | -31% | OK | **NO** | stable |
 
 _Model FV / Upside = the SCENARIO-probability-weighted FV — the same basis as Position and every proposal/decomposition table (F-13, 2026-07-02: the two columns previously mixed bases and printed '+28% upside · TRIM/SHORT' rows the day the bases diverged). Blend FV† = the single-point NAV+strip blend at CURRENT market forwards — for tanker classes the HELD Jun-7 curves (see Rate basis above); a large Blend-vs-Model gap IS the scenario-dependence signal, not a discrepancy._
 
