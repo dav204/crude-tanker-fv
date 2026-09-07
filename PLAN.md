@@ -31,6 +31,14 @@ Thursday = press release, sheet later; price rebase = option B (43.74 / 0.40 / 5
 **OWNER OWES:** S-1..S-6 · C-1..C-3 · push (13 commits) · delete 2 ctxprobe plists · mark-reviewed ·
 arm 9/12 · record escalation_pause_corroboration (overdue since 9/01) + container_mb_refresh (due
 9/07) · BWLP NB fork · spot disposition · IBKR ids 100/101 · R4 dispositions (were due 9/04-05).
+**PRICE ABSORB 9/04 + A NEW GUARD:** the tape absorbed (53a52ca; book ≈ +5%, 18 names >3%) and
+regenerated. The first regen produced a PHANTOM BUY: CMDB's June static $17.25 was substituted
+for a $23.95 quote the ±30% vs-static band flagged, and the name read BUY +13% — the
+flip-toward-BUY halt caught it. Fixed (ec6d34e): a vs-static flag now applies the QUOTE and
+marks the row for review; a day-move flag falls back to prev_close, never the months-old
+static; the sentinel pages STALE-STATIC (CMDB now — owner rebases the pair). Real read: CMDB
+TRIM/SHORT −18.5%. Gate 25/0 UNEXPLAINED/19 explained, all annotated as the price leg; the
+promoter freezes only on CAPT's pending ratify. Live drift gate awake again.
 **NEXT (agent):** TEN Thursday per the packet; CMBT + Stage B execute the moment the words land;
 auto-fetch page images for image-only filings; `promote land` lane.
 
