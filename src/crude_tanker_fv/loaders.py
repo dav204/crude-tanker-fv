@@ -451,10 +451,38 @@ def load_watchlist(inputs_dir: Path = INPUTS_DIR, live_prices: bool = False) -> 
             # scorecard can DISCLOSE which rows sit on statics — 5 of 22 names
             # silently priced at June-4 statics on decision day was audit F-1.
             if quote.get("flag"):
+                # Two flag kinds, two different truths (2026-09-07, CMDB):
+                #  - "vs watchlist static" — the STATIC is the suspect. The static is a
+                #    vintage anchor months old by design (watchlist header); a name that
+                #    has genuinely run 30%+ since then trips this band on a perfectly good
+                #    quote. Falling back to the static then values the name at a phantom
+                #    price: CMDB at $17.25 against a $23.95 tape read BUY +13% — a false
+                #    actionable long, caught only by the flip-toward-BUY halt. If the day
+                #    move is inside its own band, the quote is applied and the row is
+                #    marked for review; the sentinel pages STALE-STATIC to rebase the pair.
+                #  - "day move" — the QUOTE is the suspect (a bad print). Fall back to the
+                #    last accepted close (prev_close), which is hours old, not the static,
+                #    which is months old. The static is the fallback of last resort.
+                flag = str(quote["flag"])
+                if "vs watchlist static" in flag and "day move" not in flag:
+                    entry["current_price"] = float(quote["price"])
+                    entry["price_as_of"] = quote["asof"]
+                    entry["price_review"] = f"static stale: {flag}"
+                    print(f"[watchlist] {ticker}: static is stale ({flag}) — quote "
+                          f"applied, row marked for review", file=sys.stderr)
+                    continue
+                prev = quote.get("prev_close")
+                if prev:
+                    entry["current_price"] = float(prev)
+                    entry["price_as_of"] = quote["asof"]
+                    entry["price_fallback"] = f"{flag} — using prev_close ${prev}"
+                    print(f"[watchlist] {ticker}: daily price flagged ({flag}) — using "
+                          f"prev_close ${prev}", file=sys.stderr)
+                    continue
                 print(f"[watchlist] {ticker}: daily price flagged "
-                      f"({quote['flag']}) — using static ${entry['current_price']}",
+                      f"({flag}) — using static ${entry['current_price']}",
                       file=sys.stderr)
-                entry["price_fallback"] = quote["flag"]
+                entry["price_fallback"] = flag
                 continue
             if not is_fresh(quote["asof"]):
                 print(f"[watchlist] {ticker}: daily price stale ({quote['asof']}) "

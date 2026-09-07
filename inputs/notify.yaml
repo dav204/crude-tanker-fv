@@ -28,6 +28,7 @@ routes:
                             # layer looked successful and delivered nothing
   page_once:
     - TRIGGER-DUE           # key = tag + trigger label (+ due date); day-2 repeat → digest
+    - STALE-STATIC         # a watchlist static the tape left behind — rebase the pair (2026-09-07)
     - FILING-LANDED         # key = ticker · form · accession (the text before " filed ")
     - DIRTY-TOO-LONG        # key = tag
     - REAUTH-NEEDED         # key = surface (rocketchat / smtp / healthchecks); clears on success

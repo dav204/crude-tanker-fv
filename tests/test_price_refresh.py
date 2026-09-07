@@ -267,3 +267,49 @@ def test_bare_run_writes_a_manual_ledger_row_and_wrapper_runs_do_not(tmp_path):
     assert "job=price-refresh initiator=manual:dan@" in row and "outcome=ok rc=0 note=bare-run" in row
     assert not ledger_bare_run(1, root=tmp_path, environ={"USER": "dan", "CRUDE_FV_CRON_WRAPPER": "1"})
     assert (tmp_path / "state" / "automation_runs.log").read_text().count("\n") == 1
+
+
+def test_stale_static_never_becomes_the_live_price(tmp_path):
+    """2026-09-07, found live on CMDB. The watchlist static ($17.25, June) is a vintage
+    anchor by the file's own doctrine, not a live quote. The stock ran to $23.95 (+38.8%),
+    tripping the vs-static ±30% band on a credible quote (day move +7.8%, inside its band,
+    from an accepted prev_close). The loader then substituted the static as the LIVE price,
+    and at $17.25 the name read BUY +13% — a phantom actionable long, caught only by the
+    flip-toward-BUY halt. Rule: a vs-static flag with an in-band day move applies the QUOTE
+    and marks the row for review; a day-move flag falls back to prev_close, not the static."""
+    import yaml
+
+    from crude_tanker_fv.loaders import load_watchlist
+
+    inputs = tmp_path
+    (inputs / "watchlist.yaml").write_text(yaml.safe_dump({
+        "CMDB": {"current_price": 17.25, "analyst_target": 25.0, "sector": "dry_bulk",
+                 "as_of": "2026-06-10"},
+        "BAD": {"current_price": 50.0, "analyst_target": 60.0, "sector": "crude",
+                "as_of": "2026-09-01"},
+    }))
+    md = inputs / "market_data"
+    md.mkdir()
+    (md / "prices_daily.yaml").write_text(yaml.safe_dump({"prices": {
+        "CMDB": {"price": 23.95, "prev_close": 22.21, "day_change_pct": 7.83,
+                 "asof": "2026-09-04T20:00:02+00:00",
+                 "flag": "+38.8% vs watchlist static 17.25 exceeds ±30% band"},
+        "BAD": {"price": 9.0, "prev_close": 50.5, "day_change_pct": -82.0,
+                "asof": "2026-09-04T20:00:02+00:00",
+                "flag": "day move -82.0% exceeds ±15% band"},
+    }}))
+    from crude_tanker_fv import price_refresh
+    orig = price_refresh.is_fresh
+    price_refresh.is_fresh = lambda asof: True
+    try:
+        w = load_watchlist(inputs, live_prices=True)
+    finally:
+        price_refresh.is_fresh = orig
+
+    # stale static: the quote wins, the row is marked for review, no fallback
+    assert w["CMDB"]["current_price"] == 23.95
+    assert "static stale" in w["CMDB"].get("price_review", "")
+    assert "price_fallback" not in w["CMDB"]
+    # bad print: last accepted close, not the months-old static
+    assert w["BAD"]["current_price"] == 50.5
+    assert "prev_close" in w["BAD"]["price_fallback"]

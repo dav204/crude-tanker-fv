@@ -349,6 +349,29 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
                          f"or accept it in inputs/archive_gaps.yaml (news read from "
                          f"this window is unsupported)")
 
+    # 8c. STALE-STATIC (2026-09-07, CMDB) — a watchlist static price the tape has left
+    #     behind by more than the vs-static band. The loader no longer falls back to it
+    #     (that produced a phantom BUY), but the static still anchors consensus_pnav /
+    #     consensus_fwd_pe, so broker NAV drifts until the PAIR is rebased together.
+    #     Owner action (watchlist.yaml is ask-tier): rebase price + pnav + fwd_pe from one
+    #     vintage. page_once keys on the ticker.
+    if not pure:
+        try:
+            from .price_refresh import load_daily_prices
+            daily = load_daily_prices(inputs_dir)
+            wl = load_watchlist(inputs_dir)
+            for t, q in sorted(daily.items()):
+                fl = str((q or {}).get("flag") or "")
+                if "vs watchlist static" in fl and "day move" not in fl:
+                    static = (wl.get(t) or {}).get("current_price")
+                    as_of = (wl.get(t) or {}).get("as_of")
+                    flags.append(f"STALE-STATIC {t} watchlist static ${static} (as_of "
+                                 f"{as_of}) — {fl}; quote applied for valuation, but "
+                                 f"consensus_pnav/fwd_pe still ride the static: rebase "
+                                 f"the vintage pair together")
+        except Exception as exc:
+            flags.append(f"STALE-STATIC check failed: {exc}")
+
     # 8d. FILING-UNREADABLE (2026-09-07) — a staged filing that CONTAINS nothing. CMBT's
     #     2026-Q2 half-year report staged as two clean-looking exhibits holding 271 and 390
     #     characters of text against 33 and 53 <img> tags: image-rendered, with every figure
