@@ -349,6 +349,34 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
                          f"or accept it in inputs/archive_gaps.yaml (news read from "
                          f"this window is unsupported)")
 
+    # 8d. FILING-UNREADABLE (2026-09-07) — a staged filing that CONTAINS nothing. CMBT's
+    #     2026-Q2 half-year report staged as two clean-looking exhibits holding 271 and 390
+    #     characters of text against 33 and 53 <img> tags: image-rendered, with every figure
+    #     in page images that are separate EDGAR objects nobody fetched. The refresh read as
+    #     "blocked on a missing filing" for days while the filing was present and empty.
+    #     A PDF arrival is validated (%PDF + pages); an HTML one was not.
+    if not pure:
+        from .arrivals import validate_html
+
+        seen_bad = []
+        for e in _edgar_manifest_entries(inputs_dir, pure)[-60:]:
+            # The EXHIBITS are where the content lives — the primary doc is often a
+            # one-page cover that validates fine while the exhibit is the empty shell.
+            paths = [e.get("staged_path")] + [x.get("staged_path")
+                                              for x in (e.get("exhibits") or [])]
+            for sp in paths:
+                if not sp or not str(sp).lower().endswith((".htm", ".html")):
+                    continue
+                fp = inputs_dir.parent / sp
+                if not fp.exists():
+                    continue
+                ok, detail = validate_html(fp)
+                if not ok:
+                    seen_bad.append(f"{e.get('ticker')} {e.get('form')} "
+                                    f"{e.get('accession')}: {Path(sp).name} — {detail}")
+        for line in seen_bad[:5]:
+            flags.append(f"FILING-UNREADABLE {line}")
+
     # 9. REAUTH-NEEDED (2026-09-02, Stage 0) — a surface refused for AUTH reasons
     #    (state/reauth/<surface>.json, written by the client that was refused and
     #    cleared by its next success). Machine-local — dropped in pure mode.

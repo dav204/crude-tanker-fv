@@ -933,3 +933,49 @@ def test_agent_duty_artifact_path_reads_dates_from_content(tmp_path, monkeypatch
     log.write_text(f"| 2026-06-05 | ran |\n| {stale} | ran |\n")
     flags = [f for f in collect_flags(inputs, outputs) if "AGENT-TASK-DUE gov_monitor" in f]
     assert len(flags) == 1 and f"last {stale}" in flags[0]
+
+
+def test_image_only_filing_is_flagged_not_silently_staged(tmp_path, monkeypatch):
+    """2026-09-07, found live on CMBT's Q2 half-year report (0000919574-26-006193): both
+    exhibits staged clean at 23KB and 36KB and held 271 and 390 chars of text against 33 and
+    53 <img> tags. Every figure lived in page images that are separate EDGAR objects and were
+    never fetched, so the refresh read as 'blocked on a missing filing' for days while the
+    filing was present and empty. A PDF arrival is validated (%PDF + page count); an HTML one
+    was not. The EXHIBIT is what must be checked — the primary doc is often a cover page that
+    validates fine."""
+    import json
+
+    from crude_tanker_fv.arrivals import validate_html
+    from crude_tanker_fv.sentinel import collect_flags
+
+    inputs, outputs = _fixture(tmp_path)
+    filings = inputs / "filings" / "CMBT"
+    filings.mkdir(parents=True)
+    cover = filings / "acc_6-K_cover.htm"
+    cover.write_text("<html><body>" + ("Cover page narrative. " * 60) + "</body></html>")
+    shell = filings / "acc_6-K_ex99-1.htm"
+    shell.write_text("<html><body>Exhibit 99.1" +
+                     "".join(f'<IMG SRC="img_{i:03d}.jpg">' for i in range(33)) + "</body></html>")
+
+    assert validate_html(cover)[0] is True
+    ok, detail = validate_html(shell)
+    assert ok is False and "IMAGE-ONLY" in detail and "33 <img>" in detail
+
+    state = tmp_path / "state"
+    state.mkdir(exist_ok=True)
+    (state / "edgar_manifest.jsonl").write_text(json.dumps({
+        "ticker": "CMBT", "form": "6-K", "accession": "acc", "filed": "2026-09-04",
+        "staged_path": str(cover.relative_to(tmp_path)),
+        "exhibits": [{"doc": "ex99-1", "staged_path": str(shell.relative_to(tmp_path))}],
+    }) + "\n")
+
+    flags = [f for f in collect_flags(inputs, outputs) if f.startswith("FILING-UNREADABLE")]
+    assert len(flags) == 1, flags
+    assert "ex99-1" in flags[0] and "IMAGE-ONLY" in flags[0]
+    # the cover must NOT flag — only the empty exhibit
+    assert "cover" not in flags[0]
+
+    # ...and the repo-pure mode (the off-machine Action) does not run it: staged files are
+    # gitignored, so a clean clone has nothing to validate.
+    assert not [f for f in collect_flags(inputs, outputs, pure=True)
+                if f.startswith("FILING-UNREADABLE")]

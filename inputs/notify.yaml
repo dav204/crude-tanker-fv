@@ -24,6 +24,8 @@ routes:
   page:
     - SURFACE-INCOHERENT
     - FILING-OVERDUE
+    - FILING-UNREADABLE     # a staged filing that contains no text — the fetch
+                            # layer looked successful and delivered nothing
   page_once:
     - TRIGGER-DUE           # key = tag + trigger label (+ due date); day-2 repeat → digest
     - FILING-LANDED         # key = ticker · form · accession (the text before " filed ")
