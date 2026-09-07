@@ -6,6 +6,35 @@ forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
 
+**STATE INSERT (2026-09-07 — the dark-weekend session; read this, then the 9/02 insert below).**
+The Mac was dark 9/05–9/06 (zero jobs either day). Two automation defects surfaced and are FIXED:
+(1) **the weekly report never fired** — it was weekday-gated in the shell and launchd's coalesced
+Monday run skipped it; now `weekly_report.is_due()` owes the report to the most recent Saturday
+until written (self-catch-up; 9/05's report generated 9/07). (2) **FILING-UNREADABLE** — CMBT's
+notes-bearing H1 report (0000919574-26-006193) staged as two image-only shells (271/390 chars of
+text vs 33/53 <img> tags); `arrivals.validate_html` + a sentinel page now catch it, exhibits
+included. The 86 page images were recovered by hand from EDGAR; auto-fetching them is the
+follow-up. **STAGE B: window CLOSED 9/04 UNRULED** with six buckets breaching on fixtures alone
+(Afra front +35%, LR2_clean front −12%, LR1_clean front −30%, Suezmax 12M +33%, VLCC front −14%,
+LR1 term) and the §5 Afra/Suez ratio at 0.666 vs 0.75–1.05 = registered HALT; tanker rates still
+sit on the 8/10 Stage-A anchors. Six forks S-1..S-6 open — `decisions/stage_b_resweep_2026-09-03.md`.
+**CMBT Q2 — EXECUTABLE PACKET** `decisions/cmbt_q2_refresh_packet_2026-09-07.md`: sheet + crude
+bridge sourced and verified (−Donoussa −Stella −Brest −Brugge +Morini +Cap Grace +Cap Joseph;
+4 VLCC + 15 Suezmax on-curve; AUC 759,807→532,660 in the SAME commit); nine corrections folded;
+executes on C-1 (HFS off-curve) · C-2 (keep FSO placeholder + debt) · C-3 (governance 0 holds).
+**TEN 9/10** `decisions/ten_h1_refresh_packet_2026-09-07.md`: Pareto does NOT publish TEN (the
+"stale pair" is structurally APPROX — CLAUDE.md list corrected); last year's H1 6-K filed 9/30, so
+Thursday = press release, sheet later; price rebase = option B (43.74 / 0.40 / 5.5) ON report day.
+**S&P queue** `decisions/sp_queue_triage_2026-09-07.md`: 4 candidates, none promotable; owner runs
+`sp_scan --mark-reviewed` (ask-tier; classifier blocked the agent). **DRILL RE-DATED:** ARM Sat
+9/12 after the 08:15 run → PAGE + RESTORE Mon 9/14 ≈14:15 EDT (reminders moved).
+**OWNER OWES:** S-1..S-6 · C-1..C-3 · push (13 commits) · delete 2 ctxprobe plists · mark-reviewed ·
+arm 9/12 · record escalation_pause_corroboration (overdue since 9/01) + container_mb_refresh (due
+9/07) · BWLP NB fork · spot disposition · IBKR ids 100/101 · R4 dispositions (were due 9/04-05).
+**NEXT (agent):** TEN Thursday per the packet; CMBT + Stage B execute the moment the words land;
+auto-fetch page images for image-only filings; `promote land` lane.
+
+
 **STATE INSERT (2026-09-02 — THE AUTOMATION RULING; read this, then the 8/31 insert below).**
 Owner ruled on the two 2026-09-02 decision documents: "adopt Stage 0 · accept all Q recs · accept
 all F recs except F7 no (keep), F18 no (keep)" — `decisions/autopilot_authority_2026-09-02.md`

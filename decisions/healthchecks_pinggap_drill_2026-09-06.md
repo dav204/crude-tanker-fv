@@ -1,4 +1,10 @@
-# Healthchecks ping-gap drill — armed 2026-09-06, page expected 2026-09-08
+> **RE-SCHEDULED 2026-09-07.** The 9/06 arm never happened: the Mac was dark all of 9/05–9/06, so
+> the arm reminder fired late on Monday 9/07 and nothing was armed. New dates below — ARM Saturday
+> 2026-09-12 after the 08:15 run, PAGE + RESTORE Monday 2026-09-14 ≈14:15 EDT — clear of TEN's
+> 9/10 report. Both scheduled reminders were moved to match. Every 9/06 → 9/12 and 9/08 → 9/14
+> substitution below is mechanical; the +54h arithmetic is unchanged.
+
+# Healthchecks ping-gap drill — armed 2026-09-12, page expected 2026-09-14 (originally planned 9/06 → 9/08)
 
 **Status:** SCHEDULED (dates picked by the agent at owner request 2026-09-02; owner arms and
 restores — the mechanism edits `~/.config/crude-tanker-fv.env`, which no agent may touch).
@@ -18,13 +24,13 @@ every unattended lane rests on a watcher of unknown liveness.
 | CMBT 9/03 · Stage-B window closes 9/04 · R4 executes 9/04-05 (PLAN) | Drill must start **after** 9/05 — the dead-man is deliberately down during the gap, and three FV-moving events is the wrong week to lose the backstop |
 | TEN reports 9/10 pre-open (confirmed, issuer PR) | Drill must be **restored before** 9/10; an open earnings window is when `FETCH-FAILED` promotes straight to a page |
 | Mon 9/07 is US Labor Day (markets closed) | A page landing that day risks an owner who is away — criterion 2 needs a live ack |
-| Page fires at last-ping + period + grace = **+54h** (Period 1 day, Grace 30h per the 7/13 record) | Arming Sunday morning puts the page on Tuesday afternoon, inside the free window |
+| Page fires at last-ping + period + grace = **+54h** (Period 1 day, Grace 30h per the 7/13 record) | Arming Saturday morning puts the page on Monday afternoon, inside the free window |
 
-**ARM: Sunday 2026-09-06, after that morning's 08:15 sentinel run has logged `PING-SENT`.**
+**ARM: Saturday 2026-09-12, after that morning's 08:15 sentinel run has logged `PING-SENT`.**
 (Arming *before* the run makes Saturday 08:15 the last ping and drags the page onto Labor Day.)
-**PAGE + RESTORE: Tuesday 2026-09-08, page expected ≈ 14:15 EDT.**
+**PAGE + RESTORE: Monday 2026-09-14, page expected ≈ 14:15 EDT.**
 
-Gap length ≈ 54 hours, entirely inside the 9/06–9/09 calendar hole. If R4 slips past 9/05, slip
+Gap length ≈ 54 hours, entirely inside the 9/12–9/15 window (post-TEN). If R4 slips past 9/05, slip
 both dates by the same number of days — the ordering constraint is what matters, not the dates.
 
 ## Do this first (it removes the drill's own risk)
@@ -42,7 +48,7 @@ marker. **The sentinel is NOT muted:** it keeps running at 08:15, keeps evaluati
 keeps emailing the daily digest. Only the dead-man ping is withheld (the run logs `PING-SKIPPED`).
 
 ```
-# DRILL-GAP 2026-09-06 -> 2026-09-08 (decisions/healthchecks_pinggap_drill_2026-09-06.md)
+# DRILL-GAP 2026-09-12 -> 2026-09-14 (decisions/healthchecks_pinggap_drill_2026-09-06.md)
 # export CRUDE_FV_HEALTHCHECK_URL=...
 ```
 
@@ -55,7 +61,7 @@ cd ~/Projects/crude-tanker-fv && PYTHONPATH=src .venv/bin/python -m crude_tanker
 
 ## Success criteria
 
-1. **Firing demonstrated** — the healthchecks "down" email arrives ≈ 2026-09-08 14:15 EDT. Record
+1. **Firing demonstrated** — the healthchecks "down" email arrives ≈ 2026-09-14 14:15 EDT. Record
    the ACTUAL arrival time below. A page that never arrives is the finding: the absence channel is
    not wired, and every "detectable by absence" claim in README must be struck.
 2. **Ack latency** — owner acks; record page→ack. One-time channel-latency measurement, explicitly
@@ -89,7 +95,7 @@ secret set it has its own dead-man; (c) the window is 54 hours and contains no e
 _pending — fill at page + restore._
 
 - Armed (actual): _______
-- Page received (actual): _______  (expected 2026-09-08 ≈14:15 EDT)
+- Page received (actual): _______  (expected 2026-09-14 ≈14:15 EDT)
 - Ack: _______
 - Restored + PING-SENT: _______
 - Verdict: _______  → if PASS, this closes the Stage-0 → Stage-A gate item; if FAIL, the absence
