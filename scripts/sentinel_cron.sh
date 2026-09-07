@@ -53,12 +53,14 @@ echo "=== [sentinel] EXIT CODE $rc"
 # owner install, and this needs none. The report is the owner-facing surface that replaces
 # reading a 30-flag daily digest; its failure must never fail the sentinel, so it is
 # non-fatal and its rc rides the note.
-if [ "$(date +%u)" -eq 6 ]; then
-  echo "=== [weekly-report] $(date '+%Y-%m-%d %H:%M:%S')"
-  report_rc=0
-  ./.venv/bin/python -m crude_tanker_fv.weekly_report --send || report_rc=$?
-  [ "$report_rc" -eq 0 ] || CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}weekly_report=rc${report_rc}"
-  echo "=== [weekly-report] EXIT CODE $report_rc"
-fi
+# Called EVERY run, not gated on the weekday: the module decides (weekly_report.is_due).
+# A shell `date +%u -eq 6` test was the first cut and it failed on its first real Saturday —
+# the Mac was dark 9/05-9/06, launchd coalesced the missed firings into one run on Monday
+# 9/07, and the weekday test was false there, so the report skipped and could never catch up.
+echo "=== [weekly-report] $(date '+%Y-%m-%d %H:%M:%S')"
+report_rc=0
+./.venv/bin/python -m crude_tanker_fv.weekly_report --if-due --send || report_rc=$?
+[ "$report_rc" -eq 0 ] || CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}weekly_report=rc${report_rc}"
+echo "=== [weekly-report] EXIT CODE $report_rc"
 
 exit $rc

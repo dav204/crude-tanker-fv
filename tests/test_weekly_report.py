@@ -88,3 +88,45 @@ def test_calendar_flags_overdue_triggers():
     assert all(len(w) == 2 for w in items)
     overdue = [what for when, what in items if when < date.today().isoformat()]
     assert all("OVERDUE" in w for w in overdue), overdue
+
+
+def test_is_due_catches_up_after_a_dark_weekend(tmp_path, monkeypatch):
+    """2026-09-07, found live: the first cut gated the report on a shell `date +%u -eq 6`
+    test. The Mac was dark 9/05-9/06; launchd COALESCED the missed firings into one run on
+    Monday, where the weekday test is false — so the report silently skipped and, being
+    weekday-gated, could never catch up. On a laptop a dark weekend is normal, so the week's
+    report belongs to the most recent Saturday and is owed on any later day until written."""
+    from datetime import date
+
+    from crude_tanker_fv import weekly_report as wr
+
+    out = tmp_path / "outputs"
+    out.mkdir()
+    monkeypatch.setattr(wr, "OUTPUTS", out)
+
+    due, why = wr.is_due(date(2026, 9, 7))
+    assert due and "never has" not in why           # nothing written yet -> due
+
+    (out / "weekly_report_2026-09-02.md").write_text("x")
+    for day, expect in ((date(2026, 9, 5), True),   # Saturday itself
+                        (date(2026, 9, 7), True),   # Monday catch-up — the live failure
+                        (date(2026, 9, 11), True)): # still owed later that week
+        assert wr.is_due(day)[0] is expect, day
+
+    # Once the catch-up report is written, the same week must not fire again...
+    (out / "weekly_report_2026-09-07.md").write_text("x")
+    assert wr.is_due(date(2026, 9, 7))[0] is False
+    assert wr.is_due(date(2026, 9, 9))[0] is False
+    # ...but the NEXT Saturday is a new week and is due again.
+    assert wr.is_due(date(2026, 9, 12))[0] is True
+
+
+def test_wrapper_calls_the_report_unconditionally():
+    """The weekday decision must live in the module, not the shell — a coalesced run lands
+    on whatever day the Mac wakes."""
+    from pathlib import Path
+    w = (Path(__file__).resolve().parents[1] / "scripts" / "sentinel_cron.sh").read_text()
+    cmds = [ln for ln in w.splitlines() if ln.strip() and not ln.lstrip().startswith("#")]
+    assert any("--if-due" in ln for ln in cmds), "the wrapper must delegate the due decision"
+    assert not any("date +%u" in ln for ln in cmds), (
+        "no weekday gate may remain in a COMMAND line (the comment explaining why is fine)")

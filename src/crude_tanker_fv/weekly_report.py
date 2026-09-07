@@ -460,12 +460,59 @@ def build_report(today: date | None = None, days: int = 7) -> str:
     return "\n".join(w) + "\n"
 
 
+def is_due(today: date | None = None, cadence_days: int = 7) -> tuple[bool, str]:
+    """Should a report go out now? (2026-09-07 fix.)
+
+    The first cut fired on a shell `date +%u -eq 6` test inside the sentinel wrapper. The
+    Mac was dark all of Saturday 9/05 and Sunday 9/06; launchd COALESCES the missed
+    calendar firings into ONE run on wake, which landed Monday — where the weekday test is
+    false. The report silently skipped and, being weekday-gated, could never catch up. On a
+    laptop a dark weekend is the normal case, so any weekday-gated branch inside a launchd
+    job is unreliable by construction (the coalescing semantics are documented in
+    decisions/ctxprobe_checklist_2026-07-03.md and README §Operations).
+
+    Due if it is Saturday and nothing went out today, OR if the newest report is older than
+    the cadence — the second clause is what makes a coalesced Monday run catch up.
+    """
+    today = today or date.today()
+    newest = None
+    for p in OUTPUTS.glob("weekly_report_*.md"):
+        m = re.search(r"(\d{4}-\d{2}-\d{2})", p.name)
+        if m:
+            d = date.fromisoformat(m.group(1))
+            newest = d if newest is None or d > newest else newest
+    if newest == today:
+        return False, f"a report already went out today ({today})"
+    if newest is None:
+        return True, "no report has ever been written"
+    # The week's report belongs to the most recent Saturday. If the newest predates that
+    # Saturday, one is owed — whether today IS Saturday or a later catch-up day. Waiting for
+    # a full `cadence_days` instead would push a missed Saturday to the middle of next week.
+    last_saturday = today - timedelta(days=(today.isoweekday() - 6) % 7)
+    if newest < last_saturday:
+        when = "Saturday" if today == last_saturday else (
+            f"catch-up: the report for Saturday {last_saturday} never went out "
+            f"(newest {newest}) — the Mac was dark and launchd coalesced the firing")
+        return True, when
+    return False, f"not due (newest {newest} already covers Saturday {last_saturday})"
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="the owner's weekly report")
     ap.add_argument("--send", action="store_true", help="email it through the notify channel")
+    ap.add_argument("--if-due", action="store_true",
+                    help="no-op unless a report is due (Saturday, or the newest is stale) — "
+                         "the wrapper calls this unconditionally so a coalesced run catches up")
     ap.add_argument("--stdout", action="store_true", help="print only; write no file")
     ap.add_argument("--days", type=int, default=7, help="comparison window (default 7)")
     args = ap.parse_args(argv)
+
+    if args.if_due:
+        due, why = is_due()
+        if not due:
+            print(f"weekly report not due — {why}")
+            return 0
+        print(f"weekly report DUE — {why}")
 
     text = build_report(days=args.days)
     if args.stdout:
