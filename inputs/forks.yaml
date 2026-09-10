@@ -17,7 +17,7 @@ forks:
     opened: 2026-09-07
     execute_after: 2026-09-10
     recommendation: "rebase CMDB current_price + consensus_pnav + consensus_fwd_pe from ONE vintage, anchor-preserving (the 2026-06-10 TEN precedent): pnav = price / implied broker NAV"
-    status: open
+    status: executed   # 2026-09-10, commit 137be34 — 23.48 / 0.839 / 14.3 on the unchanged Q1 anchors, as_of 2026-09-09
   - id: cmbt_commitments_convention
     doc: decisions/cmbt_q2_landing_2026-09-10.md
     opened: 2026-09-10
