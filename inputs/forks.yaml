@@ -43,3 +43,25 @@ forks:
     execute_after: 2026-09-14
     recommendation: "FRO 1-yr VLCC 110/120k: settle the CONCLUDED date at the FRO issuer source; if >= 2026-06-15 they enter (VLCC 12M -> 115,000). Product routing: pure-product names read the DIRTY LR2/LR1 lines — open a methodology note, no promotion"
     status: open
+  # --- registered 2026-09-10 from the owner's parked list (decisions/forks_registered_2026-09-10.md) ---
+  - id: bwlp_nb_order_treatment
+    kind: judgment
+    doc: decisions/forks_registered_2026-09-10.md
+    opened: 2026-09-10
+    execute_after: 2026-09-15
+    recommendation: "Option 3 ADVANCES-ONLY interim (= $0: the eight HHI VLGC hulls + the ~$940M commitment both OUT, matching the 6/30 statements): ΔNAV 0.0 / ΔEV 0.0, BWLP stays T/S PROVISIONAL. Record the HHI yard + the $300M 2.25% convert (settled 9/09, 'partly finance the newbuild program') as Q3 wiring; re-opens on any instalment or schedule disclosure. NO structural_exempt registry line (the verifier: it would enshrine what the convention header forbids)"
+    status: open
+  - id: spot_tce_promote_2026-09-10
+    kind: judgment   # the owner reserved the spot disposition (PLAN OWNER OWES ×2) — the silence window applies
+    doc: decisions/forks_registered_2026-09-10.md
+    opened: 2026-09-10
+    execute_after: 2026-09-15
+    recommendation: "Promote spot_tce.yaml from the 8/07 daily to Pareto 9/10 (column-1 convention pinned 8/07): VLCC 790,800 · Suez 135,000 · Afra/LR2 72,500 · LR2c 141,800 · LR1c 148,100 · MR(East)/Handy 55,100 · Cape 54,538 · Pana/PPmx 21,725 · Supra 21,537; as_of.default 2026-09-10; Ctr-* mirror to the 12M W36 values. Spot feeds breakeven/validate/report only — ΔNAV and ΔEV exactly 0.0 on all 25 names; holds ⊆ 12M holds"
+    status: open
+  - id: r4_wo5_deck_reexpression_schedule
+    kind: judgment
+    doc: decisions/forks_registered_2026-09-10.md
+    opened: 2026-09-10
+    execute_after: 2026-09-15
+    recommendation: "Execute WO5 Phases 0-3b on the post-Stage-B base (12M as_of 2026-09-09) with the C3 vector 0.28/0.59/0.00/0.13 as the FROZEN weight input; ΔNAV 0.0, the 10 crude names move >2pp EV by design, non-crude exactly 0.00. No void retires here: the three Phase-4 dispositions (CAPT / TNK / BRUT) stay execution-day owner words (WO5 law); B1 re-arms at TNK's disposition"
+    status: open

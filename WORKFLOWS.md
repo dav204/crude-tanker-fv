@@ -218,6 +218,8 @@ sit in CLAUDE.md; the full list lives here.
 
 ## Data sources — per-source fetch mechanics (migrated from CLAUDE.md 2026-07-01)
 
+**Tanker forward-print standing rule (prune F19, 2026-09-10 — replaces the retired `tanker_forward_print_lands` card and the TRIGGER-EVIDENCE lane).** A tanker FFA or 1-year time-charter print landing in a daily or weekly promotes ON SIGHT through the promote/regen path, never through a re-armed watch: freeze the predicted-impact block first (which files move, which are frozen; ΔNAV exactly 0.0 for a rate-only leg), classify the print in the pre-registration's own vocabulary (direct / single-print / derived-ratio / spec-premium), band-check against the current anchors (Stage B, 2026-09-09), land inputs first and outputs second. The Pareto daily carries no 1-year TC table — every Stage B input was an issuer fixture disclosure, so the weekly MB harvest and the filings poll are where prints arrive. The only sentinel nag is `UNINGESTED-PRINTS twelve_month_tc.yaml` (a daily more than 7 days past `as_of.default`).
+
 The *discipline* rules (trust the report not the fleet page; Pareto = the consensus_pnav source with
 NAT/ASC/CCEC APPROX; VIE/MB are cross-checks, not calibration) live in CLAUDE.md. The per-source fetch
 quirks live here:

@@ -1,5 +1,11 @@
 # CMBT — Decision Log
 
+## 2026-09-10 — SGM NOTICE + Q3 RESULTS DATE (6-K 0000919574-26-006196, 9/08): calendar + record-only; NOT a fleet or Q3-QTD update
+
+**Decision:** Special General Meeting Thursday 8 October 2026 10:30 CET (record date 24 September; freeze 9/23–9/25). One line for the calendar: "Publication Q3 2026 results – 26 November 2026" — seed CMBT 2026-11-26 at the Q3 re-seed. Unrelated to the landed Q2 pair (NAV 16.46, band-hit): no balance sheet, no fleet table, no Q3-QTD, no prices; the notes-bearing H1 report is 006193 (its exhibits image-only, still FILING-UNREADABLE). The SGM is the gate the log flagged for the $0.64 distribution ("gated on a Special Shareholders' Meeting, payment expected October"); the agenda is not in the 6-K — settles at the convening notice on cmb.tech.
+
+---
+
 ## 2026-09-10 — Escalation reweight annotation
 
 **Decision:** CRUDE ESCALATION REWEIGHT (fork escalation_c3_rearm, executed on verification at the owner's word 2026-09-10; decisions/escalation_c3_rearm_2026-09-10.md): crude scenario weights 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13 — the +3pp C3 tilt, from pre_mou_baseline's fast-reverting-flare-up mass, because the strike pause ended 8/30 and the flare-up did not revert (campaign from 9/01; TD3C $790.8k 9/10). A WEIGHT-ONLY leg: ΔNAV exactly 0.0; the EV move is the probability-weighted FV re-blending. Landed inside the pre-registered band. 

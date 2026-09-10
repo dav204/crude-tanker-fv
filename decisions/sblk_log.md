@@ -1,5 +1,11 @@
 # SBLK — Decision Log
 
+## 2026-09-10 — EQUITY OFFERING IN GREECE — price range €23.00–25.50 for up to 4,400,000 new shares (6-K 0000950157-26-000985, 9/08): record-only now, Q3 determinant pending
+
+**Decision:** "offering in Greece of up to 4,400,000 new common registered voting shares … The range for the offering price of the New Shares is €23.00 to €25.50 (in U.S. dollar is $26.75 - $29.66)", FX "€1 = 1.1631 USD" (9/07). Timetable (9/04 6-K 000982 ex-99.1): completion and final price 9/11, settlement 9/15. No shares issued yet. Rough effect at the $28.2 midpoint: ~$124M raised at ≈0.85× NAV/sh $33.27 → ≈ −0.6% NAV/sh — under the 2pp gate. Base the count walk on the 6/30 OUTSTANDING 111,671,386 (net of treasury), NOT the Q2 weighted-average diluted 111,585,370; post-6/30 repurchases undisclosed, so the post-offering count is UNVERIFIED until the final-price 6-K. The 9/04 Information Statement (ex-99.2) was triaged in the 9/07 news digest (item M1): Star Bella and Star Kyra delivered August 2026 ("aggregate capital expenditures … approximately $70.2 million"), "remaining capital expenditures of $65.8 million" on Irini/Aline/Argyro (Q4), fully-delivered fleet 138 vessels / 13,750,243 dwt — the SBLK Q3 manifest + commitment determinant (sblk.yaml NB rows still undelivered; Q2 commitments 122,035k). Watch: the ≥9/11 final-price 6-K.
+
+---
+
 ## 2026-09-03T09:06:34+00:00 — Pipeline run (auto)
 
 **Model state:**

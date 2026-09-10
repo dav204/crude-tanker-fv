@@ -75,7 +75,7 @@ Thursday = press release, sheet later; price rebase = option B (43.74 / 0.40 / 5
 9/12 after the 08:15 run → PAGE + RESTORE Mon 9/14 ≈14:15 EDT (reminders moved).
 **OWNER OWES:** S-1..S-6 · C-1..C-3 · push (13 commits) · delete 2 ctxprobe plists · mark-reviewed ·
 arm 9/12 · record escalation_pause_corroboration (overdue since 9/01) + container_mb_refresh (due
-9/07) · BWLP NB fork · spot disposition · IBKR ids 100/101 · R4 dispositions (were due 9/04-05).
+9/07) · BWLP NB fork, spot disposition and the R4/WO5 deck re-expression are now REGISTERED FORKS (inputs/forks.yaml, execute 2026-09-15; decisions/forks_registered_2026-09-10.md) · IBKR instruction ids 100/101 are a GOVERNANCE-repo item (the IBKR connector is denied in this project) — the producer's tape says id 100 (SBLK sell @ $31.30 GTC) filled ~9/04 ($32.42 close).
 **PRICE ABSORB 9/04 + A NEW GUARD:** the tape absorbed (53a52ca; book ≈ +5%, 18 names >3%) and
 regenerated. The first regen produced a PHANTOM BUY: CMDB's June static $17.25 was substituted
 for a $23.95 quote the ±30% vs-static band flagged, and the name read BUY +13% — the

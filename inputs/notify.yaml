@@ -41,7 +41,6 @@ routes:
     - PRICE-BASIS
     - NOTIFY-UNCONFIGURED
     - UNINGESTED-PRINTS
-    - TRIGGER-EVIDENCE      # retires with the tanker-forward trigger at Stage-B close 9/04 (F19)
     - CALENDAR-UNSEEDED
     - EARNINGS-DUE
     - STALE-BALANCE-SHEET   # report out, sheet pending — the reconciliation

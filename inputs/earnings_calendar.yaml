@@ -1,5 +1,5 @@
 meta:
-  last_date_sweep: 2026-08-31
+  last_date_sweep: 2026-09-10
   quarter: 2026-Q2
   vetted: 2026-07-03
 names:
@@ -196,10 +196,13 @@ names:
     window_end: 2026-07-30
     window_start: 2026-07-30
   TEN:
-    basis: 'CONFIRMED 2026-08-31 sweep: issuer date-PR GlobeNewswire 3348799 (2026-08-20 16:05 ET, rendered-page
-      verified): Q2 + six-months results "prior to the open of the market in New York on Thursday, September 10,
-      2026"; call same day 10:00 ET. The ~2wk-ahead pattern held (PR 8/20 for a 9/10 print). Prior sweeps 8/09 +
-      8/18: no PR yet.'
+    basis: 'RESULTS ANNOUNCED 2026-09-10 (recorded at the 2026-09-10 sweep): issuer PR GlobeNewswire 3359616,
+      09:15 ET "TEN, Ltd. Reports Profits for the First Half and Second Quarter of 2026" — pre-open exactly as the
+      8/20 date-PR (GlobeNewswire 3348799) promised: "prior to the open of the market in New York on Thursday,
+      September 10, 2026"; call 10:00 ET same day. No 6-K on EDGAR yet at sweep time (last 6-K 2026-05-22) — the
+      PR-first/6-K-later pattern; subsequent-event flag for the H1 refresh: 9/01 PR 3354219 sale of two
+      first-generation Suezmaxes (named Alaska/Archangel in the 9/10 PR). Entry historical until the Q3 re-seed;
+      H1 refresh queued (decisions/ten_h1_refresh_packet_2026-09-07.md, ten_h1_release_check_2026-09-10.md).'
     disclosure_type: 6-K (H1 report)
     status: confirmed
     venue: NYSE

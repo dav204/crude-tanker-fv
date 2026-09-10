@@ -176,5 +176,5 @@ Everything tracked is git-reversible by construction; each removal is one commit
 | F16 | Remove all three worktrees after `git cherry` confirms the goldstine commit is in main? | **yes** |
 | F17 | Drop spot_tce from the UNINGESTED lane (no auto-promote — no parser exists)? | **yes** |
 | F18 | `rm -rf shipping_harvester/data` (195 MB; two decision citations point into it)? | **no** |
-| F19 | Retire `tanker_forward_print_lands` + TRIGGER-EVIDENCE lane the day Stage B closes (9/04), Rider 4 → WORKFLOWS standing rule? | **yes** |
+| F19 | Retire `tanker_forward_print_lands` + TRIGGER-EVIDENCE lane the day Stage B closes (9/04), Rider 4 → WORKFLOWS standing rule? | **yes**  — EXECUTED 2026-09-10 (Stage B executed 9/09, ratified 75f54cc): card archived, sentinel lane + routing + test removed, standing rule written into WORKFLOWS §Data sources. Deferred to a follow-up: the sp_scan tanker-period-signal internals (the verifier found the drafted line ranges would have broken the daily scan; they are harmless dead data until pruned with the file in front of the agent) |
 | F20 | Retire `all_sectors_consensus_pair_recapture`, `quarterly_staleness_floor`, `vlgc_realized_tce_refresh`; archive the 8 done cards (register 23 → 10)? | **yes** |

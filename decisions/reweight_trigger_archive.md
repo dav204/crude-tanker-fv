@@ -366,4 +366,34 @@ escalation_pause_corroboration:
                     # evidence; C3's ground 2 is moot in the OPPOSITE direction). Deliberately
                     # NOT entered in inputs/forks.yaml — a reweight never executes by silence.
   added: 2026-08-16
+
+# ---- RETIRED 2026-09-10: prune F19 — Stage B EXECUTED 2026-09-09 (stage_b_promotion_2026-09-09.md)
+# and RATIFIED (75f54cc); both stages of the 2026-07-15 ruling are complete. The TRIGGER-EVIDENCE
+# sentinel lane retires with it (dark by construction since Stage A moved the tanker classes onto
+# as_of.default). Replacement watch: the standing rule in WORKFLOWS §Data sources (a landing
+# tanker print promotes on sight through the promote/regen path) + the UNINGESTED-PRINTS
+# twelve_month_tc.yaml nag. Card verbatim at retirement:
+tanker_forward_print_lands:
+  sector: crude+product
+  due: null
+  observable: >
+    Standing event-watch (reviewer condition, 2026-07-02; RE-ARMED to original
+    text at Stage A per prereg §8.4): any tanker FFA or 1-year T/C forward
+    print landing in the dailies/weeklies. The mtime-based preflight staleness
+    check cannot see a held VALUE — this watch is the guard.
+  action: >
+    Refresh the ffa_forward_curve + twelve_month_tc tanker lines from the
+    print, rerun the C-2 rates layer, record in decisions/.
+  status: armed   # STAGE A EXECUTED 2026-08-10 (one ratify; RATIFY_LOG row):
+                  # the 2026-06-07 war vintage RETIRED per the frozen prereg +
+                  # four owner rulings (stage_a_computation_draft_2026-08-09.md).
+                  # STAGE B stands: window 2026-08-26..09-04, band-gated ±10%
+                  # per class-bucket (TRMD 8/26 · CMBT 8/27 · HAFN 8/28 · FRO
+                  # 8/31); LR2_clean term (war-ratio-derived 28k, D-3 flag) is
+                  # the registered correction candidate there.
+                  # STAGE B EXECUTED 2026-09-09 (owner ruling S-1..S-6; stage_b_promotion_2026-09-09.md):
+                  # whole set re-promoted, §5 bands all inside, frozen block HELD at regen; ratify owed
+  stage_b_window: 2026-08-26..2026-09-04
+  ruling: decisions/tanker_forward_print_ruling_2026-07-14.md
+  added: 2026-07-02
 ```
