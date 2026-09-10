@@ -141,6 +141,8 @@ LNG feed feeds the FLNG/CCEC cross-check (`outputs/mb_lng_crosscheck_*.md`).
 
 ## Runbook — the command reference (migrated from CLAUDE.md 2026-07-01)
 
+- **Regenerate the surface:** `scripts/regen.sh <QUARTER>` (2026-09-10) — refuses a dirty determinant tree, re-runs the five weight-family sidecars when `scenario_inputs.yaml` is newer than their output, runs the pipeline, runs the outputs-hygiene guard, prints the stamp + family status. Use it instead of calling the pipeline directly: three surfaces shipped with stale sidecars this quarter (9/02, 9/07, 9/10).
+
 The daily essentials (tests / pipeline / reconcile / drift gate / fetch_pdf / two-venvs) also
 sit in CLAUDE.md; the full list lives here.
 
