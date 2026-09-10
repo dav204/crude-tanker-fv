@@ -1,5 +1,11 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-09-10 — Escalation reweight annotation
+
+**Decision:** CRUDE ESCALATION REWEIGHT (fork escalation_c3_rearm, executed on verification at the owner's word 2026-09-10; decisions/escalation_c3_rearm_2026-09-10.md): crude scenario weights 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13 — the +3pp C3 tilt, from pre_mou_baseline's fast-reverting-flare-up mass, because the strike pause ended 8/30 and the flare-up did not revert (campaign from 9/01; TD3C $790.8k 9/10). A WEIGHT-ONLY leg: ΔNAV exactly 0.0; the EV move is the probability-weighted FV re-blending. Landed inside the pre-registered band. 
+
+---
+
 ## 2026-09-10T18:02:00+00:00 — Pipeline run (auto)
 
 **Model state:**

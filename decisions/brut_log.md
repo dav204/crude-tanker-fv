@@ -1,5 +1,24 @@
 # BRUT — Decision Log
 
+## 2026-09-10T18:37:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.07
+- Single-point FV: $4.71
+- Scenario PW FV: $5.35 (EV +5.6%)
+- NAV / share: $4.92
+- Position: **BUY (undervalued)**
+- Broker spread: +0.0pp (k_broker 1.00)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: +2.3% | ΔNAV: no change | Δspread: no change
+
+**Decision:** CRUDE ESCALATION REWEIGHT (fork escalation_c3_rearm, executed on verification at the owner's word 2026-09-10; decisions/escalation_c3_rearm_2026-09-10.md): crude scenario weights 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13 — the +3pp C3 tilt, from pre_mou_baseline's fast-reverting-flare-up mass, because the strike pause ended 8/30 and the flare-up did not revert (campaign from 9/01; TD3C $790.8k 9/10). A WEIGHT-ONLY leg: ΔNAV exactly 0.0; the EV move is the probability-weighted FV re-blending. Landed inside the pre-registered band. BRUT's RAW band crosses HOLD -> BUY at +5.6% as PREDICTED and DISCLOSED in the record; the DISPLAYED position stays 'unreliable read (not actionable)' (POSITION_UNRELIABLE) — it cannot enter the long set. 
+
+---
+
 ## 2026-09-09 — Stage B annotation (tanker re-anchor 2026-09-09)
 
 **Decision:** STAGE B — tanker curves + 12M re-anchored under the 2026-09-09 owner ruling (inputs 0e6c518; record + frozen predicted impact in decisions/stage_b_promotion_2026-09-09.md). A RATE-ONLY event: ΔNAV is exactly 0.0 on every name (nav.py reads no rate file); the EV move is the scenario deck re-reading the new curve through forward_ref. Direction DOWN as predicted. ΔEV -0.4pp. Ratify rides the owner's next ratify_baseline.sh with the promotion record as cause.
