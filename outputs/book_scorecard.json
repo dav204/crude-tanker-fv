@@ -1,7 +1,7 @@
 {
   "schema_version": "2.8",
-  "generated_at": "2026-09-10T13:39:08+00:00",
-  "source_commit": "a423d82",
+  "generated_at": "2026-09-10T13:39:52+00:00",
+  "source_commit": "3986850",
   "quarter": "2026-Q2",
   "price_basis": {
     "total": 25,
@@ -16,7 +16,6 @@
     "quarter": "2026-Q2",
     "total": 25,
     "lagging": {
-      "CMBT": "2026-Q1",
       "TEN": "2026-Q1"
     },
     "missing": []
@@ -98,7 +97,7 @@
       "ev_pct_family_max": -42.1,
       "read_flag": "robust",
       "robust": "robust",
-      "flip_margin_pct": 164.86,
+      "flip_margin_pct": 164.83,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
       "fv_low": 27.88,
@@ -129,7 +128,7 @@
       "ev_pct_family_max": -40.1,
       "read_flag": "robust",
       "robust": "robust",
-      "flip_margin_pct": 78.18,
+      "flip_margin_pct": 78.17,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
       "fv_low": 18.36,
@@ -222,7 +221,7 @@
       "ev_pct_family_max": -17.8,
       "read_flag": "flips (cheap/fair)",
       "robust": "flips (cheap/fair)",
-      "flip_margin_pct": -0.29,
+      "flip_margin_pct": -0.28,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
       "fv_low": 16.67,
@@ -366,28 +365,28 @@
       "sanity": "OK",
       "price": 19.35,
       "position": "TRIM/SHORT (overvalued)",
-      "fv": 13.58,
-      "ev_pct": -29.8,
-      "blend_fv": 15.98,
-      "nav_per_share": 16.54,
+      "fv": 13.45,
+      "ev_pct": -30.5,
+      "blend_fv": 15.87,
+      "nav_per_share": 16.46,
       "broker_nav": 22.5,
-      "gap_pct": -26.5,
+      "gap_pct": -26.8,
       "governance_discount_pct": 0.0,
       "sleeves": [
         {
           "sleeve": "crude",
           "sector": "crude",
-          "fv_contribution_per_share": 4.04
+          "fv_contribution_per_share": 4.0
         },
         {
           "sleeve": "dry_bulk",
           "sector": "dry_bulk",
-          "fv_contribution_per_share": 8.99
+          "fv_contribution_per_share": 8.92
         },
         {
           "sleeve": "containerships",
           "sector": "containerships",
-          "fv_contribution_per_share": 0.54
+          "fv_contribution_per_share": 0.53
         }
       ],
       "weight_sign_stable": true,
@@ -398,9 +397,9 @@
       "flip_margin_pct": null,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
-      "fv_low": 8.71,
-      "fv_high": 19.76,
-      "balance_sheet_vintage": "2026-Q1"
+      "fv_low": 8.53,
+      "fv_high": 19.64,
+      "balance_sheet_vintage": "2026-Q2"
     },
     {
       "ticker": "INSW",
@@ -468,7 +467,7 @@
       "ev_pct_family_max": -60.0,
       "read_flag": "robust",
       "robust": "robust",
-      "flip_margin_pct": 80.1,
+      "flip_margin_pct": 80.05,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
       "fv_low": 2.0,

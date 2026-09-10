@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-09-10T13:39:08+00:00
-- **Previous run:** 2026-09-10T13:37:05+00:00
+- **This run:** 2026-09-10T13:39:52+00:00
+- **Previous run:** 2026-09-10T13:39:08+00:00
 
 ## Headline changes (material moves)
 
@@ -11,14 +11,15 @@
 
 | Ticker | read_flag | Tape | Flip boundary | Edge | Tape margin | Row margin (vintage) | |
 |---|---|---|---|---|---|---|---|
-| CMDB | flips (cheap/fair) | $23.48 | $24.33 | parity · fair\|rich | -3.48% | +6.96% (@ $17.25) | clear of the deadband |
-| GNK | flips (cheap/fair) | $27.14 | $28.40 | hist · fair\|rich | -4.43% | -0.29% (@ $25.80) | clear of the deadband |
-| SBLK | flips (cheap/fair) | $31.16 | $33.22 | parity · cheap\|fair | -6.20% | -8.48% (@ $30.40) | clear of the deadband |
+| CMDB | flips (cheap/fair) | $23.48 | $24.33 | parity · fair\|rich | -3.47% | +6.96% (@ $17.25) | clear of the deadband |
+| GNK | flips (cheap/fair) | $27.14 | $28.40 | hist · fair\|rich | -4.43% | -0.28% (@ $25.80) | clear of the deadband |
+| SBLK | flips (cheap/fair) | $31.16 | $33.22 | parity · cheap\|fair | -6.19% | -8.48% (@ $30.40) | clear of the deadband |
 
 _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the price this run values at to the nearest band edge whose crossing would settle the flip — i.e. where the read would sit once the watchlist rebases to today's tape. It is NOT a scorecard number and never governs: `read_flag` and the deadband are measured on the watchlist vintage (`Row margin`), the same price the read itself is computed on (Addendum B2, 2026-08-14). The two differ by exactly the drift between the two vintages._
 ## Input files changed since last run
 
-- _(no input file changes detected — hashes match)_
+- `inputs/balance_sheets/cmbt_2026-Q2.yaml` (new)
+- `inputs/fleet_manifests/cmbt.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -44,7 +45,7 @@ _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the p
 | MPCC | $2.94 (no change) | $2.29 (no change) | $2.13 (no change) | $2.10 (no change) | TRIM/SHORT (overvalued) | +19.2pp (no change) |
 | GSL | $45.02 (no change) | $44.04 (no change) | $42.82 (no change) | $41.20 (no change) | HOLD (fairly valued) | +32.5pp (no change) |
 | BRUT | $5.07 (no change) | $4.71 (no change) | $5.23 (no change) | $4.92 (no change) | HOLD (fairly valued) | +0.0pp (no change) |
-| CMBT | $19.35 (no change) | $15.98 (no change) | $13.58 (no change) | $16.54 (no change) | TRIM/SHORT (overvalued) | +24.6pp (no change) |
+| CMBT | $19.35 (no change) | $15.87 (-0.7%) | $13.45 (-1.0%) | $16.46 (-0.5%) | TRIM/SHORT (overvalued) | +24.9pp (+0.3pp) |
 | SB | $8.36 (no change) | $10.42 (no change) | $9.07 (no change) | $10.72 (no change) | BUY (undervalued) | -32.0pp (no change) |
 | LPG | $53.63 (no change) | $33.93 (no change) | $31.82 (no change) | $35.69 (no change) | TRIM/SHORT (overvalued) | +23.1pp (no change) |
 | BWLP | $24.15 (no change) | $15.48 (no change) | $14.52 (no change) | $15.83 (no change) | TRIM/SHORT (overvalued) | +11.0pp (no change) |

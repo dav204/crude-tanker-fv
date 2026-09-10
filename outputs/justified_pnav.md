@@ -25,7 +25,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | 2343 | dry_bulk | $0.41 | $0.53 | 1.296× | 11.9% | 1.088× | 12.5% | 1.146× | rich → rich | robust |
 | TNK | crude | $84.60 | $88.20 | 1.043× | 6.9% | 0.589× | 8.2% | 0.716× | rich → rich | robust |
 | DHT | crude | $15.01 | $19.40 | 1.293× | 9.1% | 0.807× | 8.5% | 0.747× | rich → rich | robust |
-| FRO | crude | $26.04 | $43.80 | 1.682× | 9.5% | 0.849× | 8.7% | 0.769× | rich → rich | robust |
+| FRO | crude | $26.04 | $43.80 | 1.682× | 9.5% | 0.850× | 8.7% | 0.769× | rich → rich | robust |
 | ECO | crude | $39.54 | $66.30 | 1.677× | 6.7% | 0.570× | 5.6% | 0.456× | rich → rich | robust |
 | NAT | crude | $2.76 | $6.80 | 2.461× | 13.3% | 1.230× | 9.9% | 0.894× | rich → rich | robust |
 | INSW **(WHOLE-CO)** | crude | $54.64 | $99.30 | 1.817× | n/a | — | 9.7% | 0.873× | no anchor → rich | n/a |
@@ -40,7 +40,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | MPCC | containerships | $2.10 | $2.90 | 1.378× | n/a | — | 46.0% | — | no anchor → newbuild-heavy (unreliable) | n/a |
 | GSL | containerships | $41.20 | $38.99 | 0.946× | n/a | — | 47.8% | 4.877× | no anchor → cheap | n/a |
 | BRUT | crude | $4.92 | $4.70 | 0.955× | 10.9% | — | 10.0% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
-| CMBT **(WHOLE-CO)** | crude | $16.54 | $18.30 | 1.106× | n/a | — | 6.9% | 0.594× | no anchor → rich | n/a |
+| CMBT **(WHOLE-CO)** | crude | $16.46 | $18.30 | 1.112× | n/a | — | 7.0% | 0.596× | no anchor → rich | n/a |
 | LPG | lpg | $35.69 | $49.30 | 1.381× | n/a | — | 6.9% | 0.594× | no anchor → rich | n/a |
 | BWLP | lpg | $15.83 | $24.18 | 1.527× | n/a | — | 13.2% | 1.217× | no anchor → rich | n/a |
 

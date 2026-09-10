@@ -16,7 +16,7 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | BRUT | 1.03× | 1.00 | +3.2% | +3.2% | +3.2% | HOLD→HOLD | $210,905→$210,894 | +0 | narrow-spread |
 | HAFN | 1.03× | 1.66 | -40.3% | -18.9% | +2.4% | TRIM/SHORT→HOLD | $191,620→$59,049 | +43 | wide-spread |
 | CMDB | 0.62× | 1.18 | -16.9% | -10.8% | -4.6% | TRIM/SHORT→HOLD | $34,947→$15,623 | +12 | wide-spread |
-| CMBT **(WHOLE-CO)** | 0.86× | 1.21 | -29.8% | -17.5% | -5.2% | TRIM/SHORT→TRIM/SHORT | $190,453→$32,786 | +25 | wide-spread |
+| CMBT **(WHOLE-CO)** | 0.86× | 1.21 | -30.5% | -18.1% | -5.6% | TRIM/SHORT→TRIM/SHORT | $204,120→$34,978 | +25 | wide-spread |
 | SBLK | 0.91× | 1.02 | -8.2% | -7.0% | -5.8% | TRIM/SHORT→TRIM/SHORT | $18,621→$14,328 | +2 | narrow-spread |
 | MPCC | 1.04× | 1.22 | -27.6% | -18.0% | -8.5% | TRIM/SHORT→TRIM/SHORT | $214,851→$58,650 | +19 | wide-spread |
 | DHT | 1.14× | 1.22 | -23.9% | -16.3% | -8.6% | TRIM/SHORT→TRIM/SHORT | $705,170→$396,570 | +15 | wide-spread |
