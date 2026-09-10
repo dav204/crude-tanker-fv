@@ -1,5 +1,11 @@
 # HAFN — Decision Log
 
+## 2026-09-09 — Stage B annotation (tanker re-anchor 2026-09-09)
+
+**Decision:** STAGE B — tanker curves + 12M re-anchored under the 2026-09-09 owner ruling (inputs 0e6c518; record + frozen predicted impact in decisions/stage_b_promotion_2026-09-09.md). A RATE-ONLY event: ΔNAV is exactly 0.0 on every name (nav.py reads no rate file); the EV move is the scenario deck re-reading the new curve through forward_ref. Direction DOWN as predicted. ΔEV -6.3pp · Δk +0.110 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change). Ratify rides the owner's next ratify_baseline.sh with the promotion record as cause.
+
+---
+
 ## 2026-09-09 — Price-leg annotation (2026-09-09 vintage)
 
 **Decision:** PRICE LEG — the 2026-09-09 close vintage absorbed as its own commit (7a87d1a), regenerated on the Stage A tanker inputs so the tape attributes to the tape before Stage B re-lands on this surface. No input other than prices_daily.yaml moved since the 08f99fc surface (valued at the 9/04 tape): ΔNAV is exactly 0.0 on every row except the standing 9/01 residues. ΔEV -5.0pp · Δk +0.110 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change).

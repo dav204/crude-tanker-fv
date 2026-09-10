@@ -1,5 +1,11 @@
 # FRO — Decision Log
 
+## 2026-09-09 — Stage B annotation (tanker re-anchor 2026-09-09)
+
+**Decision:** STAGE B — tanker curves + 12M re-anchored under the 2026-09-09 owner ruling (inputs 0e6c518; record + frozen predicted impact in decisions/stage_b_promotion_2026-09-09.md). A RATE-ONLY event: ΔNAV is exactly 0.0 on every name (nav.py reads no rate file); the EV move is the scenario deck re-reading the new curve through forward_ref. Direction DOWN as predicted. ΔEV -4.1pp · Δk +0.060 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change). Ratify rides the owner's next ratify_baseline.sh with the promotion record as cause.
+
+---
+
 ## 2026-09-07 — Price-leg annotation (2026-09-04 vintage)
 
 **Decision:** PRICE LEG — the 2026-09-04 close vintage absorbed as its own commit (53a52ca; the daily refresher's output over the dark 9/05–9/06 weekend, 18 names >3%, book ≈ +5%). No input other than prices_daily.yaml moved: ΔNAV is exactly 0.0 on every row except the two named below. ΔEV -2.7pp.

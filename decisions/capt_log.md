@@ -1,5 +1,11 @@
 # CAPT — Decision Log
 
+## 2026-09-09 — Stage B annotation (tanker re-anchor 2026-09-09)
+
+**Decision:** ΔNAV +11.9% is NOT this event: it is the 2026-09-01 Q2 pin advance (CAPT test pins → the Q2 pair, operating-scrubber ledger 5→8), explained on 9/01 and RIDING R4 Phase 5 for its ratify; the pipeline's auto entry re-buried that explanation. The EV / band / Δk legs of THIS run are the price leg below. STAGE B — tanker curves + 12M re-anchored under the 2026-09-09 owner ruling (inputs 0e6c518; record + frozen predicted impact in decisions/stage_b_promotion_2026-09-09.md). A RATE-ONLY event: ΔNAV is exactly 0.0 on every name (nav.py reads no rate file); the EV move is the scenario deck re-reading the new curve through forward_ref. Direction DOWN as predicted. ΔEV -5.9pp · ΔNAV +11.9% · band HOLD (fairly valued) → TRIM/SHORT (overvalued) (mechanical crossing on the price leg). Ratify rides the owner's next ratify_baseline.sh with the promotion record as cause.
+
+---
+
 ## 2026-09-07T20:11:53+00:00 — Pipeline run (auto)
 
 **Model state:**
