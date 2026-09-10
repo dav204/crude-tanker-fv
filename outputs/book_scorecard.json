@@ -1,7 +1,7 @@
 {
   "schema_version": "2.8",
-  "generated_at": "2026-09-10T18:02:00+00:00",
-  "source_commit": "5f539b1",
+  "generated_at": "2026-09-10T18:07:37+00:00",
+  "source_commit": "6ac8e9e",
   "quarter": "2026-Q2",
   "price_basis": {
     "total": 25,
