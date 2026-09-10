@@ -32,21 +32,14 @@ rate_basis:
   default: tc_assessment
   VLGC: realized_tce
 as_of:
-  default: 2026-09-01       # 01-Sep FFA dry promote (ffa_promotion_2026-09-02.md;
-                            # straddling 5-tenor capture — Cape/Pana/Post-Panamax/
-                            # Supra-Ultra ride default). Explicit holds below: tankers
-                            # 8/10 Stage A (held to Stage B 8/26→9/04) · containers 8/07
-                            # (W32) · VLGC 6/02 · LNGC/MGC 6/07 · Handy-Bulk 7/10
-  VLCC: 2026-08-10          # STAGE A tanker promotion — held to Stage B
-  Suezmax: 2026-08-10
-  Aframax: 2026-08-10
-  LR2: 2026-08-10
-  LR1: 2026-08-10
-  MR: 2026-08-10
-  Handysize: 2026-08-10
-  Handymax: 2026-08-10
-  LR1_clean: 2026-08-10
-  LR2_clean: 2026-08-10
+  default: 2026-09-09       # STAGE B tanker promotion (stage_b_promotion_2026-09-09.md;
+                            # tanker classes ride default). Explicit holds below: dry
+                            # 9/01 FFA promote · containers 8/07 (W32) · VLGC 6/02 ·
+                            # LNGC/MGC 6/07 · Handy-Bulk 7/10
+  Cape: 2026-09-01          # 01-Sep FFA dry promote (ffa_promotion_2026-09-02.md)
+  Pana: 2026-09-01
+  Post-Panamax: 2026-09-01
+  Supra-Ultra: 2026-09-01
   VLGC: 2026-06-02
   LNGC: 2026-06-07
   MGC: 2026-06-07
@@ -55,18 +48,18 @@ as_of:
   Ctr-Intermediate: 2026-08-07
   Ctr-Large: 2026-08-07
 twelve_month_tc:
-  VLCC: 105700    # STAGE A 2026-08-10: Mount Horizon 12-15mo print (RULED D-2b; single-print + spec-premium tags)
-  Suezmax: 58050    # STAGE A 2026-08-10: derived-ratio .549 x VLCC (Jun-7 joint vintage); MB W32 assesses 75,000 — cross-check only
-  Aframax: 51450    # STAGE A 2026-08-10: derived-interp avg(front 59.9k, Blue Moon yr-1 43k); MB 52,500 corroborates
-  LR2: 51450    # STAGE A 2026-08-10: = Aframax (TNK-blended source)
-  LR1: 51450    # STAGE A 2026-08-10: derived-ratio donor LR2 (Jun-7 1.0)
+  VLCC: 105700    # STAGE B 2026-09-09: HELD — no qualifying 12M print in the window (FRO 1-yr 110/120k are May-26 fixtures, §1.3); Mount Horizon single-print + spec-premium tags stand; MB 1yr 122,500 (W35) is an assessment (S-2)
+  Suezmax: 74500    # STAGE B 2026-09-09: Monte Urbasa 156k/2018, 12 Months, ST Shipping (MB W35 8/28) — DIRECT single-print (Pareto 9/01 "74.5k" = the same fixture re-reported); Sea Topaz 80k 2026-NB scrubber EXCLUDED S-5/S-6 (doc-row, spec-premium); Stage-A derived-ratio retires; MB 1yr 77,500 corroborates (S-2)
+  Aframax: 56000    # STAGE B 2026-09-09: DIRECT N=4 median (Pm Monarch 55k · Jag Lara 60k · Tp Spirit 52.5k · Lyric Magnolia 57k 9-month on the bucket floor; MB W33-34); Stage-A derived-interp retires; MB 1yr 60,000 corroborates (S-2). Afra/Suez 12M 0.7517 — INSIDE 0.75-1.05 by 0.0017
+  LR2: 56000    # STAGE B 2026-09-09: = Aframax (TNK-blended convention unchanged)
+  LR1: 56000    # STAGE B 2026-09-09: derived-ratio donor LR2 (Jun-7 1.0); Kk Marlin 5Y EXCLUDED S-3 (extension)
   LNGC: 60000           # STALE Jun-7 — held
   MGC: 28000            # STALE Jun-7 — held
-  MR: 29250    # STAGE A 2026-08-10: DIRECT N=4 fixture median; MB 29,000 corroborates
-  Handysize: 20750    # STAGE A 2026-08-10: derived (donor Handymax)
-  Handymax: 20750    # STAGE A 2026-08-10: MR-shape scaled x.71 on the STNG 20.8k front
-  LR1_clean: 37000    # STAGE A 2026-08-10: derived .7184 x LR2_clean; lands EXACTLY on MB LR1[TC5] 37,000
-  LR2_clean: 51500    # STAGE A 2026-08-10: Torm Herdis 12mo print (single-print); MB 52,500 corroborates
+  MR: 30000    # STAGE B 2026-09-09: DIRECT N=5 median (+Ps Imabari 52.8k/2022 12M 30.4k Suncor, W34); Challenge Pollux 27k EXCLUDED S-3 (extension); Fpmc 33 8-10mo below the 9-month bucket floor; front 29,600 < 12M — §5 look done, $400/day, no input error
+  Handysize: 21100    # STAGE B 2026-09-09: derived (donor Handymax)
+  Handymax: 21100    # STAGE B 2026-09-09: MR-shape x .7027 (STNG 20.8k front / MR 29.6k front, ratio re-derived; Stage A's literal .71 would read 21,300)
+  LR1_clean: 37000    # STAGE B 2026-09-09: HELD derived .7184 x LR2_clean (no LR1 12M print; MB LR1[TC5] 37,500 corroborates, S-2). Front 32,608 < 12M — a direct print vs a DERIVED 12M, §5 look done
+  LR2_clean: 51500    # STAGE B 2026-09-09: HELD Torm Herdis 12mo single-print (no new clean 12M print; HAFN's fleet-wide 30.7k un-split); MB 57,500 corroborates (S-2)
   VLGC: 63615           # Dorian Q1-2026 realized TCE — disclosure-cluster vintage 2026-06-02 (held)
   Cape: 37025           # (44125 Q4 + 29925 Q1-27)/2 = 37025 exact, FFA 01-Sep image-verified
                         # print (ffa_promotion_2026-09-02.md; was 37300 31-Aug — -0.74%).
