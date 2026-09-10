@@ -1,5 +1,30 @@
 # HAFN — Decision Log
 
+## 2026-09-09 — Price-leg annotation (2026-09-09 vintage)
+
+**Decision:** PRICE LEG — the 2026-09-09 close vintage absorbed as its own commit (7a87d1a), regenerated on the Stage A tanker inputs so the tape attributes to the tape before Stage B re-lands on this surface. No input other than prices_daily.yaml moved since the 08f99fc surface (valued at the 9/04 tape): ΔNAV is exactly 0.0 on every row except the standing 9/01 residues. ΔEV -5.0pp · Δk +0.110 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change).
+
+---
+
+## 2026-09-10T03:39:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $9.16
+- Single-point FV: $4.83
+- Scenario PW FV: $5.59 (EV -39.0%)
+- NAV / share: $4.64
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +43.6pp (k_broker 1.66)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ broker spread +5.7pp
+- Δprice: +0.86 | Δsingle FV: -1.8% | Δscenario FV: +2.2% | ΔNAV: no change | Δspread: +5.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-07 — Price-leg annotation (2026-09-04 vintage)
 
 **Decision:** PRICE LEG — the 2026-09-04 close vintage absorbed as its own commit (53a52ca; the daily refresher's output over the dark 9/05–9/06 weekend, 18 names >3%, book ≈ +5%). No input other than prices_daily.yaml moved: ΔNAV is exactly 0.0 on every row except the two named below. ΔEV -5.4pp · Δk +0.120 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change).

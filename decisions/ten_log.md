@@ -1,5 +1,30 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-09-09 — Price-leg annotation (2026-09-09 vintage)
+
+**Decision:** PRICE LEG — the 2026-09-09 close vintage absorbed as its own commit (7a87d1a), regenerated on the Stage A tanker inputs so the tape attributes to the tape before Stage B re-lands on this surface. No input other than prices_daily.yaml moved since the 08f99fc surface (valued at the 9/04 tape): ΔNAV is exactly 0.0 on every row except the standing 9/01 residues. ΔEV -6.0pp.
+
+---
+
+## 2026-09-10T03:39:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.32
+- Single-point FV: $59.21
+- Scenario PW FV: $62.66 (EV +41.4%)
+- NAV / share: $88.16
+- Position: **BUY (undervalued)**
+- Broker spread: +59.8pp (k_broker 1.34)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread +24.9pp
+- Δprice: +7.18 | Δsingle FV: -0.5% | Δscenario FV: +2.4% | ΔNAV: no change | Δspread: +24.9pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-07 — Price-leg annotation (2026-09-04 vintage)
 
 **Decision:** PRICE LEG — the 2026-09-04 close vintage absorbed as its own commit (53a52ca; the daily refresher's output over the dark 9/05–9/06 weekend, 18 names >3%, book ≈ +5%). No input other than prices_daily.yaml moved: ΔNAV is exactly 0.0 on every row except the two named below. ΔEV -4.1pp.

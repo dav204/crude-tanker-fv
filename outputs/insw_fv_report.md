@@ -1,9 +1,9 @@
 # INSW — Fair Value Report
 
-> **Valuation basis:** CRUDE SLEEVE only (65.0% of vessel value). FV and price are the CRUDE sleeve / CRUDE-ALLOCATED price $67.88 (= whole-company $104.50 × crude_share). Product sleeve (~35%) is EXCLUDED from the model FV — covered qualitatively only (v2 product strip pending). Do not compare directly to whole-company P/NAV without re-aggregating.
+> **Valuation basis:** CRUDE SLEEVE only (65.0% of vessel value). FV and price are the CRUDE sleeve / CRUDE-ALLOCATED price $67.96 (= whole-company $104.62 × crude_share). Product sleeve (~35%) is EXCLUDED from the model FV — covered qualitatively only (v2 product strip pending). Do not compare directly to whole-company P/NAV without re-aggregating.
 
 - **Report date:** 2026-Q2
-- **Current price (crude-allocated):** $67.88
+- **Current price (crude-allocated):** $67.96
 - **Model fair value:** $37.59
 - **Analyst target (crude-allocated):** $51.64
 
@@ -83,21 +83,21 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **5.70× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **5.71× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **596,699** | — |
-| 10-year mean | 33,465 | 17.83× |
-| 12-month FFA | 104,693 | 5.70× |
-| Current spot | 235,542 | 2.53× |
+| **Implied breakeven (blended)** | **597,965** | — |
+| 10-year mean | 33,465 | 17.87× |
+| 12-month FFA | 104,693 | 5.71× |
+| Current spot | 235,542 | 2.54× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Suezmax (45% of fleet value) | 504,265 | 18.17× |
-| VLCC (40% of fleet value) | 813,178 | 20.33× |
-| Aframax (10% of fleet value) | 317,320 | 8.70× |
-| LR1 (6% of fleet value) | 317,320 | 11.50× |
+| Suezmax (45% of fleet value) | 505,335 | 18.21× |
+| VLCC (40% of fleet value) | 814,904 | 20.37× |
+| Aframax (10% of fleet value) | 317,994 | 8.72× |
+| LR1 (6% of fleet value) | 317,994 | 11.52× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -109,11 +109,11 @@ The current price requires the fleet to run at **5.70× the current forward curv
 | **+15%** | $32.36 | $35.46 | $38.56 | $41.66 | $44.76 |
 | **+30%** | $33.33 | $36.43 | $39.53 | $42.63 | $45.72 |
 
-_Current price $67.88. Cycle weights held at base across the grid._
+_Current price $67.96. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$37.59** is -44.6% vs the current price ($67.88) and -27.2% vs the analyst target ($51.64). The current price implies the fleet earning a value-weighted blended **$596,699/day** (5.70× the current forward) — 17.8× the value-weighted 10-yr mean ($33,465, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$37.59** is -44.7% vs the current price ($67.96) and -27.2% vs the analyst target ($51.64). The current price implies the fleet earning a value-weighted blended **$597,965/day** (5.71× the current forward) — 17.9× the value-weighted 10-yr mean ($33,465, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

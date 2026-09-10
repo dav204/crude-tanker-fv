@@ -1,9 +1,35 @@
 # STNG — Decision Log
 
+## 2026-09-09 — Price-leg annotation (2026-09-09 vintage)
+
+**Decision:** PRICE LEG — the 2026-09-09 close vintage absorbed as its own commit (7a87d1a), regenerated on the Stage A tanker inputs so the tape attributes to the tape before Stage B re-lands on this surface. No input other than prices_daily.yaml moved since the 08f99fc surface (valued at the 9/04 tape): ΔNAV is exactly 0.0 on every row except the standing 9/01 residues. ΔEV -6.0pp · band HOLD (fairly valued) → TRIM/SHORT (overvalued) (mechanical crossing on the price leg) · Δk +0.120 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change).
+
+---
+
 Chronological record of model state at each pipeline run plus the investment
 decisions taken (or explicitly not taken). Newest entries appear at the top.
 Auto-prepended sections capture model state; the `**Decision:**` line is
 where you annotate what you actually did and why.
+
+---
+
+## 2026-09-10T03:39:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $83.06
+- Single-point FV: $72.23
+- Scenario PW FV: $76.73 (EV -7.6%)
+- NAV / share: $76.22
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +42.0pp (k_broker 1.62)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- ⚑ broker spread +6.7pp
+- Δprice: +5.66 | Δsingle FV: -0.6% | Δscenario FV: +1.0% | ΔNAV: no change | Δspread: +6.7pp
+
+**Decision:** _[pending annotation]_
 
 ---
 

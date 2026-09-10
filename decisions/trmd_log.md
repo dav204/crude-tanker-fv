@@ -1,5 +1,31 @@
 # TRMD — Decision Log
 
+## 2026-09-09 — Price-leg annotation (2026-09-09 vintage)
+
+**Decision:** PRICE LEG — the 2026-09-09 close vintage absorbed as its own commit (7a87d1a), regenerated on the Stage A tanker inputs so the tape attributes to the tape before Stage B re-lands on this surface. No input other than prices_daily.yaml moved since the 08f99fc surface (valued at the 9/04 tape): ΔNAV is exactly 0.0 on every row except the standing 9/01 residues. ΔEV -8.8pp · band BUY (undervalued) → HOLD (fairly valued) (mechanical crossing on the price leg) · Δk +0.080 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change).
+
+---
+
+## 2026-09-10T03:39:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $35.46
+- Single-point FV: $32.14
+- Scenario PW FV: $35.79 (EV +0.9%)
+- NAV / share: $32.30
+- Position: **HOLD (fairly valued)**
+- Broker spread: +16.4pp (k_broker 1.16)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- ⚑ broker spread +9.9pp
+- Δprice: +3.66 | Δsingle FV: -1.5% | Δscenario FV: +1.8% | ΔNAV: no change | Δspread: +9.9pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-07T20:11:53+00:00 — Pipeline run (auto)
 
 **Model state:**

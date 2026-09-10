@@ -1,5 +1,30 @@
 # TNK — Decision Log
 
+## 2026-09-09 — Price-leg annotation (2026-09-09 vintage)
+
+**Decision:** PRICE LEG — the 2026-09-09 close vintage absorbed as its own commit (7a87d1a), regenerated on the Stage A tanker inputs so the tape attributes to the tape before Stage B re-lands on this surface. No input other than prices_daily.yaml moved since the 08f99fc surface (valued at the 9/04 tape): ΔNAV is exactly 0.0 on every row except the standing 9/01 residues. ΔEV -7.5pp · Δk +0.170 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change).
+
+---
+
+## 2026-09-10T03:39:04+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $96.31
+- Single-point FV: $83.23
+- Scenario PW FV: $83.93 (EV -12.8%)
+- NAV / share: $84.60
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +19.3pp (k_broker 1.43)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread +7.5pp
+- Δprice: +8.11 | Δsingle FV: -1.1% | Δscenario FV: +1.8% | ΔNAV: no change | Δspread: +7.5pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-07T20:11:53+00:00 — Pipeline run (auto)
 
 **Model state:**

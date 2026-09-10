@@ -1,5 +1,11 @@
 # BRUT — Decision Log
 
+## 2026-09-09 — Price-leg annotation (2026-09-09 vintage)
+
+**Decision:** PRICE LEG — the 2026-09-09 close vintage absorbed as its own commit (7a87d1a), regenerated on the Stage A tanker inputs so the tape attributes to the tape before Stage B re-lands on this surface. No input other than prices_daily.yaml moved since the 08f99fc surface (valued at the 9/04 tape): ΔNAV is exactly 0.0 on every row except the standing 9/01 residues. ΔEV -2.5pp.
+
+---
+
 Chronological record of model state at each pipeline run plus the investment
 decisions taken (or explicitly not taken). Newest entries appear at the top.
 Auto-prepended sections capture model state; the `**Decision:**` line is
