@@ -13,7 +13,7 @@ from crude_tanker_fv.pipeline import (
 
 
 def test_inputs_load():
-    ci = load_company_inputs("CMBT", "2026-Q1")
+    ci = load_company_inputs("CMBT", "2026-Q2")
     assert ci is not None
 
 
@@ -22,20 +22,20 @@ def test_cmbt_is_multi_sleeve():
 
 
 def test_fleet_counts():
-    ci = load_company_inputs("CMBT", "2026-Q1")
+    ci = load_company_inputs("CMBT", "2026-Q2")
     counts: dict[str, int] = {}
     for v in ci.fleet.vessels:
         counts[v.cls] = counts.get(v.cls, 0) + v.count
     assert counts["VLCC"] == 4
-    assert counts["Suezmax"] == 16
-    assert counts["Cape"] == 75          # 38 Newcastlemax + 37 Capesize
+    assert counts["Suezmax"] == 15         # Q2 pair 2026-09-10: Brest/Brugge/Stella off-curve (HFS), +Cap Grace/Cap Joseph; Bristol stays
+    assert counts["Cape"] == 76          # Q2 pair: 40 Newcastlemax (CAPE_2026 recounted 2->4) + 36 Capesize (Golden Myrtalia off-curve)
     assert counts["Pana"] == 30          # 26 Kamsarmax + 4 Panamax
     assert counts["Ctr-Large"] == 4
     assert sum(counts.values()) == 129    # on_curve_total cross-foot
 
 
 def test_sleeve_shares_sum_to_one_and_drybulk_dominates():
-    ci = load_company_inputs("CMBT", "2026-Q1")
+    ci = load_company_inputs("CMBT", "2026-Q2")
     shares = {sec: sector_carve_out(ci, sec).sleeve_share
               for sec in ("crude", "dry_bulk", "containerships")}
     assert sum(shares.values()) == pytest.approx(1.0)
@@ -45,7 +45,7 @@ def test_sleeve_shares_sum_to_one_and_drybulk_dominates():
 
 
 def test_each_sleeve_fleet_is_class_clean():
-    ci = load_company_inputs("CMBT", "2026-Q1")
+    ci = load_company_inputs("CMBT", "2026-Q2")
     assert {v.cls for v in sector_carve_out(ci, "crude").sleeve_inputs.fleet.vessels} == {"VLCC", "Suezmax"}
     assert {v.cls for v in sector_carve_out(ci, "dry_bulk").sleeve_inputs.fleet.vessels} == {"Cape", "Pana"}
     assert {v.cls for v in sector_carve_out(ci, "containerships").sleeve_inputs.fleet.vessels} == {"Ctr-Large"}
@@ -53,7 +53,7 @@ def test_each_sleeve_fleet_is_class_clean():
 
 def test_whole_co_nav_aggregation_invariant():
     """Sum of the three sleeve NAV/share ≈ whole-company compute_nav (§11.9)."""
-    ci = load_company_inputs("CMBT", "2026-Q1")
+    ci = load_company_inputs("CMBT", "2026-Q2")
     whole = compute_nav(ci).nav_per_share
     parts = sum(compute_nav(sector_carve_out(ci, sec).sleeve_inputs).nav_per_share
                 for sec in ("crude", "dry_bulk", "containerships"))
@@ -61,7 +61,7 @@ def test_whole_co_nav_aggregation_invariant():
 
 
 def test_scenario_headline_is_whole_company():
-    ci = load_company_inputs("CMBT", "2026-Q1")
+    ci = load_company_inputs("CMBT", "2026-Q2")
     sector_docs = _load_all_sectors()
     watchlist = {"CMBT": {"sector": "crude"}}
     headline, crude_r, product_r = _run_scenarios_for_ticker(
