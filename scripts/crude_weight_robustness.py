@@ -53,6 +53,16 @@ from crude_tanker_fv.pipeline import (
 # bracket the "how fast does normalisation arrive" axis (the dominant
 # uncertainty for 2026 crude calls).
 CRUDE_WEIGHT_SETS = {
+    # Set A''' adopted 2026-09-10 — the C3 escalation tilt R5 had declined on 8/16
+    # (uncorroborated pause) executed ON VERIFICATION at the owner's word once the
+    # pause's end was corroborated (ended 8/30; campaign from 9/01; TD3C $790.8k
+    # 9/10): +3pp escalation from pre_mou_baseline's fast-reverting-flare-up mass;
+    # mou_bear retained as the fee-regime tail. Fork escalation_c3_rearm,
+    # decisions/escalation_c3_rearm_2026-09-10.md.
+    "Crude Set A''' (C3 re-armed, production 2026-09-10)": {
+        "escalation": 0.28, "pre_mou_baseline": 0.59,
+        "mou_base":   0.00, "mou_bear":         0.13,
+    },
     # Set A refreshed 2026-07-02 to the ACTUAL locked weights — it had silently
     # kept the pre-Jun-9 v1 set after the Jun-9 escalation reweight, so the
     # "current locked" column was not the production prior for three weeks.
@@ -61,8 +71,8 @@ CRUDE_WEIGHT_SETS = {
     # window expired into interdiction with neither pre-registered branch
     # firing; mou_base's benign-conditional 0.05 retires to the observed-state
     # leg. mou_base retained at zero (series continuity); escalation untouched
-    # (C3 declined).
-    "Crude Set A'' (C2 toll-cliff, production 2026-08-16)": {
+    # (C3 declined). Production 2026-08-16 -> 2026-09-10; history bracket since.
+    "Crude Set A'' (C2 toll-cliff, production 2026-08-16 to 09-10, history bracket)": {
         "escalation": 0.25, "pre_mou_baseline": 0.62,
         "mou_base":   0.00, "mou_bear":         0.13,
     },
