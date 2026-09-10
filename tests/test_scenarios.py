@@ -57,7 +57,13 @@ def test_scenarios_parse_and_weights_sum_to_one(doc):
     # benign-conditional mass retires there. escalation untouched (C3 declined).
     # decisions/crude_day60_toll_cliff_2026-08-16.md.
     assert {n: doc["scenarios"][n]["weight"] for n in names} == {
-        "escalation": pytest.approx(0.25), "pre_mou_baseline": pytest.approx(0.62),
+    # Re-pinned 2026-09-10 (fork escalation_c3_rearm, EXECUTED ON VERIFICATION at the
+    # owner's word — "scenarios should be reweighted to whatever the scenario is in real
+    # life at present today": 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13, the +3pp C3
+    # tilt R5 had declined on an uncorroborated pause; the pause ENDED 8/30. Donor =
+    # pre_mou_baseline's fast-reverting-flare-up mass (the flare-up did not revert);
+    # mou_bear retained as the fee-regime tail. decisions/escalation_c3_rearm_2026-09-10.md)
+        "escalation": pytest.approx(0.28), "pre_mou_baseline": pytest.approx(0.59),
         "mou_base": pytest.approx(0.00), "mou_bear": pytest.approx(0.13),
     }
     # The retired leg STAYS in the deck at zero — series continuity (the Jul-02

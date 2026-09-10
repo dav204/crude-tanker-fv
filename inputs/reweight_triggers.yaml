@@ -44,13 +44,14 @@ crude_geopolitics_weekly:
     uncorrected premise. A reweight proposal is pre-registered (predicted impact per
     crude name, band, flip tripwires), verified, then registered in inputs/forks.yaml
     under the silence rule (owner policy 2026-09-10) — it executes by silence or word.
-  status: fired-ruled-deferred   # LEG 2 FIRED 2026-09-10 (pause ended 8/30). The reweight
-                                 # question is the fork escalation_c3_rearm (proposal in
-                                 # progress, then registered with its recommendation);
-                                 # AMBER until the deadline below, RED if it passes unlanded.
-  stage_a_deadline: 2026-09-15   # = the fork's execute_after (3 business days from 9/10)
-  ruling: "owner policy 2026-09-10 — silence executes the pre-registered recommendation on 2026-09-15; 'aren't we doing that part as well' (2026-09-10)"
-  added: 2026-08-16              # both parents; folded 2026-09-10
+  status: armed     # LEG 2 FIRED 2026-09-10 (pause ended 8/30) -> DECISION RECORDED the
+                    # same day: fork escalation_c3_rearm EXECUTED ON VERIFICATION (owner:
+                    # "scenarios should be reweighted to whatever the scenario is in real
+                    # life at present today") — crude 0.25/0.62/0.00/0.13 -> 0.28/0.59/
+                    # 0.00/0.13, decisions/escalation_c3_rearm_2026-09-10.md. Re-armed on
+                    # the weekly cadence (due above); the next check re-reads BOTH legs
+                    # against the current state and re-runs the question if it changed.
+  added: 2026-08-16 # both parents; folded 2026-09-10
 
 product_glut_arrival_timing:
   sector: product

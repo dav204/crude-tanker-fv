@@ -2,10 +2,23 @@
 # EXECUTES after 3 business days of silence. The sentinel pages FORK-EXECUTABLE once
 # execute_after passes; the executing agent flips status to executed and cites the commit.
 # A fork answered any other way (a word in the session) is closed here the same way.
+# AMENDMENT (owner, 2026-09-10, on the escalation reweight — "what do you expect to learn
+# between 9/10 and 9/15 that would change that"): the silence window is for JUDGMENT forks,
+# where the owner's objection is the point. A reweight that tracks an OBSERVED STATE (the
+# scenario weights follow what the world is today) executes ON VERIFICATION — execute_after =
+# the day the verified proposal returns. Mark such forks `kind: state-tracking`.
 policy:
   silence_business_days: 3
   ruled: 2026-09-10
+  state_tracking_executes_on_verification: true   # amended 2026-09-10
 forks:
+  - id: escalation_c3_rearm
+    kind: state-tracking
+    doc: decisions/escalation_c3_rearm_2026-09-10.md
+    opened: 2026-09-10
+    execute_after: 2026-09-10
+    recommendation: "Crude 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13: +3pp escalation from pre_mou_baseline (pause ended 8/30, campaign from 9/01, TD3C $790.8k 9/10); ΔNAV 0.0; crude EV +0.5..+2.4pp, non-crude 0.0; BRUT HOLD->BUY predicted +5.6 (masked, inside deadband); CAPT T/S -7.0"
+    status: executed   # 2026-09-10 on verification (owner: "execute on return"); commit cited in the record
   - id: cmbt_q2_c1_c2_c3
     doc: decisions/cmbt_q2_refresh_packet_2026-09-07.md
     opened: 2026-09-07

@@ -139,7 +139,15 @@ sectors:
         # MoU-lifted sanctions + CENTCOM retaliation, transit threat 'severe'. The
         # pre-registered action restores the war-tilt SAME DAY (executed at owner go,
         # 5 days late — watch-layer install gap). decisions/doha_check_2026-07-12.md.
-        weight: 0.25
+        # RE-ARMED 2026-09-10 (fork escalation_c3_rearm, executed ON VERIFICATION at the
+        # owner's word — 'scenarios should be reweighted to whatever the scenario is in
+        # real life at present today'): 0.25 -> 0.28, the +3pp C3 tilt R5 had declined on
+        # an uncorroborated pause — the pause ENDED 8/30 (CENTCOM Larak Island; campaign
+        # from 9/01; Iranian strikes on US bases; TD3C $790.8k 9/10 after seven straight
+        # rises, above this leg's own Q3 upper bound). Donor: pre_mou_baseline's fast-
+        # reverting-flare-up mass — the flare-up stopped reverting. mou_bear RETAINED
+        # 0.13 (the fee-regime tail, LEG 1). decisions/escalation_c3_rearm_2026-09-10.md
+        weight: 0.28
         description: >
           Conflict escalates beyond current intensity (third-party strike, wider
           MEG closure, no MoU). MEG-loading VLCC/LR2 sustain $400k+ near-term;
@@ -223,7 +231,12 @@ sectors:
         # leg is registered to mean. escalation UNTOUCHED again: the +3pp tilt (C3) was
         # DECLINED as exceeding the registered action and resting on one week's tape plus
         # an uncorroborated pause status (successor: escalation_pause_corroboration).
-        weight: 0.62
+        # 2026-09-10: 0.62 -> 0.59 — the 3pp of 'sporadic fast-reverting flare-up' mass
+        # this leg was raised for (see the weighting rule above) migrates to escalation:
+        # the flare-up did not revert (fork escalation_c3_rearm, executed on verification;
+        # decisions/escalation_c3_rearm_2026-09-10.md). The FLOW state this leg describes
+        # (Hormuz ~7 mb/d via STS, MEG 10 mb/d) still holds — hence 0.59, not less.
+        weight: 0.59
         semantics_changed: 2026-07-02
         description: >
           MoU-INEFFECTIVE (semantic shift 2026-07-02; key name kept to avoid YAML/
