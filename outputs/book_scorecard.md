@@ -51,8 +51,8 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | 2343 | dry_bulk | GOVERNED-WIDE · pending-anchor | $0.54 | $0.38 | 0.31–0.43 | -31% | TRIM/SHORT (overvalued) | $0.41 | $0.41 | $0.44 (apx) | -6% | n-a | ready | stable |
 | CCEC | lng | GOVERNED-WIDE · structural-class | $22.60 | $33.70 | 16.27–47.20 | +49% | BUY (undervalued) | $29.97 | $25.70 | $25.11 (apx) | +2% | n-a | ready | stable |
 | FLNG | lng | GOVERNED-WIDE · structural-class | $31.14 | $29.47 | 19.34–38.00 | -5% | TRIM/SHORT (overvalued) | $27.01 | $27.22 | $21.62 | +26% | OK | ready | stable |
-| GSL | containerships | GOVERNED-WIDE · structural-class | $45.02 | $42.88 | 38.58–46.64 | -5% | HOLD (fairly valued) | $44.02 | $41.20 | $60.03 (apx) | -31% | n-a | ready | — |
-| MPCC | containerships | GOVERNED-WIDE · structural-class | $2.94 | $2.15 | 1.78–2.28 | -27% | unreliable read (not actionable) | $2.29 | $2.10 | $2.82 (apx) | -25% | n-a | ready | — |
+| GSL | containerships | GOVERNED-WIDE · structural-class | $45.02 | $42.82 | 38.53–46.57 | -5% | HOLD (fairly valued) | $44.04 | $41.20 | $60.03 (apx) | -31% | n-a | ready | — |
+| MPCC | containerships | GOVERNED-WIDE · structural-class | $2.94 | $2.13 | 1.77–2.26 | -28% | unreliable read (not actionable) | $2.29 | $2.10 | $2.82 (apx) | -25% | n-a | ready | — |
 | HAFN | product | PROVISIONAL · pool-gross-up-pending ⛔ | $9.16 | $5.47 | 3.08–7.69 | -40% | rich · cycle position (not a short) | $4.92 | $4.64 | $8.89 | -48% | OK | **NO** | stable |
 | STNG | product | PROVISIONAL · off-curve ⛔ | $83.06 | $75.97 | 55.01–92.63 | -9% | TRIM/SHORT (overvalued) | $72.66 | $76.22 | $113.78 | -33% | OK | **NO** | stable |
 | BWLP | lpg | PROVISIONAL · v1-lock-miss ⛔ | $24.15 | $14.52 | 10.92–18.28 | -40% | rich · cycle position (not a short) | $15.48 | $15.83 | $19.01 | -17% | OK | **NO** | stable |

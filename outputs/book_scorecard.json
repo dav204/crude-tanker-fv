@@ -1,7 +1,7 @@
 {
   "schema_version": "2.8",
-  "generated_at": "2026-09-10T03:41:11+00:00",
-  "source_commit": "0e6c518",
+  "generated_at": "2026-09-10T13:39:08+00:00",
+  "source_commit": "a423d82",
   "quarter": "2026-Q2",
   "price_basis": {
     "total": 25,
@@ -688,9 +688,9 @@
       "sanity": "n-a",
       "price": 45.02,
       "position": "HOLD (fairly valued)",
-      "fv": 42.88,
-      "ev_pct": -4.8,
-      "blend_fv": 44.02,
+      "fv": 42.82,
+      "ev_pct": -4.9,
+      "blend_fv": 44.04,
       "nav_per_share": 41.2,
       "broker_nav": 60.03,
       "gap_pct": -31.4,
@@ -704,8 +704,8 @@
       "flip_margin_pct": null,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
-      "fv_low": 38.58,
-      "fv_high": 46.64,
+      "fv_low": 38.53,
+      "fv_high": 46.57,
       "balance_sheet_vintage": "2026-Q2"
     },
     {
@@ -719,8 +719,8 @@
       "sanity": "n-a",
       "price": 2.94,
       "position": "unreliable read (not actionable)",
-      "fv": 2.15,
-      "ev_pct": -27.0,
+      "fv": 2.13,
+      "ev_pct": -27.6,
       "blend_fv": 2.29,
       "nav_per_share": 2.1,
       "broker_nav": 2.82,
@@ -735,8 +735,8 @@
       "flip_margin_pct": null,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
-      "fv_low": 1.78,
-      "fv_high": 2.28,
+      "fv_low": 1.77,
+      "fv_high": 2.26,
       "balance_sheet_vintage": "2026-Q2"
     },
     {
