@@ -1,5 +1,11 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-09-10 — H1-2026 results release landed (report day); the 6-K has not
+
+**Decision:** TEN reported at 09:15 ET (GlobeNewswire 3359616): H1 net income $228.1M / EPS $7.12; Q2 $139.3M / $4.40 (inclusive of the $37,870k Ulysses gain); Q2 TCE $46,100; cash 466,143k; debt 2,102,177k; advances 470,050k; equity 2,054,657k; 64.0 vessels / 7,702k dwt at 30 June. THE PAIR IS NOT WRITABLE FROM THE RELEASE — no fleet table, weighted-average shares only, NCI roll and lease population unverified — so the Q2 sheet waits for the 6-K (FILING-LANDED pages when it stages; STALE-BALANCE-SHEET TEN stands). Subsequent events audited first: Ulysses IN; Anfield DP delivered 28 July (10-year charter, $500M max-duration envelope, ~$68.5k/day over 20 years) OUT; Alaska + Archangel sold August for $100M NET AGGREGATE (never split) OUT — open question for the 6-K build: were they held-for-sale AT 30 June (MOA date)? July $1.00 dividend OUT as cash. PRICE REBASE applied (option B, the 2026-06-10 anchors carried forward): current_price 44.32 (9/09 close, prices_daily), consensus_pnav 0.34 -> 0.41 (44.32 / 109.24), consensus_fwd_pe 4.6 -> 5.5 (44.32 / $8), as_of 2026-09-09 — APPROX both, Pareto publishes no TEN row. Valuation unaffected (live close); the surface's broker-NAV fields move on the next regen. Governance: nothing in the release moves the 30% haircut. Record: decisions/ten_h1_release_check_2026-09-10.md.
+
+---
+
 ## 2026-09-09 — Stage B annotation (tanker re-anchor 2026-09-09)
 
 **Decision:** STAGE B — tanker curves + 12M re-anchored under the 2026-09-09 owner ruling (inputs 0e6c518; record + frozen predicted impact in decisions/stage_b_promotion_2026-09-09.md). A RATE-ONLY event: ΔNAV is exactly 0.0 on every name (nav.py reads no rate file); the EV move is the scenario deck re-reading the new curve through forward_ref. Direction DOWN as predicted. ΔEV -9.4pp. Ratify rides the owner's next ratify_baseline.sh with the promotion record as cause.
