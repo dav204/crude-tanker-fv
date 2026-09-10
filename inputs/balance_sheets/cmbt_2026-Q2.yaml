@@ -1,0 +1,162 @@
+# CMB.TECH NV (CMBT) balance sheet snapshot — METHODOLOGY §4.2, §11.9. USD, as-of 2026-06-30.
+# Source: H1-2026 half-year report, 6-K accession 0000919574-26-006193 (filed 2026-09-04), Ex-99.2
+# = notes-bearing financial report (page images img_000-052), Ex-99.1 = narrative report
+# (img_053-085). Citations are img_NNN + printed page + note. The staged .htm exhibits are
+# image-only shells (0 figures) — the 86 page images were fetched from the EDGAR filing
+# directory 2026-09-07 (decisions/cmbt_q2_refresh_packet_2026-09-07.md, App. A §0).
+# ASSURANCE: the auditor's report (img_051, Antwerp 2 Sep 2026) is an ISRE 2410 REVIEW, not an
+# audit ("we do not express an audit opinion") — every figure below is reviewed, not audited.
+# Subsequent events (Note 26 img_049 p.50) audited FIRST and kept OUT: 14-Jul Windcat 65 CTV
+# delivery (advances stay in AUC); 3-Aug Donoussa sale announcement (asset IN as HFS at 30 Jun
+# per Note 8; the USD 74.3M gain is Q4-2026, OUT); 11-Aug Bristol sale announcement (OUT
+# entirely — Bristol is an on-water Suezmax at 30 Jun, absent from Note 8). Outside Note 26:
+# Note 6 img_015 says Brest/Brugge "have been delivered in the third quarter of 2026" (gain
+# USD 100.2M, Q3) — IN at 30 Jun as HFS at carrying value, delivery + gain OUT.
+# The 31-AUGUST fleet table (img_059) and its "18.28 USD" share price were NOT used anywhere.
+# Executes fork cmbt_q2_c1_c2_c3 (inputs/forks.yaml, executable on 2026-09-10 = recommendation):
+#   C-1 YES — the five held-for-sale hulls leave the on-curve manifest; HFS 219,985 enters
+#             working_capital_net at IFRS-5 carrying value (see the HFS block).
+#   C-2 YES — the FSO placeholder stays WITH its secured loan inside total_debt.
+#   C-3 YES — governance_discount_pct stays 0.0; Note 23 tripwire recorded.
+# PAIR: lands in ONE commit with inputs/fleet_manifests/cmbt.yaml report_date: 2026-Q2
+# (pair guard, tests/test_quarter_coherence.py) and with newbuild_advances_paid falling
+# 759,807 -> 532,660 as the seven H1 hulls go on-curve (else they are double-counted).
+
+ticker: CMBT
+quarter: 2026-Q2
+source_url: https://www.sec.gov/Archives/edgar/data/1604481/000091957426006193/
+retrieved_at: 2026-09-07
+filing_period_end: 2026-06-30
+
+# Cash 151,574 + short-term investments 8,271 (both liquid) = 159,845 — statement of
+# financial position img_001 p.2 (Q1: 202,871). Cash-flow tie: 146,529 + 6,036 − 991 = 151,574
+# (App. B §1). NOT included (known exclusion, Note 20 img_041 p.42): USD 51.4M cash security
+# lodged with the High Court of Malaysia (realisation ~2 years) and the 19,029 ammonia-engine
+# development advance — convention-consistent with Q1, disclosed here.
+cash_and_equivalents: 159845000
+
+# working_capital_net = operating WC + the OFF-CURVE segments at segment book (§11.9) + the
+# Investments line + assets held for sale. All at 30 Jun 2026 unless stated. USD thousands:
+#   operating WC (img_001/img_002, Q1 convention): inventory 120,674 + trade & other
+#     receivables 415,688 + current tax assets 2,828 − trade & other payables 235,139
+#     − current tax liabilities 2,807                                        = +301,244
+#   + Bochem chemical vessels at segment book, Note 7 img_017 p.18 (Q1 used the
+#     Dec-25 20-F value 276,374 — the staleness caveat is RETIRED; now 30-Jun)  = +312,680
+#   + Windcat vessels at segment book, Note 7 img_017 (Dec-25: 196,542)         = +264,585
+#   + Investments line, img_001 / Note 25 img_047 p.48 — RELABELLED: this is mostly
+#     FVTPL equity stakes (Anglo-Eastern Univan 10% USD 45.0M, SwissMarine 15.92%
+#     USD 44.8M = 89,825 non-current FVTPL, derived 154,217 − 64,392) plus
+#     equity-accounted JVs 28,320 + associates 36,072 = 64,392 (Note 25 img_048).
+#     The Q1 label "equity-accounted JV investments" was wrong; the whole-line
+#     amount convention carries (Q1: 132,308). No FSO sits in the investees.      = +154,217
+#   + assets held for sale at IFRS-5 CARRYING value, img_001 / Note 8 img_019 p.20 = +219,985
+#       Included ONLY because C-1 moves all five hulls OFF the on-curve manifest in the
+#       paired cmbt.yaml (else double-count, $0.758/share). Composition (Note 8 + Note 7):
+#         Brugge + Brest (Suezmax 2023) "combined carrying value of USD 123.8 million"
+#           — COMBINED figure, MoAs 12 Jun 2026, never split per hull            123,800
+#         Donoussa (VLCC 2016) "carrying value of USD 49.4 million", Note 8       49,400
+#         Golden Myrtalia (Capesize 2011) = Bocimar HFS column, Note 7 img_017,
+#           the only Bocimar hull in Note 8 (segment-pinned)                      25,166
+#         Stella (Suezmax 2011) RESIDUAL [DERIVED]: Euronav HFS 194,819 (Note 7)
+#           − 123,800 − 49,400 = 21,619; cross-check Note 12 img_025 transfer
+#           (173,196): 219,985 − 173,196 − 25,166 = 21,623 (±0.1M rounding)       21,619
+#         foot: 123,800 + 49,400 + 25,166 + 21,619 = 219,985 = img_001 / Note 7 total
+#       Basis note: carrying value (branch A of the packet's Fork 2), per the C-1 ruling
+#       text "off-curve at HFS". The DHT precedent (dht_2026-Q2.yaml, Bauhinia) is
+#       REALIZED net price; agreed-price basis here would be Brugge+Brest 224,000 (Note 8)
+#       + Donoussa 123,700 [DERIVED 49.4 + 74.3 gain, Note 26] + the two no-MoA hulls at
+#       carrying = 394,485 (+174,500 = +$0.601/share) — NOT applied, recorded for the owner.
+#       Ilma / Ingrid (VLCC) + Sienna (Suezmax), the Q1 HFS line 137,513, were DELIVERED in
+#       Q2 (Note 6 img_015: gain USD 98.2M; Note 8: Sienna 2 Jun 2026, USD 29.2M) — OUT.
+#   TOTAL = 301,244 + 312,680 + 264,585 + 154,217 + 219,985 = 1,252,711 (Q1: 912,136)
+# Goodwill 177,022 (img_001) EXCLUDED (not a vessel asset). FSO is NOT here (see
+# shuttle_contracted_book). Full-statement cross-foots reproduce: non-current 7,908,869 +
+# current 919,020 = 8,827,889 = equity 3,120,994 + 4,887,666 + 819,229 (img_001/img_002).
+working_capital_net: 1252711000
+
+# Total interest-bearing debt EXCL. IFRS-16 leases — img_002 p.3 face amounts, itemised and
+# footed to Note 16 img_031 p.32 (identical Q1 convention: sale-and-leaseback book inside
+# "other borrowings"):
+#   bank loans        non-current 2,869,323 + current 195,082 = 3,064,405
+#   other borrowings  non-current 1,998,055 + current 180,981 = 2,179,036
+#   other notes       current                                =   203,619
+#   total                                                    = 5,447,060   (Q1: 5,238,160; +208,900)
+#   Note 16 grand total 5,452,661 = 5,447,060 + leases 5,601 (foots).
+# C-2: the secured FSO loan (Note 16 img_032 p.33, "Secured FSO loan 161.1M", SOFR+2.05%,
+# 2030, facility 110,619 fully drawn, carrying 109,937) is INSIDE this figure and stays
+# paired with shuttle_contracted_book below — removing one side without the other
+# mis-states NAV by ~$0.72/share (App. B Finding 2). Fleet-wide encumbrance: "All vessels
+# financed with bank loans are subject to a mortgage" (Note 12 img_027 p.28).
+total_debt: 5447060000
+
+# IFRS-16 lease liabilities: non-current 4,014 + current 1,587 = 5,601 (img_002; Note 16
+# img_031 total 5,601). Q1: 6,232.
+lease_liabilities: 5601000
+
+# Newbuild book (§3.1 / §9.6). CONVENTION CHANGE this quarter: advances-only -> COMMITMENT-NET
+# (newbuild_convention.yaml structural_exempt: CMBT "must move to commitment-net"; the engine
+# subtracts this field, nav.py). Remaining capital commitment at 30 Jun 2026 — Note 12
+# "Capital commitment" img_027 p.28: "USD 0.9 billion (December 31, 2025: USD 1.6 billion)",
+# itemised (USD k), both axes footed:
+#   tankers 78,540 | dry bulk 283,559 | container 29,570 | chemical 334,250 |
+#   offshore wind 166,361 | other 8,557 = 900,837
+#   by year: 2026 514,697 | 2027 136,359 | 2028 169,181 | 2029 80,600 = 900,837
+# The Q1 comment's "~$1.2bn" is RETIRED by the Note 12 img_027 figure above. The 25 hulls under construction
+# (Note 12 img_025 p.26: 1 VLCC, 6 Newcastlemax, 6 chemical, 3 CSOV, 1 MPASV, 2 CTV,
+# 2 coasters, 1 x 1,400 TEU, 2 bitumen, 1 harbour vessel; aggregate USD 526.0M = marine AUC
+# 525,998, Note 7) are NOT on the curve: four of the six classes have no §9.9 fit and the
+# dry-bulk / offshore lines are not split per hull, so the obligation is booked and the
+# asset is not (clause 2). Cost of this convention vs Q1: −$3.10/share.
+# FORK 3 — BRANCH A APPLIED (2026-09-10): the engine SUBTRACTS this field (nav.py:117), so
+# booking 900,837k flips CMBT from advances-only to commitment-net, −$3.10/share (900,837k /
+# 290,169,769). newbuild_convention.yaml says CMBT "must move to commitment-net (own pre-reg)"
+# — a methodology switch with its own ruling, NOT one of the three silence-executed forks.
+# Registered as fork cmbt_commitments_convention (inputs/forks.yaml). Until ruled, the Q1
+# convention continues: 0 here; the SOURCED figure — USD 900,837k, Note 12 img_027 p.28
+# ("USD 0.9 billion (December 31, 2025: USD 1.6 billion)"), six rows and four year-columns
+# both foot — stands as provenance. Commitment-net reading: NAV/share $13.36.
+newbuild_capex_commitments: 0
+
+# Assets under construction at 30 Jun 2026 — img_001 p.2 / Note 12 img_025 p.26 (Q1: 759,807;
+# transfers out of AUC 986,032 as the eleven H1 hulls delivered; marine 525,998 + other
+# 6,662 (Note 7 img_017: port vessels / R&D / H2 infra — $0.023/share, convention-consistent
+# with Q1, now disclosed). Falls IN THE SAME COMMIT as Morini, Cap Grace, Cap Joseph and the
+# four Newcastlemaxes go on-curve (cmbt.yaml). Basis caveat: img_002 footnote — prepayments
+# were reclassified into AUC and comparatives re-presented (Note 12 opens at 739,373 on the
+# new basis); whether the Q1 6-K's 759,807 is on the same basis is UNVERIFIED (App. B
+# Finding 7) — settled by the Q1-2026 6-K (filed 2026-05-19, acc 0000919574-26-003591 — fetched from EDGAR by the 2026-09-10 verification).
+newbuild_advances_paid: 532660000
+
+# Shares outstanding ex-treasury = 315,977,647 issued − 25,807,878 treasury = 290,169,769
+# (Note 15 img_030 p.31) — UNCHANGED vs Q1. Treasury shares (284,508) unchanged (img_002).
+diluted_shares_outstanding: 290169769
+
+# No preferred equity: the equity section (img_002 p.3) is share capital / premium /
+# reserves / treasury / retained earnings only; no NCI line.
+preferred_equity: 0.0
+
+# §15 governance: C-3 — haircut stays DECLINED (0.0). The Q1 tripwire "GOGL Bermuda appraisal /
+# FourWorld Antwerp outcomes" FIRED inside H1 (Note 23 img_045 p.46) and is recorded, not
+# actioned, because both outcomes went the company's way so far: Antwerp 30 Mar 2026
+# "rejected in full FourWorld's requests"; Bermuda 21 May 2026 rejected the USD 14.49/share
+# immediate-cash claim, recourse limited to s.106(6) appraisal, court expects "no material
+# delta" — UNDER APPEAL, pleaded NOVEMBER 2026 (the live tripwire: re-open this field at the
+# appeal outcome). Oceania/Black Swan: judgment reserved to end-2026, final ~end-2028.
+# Management: no provision ("not more likely than not that an outflow… will be required").
+# Other Q1 tripwires (fee creep, distribution backsliding, P/NAV<0.85, audit-committee
+# independence) unchanged. Rationale: outputs/cmbt_onboarding/05_governance_s15.md.
+governance_discount_pct: 0.0
+
+# Off-curve FSO sleeve (§11.6): FSO Africa + FSO Asia (2002). Ownership RESOLVED this quarter
+# — CONSOLIDATED, not JV: (i) the secured FSO loan sits in consolidated bank loans, Note 16
+# img_032; (ii) fleet page img_073 p.21 "FSO 2" marked owned; (iii) Note 25 img_047/048
+# equity-accounted investees total only 64,392 with no FSO. The Q1 conditional "zero this if
+# JV" therefore does NOT fire. Newly citable: FSO average TC rate USD 88,540/day H1-2026
+# (img_074 p.22) — a rate without a term. External check: a lender fully drew 110,619 against
+# the pair to 2030 (Note 16 img_032), so 100M reads conservative. The FSOs are NOT in the
+# crude manifest (cmbt.yaml off_curve_note) — no double-count against Vessels.
+# The VALUE itself remains UNSOURCED (no carrying value, counterparty or expiry disclosed):
+# this line is the deliberate remaining figure-provenance flag that keeps "cmbt" in
+# NAV_FIGURE_ESTIMATE_QUEUE (tests/test_manifest_provenance.py) — do not launder the marker.
+# Settled by: the FY2025 20-F FSO service-contract term/expiry, or a segment PP&E split.
+shuttle_contracted_book: 100000000   # APPROX placeholder, C-2 keep — paired with the 109,937 FSO loan in total_debt
