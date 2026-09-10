@@ -23,7 +23,7 @@ session; the Gmail connector reaches them); W36 in, four STALE-INPUT flags clear
 executable 9/15); container refresh W36 in TWO legs (TC: MPCC −0.6pp/GSL −0.1pp, NAV 0.0; VALUE:
 MPCC NAV +2.3%/GSL +0.4%, own band). **escalation_pause_corroboration FIRED** (checked 9 days late):
 the pause ended 8/30 — the reweight is DOCKETED to the owner, deliberately not a fork.
-**NEXT (agent):** `promote land` lane (drafted; dry-run only, cron wiring is the owner's word) ·
+**`promote land` LANDED AND WIRED:** the owner ran the first real land 2026-09-10 (baseline re-ratified at 8571711, commit 75f54cc), then "wire it in now" — the lane runs in the sentinel wrapper before auto-push; a quiet gate lands nothing, a FREEZE (rc 1) rides the ledger note. **NEXT (agent):**
 CMDB pair rebase (23.48 / 0.839 / 14.3) · TEN refresh when the filing lands · image-only filing
 page-image auto-fetch. **OWNER OWES:** the Stage B ratify (or let `promote land` do it once wired) ·
 push (cron tomorrow or by hand) · the settings.json push rule · the escalation reweight docket ·

@@ -230,3 +230,14 @@ def test_cause_skips_placeholders(tmp_path):
     d = tmp_path / "decisions"; d.mkdir()
     (d / "dht_log.md").write_text("# DHT\n\n## 2026-09-10T00:00:00+00:00 — Pipeline run (auto)\n\n**Decision:** _[pending annotation]_\n")
     assert _promote._first_decision_sentence("DHT", d) == ""
+
+
+def test_land_does_nothing_on_a_quiet_gate(tmp_path, monkeypatch, capsys):
+    """Wired into the cron 2026-09-10: a morning with no moved rows must NOT re-ratify an
+    unchanged baseline (a daily noise commit with an empty cause). Exit 0, run nothing."""
+    rows = [_row("DHT", status="stable", d_ev=0.0), _row("SB", status="stable", d_ev=0.0)]
+    root = _land_fixture(tmp_path, monkeypatch, rows)
+    calls = []
+    rc = _promote.land(root, dry_run=False, runner=lambda *a, **k: calls.append(a))
+    assert rc == 0 and calls == []
+    assert "NOTHING TO LAND" in capsys.readouterr().out

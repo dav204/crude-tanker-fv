@@ -364,11 +364,18 @@ def evaluate_land(root: Path = ROOT, now=None) -> "tuple[Verdict, str]":
 
 
 def land(root: Path = ROOT, dry_run: bool = True, runner=None) -> int:
+    """Exit codes for the cron: 0 = landed, or nothing to land; 1 = FREEZE (a precondition
+    failed — the normal state while a move awaits its annotation); never anything else."""
     runner = runner or subprocess.run
     v, cause = evaluate_land(root)
     print(v.render())
     if not v.ok:
         return 1
+    # A quiet gate is not a landing: re-ratifying an unchanged baseline every morning would
+    # be a daily noise commit with an empty cause (wired into cron 2026-09-10, owner's word).
+    if "no explained rows (gate quiet)" in cause:
+        print("NOTHING TO LAND — the gate is quiet; the baseline already describes this surface")
+        return 0
     argv = ["scripts/ratify_baseline.sh", cause]
     print()
     print("cause:", cause)

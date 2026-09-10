@@ -63,6 +63,18 @@ report_rc=0
 [ "$report_rc" -eq 0 ] || CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}weekly_report=rc${report_rc}"
 echo "=== [weekly-report] EXIT CODE $report_rc"
 
+# Auto-land (owner's word 2026-09-10, "wire it in now"): the promoter's landing lane
+# re-ratifies the drift-gate baseline ONLY when every precondition holds — 0 UNEXPLAINED,
+# every moved row annotated since the last ratify, drift-only tree, no flip toward BUY, the
+# committed surface current for HEAD and fresh. A quiet gate lands nothing; a FREEZE (rc 1)
+# is the normal state while a move awaits its annotation and rides the ledger note. Runs
+# BEFORE auto-push so the baseline commit goes out in the same morning.
+echo "=== [auto-land] $(date '+%Y-%m-%d %H:%M:%S')"
+land_rc=0
+PYTHONPATH=src ./.venv/bin/python -m crude_tanker_fv.promote land || land_rc=$?
+[ "$land_rc" -eq 0 ] || CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}auto_land=rc${land_rc}"
+echo "=== [auto-land] EXIT CODE $land_rc"
+
 # Auto-push (owner ruling 2026-09-10): push main when the tree is drift-only and the drift
 # gate reads 0 UNEXPLAINED. Held states ride the ledger note; a push is never a way past a
 # red gate. Runs here because launchd already has the shell, the env, and the keychain.
