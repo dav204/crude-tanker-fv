@@ -1,5 +1,11 @@
 # MPCC — Decision Log
 
+## 2026-09-10 — Container value-leg annotation (W36)
+
+**Decision:** CONTAINER VALUE LEG (W36, commit 15963bb; decisions/container_mb_refresh_packet_2026-09-10.md Leg B): MB 1,700 TEU 10-yr mark 29.5 -> 31.5 and 5-yr 30.0 -> 31.75 (midpoint convention re-applied), 2,700 TEU 10-yr 35.5 -> 36.0. ΔNAV +2.38% (pre-registered +2.28%), ΔEV +1.20pp; position unchanged (unreliable read stands). A VALUE event on the fleet's own class marks, landed separately from the TC leg (b5d304b, EV-only -0.6pp) so each leg attributes alone.
+
+---
+
 ## 2026-09-09 — Price-leg annotation (2026-09-09 vintage)
 
 **Decision:** PRICE LEG — the 2026-09-09 close vintage absorbed as its own commit (7a87d1a), regenerated on the Stage A tanker inputs so the tape attributes to the tape before Stage B re-lands on this surface. No input other than prices_daily.yaml moved since the 08f99fc surface (valued at the 9/04 tape): ΔNAV is exactly 0.0 on every row except the standing 9/01 residues. ΔEV -2.1pp.

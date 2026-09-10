@@ -1,5 +1,11 @@
 # GSL — Decision Log
 
+## 2026-09-10 — Container value-leg annotation (W36)
+
+**Decision:** CONTAINER VALUE LEG (W36, commit 15963bb; decisions/container_mb_refresh_packet_2026-09-10.md Leg B): 2,700 TEU 10-yr 35.5 -> 36.0, 5-yr 39.8 -> 40.0; feeder marks +2.0/+1.75. ΔNAV +0.41% (pre-registered +0.40%), ΔEV +0.30pp; HOLD unchanged. Landed separately from the TC leg (b5d304b, -0.1pp).
+
+---
+
 ## 2026-09-10T03:39:04+00:00 — Pipeline run (auto)
 
 **Model state:**

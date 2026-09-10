@@ -37,8 +37,8 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | ASC | product | $17.37 | $17.70 | 1.019× | n/a | — | 7.2% | 0.621× | no anchor → rich | n/a |
 | TEN **(WHOLE-CO)** | crude | $88.16 | $37.14 | 0.421× | n/a | — | 12.1% | 1.106× | no anchor → cheap | n/a |
 | CAPT | crude | $17.32 | $16.06 | 0.927× | 11.4% | — | 11.1% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
-| MPCC | containerships | $2.10 | $2.90 | 1.378× | n/a | — | 46.0% | — | no anchor → newbuild-heavy (unreliable) | n/a |
-| GSL | containerships | $41.20 | $38.99 | 0.946× | n/a | — | 47.8% | 4.877× | no anchor → cheap | n/a |
+| MPCC | containerships | $2.15 | $2.90 | 1.348× | n/a | — | 45.0% | — | no anchor → newbuild-heavy (unreliable) | n/a |
+| GSL | containerships | $41.37 | $38.99 | 0.942× | n/a | — | 47.6% | 4.857× | no anchor → cheap | n/a |
 | BRUT | crude | $4.92 | $4.70 | 0.955× | 10.9% | — | 10.0% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | CMBT **(WHOLE-CO)** | crude | $16.46 | $18.30 | 1.112× | n/a | — | 7.0% | 0.596× | no anchor → rich | n/a |
 | LPG | lpg | $35.69 | $49.30 | 1.381× | n/a | — | 6.9% | 0.594× | no anchor → rich | n/a |
