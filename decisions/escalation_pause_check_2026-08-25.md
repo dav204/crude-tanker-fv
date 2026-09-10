@@ -50,3 +50,9 @@ through July.
   re-cadence).
 - The C3 escalation-tilt question stays where R5 left it: DECLINED, revisitable on a
   corroborated state change — nothing tonight moves weights (0.25/0.62/0.00/0.13 stand).
+
+---
+> **SUPERSESSION ANNOTATION 2026-09-10:** the CONFIRMED outcome recorded here held for five more
+> days. The pause ENDED 2026-08-30 (CENTCOM-announced Larak Island action; campaign from 9/01;
+> Iranian strikes on US bases in Jordan/Bahrain/Kuwait). The trigger is now `fired` — the
+> escalation reweight is docketed to the owner. Record: decisions/escalation_pause_check_2026-09-10.md.

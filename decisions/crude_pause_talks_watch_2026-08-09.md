@@ -55,3 +55,10 @@ card named third.
 `crude_pause_talks_watch` → **done** (this record). Successor: none needed —
 `crude_day60_toll_cliff` (8/16) was armed 2026-07-02 and stands as the next
 crude-weights venue.
+
+---
+> **SUPERSESSION ANNOTATION 2026-09-10** (trigger `escalation_pause_corroboration`, checked 9 days
+> late): "The US strike pause HOLDS" was TRUE on this date and remained true through ~8/29 on the
+> primary and broker record. It was SUPERSEDED on 2026-08-30 by CENTCOM's "limited, precise action
+> against IRGC minelaying forces" (Larak Island), then a broad strike campaign from 9/01. Not a
+> retraction. Record: decisions/escalation_pause_check_2026-09-10.md.
