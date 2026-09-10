@@ -1,7 +1,7 @@
 {
   "schema_version": "2.8",
-  "generated_at": "2026-09-10T16:28:05+00:00",
-  "source_commit": "71d70a0",
+  "generated_at": "2026-09-10T18:02:00+00:00",
+  "source_commit": "5f539b1",
   "quarter": "2026-Q2",
   "price_basis": {
     "total": 25,
@@ -489,8 +489,8 @@
       "ev_pct": 38.0,
       "blend_fv": 59.49,
       "nav_per_share": 88.16,
-      "broker_nav": 130.35,
-      "gap_pct": -32.4,
+      "broker_nav": 108.1,
+      "gap_pct": -18.4,
       "governance_discount_pct": 30.0,
       "sleeves": [
         {

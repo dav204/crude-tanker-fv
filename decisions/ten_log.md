@@ -1,5 +1,24 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-09-10T18:02:00+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $44.32
+- Single-point FV: $59.49
+- Scenario PW FV: $61.17 (EV +38.0%)
+- NAV / share: $88.16
+- Position: **BUY (undervalued)**
+- Broker spread: +27.7pp (k_broker 1.16)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -30.9pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -30.9pp
+
+**Decision:** REPORT-DAY VINTAGE-PAIR REBASE (commit 5f539b1; decisions/ten_h1_release_check_2026-09-10.md): current_price 37.14 -> 44.32 (the 9/09 close, prices_daily — never a price typed from prose), consensus_pnav 0.34 -> 0.41 (44.32 / 109.24, the anchor of record), consensus_fwd_pe 4.6 -> 5.5 (44.32 / $8, the guidance basis of record), as_of 2026-09-09 — one vintage, anchor-preserving, both APPROX (Pareto publishes no TEN row). Effect: broker NAV 130.35 -> 108.10 (the phantom from a stale pair collapses back to the anchor); NAV, EV (+38.0%) and position (BUY) UNCHANGED — the pipeline values at the live close. The standing -9.4pp EV vs the 8/31 baseline is the 9/04 + 9/09 price legs and Stage B (annotated 9/07, 9/09, 9/09), not this event. The Q2 SHEET WAITS FOR THE 6-K (the release carries no fleet table and only weighted-average shares).
+
+---
+
 ## 2026-09-10 — H1-2026 results release landed (report day); the 6-K has not
 
 **Decision:** TEN reported at 09:15 ET (GlobeNewswire 3359616): H1 net income $228.1M / EPS $7.12; Q2 $139.3M / $4.40 (inclusive of the $37,870k Ulysses gain); Q2 TCE $46,100; cash 466,143k; debt 2,102,177k; advances 470,050k; equity 2,054,657k; 64.0 vessels / 7,702k dwt at 30 June. THE PAIR IS NOT WRITABLE FROM THE RELEASE — no fleet table, weighted-average shares only, NCI roll and lease population unverified — so the Q2 sheet waits for the 6-K (FILING-LANDED pages when it stages; STALE-BALANCE-SHEET TEN stands). Subsequent events audited first: Ulysses IN; Anfield DP delivered 28 July (10-year charter, $500M max-duration envelope, ~$68.5k/day over 20 years) OUT; Alaska + Archangel sold August for $100M NET AGGREGATE (never split) OUT — open question for the 6-K build: were they held-for-sale AT 30 June (MOA date)? July $1.00 dividend OUT as cash. PRICE REBASE applied (option B, the 2026-06-10 anchors carried forward): current_price 44.32 (9/09 close, prices_daily), consensus_pnav 0.34 -> 0.41 (44.32 / 109.24), consensus_fwd_pe 4.6 -> 5.5 (44.32 / $8), as_of 2026-09-09 — APPROX both, Pareto publishes no TEN row. Valuation unaffected (live close); the surface's broker-NAV fields move on the next regen. Governance: nothing in the release moves the 30% haircut. Record: decisions/ten_h1_release_check_2026-09-10.md.

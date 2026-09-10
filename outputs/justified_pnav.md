@@ -35,7 +35,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | HAFN | product | $4.64 | $8.30 | 1.790× | n/a | — | 13.7% | 1.269× | no anchor → rich | n/a |
 | TRMD | product | $32.30 | $31.80 | 0.984× | n/a | — | 7.4% | 0.641× | no anchor → rich | n/a |
 | ASC | product | $17.37 | $17.70 | 1.019× | n/a | — | 7.2% | 0.621× | no anchor → rich | n/a |
-| TEN **(WHOLE-CO)** | crude | $88.16 | $37.14 | 0.421× | n/a | — | 12.1% | 1.106× | no anchor → cheap | n/a |
+| TEN **(WHOLE-CO)** | crude | $88.16 | $44.32 | 0.503× | n/a | — | 12.1% | 1.106× | no anchor → cheap | n/a |
 | CAPT | crude | $17.32 | $16.06 | 0.927× | 11.4% | — | 11.1% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | MPCC | containerships | $2.15 | $2.90 | 1.348× | n/a | — | 45.0% | — | no anchor → newbuild-heavy (unreliable) | n/a |
 | GSL | containerships | $41.37 | $38.99 | 0.942× | n/a | — | 47.6% | 4.857× | no anchor → cheap | n/a |
