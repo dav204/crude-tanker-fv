@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-07T14:00:06.618912+00:00",
+  "generated_at": "2026-09-10T02:56:48.243351+00:00",
   "archive_roots": [
     "inputs/research_pareto",
     "inputs/research_pareto_other"
   ],
-  "total_files": 903,
+  "total_files": 905,
   "files": [
     {
       "path": "inputs/research_pareto/2024/06/2024-06-26_d'AmicoInternationalShipping-CompanyReport-InitiatingCoverage-2024-06-26-364456.pdf",
@@ -5922,6 +5922,28 @@
       "parsed_at": null,
       "page_count": 2,
       "size_bytes": 158298,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/09/2026-09-08_Periodical-ShippingDaily-2026-09-08-529264.pdf",
+      "filename": "2026-09-08_Periodical-ShippingDaily-2026-09-08-529264.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-09-08",
+      "downloaded_at": "2026-09-08T14:00:09.911130+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 159411,
+      "classification_signal": "filename:ShippingDaily"
+    },
+    {
+      "path": "inputs/research_pareto/2026/09/2026-09-09_Periodical-ShippingDaily-2026-09-09-529413.pdf",
+      "filename": "2026-09-09_Periodical-ShippingDaily-2026-09-09-529413.pdf",
+      "type": "shipping_daily",
+      "report_date": "2026-09-09",
+      "downloaded_at": "2026-09-10T02:56:40.682486+00:00",
+      "parsed_at": null,
+      "page_count": 2,
+      "size_bytes": 157240,
       "classification_signal": "filename:ShippingDaily"
     },
     {
