@@ -106,3 +106,127 @@ def test_check_is_read_only():
     src = (ROOT / "src" / "crude_tanker_fv" / "promote.py").read_text()
     for forbidden in ("write_text(", "open(", "mkdir(", "ratify", "commit"):
         assert f".{forbidden}" not in src.replace("# ", ""), forbidden
+
+
+# ---- LANE LAND (auto-ratify), 2026-09-10 -------------------------------------------------
+# The lane may run scripts/ratify_baseline.sh ONLY when every precondition holds. Each test
+# below breaks exactly one and asserts the lane refuses; the non-dry path is exercised through
+# a patched runner that records argv — the real script is never invoked.
+
+import json as _json
+from datetime import date as _date, datetime as _dt, timezone as _tz
+
+import pytest as _pytest
+
+from crude_tanker_fv import promote as _promote
+from crude_tanker_fv.drift_gate import DriftRow as _Row
+
+
+def _row(t, status="explained", band_from="HOLD", band_to="HOLD", d_ev=3.0):
+    return _Row(ticker=t, pnav_basis="pareto", status=status, breaches=["ev_pct"] if status != "stable" else [],
+                d_ev=d_ev, d_nav_pct=0.0, band_from=band_from, band_to=band_to, d_k=0.0)
+
+
+def _land_fixture(tmp_path, monkeypatch, rows, *, annotated=True, dirt=(), stamp=None, run_age_h=1.0):
+    root = tmp_path
+    (root / "baselines").mkdir(); (root / "state").mkdir(); (root / "outputs").mkdir(); (root / "decisions").mkdir()
+    (root / "baselines" / "reconcile_baseline.yaml").write_text("meta: {ratified_at: '2026-08-31T20:00:00Z'}\n")
+    run_at = (_dt.now(_tz.utc).replace(microsecond=0) - __import__("datetime").timedelta(hours=run_age_h)).isoformat()
+    (root / "state" / "last_run.json").write_text(_json.dumps({"run_at": run_at, "quarter": "2026-Q2"}))
+    head = "abc1234"
+    (root / "outputs" / "book_scorecard.json").write_text(_json.dumps({"source_commit": stamp or head}))
+    for r in rows:
+        (root / "decisions" / f"{r.ticker.lower()}_log.md").write_text(
+            f"# {r.ticker} — Decision Log\n\n## 2026-09-10 — Annotation\n\n"
+            f"**Decision:** PRICE LEG for {r.ticker} absorbed as its own commit. More detail follows.\n")
+    import crude_tanker_fv.drift_gate as dg
+    monkeypatch.setattr(dg, "load_baseline", lambda p: {"meta": {"ratified_at": "2026-08-31T20:00:00Z"}})
+    monkeypatch.setattr(dg, "evaluate", lambda baseline, state: rows)
+    monkeypatch.setattr(dg, "decision_log_annotated_since", lambda t, since, d: annotated)
+    monkeypatch.setattr(_promote, "_non_drift_dirt", lambda root: list(dirt))
+
+    # The surface stamp is normally an ANCESTOR of HEAD (inputs commit -> regen -> outputs
+    # commit); "current" = reachable from HEAD with no determinant diff since. Model both.
+    def fake_git(root, *a):
+        if a[:2] == ("rev-parse", "--short"):
+            return head
+        if a[0] == "diff":
+            return "" if a[2] == head else " src/crude_tanker_fv/nav.py | 1 +"
+        return ""
+
+    def fake_git_ok(root, *a):
+        if a[:2] == ("merge-base", "--is-ancestor"):
+            return a[2] == head
+        return True
+
+    monkeypatch.setattr(_promote, "_git", fake_git)
+    monkeypatch.setattr(_promote, "_git_ok", fake_git_ok)
+    return root
+
+
+def test_land_dry_run_passes_and_composes_the_cause(tmp_path, monkeypatch, capsys):
+    rows = [_row("DHT"), _row("TNK"), _row("SB", status="stable", d_ev=0.0)]
+    root = _land_fixture(tmp_path, monkeypatch, rows)
+    calls = []
+    rc = _promote.land(root, dry_run=True, runner=lambda *a, **k: calls.append(a))
+    out = capsys.readouterr().out
+    assert rc == 0 and calls == []
+    assert "auto-land " in out and "PRICE LEG for DHT absorbed as its own commit." in out
+    assert "PRICE LEG for TNK absorbed as its own commit." in out
+    assert "DRY RUN" in out and "pending annotation" not in out
+
+
+@_pytest.mark.parametrize("breaker", ["unexplained", "unannotated", "dirt", "buyward", "stale_state", "stamp_mismatch", "dirty_stamp"])
+def test_land_refuses_when_any_precondition_fails(tmp_path, monkeypatch, breaker):
+    rows = [_row("DHT"), _row("TNK")]
+    kw = {}
+    if breaker == "unexplained":
+        rows[0] = _row("DHT", status="UNEXPLAINED")
+    elif breaker == "unannotated":
+        kw["annotated"] = False
+    elif breaker == "dirt":
+        kw["dirt"] = ["src/crude_tanker_fv/nav.py"]
+    elif breaker == "buyward":
+        # a NON-relabelled name: TNK/DHT carry governed relabels and are rightly excluded
+        rows[1] = _row("SBLK", band_from="HOLD (fairly valued)", band_to="BUY (undervalued)")
+    elif breaker == "stale_state":
+        kw["run_age_h"] = 30.0
+    elif breaker == "stamp_mismatch":
+        kw["stamp"] = "deadbee"
+    elif breaker == "dirty_stamp":
+        kw["stamp"] = "abc1234-dirty"
+    root = _land_fixture(tmp_path, monkeypatch, rows, **kw)
+    calls = []
+    rc = _promote.land(root, dry_run=False, runner=lambda *a, **k: calls.append(a))
+    assert rc == 1, breaker
+    assert calls == [], f"{breaker}: the lane ran something on a failed precondition"
+
+
+def test_land_non_dry_invokes_the_ratify_script_then_commits_its_two_files(tmp_path, monkeypatch):
+    rows = [_row("DHT")]
+    root = _land_fixture(tmp_path, monkeypatch, rows)
+    calls = []
+    rc = _promote.land(root, dry_run=False, runner=lambda argv, **k: calls.append(argv))
+    assert rc == 0
+    assert calls[0][0] == "scripts/ratify_baseline.sh" and calls[0][1].startswith("auto-land ")
+    assert calls[1] == ["git", "add", "baselines/reconcile_baseline.yaml", "RATIFY_LOG.md"]
+    assert calls[2][:3] == ["git", "commit", "-q"] and "auto-land" in calls[2][-1]
+
+
+def test_cause_never_exceeds_the_cap_and_dedupes(tmp_path):
+    d = tmp_path / "decisions"; d.mkdir()
+    rows = []
+    for i in range(30):
+        t = f"T{i:02d}"
+        (d / f"{t.lower()}_log.md").write_text(f"# {t}\n\n## 2026-09-10 — x\n\n**Decision:** Same sentence every time. Then more.\n")
+        rows.append(_row(t))
+    cause = _promote.compose_cause(rows, d, _date(2026, 9, 10))
+    assert len(cause) <= _promote.CAUSE_CAP
+    assert cause.count("Same sentence every time.") == 1
+    assert cause.startswith("auto-land 2026-09-10: ")
+
+
+def test_cause_skips_placeholders(tmp_path):
+    d = tmp_path / "decisions"; d.mkdir()
+    (d / "dht_log.md").write_text("# DHT\n\n## 2026-09-10T00:00:00+00:00 — Pipeline run (auto)\n\n**Decision:** _[pending annotation]_\n")
+    assert _promote._first_decision_sentence("DHT", d) == ""

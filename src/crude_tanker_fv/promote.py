@@ -175,17 +175,229 @@ def evaluate_price_absorb(root: Path = ROOT) -> Verdict:
     return v
 
 
+# --------------------------------------------------------------------------------------
+# LANE LAND — auto-ratify (owner ruling 2026-09-10: "go build the rest"; the landing lane
+# of decisions/autopilot_authority_2026-09-02.md §6). Advances the committed baseline through
+# scripts/ratify_baseline.sh when, and ONLY when, the standing drift is fully explained:
+#
+#   (a) the drift gate reads 0 UNEXPLAINED;
+#   (b) every non-stable row's decision log carries a HUMAN annotation dated on/after the
+#       baseline's ratified date (drift_gate.decision_log_annotated_since — the same reader
+#       the gate uses, so the lane cannot "explain" what the gate would not);
+#   (c) the working tree carries only automation-drift paths (_non_drift_dirt);
+#   (d) no row flipped TOWARD BUY vs the baseline (relabels excluded, as in Lane D);
+#   (e) the committed surface IS the surface being ratified: outputs/book_scorecard.json's
+#       source_commit equals HEAD, and state/last_run.json is younger than 24h.
+#
+# The CAUSE is composed from the record, never typed: the first sentence of each explained
+# row's top Decision line, deduplicated, capped, pointing at the logs. Placeholders never
+# reach the cause (a row with one is UNEXPLAINED, so (a) already refuses it).
+#
+# `land --dry-run` prints the verdict, the cause and the would-run command, exits 0, runs
+# nothing. `land` runs the ratify script and commits its two files. Not wired into cron —
+# that is an owner-visible step.
+# --------------------------------------------------------------------------------------
+
+CAUSE_CAP = 400
+STATE_MAX_AGE_HOURS = 24
+
+
+def _git(root: Path, *args: str) -> str:
+    try:
+        return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True,
+                              check=True).stdout.strip()
+    except Exception:
+        return ""
+
+
+def _git_ok(root: Path, *args: str) -> bool:
+    try:
+        return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True).returncode == 0
+    except Exception:
+        return False
+
+
+def _surface_matches_head(root: Path) -> "tuple[bool, str]":
+    """(e): the committed decision surface must be CURRENT for HEAD.
+
+    The repo's own pattern is inputs commit -> regen -> outputs commit, so the surface's
+    source_commit is normally an ANCESTOR of HEAD, not HEAD itself. Current means: the stamp
+    is clean, it is reachable from HEAD, and no determinant (src/, inputs/) changed between
+    the stamp and HEAD — anything else would ratify numbers the tree no longer produces.
+    """
+    sc = root / "outputs" / "book_scorecard.json"
+    if not sc.exists():
+        return False, "outputs/book_scorecard.json missing"
+    stamp = str(json.loads(sc.read_text()).get("source_commit") or "")
+    head = _git(root, "rev-parse", "--short", "HEAD")
+    if not stamp or not head:
+        return False, f"stamp={stamp!r} head={head!r}"
+    if stamp.endswith("-dirty"):
+        return False, f"surface stamped dirty ({stamp})"
+    if not _git_ok(root, "merge-base", "--is-ancestor", stamp, "HEAD"):
+        return False, f"surface {stamp} is not an ancestor of HEAD {head}"
+    changed = _git(root, "diff", "--stat", stamp, "HEAD", "--", "src", "inputs")
+    if changed.strip():
+        return False, f"determinants changed since the surface {stamp}: {changed.strip().splitlines()[-1]}"
+    return True, f"surface {stamp} current for HEAD {head}"
+
+
+def _state_is_fresh(root: Path, now=None) -> "tuple[bool, str]":
+    from datetime import datetime, timedelta, timezone
+
+    p = root / "state" / "last_run.json"
+    if not p.exists():
+        return False, "state/last_run.json missing"
+    run_at = str(json.loads(p.read_text()).get("run_at") or "")
+    try:
+        ts = datetime.fromisoformat(run_at)
+    except ValueError:
+        return False, f"unparseable run_at {run_at!r}"
+    if ts.tzinfo is None:
+        ts = ts.replace(tzinfo=timezone.utc)
+    now = now or datetime.now(timezone.utc)
+    age = now - ts
+    return age <= timedelta(hours=STATE_MAX_AGE_HOURS), f"last run {run_at} ({age.total_seconds()/3600:.1f}h old)"
+
+
+def _first_decision_sentence(ticker: str, decisions_dir: Path) -> str:
+    """The first sentence of the TOP entry's Decision line — the record's own words."""
+    from . import drift_gate
+
+    path = decisions_dir / f"{ticker.lower()}_log.md"
+    if not path.exists():
+        return ""
+    lines = path.read_text().splitlines()
+    idx = next((i for i, ln in enumerate(lines) if drift_gate._HEADER_RE.match(ln)), None)
+    if idx is None:
+        return ""
+    for ln in lines[idx + 1:]:
+        if drift_gate._HEADER_RE.match(ln):
+            break
+        s = ln.strip()
+        if s.startswith("**Decision:**"):
+            body = s[len("**Decision:**"):].strip().strip("*_ ").strip()
+            if not body or drift_gate._PLACEHOLDER in body.lower():
+                return ""
+            cut = body.find(". ")
+            return (body[:cut + 1] if 0 < cut < 200 else body[:200]).strip()
+    return ""
+
+
+def compose_cause(rows, decisions_dir: Path, today=None) -> str:
+    from datetime import date as _date
+
+    today = today or _date.today()
+    seen, parts = set(), []
+    for r in rows:
+        if r.status != "explained":
+            continue
+        s = _first_decision_sentence(r.ticker, decisions_dir)
+        if s and s not in seen:
+            seen.add(s)
+            parts.append(s)
+    head = f"auto-land {today.isoformat()}: "
+    tail = " — full record in decisions/*_log.md"
+    body = " · ".join(parts) if parts else "no explained rows (gate quiet)"
+    room = CAUSE_CAP - len(head) - len(tail)
+    if len(body) > room:
+        body = body[:max(0, room - 1)].rstrip() + "…"
+    return head + body + tail
+
+
+def evaluate_land(root: Path = ROOT, now=None) -> "tuple[Verdict, str]":
+    from . import drift_gate
+    from .provenance import POSITION_CYCLE_RELABEL, POSITION_UNRELIABLE
+
+    v = Verdict(lane="LAND (auto-ratify)", ok=False)
+    baseline_path = root / "baselines" / "reconcile_baseline.yaml"
+    state_path = root / "state" / "last_run.json"
+    if not baseline_path.exists() or not state_path.exists():
+        v.conjuncts.append(("inputs present", False, "baseline or state/last_run.json missing"))
+        v.freeze_reasons.append("cannot evaluate: no committed baseline or no run state")
+        return v, ""
+    baseline = drift_gate.load_baseline(baseline_path)
+    state = json.loads(state_path.read_text())
+    rows = drift_gate.evaluate(baseline, state)
+    v.rows_considered = len(rows)
+    since = str((baseline.get("meta") or {}).get("ratified_at") or "")[:10]
+    decisions_dir = root / "decisions"
+
+    unexplained = [r.ticker for r in rows if r.status == "UNEXPLAINED"]
+    a = not unexplained
+    v.conjuncts.append(("(a) gate reads 0 UNEXPLAINED", a,
+                        "0 UNEXPLAINED" if a else "UNEXPLAINED: " + ", ".join(unexplained)))
+
+    unannotated = [r.ticker for r in rows if r.status != "stable"
+                   and not drift_gate.decision_log_annotated_since(r.ticker, since, decisions_dir)]
+    b = not unannotated
+    v.conjuncts.append((f"(b) every moved row annotated since {since or '?'}", b,
+                        "all annotated" if b else "unannotated: " + ", ".join(unannotated)))
+
+    dirt = _non_drift_dirt(root)
+    c = not dirt
+    v.conjuncts.append(("(c) tree carries only automation drift", c,
+                        "clean apart from the drift list" if c else "non-drift dirt: " + ", ".join(dirt[:5])))
+
+    relabelled = set(POSITION_CYCLE_RELABEL) | set(POSITION_UNRELIABLE)
+    buyward = [f"{r.ticker} → {r.band_to}" for r in rows
+               if r.band_from and r.band_to and r.band_from != r.band_to
+               and str(r.band_to).upper().startswith("BUY") and r.ticker not in relabelled]
+    d = not buyward
+    v.conjuncts.append(("(d) no flip toward BUY", d, "none" if d else "; ".join(buyward)))
+
+    e1, e1d = _surface_matches_head(root)
+    e2, e2d = _state_is_fresh(root, now)
+    e = e1 and e2
+    v.conjuncts.append(("(e) committed surface is HEAD's and the run is fresh", e, f"{e1d}; {e2d}"))
+
+    for passed, why in ((a, "an UNEXPLAINED row is exactly what a ratify must never absorb"),
+                        (b, "an annotation is the record the cause is composed from"),
+                        (c, "the working tree is mid-surgery — automation never lands through it"),
+                        (d, "a flip toward BUY is the standing halt-and-investigate"),
+                        (e, "ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers")):
+        if not passed:
+            v.freeze_reasons.append(why)
+    v.ok = a and b and c and d and e
+    cause = compose_cause(rows, decisions_dir) if v.ok else ""
+    return v, cause
+
+
+def land(root: Path = ROOT, dry_run: bool = True, runner=None) -> int:
+    runner = runner or subprocess.run
+    v, cause = evaluate_land(root)
+    print(v.render())
+    if not v.ok:
+        return 1
+    argv = ["scripts/ratify_baseline.sh", cause]
+    print()
+    print("cause:", cause)
+    if dry_run:
+        print("DRY RUN — would run:", argv[0], "<cause>")
+        return 0
+    runner(argv, cwd=root, check=True)
+    runner(["git", "add", "baselines/reconcile_baseline.yaml", "RATIFY_LOG.md"], cwd=root, check=True)
+    runner(["git", "commit", "-q", "-m", f"baseline: auto-land — {cause}"], cwd=root, check=True)
+    print("LANDED — baseline re-ratified and committed")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(description="the promoter (check-only for now)")
+    ap = argparse.ArgumentParser(description="the promoter: check (read-only) and land (auto-ratify)")
     sub = ap.add_subparsers(dest="cmd", required=True)
     c = sub.add_parser("check", help="read-only: is the standing drift auto-absorbable?")
     c.add_argument("--json", action="store_true", help="machine-readable verdict")
+    ld = sub.add_parser("land", help="auto-ratify the baseline when every precondition holds")
+    ld.add_argument("--dry-run", action="store_true",
+                    help="print the verdict, the composed cause and the would-run command; run nothing")
     args = ap.parse_args(argv)
 
     if args.cmd == "check":
         v = evaluate_price_absorb()
         print(json.dumps(v.as_dict(), indent=1) if args.json else v.render())
         return 0 if v.ok else 1
+    if args.cmd == "land":
+        return land(dry_run=args.dry_run)
     return 2
 
 

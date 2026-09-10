@@ -151,21 +151,29 @@ TEN:
 # FIXME: filled in by /add-ticker scaffold CMDB. Replace null values with real data,
 # then re-order alphabetically if you care about list order.
 CMDB:
-  current_price: 17.25         # stockanalysis.com 2026-06-10 15:27 EDT (NYSE; Pareto does
-                               # not carry CMDB in its share-price table)
+  current_price: 23.48         # prices_daily.yaml NYSE close 2026-09-09 (vintage-pair rebase
+                               # 2026-09-10, fork cmdb_vintage_pair_rebase: the 6/10 static
+                               # $17.25 had fallen 36% behind the tape and, until the loader
+                               # fix ec6d34e, produced a phantom BUY when the ±30% vs-static
+                               # band rejected the quote. Rebased ANCHOR-PRESERVING, the
+                               # 2026-06-10 TEN precedent: pnav and fwd_pe re-derived from
+                               # this price on the UNCHANGED Q1 anchors below, one vintage.
+                               # Pareto does not carry CMDB in its share-price table)
   analyst_target: 27.98        # APPROX — book value per share ($676,520k equity Mar-31 /
                                # 24,180,472 sh). NO analyst or VIE coverage exists. Book is
                                # the best auditable anchor: vessels were contributed at
                                # recent fair values in the 2025 spinoff, so book ≈ recent
                                # market marks. NOT a price target in the analyst sense.
-  consensus_pnav: 0.62         # APPROX — price / book-value-per-share (17.25 / 27.98).
+  consensus_pnav: 0.839        # APPROX — price / book-value-per-share (23.48 / 27.98), rebased
+                               # 2026-09-10 with the price (was 0.62 = 17.25 / 27.98).
                                # P/BV-as-P/NAV proxy per the spinoff fair-value-basis
                                # argument above. No Pareto coverage (third dry-bulk
                                # validator is APPROX-anchored per METHODOLOGY §11.7.2);
                                # name-sweep of 280 dailies found 0 CMDB mentions.
-  consensus_fwd_pe: 10.5       # APPROX — price / annualised Q1 2026 EPS (17.25 / 1.64)
+  consensus_fwd_pe: 14.3       # APPROX — price / annualised Q1 2026 EPS (23.48 / 1.64), rebased
+                               # 2026-09-10 with the price (was 10.5 = 17.25 / 1.64)
   sector: dry_bulk
-  as_of: 2026-06-10
+  as_of: 2026-09-09            # the 9/09 close; pnav + fwd_pe re-derived from it (one vintage)
 
 SBLK:
   current_price: 30.4    # Pareto 28 Aug 2026
