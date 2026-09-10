@@ -201,16 +201,16 @@ classes:
   Ctr-Feeder:           # reference ~1,700 TEU (MB sizes 1,100/1,700)
     dwt: 23500
     newbuild: 32000000          # MB 1,800 TEU China
-    five_year_benchmark: 30000000   # W32 2026-08-07 re-assessed flat
-    ten_year_benchmark: 29500000  # MB 1,700 TEU 10yr 29.5 (W32 2026-08-07, +0.5 — the only container value move W29->W32; 15-yr 23.0->23.5 same direction corroborates; was 29.0 since W27 7/03 — container_mb_refresh_packet_2026-08-09.md)
+    five_year_benchmark: 31750000   # NB<->10yr midpoint convention re-applied (32.0 + 31.5)/2 — had been left at the 28.0-era 30.0 through W27/W32 (container_mb_refresh_packet_2026-09-10.md, Leg B)
+    ten_year_benchmark: 31500000  # MB 1,700 TEU 10yr 31.5 (W36 2026-09-04; +0.5/wk W33-W36 from 29.5; 15-yr 23.5->25.5 same direction corroborates — container_mb_refresh_packet_2026-09-10.md, Leg B)
     scrap_25yr: 4000000           # ~8,500 LDT ESTIMATE
     scrubber_premium: 0
     eco_premium_pct: 0.05
   Ctr-Intermediate:     # reference ~2,750 TEU (MB sizes 2,500-4,250)
     dwt: 39000
     newbuild: 44000000          # MB 2,800 TEU China
-    five_year_benchmark: 39800000
-    ten_year_benchmark: 35500000  # MB 2,700 10yr 35.5 (W32 2026-08-07 re-assessed flat)
+    five_year_benchmark: 40000000   # midpoint (44.0 + 36.0)/2 — was 39.8 (packet 2026-09-10, Leg B)
+    ten_year_benchmark: 36000000  # MB 2,700 10yr 36.0 (W36 2026-09-04, +0.5 — first move since Apr-01; 15-yr 32.0->32.5)
     scrap_25yr: 5000000           # ~11,500 LDT ESTIMATE
     scrubber_premium: 0
     eco_premium_pct: 0.05
