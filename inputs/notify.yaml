@@ -29,6 +29,7 @@ routes:
   page_once:
     - TRIGGER-DUE           # key = tag + trigger label (+ due date); day-2 repeat → digest
     - STALE-STATIC         # a watchlist static the tape left behind — rebase the pair (2026-09-07)
+    - FORK-EXECUTABLE      # an owner fork past its 3-business-day silence window — the recommendation runs (ruled 2026-09-10)
     - FILING-LANDED         # key = ticker · form · accession (the text before " filed ")
     - DIRTY-TOO-LONG        # key = tag
     - REAUTH-NEEDED         # key = surface (rocketchat / smtp / healthchecks); clears on success

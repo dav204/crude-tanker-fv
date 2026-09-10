@@ -93,3 +93,11 @@ Owner's one command (from repo root): `PYTHONPATH=src .venv/bin/python -m crude_
 
 ## 6. Bottom line
 Dispositions #1-#4 stand. The owner's single command is correct as written and is the only state change owed; nothing else in this triage should touch a transactions YAML.
+---
+# Addendum 2026-09-10 — the fifth candidate (9/09 daily), dispositioned before the ack
+
+| # | Candidate | Disposition | Reason |
+|---|---|---|---|
+| 5 | 9/09 · MR, Japanese-built 2018, "$45.5m to Greek buyers with a drydock due before YE"; Pareto "We had her at $31.6m" | UNNAMED — watch, not promotable | no hull name, buyer unnamed; a firm print needs the hull + a dated broker weekly (MB/xclusiv) or issuer disclosure. The $45.5m vs Pareto's $31.6m gap is itself the note: MR mid-age prints running well above broker marks — cross-check at the next MR curve read, never a curve input on an unnamed hull |
+
+Ack runs after this addendum: cumulative 233 → reviewed 233.

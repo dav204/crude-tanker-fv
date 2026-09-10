@@ -102,7 +102,7 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   guard-enforced 2026-08-08 (pair guard + pipeline preflight red any manifest↔sheet vintage mismatch;
   sheets resolve newest-at-or-before with scorecard disclosure — `tests/test_quarter_coherence.py`).
   Still verify the run's own NAV breakdown before attributing a band miss; a satisfying explanation is
-  not a verified one (2026-07-31 + Decision 2026-08-08, q2_cluster_transition_2026-07-31.md).
+  not a verified one (2026-08-08).
 - **Scrubber flags: per-vessel sourced, cross-foot to the issuer aggregate at onboarding**
   (2026-07-01; guards `test_verified_operating_scrubber_count` + `test_scrubber_provenance`).
 - **A run must never write SHARED state** (2026-07-18 + 08-14 doctrine) — worktree-isolate
@@ -122,8 +122,7 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   methodology question (txn-anchor per §9.9, or accept as documented mark-driven), not a license to tune.
 - **Dry-bulk manifest `dwt` is LOAD-BEARING** (§11.7.10) — Cape/Pana/Supra-Ultra/Handy-Bulk curves are
   `dwt_scaled` (value ∝ dwt/baseline: Cape 180k / Pana 82k / Supra-Ultra 62k / Handy 38k, §11.7.11), so a rough dwt mis-values a hull; use
-  the issuer's exact per-vessel dwt, split mixed cohorts by sub-class. (Crude/product/lng/container stay
-  flat-per-class.) PPMX §9.9 fit SEEDED 2026-07-18 (mark-wide both nodes, refit armed; overhang residual — ppmx prereg).
+  the issuer's exact per-vessel dwt, split mixed cohorts by sub-class. (Crude/product/lng/container stay flat-per-class.)
 - **Two structural framework limits are codified:** §12 (high-payout pure-plays at peak — tool
   UNDERvalues; NAT archetype) and §15 (governance/value-trap — tool OVERvalues; `governance_discount_pct`
   applied at blend + strip terminal but NOT to `compute_nav`; TEN archetype). The haircut is judgmental —
@@ -172,6 +171,7 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   `*_credentials*`, `*_secret*`, `*.rtf`, `.env*` defensively — but the gate is discipline. (Caught
   2026-06-09: a stray `rocketchat_token.rtf` at repo root.)
 
+- **Silence executes the recommendation** (ruled 2026-09-10): forks in `inputs/forks.yaml` run at their recommendation after 3 business days unanswered (sentinel FORK-EXECUTABLE); push + S&P ack are unattended.
 - **Owner navigation lives in README, not PLAN** (2026-07-15): if the owner must ask
   "where does X live," add it to README the same day.
 

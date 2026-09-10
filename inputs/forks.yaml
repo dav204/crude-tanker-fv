@@ -1,0 +1,26 @@
+# Open owner forks under the standing policy (owner ruling 2026-09-10): a recommendation
+# EXECUTES after 3 business days of silence. The sentinel pages FORK-EXECUTABLE once
+# execute_after passes; the executing agent flips status to executed and cites the commit.
+# A fork answered any other way (a word in the session) is closed here the same way.
+policy:
+  silence_business_days: 3
+  ruled: 2026-09-10
+forks:
+  - id: cmbt_q2_c1_c2_c3
+    doc: decisions/cmbt_q2_refresh_packet_2026-09-07.md
+    opened: 2026-09-07
+    execute_after: 2026-09-10
+    recommendation: "C-1 YES (Donoussa/Stella/Brest/Brugge + Golden Myrtalia off-curve at HFS) · C-2 YES (keep the $100M FSO placeholder with its 109,937 debt inside total_debt) · C-3 YES (governance_discount 0 holds; revisit at the November Bermuda appeal)"
+    status: open
+  - id: cmdb_vintage_pair_rebase
+    doc: decisions/stage_b_promotion_2026-09-09.md
+    opened: 2026-09-07
+    execute_after: 2026-09-10
+    recommendation: "rebase CMDB current_price + consensus_pnav + consensus_fwd_pe from ONE vintage, anchor-preserving (the 2026-06-10 TEN precedent): pnav = price / implied broker NAV"
+    status: open
+  - id: stage_b_open_items
+    doc: decisions/stage_b_promotion_2026-09-09.md
+    opened: 2026-09-09
+    execute_after: 2026-09-14
+    recommendation: "FRO 1-yr VLCC 110/120k: settle the CONCLUDED date at the FRO issuer source; if >= 2026-06-15 they enter (VLCC 12M -> 115,000). Product routing: pure-product names read the DIRTY LR2/LR1 lines — open a methodology note, no promotion"
+    status: open

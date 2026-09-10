@@ -349,6 +349,25 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
                          f"or accept it in inputs/archive_gaps.yaml (news read from "
                          f"this window is unsupported)")
 
+    # 8b. FORK-EXECUTABLE (owner ruling 2026-09-10: silence executes the recommendation).
+    #     inputs/forks.yaml carries every open owner fork with its execute_after date (3
+    #     business days from opening). Once it passes, the recommendation IS the answer
+    #     and the agent executes it; the page is the record that the window closed.
+    forks_path = inputs_dir / "forks.yaml"
+    if forks_path.exists():
+        try:
+            fk = yaml.safe_load(forks_path.read_text()) or {}
+            for f in fk.get("forks") or []:
+                if str(f.get("status", "open")) != "open":
+                    continue
+                ea = f.get("execute_after")
+                if ea and date.fromisoformat(str(ea)) <= today:
+                    flags.append(f"FORK-EXECUTABLE {f.get('id')}: unanswered since {f.get('opened')} — "
+                                 f"the recommendation executes: {str(f.get('recommendation'))[:140]} "
+                                 f"({f.get('doc')})")
+        except Exception as exc:
+            flags.append(f"FORK-EXECUTABLE check failed: {exc}")
+
     # 8c. STALE-STATIC (2026-09-07, CMDB) — a watchlist static price the tape has left
     #     behind by more than the vs-static band. The loader no longer falls back to it
     #     (that produced a phantom BUY), but the static still anchors consensus_pnav /
@@ -878,16 +897,31 @@ def _ping_status(state_dir: Path, status: str, detail: str = "") -> dict:
     return doc
 
 
+DRILL_FLAG = "drill_armed"   # state/drill_armed present => the ping is withheld (2026-09-10)
+
+
 def _ping(sends_ok: bool, state_dir: Path = Path("state")) -> None:
     """Invariant 2: the dead-man ping asserts 'checks ran AND pages reached
     the owner' — withheld on a failed send so healthchecks pages by absence
-    (its own channel; the recursion stops there)."""
+    (its own channel; the recursion stops there).
+
+    Ping-gap DRILL (2026-09-10): arming used to mean editing the secrets file, which only
+    the owner could touch, so every drill cost two hands-on appointments. A plain marker
+    file `state/drill_armed` now withholds the ping; arm = create it, restore = remove it,
+    both doable by a scheduled agent task. The withheld status lands in ping_status.json so
+    the drill leaves its own trace, and the marker is reported on every run it is present.
+    """
     import urllib.error
     import urllib.request
 
     global _urlopen
     if _urlopen is None:
         _urlopen = urllib.request.urlopen
+    if (state_dir / DRILL_FLAG).exists():
+        print(f"PING-WITHHELD: drill armed ({state_dir / DRILL_FLAG} present) — healthchecks "
+              "pages by absence; delete the marker to restore")
+        _ping_status(state_dir, "WITHHELD", "drill armed")
+        return
     url = os.environ.get("CRUDE_FV_HEALTHCHECK_URL")
     if not url:
         print("PING-SKIPPED: CRUDE_FV_HEALTHCHECK_URL unset")

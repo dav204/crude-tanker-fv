@@ -979,3 +979,68 @@ def test_image_only_filing_is_flagged_not_silently_staged(tmp_path, monkeypatch)
     # gitignored, so a clean clone has nothing to validate.
     assert not [f for f in collect_flags(inputs, outputs, pure=True)
                 if f.startswith("FILING-UNREADABLE")]
+
+
+def test_drill_marker_withholds_the_ping_without_touching_secrets(tmp_path, monkeypatch):
+    """2026-09-10: arming the ping-gap drill used to mean editing the secrets file, which only
+    the owner could touch, so every drill cost two hands-on appointments. A marker file in
+    state/ now withholds the ping (arm = create, restore = remove), doable by a scheduled
+    agent task. The withheld status must land in ping_status.json so the drill leaves a trace,
+    and NO request may go out while the marker is present."""
+    from crude_tanker_fv import sentinel as s
+
+    calls = []
+    monkeypatch.setattr(s, "_urlopen", lambda url, timeout=10: calls.append(url))
+    monkeypatch.setenv("CRUDE_FV_HEALTHCHECK_URL", "https://hc.example/ping")
+    state = tmp_path / "state"
+    state.mkdir()
+
+    s._ping(True, state_dir=state)
+    assert calls == ["https://hc.example/ping"]          # unarmed: the ping goes out
+
+    (state / s.DRILL_FLAG).write_text("armed 2026-09-12 by the drill task\n")
+    s._ping(True, state_dir=state)
+    assert calls == ["https://hc.example/ping"], "armed: no request may leave"
+    st = json.loads((state / "ping_status.json").read_text())
+    assert st["status"] == "WITHHELD" and "drill" in st["detail"]
+
+    (state / s.DRILL_FLAG).unlink()
+    s._ping(True, state_dir=state)
+    assert len(calls) == 2                                 # restored: pings again
+
+
+def test_fork_executable_fires_only_after_the_silence_window(tmp_path):
+    """Owner ruling 2026-09-10: a recommendation executes after 3 business days of silence.
+    inputs/forks.yaml is the registry; the sentinel pages FORK-EXECUTABLE once execute_after
+    has passed and the fork is still open — never before, never for a closed fork."""
+    from datetime import date, timedelta
+
+    from crude_tanker_fv.sentinel import collect_flags
+
+    inputs, outputs = _fixture(tmp_path)
+    today = date.today()
+    (inputs / "forks.yaml").write_text(f"""policy: {{silence_business_days: 3, ruled: 2026-09-10}}
+forks:
+  - id: past_open
+    doc: decisions/x.md
+    opened: {today - timedelta(days=5)}
+    execute_after: {today - timedelta(days=1)}
+    recommendation: "do the thing"
+    status: open
+  - id: future_open
+    doc: decisions/y.md
+    opened: {today}
+    execute_after: {today + timedelta(days=3)}
+    recommendation: "wait"
+    status: open
+  - id: past_executed
+    doc: decisions/z.md
+    opened: {today - timedelta(days=9)}
+    execute_after: {today - timedelta(days=4)}
+    recommendation: "already done"
+    status: executed
+""")
+    fl = [f for f in collect_flags(inputs, outputs) if f.startswith("FORK-EXECUTABLE")]
+    assert len(fl) == 1, fl
+    assert "past_open" in fl[0] and "do the thing" in fl[0]
+    assert "future_open" not in fl[0] and "past_executed" not in fl[0]

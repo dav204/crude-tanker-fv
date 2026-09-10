@@ -63,4 +63,13 @@ report_rc=0
 [ "$report_rc" -eq 0 ] || CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}weekly_report=rc${report_rc}"
 echo "=== [weekly-report] EXIT CODE $report_rc"
 
+# Auto-push (owner ruling 2026-09-10): push main when the tree is drift-only and the drift
+# gate reads 0 UNEXPLAINED. Held states ride the ledger note; a push is never a way past a
+# red gate. Runs here because launchd already has the shell, the env, and the keychain.
+echo "=== [auto-push] $(date '+%Y-%m-%d %H:%M:%S')"
+push_rc=0
+bash scripts/auto_push.sh || push_rc=$?
+[ "$push_rc" -eq 0 ] || CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}auto_push=rc${push_rc}"
+echo "=== [auto-push] EXIT CODE $push_rc"
+
 exit $rc
