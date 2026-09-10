@@ -15,7 +15,6 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | TNK | 0.91× | 1.43 | -14.4% | -5.0% | +4.3% | TRIM/SHORT→HOLD | $210,849→$14,694 | +19 | wide-spread |
 | BRUT | 1.03× | 1.00 | +3.2% | +3.2% | +3.2% | HOLD→HOLD | $210,905→$210,894 | +0 | narrow-spread |
 | HAFN | 1.03× | 1.66 | -40.3% | -18.9% | +2.4% | TRIM/SHORT→HOLD | $191,620→$59,049 | +43 | wide-spread |
-| CMDB | 0.62× | 1.18 | -16.9% | -10.8% | -4.6% | TRIM/SHORT→HOLD | $34,947→$15,623 | +12 | wide-spread |
 | CMBT **(WHOLE-CO)** | 0.86× | 1.21 | -30.5% | -18.1% | -5.6% | TRIM/SHORT→TRIM/SHORT | $204,120→$34,978 | +25 | wide-spread |
 | SBLK | 0.91× | 1.02 | -8.2% | -7.0% | -5.8% | TRIM/SHORT→TRIM/SHORT | $18,621→$14,328 | +2 | narrow-spread |
 | MPCC | 1.04× | 1.20 | -26.4% | -17.4% | -8.5% | TRIM/SHORT→TRIM/SHORT | $204,016→$58,775 | +18 | wide-spread |
@@ -27,6 +26,7 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | FLNG | 1.44× | 0.89 | -5.3% | -13.7% | -22.0% | TRIM/SHORT→TRIM/SHORT | $286,002→$546,065 | -17 | wide-spread |
 | SB | 1.13× | 0.81 | +8.5% | -7.5% | -23.5% | BUY→TRIM/SHORT | NAV>px→$57,717 | -32 | wide-spread |
 | 2343 | 1.24× | 1.06 | -30.7% | -28.7% | -26.7% | TRIM/SHORT→TRIM/SHORT | $41,842→$37,563 | +4 | narrow-spread |
+| CMDB | 0.84× | 0.84 | -16.9% | -22.3% | -27.6% | TRIM/SHORT→TRIM/SHORT | $34,947→$51,870 | -11 | wide-spread |
 | BWLP | 1.27× | 1.16 | -39.9% | -34.4% | -28.9% | TRIM/SHORT→TRIM/SHORT | $255,029→$188,399 | +11 | wide-spread |
 | ECO | 1.47× | 1.18 | -42.1% | -36.3% | -30.6% | TRIM/SHORT→TRIM/SHORT | $682,757→$535,358 | +12 | wide-spread |
 

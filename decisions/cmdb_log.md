@@ -1,5 +1,24 @@
 # CMDB — Decision Log
 
+## 2026-09-10T16:28:05+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $23.48
+- Single-point FV: $21.83
+- Scenario PW FV: $19.52 (EV -16.9%)
+- NAV / share: $32.60
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: -10.7pp (k_broker 0.84)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ broker spread -23.0pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -23.0pp
+
+**Decision:** VINTAGE-PAIR REBASE (fork cmdb_vintage_pair_rebase, executed 2026-09-10, commit 137be34): the watchlist static $17.25 (2026-06-10) had fallen 36% behind the tape; current_price -> 23.48 (the 9/09 close), consensus_pnav 0.62 -> 0.839 and consensus_fwd_pe 10.5 -> 14.3 re-derived from that price on the UNCHANGED Q1 anchors (BVPS 27.98, annualised Q1 EPS 1.64) — one vintage, anchor-preserving. Effect: broker NAV 37.87 -> 27.99 (the phantom from a stale pair collapses back to the BVPS anchor); NAV, EV and position UNCHANGED (the pipeline values at the live close). The standing HOLD -> TRIM/SHORT band-EXIT vs the 8/31 baseline is the 9/04-9/09 price leg (annotated 2026-09-07/09), not this event.
+
+---
+
 ## 2026-09-07T20:16:43+00:00 — Pipeline run (auto)
 
 **Model state:**
