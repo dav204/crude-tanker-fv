@@ -18,6 +18,12 @@ forks:
     execute_after: 2026-09-10
     recommendation: "rebase CMDB current_price + consensus_pnav + consensus_fwd_pe from ONE vintage, anchor-preserving (the 2026-06-10 TEN precedent): pnav = price / implied broker NAV"
     status: open
+  - id: cmbt_commitments_convention
+    doc: decisions/cmbt_q2_landing_2026-09-10.md
+    opened: 2026-09-10
+    execute_after: 2026-09-15
+    recommendation: "move CMBT to COMMITMENT-NET (newbuild_capex_commitments = 900,837k sourced, Note 12 img_027) per newbuild_convention.yaml's own 'must move to' — NAV/share 16.46 -> 13.36 (-$3.10); CMBT leaves OFF_CONVENTION_QUEUE in the same commit; GSL's pending commitment-net pre-reg follows"
+    status: open
   - id: stage_b_open_items
     doc: decisions/stage_b_promotion_2026-09-09.md
     opened: 2026-09-09

@@ -243,8 +243,10 @@ def test_balance_sheet_basis_summary_lagging_and_current():
 
     # CMBT is the lagging specimen (Q2 refresh deferred to the 9/03 half-year
     # report, cmbt_log 2026-08-31; FRO advanced 2026-08-31).
-    s = balance_sheet_basis_summary("2026-Q2", ["SB", "CMBT", "TNK"])
-    assert s["lagging"] == {"CMBT": "2026-Q1"} and s["missing"] == []
+    s = balance_sheet_basis_summary("2026-Q2", ["SB", "TEN", "TNK"])
+    # Live specimen ROTATES: CMBT went current 2026-09-10 (Q2 pair landed, fork
+    # cmbt_q2_c1_c2_c3); TEN is the lagging specimen until its H1 sheet lands.
+    assert s["lagging"] == {"TEN": "2026-Q1"} and s["missing"] == []
     s = balance_sheet_basis_summary("2026-Q1", ["CMBT"])
     assert s["lagging"] == {} and s["total"] == 1
 
