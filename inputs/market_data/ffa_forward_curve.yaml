@@ -43,9 +43,9 @@ as_of:
   VLGC: 2026-06-02
   LNGC: 2026-06-07
   MGC: 2026-06-07
-  Ctr-Feeder: 2026-08-07    # MB W32 container refresh (2026-08-09 event)
-  Ctr-Intermediate: 2026-08-07
-  Ctr-Large: 2026-08-07
+  Ctr-Feeder: 2026-09-04    # MB W36 container refresh (2026-09-10 event, packet 2026-09-10)
+  Ctr-Intermediate: 2026-09-04
+  Ctr-Large: 2026-09-04     # strip held W31-W36; vintage re-stamped with the family
   Handy-Bulk: 2026-07-10    # own cadence (MB Dry Bulk weekly) — NO Handy FFA exists at any
                             # tenor; its curve row below is DERIVED (= Supra-Ultra x 0.90,
                             # §11.7.11 locked basis), regenerated with any supra promotion
@@ -292,27 +292,31 @@ ffa_forward_curve:
   # Ctr-Feeder re-synthesized 2026-07-22 (W29 start 24,250 → SAME wire-up
   # terminal 19,000, linear, round-250 — §11.8.6.4 convention;
   # decisions/container_mb_refresh_packet_2026-07-22.md)
-  Ctr-Feeder:
-  - 24250
-  - 23750
-  - 23000
+  Ctr-Feeder:   # W36 refresh (2026-09-04): start 25,500 (12M avg 1,100: 19,000 / 1,700: 32,000) -> same
+                # wire-up terminal 19,000, linear, nearest-250 (the 7/22 feeder rounding);
+                # container_mb_refresh_packet_2026-09-10.md
+  - 25500
+  - 24750
+  - 24000
+  - 23250
   - 22500
-  - 22000
+  - 21750
   - 21250
-  - 20750
-  - 20250
-  - 19500
+  - 20500
+  - 19750
   - 19000
-  Ctr-Intermediate:
-  - 46350
-  - 45325
-  - 44325
-  - 43300
-  - 42275
-  - 41275
-  - 40250
-  - 39225
-  - 38225
+  Ctr-Intermediate:   # W36 refresh (2026-09-04): start 47,567 (A3 on 37,500/40,000/46,500/55,000) -> same
+                      # terminal 37,200, linear, nearest-25 (the 7/06 intermediate rounding);
+                      # container_mb_refresh_packet_2026-09-10.md
+  - 47567
+  - 46425
+  - 45275
+  - 44100
+  - 42950
+  - 41800
+  - 40650
+  - 39500
+  - 38350
   - 37200
   Ctr-Large:   # W32 refresh: start 64,000 (12M avg incl. the W30 6,500-bucket tick) -> same
                # terminal 48,000, linear-to-250 (container_mb_refresh_packet_2026-08-09.md)

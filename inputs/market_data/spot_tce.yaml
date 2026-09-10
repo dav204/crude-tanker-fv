@@ -66,6 +66,9 @@ spot_tce:
   # assessment so the breakeven display has a current-rate reference.
   # Refreshed 2026-07-22 from MB W29 (Jul-17) — see twelve_month_tc.yaml
   # (mirror surface; the 12M assessment is the single determinant).
-  Ctr-Feeder: 24250
-  Ctr-Intermediate: 46350   # A3 TEU-weighted, re-derived 2026-07-06; W29 flat
+  Ctr-Feeder: 24250         # MIRROR LAG (2026-09-10): the 12M surface moved to W36 (25,500) but this
+                            # file's default is 2026-08-07 and an override may not be newer than the
+                            # default (test_market_data_vintages), so the spot mirror waits for the
+                            # owner's spot disposition (PLAN.md) — values here are the W32 vintage
+  Ctr-Intermediate: 46350   # A3 TEU-weighted, re-derived 2026-07-06; W29 flat; 12M now 47,567 (W36)
   Ctr-Large: 64000   # 6,500-TEU bucket 66,000->68,000 at MB W30, held W31/W32; avg(60,000, 68,000) — container_mb_refresh_packet_2026-08-09.md

@@ -44,9 +44,9 @@ as_of:
   LNGC: 2026-06-07
   MGC: 2026-06-07
   Handy-Bulk: 2026-07-10    # MB Dry Bulk Weekly 28 (own cadence — no Handy FFA panel)
-  Ctr-Feeder: 2026-08-07    # MB W32 container refresh (2026-08-09 event, packet 2026-08-09)
-  Ctr-Intermediate: 2026-08-07
-  Ctr-Large: 2026-08-07
+  Ctr-Feeder: 2026-09-04    # MB W36 container refresh (2026-09-10 event, packet 2026-09-10)
+  Ctr-Intermediate: 2026-09-04
+  Ctr-Large: 2026-09-04     # value held W31-W36; vintage re-stamped with the family
 twelve_month_tc:
   VLCC: 105700    # STAGE B 2026-09-09: HELD — no qualifying 12M print in the window (FRO 1-yr 110/120k are May-26 fixtures, §1.3); Mount Horizon single-print + spec-premium tags stand; MB 1yr 122,500 (W35) is an assessment (S-2)
   Suezmax: 74500    # STAGE B 2026-09-09: Monte Urbasa 156k/2018, 12 Months, ST Shipping (MB W35 8/28) — DIRECT single-print (Pareto 9/01 "74.5k" = the same fixture re-reported); Sea Topaz 80k 2026-NB scrubber EXCLUDED S-5/S-6 (doc-row, spec-premium); Stage-A derived-ratio retires; MB 1yr 77,500 corroborates (S-2)
@@ -80,8 +80,11 @@ twelve_month_tc:
   # class-collapsed per §11.8.1; ingested 2026-07-06 (W27) then refreshed
   # 2026-07-22 (W28+W29; trigger container_mb_refresh;
   # decisions/container_mb_refresh_packet_2026-07-22.md — ONE moving cell).
-  Ctr-Feeder: 24250         # avg(1,100: 17,500 / 1,700: 31,000) — 1,700 ticked +1,000 in W28, held W29
-  Ctr-Intermediate: 46350   # A3 TEU-weighted on the combined MPCC+GSL intermediate
+  Ctr-Feeder: 25500         # avg(1,100: 19,000 / 1,700: 32,000) — MB W36 (2026-09-04): 1,100 +500 W33 +1,000 W34,
+                            # 1,700 +1,000 W34; both held W35/W36 — container_mb_refresh_packet_2026-09-10.md
+  Ctr-Intermediate: 47567   # A3 on the 7/06 canonical shares (11.5/21.8/25.3/41.4): W36 buckets 37,500/40,000/
+                            # 46,500/55,000 (2,500 +2,500, 2,700 +2,500, 3,500 +1,500 all at W34, held W35/W36);
+                            # was 46,350 (W32). A3 TEU-weighted on the combined MPCC+GSL intermediate
                             # fleets, RE-DERIVED 2026-07-06 (72 vessels, 256,234 TEU —
                             # exact-TEU weights CANONICAL; buckets 2500: 11.5% / 2700:
                             # 21.8% / 3500: 25.3% / 4250: 41.4% display-rounded);
