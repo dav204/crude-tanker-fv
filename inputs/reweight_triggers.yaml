@@ -110,6 +110,8 @@ tanker_forward_print_lands:
                   # per class-bucket (TRMD 8/26 · CMBT 8/27 · HAFN 8/28 · FRO
                   # 8/31); LR2_clean term (war-ratio-derived 28k, D-3 flag) is
                   # the registered correction candidate there.
+                  # STAGE B EXECUTED 2026-09-09 (owner ruling S-1..S-6; stage_b_promotion_2026-09-09.md):
+                  # whole set re-promoted, §5 bands all inside, frozen block HELD at regen; ratify owed
   stage_b_window: 2026-08-26..2026-09-04
   ruling: decisions/tanker_forward_print_ruling_2026-07-14.md
   added: 2026-07-02

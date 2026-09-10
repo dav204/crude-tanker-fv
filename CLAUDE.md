@@ -109,9 +109,7 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   read-only agents (pytest/pipeline regenerate outputs+logs); write governed state
   ONLY from the production entry, never a library call a test reaches
   (`test_write_scorecard_does_not_write_machine_state`).
-- **Revert `prices_daily.yaml` before any promote/ingest regen** (2026-07-26, bit 2×) — the daily
-  refresher dirties it; a dirty-tree regen launders the price vintage into the sourcing event.
-  Prices absorb only as their own deliberate commit.
+- **A promote/ingest regen needs a FRESH price vintage COMMITTED ALONE first** (2026-07-26 ×2; 2026-09-09): fetch → commit prices → regen the price leg → then land the inputs. A dirty tree launders the tape into the sourcing event; a reverted vintage past `PRICE_FRESH_DAYS` silently values names at statics (guard `test_price_basis_guard`).
 - **Newbuilds valued at delivered market LESS remaining commitment** (NOT sunk cost; §3.1/§9.6),
   PV-discounted `1.11^(−years_to_delivery)` per vessel (defaults 0 = on the water).
 - **`use_transaction_anchored` is DEFAULT-ON** (2026-06-09). Txn-anchored marks ARE the headline; k_broker

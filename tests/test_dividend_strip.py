@@ -140,7 +140,7 @@ def test_dht_integration():
     # Seasonal FFA with a structural downtrend -> first quarter outranks the last.
     assert s.eps_by_quarter[0] > s.eps_by_quarter[-1]
     # Sanity band around the ~$19.5 implied price (Q3'26-Q2'28 FFA curve).
-    assert 18.0 < s.implied_price < 21.0
+    assert 17.0 < s.implied_price < 20.5   # re-pinned 2026-09-09 STAGE B (VLCC front 179,650->154,800, term 48,850->55,050; 17.998 at the new curve, was 18.0-21.0)
 
 
 def test_terminal_multiple_cycle_conditional():

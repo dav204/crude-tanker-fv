@@ -34,7 +34,7 @@ def test_write_company_report_creates_md_only(dht_report, tmp_path):
 
     text = md.read_text()
     for needle in ["# DHT", "NAV breakdown", "Dividend strip", "Implied breakeven TCE",
-                   "Sensitivity", "Divergence diagnosis", "$15.32", "FFA spot",
+                   "Sensitivity", "Divergence diagnosis", "$15.26", "FFA spot",  # re-pinned 2026-09-09 STAGE B (VLCC front 179,650->154,800, term 48,850->55,050; was $15.32)
                    "Data validation warnings"]:
         assert needle in text
 

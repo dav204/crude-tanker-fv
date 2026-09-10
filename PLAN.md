@@ -6,6 +6,26 @@ forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
 
+**STATE INSERT (2026-09-09 — STAGE B EXECUTED; read this, then the 9/07 insert below).**
+Owner ruled S-1..S-6 at the recommendations ("go with the recommendations"): whole set · fixtures
+only · extensions out · FRO LR2 dirty · Sea Topaz excluded from the Suezmax 12M median (the §5
+input investigation, ratio 0.7517 inside) · Sea Topaz tagged doc-row. Set derived + adversarially
+verified, then LANDED: inputs 0e6c518, surface f38cedb, record + frozen block
+`decisions/stage_b_promotion_2026-09-09.md`. **The frozen block HELD:** ΔNAV 0.0 everywhere, the
+11 invariant names exactly 0.0 on EV, no flip; 13/14 movers moved, magnitudes BELOW the rough
+band (TEN −3.4pp, TRMD −1.8, TNK −1.5, HAFN −1.3; pure-VLCC DHT/BRUT tick UP as the VLCC front
+cut lowers that curve). Q-7: the Aframax CLASS ratio crossed 1.5 — disclosed, no name-level
+weight change. **A contaminated first regen was CAUGHT and discarded:** the pre-promote price
+revert landed on a 9/04 vintage past the 5-day freshness gate → 19 names valued at watchlist
+STATICS → five "invariant" names moved and three flipped toward BUY; the halt check refused it.
+Correct sequence executed: fresh vintage fetched + committed ALONE (7a87d1a) → price-leg regen on
+Stage A inputs (1f6237e, 8 rows annotated) → Stage B re-landed on top. NEW GUARD
+`tests/test_price_basis_guard.py`: the committed surface may carry ≤2 statics-fallback names.
+**OWNER OWES (Stage B):** the ratify (`ratify_baseline.sh`, cause = the promotion record; CAPT's
+9/01 pin rides the same ratify); open items §6 of the record (FRO 1-yr VLCC 110/120k concluded
+date; pure-product names reading the DIRTY LR2/LR1 lines — methodology question).
+
+
 **STATE INSERT (2026-09-07 — the dark-weekend session; read this, then the 9/02 insert below).**
 The Mac was dark 9/05–9/06 (zero jobs either day). Two automation defects surfaced and are FIXED:
 (1) **the weekly report never fired** — it was weekday-gated in the shell and launchd's coalesced
