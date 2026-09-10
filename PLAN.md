@@ -73,7 +73,7 @@ Thursday = press release, sheet later; price rebase = option B (43.74 / 0.40 / 5
 **S&P queue** `decisions/sp_queue_triage_2026-09-07.md`: 4 candidates, none promotable; owner runs
 `sp_scan --mark-reviewed` (ask-tier; classifier blocked the agent). **DRILL RE-DATED:** ARM Sat
 9/12 after the 08:15 run → PAGE + RESTORE Mon 9/14 ≈14:15 EDT (reminders moved).
-**OWNER OWES:** S-1..S-6 · C-1..C-3 · push (13 commits) · delete 2 ctxprobe plists · mark-reviewed ·
+**OWNER OWES:** S-1..S-6 · C-1..C-3 · push (13 commits) · ctxprobe plists — GONE (verified 2026-09-10: ~/Library/LaunchAgents holds only the six com.crude-tanker-fv.* jobs) · mark-reviewed ·
 arm 9/12 · record escalation_pause_corroboration (overdue since 9/01) + container_mb_refresh (due
 9/07) · BWLP NB fork, spot disposition and the R4/WO5 deck re-expression are now REGISTERED FORKS (inputs/forks.yaml, execute 2026-09-15; decisions/forks_registered_2026-09-10.md) · IBKR instruction ids 100/101 are a GOVERNANCE-repo item (the IBKR connector is denied in this project) — the producer's tape says id 100 (SBLK sell @ $31.30 GTC) filled ~9/04 ($32.42 close).
 **PRICE ABSORB 9/04 + A NEW GUARD:** the tape absorbed (53a52ca; book ≈ +5%, 18 names >3%) and
@@ -104,7 +104,7 @@ healthchecks ping-gap drill RECORDED. **DRILL DATES SET 2026-09-02: ARM Sun 9/06
 the env secrets file). Set the `SENTINEL_LITE_HC_URL` repo secret BEFORE arming so the window
 has an off-machine watcher. Chosen to sit in the 9/06-9/09 hole: after R4 (9/04-05), clear of
 TEN (9/10), and off Labor Day Mon 9/07. If R4 slips, slip both dates equally.
-**OWNER OWES (new, agent cannot do):** `launchctl unload` ×2 zombie ctxprobe plists (F6) · set the
+**OWNER OWES (new, agent cannot do):**  set the
 `SENTINEL_LITE_HC_URL` repo secret or record the Action unmonitored · name the drill days · push.
 **NEXT BUILD:** the F-list prune (stop-now group first, one commit each) → Stage A (shadow
 `promote check`, weekly report + decision queue, Saturday stager, pin migration) per §6 of the
