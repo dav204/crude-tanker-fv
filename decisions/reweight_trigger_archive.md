@@ -295,3 +295,75 @@ drybulk_spot_daily_resumes:
   added: 2026-07-13
 
 ```
+
+```
+
+# ---- RETIRED 2026-09-10 — FOLDED into crude_geopolitics_weekly (prune-ledger F3, owner amended
+# 2026-09-10 to WEEKLY cadence: "fold weekly"). The escalation card had FIRED 2026-09-10 (docket owed);
+# the merged card carries that docket. Both cards verbatim as they stood at retirement:
+
+hormuz_fee_collection_watch:
+  sector: crude+product
+  due: null
+  observable: >
+    SUCCESSOR to crude_day60_toll_cliff (owner ruling R3, 2026-08-16). Standing
+    event-watch, deliberately LABEL-AGNOSTIC: Iran's foreign ministry frames the
+    regime as "service fees" for navigation/environmental protection rather than
+    tolls (transit passage cannot lawfully be tolled under UNCLOS), so the thing
+    will NOT arrive wearing the word "toll" — do not watch for the word. Fires on
+    evidence of SYSTEMATIC COLLECTION: a published fee schedule, corroborated
+    payments by transiting owners/charterers, or the Oman strait-management
+    framework convening. Distinguish collection from the intent that has been on
+    the record since Qalibaf's 2026-06-18 statement — intent is already priced.
+  action: >
+    On fire, revisit the pre_mou_baseline -> mou_bear mass: a functioning fee
+    regime is mou_bear's registered premise ("framework holds, tolls imposed
+    post-day-60"), which the 8/16 observed state contradicted and which
+    systematic collection would restore. Rerun §9.10, reweight, annotate, ratify.
+  status: armed
+  added: 2026-08-16
+  # DUE DATE OWED — the ruling left "Due: [owner sets]" unfilled. Registered as a
+  # standing event-watch (due: null) so it cannot silently expire, per the
+  # vlgc_realized_tce_refresh pattern. Set a date if a review cadence is wanted.
+
+escalation_pause_corroboration:
+  sector: crude
+  due: 2026-09-01   # re-armed 2026-08-25: check EXECUTED (2 days late, network-outage
+                    # week) -> the 8/09 "pause HOLDS" record CONFIRMED on primaries (no
+                    # CENTCOM-confirmed strike inside Iran through 8/23 = 24 consecutive
+                    # nights since the ~8/01 cancellation; pause SURVIVED the 8/17
+                    # ceasefire expiry; Treasury 8/20 ties max-pressure to no-restart).
+                    # decisions/escalation_pause_check_2026-08-25.md. Weekly cadence kept
+                    # (expired ceasefire + live tanker-attack tape, UKMTO 120-26 8/24).
+  observable: >
+    Registered by owner ruling R5 (2026-08-16) when C3's escalation tilt was
+    DECLINED partly for resting on an uncorroborated pause status. The
+    2026-08-09 record states "the US strike pause HOLDS"; secondary summaries
+    encountered in the 8/16 sweep assert US-Iran strikes resumed in July, and the
+    8/16 sweep could NOT corroborate either from dated primary reporting.
+    PRIMARY SOURCES ONLY: CENTCOM releases, the UKMTO incident log, dated wires.
+    Aggregator syntheses do not settle this (they conflate the early-July fraying
+    with the current state — that is how the ambiguity arose).
+  action: >
+    If the 8/09 "pause HOLDS" record is CONTRADICTED: correction-annotate that
+    record FIRST, then docket the escalation question against the corrected
+    record — never re-base the escalation leg on an uncorrected premise. If
+    CONFIRMED: record and re-arm, escalation stays untouched at 0.25.
+  status: fired     # 2026-09-10 (checked 9 days late): the 8/09 "pause HOLDS" record is
+                    # CONTRADICTED by SUPERSESSION, not by error — it held through ~8/29
+                    # (MB W34 8/21 "no US military response"; W35 8/28 silent on strikes) and
+                    # ENDED 2026-08-30 with CENTCOM's "limited, precise action against IRGC
+                    # minelaying forces" on Larak Island (Al Jazeera 8/31 quoting CENTCOM),
+                    # followed by a broad campaign (CENTCOM 9/01 target list: radar, missile,
+                    # mine-laying sites) and Iranian strikes on US bases in Jordan, Bahrain,
+                    # Kuwait (MB W36 9/04: "both sides intensified"); UKMTO 124-26 dated 8/31;
+                    # Bahri SIDR two crew killed 8/31 (JINSA 9/1-2); Pareto 9/09 calls the
+                    # 9/08-09 wave the "single largest attack of the war" (Pareto's phrase).
+                    # The 8/09 and 8/25 records carry a dated SUPERSESSION annotation, not a
+                    # retraction (decisions/escalation_pause_check_2026-09-10.md). Per the
+                    # action text the escalation question is DOCKETED against the corrected
+                    # record: the reweight decision is the OWNER's (R5 stands on its 8/16
+                    # evidence; C3's ground 2 is moot in the OPPOSITE direction). Deliberately
+                    # NOT entered in inputs/forks.yaml — a reweight never executes by silence.
+  added: 2026-08-16
+```

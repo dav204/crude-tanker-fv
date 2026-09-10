@@ -160,7 +160,7 @@ Everything tracked is git-reversible by construction; each removal is one commit
 |---|---|---|
 | F1 | Remove the harvester CI job (N-5 re-disposition logged)? | **yes** |
 | F2 | Keep the harvester Saturday crawl (xclusiv anchor + 35% of print sources)? | **keep** |
-| F3 | Fold hormuz_fee + escalation_pause into one monthly card after WO5 lands? | **yes** |
+| F3 | Fold hormuz_fee + escalation_pause into one monthly card after WO5 lands? | **yes** — AMENDED 2026-09-10 by the owner to **WEEKLY** cadence ("fold weekly") and EXECUTED that day without waiting for WO5: the escalation card had fired nine days late on a weekly cadence (pause ended 8/30); monthly would have looked on 9/25. Merged card `crude_geopolitics_weekly`; both originals archived verbatim in reweight_trigger_archive.md |
 | F4 | Prune overlays.yaml/overlay_ledger (dividend_window stays as the §12.6 control)? | **prune** |
 | F5 | Replace the weekly doc audit with same-commit doc updates + a ≤150-line PLAN? | **yes** |
 | F6 | Write off WO2 acceptance (delete close_acceptance, receipts, drill doc, ctxprobe scripts/log; you run the two `launchctl unload`s)? | **yes** |
