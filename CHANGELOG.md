@@ -5,6 +5,30 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-09-11 — A PAGE MEANS THE OWNER ACTS; FILINGS TRIAGE BECAME AGENT WORK; OPERATING.md.**
+  *Owner words:* "page email indicates that action is needed from me, right ... the email isn't
+  clear whether or not action will be taken by you or me"; "i'm really not clear on the surface
+  for engaging with this project". *What was wrong:* `FILING-LANDED` paged every arrival (page_once
+  since 9/02, still a page), `FILING-UNREADABLE` paged every run, and nothing recorded that an
+  arrival had been triaged — the 9/10 drain triaged nine filings and the 9/11 sentinel paged all
+  nine again (the 9/10 run had been META-MODE on a dirty tree, so 9/11 was the first sighting).
+  *Fix:* (1) `inputs/notify.yaml` re-cut — page/page_once carry ONLY owner-action tags
+  (SURFACE-INCOHERENT, FILING-OVERDUE, TRIGGER-DUE, FORK-EXECUTABLE, DIRTY-TOO-LONG, REAUTH-NEEDED);
+  FILING-LANDED / FILING-UNREADABLE / STALE-STATIC / EARNINGS-UNCONFIRMED / EARNINGS-SWEEP-STALE
+  ride the digest as agent-class (the 2026-07-21 per-name EARNINGS-UNCONFIRMED page directive is
+  superseded). (2) `notify.PAGE_ACTIONS` — every page line now reads `ACTION: OWNER — …`; the page
+  body opens "This page means YOUR action is needed"; guard `test_every_page_class_tag_names_the_owner_action`.
+  (3) `crude_tanker_fv.filings` — a triage ledger (`state/filings_triaged.json`, gitignored) with
+  `list` / `ack <accession> "<disposition>"`; the FILING-LANDED and FILING-UNREADABLE checks skip
+  acked accessions; the tracked record is `decisions/filings_triage_log.md` (not a per-name log, so
+  the drift gate never reads it). Nine current accessions acked with their 9/10 dispositions.
+  (4) A daily `crude-fv-filings-triage` scheduled task dispositions the 48h window unattended and
+  pages only an `owner` disposition. (5) `OPERATING.md` — the one-page operating model (inbox is
+  the surface; launchd layer / agent-task layer / owner layer; the producer→governor seam is
+  `outputs/book_scorecard.json`; open chats inside the repo for the work, never in `~/Projects`).
+  *Also:* `tests/test_eco.py::test_scenarios_overvalued` re-pinned to HOLD — the 9/10 escalation
+  reweight moved ECO's EV to −1.93% (inside the ±2% band); the pin was missed because the suite was
+  not fully run before that commit.
 - **2026-09-02 — THE AUTOMATION RULING + STAGE 0 LANDED.** *Owner words (on
   `decisions/autopilot_authority_2026-09-02.md` — a code promoter with bounded authority inside
   guard-tested predicates, rolled out A→D behind clean-season gates — and
