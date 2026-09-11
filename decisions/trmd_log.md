@@ -1,5 +1,11 @@
 # TRMD — Decision Log
 
+## 2026-09-11 — Price-leg annotation (2026-09-10 vintage)
+
+**Decision:** PRICE LEG — the 2026-09-10 close vintage absorbed as its own commit (df80814) and regenerated via scripts/regen.sh (stamp b357696). No input other than prices_daily.yaml moved for this name: ΔNAV exactly 0.0; any band change is a mechanical crossing on the tape, away from BUY. ΔEV +2.5pp.
+
+---
+
 ## 2026-09-09 — Stage B annotation (tanker re-anchor 2026-09-09)
 
 **Decision:** STAGE B — tanker curves + 12M re-anchored under the 2026-09-09 owner ruling (inputs 0e6c518; record + frozen predicted impact in decisions/stage_b_promotion_2026-09-09.md). A RATE-ONLY event: ΔNAV is exactly 0.0 on every name (nav.py reads no rate file); the EV move is the scenario deck re-reading the new curve through forward_ref. Direction DOWN as predicted. ΔEV -10.6pp · band BUY (undervalued) → HOLD (fairly valued) (mechanical crossing on the price leg) · Δk +0.080 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change). Ratify rides the owner's next ratify_baseline.sh with the promotion record as cause.
@@ -28,7 +34,7 @@
 - ⚑ broker spread +9.9pp
 - Δprice: +3.66 | Δsingle FV: -1.5% | Δscenario FV: +1.8% | ΔNAV: no change | Δspread: +9.9pp
 
-**Decision:** _[pending annotation]_
+**Decision:** PRICE LEG — the 2026-09-10 close vintage absorbed as its own commit (df80814) and regenerated via scripts/regen.sh (stamp b357696). ΔEV +2.5pp is the tape alone (no input other than prices_daily.yaml moved; ΔNAV exactly 0.0); HOLD unchanged, away from BUY. The standing move vs the 9/10 baseline is this day's price only — the escalation reweight and Stage B are already inside the baseline.
 
 ---
 

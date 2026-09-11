@@ -1,7 +1,7 @@
 # NAT — Fair Value Report
 
 - **Report date:** 2026-Q2
-- **Current price:** $7.27
+- **Current price:** $7.21
 - **Model fair value:** $2.95
 - **Analyst target:** $6.00
 
@@ -71,14 +71,14 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **7.81× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **7.72× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **750,240** | — |
-| 10-year mean | 27,747 | 27.04× |
-| 12-month FFA | 96,050 | 7.81× |
-| Current spot | 77,600 | 9.67× |
+| **Implied breakeven (blended)** | **741,163** | — |
+| 10-year mean | 27,747 | 26.71× |
+| 12-month FFA | 96,050 | 7.72× |
+| Current spot | 77,600 | 9.55× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -90,11 +90,11 @@ The current price requires the fleet to run at **7.81× the current forward curv
 | **+15%** | $2.39 | $2.72 | $3.04 | $3.37 | $3.69 |
 | **+30%** | $2.48 | $2.81 | $3.14 | $3.46 | $3.79 |
 
-_Current price $7.27. Cycle weights held at base across the grid._
+_Current price $7.21. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$2.95** is -59.5% vs the current price ($7.27) and -50.9% vs the analyst target ($6.00). The current price implies the fleet earning a value-weighted blended **$750,240/day** (7.81× the current forward) — 27.0× the value-weighted 10-yr mean ($27,747, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$2.95** is -59.1% vs the current price ($7.21) and -50.9% vs the analyst target ($6.00). The current price implies the fleet earning a value-weighted blended **$741,163/day** (7.72× the current forward) — 26.7× the value-weighted 10-yr mean ($27,747, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

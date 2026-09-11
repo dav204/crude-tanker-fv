@@ -2,11 +2,11 @@
 
 > **Valuation basis:** WHOLE-COMPANY MULTI-SLEEVE = crude (23.8%) + dry_bulk (73.1%) + containerships (3.1%) AGGREGATED (METHODOLOGY §11.9). Off-curve segments (chemical / offshore / FSO / held-for-sale / newbuild book) sit at the corporate level and flow through NAV uniformly across sleeves. Compared to the WHOLE-COMPANY tape price.
 
-- **Current price:** $19.35
+- **Current price:** $19.38
 - **Analyst target:** $16.59
 - **NAV / share (reference, unflexed):** $16.46 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $13.54 (-30.0% vs price)
-- **Breakeven TCE (scenario-invariant):** $204,120/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
+- **Probability-weighted fair value:** $13.54 (-30.1% vs price)
+- **Breakeven TCE (scenario-invariant):** $205,068/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** TRIM/SHORT (overvalued)
 
 ## Per-scenario fair value
@@ -23,9 +23,9 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $+0.29
-- **Downside (worst scenario − price):** $-10.82
-- **Expected value vs current** (weighted FV − price): $-5.81 (-30.0%)
+- **Upside (best scenario − price):** $+0.26
+- **Downside (worst scenario − price):** $-10.85
+- **Expected value vs current** (weighted FV − price): $-5.84 (-30.1%)
 - **Position:** TRIM/SHORT (overvalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

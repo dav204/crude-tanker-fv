@@ -1,5 +1,24 @@
 # GSL — Decision Log
 
+## 2026-09-11T14:04:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $45.54
+- Single-point FV: $44.17
+- Scenario PW FV: $42.94 (EV -5.7%)
+- NAV / share: $41.37
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +33.0pp (k_broker 1.41)
+- Sector: containerships
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: +0.52 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +0.8pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-10 — Container value-leg annotation (W36)
 
 **Decision:** CONTAINER VALUE LEG (W36, commit 15963bb; decisions/container_mb_refresh_packet_2026-09-10.md Leg B): 2,700 TEU 10-yr 35.5 -> 36.0, 5-yr 39.8 -> 40.0; feeder marks +2.0/+1.75. ΔNAV +0.41% (pre-registered +0.40%), ΔEV +0.30pp; HOLD unchanged. Landed separately from the TC leg (b5d304b, -0.1pp).

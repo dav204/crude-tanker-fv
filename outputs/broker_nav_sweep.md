@@ -4,31 +4,31 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 
 | Name | Cons. P/NAV | k_broker | EV @tool | EV @mid | EV @broker | Pos tool→broker | Breakeven tool→broker | Spread (pp) | Read |
 |---|--:|--:|--:|--:|--:|---|--:|--:|---|
-| TEN | 0.41× | 1.16 | +39.4% | +53.4% | +67.4% | BUY→BUY | NAV>px→NAV>px | +28 | wide-spread |
-| CCEC | 0.90× | 0.99 | +49.1% | +47.9% | +46.7% | BUY→BUY | NAV>px→NAV>px | -2 | narrow-spread |
-| CAPT | 0.72× | 1.29 | -7.0% | +15.4% | +37.9% | TRIM/SHORT→BUY | $294,150→NAV>px | +45 | wide-spread |
-| STNG | 0.73× | 1.62 | -8.5% | +12.2% | +32.9% | TRIM/SHORT→BUY | $125,003→NAV>px | +41 | wide-spread |
-| GSL | 0.75× | 1.39 | -4.6% | +11.5% | +27.6% | HOLD→BUY | $117,455→NAV>px | +32 | wide-spread |
-| ASC | 0.75× | 1.38 | -10.7% | +5.5% | +21.6% | TRIM/SHORT→BUY | $37,449→NAV>px | +32 | wide-spread |
-| TRMD | 0.92× | 1.16 | -0.9% | +7.1% | +15.2% | HOLD→BUY | $65,797→$26,938 | +16 | wide-spread |
-| NAT | 0.85× | 2.56 | -59.2% | -25.0% | +9.1% | TRIM/SHORT→BUY | $750,240→NAV>px | +68 | wide-spread |
-| BRUT | 1.03× | 1.00 | +5.6% | +5.6% | +5.6% | BUY→BUY | $210,905→$210,894 | +0 | narrow-spread |
-| TNK | 0.91× | 1.43 | -13.6% | -4.1% | +5.3% | TRIM/SHORT→BUY | $210,849→$14,694 | +19 | wide-spread |
-| HAFN | 1.03× | 1.66 | -40.3% | -18.9% | +2.4% | TRIM/SHORT→HOLD | $191,620→$59,049 | +43 | wide-spread |
-| CMBT **(WHOLE-CO)** | 0.86× | 1.21 | -30.0% | -17.5% | -5.1% | TRIM/SHORT→TRIM/SHORT | $204,120→$34,978 | +25 | wide-spread |
-| SBLK | 0.91× | 1.02 | -8.2% | -7.0% | -5.8% | TRIM/SHORT→TRIM/SHORT | $18,621→$14,328 | +2 | narrow-spread |
-| DHT | 1.14× | 1.22 | -23.0% | -15.3% | -7.5% | TRIM/SHORT→TRIM/SHORT | $705,170→$396,570 | +15 | wide-spread |
-| MPCC | 1.04× | 1.20 | -26.4% | -17.4% | -8.5% | TRIM/SHORT→TRIM/SHORT | $204,016→$58,775 | +18 | wide-spread |
-| GNK | 0.95× | 1.10 | -20.9% | -16.3% | -11.8% | TRIM/SHORT→TRIM/SHORT | $41,661→$24,819 | +9 | narrow-spread |
-| INSW **(WHOLE-CO)** | 1.21× | 1.59 | -42.7% | -28.9% | -15.1% | TRIM/SHORT→TRIM/SHORT | $569,780→$286,340 | +28 | wide-spread |
-| LPG | 1.06× | 1.45 | -40.7% | -29.1% | -17.6% | TRIM/SHORT→TRIM/SHORT | $337,439→$144,194 | +23 | wide-spread |
-| FRO | 1.33× | 1.26 | -39.0% | -29.9% | -20.8% | TRIM/SHORT→TRIM/SHORT | $755,089→$492,142 | +18 | wide-spread |
-| FLNG | 1.44× | 0.89 | -5.3% | -13.7% | -22.0% | TRIM/SHORT→TRIM/SHORT | $286,002→$546,065 | -17 | wide-spread |
-| SB | 1.13× | 0.81 | +8.5% | -7.5% | -23.5% | BUY→TRIM/SHORT | NAV>px→$57,717 | -32 | wide-spread |
-| 2343 | 1.24× | 1.06 | -30.7% | -28.7% | -26.7% | TRIM/SHORT→TRIM/SHORT | $41,842→$37,563 | +4 | narrow-spread |
-| CMDB | 0.84× | 0.84 | -16.9% | -22.3% | -27.6% | TRIM/SHORT→TRIM/SHORT | $34,947→$51,870 | -11 | wide-spread |
-| BWLP | 1.27× | 1.16 | -39.9% | -34.4% | -28.9% | TRIM/SHORT→TRIM/SHORT | $255,029→$188,399 | +11 | wide-spread |
-| ECO | 1.47× | 1.18 | -41.1% | -35.3% | -29.5% | TRIM/SHORT→TRIM/SHORT | $682,757→$535,358 | +12 | wide-spread |
+| TEN | 0.41× | 1.17 | +38.2% | +52.7% | +67.2% | BUY→BUY | NAV>px→NAV>px | +29 | wide-spread |
+| CCEC | 0.90× | 0.99 | +49.6% | +48.2% | +46.8% | BUY→BUY | NAV>px→NAV>px | -3 | narrow-spread |
+| CAPT | 0.72× | 1.26 | -3.5% | +17.4% | +38.2% | HOLD→BUY | $230,787→NAV>px | +42 | wide-spread |
+| STNG | 0.73× | 1.65 | -10.1% | +11.3% | +32.8% | TRIM/SHORT→BUY | $135,607→NAV>px | +43 | wide-spread |
+| GSL | 0.75× | 1.41 | -5.7% | +10.8% | +27.3% | TRIM/SHORT→BUY | $133,760→NAV>px | +33 | wide-spread |
+| ASC | 0.75× | 1.39 | -11.8% | +4.9% | +21.5% | TRIM/SHORT→BUY | $39,759→NAV>px | +33 | wide-spread |
+| TRMD | 0.92× | 1.14 | +1.6% | +8.6% | +15.6% | HOLD→BUY | $59,764→$26,726 | +14 | wide-spread |
+| NAT | 0.85× | 2.54 | -58.9% | -24.8% | +9.2% | TRIM/SHORT→BUY | $741,163→NAV>px | +68 | wide-spread |
+| BRUT | 1.03× | 1.00 | +6.5% | +6.1% | +5.7% | BUY→BUY | $201,672→$209,808 | -1 | narrow-spread |
+| TNK | 0.91× | 1.47 | -15.3% | -5.1% | +5.1% | TRIM/SHORT→BUY | $231,134→$15,285 | +20 | wide-spread |
+| HAFN | 1.03× | 1.69 | -41.6% | -19.7% | +2.1% | TRIM/SHORT→HOLD | $198,602→$59,985 | +44 | wide-spread |
+| CMBT **(WHOLE-CO)** | 0.86× | 1.22 | -30.1% | -17.6% | -5.1% | TRIM/SHORT→TRIM/SHORT | $205,068→$34,949 | +25 | wide-spread |
+| SBLK | 0.91× | 1.01 | -7.0% | -6.3% | -5.7% | TRIM/SHORT→TRIM/SHORT | $16,536→$14,278 | +1 | narrow-spread |
+| DHT | 1.14× | 1.23 | -23.8% | -15.7% | -7.6% | TRIM/SHORT→TRIM/SHORT | $727,441→$401,502 | +16 | wide-spread |
+| MPCC | 1.04× | 1.20 | -26.4% | -17.4% | -8.5% | TRIM/SHORT→TRIM/SHORT | $203,942→$58,763 | +18 | wide-spread |
+| GNK | 0.95× | 1.09 | -19.7% | -15.7% | -11.7% | TRIM/SHORT→TRIM/SHORT | $39,276→$24,599 | +8 | narrow-spread |
+| INSW **(WHOLE-CO)** | 1.21× | 1.55 | -41.3% | -28.1% | -14.9% | TRIM/SHORT→TRIM/SHORT | $544,843→$279,658 | +26 | wide-spread |
+| LPG | 1.06× | 1.47 | -41.5% | -29.6% | -17.6% | TRIM/SHORT→TRIM/SHORT | $348,720→$145,934 | +24 | wide-spread |
+| FRO | 1.33× | 1.28 | -40.5% | -30.8% | -21.0% | TRIM/SHORT→TRIM/SHORT | $792,214→$504,378 | +19 | wide-spread |
+| FLNG | 1.44× | 0.90 | -6.8% | -14.5% | -22.2% | TRIM/SHORT→TRIM/SHORT | $311,365→$556,262 | -15 | wide-spread |
+| SB | 1.13× | 0.81 | +8.2% | -7.6% | -23.5% | BUY→TRIM/SHORT | NAV>px→$57,869 | -32 | wide-spread |
+| 2343 | 1.24× | 1.07 | -31.6% | -29.2% | -26.8% | TRIM/SHORT→TRIM/SHORT | $43,127→$37,942 | +5 | narrow-spread |
+| CMDB | 0.84× | 0.83 | -16.4% | -22.0% | -27.6% | TRIM/SHORT→TRIM/SHORT | $34,154→$51,645 | -11 | wide-spread |
+| BWLP | 1.27× | 1.19 | -41.7% | -35.4% | -29.1% | TRIM/SHORT→TRIM/SHORT | $272,330→$193,480 | +13 | wide-spread |
+| ECO | 1.47× | 1.20 | -42.1% | -35.9% | -29.6% | TRIM/SHORT→TRIM/SHORT | $705,140→$544,143 | +12 | wide-spread |
 
 _**(WHOLE-CO)** = hybrid name valued via crude + product sleeve carve-outs aggregated against the whole-company tape price (METHODOLOGY 6 v2). The breakeven shown is the crude-sleeve breakeven (proxy)._
 

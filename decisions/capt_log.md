@@ -1,5 +1,24 @@
 # CAPT — Decision Log
 
+## 2026-09-11T14:04:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $18.41
+- Single-point FV: $17.09
+- Scenario PW FV: $17.77 (EV -3.5%)
+- NAV / share: $17.32
+- Position: **HOLD (fairly valued)**
+- Broker spread: +41.7pp (k_broker 1.26)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position TRIM/SHORT (overvalued) → HOLD (fairly valued)
+- Δprice: -0.70 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -3.2pp
+
+**Decision:** PRICE LEG — the 2026-09-10 close vintage absorbed as its own commit (df80814) and regenerated via scripts/regen.sh (stamp b357696). CAPT traded EX-DIVIDEND NOK 3.00 on 2026-09-10 (declared 9/01 as a return of paid-in capital; record 9/11, pay ~9/18) — the ΔEV +3.5pp vs the 9/09 close is the ex-div STEP in the tape plus the day's move, not drift and not a re-read; the drain's verifier flagged this step the day before. No input other than prices_daily.yaml moved for this name: ΔNAV exactly 0.0; position unchanged (unreliable read, masked).
+
+---
+
 ## 2026-09-10 — Escalation reweight annotation
 
 **Decision:** CRUDE ESCALATION REWEIGHT (fork escalation_c3_rearm, executed on verification at the owner's word 2026-09-10; decisions/escalation_c3_rearm_2026-09-10.md): crude scenario weights 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13 — the +3pp C3 tilt, from pre_mou_baseline's fast-reverting-flare-up mass, because the strike pause ended 8/30 and the flare-up did not revert (campaign from 9/01; TD3C $790.8k 9/10). A WEIGHT-ONLY leg: ΔNAV exactly 0.0; the EV move is the probability-weighted FV re-blending. Landed inside the pre-registered band. CAPT stays TRIM/SHORT, ~2pp from the HOLD edge (masked, unreliable read). 
