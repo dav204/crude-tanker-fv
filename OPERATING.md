@@ -47,6 +47,7 @@ one was due, it runs at the next launch. Producer side:
 | Task | Cadence | Does |
 |---|---|---|
 | `crude-fv-filings-triage` | daily, after the sentinel | dispositions every arrival in the 48h window (record-only / calendar / print / refresh-trigger / unreadable), appends `decisions/filings_triage_log.md`, acks the ledger so it stops flagging; pages you only for an `owner` disposition |
+| `crude-fv-results-shadow-build` | daily, after triage | for a name whose results are out but whose sheet is a quarter behind: drafts the pair as `*.yaml.draft` with citations, values it in a throwaway worktree (`scripts/shadow_regen.sh`), writes `decisions/<t>_shadow_build_<date>.md` with a WOULD-LAND / WOULD-HOLD verdict; never the live pair (pilot: TEN, 2026-09-11 — you compare one shadow to a hand build, then decide whether to lift the 2026-07-03 drafts-only rule) |
 | `crude-fv-mb-weekly-harvest` | Saturday morning | the four MB Shipbrokers weeklies from Gmail into `inputs/research_mb/` |
 | `crude-fv-weekly-news-pull` | Saturday morning | the web-reading half of the news sweep into a dated digest |
 | drill one-shots | as scheduled | arm / restore the healthchecks ping-gap drill (marker file) |
