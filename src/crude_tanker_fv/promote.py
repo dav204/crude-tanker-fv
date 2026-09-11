@@ -236,7 +236,12 @@ def _surface_matches_head(root: Path) -> "tuple[bool, str]":
         return False, f"surface stamped dirty ({stamp})"
     if not _git_ok(root, "merge-base", "--is-ancestor", stamp, "HEAD"):
         return False, f"surface {stamp} is not an ancestor of HEAD {head}"
-    changed = _git(root, "diff", "--stat", stamp, "HEAD", "--", "src", "inputs")
+    # Source ARCHIVES under inputs/ (staged filings, issuer/broker research) are read by
+    # agents, never by the pipeline — a saved press release must not freeze the lane.
+    changed = _git(root, "diff", "--stat", stamp, "HEAD", "--", "src", "inputs",
+                   ":(exclude)inputs/filings", ":(exclude)inputs/research_issuer",
+                   ":(exclude)inputs/research_pareto", ":(exclude)inputs/research_pareto_other",
+                   ":(exclude)inputs/research_mb", ":(exclude)inputs/ffa_drybulk")
     if changed.strip():
         return False, f"determinants changed since the surface {stamp}: {changed.strip().splitlines()[-1]}"
     return True, f"surface {stamp} current for HEAD {head}"
