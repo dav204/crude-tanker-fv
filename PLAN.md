@@ -6,6 +6,23 @@ forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
 
+**STATE INSERT (2026-09-11 — THE SURFACE RULING; read this, then the 9/10 insert below).**
+Owner: *"page email indicates that action is needed from me, right ... the email isn't clear whether
+action will be taken by you or me"* and *"i'm really not clear on the surface for engaging with this
+project"*. LANDED (commits 3e3442e, e725dca): (1) **a PAGE means the owner acts** — `inputs/notify.yaml`
+page/page_once carry only owner-action tags; FILING-LANDED / FILING-UNREADABLE / STALE-STATIC /
+EARNINGS-UNCONFIRMED / EARNINGS-SWEEP-STALE are agent-class on the digest; every page line reads
+`ACTION: OWNER — …` (`notify.PAGE_ACTIONS`, guard `test_every_page_class_tag_names_the_owner_action`);
+(2) **filings triage is a daily scheduled task** (`crude-fv-filings-triage`, 11:45 app time) — ledger
+`state/filings_triaged.json` (`python -m crude_tanker_fv.filings list|ack`), tracked record
+`decisions/filings_triage_log.md`; acked accessions stop flagging; nine current ones acked;
+(3) **`OPERATING.md`** is the owner's one-page map (README points at it first) — keep it current when a
+cron, task, page tag or owner duty changes. Also: `tests/test_eco.py` pin followed the 9/10 reweight
+(HOLD) — the suite had not been fully run before that commit; full suite 880 passed on 9/11.
+**STILL OPEN:** image-only page-image auto-fetch (FILING-UNREADABLE is now digest-only, the `unreadable`
+disposition routes a results report to the owner-present sheet build) · TEN Q2 sheet when the 6-K lands
+· Q3 calendar re-seed (CMBT 11/26, BRUT 11/19, OMC AR 2027-02-25) · forks executing 9/14–9/15.
+
 **STATE INSERT (2026-09-10 — THE AUTOMATION RULINGS; read this, then the 9/09 insert below).**
 Owner: *"every time you're asking me to do something, ask yourself why, and should this also be
 automated"* → then **"yes to all three, go build the rest."** LANDED: (1) **silence executes the
