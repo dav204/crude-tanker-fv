@@ -15,7 +15,7 @@
 - ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
 - Δprice: +0.52 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +0.8pp
 
-**Decision:** _[pending annotation]_
+**Decision:** PRICE LEG — the 2026-09-10 close vintage absorbed as its own commit (df80814) and regenerated via scripts/regen.sh (stamp b357696). No input other than prices_daily.yaml moved for this name: ΔNAV exactly 0.0; any band change is a mechanical crossing on the tape, away from BUY. ΔEV -1.1pp · band HOLD (fairly valued) → TRIM/SHORT (overvalued) (mechanical crossing on the price leg).
 
 ---
 
