@@ -65,4 +65,11 @@ def test_scenarios_overvalued(eco):
     # + MoU-ineffective leg recalibration — decisions/crude_reweight_proposal_2026-07-02.md):
     # removing the war premium drops PW FV to ~$30.2 vs $48.10 → TRIM/SHORT
     # (§12 relabel applies downstream — cycle position, not a short).
-    assert r.position_recommendation.startswith("TRIM/SHORT")
+    # Re-pinned 2026-09-11: the 2026-09-10 crude escalation reweight (0.25/0.62/0.00/0.13
+    # → 0.28/0.59/0.00/0.13, fork escalation_c3_rearm, decisions/escalation_c3_rearm_2026-09-10.md)
+    # lifts the probability-weighted FV to $1.93 below the $48.10 price — inside the
+    # fairly-valued band, so HOLD. The lock test in tests/test_scenarios.py was re-pinned with
+    # the reweight; this pin was missed and the suite was not fully run before that commit
+    # (caught at the next full run).
+    assert r.position_recommendation.startswith("HOLD")
+    assert -3.0 < r.expected_value_vs_current < 0.0

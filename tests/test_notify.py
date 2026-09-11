@@ -77,6 +77,23 @@ def test_real_routing_table_covers_every_live_sentinel_tag():
     assert not stale, f"routed tags no sentinel check emits: {stale}"
 
 
+def test_every_page_class_tag_names_the_owner_action():
+    """2026-09-11 (owner ruling): a page means the OWNER's action is needed and the
+    line must say what. Every tag routed to page / page_once carries an action
+    text; agent-class tags (filings triage, earnings sweeps, static rebases) may
+    not sit in a page route at all."""
+    routes = notify.load_routes(INPUTS_DIR)["routes"]
+    paged = set(routes["page"]) | set(routes.get("page_once", []))
+    missing = paged - set(notify.PAGE_ACTIONS)
+    assert not missing, f"page-class tags with no owner action text: {missing}"
+    agent_class = {"FILING-LANDED", "FILING-UNREADABLE", "STALE-STATIC",
+                   "EARNINGS-UNCONFIRMED", "EARNINGS-SWEEP-STALE"}
+    assert not (paged & agent_class), paged & agent_class
+    assert agent_class <= set(routes["digest"])
+    assert notify.page_action("FORK-EXECUTABLE x").startswith("OWNER (optional)")
+    assert "no action text registered" in notify.page_action("NEW-TAG thing")
+
+
 def test_page_once_keys():
     k = notify.page_once_key
     a = k("FILING-LANDED CMBT: 6-K 0000919574-26-005821 filed 2026-08-28 -> inputs/filings/x.htm")

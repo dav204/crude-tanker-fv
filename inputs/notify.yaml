@@ -21,21 +21,27 @@
 #   record_only state log only, never mailed
 subject_prefix: "[crude-fv]"
 routes:
+  # A PAGE means the OWNER's action is needed and the line says what (owner ruling 2026-09-11:
+  # "a page email indicates that action is needed from me ... the email isn't clear whether
+  # action will be taken by you or me"). Agent-class work — filings triage, earnings sweeps,
+  # unreadable-filing recovery, watchlist pair rebases — rides the DIGEST: the daily agent
+  # task picks it up; nothing there asks the owner for anything.
   page:
-    - SURFACE-INCOHERENT
-    - FILING-OVERDUE
-    - FILING-UNREADABLE     # a staged filing that contains no text — the fetch
-                            # layer looked successful and delivered nothing
+    - SURFACE-INCOHERENT    # OWNER: a guard contradicted the surface — the agent halts until read
+    - FILING-OVERDUE        # OWNER: the issuer has not filed past its window — chase or hold the sheet
   page_once:
-    - TRIGGER-DUE           # key = tag + trigger label (+ due date); day-2 repeat → digest
-    - STALE-STATIC         # a watchlist static the tape left behind — rebase the pair (2026-09-07)
-    - FORK-EXECUTABLE      # an owner fork past its 3-business-day silence window — the recommendation runs (ruled 2026-09-10)
-    - FILING-LANDED         # key = ticker · form · accession (the text before " filed ")
-    - DIRTY-TOO-LONG        # key = tag
-    - REAUTH-NEEDED         # key = surface (rocketchat / smtp / healthchecks); clears on success
-    - EARNINGS-UNCONFIRMED  # key = tag + ticker (owner directive 2026-07-21: page per name — once)
-    - EARNINGS-SWEEP-STALE  # key = tag + the stale sweep stamp (F11: digest + one page at >7d)
+    - TRIGGER-DUE           # OWNER observable due; key = tag + trigger label (+ due date); day-2 repeat → digest
+    - FORK-EXECUTABLE       # OWNER (optional): object today, else the recommendation runs (ruled 2026-09-10)
+    - DIRTY-TOO-LONG        # OWNER/AGENT: the tree has been mid-surgery for days; key = tag
+    - REAUTH-NEEDED         # OWNER: re-authenticate the named surface; key = surface; clears on success
   digest:
+    - FILING-LANDED         # AGENT-class since 2026-09-11 (was page_once): the daily triage task
+                            # dispositions + acks each arrival (filings ack); acked rows drop out
+    - FILING-UNREADABLE     # AGENT-class since 2026-09-11 (was page): page-image recovery is agent work
+    - STALE-STATIC          # AGENT-class since 2026-09-11 (was page_once): rebased as a fork (CMDB 9/10)
+    - EARNINGS-UNCONFIRMED  # AGENT-class since 2026-09-11 (was page_once per the 2026-07-21 directive,
+                            # superseded by the 2026-09-11 ruling): the date sweep is the agent's
+    - EARNINGS-SWEEP-STALE  # AGENT-class since 2026-09-11 (was page_once at >7d): the agent runs the sweep
     - STALE-INPUT
     - SIDECAR-STALE
     - PRICE-BASIS

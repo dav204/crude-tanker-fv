@@ -521,6 +521,15 @@ def test_filing_events_landed_overdue_unseeded(tmp_path):
     # STALE-BALANCE-SHEET rides the same calendar (report out, no Q2 sheet).
     assert any(f.startswith("STALE-BALANCE-SHEET DHT") for f in flags)
 
+    # Triage ack (2026-09-11): a dispositioned accession drops out of FILING-LANDED
+    # for the rest of its 48h window; the overdue stays satisfied by the arrival.
+    from crude_tanker_fv import filings as _filings
+    _filings.ack("0001-26-000009", "record-only: fixture", path=state / "filings_triaged.json")
+    flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
+    assert not any(f.startswith("FILING-LANDED") for f in flags)
+    assert not any(f.startswith("FILING-OVERDUE") for f in flags)
+    (state / "filings_triaged.json").unlink()
+
     # No arrival at all: FILING-OVERDUE pages; a landed balance sheet clears it.
     (state / "edgar_manifest.jsonl").unlink()
     flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
@@ -830,7 +839,10 @@ def test_page_once_pages_first_sighting_only(tmp_path, monkeypatch):
     import json as _json
     s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch, trigger_due=True)
     s.main(["--notify", "--state", st])
-    assert [x for x in sent if " PAGE:" in x[0]]
+    paged = [x for x in sent if " PAGE:" in x[0]]
+    assert paged
+    # 2026-09-11: the body says the OWNER acts and names the action per line.
+    assert "YOUR action is needed" in paged[0][1] and "ACTION: OWNER" in paged[0][1]
     sent.clear()
     s.main(["--notify", "--state", st])
     assert not [x for x in sent if " PAGE:" in x[0]]

@@ -61,6 +61,25 @@ def route_flags(flags: list[str], routes: dict) -> "tuple[list[str], list[str]]"
     return page, digest
 
 
+# What a PAGE asks of the owner (2026-09-11 ruling: a page means the owner's action is needed
+# and the email must say what; agent-class work never pages). Keyed by tag; the page body
+# prefixes each line with it. A tag with no entry here should not be routed to page.
+PAGE_ACTIONS = {
+    "SURFACE-INCOHERENT": "OWNER — a guard contradicted the published surface; the agent has halted. Read the named check and rule.",
+    "FILING-OVERDUE": "OWNER — the issuer has not filed past its window and no sheet is on file. Decide: chase the issuer, or hold the name on its prior sheet.",
+    "TRIGGER-DUE": "OWNER — an observable you registered is due. Record its outcome on the card, or say 'agent' to have the weekly check do it.",
+    "FORK-EXECUTABLE": "OWNER (optional) — a registered recommendation executes today unless you object. No action = it runs.",
+    "DIRTY-TOO-LONG": "OWNER/AGENT — the working tree has been mid-surgery for days. Finish, stash, or say 'discard'.",
+    "REAUTH-NEEDED": "OWNER — re-authenticate the named surface (a token or session expired); the agent cannot.",
+    "FETCH-FAILED": "OWNER — the fetch layer has been blind two runs in reporting season. Check the network or the credentials file.",
+}
+
+
+def page_action(flag: str) -> str:
+    tag = flag.split()[0] if flag else ""
+    return PAGE_ACTIONS.get(tag, "OWNER — (no action text registered for this tag; treat as: read and rule)")
+
+
 def page_once_key(flag: str) -> str:
     """What makes two sightings of a page_once flag the SAME event (2026-09-02):
     FILING-LANDED = ticker·form·accession (never the 48h-window repeat);

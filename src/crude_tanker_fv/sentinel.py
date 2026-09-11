@@ -400,8 +400,15 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
     if not pure:
         from .arrivals import validate_html
 
+        from .filings import load as _load_acks
+
+        acked = _load_acks(inputs_dir.parent / "state" / "filings_triaged.json")
         seen_bad = []
         for e in _edgar_manifest_entries(inputs_dir, pure)[-60:]:
+            # A triaged accession (its images recovered by hand, or judged not value-bearing)
+            # stops flagging — the ack ledger is the disposition (2026-09-11).
+            if e.get("accession") in acked:
+                continue
             # The EXHIBITS are where the content lives — the primary doc is often a
             # one-page cover that validates fine while the exhibit is the empty shell.
             paths = [e.get("staged_path")] + [x.get("staged_path")
@@ -729,7 +736,13 @@ def _filing_event_flags(inputs_dir: Path, watchlist: dict,
 
     flags: list[str] = []
     now = now or datetime.now(timezone.utc)
+    # Triage ack (2026-09-11): an accession the daily triage recorded a disposition for is
+    # dealt with — it must not keep flagging for the rest of its 48h window.
+    from .filings import load as _load_acks
+    acked = _load_acks(inputs_dir.parent / "state" / "filings_triaged.json")
     for e in manifest_entries:
+        if e.get("accession") in acked:
+            continue
         try:
             ts = datetime.fromisoformat(str(e.get("ts")))
         except Exception:
@@ -1005,10 +1018,15 @@ def main(argv: list[str] | None = None) -> int:
         paged_once = {k: d for k, d in paged_once.items() if d >= cutoff}
         prefix = routes["subject_prefix"]
         if page:
-            body = "PAGE-class flags:\n" + "\n".join(f"  {f}" for f in page)
+            # 2026-09-11 (owner ruling): a page means the OWNER's action is needed and
+            # each line says what; agent-class work never reaches this body.
+            body = ("This page means YOUR action is needed. Each line says who acts and what.\n"
+                    "To act: open a chat in crude-tanker-fv and say so in one line.\n\n"
+                    + "\n\n".join(f"  {f}\n    ACTION: {notify.page_action(f)}" for f in page))
             if digest:
-                body += ("\n\nDigest-class also present (detail rides the daily "
-                         "digest):\n" + "\n".join(f"  {f}" for f in digest))
+                body += ("\n\nAlso present, NO action needed from you (agent-class; the "
+                         "daily digest and the agent tasks carry these):\n"
+                         + "\n".join(f"  {f}" for f in digest))
             sends_ok = notify.send_email(f"{prefix} PAGE: {len(page)} flag(s)", body)
 
         # Consecutive-run thresholds (2026-09-02, F10): ONLY tags listed under
