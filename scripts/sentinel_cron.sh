@@ -63,6 +63,20 @@ report_rc=0
 [ "$report_rc" -eq 0 ] || CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}weekly_report=rc${report_rc}"
 echo "=== [weekly-report] EXIT CODE $report_rc"
 
+# Commit the run's own outputs that are NOT on the drift list (2026-09-12): the Saturday weekly
+# report and the news digest are written by these jobs, yet every Saturday they sat untracked and
+# auto-land refused ("non-drift dirt") until someone committed them by hand — the lane froze on
+# 9/12 exactly so. Automation products get committed by the automation; a commit is skipped when
+# nothing changed. Never touches inputs/ or decisions/.
+echo "=== [commit-outputs] $(date '+%Y-%m-%d %H:%M:%S')"
+if git status --porcelain -- outputs/weekly_report_*.md outputs/news_digest_*.md | grep -q .; then
+  git add outputs/weekly_report_*.md outputs/news_digest_*.md \
+    && git commit -q -m "outputs: weekly report / news digest $(date '+%Y-%m-%d') (cron products, auto-committed)" \
+    && echo "[commit-outputs] committed" || { echo "[commit-outputs] FAILED"; CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}commit_outputs=failed"; }
+else
+  echo "[commit-outputs] nothing to commit"
+fi
+
 # Auto-land (owner's word 2026-09-10, "wire it in now"): the promoter's landing lane
 # re-ratifies the drift-gate baseline ONLY when every precondition holds — 0 UNEXPLAINED,
 # every moved row annotated since the last ratify, drift-only tree, no flip toward BUY, the

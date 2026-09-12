@@ -45,7 +45,10 @@ whether or not the desktop app is open, as long as the Mac is awake.
 ## Layer 2 — agent tasks (Claude scheduled tasks; run only while the desktop app is open)
 
 Each task starts cold from this repo's CLAUDE.md and its own SKILL.md. If the app was closed when
-one was due, it runs at the next launch. Producer side:
+one was due, it runs at the next launch. A task that writes a tracked file commits it in the same
+run: an uncommitted write is "non-drift dirt" and freezes the next morning's auto-land and
+auto-push until someone commits (caught 2026-09-12: the Saturday weekly report and the drill
+doc). Producer side:
 
 | Task | Cadence | Does |
 |---|---|---|

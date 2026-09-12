@@ -107,3 +107,5 @@ _pending — fill at page + restore._
   expected ≈ +54h (Period 1d + Grace 30h) ≈ Monday 2026-09-14 17:15 EDT. (The ≈14:15 EDT above
   assumed an 08:15 EDT sentinel run; the launchd sentinel actually pings at 11:15 EDT / 15:15Z,
   so the page lands three hours later than the doc's estimate. Still inside the Monday window.)
+- RESTORE task moved 2026-09-12 to Monday 18:45 EDT (was 15:20 EDT, which would have run BEFORE the
+  ≈17:15 EDT page and recorded a false NOT RECEIVED); the task now also commits its own doc line.
