@@ -130,3 +130,34 @@ def test_wrapper_calls_the_report_unconditionally():
     assert any("--if-due" in ln for ln in cmds), "the wrapper must delegate the due decision"
     assert not any("date +%u" in ln for ln in cmds), (
         "no weekday gate may remain in a COMMAND line (the comment explaining why is fine)")
+
+
+def test_owner_queue_excludes_agent_class_work(tmp_path):
+    """2026-09-12: the report listed 'Refresh owed — TEN reported and has no balance sheet on
+    file' under 'Needs your word', and the owner read it as his debt. A balance-sheet refresh,
+    filings triage, unreadable exhibits and the S&P ack are agent work: they ride the agent
+    queue, with the shadow verdict when a shadow build exists; only page-class tags and the
+    ask-tier FFA queue ask for the owner's word."""
+    flags = [
+        "STALE-BALANCE-SHEET TEN: report OUT (2026-09-10, confirmed) and no 2026-Q2 balance sheet on file",
+        "FILING-LANDED SB: 6-K 0001-26-000048 filed 2026-09-11 -> x.htm",
+        "FLEET-TRANSACTION 3 unreviewed print candidates",
+        "TRIGGER-DUE crude_geopolitics_weekly: due 2026-09-17",
+        "FORK-EXECUTABLE stage_b_open_items: executable 2026-09-14",
+        "UNINGESTED-PRINTS ffa widget newer than curve",
+    ]
+    owner = wr._queue_lines(flags)
+    assert len(owner) == 3
+    assert owner[0].startswith("TRIGGER-DUE") and owner[1].startswith("FORK-EXECUTABLE")
+    assert "ask-tier" in owner[2]
+    assert not any("Refresh owed" in q or "TEN" in q for q in owner)
+
+    (tmp_path / "ten_shadow_build_2026-09-11.md").write_text(
+        "# TEN shadow\n\n**VERDICT (one line, repeated at the end): WOULD-HOLD** — top summary\n\n## 9\n\n**VERDICT: WOULD-HOLD** — six fields unverified\n")
+    agent = wr._agent_lines(flags, decisions_dir=tmp_path)
+    assert agent[0].startswith("Balance-sheet refresh queued (agent) — TEN reported 2026-09-10")
+    assert "ten_shadow_build_2026-09-11.md: WOULD-HOLD" in agent[0]
+    assert any(q.startswith("Filings triage (agent") for q in agent)
+    assert any(q.startswith("S&P queue (agent") for q in agent)
+    assert wr._agent_lines(["STALE-BALANCE-SHEET ZZZ: report OUT"], decisions_dir=tmp_path)[0].endswith(
+        "stages when it arrives")

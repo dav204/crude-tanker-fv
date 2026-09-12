@@ -277,26 +277,67 @@ def _calendar(days: int = 14) -> list[tuple[str, str]]:
     return sorted(items)
 
 
+OWNER_TAGS = ("TRIGGER-DUE", "REAUTH-NEEDED", "SURFACE-INCOHERENT", "FILING-OVERDUE",
+              "FORK-EXECUTABLE", "DIRTY-TOO-LONG")
+
+
 def _queue_lines(flags: list[str]) -> list[str]:
-    """What needs an owner word, derived from live flags + the promotion queues."""
+    """What needs an OWNER word — only the page-class tags (2026-09-11 ruling: a page means
+    the owner acts) plus the one queue whose write is ask-tier (the FFA curve). Agent-class
+    work (balance-sheet refreshes, filings triage, the S&P ack) lives in _agent_lines — it
+    used to sit here as "Refresh owed", which the owner read as a debt of his (2026-09-12)."""
     out: list[str] = []
     for f in flags:
         tag = f.split()[0]
-        if tag in ("TRIGGER-DUE", "REAUTH-NEEDED", "SURFACE-INCOHERENT", "FILING-OVERDUE"):
+        if tag in OWNER_TAGS:
             out.append(f"{tag} — {f.split(':', 1)[-1].strip()[:180]}")
+    ffa = [f for f in flags if f.startswith("UNINGESTED-PRINTS ffa")]
+    if ffa:
+        out.append("FFA queue — a parsed widget is newer than the committed curve vintage; the "
+                   "curve edit is ask-tier, so it lands in a chat with you (outputs/ffa_ocr_queue.md)")
+    return out
+
+
+def _shadow_verdict(ticker: str, decisions_dir: Path) -> str:
+    files = sorted(decisions_dir.glob(f"{ticker.lower()}_shadow_build_*.md"))
+    if not files:
+        return ""
+    verdict = ""
+    for ln in files[-1].read_text().splitlines():
+        # The report states its verdict twice (top summary + final line); the final one is
+        # the bold "**VERDICT: WOULD-…**" and the text after the last colon is the verdict.
+        if ln.startswith("**VERDICT"):
+            verdict = ln.split("**")[1].rsplit(":", 1)[-1].strip()
+    return f"shadow draft {files[-1].name}: {verdict}" if verdict else f"shadow draft {files[-1].name}"
+
+
+def _agent_lines(flags: list[str], decisions_dir: Path = ROOT / "decisions") -> list[str]:
+    """What the agent tasks are carrying — listed so the owner can see it, never as a debt."""
+    out: list[str] = []
+    for f in flags:
+        if f.startswith("STALE-BALANCE-SHEET"):
+            name = f.split(" ", 1)[1].split(":")[0]
+            m = re.search(r"report OUT \((\d{4}-\d{2}-\d{2})", f)
+            when = f" {m.group(1)}" if m else ""
+            shadow = _shadow_verdict(name, decisions_dir)
+            out.append(f"Balance-sheet refresh queued (agent) — {name} reported{when}; the sheet lands "
+                       f"on the results filing, which the EDGAR poll stages when it arrives"
+                       + (f"; {shadow}" if shadow else ""))
+    landed = [f for f in flags if f.startswith("FILING-LANDED")]
+    if landed:
+        out.append(f"Filings triage (agent, daily 11:45) — {len(landed)} arrival(s) in the 48h window "
+                   f"not yet dispositioned")
+    unread = [f for f in flags if f.startswith("FILING-UNREADABLE")]
+    if unread:
+        out.append(f"Unreadable exhibit(s) (agent) — {len(unread)} image-only staged file(s); page-image "
+                   f"recovery is agent work")
     fleet = [f for f in flags if f.startswith("FLEET-TRANSACTION")]
     if fleet:
         n = re.search(r"(\d+)", fleet[0])
-        out.append(f"S&P queue — {n.group(1) if n else 'some'} unreviewed print candidate(s): "
-                   "promote or dismiss, then `sp_scan --mark-reviewed`")
-    ffa = [f for f in flags if f.startswith("UNINGESTED-PRINTS ffa")]
-    if ffa:
-        out.append("FFA queue — a parsed widget is newer than the committed curve vintage "
-                   "(review outputs/ffa_ocr_queue.md)")
-    stale = [f for f in flags if f.startswith("STALE-BALANCE-SHEET")]
-    for f in stale:
-        out.append(f"Refresh owed — {f.split(' ', 1)[1].split(':')[0]} reported and has no "
-                   f"balance sheet on file")
+        out.append(f"S&P queue (agent, unattended ack) — {n.group(1) if n else 'some'} print candidate(s)")
+    earn = [f for f in flags if f.startswith(("EARNINGS-UNCONFIRMED", "EARNINGS-SWEEP-STALE"))]
+    if earn:
+        out.append(f"Earnings-date sweep (agent) — {len(earn)} line(s) awaiting the sweep")
     return out
 
 
@@ -326,6 +367,7 @@ def build_report(today: date | None = None, days: int = 7) -> str:
     edge_names = edge[0] if edge else []
     approx = _edge_cleared_approx(now_rows)
     queue = _queue_lines(flags)
+    agent_queue = _agent_lines(flags)
     hbs = _heartbeats()
     reauth = _reauth()
     ping = _ping_status()
@@ -336,7 +378,9 @@ def build_report(today: date | None = None, days: int = 7) -> str:
     unpushed = len([ln for ln in _git("log", "--oneline", "origin/main..HEAD").splitlines() if ln.strip()])
 
     dead = [j for j, _o, _ts, _age, late in hbs if late]
-    verdict = (f"{len(queue)} owed · {len(edge_names)} long{'s' if len(edge_names) != 1 else ''} · "
+    verdict = (f"{len(queue)} need{'s' if len(queue) == 1 else ''} your word · "
+               f"{len(agent_queue)} in the agent's queue · "
+               f"{len(edge_names)} long{'s' if len(edge_names) != 1 else ''} · "
                f"{len(moves)} move{'s' if len(moves) != 1 else ''} · "
                f"{'health OK' if not dead and not reauth else 'HEALTH ATTENTION'}")
 
@@ -382,7 +426,13 @@ def build_report(today: date | None = None, days: int = 7) -> str:
         for q in queue:
             a(f"- {q}")
     else:
-        a("Nothing owed.")
+        a("Nothing needs your word this week.")
+    if agent_queue:
+        a("")
+        a("**In the agent's queue (no word needed from you):**")
+        a("")
+        for q in agent_queue:
+            a(f"- {q}")
     a("")
 
     a("## 3. What the machine did")
