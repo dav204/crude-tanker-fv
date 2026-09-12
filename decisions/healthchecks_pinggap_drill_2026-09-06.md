@@ -100,3 +100,10 @@ _pending — fill at page + restore._
 - Restored + PING-SENT: _______
 - Verdict: _______  → if PASS, this closes the Stage-0 → Stage-A gate item; if FAIL, the absence
   channel is not real and README's detectability claim gets struck before Stage A ships.
+
+## Drill log
+
+- ARMED 2026-09-12T14:07:54-04:00 — last SENT ping 2026-09-12T15:15:09+00:00 (11:15 EDT); page
+  expected ≈ +54h (Period 1d + Grace 30h) ≈ Monday 2026-09-14 17:15 EDT. (The ≈14:15 EDT above
+  assumed an 08:15 EDT sentinel run; the launchd sentinel actually pings at 11:15 EDT / 15:15Z,
+  so the page lands three hours later than the doc's estimate. Still inside the Monday window.)
