@@ -38,6 +38,26 @@ def load_routes(inputs_dir: Path = INPUTS_DIR) -> dict:
     return yaml.safe_load((inputs_dir / "notify.yaml").read_text())
 
 
+def load_env_file(path: Path = ENV_FILE, environ=None) -> dict:
+    """The wrappers `source` the secrets file in shell; a scheduled-task session has no such
+    wrapper, so the module loads it itself (KEY=VALUE, optional `export`, quotes stripped).
+    Never overrides a variable already set; never prints a value. (2026-09-12, governor sends.)"""
+    env = dict(os.environ if environ is None else environ)
+    if not path.exists():
+        return env
+    for ln in path.read_text().splitlines():
+        ln = ln.strip()
+        if not ln or ln.startswith("#") or "=" not in ln:
+            continue
+        if ln.startswith("export "):
+            ln = ln[len("export "):]
+        k, _, v = ln.partition("=")
+        k, v = k.strip(), v.strip().strip('"').strip("'")
+        if k and k not in env:
+            env[k] = v
+    return env
+
+
 def smtp_status(environ=os.environ) -> dict:
     missing = [v for v in REQUIRED_VARS if not environ.get(v)]
     return {"configured": not missing, "missing": missing}
@@ -173,7 +193,33 @@ def main(argv: "list[str] | None" = None) -> int:
                     help="check secrets file perms, env vars, routing config")
     ap.add_argument("--verify-notify", action="store_true",
                     help="send one test email to CRUDE_FV_SMTP_TO")
+    ap.add_argument("--send", choices=["page", "digest"],
+                    help="send one email from --body-file (first line = subject); "
+                         "the governor's monitor/notify.sh uses this (2026-09-12)")
+    ap.add_argument("--body-file", type=Path)
+    ap.add_argument("--prefix", default=None,
+                    help="subject prefix, e.g. '[portfolio]' (default: inputs/notify.yaml)")
+    ap.add_argument("--state-dir", type=Path, default=Path("state"),
+                    help="where notify_sent.log / notify_down.log are written")
     args = ap.parse_args(argv)
+
+    if args.send:
+        if not args.body_file or not args.body_file.exists():
+            print("FAILED: --body-file missing")
+            return 2
+        first, _, body = args.body_file.read_text().partition("\n")
+        subject_line = first.strip().lstrip("#").strip()
+        prefix = args.prefix or load_routes()["subject_prefix"]
+        if args.send == "page":
+            subject = f"{prefix} PAGE: {subject_line}"
+            body = ("This page means YOUR action is needed. Each line says who acts and what.\n\n"
+                    + body.strip() + "\n")
+        else:
+            subject = f"{prefix} digest: {subject_line}"
+            body = body.strip() + "\n"
+        ok = send_email(subject, body, environ=load_env_file(ENV_FILE), state_dir=args.state_dir)
+        print("SENT" if ok else f"FAILED (see {args.state_dir}/notify_down.log)")
+        return 0 if ok else 1
 
     if args.doctor:
         problems = doctor()

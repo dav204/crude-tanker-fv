@@ -15,6 +15,9 @@ You read email. Nothing else is required.
 | `[crude-fv] PAGE: n flag(s)` | only when YOUR action is needed | each line carries `ACTION: OWNER …` saying what to do | do the named action, or nothing if it says "(optional)" |
 | weekly report | Saturdays (catches up on Monday if the Mac slept) | the week's surface changes, band hits, fork docket | read it |
 | healthchecks.io alert | when the sentinel did not ping for a day | the automation itself is down | open a chat in this repo and say "sentinel did not ping" |
+| `[portfolio] digest: …` | Fridays after the close, from the governor's monitor | nothing triggered; weights in band | nothing |
+| `[portfolio] PAGE: …` | only when a tripwire fired, a weight left its band, a falsifier moved, the producer seam changed a holding's tier or label, or the quarterly review pack is ready | each line ends `ACTION: OWNER — …` (usually: open a mini-review) | open a chat inside `portfolio-governance` and do the named action |
+| healthchecks.io alert (governor) | when the Friday monitor did not run | the monitor slipped or aborted | open a chat in `portfolio-governance` and say "monitor did not run" |
 
 A page never asks for agent-class work. Filings triage, earnings-date sweeps, unreadable-filing
 recovery and watchlist pair rebases ride the digest and the agent tasks below; the routing table

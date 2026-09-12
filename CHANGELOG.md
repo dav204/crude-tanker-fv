@@ -5,6 +5,18 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-09-12 — THE GOVERNOR EMAILS THE OWNER THROUGH THIS CHANNEL.** *Owner:* "will the
+  governance repo also be emailing me too?" — it did not: its Friday monitor's flags (SBLK
+  take-profit 7/24, five flags 8/14) only ever reached the app's task pane, and the only email it
+  could cause was a healthchecks alert by absence. *Fix:* `notify --send page|digest --body-file
+  <f> --prefix "[portfolio]" --state-dir <d>` (first line of the file = subject; a page carries
+  the "YOUR action is needed" header) and `notify.load_env_file` (the module loads the SMTP env
+  itself when no wrapper sourced it — a scheduled-task session has none; existing vars win). The
+  governor's `monitor/notify.sh` wraps it; its monitor and quarterly-kickoff tasks write
+  `monitor/outbox/<date>-*.md` and send (page on a tripwire / band / falsifier / seam change or a
+  missing scorecard; digest otherwise; the kickoff pages once with the pack). Contract recorded in
+  the governor's CADENCE.md (M-3) + README, and in OPERATING.md's inbox table here. Tests:
+  `test_load_env_file_fills_missing_vars_only`, `test_send_cli_reads_subject_from_first_line_…`.
 - **2026-09-11 — A PAGE MEANS THE OWNER ACTS; FILINGS TRIAGE BECAME AGENT WORK; OPERATING.md.**
   *Owner words:* "page email indicates that action is needed from me, right ... the email isn't
   clear whether or not action will be taken by you or me"; "i'm really not clear on the surface

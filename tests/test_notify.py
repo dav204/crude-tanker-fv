@@ -94,6 +94,40 @@ def test_every_page_class_tag_names_the_owner_action():
     assert "no action text registered" in notify.page_action("NEW-TAG thing")
 
 
+def test_load_env_file_fills_missing_vars_only(tmp_path):
+    """2026-09-12: a scheduled-task session has no wrapper to source the secrets file, so the
+    module loads it; a variable already in the environment wins; junk lines are ignored."""
+    f = tmp_path / "x.env"
+    f.write_text('# comment\nexport CRUDE_FV_SMTP_HOST="smtp.example"\nCRUDE_FV_SMTP_USER=u@example\nJUNK LINE\n')
+    env = notify.load_env_file(f, environ={"CRUDE_FV_SMTP_USER": "keep"})
+    assert env["CRUDE_FV_SMTP_HOST"] == "smtp.example" and env["CRUDE_FV_SMTP_USER"] == "keep"
+    assert notify.load_env_file(tmp_path / "missing.env", environ={}) == {}
+
+
+def test_send_cli_reads_subject_from_first_line_and_stamps_the_owner_header(tmp_path, monkeypatch):
+    """2026-09-12: the governor's monitor/notify.sh sends through this CLI. A page carries the
+    'YOUR action is needed' header; the subject is the body file's first line; the ledger goes
+    to the caller's state dir (the governor keeps its own)."""
+    calls = []
+    monkeypatch.setattr(notify, "send_email",
+                        lambda subject, body, **kw: calls.append((subject, body, kw)) or True)
+    monkeypatch.setattr(notify, "load_env_file", lambda *a, **k: {})
+    bf = tmp_path / "2026-09-12.md"
+    bf.write_text("# SBLK hit its take-profit\n\nSBLK $28.14 > $28 leg.\n  ACTION: OWNER — open a mini-review\n")
+    rc = notify.main(["--send", "page", "--body-file", str(bf), "--prefix", "[portfolio]",
+                      "--state-dir", str(tmp_path)])
+    assert rc == 0
+    subject, body, kw = calls[0]
+    assert subject == "[portfolio] PAGE: SBLK hit its take-profit"
+    assert body.startswith("This page means YOUR action is needed") and "ACTION: OWNER" in body
+    assert kw["state_dir"] == tmp_path
+    rc = notify.main(["--send", "digest", "--body-file", str(bf), "--prefix", "[portfolio]",
+                      "--state-dir", str(tmp_path)])
+    assert rc == 0 and calls[1][0] == "[portfolio] digest: SBLK hit its take-profit"
+    assert not calls[1][1].startswith("This page")
+    assert notify.main(["--send", "page", "--body-file", str(tmp_path / "nope.md")]) == 2
+
+
 def test_page_once_keys():
     k = notify.page_once_key
     a = k("FILING-LANDED CMBT: 6-K 0000919574-26-005821 filed 2026-08-28 -> inputs/filings/x.htm")
