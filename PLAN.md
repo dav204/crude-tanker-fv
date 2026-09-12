@@ -22,6 +22,10 @@ cron, task, page tag or owner duty changes. Also: `tests/test_eco.py` pin follow
 **STILL OPEN:** image-only page-image auto-fetch (FILING-UNREADABLE is now digest-only, the `unreadable`
 disposition routes a results report to the owner-present sheet build) · TEN Q2 sheet when the 6-K lands
 · Q3 calendar re-seed (CMBT 11/26, BRUT 11/19, OMC AR 2027-02-25) · forks executing 9/14–9/15.
+**Refresh queue** (opened 2026-09-12 by the daily filings triage; agent-class, no owner action):
+- **SBLK** — equity offering PRICED (6-K 0000950157-26-001003, 9/11): 4,400,000 new shares at €24.50 / US$28.40, ≈US$125.0M gross, settlement 9/15. Next vintage: count 111,671,386 → **116,071,386** (UNVERIFIED — post-6/30 repurchases undisclosed) and +$125.0M cash as a **Q3** event (no 6/30-dated sheet moves). Record: decisions/sblk_log.md 2026-09-12.
+- **TRMD** — RSU capital increase (6-K 0000919574-26-006252, 9/11): +31,483 Class A shares at DKK 179.80, share capital now **102,421,267** A-shares (USD 1,024,212.67 nominal). +0.031% — below any gate, so no decisions/trmd_log.md entry was written (it would read as a drift-gate annotation for a non-event); the next TRMD vintage just carries the count. Record: decisions/filings_triage_log.md 2026-09-12.
+
 SHADOW TEN 2026-Q2 2026-09-11: WOULD-HOLD (NAV 88.16→89.61 on the drafts, BUY/GOVERNED-WIDE unchanged; blocked on Arctic/Antarctic ownership at 6/30 [OUT uncited, conservative], Alaska/Archangel HFS-at-6/30 unverified, shares/NCI-distribution/shuttle-NPV carried UNVERIFIED, one mechanical guard red, no prereg band) — decisions/ten_shadow_build_2026-09-11.md
 
 **STATE INSERT (2026-09-10 — THE AUTOMATION RULINGS; read this, then the 9/09 insert below).**
