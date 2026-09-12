@@ -1,0 +1,349 @@
+# Tsakos Energy Navigation (TEN) balance sheet snapshot — METHODOLOGY §4.2, §11.6
+# SHADOW DRAFT 2026-09-11 (.yaml.draft — invisible to sheet resolution; consumed
+# only by scripts/shadow_regen.sh, which copies it to ten_2026-Q2.yaml inside a
+# detached worktree). Record: decisions/ten_shadow_build_2026-09-11.md.
+# Sources: TEN H1/Q2 2026 results release, GlobeNewswire 3359616, 2026-09-10
+# ("TEN, Ltd. Reports Profits for the First Half and Second Quarter of 2026";
+# rendered page saved 2026-09-11 as
+# inputs/research_issuer/ten/2026-09-10_ten_h1_2026_results_pr.txt) — its
+# BALANCE SHEET DATA table (In Thousands of U.S. Dollars), June 30, 2026 column —
+# for every release-sourced figure; the Q1 2026 6-K ex 99.1 (EDGAR acc
+# 0001193125-26-236934, filed 2026-05-22) + FY2025 20-F (acc 0001193125-26-144027,
+# filed 2026-04-06) for every figure the release cannot support, KEPT at the
+# 2026-Q1 sheet value and marked "UNVERIFIED (shadow)". The H1 2026 6-K was NOT
+# on EDGAR at retrieval (newest TEN filing: Form 4, 2026-08-17); expected late
+# Sept / early Oct 2026 (H1-2025 precedent: acc 0001193125-25-225057, filed
+# 2025-09-30). Release figures are unaudited. Balance sheet date: 2026-06-30. USD.
+#
+# SUBSEQUENT-EVENTS AUDIT FIRST (CLAUDE.md snapshot rule; ASC/HAFN/TRMD discipline)
+# — release SUBSEQUENT EVENTS / CORPORATE AFFAIRS / CORPORATE STRATEGY, 2026-09-10:
+#   IN  — Ulysses (2016-built VLCC): Q1 6-K ex 99.1 SUBSEQUENT EVENTS "On May 20,
+#         2026, the Company completed the sale of a 10-year-old VLCC ... about
+#         $83 million in free cash after repayment of existing debt" (vessel
+#         unnamed there); identity per 20-F Note 17(c) (MOA 2026-01-22, VLCC
+#         Ulysses) + release CORPORATE STRATEGY "2016-built VLCC Ulysses" ->
+#         "Gain on sale of vessels (37,870)" in the Q2 2026 column of STATEMENT
+#         OF OPERATIONS DATA ("inclusive of $38 million capital gains"); proceeds
+#         inside Cash 466,143; its held-for-sale carrying value has LEFT Other
+#         assets. Gross price NOT disclosed (not promotable).
+#   OUT — Anfield DP (DP2 shuttle): "on July 28, 2026, TEN took delivery of the
+#         DP2 suezmax shuttle tanker Anfield DP" -> still a NEWBUILD at 6/30; its
+#         instalments sit inside Advances 470,050; joins shuttle_contracted_book
+#         at the Q3 refresh. Debt draw -> 6-K Note 7.
+#   OUT — Alaska + Archangel (2006-built Suezmaxes): "in August 2026 TEN concluded
+#         the sale of two 2006-built suezmax tankers, the Alaska and Archangel,
+#         for net proceeds of $100 million" -> a sale AFTER the snapshot; owned at
+#         6/30; aggregate + net, never split (do not back-solve).
+#   OUT — July 2026 common dividend: "In July 2026, TEN distributed ... $1.00 per
+#         share" -> post-quarter cash outflow; whether a payable sat inside Other
+#         liabilities 220,881 at 6/30 is not disclosed (6-K item).
+#   OUT — Series E call intent: "become redeemable at the election of the Company
+#         on May 28, 2027 ... does not constitute a notice of redemption" -> E
+#         still outstanding at 6/30 (13,500 H1 dividend tie, below).
+#   OUT — LNG newbuild row 26 (TBN, Q1 2029) firm-up: contract undated in the
+#         release (MB LNG Weekly 29, 2026-07-16 -> post-quarter if that date holds).
+#   OUT — November 2026 dividend-announcement intent.
+#   UNVERIFIED (shadow) — Arctic + Antarctic (2007-built Suezmaxes): repurchase
+#         agreed Apr-7-2026 (Q1 6-K ex 99.1); the five-year SLB term ENDED
+#         2026-06-21 (20-F leases note), BEFORE the snapshot; completion is in
+#         no source on disk -> kept OUT (chartered-in, excluded) as the
+#         CONSERVATIVE DEFAULT, not a prior state — see lease_liabilities. If
+#         the 6-K dates completion on or before 6/30 this NAV is UNDERSTATED.
+#   JUDGMENT CALL — were Alaska + Archangel HELD-FOR-SALE AT 6/30? The release has
+#         no "held for sale" / MOA text and no held-for-sale line. ASSUMPTION
+#         TAKEN: NOT held-for-sale at 6/30 -> on-curve in the manifest draft,
+#         inside "Vessels, net", NOT inside the WC composite. This is the
+#         NON-CONSERVATIVE side (verifier 2026-09-11): if the pair was HFS at
+#         6/30 its carrying value already sits inside Other assets 286,240 (the
+#         Ulysses precedent) and the on-curve marks double-count it. Why taken:
+#         (i) no MOA date exists for this pair in any source on disk — the 9/01
+#         PR (GlobeNewswire 3354219, inputs/earnings_calendar.yaml TEN basis;
+#         text not on disk, ten_log entry owed; WebFetch 2026-09-11 reads only
+#         "TEN announced today the sale of two 2006-built Suezmax tankers. This
+#         transaction will release in excess of $100 million to the company's
+#         cash reserves" — no agreement date, neither "agreed" nor "concluded")
+#         and the 9/10 release (SUBSEQUENT EVENTS: "in August 2026 TEN
+#         concluded the sale") both post-date the quarter; under ASC
+#         360-10-45-9 a signed MOA normally
+#         meets the held-for-sale criteria, but TEN discloses no classification
+#         policy (20-F Note 17(c) says only that an MOA was signed for Ulysses;
+#         the Ulysses HFS-at-Mar-31 treatment was the Q1 prereg's inference from
+#         the Other-assets swing, not a disclosed policy); (ii) the release's
+#         Vessels, net bridge (3,145,164 -> 3,155,282, +10,118, net of 46,295
+#         D&A and no NB delivery) is NON-DISCRIMINATING: a 6/30 HFS reclass of
+#         two 20-year-old hulls would move only their (undisclosed, small)
+#         carrying value — not the $100M net proceeds — and the unidentified Q2
+#         additions of roughly $52-56M have a named candidate (the Apr-7
+#         Arctic/Antarctic repurchase, itself UNVERIFIED); (iii) the default for
+#         a row the sources do not move is its prior state (owned, on-curve).
+#         The call rests on (i) and (iii). EXPOSURE if wrong, bounded: the
+#         pair's on-curve marks at 20.35/20.45y on the txn-anchored Suezmax
+#         curve are about $61M = about $2.0/sh (base curve about $67M); the
+#         20-F carrying basis is smaller still (repurchased Jul-19/Aug-22-2024
+#         at $21,000K each net of the $5,900K seller's credit; finance-lease
+#         liability remeasured $43,316K incl. the $11,800K credit — 20-F leases
+#         note). FLIPS on a 6-K vessels-held-for-sale note dating an MOA on or
+#         before 2026-06-30: rows out of the manifest, carrying value inside
+#         Other assets (Ulysses precedent), held_for_sale stays 0 — this
+#         composite would NOT change, only the manifest would.
+#
+# TEN is the first **3-sleeve hybrid** + first name with `shuttle_contracted_book`
+# populated (METHODOLOGY §11.6 off-curve-at-contracted-book convention).
+
+ticker: TEN
+quarter: 2026-Q2
+# Ingest provenance (REQUIRED on sheets keyed 2026-Q2 on — tests/test_quarter_coherence.py
+# ::test_sheets_from_2026_q2_carry_ingest_provenance; the one anchor outside the repo).
+# retrieved_at = the date the rendered page was saved to disk and this sheet
+# transcribed from it (inputs/research_issuer/ten/2026-09-10_ten_h1_2026_results_pr.txt,
+# "RETRIEVED: 2026-09-11 10:00 ET"); the figures were first transcribed 2026-09-10
+# from the release-check WebFetch pulls (decisions/ten_h1_release_check_2026-09-10.md
+# Appendix B) and re-checked against the saved page 2026-09-11 (both verifiers,
+# source + snapshot lens, asked for the saved-page date). filing_period_end =
+# "the second quarter ended June 30, 2026".
+source_url: https://www.globenewswire.com/news-release/2026/09/10/3359616/0/en/ten-ltd-reports-profits-for-the-first-half-and-second-quarter-of-2026.html
+retrieved_at: 2026-09-11
+filing_period_end: 2026-06-30
+
+# Cash: release BALANCE SHEET DATA, June 30, 2026 column: "Cash 466,143" ($K).
+# Prose tie (FIRST HALF 2026 SUMMARY RESULTS): "TEN's cash balances increased to
+# $466.1 million, $168.0 million higher than the end of December 2025"
+# (466,143 − 298,129 = 168,014). Includes the Ulysses proceeds (Q1 6-K ex 99.1
+# subsequent events: "a 10-year-old VLCC" sold May-20-2026, "about $83 million in
+# free cash after repayment of existing debt"; identity per 20-F Note 17(c) MOA
+# 2026-01-22 + release 2026-09-10 "2016-built VLCC Ulysses"); the July "$1.00 per
+# share" dividend is NOT yet out (paid after June 30, 2026). If the Arctic /
+# Antarctic repurchase completed inside Q2 (see lease_liabilities) this cash is
+# already net of the repurchase price while the manifest still excludes the pair.
+cash_and_equivalents: 466143000
+
+# working_capital_net = Jun-30-2026 COMPOSITE, the SAME construction as the
+# 2026-Q1 sheet (Other assets − Other liabilities; Q1: 331,398 − 156,744 =
+# 174,654, basis validated at Dec-31-2025 against the component build there):
+# release BALANCE SHEET DATA "Other assets 286,240" − "Other liabilities 220,881"
+# = 65,359 ($K). Δ vs Q1 = −109,295, which the release explains at NO component
+# level:
+#   - Ulysses held-for-sale carrying value has LEFT Other assets (sale completed
+#     May-20-2026; "Gain on sale of vessels (37,870)" in Q2) — the largest
+#     identifiable piece;
+#   - Other liabilities +64,137 vs Q1 (156,744 -> 220,881): July dividend
+#     payable? newbuild payables? — not disclosed;
+#   - the Q1 investments in bonds/debt securities, EUA/trade receivables and
+#     SLB seller's credits (20-F Note 17 d/g/m/n/o) are not re-derived here.
+# UNVERIFIED (shadow) at COMPONENT level only: the TRMD-fork-1-style component
+# re-derive awaits the H1 2026 6-K interim balance sheet; the composite itself is
+# release-cited. Operating-lease RoU = obligation still nets inside the composite
+# (3 SLB'd hulls at Mar-31-2026; whether Arctic/Antarctic left the lease
+# population in Q2 awaits the 6-K leases note). Tenergy LNG sale-leaseback is a
+# FINANCING arrangement (20-F note) — its liability sits in total_debt.
+# If the 6-K classifies Alaska + Archangel as held-for-sale at 6/30, their
+# carrying value is INSIDE this composite (Other assets) — see the header
+# judgment call: the composite figure does not change, the manifest does.
+working_capital_net: 65359000
+
+# Total debt at 30-Jun-2026: release BALANCE SHEET DATA "Debt and other financial
+# liabilities, net of deferred finance costs 2,102,177" ($K) — the SAME BS-carrying
+# line the 2026-Q1 sheet cites from the Q1 6-K (2,136,109 at Mar-31-2026;
+# Dec-31-2025 comparative 1,920,975 ties to the audited 20-F). BS-carrying
+# convention per the TRMD precedent. Δ −33,932 in Q2 despite newbuild drawdowns
+# (Ulysses debt repaid on the May-20-2026 sale). Prose tie (FIRST HALF 2026
+# SUMMARY RESULTS): "Total bank debt as of June 30, 2026 was $2.0 billion from
+# $1.8 billion at December 31, 2025" — the residual between bank debt and this
+# line (other financial liabilities, e.g. the Tenergy SL financing arrangement)
+# is NOT disclosed by the release; schedule / Anfield draw / Tenergy SL split
+# await 6-K Note 7 "Long-term debt and other financial liabilities".
+total_debt: 2102177000
+
+# Lease liabilities = 0 — convention carried from the 2026-Q1 sheet: operating
+# leases on leased-back hulls carry RoU = obligation, netting inside the WC
+# composite above; the hulls are NOT owned (ASC 842 true sales) and stay out of
+# the manifest draft. Sakura Princess: SLB Dec-21-2020, extended Sep-19-2025 to
+# ~Dec-2026 (20-F leases note) — unchanged. Arctic + Antarctic — OUT is the
+# CONSERVATIVE DEFAULT, NOT a prior state (verifier 2026-09-11, snapshot lens):
+#   - 20-F leases note: "On June 21, 2021, the Company commenced a new five-year
+#     sale and leaseback agreement for each of the two suezmaxes, Arctic and
+#     Antarctic" (agreed net sale price $52,304K; weighted-average remaining
+#     term 0.48 years at Dec-31-2025) -> the term ENDED 2026-06-21, BEFORE the
+#     2026-06-30 snapshot;
+#   - Q1 6-K ex 99.1 SUBSEQUENT EVENTS: "On April 7, 2026, TEN agreed to
+#     repurchase two of its 2007-built suezmax tankers, currently operating
+#     under five-year leases at prices below current fair market value";
+#   - the pair was still operated at 6/30: release FLEET DATA dwt 7,702k ties
+#     to the Jun-5 kit's 63 hulls INCLUDING them (ten_log 2026-06-11);
+#     Antarctic on TC to Dec-26 per the 20-F fleet table;
+#   - no source on disk dates the repurchase COMPLETION -> excluded here, 0.
+# Circumstantial ONLY (release 2026-09-10; inference, not disclosure): Charter
+# hire expense Q2 2,646 vs Q1 3,386 (Q1 6-K ex 99.1) vs Q2-2025 3,321 — at the
+# logged bareboat rates (Arctic + Antarctic $13,870/day each, Sakura Princess
+# $10,500/day; ten_log 2026-06-11) Q2 fits the pair on hire for roughly 60 of
+# 91 days, i.e. leases ending late May / early June 2026; Vessels, net +10,118
+# net of 46,295 D&A with no NB delivery (2026-09-10 release); Q2 D&A 46,295 vs
+# Q1 44,147 with Ulysses gone; Q2 investing +3,763 after the VLCC proceeds
+# (Q1 6-K: "about $83 million in free cash") and the quarter's advances — all
+# consistent with the leases ending inside Q2 and the repurchase completing
+# before 6/30. NOT a citation for ownership; re-add ONLY on the 6-K leases /
+# vessels note. If it flips: NAV UNDERSTATED here (cash already net of the
+# repurchase price; two 2007-built Suezmax on-curve marks missing) — the
+# likeliest 6-K resolution, direction +: manifest 56 -> 58 (crude 37 -> 39,
+# Suezmax 14 -> 16), lease_liabilities stays 0.
+# Tenergy LNG SL is a financing arrangement inside total_debt (20-F note).
+# UNVERIFIED (shadow): awaits the H1 2026 6-K leases note (lease population at
+# 6/30; whether Arctic/Antarctic left it on repurchase completion).
+lease_liabilities: 0
+
+# Newbuild orderbook at 30-Jun-2026: 19 hulls under construction on the SAME
+# basis as the 2026-Q1 sheet (10 DP2 shuttle incl. Anfield DP + 5 LR1 + 3 VLCC
+# + 1 LNG [Hull 3643 contracted Feb-25-2026, 20-F Note 17(j)]). Release "TEN's
+# CURRENT NEWBUILDING PROGRAM" table (2026-09-10): 26 hulls, "seven of which
+# already delivered"; of the 19 undelivered at the release date, Anfield DP was
+# still undelivered at 6/30 ("on July 28, 2026, TEN took delivery" — SUBSEQUENT
+# EVENTS) and the second LNG carrier (row 26 "TBN | LNG Carrier | Q1 2029 |
+# Under Construction", an "Optional Vessel" in the Q1 6-K ex 99.1 table) carries
+# NO contract date in the release — UNVERIFIED (shadow): awaits the 6-K
+# Subsequent Events / commitments note (MB LNG Weekly 29, 2026-07-16, would
+# place it post-quarter); NOT counted in the 6/30 orderbook here. The release
+# table has no contract price, remaining commitment or instalment schedule.
+#   - Advances paid at Jun-30-2026: 470,050 ($K) — release BALANCE SHEET DATA
+#     "Advances for vessels under construction 470,050" (Dec-31-2025 comparative
+#     301,868 ties to the audited 20-F; Mar-31-2026 Q1 6-K 442,740). Includes
+#     the Anfield DP instalments paid to 6/30 (delivered July 28, 2026).
+#   - All NBs treated as **delivered-value = contract-price** (DP2 shuttle per
+#     METHODOLOGY §11.6 — no observable resale market; conventional non-shuttle
+#     NBs per the conservative read of §3.1) — unchanged from the 2026-Q1 sheet.
+#     Net NAV from the NB program = advances paid only.
+# Convention: `newbuild_capex_commitments` stays 0 (the remaining future
+# obligation will buy delivered vessels of equal value; net NAV impact zero vs
+# holding the advances at cost). `newbuild_advances_paid` carries the full
+# paid-to-date balance as a positive NAV asset. TEN stays "advances-only" in
+# OFF_CONVENTION_QUEUE (tests/test_newbuild_convention.py): no NB rows, no
+# years_to_delivery in the manifest.
+# UNVERIFIED (shadow) on the commitment side: the remaining commitment (20-F
+# Note 12: 1,968,298 at Dec-31-2025 for the then-20 hulls) is not re-stated by
+# the release; if the second LNG carrier was contracted on or before 6/30 it is
+# a NEW commitment figure -> NEWBUILD_PRICE_PENDING if the 6-K is silent.
+newbuild_capex_commitments: 0
+newbuild_advances_paid: 470050000
+
+# Diluted common shares outstanding: 30,127,603 per the FY2025 20-F at Dec-31-2025
+# (issued 30,805,776; treasury 678,173) — the 2026-Q1 sheet value.
+# UNVERIFIED (shadow): awaits the H1 2026 6-K cover / equity note (or the F-3ASR
+# of 2026-07-02). The release prints ONLY "Weighted average number of shares,
+# basic and diluted 29,972,103" (Q2 and H1 2026; 29,661,103 in 2025) — an EPS
+# denominator that excludes non-vested restricted stock ("Undistributed and
+# distributed income allocated to non-vested restricted common stock (684)"),
+# NOT a period-end count (the same basis printed 29,971,603 in the Q1 6-K
+# against the 30,127,603 outstanding). No buyback or issuance is disclosed.
+diluted_shares_outstanding: 30127603
+
+# Preferred equity + NCI (METHODOLOGY §4.2; NCI via preferred_equity since the
+# 2026-07-15 reconciliation — the BWLP convention):
+#   - Series E: 4,745,947 shares × $25.00 redemption value = $118,649K (20-F)
+#                9.25% coupon, dividends 28-Feb/May/Aug/Nov
+#   - Series F: 6,747,147 shares × $25.00 redemption value = $168,679K (20-F)
+#                9.50% coupon, dividends 30-Jan/Apr/Jul/Oct
+#   Total liquidation preference: $287,328K — RE-TIED by the release (2026-09-10):
+#   "Effect of preferred dividends (6,750)" per quarter / "(13,500)" H1 2026 =
+#   118,649 × 9.25%/2 + 168,679 × 9.50%/2 = 13,500, both series outstanding at
+#   6/30. Series E call intent (CORPORATE AFFAIRS): "become redeemable at the
+#   election of the Company on May 28, 2027 ... may elect to redeem, all or a
+#   portion ... does not constitute a notice of redemption" -> no change at 6/30.
+# (Tsakos-affiliated entities hold 45,000 Series E + 100,000 Series F per 20-F.)
+# PLUS non-controlling interest — the BWLP NCI-via-preferred_equity convention:
+#   49% of Mare Success S.A. (owns Selini, Salamina, Byzantion, Bosporos — all
+#   four consolidated at 100% in the fleet manifest) is held by Polaris Oil
+#   Shipping (Flopec affiliate), 20-F Note 11. Book basis ROLLED on the 2026-Q1
+#   construction (audited + attributable income; FY2025 zero distributions per
+#   the 20-F): Dec-31-2025 audited $43,529K + Q1-2026 attributable $2,425K (Q1
+#   6-K) + Q2-2026 attributable $4,176K (release 2026-09-10 STATEMENT OF
+#   OPERATIONS: "Less: Net income attributable to the noncontrolling interest
+#   (4,176)" Q2; "(6,601)" H1 = 2,425 + 4,176, ties) = $50,130K.
+#   UNVERIFIED (shadow) on the distribution leg: the roll treats Q2
+#   distributions to Polaris as zero (the same basis the Q1 sheet used); awaits
+#   the 6-K noncontrolling-interest note / Mare Success distributions.
+#   JUDGMENT CALL 2026-09-11 (verifier, snapshot lens): rolling is the
+#   CONSERVATIVE side (more NCI subtracted; holding 45,954 would be +4,176
+#   non-conservative, about +$0.14/sh) and keeps the Q1 construction.
+#   NAV-basis derivation still not disclosed-derivable (sub-level debt/cash
+#   unknown) — owner fork decisions/ten_reconciliation_prereg_2026-07-15.md §6.1.
+#   287,328 + 50,130 = 337,458 (2026-Q1 sheet: 287,328 + 45,954 = 333,282)
+preferred_equity: 337458000
+
+# Governance / structural-NAV-trap discount (METHODOLOGY §15, NEW 2026-06-06):
+# TEN is the framework's first §15 case — a controlled FPI structure where
+# the market consistently applies a 50-60% P/NAV discount. Drivers per
+# external read + user analysis:
+#   - Controlled-shareholder structure (Tsakos family); related-party
+#     transactions including management fees to Tsakos Columbia Shipmanagement
+#   - Low common payout: $1.50/share against ~$8 EPS in 2026 (~19% payout
+#     ratio); 36% YoY increase is "highest dividend in 10 years" but still
+#     well below mainstream tanker-cycle peers (DHT/NAT 100%, FRO 80%)
+#   - No buyback program; retained capital deployed into a $2.4B NB orderbook
+#     whose returns to common are uncertain
+#   - Preferred E+F structure ($287M aggregate) with Tsakos-affiliated owners
+#     holding meaningful slugs (0.95% E + 1.5% F per 20-F)
+#
+# 30% NAV haircut chosen to bring tool PW FV into the neighborhood of VIE
+# Bullish $51.50 — i.e., interpret VIE's already-discounted target as the
+# anchor for what the market will pay rather than what the assets are worth.
+# Conservative read: even VIE Bullish applies ~47% discount vs unconstrained
+# NAV; our 30% sits in between full-realisation (0%) and VIE Bullish (47%),
+# allowing room for partial governance improvement vs full continuation of
+# the historical discount. Judgmental; revisit when governance signals shift
+# (e.g., capital-return policy change, management transition, M&A).
+#
+# Applied at the BLEND layer (NAV term) and on the strip's TERMINAL value —
+# both are NAV-realisation computations. Interim DPS are NOT haircut (already-
+# realised cash to common). Broker-NAV sweep operates on undiscounted NAV
+# (the question "what are the assets worth" is independent of "what will
+# common shareholders capture").
+#
+# SHADOW 2026-09-11 — HOLD 0.30 per decisions/ten_h1_release_check_2026-09-10.md
+# §6 (§15.7 working band 30-36%): the release carries no related-party fee
+# figure (only the footnote that overhead "include[s] Management fees"), no
+# buyback, unquantified NB commitments; payout $1.50 on H1-2026-annualised EPS
+# 14.24 = 10.5% (worse than the 19% in the rationale above), against the new
+# Series E call intent (May 28, 2027, mildly positive for common). Nothing
+# moves the haircut out of band; revisit at the 6-K related-party note / the
+# November 2026 dividend announcement. Judgmental HOLD, not a sourced figure.
+governance_discount_pct: 0.30
+
+# Shuttle contracted-book (METHODOLOGY §11.6, NEW 2026-06-05 PM): NPV of the 4
+# in-water DP2 shuttle tankers at contracted day rates + Suezmax-curve residual
+# at TC expiry, discounted at WACC 11%, utilization 98.3%, offhire 1%, daily opex
+# $11,000/day (~10% premium over conventional Suezmax) — carried UNCHANGED from
+# the 2026-Q1 sheet. Anfield DP (delivered July 28, 2026 per the release
+# SUBSEQUENT EVENTS; "10-year employment to a US oil major, with charter options
+# to extend the charter until the vessel's 20th year anniversary"; "the expected
+# gross revenues should approach $500 million" at maximum duration — an
+# envelope, NOT a day rate) is OUT of the 6/30 snapshot and joins this book at
+# the Q3 refresh.
+#
+# Per-vessel breakdown (npv = revenue NPV − opex NPV + residual NPV @ TC expiry):
+#   Brasil 2014   $104.8M  ($58,908/d → $60k extension; ext to 2033-11; age 20.5; residual $14.7M NPV)
+#   Rio 2016      $104.2M  ($58,403/d → $60k extension; ext to 2033-10; age 20.6; residual $14.6M NPV)
+#   Athens 04     $121.5M  ($58,569/d through 2032-05; age 7.0; residual $45.4M NPV; high residual)
+#   Paris 24      $122.6M  ($58,569/d through 2032-08; age 6.9; residual $44.4M NPV; high residual)
+#   --
+#   TOTAL         $453.1M
+#
+# Extension rates ($60k/day for Brasil/Rio) are an APPROX of "increased rate"
+# disclosed in the Q1 6-K subsequent events (April 23, 2026). Material if the
+# actual rate is materially higher; the methodology underweights the extension
+# value, leaving upside if the disclosure resolves favorably.
+# UNVERIFIED (shadow): awaits an extension-rate disclosure (6-K / data kit) —
+# the release carries no Brasil/Rio rate. NPV struck at the Q1 build (as-of
+# 2026-03-31) and NOT re-struck at 6/30: the ages inside the breakdown are the
+# Q1 build's, and one quarter of contracted margin (4 hulls x 91 days x ($58.5k
+# rate less $11k opex) x 0.983 utilisation, about $17M) has been collected
+# into Cash 466,143 while still counted inside this NPV; net of the 11% unwind
+# (about $12M) the overlap is about $5M (about $0.15/sh), NON-CONSERVATIVE.
+# Re-strike the book at the live land (the Q3 refresh also adds Anfield DP).
+shuttle_contracted_book: 453100000
+
+# held_for_sale: key deliberately ABSENT (loader default 0), as in the 2026-Q1
+# sheet (decisions/ten_reconciliation_prereg_2026-07-15.md §2 ruled "0
+# (deliberate)"): Ulysses is sold; Alaska + Archangel are carried as owned and
+# operating at 6/30 (header judgment call — their HFS status at 6/30 is
+# UNVERIFIED (shadow), awaits the 6-K vessels-held-for-sale / subsequent-events
+# note), and even under the flip case their carrying value sits inside the WC
+# composite (Ulysses precedent), not here.

@@ -1,0 +1,339 @@
+# Tsakos Energy Navigation (TEN / NYSE:TEN) fleet manifest — METHODOLOGY §4.1, §11.6
+# SHADOW DRAFT 2026-09-11 (ten.yaml.draft — invisible to the loader; consumed only by
+# scripts/shadow_regen.sh, which copies it over ten.yaml inside a detached worktree
+# next to inputs/balance_sheets/ten_2026-Q2.yaml.draft). Record:
+# decisions/ten_shadow_build_2026-09-11.md.
+# Source: the 2026-Q1 live manifest (TEN Data Kit May 11, 2026; June 5, 2026 kit
+# reconcile 2026-06-11; Q1 2026 6-K filed 2026-05-22; the 2026-07-15 reconciliation,
+# decisions/ten_reconciliation_prereg_2026-07-15.md) rolled to 2026-06-30 on the
+# TEN H1/Q2 2026 results release, GlobeNewswire 3359616, 2026-09-10 ("TEN, Ltd.
+# Reports Profits for the First Half and Second Quarter of 2026"; saved as
+# inputs/research_issuer/ten/2026-09-10_ten_h1_2026_results_pr.txt). The release
+# carries NO per-vessel fleet table — only FLEET DATA aggregates ("Number of
+# vessels at end of period 64.0", "Dwt at end of period (in thousands) 7,702",
+# "Average age of fleet at end of period (years) 10.5") and the 26-row newbuilding
+# table — so every row below is its Q1 row with the age rolled +0.25 (91/365 y,
+# 2026-03-31 -> 2026-06-30); per-vessel EMPLOYMENT at 6/30 is UNVERIFIED (shadow)
+# throughout (the H1-2025 6-K carried no fleet table either — plan on the data kit
+# at the live land). Ages in this file are NOT a sourced hull list for 6/30.
+# Balance sheet date: 2026-06-30.
+#
+# SUBSEQUENT-EVENTS AUDIT FIRST (release SUBSEQUENT EVENTS / CORPORATE AFFAIRS,
+# 2026-09-10) — what is IN and OUT of the 2026-06-30 snapshot:
+#   IN  — Ulysses (2016-built VLCC): Q1 6-K ex 99.1 SUBSEQUENT EVENTS "On May 20,
+#         2026, the Company completed the sale of a 10-year-old VLCC ... about
+#         $83 million in free cash after repayment of existing debt" (vessel
+#         unnamed there); identity per 20-F Note 17(c) (MOA 2026-01-22, VLCC
+#         Ulysses) + release CORPORATE STRATEGY "2016-built VLCC Ulysses";
+#         release Q2 "Gain on sale of vessels (37,870)" -> GONE from the fleet:
+#         no row, and no longer held-for-sale inside the WC composite.
+#   OUT — Anfield DP: "on July 28, 2026, TEN took delivery of the DP2 suezmax
+#         shuttle tanker Anfield DP from Samsung Heavy Industries" -> a NEWBUILD
+#         at 6/30 (advances on the sheet); joins the off-curve shuttle book at
+#         the Q3 refresh. Not a row (no Shuttle class exists on a curve anyway).
+#   OUT — Alaska + Archangel: "in August 2026 TEN concluded the sale of two
+#         2006-built suezmax tankers, the Alaska and Archangel, for net proceeds
+#         of $100 million" -> OWNED at 6/30, rows STAY; they leave at Q3.
+#         Held-for-sale AT 6/30? Release silent -> JUDGMENT CALL (the
+#         NON-conservative side taken, exposure bounded), see their rows.
+#   OUT — July 2026 "$1.00 per share" dividend; Series E call intent (May 28,
+#         2027); LNG newbuild row 26 firm-up (undated in the release).
+#   UNVERIFIED (shadow) — Arctic + Antarctic (2007-built Suezmaxes): OUT here is
+#         the CONSERVATIVE DEFAULT, NOT a prior state. The five-year SLB
+#         "commenced" 2021-06-21 (20-F leases note) -> term ENDED 2026-06-21,
+#         BEFORE the snapshot; repurchase agreed 2026-04-07 (Q1 6-K ex 99.1
+#         SUBSEQUENT EVENTS: "agreed to repurchase two of its 2007-built suezmax
+#         tankers, currently operating under five-year leases at prices below
+#         current fair market value"); the pair was still operated at 6/30
+#         (release dwt 7,702k = the Jun-5 kit's 63 hulls INCLUDING them;
+#         Antarctic on TC to Dec-26 per the 20-F fleet table). No source on disk
+#         dates the COMPLETION -> excluded (chartered-in); re-add as OWNED only
+#         on the 6-K leases / vessels note. If it flips, NAV here is UNDERSTATED
+#         (the likeliest 6-K resolution, direction +): 56 -> 58, crude 37 -> 39,
+#         Suezmax 14 -> 16 in the same edit. Indicators (inference, not
+#         disclosure) are listed at the Suezmax 2006-2007 cohort comment.
+#
+# Scope = the **56 on-curve OWNED in-water vessels** as of 2026-06-30 — the SAME
+# 56 hulls as the reconciled 2026-Q1 manifest (no sourced addition or removal
+# dated inside Q2):
+#   - Crude: 2 VLCC + 14 conventional Suezmax + 21 Aframax = 37 vessels
+#   - Product: 4 Aframax LR + 9 Panamax LR1 + 2 MR + 2 Handysize = 17 vessels
+#   - LNG: 2 LNG carriers = 2 vessels
+#   - Shuttle: **EXCLUDED** (4 in-water DP2 shuttle tankers — Brasil 2014, Rio 2016,
+#     Athens 04, Paris 24 — handled OFF-CURVE via `shuttle_contracted_book`
+#     per METHODOLOGY §11.6, NOT in this manifest; Anfield DP, delivered
+#     2026-07-28, becomes the 5th from Q3)
+#   - CHARTERED-IN, NOT OWNED on this build (excluded from NAV per the 2343/CMDB
+#     convention; ASC 842 true-sale SLBs, 20-F leases note): Sakura Princess
+#     (SLB Dec-2020, extended to ~Dec-2026) and — as the CONSERVATIVE DEFAULT,
+#     not a prior state — Arctic + Antarctic (SLB term ended 2026-06-21;
+#     repurchase agreed 2026-04-07; completion UNVERIFIED (shadow), see above).
+#   - HELD FOR SALE at 6/30: NONE under the judgment call taken (Ulysses sold
+#     May-20-2026; Alaska + Archangel carried as owned-and-operating at 6/30 —
+#     their HFS status at 6/30 is UNVERIFIED (shadow), see their rows).
+#
+# Total in-water fleet at 2026-06-30 = 63 OPERATED vessels on this build
+# (56 owned on-curve + 4 shuttle off-curve + 3 chartered-in) — the Q1 64 less
+# Ulysses. The release prints "Number of vessels at end of period 64.0", but its
+# "Dwt at end of period (in thousands) 7,702" equals the Jun-5 kit's 63 in-water
+# hulls / 7,701,519 DWT, the Q1 6-K ex 99.1 printed 64.0 / 8,003k at Mar-31 (the
+# −301k delta is one VLCC), and "Average number of vessels during period 63.5"
+# (Q2 and H1) fits 63 at period-end — a 64th hull at 6/30 is unsupported by the
+# release's own dwt/average series (decisions/ten_h1_release_check_2026-09-10.md
+# §4). Unresolved until a fleet list; NO hull is added on the printed 64.0.
+#
+# Newbuild orderbook at 2026-06-30 = 19 hulls, handled via balance sheet
+# `newbuild_capex_commitments` (0, convention) + `newbuild_advances_paid`
+# (470,050 $K, release BALANCE SHEET DATA "Advances for vessels under
+# construction") — no NB rows, no years_to_delivery (OFF_CONVENTION advances-only):
+#   - 10 DP2 Shuttle Suezmaxes (Anfield DP + HN2733-2741): contract value ~$1,481M
+#     (Anfield DP delivered 2026-07-28 -> 9 remain at the release date; release:
+#     "the third in a series of 12 DP2 shuttle tankers under construction at that
+#     yard" = Athens 04 + Paris 24 + Anfield DP + 9)
+#   - 5 Panamax LR1 (Hull 1623, 0307383-86): contract value ~$280M
+#   - 3 VLCC (HN5331, 5332, 5335): contract value ~$385M
+#   - 1 LNG carrier (HN3643, 81,755 DWT): contract value ~$254M
+#   - NOT counted: the second LNG carrier — release "TEN's CURRENT NEWBUILDING
+#     PROGRAM" row 26 "TBN | LNG Carrier | Q1 2029 | Under Construction | TBA"
+#     (an "Optional Vessel" in the Q1 6-K ex 99.1 table) is undated in the
+#     release; MB LNG Weekly 29 (2026-07-16) would place the firm-up after 6/30
+#     -> UNVERIFIED (shadow): awaits the 6-K Subsequent Events note. No price
+#     disclosed (NEWBUILD_PRICE_PENDING).
+#   Release delivery schedule (2026-09-10, "Delivery (exp)"): LR1 AMAZONA Q2-27,
+#   TBN Q3-27, TBN Q4-27, TBN Q3-28, TBN Q3-28; VLCC CHAIRMAN DJS Q4-27, TBN
+#   Q1-28, TBN Q2-28; DP2 ARIANO SUASSUNA Q3-27, ELZA SOARES Q4-27, MARIA FIRMINA
+#   Q1-28, CAROLINA DE JESUS Q2-28, IPANEMAS Q3-28, MARACANA Q3-28, CORINTHIANS
+#   Q4-28, DR SOCRATES Q4-28, TBN Q4-28; LNG NY KNICKS Q3-28, TBN Q1-29. All 9
+#   undelivered shuttle hulls carry Employment "Yes"; LR1 / VLCC / LNG "TBA".
+#   The table has no contract prices, dwt, or commitment schedule.
+#
+# TEN is the first **3-sleeve hybrid** on the watchlist (`THREE_SLEEVE_TICKERS`)
+# — the carve-out routes (crude_carve_out + product_carve_out + lng_carve_out)
+# all run against the same fleet manifest, with vessel.sleeve / class driving
+# the split. The shuttle sleeve sits at the corporate level via
+# `shuttle_contracted_book` (METHODOLOGY §11.6, off-curve-at-contracted-book).
+#
+# Vessel ages computed from build year/month to 2026-06-30: each 2026-Q1 age (to
+# 2026-03-31) rolled +0.25 (91/365 y), two decimals kept — no hull re-dated, no
+# build month re-sourced. Eco = built post-2014 per §3.1 definition. Scrubber flags
+# reflect data kit "scrubber-fitted" callouts, UNCHANGED (the same 9 operating
+# scrubber:true rows as Q1; OPERATING_SCRUBBER_QUEUE posture unchanged); default
+# false when unspecified.
+# Employment fields (charter_status / charter_rate) are the Q1 values throughout:
+# the release has no per-vessel employment, and the Jun-5 kit's Q2 deltas
+# (ten_log 2026-06-11 "Vintage deltas — DOCUMENTED, not applied": Sola TS
+# $25,651 -> $26,651 from May-1-2026; Dimitris P spot -> TC $40,000 min; Alaska +
+# Archangel fixed -> spot-indexed TCs; Hercules I $140,000 unchanged to Nov-26)
+# are NOT applied in the shadow. The reason is ATTRIBUTION, not provenance: the
+# kit deltas are dated BEFORE the snapshot and the ten_log 2026-06-11 entry is a
+# dated reference the provenance guard accepts, but applying them here would
+# fold a strip-only change into the balance-sheet-swap attribution. Direction:
+# the kept Q1 rates OVERSTATE the Suezmax TC leg (Archangel 102,000 fixed vs a
+# spot-indexed TC) and understate Sola TS by $1,000/day. Apply at the live land
+# (charter_status spot for Alaska/Archangel; Sola TS 26651; Dimitris P TC
+# 40000) and re-derive spot_coverage_pct from the rows. Flagged per row as
+# UNVERIFIED (shadow) — a live-land decision.
+
+ticker: TEN
+report_date: 2026-Q2
+vessels:
+  # ============================================================
+  # CRUDE SLEEVE — 37 vessels
+  # ============================================================
+  # ---- VLCC (2 vessels) ----
+  # Ulysses SOLD: MOA signed Jan-22-2026 (20-F Note 17(c)) -> held-for-sale at
+  # Mar-31 (removed 2026-07-15); Q1 6-K ex 99.1 SUBSEQUENT EVENTS: "On May 20,
+  # 2026, the Company completed the sale of a 10-year-old VLCC ... about $83
+  # million in free cash after repayment of existing debt" (vessel unnamed
+  # there; identity = 20-F Note 17(c) + release 2026-09-10 CORPORATE STRATEGY
+  # "2016-built VLCC Ulysses") -> release Q2 2026 "Gain on sale of vessels
+  # (37,870)". Gross price NOT disclosed (not promotable to transactions).
+  # Carrying value now OUT of the WC composite (see the Q2 sheet draft). No row.
+  - {id: TEN_VLCC_Dias_I,      class: VLCC,    dwt: 299999, age: 6.45, scrubber: true,  eco: true,  charter_status: time_charter, charter_rate: 42500,  count: 1}
+  - {id: TEN_VLCC_Hercules_I,  class: VLCC,    dwt: 299011, age: 9.45, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 140000, count: 1}   # UNVERIFIED (shadow): employment at 6/30 — Jun-5 kit still $140,000 "until ... Hormuz is resolved", expiry Nov-26 (ten_log 2026-06-11); not in the release
+
+  # ---- Suezmax — 14 CONVENTIONAL OWNED vessels (shuttle tankers EXCLUDED;
+  #      Arctic + Antarctic excluded as the CONSERVATIVE DEFAULT — SLB term
+  #      ended 2026-06-21, repurchase completion UNVERIFIED (shadow); see the
+  #      2006-2007 cohort comment and the header) ----
+  # Modern post-2014 cohort (eco)
+  - {id: TEN_SUEZ_DrIreneTsakos, class: Suezmax, dwt: 156838, age: 1.05, scrubber: false, eco: true, charter_status: time_charter, charter_rate: 33000, count: 1}
+  - {id: TEN_SUEZ_SiliaT,      class: Suezmax, dwt: 156838, age: 0.65, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 43750, count: 1}
+  - {id: TEN_SUEZ_PopiSaz,     class: Suezmax, dwt: 157611, age: 8.15, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28000, count: 1}
+  - {id: TEN_SUEZ_ArtVoy,      class: Suezmax, dwt: 157400, age: 5.55, scrubber: true,  eco: true,  charter_status: bareboat, charter_rate: 18750, count: 1}
+  - {id: TEN_SUEZ_ApoVoy,      class: Suezmax, dwt: 157135, age: 5.75, scrubber: true,  eco: true,  charter_status: bareboat, charter_rate: 18750, count: 1}
+  - {id: TEN_SUEZ_Porto,       class: Suezmax, dwt: 154847, age: 3.95, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 44000, count: 1}
+  - {id: TEN_SUEZ_Lisboa,      class: Suezmax, dwt: 155723, age: 9.25, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 54500, count: 1}
+  # 2011-2013 cohort (pre-eco per §3.1; older)
+  - {id: TEN_SUEZ_Eurovision,  class: Suezmax, dwt: 157803, age: 13.45, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 27000, count: 1}
+  - {id: TEN_SUEZ_Euro,        class: Suezmax, dwt: 157539, age: 13.75, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 27000, count: 1}   # UNVERIFIED (shadow): 20-F fleet table charter expiry May-26; Jun-5 kit showed no delta (ten_log 2026-06-11); employment at 6/30 awaits the kit/6-K
+  - {id: TEN_SUEZ_DimitrisP,   class: Suezmax, dwt: 157740, age: 14.85, scrubber: false, eco: false, charter_status: spot, count: 1}   # UNVERIFIED (shadow): employment at 6/30 — Jun-5 kit shows spot -> TC $40,000 min (+50-50 profit share capped $105,000; expiry Oct-27/Dec-27; ten_log 2026-06-11) — an as-of-snapshot fact, kept spot here for attribution only; apply TC 40000 at the live land (Suezmax spot fraction then 3 of 14 = 0.214 with Alaska/Archangel spot-indexed)
+  - {id: TEN_SUEZ_SpyrosK,     class: Suezmax, dwt: 157648, age: 15.15, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 27000, count: 1}   # UNVERIFIED (shadow): 20-F fleet table charter expiry Jun-26; Jun-5 kit showed no delta (ten_log 2026-06-11); employment at 6/30 awaits the kit/6-K
+  - {id: TEN_SUEZ_Decathlon,   class: Suezmax, dwt: 158475, age: 14.45, scrubber: false, eco: false, charter_status: spot, count: 1}
+  # 2006-2007 ice-class 1A cohort (older but specialized; treat as ice-class premium implicit in TC rate)
+  # Antarctic + Arctic (2007-built) — NO ROWS on this build: OUT is the CONSERVATIVE
+  # DEFAULT, NOT a prior state (verifier 2026-09-11). 20-F leases note: "On June
+  # 21, 2021, the Company commenced a new five-year sale and leaseback agreement
+  # for each of the two suezmaxes, Arctic and Antarctic" (net sale price
+  # $52,304K; ASC 842 TRUE SALE; weighted-average remaining term 0.48y at
+  # Dec-31-2025) -> the term ENDED 2026-06-21, BEFORE the snapshot. Q1 6-K ex
+  # 99.1 SUBSEQUENT EVENTS: "On April 7, 2026, TEN agreed to repurchase two of
+  # its 2007-built suezmax tankers, currently operating under five-year leases
+  # at prices below current fair market value". Still operated at 6/30: release
+  # dwt 7,702k ties to the Jun-5 kit's 63 hulls INCLUDING them (ten_log
+  # 2026-06-11); Antarctic on TC to Dec-26 (20-F fleet table). COMPLETION is in
+  # no source on disk (the release has no "Arctic" / "Antarctic" / "repurchase"
+  # text) -> excluded. Circumstantial ONLY (release 2026-09-10; inference, not
+  # disclosure): Charter hire expense Q2 2,646 vs Q1 3,386 (Q1 6-K ex 99.1) vs
+  # Q2-2025 3,321 — at the logged bareboat rates ($13,870/day each; ten_log
+  # 2026-06-11) the pair fits on hire for roughly 60 of 91 days, i.e. leases
+  # ending late May / early June 2026; Vessels, net +10,118 net of 46,295 D&A
+  # with no NB delivery; Q2 D&A 46,295 vs Q1 44,147 with Ulysses gone; Q2
+  # investing +3,763 after the VLCC proceeds — all consistent with the leases
+  # ending inside Q2 and the repurchase completing before 6/30. NOT a citation
+  # for ownership; re-add ONLY on the 6-K leases / vessels note. If it flips:
+  # NAV UNDERSTATED here (cash already net of the repurchase price; two
+  # 2007-built Suezmax marks missing) — the likeliest 6-K resolution, direction
+  # +: on_curve_total 56 -> 58, crude_sleeve_count 37 -> 39, Suezmax 14 -> 16,
+  # in the same edit. UNVERIFIED (shadow): awaits the 6-K leases / vessels note.
+  # Alaska + Archangel (2006-built, the 2024 buy-backs): OWNED AT 6/30 — sold
+  # AFTER the snapshot: "in August 2026 TEN concluded the sale of two 2006-built
+  # suezmax tankers, the Alaska and Archangel, for net proceeds of $100 million"
+  # (release SUBSEQUENT EVENTS, 2026-09-10). Aggregate + net, never split — NOT
+  # promotable, do not back-solve per hull. Rows stay; they leave at Q3.
+  # JUDGMENT CALL (shadow) — held-for-sale AT 6/30? The release has no "held for
+  # sale" / MOA text and no held-for-sale balance-sheet line. TAKEN: NOT
+  # held-for-sale at 6/30 -> ON-CURVE here. This is the NON-CONSERVATIVE side
+  # (verifier 2026-09-11): if the pair was HFS at 6/30 its carrying value
+  # already sits inside Other assets 286,240 (the Ulysses precedent) and these
+  # two on-curve marks double-count it. Why taken: (i) no MOA date exists for
+  # this pair in any source on disk — the 9/01 PR (GlobeNewswire 3354219,
+  # inputs/earnings_calendar.yaml TEN basis; text not on disk, ten_log entry
+  # owed; WebFetch 2026-09-11 reads only "TEN announced today the sale of two
+  # 2006-built Suezmax tankers. This transaction will release in excess of
+  # $100 million to the company's cash reserves" — no agreement date, neither
+  # "agreed" nor "concluded") and the 9/10 release (SUBSEQUENT EVENTS: "in
+  # August 2026 TEN concluded the sale") both post-date the quarter; under
+  # ASC 360-10-45-9 a
+  # signed MOA normally meets the held-for-sale criteria, but TEN discloses no
+  # classification policy (20-F Note 17(c) says only that an MOA was signed for
+  # Ulysses; the Ulysses HFS-at-Mar-31 treatment was the Q1 prereg's inference
+  # from the Other-assets swing, not a disclosed policy); (ii) the release's
+  # Vessels, net bridge (3,145,164 -> 3,155,282, +10,118, net of 46,295 D&A and
+  # no NB delivery) is NON-DISCRIMINATING: a 6/30 HFS reclass of two
+  # 20-year-old hulls would move only their (undisclosed, small) carrying value
+  # — not the $100M net proceeds — and the unidentified Q2 additions of roughly
+  # $52-56M have a named candidate (the Apr-7 Arctic/Antarctic repurchase,
+  # itself UNVERIFIED); (iii) the default for a row the sources do not move is
+  # its prior state (owned, on-curve). The call rests on (i) and (iii).
+  # EXPOSURE if wrong, bounded: the two marks at 20.35/20.45y on the txn-anchored
+  # Suezmax curve are about $61M = about $2.0/sh (base curve about $67M); the
+  # 20-F carrying basis is smaller (repurchased Jul-19/Aug-22-2024 at $21,000K
+  # each net of the $5,900K seller's credit; finance-lease liability remeasured
+  # $43,316K incl. the $11,800K credit — 20-F leases note). FLIPS on a 6-K
+  # vessels-held-for-sale note dating an MOA on or before 2026-06-30: rows OUT,
+  # carrying value inside the WC composite (Other assets 286,240 already carries
+  # it in that case), held_for_sale stays 0 — keeping them on-curve THEN would
+  # double-count (verifier finding 2, decisions/ten_h1_release_check_2026-09-10.md).
+  - {id: TEN_SUEZ_Alaska,      class: Suezmax, dwt: 163250, age: 20.35, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 50000, count: 1}   # UNVERIFIED (shadow): held-for-sale status at 6/30 — awaits 6-K vessels-held-for-sale / subsequent-events note (MOA date). UNVERIFIED (shadow): employment at 6/30 — fixed TC expired May-26 (20-F fleet table); Jun-5 kit rolled it to a spot-indexed TC = spot-economic (ten_log 2026-06-11), not applied for attribution; the kept fixed rate sits in the Suezmax disclosed-rate average; live land: charter_status spot. Sold Aug-2026 (release) -> out at Q3
+  - {id: TEN_SUEZ_Archangel,   class: Suezmax, dwt: 163216, age: 20.45, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 102000, count: 1}   # UNVERIFIED (shadow): held-for-sale status at 6/30 — awaits 6-K vessels-held-for-sale / subsequent-events note (MOA date). UNVERIFIED (shadow): employment at 6/30 — fixed TC expired May-26 (20-F fleet table); Jun-5 kit rolled it to a spot-indexed TC = spot-economic (ten_log 2026-06-11), not applied for attribution; the kept 102,000 OVERSTATES the Suezmax TC leg of the strip (non-conservative); live land: charter_status spot. Sold Aug-2026 (release) -> out at Q3
+
+  # ---- Aframax — 21 OWNED vessels (incl. 4 DF LNG-powered NBs from 2023-24;
+  #      Sakura Princess chartered-in via SLB, removed 2026-07-15) ----
+  # Modern DF (dual-fuel LNG-powered) — eco premium applies
+  - {id: TEN_AFRA_Aspen,       class: Aframax, dwt: 112460, age: 7.45, scrubber: true,  eco: true,  charter_status: time_charter, charter_rate: 29900, count: 1}
+  - {id: TEN_AFRA_Alpes,       class: Aframax, dwt: 112505, age: 8.25, scrubber: true,  eco: true,  charter_status: time_charter, charter_rate: 27750, count: 1}
+  - {id: TEN_AFRA_MedVoy,      class: Aframax, dwt: 115166, age: 6.65, scrubber: true,  eco: true,  charter_status: bareboat, charter_rate: 13600, count: 1}
+  - {id: TEN_AFRA_CarVoy,      class: Aframax, dwt: 115166, age: 6.45, scrubber: true,  eco: true,  charter_status: bareboat, charter_rate: 13600, count: 1}
+  - {id: TEN_AFRA_IthakiDF,    class: Aframax, dwt: 114598, age: 2.45, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28200, count: 1}
+  - {id: TEN_AFRA_ChiosDF,     class: Aframax, dwt: 114580, age: 2.45, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28200, count: 1}
+  - {id: TEN_AFRA_NjordDF,     class: Aframax, dwt: 114545, age: 2.75, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28200, count: 1}
+  - {id: TEN_AFRA_RanDF,       class: Aframax, dwt: 114575, age: 2.65, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28200, count: 1}
+  # 2017 cohort — ice-class 1B
+  - {id: TEN_AFRA_BergenTS,    class: Aframax, dwt: 113039, age: 8.75, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26651, count: 1}
+  - {id: TEN_AFRA_StavangerTS, class: Aframax, dwt: 113004, age: 8.95, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26651, count: 1}
+  - {id: TEN_AFRA_OsloTS,      class: Aframax, dwt: 112949, age: 9.15, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 27651, count: 1}
+  - {id: TEN_AFRA_SolaTS,      class: Aframax, dwt: 112939, age: 9.25, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 25651, count: 1}   # UNVERIFIED (shadow): employment at 6/30 — Jun-5 kit shows $25,651 -> $26,651 from May-1-2026 (2-yr period, +1 optional yr at $27,654; ten_log 2026-06-11) — an as-of-snapshot fact, not a post-quarter event; kept at 25,651 here for attribution only (understates the Aframax TC leg by $1,000/day); apply 26651 at the live land
+  - {id: TEN_AFRA_MarathonTS,  class: Aframax, dwt: 113651, age: 9.35, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 27000, count: 1}
+  # 2016 cohort
+  - {id: TEN_AFRA_ParthenonTS, class: Aframax, dwt: 113554, age: 9.65, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26000, count: 1}
+  - {id: TEN_AFRA_LeontiosH,   class: Aframax, dwt: 113612, age: 9.75, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26000, count: 1}
+  - {id: TEN_AFRA_ThomasZ,     class: Aframax, dwt: 113691, age: 9.85, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26000, count: 1}
+  - {id: TEN_AFRA_EliasT,      class: Aframax, dwt: 113737, age: 10.05, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 26000, count: 1}
+  # 2007-2010 cohort (older Japan-built 105k princess cohort)
+  # Sakura Princess REMOVED 2026-07-15: SLB'd Dec-21-2020 (net sale price
+  # $24,527K, ASC 842 TRUE SALE, op lease extended Sep-2025 to ~Dec-2026 —
+  # 20-F leases note). Chartered-in, not owned. Unchanged at 6/30 (release silent).
+  - {id: TEN_AFRA_MariaP,      class: Aframax, dwt: 105346, age: 17.75, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: TEN_AFRA_AsahiP,      class: Aframax, dwt: 105372, age: 16.85, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 40000, count: 1}   # UNVERIFIED (shadow): 20-F fleet table charter expiry Jun-26; Jun-5 kit showed no delta (ten_log 2026-06-11); employment at 6/30 awaits the kit/6-K
+  - {id: TEN_AFRA_SapporoP,    class: Aframax, dwt: 105354, age: 16.25, scrubber: false, eco: false, charter_status: spot, count: 1}
+  - {id: TEN_AFRA_UragaP,      class: Aframax, dwt: 105344, age: 15.95, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 29500, count: 1}
+
+  # ============================================================
+  # PRODUCT SLEEVE — 17 vessels (sleeve tagged explicitly)
+  # ============================================================
+  # ---- Aframax LR (clean-product 117k coated; tagged sleeve: product) ----
+  - {id: TEN_AFRALR_Promitheas, class: LR2, dwt: 117055, age: 19.95, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
+  - {id: TEN_AFRALR_Propontis,  class: LR2, dwt: 117055, age: 19.75, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
+  - {id: TEN_AFRALR_Mystras,    class: LR2, dwt: 109999, age: 3.05, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28900, count: 1, sleeve: product}
+  - {id: TEN_AFRALR_Montmartre, class: LR2, dwt: 109999, age: 2.85, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 28900, count: 1, sleeve: product}
+  # ---- Panamax LR1 (clean-product) ----
+  - {id: TEN_PMAX_Sunray,     class: LR1, dwt: 74039, age: 9.85, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 30000, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Sunrise,    class: LR1, dwt: 74043, age: 9.75, scrubber: false, eco: true,  charter_status: time_charter, charter_rate: 35000, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Selecao,    class: LR1, dwt: 74296, age: 18.35, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Socrates,   class: LR1, dwt: 74327, age: 18.25, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
+  - {id: TEN_PMAX_WorldHarm,  class: LR1, dwt: 74200, age: 17.15, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 29500, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Chantal,    class: LR1, dwt: 74329, age: 17.05, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 35000, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Selini,     class: LR1, dwt: 74296, age: 17.45, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 29500, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Salamina,   class: LR1, dwt: 74251, age: 17.35, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 35000, count: 1, sleeve: product}
+  - {id: TEN_PMAX_Andes,      class: LR1, dwt: 68439, age: 22.75, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 24000, count: 1, sleeve: product}
+  # ---- MR (2 vessels — Delos T + Dion, Q1 2026 deliveries; release newbuilding
+  #      table rows 3-4 "MR – Scrubber Fitted | Q1 2026 | DELIVERED | Yes") ----
+  - {id: TEN_MR_DelosT, class: MR, dwt: 50479, age: 0.45, scrubber: true, eco: true, charter_status: time_charter, charter_rate: 24000, count: 1, sleeve: product}
+  - {id: TEN_MR_Dion,   class: MR, dwt: 50396, age: 0.35, scrubber: true, eco: true, charter_status: time_charter, charter_rate: 25000, count: 1, sleeve: product}
+  # ---- Handysize (clean-product; Mare Success S.A. hulls — consolidated at
+  #      full, with the 49% Polaris/Flopec NCI netted at the corporate level
+  #      via preferred_equity since the 2026-07-15 reconciliation; Selini +
+  #      Salamina in the LR1 block are the other two Mare Success hulls) ----
+  - {id: TEN_HANDY_Bosporos,  class: Handysize, dwt: 39589, age: 18.85, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
+  - {id: TEN_HANDY_Byzantion, class: Handysize, dwt: 39589, age: 19.15, scrubber: false, eco: false, charter_status: spot, count: 1, sleeve: product}
+
+  # ============================================================
+  # LNG SLEEVE — 2 vessels
+  # ============================================================
+  # Note: Tenergy is under sale-leaseback (financing arrangement); valued on-curve
+  # and the SL liability sits in total_debt (NOT lease_liabilities). Release H1
+  # 2026: "one being an LNG carrier" among the six drydockings — hull not named.
+  - {id: TEN_LNG_Tenergy,     class: LNGC, dwt: 93650, age: 4.45, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 50000, count: 1}
+  - {id: TEN_LNG_MariaEnergy, class: LNGC, dwt: 93301, age: 9.65, scrubber: false, eco: false, charter_status: time_charter, charter_rate: 74000, count: 1}
+
+# Charter coverage — heavily TC-skewed (~85% TC + bareboat per data kit; ~15% spot).
+# UNVERIFIED (shadow) throughout: Q1 values carried; the release gives only fleet-wide
+# employment DAYS (Q2 2026: fixed-rate TC 3,569 / variable-rate TC + pool 1,263 /
+# spot 652 of 5,484 operating days), not a per-class mix. Re-derive at the live land
+# from the rows with the Jun-5 kit deltas applied (ten_log 2026-06-11): Suezmax =
+# Decathlon + Alaska + Archangel (spot-indexed) = 3 of 14 = 0.214 if Dimitris P goes
+# TC (0.286 if not); Aframax: the inherited 0.143 vs the rows' 0.095 is LOAD-BEARING
+# in the strip (coverage 0.857 vs 0.905) — re-derive, do not carry.
+spot_coverage_pct:
+  VLCC:     0.00              # 2 vessels (Dias I, Hercules I) both on TC — Q1 comment "3 vessels" predated the Ulysses removal
+  Suezmax:  0.143             # Q1 value kept — 2 of 14 spot on the Q1 rows (DimitrisP, Decathlon); ArtVoy/ApoVoy on bareboat (treated TC-economic); live land: 0.214 (see above), UNVERIFIED (shadow)
+  Aframax:  0.143             # Q1 value kept — the rows foot to 2 of 21 spot (MariaP, SapporoP) = 0.095; the Q1 comment's "3 of 21" named only 3 hulls of which one (AsahiP) is on TC — inherited inconsistency, LOAD-BEARING (strip coverage 0.857 vs 0.905), UNVERIFIED (shadow): re-derive employment mix at the live land
+  LR2:      0.50              # Promitheas + Propontis spot; 2 DF on TC
+  LR1:      0.222             # Selecao + Socrates spot; 7 on TC
+  MR:       0.00              # both on TC
+  Handysize: 1.00             # both Bosporos/Byzantion pool/spot
+  LNGC:     0.00              # both on long-term TC
+
+# fleet_summary — informational; sleeve totals support the 3-sleeve aggregation
+fleet_summary:
+  on_curve_total: 56                      # = sum of row counts (guard: tests/test_validate.py cross-foot); unchanged vs Q1
+  shuttle_off_curve_count: 4              # OFF-CURVE via shuttle_contracted_book (METHODOLOGY §11.6); Anfield DP (delivered 2026-07-28) makes 5 from Q3
+  newbuild_orders_q2: 19                  # at 2026-06-30: 10 shuttle (incl. Anfield DP) + 5 panamax + 3 vlcc + 1 lng; the second LNG (release row 26) undated -> not counted, UNVERIFIED (shadow)
+  crude_sleeve_count: 37                  # 2 VLCC + 14 conventional Suezmax + 21 Aframax
+  product_sleeve_count: 17                # 4 LR2 + 9 LR1 + 2 MR + 2 Handy
+  lng_sleeve_count: 2
+  avg_age_crude: 9.55                     # rows re-footed 2026-09-11: Q1 9.30 + 0.25 roll
+  avg_age_product: 13.67                  # rows re-footed 2026-09-11: the Q1 rows averaged 13.42 (the Q1 summary's 12.8 did not foot to its rows) + 0.25 roll
+  avg_age_lng: 7.05                       # rows re-footed 2026-09-11: Q1 6.80 + 0.25 roll
+  total_in_water_at_6_30: 63              # 56 owned on-curve + 4 shuttle off-curve + 3 chartered-in (excluded); Ulysses (the 4th excluded hull at Mar-31) sold May-20-2026. Release FLEET DATA prints 64.0 at end of period but 7,702k dwt / 63.5 average — see header; no hull added on the printed count

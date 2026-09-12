@@ -22,6 +22,7 @@ cron, task, page tag or owner duty changes. Also: `tests/test_eco.py` pin follow
 **STILL OPEN:** image-only page-image auto-fetch (FILING-UNREADABLE is now digest-only, the `unreadable`
 disposition routes a results report to the owner-present sheet build) · TEN Q2 sheet when the 6-K lands
 · Q3 calendar re-seed (CMBT 11/26, BRUT 11/19, OMC AR 2027-02-25) · forks executing 9/14–9/15.
+SHADOW TEN 2026-Q2 2026-09-11: WOULD-HOLD (NAV 88.16→89.61 on the drafts, BUY/GOVERNED-WIDE unchanged; blocked on Arctic/Antarctic ownership at 6/30 [OUT uncited, conservative], Alaska/Archangel HFS-at-6/30 unverified, shares/NCI-distribution/shuttle-NPV carried UNVERIFIED, one mechanical guard red, no prereg band) — decisions/ten_shadow_build_2026-09-11.md
 
 **STATE INSERT (2026-09-10 — THE AUTOMATION RULINGS; read this, then the 9/09 insert below).**
 Owner: *"every time you're asking me to do something, ask yourself why, and should this also be
