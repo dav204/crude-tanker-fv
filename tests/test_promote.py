@@ -241,3 +241,30 @@ def test_land_does_nothing_on_a_quiet_gate(tmp_path, monkeypatch, capsys):
     rc = _promote.land(root, dry_run=False, runner=lambda *a, **k: calls.append(a))
     assert rc == 0 and calls == []
     assert "NOTHING TO LAND" in capsys.readouterr().out
+
+
+def test_buy_flip_registers_a_fork_and_lands_once_it_is_executed(tmp_path, monkeypatch, capsys):
+    """2026-09-13 (owner: the BUY-flip ratify was the last human ratify): a flip toward BUY
+    freezes the lane only until its buyflip fork has run its 3-business-day silence window.
+    The lane registers the fork itself (once), and lands once the fork is marked executed."""
+    from crude_tanker_fv import forks as _forks
+    rows = [_row("DHT"), _row("SBLK", band_from="HOLD (fairly valued)", band_to="BUY (undervalued)")]
+    root = _land_fixture(tmp_path, monkeypatch, rows)
+    (root / "inputs").mkdir()
+    (root / "inputs" / "forks.yaml").write_text("policy:\n  silence_business_days: 3\nforks:\n")
+    calls = []
+    rc = _promote.land(root, dry_run=False, runner=lambda argv, cwd, check: calls.append(argv))
+    assert rc == 1 and not calls
+    out = capsys.readouterr().out
+    assert "FORK REGISTERED: buyflip_sblk_" in out
+    f = [x for x in _forks.load(root / "inputs" / "forks.yaml")["forks"] if x["id"].startswith("buyflip_sblk_")]
+    assert len(f) == 1 and f[0]["status"] == "open" and "BUY (undervalued)" in f[0]["recommendation"]
+    # a second morning does not register a duplicate
+    assert _promote.land(root, dry_run=False, runner=lambda argv, cwd, check: calls.append(argv)) == 1
+    assert len([x for x in _forks.load(root / "inputs" / "forks.yaml")["forks"] if x["id"].startswith("buyflip_")]) == 1
+    # silence ran out: the executor marks it executed; the next land passes (d)
+    _forks.mark(f[0]["id"], "executed", "silence", path=root / "inputs" / "forks.yaml")
+    rc = _promote.land(root, dry_run=False, runner=lambda argv, cwd, check: calls.append(argv))
+    assert rc == 0 and calls and calls[0][0] == "scripts/ratify_baseline.sh"
+    v, _ = _promote.evaluate_land(root)
+    assert any("(fork executed)" in d for n, p, d in v.conjuncts if n.startswith("(d)"))

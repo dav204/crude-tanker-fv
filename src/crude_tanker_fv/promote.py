@@ -49,6 +49,7 @@ class Verdict:
     conjuncts: list[tuple[str, bool, str]] = field(default_factory=list)
     freeze_reasons: list[str] = field(default_factory=list)
     rows_considered: int = 0
+    buyward: list = field(default_factory=list)   # (ticker, band_to) flips awaiting a fork
 
     def as_dict(self) -> dict:
         return {"lane": self.lane, "ok": self.ok, "rows_considered": self.rows_considered,
@@ -345,11 +346,21 @@ def evaluate_land(root: Path = ROOT, now=None) -> "tuple[Verdict, str]":
                         "clean apart from the drift list" if c else "non-drift dirt: " + ", ".join(dirt[:5])))
 
     relabelled = set(POSITION_CYCLE_RELABEL) | set(POSITION_UNRELIABLE)
-    buyward = [f"{r.ticker} → {r.band_to}" for r in rows
-               if r.band_from and r.band_to and r.band_from != r.band_to
-               and str(r.band_to).upper().startswith("BUY") and r.ticker not in relabelled]
+    flips = [(r.ticker, str(r.band_to)) for r in rows
+             if r.band_from and r.band_to and r.band_from != r.band_to
+             and str(r.band_to).upper().startswith("BUY") and r.ticker not in relabelled]
+    # 2026-09-13 (owner: the BUY-flip ratify was the last human ratify): a flip toward BUY
+    # is no longer a permanent freeze. The land lane registers a `buyflip_<ticker>_<date>`
+    # fork (3 business days, the sentinel pages FORK-EXECUTABLE) and lands once the fork is
+    # executed by silence — the halt-and-investigate becomes an objection window.
+    executed = _executed_buyflips(root)
+    waiting = [(t, b) for t, b in flips if t not in executed]
+    buyward = [f"{t} → {b}" for t, b in waiting]
     d = not buyward
-    v.conjuncts.append(("(d) no flip toward BUY", d, "none" if d else "; ".join(buyward)))
+    v.buyward = waiting
+    covered = [f"{t} → {b} (fork executed)" for t, b in flips if t in executed]
+    v.conjuncts.append(("(d) no flip toward BUY without an executed buyflip fork", d,
+                        ("none" if not covered else "; ".join(covered)) if d else "; ".join(buyward)))
 
     e1, e1d = _surface_matches_head(root)
     e2, e2d = _state_is_fresh(root, now)
@@ -359,13 +370,49 @@ def evaluate_land(root: Path = ROOT, now=None) -> "tuple[Verdict, str]":
     for passed, why in ((a, "an UNEXPLAINED row is exactly what a ratify must never absorb"),
                         (b, "an annotation is the record the cause is composed from"),
                         (c, "the working tree is mid-surgery — automation never lands through it"),
-                        (d, "a flip toward BUY is the standing halt-and-investigate"),
+                        (d, "a flip toward BUY waits for its buyflip fork (3 business days of silence)"),
                         (e, "ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers")):
         if not passed:
             v.freeze_reasons.append(why)
     v.ok = a and b and c and d and e
     cause = compose_cause(rows, decisions_dir) if v.ok else ""
     return v, cause
+
+
+def _executed_buyflips(root: Path) -> set:
+    """Tickers whose `buyflip_<ticker>_<date>` fork has been executed (silence ran out)."""
+    from . import forks as _forks
+    path = root / "inputs" / "forks.yaml"
+    if not path.exists():
+        return set()
+    out = set()
+    for f in _forks.load(path).get("forks") or []:
+        fid = str(f.get("id", ""))
+        if fid.startswith("buyflip_") and str(f.get("status")) == "executed":
+            out.add(fid.split("_")[1].upper())
+    return out
+
+
+def _register_buyflip(root: Path, ticker: str, band_to: str, *, dry_run: bool) -> str:
+    """One fork per ticker flip; idempotent across mornings (an open one is left alone)."""
+    from datetime import date as _date
+    from . import forks as _forks
+    path = root / "inputs" / "forks.yaml"
+    if not path.exists():
+        return ""
+    for f in _forks.load(path).get("forks") or []:
+        fid = str(f.get("id", ""))
+        if fid.startswith(f"buyflip_{ticker.lower()}_") and str(f.get("status")) in ("open", "executed"):
+            return ""
+    fid = f"buyflip_{ticker.lower()}_{_date.today().isoformat()}"
+    if not dry_run:
+        _forks.open_fork(fid, kind="judgment", doc=f"decisions/{ticker.lower()}_log.md",
+                         recommendation=(f"land the flip toward {band_to} on {ticker} as the surface computes it "
+                                         f"(the drift gate explains it; the standing halt-and-investigate is now "
+                                         f"this 3-business-day objection window). Executing = marking this fork "
+                                         f"executed; the next auto-land ratifies."),
+                         path=path)
+    return fid
 
 
 def land(root: Path = ROOT, dry_run: bool = True, runner=None) -> int:
@@ -375,6 +422,10 @@ def land(root: Path = ROOT, dry_run: bool = True, runner=None) -> int:
     v, cause = evaluate_land(root)
     print(v.render())
     if not v.ok:
+        for ticker, band_to in v.buyward:
+            fid = _register_buyflip(root, ticker, band_to, dry_run=dry_run)
+            if fid:
+                print(f"FORK {'would be ' if dry_run else ''}REGISTERED: {fid} — lands after 3 business days of silence")
         return 1
     # A quiet gate is not a landing: re-ratifying an unchanged baseline every morning would
     # be a daily noise commit with an empty cause (wired into cron 2026-09-10, owner's word).

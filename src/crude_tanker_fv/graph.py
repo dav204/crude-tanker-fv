@@ -201,9 +201,10 @@ def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS
         tasks = {p.name for p in scheduled_tasks.iterdir()
                  if p.is_dir() and p.name.startswith(prefixes) and p.name not in retired}
         declared = {n["id"] for n in nodes if n.get("kind") == "scheduled-task"}
+        planned = {n["id"] for n in nodes if n.get("planned")}
         for t in sorted(tasks - declared):
             problems.append(f"R5 scheduled task {t} has no node")
-        for t in sorted(declared - tasks):
+        for t in sorted(declared - tasks - planned):
             if t.startswith(prefixes):
                 problems.append(f"R5 node {t} names a scheduled task that does not exist")
 

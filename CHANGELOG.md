@@ -5,6 +5,22 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-09-13 — THE HAND-CRANK COUNT, AND THE PERMISSION EDIT.** *Owner:* "this seems like a lot of
+  hand cranking and more than I was expecting at this stage". *The count (60 days):* watchlist 5,
+  transactions 8 real prints, FFA curve 13, ratify 31 by hand vs 6 by auto-land — all agent work in
+  chat sessions the owner had to keep open; his own hands: two `promote land` runs and one harvester
+  run. *The cause:* three ask-tier Edit rules in `.claude/settings.json`. *The owner moved them to
+  allow* (commit c6d489b; push / curl / launchctl stay ask). *Built on it:* (1) `crude_tanker_fv.forks`
+  — the registry as a tool (list executable / mark / open; textual edits keep the comments); (2) the
+  land lane's (d) no longer freezes forever on a flip toward BUY: it registers a `buyflip_<ticker>_<date>`
+  fork (3 business days, FORK-EXECUTABLE page) and lands once the fork is executed by silence — the last
+  human ratify retired (`test_buy_flip_registers_a_fork_and_lands_once_it_is_executed`); (3)
+  `crude_tanker_fv.rebase TICKER [--apply]` — the anchor-preserving watchlist pair rebase, textual,
+  comments kept, price basis guarded (`tests/test_rebase.py`); (4) the fork EXECUTOR task —
+  discovered today that "silence executes" had no executor (the executing agent was always a chat);
+  its prompt + allowlist live in `scripts/scheduled_tasks/crude-fv-fork-executor.SKILL.md` because the
+  app's classifier refused the agent's registration — the owner installs it once (graph node
+  `planned: true`). *Next:* the print-promotion and FFA-promotion lanes with their guards.
 - **2026-09-13 — THE DECLARED AUTOMATION GRAPH (`graph.yaml`).** *Owner:* "have we successfully
   implemented graph engineering here" → "in substance, partly; as a discipline, no — the graph is
   implicit across six plists, nine task files, wrappers and prompts, and two of yesterday's bugs were

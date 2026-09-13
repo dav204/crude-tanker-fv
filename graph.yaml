@@ -313,6 +313,31 @@ nodes:
     commit_subject_prefix: "drill:"
     notes: "state/drill_armed is REMOVED (rm, allowlisted) — the write that un-withholds the ping; the drill doc is a read-modify-write (fills '## Drill log' and the 'Page received (actual)' blank)"
 
+  - id: crude-fv-fork-executor
+    kind: scheduled-task
+    repo: crude-tanker-fv
+    planned: true
+    runs: "daily 12:45 (app display zone) — NOT YET INSTALLED (2026-09-13, the app's classifier refused the agent's registration; the owner installs it from scripts/scheduled_tasks/crude-fv-fork-executor.SKILL.md)"
+    triggers: [clock]
+    requires: [app open, tree drift-only]
+    reads: [inputs/forks.yaml, decisions/**, inputs/**, outputs/book_scorecard.json, baselines/reconcile_baseline.yaml]
+    writes: [inputs/**, decisions/*_log.md, PLAN.md, outputs/**, state/fork_page.md, state/last_run.json]
+    emits: [email PAGE on a halted fork (band miss / test red / unsettled source)]
+    commits: self
+    commit_subject_prefix: "fork "
+    notes: "silence executes the recommendation (policy 2026-09-10) — until this exists the executing agent is a chat; bounded authority: exact edits per the fork's doc, regen.sh, full suite, gate, predicted-band check, annotate, commit; never ratifies (the morning auto-land does, from the annotations)"
+
+  - id: rebase
+    kind: script
+    repo: crude-tanker-fv
+    entry: src/crude_tanker_fv/rebase.py
+    runs: on demand (a fork execution, a report-day refresh, or a chat)
+    triggers: [crude-fv-fork-executor, human-owner-chat]
+    reads: [inputs/watchlist.yaml, inputs/market_data/prices_daily.yaml]
+    writes: [inputs/watchlist.yaml, inputs/watchlist_rebase_*.yaml.draft]
+    commits: crude-fv-fork-executor
+    notes: "anchor-preserving pair rebase (implied broker NAV + EPS basis carried; price / pnav / fwd_pe from ONE vintage; textual edit, comments kept); allow-tier since the owner's 2026-09-13 permission change; tests/test_rebase.py"
+
   # ---------------------------------------------------------------- the governor (sibling repo)
   - id: portfolio-weekly-monitor
     kind: scheduled-task
