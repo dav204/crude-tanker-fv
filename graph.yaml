@@ -327,6 +327,18 @@ nodes:
     commit_subject_prefix: "fork "
     notes: "silence executes the recommendation (policy 2026-09-10) — until this exists the executing agent is a chat; bounded authority: exact edits per the fork's doc, regen.sh, full suite, gate, predicted-band check, annotate, commit; never ratifies (the morning auto-land does, from the annotations)"
 
+  - id: ffa-promote
+    kind: script
+    repo: crude-tanker-fv
+    entry: src/crude_tanker_fv/ffa_promote.py
+    runs: on demand (the fork executor's step 0, or a chat)
+    triggers: [crude-fv-fork-executor, human-owner-chat]
+    reads: [state/ffa_ocr_curves.json, inputs/market_data/ffa_forward_curve.yaml, inputs/market_data/twelve_month_tc.yaml,
+            inputs/market_data/historical_tce_means.yaml]
+    writes: [inputs/market_data/ffa_forward_curve.yaml, inputs/market_data/twelve_month_tc.yaml, decisions/ffa_promotion_*.md]
+    commits: crude-fv-fork-executor
+    notes: "the ruled straddling construction ONLY (owner 2026-09-02 Q-1/Q-2/Q-3/Q-7); FREEZES on a flagged parse, an unruled panel shape, a stale or already-committed print, or a cycle-BAND crossing; Handy-Bulk's 12M rides the MB weekly and is never touched; allow-tier since the 2026-09-13 permission change; tests/test_ffa_promote.py pins it against the ratified 2026-09-01 promote"
+
   - id: rebase
     kind: script
     repo: crude-tanker-fv

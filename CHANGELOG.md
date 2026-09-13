@@ -20,7 +20,7 @@ live rules distilled from it.
   discovered today that "silence executes" had no executor (the executing agent was always a chat);
   its prompt + allowlist live in `scripts/scheduled_tasks/crude-fv-fork-executor.SKILL.md` because the
   app's classifier refused the agent's registration — the owner installs it once (graph node
-  `planned: true`). *Next:* the print-promotion and FFA-promotion lanes with their guards.
+  `planned: true`). *Landed the same sitting:* `crude_tanker_fv.ffa_promote` — the dry FFA promote as a lane, reproducing the ruled straddling construction EXACTLY (Q-1 unrounded 12M, Q-2 q1 = the front month alone, Q-3 no per-leg cap, Cal-27 identity exact, committed 2028 deltas, Post-Panamax = Pana, Handy-Bulk = Supra x 0.90 to nearest 10, Handy-Bulk's 12M untouched) and FREEZING on everything unruled: a flagged parse, an unruled panel shape, a stale or already-committed print, and Q-7, a cycle-BAND crossing. `tests/test_ffa_promote.py` pins the construction against the ratified 2026-09-01 promote number-for-number. Wired as step 0 of the executor task. *Still by hand:* the print-promotion lane (the S&P queue is empty today, so there is nothing to prove it against, and a print moves the whole class fit — it gets its own sitting).
 - **2026-09-13 — THE DECLARED AUTOMATION GRAPH (`graph.yaml`).** *Owner:* "have we successfully
   implemented graph engineering here" → "in substance, partly; as a discipline, no — the graph is
   implicit across six plists, nine task files, wrappers and prompts, and two of yesterday's bugs were
