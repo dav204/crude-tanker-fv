@@ -16,6 +16,12 @@
 #   R6 automation commits of the last 30 days (matched by commit_subject_prefix) touch only the
 #      declared writes of their node — an undeclared writer fails the build.
 # Paths are repo-relative globs; `**` = any depth. `external:` names a thing outside both repos.
+# Clock facts (verified 2026-09-13): the machine is America/New_York, but launchd fires every
+# StartCalendarInterval hour +3h from the plist value (state/automation_runs.log: plist 07:00 ->
+# 14:00Z, 08:00 -> 15:00Z, 08:15 -> 15:15Z, 09:00 -> 16:00Z, 18:30 -> 01:30Z). `runs` below records
+# the OBSERVED wall-clock; the plist value is in parentheses. Every launchd wrapper exits 0 as
+# skipped-paused while a PAUSE file exists at the repo root, and writes state/heartbeat/<job> on
+# EVERY exit (skips included) — the sentinel's liveness check reads only those heartbeats.
 version: 1
 repo: crude-tanker-fv
 kinds: [launchd, lane, scheduled-task, script, human, external]
@@ -29,79 +35,89 @@ nodes:
     repo: crude-tanker-fv
     plist: com.crude-tanker-fv.edgar-poll
     entry: scripts/edgar_poll_cron.sh
-    runs: hourly at :20 (machine-local)
+    runs: hourly at :20 (the minute is unaffected by the launchd +3h hour offset)
     triggers: [clock]
-    reads: [inputs/watchlist.yaml, external:EDGAR, external:HKEX, external:Oslo NewsWeb, external:MFN]
-    writes: [state/edgar_manifest.jsonl, state/edgar_poll.json, state/hkex_poll.json, state/newsweb_poll.json,
-             inputs/filings/**, inputs/filings/_manifest.json, state/automation_runs.log]
+    requires: [no PAUSE file, network:sec.gov resolvable]
+    reads: [inputs/data_sources.yaml, inputs/earnings_calendar.yaml, external:EDGAR, external:HKEX, external:MFN (Oslo NewsWeb mirror)]
+    writes: [state/edgar_manifest.jsonl, state/edgar_poll.json, state/hkex_poll.json, state/newsweb_poll.json, inputs/filings/**,
+             state/edgar_poll.log, state/edgar_poll.err, state/heartbeat/edgar-poll, state/automation_runs.log]
     commits: none
-    on_failure: "rc in state/automation_runs.log; sentinel FETCH-FAILED (digest; pages after 2 runs inside an earnings window)"
+    on_failure: "rc in state/automation_runs.log; sentinel FETCH-FAILED (digest; pages after 2 runs inside an earnings window); DNS unresolvable -> skipped-no-network rc 0 with a FRESH heartbeat"
+    notes: "coverage from data_sources.yaml (sec_edgar / hkex_stockid / mfn_slug keys), cadence from earnings_calendar.yaml — it never reads the watchlist; inputs/filings/* is gitignored except _manifest.json, which commit-drift promotes from state/edgar_manifest.jsonl (the poller never writes the tracked snapshot)"
 
   - id: rocketchat-ingest
     kind: launchd
     repo: crude-tanker-fv
     plist: com.crude-tanker-fv.rocketchat-ingest
     entry: scripts/ingest_rocketchat_cron.sh
-    runs: 07:00 machine-local (14:00 UTC)
+    runs: 10:00 America/New_York = 14:00 UTC (plist 07:00; launchd +3h)
     triggers: [clock]
-    reads: [external:Rocket.Chat, inputs/research_pareto/**, inputs/market_data/transactions/**]
-    writes: [state/rocketchat_ingest.json, inputs/research_pareto/**/*.pdf, inputs/research_pareto/_manifest.json,
-             inputs/market_data/transactions/_scan_state.json, outputs/sp_print_candidates.md,
-             outputs/ffa_ocr_queue.md, state/ffa_ocr_state.json, state/ffa_ocr_curves.json, state/automation_runs.log]
-    commits: none
-    notes: "chain: ingest_rocketchat -> pareto_archive --build-manifest -> sp_scan -> ffa_ocr; the tracked writes are all drift-list paths"
+    requires: [no PAUSE file, env:~/.config/crude-tanker-fv.env, external:tesseract on PATH, network:rc.seekingalpha.com resolvable]
+    reads: [external:Rocket.Chat, inputs/rocketchat_sources.yaml, inputs/research_pareto/**, inputs/research_pareto_other/**, inputs/ffa_drybulk/**,
+            inputs/market_data/transactions/_scan_state.json]
+    writes: [state/rocketchat_ingest.json, state/arrivals.jsonl, inputs/research_pareto/**/*.pdf, inputs/research_pareto/**/_quarantine/*.reason,
+             inputs/ffa_drybulk/**, inputs/research_pareto/_manifest.json, inputs/market_data/transactions/_scan_state.json,
+             outputs/sp_print_candidates.md, outputs/ffa_ocr_queue.md, state/ffa_ocr_state.json, state/ffa_ocr_curves.json, state/ffa_scratch/**,
+             state/rocketchat_ingest.log, state/rocketchat_ingest.err, state/heartbeat/rocketchat-ingest, state/automation_runs.log]
+    commits: commit-drift
+    notes: "chain: ingest_rocketchat -> pareto_archive --build-manifest -> sp_scan -> ffa_ocr; the tracked writes are drift-list paths staged by commit-drift — EXCEPT the latent _quarantine/*.reason (tracked, non-drift, written by arrivals.quarantine on the first malformed Pareto PDF; commit-drift does NOT stage it). gitignored 2026-09-13 (inputs/research_pareto*/**/_quarantine/ — visible on disk, never tracked, so it can no longer freeze the lane)"
 
   - id: price-refresh
     kind: launchd
     repo: crude-tanker-fv
     plist: com.crude-tanker-fv.price-refresh
     entry: scripts/price_refresh_cron.sh
-    runs: 18:30 machine-local (01:30 UTC next day)
+    runs: 21:30 America/New_York = 01:30 UTC next day (plist 18:30; launchd +3h)
     triggers: [clock]
-    requires: [tree drift-only]
-    reads: [inputs/watchlist.yaml, external:Yahoo chart API]
-    writes: [inputs/market_data/prices_daily.yaml, state/price_refresh.log, state/automation_runs.log]
+    requires: [tree drift-only, no PAUSE file, network:query1.finance.yahoo.com resolvable]
+    reads: [inputs/watchlist.yaml, inputs/market_data/prices_daily.yaml, scripts/drift_files.txt, external:Yahoo chart API]
+    writes: [inputs/market_data/prices_daily.yaml, state/price_refresh.log, state/price_refresh.err, state/heartbeat/price-refresh, state/automation_runs.log]
     commits: commit-drift
-    on_failure: "skips on non-drift dirt (the 7/04 lesson); sentinel PRICE-BASIS / STALE-STATIC on the digest"
+    on_failure: "skips on non-drift dirt (the 7/04 lesson); DNS unresolvable -> skipped-no-network rc 0 with a FRESH heartbeat (the 8/17-8/25 seven-night stand-downs); sentinel PRICE-BASIS / STALE-STATIC on the digest"
+    notes: "carries forward the prior vintage for names whose fetch fails; the OPERATIVE committer since 8/13 has been human-owner-chat ('Price vintage ... absorbed as its own commit', 9x) — either absorbs the vintage ALONE before a regen (CLAUDE.md price-basis rule)"
 
   - id: news-pull
     kind: launchd
     repo: crude-tanker-fv
     plist: com.crude-tanker-fv.news-pull
     entry: scripts/news_pull_cron.sh
-    runs: Saturday 08:00 machine-local
+    runs: Saturday 11:00 America/New_York = 15:00 UTC (plist 08:00; launchd +3h)
     triggers: [clock]
-    reads: [external:Rocket.Chat, inputs/research_pareto/**]
-    writes: [inputs/research_pareto/_manifest.json, inputs/market_data/transactions/_scan_state.json,
-             outputs/sp_print_candidates.md, outputs/ffa_ocr_queue.md, state/automation_runs.log]
-    commits: none
-    notes: "misnamed: the SCANNER chain (RC incremental -> pareto manifest -> sp_scan -> ffa_ocr); the news DIGEST is written by the scheduled task weekly-news-pull"
+    requires: [no PAUSE file, env:~/.config/crude-tanker-fv.env, external:tesseract on PATH, network:sec.gov resolvable (a host this chain never fetches)]
+    reads: [external:Rocket.Chat, inputs/rocketchat_sources.yaml, inputs/research_pareto/**, inputs/research_pareto_other/**, inputs/ffa_drybulk/**,
+            inputs/market_data/transactions/_scan_state.json, state/ffa_ocr_state.json]
+    writes: [state/rocketchat_ingest.json, state/arrivals.jsonl, inputs/research_pareto/**/*.pdf, inputs/research_pareto/**/_quarantine/*.reason,
+             inputs/ffa_drybulk/**, inputs/research_pareto/_manifest.json, inputs/market_data/transactions/_scan_state.json,
+             outputs/sp_print_candidates.md, outputs/ffa_ocr_queue.md, state/ffa_ocr_state.json, state/ffa_ocr_curves.json, state/ffa_scratch/**,
+             state/news_pull.log, state/news_pull.err, state/heartbeat/news-pull, state/automation_runs.log]
+    commits: commit-drift
+    notes: "misnamed: the SCANNER chain (RC incremental -> pareto manifest [full rebuild, also walks research_pareto_other] -> sp_scan -> ffa_ocr -> ffa_ocr --staleness) — the Saturday twin of rocketchat-ingest, same writes, same _quarantine/*.reason write (gitignored 2026-09-13); the news DIGEST is written by the scheduled task weekly-news-pull"
 
   - id: harvester
     kind: launchd
     repo: crude-tanker-fv
     plist: com.crude-tanker-fv.harvester
     entry: scripts/harvester_cron.sh
-    runs: Saturday 09:00 machine-local
+    runs: Saturday 12:00 America/New_York = 16:00 UTC (plist 09:00; launchd +3h)
     triggers: [clock]
+    requires: [venv:.venv310, no PAUSE file, network:www.hellenicshippingnews.com resolvable]
     reads: [external:broker archive sites, shipping_harvester/**]
-    writes: [shipping_harvester/data/**, inputs/market_data/transactions/_scan_state.json, outputs/sp_print_candidates.md,
-             state/harvester_cron.log, state/automation_runs.log]
+    writes: [shipping_harvester/data/**, state/harvester_cron.log, state/harvester_cron.err, state/heartbeat/harvester, state/automation_runs.log]
     commits: none
-    notes: "the vendored shipping_harvester on .venv310; its data dir is gitignored"
+    notes: "the vendored shipping_harvester on .venv310, run from cwd shipping_harvester/ (DATA_ROOT is cwd-relative); its data dir is gitignored; it never calls sp_scan — the scanner paths belong to rocketchat-ingest / news-pull"
 
   - id: sentinel
     kind: launchd
     repo: crude-tanker-fv
     plist: com.crude-tanker-fv.sentinel
     entry: scripts/sentinel_cron.sh
-    runs: 08:15 machine-local (15:15 UTC)
+    runs: "11:15 America/New_York = 15:15 UTC (plist 08:15; launchd +3h — state/sentinel_cron.log '=== [sentinel] 2026-09-12 11:15:05'); the five lanes inherit this"
     triggers: [clock]
-    requires: [env:~/.config/crude-tanker-fv.env]
+    requires: [no PAUSE file at repo root, "env:~/.config/crude-tanker-fv.env (optional: absent -> NOTIFY-UNCONFIGURED, ping skipped)"]
     reads: []
-    writes: [state/sentinel_cron.log, state/automation_runs.log]
+    writes: [state/sentinel_cron.log, state/sentinel_cron.err, state/heartbeat/sentinel, state/automation_runs.log]
     commits: none
-    notes: "the wrapper; its work is the five lanes below, in this order: sentinel-checks -> weekly-report -> commit-outputs -> auto-land -> auto-push"
+    notes: "the wrapper; its work is the five lanes below, in this order: sentinel-checks -> weekly-report -> commit-outputs -> auto-land -> auto-push. PAUSE skips ALL five before the sentinel runs — a paused sentinel never pings, so healthchecks alerts after grace"
 
   # ---------------------------------------------------------------- lanes inside the sentinel wrapper
   - id: sentinel-checks
@@ -111,14 +127,16 @@ nodes:
     runs: every sentinel run
     triggers: [sentinel]
     requires: [tree drift-only]
-    reads: [inputs/**, outputs/**, state/**, baselines/reconcile_baseline.yaml, inputs/notify.yaml, inputs/forks.yaml,
-            inputs/reweight_triggers.yaml, inputs/earnings_calendar.yaml, state/edgar_manifest.jsonl, state/filings_triaged.json,
-            state/drill_armed]
-    writes: [state/sentinel_state.json, state/sentinel.log, state/ping_status.json, state/notify_sent.log, state/notify_down.log,
-             state/paged_once]
-    emits: [email digest (daily), email PAGE (owner-action tags only), healthchecks ping (withheld while state/drill_armed exists)]
+    reads: [inputs/**, outputs/**, state/**, inputs/notify.yaml, inputs/forks.yaml, inputs/reweight_triggers.yaml, inputs/earnings_calendar.yaml,
+            inputs/agent_duties.yaml, inputs/rocketchat_sources.yaml, state/edgar_manifest.jsonl, state/filings_triaged.json, state/drill_armed,
+            state/heartbeat/*, state/reauth/*.json, scripts/drift_files.txt, scripts/com.crude-tanker-fv.*.plist,
+            shipping_harvester/data/manifest.jsonl, governance:monitor/log.md]
+    writes: [state/sentinel_state.json, state/sentinel.log, state/ping_status.json, state/notify_sent.log, state/notify_down.log, state/reauth/*.json]
+    emits: ["email digest (daily, unconditional)", "email PAGE (owner-action tags; FETCH-FAILED promoted to PAGE inside an earnings window)",
+            "email PAGE (escalated) on page_after_consecutive streaks",
+            "healthchecks ping (withheld while state/drill_armed exists or a required send failed; skipped when CRUDE_FV_HEALTHCHECK_URL is unset)"]
     commits: none
-    notes: "META-MODE on non-drift dirt: reports the dirty tree instead of the checks"
+    notes: "META-MODE on non-drift dirt: reports the dirty tree instead of the checks; page-once keys live INSIDE state/sentinel_state.json; check 6 (liveness) reads state/heartbeat/<job> per committed plist; governance:monitor/log.md is followed via inputs/agent_duties.yaml artifact_path"
 
   - id: weekly-report
     kind: lane
@@ -126,10 +144,13 @@ nodes:
     entry: src/crude_tanker_fv/weekly_report.py
     runs: every sentinel run; writes only when a Saturday report is owed (is_due)
     triggers: [sentinel-checks]
-    reads: [outputs/book_scorecard.json, outputs/book_scorecard.md, state/**, inputs/reweight_triggers.yaml, decisions/*_shadow_build_*.md, RATIFY_LOG.md]
-    writes: [outputs/weekly_report_*.md]
+    reads: [outputs/**, inputs/**, state/**, outputs/book_scorecard.json, outputs/book_scorecard.md, inputs/reweight_triggers.yaml, inputs/earnings_calendar.yaml,
+            baselines/reconcile_baseline.yaml, decisions/*_log.md, decisions/*_shadow_build_*.md, RATIFY_LOG.md, scripts/drift_files.txt,
+            scripts/com.crude-tanker-fv.*.plist, shipping_harvester/data/manifest.jsonl, governance:monitor/log.md]
+    writes: [outputs/weekly_report_*.md, state/notify_sent.log, state/notify_down.log, state/reauth/smtp.json]
     emits: [email WEEKLY]
     commits: commit-outputs
+    notes: "inherits sentinel-checks' whole read set via sentinel.collect_flags() and auto-land's via promote.evaluate_price_absorb() (baseline, last_run.json, decision logs); a failed --send returns rc 1 which rides the cron note"
 
   - id: commit-outputs
     kind: lane
@@ -150,11 +171,12 @@ nodes:
     runs: every sentinel run, after commit-outputs
     triggers: [commit-outputs]
     requires: [tree drift-only, state/last_run.json < 24h, 0 UNEXPLAINED, every moved row annotated since ratified_at, no flip toward BUY, committed surface current for HEAD]
-    reads: [baselines/reconcile_baseline.yaml, decisions/*_log.md, outputs/book_scorecard.json, state/last_run.json, scripts/drift_files.txt]
+    reads: [baselines/reconcile_baseline.yaml, decisions/*_log.md, outputs/book_scorecard.json, state/last_run.json, scripts/drift_files.txt, PLAN.md]
     writes: [baselines/reconcile_baseline.yaml, RATIFY_LOG.md]
     commits: self
     commit_subject_prefix: "baseline: auto-land"
     on_failure: "FREEZE rc 1 rides the cron note; NOTHING TO LAND rc 0 on a quiet gate"
+    notes: "(e) also freezes on any COMMIT touching src/** or inputs/** (archive dirs excluded) between the surface stamp and HEAD — a history read, not a working-tree read; lands via scripts/ratify_baseline.sh, which greps PLAN.md for a stale pending-marker"
 
   - id: auto-push
     kind: lane
@@ -162,11 +184,12 @@ nodes:
     entry: scripts/auto_push.sh
     runs: every sentinel run, last
     triggers: [auto-land]
-    requires: [tree drift-only, drift gate 0 UNEXPLAINED, unpushed commits exist]
-    reads: [scripts/drift_files.txt]
+    requires: [tree drift-only, drift gate 0 UNEXPLAINED, unpushed commits exist (an absent origin/main ref reads as nothing to push), network + keychain for git push]
+    reads: [scripts/drift_files.txt, baselines/reconcile_baseline.yaml, state/last_run.json, decisions/*_log.md]
     writes: []
     emits: [git push origin main]
     commits: none
+    notes: "the 0 UNEXPLAINED hold runs drift_gate, so the baseline, last_run.json and the decision logs are reads"
 
   - id: commit-drift
     kind: script
@@ -174,10 +197,11 @@ nodes:
     entry: scripts/commit_drift.sh
     runs: on demand from a chat (drift-list files are routine dirt; nothing schedules this)
     triggers: [human-owner-chat]
-    reads: [scripts/drift_files.txt]
-    writes: []
+    reads: [scripts/drift_files.txt, state/edgar_manifest.jsonl]
+    writes: [inputs/filings/_manifest.json]
     commits: self
-    notes: "stages exactly the drift list; the price vintage is otherwise absorbed by a chat commit before a regen (CLAUDE.md price-basis rule)"
+    commit_subject_prefix: "chore(automation): flush data/output drift"
+    notes: "promotes state/edgar_manifest.jsonl to the tracked inputs/filings/_manifest.json, then stages exactly the drift list; the price vintage is otherwise absorbed by a chat commit before a regen (CLAUDE.md price-basis rule)"
 
   - id: regen
     kind: script
@@ -185,11 +209,23 @@ nodes:
     entry: scripts/regen.sh
     runs: on demand from a chat, after any determinant change
     triggers: [human-owner-chat]
-    requires: [tree drift-only]
-    reads: [inputs/**, src/**]
-    writes: [outputs/**, decisions/*_log.md, state/last_run.json]
+    requires: ["src/ and inputs/ clean of modified+untracked paths — drift-list paths under inputs/ INCLUDED (regen.sh:16; commit the price vintage via commit-drift first, CLAUDE.md price-basis rule); dirt outside src/ and inputs/ is ignored"]
+    reads: [inputs/**, src/**, scripts/*_weight_*.py, tests/test_outputs_hygiene.py]
+    writes: [outputs/**, decisions/*_log.md, state/last_run.json, state/read_flag_state.json]
     commits: human-owner-chat
-    notes: "sidecars if scenario_inputs.yaml is newer than the family sidecar -> pipeline -> hygiene guard; the chat commits the surface"
+    notes: "sidecars if scenario_inputs.yaml is newer than the family sidecar -> pipeline -> hygiene guard; the chat commits the surface; outputs/refresh_checklist.md is NOT written here (see preflight)"
+
+  - id: preflight
+    kind: script
+    repo: crude-tanker-fv
+    entry: src/crude_tanker_fv/refresh.py
+    runs: on demand from a chat (the report-day preflight), and as step 1 of crude-fv-results-shadow-build
+    triggers: [human-owner-chat, crude-fv-results-shadow-build]
+    reads: [inputs/watchlist.yaml, inputs/market_data/**, inputs/earnings_calendar.yaml, inputs/reweight_triggers.yaml, inputs/data_sources.yaml,
+            inputs/balance_sheets/*.yaml, inputs/fleet_manifests/*.yaml]
+    writes: [outputs/refresh_checklist.md]
+    commits: commit-drift
+    notes: "python -m crude_tanker_fv.refresh — the ONLY writer of the drift-list path outputs/refresh_checklist.md (the pipeline never writes it); absorbed by commit-drift"
 
   # ---------------------------------------------------------------- scheduled agent tasks (desktop app open)
   - id: crude-fv-filings-triage
@@ -198,7 +234,7 @@ nodes:
     runs: daily 11:45 (app display zone)
     triggers: [clock]
     requires: [app open]
-    reads: [state/edgar_manifest.jsonl, inputs/filings/**, decisions/filings_triage_log.md, WORKFLOWS.md]
+    reads: [state/edgar_manifest.jsonl, state/filings_triaged.json, inputs/filings/**, decisions/filings_triage_log.md, CLAUDE.md, WORKFLOWS.md, external:EDGAR/MFN/NewsWeb]
     writes: [decisions/filings_triage_log.md, PLAN.md, decisions/*_log.md, state/filings_triaged.json]
     commits: self
     commit_subject_prefix: "filings triage"
@@ -209,35 +245,38 @@ nodes:
     repo: crude-tanker-fv
     runs: daily 12:15 (app display zone)
     triggers: [clock]
-    requires: [app open]
-    reads: [inputs/earnings_calendar.yaml, decisions/filings_triage_log.md, inputs/filings/**, inputs/research_issuer/**,
-            inputs/balance_sheets/*.yaml, inputs/fleet_manifests/*.yaml, decisions/*_packet_*.md, decisions/*_release_check_*.md]
-    writes: [inputs/balance_sheets/*.yaml.draft, inputs/fleet_manifests/*.yaml.draft, decisions/*_shadow_build_*.md, PLAN.md]
+    requires: [app open, git worktree of HEAD in /tmp (transient), external:issuer/EDGAR web, no concurrent committing task]
+    reads: [inputs/earnings_calendar.yaml, inputs/watchlist.yaml, inputs/market_data/**, state/edgar_manifest.jsonl, decisions/filings_triage_log.md,
+            inputs/filings/**, inputs/research_issuer/**, inputs/balance_sheets/*.yaml, inputs/balance_sheets/*.yaml.draft,
+            inputs/fleet_manifests/*.yaml, inputs/fleet_manifests/*.yaml.draft, decisions/*_packet_*.md, decisions/*_release_check_*.md,
+            decisions/*_prereg_*.md, outputs/book_scorecard.json, CLAUDE.md, WORKFLOWS.md]
+    writes: [inputs/balance_sheets/*.yaml.draft, inputs/fleet_manifests/*.yaml.draft, decisions/*_shadow_build_*.md, PLAN.md, outputs/refresh_checklist.md]
     commits: self
     commit_subject_prefix: "shadow build"
-    notes: "values the drafts in a throwaway worktree via scripts/shadow_regen.sh; never the live pair (CLAUDE.md drafts-only rule)"
+    notes: "values the drafts in a throwaway worktree of HEAD via scripts/shadow_regen.sh — against HEAD's COMMITTED inputs (an unabsorbed price vintage is not in the shadow); never the live pair (CLAUDE.md drafts-only rule). outputs/refresh_checklist.md is a drift-list path regenerated by step 1's refresh call (absorbed by commit-drift, never by this task's commit). On app-open catch-up it runs concurrently with filings-triage, which also commits (9/12: 14:07:54 vs 14:07:57)"
 
   - id: crude-fv-mb-weekly-harvest
     kind: scheduled-task
     repo: crude-tanker-fv
     runs: Saturday 08:30 (app display zone)
     triggers: [clock]
-    requires: [app open, external:Gmail connector]
-    reads: [external:Gmail (from:mbshipbrokers.com)]
+    requires: [app open, external:Gmail connector, external:cdn.flxml.eu (https; allowlisted via data_sources.yaml)]
+    reads: [external:Gmail (from:mbshipbrokers.com), inputs/research_mb/**/*.pdf, inputs/data_sources.yaml, inputs/**, outputs/**, state/**]
     writes: [inputs/research_mb/**/*.pdf]
     commits: none
-    notes: "research binaries are gitignored (only manifests are tracked); clears the sentinel's STALE-INPUT mb:* flags"
+    notes: "PDFs ignored only by the blanket *.pdf rule (.gitignore:28); no research_mb manifest exists; mb_harvest.py copies only %PDF-validated bytes so nothing trackable can land. Clears the sentinel's STALE-INPUT mb:* flags — but step 5 runs the sentinel bare (read-only), and on a non-drift-dirty tree it reports META-MODE, not the mb flags"
 
   - id: crude-fv-weekly-news-pull
     kind: scheduled-task
     repo: crude-tanker-fv
     runs: Saturday 09:00 (app display zone)
     triggers: [clock]
-    requires: [app open]
-    reads: [inputs/watchlist.yaml, inputs/archive_gaps.yaml, state/newsweb_poll.json, outputs/news_digest_*.md, external:issuer feeds + trade press]
+    requires: [app open BEFORE the 11:15 EDT sentinel (a later app-open catch-up fire leaves the digest as non-drift dirt until the next sentinel)]
+    reads: [inputs/watchlist.yaml, inputs/archive_gaps.yaml, inputs/data_sources.yaml, src/crude_tanker_fv/reconcile.py, decisions/*_log.md,
+            state/edgar_manifest.jsonl, inputs/filings/**, inputs/research_pareto/**, outputs/news_digest_*.md, external:issuer feeds + trade press]
     writes: [outputs/news_digest_*.md]
     commits: commit-outputs
-    notes: "its ONLY write is the dated digest; the sentinel's commit-outputs lane commits it at 11:15"
+    notes: "its ONLY write is the dated digest; commit-outputs commits it at the NEXT sentinel run (15:15Z / 11:15 EDT) — a late fire leaves it ~21h as non-drift dirt (9/12: written 14:11, hand-committed 14:14, 1e9d758). Fires 09:00 EDT, BEFORE the launchd scanner chain (15:00Z / 11:00 EDT), so the research_pareto manifest it reads is last week's — move the task to >=11:30 EDT or accept"
 
   - id: crude-fv-pinggap-drill-arm
     kind: scheduled-task
@@ -245,8 +284,8 @@ nodes:
     one_shot: true
     runs: one-shot 2026-09-12 09:05 (fired 14:07 EDT)
     triggers: [clock]
-    requires: [app open]
-    reads: [decisions/healthchecks_pinggap_drill_2026-09-06.md]
+    requires: [app open, same-day SENT ping in state/ping_status.json, same-day job=sentinel line in state/automation_runs.log]
+    reads: [state/ping_status.json, state/automation_runs.log, decisions/healthchecks_pinggap_drill_2026-09-06.md]
     writes: [state/drill_armed, decisions/healthchecks_pinggap_drill_2026-09-06.md]
     commits: human-owner-chat
     notes: "wrote its doc line without committing (committed by hand 9/12); the restore task commits its own"
@@ -258,11 +297,11 @@ nodes:
     runs: one-shot 2026-09-14 18:45 (moved from 15:20 — the page is due ~17:15)
     triggers: [clock]
     requires: [app open, external:Gmail connector]
-    reads: [external:Gmail (from:healthchecks.io), state/ping_status.json, state/automation_runs.log]
-    writes: [decisions/healthchecks_pinggap_drill_2026-09-06.md]
+    reads: [external:Gmail (from:healthchecks.io), state/ping_status.json, state/automation_runs.log, decisions/healthchecks_pinggap_drill_2026-09-06.md]
+    writes: [decisions/healthchecks_pinggap_drill_2026-09-06.md, state/drill_armed]
     commits: self
     commit_subject_prefix: "drill:"
-    notes: "removes state/drill_armed (rm, allowlisted)"
+    notes: "state/drill_armed is REMOVED (rm, allowlisted) — the write that un-withholds the ping; the drill doc is a read-modify-write (fills '## Drill log' and the 'Page received (actual)' blank)"
 
   # ---------------------------------------------------------------- the governor (sibling repo)
   - id: portfolio-weekly-monitor
@@ -270,34 +309,40 @@ nodes:
     repo: portfolio-governance
     runs: Friday 17:00 (app display zone)
     triggers: [clock]
-    requires: [app open, external:IBKR connector]
-    reads: [outputs/book_scorecard.json, RATIFY_LOG.md, external:IBKR account, governance:CADENCE.md, governance:holdings/*.md, governance:funnels/register.md]
+    requires: [app open, external:IBKR connector, external:web search, "env:~/.config/portfolio-governance.env (ping URL; unset = PING-SKIPPED)",
+               "env:~/.config/crude-tanker-fv.env + producer .venv (notify.sh execs crude_tanker_fv.notify from the producer repo)"]
+    reads: [outputs/book_scorecard.json, RATIFY_LOG.md, external:IBKR account, external:web search, governance:CADENCE.md, governance:holdings/*.md,
+            governance:funnels/register.md, governance:reviews/*.md]
     writes: [governance:monitor/log.md, governance:monitor/outbox/*-monitor.md]
     emits: [email PAGE or digest via governance:monitor/notify.sh, healthchecks ping via governance:monitor/ping.sh]
     commits: human-owner-chat
-    notes: "the seam: reads the producer's committed scorecard (schema major 2) and flags a tier/label/FV change on a holding"
+    notes: "the seam: reads the producer's committed scorecard (schema major 2) and flags a tier/label/FV change on a holding; its only owner-facing channel is the producer's interpreter + SMTP creds — a broken producer venv or env turns every governor page into MAIL:FAILED"
 
   - id: portfolio-quarterly-review-kickoff
     kind: scheduled-task
     repo: portfolio-governance
     runs: 26th of Mar/Jun/Sep/Dec 09:00 (app display zone)
     triggers: [clock]
-    requires: [app open, external:IBKR connector]
-    reads: [external:IBKR account, governance:holdings/*.md, governance:reviews/*.md, outputs/book_scorecard.json]
+    requires: [app open, external:IBKR connector, external:web search, "env:~/.config/crude-tanker-fv.env + producer .venv (notify.sh)"]
+    reads: [external:IBKR account, external:web search, governance:CADENCE.md, governance:HOLDING_THESIS.md, governance:holdings/*.md, governance:reviews/*.md]
     writes: [governance:monitor/outbox/*-quarterly-kickoff.md]
     emits: [email PAGE with the review pack]
     commits: human-owner-chat
+    notes: "recommends a fresh FV pull for crude-tanker-fv-governed names but does not read the scorecard itself"
 
   # ---------------------------------------------------------------- human + external nodes
   - id: human-owner-chat
     kind: human
     repo: both
     runs: when a page names an action, or at will
-    triggers: [email PAGE, email WEEKLY, healthchecks alert]
+    triggers: [email PAGE, email WEEKLY, healthchecks alert, email GitHub issue 'sentinel' (sentinel-lite)]
     reads: [external:inbox]
-    writes: [inputs/watchlist.yaml, inputs/market_data/transactions/**, inputs/market_data/ffa_forward_curve.yaml, inputs/forks.yaml, .claude/settings.json]
+    writes: [inputs/**, inputs/watchlist.yaml, inputs/market_data/transactions/**, inputs/market_data/ffa_forward_curve.yaml, inputs/forks.yaml,
+             .claude/settings.json, decisions/*_log.md, PLAN.md, PAUSE,
+             governance:holdings/*.md, governance:reviews/*.md, governance:CADENCE.md, governance:funnels/register.md, governance:preregs/*.md,
+             governance:orders/*.md, governance:monitor/log.md]
     commits: self
-    notes: "the ask-tier files and the permission file are the owner's; a chat inside the repo for the work, never in ~/Projects"
+    notes: "exclusive-writer set = the three ask-tier files + the permission file; the rest are the owner's sitting writes (decision-log annotation is auto-land's unfreeze; card stamps are the seam's other half). PAUSE at repo root silences all six launchd jobs at once — including the sentinel's heartbeat/digest/ping, so healthchecks alerts after grace. A chat inside the repo for the work, never in ~/Projects"
 
   - id: human-ratify
     kind: human
@@ -305,15 +350,30 @@ nodes:
     entry: scripts/ratify_baseline.sh
     runs: owner-run, on an explained move auto-land cannot take (a flip toward BUY, an unannotated row)
     triggers: [human-owner-chat]
-    reads: [baselines/reconcile_baseline.yaml]
+    requires: [state/last_run.json from the run being ratified (drift_gate exits 2 if absent; a stale one ratifies stale numbers)]
+    reads: [state/last_run.json, PLAN.md]
     writes: [baselines/reconcile_baseline.yaml, RATIFY_LOG.md]
     commits: self
+    notes: "drift_gate --ratify overwrites the baseline from state/last_run.json without reading the old one"
+
+  - id: sentinel-lite
+    kind: external
+    repo: crude-tanker-fv
+    entry: .github/workflows/sentinel-lite.yml
+    runs: daily 12:45 UTC (GitHub Actions, against pushed main)
+    triggers: [clock]
+    requires: [external:GitHub Actions, secret SENTINEL_LITE_HC_URL (unset 2026-09-12 = ping skipped)]
+    reads: [inputs/**, outputs/**, inputs/filings/_manifest.json]
+    writes: []
+    emits: [GitHub issue 'sentinel' (owner email via GitHub notifications), healthchecks ping (own check)]
+    commits: none
+    notes: "runs sentinel --pure on the pushed tree — state/ is gitignored, so its FILING checks see the commit-drift-promoted manifest only; coverage lags to the last push"
 
   - id: healthchecks
     kind: external
     repo: both
-    runs: "dead-man timer (producer: period 1d + grace 30h; governor: weekly)"
-    triggers: [sentinel-checks, portfolio-weekly-monitor]
+    runs: "dead-man timer (producer: period 1d + grace 30h, 7/13 record; governor: spec cron 0 17 * * 5 America/New_York + grace ~6h per analysis/2026-08-09 postmortem — dashboard state UNRECORDED; last governor ping 9/11 WITHHELD, ping.sh midnight-straddle)"
+    triggers: [sentinel-checks, portfolio-weekly-monitor, sentinel-lite]
     reads: [external:ping]
     writes: []
     emits: [email alert by ABSENCE of the ping]

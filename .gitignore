@@ -95,3 +95,7 @@ outputs/pareto_mentions_*.md
 
 # Spreadsheet twins retired 2026-09-02 (prune ledger row 38): zero readers; md carries every section
 outputs/*.xlsx
+
+# Quarantined arrivals (arrivals.quarantine: a malformed research PDF + its .reason) stay visible on disk but never tracked — a tracked, uncommitted write freezes auto-land (graph.yaml R4, 2026-09-13)
+inputs/research_pareto/**/_quarantine/
+inputs/research_pareto_other/**/_quarantine/
