@@ -20,7 +20,16 @@ live rules distilled from it.
   mermaid + "what is downstream of each node"), and a test fails when the render is stale — the
   human map and the machine map are one artifact. The graph was then verified adversarially
   (readers refuting each node's declared reads/writes/triggers against the wrappers, modules and
-  task prompts).
+  task prompts). *Same day, the governor's turn (owner: "does the governor side need the same or
+  similar treatment" → "proceed"):* it stays in the one graph (the seam is the edge that matters);
+  R5 now enumerates `portfolio-*` tasks too (two fired June one-shots listed under `retired_tasks`);
+  **R7** fails the check when a launchd job's observed run hour no longer sits at the plist hour +
+  `launchd_utc_offset_hours` (+7h observed: plist 08:15 → 15:15Z — the offset is the zone in force
+  when the plists were loaded, during the August Pacific stretch; a reload or DST moves every job at
+  once and every ordering assumption with it). Governor side: the weekly monitor now commits its own
+  run line + outbox file (eight run records in a row had waited 1-4 days for the owner's hand), pages
+  PRODUCER DID NOT LAND when the scorecard is older than 72h (the producer's auto-land can freeze
+  silently — 9/12), and the quarterly kickoff commits its outbox file; CADENCE.md loop 1 records both.
 - **2026-09-12 — THE GOVERNOR EMAILS THE OWNER THROUGH THIS CHANNEL.** *Owner:* "will the
   governance repo also be emailing me too?" — it did not: its Friday monitor's flags (SBLK
   take-profit 7/24, five flags 8/14) only ever reached the app's task pane, and the only email it

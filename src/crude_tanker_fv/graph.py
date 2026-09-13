@@ -116,9 +116,21 @@ def _automation_commits(root: Path, days: int = 30) -> list[tuple[str, str, list
     return out
 
 
+def _last_runs(log_path: Path) -> dict:
+    """job -> UTC datetime of its most recent line in state/automation_runs.log."""
+    from datetime import datetime
+    out: dict = {}
+    for ln in log_path.read_text().splitlines():
+        m = re.match(r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})Z job=(\S+)", ln)
+        if m:
+            out[m.group(2)] = datetime.fromisoformat(m.group(1))
+    return out
+
+
 def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS,
           scheduled_tasks: Path = SCHEDULED_TASKS, drift: list[str] | None = None,
-          commits: list[tuple[str, str, list[str]]] | None = None) -> list[str]:
+          commits: list[tuple[str, str, list[str]]] | None = None,
+          runs_log: Path | None = None) -> list[str]:
     problems: list[str] = []
     nodes = graph["nodes"]
     ids = [n["id"] for n in nodes]
@@ -184,13 +196,39 @@ def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS
                 if n.get("entry") and n["entry"].split("/")[-1] not in args:
                     problems.append(f"R5 {n['id']}: plist runs {args!r}, node says entry {n['entry']}")
     if scheduled_tasks.exists():
-        tasks = {p.name for p in scheduled_tasks.iterdir() if p.is_dir() and p.name.startswith("crude-fv-")}
+        prefixes = ("crude-fv-", "portfolio-")
+        retired = set(graph.get("retired_tasks") or [])
+        tasks = {p.name for p in scheduled_tasks.iterdir()
+                 if p.is_dir() and p.name.startswith(prefixes) and p.name not in retired}
         declared = {n["id"] for n in nodes if n.get("kind") == "scheduled-task"}
         for t in sorted(tasks - declared):
             problems.append(f"R5 scheduled task {t} has no node")
         for t in sorted(declared - tasks):
-            if t.startswith("crude-fv-"):
+            if t.startswith(prefixes):
                 problems.append(f"R5 node {t} names a scheduled task that does not exist")
+
+    # R7 (2026-09-13): launchd fires each job at its plist hour PLUS an offset fixed by the
+    # timezone in force when the plist was loaded (observed +7h to UTC: plist 08:15 -> 15:15Z).
+    # A reload, a reboot in another zone, or the DST change moves every job at once and with it
+    # every ordering assumption (the Saturday news task before the sentinel, the drill sums).
+    expected = graph.get("launchd_utc_offset_hours")
+    runs_log = (root / "state" / "automation_runs.log") if runs_log is None else runs_log
+    if expected is not None and launch_agents.exists() and runs_log.exists():
+        last = _last_runs(runs_log)
+        for n in nodes:
+            pl = launch_agents / f"{n.get('plist')}.plist" if n.get("plist") else None
+            if not pl or not pl.exists():
+                continue
+            cal = plistlib.load(pl.open("rb")).get("StartCalendarInterval") or {}
+            job = n["plist"].replace("com.crude-tanker-fv.", "")
+            if "Hour" not in cal or job not in last:
+                continue
+            observed = (last[job].hour - int(cal["Hour"])) % 24
+            if observed != expected:
+                problems.append(f"R7 launchd clock shifted for {job}: plist hour {cal['Hour']:02d} but the last run was "
+                                f"{last[job].strftime('%Y-%m-%dT%H:%MZ')} (offset {observed}h, graph expects {expected}h) — "
+                                f"a reload/reboot or DST moved the jobs; re-check every ordering assumption, then set "
+                                f"launchd_utc_offset_hours")
 
     # R6
     commits = _automation_commits(root) if commits is None else commits

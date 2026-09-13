@@ -96,3 +96,34 @@ def test_missing_launchd_or_task_node_is_refused(tmp_path):
     probs = g.check(_mini(), ROOT, launch_agents=tmp_path / "la", scheduled_tasks=tmp_path / "st", drift=[], commits=[])
     assert "R5 launchd job com.crude-tanker-fv.ghost has no node" in probs
     assert "R5 scheduled task crude-fv-ghost-task has no node" in probs
+
+
+def _plist(path, hour, minute, script):
+    import plistlib
+    with open(path, "wb") as fh:
+        plistlib.dump({"ProgramArguments": [script], "StartCalendarInterval": {"Hour": hour, "Minute": minute}}, fh)
+
+
+def test_launchd_clock_shift_is_refused(tmp_path):
+    """R7 (2026-09-13): the jobs fire at plist hour + a fixed offset to UTC (+7h observed). A
+    reload or DST change moves them all; the check must say so instead of letting the ordering
+    assumptions (news task before the sentinel, the drill sums) silently break."""
+    mini = _mini(launchd_utc_offset_hours=7)
+    mini["nodes"].append({"id": "sentinel", "kind": "launchd", "repo": "crude-tanker-fv",
+                          "plist": "com.crude-tanker-fv.sentinel", "entry": "scripts/sentinel_cron.sh",
+                          "triggers": ["clock"], "reads": [], "writes": ["state/x.log"], "commits": "none"})
+    la = tmp_path / "la"; la.mkdir()
+    _plist(la / "com.crude-tanker-fv.sentinel.plist", 8, 15, "/x/scripts/sentinel_cron.sh")
+    log = tmp_path / "runs.log"
+    log.write_text("2026-09-12T15:15:05Z job=sentinel initiator=x outcome=flags rc=2\n")
+    assert not g.check(mini, ROOT, launch_agents=la, scheduled_tasks=tmp_path, drift=[], commits=[], runs_log=log)
+    log.write_text("2026-09-13T12:15:05Z job=sentinel initiator=x outcome=flags rc=2\n")
+    probs = g.check(mini, ROOT, launch_agents=la, scheduled_tasks=tmp_path, drift=[], commits=[], runs_log=log)
+    assert len(probs) == 1 and probs[0].startswith("R7 launchd clock shifted for sentinel: plist hour 08")
+    assert "offset 4h, graph expects 7h" in probs[0]
+
+
+def test_governor_tasks_are_enumerated_too(tmp_path):
+    (tmp_path / "st" / "portfolio-ghost-task").mkdir(parents=True)
+    probs = g.check(_mini(), ROOT, launch_agents=tmp_path, scheduled_tasks=tmp_path / "st", drift=[], commits=[])
+    assert "R5 scheduled task portfolio-ghost-task has no node" in probs

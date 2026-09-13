@@ -26,6 +26,16 @@ version: 1
 repo: crude-tanker-fv
 kinds: [launchd, lane, scheduled-task, script, human, external]
 tree_drift_only_required_by: [price-refresh, sentinel-checks, auto-land, auto-push, regen]
+# R7: launchd fires each job at its plist hour plus this many hours to UTC (observed 2026-09-13:
+# plist 08:15 -> 15:15Z). A plist reload, a reboot in another zone, or the DST change moves
+# every job at once; the check fails until the ordering assumptions are re-verified and this
+# value is updated.
+launchd_utc_offset_hours: 7
+# Scheduled tasks that fired once and are disabled in the app; they keep their folder, so R5
+# skips them by name (a re-enabled one must get a node).
+retired_tasks:
+  - portfolio-monday-premarket-check    # one-shot 2026-06-29 08:30: staged the Q2 sells as IBKR drafts
+  - portfolio-monday-open-fill-check    # one-shot 2026-06-29 09:45: reported the fills
 
 nodes:
 
@@ -315,8 +325,8 @@ nodes:
             governance:funnels/register.md, governance:reviews/*.md]
     writes: [governance:monitor/log.md, governance:monitor/outbox/*-monitor.md]
     emits: [email PAGE or digest via governance:monitor/notify.sh, healthchecks ping via governance:monitor/ping.sh]
-    commits: human-owner-chat
-    notes: "the seam: reads the producer's committed scorecard (schema major 2) and flags a tier/label/FV change on a holding; its only owner-facing channel is the producer's interpreter + SMTP creds — a broken producer venv or env turns every governor page into MAIL:FAILED"
+    commits: self
+    notes: "commits its own run line + outbox file since 2026-09-13 (git -C allowlisted); pages PRODUCER DID NOT LAND when the scorecard is older than 72h; the seam: reads the producer's committed scorecard (schema major 2) and flags a tier/label/FV change on a holding; its only owner-facing channel is the producer's interpreter + SMTP creds — a broken producer venv or env turns every governor page into MAIL:FAILED"
 
   - id: portfolio-quarterly-review-kickoff
     kind: scheduled-task
@@ -327,8 +337,8 @@ nodes:
     reads: [external:IBKR account, external:web search, governance:CADENCE.md, governance:HOLDING_THESIS.md, governance:holdings/*.md, governance:reviews/*.md]
     writes: [governance:monitor/outbox/*-quarterly-kickoff.md]
     emits: [email PAGE with the review pack]
-    commits: human-owner-chat
-    notes: "recommends a fresh FV pull for crude-tanker-fv-governed names but does not read the scorecard itself"
+    commits: self
+    notes: "commits its outbox file since 2026-09-13 (git -C allowlisted); recommends a fresh FV pull for crude-tanker-fv-governed names but does not read the scorecard itself"
 
   # ---------------------------------------------------------------- human + external nodes
   - id: human-owner-chat
