@@ -161,9 +161,9 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   Per-machine "don't ask again" → `.claude/settings.local.json` (gitignored), never the tracked file.
 - **Don't run the pipeline against state you didn't author** — `state/last_run.json` is gitignored and
   quarter-specific.
-- **Unattended agents: drafts only** (2026-07-03; shadow pilot 2026-09-11): `*.yaml.draft` + packet,
-  valued in a throwaway worktree by `scripts/shadow_regen.sh`; ambiguity → "requires human". Rules:
-  `.claude/commands/filing-packet.md`.
+- **Every unattended node is declared in `graph.yaml`** (2026-09-13; `tests/test_graph.py`: a tracked
+  write names its committer, every plist/task has a node). Agents are drafts-only (2026-07-03;
+  `scripts/shadow_regen.sh` values a draft; rules in `.claude/commands/filing-packet.md`).
 - **Don't add error handling for cases that can't happen, or comments explaining what the code does** —
   METHODOLOGY.md carries the why.
 - **Don't drop credential files in the repo.** Secrets (Rocket.Chat PATs, API tokens, broker creds) live

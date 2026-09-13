@@ -1,0 +1,320 @@
+# graph.yaml — THE declared automation graph (2026-09-13, owner: "ok let's do that").
+#
+# Every node that runs without a hand — launchd jobs, the lanes inside their wrappers, the desktop
+# app's scheduled agent tasks, the governor's tasks, and the human/external nodes they touch — with
+# what it reads, what it writes, what triggers it, and who commits its tracked writes. Edges are
+# DERIVED (a node that writes a path another node reads), never hand-drawn. Rendered into
+# OPERATING.md by `python -m crude_tanker_fv.graph render --write`; checked by
+# `python -m crude_tanker_fv.graph check` and tests/test_graph.py:
+#   R1 ids unique, kinds/repos valid; R2 every referenced id exists;
+#   R3 every drift-list path is some node's declared write;
+#   R4 a producer-repo node that writes a TRACKED path not on the drift list must name who commits
+#      it (`commits: self | <node id>`) — an uncommitted tracked write is "non-drift dirt" and it
+#      freezes auto-land, holds auto-push, starves price-refresh and flips the sentinel to META-MODE
+#      (the 2026-09-12 Saturday freeze: weekly_report_*.md had no committer);
+#   R5 every com.crude-tanker-fv.* plist and every crude-fv-* scheduled task has a node;
+#   R6 automation commits of the last 30 days (matched by commit_subject_prefix) touch only the
+#      declared writes of their node — an undeclared writer fails the build.
+# Paths are repo-relative globs; `**` = any depth. `external:` names a thing outside both repos.
+version: 1
+repo: crude-tanker-fv
+kinds: [launchd, lane, scheduled-task, script, human, external]
+tree_drift_only_required_by: [price-refresh, sentinel-checks, auto-land, auto-push, regen]
+
+nodes:
+
+  # ---------------------------------------------------------------- launchd (no app, no LLM)
+  - id: edgar-poll
+    kind: launchd
+    repo: crude-tanker-fv
+    plist: com.crude-tanker-fv.edgar-poll
+    entry: scripts/edgar_poll_cron.sh
+    runs: hourly at :20 (machine-local)
+    triggers: [clock]
+    reads: [inputs/watchlist.yaml, external:EDGAR, external:HKEX, external:Oslo NewsWeb, external:MFN]
+    writes: [state/edgar_manifest.jsonl, state/edgar_poll.json, state/hkex_poll.json, state/newsweb_poll.json,
+             inputs/filings/**, inputs/filings/_manifest.json, state/automation_runs.log]
+    commits: none
+    on_failure: "rc in state/automation_runs.log; sentinel FETCH-FAILED (digest; pages after 2 runs inside an earnings window)"
+
+  - id: rocketchat-ingest
+    kind: launchd
+    repo: crude-tanker-fv
+    plist: com.crude-tanker-fv.rocketchat-ingest
+    entry: scripts/ingest_rocketchat_cron.sh
+    runs: 07:00 machine-local (14:00 UTC)
+    triggers: [clock]
+    reads: [external:Rocket.Chat, inputs/research_pareto/**, inputs/market_data/transactions/**]
+    writes: [state/rocketchat_ingest.json, inputs/research_pareto/**/*.pdf, inputs/research_pareto/_manifest.json,
+             inputs/market_data/transactions/_scan_state.json, outputs/sp_print_candidates.md,
+             outputs/ffa_ocr_queue.md, state/ffa_ocr_state.json, state/ffa_ocr_curves.json, state/automation_runs.log]
+    commits: none
+    notes: "chain: ingest_rocketchat -> pareto_archive --build-manifest -> sp_scan -> ffa_ocr; the tracked writes are all drift-list paths"
+
+  - id: price-refresh
+    kind: launchd
+    repo: crude-tanker-fv
+    plist: com.crude-tanker-fv.price-refresh
+    entry: scripts/price_refresh_cron.sh
+    runs: 18:30 machine-local (01:30 UTC next day)
+    triggers: [clock]
+    requires: [tree drift-only]
+    reads: [inputs/watchlist.yaml, external:Yahoo chart API]
+    writes: [inputs/market_data/prices_daily.yaml, state/price_refresh.log, state/automation_runs.log]
+    commits: commit-drift
+    on_failure: "skips on non-drift dirt (the 7/04 lesson); sentinel PRICE-BASIS / STALE-STATIC on the digest"
+
+  - id: news-pull
+    kind: launchd
+    repo: crude-tanker-fv
+    plist: com.crude-tanker-fv.news-pull
+    entry: scripts/news_pull_cron.sh
+    runs: Saturday 08:00 machine-local
+    triggers: [clock]
+    reads: [external:Rocket.Chat, inputs/research_pareto/**]
+    writes: [inputs/research_pareto/_manifest.json, inputs/market_data/transactions/_scan_state.json,
+             outputs/sp_print_candidates.md, outputs/ffa_ocr_queue.md, state/automation_runs.log]
+    commits: none
+    notes: "misnamed: the SCANNER chain (RC incremental -> pareto manifest -> sp_scan -> ffa_ocr); the news DIGEST is written by the scheduled task weekly-news-pull"
+
+  - id: harvester
+    kind: launchd
+    repo: crude-tanker-fv
+    plist: com.crude-tanker-fv.harvester
+    entry: scripts/harvester_cron.sh
+    runs: Saturday 09:00 machine-local
+    triggers: [clock]
+    reads: [external:broker archive sites, shipping_harvester/**]
+    writes: [shipping_harvester/data/**, inputs/market_data/transactions/_scan_state.json, outputs/sp_print_candidates.md,
+             state/harvester_cron.log, state/automation_runs.log]
+    commits: none
+    notes: "the vendored shipping_harvester on .venv310; its data dir is gitignored"
+
+  - id: sentinel
+    kind: launchd
+    repo: crude-tanker-fv
+    plist: com.crude-tanker-fv.sentinel
+    entry: scripts/sentinel_cron.sh
+    runs: 08:15 machine-local (15:15 UTC)
+    triggers: [clock]
+    requires: [env:~/.config/crude-tanker-fv.env]
+    reads: []
+    writes: [state/sentinel_cron.log, state/automation_runs.log]
+    commits: none
+    notes: "the wrapper; its work is the five lanes below, in this order: sentinel-checks -> weekly-report -> commit-outputs -> auto-land -> auto-push"
+
+  # ---------------------------------------------------------------- lanes inside the sentinel wrapper
+  - id: sentinel-checks
+    kind: lane
+    repo: crude-tanker-fv
+    entry: src/crude_tanker_fv/sentinel.py
+    runs: every sentinel run
+    triggers: [sentinel]
+    requires: [tree drift-only]
+    reads: [inputs/**, outputs/**, state/**, baselines/reconcile_baseline.yaml, inputs/notify.yaml, inputs/forks.yaml,
+            inputs/reweight_triggers.yaml, inputs/earnings_calendar.yaml, state/edgar_manifest.jsonl, state/filings_triaged.json,
+            state/drill_armed]
+    writes: [state/sentinel_state.json, state/sentinel.log, state/ping_status.json, state/notify_sent.log, state/notify_down.log,
+             state/paged_once]
+    emits: [email digest (daily), email PAGE (owner-action tags only), healthchecks ping (withheld while state/drill_armed exists)]
+    commits: none
+    notes: "META-MODE on non-drift dirt: reports the dirty tree instead of the checks"
+
+  - id: weekly-report
+    kind: lane
+    repo: crude-tanker-fv
+    entry: src/crude_tanker_fv/weekly_report.py
+    runs: every sentinel run; writes only when a Saturday report is owed (is_due)
+    triggers: [sentinel-checks]
+    reads: [outputs/book_scorecard.json, outputs/book_scorecard.md, state/**, inputs/reweight_triggers.yaml, decisions/*_shadow_build_*.md, RATIFY_LOG.md]
+    writes: [outputs/weekly_report_*.md]
+    emits: [email WEEKLY]
+    commits: commit-outputs
+
+  - id: commit-outputs
+    kind: lane
+    repo: crude-tanker-fv
+    entry: scripts/sentinel_cron.sh
+    runs: every sentinel run, after weekly-report
+    triggers: [weekly-report]
+    reads: [outputs/weekly_report_*.md, outputs/news_digest_*.md]
+    writes: []
+    commits: self
+    commit_subject_prefix: "outputs: weekly report / news digest"
+    notes: "added 2026-09-12 after the Saturday freeze; commits the run's own tracked products so auto-land sees a drift-only tree"
+
+  - id: auto-land
+    kind: lane
+    repo: crude-tanker-fv
+    entry: src/crude_tanker_fv/promote.py
+    runs: every sentinel run, after commit-outputs
+    triggers: [commit-outputs]
+    requires: [tree drift-only, state/last_run.json < 24h, 0 UNEXPLAINED, every moved row annotated since ratified_at, no flip toward BUY, committed surface current for HEAD]
+    reads: [baselines/reconcile_baseline.yaml, decisions/*_log.md, outputs/book_scorecard.json, state/last_run.json, scripts/drift_files.txt]
+    writes: [baselines/reconcile_baseline.yaml, RATIFY_LOG.md]
+    commits: self
+    commit_subject_prefix: "baseline: auto-land"
+    on_failure: "FREEZE rc 1 rides the cron note; NOTHING TO LAND rc 0 on a quiet gate"
+
+  - id: auto-push
+    kind: lane
+    repo: crude-tanker-fv
+    entry: scripts/auto_push.sh
+    runs: every sentinel run, last
+    triggers: [auto-land]
+    requires: [tree drift-only, drift gate 0 UNEXPLAINED, unpushed commits exist]
+    reads: [scripts/drift_files.txt]
+    writes: []
+    emits: [git push origin main]
+    commits: none
+
+  - id: commit-drift
+    kind: script
+    repo: crude-tanker-fv
+    entry: scripts/commit_drift.sh
+    runs: on demand from a chat (drift-list files are routine dirt; nothing schedules this)
+    triggers: [human-owner-chat]
+    reads: [scripts/drift_files.txt]
+    writes: []
+    commits: self
+    notes: "stages exactly the drift list; the price vintage is otherwise absorbed by a chat commit before a regen (CLAUDE.md price-basis rule)"
+
+  - id: regen
+    kind: script
+    repo: crude-tanker-fv
+    entry: scripts/regen.sh
+    runs: on demand from a chat, after any determinant change
+    triggers: [human-owner-chat]
+    requires: [tree drift-only]
+    reads: [inputs/**, src/**]
+    writes: [outputs/**, decisions/*_log.md, state/last_run.json]
+    commits: human-owner-chat
+    notes: "sidecars if scenario_inputs.yaml is newer than the family sidecar -> pipeline -> hygiene guard; the chat commits the surface"
+
+  # ---------------------------------------------------------------- scheduled agent tasks (desktop app open)
+  - id: crude-fv-filings-triage
+    kind: scheduled-task
+    repo: crude-tanker-fv
+    runs: daily 11:45 (app display zone)
+    triggers: [clock]
+    requires: [app open]
+    reads: [state/edgar_manifest.jsonl, inputs/filings/**, decisions/filings_triage_log.md, WORKFLOWS.md]
+    writes: [decisions/filings_triage_log.md, PLAN.md, decisions/*_log.md, state/filings_triaged.json]
+    commits: self
+    commit_subject_prefix: "filings triage"
+    emits: [report in the app; OWNER ACTION NEEDED line only for an `owner` disposition]
+
+  - id: crude-fv-results-shadow-build
+    kind: scheduled-task
+    repo: crude-tanker-fv
+    runs: daily 12:15 (app display zone)
+    triggers: [clock]
+    requires: [app open]
+    reads: [inputs/earnings_calendar.yaml, decisions/filings_triage_log.md, inputs/filings/**, inputs/research_issuer/**,
+            inputs/balance_sheets/*.yaml, inputs/fleet_manifests/*.yaml, decisions/*_packet_*.md, decisions/*_release_check_*.md]
+    writes: [inputs/balance_sheets/*.yaml.draft, inputs/fleet_manifests/*.yaml.draft, decisions/*_shadow_build_*.md, PLAN.md]
+    commits: self
+    commit_subject_prefix: "shadow build"
+    notes: "values the drafts in a throwaway worktree via scripts/shadow_regen.sh; never the live pair (CLAUDE.md drafts-only rule)"
+
+  - id: crude-fv-mb-weekly-harvest
+    kind: scheduled-task
+    repo: crude-tanker-fv
+    runs: Saturday 08:30 (app display zone)
+    triggers: [clock]
+    requires: [app open, external:Gmail connector]
+    reads: [external:Gmail (from:mbshipbrokers.com)]
+    writes: [inputs/research_mb/**/*.pdf]
+    commits: none
+    notes: "research binaries are gitignored (only manifests are tracked); clears the sentinel's STALE-INPUT mb:* flags"
+
+  - id: crude-fv-weekly-news-pull
+    kind: scheduled-task
+    repo: crude-tanker-fv
+    runs: Saturday 09:00 (app display zone)
+    triggers: [clock]
+    requires: [app open]
+    reads: [inputs/watchlist.yaml, inputs/archive_gaps.yaml, state/newsweb_poll.json, outputs/news_digest_*.md, external:issuer feeds + trade press]
+    writes: [outputs/news_digest_*.md]
+    commits: commit-outputs
+    notes: "its ONLY write is the dated digest; the sentinel's commit-outputs lane commits it at 11:15"
+
+  - id: crude-fv-pinggap-drill-arm
+    kind: scheduled-task
+    repo: crude-tanker-fv
+    one_shot: true
+    runs: one-shot 2026-09-12 09:05 (fired 14:07 EDT)
+    triggers: [clock]
+    requires: [app open]
+    reads: [decisions/healthchecks_pinggap_drill_2026-09-06.md]
+    writes: [state/drill_armed, decisions/healthchecks_pinggap_drill_2026-09-06.md]
+    commits: human-owner-chat
+    notes: "wrote its doc line without committing (committed by hand 9/12); the restore task commits its own"
+
+  - id: crude-fv-pinggap-drill-restore
+    kind: scheduled-task
+    repo: crude-tanker-fv
+    one_shot: true
+    runs: one-shot 2026-09-14 18:45 (moved from 15:20 — the page is due ~17:15)
+    triggers: [clock]
+    requires: [app open, external:Gmail connector]
+    reads: [external:Gmail (from:healthchecks.io), state/ping_status.json, state/automation_runs.log]
+    writes: [decisions/healthchecks_pinggap_drill_2026-09-06.md]
+    commits: self
+    commit_subject_prefix: "drill:"
+    notes: "removes state/drill_armed (rm, allowlisted)"
+
+  # ---------------------------------------------------------------- the governor (sibling repo)
+  - id: portfolio-weekly-monitor
+    kind: scheduled-task
+    repo: portfolio-governance
+    runs: Friday 17:00 (app display zone)
+    triggers: [clock]
+    requires: [app open, external:IBKR connector]
+    reads: [outputs/book_scorecard.json, RATIFY_LOG.md, external:IBKR account, governance:CADENCE.md, governance:holdings/*.md, governance:funnels/register.md]
+    writes: [governance:monitor/log.md, governance:monitor/outbox/*-monitor.md]
+    emits: [email PAGE or digest via governance:monitor/notify.sh, healthchecks ping via governance:monitor/ping.sh]
+    commits: human-owner-chat
+    notes: "the seam: reads the producer's committed scorecard (schema major 2) and flags a tier/label/FV change on a holding"
+
+  - id: portfolio-quarterly-review-kickoff
+    kind: scheduled-task
+    repo: portfolio-governance
+    runs: 26th of Mar/Jun/Sep/Dec 09:00 (app display zone)
+    triggers: [clock]
+    requires: [app open, external:IBKR connector]
+    reads: [external:IBKR account, governance:holdings/*.md, governance:reviews/*.md, outputs/book_scorecard.json]
+    writes: [governance:monitor/outbox/*-quarterly-kickoff.md]
+    emits: [email PAGE with the review pack]
+    commits: human-owner-chat
+
+  # ---------------------------------------------------------------- human + external nodes
+  - id: human-owner-chat
+    kind: human
+    repo: both
+    runs: when a page names an action, or at will
+    triggers: [email PAGE, email WEEKLY, healthchecks alert]
+    reads: [external:inbox]
+    writes: [inputs/watchlist.yaml, inputs/market_data/transactions/**, inputs/market_data/ffa_forward_curve.yaml, inputs/forks.yaml, .claude/settings.json]
+    commits: self
+    notes: "the ask-tier files and the permission file are the owner's; a chat inside the repo for the work, never in ~/Projects"
+
+  - id: human-ratify
+    kind: human
+    repo: crude-tanker-fv
+    entry: scripts/ratify_baseline.sh
+    runs: owner-run, on an explained move auto-land cannot take (a flip toward BUY, an unannotated row)
+    triggers: [human-owner-chat]
+    reads: [baselines/reconcile_baseline.yaml]
+    writes: [baselines/reconcile_baseline.yaml, RATIFY_LOG.md]
+    commits: self
+
+  - id: healthchecks
+    kind: external
+    repo: both
+    runs: "dead-man timer (producer: period 1d + grace 30h; governor: weekly)"
+    triggers: [sentinel-checks, portfolio-weekly-monitor]
+    reads: [external:ping]
+    writes: []
+    emits: [email alert by ABSENCE of the ping]
+    commits: none

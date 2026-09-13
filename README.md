@@ -454,7 +454,10 @@ bash scripts/build_methodology_pdf.sh        # → METHODOLOGY.pdf
 
 - **[OPERATING.md](OPERATING.md)** — **start here if you are the owner**: what runs by
   itself (launchd), what an agent does on a schedule, what only you do, and the one surface
-  you watch (your inbox: digest / PAGE / weekly report). Which repo to open a chat in.
+  you watch (your inbox: digest / PAGE / weekly report). Which repo to open a chat in. Its
+  last section is the render of **[graph.yaml](graph.yaml)**, the declared automation graph
+  (every unattended node's reads / writes / triggers / committer; `python -m
+  crude_tanker_fv.graph check|render`).
 - **[METHODOLOGY.md](METHODOLOGY.md)** — full framework (canonical spec;
   §1-§18 + Appendix A change record + per-ticker §6 notes)
 - **[LIMITATIONS.md](LIMITATIONS.md)** — known framework limitations and

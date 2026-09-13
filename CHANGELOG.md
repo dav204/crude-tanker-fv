@@ -5,6 +5,22 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-09-13 — THE DECLARED AUTOMATION GRAPH (`graph.yaml`).** *Owner:* "have we successfully
+  implemented graph engineering here" → "in substance, partly; as a discipline, no — the graph is
+  implicit across six plists, nine task files, wrappers and prompts, and two of yesterday's bugs were
+  undeclared edges" → "ok let's do that". *Landed:* `graph.yaml` declares every unattended node
+  (launchd jobs, the five lanes inside the sentinel wrapper, the scheduled agent tasks on both
+  repos, the human and external nodes) with reads / writes / triggers / requires / who commits its
+  tracked writes; edges are DERIVED from writes∩reads, never drawn. `crude_tanker_fv.graph check`
+  (+ `tests/test_graph.py`) enforces R1 unique ids and valid kinds, R2 every referenced id exists,
+  R3 every drift-list path has a declared writer, **R4 a tracked non-drift write names its
+  committer** (the 2026-09-12 Saturday freeze, now impossible to re-introduce silently), R5 every
+  installed plist / crude-fv task has a node, R6 automation commits of the last 30 days touch only
+  their node's declared writes. `graph render --write` patches the block in OPERATING.md (table +
+  mermaid + "what is downstream of each node"), and a test fails when the render is stale — the
+  human map and the machine map are one artifact. The graph was then verified adversarially
+  (readers refuting each node's declared reads/writes/triggers against the wrappers, modules and
+  task prompts).
 - **2026-09-12 — THE GOVERNOR EMAILS THE OWNER THROUGH THIS CHANNEL.** *Owner:* "will the
   governance repo also be emailing me too?" — it did not: its Friday monitor's flags (SBLK
   take-profit 7/24, five flags 8/14) only ever reached the app's task pane, and the only email it
