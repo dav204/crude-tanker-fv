@@ -21,7 +21,6 @@
       "WebFetch(domain:efts.sec.gov)",
       "WebFetch(domain:compassmar.com)",
       "WebFetch(domain:query1.finance.yahoo.com)",
-
       "WebFetch(domain:www.dhtankers.com)",
       "WebFetch(domain:www.okeanisecotankers.com)",
       "WebFetch(domain:www.intlseas.com)",
@@ -37,14 +36,12 @@
       "WebFetch(domain:investors.gencoshipping.com)",
       "WebFetch(domain:www.costamarebulkers.com)",
       "WebFetch(domain:www.capitaltankers.com)",
-
       "WebFetch(domain:www.frontline.bm)",
       "WebFetch(domain:www.frontlineplc.cy)",
       "WebFetch(domain:www.capitalcleanenergycarriers.com)",
       "WebFetch(domain:hafnia.com)",
       "WebFetch(domain:www.hafnia.com)",
       "WebFetch(domain:investor.hafnia.com)",
-
       "WebFetch(domain:bruton-ltd.com)",
       "WebFetch(domain:www.mpc-container.com)",
       "WebFetch(domain:www.globalshiplease.com)",
@@ -55,7 +52,6 @@
       "WebFetch(domain:www.bwlpg.com)",
       "WebFetch(domain:www.pacificbasin.com)",
       "WebFetch(domain:www.pangaeals.com)",
-
       "WebFetch(domain:newsweb.oslobors.no)",
       "WebFetch(domain:live.euronext.com)",
       "WebFetch(domain:www.euronext.com)",
@@ -69,7 +65,6 @@
       "WebFetch(domain:www.prnewswire.com)",
       "WebFetch(domain:s201.q4cdn.com)",
       "WebFetch(domain:s202.q4cdn.com)",
-
       "WebFetch(domain:splash247.com)",
       "WebFetch(domain:gcaptain.com)",
       "WebFetch(domain:www.gcaptain.com)",
@@ -87,17 +82,17 @@
       "Edit(outputs/**)",
       "Edit(state/**)",
       "Edit(decisions/**)",
-      "Edit(inputs/**)"
+      "Edit(inputs/**)",
+      "Edit(inputs/watchlist.yaml)",
+      "Edit(inputs/market_data/transactions/**)",
+      "Edit(inputs/market_data/ffa_forward_curve.yaml)"
     ],
     "ask": [
       "Bash(PYTHONPATH=src .venv/bin/python -m crude_tanker_fv.fetch_links:*)",
       "Bash(PYTHONPATH=src .venv/bin/python -m crude_tanker_fv.ingest_rocketchat:*)",
       "Bash(git push:*)",
       "Bash(curl:*)",
-      "Bash(launchctl:*)",
-      "Edit(inputs/watchlist.yaml)",
-      "Edit(inputs/market_data/transactions/**)",
-      "Edit(inputs/market_data/ffa_forward_curve.yaml)"
+      "Bash(launchctl:*)"
     ],
     "deny": [
       "mcp__8de167eb-dbd9-4178-b52a-a756c1f27b24",
