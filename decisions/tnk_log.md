@@ -1,5 +1,11 @@
 # TNK — Decision Log
 
+## 2026-09-14 — THE 9/11 TAPE ONLY: EV -15.3pp -> -17.4pp and a +0.060 k_broker second difference
+
+**Decision:** TNK's fair value is unchanged to the cent at 83.24 and the 2026-09-11 close took the share +2.63%, so EV compressed -15.3pp -> -17.4pp on price alone, carrying a +0.060 k_broker second difference. Fair value 83.24 on both sides — no crude curve moved. The 2026-09-11 close took the share 98.25 -> 100.83, +2.63%, EV -15.3pp -> -17.4pp. The k_broker second difference of +0.060 is the same price move read against an unchanged broker-NAV anchor (price / consensus_pnav), not a mark or a methodology change; it sits inside the 0.05 alert only because the daily move was large. The read stays 'unreliable read (not actionable)'. Baseline anchor: the 2026-09-10 ratify (e6b6299). Gate row dNAV +0.0%; the move is EV%, and EV% is fair value against the tape.
+
+---
+
 ## 2026-09-10 — Escalation reweight annotation
 
 **Decision:** CRUDE ESCALATION REWEIGHT (fork escalation_c3_rearm, executed on verification at the owner's word 2026-09-10; decisions/escalation_c3_rearm_2026-09-10.md): crude scenario weights 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13 — the +3pp C3 tilt, from pre_mou_baseline's fast-reverting-flare-up mass, because the strike pause ended 8/30 and the flare-up did not revert (campaign from 9/01; TD3C $790.8k 9/10). A WEIGHT-ONLY leg: ΔNAV exactly 0.0; the EV move is the probability-weighted FV re-blending. Landed inside the pre-registered band. 

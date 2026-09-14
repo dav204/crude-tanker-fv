@@ -1,5 +1,11 @@
 # SB — Decision Log
 
+## 2026-09-14 — DRY FFA 2026-09-11 PROMOTE + THE 9/11 TAPE: EV +8.2pp -> +5.2pp, BUY stands
+
+**Decision:** The 2026-09-11 dry FFA promote moved SB's fair value 9.07 -> 8.95 (-1.32%) while the 9/11 close took the share +1.55%, so EV compressed +8.2pp -> +5.2pp and the name stays BUY. Two legs. (1) The dry FFA promote of the 2026-09-11 print (decisions/ffa_promotion_2026-09-14.md) moved the Cape/Pana/Supra curves; SB's fair value 9.07 -> 8.95, -1.32%. (2) The 2026-09-11 close 8.38 -> 8.51, +1.55%. Net EV +8.2pp -> +5.2pp; the name stays BUY and the standing GTC trim leg at $10.00 is untouched by either leg. The 9/09 placement dilution still lands at the Q3 vintage, not here. Baseline anchor: the 2026-09-10 ratify (e6b6299). Gate row dNAV +0.0%; the move is EV%, and EV% is fair value against the tape.
+
+---
+
 ## 2026-09-10 — PRIVATE PLACEMENT — 12,000,000 new shares at €6.70 (6-K 0001317861-26-000045, 9/09): REFRESH-TRIGGER at the Q3 vintage
 
 **Decision:** SB placed 12,000,000 new common shares at €6.70 ("total gross proceeds raised amount to €80,400,000"; Mr. Hajioannou allocated 1,500,000; settlement 11 September 2026; Athens trading 14 September; 180-day lock-up; use of proceeds: liquidity, the current newbuilding program, possible NB or second-hand acquisitions). Derived, fees excluded, FX proxy 1.1631 (the SBLK-cited 9/07 rate — UNVERIFIED for 9/09): €6.70 ≈ $7.79 = 0.73× NAV/sh $10.72; gross ≈ $93.5M; pro-forma NAV/sh ≈ $10.41, −$0.31 (−2.9%) — over the 2pp gate. The tape already reacted (9/09 close $8.36, −6.38%). AS-OF DISCIPLINE: settlement is post-6/30, so the Q2 sheet stays at its count (101,833,473 — itself a 7/24 count); the move lands on the FIRST POST-PERIOD SURFACE (the Q3 sheet), the MPCC precedent. Pre-reg for that build: count 113,833,473; cash + €80.4M gross less fees (net UNVERIFIED until a USD-stated filing); no commitment figure changes ($277.2M NB commitments stand); predicted ΔNAV/sh ≈ −$0.31 ± fees, sheet only, manifest FROZEN. SB is the book's only edge-cleared long: the tier is price-invariant; the read rides beside it (the +45% on the scorecard row is the broker GAP diagnostic on an APPROX name, not EV — the verifier's correction). decisions/producer_queue_drain_2026-09-10.md.

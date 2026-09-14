@@ -1,5 +1,11 @@
 # ECO — Decision Log
 
+## 2026-09-14 — THE 9/11 TAPE ONLY: EV -42.1pp -> -44.6pp, fair value unchanged to the cent
+
+**Decision:** ECO's fair value is unchanged to the cent at 42.22 and the 2026-09-11 close took the share +4.43%, so EV compressed -42.1pp -> -44.6pp on price alone. Fair value 42.22 on both sides of the run — the 2026-09-11 dry FFA promote touches no crude curve, and ECO carries no dry-bulk tonnage. The 2026-09-11 close took the share 72.92 -> 76.15, +4.43%, and EV compressed -42.1pp -> -44.6pp. The read stays the governed relabel 'rich - cycle position (not a short)' (SS12 archetype). Baseline anchor: the 2026-09-10 ratify (e6b6299). Gate row dNAV +0.0%; the move is EV%, and EV% is fair value against the tape.
+
+---
+
 ## 2026-09-10 — Escalation reweight annotation
 
 **Decision:** CRUDE ESCALATION REWEIGHT (fork escalation_c3_rearm, executed on verification at the owner's word 2026-09-10; decisions/escalation_c3_rearm_2026-09-10.md): crude scenario weights 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13 — the +3pp C3 tilt, from pre_mou_baseline's fast-reverting-flare-up mass, because the strike pause ended 8/30 and the flare-up did not revert (campaign from 9/01; TD3C $790.8k 9/10). A WEIGHT-ONLY leg: ΔNAV exactly 0.0; the EV move is the probability-weighted FV re-blending. Landed inside the pre-registered band. 

@@ -1,29 +1,29 @@
 # CMDB — Scenario Fair Value (Bulk Set A (China-driven))
 
-- **Current price:** $23.35
+- **Current price:** $24.51
 - **Analyst target:** $27.98
 - **NAV / share (reference, unflexed):** $32.60 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $19.52 (-16.4% vs price)
-- **Breakeven TCE (scenario-invariant):** $34,154/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
+- **Probability-weighted fair value:** $19.36 (-21.0% vs price)
+- **Breakeven TCE (scenario-invariant):** $46,840/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** TRIM/SHORT (overvalued)
 
 ## Per-scenario fair value
 
 | Scenario | Weight | Vessel× | NAV/sh | FV (base) | FV [low–high] | Cycle | w_nav | Strip NPV | Assumed TCE (12M) | Assumed / Breakeven |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| China acceleration | 20% | 1.05× | $34.05 | $23.08 | $22.58–$23.59 | 1.75× | 0.70 | $21.32 | $29,156 | 0.85× |
-| Moderate growth (base) | 40% | 0.92× | $30.28 | $19.82 | $19.30–$20.34 | 1.33× | 0.60 | $17.75 | $22,004 | 0.64× |
-| China property drag | 25% | 0.86× | $28.49 | $18.19 | $17.62–$18.77 | 1.14× | 0.50 | $16.44 | $18,352 | 0.54× |
-| Coordinated slowdown | 15% | 0.78× | $26.38 | $16.15 | $15.71–$16.60 | 0.95× | 0.50 | $13.84 | $15,484 | 0.45× |
-| **Probability-weighted** | | | | **$19.52** | | | | | | |
+| China acceleration | 20% | 1.04× | $33.70 | $22.86 | $22.36–$23.37 | 1.75× | 0.70 | $21.17 | $29,156 | 0.62× |
+| Moderate growth (base) | 40% | 0.91× | $30.01 | $19.66 | $19.14–$20.17 | 1.33× | 0.60 | $17.63 | $22,004 | 0.47× |
+| China property drag | 25% | 0.85× | $28.26 | $18.06 | $17.48–$18.64 | 1.14× | 0.50 | $16.33 | $18,352 | 0.39× |
+| Coordinated slowdown | 15% | 0.78× | $26.19 | $16.05 | $15.60–$16.49 | 0.95× | 0.50 | $13.76 | $15,484 | 0.33× |
+| **Probability-weighted** | | | | **$19.36** | | | | | | |
 
 _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate assumption, NOT a breakeven). Assumed/Breakeven < 1 ⇒ that scenario's rates fall short of justifying the price; > 1 ⇒ they clear it._
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $-0.27
-- **Downside (worst scenario − price):** $-7.20
-- **Expected value vs current** (weighted FV − price): $-3.83 (-16.4%)
+- **Upside (best scenario − price):** $-1.65
+- **Downside (worst scenario − price):** $-8.46
+- **Expected value vs current** (weighted FV − price): $-5.15 (-21.0%)
 - **Position:** TRIM/SHORT (overvalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

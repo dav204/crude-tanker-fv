@@ -1,5 +1,11 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-09-14 — THE 9/11 TAPE ONLY: EV +38.2pp -> +29.0pp, fair value unchanged to the cent
+
+**Decision:** TEN's fair value is unchanged to the cent at 61.80 and the 2026-09-11 close took the share +7.13%, so EV compressed +38.2pp -> +29.0pp on price alone; the name stays BUY. Fair value 61.80 on both sides — the 2026-09-11 dry FFA promote moves no crude, product or LNG curve. The 2026-09-11 close took the share 44.71 -> 47.90, +7.13% in a day, and EV compressed +38.2pp -> +29.0pp. The name stays BUY. Note the vintage: this fair value still values TEN on the 2026-Q1 sheet. The H1 pair waits on the 6-K (not on EDGAR; last 6-K 2026-05-22), and the shadow build of 2026-09-11 reads WOULD-HOLD with six fields unverified (decisions/ten_shadow_build_2026-09-11.md). Baseline anchor: the 2026-09-10 ratify (e6b6299). Gate row dNAV +0.0%; the move is EV%, and EV% is fair value against the tape.
+
+---
+
 ## 2026-09-10 — Escalation reweight annotation
 
 **Decision:** CRUDE ESCALATION REWEIGHT (fork escalation_c3_rearm, executed on verification at the owner's word 2026-09-10; decisions/escalation_c3_rearm_2026-09-10.md): crude scenario weights 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13 — the +3pp C3 tilt, from pre_mou_baseline's fast-reverting-flare-up mass, because the strike pause ended 8/30 and the flare-up did not revert (campaign from 9/01; TD3C $790.8k 9/10). A WEIGHT-ONLY leg: ΔNAV exactly 0.0; the EV move is the probability-weighted FV re-blending. Landed inside the pre-registered band. 
