@@ -157,47 +157,109 @@ def committed_vintage(inputs_dir: Path = INPUTS_DIR) -> str | None:
     return str((d.get("as_of") or {}).get("Cape") or "") or None
 
 
-def _set_curve_block(text: str, cls: str, values: list[int], note: str) -> str:
+def _span(text: str, top: str) -> tuple[int, int]:
+    """The body of a top-level block — class keys are not unique across blocks (`Cape`
+    appears under both as_of and the data), so every edit is scoped to one span."""
+    m = re.search(rf"^{re.escape(top)}:\n", text, flags=re.M)
+    if not m:
+        raise Freeze(f"block {top!r} not found")
+    nxt = re.search(r"^[a-z_]+:", text[m.end():], flags=re.M)
+    return m.end(), (m.end() + nxt.start() if nxt else len(text))
+
+
+def _comment(first: str, rest: list[str], indent: int) -> str:
+    pad = " " * indent
+    return f"# {first}\n" + "".join(f"{pad}# {line}\n" for line in rest)
+
+
+def _set_curve_block(text: str, cls: str, values: list[int], note: list[str]) -> str:
+    """Replace the class's values AND its citation comment — a promoted row that keeps the
+    prior promote's comment is a citation that no longer describes the value (2026-09-14)."""
     m = re.search(rf"^  {re.escape(cls)}:[^\n]*\n((?:^\s+#[^\n]*\n)*)((?:^  - \d+\n)+)", text, flags=re.M)
     if not m:
         raise Freeze(f"{cls} block not found in the curve file")
+    head = f"  {cls}:              " + _comment(note[0], note[1:], 21)
     body = "".join(f"  - {v}\n" for v in values)
-    head = m.group(0)[:m.start(1) - m.start()] + f"                     # {note}\n" + m.group(1)
     return text[:m.start()] + head + body + text[m.end():]
 
 
-def _set_scalar(text: str, block_re: str, cls: str, value) -> str:
-    m = re.search(block_re, text, flags=re.M)
-    if not m:
-        raise Freeze(f"block {block_re!r} not found")
-    start, end = m.end(), len(text)
-    nxt = re.search(r"^[a-z_]+:", text[start:], flags=re.M)
-    if nxt:
-        end = start + nxt.start()
+def _set_twelve(text: str, cls: str, value: int, note: list[str]) -> str:
+    start, end = _span(text, "twelve_month_tc")
     seg = text[start:end]
-    seg2, n = re.subn(rf"^(  {re.escape(cls)}:\s*)\S+", lambda mm: f"{mm.group(1)}{value}", seg, count=1, flags=re.M)
-    if n == 0:
-        raise Freeze(f"{cls} not found under {block_re!r}")
-    return text[:start] + seg2 + text[end:]
+    m = re.search(rf"^  {re.escape(cls)}:[^\n]*\n((?:^\s+#[^\n]*\n)*)", seg, flags=re.M)
+    if not m:
+        raise Freeze(f"{cls} not found under twelve_month_tc")
+    line = f"  {cls}: {value}".ljust(24) + _comment(note[0], note[1:], 24)
+    return text[:start] + seg[:m.start()] + line + seg[m.end():] + text[end:]
 
 
-def apply(built: dict, inputs_dir: Path = INPUTS_DIR, *, today: date | None = None) -> None:
+def _advance_as_of(text: str, top: str, moved: list[str], print_date: str, note: str) -> str:
+    """The as_of contract (WO2 1.2, guard tests/test_market_data_vintages.py): every override
+    is a HOLD, so it must be <= default. A print NEWER than the default therefore advances the
+    default and stamps every class that was riding it with an explicit hold at the old value —
+    otherwise the classes this promote never touched would silently claim its vintage."""
+    doc = yaml.safe_load(text)
+    a, old_default = doc["as_of"], doc["as_of"]["default"]
+    riders = [c for c in doc[top] if c not in a]
+    start, end = _span(text, "as_of")
+    block = text[start:end]
+    if str(print_date) > str(old_default):
+        block = re.sub(r"^  default:[^\n]*\n(?:^\s+#[^\n]*\n)*",
+                       f"  default: {print_date}".ljust(28) + _comment(note, [
+                           f"advanced from {old_default}; every class this promote did not touch "
+                           f"carries an explicit hold below."], 28),
+                       block, count=1, flags=re.M)
+        block = block.rstrip("\n") + "\n" + "".join(
+            f"  {c}: {old_default}".ljust(28) + f"# held at the prior default ({old_default}) — "
+            f"untouched by the {print_date} dry FFA promote\n" for c in riders)
+    for cls in moved:
+        # value AND comment: an as_of line that keeps the prior promote's note describes a
+        # vintage the value no longer has (the same defect as the data rows, 2026-09-14).
+        block = re.sub(rf"^  {re.escape(cls)}:[^\n]*\n(?:^\s+#[^\n]*\n)*",
+                       f"  {cls}: {print_date}".ljust(28) + f"# {note}\n",
+                       block, count=1, flags=re.M)
+    return text[:start] + block + text[end:]
+
+
+def apply(built: dict, inputs_dir: Path = INPUTS_DIR, *, today: date | None = None,
+          packet: str | None = None) -> None:
+    iso = built["as_of"]
     stamp = (today or date.today()).isoformat()
-    note = (f"FFA {built['as_of']} promoted {stamp} by crude_tanker_fv.ffa_promote (ruled construction, "
-            f"decisions/ffa_promotion_2026-09-02.md): q1 = front month alone; Cal-27 identity exact")
+    packet = packet or f"decisions/ffa_promotion_{stamp}.md"
+    src = f"FFA {iso} promoted {stamp} by crude_tanker_fv.ffa_promote ({packet})"
+    # Handy-Bulk has NO FFA panel: its curve is DERIVED from Supra-Ultra, but its vintage rides
+    # its own MB dry-weekly cadence and this lane must never stamp it (2026-09-14).
+    moved = [c for c in built["curves"] if c != "Handy-Bulk"]
+
     cf = inputs_dir / "market_data" / "ffa_forward_curve.yaml"
     text = cf.read_text()
     for cls, values in built["curves"].items():
-        text = _set_curve_block(text, cls, values, note if cls in DELTAS_2028 else
-                                f"derived from Supra-Ultra x 0.90 (nearest 10) — {note}" if cls == "Handy-Bulk"
-                                else f"= Pana (shared basin) — {note}")
-        text = _set_scalar(text, r"^as_of:", cls, built["as_of"])
+        if cls in DELTAS_2028:
+            legs = built["legs"][cls]
+            d1, d2 = DELTAS_2028[cls]
+            note = [f"{src}:",
+                    f"q1 = front month {legs['front_month']} {legs['q1']} ALONE (ruling Q-2); "
+                    f"q2 = {legs['legs'][0].upper()} {legs['q2']}; q3 = {legs['legs'][1].upper()}-27 {legs['q3']};",
+                    f"q4-q6 make the Cal-27 {legs['cal27']} identity exact ({values[3]}/{values[4]}/{values[5]});",
+                    f"2028 committed deltas {d1}/{d2}."]
+        elif cls == "Post-Panamax":
+            note = [f"= Pana, shared freight basin (§11.7.10). {src}"]
+        else:
+            note = [f"DERIVED = Supra-Ultra x 0.90 to nearest 10 (§11.7.11 locked). {src}.",
+                    "Its as_of is NOT stamped here: no Handy FFA panel exists; the vintage rides",
+                    "the MB Dry Bulk weekly (§11.7.11)."]
+        text = _set_curve_block(text, cls, values, note)
+    text = _advance_as_of(text, "ffa_forward_curve", moved, iso, src)
     cf.write_text(text)
+
     tf = inputs_dir / "market_data" / "twelve_month_tc.yaml"
     text = tf.read_text()
     for cls, tc in built["twelve_month"].items():
-        text = _set_scalar(text, r"^twelve_month_tc:", cls, tc)
-        text = _set_scalar(text, r"^as_of:", cls, built["as_of"])
+        legs = built["legs"].get(cls) or built["legs"]["Pana"]
+        text = _set_twelve(text, cls, tc, [
+            f"({legs['q2']} {legs['legs'][0].upper()} + {legs['q3']} {legs['legs'][1].upper()}-27)/2 "
+            f"= {tc}, unrounded half-up (ruling Q-1).", src])
+    text = _advance_as_of(text, "twelve_month_tc", list(built["twelve_month"]), iso, src)
     tf.write_text(text)
 
 
@@ -225,7 +287,7 @@ def packet(built: dict, bands: list[dict], *, today: date | None = None) -> str:
 
 
 def run(inputs_dir: Path = INPUTS_DIR, *, apply_it: bool = False, today: date | None = None,
-        db_path: Path = CURVES_DB) -> dict:
+        db_path: Path = CURVES_DB, packet_name: str | None = None) -> dict:
     db = load_curves_db(db_path)
     committed = committed_vintage(inputs_dir)
     iso, entry = select_print(db, today=today, committed=committed)
@@ -237,7 +299,7 @@ def run(inputs_dir: Path = INPUTS_DIR, *, apply_it: bool = False, today: date | 
                      + "; ".join(f"{r['class']} {r['band_was']} -> {r['band_now']} "
                                  f"(ratio {r['ratio_was']} -> {r['ratio_now']})" for r in crossed))
     if apply_it:
-        apply(built, inputs_dir, today=today)
+        apply(built, inputs_dir, today=today, packet=packet_name)
     return {"built": built, "bands": bands, "packet": packet(built, bands, today=today),
             "applied": apply_it, "committed_was": committed}
 
@@ -248,7 +310,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--packet-out", type=Path, help="write the packet to this path")
     args = ap.parse_args(argv)
     try:
-        res = run(apply_it=args.apply)
+        res = run(apply_it=args.apply, packet_name=str(args.packet_out) if args.packet_out else None)
     except Freeze as exc:
         print(f"FREEZE: {exc}")
         return 2

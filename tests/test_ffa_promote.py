@@ -24,6 +24,15 @@ CURVE_FILE = """as_of:
   Supra-Ultra: 2026-08-31
   Handy-Bulk: 2026-07-10    # own cadence
 ffa_forward_curve:
+  VLCC:              # rides default (Stage B tanker promote) — the promote must not claim it
+  - 90
+  - 91
+  - 92
+  - 93
+  - 94
+  - 95
+  - 96
+  - 97
   Cape:              # FFA 31-Aug (image-verified). A comment that must survive.
                      # second comment line
   - 1
@@ -74,12 +83,14 @@ ffa_forward_curve:
 TWELVE_FILE = """rate_basis:
   note: keep me
 as_of:
+  default: 2026-08-31
   Cape: 2026-08-31
   Pana: 2026-08-31
   Post-Panamax: 2026-08-31
   Supra-Ultra: 2026-08-31
   Handy-Bulk: 2026-07-10
 twelve_month_tc:
+  VLCC: 99000           # rides default
   Cape: 37300           # prior vintage comment
   Pana: 20550
   Post-Panamax: 20550
@@ -126,17 +137,35 @@ def test_apply_writes_both_files_and_keeps_comments(tmp_path):
     res = fp.run(inp, apply_it=True, today=date(2026, 9, 2), db_path=_write_db(tmp_path, _db()))
     assert res["applied"] and res["committed_was"] == "2026-08-31"
     curve_text = (inp / "market_data" / "ffa_forward_curve.yaml").read_text()
-    assert "A comment that must survive." in curve_text and "# second comment line" in curve_text
+    # the PRIOR citation must be gone: a promoted row keeping the old comment is a citation
+    # that no longer describes the value (2026-09-14)
+    assert "A comment that must survive." not in curve_text and "FFA 31-Aug" not in curve_text
+    assert "q1 = front month sep 45125 ALONE" in curve_text and "Cal-27 33200 identity exact" in curve_text
     assert "promoted 2026-09-02 by crude_tanker_fv.ffa_promote" in curve_text
     d = yaml.safe_load(curve_text)
     assert d["ffa_forward_curve"]["Cape"] == [45125, 44125, 29925, 34292, 34292, 34291, 33791, 33291]
-    # unquoted ISO dates parse as date objects here exactly as they do in the real file
-    assert d["as_of"]["Cape"] == date(2026, 9, 1) and d["as_of"]["Handy-Bulk"] == date(2026, 9, 1)
-    assert d["as_of"]["default"] == date(2026, 8, 31)     # the tanker default is not ours to move
+    # unquoted ISO dates parse as date objects here exactly as they do in the real file.
+    # A print NEWER than the default ADVANCES the default (WO2 1.2: an override is a HOLD, so
+    # it must be <= default) and every class that was riding it gets an explicit hold.
+    assert d["as_of"]["Cape"] == date(2026, 9, 1) and d["as_of"]["default"] == date(2026, 9, 1)
+    assert d["as_of"]["VLCC"] == date(2026, 8, 31), "a rider must not silently claim the print's vintage"
+    assert d["as_of"]["Handy-Bulk"] == date(2026, 7, 10), "no Handy FFA panel — its vintage is never stamped"
     t = yaml.safe_load((inp / "market_data" / "twelve_month_tc.yaml").read_text())
     assert t["twelve_month_tc"]["Cape"] == 37025 and t["twelve_month_tc"]["Supra-Ultra"] == 18392
     assert t["twelve_month_tc"]["Handy-Bulk"] == 14500     # MB cadence, untouched
     assert t["rate_basis"]["note"] == "keep me"
+    assert t["as_of"]["default"] == date(2026, 9, 1) and t["as_of"]["VLCC"] == date(2026, 8, 31)
+    assert t["as_of"]["Handy-Bulk"] == date(2026, 7, 10)
+    assert t["twelve_month_tc"]["VLCC"] == 99000          # a rider's value is untouched too
+
+    # the shipped invariant (tests/test_market_data_vintages.py): the HOLD sets agree
+    def holds(doc):
+        a = doc["as_of"]
+        return {k for k, v in a.items() if k != "default" and v < a["default"]}
+    assert holds(d) == holds(t) == {"VLCC", "Handy-Bulk"}
+    for doc in (d, t):
+        for k, v in doc["as_of"].items():
+            assert k == "default" or v <= doc["as_of"]["default"]
     assert "MB dry weekly — NOT the FFA loop" in (inp / "market_data" / "twelve_month_tc.yaml").read_text()
 
 

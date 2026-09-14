@@ -36,10 +36,10 @@ as_of:
                             # tanker classes ride default). Explicit holds below: dry
                             # 9/01 FFA promote · containers 8/07 (W32) · VLGC 6/02 ·
                             # LNGC/MGC 6/07 · Handy-Bulk 7/10
-  Cape: 2026-09-11          # 01-Sep FFA dry promote (ffa_promotion_2026-09-02.md)
-  Pana: 2026-09-11
-  Post-Panamax: 2026-09-11
-  Supra-Ultra: 2026-09-11
+  Cape: 2026-09-01          # 01-Sep FFA dry promote (ffa_promotion_2026-09-02.md)
+  Pana: 2026-09-01
+  Post-Panamax: 2026-09-01
+  Supra-Ultra: 2026-09-01
   VLGC: 2026-06-02
   LNGC: 2026-06-07
   MGC: 2026-06-07
@@ -61,13 +61,13 @@ twelve_month_tc:
   LR1_clean: 37000    # STAGE B 2026-09-09: HELD derived .7184 x LR2_clean (no LR1 12M print; MB LR1[TC5] 37,500 corroborates, S-2). Front 32,608 < 12M — a direct print vs a DERIVED 12M, §5 look done
   LR2_clean: 51500    # STAGE B 2026-09-09: HELD Torm Herdis 12mo single-print (no new clean 12M print; HAFN's fleet-wide 30.7k un-split); MB 57,500 corroborates (S-2)
   VLGC: 63615           # Dorian Q1-2026 realized TCE — disclosure-cluster vintage 2026-06-02 (held)
-  Cape: 38175           # (44125 Q4 + 29925 Q1-27)/2 = 37025 exact, FFA 01-Sep image-verified
+  Cape: 37025           # (44125 Q4 + 29925 Q1-27)/2 = 37025 exact, FFA 01-Sep image-verified
                         # print (ffa_promotion_2026-09-02.md; was 37300 31-Aug — -0.74%).
                         # Cycle ratio 1.5772 -> 1.5655: late-cycle/peak band UNCHANGED
-  Pana: 20571           # (23083 Q4 + 18100 Q1-27)/2 = 20591.5, FFA 01-Sep (was 20550; +0.20%);
+  Pana: 20592           # (23083 Q4 + 18100 Q1-27)/2 = 20591.5, FFA 01-Sep (was 20550; +0.20%);
                         # unrounded per the owner's 2026-09-02 Q-1 ruling, half-up to the int
-  Post-Panamax: 20571   # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  Supra-Ultra: 18583    # (20883 Q4 + 15900 Q1-27)/2 = 18391.5, FFA 01-Sep (was 18467; -0.41%;
+  Post-Panamax: 20592   # shares the Pana freight basin (§11.7.10, 2026-06-29)
+  Supra-Ultra: 18392    # (20883 Q4 + 15900 Q1-27)/2 = 18391.5, FFA 01-Sep (was 18467; -0.41%;
                         # ratio 1.3257 -> 1.3203, elevated band unchanged; the
                         # MB-Ultramax-premium re-read stands queued at the next MB dry weekly)
   Handy-Bulk: 14500     # §11.7.11 (2026-07-14): MB Dry Bulk Weekly 28 (4-10 Jul) 1-yr TC,

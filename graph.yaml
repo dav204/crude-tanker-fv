@@ -324,7 +324,7 @@ nodes:
     writes: [inputs/**, decisions/*_log.md, PLAN.md, outputs/**, state/fork_page.md, state/last_run.json]
     emits: [email PAGE on a halted fork (band miss / test red / unsettled source)]
     commits: self
-    commit_subject_prefix: "fork "
+    commit_subject_prefix: "fork-exec"
     notes: "silence executes the recommendation (policy 2026-09-10) — until this exists the executing agent is a chat; bounded authority: exact edits per the fork's doc, regen.sh, full suite, gate, predicted-band check, annotate, commit; never ratifies (the morning auto-land does, from the annotations)"
 
   - id: ffa-promote
