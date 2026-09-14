@@ -42,7 +42,7 @@ forks:
     opened: 2026-09-09
     execute_after: 2026-09-14
     recommendation: "FRO 1-yr VLCC 110/120k: settle the CONCLUDED date at the FRO issuer source; if >= 2026-06-15 they enter (VLCC 12M -> 115,000). Product routing: pure-product names read the DIRTY LR2/LR1 lines — open a methodology note, no promotion"
-    status: open
+    status: executed   # 2026-09-14 — FRO fixtures settled at the issuer source (6-K 0000919574-26-005942 ex-1): entered into April and May 2026, both BEFORE 6/15 — condition false, no promotion, VLCC 12M stays 105,700; product-routing note opened (decisions/stage_b_open_items_2026-09-14.md)
   # --- registered 2026-09-10 from the owner's parked list (decisions/forks_registered_2026-09-10.md) ---
   - id: bwlp_nb_order_treatment
     kind: judgment
