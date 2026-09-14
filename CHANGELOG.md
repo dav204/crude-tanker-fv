@@ -5,6 +5,28 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-09-14 — THE FIRST UNATTENDED PROMOTE, AND WHAT IT CAUGHT.** The fork executor's first
+  real run (owner installed it 9/14) did exactly what it was built to do: it flushed the drift,
+  promoted the 2026-09-11 dry FFA print, regenerated, checked, found two guards red, **halted,
+  reverted nothing, and paged**. The valuation leg was right — only dry-bulk names moved a fair
+  value, every cycle band held. The defects were all in how the lane WROTE: (1) it stamped an
+  `as_of` override NEWER than the file default, breaking the WO2 1.2 contract that an override is
+  a HOLD — a print newer than the default must ADVANCE the default and stamp every class that was
+  riding it with an explicit hold, or the ten tanker classes silently claim a vintage they never
+  had; (2) it stamped Handy-Bulk, which has no FFA panel (its curve is derived from Supra-Ultra,
+  its vintage rides the MB dry weekly) — contradicting its own packet; (3) promoted rows kept the
+  PRIOR promote's citation comment, so the citation no longer described the value. All three fixed
+  in `ffa_promote` (`_advance_as_of`, the Handy-Bulk exclusion, comment rewrite on both the data
+  rows and the as_of lines). **Why the tests missed it:** the fixtures had no `default` key and no
+  rider class, so the production shape was never exercised — they now carry both and assert the
+  shipped invariant directly. The promote was re-landed on the corrected contract (c07b7d6), the
+  surface regenerated, and the five price-driven gate rows annotated: 0 UNEXPLAINED, 7 explained,
+  no band flips, land lane AUTO-ABSORBABLE. Also: executor commits now carry a distinctive
+  `fork-exec` prefix — R6 maps a prefix to a node's declared writes, and the old `fork ` matched a
+  prose commit of mine and reddened the graph check. *The lesson worth keeping is the shape of the
+  failure, not the bug:* an unattended lane that writes a governed file must satisfy that file's
+  own contract and rewrite its own citations, and a fixture that is not production-shaped proves
+  nothing.
 - **2026-09-13 — THE HAND-CRANK COUNT, AND THE PERMISSION EDIT.** *Owner:* "this seems like a lot of
   hand cranking and more than I was expecting at this stage". *The count (60 days):* watchlist 5,
   transactions 8 real prints, FFA curve 13, ratify 31 by hand vs 6 by auto-land — all agent work in
