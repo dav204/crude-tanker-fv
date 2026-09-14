@@ -36,17 +36,17 @@ as_of:
                             # Explicit holds: tankers 8/10 Stage A (Stage B window
                             # 8/26→9/04) · containers 8/07 (W32) · VLGC/LNGC/MGC
                             # own-cadence holds below
-  Cape: 2026-09-01          # 01-Sep FFA dry promote (ffa_promotion_2026-09-02.md) — held
-  Pana: 2026-09-01          # while the tanker classes ride the Stage B default
-  Post-Panamax: 2026-09-01
-  Supra-Ultra: 2026-09-01
+  Cape: 2026-09-11          # 01-Sep FFA dry promote (ffa_promotion_2026-09-02.md) — held
+  Pana: 2026-09-11          # while the tanker classes ride the Stage B default
+  Post-Panamax: 2026-09-11
+  Supra-Ultra: 2026-09-11
   VLGC: 2026-06-02
   LNGC: 2026-06-07
   MGC: 2026-06-07
   Ctr-Feeder: 2026-09-04    # MB W36 container refresh (2026-09-10 event, packet 2026-09-10)
   Ctr-Intermediate: 2026-09-04
   Ctr-Large: 2026-09-04     # strip held W31-W36; vintage re-stamped with the family
-  Handy-Bulk: 2026-07-10    # own cadence (MB Dry Bulk weekly) — NO Handy FFA exists at any
+  Handy-Bulk: 2026-09-11    # own cadence (MB Dry Bulk weekly) — NO Handy FFA exists at any
                             # tenor; its curve row below is DERIVED (= Supra-Ultra x 0.90,
                             # §11.7.11 locked basis), regenerated with any supra promotion
 vintage_notes:
@@ -223,62 +223,67 @@ ffa_forward_curve:
   - 41000
   - 40000
   Cape:              # FFA 01-Sep (image-verified, ffa_promotion_2026-09-02.md). STRADDLING
+                     # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (ruled construction, decisions/ffa_promotion_2026-09-02.md): q1 = front month alone; Cal-27 identity exact
                      # 5-tenor shape (Sep/Oct/Q4/Q1-27/Cal27): per the owner's 2026-09-02
                      # Q-2 ruling q1 = the front month ALONE — Oct is a component of Q4 and
                      # would be double-counted as a separate leg. q1 Sep 45125; Q4 44125;
                      # Q1-27 29925; q4-q6 make the Cal-27 33200 identity exact
                      # (4x33200 - 29925 = 102875 -> 34292/34292/34291); 2028 committed
                      # deltas -500/-500. Cycle ratio 1.5772 -> 1.5655, band UNCHANGED.
-  - 45125
-  - 44125
-  - 29925
-  - 34292
-  - 34292
-  - 34291
-  - 33791
-  - 33291
+  - 51100
+  - 45375
+  - 30975
+  - 34842
+  - 34842
+  - 34841
+  - 34341
+  - 33841
   Pana:              # FFA 01-Sep (straddling variant): q1 Sep 22200; Q4 23083; Q1-27 18100;
+                     # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (ruled construction, decisions/ffa_promotion_2026-09-02.md): q1 = front month alone; Cal-27 identity exact
                      # Cal-27 18225 identity exact (18267/18267/18266); 2028 deltas -400/-300
-  - 22200
-  - 23083
-  - 18100
-  - 18267
-  - 18267
+  - 22050
+  - 22741
+  - 18400
+  - 18667
+  - 18667
+  - 18666
   - 18266
-  - 17866
-  - 17566
+  - 17966
   Post-Panamax:     # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  - 22200
-  - 23083
-  - 18100
-  - 18267
-  - 18267
+                     # = Pana (shared basin) — FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (ruled construction, decisions/ffa_promotion_2026-09-02.md): q1 = front month alone; Cal-27 identity exact
+  - 22050
+  - 22741
+  - 18400
+  - 18667
+  - 18667
+  - 18666
   - 18266
-  - 17866
-  - 17566
+  - 17966
   Supra-Ultra:       # FFA 01-Sep (straddling variant): q1 Sep 19775; Q4 20883; Q1-27 15900;
+                     # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (ruled construction, decisions/ffa_promotion_2026-09-02.md): q1 = front month alone; Cal-27 identity exact
                      # Cal-27 16150 identity exact (16234/16233/16233); 2028 deltas -300/-300.
                      # Smax Cal27 prints a third consecutive capture (the 13-Jul crop-era
                      # hold stays retired since 24-Aug).
-  - 19775
-  - 20883
-  - 15900
-  - 16234
-  - 16233
-  - 16233
-  - 15933
-  - 15633
+  - 19750
+  - 20891
+  - 16275
+  - 16375
+  - 16375
+  - 16375
+  - 16075
+  - 15775
   Handy-Bulk:      # DERIVED = Supra-Ultra x 0.90 (§11.7.11 locked basis; same guard family as
+                     # derived from Supra-Ultra x 0.90 (nearest 10) — FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (ruled construction, decisions/ffa_promotion_2026-09-02.md): q1 = front month alone; Cal-27 identity exact
                    # the scenario deck) — REGENERATED 2026-09-02 with the 01-Sep supra print,
                    # nearest-10 rounding per the locked convention
-  - 17800
-  - 18790
-  - 14310
-  - 14610
-  - 14610
-  - 14610
-  - 14340
-  - 14070
+  - 17780
+  - 18800
+  - 14650
+  - 14740
+  - 14740
+  - 14740
+  - 14470
+  - 14200
   # Containerships (§11.8) — NO FFA exists; synthesised current-market
   # forward per the synthesised-from-spot convention: starts at the MB TC
   # assessment, mean-reverts toward the FY21-25 anchor (between
