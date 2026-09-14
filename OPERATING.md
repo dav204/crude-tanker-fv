@@ -134,7 +134,7 @@ Rendered from `graph.yaml` by `python -m crude_tanker_fv.graph render --write`; 
 | `crude-fv-weekly-news-pull` | scheduled-task | Saturday 09:00 (app display zone) | `inputs/watchlist.yaml`, `inputs/archive_gaps.yaml`, `inputs/data_sources.yaml`, `src/crude_tanker_fv/reconcile.py`, `decisions/*_log.md`, `state/edgar_manifest.jsonl` … | `outputs/news_digest_*.md` | commit-outputs |
 | `crude-fv-pinggap-drill-arm` | scheduled-task | one-shot 2026-09-12 09:05 (fired 14:07 EDT) | `state/ping_status.json`, `state/automation_runs.log`, `decisions/healthchecks_pinggap_drill_2026-09-06.md` | `state/drill_armed`, `decisions/healthchecks_pinggap_drill_2026-09-06.md` | human-owner-chat |
 | `crude-fv-pinggap-drill-restore` | scheduled-task | one-shot 2026-09-14 18:45 (moved from 15:20 — the page is due ~17:15) | `external:Gmail (from:healthchecks.io)`, `state/ping_status.json`, `state/automation_runs.log`, `decisions/healthchecks_pinggap_drill_2026-09-06.md` | `decisions/healthchecks_pinggap_drill_2026-09-06.md`, `state/drill_armed` | self |
-| `crude-fv-fork-executor` | scheduled-task | daily 12:45 (app display zone) — NOT YET INSTALLED (2026-09-13, the app's classifier refused the agent's registration; the owner installs it from scripts/scheduled_tasks/crude-fv-fork-executor.SKILL.md) | `inputs/forks.yaml`, `decisions/**`, `inputs/**`, `outputs/book_scorecard.json`, `baselines/reconcile_baseline.yaml` | `inputs/**`, `decisions/*_log.md`, `PLAN.md`, `outputs/**`, `state/fork_page.md`, `state/last_run.json` | self |
+| `crude-fv-fork-executor` | scheduled-task | daily 12:45 app-display-zone (fires 12:47; installed by the owner 2026-09-14) | `inputs/forks.yaml`, `decisions/**`, `inputs/**`, `outputs/book_scorecard.json`, `baselines/reconcile_baseline.yaml`, `state/ffa_ocr_curves.json` … | `inputs/**`, `decisions/*_log.md`, `PLAN.md`, `outputs/**`, `state/fork_page.md`, `state/last_run.json` | self |
 | `ffa-promote` | script | on demand (the fork executor's step 0, or a chat) | `state/ffa_ocr_curves.json`, `inputs/market_data/ffa_forward_curve.yaml`, `inputs/market_data/twelve_month_tc.yaml`, `inputs/market_data/historical_tce_means.yaml` | `inputs/market_data/ffa_forward_curve.yaml`, `inputs/market_data/twelve_month_tc.yaml`, `decisions/ffa_promotion_*.md` | crude-fv-fork-executor |
 | `rebase` | script | on demand (a fork execution, a report-day refresh, or a chat) | `inputs/watchlist.yaml`, `inputs/market_data/prices_daily.yaml` | `inputs/watchlist.yaml`, `inputs/watchlist_rebase_*.yaml.draft` | crude-fv-fork-executor |
 | `portfolio-weekly-monitor` | scheduled-task | Friday 17:00 (app display zone) | `outputs/book_scorecard.json`, `RATIFY_LOG.md`, `external:IBKR account`, `external:web search`, `governance:CADENCE.md`, `governance:holdings/*.md` … | `governance:monitor/log.md`, `governance:monitor/outbox/*-monitor.md` | self |
@@ -262,6 +262,7 @@ flowchart LR
   human_ratify -->|baselines/reconcile_baseline.yaml| crude_fv_fork_executor
   human_ratify -->|RATIFY_LOG.md| portfolio_weekly_monitor
   human_ratify -->|RATIFY_LOG.md| weekly_report
+  news_pull -->|state/ffa_ocr_curves.json| crude_fv_fork_executor
   news_pull -->|state/automation_runs.log| crude_fv_pinggap_drill_arm
   news_pull -->|state/automation_runs.log| crude_fv_pinggap_drill_restore
   news_pull -->|transactions/_scan_state.json| crude_fv_results_shadow_build
@@ -293,6 +294,7 @@ flowchart LR
   regen -->|state/last_run.json| human_ratify
   regen -->|outputs/**| portfolio_weekly_monitor
   regen -->|decisions/*_log.md| weekly_report
+  rocketchat_ingest -->|state/ffa_ocr_curves.json| crude_fv_fork_executor
   rocketchat_ingest -->|state/automation_runs.log| crude_fv_pinggap_drill_arm
   rocketchat_ingest -->|state/automation_runs.log| crude_fv_pinggap_drill_restore
   rocketchat_ingest -->|transactions/_scan_state.json| crude_fv_results_shadow_build
