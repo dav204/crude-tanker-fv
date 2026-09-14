@@ -803,5 +803,1083 @@
    }
   ],
   "amended": false
+ },
+ {
+  "ts": "2026-08-14T01:20:05+00:00",
+  "ticker": "CMBT",
+  "cik": "0001604481",
+  "accession": "0000919574-26-005129",
+  "form": "6-K",
+  "filed": "2026-08-13",
+  "primary_doc": "p15049955_6k.htm",
+  "staged_path": "inputs/filings/CMBT/0000919574-26-005129_6-K_p15049955_6k.htm",
+  "exhibits": [
+   {
+    "doc": "p15049955_exh99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/CMBT/0000919574-26-005129_6-K_p15049955_exh99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-14T14:20:04+00:00",
+  "ticker": "BWLP",
+  "cik": "0001649313",
+  "accession": "0001213900-26-089401",
+  "form": "6-K",
+  "filed": "2026-08-14",
+  "primary_doc": "ea0301992-6k_bwlpg.htm",
+  "staged_path": "inputs/filings/BWLP/0001213900-26-089401_6-K_ea0301992-6k_bwlpg.htm",
+  "exhibits": [
+   {
+    "doc": "ea030199201ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/BWLP/0001213900-26-089401_6-K_ea030199201ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-14T17:25:00+00:00",
+  "ticker": "CMDB",
+  "cik": "0002033535",
+  "accession": "0001140361-26-032939",
+  "form": "6-K",
+  "filed": "2026-08-14",
+  "primary_doc": "ny20077579x1_6k.htm",
+  "staged_path": "inputs/filings/CMDB/0001140361-26-032939_6-K_ny20077579x1_6k.htm",
+  "exhibits": [
+   {
+    "doc": "ny20077579x1_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/CMDB/0001140361-26-032939_6-K_ny20077579x1_ex99-1.htm"
+   },
+   {
+    "doc": "ny20077579x1_ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/CMDB/0001140361-26-032939_6-K_ny20077579x1_ex99-2.htm"
+   },
+   {
+    "doc": "ny20077579x1_ex99-3.htm",
+    "type": "EX-99.3",
+    "staged_path": "inputs/filings/CMDB/0001140361-26-032939_6-K_ny20077579x1_ex99-3.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-18T03:20:03+00:00",
+  "ticker": "ECO",
+  "cik": "0001964954",
+  "accession": "0001104659-26-097930",
+  "form": "6-K",
+  "filed": "2026-08-17",
+  "primary_doc": "tm2623429d1_6k.htm",
+  "staged_path": "inputs/filings/ECO/0001104659-26-097930_6-K_tm2623429d1_6k.htm",
+  "exhibits": [
+   {
+    "doc": "tm2623429d1_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/ECO/0001104659-26-097930_6-K_tm2623429d1_ex99-1.htm"
+   },
+   {
+    "doc": "tm2623429d1_ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/ECO/0001104659-26-097930_6-K_tm2623429d1_ex99-2.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-18T03:20:03+00:00",
+  "ticker": "STNG",
+  "cik": "0001483934",
+  "accession": "0001628280-26-057375",
+  "form": "6-K",
+  "filed": "2026-08-17",
+  "primary_doc": "stng6k-08172026.htm",
+  "staged_path": "inputs/filings/STNG/0001628280-26-057375_6-K_stng6k-08172026.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-24T21:00:31+00:00",
+  "ticker": "CMDB",
+  "cik": "0002033535",
+  "accession": "0001171843-26-005609",
+  "form": "6-K",
+  "filed": "2026-08-18",
+  "primary_doc": "cmbd20260807_6k.htm",
+  "staged_path": "inputs/filings/CMDB/0001171843-26-005609_6-K_cmbd20260807_6k.htm",
+  "exhibits": [
+   {
+    "doc": "ex_1000962.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/CMDB/0001171843-26-005609_6-K_ex_1000962.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-24T21:00:31+00:00",
+  "ticker": "FLNG",
+  "cik": "0001772253",
+  "accession": "0001628280-26-057822",
+  "form": "6-K",
+  "filed": "2026-08-19",
+  "primary_doc": "flng-20260630.htm",
+  "staged_path": "inputs/filings/FLNG/0001628280-26-057822_6-K_flng-20260630.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-24T21:00:31+00:00",
+  "ticker": "FLNG",
+  "cik": "0001772253",
+  "accession": "0001628280-26-057820",
+  "form": "6-K",
+  "filed": "2026-08-19",
+  "primary_doc": "a6kcoverq22026.htm",
+  "staged_path": "inputs/filings/FLNG/0001628280-26-057820_6-K_a6kcoverq22026.htm",
+  "exhibits": [
+   {
+    "doc": "q22026flexpr.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/FLNG/0001628280-26-057820_6-K_q22026flexpr.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-24T21:00:31+00:00",
+  "ticker": "HAFN",
+  "cik": "0001815779",
+  "accession": "0001140361-26-033955",
+  "form": "6-K",
+  "filed": "2026-08-21",
+  "primary_doc": "ef20080785_6k.htm",
+  "staged_path": "inputs/filings/HAFN/0001140361-26-033955_6-K_ef20080785_6k.htm",
+  "exhibits": [
+   {
+    "doc": "ef20080785_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/HAFN/0001140361-26-033955_6-K_ef20080785_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-24T21:00:31+00:00",
+  "ticker": "TRMD",
+  "cik": "0001655891",
+  "accession": "0000919574-26-005684",
+  "form": "6-K",
+  "filed": "2026-08-24",
+  "primary_doc": "p15057626_6-k.htm",
+  "staged_path": "inputs/filings/TRMD/0000919574-26-005684_6-K_p15057626_6-k.htm",
+  "exhibits": [
+   {
+    "doc": "p15057626-ex99_1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/TRMD/0000919574-26-005684_6-K_p15057626-ex99_1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-24T21:01:38+00:00",
+  "ticker": "2343",
+  "cik": "hkex:7703",
+  "accession": "hkex-12294027",
+  "form": "Circulars - [Other]",
+  "filed": "2026-08-21",
+  "primary_doc": "/listedco/listconews/sehk/2026/0821/2026082100560.pdf",
+  "staged_path": "inputs/filings/2343/12294027_2026082100560.pdf",
+  "amended": false,
+  "source": "hkexnews"
+ },
+ {
+  "ts": "2026-08-24T21:01:38+00:00",
+  "ticker": "2343",
+  "cik": "hkex:7703",
+  "accession": "hkex-12294023",
+  "form": "Circulars - [Other]",
+  "filed": "2026-08-21",
+  "primary_doc": "/listedco/listconews/sehk/2026/0821/2026082100556.pdf",
+  "staged_path": "inputs/filings/2343/12294023_2026082100556.pdf",
+  "amended": false,
+  "source": "hkexnews"
+ },
+ {
+  "ts": "2026-08-24T21:01:38+00:00",
+  "ticker": "2343",
+  "cik": "hkex:7703",
+  "accession": "hkex-12293993",
+  "form": "Financial Statements&#x2f;ESG Information - [Interim&#x2f;Half-Year Report]",
+  "filed": "2026-08-21",
+  "primary_doc": "/listedco/listconews/sehk/2026/0821/2026082100526.pdf",
+  "staged_path": "inputs/filings/2343/12293993_2026082100526.pdf",
+  "amended": false,
+  "source": "hkexnews"
+ },
+ {
+  "ts": "2026-08-24T21:02:22+00:00",
+  "ticker": "BRUT",
+  "cik": "newsweb:bruton-limited",
+  "accession": "mfn-a04debcc-a9a8-42dd-8606-4983fa36e621",
+  "form": "release",
+  "filed": "2026-08-20",
+  "primary_doc": "https://mfn.se/a/bruton-limited/bruton-limited-brut-resolved-distribution-in-kind-of-shares-ndrs-in-omc-tankers-ltd",
+  "staged_path": "inputs/filings/BRUT/newsweb_2026-08-20_a04debcc-a9a8-42dd-8606-4983fa36e621.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "Bruton Limited (BRUT) - Resolved distribution in kind of shares/NDRs in OMC Tankers Ltd.",
+  "attachments": []
+ },
+ {
+  "ts": "2026-08-24T21:02:22+00:00",
+  "ticker": "BRUT",
+  "cik": "newsweb:bruton-limited",
+  "accession": "mfn-792b2c10-1f0f-4f99-8637-e649bec0541c",
+  "form": "release",
+  "filed": "2026-08-20",
+  "primary_doc": "https://mfn.se/a/bruton-limited/bruton-limited-brut-key-information-in-connection-with-a-distribution-of-shares-in-omc-tankers-ltd",
+  "staged_path": "inputs/filings/BRUT/newsweb_2026-08-20_792b2c10-1f0f-4f99-8637-e649bec0541c.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "Bruton Limited (BRUT) \u2013 Key Information in connection with a distribution of shares in OMC Tankers Ltd.",
+  "attachments": []
+ },
+ {
+  "ts": "2026-08-24T21:02:22+00:00",
+  "ticker": "MPCC",
+  "cik": "newsweb:mpc-container-ships",
+  "accession": "mfn-7e891d02-c95c-5645-a1d8-31de4aa50ece",
+  "form": "release",
+  "filed": "2026-08-19",
+  "primary_doc": "https://mfn.se/ob/a/mpc-container-ships/mpcc-invitation-to-q2-2026-earnings-call-7e891d02",
+  "staged_path": "inputs/filings/MPCC/newsweb_2026-08-19_7e891d02-c95c-5645-a1d8-31de4aa50ece.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "MPCC: Invitation to Q2 2026 Earnings Call",
+  "attachments": []
+ },
+ {
+  "ts": "2026-08-25T09:21:00+00:00",
+  "ticker": "BRUT",
+  "cik": "newsweb:bruton-limited",
+  "accession": "mfn-5a46204d-4e2c-47d8-bd30-39aa68192e5a",
+  "form": "corporate action",
+  "filed": "2026-08-25",
+  "primary_doc": "https://mfn.se/a/bruton-limited/bruton-limited-brut-ex-distribution-in-kind-today",
+  "staged_path": "inputs/filings/BRUT/newsweb_2026-08-25_5a46204d-4e2c-47d8-bd30-39aa68192e5a.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "Bruton Limited (BRUT) - Ex distribution in kind today",
+  "attachments": []
+ },
+ {
+  "ts": "2026-08-25T21:26:24+00:00",
+  "ticker": "BWLP",
+  "cik": "0001649313",
+  "accession": "0001213900-26-093508",
+  "form": "6-K",
+  "filed": "2026-08-25",
+  "primary_doc": "ea0303347-6k_bwlpg.htm",
+  "staged_path": "inputs/filings/BWLP/0001213900-26-093508_6-K_ea0303347-6k_bwlpg.htm",
+  "exhibits": [
+   {
+    "doc": "ea030334701ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/BWLP/0001213900-26-093508_6-K_ea030334701ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-25T21:26:52+00:00",
+  "ticker": "BWLP",
+  "cik": "newsweb:bw-lpg",
+  "accession": "mfn-1a1d8461-119c-4303-9467-6e57b7e6cfdf",
+  "form": "release",
+  "filed": "2026-08-25",
+  "primary_doc": "https://mfn.se/a/bw-lpg/bw-lpg-limited-announces-sale-of-bw-birch",
+  "staged_path": "inputs/filings/BWLP/newsweb_2026-08-25_1a1d8461-119c-4303-9467-6e57b7e6cfdf.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "BW LPG Limited announces sale of BW Birch",
+  "attachments": [
+   "inputs/filings/BWLP/1a1d8461-119c-4303-9467-6e57b7e6cfdf_bw-lpg-limited-announces-sale-of-bw-birch.pdf"
+  ]
+ },
+ {
+  "ts": "2026-08-29T20:20:36+00:00",
+  "ticker": "BWLP",
+  "cik": "0001649313",
+  "accession": "0001104659-26-102581",
+  "form": "6-K",
+  "filed": "2026-08-28",
+  "primary_doc": "bwlp-20260630x6k.htm",
+  "staged_path": "inputs/filings/BWLP/0001104659-26-102581_6-K_bwlp-20260630x6k.htm",
+  "exhibits": [
+   {
+    "doc": "bwlp-20260630xex99d1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/BWLP/0001104659-26-102581_6-K_bwlp-20260630xex99d1.htm"
+   },
+   {
+    "doc": "bwlp-20260630xex99d2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/BWLP/0001104659-26-102581_6-K_bwlp-20260630xex99d2.htm"
+   },
+   {
+    "doc": "bwlp-20260630xex99d3.htm",
+    "type": "EX-99.3",
+    "staged_path": "inputs/filings/BWLP/0001104659-26-102581_6-K_bwlp-20260630xex99d3.htm"
+   },
+   {
+    "doc": "bwlp-20260630xex99d4.htm",
+    "type": "EX-99.4",
+    "staged_path": "inputs/filings/BWLP/0001104659-26-102581_6-K_bwlp-20260630xex99d4.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-29T20:20:36+00:00",
+  "ticker": "CMBT",
+  "cik": "0001604481",
+  "accession": "0000919574-26-005821",
+  "form": "6-K",
+  "filed": "2026-08-28",
+  "primary_doc": "p15059931_6-k.htm",
+  "staged_path": "inputs/filings/CMBT/0000919574-26-005821_6-K_p15059931_6-k.htm",
+  "exhibits": [
+   {
+    "doc": "p15059931ex_99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/CMBT/0000919574-26-005821_6-K_p15059931ex_99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-29T20:20:36+00:00",
+  "ticker": "FRO",
+  "cik": "0000913290",
+  "accession": "0000919574-26-005942",
+  "form": "6-K",
+  "filed": "2026-08-28",
+  "primary_doc": "p15060813_6k.htm",
+  "staged_path": "inputs/filings/FRO/0000919574-26-005942_6-K_p15060813_6k.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-29T20:20:36+00:00",
+  "ticker": "HAFN",
+  "cik": "0001815779",
+  "accession": "0001140361-26-034767",
+  "form": "6-K",
+  "filed": "2026-08-28",
+  "primary_doc": "ef20075463_6k.htm",
+  "staged_path": "inputs/filings/HAFN/0001140361-26-034767_6-K_ef20075463_6k.htm",
+  "exhibits": [
+   {
+    "doc": "ef20075463_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/HAFN/0001140361-26-034767_6-K_ef20075463_ex99-1.htm"
+   },
+   {
+    "doc": "ef20075463_ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/HAFN/0001140361-26-034767_6-K_ef20075463_ex99-2.htm"
+   },
+   {
+    "doc": "ef20075463_ex99-3.htm",
+    "type": "EX-99.3",
+    "staged_path": "inputs/filings/HAFN/0001140361-26-034767_6-K_ef20075463_ex99-3.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-29T20:20:36+00:00",
+  "ticker": "NAT",
+  "cik": "0001000177",
+  "accession": "0000919574-26-005786",
+  "form": "6-K",
+  "filed": "2026-08-27",
+  "primary_doc": "p15060137_6-k.htm",
+  "staged_path": "inputs/filings/NAT/0000919574-26-005786_6-K_p15060137_6-k.htm",
+  "exhibits": [
+   {
+    "doc": "p15060137_ex-1.htm",
+    "type": "EX-99",
+    "staged_path": "inputs/filings/NAT/0000919574-26-005786_6-K_p15060137_ex-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-29T20:20:36+00:00",
+  "ticker": "TRMD",
+  "cik": "0001655891",
+  "accession": "0001628280-26-058979",
+  "form": "6-K",
+  "filed": "2026-08-26",
+  "primary_doc": "trmd-20260630.htm",
+  "staged_path": "inputs/filings/TRMD/0001628280-26-058979_6-K_trmd-20260630.htm",
+  "exhibits": [
+   {
+    "doc": "trmd-20260630_d2.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/TRMD/0001628280-26-058979_6-K_trmd-20260630_d2.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-29T20:20:36+00:00",
+  "ticker": "TRMD",
+  "cik": "0001655891",
+  "accession": "0001628280-26-058978",
+  "form": "6-K",
+  "filed": "2026-08-26",
+  "primary_doc": "tormplc6-kaugust262026pres.htm",
+  "staged_path": "inputs/filings/TRMD/0001628280-26-058978_6-K_tormplc6-kaugust262026pres.htm",
+  "exhibits": [
+   {
+    "doc": "a2026q22026announcementpdf.pdf",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/TRMD/0001628280-26-058978_6-K_a2026q22026announcementpdf.pdf"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-08-29T20:22:05+00:00",
+  "ticker": "BWLP",
+  "cik": "newsweb:bw-lpg",
+  "accession": "mfn-83ea98be-4572-4c55-b8d5-87615def9c5a",
+  "form": "interim report",
+  "filed": "2026-08-28",
+  "primary_doc": "https://mfn.se/a/bw-lpg/bw-lpg-limited-financial-results-for-q2-2026",
+  "staged_path": "inputs/filings/BWLP/newsweb_2026-08-28_83ea98be-4572-4c55-b8d5-87615def9c5a.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": true,
+  "title": "BW LPG Limited \u2013 Financial Results for Q2 2026",
+  "attachments": [
+   "inputs/filings/BWLP/83ea98be-4572-4c55-b8d5-87615def9c5a_bw-lpg-q2-2026-interim-financial-report.pdf",
+   "inputs/filings/BWLP/83ea98be-4572-4c55-b8d5-87615def9c5a_bw-lpg-q2-2026-earnings-presentation.pdf"
+  ]
+ },
+ {
+  "ts": "2026-08-29T20:22:05+00:00",
+  "ticker": "BWLP",
+  "cik": "newsweb:bw-lpg",
+  "accession": "mfn-f4554e20-eacb-41c7-9ad9-95a0095fd68a",
+  "form": "release",
+  "filed": "2026-08-28",
+  "primary_doc": "https://mfn.se/a/bw-lpg/bw-lpg-limited-key-information-relating-to-the-cash-dividend-for-q2-2026",
+  "staged_path": "inputs/filings/BWLP/newsweb_2026-08-28_f4554e20-eacb-41c7-9ad9-95a0095fd68a.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "BW LPG Limited \u2013 Key information relating to the cash dividend for Q2 2026",
+  "attachments": [
+   "inputs/filings/BWLP/f4554e20-eacb-41c7-9ad9-95a0095fd68a_bw-lpg-limited-key-information-relating-to-the-cash-dividend-for-q2-2026.pdf"
+  ]
+ },
+ {
+  "ts": "2026-08-29T20:22:05+00:00",
+  "ticker": "CAPT",
+  "cik": "newsweb:capital-tankers",
+  "accession": "mfn-c5ae112b-034c-5e5c-b3fc-94cafa62f937",
+  "form": "release",
+  "filed": "2026-08-26",
+  "primary_doc": "https://mfn.se/ob/a/capital-tankers/capt-capital-tankers-corp-schedules-second-quarter-2026-earnings-release-and-invitation-to-conference-call-and-webcast-c5ae112b",
+  "staged_path": "inputs/filings/CAPT/newsweb_2026-08-26_c5ae112b-034c-5e5c-b3fc-94cafa62f937.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "CAPT: CAPITAL TANKERS CORP. SCHEDULES SECOND QUARTER 2026 EARNINGS RELEASE AND INVITATION TO CONFERENCE CALL AND WEBCAST",
+  "attachments": []
+ },
+ {
+  "ts": "2026-08-29T20:22:05+00:00",
+  "ticker": "MPCC",
+  "cik": "newsweb:mpc-container-ships",
+  "accession": "mfn-d9624eca-eec3-41d4-ab31-db7fd1af7aba",
+  "form": "interim report",
+  "filed": "2026-08-26",
+  "primary_doc": "https://mfn.se/a/mpc-container-ships/mpc-container-ships-reports-q2-2026-results",
+  "staged_path": "inputs/filings/MPCC/newsweb_2026-08-26_d9624eca-eec3-41d4-ab31-db7fd1af7aba.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": true,
+  "title": "MPC Container Ships Reports Q2 2026 Results",
+  "attachments": [
+   "inputs/filings/MPCC/d9624eca-eec3-41d4-ab31-db7fd1af7aba_mpcc-q2-2026-financial-report.pdf",
+   "inputs/filings/MPCC/d9624eca-eec3-41d4-ab31-db7fd1af7aba_mpcc-q2-2026-earnings-call.pdf"
+  ]
+ },
+ {
+  "ts": "2026-08-29T20:22:05+00:00",
+  "ticker": "MPCC",
+  "cik": "newsweb:mpc-container-ships",
+  "accession": "mfn-7584ed8b-f416-48d1-b348-07cba4c25434",
+  "form": "release",
+  "filed": "2026-08-26",
+  "primary_doc": "https://mfn.se/a/mpc-container-ships/key-information-relating-to-the-cash-dividend-to-be-paid-by-mpc-container-ships-asa-6",
+  "staged_path": "inputs/filings/MPCC/newsweb_2026-08-26_7584ed8b-f416-48d1-b348-07cba4c25434.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "Key information relating to the cash dividend to be paid by MPC Container Ships ASA",
+  "attachments": []
+ },
+ {
+  "ts": "2026-08-31T22:20:27+00:00",
+  "ticker": "2343",
+  "cik": "hkex:7703",
+  "accession": "hkex-12308484",
+  "form": "Monthly Returns",
+  "filed": "2026-08-31",
+  "primary_doc": "/listedco/listconews/sehk/2026/0831/2026083101113.pdf",
+  "staged_path": "inputs/filings/2343/12308484_2026083101113.pdf",
+  "amended": false,
+  "source": "hkexnews"
+ },
+ {
+  "ts": "2026-09-01T05:31:30+00:00",
+  "ticker": "CAPT",
+  "cik": "newsweb:capital-tankers",
+  "accession": "mfn-df41fdce-8984-4cbb-8067-0a792f18f877",
+  "form": "interim report",
+  "filed": "2026-09-01",
+  "primary_doc": "https://mfn.se/a/capital-tankers/capital-tankers-corp-announces-second-quarter-2026-financial-results",
+  "staged_path": "inputs/filings/CAPT/newsweb_2026-09-01_df41fdce-8984-4cbb-8067-0a792f18f877.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": true,
+  "title": "CAPITAL TANKERS CORP. ANNOUNCES SECOND QUARTER 2026 FINANCIAL RESULTS",
+  "attachments": [
+   "inputs/filings/CAPT/df41fdce-8984-4cbb-8067-0a792f18f877_capital-tankers-corp-announces-second-quarter-2026-financial-results.pdf"
+  ]
+ },
+ {
+  "ts": "2026-09-01T06:20:16+00:00",
+  "ticker": "CAPT",
+  "cik": "newsweb:capital-tankers",
+  "accession": "mfn-72ca7d91-0696-464f-815a-16bd28aab2a6",
+  "form": "release",
+  "filed": "2026-09-01",
+  "primary_doc": "https://mfn.se/a/capital-tankers/capital-tankers-corp-board-of-directors-declares-dividend-of-nok-3-00-per-share",
+  "staged_path": "inputs/filings/CAPT/newsweb_2026-09-01_72ca7d91-0696-464f-815a-16bd28aab2a6.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "Capital Tankers Corp. \u2013 Board of Directors declares dividend of NOK 3.00 per share",
+  "attachments": []
+ },
+ {
+  "ts": "2026-09-01T06:20:16+00:00",
+  "ticker": "CAPT",
+  "cik": "newsweb:capital-tankers",
+  "accession": "mfn-f57c9dad-0ce9-414a-b051-7a18c19107c3",
+  "form": "release",
+  "filed": "2026-09-01",
+  "primary_doc": "https://mfn.se/a/capital-tankers/key-information-relating-to-the-cash-dividend-to-be-paid-by-capital-tankers-corp-1",
+  "staged_path": "inputs/filings/CAPT/newsweb_2026-09-01_f57c9dad-0ce9-414a-b051-7a18c19107c3.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "Key information relating to the cash dividend to be paid by Capital Tankers Corp.",
+  "attachments": []
+ },
+ {
+  "ts": "2026-09-01T16:21:48+00:00",
+  "ticker": "HAFN",
+  "cik": "0001815779",
+  "accession": "0001140361-26-035149",
+  "form": "6-K",
+  "filed": "2026-09-01",
+  "primary_doc": "ny20077965x1_6k.htm",
+  "staged_path": "inputs/filings/HAFN/0001140361-26-035149_6-K_ny20077965x1_6k.htm",
+  "exhibits": [
+   {
+    "doc": "ny20077965x1_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/HAFN/0001140361-26-035149_6-K_ny20077965x1_ex99-1.htm"
+   },
+   {
+    "doc": "ny20077965x1_ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/HAFN/0001140361-26-035149_6-K_ny20077965x1_ex99-2.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-01T16:21:54+00:00",
+  "ticker": "BWLP",
+  "cik": "newsweb:bw-lpg",
+  "accession": "mfn-742eab58-ef79-4c91-846f-b46a31e0bfb2",
+  "form": "inside information",
+  "filed": "2026-09-01",
+  "primary_doc": "https://mfn.se/a/bw-lpg/bw-lpg-launches-approximately-usd-300-million-senior-unsecured-convertible-bond-offering",
+  "staged_path": "inputs/filings/BWLP/newsweb_2026-09-01_742eab58-ef79-4c91-846f-b46a31e0bfb2.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "BW LPG Launches Approximately USD 300 Million Senior Unsecured Convertible Bond Offering",
+  "attachments": [
+   "inputs/filings/BWLP/742eab58-ef79-4c91-846f-b46a31e0bfb2_bw-lpg-launches-approximately-usd-300-million-senior-unsecured-convertible-bond-offering.pdf"
+  ]
+ },
+ {
+  "ts": "2026-09-02T05:20:06+00:00",
+  "ticker": "BWLP",
+  "cik": "0001649313",
+  "accession": "0001213900-26-096130",
+  "form": "6-K",
+  "filed": "2026-09-01",
+  "primary_doc": "ea0304254-6k_bwlpg.htm",
+  "staged_path": "inputs/filings/BWLP/0001213900-26-096130_6-K_ea0304254-6k_bwlpg.htm",
+  "exhibits": [
+   {
+    "doc": "ea030425401ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/BWLP/0001213900-26-096130_6-K_ea030425401ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-02T05:20:09+00:00",
+  "ticker": "BWLP",
+  "cik": "newsweb:bw-lpg",
+  "accession": "mfn-da6ce467-9ca6-43a4-90d8-3cffbca41ee8",
+  "form": "inside information",
+  "filed": "2026-09-02",
+  "primary_doc": "https://mfn.se/a/bw-lpg/bw-lpg-successfully-places-a-usd-300-million-offering-of-senior-unsecured-convertible-bonds",
+  "staged_path": "inputs/filings/BWLP/newsweb_2026-09-02_da6ce467-9ca6-43a4-90d8-3cffbca41ee8.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "BW LPG SUCCESSFULLY PLACES A USD 300 MILLION OFFERING OF SENIOR UNSECURED CONVERTIBLE BONDS",
+  "attachments": [
+   "inputs/filings/BWLP/da6ce467-9ca6-43a4-90d8-3cffbca41ee8_bw-lpg-successfully-places-a-usd-300-million-offering-of-senior-unsecured-convertible-bonds.pdf"
+  ]
+ },
+ {
+  "ts": "2026-09-02T17:22:20+00:00",
+  "ticker": "BWLP",
+  "cik": "0001649313",
+  "accession": "0001213900-26-096420",
+  "form": "6-K",
+  "filed": "2026-09-02",
+  "primary_doc": "ea0304361-6k_bwlpg.htm",
+  "staged_path": "inputs/filings/BWLP/0001213900-26-096420_6-K_ea0304361-6k_bwlpg.htm",
+  "exhibits": [
+   {
+    "doc": "ea030436101ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/BWLP/0001213900-26-096420_6-K_ea030436101ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-03T06:30:30+00:00",
+  "ticker": "TRMD",
+  "cik": "0001655891",
+  "accession": "0000919574-26-006143",
+  "form": "6-K",
+  "filed": "2026-09-02",
+  "primary_doc": "p15072501_6k.htm",
+  "staged_path": "inputs/filings/TRMD/0000919574-26-006143_6-K_p15072501_6k.htm",
+  "exhibits": [
+   {
+    "doc": "p15072501exh_99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/TRMD/0000919574-26-006143_6-K_p15072501exh_99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-03T19:23:55+00:00",
+  "ticker": "HAFN",
+  "cik": "0001815779",
+  "accession": "0001140361-26-035525",
+  "form": "6-K",
+  "filed": "2026-09-03",
+  "primary_doc": "ef20081582_6k.htm",
+  "staged_path": "inputs/filings/HAFN/0001140361-26-035525_6-K_ef20081582_6k.htm",
+  "exhibits": [
+   {
+    "doc": "ef20081582_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/HAFN/0001140361-26-035525_6-K_ef20081582_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-04T02:22:29+00:00",
+  "ticker": "STNG",
+  "cik": "0001483934",
+  "accession": "0001628280-26-060459",
+  "form": "6-K",
+  "filed": "2026-09-03",
+  "primary_doc": "stng6k-09032026.htm",
+  "staged_path": "inputs/filings/STNG/0001628280-26-060459_6-K_stng6k-09032026.htm",
+  "exhibits": [
+   {
+    "doc": "stngexhibit991-09032026.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/STNG/0001628280-26-060459_6-K_stngexhibit991-09032026.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-04T15:22:19+00:00",
+  "ticker": "LPG",
+  "cik": "0001596993",
+  "accession": "0001596993-26-000041",
+  "form": "8-K",
+  "filed": "2026-09-04",
+  "primary_doc": "lpg-20260902x8k.htm",
+  "staged_path": "inputs/filings/LPG/0001596993-26-000041_8-K_lpg-20260902x8k.htm",
+  "exhibits": [
+   {
+    "doc": "lpg-20260902xex99d1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/LPG/0001596993-26-000041_8-K_lpg-20260902xex99d1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-04T15:22:48+00:00",
+  "ticker": "BRUT",
+  "cik": "newsweb:bruton-limited",
+  "accession": "mfn-7a85c536-faa4-4c9e-b72b-f963eb66a0a9",
+  "form": "release",
+  "filed": "2026-09-04",
+  "primary_doc": "https://mfn.se/a/bruton-limited/bruton-limited-brut-commercial-update-and-key-information-relating-to-the-cash-distribution-for-august-2026",
+  "staged_path": "inputs/filings/BRUT/newsweb_2026-09-04_7a85c536-faa4-4c9e-b72b-f963eb66a0a9.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "Bruton Limited (BRUT) \u2013 Commercial update and key information relating to the cash distribution for August 2026",
+  "attachments": []
+ },
+ {
+  "ts": "2026-09-07T13:08:42+00:00",
+  "ticker": "CMBT",
+  "cik": "0001604481",
+  "accession": "0000919574-26-006193",
+  "form": "6-K",
+  "filed": "2026-09-04",
+  "primary_doc": "p15074444_6-k.htm",
+  "staged_path": "inputs/filings/CMBT/0000919574-26-006193_6-K_p15074444_6-k.htm",
+  "exhibits": [
+   {
+    "doc": "p15074444_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/CMBT/0000919574-26-006193_6-K_p15074444_ex99-1.htm"
+   },
+   {
+    "doc": "p15074444_ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/CMBT/0000919574-26-006193_6-K_p15074444_ex99-2.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-07T13:08:42+00:00",
+  "ticker": "SBLK",
+  "cik": "0001386716",
+  "accession": "0000950157-26-000983",
+  "form": "6-K",
+  "filed": "2026-09-04",
+  "primary_doc": "form6-k.htm",
+  "staged_path": "inputs/filings/SBLK/0000950157-26-000983_6-K_form6-k.htm",
+  "exhibits": [
+   {
+    "doc": "ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-000983_6-K_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-07T13:08:42+00:00",
+  "ticker": "SBLK",
+  "cik": "0001386716",
+  "accession": "0000950157-26-000982",
+  "form": "6-K",
+  "filed": "2026-09-04",
+  "primary_doc": "form6-k.htm",
+  "staged_path": "inputs/filings/SBLK/0000950157-26-000982_6-K_form6-k.htm",
+  "exhibits": [
+   {
+    "doc": "ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-000982_6-K_ex99-1.htm"
+   },
+   {
+    "doc": "ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-000982_6-K_ex99-2.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-07T13:09:29+00:00",
+  "ticker": "BRUT",
+  "cik": "newsweb:bruton-limited",
+  "accession": "mfn-349fe45a-29ad-54a5-9fa5-f3141236f3b0",
+  "form": "financial calendar",
+  "filed": "2026-09-07",
+  "primary_doc": "https://mfn.se/ob/a/bruton-limited/brut-financial-calendar-349fe45a",
+  "staged_path": "inputs/filings/BRUT/newsweb_2026-09-07_349fe45a-29ad-54a5-9fa5-f3141236f3b0.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "BRUT: Financial calendar",
+  "attachments": []
+ },
+ {
+  "ts": "2026-09-07T13:09:29+00:00",
+  "ticker": "BWLP",
+  "cik": "newsweb:bw-lpg",
+  "accession": "mfn-4b53d3f8-9ef9-4996-98b3-3a4ec569fe04",
+  "form": "corporate action",
+  "filed": "2026-09-07",
+  "primary_doc": "https://mfn.se/a/bw-lpg/bw-lpg-limited-ex-dividend-on-the-oslo-stock-exchange-today-1",
+  "staged_path": "inputs/filings/BWLP/newsweb_2026-09-07_4b53d3f8-9ef9-4996-98b3-3a4ec569fe04.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "BW LPG Limited \u2013 Ex-dividend on the Oslo Stock Exchange today",
+  "attachments": [
+   "inputs/filings/BWLP/4b53d3f8-9ef9-4996-98b3-3a4ec569fe04_bw-lpg-limited-ex-dividend-on-the-oslo-stock-exchange-today.pdf"
+  ]
+ },
+ {
+  "ts": "2026-09-08T14:20:05+00:00",
+  "ticker": "BWLP",
+  "cik": "0001649313",
+  "accession": "0001213900-26-097809",
+  "form": "6-K",
+  "filed": "2026-09-08",
+  "primary_doc": "ea0304752-6k_bwlpg.htm",
+  "staged_path": "inputs/filings/BWLP/0001213900-26-097809_6-K_ea0304752-6k_bwlpg.htm",
+  "exhibits": [
+   {
+    "doc": "ea030475201ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/BWLP/0001213900-26-097809_6-K_ea030475201ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-08T14:20:05+00:00",
+  "ticker": "HAFN",
+  "cik": "0001815779",
+  "accession": "0001140361-26-035845",
+  "form": "6-K",
+  "filed": "2026-09-08",
+  "primary_doc": "ef20081721_6k.htm",
+  "staged_path": "inputs/filings/HAFN/0001140361-26-035845_6-K_ef20081721_6k.htm",
+  "exhibits": [
+   {
+    "doc": "ef20081721_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/HAFN/0001140361-26-035845_6-K_ef20081721_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-08T14:20:05+00:00",
+  "ticker": "SBLK",
+  "cik": "0001386716",
+  "accession": "0000950157-26-000985",
+  "form": "6-K",
+  "filed": "2026-09-08",
+  "primary_doc": "form6-k.htm",
+  "staged_path": "inputs/filings/SBLK/0000950157-26-000985_6-K_form6-k.htm",
+  "exhibits": [
+   {
+    "doc": "ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-000985_6-K_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-10T02:56:23+00:00",
+  "ticker": "CMBT",
+  "cik": "0001604481",
+  "accession": "0000919574-26-006196",
+  "form": "6-K",
+  "filed": "2026-09-08",
+  "primary_doc": "p15076578_6-k.htm",
+  "staged_path": "inputs/filings/CMBT/0000919574-26-006196_6-K_p15076578_6-k.htm",
+  "exhibits": [
+   {
+    "doc": "p15076578exh_99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/CMBT/0000919574-26-006196_6-K_p15076578exh_99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-10T02:56:23+00:00",
+  "ticker": "SB",
+  "cik": "0001434754",
+  "accession": "0001317861-26-000045",
+  "form": "6-K",
+  "filed": "2026-09-09",
+  "primary_doc": "f090926sb6k.htm",
+  "staged_path": "inputs/filings/SB/0001317861-26-000045_6-K_f090926sb6k.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-10T02:56:23+00:00",
+  "ticker": "SB",
+  "cik": "0001434754",
+  "accession": "0001317861-26-000044",
+  "form": "6-K",
+  "filed": "2026-09-09",
+  "primary_doc": "f090826sb6k.htm",
+  "staged_path": "inputs/filings/SB/0001317861-26-000044_6-K_f090826sb6k.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-10T02:57:01+00:00",
+  "ticker": "OMC",
+  "cik": "newsweb:omc-tankers",
+  "accession": "mfn-4c2c88c8-0598-5d71-92fc-d70ad83ccc56",
+  "form": "financial calendar",
+  "filed": "2026-09-09",
+  "primary_doc": "https://mfn.se/ob/a/omc-tankers/omc-financial-calendar-4c2c88c8",
+  "staged_path": "inputs/filings/OMC/newsweb_2026-09-09_4c2c88c8-0598-5d71-92fc-d70ad83ccc56.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "OMC: Financial calendar",
+  "attachments": []
+ },
+ {
+  "ts": "2026-09-10T15:20:20+00:00",
+  "ticker": "BRUT",
+  "cik": "newsweb:bruton-limited",
+  "accession": "mfn-72ed759b-6d7d-467c-a5f6-9370e4b804c5",
+  "form": "corporate action",
+  "filed": "2026-09-10",
+  "primary_doc": "https://mfn.se/a/bruton-limited/bruton-limited-brut-ex-cash-distribution-us-0-025-today-on-euronext",
+  "staged_path": "inputs/filings/BRUT/newsweb_2026-09-10_72ed759b-6d7d-467c-a5f6-9370e4b804c5.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "Bruton Limited (BRUT) - Ex cash distribution US$0.025 today on Euronext",
+  "attachments": []
+ },
+ {
+  "ts": "2026-09-10T15:20:20+00:00",
+  "ticker": "CAPT",
+  "cik": "newsweb:capital-tankers",
+  "accession": "mfn-e278809a-f124-40cb-bd60-916cc3c5b1af",
+  "form": "corporate action",
+  "filed": "2026-09-10",
+  "primary_doc": "https://mfn.se/a/capital-tankers/capital-tankers-corp-ex-dividend-date-1",
+  "staged_path": "inputs/filings/CAPT/newsweb_2026-09-10_e278809a-f124-40cb-bd60-916cc3c5b1af.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "CAPITAL TANKERS CORP. EX DIVIDEND DATE",
+  "attachments": []
+ },
+ {
+  "ts": "2026-09-11T03:26:21+00:00",
+  "ticker": "SB",
+  "cik": "0001434754",
+  "accession": "0001317861-26-000047",
+  "form": "6-K",
+  "filed": "2026-09-10",
+  "primary_doc": "f091026sb6k.htm",
+  "staged_path": "inputs/filings/SB/0001317861-26-000047_6-K_f091026sb6k.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-11T16:20:00+00:00",
+  "ticker": "SB",
+  "cik": "0001434754",
+  "accession": "0001317861-26-000048",
+  "form": "6-K",
+  "filed": "2026-09-11",
+  "primary_doc": "f091126sb6k.htm",
+  "staged_path": "inputs/filings/SB/0001317861-26-000048_6-K_f091126sb6k.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-11T16:20:00+00:00",
+  "ticker": "TRMD",
+  "cik": "0001655891",
+  "accession": "0000919574-26-006252",
+  "form": "6-K",
+  "filed": "2026-09-11",
+  "primary_doc": "p15079219_6-k.htm",
+  "staged_path": "inputs/filings/TRMD/0000919574-26-006252_6-K_p15079219_6-k.htm",
+  "exhibits": [
+   {
+    "doc": "p15079219_exh99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/TRMD/0000919574-26-006252_6-K_p15079219_exh99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-12T04:20:05+00:00",
+  "ticker": "SBLK",
+  "cik": "0001386716",
+  "accession": "0000950157-26-001003",
+  "form": "6-K",
+  "filed": "2026-09-11",
+  "primary_doc": "form6-k.htm",
+  "staged_path": "inputs/filings/SBLK/0000950157-26-001003_6-K_form6-k.htm",
+  "exhibits": [
+   {
+    "doc": "ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-001003_6-K_ex99-1.htm"
+   }
+  ],
+  "amended": false
  }
 ]
