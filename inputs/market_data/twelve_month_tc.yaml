@@ -32,14 +32,12 @@ rate_basis:
   default: tc_assessment
   VLGC: realized_tce
 as_of:
-  default: 2026-09-09       # STAGE B tanker promotion (stage_b_promotion_2026-09-09.md;
-                            # tanker classes ride default). Explicit holds below: dry
-                            # 9/01 FFA promote · containers 8/07 (W32) · VLGC 6/02 ·
-                            # LNGC/MGC 6/07 · Handy-Bulk 7/10
-  Cape: 2026-09-01          # 01-Sep FFA dry promote (ffa_promotion_2026-09-02.md)
-  Pana: 2026-09-01
-  Post-Panamax: 2026-09-01
-  Supra-Ultra: 2026-09-01
+  default: 2026-09-11       # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
+                            # advanced from 2026-09-09; every class this promote did not touch carries an explicit hold below.
+  Cape: 2026-09-11          # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
+  Pana: 2026-09-11          # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
+  Post-Panamax: 2026-09-11  # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
+  Supra-Ultra: 2026-09-11   # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
   VLGC: 2026-06-02
   LNGC: 2026-06-07
   MGC: 2026-06-07
@@ -47,6 +45,16 @@ as_of:
   Ctr-Feeder: 2026-09-04    # MB W36 container refresh (2026-09-10 event, packet 2026-09-10)
   Ctr-Intermediate: 2026-09-04
   Ctr-Large: 2026-09-04     # value held W31-W36; vintage re-stamped with the family
+  VLCC: 2026-09-09          # held at the prior default (2026-09-09) — untouched by the 2026-09-11 dry FFA promote
+  Suezmax: 2026-09-09       # held at the prior default (2026-09-09) — untouched by the 2026-09-11 dry FFA promote
+  Aframax: 2026-09-09       # held at the prior default (2026-09-09) — untouched by the 2026-09-11 dry FFA promote
+  LR2: 2026-09-09           # held at the prior default (2026-09-09) — untouched by the 2026-09-11 dry FFA promote
+  LR1: 2026-09-09           # held at the prior default (2026-09-09) — untouched by the 2026-09-11 dry FFA promote
+  MR: 2026-09-09            # held at the prior default (2026-09-09) — untouched by the 2026-09-11 dry FFA promote
+  Handysize: 2026-09-09     # held at the prior default (2026-09-09) — untouched by the 2026-09-11 dry FFA promote
+  Handymax: 2026-09-09      # held at the prior default (2026-09-09) — untouched by the 2026-09-11 dry FFA promote
+  LR1_clean: 2026-09-09     # held at the prior default (2026-09-09) — untouched by the 2026-09-11 dry FFA promote
+  LR2_clean: 2026-09-09     # held at the prior default (2026-09-09) — untouched by the 2026-09-11 dry FFA promote
 twelve_month_tc:
   VLCC: 105700    # STAGE B 2026-09-09: HELD — no qualifying 12M print in the window (FRO 1-yr 110/120k are May-26 fixtures, §1.3); Mount Horizon single-print + spec-premium tags stand; MB 1yr 122,500 (W35) is an assessment (S-2)
   Suezmax: 74500    # STAGE B 2026-09-09: Monte Urbasa 156k/2018, 12 Months, ST Shipping (MB W35 8/28) — DIRECT single-print (Pareto 9/01 "74.5k" = the same fixture re-reported); Sea Topaz 80k 2026-NB scrubber EXCLUDED S-5/S-6 (doc-row, spec-premium); Stage-A derived-ratio retires; MB 1yr 77,500 corroborates (S-2)
@@ -61,15 +69,14 @@ twelve_month_tc:
   LR1_clean: 37000    # STAGE B 2026-09-09: HELD derived .7184 x LR2_clean (no LR1 12M print; MB LR1[TC5] 37,500 corroborates, S-2). Front 32,608 < 12M — a direct print vs a DERIVED 12M, §5 look done
   LR2_clean: 51500    # STAGE B 2026-09-09: HELD Torm Herdis 12mo single-print (no new clean 12M print; HAFN's fleet-wide 30.7k un-split); MB 57,500 corroborates (S-2)
   VLGC: 63615           # Dorian Q1-2026 realized TCE — disclosure-cluster vintage 2026-06-02 (held)
-  Cape: 37025           # (44125 Q4 + 29925 Q1-27)/2 = 37025 exact, FFA 01-Sep image-verified
-                        # print (ffa_promotion_2026-09-02.md; was 37300 31-Aug — -0.74%).
-                        # Cycle ratio 1.5772 -> 1.5655: late-cycle/peak band UNCHANGED
-  Pana: 20592           # (23083 Q4 + 18100 Q1-27)/2 = 20591.5, FFA 01-Sep (was 20550; +0.20%);
-                        # unrounded per the owner's 2026-09-02 Q-1 ruling, half-up to the int
-  Post-Panamax: 20592   # shares the Pana freight basin (§11.7.10, 2026-06-29)
-  Supra-Ultra: 18392    # (20883 Q4 + 15900 Q1-27)/2 = 18391.5, FFA 01-Sep (was 18467; -0.41%;
-                        # ratio 1.3257 -> 1.3203, elevated band unchanged; the
-                        # MB-Ultramax-premium re-read stands queued at the next MB dry weekly)
+  Cape: 38175           # (45375 Q4 + 30975 Q1-27)/2 = 38175, unrounded half-up (ruling Q-1).
+                        # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
+  Pana: 20571           # (22741 Q4 + 18400 Q1-27)/2 = 20571, unrounded half-up (ruling Q-1).
+                        # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
+  Post-Panamax: 20571   # (22741 Q4 + 18400 Q1-27)/2 = 20571, unrounded half-up (ruling Q-1).
+                        # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
+  Supra-Ultra: 18583    # (20891 Q4 + 16275 Q1-27)/2 = 18583, unrounded half-up (ruling Q-1).
+                        # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
   Handy-Bulk: 14500     # §11.7.11 (2026-07-14): MB Dry Bulk Weekly 28 (4-10 Jul) 1-yr TC,
                         # 38k dwt modern Japanese, net of address comm (printed basis). NO
                         # Handy FFA panel — refreshes on the MB weekly, NOT the FFA promote
