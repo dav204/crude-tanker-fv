@@ -95,7 +95,9 @@ secret set it has its own dead-man; (c) the window is 54 hours and contains no e
 _pending — fill at page + restore._
 
 - Armed (actual): _______
-- Page received (actual): _______  (expected 2026-09-14 ≈14:15 EDT)
+- Page received (actual): **2026-09-13 13:15:09 EDT** (2026-09-13T17:15:09Z), subject `DOWN |
+  crude-fv-sentinel` — a full day EARLIER than the 2026-09-14 ≈17:15 EDT expectation, because the
+  grace is 2h, not the 30h the 7/13 record claimed. See the Drill log entry below.
 - Ack: _______
 - Restored + PING-SENT: _______
 - Verdict: _______  → if PASS, this closes the Stage-0 → Stage-A gate item; if FAIL, the absence
@@ -109,3 +111,39 @@ _pending — fill at page + restore._
   so the page lands three hours later than the doc's estimate. Still inside the Monday window.)
 - RESTORE task moved 2026-09-12 to Monday 18:45 EDT (was 15:20 EDT, which would have run BEFORE the
   ≈17:15 EDT page and recorded a false NOT RECEIVED); the task now also commits its own doc line.
+- **PAGE RECEIVED 2026-09-13T17:15:09Z (Sun 13:15:09 EDT)** — "The check `crude-fv-sentinel` has
+  gone down. Reason: success signal did not arrive on time, grace time passed." Body: Period 1 day,
+  Last ping 1 day 2 hours ago, "Status changed to down at: Sun, 13 Sep 2026 13:15:09 -0400".
+  Criterion 1 PASSES: the absence channel fires. Firing is demonstrated for the first time; the
+  README "detectable by absence" claim stands.
+- **The +54h arithmetic did NOT hold — it was 26h.** Last SENT ping 2026-09-12T15:15:09Z → page
+  2026-09-13T17:15:09Z is exactly **26h00m** = Period 1d + Grace **2h**. The doc's "Grace 30h per
+  the 7/13 record" was wrong (30h ≠ the check's live setting), so every date in this plan was built
+  on a 28-hour overestimate. Consequence: the page landed Sunday afternoon, not Monday — one day
+  inside the window rather than at its end, and the whole Labor-Day-avoidance reasoning above was
+  solving a constraint that never bound. **Anyone reusing this drill: read Grace off the check
+  itself, do not inherit it from a prior record.** The practical rule going forward is
+  last-ping + ~26h, i.e. a withheld ping pages the NEXT day, not the day after.
+- Gap was real from the repo's own trace: `state/ping_status.json` read
+  `{"ts":"2026-09-14T15:15:12+00:00","status":"WITHHELD","detail":"drill armed"}`, and
+  `state/automation_runs.log` shows the sentinel RAN on both gap days —
+  `2026-09-13T15:15:03Z job=sentinel outcome=flags rc=2` and `2026-09-14T15:15:05Z job=sentinel
+  outcome=flags rc=2`. The checks kept evaluating; only the ping was withheld, exactly as designed.
+  The 2026-09-12 run pinged normally (it preceded the 14:07 arm) — that ping is the one healthchecks
+  counted down from.
+- **RESTORED 2026-09-15 morning EDT** (marker `state/drill_armed` deleted; evidenced between the
+  last logged run `2026-09-15T13:30:39Z` and that day's 15:15Z sentinel — the commit timestamp of
+  this line is the exact record). The restore ran ~15h after its scheduled Monday 18:45 EDT slot:
+  the Mac was dark from 2026-09-14T22:20Z to 2026-09-15T13:30Z (log gap), so the task fired on wake.
+  No ping was forced by hand; the next scheduled sentinel (2026-09-15 11:15 EDT / 15:15Z) resumes
+  pinging and healthchecks recovers on its own. Total withheld-ping gap ≈ 72h (2026-09-12 15:15Z →
+  2026-09-15 15:15Z), of which the check was DOWN for ~46h.
+- Ack: not recorded by this task — the page arrived Sunday; owner ack latency (criterion 2) is
+  unmeasured and stays open.
+- Verdict: **PASS on criterion 1 (firing demonstrated) and criterion 3 (restore), with a correction
+  to the timing model.** The one control the repo claimed and had never demonstrated is now
+  demonstrated. Two residual items for the owner: (a) criterion 2 (ack latency) was not captured;
+  (b) the page body reported "dav204@gmail.com: **2 checks down**" — only one of those is this
+  drill, so a second healthchecks check (plausibly the `sentinel-lite` check whose
+  `SENTINEL_LITE_HC_URL` secret is still unset per "Do this first" above) has been sitting down
+  outside the drill. Worth a look; it is not a drill failure.
