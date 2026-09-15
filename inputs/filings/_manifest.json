@@ -1881,5 +1881,35 @@
    }
   ],
   "amended": false
+ },
+ {
+  "ts": "2026-09-14T20:57:17+00:00",
+  "ticker": "LPG",
+  "cik": "0001596993",
+  "accession": "0001596993-26-000046",
+  "form": "8-K",
+  "filed": "2026-09-14",
+  "primary_doc": "lpg-20260910x8k.htm",
+  "staged_path": "inputs/filings/LPG/0001596993-26-000046_8-K_lpg-20260910x8k.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-15T13:31:16+00:00",
+  "ticker": "TRMD",
+  "cik": "0001655891",
+  "accession": "0000919574-26-006318",
+  "form": "6-K",
+  "filed": "2026-09-15",
+  "primary_doc": "p15075054_6-k.htm",
+  "staged_path": "inputs/filings/TRMD/0000919574-26-006318_6-K_p15075054_6-k.htm",
+  "exhibits": [
+   {
+    "doc": "p15075054_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/TRMD/0000919574-26-006318_6-K_p15075054_ex99-1.htm"
+   }
+  ],
+  "amended": false
  }
 ]
