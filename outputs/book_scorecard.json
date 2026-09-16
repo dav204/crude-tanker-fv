@@ -1,7 +1,7 @@
 {
   "schema_version": "2.8",
-  "generated_at": "2026-09-16T15:19:07+00:00",
-  "source_commit": "dddc02d",
+  "generated_at": "2026-09-16T17:07:16+00:00",
+  "source_commit": "f98d9fa",
   "quarter": "2026-Q2",
   "price_basis": {
     "total": 25,
@@ -363,40 +363,40 @@
       "sanity": "OK",
       "price": 19.33,
       "position": "TRIM/SHORT (overvalued)",
-      "fv": 13.58,
-      "ev_pct": -29.7,
-      "blend_fv": 15.86,
-      "nav_per_share": 16.46,
+      "fv": 10.73,
+      "ev_pct": -44.5,
+      "blend_fv": 12.95,
+      "nav_per_share": 13.36,
       "broker_nav": 22.48,
-      "gap_pct": -26.8,
+      "gap_pct": -40.6,
       "governance_discount_pct": 0.0,
       "sleeves": [
         {
           "sleeve": "crude",
           "sector": "crude",
-          "fv_contribution_per_share": 4.09
+          "fv_contribution_per_share": 3.4
         },
         {
           "sleeve": "dry_bulk",
           "sector": "dry_bulk",
-          "fv_contribution_per_share": 8.96
+          "fv_contribution_per_share": 6.89
         },
         {
           "sleeve": "containerships",
           "sector": "containerships",
-          "fv_contribution_per_share": 0.53
+          "fv_contribution_per_share": 0.45
         }
       ],
       "weight_sign_stable": true,
-      "ev_pct_family_min": -36.2,
-      "ev_pct_family_max": -29.7,
+      "ev_pct_family_min": -51.0,
+      "ev_pct_family_max": -44.5,
       "read_flag": "n/a",
       "robust": "n/a",
       "flip_margin_pct": null,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
-      "fv_low": 8.56,
-      "fv_high": 19.71,
+      "fv_low": 5.75,
+      "fv_high": 16.8,
       "balance_sheet_vintage": "2026-Q2"
     },
     {

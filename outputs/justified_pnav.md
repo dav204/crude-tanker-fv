@@ -40,7 +40,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | MPCC | containerships | $2.15 | $2.90 | 1.348× | n/a | — | 45.0% | — | no anchor → newbuild-heavy (unreliable) | n/a |
 | GSL | containerships | $41.37 | $38.99 | 0.942× | n/a | — | 47.6% | 4.857× | no anchor → cheap | n/a |
 | BRUT | crude | $4.92 | $4.70 | 0.955× | 10.9% | — | 10.0% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
-| CMBT **(WHOLE-CO)** | crude | $16.46 | $18.30 | 1.112× | n/a | — | 7.0% | 0.596× | no anchor → rich | n/a |
+| CMBT **(WHOLE-CO)** | crude | $13.36 | $18.30 | 1.370× | n/a | — | 8.6% | 0.757× | no anchor → rich | n/a |
 | LPG | lpg | $35.69 | $49.30 | 1.381× | n/a | — | 6.9% | 0.594× | no anchor → rich | n/a |
 | BWLP | lpg | $15.83 | $24.18 | 1.527× | n/a | — | 13.2% | 1.217× | no anchor → rich | n/a |
 
@@ -49,7 +49,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | Sector | Median Just P/NAV (parity) | Median (historical) | n |
 |---|--:|--:|--:|
 | dry_bulk | 1.098× | 0.915× | 5 |
-| crude | 0.807× | 0.758× | 5 |
+| crude | 0.807× | 0.763× | 5 |
 
 _The two columns ARE the signal: where parity ≫ historical, the sector reads cheaper under replacement economics than under its (boom/firm-window-biased) historical anchor — the §18 under-ordering. The §17.6 anchor-bias caveats apply to the historical column only; parity is independent of those biases (it is built from newbuild cost, not a rate-history window)._
 

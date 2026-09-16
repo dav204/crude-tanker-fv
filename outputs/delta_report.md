@@ -1,11 +1,11 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-09-16T15:19:07+00:00
-- **Previous run:** 2026-09-16T01:48:23+00:00
+- **This run:** 2026-09-16T17:07:16+00:00
+- **Previous run:** 2026-09-16T15:19:07+00:00
 
 ## Headline changes (material moves)
 
-- **No material changes.** All tickers within thresholds (|ΔFV%|≤10%, |Δspread|≤5pp, |ΔNAV%|≤5%) and no position flips.
+- **CMBT:** single-point FV -18.3%; scenario PW FV -21.0%; broker spread +12.9pp; NAV/sh -18.8%
 
 ## §17 read-flip strobe — tape vs the flip boundary
 
@@ -20,7 +20,10 @@
 _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the price this run values at to the nearest band edge whose crossing would settle the flip — i.e. where the read would sit once the watchlist rebases to today's tape. It is NOT a scorecard number and never governs: `read_flag` and the deadband are measured on the watchlist vintage (`Row margin`), the same price the read itself is computed on (Addendum B2, 2026-08-14). The two differ by exactly the drift between the two vintages._
 ## Input files changed since last run
 
+- `inputs/balance_sheets/cmbt_2026-Q2.yaml` (modified)
+- `inputs/earnings_calendar.yaml` (modified)
 - `inputs/forks.yaml` (modified)
+- `inputs/market_data/newbuild_convention.yaml` (modified)
 
 ## Full per-ticker deltas
 
@@ -46,7 +49,7 @@ _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the p
 | MPCC | $2.96 (no change) | $2.33 (no change) | $2.16 (no change) | $2.15 (no change) | TRIM/SHORT (overvalued) | +18.3pp (no change) |
 | GSL | $45.74 (no change) | $44.17 (no change) | $42.94 (no change) | $41.37 (no change) | TRIM/SHORT (overvalued) | +33.3pp (no change) |
 | BRUT | $5.25 (no change) | $4.71 (no change) | $5.35 (no change) | $4.92 (no change) | HOLD (fairly valued) | +3.1pp (no change) |
-| CMBT | $19.33 (no change) | $15.86 (no change) | $13.58 (no change) | $16.46 (no change) | TRIM/SHORT (overvalued) | +24.9pp (no change) |
+| CMBT ⚑ | $19.33 (no change) | $12.95 (-18.3%) | $10.73 (-21.0%) | $13.36 (-18.8%) | TRIM/SHORT (overvalued) | +37.8pp (+12.9pp) |
 | SB | $8.27 (no change) | $10.41 (no change) | $9.22 (no change) | $10.72 (no change) | BUY (undervalued) | -33.5pp (no change) |
 | LPG | $55.00 (no change) | $33.93 (no change) | $31.82 (no change) | $35.69 (no change) | TRIM/SHORT (overvalued) | +24.5pp (no change) |
 | BWLP | $25.16 (no change) | $15.48 (no change) | $14.52 (no change) | $15.83 (no change) | TRIM/SHORT (overvalued) | +13.2pp (no change) |

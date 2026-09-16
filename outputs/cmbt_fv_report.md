@@ -2,7 +2,7 @@
 
 - **Report date:** 2026-Q2
 - **Current price:** $19.33
-- **Model fair value:** $15.86
+- **Model fair value:** $12.95
 - **Analyst target:** $16.59
 
 ## Data validation warnings
@@ -22,11 +22,11 @@
 | + Working capital (net) | 1,252.7 |
 | − Total debt | 5,447.1 |
 | − Lease liabilities | 5.6 |
-| − Newbuild commitments | 0.0 |
+| − Newbuild commitments | 900.8 |
 | + Newbuild advances | 532.7 |
-| **= NAV total** | **4,777.3** |
+| **= NAV total** | **3,876.4** |
 | Diluted shares | 290,169,769 |
-| **NAV / share** | **$16.46** |
+| **NAV / share** | **$13.36** |
 
 ## Dividend strip (r = 11%)
 
@@ -41,8 +41,8 @@
 | Q7 | 33,008 | 33,008 | 0.597 | 0.299 | 0.249 |
 | Q8 | 32,508 | 32,508 | 0.581 | 0.291 | 0.236 |
 | Σ discounted DPS | | | | | 3.19 |
-| Terminal value (NAV, q9) | | | | 14.24 | 11.26 |
-| **DivStrip implied price** | | | | | **$14.45** |
+| Terminal value (NAV, q9) | | | | 11.14 | 8.81 |
+| **DivStrip implied price** | | | | | **$11.99** |
 
 _FFA spot is the Cape forward curve that drives the strip cash flows; its 12-month average is **$38,888/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$36,771/day** — not this FFA average._
 
@@ -53,64 +53,64 @@ _FFA spot is the Cape forward curve that drives the strip cash flows; its 12-mon
 
 ## Blended fair value
 
-0.70 × $16.46 (NAV) + 0.30 × $14.45 (strip) = **$15.86**
+0.70 × $13.36 (NAV) + 0.30 × $11.99 (strip) = **$12.95**
 
 ### FV attribution
 
 | Term | $/sh | share of FV |
 |---|---:|---:|
-| Vessel marks | 19.74 | 124% |
-| Balance-sheet net | -8.22 | -52% |
-| Discounted DPS (strip, 8-10q) | 0.96 | 6% |
-| Discounted terminal (aged NAV) | 3.38 | 21% |
-| **Blend FV** | **15.86** | 100% |
+| Vessel marks | 19.74 | 152% |
+| Balance-sheet net | -10.39 | -80% |
+| Discounted DPS (strip, 8-10q) | 0.96 | 7% |
+| Discounted terminal (aged NAV) | 2.64 | 20% |
+| **Blend FV** | **12.95** | 100% |
 
-_Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 × 0.78 = **93%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
+_Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 × 0.73 = **92%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
 
 ## Payout sensitivity
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $15.93 |
-| 95% | $15.97 |
-| 100% | $15.98 |
+| 80% | $13.02 |
+| 95% | $13.06 |
+| 100% | $13.07 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **2.17× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **3.15× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **116,320** | — |
-| 10-year mean | 24,718 | 4.71× |
-| 12-month FFA | 53,676 | 2.17× |
-| Current spot | 83,846 | 1.39× |
+| **Implied breakeven (blended)** | **168,836** | — |
+| 10-year mean | 24,718 | 6.83× |
+| 12-month FFA | 53,676 | 3.15× |
+| Current spot | 83,846 | 2.01× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Cape (60% of fleet value) | 84,272 | 3.56× |
-| Suezmax (15% of fleet value) | 208,148 | 7.50× |
-| Pana (13% of fleet value) | 42,565 | 3.58× |
-| VLCC (9% of fleet value) | 282,262 | 7.06× |
-| Ctr-Large (3% of fleet value) | 133,004 | 3.24× |
+| Cape (60% of fleet value) | 122,319 | 5.17× |
+| Suezmax (15% of fleet value) | 302,122 | 10.89× |
+| Pana (13% of fleet value) | 61,782 | 5.19× |
+| VLCC (9% of fleet value) | 409,697 | 10.24× |
+| Ctr-Large (3% of fleet value) | 193,053 | 4.71× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $9.95 | $12.46 | $14.97 | $17.47 | $19.98 |
-| **-15%** | $10.40 | $12.91 | $15.41 | $17.92 | $20.43 |
-| **+0%** | $10.84 | $13.35 | $15.86 | $18.37 | $20.87 |
-| **+15%** | $11.29 | $13.80 | $16.31 | $18.81 | $21.32 |
-| **+30%** | $11.74 | $14.24 | $16.75 | $19.26 | $21.77 |
+| **-30%** | $7.04 | $9.55 | $12.06 | $14.57 | $17.07 |
+| **-15%** | $7.49 | $10.00 | $12.50 | $15.01 | $17.52 |
+| **+0%** | $7.93 | $10.44 | $12.95 | $15.46 | $17.97 |
+| **+15%** | $8.38 | $10.89 | $13.40 | $15.90 | $18.41 |
+| **+30%** | $8.83 | $11.33 | $13.84 | $16.35 | $18.86 |
 
 _Current price $19.33. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$15.86** is -18.0% vs the current price ($19.33) and -4.4% vs the analyst target ($16.59). The current price implies the fleet earning a value-weighted blended **$116,320/day** (2.17× the current forward) — 4.7× the value-weighted 10-yr mean ($24,718, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$12.95** is -33.0% vs the current price ($19.33) and -21.9% vs the analyst target ($16.59). The current price implies the fleet earning a value-weighted blended **$168,836/day** (3.15× the current forward) — 6.8× the value-weighted 10-yr mean ($24,718, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

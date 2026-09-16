@@ -36,7 +36,7 @@ forks:
     opened: 2026-09-10
     execute_after: 2026-09-15
     recommendation: "move CMBT to COMMITMENT-NET (newbuild_capex_commitments = 900,837k sourced, Note 12 img_027) per newbuild_convention.yaml's own 'must move to' — NAV/share 16.46 -> 13.36 (-$3.10); CMBT leaves OFF_CONVENTION_QUEUE in the same commit; GSL's pending commitment-net pre-reg follows"
-    status: halted   # 2026-09-16 — needs a CODE change this executor may not make. Booking newbuild_capex_commitments = 900,837k flips CMBT advances-only -> commitment-net, which XPASSes the strict-xfail in tests/test_newbuild_convention.py; the recommendation itself says CMBT must leave OFF_CONVENTION_QUEUE in the same commit, and that set lives in src/crude_tanker_fv/provenance.py:54 mirrored at tests/test_newbuild_convention.py:31 (test_confidence_tier.py:76 pins the two equal). The scheduled executor is barred from src/ and tests/. NO input edited: cmbt_2026-Q2.yaml stays Branch A (commitments 0), NAV/share 16.46 unchanged.
+    status: executed   # 2026-09-16 — EXECUTED in chat 2026-09-16 (the executor halted on the src/tests queue exit): commit f98d9fa (sheet + queue exit + reasons), regen stamp f98d9fa; NAV/share 16.46 -> 13.36 = the pre-registered figure, band 13.26-13.46 HIT; SANITY OK; annotated decisions/cmbt_log.md
   - id: stage_b_open_items
     doc: decisions/stage_b_promotion_2026-09-09.md
     opened: 2026-09-09

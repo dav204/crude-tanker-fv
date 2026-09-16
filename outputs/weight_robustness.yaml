@@ -176,8 +176,8 @@ names:
     - BUY (undervalued)
     - BUY (undervalued)
   CMBT:
-    ev_min_pct: -36.2
-    ev_max_pct: -29.7
+    ev_min_pct: -51.0
+    ev_max_pct: -44.5
     ev_sign_stable: true
     positions:
     - TRIM/SHORT

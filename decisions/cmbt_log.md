@@ -1,5 +1,33 @@
 # CMBT — Decision Log
 
+## 2026-09-16 — FORK cmbt_commitments_convention EXECUTED: commitment-net, NAV/share 16.46 → 13.36 (−$3.10; band 13.26–13.46 HIT)
+
+**Decision:** CMBT moved from advances-only to commitment-net by booking the H1-2026 Note 12 newbuild commitment of USD 900,837k on the 2026-Q2 sheet, taking NAV/share 16.46 -> 13.36 (-18.8%), exactly the pre-registered 13.36 inside the frozen band 13.26-13.46. Fair value 13.58 -> 10.73; EV -29.7pp -> -44.5pp; the read stays TRIM/SHORT (overvalued), tier GOVERNED-WIDE. The k_broker second difference of +0.110 is the tool NAV falling against an unchanged Pareto broker NAV of 22.48 (gap -26.8% -> -40.6%, SANITY OK inside ±50%) — the convention switch, not a mark and not a price; the price is 19.33 on both sides. Source: Note 12 img_027 p.28 ("USD 0.9 billion (December 31, 2025: USD 1.6 billion)"), six rows and four year-columns foot. The silence window closed 2026-09-15; the scheduled executor halted 2026-09-16 because the OFF_CONVENTION_QUEUE exit is a src/tests change it may not make, so the landing was carried in a chat in one commit (f98d9fa: sheet + queue exit + newbuild_convention.yaml reasons) per decisions/cmbt_q2_landing_2026-09-10.md; regen stamp f98d9fa. GSL is now the last structural name still advances-only and leaves via its own pre-reg. Baseline anchor: the 2026-09-16 auto-land (19345f9); the next auto-land absorbs this row from this entry.
+
+---
+
+## 2026-09-16T17:07:16+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $19.33
+- Single-point FV: $12.95
+- Scenario PW FV: $10.73 (EV -44.5%)
+- NAV / share: $13.36
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +37.8pp (k_broker 1.32)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ single-point FV -18.3%
+- ⚑ scenario PW FV -21.0%
+- ⚑ broker spread +12.9pp
+- ⚑ NAV/sh -18.8%
+- Δprice: no change | Δsingle FV: -18.3% | Δscenario FV: -21.0% | ΔNAV: -18.8% | Δspread: +12.9pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-10 — SGM NOTICE + Q3 RESULTS DATE (6-K 0000919574-26-006196, 9/08): calendar + record-only; NOT a fleet or Q3-QTD update
 
 **Decision:** Special General Meeting Thursday 8 October 2026 10:30 CET (record date 24 September; freeze 9/23–9/25). One line for the calendar: "Publication Q3 2026 results – 26 November 2026" — seed CMBT 2026-11-26 at the Q3 re-seed. Unrelated to the landed Q2 pair (NAV 16.46, band-hit): no balance sheet, no fleet table, no Q3-QTD, no prices; the notes-bearing H1 report is 006193 (its exhibits image-only, still FILING-UNREADABLE). The SGM is the gate the log flagged for the $0.64 distribution ("gated on a Special Shareholders' Meeting, payment expected October"); the agenda is not in the 6-K — settles at the convening notice on cmb.tech.

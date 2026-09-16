@@ -15,8 +15,8 @@ Each name valued at three vessel-mark levels: **tool marks** (k=1.00, transactio
 | BRUT | 1.03× | 1.02 | +2.0% | +3.6% | +5.1% | HOLD→BUY | $250,393→$215,540 | +3 | narrow-spread |
 | TNK | 0.91× | 1.51 | -17.0% | -6.1% | +4.9% | TRIM/SHORT→HOLD | $252,518→$15,908 | +22 | wide-spread |
 | HAFN | 1.03× | 1.69 | -41.8% | -19.8% | +2.1% | TRIM/SHORT→HOLD | $199,650→$60,125 | +44 | wide-spread |
-| CMBT **(WHOLE-CO)** | 0.86× | 1.21 | -29.7% | -17.3% | -4.8% | TRIM/SHORT→TRIM/SHORT | $203,487→$34,997 | +25 | wide-spread |
 | SBLK | 0.91× | 1.01 | -6.7% | -6.0% | -5.3% | TRIM/SHORT→TRIM/SHORT | $16,893→$14,377 | +1 | narrow-spread |
+| CMBT **(WHOLE-CO)** | 0.86× | 1.32 | -44.5% | -25.6% | -6.7% | TRIM/SHORT→TRIM/SHORT | $295,440→$40,030 | +38 | wide-spread |
 | DHT | 1.14× | 1.28 | -26.8% | -17.5% | -8.1% | TRIM/SHORT→TRIM/SHORT | $811,681→$420,161 | +19 | wide-spread |
 | MPCC | 1.04× | 1.21 | -26.9% | -17.8% | -8.6% | TRIM/SHORT→TRIM/SHORT | $209,069→$59,567 | +18 | wide-spread |
 | GNK | 0.95× | 1.09 | -20.4% | -16.0% | -11.6% | TRIM/SHORT→TRIM/SHORT | $41,274→$25,025 | +9 | narrow-spread |

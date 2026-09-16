@@ -32,6 +32,20 @@ live rules distilled from it.
   workflow that DIED mid-build (one scout classifier-blocked, stalling the barrier); its partial output
   was reviewed line by line and kept on the merits, and the test suite it never reached was written by
   hand afterwards.
+- **2026-09-16 — THE LOOP CLOSED ON ITS FIRST MORNING; TWO PAGES RULED.** The new [price-leg]
+  lane ran at 11:15: drift committed, surface regenerated (src/ had moved) and verified, annotator found
+  nothing to do, auto-land AUTO-ABSORBABLE — the anchor advanced (19345f9) for the first time since
+  9/11, with no hand. *Page 1, FILING-OVERDUE TEN:* ruled HOLD on the 2026-Q1 sheet, not chase — the
+  sheet-writable H1 6-K lags TEN's release by weeks (H1-2025: three weeks), still absent on EDGAR;
+  `window_end` re-set 2026-09-10 → 2026-10-01 on that precedent so the page re-fires only if it is
+  truly late. *Page 2, the executor halted `cmbt_commitments_convention`* because the exit from
+  `OFF_CONVENTION_QUEUE` is a src/tests change it may not make — the right halt; the landing was
+  carried in a chat in one commit (f98d9fa): commitment 900,837k booked, CMBT out of the queue in both
+  registries, `newbuild_convention.yaml` reasons refreshed; NAV/share 16.46 → **13.36, the
+  pre-registered figure to the cent** (band 13.26–13.46), SANITY OK at −40.6% vs broker; annotated;
+  fork executed. *Lesson worth a guard:* a fork whose recommendation needs a code change should say
+  so at registration (a `needs_code: true` flag the executor reads to page immediately instead of
+  spending a run) — queued, not built.
 - **2026-09-14 — THE FIRST UNATTENDED PROMOTE, AND WHAT IT CAUGHT.** The fork executor's first
   real run (owner installed it 9/14) did exactly what it was built to do: it flushed the drift,
   promoted the 2026-09-11 dry FFA print, regenerated, checked, found two guards red, **halted,
