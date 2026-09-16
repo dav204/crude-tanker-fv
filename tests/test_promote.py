@@ -268,3 +268,36 @@ def test_buy_flip_registers_a_fork_and_lands_once_it_is_executed(tmp_path, monke
     assert rc == 0 and calls and calls[0][0] == "scripts/ratify_baseline.sh"
     v, _ = _promote.evaluate_land(root)
     assert any("(fork executed)" in d for n, p, d in v.conjuncts if n.startswith("(d)"))
+
+
+def test_process_files_under_inputs_are_not_determinants(tmp_path, monkeypatch):
+    """2026-09-15: executing a fork writes inputs/forks.yaml, and (e) counted it as a
+    determinant — so the lane froze the moment the executor did its job. A determinant is a
+    file the pipeline reads into a valuation; the fork registry, the notify routes, the
+    trigger cards, the source config, the earnings calendar and the duty roster are not."""
+    calls = {}
+
+    def fake_git(root, *a):
+        if a[:2] == ("rev-parse", "--short"):
+            return "head123"
+        if a[0] == "diff":
+            calls["args"] = a
+            return ""
+        return ""
+
+    monkeypatch.setattr(_promote, "_git", fake_git)
+    monkeypatch.setattr(_promote, "_git_ok", lambda root, *a: True)
+    (tmp_path / "outputs").mkdir()
+    (tmp_path / "outputs" / "book_scorecard.json").write_text(_json.dumps({"source_commit": "stamp123"}))
+    ok, detail = _promote._surface_matches_head(tmp_path)
+    assert ok, detail
+    excluded = [a for a in calls["args"] if a.startswith(":(exclude)")]
+    for p in ("inputs/forks.yaml", "inputs/notify.yaml", "inputs/reweight_triggers.yaml",
+              "inputs/earnings_calendar.yaml", "inputs/data_sources.yaml",
+              "inputs/rocketchat_sources.yaml", "inputs/archive_gaps.yaml", "inputs/agent_duties.yaml"):
+        assert f":(exclude){p}" in excluded, f"{p} still counts as a determinant"
+    # the real determinants are still watched
+    assert "src" in calls["args"] and "inputs" in calls["args"]
+    for p in ("inputs/market_data/prices_daily.yaml", "inputs/watchlist.yaml",
+              "inputs/scenario_inputs.yaml", "inputs/balance_sheets", "inputs/fleet_manifests"):
+        assert f":(exclude){p}" not in excluded, f"{p} must stay a determinant"
