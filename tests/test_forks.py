@@ -64,3 +64,27 @@ def test_open_appends_block_with_business_day_window(tmp_path):
                         opened=date(2026, 9, 11), path=p)
     assert f["execute_after"] == "2026-09-11"
     assert forks.add_business_days(date(2026, 9, 12), 3) == date(2026, 9, 16)   # Sat start
+
+
+def test_needs_code_forks_are_the_chats_not_the_executors(tmp_path):
+    """2026-09-16: CMBT's fork needed a src/tests change; the scheduled executor spent a full
+    run discovering it and paged. A fork can now say so at registration (needs_code: true) —
+    executable() hides it from the executor, needs_chat() lists it for the owner/agent, and
+    the flag can be set textually on an existing fork with every comment kept."""
+    p = tmp_path / "forks.yaml"
+    p.write_text(SAMPLE)
+    f = forks.open_fork("code_fork", kind="judgment", doc="decisions/x.md", recommendation="edit provenance.py",
+                        opened=date(2026, 9, 10), path=p, needs_code=True)
+    assert f["needs_code"] and f["execute_after"] == "2026-09-15"
+    assert "needs_code: true" in p.read_text()
+    today = date(2026, 9, 16)
+    assert [x["id"] for x in forks.executable(today, path=p)] == ["alpha", "beta"]
+    assert [x["id"] for x in forks.executable(today, path=p, include_needs_code=True)] == ["alpha", "beta", "code_fork"]
+    assert [x["id"] for x in forks.needs_chat(today, path=p)] == ["code_fork"]
+    # flag an existing fork after the fact — the comment on its id line survives
+    forks.set_needs_code("beta", path=p, note="tests/test_x.py re-pin")
+    t = p.read_text()
+    assert "# trailing comment stays" in t and "    needs_code: true   # tests/test_x.py re-pin" in t
+    assert [x["id"] for x in forks.executable(today, path=p)] == ["alpha"]
+    forks.set_needs_code("beta", path=p)                       # idempotent
+    assert t == p.read_text()

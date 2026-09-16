@@ -1018,7 +1018,16 @@ forks:
     recommendation: "already done"
     status: executed
 """)
-    fl = [f for f in collect_flags(inputs, outputs) if f.startswith("FORK-EXECUTABLE")]
-    assert len(fl) == 1, fl
-    assert "past_open" in fl[0] and "do the thing" in fl[0]
-    assert "future_open" not in fl[0] and "past_executed" not in fl[0]
+    flags = collect_flags(inputs, outputs)
+    # 2026-09-16 re-cut: the PAGE is FORK-OPENED, at the window's opening ("executes after
+    # <date> unless you object"); FORK-EXECUTABLE is the digest's record that the window closed
+    # and the executor runs it today. A needs_code fork says NEEDS A CHAT on both lines.
+    ex = [f for f in flags if f.startswith("FORK-EXECUTABLE")]
+    op = [f for f in flags if f.startswith("FORK-OPENED")]
+    assert len(ex) == 1 and "past_open" in ex[0] and "the executor runs it today" in ex[0], ex
+    assert len(op) == 1 and "future_open" in op[0] and "unless you object" in op[0], op
+    assert not any("past_executed" in f for f in flags)
+    (inputs / "forks.yaml").write_text((inputs / "forks.yaml").read_text().replace(
+        "    doc: decisions/x.md\n", "    doc: decisions/x.md\n    needs_code: true\n", 1))
+    ex = [f for f in collect_flags(inputs, outputs) if f.startswith("FORK-EXECUTABLE")]
+    assert len(ex) == 1 and "a chat lands it" in ex[0] and "NEEDS A CHAT" in ex[0], ex

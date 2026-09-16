@@ -32,6 +32,24 @@ live rules distilled from it.
   workflow that DIED mid-build (one scout classifier-blocked, stalling the barrier); its partial output
   was reviewed line by line and kept on the merits, and the test suite it never reached was written by
   hand afterwards.
+- **2026-09-16 — WHY THE PAGES KEPT COMING, AND THE THREE FIXES.** *Owner:* "let me know why the
+  pages and hand-cranked chats are still happening every single day". *The ledger
+  (`state/notify_sent.log`):* 6 page emails in 3 days (9/14–9/16). Their causes, one by one:
+  3 executor HALTS — two defects in code written the day before (the `as_of` contract 9/14, the
+  stale-anchor inheritance 9/15) and one design gap (CMBT needed a src/tests change the executor
+  may not make); 5 FORK-EXECUTABLE lines marked "(optional)" — pages that asked for nothing, fired
+  at the window's CLOSE when only a chat could still object; 1 FILING-OVERDUE — a calendar window
+  set to the release date for an issuer that files its 6-K three weeks later. *Verdict:* the pages
+  were the build's own halt-and-page discipline catching each day's new layer, at build-out pace —
+  not steady-state operation. *Fixes:* (1) `FORK-OPENED` pages ONCE at a fork's opening ("executes
+  after <date> unless you object"); `FORK-EXECUTABLE` is now a digest line (the executor runs it);
+  (2) `needs_code: true` on a fork — `forks open --needs-code` / `forks needs-code <id>` —
+  hides it from the executor, says NEEDS A CHAT on the owner's line at opening, and the executor
+  flags any fork it discovers needs code so the halt pages once, not daily
+  (`r4_wo5_deck_reexpression_schedule` flagged: WO5 re-pins the scenario lock tests and needs
+  execution-day owner words by its own law); (3) FILING-OVERDUE windows are the issuer's filing
+  pattern, not the release date (TEN re-set 9/16). Guards: `test_needs_code_forks_are_the_chats…`,
+  the re-cut `test_fork_executable_fires_only_after_the_silence_window`, `test_notify` routing.
 - **2026-09-16 — THE LOOP CLOSED ON ITS FIRST MORNING; TWO PAGES RULED.** The new [price-leg]
   lane ran at 11:15: drift committed, surface regenerated (src/ had moved) and verified, annotator found
   nothing to do, auto-land AUTO-ABSORBABLE — the anchor advanced (19345f9) for the first time since

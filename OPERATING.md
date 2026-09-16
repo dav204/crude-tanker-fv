@@ -25,9 +25,12 @@ recovery and watchlist pair rebases ride the digest and the agent tasks below; t
 is `inputs/notify.yaml` and `tests/test_notify.py` reds the build if a page-class tag has no
 owner action text.
 
-Most pages are of the form "object within three business days or it runs" (`FORK-EXECUTABLE`,
-policy `inputs/forks.yaml`). Silence executes the recommendation. To object, open a chat in this
-repo and say so in one line.
+Most pages are of the form "a recommendation was registered; it executes after <date> unless you
+object" (`FORK-OPENED`, policy `inputs/forks.yaml`) — one page per fork, at its OPENING, so the
+objection window is real. The window closing is a digest line, and the daily executor runs it. To
+object, open a chat in this repo and say so in one line. A line marked NEEDS A CHAT is a fork whose
+recommendation includes a code change; the executor never touches those — open a chat when you want
+it landed.
 
 ## Layer 1 — runs by itself (launchd on this Mac; no app, no agent, no LLM)
 
@@ -386,7 +389,7 @@ flowchart LR
 | `SURFACE-INCOHERENT` | a guard contradicted the published surface; the agent halted — read the named check and rule |
 | `FILING-OVERDUE` | the issuer has not filed past its window — chase, or hold the name on its prior sheet |
 | `TRIGGER-DUE` | an observable you registered is due — record its outcome, or say "agent" |
-| `FORK-EXECUTABLE` | optional: object today, else the recommendation runs |
+| `FORK-OPENED` | optional: a recommendation was registered; object before the date shown, else it runs. NEEDS A CHAT on the line means the executor cannot land it (code change) — open a chat when you want it done |
 | `DIRTY-TOO-LONG` | the tree has been mid-surgery for days — finish, stash, or say "discard" |
 | `REAUTH-NEEDED` | re-authenticate the named surface |
 | `FETCH-FAILED` (in reporting season, two runs) | check the network or the credentials file |

@@ -31,13 +31,17 @@ routes:
     - FILING-OVERDUE        # OWNER: the issuer has not filed past its window — chase or hold the sheet
   page_once:
     - TRIGGER-DUE           # OWNER observable due; key = tag + trigger label (+ due date); day-2 repeat → digest
-    - FORK-EXECUTABLE       # OWNER (optional): object today, else the recommendation runs (ruled 2026-09-10)
+    - FORK-OPENED           # OWNER (optional): a fork just opened — object before execute_after, else it runs
+                            # (2026-09-16: the page moved from the window's CLOSE to its OPENING; at close
+                            # only a chat could stop it and the executor now runs it, so close = digest)
     - DIRTY-TOO-LONG        # OWNER/AGENT: the tree has been mid-surgery for days; key = tag
     - REAUTH-NEEDED         # OWNER: re-authenticate the named surface; key = surface; clears on success
   digest:
     - FILING-LANDED         # AGENT-class since 2026-09-11 (was page_once): the daily triage task
                             # dispositions + acks each arrival (filings ack); acked rows drop out
     - FILING-UNREADABLE     # AGENT-class since 2026-09-11 (was page): page-image recovery is agent work
+    - FORK-EXECUTABLE       # AGENT-class since 2026-09-16 (was page_once): the window closed — the daily
+                            # executor runs it; a needs_code fork says "a chat lands it" and stays here
     - STALE-STATIC          # AGENT-class since 2026-09-11 (was page_once): rebased as a fork (CMDB 9/10)
     - EARNINGS-UNCONFIRMED  # AGENT-class since 2026-09-11 (was page_once per the 2026-07-21 directive,
                             # superseded by the 2026-09-11 ruling): the date sweep is the agent's

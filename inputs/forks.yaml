@@ -61,6 +61,7 @@ forks:
   - id: r4_wo5_deck_reexpression_schedule
     kind: judgment
     doc: decisions/forks_registered_2026-09-10.md
+    needs_code: true   # WO5 Phases 0-3b re-derive the crude scenario legs (tests/test_scenarios.py lock re-pin) and its own law reserves execution-day owner words for CAPT/TNK/BRUT — a chat lands it (2026-09-16)
     opened: 2026-09-10
     execute_after: 2026-09-15
     recommendation: "Execute WO5 Phases 0-3b on the post-Stage-B base (12M as_of 2026-09-09) with the C3 vector 0.28/0.59/0.00/0.13 as the FROZEN weight input; ΔNAV 0.0, the 10 crude names move >2pp EV by design, non-crude exactly 0.00. No void retires here: the three Phase-4 dispositions (CAPT / TNK / BRUT) stay execution-day owner words (WO5 law); B1 re-arms at TNK's disposition"

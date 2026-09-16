@@ -353,6 +353,13 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
     #     inputs/forks.yaml carries every open owner fork with its execute_after date (3
     #     business days from opening). Once it passes, the recommendation IS the answer
     #     and the agent executes it; the page is the record that the window closed.
+    #     2026-09-16 re-cut (owner: "why are pages still happening every day"): the page moved
+    #     from the CLOSE of the window to its OPENING. Paging at close was a notice, not an
+    #     objection window — by then only a chat could stop it, and with the executor installed
+    #     nothing needs the owner at close. FORK-OPENED pages ONCE when a fork first appears
+    #     ("executes after <date> unless you object"); FORK-EXECUTABLE is the digest's record
+    #     that the window closed and the executor runs it today. A fork flagged needs_code
+    #     says so at opening: the executor will not touch it, a chat lands it.
     forks_path = inputs_dir / "forks.yaml"
     if forks_path.exists():
         try:
@@ -361,10 +368,15 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
                 if str(f.get("status", "open")) != "open":
                     continue
                 ea = f.get("execute_after")
-                if ea and date.fromisoformat(str(ea)) <= today:
-                    flags.append(f"FORK-EXECUTABLE {f.get('id')}: unanswered since {f.get('opened')} — "
-                                 f"the recommendation executes: {str(f.get('recommendation'))[:140]} "
-                                 f"({f.get('doc')})")
+                chat = " NEEDS A CHAT (the recommendation includes a code change; the executor skips it)" \
+                    if f.get("needs_code") else ""
+                if ea and date.fromisoformat(str(ea)) > today:
+                    flags.append(f"FORK-OPENED {f.get('id')}: executes after {ea} unless you object — "
+                                 f"{str(f.get('recommendation'))[:140]} ({f.get('doc')}){chat}")
+                elif ea:
+                    flags.append(f"FORK-EXECUTABLE {f.get('id')}: window closed {ea}, opened {f.get('opened')} — "
+                                 f"{'a chat lands it' if f.get('needs_code') else 'the executor runs it today'}: "
+                                 f"{str(f.get('recommendation'))[:120]} ({f.get('doc')}){chat}")
         except Exception as exc:
             flags.append(f"FORK-EXECUTABLE check failed: {exc}")
 
