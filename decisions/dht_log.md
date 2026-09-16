@@ -1,5 +1,11 @@
 # DHT — Decision Log
 
+## 2026-09-15 — THE 9/15 TAPE ONLY: EV -25.8pp -> -26.8pp, fair value unchanged to the cent
+
+**Decision:** DHT's fair value is unchanged to the cent at 16.32 and the close took the share 22.00 -> 22.30 (+1.36%), so EV compressed -25.8pp -> -26.8pp on price alone. No crude curve moved in the 2026-09-15 dry FFA promote. The read stays the governed relabel 'rich - cycle position (not a short)'. Baseline anchor: the 2026-09-11 ratify (1988a4d). Gate row dNAV +0.0%. The anchor has not advanced since 9/11 because the daily loop has no regen step — precondition (e) of the land lane has failed every morning 9/12-9/15; recorded and being fixed separately.
+
+---
+
 ## 2026-09-10 — Escalation reweight annotation
 
 **Decision:** CRUDE ESCALATION REWEIGHT (fork escalation_c3_rearm, executed on verification at the owner's word 2026-09-10; decisions/escalation_c3_rearm_2026-09-10.md): crude scenario weights 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13 — the +3pp C3 tilt, from pre_mou_baseline's fast-reverting-flare-up mass, because the strike pause ended 8/30 and the flare-up did not revert (campaign from 9/01; TD3C $790.8k 9/10). A WEIGHT-ONLY leg: ΔNAV exactly 0.0; the EV move is the probability-weighted FV re-blending. Landed inside the pre-registered band. 

@@ -1,5 +1,30 @@
 # BRUT — Decision Log
 
+## 2026-09-15 — THE 9/15 TAPE ONLY: EV +7.0pp -> +2.0pp, fair value unchanged to the cent
+
+**Decision:** BRUT's fair value is unchanged to the cent at 5.35 and the close took the share 5.00 -> 5.25 (+5.0%), so EV compressed +7.0pp -> +2.0pp on price alone. The 2026-09-15 dry FFA promote reaches no curve BRUT reads. The displayed read stays the governed relabel 'unreliable read (not actionable)', so the underlying band move is masked by design and is excluded from the land lane's buy-ward check. Baseline anchor: the 2026-09-11 ratify (1988a4d). Gate row dNAV +0.0%. The anchor has not advanced since 9/11 because the daily loop has no regen step — precondition (e) of the land lane has failed every morning 9/12-9/15; recorded and being fixed separately.
+
+---
+
+## 2026-09-16T01:48:23+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.25
+- Single-point FV: $4.71
+- Scenario PW FV: $5.35 (EV +2.0%)
+- NAV / share: $4.92
+- Position: **HOLD (fairly valued)**
+- Broker spread: +3.1pp (k_broker 1.02)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: +0.25 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +4.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-10T18:37:43+00:00 — Pipeline run (auto)
 
 **Model state:**

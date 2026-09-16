@@ -1,5 +1,31 @@
 # TRMD — Decision Log
 
+## 2026-09-15 — THE OAKTREE SECONDARY: price -6.73%, fair value unchanged, band HOLD -> BUY on price alone
+
+**Decision:** TRMD's fair value is unchanged to the cent at 35.14 and the close took the share 35.08 -> 32.96 (-6.73% on the day against a 35.34 prev_close), so EV moved +0.2pp -> +6.6pp and the band crossed HOLD -> BUY. The cause is dated and sourced: the 2026-09-15 6-K 0000919574-26-006318 announces a SECONDARY offering by OCM Njord Holdings (Oaktree, ~20% holder pre-deal) of 9,000,000 Class A shares plus a 1,350,000 underwriter option, J.P. Morgan sole underwriter. A secondary is a sale by an existing holder: no new shares, no proceeds to the company, no dilution — which is exactly why NAV per share and fair value are unchanged, and correctly so. The move is the market repricing an overhang, not the model repricing the company. A flip TOWARD BUY is the standing halt-and-investigate, so the land lane registers a buyflip fork and the anchor waits out its three-business-day objection window rather than walking the name into BUY unattended. Baseline anchor: the 2026-09-11 ratify (1988a4d). Gate row dNAV +0.0%. The anchor has not advanced since 9/11 because the daily loop has no regen step — precondition (e) of the land lane has failed every morning 9/12-9/15; recorded and being fixed separately.
+
+---
+
+## 2026-09-16T01:48:23+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $32.96
+- Single-point FV: $32.62
+- Scenario PW FV: $35.14 (EV +6.6%)
+- NAV / share: $32.30
+- Position: **BUY (undervalued)**
+- Broker spread: +9.8pp (k_broker 1.09)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → BUY (undervalued)
+- ⚑ broker spread -5.4pp
+- Δprice: -2.12 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -5.4pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-11 — Price-leg annotation (2026-09-10 vintage)
 
 **Decision:** PRICE LEG — the 2026-09-10 close vintage absorbed as its own commit (df80814) and regenerated via scripts/regen.sh (stamp b357696). No input other than prices_daily.yaml moved for this name: ΔNAV exactly 0.0; any band change is a mechanical crossing on the tape, away from BUY. ΔEV +2.5pp.

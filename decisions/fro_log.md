@@ -1,5 +1,11 @@
 # FRO — Decision Log
 
+## 2026-09-15 — THE 9/15 TAPE ONLY: EV -41.5pp -> -44.1pp, fair value unchanged to the cent
+
+**Decision:** FRO's fair value is unchanged to the cent at 28.79 and the close took the share 49.21 -> 51.52 (+4.69%), so EV compressed -41.5pp -> -44.1pp on price alone. No crude curve moved in the 2026-09-15 dry FFA promote, and the VLCC 12M line is HELD at 105,700 (settled at the issuer source 2026-09-14, decisions/stage_b_open_items_2026-09-14.md). The read stays the governed relabel 'rich - cycle position (not a short)'. Baseline anchor: the 2026-09-11 ratify (1988a4d). Gate row dNAV +0.0%. The anchor has not advanced since 9/11 because the daily loop has no regen step — precondition (e) of the land lane has failed every morning 9/12-9/15; recorded and being fixed separately.
+
+---
+
 ## 2026-09-10 — Escalation reweight annotation
 
 **Decision:** CRUDE ESCALATION REWEIGHT (fork escalation_c3_rearm, executed on verification at the owner's word 2026-09-10; decisions/escalation_c3_rearm_2026-09-10.md): crude scenario weights 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13 — the +3pp C3 tilt, from pre_mou_baseline's fast-reverting-flare-up mass, because the strike pause ended 8/30 and the flare-up did not revert (campaign from 9/01; TD3C $790.8k 9/10). A WEIGHT-ONLY leg: ΔNAV exactly 0.0; the EV move is the probability-weighted FV re-blending. Landed inside the pre-registered band. 
