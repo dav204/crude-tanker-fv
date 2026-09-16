@@ -145,3 +145,17 @@ def test_the_marker_is_stable_for_the_same_run_and_row():
     assert ok
     assert an.marker(ctx, f) == an.marker(ctx, f)
     assert "ticker=AAA" in an.marker(ctx, f) and ctx.anchor_commit in an.marker(ctx, f)
+
+
+def test_the_determinant_exclusion_list_has_exactly_one_definition():
+    """Two surfaces assumed to agree need a TEST that they agree (2026-07-02). The annotator's
+    price-leg proof and the land lane's (e) must measure the SAME window, or a morning the
+    promoter calls current could be one the annotator calls contaminated, and vice versa."""
+    import inspect
+    src = inspect.getsource(an.determinant_changes)
+    assert "promote.DETERMINANT_EXCLUDES" in src, "the annotator built its own copy of the list"
+    assert "DETERMINANT_EXCLUDES" in inspect.getsource(promote._surface_matches_head)
+    for p in ("inputs/forks.yaml", "inputs/filings", "inputs/earnings_calendar.yaml"):
+        assert f":(exclude){p}" in promote.DETERMINANT_EXCLUDES
+    for p in ("inputs/market_data/prices_daily.yaml", "inputs/watchlist.yaml", "src"):
+        assert f":(exclude){p}" not in promote.DETERMINANT_EXCLUDES

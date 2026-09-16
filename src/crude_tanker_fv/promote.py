@@ -218,6 +218,25 @@ def _git_ok(root: Path, *args: str) -> bool:
         return False
 
 
+# Source ARCHIVES under inputs/ (staged filings, issuer/broker research) are read by agents,
+# never by the pipeline — a saved press release must not freeze the lane. PROCESS files under
+# inputs/ are likewise not determinants (2026-09-15): the fork registry, the notify routing table,
+# the trigger cards, the source/coverage config, the earnings calendar and the duty roster change
+# no number the pipeline computes. Executing a fork writes forks.yaml, which froze this lane the
+# moment the executor did its job. The test of a determinant is whether the pipeline reads it into
+# a valuation. ONE list, two readers: annotate.determinant_changes measures its price-leg proof
+# over the same window this exclusion defines (guarded by tests/test_annotate.py).
+DETERMINANT_EXCLUDES = (
+    ":(exclude)inputs/filings", ":(exclude)inputs/research_issuer",
+    ":(exclude)inputs/research_pareto", ":(exclude)inputs/research_pareto_other",
+    ":(exclude)inputs/research_mb", ":(exclude)inputs/ffa_drybulk",
+    ":(exclude)inputs/forks.yaml", ":(exclude)inputs/notify.yaml",
+    ":(exclude)inputs/reweight_triggers.yaml", ":(exclude)inputs/data_sources.yaml",
+    ":(exclude)inputs/rocketchat_sources.yaml", ":(exclude)inputs/archive_gaps.yaml",
+    ":(exclude)inputs/earnings_calendar.yaml", ":(exclude)inputs/agent_duties.yaml",
+)
+
+
 def _surface_matches_head(root: Path) -> "tuple[bool, str]":
     """(e): the committed decision surface must be CURRENT for HEAD.
 
@@ -237,21 +256,8 @@ def _surface_matches_head(root: Path) -> "tuple[bool, str]":
         return False, f"surface stamped dirty ({stamp})"
     if not _git_ok(root, "merge-base", "--is-ancestor", stamp, "HEAD"):
         return False, f"surface {stamp} is not an ancestor of HEAD {head}"
-    # Source ARCHIVES under inputs/ (staged filings, issuer/broker research) are read by
-    # agents, never by the pipeline — a saved press release must not freeze the lane.
-    # PROCESS files under inputs/ are likewise not determinants (2026-09-15): the fork
-    # registry, the notify routing table, the trigger cards, the source/coverage config, the
-    # earnings calendar and the duty roster change no number the pipeline computes. Executing
-    # a fork writes forks.yaml, which froze this lane the moment the executor did its job.
-    # The test of a determinant is whether the pipeline reads it into a valuation.
     changed = _git(root, "diff", "--stat", stamp, "HEAD", "--", "src", "inputs",
-                   ":(exclude)inputs/filings", ":(exclude)inputs/research_issuer",
-                   ":(exclude)inputs/research_pareto", ":(exclude)inputs/research_pareto_other",
-                   ":(exclude)inputs/research_mb", ":(exclude)inputs/ffa_drybulk",
-                   ":(exclude)inputs/forks.yaml", ":(exclude)inputs/notify.yaml",
-                   ":(exclude)inputs/reweight_triggers.yaml", ":(exclude)inputs/data_sources.yaml",
-                   ":(exclude)inputs/rocketchat_sources.yaml", ":(exclude)inputs/archive_gaps.yaml",
-                   ":(exclude)inputs/earnings_calendar.yaml", ":(exclude)inputs/agent_duties.yaml")
+                   *DETERMINANT_EXCLUDES)
     if changed.strip():
         return False, f"determinants changed since the surface {stamp}: {changed.strip().splitlines()[-1]}"
     return True, f"surface {stamp} current for HEAD {head}"
