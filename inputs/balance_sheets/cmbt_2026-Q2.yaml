@@ -107,15 +107,18 @@ lease_liabilities: 5601000
 # 525,998, Note 7) are NOT on the curve: four of the six classes have no §9.9 fit and the
 # dry-bulk / offshore lines are not split per hull, so the obligation is booked and the
 # asset is not (clause 2). Cost of this convention vs Q1: −$3.10/share.
-# FORK 3 — BRANCH A APPLIED (2026-09-10): the engine SUBTRACTS this field (nav.py:117), so
-# booking 900,837k flips CMBT from advances-only to commitment-net, −$3.10/share (900,837k /
-# 290,169,769). newbuild_convention.yaml says CMBT "must move to commitment-net (own pre-reg)"
-# — a methodology switch with its own ruling, NOT one of the three silence-executed forks.
-# Registered as fork cmbt_commitments_convention (inputs/forks.yaml). Until ruled, the Q1
-# convention continues: 0 here; the SOURCED figure — USD 900,837k, Note 12 img_027 p.28
-# ("USD 0.9 billion (December 31, 2025: USD 1.6 billion)"), six rows and four year-columns
-# both foot — stands as provenance. Commitment-net reading: NAV/share $13.36.
-newbuild_capex_commitments: 0
+# FORK 3 — COMMITMENT-NET APPLIED 2026-09-16 (fork cmbt_commitments_convention, registered
+# 2026-09-10, silence window closed 2026-09-15; the scheduled executor halted 2026-09-16
+# because the exit from OFF_CONVENTION_QUEUE is a src/tests change it may not make, so the
+# landing was carried in a chat in ONE commit per decisions/cmbt_q2_landing_2026-09-10.md
+# §"Landing commit must also carry"). The engine SUBTRACTS this field (nav.py:117): booking
+# the commitment flips CMBT from advances-only to commitment-net, −$3.10/share (900,837k /
+# 290,169,769), the convention newbuild_convention.yaml required ("must move to
+# commitment-net"). Pre-registered band, frozen before the regen: NAV/share $16.46 → $13.36,
+# band $13.26–$13.46. SOURCE: USD 900,837k, H1-2026 Note 12 img_027 p.28 ("USD 0.9 billion
+# (December 31, 2025: USD 1.6 billion)"), six rows and four year-columns both foot.
+# Branch A (0, the Q1 convention) retired here; its reading is preserved in the landing doc.
+newbuild_capex_commitments: 900837000
 
 # Assets under construction at 30 Jun 2026 — img_001 p.2 / Note 12 img_025 p.26 (Q1: 759,807;
 # transfers out of AUC 986,032 as the eleven H1 hulls delivered; marine 525,998 + other

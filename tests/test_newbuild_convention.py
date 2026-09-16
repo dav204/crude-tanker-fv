@@ -29,8 +29,8 @@ from conftest import BOOK_QUARTER as QUARTER  # follows the book across quarter 
 # pre-registered fix. strict xfail. (SB+SBLK are removed by the pass-1 wiring commit.)
 # DHT converted to on-curve §9.6 2026-06-30 (1 VLCC, DHT Impala) — removed from the queue.
 OFF_CONVENTION_QUEUE = {
-    "CMBT", "GSL", "STNG", "TEN",
-}  # NAT parked; ASC/HAFN April subsequent-event newbuilds; ECO/TRMD on-curve §9.6 via years_to_delivery — all left 2026-06-30/07-02. GSL ADDED 2026-08-08: 15-ship container NB advances-only (Group-B, no Ctr resale mark) — leaves with the containers commitment-net pre-reg (shared with CMBT).
+    "GSL", "STNG", "TEN",
+}  # NAT parked; ASC/HAFN April subsequent-event newbuilds; ECO/TRMD on-curve §9.6 via years_to_delivery — all left 2026-06-30/07-02. CMBT LEFT 2026-09-16 (fork cmbt_commitments_convention: Note 12 commitment 900,837k booked, commitment-net). GSL ADDED 2026-08-08: 15-ship container NB advances-only (Group-B, no Ctr resale mark) — leaves with its own containers commitment-net pre-reg, the shape CMBT took.
 
 
 def _structural_exempt() -> dict[str, str]:

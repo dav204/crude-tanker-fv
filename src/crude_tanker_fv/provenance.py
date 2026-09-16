@@ -51,7 +51,7 @@ from .loaders import INPUTS_DIR
 # FIXABLE names whose newbuilds have a curve mark but are not yet on-curve §9.6 (NAV on the wrong
 # basis) + structural names pending commitment-net. (SB/SBLK/DHT have left; the structural CCEC/CMBT
 # are handled via STRUCTURAL_NB_NAMES below, not as PROVISIONAL.)
-OFF_CONVENTION_QUEUE = {"CMBT", "GSL", "STNG", "TEN"}  # NAT/ASC/ECO/HAFN left; TRMD left 2026-07-02. GSL ADDED 2026-08-08 (Q2 refresh): the 15-ship container NB program enters ADVANCES-ONLY (Group-B structural — no Ctr resale mark §A1.4; naive on-curve wiring reads −$200M-class PV-asymmetry artifacts on 4Q28-1Q30 deliveries) — queued for the SAME containers commitment-net pre-reg as CMBT; structural flag keeps the tier GOVERNED-WIDE, not PROVISIONAL.
+OFF_CONVENTION_QUEUE = {"GSL", "STNG", "TEN"}  # NAT/ASC/ECO/HAFN left; TRMD left 2026-07-02. CMBT LEFT 2026-09-16: fork cmbt_commitments_convention executed — the H1-2026 Note 12 commitment (USD 900,837k) booked, advances-only -> commitment-net, −$3.10/share (decisions/cmbt_q2_landing_2026-09-10.md). GSL ADDED 2026-08-08 (Q2 refresh): the 15-ship container NB program enters ADVANCES-ONLY (Group-B structural — no Ctr resale mark §A1.4; naive on-curve wiring reads −$200M-class PV-asymmetry artifacts on 4Q28-1Q30 deliveries) — the last structural name on that basis, queued for its own containers commitment-net pre-reg (the shape CMBT just took); structural flag keeps the tier GOVERNED-WIDE, not PROVISIONAL.
 SCRUBBER_UNVERIFIED_QUEUE: set[str] = set()   # NEWBUILD-value scrubber flag unverified (now empty)
 
 # --- Operating-scrubber audit (test_scrubber_provenance) ---------------------------------------
