@@ -174,12 +174,40 @@ nodes:
     commit_subject_prefix: "outputs: weekly report / news digest"
     notes: "added 2026-09-12 after the Saturday freeze; commits the run's own tracked products so auto-land sees a drift-only tree"
 
+  - id: price-leg
+    kind: lane
+    repo: crude-tanker-fv
+    entry: scripts/sentinel_cron.sh
+    runs: every sentinel run, after commit-outputs and BEFORE auto-land
+    triggers: [commit-outputs]
+    requires: [venv, a book quarter in state/last_run.json]
+    reads: [inputs/market_data/prices_daily.yaml, scripts/drift_files.txt, scripts/regen.sh,
+            outputs/book_scorecard.json, state/last_run.json, baselines/reconcile_baseline.yaml]
+    writes: [inputs/market_data/prices_daily.yaml, outputs/**, decisions/*_log.md, state/regen.out,
+             state/annotate.out, state/commit_drift.out, state/regen_hygiene.out, state/last_run.json]
+    commits: self
+    commit_subject_prefix: ["Price vintage", "Regen (price leg) —"]
+    on_failure: "rc rides the cron note; a surface whose stamp != HEAD or whose hygiene guard is RED is left UNCOMMITTED and dirty, never reverted (no-unilateral-revert)"
+    notes: "added 2026-09-15 — the nightly price refresh wrote a determinant and NOTHING regenerated behind it, so auto-land's (e) could never pass and the anchor sat frozen 9/12-9/15. Order is load-bearing: price vintage committed ALONE (price-basis rule) -> residual drift via commit-drift -> regen only when a determinant actually moved -> annotate the pure-price rows -> commit the surface + logs. A 900s watchdog is this lane's dead-man because the healthchecks ping already fired in the sentinel lane above."
+
+  - id: annotate
+    kind: script
+    repo: crude-tanker-fv
+    entry: src/crude_tanker_fv/annotate.py
+    runs: inside the price-leg lane (or on demand from a chat)
+    triggers: [price-leg, human-owner-chat]
+    reads: [baselines/reconcile_baseline.yaml, state/last_run.json, outputs/book_scorecard.json,
+            inputs/market_data/prices_daily.yaml, decisions/*_log.md]
+    writes: [decisions/*_log.md]
+    commits: price-leg
+    notes: "deterministic price attribution ONLY: it may say the tape moved and the valuation did not, and refuses everything else with the reason named — a fair-value move, a flip toward BUY (that is the buyflip fork's), a NAV or re-read breach, a changed price basis, a determinant other than the price vintage moving, or a cent-rounding budget too coarse to tell a tape move from a curve move. A refusal leaves the row UNEXPLAINED and freezes auto-land on (a), which is the design working. tests/test_annotate.py"
+
   - id: auto-land
     kind: lane
     repo: crude-tanker-fv
     entry: src/crude_tanker_fv/promote.py
-    runs: every sentinel run, after commit-outputs
-    triggers: [commit-outputs]
+    runs: every sentinel run, after the price-leg lane
+    triggers: [price-leg]
     requires: [tree drift-only, state/last_run.json < 24h, 0 UNEXPLAINED, every moved row annotated since ratified_at, no flip toward BUY, committed surface current for HEAD]
     reads: [baselines/reconcile_baseline.yaml, decisions/*_log.md, outputs/book_scorecard.json, state/last_run.json, scripts/drift_files.txt, PLAN.md]
     writes: [baselines/reconcile_baseline.yaml, RATIFY_LOG.md]

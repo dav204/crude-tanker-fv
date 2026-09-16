@@ -49,6 +49,15 @@ def _repo_path(p: str) -> bool:
     return not p.startswith(("external:", "governance:"))
 
 
+def _as_list(v) -> list:
+    """`commits:` and `commit_subject_prefix:` take a string OR a list. A path can have two
+    legitimate committers (2026-09-15: the price vintage is committed by the unattended price-leg
+    lane and, by hand, by commit-drift) and one lane can make commits under two subjects."""
+    if v is None:
+        return []
+    return [v] if isinstance(v, str) else list(v)
+
+
 def drift_paths(path: Path = DRIFT_LIST) -> list[str]:
     if not path.exists():
         return []
@@ -153,9 +162,9 @@ def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS
         for t in n.get("triggers") or []:
             if t != "clock" and t not in by_id and not t.startswith(("email ", "healthchecks")):
                 problems.append(f"R2 {n['id']}: trigger {t!r} is not a node id")
-        c = n.get("commits")
-        if c not in (None, "none", "self") and c not in by_id:
-            problems.append(f"R2 {n['id']}: commits {c!r} is not a node id")
+        for c in _as_list(n.get("commits")):
+            if c not in ("none", "self") and c not in by_id:
+                problems.append(f"R2 {n['id']}: commits {c!r} is not a node id")
     for t in graph.get("tree_drift_only_required_by") or []:
         if t not in by_id:
             problems.append(f"R2 tree_drift_only_required_by names unknown node {t!r}")
@@ -176,8 +185,7 @@ def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS
                 continue
             if not _tracked(wp, root):
                 continue
-            c = n.get("commits")
-            if c in (None, "none"):
+            if not [c for c in _as_list(n.get("commits")) if c != "none"]:
                 problems.append(f"R4 {n['id']} writes tracked non-drift path {wp} and names no committer "
                                 f"(an uncommitted write freezes auto-land / holds auto-push / starves price-refresh)")
 
@@ -234,19 +242,20 @@ def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS
     # R6
     commits = _automation_commits(root) if commits is None else commits
     for n in nodes:
-        pref = n.get("commit_subject_prefix")
-        if not pref:
+        prefixes = _as_list(n.get("commit_subject_prefix"))
+        if not prefixes:
             continue
         allowed = list(n.get("writes") or [])
         for m in nodes:
-            if m.get("commits") == n["id"]:
+            if n["id"] in _as_list(m.get("commits")):
                 allowed += m.get("writes") or []
-        for sha, subj, files in commits:
-            if not subj.startswith(pref):
-                continue
-            for f in files:
-                if not any(_match(a, f) or a == f for a in allowed if _repo_path(a)):
-                    problems.append(f"R6 commit {sha} ({pref}) touched {f}, not a declared write of {n['id']}")
+        for pref in prefixes:
+            for sha, subj, files in commits:
+                if not subj.startswith(pref):
+                    continue
+                for f in files:
+                    if not any(_match(a, f) or a == f for a in allowed if _repo_path(a)):
+                        problems.append(f"R6 commit {sha} ({pref}) touched {f}, not a declared write of {n['id']}")
     return problems
 
 
@@ -262,7 +271,7 @@ def render(graph: dict) -> str:
     for n in nodes:
         reads = ", ".join(f"`{p}`" for p in (n.get("reads") or [])[:6]) + (" …" if len(n.get("reads") or []) > 6 else "")
         writes = ", ".join(f"`{p}`" for p in (n.get("writes") or [])[:6]) + (" …" if len(n.get("writes") or []) > 6 else "")
-        c = n.get("commits") or "none"
+        c = ", ".join(_as_list(n.get("commits"))) or "none"
         a(f"| `{n['id']}` | {n['kind']} | {n.get('runs', '')} | {reads or '—'} | {writes or '—'} | {c} |")
     a("")
     a("Shapes: `[[launchd]]` · `[lane]` · `([scheduled task])` · `[/script/]` · `{{human}}` · `((external))`. "

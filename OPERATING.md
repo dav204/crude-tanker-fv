@@ -123,7 +123,9 @@ Rendered from `graph.yaml` by `python -m crude_tanker_fv.graph render --write`; 
 | `sentinel-checks` | lane | every sentinel run | `inputs/**`, `outputs/**`, `state/**`, `inputs/notify.yaml`, `inputs/forks.yaml`, `inputs/reweight_triggers.yaml` … | `state/sentinel_state.json`, `state/sentinel.log`, `state/ping_status.json`, `state/notify_sent.log`, `state/notify_down.log`, `state/reauth/*.json` | none |
 | `weekly-report` | lane | every sentinel run; writes only when a Saturday report is owed (is_due) | `outputs/**`, `inputs/**`, `state/**`, `outputs/book_scorecard.json`, `outputs/book_scorecard.md`, `inputs/reweight_triggers.yaml` … | `outputs/weekly_report_*.md`, `state/notify_sent.log`, `state/notify_down.log`, `state/reauth/smtp.json` | commit-outputs |
 | `commit-outputs` | lane | every sentinel run, after weekly-report | `outputs/weekly_report_*.md`, `outputs/news_digest_*.md` | — | self |
-| `auto-land` | lane | every sentinel run, after commit-outputs | `baselines/reconcile_baseline.yaml`, `decisions/*_log.md`, `outputs/book_scorecard.json`, `state/last_run.json`, `scripts/drift_files.txt`, `PLAN.md` | `baselines/reconcile_baseline.yaml`, `RATIFY_LOG.md` | self |
+| `price-leg` | lane | every sentinel run, after commit-outputs and BEFORE auto-land | `inputs/market_data/prices_daily.yaml`, `scripts/drift_files.txt`, `scripts/regen.sh`, `outputs/book_scorecard.json`, `state/last_run.json`, `baselines/reconcile_baseline.yaml` | `inputs/market_data/prices_daily.yaml`, `outputs/**`, `decisions/*_log.md`, `state/regen.out`, `state/annotate.out`, `state/commit_drift.out` … | self |
+| `annotate` | script | inside the price-leg lane (or on demand from a chat) | `baselines/reconcile_baseline.yaml`, `state/last_run.json`, `outputs/book_scorecard.json`, `inputs/market_data/prices_daily.yaml`, `decisions/*_log.md` | `decisions/*_log.md` | price-leg |
+| `auto-land` | lane | every sentinel run, after the price-leg lane | `baselines/reconcile_baseline.yaml`, `decisions/*_log.md`, `outputs/book_scorecard.json`, `state/last_run.json`, `scripts/drift_files.txt`, `PLAN.md` | `baselines/reconcile_baseline.yaml`, `RATIFY_LOG.md` | self |
 | `auto-push` | lane | every sentinel run, last | `scripts/drift_files.txt`, `baselines/reconcile_baseline.yaml`, `state/last_run.json`, `decisions/*_log.md` | — | none |
 | `commit-drift` | script | on demand from a chat (drift-list files are routine dirt; nothing schedules this) | `scripts/drift_files.txt`, `state/edgar_manifest.jsonl` | `inputs/filings/_manifest.json` | self |
 | `regen` | script | on demand from a chat, after any determinant change | `inputs/**`, `src/**`, `scripts/*_weight_*.py`, `tests/test_outputs_hygiene.py` | `outputs/**`, `decisions/*_log.md`, `state/last_run.json`, `state/read_flag_state.json` | human-owner-chat |
@@ -157,6 +159,8 @@ flowchart LR
   sentinel_checks["sentinel-checks"]
   weekly_report["weekly-report"]
   commit_outputs["commit-outputs"]
+  price_leg["price-leg"]
+  annotate[/"annotate"/]
   auto_land["auto-land"]
   auto_push["auto-push"]
   commit_drift[/"commit-drift"/]
@@ -177,15 +181,24 @@ flowchart LR
   human_ratify{{"human-ratify"}}
   sentinel_lite(("sentinel-lite"))
   healthchecks(("healthchecks"))
+  annotate -->|decisions/*_log.md| auto_land
+  annotate -->|decisions/*_log.md| auto_push
+  annotate -->|decisions/*_log.md| crude_fv_filings_triage
+  annotate -->|decisions/*_log.md| crude_fv_results_shadow_build
+  annotate -->|decisions/*_log.md| crude_fv_weekly_news_pull
+  annotate -->|decisions/*_log.md| weekly_report
+  auto_land -->|baselines/reconcile_baseline.yaml| annotate
   auto_land -->|baselines/reconcile_baseline.yaml| auto_push
   auto_land -->|baselines/reconcile_baseline.yaml| crude_fv_fork_executor
   auto_land -->|RATIFY_LOG.md| portfolio_weekly_monitor
+  auto_land -->|baselines/reconcile_baseline.yaml| price_leg
   auto_land -->|RATIFY_LOG.md| weekly_report
   commit_drift -->|filings/_manifest.json| crude_fv_filings_triage
   commit_drift -->|filings/_manifest.json| crude_fv_results_shadow_build
   commit_drift -->|filings/_manifest.json| crude_fv_weekly_news_pull
   commit_drift -->|filings/_manifest.json| sentinel_lite
-  commit_outputs -->|trigger| auto_land
+  commit_outputs -->|trigger| price_leg
+  crude_fv_filings_triage -->|decisions/*_log.md| annotate
   crude_fv_filings_triage -->|PLAN.md| auto_land
   crude_fv_filings_triage -->|decisions/*_log.md| auto_push
   crude_fv_filings_triage -->|decisions/*_log.md| crude_fv_results_shadow_build
@@ -193,6 +206,7 @@ flowchart LR
   crude_fv_filings_triage -->|PLAN.md| human_ratify
   crude_fv_filings_triage -->|state/filings_triaged.json| sentinel_checks
   crude_fv_filings_triage -->|decisions/*_log.md| weekly_report
+  crude_fv_fork_executor -->|decisions/*_log.md| annotate
   crude_fv_fork_executor -->|PLAN.md| auto_land
   crude_fv_fork_executor -->|decisions/*_log.md| auto_push
   crude_fv_fork_executor -->|outputs/**| commit_outputs
@@ -206,6 +220,7 @@ flowchart LR
   crude_fv_fork_executor -->|inputs/**| news_pull
   crude_fv_fork_executor -->|outputs/**| portfolio_weekly_monitor
   crude_fv_fork_executor -->|inputs/**| preflight
+  crude_fv_fork_executor -->|inputs/**| price_leg
   crude_fv_fork_executor -->|inputs/**| price_refresh
   crude_fv_fork_executor -->|inputs/**| rebase
   crude_fv_fork_executor -->|inputs/**| rocketchat_ingest
@@ -235,6 +250,7 @@ flowchart LR
   harvester -->|state/automation_runs.log| crude_fv_pinggap_drill_restore
   harvester -->|data/**| sentinel_checks
   harvester -->|data/**| weekly_report
+  human_owner_chat -->|decisions/*_log.md| annotate
   human_owner_chat -->|PLAN.md| auto_land
   human_owner_chat -->|decisions/*_log.md| auto_push
   human_owner_chat -->|trigger| commit_drift
@@ -250,6 +266,7 @@ flowchart LR
   human_owner_chat -->|governance:CADENCE.md| portfolio_quarterly_review_kickoff
   human_owner_chat -->|governance:CADENCE.md| portfolio_weekly_monitor
   human_owner_chat -->|inputs/**| preflight
+  human_owner_chat -->|inputs/**| price_leg
   human_owner_chat -->|inputs/**| price_refresh
   human_owner_chat -->|inputs/**| rebase
   human_owner_chat -->|trigger| regen
@@ -257,10 +274,12 @@ flowchart LR
   human_owner_chat -->|governance:monitor/log.md| sentinel_checks
   human_owner_chat -->|inputs/**| sentinel_lite
   human_owner_chat -->|decisions/*_log.md| weekly_report
+  human_ratify -->|baselines/reconcile_baseline.yaml| annotate
   human_ratify -->|baselines/reconcile_baseline.yaml| auto_land
   human_ratify -->|baselines/reconcile_baseline.yaml| auto_push
   human_ratify -->|baselines/reconcile_baseline.yaml| crude_fv_fork_executor
   human_ratify -->|RATIFY_LOG.md| portfolio_weekly_monitor
+  human_ratify -->|baselines/reconcile_baseline.yaml| price_leg
   human_ratify -->|RATIFY_LOG.md| weekly_report
   news_pull -->|state/ffa_ocr_curves.json| crude_fv_fork_executor
   news_pull -->|state/automation_runs.log| crude_fv_pinggap_drill_arm
@@ -274,16 +293,33 @@ flowchart LR
   portfolio_weekly_monitor -->|trigger| healthchecks
   portfolio_weekly_monitor -->|governance:monitor/log.md| sentinel_checks
   portfolio_weekly_monitor -->|governance:monitor/log.md| weekly_report
+  price_leg -->|decisions/*_log.md| annotate
+  price_leg -->|decisions/*_log.md| auto_land
+  price_leg -->|decisions/*_log.md| auto_push
+  price_leg -->|outputs/**| commit_outputs
+  price_leg -->|decisions/*_log.md| crude_fv_filings_triage
+  price_leg -->|outputs/**| crude_fv_fork_executor
+  price_leg -->|decisions/*_log.md| crude_fv_results_shadow_build
+  price_leg -->|decisions/*_log.md| crude_fv_weekly_news_pull
+  price_leg -->|state/last_run.json| human_ratify
+  price_leg -->|outputs/**| portfolio_weekly_monitor
+  price_leg -->|market_data/prices_daily.yaml| preflight
+  price_leg -->|market_data/prices_daily.yaml| price_refresh
+  price_leg -->|market_data/prices_daily.yaml| rebase
+  price_leg -->|decisions/*_log.md| weekly_report
+  price_refresh -->|market_data/prices_daily.yaml| annotate
   price_refresh -->|state/automation_runs.log| crude_fv_pinggap_drill_arm
   price_refresh -->|state/automation_runs.log| crude_fv_pinggap_drill_restore
   price_refresh -->|market_data/prices_daily.yaml| crude_fv_results_shadow_build
   price_refresh -->|market_data/prices_daily.yaml| preflight
+  price_refresh -->|market_data/prices_daily.yaml| price_leg
   price_refresh -->|market_data/prices_daily.yaml| rebase
   price_refresh -->|heartbeat/price-refresh| sentinel_checks
   rebase -->|inputs/watchlist.yaml| crude_fv_results_shadow_build
   rebase -->|inputs/watchlist.yaml| crude_fv_weekly_news_pull
   rebase -->|inputs/watchlist.yaml| preflight
   rebase -->|inputs/watchlist.yaml| price_refresh
+  regen -->|decisions/*_log.md| annotate
   regen -->|decisions/*_log.md| auto_land
   regen -->|decisions/*_log.md| auto_push
   regen -->|outputs/**| commit_outputs
@@ -293,6 +329,7 @@ flowchart LR
   regen -->|decisions/*_log.md| crude_fv_weekly_news_pull
   regen -->|state/last_run.json| human_ratify
   regen -->|outputs/**| portfolio_weekly_monitor
+  regen -->|outputs/**| price_leg
   regen -->|decisions/*_log.md| weekly_report
   rocketchat_ingest -->|state/ffa_ocr_curves.json| crude_fv_fork_executor
   rocketchat_ingest -->|state/automation_runs.log| crude_fv_pinggap_drill_arm
@@ -317,25 +354,26 @@ flowchart LR
 
 **What is downstream of each unattended node** (derived; if it is late or wrong, these are affected):
 
-- `edgar-poll` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `rocketchat-ingest` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `price-refresh` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `news-pull` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `harvester` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `sentinel` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `sentinel-checks` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-lite`, `weekly-report`
-- `weekly-report` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`
-- `commit-outputs` → `auto-land`, `auto-push`, `commit-drift`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `auto-land` → `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `edgar-poll` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `rocketchat-ingest` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `price-refresh` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `news-pull` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `harvester` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `sentinel` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `sentinel-checks` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-lite`, `weekly-report`
+- `weekly-report` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`
+- `commit-outputs` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `price-leg` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `auto-land` → `annotate`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
 - `auto-push` → nothing declared
-- `crude-fv-filings-triage` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `crude-fv-results-shadow-build` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `crude-fv-mb-weekly-harvest` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `crude-fv-weekly-news-pull` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `crude-fv-pinggap-drill-arm` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `crude-fv-pinggap-drill-restore` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `crude-fv-fork-executor` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
-- `portfolio-weekly-monitor` → `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `preflight`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `crude-fv-filings-triage` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `crude-fv-results-shadow-build` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `crude-fv-mb-weekly-harvest` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `crude-fv-weekly-news-pull` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `crude-fv-pinggap-drill-arm` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `crude-fv-pinggap-drill-restore` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `crude-fv-fork-executor` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `portfolio-weekly-monitor`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
+- `portfolio-weekly-monitor` → `annotate`, `auto-land`, `auto-push`, `commit-drift`, `commit-outputs`, `crude-fv-filings-triage`, `crude-fv-fork-executor`, `crude-fv-mb-weekly-harvest`, `crude-fv-pinggap-drill-arm`, `crude-fv-pinggap-drill-restore`, `crude-fv-results-shadow-build`, `crude-fv-weekly-news-pull`, `edgar-poll`, `ffa-promote`, `healthchecks`, `human-ratify`, `news-pull`, `preflight`, `price-leg`, `price-refresh`, `rebase`, `regen`, `rocketchat-ingest`, `sentinel-checks`, `sentinel-lite`, `weekly-report`
 - `portfolio-quarterly-review-kickoff` → nothing declared
 
 **Nodes that need a drift-only tree** (any uncommitted tracked non-drift write degrades them): `price-refresh`, `sentinel-checks`, `auto-land`, `auto-push`, `regen`.

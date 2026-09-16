@@ -5,6 +5,33 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-09-15/16 — THE DAILY LOOP HAD NO REGEN STEP, SO THE ANCHOR COULD NEVER ADVANCE.** The
+  executor's second run promoted the 9/15 dry FFA print cleanly, then halted because the gate carried
+  six rows its own run had not caused. The buried line was the real finding: **the baseline anchor had
+  not advanced since 2026-09-11**, and auto-land had FROZEN every morning 9/12-9/15 with the same
+  recorded reason — precondition (e), "determinants changed since the surface". Structural, not a bug:
+  the nightly price refresh writes `prices_daily.yaml`, a DETERMINANT; nothing regenerated behind it;
+  so the committed surface was stale by construction. It had landed on 9/10 and 9/11 only because a
+  chat session happened to regenerate those mornings. Second half: a price move past 2pp leaves an
+  UNEXPLAINED row carrying a `_[pending annotation]_` placeholder that only prose clears, so (a) needed
+  a human daily too — thirteen identical sentences in three days. *Landed:* a **[price-leg] lane**
+  inside the sentinel wrapper (price vintage committed ALONE per the price-basis rule -> residual drift
+  -> regen ONLY when a determinant actually moved -> annotate -> commit the surface and the logs), and
+  **`crude_tanker_fv.annotate`**, a deterministic price attributor allowed to say exactly one thing:
+  the tape moved, the valuation did not. Its predicate is a proof, not a heuristic — the EV identity
+  must reproduce from the held fair value against the anchor price inside a propagated cent-rounding
+  budget; a precision floor REFUSES a sub-$2 name (2343 round-tripped 0.38 -> 0.37 -> 0.38 across the
+  9/15 promote with a +0.66pp residual hidden inside the rounding); a determinant proof refuses any
+  morning where something other than the price vintage moved; and it never annotates a flip toward BUY,
+  which is the buyflip fork's objection window. A refusal is the design working: the row stays
+  UNEXPLAINED and auto-land freezes on (a) with the reason named. *Also fixed:* **process files under
+  `inputs/` are not determinants** — executing a fork writes `forks.yaml`, and (e) counted it, so the
+  lane froze on the very act it exists to unblock; the fork registry, notify routes, trigger cards,
+  source config, earnings calendar and duty roster are now excluded, with a test asserting the real
+  determinants stay watched. *Provenance:* the wrapper lane and the annotator came out of a six-agent
+  workflow that DIED mid-build (one scout classifier-blocked, stalling the barrier); its partial output
+  was reviewed line by line and kept on the merits, and the test suite it never reached was written by
+  hand afterwards.
 - **2026-09-14 — THE FIRST UNATTENDED PROMOTE, AND WHAT IT CAUGHT.** The fork executor's first
   real run (owner installed it 9/14) did exactly what it was built to do: it flushed the drift,
   promoted the 2026-09-11 dry FFA print, regenerated, checked, found two guards red, **halted,
