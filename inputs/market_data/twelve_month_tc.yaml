@@ -32,12 +32,12 @@ rate_basis:
   default: tc_assessment
   VLGC: realized_tce
 as_of:
-  default: 2026-09-11       # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
-                            # advanced from 2026-09-09; every class this promote did not touch carries an explicit hold below.
-  Cape: 2026-09-11          # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
-  Pana: 2026-09-11          # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
-  Post-Panamax: 2026-09-11  # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
-  Supra-Ultra: 2026-09-11   # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
+  default: 2026-09-15       # FFA 2026-09-15 promoted 2026-09-15 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-15.md)
+                            # advanced from 2026-09-11; every class this promote did not touch carries an explicit hold below.
+  Cape: 2026-09-15          # FFA 2026-09-15 promoted 2026-09-15 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-15.md)
+  Pana: 2026-09-15          # FFA 2026-09-15 promoted 2026-09-15 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-15.md)
+  Post-Panamax: 2026-09-15  # FFA 2026-09-15 promoted 2026-09-15 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-15.md)
+  Supra-Ultra: 2026-09-15   # FFA 2026-09-15 promoted 2026-09-15 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-15.md)
   VLGC: 2026-06-02
   LNGC: 2026-06-07
   MGC: 2026-06-07
@@ -69,14 +69,14 @@ twelve_month_tc:
   LR1_clean: 37000    # STAGE B 2026-09-09: HELD derived .7184 x LR2_clean (no LR1 12M print; MB LR1[TC5] 37,500 corroborates, S-2). Front 32,608 < 12M — a direct print vs a DERIVED 12M, §5 look done
   LR2_clean: 51500    # STAGE B 2026-09-09: HELD Torm Herdis 12mo single-print (no new clean 12M print; HAFN's fleet-wide 30.7k un-split); MB 57,500 corroborates (S-2)
   VLGC: 63615           # Dorian Q1-2026 realized TCE — disclosure-cluster vintage 2026-06-02 (held)
-  Cape: 38175           # (45375 Q4 + 30975 Q1-27)/2 = 38175, unrounded half-up (ruling Q-1).
-                        # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
-  Pana: 20571           # (22741 Q4 + 18400 Q1-27)/2 = 20571, unrounded half-up (ruling Q-1).
-                        # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
-  Post-Panamax: 20571   # (22741 Q4 + 18400 Q1-27)/2 = 20571, unrounded half-up (ruling Q-1).
-                        # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
-  Supra-Ultra: 18583    # (20891 Q4 + 16275 Q1-27)/2 = 18583, unrounded half-up (ruling Q-1).
-                        # FFA 2026-09-11 promoted 2026-09-14 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-14.md)
+  Cape: 36771           # (43666 Q4 + 29875 Q1-27)/2 = 36771, unrounded half-up (ruling Q-1).
+                        # FFA 2026-09-15 promoted 2026-09-15 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-15.md)
+  Pana: 19663           # (21600 Q4 + 17725 Q1-27)/2 = 19663, unrounded half-up (ruling Q-1).
+                        # FFA 2026-09-15 promoted 2026-09-15 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-15.md)
+  Post-Panamax: 19663   # (21600 Q4 + 17725 Q1-27)/2 = 19663, unrounded half-up (ruling Q-1).
+                        # FFA 2026-09-15 promoted 2026-09-15 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-15.md)
+  Supra-Ultra: 18288    # (20500 Q4 + 16075 Q1-27)/2 = 18288, unrounded half-up (ruling Q-1).
+                        # FFA 2026-09-15 promoted 2026-09-15 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-15.md)
   Handy-Bulk: 14500     # §11.7.11 (2026-07-14): MB Dry Bulk Weekly 28 (4-10 Jul) 1-yr TC,
                         # 38k dwt modern Japanese, net of address comm (printed basis). NO
                         # Handy FFA panel — refreshes on the MB weekly, NOT the FFA promote
