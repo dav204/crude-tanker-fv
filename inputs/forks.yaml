@@ -65,3 +65,10 @@ forks:
     execute_after: 2026-09-15
     recommendation: "Execute WO5 Phases 0-3b on the post-Stage-B base (12M as_of 2026-09-09) with the C3 vector 0.28/0.59/0.00/0.13 as the FROZEN weight input; ΔNAV 0.0, the 10 crude names move >2pp EV by design, non-crude exactly 0.00. No void retires here: the three Phase-4 dispositions (CAPT / TNK / BRUT) stay execution-day owner words (WO5 law); B1 re-arms at TNK's disposition"
     status: open
+  - id: buyflip_trmd_2026-09-15
+    kind: judgment
+    doc: decisions/trmd_log.md
+    opened: 2026-09-15
+    execute_after: 2026-09-18
+    recommendation: "land the flip toward BUY on TRMD as the surface computes it (price 32.96 vs scenario PW FV 35.14, EV +6.6%): the drift gate explains it as price-only against an unchanged fair value, the cause is the 2026-09-15 Oaktree secondary (6-K 0000919574-26-006318, no new shares, no proceeds to the company, no dilution). The standing halt-and-investigate becomes this objection window."
+    status: executed   # 2026-09-15 — OWNER RULED 2026-09-15 'run the trmd fork now' — objection window waived; the surface already computes TRMD BUY, so no data change. Cause: Oaktree secondary, no dilution, FV unchanged 35.14
