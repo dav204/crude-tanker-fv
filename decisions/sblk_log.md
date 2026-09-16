@@ -1,5 +1,57 @@
 # SBLK — Decision Log
 
+## 2026-09-16 — OFFERING RESULTS + ADMISSION TO TRADING — 116,071,386 shares issuer-stated, net proceeds US$115.9M (6-K 0000950157-26-001013, filed 2026-09-15): refresh-trigger
+
+**Decision:** the settlement-day 6-K the 9/12 entry left open has landed, and it resolves the two
+things that entry carried as unfinished — the UNVERIFIED count and the missing net-proceeds figure.
+
+Ex-99.1 (AXIA Ventures Group Ltd / National Bank of Greece S.A., the Joint Coordinators and
+Bookrunners) restates the allocation: 4,400,000 New Shares, "of which 4,300,000 allocated through the
+Public Offering in Greece and 100,000 through the Parallel Offering", price "€24.50 (US$28.27)" —
+USD on the 15.09.2026 ECB close rate €1 = 1.1539, against the 11.09 rate €1 = 1.1592 the 9/12 entry
+used. The EUR figure is the invariant: **€107.8M gross** (= 4,400,000 × €24.50); the USD headline
+moves with the FX vintage, US$125.0M (9/11 rate) → **US$124.4M** (9/15 rate, the figure the issuer
+itself now prints). Allocation detail: 1,743,504 to retail (41%), 2,556,496 to qualifying (59%), of
+which 148,800 to two entities controlled by the family of CEO Mr Pappas (248,000 demanded, satisfied
+60%); Optima bank S.A. 52,000 on own account. Demand 26,788,512 shares / €656.3M, over 6× the public
+tranche — as reported 9/12.
+
+NEW, and the reason this is a refresh-trigger rather than a record-only restatement:
+
+1. **Net proceeds are now disclosed.** Ex-99.2: "After deducting the estimated offering and listing
+   expenses borne by the Company, amounting to €7.4 mil. ($8.5 mil.), the total net proceeds amount
+   to €100.4 mil. ($115.9 mil.)". The 9/12 entry said the raise enters the next vintage at gross
+   "unless a net figure is filed" — it has been filed, so the Q3 cash leg is **+US$115.9M net**, not
+   +US$125.0M gross. That is a $9.1M difference, ≈$0.08/share — immaterial to the band on its own,
+   but the sheet should carry the cited net.
+2. **The share count is now issuer-stated.** Ex-99.2 header: "ON WEDNESDAY, 16 SEPTEMBER 2026
+   COMMENCES THE TRADING OF THE TOTAL OF **116,071,386** COMMON SHARES OF THE COMPANY TO THE MAIN
+   MARKET OF THE REGULATED SECURITIES MARKET OF EURONEXT ATHENS". This is exactly the 9/12 walk
+   (111,671,386 + 4,400,000), now corroborated by the issuer rather than derived. One caveat kept
+   honest: the figure is the total admitted to trading — the filing does not say in terms that it is
+   net of treasury, and an admission normally covers issued shares. It agrees to the unit with the
+   outstanding-basis walk, so the residual risk is only that post-6/30 repurchases (still undisclosed)
+   sit inside it. Treat 116,071,386 as **issuer-corroborated**, not derived, and drop the UNVERIFIED
+   flag when the next issuer count (Q3 report or 20-F) prints an outstanding basis.
+3. **The use of proceeds cites the newbuild commitment.** "(a) an amount of €57.0 mil. ($65.8 mil.)
+   will be used to finance the remaining of the €94.9 million ($109.5 mil.) investment plan relating
+   to the three vessels currently under construction … (b) the remaining amount, up to €43.4 million
+   ($50.1 mil.) will be used to finance new investments relating to the acquisition of newbuild
+   and/or second-hand vessels". The $65.8M ties to the "remaining capital expenditures of $65.8
+   million" on Irini / Aline / Argyro already noted from the 9/04 Information Statement — so the Q3
+   commitment determinant now has a **second, independent citation** for the same figure, which
+   clears it as a §9.6 figure rather than an estimate. Leg (b) is an intention with no contract, so
+   nothing is committed there and nothing subtracts.
+
+**What the next vintage must pick up:** shares **116,071,386** (issuer-corroborated, caveat above);
+cash **+US$115.9M net** (€100.4M) at settlement — a **Q3** event that touches no 6/30-dated sheet;
+newbuild commitment on Irini / Aline / Argyro **$65.8M remaining** (now twice-cited). No 6/30 sheet
+or manifest field moves on this filing. Unchanged from 9/12 and still open: the Q3 manifest
+determinant (Star Bella and Star Kyra delivered August 2026, ≈$70.2M aggregate capex; fully-delivered
+fleet 138 vessels / 13,750,243 dwt).
+
+---
+
 ## 2026-09-12 — EQUITY OFFERING PRICED — 4,400,000 new shares at €24.50 / US$28.40, ≈US$125.0M gross (6-K 0000950157-26-001003, filed 2026-09-11): refresh-trigger
 
 **Decision:** the final-price 6-K the 9/10 entry was watching for has landed. Ex-99.1 (pricing announcement of AXIA Ventures Group Ltd and National Bank of Greece S.A., the Joint Coordinators and Bookrunners): "a total of 4,400,000 new, common, registered, voting shares of the Company were allocated … including the shares of the parallel offering", and "The final offering price of the Company's New Shares was determined at €24.50 (US$ 28.40) per New Share and is the same for all investors, Qualified and Retail". FX basis disclosed as "€1 = 1.1592 USD" at Greek market close 2026-09-11 (European Central Bank). Public Offering completed Friday 2026-09-11; demand 26,788,512 shares / €656.3M, "oversubscribed by over 6 times"; the per-category allocation detail is promised for Tuesday 2026-09-15 (the 9/04 timetable put settlement on the same date).

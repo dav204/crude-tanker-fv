@@ -1,5 +1,50 @@
 # HAFN — Decision Log
 
+## 2026-09-16 — TORM STAKE INCREASED — 4,500,000 A shares at US$32.25 (≈US$145.1M), holding to ~18.22% (6-K 0001140361-26-036707, filed 2026-09-16): refresh-trigger
+
+**Decision:** Ex-99.1, dated Singapore 16 September 2026, in full on the substance: "Hafnia Limited …
+has agreed to acquire 4,500,000 A shares in TORM plc … at a price per share of USD 32.25,
+representing 4.39% of the issued and outstanding share capital of TORM as of the date hereof. Upon
+completion of this acquisition, Hafnia will hold approximately 18.22% of the issued and outstanding
+share capital of TORM." Consideration is therefore **US$145,125,000** (4,500,000 × $32.25) — the
+release states the per-share price and the count, not the aggregate, so the total is arithmetic on
+two cited figures, not an estimate. No counterparty is named. The size and timing are consistent
+with OCM Njord Holdings' (Oaktree) secondary offering of 9,000,000 TORM Class A shares announced the
+previous day (TRMD 6-K 0000919574-26-006318, triaged 2026-09-15), but the filing does not say so and
+this log does not assume it.
+
+This is value-bearing because the TORM stake is a **load-bearing leg of `working_capital_net`** on
+the HAFN sheet (§11.5): the Q2 file carries "TORM 13.97% stake at $277.2M — the issuer's
+lower-of-market-or-purchase-price NAV basis". Both sides of this transaction land inside the model.
+
+**What the next vintage must pick up — and the trap in it.** This is a **cash-for-investment swap,
+not a value event**: `cash_and_equivalents` −$145.1M and the TORM leg of `working_capital_net`
++$145.1M at the purchase-price basis. To first order **ΔNAV ≈ 0**. If the Q3 build moves only the
+cash leg, NAV falls ≈$145.1M ≈ $0.29/share on the 506,029,778 diluted count for no economic reason —
+the legs move **together or not at all**. Three follow-ons for that build:
+
+- **Anchor the stake on SHARE COUNT, not percentage.** The percentages do not quite compose: 13.97%
+  carried + 4.39% acquired = 18.36%, against the 18.22% the release states post-completion. The gap
+  is sub-material and most likely a denominator effect (TORM's issued capital has grown — see the
+  RSU capital increase to 102,421,267 A-shares, 6-K 0000919574-26-006252 of 9/11 — and the release's
+  denominator is issued and outstanding capital including B shares, while the Q2 sheet's 13.97% was
+  struck on the 6/30 basis). A percentage of a moving denominator is not a stable NAV input; source
+  the **held share count** from Hafnia's own Q3 disclosure and value that, rather than re-deriving a
+  count from a percentage.
+- **Re-test the lower-of on the enlarged holding.** The Q2 basis held purchase price ($277.2M) below
+  market ($369.0M Level-1 at 6/30, implying roughly $26/share on the then-holding). The new tranche
+  is struck at $32.25, i.e. well above that 6/30 market level, so the two tranches may sit on
+  opposite sides of the lower-of test at 9/30. Apply the test on the **aggregate** holding as the
+  issuer does; do not blend the tranches by hand.
+- **Q3 event, no 6/30 sheet moves.** Agreed 9/16, so it touches nothing in `hafn_2026-Q2.yaml`. Note
+  also that the Q2 cash line is $271.0M — the consideration exceeds it, so the Q3 build must pick up
+  whatever funding the issuer discloses (cash generated in the quarter, a draw, or a deferred
+  settlement) rather than assuming the cash line simply nets down.
+
+No fleet field, no manifest row and no commitment moves on this filing.
+
+---
+
 ## 2026-09-09 — Stage B annotation (tanker re-anchor 2026-09-09)
 
 **Decision:** STAGE B — tanker curves + 12M re-anchored under the 2026-09-09 owner ruling (inputs 0e6c518; record + frozen predicted impact in decisions/stage_b_promotion_2026-09-09.md). A RATE-ONLY event: ΔNAV is exactly 0.0 on every name (nav.py reads no rate file); the EV move is the scenario deck re-reading the new curve through forward_ref. Direction DOWN as predicted. ΔEV -6.3pp · Δk +0.110 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change). Ratify rides the owner's next ratify_baseline.sh with the promotion record as cause.
