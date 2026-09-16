@@ -1911,5 +1911,81 @@
    }
   ],
   "amended": false
+ },
+ {
+  "ts": "2026-09-16T02:20:01+00:00",
+  "ticker": "GSL",
+  "cik": "0001430725",
+  "accession": "0001140361-26-036677",
+  "form": "6-K",
+  "filed": "2026-09-15",
+  "primary_doc": "ef20081990_6k.htm",
+  "staged_path": "inputs/filings/GSL/0001140361-26-036677_6-K_ef20081990_6k.htm",
+  "exhibits": [
+   {
+    "doc": "ef20081990_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/GSL/0001140361-26-036677_6-K_ef20081990_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-16T02:20:01+00:00",
+  "ticker": "SBLK",
+  "cik": "0001386716",
+  "accession": "0000950157-26-001013",
+  "form": "6-K",
+  "filed": "2026-09-15",
+  "primary_doc": "form6-k.htm",
+  "staged_path": "inputs/filings/SBLK/0000950157-26-001013_6-K_form6-k.htm",
+  "exhibits": [
+   {
+    "doc": "ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-001013_6-K_ex99-1.htm"
+   },
+   {
+    "doc": "ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-001013_6-K_ex99-2.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-16T14:20:02+00:00",
+  "ticker": "HAFN",
+  "cik": "0001815779",
+  "accession": "0001140361-26-036707",
+  "form": "6-K",
+  "filed": "2026-09-16",
+  "primary_doc": "ef20082105_6k.htm",
+  "staged_path": "inputs/filings/HAFN/0001140361-26-036707_6-K_ef20082105_6k.htm",
+  "exhibits": [
+   {
+    "doc": "ef20082105_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/HAFN/0001140361-26-036707_6-K_ef20082105_ex99-1.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-16T14:20:25+00:00",
+  "ticker": "MPCC",
+  "cik": "newsweb:mpc-container-ships",
+  "accession": "mfn-d6f016bd-a94f-496a-bb33-71b6639c834e",
+  "form": "release",
+  "filed": "2026-09-16",
+  "primary_doc": "https://mfn.se/a/mpc-container-ships/mpcc-to-present-at-the-pareto-securities-energy-conference",
+  "staged_path": "inputs/filings/MPCC/newsweb_2026-09-16_d6f016bd-a94f-496a-bb33-71b6639c834e.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "MPCC to present at the Pareto Securities' Energy Conference",
+  "attachments": [
+   "inputs/filings/MPCC/d6f016bd-a94f-496a-bb33-71b6639c834e_260917-mpcc-pareto-energy-conference.pdf"
+  ]
  }
 ]
