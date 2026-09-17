@@ -1,6 +1,6 @@
 # Refresh Checklist — 2026-Q2 (target quarter)
 
-- **Today:** 2026-09-16
+- **Today:** 2026-09-17
 - **Target quarter:** 2026-Q2
 - **Workflow:** work through the sections below, then run `python -m crude_tanker_fv.pipeline` to refresh outputs.
 
@@ -10,13 +10,13 @@
 - ✓ **Market data:** 4 of 4 fresh (< 30 days)
 - ⚠ **Watchlist:** 14 of 25 clean — 0 stale, 11 APPROX consensus_pnav
 - ⚠ **Earnings:** REFRESH DUE: TEN
-- ✓ **§13.3 reweight triggers:** none due — upcoming: crude_geopolitics_weekly
+- ⚠ **§13.3 reweight triggers:** DUE/FIRED: crude_geopolitics_weekly
 
 ## 0a. Scenario-weight re-evaluation triggers (`inputs/reweight_triggers.yaml`)
 
 | Trigger | Status | Detail |
 |---|---|---|
-| crude_geopolitics_weekly | 🟡 | [crude+product] due in 1d (2026-09-17). ONE weekly check, two legs, PRIMARY SOURCES ONLY (CENTCOM releases, the UKMTO incident log, dated wires; broker paraphrase corroborates, nev |
+| crude_geopolitics_weekly | 🔴 DUE | [crude+product] DUE 2026-09-17 — check the observable and record the outcome. ONE weekly check, two legs, PRIMARY SOURCES ONLY (CENTCOM releases, the UKMTO incident log, dated wires; broker paraphrase corroborates, nev |
 | container_mb_refresh | — | [containerships] due 2026-10-02. Monthly re-capture of the container determinants (Ctr-* TC + value assessments) from the newest staged MB Container Weekly — the §11.8 sourc |
 | handy_bulk_txn_refit | — | [dry_bulk] standing event-watch. Standing event-watch (§11.7.11 Option B, owner-ratified 2026-07-14): the dry-Handysize classified print sample reaches >=10 human-classified |
 | lpg_anchor_annual_review | — | [lpg] due 2027-06-30. The VLGC 10-yr through-cycle TCE anchor (~$40,000/day, as_of 2026-07-07, WO3 decisions/lpg_methodology_2026-07-07.md) is a TRAILING 10-yr av |
@@ -29,7 +29,7 @@
 
 | Ticker | Status | Detail |
 |---|---|---|
-| TEN | 🔴 DUE | report OUT (2026-09-10, confirmed) and no 2026-Q2 balance sheet on file — refresh due. RESULTS ANNOUNCED 2026-09-10 (recorded at the 2026-09-10 sweep): issuer PR GlobeNewswire 3359616, 09:15 ET "TEN, Ltd. Reports Profits for the First Half and Second Quarter of 2026" — pre-open exactly as the 8/20 date-PR (GlobeNewswire 3348799) promised: "prior to the open of the market in New York on Thursday, September 10, 2026"; call 10:00 ET same day. No 6-K on EDGAR yet at sweep time (last 6-K 2026-05-22) — the PR-first/6-K-later pattern; subsequent-event flag for the H1 refresh: 9/01 PR 3354219 sale of two first-generation Suezmaxes (named Alaska/Archangel in the 9/10 PR). Entry historical until the Q3 re-seed; H1 refresh queued (decisions/ten_h1_refresh_packet_2026-09-07.md, ten_h1_release_check_2026-09-10.md). |
+| TEN | 🔴 DUE | report window open (2026-09-10 → 2026-10-01, confirmed) and no 2026-Q2 balance sheet on file — refresh due. RESULTS ANNOUNCED 2026-09-10 (recorded at the 2026-09-10 sweep): issuer PR GlobeNewswire 3359616, 09:15 ET "TEN, Ltd. Reports Profits for the First Half and Second Quarter of 2026" — pre-open exactly as the 8/20 date-PR (GlobeNewswire 3348799) promised: "prior to the open of the market in New York on Thursday, September 10, 2026"; call 10:00 ET same day. No 6-K on EDGAR yet at sweep time (last 6-K 2026-05-22) — the PR-first/6-K-later pattern; subsequent-event flag for the H1 refresh: 9/01 PR 3354219 sale of two first-generation Suezmaxes (named Alaska/Archangel in the 9/10 PR). Entry historical until the Q3 re-seed; H1 refresh queued (decisions/ten_h1_refresh_packet_2026-09-07.md, ten_h1_release_check_2026-09-10.md). HELD ON THE 2026-Q1 SHEET 2026-09-16 — the FILING-OVERDUE page ruled hold, not chase: the H1 6-K is the sheet-writable filing and TEN files it weeks after the release (H1-2025 6-K 0001193125-25-225057 landed 2025-09-30, three weeks after that release); still no 6-K on EDGAR at 2026-09-16 (data.sec.gov, newest 6-K 2026-05-22). window_end re-set from the release date to 2026-10-01 on that precedent, so the page re-fires after 10/01 + 3bd if nothing has landed. The 2026-09-11 shadow build stands at WOULD-HOLD (decisions/ten_shadow_build_2026-09-11.md); the EDGAR poll stages the 6-K the hour it appears. |
 | 2343 | — | 2026-08-06 (confirmed). Aug-6 now FORMALLY confirmed: HKEX board-meeting notice filed 2026-07-24 (hkex-12255247, staged inputs/filings/2343/12255247_2026072400392.pdf) — Board meets 6 Aug 2026 to approve H1-2026 interims + consider interim dividend. Supersedes the IR-calendar-only basis. |
 | ASC | — | 2026-07-29 (confirmed). CONFIRMED 2026-07-28 sweep: issuer PR 'Ardmore Shipping Announces Second Quarter 2026 Conference Call' (StockTitan/PRNewswire) — Q2 results PRE-MARKET Wed Jul-29, call 10:00 ET same day, replay to Aug-5. Was expected/no-PR at the 7/22 sweep. |
 | BRUT | — | 2026-08-13 (confirmed). RE-VERIFIED 2026-07-21 via the Euronext company-information calendar (exchange-published): Half-yearly Report 13/08/2026; AGM 12/08/2026. No timing stated. (Issuer legal name Bruton Limited.) Original NewsWeb filing not retrievable — calendar-grade source. |
@@ -96,31 +96,31 @@ _All market data files were updated within 30 days. ✓_
 
 | Ticker | as_of status | Detail |
 |---|---|---|
-| DHT | ✓ | as_of 2026-08-28 (19d ago) |
-| ECO | ✓ | as_of 2026-08-28 (19d ago) |
-| FRO | ✓ | as_of 2026-08-28 (19d ago) |
-| INSW | ✓ | as_of 2026-08-28 (19d ago) |
-| TNK | ✓ | as_of 2026-08-28 (19d ago) |
-| NAT | ⚠ APPROX | as_of 2026-08-28 (19d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| FLNG | ✓ | as_of 2026-08-28 (19d ago) |
-| CCEC | ⚠ APPROX | as_of 2026-08-28 (19d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| STNG | ⚠ APPROX | as_of 2026-08-28 (19d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| HAFN | ✓ | as_of 2026-08-28 (19d ago) |
-| TRMD | ⚠ APPROX | as_of 2026-08-28 (19d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| ASC | ⚠ APPROX | as_of 2026-08-28 (19d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| TEN | ⚠ APPROX | as_of 2026-09-09 (7d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| CMDB | ⚠ APPROX | as_of 2026-09-09 (7d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| SBLK | ✓ | as_of 2026-08-28 (19d ago) |
-| GNK | ✓ | as_of 2026-08-28 (19d ago) |
-| CAPT | ✓ | as_of 2026-08-28 (19d ago) |
-| MPCC | ⚠ APPROX | as_of 2026-08-28 (19d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| GSL | ⚠ APPROX | as_of 2026-06-12 (96d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| BRUT | ✓ | as_of 2026-08-28 (19d ago) |
-| CMBT | ⚠ APPROX | as_of 2026-08-28 (19d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| SB | ⚠ APPROX | as_of 2026-08-28 (19d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| LPG | ✓ | as_of 2026-08-28 (19d ago) |
-| BWLP | ✓ | as_of 2026-08-28 (19d ago) |
-| 2343 | ✓ | as_of 2026-08-28 (19d ago) |
+| DHT | ✓ | as_of 2026-08-28 (20d ago) |
+| ECO | ✓ | as_of 2026-08-28 (20d ago) |
+| FRO | ✓ | as_of 2026-08-28 (20d ago) |
+| INSW | ✓ | as_of 2026-08-28 (20d ago) |
+| TNK | ✓ | as_of 2026-08-28 (20d ago) |
+| NAT | ⚠ APPROX | as_of 2026-08-28 (20d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| FLNG | ✓ | as_of 2026-08-28 (20d ago) |
+| CCEC | ⚠ APPROX | as_of 2026-08-28 (20d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| STNG | ⚠ APPROX | as_of 2026-08-28 (20d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| HAFN | ✓ | as_of 2026-08-28 (20d ago) |
+| TRMD | ⚠ APPROX | as_of 2026-08-28 (20d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| ASC | ⚠ APPROX | as_of 2026-08-28 (20d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| TEN | ⚠ APPROX | as_of 2026-09-09 (8d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| CMDB | ⚠ APPROX | as_of 2026-09-09 (8d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| SBLK | ✓ | as_of 2026-08-28 (20d ago) |
+| GNK | ✓ | as_of 2026-08-28 (20d ago) |
+| CAPT | ✓ | as_of 2026-08-28 (20d ago) |
+| MPCC | ⚠ APPROX | as_of 2026-08-28 (20d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| GSL | ⚠ APPROX | as_of 2026-06-12 (97d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| BRUT | ✓ | as_of 2026-08-28 (20d ago) |
+| CMBT | ⚠ APPROX | as_of 2026-08-28 (20d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| SB | ⚠ APPROX | as_of 2026-08-28 (20d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| LPG | ✓ | as_of 2026-08-28 (20d ago) |
+| BWLP | ✓ | as_of 2026-08-28 (20d ago) |
+| 2343 | ✓ | as_of 2026-08-28 (20d ago) |
 
 _11 ticker(s) carry APPROX consensus_pnav comments — replace with authoritative broker NAV print (Pareto / Cleaves / Clarksons) when the Q-end research notes land._
 
@@ -128,31 +128,31 @@ _11 ticker(s) carry APPROX consensus_pnav comments — replace with authoritativ
 
 | Ticker | Fleet (≤90d) | BS for 2026-Q2 | Cost (≤180d) | Dividend (≤180d) |
 |---|---|---|---|---|
-| DHT | ✓ 37d | ✓ 39d ago | ✓ 110d | ✓ 110d |
-| ECO | ✓ 39d | ✓ 39d ago | ✓ 110d | ✓ 110d |
-| FRO | ✓ 16d | ✓ 16d ago | ✓ 110d | ✓ 110d |
-| INSW | ✓ 37d | ✓ 37d ago | ✓ 110d | ✓ 110d |
-| TNK | ✓ 39d | ✓ 39d ago | ✓ 110d | ✓ 110d |
-| NAT | ✓ 16d | ✓ 16d ago | ✓ 107d | ✓ 107d |
-| FLNG | ✓ 22d | ✓ 22d ago | ✓ 107d | ✓ 107d |
-| CCEC | ✓ 39d | ✓ 39d ago | ✓ 107d | ✓ 107d |
-| STNG | ✓ 39d | ✓ 39d ago | ✓ 103d | ✓ 107d |
-| HAFN | ✓ 16d | ✓ 16d ago | ✓ 104d | ✓ 104d |
-| TRMD | ✓ 18d | ✓ 18d ago | ✓ 104d | ✓ 104d |
-| ASC | ✓ 39d | ✓ 39d ago | ✓ 107d | ✓ 107d |
-| TEN | ✓ 63d | ✗ missing | ✓ 102d | ✓ 102d |
-| CMDB | ✓ 38d | ✓ 38d ago | ✓ 98d | ✓ 98d |
-| SBLK | ✓ 38d | ✓ 38d ago | ✓ 99d | ✓ 99d |
-| GNK | ✓ 39d | ✓ 39d ago | ✓ 98d | ✓ 98d |
-| CAPT | ✓ 15d | ✓ 15d ago | ✓ 97d | ✓ 97d |
-| MPCC | ✓ 16d | ✓ 16d ago | ✓ 96d | ✓ 96d |
-| GSL | ✓ 39d | ✓ 39d ago | ✓ 96d | ✓ 96d |
-| BRUT | ✓ 18d | ✓ 18d ago | ✓ 86d | ✓ 86d |
-| CMBT | ✓ 6d | ✓ 6d ago | ✓ 82d | ✓ 82d |
-| SB | ✓ 39d | ✓ 39d ago | ✓ 79d | ✓ 80d |
-| LPG | ✓ 39d | ✓ 39d ago | ✓ 68d | ✓ 68d |
-| BWLP | ✓ 6d | ✓ 16d ago | ✓ 68d | ✓ 68d |
-| 2343 | ✓ 39d | ✓ 39d ago | ✓ 64d | ✓ 64d |
+| DHT | ✓ 38d | ✓ 40d ago | ✓ 111d | ✓ 111d |
+| ECO | ✓ 40d | ✓ 40d ago | ✓ 111d | ✓ 111d |
+| FRO | ✓ 17d | ✓ 17d ago | ✓ 111d | ✓ 111d |
+| INSW | ✓ 38d | ✓ 38d ago | ✓ 111d | ✓ 111d |
+| TNK | ✓ 40d | ✓ 40d ago | ✓ 111d | ✓ 111d |
+| NAT | ✓ 17d | ✓ 17d ago | ✓ 108d | ✓ 108d |
+| FLNG | ✓ 23d | ✓ 23d ago | ✓ 108d | ✓ 108d |
+| CCEC | ✓ 40d | ✓ 40d ago | ✓ 108d | ✓ 108d |
+| STNG | ✓ 40d | ✓ 40d ago | ✓ 104d | ✓ 108d |
+| HAFN | ✓ 17d | ✓ 17d ago | ✓ 105d | ✓ 105d |
+| TRMD | ✓ 19d | ✓ 19d ago | ✓ 105d | ✓ 105d |
+| ASC | ✓ 40d | ✓ 40d ago | ✓ 108d | ✓ 108d |
+| TEN | ✓ 64d | ✗ missing | ✓ 103d | ✓ 103d |
+| CMDB | ✓ 39d | ✓ 39d ago | ✓ 99d | ✓ 99d |
+| SBLK | ✓ 39d | ✓ 39d ago | ✓ 100d | ✓ 100d |
+| GNK | ✓ 40d | ✓ 40d ago | ✓ 99d | ✓ 99d |
+| CAPT | ✓ 16d | ✓ 16d ago | ✓ 98d | ✓ 98d |
+| MPCC | ✓ 17d | ✓ 17d ago | ✓ 97d | ✓ 97d |
+| GSL | ✓ 40d | ✓ 40d ago | ✓ 97d | ✓ 97d |
+| BRUT | ✓ 19d | ✓ 19d ago | ✓ 87d | ✓ 87d |
+| CMBT | ✓ 7d | ✓ 1d ago | ✓ 83d | ✓ 83d |
+| SB | ✓ 40d | ✓ 40d ago | ✓ 80d | ✓ 81d |
+| LPG | ✓ 40d | ✓ 40d ago | ✓ 69d | ✓ 69d |
+| BWLP | ✓ 7d | ✓ 17d ago | ✓ 69d | ✓ 69d |
+| 2343 | ✓ 40d | ✓ 40d ago | ✓ 65d | ✓ 65d |
 
 _Thresholds: fleet manifest 90d (vessel sales/purchases happen quarterly); cost + dividend 180d (rarely change but should be re-validated annually)._
 
