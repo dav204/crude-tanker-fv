@@ -1,7 +1,7 @@
 # GNK — Fair Value Report
 
 - **Report date:** 2026-Q2
-- **Current price:** $27.00
+- **Current price:** $27.54
 - **Model fair value:** $25.40
 - **Analyst target:** $27.20
 
@@ -72,19 +72,19 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **1.31× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **1.42× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **41,274** | — |
-| 10-year mean | 20,134 | 2.05× |
-| 12-month FFA | 31,388 | 1.31× |
-| Current spot | 34,360 | 1.20× |
+| **Implied breakeven (blended)** | **44,614** | — |
+| 10-year mean | 20,134 | 2.22× |
+| 12-month FFA | 31,388 | 1.42× |
+| Current spot | 34,360 | 1.30× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Cape (64% of fleet value) | 51,136 | 2.16× |
-| Supra-Ultra (36% of fleet value) | 23,872 | 1.71× |
+| Cape (64% of fleet value) | 55,273 | 2.34× |
+| Supra-Ultra (36% of fleet value) | 25,804 | 1.85× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -96,11 +96,11 @@ The current price requires the fleet to run at **1.31× the current forward curv
 | **+15%** | $20.62 | $23.39 | $26.16 | $28.94 | $31.71 |
 | **+30%** | $21.38 | $24.15 | $26.92 | $29.70 | $32.47 |
 
-_Current price $27.00. Cycle weights held at base across the grid._
+_Current price $27.54. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$25.40** is -5.9% vs the current price ($27.00) and -6.6% vs the analyst target ($27.20). The current price implies the fleet earning a value-weighted blended **$41,274/day** (1.31× the current forward) — 2.0× the value-weighted 10-yr mean ($20,134, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$25.40** is -7.8% vs the current price ($27.54) and -6.6% vs the analyst target ($27.20). The current price implies the fleet earning a value-weighted blended **$44,614/day** (1.42× the current forward) — 2.2× the value-weighted 10-yr mean ($20,134, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

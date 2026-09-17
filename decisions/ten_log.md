@@ -1,5 +1,24 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-09-17T15:16:05+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $52.28
+- Single-point FV: $59.49
+- Scenario PW FV: $61.80 (EV +18.2%)
+- NAV / share: $88.16
+- Position: **BUY (undervalued)**
+- Broker spread: +46.7pp (k_broker 1.32)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread +7.4pp
+- Δprice: +3.44 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +7.4pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-14 — THE 9/11 TAPE ONLY: EV +38.2pp -> +29.0pp, fair value unchanged to the cent
 
 **Decision:** TEN's fair value is unchanged to the cent at 61.80 and the 2026-09-11 close took the share +7.13%, so EV compressed +38.2pp -> +29.0pp on price alone; the name stays BUY. Fair value 61.80 on both sides — the 2026-09-11 dry FFA promote moves no crude, product or LNG curve. The 2026-09-11 close took the share 44.71 -> 47.90, +7.13% in a day, and EV compressed +38.2pp -> +29.0pp. The name stays BUY. Note the vintage: this fair value still values TEN on the 2026-Q1 sheet. The H1 pair waits on the 6-K (not on EDGAR; last 6-K 2026-05-22), and the shadow build of 2026-09-11 reads WOULD-HOLD with six fields unverified (decisions/ten_shadow_build_2026-09-11.md). Baseline anchor: the 2026-09-10 ratify (e6b6299). Gate row dNAV +0.0%; the move is EV%, and EV% is fair value against the tape.

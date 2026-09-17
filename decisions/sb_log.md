@@ -1,5 +1,24 @@
 # SB — Decision Log
 
+## 2026-09-17T15:16:05+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $8.76
+- Single-point FV: $10.41
+- Scenario PW FV: $9.22 (EV +5.2%)
+- NAV / share: $10.72
+- Position: **BUY (undervalued)**
+- Broker spread: -27.6pp (k_broker 0.83)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ broker spread +5.9pp
+- Δprice: +0.49 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +5.9pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-14 — DRY FFA 2026-09-11 PROMOTE + THE 9/11 TAPE: EV +8.2pp -> +5.2pp, BUY stands
 
 **Decision:** The 2026-09-11 dry FFA promote moved SB's fair value 9.07 -> 8.95 (-1.32%) while the 9/11 close took the share +1.55%, so EV compressed +8.2pp -> +5.2pp and the name stays BUY. Two legs. (1) The dry FFA promote of the 2026-09-11 print (decisions/ffa_promotion_2026-09-14.md) moved the Cape/Pana/Supra curves; SB's fair value 9.07 -> 8.95, -1.32%. (2) The 2026-09-11 close 8.38 -> 8.51, +1.55%. Net EV +8.2pp -> +5.2pp; the name stays BUY and the standing GTC trim leg at $10.00 is untouched by either leg. The 9/09 placement dilution still lands at the Q3 vintage, not here. Baseline anchor: the 2026-09-10 ratify (e6b6299). Gate row dNAV +0.0%; the move is EV%, and EV% is fair value against the tape.
