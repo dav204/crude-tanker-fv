@@ -5,6 +5,7 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-09-17 — `crude_geopolitics_weekly` first weekly check on the folded card: LEG 1 not fired, LEG 2 state recorded, escalation question re-run → HOLD.** The Salalah framework meeting (9/14) was postponed at Saudi request (no fee schedule, no payments; the Iran–Oman route awaits registration) — a headwind to `mou_bear`'s premise, not a firing. LEG 2 changed in tempo, not kind: no US strike ashore announced since the 9/01–02 wave and no Iranian salvo on a host state since 9/08–09, yet Iranian attacks on shipping continue (El Gaia 9/12–13), the blockade stands at 103 vessels, the Saudi East-West bypass has been shut since 9/11 and TD3C printed $1,038,700 (9/15). Nothing is ANNOUNCED in either direction, so the weights hold at 0.28/0.59/0.00/0.13 (the R5 lesson: no move on an uncorroborated pause) with three pre-registered tripwires for the 9/24 check. `decisions/geopolitics_weekly_check_2026-09-17.md`; supersession note appended to `escalation_c3_rearm_2026-09-10.md`.
 - **2026-09-15/16 — THE DAILY LOOP HAD NO REGEN STEP, SO THE ANCHOR COULD NEVER ADVANCE.** The
   executor's second run promoted the 9/15 dry FFA print cleanly, then halted because the gate carried
   six rows its own run had not caused. The buried line was the real finding: **the baseline anchor had

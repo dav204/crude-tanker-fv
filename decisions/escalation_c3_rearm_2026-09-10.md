@@ -207,3 +207,14 @@ Original is 256 chars and faithful to its own numbers except the floor: "+0.5..+
 Keep the proposal's mou_bear-donor set as the documented alternative alongside the hold alternative; the record-line correction on `record:67` (mou_bear vs pre_mou attribution) is correctly owed.
 
 **UNVERIFIED (unchanged from the proposal):** CENTCOM release text, UKMTO 124-26 PDF.
+---
+## Addendum 2026-09-17 — supersession note from the weekly check (not a correction)
+
+This record was true on its date. As of the 9/17 check (`decisions/geopolitics_weekly_check_2026-09-17.md`)
+the state has changed in tempo, not in kind: no US strike on Iranian territory has been announced since the
+9/01–02 wave (GlobalSecurity OPREP Day 202: "tenth consecutive operational period without an announced strike
+ashore"), and no Iranian salvo at a host state since the night of 9/08–09; but Iranian attacks on shipping
+continue (El Gaia 9/12–13, CENTCOM calling the IRGC mine claim "false"), a US drone destroyed two IRGC boats
+on 9/14, the blockade stands at 103 vessels (9/15), the Saudi East-West bypass has been shut since 9/11, and
+no pause or ceasefire has been announced. The escalation question was re-run on that record → HOLD
+0.28/0.59/0.00/0.13, tripwires pre-registered for 9/24.

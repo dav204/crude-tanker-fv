@@ -14,7 +14,18 @@
 
 crude_geopolitics_weekly:
   sector: crude+product
-  due: 2026-09-17   # WEEKLY. Folded 2026-09-10 (prune-ledger F3, owner amended "fold weekly")
+  due: 2026-09-24   # re-armed 2026-09-17: check EXECUTED on the due date. LEG 1 NOT FIRED —
+                    # Salalah framework meeting (9/14) POSTPONED at Saudi request, no schedule, no
+                    # payments (Iran-Oman route "final stages", registration pending). LEG 2 state
+                    # CHANGED IN TEMPO, NOT KIND: no US strike ashore announced since the 9/01-02 wave
+                    # (GlobalSecurity OPREP D202 "tenth consecutive operational period"), no Iranian
+                    # salvo on a host state since 9/08-09, but Iranian attacks on shipping continue
+                    # (El Gaia 9/12-13, CENTCOM: mine claim "false"; US-contracted vessel ~9/14-15
+                    # UNCONFIRMED), US drone destroyed two IRGC boats 9/14, blockade 103 vessels
+                    # (9/15), Saudi East-West pipeline SHUT since 9/11, no pause/ceasefire announced.
+                    # Escalation question RE-RUN -> HOLD 0.28/0.59/0.00/0.13; three tripwires
+                    # pre-registered. decisions/geopolitics_weekly_check_2026-09-17.md
+                    # WEEKLY. Folded 2026-09-10 (prune-ledger F3, owner amended "fold weekly")
                     # from hormuz_fee_collection_watch (standing, R3) + escalation_pause_
                     # corroboration (weekly, R5) — both archived verbatim in
                     # decisions/reweight_trigger_archive.md. A monthly cadence (the 9/02
@@ -51,6 +62,7 @@ crude_geopolitics_weekly:
                     # 0.00/0.13, decisions/escalation_c3_rearm_2026-09-10.md. Re-armed on
                     # the weekly cadence (due above); the next check re-reads BOTH legs
                     # against the current state and re-runs the question if it changed.
+                    # 9/17 check: both legs re-read, question re-run -> HOLD (see due comment).
   added: 2026-08-16 # both parents; folded 2026-09-10
 
 product_glut_arrival_timing:
