@@ -1,5 +1,11 @@
 # ECO — Decision Log
 
+## 2026-09-17 — THE 9/17 TAPE ONLY: EV -47.4pp -> -50.7pp, fair value unchanged to the cent
+
+**Decision:** ECO's fair value is unchanged to the cent at 42.22 and the 2026-09-17 close took the share 80.2 -> 85.66 (+6.81%), so EV moved -47.4pp -> -50.7pp on price alone. No curve, sheet or manifest ECO reads changed between the anchor and this surface. The read stays the governed relabel 'rich - cycle position (not a short)'. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).
+
+---
+
 ## 2026-09-14 — THE 9/11 TAPE ONLY: EV -42.1pp -> -44.6pp, fair value unchanged to the cent
 
 **Decision:** ECO's fair value is unchanged to the cent at 42.22 and the 2026-09-11 close took the share +4.43%, so EV compressed -42.1pp -> -44.6pp on price alone. Fair value 42.22 on both sides of the run — the 2026-09-11 dry FFA promote touches no crude curve, and ECO carries no dry-bulk tonnage. The 2026-09-11 close took the share 72.92 -> 76.15, +4.43%, and EV compressed -42.1pp -> -44.6pp. The read stays the governed relabel 'rich - cycle position (not a short)' (SS12 archetype). Baseline anchor: the 2026-09-10 ratify (e6b6299). Gate row dNAV +0.0%; the move is EV%, and EV% is fair value against the tape.

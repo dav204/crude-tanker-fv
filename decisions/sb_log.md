@@ -1,5 +1,11 @@
 # SB — Decision Log
 
+## 2026-09-17 — THE 9/17 TAPE ONLY: EV +11.5pp -> +5.2pp, fair value unchanged to the cent
+
+**Decision:** SB's fair value is unchanged to the cent at 9.22 and the 2026-09-17 close took the share 8.27 -> 8.76 (+5.93%), so EV moved +11.5pp -> +5.2pp on price alone. No curve, sheet or manifest SB reads changed between the anchor and this surface. The name stays BUY; the standing GTC trim leg at $10.00 is untouched. The 9/09 placement dilution still lands at the Q3 vintage. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).
+
+---
+
 ## 2026-09-17T15:16:05+00:00 — Pipeline run (auto)
 
 **Model state:**

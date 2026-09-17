@@ -1,5 +1,11 @@
 # INSW — Decision Log
 
+## 2026-09-17 — THE 9/17 TAPE ONLY: EV -43.2pp -> -45.8pp, fair value unchanged to the cent
+
+**Decision:** INSW's fair value is unchanged to the cent at 59.91 and the 2026-09-17 close took the share 105.39 -> 110.61 (+4.95%), so EV moved -43.2pp -> -45.8pp on price alone. No curve, sheet or manifest INSW reads changed between the anchor and this surface. The read stays the governed relabel 'rich - cycle position (not a short)'. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).
+
+---
+
 ## 2026-09-10 — Escalation reweight annotation
 
 **Decision:** CRUDE ESCALATION REWEIGHT (fork escalation_c3_rearm, executed on verification at the owner's word 2026-09-10; decisions/escalation_c3_rearm_2026-09-10.md): crude scenario weights 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13 — the +3pp C3 tilt, from pre_mou_baseline's fast-reverting-flare-up mass, because the strike pause ended 8/30 and the flare-up did not revert (campaign from 9/01; TD3C $790.8k 9/10). A WEIGHT-ONLY leg: ΔNAV exactly 0.0; the EV move is the probability-weighted FV re-blending. Landed inside the pre-registered band. 

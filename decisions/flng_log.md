@@ -7,6 +7,12 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-09-17 — THE 9/17 TAPE ONLY: EV -6.3pp -> -8.5pp, fair value unchanged to the cent
+
+**Decision:** FLNG's fair value is unchanged to the cent at 29.47 and the 2026-09-17 close took the share 31.45 -> 32.2 (+2.38%), so EV moved -6.3pp -> -8.5pp on price alone. No curve, sheet or manifest FLNG reads changed between the anchor and this surface. The read stays TRIM/SHORT (overvalued). Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).
+
+---
+
 ## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
 
 **Model state:**

@@ -1,5 +1,11 @@
 # ASC — Decision Log
 
+## 2026-09-17 — THE 9/17 TAPE ONLY: EV -12.6pp -> -15.2pp, fair value unchanged to the cent
+
+**Decision:** ASC's fair value is unchanged to the cent at 16.28 and the 2026-09-17 close took the share 18.62 -> 19.21 (+3.17%), so EV moved -12.6pp -> -15.2pp on price alone. No curve, sheet or manifest ASC reads changed between the anchor and this surface. The read stays TRIM/SHORT (overvalued). Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).
+
+---
+
 ## 2026-09-09 — Stage B annotation (tanker re-anchor 2026-09-09)
 
 **Decision:** STAGE B — tanker curves + 12M re-anchored under the 2026-09-09 owner ruling (inputs 0e6c518; record + frozen predicted impact in decisions/stage_b_promotion_2026-09-09.md). A RATE-ONLY event: ΔNAV is exactly 0.0 on every name (nav.py reads no rate file); the EV move is the scenario deck re-reading the new curve through forward_ref. Direction DOWN as predicted. ΔEV -5.0pp · Δk +0.070 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change). Ratify rides the owner's next ratify_baseline.sh with the promotion record as cause.

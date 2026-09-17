@@ -1,5 +1,11 @@
 # FRO — Decision Log
 
+## 2026-09-17 — THE 9/17 TAPE ONLY: EV -44.1pp -> -46.6pp, fair value unchanged to the cent
+
+**Decision:** FRO's fair value is unchanged to the cent at 28.79 and the 2026-09-17 close took the share 51.52 -> 53.93 (+4.68%), so EV moved -44.1pp -> -46.6pp on price alone. No curve, sheet or manifest FRO reads changed between the anchor and this surface. VLCC 12M stays HELD at 105,700 (settled at the issuer source 2026-09-14). The read stays the governed relabel 'rich - cycle position (not a short)'. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).
+
+---
+
 ## 2026-09-15 — THE 9/15 TAPE ONLY: EV -41.5pp -> -44.1pp, fair value unchanged to the cent
 
 **Decision:** FRO's fair value is unchanged to the cent at 28.79 and the close took the share 49.21 -> 51.52 (+4.69%), so EV compressed -41.5pp -> -44.1pp on price alone. No crude curve moved in the 2026-09-15 dry FFA promote, and the VLCC 12M line is HELD at 105,700 (settled at the issuer source 2026-09-14, decisions/stage_b_open_items_2026-09-14.md). The read stays the governed relabel 'rich - cycle position (not a short)'. Baseline anchor: the 2026-09-11 ratify (1988a4d). Gate row dNAV +0.0%. The anchor has not advanced since 9/11 because the daily loop has no regen step — precondition (e) of the land lane has failed every morning 9/12-9/15; recorded and being fixed separately.

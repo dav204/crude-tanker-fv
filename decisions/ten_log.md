@@ -1,5 +1,11 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-09-17 — THE 9/17 TAPE ONLY: EV +26.5pp -> +18.2pp, fair value unchanged to the cent
+
+**Decision:** TEN's fair value is unchanged to the cent at 61.8 and the 2026-09-17 close took the share 48.84 -> 52.28 (+7.04%), so EV moved +26.5pp -> +18.2pp on price alone. No curve, sheet or manifest TEN reads changed between the anchor and this surface. The name stays BUY on the 2026-Q1 sheet: the H1 6-K is still not on EDGAR (window re-set to 2026-10-01 on 9/16, held not chased) and the 9/11 shadow build stands at WOULD-HOLD. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).
+
+---
+
 ## 2026-09-17T15:16:05+00:00 — Pipeline run (auto)
 
 **Model state:**

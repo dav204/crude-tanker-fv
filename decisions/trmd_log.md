@@ -1,5 +1,11 @@
 # TRMD — Decision Log
 
+## 2026-09-17 — THE 9/17 TAPE ONLY: band BUY -> HOLD as the Oaktree-secondary discount reversed (+11.0%), fair value unchanged to the cent
+
+**Decision:** TRMD's fair value is unchanged to the cent at 35.14 and the 2026-09-17 close took the share 32.96 -> 36.59 (+11.01%), so EV moved +6.6pp -> -4.0pp on price alone. No curve, sheet or manifest TRMD reads changed between the anchor and this surface. Band BUY -> HOLD (fairly valued), a mechanical crossing AWAY from BUY: the 9/15 Oaktree secondary discount (-6.73% that day) has fully reversed and then some (+11.0% over two sessions), so the two-day BUY that the buyflip fork landed on 9/15 is gone with the overhang; nothing about TORM's valuation moved. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).
+
+---
+
 ## 2026-09-17T15:16:05+00:00 — Pipeline run (auto)
 
 **Model state:**
