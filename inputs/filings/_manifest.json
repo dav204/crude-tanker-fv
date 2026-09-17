@@ -1987,5 +1987,85 @@
   "attachments": [
    "inputs/filings/MPCC/d6f016bd-a94f-496a-bb33-71b6639c834e_260917-mpcc-pareto-energy-conference.pdf"
   ]
+ },
+ {
+  "ts": "2026-09-17T13:34:57+00:00",
+  "ticker": "FRO",
+  "cik": "0000913290",
+  "accession": "0001628280-26-062234",
+  "form": "6-K",
+  "filed": "2026-09-16",
+  "primary_doc": "fro-20260630.htm",
+  "staged_path": "inputs/filings/FRO/0001628280-26-062234_6-K_fro-20260630.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-17T13:34:57+00:00",
+  "ticker": "SB",
+  "cik": "0001434754",
+  "accession": "0000930413-26-002901",
+  "form": "6-K",
+  "filed": "2026-09-16",
+  "primary_doc": "c117712_6k.htm",
+  "staged_path": "inputs/filings/SB/0000930413-26-002901_6-K_c117712_6k.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-17T13:34:57+00:00",
+  "ticker": "SBLK",
+  "cik": "0001386716",
+  "accession": "0000950157-26-001022",
+  "form": "6-K",
+  "filed": "2026-09-16",
+  "primary_doc": "form6-k.htm",
+  "staged_path": "inputs/filings/SBLK/0000950157-26-001022_6-K_form6-k.htm",
+  "exhibits": [
+   {
+    "doc": "ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-001022_6-K_ex99-1.htm"
+   },
+   {
+    "doc": "ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-001022_6-K_ex99-2.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-17T13:34:57+00:00",
+  "ticker": "TRMD",
+  "cik": "0001655891",
+  "accession": "0000919574-26-006339",
+  "form": "6-K",
+  "filed": "2026-09-16",
+  "primary_doc": "p15081246_6-k.htm",
+  "staged_path": "inputs/filings/TRMD/0000919574-26-006339_6-K_p15081246_6-k.htm",
+  "exhibits": [
+   {
+    "doc": "p15081246_exh1-1.htm",
+    "type": "EX-99",
+    "staged_path": "inputs/filings/TRMD/0000919574-26-006339_6-K_p15081246_exh1-1.htm"
+   },
+   {
+    "doc": "p15081246_exh99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/TRMD/0000919574-26-006339_6-K_p15081246_exh99-1.htm"
+   },
+   {
+    "doc": "p15081246_exh99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/TRMD/0000919574-26-006339_6-K_p15081246_exh99-2.htm"
+   },
+   {
+    "doc": "p15081246_exh5-1.htm",
+    "type": "EX-99",
+    "staged_path": "inputs/filings/TRMD/0000919574-26-006339_6-K_p15081246_exh5-1.htm"
+   }
+  ],
+  "amended": false
  }
 ]
