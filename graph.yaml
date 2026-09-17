@@ -19,9 +19,13 @@
 # Clock facts (verified 2026-09-13): the machine is America/New_York, but launchd fires every
 # StartCalendarInterval hour +3h from the plist value (state/automation_runs.log: plist 07:00 ->
 # 14:00Z, 08:00 -> 15:00Z, 08:15 -> 15:15Z, 09:00 -> 16:00Z, 18:30 -> 01:30Z). `runs` below records
-# the OBSERVED wall-clock; the plist value is in parentheses. Every launchd wrapper exits 0 as
-# skipped-paused while a PAUSE file exists at the repo root, and writes state/heartbeat/<job> on
-# EVERY exit (skips included) — the sentinel's liveness check reads only those heartbeats.
+# the OBSERVED wall-clock; the plist value is in parentheses. Dated 2026-09-17: the runs log sits at
+# +4h (Eastern) through the 08-16 shutdown and +7h (Pacific) from the 08-17 02:49 boot on, with
+# /etc/localtime relinked to New_York on 08-24 — launchd's calendar monitor keeps the zone it booted
+# in, so the next reboot (or the Nov 1 DST change) moves every job again and R7 fires. Every
+# launchd wrapper exits 0 as skipped-paused while a PAUSE file exists at the repo root, and writes
+# state/heartbeat/<job> on EVERY exit (skips included) — the sentinel's liveness check reads only
+# those heartbeats.
 version: 1
 repo: crude-tanker-fv
 kinds: [launchd, lane, scheduled-task, script, human, external]
@@ -29,7 +33,10 @@ tree_drift_only_required_by: [price-refresh, sentinel-checks, auto-land, auto-pu
 # R7: launchd fires each job at its plist hour plus this many hours to UTC (observed 2026-09-13:
 # plist 08:15 -> 15:15Z). A plist reload, a reboot in another zone, or the DST change moves
 # every job at once; the check fails until the ordering assumptions are re-verified and this
-# value is updated.
+# value is updated. A slot the Mac slept through fires ONCE at wake instead (2026-09-15 / 09-17:
+# price-refresh 01:30Z -> 13:3xZ after a 1%-battery hibernate) — one job, not all; a sibling at
+# this offset AFTER it clears the check, so a fail with no sibling since means wait for the next
+# scheduled job before touching this value (re-verified 2026-09-17: still 7).
 launchd_utc_offset_hours: 7
 # Scheduled tasks that fired once and are disabled in the app; they keep their folder, so R5
 # skips them by name (a re-enabled one must get a node).

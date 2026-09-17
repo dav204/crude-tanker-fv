@@ -5,6 +5,26 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-09-17 — R7 RED ON A WAKE CATCH-UP, NOT A CLOCK SHIFT; the check now asks a sibling.** The
+  graph check failed on the price-refresh row: plist 18:30 but the last two launchd runs sat at
+  13:30Z (9/15) and 13:34Z (9/17), offset 19h against the declared 7h. `pmset -g log` dates both: the
+  Mac hibernated at 1% battery through the 21:30 ET slot (18:23 ET 9/14; 20:48 ET 9/16) and launchd
+  fired the slept-through slot once, seconds after the wake (lid-open 09:30:26 ET 9/15; power-attach
+  09:34:23 ET 9/17) — the same second as an off-slot edgar-poll, the catch-up signature. Every other
+  hour-bearing job still sat at +7h that day (rocketchat-ingest 14:00Z, sentinel 15:15Z; news-pull /
+  harvester 15:00Z / 16:00Z on 9/12), `launchctl print` still shows the 18:30 descriptor, no reboot
+  since 08-17, so `launchd_utc_offset_hours` stays 7 and every +3h ordering assumption (price-refresh
+  before the price-leg / auto-land, ingest 10:00 ET, the 11:15 ET sentinel, Saturday scanner before
+  harvester, the app tasks after the sentinel) re-verified. *Fixed:* R7 reads one job's last run, and a
+  slept-through slot moves ONE job — it now excuses a disagreeing run when a sibling ran at the expected
+  offset AFTER it (a real shift moves the sibling too, so it keeps failing), and it ignores `manual:` /
+  `session:` initiators, which say nothing about launchd's clock. Until a sibling runs, a catch-up and a
+  shift look the same and the check still fails, with the message saying so. *Also dated:* the +3h
+  offset itself — the runs log sits at +4h (Eastern) through the 08-16 shutdown and +7h (Pacific) from
+  the 08-17 02:49 boot on, `/etc/localtime` relinked to New_York 08-24: launchd's calendar monitor keeps
+  the zone it booted in, so the next reboot or the Nov 1 DST change moves every job and R7 fires FOR
+  REAL — re-check the ordering assumptions then. Tests: `test_launchd_wake_catch_up_is_not_a_clock_shift`,
+  `test_manual_runs_say_nothing_about_the_launchd_clock`.
 - **2026-09-17 — `crude_geopolitics_weekly` first weekly check on the folded card: LEG 1 not fired, LEG 2 state recorded, escalation question re-run → HOLD.** The Salalah framework meeting (9/14) was postponed at Saudi request (no fee schedule, no payments; the Iran–Oman route awaits registration) — a headwind to `mou_bear`'s premise, not a firing. LEG 2 changed in tempo, not kind: no US strike ashore announced since the 9/01–02 wave and no Iranian salvo on a host state since 9/08–09, yet Iranian attacks on shipping continue (El Gaia 9/12–13), the blockade stands at 103 vessels, the Saudi East-West bypass has been shut since 9/11 and TD3C printed $1,038,700 (9/15). Nothing is ANNOUNCED in either direction, so the weights hold at 0.28/0.59/0.00/0.13 (the R5 lesson: no move on an uncorroborated pause) with three pre-registered tripwires for the 9/24 check. `decisions/geopolitics_weekly_check_2026-09-17.md`; supersession note appended to `escalation_c3_rearm_2026-09-10.md`.
 - **2026-09-15/16 — THE DAILY LOOP HAD NO REGEN STEP, SO THE ANCHOR COULD NEVER ADVANCE.** The
   executor's second run promoted the 9/15 dry FFA print cleanly, then halted because the gate carried

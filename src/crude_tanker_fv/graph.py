@@ -126,11 +126,12 @@ def _automation_commits(root: Path, days: int = 30) -> list[tuple[str, str, list
 
 
 def _last_runs(log_path: Path) -> dict:
-    """job -> UTC datetime of its most recent line in state/automation_runs.log."""
+    """job -> UTC datetime of its most recent launchd-initiated line in state/automation_runs.log
+    (a manual:<user> or session:* run says nothing about launchd's clock)."""
     from datetime import datetime
     out: dict = {}
     for ln in log_path.read_text().splitlines():
-        m = re.match(r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})Z job=(\S+)", ln)
+        m = re.match(r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})Z job=(\S+) initiator=com\.crude-tanker-fv\.", ln)
         if m:
             out[m.group(2)] = datetime.fromisoformat(m.group(1))
     return out
@@ -220,10 +221,15 @@ def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS
     # timezone in force when the plist was loaded (observed +7h to UTC: plist 08:15 -> 15:15Z).
     # A reload, a reboot in another zone, or the DST change moves every job at once and with it
     # every ordering assumption (the Saturday news task before the sentinel, the drill sums).
+    # A slot the Mac slept through fires ONCE at wake instead (2026-09-15 / 09-17: the 01:30Z
+    # price-refresh ran at 13:3xZ, seconds after a lid-open from a 1%-battery hibernate) — that
+    # moves one job, not all, so a sibling on the expected offset AFTER it is the tell that the
+    # clock did not shift. Until such a sibling runs, a catch-up and a shift look the same.
     expected = graph.get("launchd_utc_offset_hours")
     runs_log = (root / "state" / "automation_runs.log") if runs_log is None else runs_log
     if expected is not None and launch_agents.exists() and runs_log.exists():
         last = _last_runs(runs_log)
+        observed: dict = {}
         for n in nodes:
             pl = launch_agents / f"{n.get('plist')}.plist" if n.get("plist") else None
             if not pl or not pl.exists():
@@ -232,12 +238,17 @@ def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS
             job = n["plist"].replace("com.crude-tanker-fv.", "")
             if "Hour" not in cal or job not in last:
                 continue
-            observed = (last[job].hour - int(cal["Hour"])) % 24
-            if observed != expected:
-                problems.append(f"R7 launchd clock shifted for {job}: plist hour {cal['Hour']:02d} but the last run was "
-                                f"{last[job].strftime('%Y-%m-%dT%H:%MZ')} (offset {observed}h, graph expects {expected}h) — "
-                                f"a reload/reboot or DST moved the jobs; re-check every ordering assumption, then set "
-                                f"launchd_utc_offset_hours")
+            observed[job] = (int(cal["Hour"]), last[job], (last[job].hour - int(cal["Hour"])) % 24)
+        latest_on_time = max((ts for _, ts, off in observed.values() if off == expected), default=None)
+        for job, (hour, ts, off) in observed.items():
+            if off == expected or (latest_on_time is not None and latest_on_time > ts):
+                continue
+            problems.append(f"R7 launchd clock shifted for {job}: plist hour {hour:02d} but the last run was "
+                            f"{ts.strftime('%Y-%m-%dT%H:%MZ')} (offset {off}h, graph expects {expected}h) — "
+                            f"a reload/reboot or DST moved the jobs; re-check every ordering assumption, then set "
+                            f"launchd_utc_offset_hours — unless the Mac slept through this slot and no sibling job "
+                            f"has run since (a slept-through slot fires once at wake; re-check after the next "
+                            f"scheduled job)")
 
     # R6
     commits = _automation_commits(root) if commits is None else commits

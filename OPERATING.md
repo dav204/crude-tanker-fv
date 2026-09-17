@@ -3,8 +3,10 @@
 Written 2026-09-11 after the owner asked "what is the surface for engaging with this project".
 One page. What runs by itself, what an agent does on a schedule, what only you do, and the one
 surface you watch. Times are Eastern with UTC beside them. The Mac is on Eastern time, but launchd
-fires each job three hours after its plist hour (observed, not explained); the graph at the end records
-both. The desktop app shows its task times in your display zone.
+fires each job three hours after its plist hour (since the 2026-08-17 reboot: launchd's calendar monitor
+keeps the Pacific zone it booted in; the next reboot or the Nov 1 DST change moves every job again and
+`graph check` R7 fires); the graph at the end records both. A job whose slot the Mac slept through fires
+once at wake — one job, not a clock shift. The desktop app shows its task times in your display zone.
 
 ## The one surface: your inbox
 
