@@ -50,8 +50,31 @@ lease_liabilities: 118384000
 # anticipated ("first instalment") has no issuer-side schedule to cite, and the three
 # candidate treatments differ by up to ~$6/sh — **OWNER FORK, decisions/
 # bwlp_nb_order_fork_2026-08-31.md; the order is HELD OUT of this snapshot (both
-# sides at 0, matching its 6/30 statement presentation) pending the ruling.** This is
+# sides at 0, matching its 6/30 statement presentation).** This is
 # the same family as the owner-flagged GSL/CMBT commitment-net fork.
+# RULED 2026-09-17 by the silence policy (fork bwlp_nb_order_treatment, opened
+# 2026-09-10, execute_after 2026-09-15; doc decisions/forks_registered_2026-09-10.md):
+# **OPTION 3 — ADVANCES-ONLY INTERIM.** Both sides stay 0; ΔNAV 0.0 (NAV/sh $15.83),
+# ΔEV 0.0. Why the tool's own on-curve convention (§9.6) is set aside here, stated
+# precisely: NOT a per-hull-price argument (nav.py discounts the age-0 curve node and
+# subtracts the AGGREGATE sourced commitment — no per-hull price ever enters), but
+# `years_to_delivery` — the issuer discloses only a WINDOW ("early-2029 → Q2-2030",
+# 6-K acc 0001213900-26-063117), so the 1.11^(−years) factor has no citable exponent,
+# and zero has been paid at the snapshot date.
+# NO `structural_exempt` registry line was added (the registry header, inputs/
+# market_data/newbuild_convention.yaml, requires exempt names to be commitment-net —
+# a line here would enshrine what that header forbids); the rationale-scope question
+# routes to the CMBT/GSL commitment-net prereg where the 8/31 fork doc placed it.
+# RE-OPEN TRIGGER (dated, because the structural guard cannot see a 0/0/0 name —
+# tests/test_newbuild_convention.py classifies it "no-NB" and never parametrizes it):
+# the FIRST instalment paid or delivery schedule disclosed; earliest the Q3 interim
+# (~Nov 2026), or any earlier 6-K instalment note the sentinel's filing lane catches.
+# Q3 WIRING (not this fork): the yard is Hyundai Heavy Industries, and the US$300M
+# 2.25% senior unsecured convertible due 2031 settled ~9-Sep-2026 "to partly finance
+# the newbuild program with Hyundai Heavy Industries for eight Panamax VLGCs"
+# (inputs/filings/BWLP/newsweb_2026-09-02_da6ce467….txt:9-10,13; conversion price
+# US$30.4870). Cash +~$300M / debt +$300M at face, NAV-neutral pre-conversion.
+# "Partly finance" is NOT evidence that an instalment was paid.
 newbuild_capex_commitments: 0
 newbuild_advances_paid: 0
 

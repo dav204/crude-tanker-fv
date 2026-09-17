@@ -88,10 +88,14 @@ spot_coverage_pct:
 fleet_summary:
   VLGC_count: 39                 # 28 parent-owned + 3 lease-financed + 8 BW LPG India
   vessels_under_construction: 0  # the 8-hull ~$940M Panamax-VLGC order (HHI, signed 30-May-2026)
-                                 # is HELD OUT — fork bwlp_nb_order_treatment (inputs/forks.yaml,
-                                 # executes 2026-09-15): Option 3 advances-only interim, hulls AND
+                                 # is HELD OUT — fork bwlp_nb_order_treatment RULED 2026-09-17 by
+                                 # the silence policy: Option 3 advances-only interim, hulls AND
                                  # commitment both OUT, matching the 6/30 statements (no instalment
                                  # disclosed; the $300M convert settled 9/09 is Q3 wiring). Do NOT
-                                 # re-wire the order on this manifest without that fork's answer.
+                                 # re-wire the order here until the re-open trigger fires: a first
+                                 # instalment paid or a delivery schedule disclosed (earliest the
+                                 # Q3 interim ~Nov 2026). Full ruling + why §9.6 is set aside:
+                                 # inputs/balance_sheets/bwlp_2026-Q2.yaml newbuild block;
+                                 # doc decisions/forks_registered_2026-09-10.md.
   held_for_sale: 0               # no HFS line on the 3/31/2026 balance sheet; no Q1 disposals
   avg_age_VLGC: 10.9
