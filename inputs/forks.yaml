@@ -50,7 +50,7 @@ forks:
     opened: 2026-09-10
     execute_after: 2026-09-15
     recommendation: "Option 3 ADVANCES-ONLY interim (= $0: the eight HHI VLGC hulls + the ~$940M commitment both OUT, matching the 6/30 statements): ΔNAV 0.0 / ΔEV 0.0, BWLP stays T/S PROVISIONAL. Record the HHI yard + the $300M 2.25% convert (settled 9/09, 'partly finance the newbuild program') as Q3 wiring; re-opens on any instalment or schedule disclosure. NO structural_exempt registry line (the verifier: it would enshrine what the convention header forbids)"
-    status: open
+    status: halted   # 2026-09-17 — suite red on verification: tests/test_graph.py::test_real_graph_checks_clean R7 launchd clock shift (price-refresh plist hour 18 vs last run 2026-09-17T13:34Z, offset 19h, graph expects 7h). UNRELATED to this fork - R7 reads the plist + state/automation_runs.log, neither touched here. The fork's OWN prediction HIT: regen 0 material deltas, BWLP NAV +0.0pct and still TRIM/SHORT, drift gate 25 rows 0 UNEXPLAINED. Record-only edits already committed ebe10a1 (no value moved); ruling docs are in git stash. Owner rules: confirm executed, or revert ebe10a1.
   - id: spot_tce_promote_2026-09-10
     kind: judgment   # the owner reserved the spot disposition (PLAN OWNER OWES ×2) — the silence window applies
     doc: decisions/forks_registered_2026-09-10.md
