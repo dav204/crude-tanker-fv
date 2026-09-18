@@ -16,12 +16,15 @@
 # queue's alphabetical tenor sort made AUG (true front month jul was 18975) —
 # see decisions/ffa_promotion_2026-07-13.md; today's proxies use the true
 # front month from state/ffa_ocr_curves.json.
-# HOLD ANNOTATED 2026-08-31 (digest UNINGESTED-PRINTS lane): Pareto dailies staged
-# through 8/31 vs the 8/07 vintage below — promotion DELIBERATELY DEFERRED to the next
-# owner round (the 8/31 seven-cause ratify closed today; refresh backlog MPCC/CMBT/HAFN/
-# BWLP/FRO/NAT + the 9/01 CAPT print run first, one FV-event at a time). Spot feeds the
-# breakeven diagnostic + validate warning only, NOT the strip — staleness here is
-# display-grade. Rider 4 stays live for 12M/FFA prints (see ffa_capture_review_2026-08-31).
+# PROMOTED 2026-09-18 to the Pareto 9/10 daily — fork spot_tce_promote_2026-09-10, registered
+# 2026-09-10 with execute_after 2026-09-15 and unanswered, so it executes AT ITS REGISTERED
+# RECOMMENDATION (silence policy, inputs/forks.yaml) — the 9/10 numbers, not a re-derived newer
+# set. Source of record: Pareto Shipping Daily 10 SEP 2026, p.1 "Average of key routes",
+# column-1 convention pinned 2026-08-07 (inputs/research_pareto/2026/09/2026-09-10_Periodical-
+# ShippingDaily-2026-09-10-529696.pdf); every figure below re-read from that table 2026-09-18.
+# The 8/31 HOLD it supersedes is retired. Spot left the sentinel's UNINGESTED-PRINTS lane
+# 2026-09-02 (owner F17), so a vintage older than the newest staged daily raises no flag:
+# spot feeds the breakeven diagnostic + validate warning only, NEVER NAV or the strip.
 # Machine vintage (WO2 1.2) — the structured mirror of the per-row comments;
 # read by the sentinel's UNINGESTED-PRINTS lane (newest staged Pareto daily vs
 # default) + agreement-tested against the held-class comments. default = the
@@ -29,7 +32,9 @@
 # older vintage (their staleness is tracked by their own trigger/note, not
 # by the lane). Top-level sibling key — invisible to loaders._scalar_map.
 as_of:
-  default: 2026-08-07       # the 8/7 Pareto daily (tanker + RESUMED dry spot, Stage-A-day
+  default: 2026-09-10       # PROMOTED 2026-09-18 (fork spot_tce_promote_2026-09-10) from 2026-08-07:
+                            # the 9/10 Pareto daily, column-1 convention. The superseded 8/07 note:
+                            # the 8/7 Pareto daily (tanker + RESUMED dry spot, Stage-A-day
                             # promote 2026-08-10) + containers MB W32 (8/09 event); the
                             # 06-Aug FFA dry proxies RETIRED at the resume trigger
                             # (owner-authorized 2026-08-09 round, ffa_promotion_
@@ -38,25 +43,25 @@ as_of:
   LNGC: 2026-08-06         # MB LNG W32 print date (rides near-default; the 6/07 hold RETIRES)
   MGC: 2026-06-07           # held, as LNGC
   Handy-Bulk: 2026-07-10    # BHSI week-close print (no FFA panel, no Pareto column)
-  Ctr-Feeder: 2026-08-07    # MB W32 container refresh (2026-08-09 event, packet 2026-08-09)
-  Ctr-Intermediate: 2026-08-07
-  Ctr-Large: 2026-08-07
+  Ctr-Feeder: 2026-09-04    # MB W36 container refresh — the mirror lag below is CLEARED by this promote
+  Ctr-Intermediate: 2026-09-04
+  Ctr-Large: 2026-09-04
 spot_tce:
-  VLCC: 488900    # 2026-08-10 promote: TD3C eco (Pareto 8/7; +11.2% d/d — war tape; TD22 USG-China 128,300 same day, convention note stands)
-  Suezmax: 77600    # 2026-08-10 promote: TD20 eco (Pareto 8/7; +0.3% d/d)
-  Aframax: 75400    # 2026-08-10 promote: Pareto 8/7 (-5.3% d/d)
-  LR2: 75400    # 2026-08-10 promote: crude-context LR2 proxies Aframax dirty (convention unchanged)
+  VLCC: 790800    # 2026-09-18 promote: Pareto 9/10 TD3_C column-1 ($790,800, +3.3% d/d; TD22 USG-China $220,100 the same day — convention note stands)
+  Suezmax: 135000    # 2026-09-18 promote: Pareto 9/10 TD20 ($135,000, +2.2% d/d)
+  Aframax: 72500    # 2026-09-18 promote: Pareto 9/10 Aframax ($72,500, +6.8% d/d)
+  LR2: 72500    # 2026-09-18 promote: crude-context LR2 proxies Aframax dirty (convention unchanged)
   LNGC: 65000    # 2026-08-10 promote: MB LNG W32 X-DF spot (8/6) — FIRST LNG print since the 6/07 hold; Pareto 8/7 TFDE $65,125 corroborates
   MGC: 25000            # as LNGC — held, stale
-  MR: 31500    # 2026-08-10 promote: MR (East) eco (Pareto 8/7; -1.7% d/d); West printed 24,600
-  Handysize: 31500    # 2026-08-10 promote: clean-Handy proxies MR (convention unchanged, §11.5)
-  Handymax: 31500    # 2026-08-10 promote: chem-Handy proxies MR (convention unchanged, §11.5)
-  LR1_clean: 95300    # 2026-08-10 promote: LR1 eco (Pareto 8/7; +0.3% d/d)
-  LR2_clean: 92200    # 2026-08-10 promote: LR2 eco (Pareto 8/7; +0.1% d/d)
-  Cape: 42313    # 2026-08-10 promote: Pareto 8/7 DAILY SPOT — drybulk_spot_daily_resumes EXECUTED (proxy era ends; section verified on the rendered page)
-  Pana: 20473    # 2026-08-10 promote: Pareto 8/7 daily spot (Panamax row) — proxy era ends
-  Post-Panamax: 20473    # 2026-08-10 promote: shares the Pana freight basin (§11.7.10)
-  Supra-Ultra: 20326    # 2026-08-10 promote: Pareto 8/7 daily spot (Ultramax row) — proxy era ends
+  MR: 55100    # 2026-09-18 promote: Pareto 9/10 MR (East) ($55,100, +5.0% d/d); MR (Atlantic triangulation) printed $26,400
+  Handysize: 55100    # 2026-09-18 promote: clean-Handy proxies MR (convention unchanged, §11.5)
+  Handymax: 55100    # 2026-09-18 promote: chem-Handy proxies MR (convention unchanged, §11.5)
+  LR1_clean: 148100    # 2026-09-18 promote: Pareto 9/10 LR1 ($148,100, +5.0% d/d)
+  LR2_clean: 141800    # 2026-09-18 promote: Pareto 9/10 LR2 ($141,800, +25.7% d/d — the LR spillover the daily's lede names)
+  Cape: 54538    # 2026-09-18 promote: Pareto 9/10 Capesize ($54,538, +1.5% d/d)
+  Pana: 21725    # 2026-09-18 promote: Pareto 9/10 Panamax ($21,725, 0.0% d/d)
+  Post-Panamax: 21725    # 2026-09-18 promote: shares the Pana freight basin (§11.7.10)
+  Supra-Ultra: 21537    # 2026-09-18 promote: Pareto 9/10 Ultramax ($21,537, +0.6% d/d)
   Handy-Bulk: 16466     # §11.7.11 (2026-07-14): BHSI 38k 7TC avg earnings, week-close
                         # 10-Jul-2026 (Baltic Exchange via xclusiv W28 p.1; 13-Jul print
                         # 16,445 corroborates). Gross basis like the dry family rows; no
@@ -66,9 +71,6 @@ spot_tce:
   # assessment so the breakeven display has a current-rate reference.
   # Refreshed 2026-07-22 from MB W29 (Jul-17) — see twelve_month_tc.yaml
   # (mirror surface; the 12M assessment is the single determinant).
-  Ctr-Feeder: 24250         # MIRROR LAG (2026-09-10): the 12M surface moved to W36 (25,500) but this
-                            # file's default is 2026-08-07 and an override may not be newer than the
-                            # default (test_market_data_vintages), so the spot mirror waits for the
-                            # owner's spot disposition (PLAN.md) — values here are the W32 vintage
-  Ctr-Intermediate: 46350   # A3 TEU-weighted, re-derived 2026-07-06; W29 flat; 12M now 47,567 (W36)
-  Ctr-Large: 64000   # 6,500-TEU bucket 66,000->68,000 at MB W30, held W31/W32; avg(60,000, 68,000) — container_mb_refresh_packet_2026-08-09.md
+  Ctr-Feeder: 25500         # 2026-09-18 promote: mirror of the 12M W36 assessment (mirror lag cleared)
+  Ctr-Intermediate: 47567   # 2026-09-18 promote: mirror of the 12M W36 A3 TEU-weighted assessment
+  Ctr-Large: 64000          # 2026-09-18 promote: 12M W36 value UNCHANGED (held W31-W36)
