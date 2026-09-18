@@ -22,7 +22,7 @@
 |---|--:|--:|--:|--:|--:|---|
 | ASC | $15.03 | **$15.70** | $+0.68 (+4.5%) | -20.8% (TRIM/SHORT) | -17.2% (**TRIM/SHORT**) | unchanged |
 | STNG | $66.32 | **$71.30** | $+4.97 (+7.5%) | -24.3% (TRIM/SHORT) | -18.7% (**TRIM/SHORT**) | unchanged |
-| INSW | $57.08 | **$58.55** | $+1.47 (+2.6%) | -48.7% (TRIM/SHORT) | -47.4% (**TRIM/SHORT**) | unchanged |
+| INSW | $58.97 | **$60.44** | $+1.47 (+2.5%) | -47.0% (TRIM/SHORT) | -45.7% (**TRIM/SHORT**) | unchanged |
 
 ## INSW preservation invariant — HOLDS THROUGH SET B (notable property)
 

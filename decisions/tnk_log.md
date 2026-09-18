@@ -1,5 +1,13 @@
 # TNK — Decision Log
 
+## 2026-09-18 — CRUDE DECK RE-EXPRESSION (WO5/R4): FV 83.24 -> 87.59 (+5.23%), EV -17.2 -> -12.9pp, NAV unchanged
+
+**Decision:** The 2026-09-18 crude deck RE-EXPRESSION (WO5/R4 Phases 0-3b, fork `r4_wo5_deck_reexpression_schedule`, landed at commit 49e0fb9; method, derivation and the dated Phase-3 freeze in `decisions/r4_deck_reexpression_method_2026-09-18.md`). The three de-escalation legs were re-levelled per class so each leg's 8-quarter mid mean hits its registered ratio against the live FFA reference (pre_mou_baseline 1.00 = the observed state, mou_base 0.80, mou_bear 0.60); quarter shape and the low/mid/high spread preserved, only the level moved. `escalation` untouched; the C3 weight vector untouched. No mark, sheet or manifest this name reads changed, so NAV/share is unchanged to the cent and the whole move is the scenario deck's. Observed vs the Phase-3 freeze: predicted ΔFV +5.23%, observed +5.23%; predicted ΔEV +4.3pp, observed +4.3pp; predicted ΔNAV 0.00, observed 0.00. HIT.
+
+Band unchanged (TRIM/SHORT) and unchanged in character — TNK stays comfortably TRIM-shaped at EV -12.9, 7.9pp from the nearest edge. Evidence for the owner's Phase-4 TNK disposition.
+
+---
+
 ## 2026-09-14 — THE 9/11 TAPE ONLY: EV -15.3pp -> -17.4pp and a +0.060 k_broker second difference
 
 **Decision:** TNK's fair value is unchanged to the cent at 83.24 and the 2026-09-11 close took the share +2.63%, so EV compressed -15.3pp -> -17.4pp on price alone, carrying a +0.060 k_broker second difference. Fair value 83.24 on both sides — no crude curve moved. The 2026-09-11 close took the share 98.25 -> 100.83, +2.63%, EV -15.3pp -> -17.4pp. The k_broker second difference of +0.060 is the same price move read against an unchanged broker-NAV anchor (price / consensus_pnav), not a mark or a methodology change; it sits inside the 0.05 alert only because the daily move was large. The read stays 'unreliable read (not actionable)'. Baseline anchor: the 2026-09-10 ratify (e6b6299). Gate row dNAV +0.0%; the move is EV%, and EV% is fair value against the tape.

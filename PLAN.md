@@ -6,6 +6,8 @@ forward dividend strip, blended by cycle position), judged by the soundness of
 its per-name reads — not by a cross-sectional backtest.
 
 
+**STATE INSERT (2026-09-18 — WO5/R4 Phases 0-3b LANDED; Phase 4 is the owner's).** The crude deck is re-expressed against the live base (fork `r4_wo5_deck_reexpression_schedule` executed; `decisions/r4_deck_reexpression_method_2026-09-18.md` carries the method, the derivation and the dated Phase-3 freeze). Every frozen expectation reproduced exactly. The Fork C guard `test_crude_deck_prices_a_real_spread_against_the_base` now reds if the base walks under the deck again. **OWNER OWES (Phase 4, per name, each its own commit):** the CAPT / TNK / BRUT void dispositions on the post-re-expression evidence — the regenerated crude sidecar supersedes the 9/01 one — plus item 6 (TNK's destination registry if freed; WO rec = POSITION_CYCLE_RELABEL, not a name-specific short) and item 7 (the B1 docket). **Read first:** BRUT's raw band now crosses HOLD -> BUY at EV +5.2 against a +5.0 edge, 0.2pp of margin with no hysteresis, masked by its void — retiring that void would publish a BUY-shaped read on a hairline. CAPT sits 1.0pp from the HOLD edge. **Also owed:** Phase 5's ratify and push. **Routed finding:** the deck is now coherent but 59% of the crude mass tracks the base and 13% carries the only real downside — a WEIGHT question the WO fences out of scope.
+
 **STATE INSERT (2026-09-18 — trigger paging fixed; the Thursday draft task is written, not installed).**
 The page-once key is the emitter's event (DUE/FIRED/BREACHED + date; `fired:` card field, test-enforced); META-MODE
 still pages the register; graph R7's indeterminate case is a note; the owner queue derives its tags from

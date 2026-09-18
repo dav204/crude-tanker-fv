@@ -1,5 +1,13 @@
 # ECO — Decision Log
 
+## 2026-09-18 — CRUDE DECK RE-EXPRESSION (WO5/R4): FV 42.22 -> 44.15 (+4.57%), EV -50.1 -> -47.8pp, NAV unchanged
+
+**Decision:** The 2026-09-18 crude deck RE-EXPRESSION (WO5/R4 Phases 0-3b, fork `r4_wo5_deck_reexpression_schedule`, landed at commit 49e0fb9; method, derivation and the dated Phase-3 freeze in `decisions/r4_deck_reexpression_method_2026-09-18.md`). The three de-escalation legs were re-levelled per class so each leg's 8-quarter mid mean hits its registered ratio against the live FFA reference (pre_mou_baseline 1.00 = the observed state, mou_base 0.80, mou_bear 0.60); quarter shape and the low/mid/high spread preserved, only the level moved. `escalation` untouched; the C3 weight vector untouched. No mark, sheet or manifest this name reads changed, so NAV/share is unchanged to the cent and the whole move is the scenario deck's. Observed vs the Phase-3 freeze: predicted ΔFV +4.57%, observed +4.57%; predicted ΔEV +2.3pp, observed +2.3pp; predicted ΔNAV 0.00, observed 0.00. HIT.
+
+Band unchanged (TRIM/SHORT). The whole-company EV crosses zero to +0.10, which re-pinned `tests/test_eco.py` — a magnitude change inside the ±5% band, not a flip.
+
+---
+
 ## 2026-09-17 — THE 9/17 TAPE ONLY: EV -47.4pp -> -50.7pp, fair value unchanged to the cent
 
 **Decision:** ECO's fair value is unchanged to the cent at 42.22 and the 2026-09-17 close took the share 80.2 -> 85.66 (+6.81%), so EV moved -47.4pp -> -50.7pp on price alone. No curve, sheet or manifest ECO reads changed between the anchor and this surface. The read stays the governed relabel 'rich - cycle position (not a short)'. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).

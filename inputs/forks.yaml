@@ -66,7 +66,7 @@ forks:
     opened: 2026-09-10
     execute_after: 2026-09-15
     recommendation: "Execute WO5 Phases 0-3b on the post-Stage-B base (12M as_of 2026-09-09) with the C3 vector 0.28/0.59/0.00/0.13 as the FROZEN weight input; ΔNAV 0.0, the 10 crude names move >2pp EV by design, non-crude exactly 0.00. No void retires here: the three Phase-4 dispositions (CAPT / TNK / BRUT) stay execution-day owner words (WO5 law); B1 re-arms at TNK's disposition"
-    status: open
+    status: executed   # 2026-09-18 — Phases 0-3b EXECUTED from the owner's chat ('now do WO5 phases 0-3b'). Fork B+C landed at 49e0fb9 + the regen; every Phase-3 frozen expectation reproduced exactly (NAV 0.00 on all 25, all 15 non-crude names exactly 0.00, 10 crude names +1.47% to +9.09% FV, six gate rows, no rendered band flip). Method + freeze: decisions/r4_deck_reexpression_method_2026-09-18.md. Phase 4 (CAPT/TNK/BRUT dispositions) and Phase 5 (ratify, push) REMAIN OWNER ACTS and are not done here. Material finding for Phase 4: BRUT's raw band crosses HOLD->BUY at EV +5.2 vs a +5.0 edge (0.2pp, masked by its void).
   - id: buyflip_trmd_2026-09-15
     kind: judgment
     doc: decisions/trmd_log.md

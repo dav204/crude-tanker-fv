@@ -1,5 +1,13 @@
 # NAT — Decision Log
 
+## 2026-09-18 — CRUDE DECK RE-EXPRESSION (WO5/R4): FV 2.97 -> 3.24 (+9.09%), EV -63.7 -> -60.4pp, NAV unchanged
+
+**Decision:** The 2026-09-18 crude deck RE-EXPRESSION (WO5/R4 Phases 0-3b, fork `r4_wo5_deck_reexpression_schedule`, landed at commit 49e0fb9; method, derivation and the dated Phase-3 freeze in `decisions/r4_deck_reexpression_method_2026-09-18.md`). The three de-escalation legs were re-levelled per class so each leg's 8-quarter mid mean hits its registered ratio against the live FFA reference (pre_mou_baseline 1.00 = the observed state, mou_base 0.80, mou_bear 0.60); quarter shape and the low/mid/high spread preserved, only the level moved. `escalation` untouched; the C3 weight vector untouched. No mark, sheet or manifest this name reads changed, so NAV/share is unchanged to the cent and the whole move is the scenario deck's. Observed vs the Phase-3 freeze: predicted ΔFV +9.09%, observed +9.09%; predicted ΔEV +3.3pp, observed +3.3pp; predicted ΔNAV 0.00, observed 0.00. HIT.
+
+Band unchanged (TRIM/SHORT). The largest FV move in the book (+9.09%) and still deeply TRIM at EV -60.4: NAT is the §12 high-payout pure-play the framework already documents as structurally undervalued by the tool.
+
+---
+
 ## 2026-09-15 — THE 9/15 TAPE ONLY: EV -60.2pp -> -61.7pp, fair value unchanged to the cent
 
 **Decision:** NAT's fair value is unchanged to the cent at 2.97 and the close took the share 7.46 -> 7.75 (+3.89%), so EV compressed -60.2pp -> -61.7pp on price alone. No crude curve moved in the 2026-09-15 dry FFA promote. The read stays the governed relabel 'rich - cycle position (not a short)'; the SS12 high-payout-pure-play limit is the standing frame for the spread. Baseline anchor: the 2026-09-11 ratify (1988a4d). Gate row dNAV +0.0%. The anchor has not advanced since 9/11 because the daily loop has no regen step — precondition (e) of the land lane has failed every morning 9/12-9/15; recorded and being fixed separately.

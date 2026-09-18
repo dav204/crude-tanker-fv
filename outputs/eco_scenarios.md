@@ -3,7 +3,7 @@
 - **Current price:** $84.61
 - **Analyst target:** $45.00
 - **NAV / share (reference, unflexed):** $39.54 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $42.22 (-50.1% vs price)
+- **Probability-weighted fair value:** $44.15 (-47.8% vs price)
 - **Breakeven TCE (scenario-invariant):** $914,466/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** TRIM/SHORT (overvalued)
 
@@ -12,18 +12,18 @@
 | Scenario | Weight | Vessel× | NAV/sh | FV (base) | FV [low–high] | Cycle | w_nav | Strip NPV | Assumed TCE (12M) | Assumed / Breakeven |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
 | Escalation | 28% | 1.25× | $52.08 | $60.70 | $57.95–$63.87 | 6.91× | 0.70 | $80.80 | $244,039 | 0.27× |
-| Pre-MoU baseline | 59% | 0.95× | $36.83 | $36.61 | $35.57–$37.73 | 2.36× | 0.70 | $36.11 | $81,874 | 0.09× |
-| MoU base case | 0% | 0.85× | $32.12 | $31.29 | $30.36–$32.19 | 1.93× | 0.70 | $29.36 | $66,554 | 0.07× |
-| MoU bear | 13% | 0.79× | $29.12 | $27.88 | $27.13–$28.63 | 1.56× | 0.70 | $24.99 | $53,242 | 0.06× |
-| **Probability-weighted** | | | | **$42.22** | | | | | | |
+| Pre-MoU baseline | 59% | 1.00× | $39.53 | $39.79 | $38.60–$41.05 | 2.68× | 0.70 | $40.38 | $91,542 | 0.10× |
+| MoU base case | 0% | 0.90× | $34.52 | $34.08 | $33.01–$35.10 | 2.20× | 0.70 | $33.05 | $75,415 | 0.08× |
+| MoU bear | 13% | 0.80× | $29.50 | $28.33 | $27.56–$29.10 | 1.60× | 0.70 | $25.60 | $54,609 | 0.06× |
+| **Probability-weighted** | | | | **$44.15** | | | | | | |
 
 _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate assumption, NOT a breakeven). Assumed/Breakeven < 1 ⇒ that scenario's rates fall short of justifying the price; > 1 ⇒ they clear it._
 
 ## Decision signals
 
 - **Upside (best scenario − price):** $-23.91
-- **Downside (worst scenario − price):** $-56.73
-- **Expected value vs current** (weighted FV − price): $-42.39 (-50.1%)
+- **Downside (worst scenario − price):** $-56.28
+- **Expected value vs current** (weighted FV − price): $-40.46 (-47.8%)
 - **Position:** TRIM/SHORT (overvalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_
