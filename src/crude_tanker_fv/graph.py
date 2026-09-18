@@ -226,6 +226,8 @@ def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS
         for t in sorted(declared - tasks - planned):
             if t.startswith(prefixes):
                 problems.append(f"R5 node {t} names a scheduled task that does not exist")
+        for t in sorted(planned & tasks):
+            problems.append(f"R5 node {t} is marked planned but its scheduled task exists — drop planned: true")
 
     # R7 (2026-09-13): launchd fires each job at its plist hour PLUS an offset fixed by the
     # timezone in force when launchd started (graph.yaml header: why, and what moves it). A slot

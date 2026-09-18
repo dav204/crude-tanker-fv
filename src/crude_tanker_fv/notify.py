@@ -87,7 +87,7 @@ def route_flags(flags: list[str], routes: dict) -> "tuple[list[str], list[str]]"
 PAGE_ACTIONS = {
     "SURFACE-INCOHERENT": "OWNER — a guard contradicted the published surface; the agent has halted. Read the named check and rule.",
     "FILING-OVERDUE": "OWNER — the issuer has not filed past its window and no sheet is on file. Decide: chase the issuer, or hold the name on its prior sheet.",
-    "TRIGGER-DUE": "OWNER — an observable you registered is due. Record its outcome on the card, or open a chat and say 'run the check'.",
+    "TRIGGER-DUE": "OWNER — an observable you registered is due. Record its outcome on the card (when this line names a DRAFT on file, read it first), or open a chat and say 'run the check'.",
     "FORK-OPENED": "OWNER (optional) — a recommendation was registered; it executes after the date shown unless you object in a chat. No action = it runs. A line marked NEEDS A CHAT is one the executor cannot land (code change): open a chat when you want it done.",
     "FORK-EXECUTABLE": "OWNER (optional) — the window closed; the executor runs it today (or a chat lands it, if marked). Nothing to do unless you object.",
     "DIRTY-TOO-LONG": "OWNER/AGENT — the working tree has been mid-surgery for days. Finish, stash, or say 'discard'.",

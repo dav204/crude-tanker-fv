@@ -210,6 +210,11 @@ sit in CLAUDE.md; the full list lives here.
   Scratch under `state/ffa_scratch/` — tesseract can't read /tmp in the agent sandbox.
 - **Weekly news pull (agent-judgment):** `/news-pull` — web-sweeps watchlist names (weighted to APPROX
   + live-event names) into a dated digest. Review-only; promotion is human-only.
+- **Weekly trigger check (Thursday):** the scheduled task `crude-fv-trigger-check-draft`
+  (`scripts/scheduled_tasks/…SKILL.md`) drafts the geopolitics card's check to
+  `decisions/trigger_check_<card>_<due>.draft.md` and commits it; the 11:15 TRIGGER-DUE page names the
+  draft. Recording is the owner's, in a chat: `/record-trigger-check <card> <due> [hold|fired|reweight]`
+  (renames the draft to the record, re-arms or fires the card, runs the register guards, commits, pushes).
 - **PDFs:** the `.venv/` has `pypdf`. `.venv/bin/python scripts/fetch_pdf.py <url>` (WebFetch fails on
   many FlateDecode PDFs). Raw `curl` works but prompts.
 - **Two venvs:** the engine + all `crude_tanker_fv` code + the full suite run on `.venv` (Python

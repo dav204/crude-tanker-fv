@@ -63,6 +63,12 @@ duties:
       invisible here because its log lives in the other repo. Its age now rides this
       sentinel like any duty; the governance repo's own dead-man ping stays primary.
 
+  - name: trigger_check_draft
+    artifact_glob: ["decisions/trigger_check_*.draft.md", "decisions/*_check_*.md"]   # repo-root globs (the "/"); the draft
+                                          # and the record it becomes both carry the due date in the name
+    cadence_days: 8                       # Thursday 09:00 app task (crude-fv-trigger-check-draft); 8 = one slipped day
+    scheduled: false                      # flip to true when the owner installs the task (2026-09-18; OPERATING.md hand-crank list)
+    command: "/record-trigger-check after the Thursday draft, or in a chat: run the check"
   - name: weekly_report
     artifact_glob: "weekly_report_*.md"   # under outputs/
     cadence_days: 8                       # Saturday, on the back of the 08:15 sentinel run

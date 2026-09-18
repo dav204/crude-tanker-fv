@@ -224,6 +224,21 @@ def test_manual_runs_say_nothing_about_the_launchd_clock(tmp_path):
                    "2026-09-17T20:05:00Z job=price-refresh initiator=session:mb-batch outcome=ok rc=0")
 
 
+def test_planned_task_is_tolerated_until_installed_then_must_drop_the_flag(tmp_path):
+    """A declared scheduled-task node the owner has not installed yet carries planned: true (R5 is
+    quiet); once the task folder exists the flag must go, or R5 says so (2026-09-18)."""
+    mini = _mini()
+    mini["nodes"].append({"id": "crude-fv-x", "kind": "scheduled-task", "repo": "crude-tanker-fv", "planned": True,
+                          "triggers": ["clock"], "reads": [], "writes": [], "commits": "none"})
+    st = tmp_path / "st"; st.mkdir()
+    assert not g.check(mini, ROOT, launch_agents=tmp_path, scheduled_tasks=st, drift=[], commits=[])
+    (st / "crude-fv-x").mkdir()
+    probs = g.check(mini, ROOT, launch_agents=tmp_path, scheduled_tasks=st, drift=[], commits=[])
+    assert probs == ["R5 node crude-fv-x is marked planned but its scheduled task exists — drop planned: true"]
+    del mini["nodes"][-1]["planned"]
+    assert not g.check(mini, ROOT, launch_agents=tmp_path, scheduled_tasks=st, drift=[], commits=[])
+
+
 def test_governor_tasks_are_enumerated_too(tmp_path):
     (tmp_path / "st" / "portfolio-ghost-task").mkdir(parents=True)
     probs = g.check(_mini(), ROOT, launch_agents=tmp_path, scheduled_tasks=tmp_path / "st", drift=[], commits=[])

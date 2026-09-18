@@ -83,9 +83,22 @@ def _scenario_doc_pw_fv(outputs_dir: Path, ticker: str):
 
 
 def trigger_flags(inputs_dir: Path) -> list[str]:
-    """TRIGGER-DUE flags from the register — the one content check that also runs in META-MODE."""
-    return [f"TRIGGER-DUE {it.label}: {it.detail}"
-            for it in check_reweight_triggers(inputs_dir) if it.status == "missing"]
+    """TRIGGER-DUE flags from the register — the one content check that also runs in META-MODE.
+    A draft the Thursday task left for the event (decisions/trigger_check_<label>_<date>.draft.md)
+    is named right after the event head, so the key is unchanged and a truncated render keeps it."""
+    from . import notify
+    out = []
+    for it in check_reweight_triggers(inputs_dir):
+        if it.status != "missing":
+            continue
+        detail = it.detail
+        m = notify.TRIGGER_EVENT_RE.match(detail)
+        if m and m.group(2):
+            draft = inputs_dir.parent / "decisions" / f"trigger_check_{it.label}_{m.group(2)}.draft.md"
+            if draft.exists():
+                detail = f"{detail[:m.end()]}DRAFT on file: decisions/{draft.name} — {detail[m.end():]}"
+        out.append(f"TRIGGER-DUE {it.label}: {detail}")
+    return out
 
 
 def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR,
@@ -480,11 +493,15 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
                             continue
                         if dt <= today and (newest is None or dt > newest):
                             newest = dt
-            for p in outputs_dir.glob(d.get("artifact_glob") or "\x00"):
-                m = re.match(r".*?(\d{4}-\d{2}-\d{2})", p.name)
-                if m:
-                    dt = date.fromisoformat(m.group(1))
-                    newest = dt if newest is None or dt > newest else newest
+            globs = d.get("artifact_glob") or []
+            for g in ([globs] if isinstance(globs, str) else globs):
+                # a glob with a "/" is repo-root-relative (decisions/…); a bare one lives under outputs/
+                base = inputs_dir.parent if "/" in g else outputs_dir
+                for p in base.glob(g):
+                    m = re.match(r".*?(\d{4}-\d{2}-\d{2})", p.name)
+                    if m:
+                        dt = date.fromisoformat(m.group(1))
+                        newest = dt if newest is None or dt > newest else newest
             cadence = int(d["cadence_days"])
             never = "never run" if newest is None else f"last {newest}"
             age = None if newest is None else (today - newest).days

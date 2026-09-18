@@ -310,6 +310,9 @@ owner ruling Q-9): **page** every run (`SURFACE-INCOHERENT`, `FILING-OVERDUE`);
 (`TRIGGER-DUE`, `FILING-LANDED` per accession, `DIRTY-TOO-LONG`, `REAUTH-NEEDED`,
 `EARNINGS-UNCONFIRMED` per name, `EARNINGS-SWEEP-STALE` per stale stamp); **digest** —
 one daily status email, sent on OK days too (its absence is the tell); **record_only**.
+A Thursday agent task (`crude-fv-trigger-check-draft`, once installed) drafts the weekly
+geopolitics check to `decisions/trigger_check_<card>_<due>.draft.md`; the `TRIGGER-DUE` line
+names the draft, and the owner records it in a chat with `/record-trigger-check <card> <due>`.
 Only `FETCH-FAILED` escalates from the digest (2 consecutive runs; immediately inside
 an open earnings window). `tests/test_notify.py` derives the live tag set from
 `sentinel.py`, so an unrouted tag reds the suite. Exit codes: 0 quiet · 2 flags · 1

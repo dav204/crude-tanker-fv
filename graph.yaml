@@ -323,6 +323,22 @@ nodes:
     commits: commit-outputs
     notes: "its ONLY write is the dated digest; commit-outputs commits it at the NEXT sentinel run (15:15Z / 11:15 EDT) — a late fire leaves it ~21h as non-drift dirt (9/12: written 14:11, hand-committed 14:14, 1e9d758). Fires 09:00 EDT, BEFORE the launchd scanner chain (15:00Z / 11:00 EDT), so the research_pareto manifest it reads is last week's — move the task to >=11:30 EDT or accept"
 
+  - id: crude-fv-trigger-check-draft
+    kind: scheduled-task
+    repo: crude-tanker-fv
+    planned: true   # declared 2026-09-18; the owner installs it from scripts/scheduled_tasks/crude-fv-trigger-check-draft.SKILL.md, then drops this flag
+    runs: Thursday 09:00 (app display zone) — the weekly geopolitics card's due weekday, before the 11:15 EDT sentinel page
+    triggers: [clock]
+    requires: [app open BEFORE the 11:15 EDT sentinel (TRIGGER-DUE is page_once on the event, so a catch-up fire after the page leaves the draft digest-only for that event),
+               external:web (WebSearch + the domains in the skill frontmatter), external:/opt/homebrew/bin/pdftotext]
+    reads: [inputs/reweight_triggers.yaml, decisions/*_check_*.md, decisions/trigger_check_*.draft.md, inputs/research_pareto/**, inputs/research_mb/**,
+            inputs/scenario_inputs.yaml, external:CENTCOM/UKMTO (403 to fetchers)/GlobalSecurity OPREP/Critical Threats/wires]
+    writes: [decisions/trigger_check_*.draft.md]
+    commits: self
+    commit_subject_prefix: "trigger-check draft"
+    emits: [report in the app; the sentinel's TRIGGER-DUE line names the draft when it is on file]
+    notes: "drafts-only (CLAUDE.md 2026-07-03): never edits the register, a decisions record or inputs/forks.yaml — the owner records the outcome in a chat (/record-trigger-check), which renames the draft to the record; the check's judgment (state label, hold/reweight) is proposed, not executed. Runs before the day's Pareto daily is ingested (10:00 EDT), so the newest in-repo daily is Wednesday's — the draft says which dailies are missing. A run that aborts between the Write and the commit leaves the draft as non-drift dirt (the install note's one manual run checks both). Watched by the trigger_check_draft duty in inputs/agent_duties.yaml"
+
   - id: crude-fv-pinggap-drill-arm
     kind: scheduled-task
     repo: crude-tanker-fv

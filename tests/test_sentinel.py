@@ -879,6 +879,38 @@ def test_page_once_pages_first_sighting_only(tmp_path, monkeypatch):
     assert _json.loads(Path(st).read_text())["paged_once"]
 
 
+def test_trigger_line_names_a_draft_on_file(tmp_path):
+    """The Wednesday task leaves decisions/trigger_check_<card>_<due>.draft.md; the TRIGGER-DUE line
+    names it (after the event head, so the page_once key is unchanged) and only for that event."""
+    inputs, outputs = _fixture(tmp_path, trigger_due=True)
+    before = [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV) if f.startswith("TRIGGER-DUE")]
+    assert before and "DRAFT" not in before[0]
+    (tmp_path / "decisions").mkdir()
+    (tmp_path / "decisions" / "trigger_check_t1_2026-06-01.draft.md").write_text("# draft\n")
+    (tmp_path / "decisions" / "trigger_check_t1_2026-06-08.draft.md").write_text("# other\n")
+    after = [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV) if f.startswith("TRIGGER-DUE")]
+    assert after[0].startswith("TRIGGER-DUE t1: [crude] DUE 2026-06-01 — DRAFT on file: "
+                               "decisions/trigger_check_t1_2026-06-01.draft.md — check the observable")
+    from crude_tanker_fv import weekly_report
+    from crude_tanker_fv.notify import page_once_key
+    assert page_once_key(after[0]) == page_once_key(before[0]) == "TRIGGER-DUE t1: DUE 2026-06-01"
+    assert "DRAFT on file" in weekly_report._queue_lines(after, {"TRIGGER-DUE"})[0]   # survives the 180-char cut
+
+
+def test_agent_duty_globs_may_be_a_list_rooted_at_the_repo(tmp_path):
+    """The Thursday draft and the record it becomes both live under decisions/ and both carry the
+    due date; a duty may name several globs, and one with a '/' resolves from the repo root."""
+    inputs, outputs = _fixture(tmp_path)
+    (inputs / "agent_duties.yaml").write_text(yaml.safe_dump({"duties": [{
+        "name": "trigger_check_draft", "cadence_days": 8, "scheduled": False, "command": "x",
+        "artifact_glob": ["decisions/trigger_check_*.draft.md", "decisions/*_check_*.md"]}]}))
+    due = [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV) if f.startswith("AGENT-TASK-DUE trigger_check_draft")]
+    assert due and "never run" in due[0]
+    (tmp_path / "decisions").mkdir()
+    (tmp_path / "decisions" / f"geopolitics_weekly_check_{date.today().isoformat()}.md").write_text("# r\n")
+    assert not [f for f in collect_flags(inputs, outputs, environ=FAKE_ENV) if f.startswith("AGENT-TASK-DUE trigger_check_draft")]
+
+
 def test_page_once_pages_again_on_rearm_and_on_firing(tmp_path, monkeypatch):
     """2026-09-17/18: the first page's key swallowed every later event of the same card for
     60 days (a dateless key). A re-armed due date and a firing are new events: each pages
