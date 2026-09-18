@@ -1,10 +1,10 @@
 # BWLP — Scenario Fair Value (LPG Set A (US-export-arb))
 
-- **Current price:** $25.81
+- **Current price:** $25.55
 - **Analyst target:** $17.52
 - **NAV / share (reference, unflexed):** $15.83 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $14.52 (-43.7% vs price)
-- **Breakeven TCE (scenario-invariant):** $293,888/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
+- **Probability-weighted fair value:** $14.52 (-43.2% vs price)
+- **Breakeven TCE (scenario-invariant):** $287,706/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** TRIM/SHORT (overvalued)
 
 ## Per-scenario fair value
@@ -21,9 +21,9 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $-7.53
-- **Downside (worst scenario − price):** $-14.89
-- **Expected value vs current** (weighted FV − price): $-11.29 (-43.7%)
+- **Upside (best scenario − price):** $-7.27
+- **Downside (worst scenario − price):** $-14.63
+- **Expected value vs current** (weighted FV − price): $-11.02 (-43.2%)
 - **Position:** TRIM/SHORT (overvalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

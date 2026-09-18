@@ -1,5 +1,11 @@
 # DHT — Decision Log
 
+## 2026-09-18 — THE 9/17-9/18 TAPE ONLY: EV −26.8pp -> −29.3pp, fair value unchanged to the cent
+
+**Decision:** DHT's fair value is unchanged to the cent at 16.32 (NAV/share 15.01) and the share went 22.30 (2026-09-16 anchor) -> 23.09 (9/18 intraday, +3.54% over two sessions), so EV moved −26.8pp -> −29.3pp on price alone (−2.5pp; k_broker second difference +0.04 from the same price against a static consensus P/NAV). No crude curve, sheet or manifest DHT reads changed between the anchor and this run; the 2026-09-18 dry FFA promote reaches no crude name. Band unchanged (rich · cycle position). Accepted as explained; recorded 2026-09-18 from the owner's chat.
+
+---
+
 ## 2026-09-15 — THE 9/15 TAPE ONLY: EV -25.8pp -> -26.8pp, fair value unchanged to the cent
 
 **Decision:** DHT's fair value is unchanged to the cent at 16.32 and the close took the share 22.00 -> 22.30 (+1.36%), so EV compressed -25.8pp -> -26.8pp on price alone. No crude curve moved in the 2026-09-15 dry FFA promote. The read stays the governed relabel 'rich - cycle position (not a short)'. Baseline anchor: the 2026-09-11 ratify (1988a4d). Gate row dNAV +0.0%. The anchor has not advanced since 9/11 because the daily loop has no regen step — precondition (e) of the land lane has failed every morning 9/12-9/15; recorded and being fixed separately.

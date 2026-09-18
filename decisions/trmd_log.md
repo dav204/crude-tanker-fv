@@ -1,5 +1,24 @@
 # TRMD — Decision Log
 
+## 2026-09-18T16:51:48+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $37.38
+- Single-point FV: $32.62
+- Scenario PW FV: $35.14 (EV -6.0%)
+- NAV / share: $32.30
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +20.3pp (k_broker 1.22)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ position HOLD (fairly valued) → TRIM/SHORT (overvalued)
+- Δprice: +0.79 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +1.7pp
+
+**Decision:** THE 9/17-9/18 TAPE ONLY: band BUY -> TRIM/SHORT as the Oaktree-secondary discount reversal ran on, fair value unchanged to the cent. From the 2026-09-16 anchor (price 32.96, fair value 35.14, EV +6.6pp) the share went 32.96 -> 36.59 (9/17, +11.01%, annotated) -> 37.38 (9/18 intraday, +2.05% on the day; +13.41% over the two sessions), with fair value HELD at 35.14 and NAV/share at 32.30: EV +6.6pp -> −6.0pp on price alone (−12.6pp), crossing both band edges (BUY above +5%, TRIM/SHORT below −5%). The k_broker second difference (+0.13) is the same move: price against the static consensus P/NAV of the 2026-09-10 vintage. The 2026-09-18 dry FFA promote reaches no product name (Δscenario FV: no change). This is the stale-anchor condition, not a valuation change: the 9/15 buyflip fork's two-day BUY is gone with the secondary overhang (decisions/trmd_log.md 9/17). Accepted as explained; recorded 2026-09-18 from the owner's chat.
+
+---
+
 ## 2026-09-17 — THE 9/17 TAPE ONLY: band BUY -> HOLD as the Oaktree-secondary discount reversed (+11.0%), fair value unchanged to the cent
 
 **Decision:** TRMD's fair value is unchanged to the cent at 35.14 and the 2026-09-17 close took the share 32.96 -> 36.59 (+11.01%), so EV moved +6.6pp -> -4.0pp on price alone. No curve, sheet or manifest TRMD reads changed between the anchor and this surface. Band BUY -> HOLD (fairly valued), a mechanical crossing AWAY from BUY: the 9/15 Oaktree secondary discount (-6.73% that day) has fully reversed and then some (+11.0% over two sessions), so the two-day BUY that the buyflip fork landed on 9/15 is gone with the overhang; nothing about TORM's valuation moved. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).

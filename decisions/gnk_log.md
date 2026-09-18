@@ -1,5 +1,11 @@
 # GNK — Decision Log
 
+## 2026-09-18 — TAPE (−3.1pp) PLUS THE 9/18 DRY FFA PROMOTE (−1.3pp): EV −20.4pp -> −24.8pp, band unchanged
+
+**Decision:** Two legs from the 2026-09-16 anchor (price 27.00, fair value 21.50, EV −20.4pp): (1) TAPE — the share went 27.00 -> 28.10 (+4.07%; the 9/18 quote is the 9/17 close carried forward), which with fair value HELD at 21.50 puts EV at −23.5% (−3.1pp). (2) PROMOTE — the 2026-09-18 dry FFA print (commit e8e23cb, packet decisions/ffa_promotion_2026-09-18.md) advanced the Cape 12M TC proxy 36,771 -> 39,150 (+6.47%) and Supra-Ultra 18,288 -> 19,021 (+4.01%) with the packet's cycle-band labels unchanged; GNK's scenario PW fair value moved 21.50 -> 21.14 (−1.7%) on the curve, NAV/share unchanged at 25.37 — a further −1.3pp. No sheet or manifest GNK reads changed; band TRIM/SHORT unchanged; k_broker second difference +0.04 is the price leg. Accepted as explained; recorded 2026-09-18 from the owner's chat.
+
+---
+
 ## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
 
 **Model state:**

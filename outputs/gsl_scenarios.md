@@ -1,29 +1,29 @@
 # GSL — Scenario Fair Value (Container Set A (disruption-led))
 
-- **Current price:** $45.56
+- **Current price:** $46.13
 - **Analyst target:** $52.04
 - **NAV / share (reference, unflexed):** $41.37 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $42.94 (-5.8% vs price)
-- **Breakeven TCE (scenario-invariant):** $134,387/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
+- **Probability-weighted fair value:** $42.94 (-6.9% vs price)
+- **Breakeven TCE (scenario-invariant):** $152,261/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** TRIM/SHORT (overvalued)
 
 ## Per-scenario fair value
 
 | Scenario | Weight | Vessel× | NAV/sh | FV (base) | FV [low–high] | Cycle | w_nav | Strip NPV | Assumed TCE (12M) | Assumed / Breakeven |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| Disruption persists | 25% | 1.02× | $42.34 | $46.70 | $45.99–$47.41 | 1.44× | 0.60 | $53.23 | $56,309 | 0.42× |
-| Gradual normalization (base) | 40% | 0.96× | $39.46 | $43.59 | $42.99–$44.19 | 1.38× | 0.60 | $49.78 | $53,838 | 0.40× |
-| Normalization + orderbook overhang | 20% | 0.89× | $36.20 | $40.18 | $39.69–$40.66 | 1.30× | 0.60 | $46.13 | $50,756 | 0.38× |
-| Demand recession | 15% | 0.87× | $35.12 | $38.63 | $38.24–$39.03 | 1.21× | 0.60 | $43.91 | $47,440 | 0.35× |
+| Disruption persists | 25% | 1.02× | $42.34 | $46.70 | $45.99–$47.41 | 1.44× | 0.60 | $53.23 | $56,309 | 0.37× |
+| Gradual normalization (base) | 40% | 0.96× | $39.46 | $43.59 | $42.99–$44.19 | 1.38× | 0.60 | $49.78 | $53,838 | 0.35× |
+| Normalization + orderbook overhang | 20% | 0.89× | $36.20 | $40.18 | $39.69–$40.66 | 1.30× | 0.60 | $46.13 | $50,756 | 0.33× |
+| Demand recession | 15% | 0.87× | $35.12 | $38.63 | $38.24–$39.03 | 1.21× | 0.60 | $43.91 | $47,440 | 0.31× |
 | **Probability-weighted** | | | | **$42.94** | | | | | | |
 
 _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate assumption, NOT a breakeven). Assumed/Breakeven < 1 ⇒ that scenario's rates fall short of justifying the price; > 1 ⇒ they clear it._
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $+1.14
-- **Downside (worst scenario − price):** $-6.93
-- **Expected value vs current** (weighted FV − price): $-2.62 (-5.8%)
+- **Upside (best scenario − price):** $+0.57
+- **Downside (worst scenario − price):** $-7.50
+- **Expected value vs current** (weighted FV − price): $-3.19 (-6.9%)
 - **Position:** TRIM/SHORT (overvalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

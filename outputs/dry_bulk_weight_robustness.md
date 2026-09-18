@@ -15,7 +15,7 @@ Mark-spread robustness is the OTHER dimension — cross-read with `outputs/broke
 | SBLK | ✓ robust | position TRIM/SHORT across all 3 weight sets |
 | GNK | ✓ robust | position TRIM/SHORT across all 3 weight sets |
 | CMDB | ✓ robust | position TRIM/SHORT across all 3 weight sets |
-| SB | ⚑ driven | BUY under Set A/Set B; HOLD under Set C |
+| SB | ⚑ driven | HOLD under Set A/Set C; BUY under Set B |
 | 2343 | ✓ robust | position TRIM/SHORT across all 3 weight sets |
 
 ## Weight sets compared
@@ -31,62 +31,62 @@ Mark-spread robustness is the OTHER dimension — cross-read with `outputs/broke
 
 | Ticker | Set A EV | Set B EV | Set C EV | Robustness | Notes |
 |---|--:|--:|--:|---|---|
-| SBLK | -8.4% (TRIM/SHORT) | -5.2% (TRIM/SHORT) | -11.9% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
-| GNK | -21.9% (TRIM/SHORT) | -18.8% (TRIM/SHORT) | -25.4% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
-| CMDB | -17.4% (TRIM/SHORT) | -15.1% (TRIM/SHORT) | -20.0% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
-| SB | +5.2% (BUY) | +9.4% (BUY) | +0.8% (HOLD) | ⚑ driven | BUY under Set A/Set B; HOLD under Set C |
-| 2343 | -30.0% (TRIM/SHORT) | -28.5% (TRIM/SHORT) | -31.6% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
+| SBLK | -11.6% (TRIM/SHORT) | -8.6% (TRIM/SHORT) | -14.9% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
+| GNK | -24.8% (TRIM/SHORT) | -21.8% (TRIM/SHORT) | -28.0% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
+| CMDB | -19.3% (TRIM/SHORT) | -17.1% (TRIM/SHORT) | -21.8% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
+| SB | +1.9% (HOLD) | +5.9% (BUY) | -2.3% (HOLD) | ⚑ driven | HOLD under Set A/Set C; BUY under Set B |
+| 2343 | -29.8% (TRIM/SHORT) | -28.3% (TRIM/SHORT) | -31.4% (TRIM/SHORT) | ✓ robust | position TRIM/SHORT across all 3 weight sets |
 
 ## Per-name detail
 
-### SBLK — price $31.34, target $34.50
+### SBLK — price $32.06, target $34.50
 
 **Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 3 weight sets.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Bulk Set A (locked 2026-06-09, FFA-calibrated prior) | $28.71 | -8.4% | TRIM/SHORT |
-| Bulk Set B (China-bull / Simandou super-cycle bracket) | $29.71 | -5.2% | TRIM/SHORT |
-| Bulk Set C (China-property-drag bracket) | $27.62 | -11.9% | TRIM/SHORT |
+| Bulk Set A (locked 2026-06-09, FFA-calibrated prior) | $28.34 | -11.6% | TRIM/SHORT |
+| Bulk Set B (China-bull / Simandou super-cycle bracket) | $29.31 | -8.6% | TRIM/SHORT |
+| Bulk Set C (China-property-drag bracket) | $27.27 | -14.9% | TRIM/SHORT |
 
-### GNK — price $27.54, target $27.20
-
-**Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 3 weight sets.
-
-| Weight set | PW FV | EV % | Position |
-|---|--:|--:|---|
-| Bulk Set A (locked 2026-06-09, FFA-calibrated prior) | $21.50 | -21.9% | TRIM/SHORT |
-| Bulk Set B (China-bull / Simandou super-cycle bracket) | $22.35 | -18.8% | TRIM/SHORT |
-| Bulk Set C (China-property-drag bracket) | $20.56 | -25.4% | TRIM/SHORT |
-
-### CMDB — price $23.69, target $27.98
+### GNK — price $28.10, target $27.20
 
 **Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 3 weight sets.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Bulk Set A (locked 2026-06-09, FFA-calibrated prior) | $19.56 | -17.4% | TRIM/SHORT |
-| Bulk Set B (China-bull / Simandou super-cycle bracket) | $20.11 | -15.1% | TRIM/SHORT |
-| Bulk Set C (China-property-drag bracket) | $18.95 | -20.0% | TRIM/SHORT |
+| Bulk Set A (locked 2026-06-09, FFA-calibrated prior) | $21.14 | -24.8% | TRIM/SHORT |
+| Bulk Set B (China-bull / Simandou super-cycle bracket) | $21.96 | -21.8% | TRIM/SHORT |
+| Bulk Set C (China-property-drag bracket) | $20.22 | -28.0% | TRIM/SHORT |
 
-### SB — price $8.76, target $7.10
-
-**Classification:** WEIGHT-DRIVEN. BUY under Set A/Set B; HOLD under Set C.
-
-| Weight set | PW FV | EV % | Position |
-|---|--:|--:|---|
-| Bulk Set A (locked 2026-06-09, FFA-calibrated prior) | $9.22 | +5.2% | BUY |
-| Bulk Set B (China-bull / Simandou super-cycle bracket) | $9.58 | +9.4% | BUY |
-| Bulk Set C (China-property-drag bracket) | $8.83 | +0.8% | HOLD |
-
-### 2343 — price $0.54, target $0.44
+### CMDB — price $24.01, target $27.98
 
 **Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 3 weight sets.
 
 | Weight set | PW FV | EV % | Position |
 |---|--:|--:|---|
-| Bulk Set A (locked 2026-06-09, FFA-calibrated prior) | $0.38 | -30.0% | TRIM/SHORT |
-| Bulk Set B (China-bull / Simandou super-cycle bracket) | $0.38 | -28.5% | TRIM/SHORT |
-| Bulk Set C (China-property-drag bracket) | $0.37 | -31.6% | TRIM/SHORT |
+| Bulk Set A (locked 2026-06-09, FFA-calibrated prior) | $19.37 | -19.3% | TRIM/SHORT |
+| Bulk Set B (China-bull / Simandou super-cycle bracket) | $19.91 | -17.1% | TRIM/SHORT |
+| Bulk Set C (China-property-drag bracket) | $18.77 | -21.8% | TRIM/SHORT |
+
+### SB — price $8.91, target $7.10
+
+**Classification:** WEIGHT-DRIVEN. HOLD under Set A/Set C; BUY under Set B.
+
+| Weight set | PW FV | EV % | Position |
+|---|--:|--:|---|
+| Bulk Set A (locked 2026-06-09, FFA-calibrated prior) | $9.08 | +1.9% | HOLD |
+| Bulk Set B (China-bull / Simandou super-cycle bracket) | $9.44 | +5.9% | BUY |
+| Bulk Set C (China-property-drag bracket) | $8.71 | -2.3% | HOLD |
+
+### 2343 — price $0.53, target $0.44
+
+**Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 3 weight sets.
+
+| Weight set | PW FV | EV % | Position |
+|---|--:|--:|---|
+| Bulk Set A (locked 2026-06-09, FFA-calibrated prior) | $0.37 | -29.8% | TRIM/SHORT |
+| Bulk Set B (China-bull / Simandou super-cycle bracket) | $0.38 | -28.3% | TRIM/SHORT |
+| Bulk Set C (China-property-drag bracket) | $0.36 | -31.4% | TRIM/SHORT |
 
 See METHODOLOGY §9.9 (mark robustness) and §9.10 (weight robustness). This is the §9.10 output for the dry-bulk sector; crude/LNG analogues live in `outputs/weight_robustness_diagnostic.md` / `outputs/lng_weight_robustness.md`.

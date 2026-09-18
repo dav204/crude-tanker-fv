@@ -1,5 +1,24 @@
 # SB — Decision Log
 
+## 2026-09-18T16:51:48+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $8.91
+- Single-point FV: $10.41
+- Scenario PW FV: $9.08 (EV +1.9%)
+- NAV / share: $10.72
+- Position: **HOLD (fairly valued)**
+- Broker spread: -25.6pp (k_broker 0.84)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: +0.15 | Δsingle FV: no change | Δscenario FV: -1.5% | ΔNAV: no change | Δspread: +2.0pp
+
+**Decision:** BAND BUY -> HOLD ON THE TAPE; THE 9/18 DRY FFA PROMOTE DEEPENED IT. Two legs inside one gate row, measured from the 2026-09-16 anchor (price 8.27, fair value 9.22, EV +11.5pp): (1) TAPE — the share went 8.27 -> 8.91 (+7.74%; 8.76 at the 9/17 close, 9.01 at the 9/17 close print, 8.91 intraday 9/18), which with fair value HELD at 9.22 puts EV at +3.5%, already inside the ±5% band: the tape alone moved SB BUY -> HOLD (−8.0pp of the −9.5pp). (2) PROMOTE — the 2026-09-18 dry FFA print (commit e8e23cb, packet decisions/ffa_promotion_2026-09-18.md) advanced the Pana/Post-Panamax 12M TC proxy 19,663 -> 20,167 (+2.56%) and Supra-Ultra 18,288 -> 19,021 (+4.01%) with the packet's cycle-band labels unchanged; SB's scenario PW fair value moved 9.22 -> 9.08 (−1.5%) on the curve, NAV/share unchanged at 10.72, single-point FV unchanged at 10.41 — a further −1.6pp of EV. The executor's halt page read the flip as joint; the arithmetic says tape-first, promote-second. No sheet or manifest SB reads changed; the promote is the ruled lane doing what its packet said (dry bulk only, fair value only). Accepted as explained; the read on SB is HOLD at +1.9%. Recorded 2026-09-18 from the owner's chat; the baseline advance is the owner's `ratify_baseline.sh` with this promote as the cause.
+
+---
+
 ## 2026-09-17 — THE 9/17 TAPE ONLY: EV +11.5pp -> +5.2pp, fair value unchanged to the cent
 
 **Decision:** SB's fair value is unchanged to the cent at 9.22 and the 2026-09-17 close took the share 8.27 -> 8.76 (+5.93%), so EV moved +11.5pp -> +5.2pp on price alone. No curve, sheet or manifest SB reads changed between the anchor and this surface. The name stays BUY; the standing GTC trim leg at $10.00 is untouched. The 9/09 placement dilution still lands at the Q3 vintage. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).
