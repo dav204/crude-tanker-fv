@@ -14,6 +14,13 @@ the Wednesday error): `scripts/scheduled_tasks/crude-fv-trigger-check-draft.SKIL
 the `/record-trigger-check` chat route + a sentinel duty (`trigger_check_draft`, `scheduled: false`). Installed by the agent from this chat 2026-09-18 (the app accepted the registration; allowed-tools pasted into
 the task frontmatter; `planned` dropped; duty `scheduled: true`). First live draft expected Thursday 2026-09-24 ~09:09.
 
+SHADOW TEN 2026-Q2 2026-09-18: WOULD-HOLD — decisions/ten_shadow_build_2026-09-18.md (rebuilt on the H1-2026 6-K
+acc 0001193125-26-394366; NAV/sh 88.16 → 91.91, **band HIT** vs the 91.7–92.0 envelope pre-registered in ten_log
+2026-09-18; BUY / GOVERNED-WIDE unchanged. Arctic + Antarctic RE-ADDED as owned at 6/30 — the 9/11 conservative OUT
+was wrong; Alaska/Archangel not-HFS confirmed; shares, NCI, WC components, lease population and the 20-hull orderbook
+all closed. Blocking: `shuttle_contracted_book` still an uncited APPROX struck as-of 3/31, and the newly-cited
+$2,233,409 newbuild commitment is an owner fork, not a sheet fix.)
+
 **STATE INSERT (2026-09-11 — THE SURFACE RULING; read this, then the 9/10 insert below).**
 Owner: *"page email indicates that action is needed from me, right ... the email isn't clear whether
 action will be taken by you or me"* and *"i'm really not clear on the surface for engaging with this
