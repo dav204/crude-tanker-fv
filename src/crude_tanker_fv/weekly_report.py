@@ -39,6 +39,9 @@ from pathlib import Path
 
 import yaml
 
+from . import notify
+from .loaders import INPUTS_DIR
+
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUTS = ROOT / "outputs"
 STATE = ROOT / "state"
@@ -277,20 +280,24 @@ def _calendar(days: int = 14) -> list[tuple[str, str]]:
     return sorted(items)
 
 
-OWNER_TAGS = ("TRIGGER-DUE", "REAUTH-NEEDED", "SURFACE-INCOHERENT", "FILING-OVERDUE",
-              "FORK-EXECUTABLE", "DIRTY-TOO-LONG")
+def owner_tags(inputs_dir: Path = INPUTS_DIR) -> set[str]:
+    """The page-class tags, read from inputs/notify.yaml so the report cannot drift from the
+    routing table (it did: FORK-EXECUTABLE stayed here after moving to the digest, 2026-09-16)."""
+    routes = notify.load_routes(inputs_dir)["routes"]
+    return set(routes.get("page") or []) | set(routes.get("page_once") or [])
 
 
-def _queue_lines(flags: list[str]) -> list[str]:
+def _queue_lines(flags: list[str], tags: set[str] | None = None) -> list[str]:
     """What needs an OWNER word — only the page-class tags (2026-09-11 ruling: a page means
     the owner acts) plus the one queue whose write is ask-tier (the FFA curve). Agent-class
     work (balance-sheet refreshes, filings triage, the S&P ack) lives in _agent_lines — it
     used to sit here as "Refresh owed", which the owner read as a debt of his (2026-09-12)."""
+    tags = owner_tags() if tags is None else tags
     out: list[str] = []
     for f in flags:
-        tag = f.split()[0]
-        if tag in OWNER_TAGS:
-            out.append(f"{tag} — {f.split(':', 1)[-1].strip()[:180]}")
+        tag, _, rest = f.partition(" ")
+        if tag in tags:
+            out.append(f"{tag} — {rest.strip()[:180]}")
     ffa = [f for f in flags if f.startswith("UNINGESTED-PRINTS ffa")]
     if ffa:
         out.append("FFA queue — a parsed widget is newer than the committed curve vintage; the "

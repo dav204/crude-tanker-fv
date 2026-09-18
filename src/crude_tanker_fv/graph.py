@@ -137,10 +137,14 @@ def _last_runs(log_path: Path) -> dict:
     return out
 
 
+R7_WAKE_WINDOW_MIN = 10   # runs this close together are one wake catch-up, not siblings of each other
+R7_START_SLACK_MIN = 3    # a launchd start is within seconds of its plist minute; later = a catch-up
+
+
 def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS,
           scheduled_tasks: Path = SCHEDULED_TASKS, drift: list[str] | None = None,
           commits: list[tuple[str, str, list[str]]] | None = None,
-          runs_log: Path | None = None) -> list[str]:
+          runs_log: Path | None = None, notes: list[str] | None = None) -> list[str]:
     problems: list[str] = []
     nodes = graph["nodes"]
     ids = [n["id"] for n in nodes]
@@ -218,16 +222,15 @@ def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS
                 problems.append(f"R5 node {t} names a scheduled task that does not exist")
 
     # R7 (2026-09-13): launchd fires each job at its plist hour PLUS an offset fixed by the
-    # timezone in force when the plist was loaded (observed +7h to UTC: plist 08:15 -> 15:15Z).
-    # A reload, a reboot in another zone, or the DST change moves every job at once and with it
-    # every ordering assumption (the Saturday news task before the sentinel, the drill sums).
-    # A slot the Mac slept through fires ONCE at wake instead (2026-09-15 / 09-17: the 01:30Z
-    # price-refresh ran at 13:3xZ, seconds after a lid-open from a 1%-battery hibernate) — that
-    # moves one job, not all, so a sibling on the expected offset AFTER it is the tell that the
-    # clock did not shift. Until such a sibling runs, a catch-up and a shift look the same.
+    # timezone in force when launchd started; a reboot in another zone or the DST change moves
+    # every job at once, and with it every ordering assumption in this file. A slot the Mac slept
+    # through fires once at wake instead — one or several jobs, seconds apart — so an off-slot run
+    # is settled by the FIRST hour-bearing sibling to run afterwards: on its slot = catch-up, off
+    # its slot = shift. Until a sibling runs it is a note, never a failure (2026-09-18).
     expected = graph.get("launchd_utc_offset_hours")
     runs_log = (root / "state" / "automation_runs.log") if runs_log is None else runs_log
     if expected is not None and launch_agents.exists() and runs_log.exists():
+        from datetime import timedelta
         last = _last_runs(runs_log)
         observed: dict = {}
         for n in nodes:
@@ -238,17 +241,28 @@ def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS
             job = n["plist"].replace("com.crude-tanker-fv.", "")
             if "Hour" not in cal or job not in last:
                 continue
-            observed[job] = (int(cal["Hour"]), last[job], (last[job].hour - int(cal["Hour"])) % 24)
-        latest_on_time = max((ts for _, ts, off in observed.values() if off == expected), default=None)
-        for job, (hour, ts, off) in observed.items():
-            if off == expected or (latest_on_time is not None and latest_on_time > ts):
+            ts = last[job]
+            off = (ts.hour - int(cal["Hour"])) % 24
+            on_slot = off == expected and abs(ts.minute - int(cal.get("Minute", 0))) <= R7_START_SLACK_MIN
+            observed[job] = (int(cal["Hour"]), ts, off, on_slot)
+        window = timedelta(minutes=R7_WAKE_WINDOW_MIN)
+        for job, (hour, ts, off, on_slot) in observed.items():
+            if on_slot:
+                continue
+            since = [(t, ok) for j, (_, t, _, ok) in observed.items() if j != job and t > ts + window]
+            if not since:
+                if notes is not None:
+                    notes.append(f"R7 {job} ran off its slot at {ts.strftime('%Y-%m-%dT%H:%MZ')} (plist hour "
+                                 f"{hour:02d}, offset {off}h, graph expects {expected}h) and no hour-bearing "
+                                 f"sibling has run since — a slept-through slot fires once at wake; the next "
+                                 f"scheduled job settles it")
+                continue
+            if any(ok for _, ok in since):
                 continue
             problems.append(f"R7 launchd clock shifted for {job}: plist hour {hour:02d} but the last run was "
-                            f"{ts.strftime('%Y-%m-%dT%H:%MZ')} (offset {off}h, graph expects {expected}h) — "
-                            f"a reload/reboot or DST moved the jobs; re-check every ordering assumption, then set "
-                            f"launchd_utc_offset_hours — unless the Mac slept through this slot and no sibling job "
-                            f"has run since (a slept-through slot fires once at wake; re-check after the next "
-                            f"scheduled job)")
+                            f"{ts.strftime('%Y-%m-%dT%H:%MZ')} (offset {off}h, graph expects {expected}h) and the "
+                            f"sibling(s) since ran off their slots too — a reload/reboot or DST moved the jobs; "
+                            f"re-check every ordering assumption, then set launchd_utc_offset_hours")
 
     # R6
     commits = _automation_commits(root) if commits is None else commits
@@ -315,7 +329,7 @@ def render(graph: dict) -> str:
     req = graph.get("tree_drift_only_required_by") or []
     if req:
         a("")
-        a(f"**Nodes that need a drift-only tree** (any uncommitted tracked non-drift write degrades them): "
+        a("**Nodes that need a drift-only tree** (any uncommitted tracked non-drift write degrades them): "
           + ", ".join(f"`{x}`" for x in req) + ".")
     return "\n".join(lines) + "\n"
 
@@ -345,9 +359,12 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
     g = load()
     if args.cmd == "check":
-        probs = check(g)
+        notes: list[str] = []
+        probs = check(g, notes=notes)
         for p in probs:
             print(f"GRAPH: {p}")
+        for n in notes:
+            print(f"GRAPH: note {n}")
         print("GRAPH: ok" if not probs else f"GRAPH: {len(probs)} problem(s)")
         return 1 if probs else 0
     text = render(g)

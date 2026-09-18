@@ -50,9 +50,9 @@ Hunt, per name, for items since the last digest (check
   premia for Gulf/Hormuz voyages** — current level + direction (Lloyd's
   List, TradeWinds, insurer statements) — one line in the digest's WATCH section
   (the `crude_transit_normalization` / `crude_brent_reopening` register cards were
-  retired 2026-09-02, owner F8: this line IS the observable now). Also check each
-  dated trigger in `inputs/reweight_triggers.yaml` whose `due` falls before the
-  next Saturday and note the observable's state in the digest.
+  retired 2026-09-02, owner F8: this line IS the observable now). Dated trigger
+  cards are NOT re-checked here: the sentinel pages `TRIGGER-DUE` on the due date
+  and the owner or a chat records the outcome (2026-09-18).
 
 ## 3. Write the digest — `outputs/news_digest_YYYY-MM-DD.md`
 

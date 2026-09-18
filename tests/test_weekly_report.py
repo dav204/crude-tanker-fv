@@ -145,13 +145,19 @@ def test_owner_queue_excludes_agent_class_work(tmp_path):
         "TRIGGER-DUE crude_geopolitics_weekly: [crude+product] DUE 2026-09-17 — check the "
         "observable and record the outcome. x",
         "FORK-EXECUTABLE stage_b_open_items: executable 2026-09-14",
+        "FORK-OPENED spot_tce_promote_2026-09-10: opened 2026-09-10, executes after 2026-09-15",
         "UNINGESTED-PRINTS ffa widget newer than curve",
     ]
     owner = wr._queue_lines(flags)
     assert len(owner) == 3
-    assert owner[0].startswith("TRIGGER-DUE") and owner[1].startswith("FORK-EXECUTABLE")
+    # the owner tags come from inputs/notify.yaml (page + page_once): FORK-OPENED is the one
+    # whose objection window matters; FORK-EXECUTABLE is agent-class since 2026-09-16
+    assert owner[0].startswith("TRIGGER-DUE — crude_geopolitics_weekly:")   # the card is named
+    assert owner[1].startswith("FORK-OPENED — spot_tce_promote_2026-09-10:")
     assert "ask-tier" in owner[2]
+    assert not any(q.startswith("FORK-EXECUTABLE") for q in owner)
     assert not any("Refresh owed" in q or "TEN" in q for q in owner)
+    assert "FORK-OPENED" in wr.owner_tags() and "FORK-EXECUTABLE" not in wr.owner_tags()
 
     (tmp_path / "ten_shadow_build_2026-09-11.md").write_text(
         "# TEN shadow\n\n**VERDICT (one line, repeated at the end): WOULD-HOLD** — top summary\n\n## 9\n\n**VERDICT: WOULD-HOLD** — six fields unverified\n")

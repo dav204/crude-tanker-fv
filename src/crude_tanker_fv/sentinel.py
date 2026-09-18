@@ -32,7 +32,9 @@ whose required sends succeeded (invariant 2 — notifier death pages by absence)
 Dirty-tree META-MODE (WO2 0.3, invariant 3): on a dirty tree the content
 checks are suspended (they'd read half-finished surgery), but heartbeat,
 digest, and ping still run — a dirty reconciliation week must not look like
-death. DIRTY-TOO-LONG pages at 36h (12h inside an open earnings window).
+death. The trigger register is the exception (2026-09-18): a due or fired card
+pages in META-MODE too, else a dirty week silently swallows the one page that
+is a dated fact. DIRTY-TOO-LONG pages at 36h (12h inside an open earnings window).
 
 Exit 0 = quiet · 2 = flags (one status line per flag on stdout) · 1 = a crash
 (uncaught exception — the wrapper records outcome=error; 2026-09-02: the
@@ -80,6 +82,13 @@ def _scenario_doc_pw_fv(outputs_dir: Path, ticker: str):
     return float(m.group(1).replace(",", "")) if m else None
 
 
+def trigger_flags(inputs_dir: Path) -> list[str]:
+    """TRIGGER-DUE flags from the register — the one content check that also runs in META-MODE
+    (a due date crossing is a dated fact, not half-finished surgery; 2026-09-18)."""
+    return [f"TRIGGER-DUE {it.label}: {it.detail}"
+            for it in check_reweight_triggers(inputs_dir) if it.status == "missing"]
+
+
 def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR,
                   environ=None, pure: bool = False) -> list[str]:
     """pure=True (WO2 0.4) keeps only checks answerable from REPO CONTENT —
@@ -97,9 +106,7 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
 
     # 1. Trigger register — armed-and-due/overdue, or FIRED (the Jun-17 trigger
     #    sat 15 days because nothing scheduled the check; this is the schedule).
-    for it in check_reweight_triggers(inputs_dir):
-        if it.status == "missing":
-            flags.append(f"TRIGGER-DUE {it.label}: {it.detail}")
+    flags += trigger_flags(inputs_dir)
 
     # 2. Input staleness — the per-type thresholds (refresh preflight logic).
     #    mtime-based, machine-local — dropped in pure mode.
@@ -979,12 +986,12 @@ def main(argv: list[str] | None = None) -> int:
         dirty_since = state.get("dirty_since") or now.isoformat()
         hours = (now - datetime.fromisoformat(dirty_since)).total_seconds() / 3600
         limit = 12 if in_window else 36
-        flags = []
+        flags = trigger_flags(INPUTS_DIR)
         if hours >= limit:
             flags.append(f"DIRTY-TOO-LONG tree dirty {hours:.0f}h (limit {limit}h"
                          f"{', earnings window open' if in_window else ''}) — content "
                          "checks suspended all this time; finish the surgery or PAUSE")
-        meta_note = (f"META dirty-tree: content checks suspended "
+        meta_note = (f"META dirty-tree: content checks suspended, trigger register still read "
                      f"(dirty since {dirty_since}, {hours:.0f}h)")
         print(meta_note)
     else:

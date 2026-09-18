@@ -552,17 +552,30 @@ def test_filing_events_landed_overdue_unseeded(tmp_path):
 
 
 def test_meta_mode_suspends_content_checks_on_dirty_tree(tmp_path, monkeypatch, capsys):
-    """Invariant 3: dirty tree → content checks suspended (a trigger that
-    would flag doesn't), digest still goes out, rc 0."""
+    """Invariant 3: dirty tree → content checks suspended (a stale input that would flag
+    doesn't), digest still goes out. The trigger register is the exception (2026-09-18): a due
+    card still pages — a dirty week must not swallow a dated fact."""
     import subprocess
 
-    s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch, trigger_due=True)
+    s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch, trigger_due=True,
+                                             stale_watchlist=True)
     subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)   # untracked fixture = dirty
-    assert s.main(["--notify", "--state", st]) == 0
+    assert s.main(["--notify", "--state", st]) == 2
     out = capsys.readouterr().out
-    assert "META dirty-tree" in out and "TRIGGER-DUE" not in out
+    assert "META dirty-tree" in out and "TRIGGER-DUE t1" in out and "STALE-INPUT" not in out
+    assert [x for x in sent if " PAGE:" in x[0] and "TRIGGER-DUE t1" in x[1]]
+    assert [x for x in sent if "daily digest" in x[0] and "META dirty-tree" in x[1]]
+
+
+def test_meta_mode_is_quiet_when_no_trigger_is_due(tmp_path, monkeypatch, capsys):
+    """The pre-2026-09-18 shape of META-MODE, still true when nothing is due: rc 0, one OK digest."""
+    import subprocess
+
+    s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch, stale_watchlist=True)
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
+    assert s.main(["--notify", "--state", st]) == 0
+    assert "META dirty-tree" in capsys.readouterr().out
     assert len(sent) == 1 and "daily digest — OK" in sent[0][0]
-    assert "META dirty-tree" in sent[0][1]
 
 
 def test_drift_only_dirt_stays_in_normal_mode(tmp_path, monkeypatch, capsys):
@@ -585,10 +598,12 @@ def test_drift_only_dirt_stays_in_normal_mode(tmp_path, monkeypatch, capsys):
     out = capsys.readouterr().out
     assert "META dirty-tree" not in out and "TRIGGER-DUE" in out
 
-    # drift-list file itself is untracked (= dirt beyond the list) → META.
+    # drift-list file itself is untracked (= dirt beyond the list) → META; the due trigger
+    # still flags there (2026-09-18), so rc stays 2.
     (tmp_path / "surgery.py").write_text("x\n")
-    assert s.main(["--state", st]) == 0
-    assert "META dirty-tree" in capsys.readouterr().out
+    assert s.main(["--state", st]) == 2
+    out = capsys.readouterr().out
+    assert "META dirty-tree" in out and "TRIGGER-DUE" in out
 
 
 def test_dirty_too_long_pages_at_36h_and_12h_in_window(tmp_path, monkeypatch, capsys):

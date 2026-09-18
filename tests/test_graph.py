@@ -104,25 +104,6 @@ def _plist(path, hour, minute, script):
         plistlib.dump({"ProgramArguments": [script], "StartCalendarInterval": {"Hour": hour, "Minute": minute}}, fh)
 
 
-def test_launchd_clock_shift_is_refused(tmp_path):
-    """R7 (2026-09-13): the jobs fire at plist hour + a fixed offset to UTC (+7h observed). A
-    reload or DST change moves them all; the check must say so instead of letting the ordering
-    assumptions (news task before the sentinel, the drill sums) silently break."""
-    mini = _mini(launchd_utc_offset_hours=7)
-    mini["nodes"].append({"id": "sentinel", "kind": "launchd", "repo": "crude-tanker-fv",
-                          "plist": "com.crude-tanker-fv.sentinel", "entry": "scripts/sentinel_cron.sh",
-                          "triggers": ["clock"], "reads": [], "writes": ["state/x.log"], "commits": "none"})
-    la = tmp_path / "la"; la.mkdir()
-    _plist(la / "com.crude-tanker-fv.sentinel.plist", 8, 15, "/x/scripts/sentinel_cron.sh")
-    log = tmp_path / "runs.log"
-    log.write_text("2026-09-12T15:15:05Z job=sentinel initiator=com.crude-tanker-fv.sentinel outcome=flags rc=2\n")
-    assert not g.check(mini, ROOT, launch_agents=la, scheduled_tasks=tmp_path, drift=[], commits=[], runs_log=log)
-    log.write_text("2026-09-13T12:15:05Z job=sentinel initiator=com.crude-tanker-fv.sentinel outcome=flags rc=2\n")
-    probs = g.check(mini, ROOT, launch_agents=la, scheduled_tasks=tmp_path, drift=[], commits=[], runs_log=log)
-    assert len(probs) == 1 and probs[0].startswith("R7 launchd clock shifted for sentinel: plist hour 08")
-    assert "offset 4h, graph expects 7h" in probs[0]
-
-
 def _launchd_pair(tmp_path):
     mini = _mini(launchd_utc_offset_hours=7)
     la = tmp_path / "la"; la.mkdir()
@@ -134,29 +115,68 @@ def _launchd_pair(tmp_path):
     return mini, la
 
 
-def _r7(mini, la, tmp_path, *lines):
+def _r7(mini, la, tmp_path, *lines, notes=None):
     log = tmp_path / "runs.log"
     log.write_text("".join(ln + "\n" for ln in lines))
-    return g.check(mini, ROOT, launch_agents=la, scheduled_tasks=tmp_path, drift=[], commits=[], runs_log=log)
+    return g.check(mini, ROOT, launch_agents=la, scheduled_tasks=tmp_path, drift=[], commits=[],
+                   runs_log=log, notes=notes)
+
+
+def _run(job, stamp):
+    return f"{stamp} job={job} initiator=com.crude-tanker-fv.{job} outcome=ok rc=0"
+
+
+def test_launchd_clock_shift_is_refused(tmp_path):
+    """R7: a job off its slot is a NOTE until an hour-bearing sibling runs; the first sibling to
+    run decides — off its slot too = the clock shifted (2026-09-18: the indeterminate case used to
+    red the suite the fork executor gates on, so a Mac nap halted forks)."""
+    mini, la = _launchd_pair(tmp_path)
+    assert not _r7(mini, la, tmp_path, _run("sentinel", "2026-09-12T15:15:05Z"))
+    notes = []
+    assert not _r7(mini, la, tmp_path, _run("sentinel", "2026-09-13T12:15:05Z"), notes=notes)
+    assert len(notes) == 1 and notes[0].startswith("R7 sentinel ran off its slot") and "offset 4h" in notes[0]
+    probs = _r7(mini, la, tmp_path, _run("sentinel", "2026-09-13T12:15:05Z"),
+                _run("price-refresh", "2026-09-13T22:30:03Z"))
+    assert len(probs) == 1 and probs[0].startswith("R7 launchd clock shifted for sentinel: plist hour 08")
+    assert "offset 4h, graph expects 7h" in probs[0]
 
 
 def test_launchd_wake_catch_up_is_not_a_clock_shift(tmp_path):
-    """2026-09-15 / 09-17: the Mac hibernated at 1% battery through the 01:30Z price-refresh slot and
-    launchd fired it once at the 13:3xZ wake (offset 19h). A slept-through slot moves ONE job; a
-    sibling on the expected offset AFTER it says the clock did not shift. Until that sibling runs a
-    catch-up and a shift look the same, so the check still fails — and a real shift moves the
-    sibling too, so it keeps failing."""
+    """2026-09-15 / 09-17: the Mac hibernated through the 01:30Z price-refresh slot and launchd
+    fired it once at the 13:3xZ wake (offset 19h). Alone it is a note; a sibling on its slot
+    afterwards clears it; a sibling off its slot afterwards confirms a shift."""
     mini, la = _launchd_pair(tmp_path)
-    catch_up = "2026-09-17T13:34:34Z job=price-refresh initiator=com.crude-tanker-fv.price-refresh outcome=ok rc=0"
-    probs = _r7(mini, la, tmp_path, catch_up)
-    assert len(probs) == 1 and probs[0].startswith("R7 launchd clock shifted for price-refresh: plist hour 18")
-    assert "offset 19h, graph expects 7h" in probs[0]
-    assert not _r7(mini, la, tmp_path, catch_up,
-                   "2026-09-17T15:15:05Z job=sentinel initiator=com.crude-tanker-fv.sentinel outcome=flags rc=2")
-    probs = _r7(mini, la, tmp_path, catch_up,
-                "2026-09-18T12:15:05Z job=sentinel initiator=com.crude-tanker-fv.sentinel outcome=flags rc=2")
-    assert sorted(p.split(":")[0] for p in probs) == ["R7 launchd clock shifted for price-refresh",
-                                                       "R7 launchd clock shifted for sentinel"]
+    catch_up = _run("price-refresh", "2026-09-17T13:34:34Z")
+    notes = []
+    assert not _r7(mini, la, tmp_path, catch_up, notes=notes)
+    assert len(notes) == 1 and "no hour-bearing sibling has run since" in notes[0]
+    assert not _r7(mini, la, tmp_path, catch_up, _run("sentinel", "2026-09-17T15:15:05Z"))
+    probs = _r7(mini, la, tmp_path, catch_up, _run("sentinel", "2026-09-18T12:15:05Z"))
+    assert [p.split(":")[0] for p in probs] == ["R7 launchd clock shifted for price-refresh"]
+
+
+def test_wake_cluster_is_not_a_clock_shift(tmp_path):
+    """2026-08-29 / 09-07 / 09-10: every slept-through slot fired within seconds of the wake. Runs
+    inside the wake window are one event, not siblings of each other: notes, not failures; the
+    next scheduled slot on time clears them all."""
+    mini, la = _launchd_pair(tmp_path)
+    cluster = (_run("price-refresh", "2026-09-07T13:07:42Z"), _run("sentinel", "2026-09-07T13:07:44Z"))
+    notes = []
+    assert not _r7(mini, la, tmp_path, *cluster, notes=notes)
+    assert len(notes) == 2
+    assert not _r7(mini, la, tmp_path, *cluster, _run("price-refresh", "2026-09-08T01:30:02Z"))
+
+
+def test_late_start_in_the_expected_hour_is_not_on_time(tmp_path):
+    """A catch-up that lands inside its slot's UTC hour but minutes late is not clock evidence
+    (2026-09-16: rocketchat-ingest fired 14:14:48Z for a 14:00 slot, seconds after a wake). It must
+    not vouch for a shifted sibling before it."""
+    mini, la = _launchd_pair(tmp_path)
+    probs = _r7(mini, la, tmp_path, _run("price-refresh", "2026-09-16T22:30:03Z"),
+                _run("sentinel", "2026-09-17T15:29:10Z"))
+    assert [p.split(":")[0] for p in probs] == ["R7 launchd clock shifted for price-refresh"]
+    assert not _r7(mini, la, tmp_path, _run("price-refresh", "2026-09-16T22:30:03Z"),
+                   _run("sentinel", "2026-09-17T15:15:05Z"))
 
 
 def test_manual_runs_say_nothing_about_the_launchd_clock(tmp_path):

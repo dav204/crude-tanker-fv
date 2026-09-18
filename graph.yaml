@@ -33,10 +33,10 @@ tree_drift_only_required_by: [price-refresh, sentinel-checks, auto-land, auto-pu
 # R7: launchd fires each job at its plist hour plus this many hours to UTC (observed 2026-09-13:
 # plist 08:15 -> 15:15Z). A plist reload, a reboot in another zone, or the DST change moves
 # every job at once; the check fails until the ordering assumptions are re-verified and this
-# value is updated. A slot the Mac slept through fires ONCE at wake instead (2026-09-15 / 09-17:
-# price-refresh 01:30Z -> 13:3xZ after a 1%-battery hibernate) — one job, not all; a sibling at
-# this offset AFTER it clears the check, so a fail with no sibling since means wait for the next
-# scheduled job before touching this value (re-verified 2026-09-17: still 7).
+# value is updated. A slot the Mac slept through fires ONCE at wake instead — one job or several,
+# seconds apart — so an off-slot run is a NOTE (`graph check` prints it, the suite stays green)
+# until the first hour-bearing sibling runs: on its slot = catch-up, off its slot = shift, and only
+# then does R7 fail (2026-09-18; re-verified 2026-09-17: still 7).
 launchd_utc_offset_hours: 7
 # Scheduled tasks that fired once and are disabled in the app; they keep their folder, so R5
 # skips them by name (a re-enabled one must get a node).
