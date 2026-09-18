@@ -409,3 +409,37 @@ Each answerable in one word; recommendation stated. Q-0…Q-5 and Q-12 gate Stag
 | k) Unattended session auto-approving an ask-tier edit | Promoter never touches the permission layer; agents draft into gitignored `inputs/_staged/` outside every ask glob; `Edit(decisions/owner_queue.md)` **deny**; rulings via CLI verb + nonce; twelve_month/spot moved to ask | DEGRADED-BUT-VISIBLE (a `sed` past file rules still lands as dirt the loader guards red) | `test_promote_rulings_rejects_without_nonce`, `test_refuses_reused_nonce`, `test_no_autopilot_code_path_shells_to_claude` |
 
 Verification status of the load-bearing claims in this document (all at HEAD `4bb3237`): CLAUDE.md 15,960/16,000 chars (`test_docs_stay_lean.py:27`); settings tiers (`Edit(inputs/**)` allow L90; ask L92–101; deny keyed on the IBKR connector UUID L103); `drift_files.txt` nine files, `earnings_calendar.yaml` absent; `scorecard.py:957` porcelain scope; `drift_gate.decision_log_annotated_since` L190 top-entry rule; `test_live_drift_gate_no_unexplained_drift` L251; `nav.py` not reading the rate files and `64c5995` (8/31) touching FFA + pana; FRO `window_end` 8/31 and CAPT window 9/01 in `earnings_calendar.yaml`; `sentinel.py:362` outputs-only duty glob, `:819` PING-FAILED stdout; `sentinel_cron.sh:41–44` rc mapping; `ingest_rocketchat_cron.sh:52–57` (no manifest step), `news_pull_cron.sh` L60 vs L70–72; `commit_drift.sh` L20–21/L39; `pareto_archive.py:663–668` three flags; `sp_scan.py:249–256`; `transactions.py:286–287`; `test_tier_semantics_amendment.py:404–409`; `test_scorecard.py:286`; `sentinel-lite.yml:84`; `state/automation_runs.log` four `manual:` rows ever, 8/18–8/24 cron `skipped-no-network`; `state/.gitignore` = `*`; `.gitignore:88 PAUSE`, no `inputs/_staged` entry; `notify.yaml` routes and `FETCH-FAILED: 2`; PLAN.md L25 "Rider-4 candidate" and L47–64 sequence; `reweight_triggers.yaml` `hormuz_fee_collection_watch due: null`; class-file `source:` lines single-house on most rows; `ratify_baseline.sh:34–39` PLAN-marker check; `portfolio-weekly-monitor/SKILL.md` L4/L11 allowlist lesson. Unverified: Gmail connector inside a desktop task; desktop `allowed-tools` Write syntax; git's exact refusal behaviour on a byte-identical dirty file at ff-merge (the checkout step makes it moot); pipeline duration ("~8 min" is WORKFLOWS' phrase).
+---
+
+## Addendum 2026-09-18 — the owner extended the actor boundary for one lane (supersession note, not an edit)
+
+This record stands as written on its date. One boundary it draws has since been moved by the owner, and
+three of its statements now describe the opposite of installed behaviour. Recorded here so the document
+cannot be read as current law on this point.
+
+**The ruling.** Owner, 2026-09-18, asked what to automate after five fork-executor halts in five days:
+*"let the executor annotate and land before judging the suite."* Landed as step 0b of
+`scripts/scheduled_tasks/crude-fv-fork-executor.SKILL.md` (commit 7ca2340 and its follow-up): before the
+executor touches any determinant it regens a stale surface, runs `crude_tanker_fv.annotate --apply`, and
+runs `crude_tanker_fv.promote land` — which re-ratifies the baseline behind its own five preconditions.
+
+**What that supersedes here, for this lane only:**
+- §0 pt 4 "The actor is code, not an LLM … Agents (desktop scheduled tasks) keep the 2026-07-03
+  zero-authority category" — a desktop scheduled task may now TRIGGER the code lane that ratifies. The
+  predicate is unchanged and still the code's; what moved is who may call it.
+- §8 "An LLM with write authority" as a thing that stays deliberately manual — same scope.
+- §3.3 "The promoter therefore never writes into `decisions/<t>_log.md` beyond the pipeline's own
+  auto-prepend" — `annotate --apply`, now called by the executor, writes a dated entry there by design.
+
+**What it does NOT supersede, and the executor's skill still enforces:** the ordering law (comparator →
+ratify → suite) for the fork's own move; Appendix A's reservation of a two-cause ratify to the owner —
+step 0b ii now refuses to absorb any window containing a non-price determinant and reports
+`RATIFY-OWED (owner)` instead; the prohibition on hand-running `ratify_baseline.sh`; and §5's red-suite
+rule, except that step 2e carries its own narrower carve-out under the 9/18 word (the live drift-gate
+test, and rows 0b reported as inherited or refused).
+
+**One inference the agent drew and flagged to the owner**, rather than a ruled line: that the 9/18 word
+necessarily exempts `test_live_drift_gate_no_unexplained_drift` from the executor's own post-regen suite
+check, because the fork's rows are unannotated at 2e by construction and treating that test as a MISS is
+why a row-moving fork could never HIT. §3.1 step 7 / §5 exempt the same test from the red-BASE check,
+which is a different clause; the skill says so at 2e.

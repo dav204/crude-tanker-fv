@@ -201,12 +201,12 @@ nodes:
     kind: script
     repo: crude-tanker-fv
     entry: src/crude_tanker_fv/annotate.py
-    runs: inside the price-leg lane (or on demand from a chat)
-    triggers: [price-leg, human-owner-chat]
+    runs: inside the price-leg lane, from crude-fv-fork-executor step 0b (2026-09-18), or on demand from a chat
+    triggers: [price-leg, crude-fv-fork-executor, human-owner-chat]
     reads: [baselines/reconcile_baseline.yaml, state/last_run.json, outputs/book_scorecard.json,
             inputs/market_data/prices_daily.yaml, decisions/*_log.md]
     writes: [decisions/*_log.md]
-    commits: price-leg
+    commits: [price-leg, crude-fv-fork-executor]
     notes: "deterministic price attribution ONLY: it may say the tape moved and the valuation did not, and refuses everything else with the reason named — a fair-value move, a flip toward BUY (that is the buyflip fork's), a NAV or re-read breach, a changed price basis, a determinant other than the price vintage moving, or a cent-rounding budget too coarse to tell a tape move from a curve move. A refusal leaves the row UNEXPLAINED and freezes auto-land on (a), which is the design working. tests/test_annotate.py"
 
   - id: auto-land
