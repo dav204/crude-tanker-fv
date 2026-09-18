@@ -392,3 +392,45 @@ def test_decision_log_prepend_can_be_restricted_to_named_tickers(tmp_path):
     assert not (tmp_path / "aaa_log.md").exists()
     paths = prepend_decision_log_entries(report, decisions_dir=tmp_path, tickers=None)
     assert {p.name for p in paths} == {"aaa_log.md", "bbb_log.md"}
+
+
+def test_the_surface_and_the_run_state_share_one_timestamp():
+    """The committed surface's `generated_at` and state/last_run.json's `run_at` describe the SAME
+    run, and two readers require them EQUAL: annotate's R1 refuses the whole run when they differ,
+    and scripts/ratify_baseline.sh copies run_at into the baseline's `ratified_at`, which annotate's
+    R2 then compares against the anchor surface's `generated_at` — so a ratify taken from a skewed
+    run yields a baseline the annotator refuses for as long as it stands.
+
+    They were two independent datetime.now() calls and agreed only when a run did not straddle a
+    second boundary. 2026-09-18 one did (21:05:23 vs 21:05:24) and the Phase-5 ratify inherited it.
+    Both now take crude_tanker_fv.loaders.run_timestamp(), memoised per process."""
+    import inspect
+    import json as _json
+
+    from crude_tanker_fv import delta as _delta
+    from crude_tanker_fv import scorecard as _sc
+    from crude_tanker_fv.loaders import reset_run_timestamp, run_timestamp
+
+    # neither writer may mint its own clock
+    for mod, fn in ((_delta, "snapshot_current_run"), (_sc, "_vintage_stamp")):
+        src = inspect.getsource(getattr(mod, fn))
+        assert "datetime.now" not in src, f"{mod.__name__}.{fn} mints its own timestamp again"
+        assert "run_timestamp" in src, f"{mod.__name__}.{fn} no longer uses the shared run clock"
+
+    reset_run_timestamp()
+    first = run_timestamp()
+    assert run_timestamp() == first, "run_timestamp must be stable within a run"
+
+    # and the committed pair on disk must agree, which is what the readers check
+    from pathlib import Path as _Path
+
+    root = _Path(__file__).resolve().parents[1]
+    surface = root / "outputs" / "book_scorecard.json"
+    state = root / "state" / "last_run.json"
+    if surface.exists() and state.exists():
+        g = _json.loads(surface.read_text()).get("generated_at")
+        r = _json.loads(state.read_text()).get("run_at")
+        assert g == r, (
+            f"committed surface generated_at {g!r} != state run_at {r!r} — annotate's R1 will "
+            f"refuse every run until the pair is regenerated together"
+        )
