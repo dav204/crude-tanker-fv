@@ -134,6 +134,31 @@ def test_read_blocked_names_hold_governed_wide():
     assert tier_subreason("BRUT", rows["BRUT"].read_blocked) == "going-concern-unfinanced"
 
 
+def test_a_cycle_relabelled_name_may_not_print_a_raw_buy():
+    """The cost of a cycle-relabel, made loud (2026-09-18, TNK's disposition). The relabel exists so a
+    NAV-relative rich read is not skimmed as a directional short — it rewrites TRIM/SHORT to
+    "rich · cycle position". But `_verdict_position` rewrites the cell UNCONDITIONALLY, so a relabelled
+    name that turned raw-BUY would publish as a cycle position and the BUY tripwire the book runs on
+    would never fire. Nothing caught that before TNK was routed here.
+
+    Guards the PUBLISHED surface, which is what a reader acts on: the raw EV in
+    outputs/book_scorecard.json against the +5% band edge (scenarios._REC_BAND)."""
+    from crude_tanker_fv.provenance import POSITION_CYCLE_RELABEL
+
+    surface = Path(__file__).resolve().parents[1] / "outputs" / "book_scorecard.json"
+    assert surface.exists(), "no committed surface to check — regenerate before relying on this guard"
+    rows = {r["ticker"]: r for r in json.loads(surface.read_text())["names"]}
+    checked = [t for t in sorted(POSITION_CYCLE_RELABEL) if t in rows]
+    assert checked, "no cycle-relabelled name is on the surface — the guard would be vacuous"
+    offenders = [(t, rows[t]["ev_pct"]) for t in checked
+                 if rows[t].get("ev_pct") is not None and rows[t]["ev_pct"] > 5.0]
+    assert not offenders, (
+        f"cycle-relabelled name(s) publish a raw BUY and the relabel hides it: {offenders}. "
+        f"POSITION_CYCLE_RELABEL is for a RICH late-cycle read, not a cheap one — re-disposition "
+        f"the name rather than letting the cell print 'rich · cycle position' over a BUY."
+    )
+
+
 def test_read_blocked_and_not_unreliable_renders_the_raw_band():
     """CAPT is the book's FIRST read_blocked row that is NOT position-unreliable (its Stage-A void
     retired 2026-09-18, decisions/capt_void_disposition_2026-09-18.md). That combination had no pin
@@ -175,7 +200,13 @@ def test_edge_cleared_uses_the_directional_read_not_agreement():
     tnk = rows["TNK"]
     assert tnk.confidence_tier == "VALIDATED-TIGHT" and tnk.read_flag == "robust"
     assert tnk.read_par == "rich" and tnk.read_hist == "rich"
-    assert "TNK" in POSITION_UNRELIABLE     # B1's docketed second guard, not yet a conjunct
+    # 2026-09-18 (WO5/R4 Phase 4): TNK's Stage-A void retired and it moved to POSITION_CYCLE_RELABEL,
+    # so the B1 anchor moves with it. B1 (POSITION_UNRELIABLE as an edge-cleared conjunct) is RE-ARMED,
+    # not ruled — its trigger is the day a registry name reads robust-cheap, which no member does today.
+    # What this still pins is B1's actual reason: TNK is robust and raw-BUY-eligible on agreement alone,
+    # and only the DIRECTIONAL read (rich) keeps it out of the actionable set.
+    from crude_tanker_fv.provenance import POSITION_CYCLE_RELABEL
+    assert "TNK" in POSITION_CYCLE_RELABEL and "TNK" not in POSITION_UNRELIABLE
 
 
 def test_governed_flag_can_outlive_agreement_so_the_basis_choice_is_material():

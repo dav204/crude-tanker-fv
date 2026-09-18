@@ -143,9 +143,17 @@ NAV_DERIVED_VOID: set[str] = set()
 # 2026-07-10) — the tier cell (⛔/sub-reason), handoff flag, and W-frag marker carry their caveats.
 # (Was "not one is a name-specific short" — stale since the 2026-07-02 relabel rework; fixed 2026-07-10.)
 POSITION_CYCLE_RELABEL = {"DHT", "FRO", "ECO", "INSW", "HAFN", "NAT",  # NAT: the §12 archetype (de-voided 2026-06-30). ASC left 2026-07-01: the reconciliation lifted NAV $15.96->$17.80, so it reads mildly CHEAP (0.90x), not rich -> raw BUY; the product-cycle caveat on the near-peak earnings/strip leg lives in asc_log, not a rich-relabel
-                          "LPG", "BWLP"}  # 2026-07-10 (WO3 Phase-4 onboarding): both VLGC validators read rich AT a 1.59x war-elevated cycle (w_nav 0.70) — the same §12 late-cycle shape as DHT/FRO/ECO, not name-specific shorts; charter B-4 (read the sector honestly) cuts BOTH ways — no flattering tier, and no fake short signal either
+                          "LPG", "BWLP",  # 2026-07-10 (WO3 Phase-4 onboarding): both VLGC validators read rich AT a 1.59x war-elevated cycle (w_nav 0.70) — the same §12 late-cycle shape as DHT/FRO/ECO, not name-specific shorts; charter B-4 (read the sector honestly) cuts BOTH ways — no flattering tier, and no fake short signal either
+                          "TNK"}  # 2026-09-18 (WO5/R4 Phase 4, decisions/tnk_void_disposition_2026-09-18.md):
+# TNK's Stage-A void RETIRED — its only ground was the deck artifact and the artifact is gone (TRIM/SHORT
+# at EV -12.9, 7.9pp from the edge, TRIM across all 8 weight sets). DESTINATION cycle-relabel, not a raw
+# name-specific read (WO item 6, pre-ruled at ratification): TNK reads rich/rich at VALIDATED-TIGHT, which
+# is the same late-cycle shape as its crude peers above, not a name-specific short thesis — and a genuine
+# short call is a governance-side decision, never a rendering default. Guarded by
+# test_a_cycle_relabelled_name_may_not_print_a_raw_buy: relabelling suppresses the BUY tripwire, so a
+# relabelled name that turns raw-BUY must red rather than render silently as "rich · cycle position".
 POSITION_UNRELIABLE = {"MPCC", "BRUT",  # BRUT 2026-07-01: the position cell must reflect the untrustworthiness, not the 0.59x discount, so it can't sit as a raw BUY next to PROVISIONAL⛔NO (the ASC "rich·cycle" holdover lesson)
-                       "TNK"}  # 2026-08-10 Stage-A halt disposition (owner RULED B,
+                       }  # 2026-08-10 Stage-A halt disposition (owner RULED B,
 # decisions/stage_a_halt_investigation_2026-08-10.md): the war-calibrated ABSOLUTE scenario
 # deck against the re-anchored base makes the de-escalation legs near-no-ops — the BUY-ward
 # flips (BRUT +44.3pp / CAPT +17.8 / TNK +5.0) are deck-incoherence ARTIFACTS, not signal.
@@ -153,6 +161,9 @@ POSITION_UNRELIABLE = {"MPCC", "BRUT",  # BRUT 2026-07-01: the position cell mus
 # base — which the 8/16 toll-cliff venue re-docketed to WO5/R4. It LANDED 2026-09-18 (49e0fb9 /
 # c5ce304; decisions/r4_deck_reexpression_method_2026-09-18.md) and is now guard-held by
 # tests/test_scenarios.py::test_crude_deck_prices_a_real_spread_against_the_base.
+# CAPT and TNK's voids BOTH RETIRED at that condition, 2026-09-18 (TNK -> POSITION_CYCLE_RELABEL above,
+# decisions/tnk_void_disposition_2026-09-18.md). BRUT's void UPHELD — see its own ground on the line above,
+# which the re-expression does not touch.
 # CAPT's void RETIRED at that condition, 2026-09-18 (decisions/capt_void_disposition_2026-09-18.md):
 # its ONLY ground was the deck artifact, the artifact is gone (post-re-expression CAPT reads
 # TRIM/SHORT -6.0, not BUY-ward, and TRIM across all 8 weight sets), so the cell now prints the raw
