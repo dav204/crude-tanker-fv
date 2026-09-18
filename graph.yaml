@@ -213,14 +213,14 @@ nodes:
     kind: lane
     repo: crude-tanker-fv
     entry: src/crude_tanker_fv/promote.py
-    runs: every sentinel run, after the price-leg lane
-    triggers: [price-leg]
+    runs: every sentinel run after the price-leg lane; ALSO from crude-fv-fork-executor step 0b (owner ruling 2026-09-18)
+    triggers: [price-leg, crude-fv-fork-executor]
     requires: [tree drift-only, state/last_run.json < 24h, 0 UNEXPLAINED, every moved row annotated since ratified_at, no flip toward BUY, committed surface current for HEAD]
     reads: [baselines/reconcile_baseline.yaml, decisions/*_log.md, outputs/book_scorecard.json, state/last_run.json, scripts/drift_files.txt, PLAN.md]
     writes: [baselines/reconcile_baseline.yaml, RATIFY_LOG.md]
     commits: self
     commit_subject_prefix: "baseline: auto-land"
-    on_failure: "FREEZE rc 1 rides the cron note; NOTHING TO LAND rc 0 on a quiet gate"
+    on_failure: "FREEZE rc 1 rides the cron note (or the executor's report); NOTHING TO LAND rc 0 on a quiet gate"
     notes: "(e) also freezes on any COMMIT touching src/** or inputs/** (archive dirs excluded) between the surface stamp and HEAD — a history read, not a working-tree read; lands via scripts/ratify_baseline.sh, which greps PLAN.md for a stale pending-marker"
 
   - id: auto-push
@@ -370,12 +370,12 @@ nodes:
     triggers: [clock]
     requires: [app open, tree drift-only]
     reads: [inputs/forks.yaml, decisions/**, inputs/**, outputs/book_scorecard.json, baselines/reconcile_baseline.yaml,
-            state/ffa_ocr_curves.json, scripts/drift_files.txt]
+            state/ffa_ocr_curves.json, state/last_run.json, scripts/drift_files.txt]
     writes: [inputs/**, decisions/*_log.md, PLAN.md, outputs/**, state/fork_page.md, state/last_run.json]
     emits: [email PAGE on a halted fork (band miss / test red / unsettled source)]
     commits: self
     commit_subject_prefix: "fork-exec"
-    notes: "silence executes the recommendation (policy 2026-09-10) — until this exists the executing agent is a chat; bounded authority: exact edits per the fork's doc, regen.sh, full suite, gate, predicted-band check, annotate, commit; never ratifies (the morning auto-land does, from the annotations)"
+    notes: "silence executes the recommendation (policy 2026-09-10). Step 0b (owner ruling 2026-09-18, 'let the executor annotate and land before judging the suite') ABSORBS THE INHERITED TAPE before the round: regen if the surface is stale, crude_tanker_fv.annotate --apply, then crude_tanker_fv.promote land — so the gate rows it judges its own promote against are the ones the promote caused. The baseline write is auto-land's and carries auto-land's own commit subject, not fork-exec; the executor never runs ratify_baseline.sh by hand. Its own move is still compared at 2e BEFORE any ratify (ordering law, autopilot ruling §3.3), and tests/test_drift_gate.py::test_live_drift_gate_no_unexplained_drift is exempt from its suite check because 2e reads the gate directly."
 
   - id: ffa-promote
     kind: script

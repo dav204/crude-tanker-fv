@@ -36,7 +36,7 @@ row in `inputs/watchlist.yaml`. See METHODOLOGY.md for the framework.
 - **Pipeline:** `python -m crude_tanker_fv.pipeline <QUARTER>` (e.g. `2026-Q1`).
 - **Reconcile:** `python -m crude_tanker_fv.reconcile <TICKER>` (or `/reconcile <TICKER>`).
 - **Drift gate:** `python -m crude_tanker_fv.drift_gate` vs `baselines/reconcile_baseline.yaml`.
-  Re-anchor ONLY via `./scripts/ratify_baseline.sh "<cause>"` (mandatory cause; human commits) —
+  Re-anchor ONLY via `./scripts/ratify_baseline.sh "<cause>"` (cause required) or `promote land` —
   **never hand-edit the numbers.**
 - **PDFs:** `.venv/bin/python scripts/fetch_pdf.py <url>` (WebFetch fails on many FlateDecode PDFs).
 - **Two venvs:** engine + tests on `.venv` (Python 3.9.6); the vendored `shipping_harvester` ONLY on

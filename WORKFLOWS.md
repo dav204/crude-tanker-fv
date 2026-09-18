@@ -163,7 +163,9 @@ sit in CLAUDE.md; the full list lives here.
 - **Drift gate (committed, Pareto-free):** `python -m crude_tanker_fv.drift_gate` — compares current
   pipeline outputs vs the tracked `baselines/reconcile_baseline.yaml` (EV% / tool NAV / position band /
   k_broker on its *second difference*); exit 1 on UNEXPLAINED drift. `tests/test_drift_gate.py` runs it
-  as a build gate. Re-anchor ONLY via `./scripts/ratify_baseline.sh "<cause>"` (mandatory cause; human
+  as a build gate. Re-anchor ONLY via `./scripts/ratify_baseline.sh "<cause>"` (mandatory cause) or by
+  `promote land`, which runs that script behind its five preconditions and writes its own commit — the
+  morning price-leg lane calls it, and since 2026-09-18 so does the fork executor at its step 0b (human
   commits) — **never hand-edit the numbers.**
 - **S&P print scan (incremental):** `python -m crude_tanker_fv.sp_scan` — scans Pareto dailies not
   yet scanned (a per-path set since 2026-09-02: a late-arriving older issue is scanned, not hidden

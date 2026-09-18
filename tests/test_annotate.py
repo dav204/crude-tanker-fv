@@ -146,6 +146,22 @@ def test_the_marker_is_stable_for_the_same_run_and_row():
     assert "ticker=AAA" in an.marker(ctx, f) and ctx.anchor_commit in an.marker(ctx, f)
 
 
+def test_the_cause_sentence_names_a_band_flip():
+    """The ratify cause is the only place a reader sees what the anchor absorbed. When the owner
+    ruled 2026-09-18 that the executor may annotate and land the tape itself, the named cost was
+    that an away-from-BUY flip would be absorbed unread — so a flipped row says so in the cause.
+    TRMD is the live case: BUY -> TRIM/SHORT on 9/17-9/18 tape, fair value held to the cent."""
+    flat = {"ticker": "DHT", "ev_from": -26.8, "ev_to": -29.3, "fv": 16.32, "flipped": False,
+            "band_from": "TRIM/SHORT (overvalued)", "band_to": "TRIM/SHORT (overvalued)"}
+    flip = {"ticker": "TRMD", "ev_from": 6.6, "ev_to": -6.0, "fv": 35.14, "flipped": True,
+            "band_from": "BUY (undervalued)", "band_to": "TRIM/SHORT (overvalued)"}
+    assert an.first_sentence(flat) == "DHT tape-only: EV -26.8->-29.3pp, fv held 16.32."
+    s = an.first_sentence(flip)
+    assert s == "TRMD tape-only: band BUY -> TRIM/SHORT, EV +6.6->-6.0pp, fv held 35.14."
+    # promote.compose_cause cuts each row at the first ". " — the band must survive that cut
+    assert ". " not in s[:-1]
+
+
 def test_the_determinant_exclusion_list_has_exactly_one_definition():
     """Two surfaces assumed to agree need a TEST that they agree (2026-07-02). THREE readers
     measure this window — the annotator's price-leg proof, the land lane's (e), and the cron's

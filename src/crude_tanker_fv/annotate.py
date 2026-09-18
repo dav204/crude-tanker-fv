@@ -310,8 +310,17 @@ def marker(ctx: RunContext, f: dict) -> str:
 def first_sentence(f: dict) -> str:
     """Load-bearing: promote.compose_cause builds the ratify cause from this, cut at the first
     ". ", capped at 200 chars and joined with every other explained row's. Short, ASCII, no
-    abbreviation-period, and it carries the numbers."""
-    return (f"{f['ticker']} tape-only: EV {f['ev_from']:+.1f}->{f['ev_to']:+.1f}pp, "
+    abbreviation-period, and it carries the numbers.
+
+    A FLIPPED row names the band move (2026-09-18): the cause is the only place a reader sees
+    what the anchor absorbed, and a band change absorbed silently is the one thing the owner
+    said they must not lose when the executor started landing the tape itself. The parenthetical
+    ("(undervalued)") is dropped — the cause is capped and the band word carries the meaning."""
+    band = ""
+    if f.get("flipped"):
+        band = (f" band {str(f['band_from']).split(' (')[0]} -> "
+                f"{str(f['band_to']).split(' (')[0]},")
+    return (f"{f['ticker']} tape-only:{band} EV {f['ev_from']:+.1f}->{f['ev_to']:+.1f}pp, "
             f"fv held {f['fv']:.2f}.")
 
 
