@@ -64,7 +64,7 @@ doc). Producer side:
 | `crude-fv-results-shadow-build` | daily, after triage | for a name whose results are out but whose sheet is a quarter behind: drafts the pair as `*.yaml.draft` with citations, values it in a throwaway worktree (`scripts/shadow_regen.sh`), writes `decisions/<t>_shadow_build_<date>.md` with a WOULD-LAND / WOULD-HOLD verdict; never the live pair (pilot: TEN, 2026-09-11 — you compare one shadow to a hand build, then decide whether to lift the 2026-07-03 drafts-only rule) |
 | `crude-fv-mb-weekly-harvest` | Saturday morning | the four MB Shipbrokers weeklies from Gmail into `inputs/research_mb/` |
 | `crude-fv-weekly-news-pull` | Saturday morning | the web-reading half of the news sweep into a dated digest |
-| `crude-fv-trigger-check-draft` | Thursday 09:00 (planned — you install it once) | drafts the weekly geopolitics trigger check (both legs, dated primaries, a proposed disposition) to `decisions/trigger_check_<card>_<due>.draft.md` and commits it; the 11:15 page names the draft; you record it with `/record-trigger-check <card> <due>` |
+| `crude-fv-trigger-check-draft` | Thursday 09:00 | drafts the weekly geopolitics trigger check (both legs, dated primaries, a proposed disposition) to `decisions/trigger_check_<card>_<due>.draft.md` and commits it; the 11:15 page names the draft; you record it with `/record-trigger-check <card> <due>` |
 | drill one-shots | as scheduled | arm / restore the healthchecks ping-gap drill (marker file) |
 
 Governor side (repo `../portfolio-governance`):
@@ -93,11 +93,6 @@ Nothing about your positions is decided in this repo; nothing about valuation is
 
 ## What still needs the hand crank (honest list, 2026-09-13)
 
-- **Installing the trigger-check draft task** (once): paste `scripts/scheduled_tasks/crude-fv-trigger-check-draft.SKILL.md`
-  into a new scheduled task (id `crude-fv-trigger-check-draft`, weekly THURSDAY 09:00 — the card's due weekday — its
-  allowed-tools line into the frontmatter); run it once by hand and confirm the draft was written AND committed; then drop
-  `planned: true` from its `graph.yaml` node, re-render, and flip `scheduled: true` on the `trigger_check_draft` duty in
-  `inputs/agent_duties.yaml`. A WebFetch domain it prompts for goes into the task's frontmatter, not `.claude/settings.json`.
 - **Installing the fork executor task** (once): the app's classifier refused the agent's registration;
   paste `scripts/scheduled_tasks/crude-fv-fork-executor.SKILL.md` into a new scheduled task. Until then a
   fork past its window sits un-executed; the sentinel lists it in the digest as FORK-EXECUTABLE (a needs_code fork
@@ -148,7 +143,7 @@ Rendered from `graph.yaml` by `python -m crude_tanker_fv.graph render --write`; 
 | `crude-fv-results-shadow-build` | scheduled-task | daily 12:15 (app display zone) | `inputs/earnings_calendar.yaml`, `inputs/watchlist.yaml`, `inputs/market_data/**`, `state/edgar_manifest.jsonl`, `decisions/filings_triage_log.md`, `inputs/filings/**` … | `inputs/balance_sheets/*.yaml.draft`, `inputs/fleet_manifests/*.yaml.draft`, `decisions/*_shadow_build_*.md`, `PLAN.md`, `outputs/refresh_checklist.md` | self |
 | `crude-fv-mb-weekly-harvest` | scheduled-task | Saturday 08:30 (app display zone) | `external:Gmail (from:mbshipbrokers.com)`, `inputs/research_mb/**/*.pdf`, `inputs/data_sources.yaml`, `inputs/**`, `outputs/**`, `state/**` | `inputs/research_mb/**/*.pdf` | none |
 | `crude-fv-weekly-news-pull` | scheduled-task | Saturday 09:00 (app display zone) | `inputs/watchlist.yaml`, `inputs/archive_gaps.yaml`, `inputs/data_sources.yaml`, `src/crude_tanker_fv/reconcile.py`, `decisions/*_log.md`, `state/edgar_manifest.jsonl` … | `outputs/news_digest_*.md` | commit-outputs |
-| `crude-fv-trigger-check-draft` | scheduled-task | Thursday 09:00 (app display zone) — the weekly geopolitics card's due weekday, before the 11:15 EDT sentinel page | `inputs/reweight_triggers.yaml`, `decisions/*_check_*.md`, `decisions/trigger_check_*.draft.md`, `inputs/research_pareto/**`, `inputs/research_mb/**`, `inputs/scenario_inputs.yaml` … | `decisions/trigger_check_*.draft.md` | self |
+| `crude-fv-trigger-check-draft` | scheduled-task | Thursday 09:00 (app display zone; fires ~09:09 with the app's jitter — installed 2026-09-18) — the weekly geopolitics card's due weekday, before the 11:15 EDT sentinel page | `inputs/reweight_triggers.yaml`, `decisions/*_check_*.md`, `decisions/trigger_check_*.draft.md`, `inputs/research_pareto/**`, `inputs/research_mb/**`, `inputs/scenario_inputs.yaml` … | `decisions/trigger_check_*.draft.md` | self |
 | `crude-fv-pinggap-drill-arm` | scheduled-task | one-shot 2026-09-12 09:05 (fired 14:07 EDT) | `state/ping_status.json`, `state/automation_runs.log`, `decisions/healthchecks_pinggap_drill_2026-09-06.md` | `state/drill_armed`, `decisions/healthchecks_pinggap_drill_2026-09-06.md` | human-owner-chat |
 | `crude-fv-pinggap-drill-restore` | scheduled-task | one-shot 2026-09-14 18:45 (moved from 15:20 — the page is due ~17:15) | `external:Gmail (from:healthchecks.io)`, `state/ping_status.json`, `state/automation_runs.log`, `decisions/healthchecks_pinggap_drill_2026-09-06.md` | `decisions/healthchecks_pinggap_drill_2026-09-06.md`, `state/drill_armed` | self |
 | `crude-fv-fork-executor` | scheduled-task | daily 12:45 app-display-zone (fires 12:47; installed by the owner 2026-09-14) | `inputs/forks.yaml`, `decisions/**`, `inputs/**`, `outputs/book_scorecard.json`, `baselines/reconcile_baseline.yaml`, `state/ffa_ocr_curves.json` … | `inputs/**`, `decisions/*_log.md`, `PLAN.md`, `outputs/**`, `state/fork_page.md`, `state/last_run.json` | self |

@@ -11,9 +11,8 @@ The page-once key is the emitter's event (DUE/FIRED/BREACHED + date; `fired:` ca
 still pages the register; graph R7's indeterminate case is a note; the owner queue derives its tags from
 `inputs/notify.yaml`. Owner said yes to unattended web access and to the draft task (Thursday — the card's weekday, a dry run caught
 the Wednesday error): `scripts/scheduled_tasks/crude-fv-trigger-check-draft.SKILL.md` + graph node (`planned: true`) +
-the `/record-trigger-check` chat route + a sentinel duty (`trigger_check_draft`, `scheduled: false`). **OWNER OWES:**
-install the task (OPERATING.md hand-crank list: one manual run, drop `planned`, flip the duty). First live draft
-expected Thursday 2026-09-24 09:00.
+the `/record-trigger-check` chat route + a sentinel duty (`trigger_check_draft`, `scheduled: false`). Installed by the agent from this chat 2026-09-18 (the app accepted the registration; allowed-tools pasted into
+the task frontmatter; `planned` dropped; duty `scheduled: true`). First live draft expected Thursday 2026-09-24 ~09:09.
 
 **STATE INSERT (2026-09-11 — THE SURFACE RULING; read this, then the 9/10 insert below).**
 Owner: *"page email indicates that action is needed from me, right ... the email isn't clear whether

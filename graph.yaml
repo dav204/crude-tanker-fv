@@ -326,8 +326,7 @@ nodes:
   - id: crude-fv-trigger-check-draft
     kind: scheduled-task
     repo: crude-tanker-fv
-    planned: true   # declared 2026-09-18; the owner installs it from scripts/scheduled_tasks/crude-fv-trigger-check-draft.SKILL.md, then drops this flag
-    runs: Thursday 09:00 (app display zone) — the weekly geopolitics card's due weekday, before the 11:15 EDT sentinel page
+    runs: Thursday 09:00 (app display zone; fires ~09:09 with the app's jitter — installed 2026-09-18) — the weekly geopolitics card's due weekday, before the 11:15 EDT sentinel page
     triggers: [clock]
     requires: [app open BEFORE the 11:15 EDT sentinel (TRIGGER-DUE is page_once on the event, so a catch-up fire after the page leaves the draft digest-only for that event),
                external:web (WebSearch + the domains in the skill frontmatter), external:/opt/homebrew/bin/pdftotext]

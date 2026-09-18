@@ -4,7 +4,7 @@ description: Thursday 09:00: draft the weekly geopolitics trigger check (inputs/
 allowed-tools: Bash(/opt/homebrew/bin/pdftotext:*), Bash(ls:*), Bash(git status:*), Bash(git diff:*), Bash(git log:*), Bash(git add:*), Bash(git commit:*), Read, Glob, Grep, Write(//Users/dan_personal/Projects/crude-tanker-fv/decisions/*.draft.md), Edit(//Users/dan_personal/Projects/crude-tanker-fv/decisions/*.draft.md), WebSearch, WebFetch(domain:www.centcom.mil), WebFetch(domain:www.ukmto.org), WebFetch(domain:www.globalsecurity.org), WebFetch(domain:www.criticalthreats.org), WebFetch(domain:www.aljazeera.com), WebFetch(domain:www.thenationalnews.com), WebFetch(domain:www.stripes.com), WebFetch(domain:www.jpost.com), WebFetch(domain:www.timesofisrael.com), WebFetch(domain:www.presstv.co.uk), WebFetch(domain:www.presstv.ir), WebFetch(domain:www.muscatdaily.com), WebFetch(domain:jinsa.org), WebFetch(domain:gcaptain.com), WebFetch(domain:splash247.com), WebFetch(domain:www.tribuneindia.com), WebFetch(domain:www.reuters.com), WebFetch(domain:apnews.com)
 ---
 
-<!-- HOW TO INSTALL (owner, at the Mac): create it from the app's Scheduled section: New task →
+<!-- INSTALLED 2026-09-18 from a chat (the app accepted the registration). To re-install: create it from the app's Scheduled section: New task →
      id crude-fv-trigger-check-draft (the folder name must equal the graph node id) → schedule
      weekly, THURSDAY 09:00 (the card's due weekday; the 11:15 EDT sentinel page must find the
      draft) → paste everything below the frontmatter as the prompt, then paste the allowed-tools

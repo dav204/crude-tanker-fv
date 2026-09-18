@@ -67,7 +67,7 @@ duties:
     artifact_glob: ["decisions/trigger_check_*.draft.md", "decisions/*_check_*.md"]   # repo-root globs (the "/"); the draft
                                           # and the record it becomes both carry the due date in the name
     cadence_days: 8                       # Thursday 09:00 app task (crude-fv-trigger-check-draft); 8 = one slipped day
-    scheduled: false                      # flip to true when the owner installs the task (2026-09-18; OPERATING.md hand-crank list)
+    scheduled: true                       # Claude scheduled-task crude-fv-trigger-check-draft, installed 2026-09-18 (Thu 09:09 local)
     command: "/record-trigger-check after the Thursday draft, or in a chat: run the check"
   - name: weekly_report
     artifact_glob: "weekly_report_*.md"   # under outputs/
