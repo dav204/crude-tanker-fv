@@ -161,13 +161,21 @@ POSITION_UNRELIABLE = {"MPCC", "BRUT",  # BRUT 2026-07-01: the position cell mus
 # base — which the 8/16 toll-cliff venue re-docketed to WO5/R4. It LANDED 2026-09-18 (49e0fb9 /
 # c5ce304; decisions/r4_deck_reexpression_method_2026-09-18.md) and is now guard-held by
 # tests/test_scenarios.py::test_crude_deck_prices_a_real_spread_against_the_base.
-# CAPT and TNK's voids BOTH RETIRED at that condition, 2026-09-18 (TNK -> POSITION_CYCLE_RELABEL above,
-# decisions/tnk_void_disposition_2026-09-18.md). BRUT's void UPHELD — see its own ground on the line above,
-# which the re-expression does not touch.
-# CAPT's void RETIRED at that condition, 2026-09-18 (decisions/capt_void_disposition_2026-09-18.md):
-# its ONLY ground was the deck artifact, the artifact is gone (post-re-expression CAPT reads
-# TRIM/SHORT -6.0, not BUY-ward, and TRIM across all 8 weight sets), so the cell now prints the raw
-# band. read_blocked / GOVERNED-WIDE / newbuild-heavy are separate machinery and STAND.
+# WO5/R4 PHASE-4 DISPOSITIONS, all three ruled 2026-09-18:
+#   CAPT — RETIRED (decisions/capt_void_disposition_2026-09-18.md). Its ONLY ground was the deck
+#     artifact; the artifact is gone (CAPT now reads TRIM/SHORT -6.0, not BUY-ward, and TRIM across
+#     all 8 weight sets), so the cell prints the raw band. read_blocked / GOVERNED-WIDE /
+#     newbuild-heavy are separate machinery and STAND.
+#   TNK  — RETIRED to POSITION_CYCLE_RELABEL above (decisions/tnk_void_disposition_2026-09-18.md).
+#   BRUT — UPHELD (decisions/brut_void_disposition_2026-09-18.md). BRUT is the only one of the three
+#     with TWO grounds, and the re-expression resolves only the junior one. The 2026-07-01
+#     untrustworthiness ground on the line above is a BALANCE-SHEET and solvency ground; a scenario
+#     re-levelling moves no mark and no sheet (ΔNAV was exactly 0.00 on all 25 names), so it cannot
+#     reach it by construction. Compounding it, the re-expression carried BRUT's raw band across the
+#     BUY edge to +5.2 against +5.0 — a ~1-cent margin, inside the NOK/USD print, on the weight
+#     family's MAXIMUM (family min -31.2, ev_sign_stable false, 1 of 8 sets says BUY) — which is
+#     precisely the "raw BUY next to PROVISIONAL" the 7/01 ground exists to suppress. RE-ARMED to the
+#     Oslo Børs uplisting prospectus (~end-Sep 2026), fallback re-read at the Q3 report 2026-11-19.
 
 # Newbuild carried at $0 NAV pending a FILED contract price — the name discloses the order but not the
 # price, and the only price is a broker LOI (not out of the figure-provenance queue), so the §9.6
