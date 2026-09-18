@@ -109,7 +109,9 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
   read-only agents (pytest/pipeline regenerate outputs+logs); write governed state
   ONLY from the production entry, never a library call a test reaches
   (`test_write_scorecard_does_not_write_machine_state`).
-- **A promote/ingest regen needs a FRESH price vintage COMMITTED ALONE first** (2026-07-26 ×2; 2026-09-09): fetch → commit prices → regen the price leg → then land the inputs. A dirty tree launders the tape into the sourcing event; a reverted vintage past `PRICE_FRESH_DAYS` silently values names at statics (guard `test_price_basis_guard`).
+- **A promote/ingest regen needs a FRESH price vintage COMMITTED ALONE first** (2026-07-26 ×2; 09-09): fetch →
+  commit prices → regen the price leg → then land the inputs; a dirty tree launders the tape into the sourcing
+  event (guard `test_price_basis_guard`).
 - **Newbuilds valued at delivered market LESS remaining commitment** (NOT sunk cost; §3.1/§9.6),
   PV-discounted `1.11^(−years_to_delivery)` per vessel (defaults 0 = on the water).
 - **`use_transaction_anchored` is DEFAULT-ON** (2026-06-09). Txn-anchored marks ARE the headline; k_broker
@@ -167,11 +169,12 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
 - **Don't add error handling for cases that can't happen, or comments explaining what the code does** —
   METHODOLOGY.md carries the why.
 - **Don't drop credential files in the repo.** Secrets (Rocket.Chat PATs, API tokens, broker creds) live
-  in `~/.config/crude-tanker-fv.env` (the launchd wrapper sources it). `.gitignore` blocks `*_token*`,
-  `*_credentials*`, `*_secret*`, `*.rtf`, `.env*` defensively — but the gate is discipline. (Caught
-  2026-06-09: a stray `rocketchat_token.rtf` at repo root.)
+  in `~/.config/crude-tanker-fv.env`. `.gitignore` blocks `*_token*`, `*_credentials*`, `*_secret*`,
+  `*.rtf`, `.env*` defensively — but the gate is discipline.
 
 - **Silence executes the recommendation** (ruled 2026-09-10): forks in `inputs/forks.yaml` run at their recommendation after 3 business days unanswered (sentinel FORK-EXECUTABLE); push + S&P ack are unattended.
+- **Chip-spawned sessions merge their own PR** (2026-09-18): every `spawn_task` prompt ends with the merge
+  clause (green suite → push main → merge → confirm MERGED).
 - **Owner navigation lives in README, not PLAN** (2026-07-15): if the owner must ask
   "where does X live," add it to README the same day.
 
