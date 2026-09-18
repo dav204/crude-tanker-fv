@@ -236,6 +236,26 @@ DETERMINANT_EXCLUDES = (
     ":(exclude)inputs/earnings_calendar.yaml", ":(exclude)inputs/agent_duties.yaml",
 )
 
+# Paths under inputs/ that feed NO valuation and cannot be excluded by pathspec: the sp_scan
+# cursor (sp_scan + the sentinel staleness check read it, the pipeline does not) and the
+# shadow-build / rebase drafts (CLAUDE.md drafts-only — the pipeline reads the .yaml, never the
+# .yaml.draft, and a draft may sit anywhere under inputs/).
+NON_DETERMINANT_INPUTS = ("inputs/market_data/transactions/_scan_state.json",)
+NON_DETERMINANT_SUFFIX = ".yaml.draft"
+
+
+def is_non_determinant(path: str) -> bool:
+    return path.endswith(NON_DETERMINANT_SUFFIX) or path in NON_DETERMINANT_INPUTS
+
+
+def determinant_paths(root: Path, frm: str, to: str = "HEAD") -> "list[str]":
+    """The determinant paths that moved between two commits — THE definition, THREE readers:
+    (e) below, the annotator's price-leg proof, and the cron's regen trigger. A reader that
+    builds its own copy can call a morning current that another calls contaminated (2026-09-18:
+    a shadow build's *.yaml.draft froze (e) while the annotator ignored it)."""
+    out = _git(root, "diff", "--name-only", frm, to, "--", "src", "inputs", *DETERMINANT_EXCLUDES)
+    return [q for q in (ln.strip() for ln in out.splitlines()) if q and not is_non_determinant(q)]
+
 
 def _surface_matches_head(root: Path) -> "tuple[bool, str]":
     """(e): the committed decision surface must be CURRENT for HEAD.
@@ -256,10 +276,11 @@ def _surface_matches_head(root: Path) -> "tuple[bool, str]":
         return False, f"surface stamped dirty ({stamp})"
     if not _git_ok(root, "merge-base", "--is-ancestor", stamp, "HEAD"):
         return False, f"surface {stamp} is not an ancestor of HEAD {head}"
-    changed = _git(root, "diff", "--stat", stamp, "HEAD", "--", "src", "inputs",
-                   *DETERMINANT_EXCLUDES)
-    if changed.strip():
-        return False, f"determinants changed since the surface {stamp}: {changed.strip().splitlines()[-1]}"
+    changed = determinant_paths(root, stamp, "HEAD")
+    if changed:
+        return False, (f"determinants changed since the surface {stamp}: "
+                       + ", ".join(changed[:6])
+                       + (f" (+{len(changed) - 6} more)" if len(changed) > 6 else ""))
     return True, f"surface {stamp} current for HEAD {head}"
 
 
@@ -468,6 +489,9 @@ def main(argv: list[str] | None = None) -> int:
     ld = sub.add_parser("land", help="auto-ratify the baseline when every precondition holds")
     ld.add_argument("--dry-run", action="store_true",
                     help="print the verdict, the composed cause and the would-run command; run nothing")
+    dt = sub.add_parser("determinants", help="determinant paths that moved between two commits")
+    dt.add_argument("frm")
+    dt.add_argument("to", nargs="?", default="HEAD")
     args = ap.parse_args(argv)
 
     if args.cmd == "check":
@@ -476,6 +500,10 @@ def main(argv: list[str] | None = None) -> int:
         return 0 if v.ok else 1
     if args.cmd == "land":
         return land(dry_run=args.dry_run)
+    if args.cmd == "determinants":
+        for path in determinant_paths(ROOT, args.frm, args.to):
+            print(path)
+        return 0
     return 2
 
 

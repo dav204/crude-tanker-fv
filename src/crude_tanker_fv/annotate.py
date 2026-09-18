@@ -85,12 +85,6 @@ MARKER_VERSION = 1
 # and process files already excluded, promote.DETERMINANT_EXCLUDES) refuses the whole run.
 PRICE_LEG_PATH = PRICES_REL
 
-# Paths that sit under inputs/ but feed no valuation: the sp_scan cursor (read by sp_scan and
-# the sentinel staleness check only) and the shadow-build / rebase drafts (CLAUDE.md drafts-only
-# rule — the live pipeline reads the .yaml, never the .yaml.draft). Guarded by
-# tests/test_annotate.py::test_non_determinant_allowance_reads_nothing_in_the_valuation.
-NON_DETERMINANT_INPUTS = ("inputs/market_data/transactions/_scan_state.json",)
-NON_DETERMINANT_SUFFIX = ".yaml.draft"
 
 # Breaches a pure-price move can produce. band-mech is the D-M5 auto-classified price crossing;
 # NAV / band / band-EXIT are re-reads and refuse.
@@ -128,17 +122,9 @@ def by_ticker(surface: dict) -> dict:
 
 
 def determinant_changes(root: Path, frm: str, to: str) -> "list[str]":
-    """Paths under src/ + inputs/ that moved between two surface stamps, archives and process
-    files excluded exactly as promote's (e) excludes them (one list, two readers)."""
-    rc, out = _git(root, "diff", "--name-only", frm, to, "--", "src", "inputs",
-                   *promote.DETERMINANT_EXCLUDES)
-    if rc != 0:
-        return ["<git diff failed>"]
-    return [ln.strip() for ln in out.splitlines() if ln.strip()]
-
-
-def _is_non_determinant(path: str) -> bool:
-    return path.endswith(NON_DETERMINANT_SUFFIX) or path in NON_DETERMINANT_INPUTS
+    """Determinants that moved between two surface stamps. promote.determinant_paths is THE
+    definition: this lane's price-leg proof must measure exactly the window (e) measures."""
+    return promote.determinant_paths(root, frm, to)
 
 
 # ---------------------------------------------------------------------------
@@ -203,7 +189,7 @@ def build_context(root: Path = ROOT) -> RunContext:
 
     anchor_stamp = str(anchor.get("source_commit") or "")
     moved = determinant_changes(root, anchor_stamp, current_stamp)
-    offenders = [p for p in moved if p != PRICE_LEG_PATH and not _is_non_determinant(p)]
+    offenders = [p for p in moved if p != PRICE_LEG_PATH]
     if offenders:
         raise Refusal("a determinant other than the price vintage moved between the anchor "
                       f"surface {anchor_stamp} and this one {current_stamp}: "

@@ -119,14 +119,14 @@ if [ "$leg_rc" -eq 0 ]; then
   fi
 fi
 
-# 3. Regen — only when a determinant actually moved since the stamp (the same history diff
-# promote._surface_matches_head does, archives and process files excluded). A bogus or empty stamp
+# 3. Regen — only when a determinant actually moved since the stamp. It asks promote for the
+# list (ONE definition, three readers: (e), the annotator's proof, this trigger — 2026-09-18). A bogus or empty stamp
 # reads as "moved". There is no timeout(1)/gtimeout on this Mac and the healthchecks ping already
 # fired in the [sentinel] lane above, so a hang here would be INVISIBLE to the external dead-man
 # for ~24h and launchd will not start a second instance of the label: the 900s watchdog is this
 # lane's dead-man, not a nicety.
 if [ "$leg_rc" -eq 0 ]; then
-  det=$(git diff --name-only "$leg_stamp" HEAD -- src inputs ":(exclude)inputs/filings" ":(exclude)inputs/research_issuer" ":(exclude)inputs/research_pareto" ":(exclude)inputs/research_pareto_other" ":(exclude)inputs/research_mb" ":(exclude)inputs/ffa_drybulk" ":(exclude)inputs/forks.yaml" ":(exclude)inputs/notify.yaml" ":(exclude)inputs/reweight_triggers.yaml" ":(exclude)inputs/data_sources.yaml" ":(exclude)inputs/rocketchat_sources.yaml" ":(exclude)inputs/archive_gaps.yaml" ":(exclude)inputs/earnings_calendar.yaml" ":(exclude)inputs/agent_duties.yaml" 2>/dev/null || echo "?")
+  det=$(PYTHONPATH=src ./.venv/bin/python -m crude_tanker_fv.promote determinants "$leg_stamp" HEAD 2>/dev/null || echo "?")
   if [ -z "$det" ]; then
     echo "[price-leg] surface $leg_stamp already current for HEAD — no regen needed"
   else
