@@ -134,6 +134,28 @@ def test_read_blocked_names_hold_governed_wide():
     assert tier_subreason("BRUT", rows["BRUT"].read_blocked) == "going-concern-unfinanced"
 
 
+def test_read_blocked_and_not_unreliable_renders_the_raw_band():
+    """CAPT is the book's FIRST read_blocked row that is NOT position-unreliable (its Stage-A void
+    retired 2026-09-18, decisions/capt_void_disposition_2026-09-18.md). That combination had no pin
+    and the WO asked for one: read_blocked suppresses read_flag, so the verdict cell prints the RAW
+    un-deadbanded band with NO hysteresis, and the tier cell must still carry the construction
+    caveat. If a future change routes read_blocked names through a deadband, or drops the caveat,
+    this reds."""
+    from crude_tanker_fv.provenance import POSITION_CYCLE_RELABEL
+    from crude_tanker_fv.scorecard import _verdict_position
+
+    rows = {r.ticker: r for r in sc.compute_scorecard(BOOK_QUARTER, read_flag_state={})}
+    capt = rows["CAPT"]
+    assert capt.read_blocked is not None and capt.read_flag == "n/a"
+    assert "CAPT" not in POSITION_UNRELIABLE and "CAPT" not in POSITION_CYCLE_RELABEL
+    # the displayed cell is the RAW band — no relabel, and read_blocked means no deadband
+    for raw in ("BUY (undervalued)", "HOLD (fairly valued)", "TRIM/SHORT (overvalued)"):
+        assert _verdict_position("CAPT", raw) == raw
+    # the construction caveat still rides the tier cell
+    assert capt.confidence_tier == "GOVERNED-WIDE"
+    assert tier_subreason("CAPT", capt.read_blocked) == "newbuild-heavy"
+
+
 def test_edge_cleared_long_set_is_unchanged_by_the_amendment():
     """§7 + Addendum B1: TIGHT ∧ read_flag == "robust" ∧ read_par == "cheap" ∧ BUY. The amendment
     RELOCATES the constraint; it must not enlarge position authorization. Gates on the GOVERNED

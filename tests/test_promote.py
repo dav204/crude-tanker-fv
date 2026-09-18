@@ -70,9 +70,12 @@ def test_a_flip_toward_buy_freezes(monkeypatch):
 
 
 def test_a_relabelled_name_does_not_count_as_buyward(monkeypatch):
-    """CAPT/BRUT/TNK/MPCC carry a governed relabel — their raw band is not what the book
-    acts on, so a raw BUY there must not freeze the lane forever."""
-    row = DriftRow(ticker="CAPT", pnav_basis="pareto", status="explained",
+    """A governed-relabel name's raw band is not what the book acts on, so a raw BUY there must
+    not freeze the lane forever. Fixture re-pointed CAPT -> MPCC 2026-09-18: this test reads the
+    LIVE registry, and CAPT left POSITION_UNRELIABLE at its Phase-4 disposition
+    (decisions/capt_void_disposition_2026-09-18.md). MPCC's ground is a method mismatch, which no
+    deck work touches."""
+    row = DriftRow(ticker="MPCC", pnav_basis="pareto", status="explained",
                    breaches=["position_band band-mech"], d_nav_pct=0.0,
                    band_from="HOLD (fairly valued)", band_to="BUY (undervalued)")
     v = _run(monkeypatch, _rows(row))

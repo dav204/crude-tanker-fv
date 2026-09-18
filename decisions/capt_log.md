@@ -1,5 +1,11 @@
 # CAPT — Decision Log
 
+## 2026-09-18 — STAGE-A VOID RETIRED (WO5/R4 Phase 4): the cell now prints the raw band, TRIM/SHORT -6.0
+
+**Decision:** CAPT leaves `POSITION_UNRELIABLE`. Its only registered ground was the 2026-08-10 deck-incoherence artifact, whose own retirement condition — the deck re-expression against the landed base — landed 2026-09-18 (49e0fb9 / c5ce304) and is now guard-held by `test_crude_deck_prices_a_real_spread_against_the_base`. The artifact itself is gone: post-re-expression CAPT reads TRIM/SHORT at EV -5.97pp, not BUY-ward, and TRIM/SHORT across all eight weight sets (-6.0% to -30.5%, weight_sign_stable true) on the superseding sidecar — so retiring publishes a read LESS favourable than the one the void suppressed. reconcile SANITY OK (-22.4%, stable). read_blocked, GOVERNED-WIDE and newbuild-heavy STAND. The strobe exposure is TRIM/SHORT<->HOLD at 0.97pp from the edge with no hysteresis (read_blocked suppresses read_flag), NOT a BUY strobe — the BUY edge is 11pp away; pinned by the new `test_read_blocked_and_not_unreliable_renders_the_raw_band`. A BUY-ward re-cross is armed as an owner eyeball. Full record: `decisions/capt_void_disposition_2026-09-18.md`.
+
+---
+
 ## 2026-09-18 — CRUDE DECK RE-EXPRESSION (WO5/R4): FV 17.77 -> 18.57 (+4.50%), EV -10.0 -> -6.0pp, NAV unchanged
 
 **Decision:** The 2026-09-18 crude deck RE-EXPRESSION (WO5/R4 Phases 0-3b, fork `r4_wo5_deck_reexpression_schedule`, landed at commit 49e0fb9; method, derivation and the dated Phase-3 freeze in `decisions/r4_deck_reexpression_method_2026-09-18.md`). The three de-escalation legs were re-levelled per class so each leg's 8-quarter mid mean hits its registered ratio against the live FFA reference (pre_mou_baseline 1.00 = the observed state, mou_base 0.80, mou_bear 0.60); quarter shape and the low/mid/high spread preserved, only the level moved. `escalation` untouched; the C3 weight vector untouched. No mark, sheet or manifest this name reads changed, so NAV/share is unchanged to the cent and the whole move is the scenario deck's. Observed vs the Phase-3 freeze: predicted ΔFV +4.50%, observed +4.50%; predicted ΔEV +4.0pp, observed +4.0pp; predicted ΔNAV 0.00, observed 0.00. HIT.
