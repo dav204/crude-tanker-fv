@@ -143,23 +143,59 @@ def test_page_once_keys(tmp_path):
     assert k("REAUTH-NEEDED smtp: SMTP auth refused — since 2026-09-02") == "REAUTH-NEEDED smtp:"
     assert k("DIRTY-TOO-LONG tree dirty 40h") == "DIRTY-TOO-LONG"
 
-    # 2026-09-17: the key read a lowercase "due" while refresh emits "DUE {due}", so the
-    # date was dropped and the first page's key swallowed every re-arm of a weekly card for
-    # 60 days. The flag is BUILT from the production emitter (2026-07-02 rule: two surfaces
-    # assumed to agree need a test that they agree), never hand-typed.
-    def due_flag(due):
-        (tmp_path / "reweight_triggers.yaml").write_text(yaml.safe_dump({
-            "crude_geopolitics_weekly": {"sector": "crude+product", "due": due,
-                                         "observable": "x", "status": "armed"}}))
-        items = [it for it in refresh.check_reweight_triggers(tmp_path, today=date(2026, 10, 1))
-                 if it.status == "missing"]
-        assert len(items) == 1
-        return f"TRIGGER-DUE {items[0].label}: {items[0].detail}"   # sentinel.collect_flags shape
+    # The TRIGGER-DUE key is the EVENT the emitter writes at the head of the detail, so the
+    # flag is BUILT from refresh.check_reweight_triggers for every branch that can page
+    # (2026-07-02 rule: two surfaces assumed to agree need a test that they agree).
+    def trigger_flag(**card):
+        (tmp_path / "reweight_triggers.yaml").write_text(yaml.safe_dump(
+            {"crude_geopolitics_weekly": {"sector": "crude+product", "observable": "x", **card}}))
+        (item,) = [it for it in refresh.check_reweight_triggers(tmp_path, today=date(2026, 10, 1))
+                   if it.status == "missing"]
+        return f"TRIGGER-DUE {item.label}: {item.detail}"   # sentinel.collect_flags shape
 
-    first, rearmed = due_flag(date(2026, 9, 17)), due_flag(date(2026, 9, 24))
-    assert k(first) == "TRIGGER-DUE crude_geopolitics_weekly: 2026-09-17"
-    assert k(rearmed) == "TRIGGER-DUE crude_geopolitics_weekly: 2026-09-24"
-    assert k(first) != k(rearmed)
+    legacy = "TRIGGER-DUE crude_geopolitics_weekly:"   # the dateless pre-2026-09-17 key, live in state until it ages out
+    due_1 = k(trigger_flag(due=date(2026, 9, 17)))
+    due_2 = k(trigger_flag(due=date(2026, 9, 24)))
+    fired_1 = k(trigger_flag(due=date(2026, 9, 24), status="fired", fired=date(2026, 9, 24)))
+    fired_2 = k(trigger_flag(due=date(2026, 9, 24), status="fired", fired=date(2026, 10, 15)))
+    fired_fallback = k(trigger_flag(due=date(2026, 9, 24), status="fired"))
+    breached = k(trigger_flag(status="fired-ruled-deferred", stage_a_deadline=date(2026, 9, 20)))
+    assert due_1 == "TRIGGER-DUE crude_geopolitics_weekly: DUE 2026-09-17"
+    assert due_2 == "TRIGGER-DUE crude_geopolitics_weekly: DUE 2026-09-24"
+    assert fired_1 == "TRIGGER-DUE crude_geopolitics_weekly: FIRED 2026-09-24"
+    assert fired_2 == "TRIGGER-DUE crude_geopolitics_weekly: FIRED 2026-10-15"
+    assert fired_fallback == fired_1
+    assert breached == "TRIGGER-DUE crude_geopolitics_weekly: BREACHED 2026-09-20"
+    assert len({due_1, due_2, fired_1, fired_2, breached}) == 5
+    assert legacy not in {due_1, due_2, fired_1, fired_2, breached}
+    # prose after the event never reaches the key, and a bare FIRED still differs from legacy
+    assert k(trigger_flag(status="fired", observable="fee schedule due 2026-12-31")) \
+        == "TRIGGER-DUE crude_geopolitics_weekly: FIRED"
+    # a mistyped `fired:` (not a date) falls back to the due date, never to a bare FIRED
+    assert k(trigger_flag(due=date(2026, 9, 24), status="fired", fired=True)) == fired_1
+    # the event is read from the anchored head only: an event buried in prose, a malformed
+    # date, or a shape without a head all key on the full text — never the legacy key
+    assert k("TRIGGER-DUE t9: reopened; see [crude] DUE 2026-09-17 in the note") \
+        == "TRIGGER-DUE t9: reopened; see [crude] DUE 2026-09-17 in the note"
+    assert k("TRIGGER-DUE t9: [crude] DUE 2026-09-24x — y") == "TRIGGER-DUE t9: [crude] DUE 2026-09-24x — y"
+    assert k("TRIGGER-DUE t9: some future shape without an event head") != "TRIGGER-DUE t9:"
+
+
+def test_page_action_names_the_event(tmp_path):
+    """A FIRED page owes a decision and a BREACHED page owes the fallback; only a DUE page asks for
+    the check. The three flags are built from the emitter."""
+    def flag(**card):
+        (tmp_path / "reweight_triggers.yaml").write_text(yaml.safe_dump(
+            {"t1": {"sector": "crude", "observable": "x", **card}}))
+        (item,) = [it for it in refresh.check_reweight_triggers(tmp_path, today=date(2026, 10, 1))
+                   if it.status == "missing"]
+        return f"TRIGGER-DUE {item.label}: {item.detail}"
+
+    assert notify.page_action(flag(due=date(2026, 9, 24))).startswith("OWNER — an observable you registered is due")
+    assert "reweight decision is owed" in notify.page_action(flag(due=date(2026, 9, 24), status="fired"))
+    assert "registered fallback today" in notify.page_action(
+        flag(status="fired-ruled-deferred", stage_a_deadline=date(2026, 9, 20)))
+    assert notify.page_action("TRIGGER-DUE t9: no head") == notify.PAGE_ACTIONS["TRIGGER-DUE"]
 
 
 def test_route_flags_partition_and_unknown_pages():

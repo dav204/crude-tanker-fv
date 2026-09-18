@@ -287,6 +287,21 @@ def test_live_trigger_file_loads_and_renders():
     assert not any(v.get("status") == "done" for v in doc.values()), "done cards belong in the archive"
 
 
+def test_live_trigger_fired_field_is_set_when_fired_and_dropped_on_rearm():
+    """`fired:` is the page identity of a FIRED card (notify.page_once_key): a fired card without
+    it collapses every firing of a due-null card into one key, and a stale one left on a re-armed
+    card collapses the next firing into the last. Guard over prose (2026-09-18)."""
+    import yaml
+
+    from crude_tanker_fv.refresh import REWEIGHT_TRIGGERS_PATH
+
+    for name, entry in yaml.safe_load(REWEIGHT_TRIGGERS_PATH.read_text()).items():
+        if entry.get("status") == "fired":
+            assert isinstance(entry.get("fired"), date), f"{name}: status fired needs a dated fired:"
+        else:
+            assert "fired" not in entry, f"{name}: drop fired: when the card is not fired"
+
+
 def test_data_sources_covers_all_watchlist():
     """Every watchlist ticker must have a corresponding data_sources.yaml
     entry; otherwise the IR-playbook section renders ‘no data_sources entry’

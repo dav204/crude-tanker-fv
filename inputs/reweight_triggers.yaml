@@ -7,7 +7,9 @@
 #
 # Fields per trigger: sector | due (date the observable must be checked; null =
 # standing event-watch, reviewed at every refresh) | observable (what to look
-# at, with sources) | action (what a firing obliges) | status | added.
+# at, with sources) | action (what a firing obliges) | status | added | fired (the date
+# you flipped status to fired — the page identity; SET it when flipping, DROP it on re-arm;
+# test-enforced. A dated card without it keys on the due date it fired at).
 # Statuses: armed (watching) / fired (observed — reweight decision now OWED,
 # stays red until resolved) / done (decision recorded; point to the decisions/
 # note and re-arm or retire) / retired (superseded). Date every status change.

@@ -240,6 +240,15 @@ def check_earnings_calendar(
     return items
 
 
+def _trigger_event(kind: str, when) -> str:
+    """The machine-readable head of a TRIGGER-DUE detail: "DUE 2026-09-24" / "FIRED 2026-09-24" /
+    "BREACHED 2026-10-01", always followed by " — ". notify.page_once_key reads exactly this
+    (TRIGGER_EVENT_RE) — the page identity is the event, never the prose after it. A FIRED card's
+    date is its `fired:` field (set when flipping, dropped on re-arm — test-enforced on the live
+    register), else the due date it fired at."""
+    return f"{kind} {when}" if when else kind
+
+
 def check_reweight_triggers(
     inputs_dir: Path = INPUTS_DIR, today: date | None = None,
 ) -> list[CheckItem]:
@@ -266,8 +275,11 @@ def check_reweight_triggers(
         sector = entry.get("sector", "?")
         obs = " ".join(str(entry.get("observable", "")).split())[:140]
         if status == "fired":
+            fired = entry.get("fired")
+            when = fired if isinstance(fired, date) else due
             items.append(CheckItem(label=name, status="missing",
-                                   detail=f"[{sector}] FIRED — §13.3 reweight decision OWED. {obs}"))
+                                   detail=f"[{sector}] {_trigger_event('FIRED', when)} — §13.3 reweight "
+                                          f"decision OWED. {obs}"))
         elif status == "fired-ruled-deferred":
             # Signed-ruling deferral (tanker_forward_print ruling §6, 2026-07-15):
             # AMBER — stays visible every run WITHOUT demanding daily re-triage,
@@ -277,10 +289,10 @@ def check_reweight_triggers(
             deadline = entry.get("stage_a_deadline")
             if deadline and today > deadline:
                 items.append(CheckItem(label=name, status="missing",
-                                       detail=f"[{sector}] DEFERRED-RULING DEADLINE BREACHED — "
-                                              f"stage_a_deadline {deadline} passed without "
-                                              f"promotion (Rider 2 is unconditional; run the "
-                                              f"registered fallback TODAY). {obs}"))
+                                       detail=f"[{sector}] {_trigger_event('BREACHED', deadline)} — "
+                                              f"DEFERRED-RULING DEADLINE: stage_a_deadline {deadline} "
+                                              f"passed without promotion (Rider 2 is unconditional; "
+                                              f"run the registered fallback TODAY). {obs}"))
             else:
                 items.append(CheckItem(label=name, status="warn",
                                        detail=f"[{sector}] fired-ruled-deferred — promotion "
@@ -291,8 +303,8 @@ def check_reweight_triggers(
                                    detail=f"[{sector}] {status}"))
         elif due and today >= due:
             items.append(CheckItem(label=name, status="missing",
-                                   detail=f"[{sector}] DUE {due} — check the observable and "
-                                          f"record the outcome. {obs}"))
+                                   detail=f"[{sector}] {_trigger_event('DUE', due)} — check the "
+                                          f"observable and record the outcome. {obs}"))
         elif due and 0 <= (due - today).days <= TRIGGER_UPCOMING_DAYS:
             items.append(CheckItem(label=name, status="warn",
                                    detail=f"[{sector}] due in {(due - today).days}d ({due}). {obs}"))

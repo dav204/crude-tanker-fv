@@ -30,7 +30,7 @@ routes:
     - SURFACE-INCOHERENT    # OWNER: a guard contradicted the surface — the agent halts until read
     - FILING-OVERDUE        # OWNER: the issuer has not filed past its window — chase or hold the sheet
   page_once:
-    - TRIGGER-DUE           # OWNER observable due; key = tag + trigger label (+ due date); day-2 repeat → digest
+    - TRIGGER-DUE           # OWNER observable due; key = tag + label + event (DUE/FIRED/BREACHED + date); day-2 repeat → digest
     - FORK-OPENED           # OWNER (optional): a fork just opened — object before execute_after, else it runs
                             # (2026-09-16: the page moved from the window's CLOSE to its OPENING; at close
                             # only a chat could stop it and the executor now runs it, so close = digest)

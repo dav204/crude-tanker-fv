@@ -850,6 +850,32 @@ def test_page_once_pages_first_sighting_only(tmp_path, monkeypatch):
     assert _json.loads(Path(st).read_text())["paged_once"]
 
 
+def test_page_once_pages_again_on_rearm_and_on_firing(tmp_path, monkeypatch):
+    """2026-09-17/18: the first page's key swallowed every later event of the same card for
+    60 days (a dateless key). A re-armed due date and a firing are new events: each pages
+    once; an unchanged card then rides the digest."""
+    s, inputs, _, sent, pings, st = _notify_harness(tmp_path, monkeypatch, trigger_due=True)
+
+    def card(**fields):
+        (inputs / "reweight_triggers.yaml").write_text(yaml.safe_dump({"t1": {
+            "sector": "crude", "observable": "x", "action": "y", "added": date(2026, 7, 2), **fields}}))
+
+    def run_pages():
+        sent.clear()
+        s.main(["--notify", "--state", st])
+        return [x for x in sent if " PAGE:" in x[0] and "TRIGGER-DUE t1" in x[1]]
+
+    assert run_pages()                                        # due 2026-06-01: first sighting
+    card(due=date(2026, 6, 8), status="armed")
+    assert run_pages()                                        # re-armed: a new event
+    card(due=date(2026, 6, 8), status="fired", fired=date(2026, 6, 8))
+    assert run_pages()                                        # fired: a new event
+    card(due=date(2026, 6, 8), status="fired", fired=date(2026, 6, 15))
+    assert run_pages()                                        # fired again inside 60 days: a new event
+    assert not run_pages()                                    # same event again: digest
+    assert [x for x in sent if "daily digest" in x[0] and "TRIGGER-DUE t1" in x[1]]
+
+
 def test_reauth_register_pages_and_clears(tmp_path, monkeypatch, capsys):
     """2026-09-02 (Stage 0): a surface marked in state/reauth/ flags REAUTH-NEEDED
     (page_once); clearing it silences the flag; the ping writes ping_status.json

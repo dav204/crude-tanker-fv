@@ -87,7 +87,7 @@ def route_flags(flags: list[str], routes: dict) -> "tuple[list[str], list[str]]"
 PAGE_ACTIONS = {
     "SURFACE-INCOHERENT": "OWNER — a guard contradicted the published surface; the agent has halted. Read the named check and rule.",
     "FILING-OVERDUE": "OWNER — the issuer has not filed past its window and no sheet is on file. Decide: chase the issuer, or hold the name on its prior sheet.",
-    "TRIGGER-DUE": "OWNER — an observable you registered is due. Record its outcome on the card, or say 'agent' to have the weekly check do it.",
+    "TRIGGER-DUE": "OWNER — an observable you registered is due. Record its outcome on the card, or open a chat and say 'run the check'.",
     "FORK-OPENED": "OWNER (optional) — a recommendation was registered; it executes after the date shown unless you object in a chat. No action = it runs. A line marked NEEDS A CHAT is one the executor cannot land (code change): open a chat when you want it done.",
     "FORK-EXECUTABLE": "OWNER (optional) — the window closed; the executor runs it today (or a chat lands it, if marked). Nothing to do unless you object.",
     "DIRTY-TOO-LONG": "OWNER/AGENT — the working tree has been mid-surgery for days. Finish, stash, or say 'discard'.",
@@ -98,14 +98,36 @@ PAGE_ACTIONS = {
 
 def page_action(flag: str) -> str:
     tag = flag.split()[0] if flag else ""
+    if tag == "TRIGGER-DUE":
+        ev = trigger_event(flag)
+        return TRIGGER_ACTIONS[ev[0]] if ev else PAGE_ACTIONS[tag]
     return PAGE_ACTIONS.get(tag, "OWNER — (no action text registered for this tag; treat as: read and rule)")
+
+
+TRIGGER_EVENT_RE = re.compile(r"\[[^\]]*\] (DUE|FIRED|BREACHED)(?: (\d{4}-\d{2}-\d{2}))? — ")
+
+TRIGGER_ACTIONS = {
+    "DUE": PAGE_ACTIONS["TRIGGER-DUE"],
+    "FIRED": "OWNER — a trigger you registered FIRED: the §13.3 reweight decision is owed. Record it "
+             "(decisions/ note, card status, its `fired:` date), or open a chat and say 'run the reweight'.",
+    "BREACHED": "OWNER — a deferred ruling's stage_a_deadline passed unpromoted: run the registered "
+                "fallback today (Rider 2 is unconditional).",
+}
+
+
+def trigger_event(flag: str):
+    """(kind, date) from a TRIGGER-DUE flag's detail head, or None when the head is not the
+    shape refresh._trigger_event writes."""
+    m = TRIGGER_EVENT_RE.match(flag.partition(" ")[2].partition(" ")[2])
+    return (m.group(1), m.group(2)) if m else None
 
 
 def page_once_key(flag: str) -> str:
     """What makes two sightings of a page_once flag the SAME event (2026-09-02):
     FILING-LANDED = ticker·form·accession (never the 48h-window repeat);
-    EARNINGS-SWEEP-STALE = the stale sweep stamp; TRIGGER-DUE = label + due date;
-    DIRTY-TOO-LONG = the tag; otherwise tag + first token (ticker / surface)."""
+    EARNINGS-SWEEP-STALE = the stale sweep stamp; TRIGGER-DUE = label + event (DUE / FIRED /
+    BREACHED + its date, the head of the detail refresh._trigger_event writes); DIRTY-TOO-LONG =
+    the tag; otherwise tag + first token (ticker / surface)."""
     tag, _, rest = flag.partition(" ")
     if tag == "FILING-LANDED":
         return flag.split(" -> ")[0].split(" filed ")[0]
@@ -116,10 +138,11 @@ def page_once_key(flag: str) -> str:
         return tag
     first = rest.split()[0] if rest.split() else ""
     if tag == "TRIGGER-DUE":
-        # refresh.check_reweight_triggers emits "DUE {due}" (upper-case); the lowercase-only
-        # match dropped the date and one key swallowed every re-arm (2026-09-17).
-        m = re.search(r"\bdue (\d{4}-\d{2}-\d{2})", flag, re.IGNORECASE)
-        return f"{tag} {first} {m.group(1) if m else ''}".rstrip()
+        ev = trigger_event(flag)
+        if ev:
+            return f"{tag} {first} {ev[0]} {ev[1] or ''}".rstrip()
+        # An unrecognised detail shape keys on its full text: over-paging is the safe failure.
+        return f"{tag} {first} {rest.partition(' ')[2]}".rstrip()
     return f"{tag} {first}".rstrip()
 
 

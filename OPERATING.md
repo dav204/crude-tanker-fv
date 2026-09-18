@@ -390,7 +390,7 @@ flowchart LR
 |---|---|
 | `SURFACE-INCOHERENT` | a guard contradicted the published surface; the agent halted — read the named check and rule |
 | `FILING-OVERDUE` | the issuer has not filed past its window — chase, or hold the name on its prior sheet |
-| `TRIGGER-DUE` | an observable you registered is due — record its outcome, or say "agent" |
+| `TRIGGER-DUE` | an observable you registered is due — record its outcome, or open a chat and say "run the check". A FIRED line means the reweight decision is owed; a BREACHED line means run the registered fallback today |
 | `FORK-OPENED` | optional: a recommendation was registered; object before the date shown, else it runs. NEEDS A CHAT on the line means the executor cannot land it (code change) — open a chat when you want it done |
 | `DIRTY-TOO-LONG` | the tree has been mid-surgery for days — finish, stash, or say "discard" |
 | `REAUTH-NEEDED` | re-authenticate the named surface |
