@@ -1,5 +1,52 @@
 # BWLP — Decision Log
 
+## 2026-09-17 — NEWBUILD ORDER TREATMENT RULED (fork bwlp_nb_order_treatment): Option 3, advances-only interim
+
+**Decision:** The 8 × 90,000-cbm Panamax-VLGC order (~US$940M, signed 30-May-2026, HHI, deliveries
+early-2029 → Q2-2030; 6-K acc 0001213900-26-063117) is carried **ADVANCES-ONLY**: hulls AND the
+commitment both stay OUT of the 2026-Q2 snapshot, matching the issuer's own 6/30 presentation
+(`inputs/balance_sheets/bwlp_2026-Q2.yaml`: `newbuild_capex_commitments: 0`,
+`newbuild_advances_paid: 0`; `inputs/fleet_manifests/bwlp.yaml`: `vessels_under_construction: 0`).
+Executed under the silence policy (`inputs/forks.yaml`, owner ruling 2026-09-10): the fork opened
+2026-09-10 with `execute_after: 2026-09-15` and was unanswered, so it runs exactly at its registered
+recommendation. Doc: `decisions/forks_registered_2026-09-10.md` (Appendix A §1, Appendix B fork 1);
+origin `decisions/bwlp_nb_order_fork_2026-08-31.md`.
+
+**Observed vs predicted:** predicted ΔNAV exactly 0.0 (NAV/share stays $15.83), ΔEV 0.0, BWLP stays
+TRIM/SHORT, PROVISIONAL; predicted band NAV $15.83 ± $0.00 with the other 24 names exactly 0.0.
+Observed: this is a record-only commit — no value in any NAV determinant changed, only the comment
+blocks that state the ruling — and the verification run reproduced ΔNAV 0.0 with no gate row moving
+and no band flip. HIT.
+
+**Why the on-curve convention (§9.6) is set aside here, stated precisely:** not a per-hull-price
+argument — `nav.py` values a hull at the curve's age-0 node PV-discounted `1.11^(−years_to_delivery)`
+and subtracts the *aggregate* sourced commitment, so no per-hull price would ever enter. The real gap
+is `years_to_delivery`: the issuer discloses only a window ("early-2029 → Q2-2030"), leaving the
+discount exponent uncitable, and advances paid through 6/30 are $0 (Q2 report silent on the order —
+no commitments note, vessels cost flat 2,994,895 vs 2,994,896, H1 investing outflow $2.9M net).
+
+**What was deliberately NOT done:** no `structural_exempt` line in
+`inputs/market_data/newbuild_convention.yaml`. The registry header requires exempt names to be
+commitment-net, so such a line would enshrine what that header forbids — and the sibling
+commitment-net work moves CMBT the other way. The rationale-scope question routes to the CMBT/GSL
+commitment-net prereg, where the 8/31 fork doc placed it.
+
+**Re-open trigger (dated).** The structural guard is blind to this state:
+`tests/test_newbuild_convention.py` classifies a 0/0/0 name as "no-NB" and never parametrizes it, so
+nothing reds if the order is never re-opened. Re-open on the FIRST instalment paid or delivery
+schedule disclosed — earliest the Q3 interim (~Nov 2026), or any earlier 6-K instalment note the
+sentinel's filing lane catches.
+
+**Q3 wiring (explicitly out of this fork):** the US$300M 2.25% senior unsecured convertible due 2031,
+settled ~9-Sep-2026, "to partly finance the newbuild program with Hyundai Heavy Industries for eight
+Panamax VLGCs" (`inputs/filings/BWLP/newsweb_2026-09-02_da6ce467….txt:9-10,13`; conversion price
+US$30.4870). Cash +~$300M / debt +$300M at face, NAV-neutral pre-conversion; conversion at $30.49
+(above NAV $15.83) would be ~9.8M shares, ~6.5% of 151,814,600. "Partly finance" is not evidence that
+an instalment was paid. **UNVERIFIED and left so:** whether any instalment was paid at signing or in
+Q3 — only the Q3 interim or a 6-K instalment note settles it.
+
+---
+
 ## 2026-09-01T17:55:01+00:00 — Pipeline run (auto)
 
 **Model state:**

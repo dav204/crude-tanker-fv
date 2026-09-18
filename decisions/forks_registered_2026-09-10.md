@@ -186,3 +186,38 @@ Policy basis: `inputs/forks.yaml:1-13` — judgment forks execute at their recom
 2. **Silence scope should be stated in the YAML line itself.** The recommendation string says "Execute WO5 Phases 0-3b" but the sentinel page truncates at 140 chars (`sentinel.py:366`); put "Phases 0-3b ONLY; Phase 4-5 owner words" inside the first 140 characters so the executing agent never reads a truncated "Execute WO5" as licence for the dispositions.
 
 Nothing in fork 3 is CORRUPTING: kind = judgment is correct, the predicted impact is the WO's own frozen-band mechanism, and the owner surface (dispositions/ratify/push) is preserved.
+
+---
+# APPENDIX C — EXECUTION RECORD (the unattended fork executor)
+
+## Fork 1 — `bwlp_nb_order_treatment` — EXECUTED 2026-09-17
+
+Opened 2026-09-10, `execute_after` 2026-09-15, unanswered → executed at its registered
+recommendation under the silence policy (`inputs/forks.yaml:1-13`).
+
+**Applied, exactly as registered (record-only; no value changed):**
+- `inputs/balance_sheets/bwlp_2026-Q2.yaml` — the newbuild block now states the ruling
+  (Option 3, advances-only interim), the precise reason §9.6 is set aside
+  (`years_to_delivery` is a disclosed WINDOW only, advances $0 at 6/30 — **not** the
+  per-hull-price argument Appendix B finding 2 struck down), the dated re-open trigger,
+  and the HHI yard + $300M 2.25% convert as Q3 wiring. `newbuild_capex_commitments: 0`
+  and `newbuild_advances_paid: 0` are unchanged.
+- `inputs/fleet_manifests/bwlp.yaml` — `vessels_under_construction: 0` comment moves from
+  "executes 2026-09-15 / pending that fork's answer" to RULED, carrying the re-open trigger
+  (Appendix B finding 3's stale "enters at the Q2 refresh" instruction had already been
+  corrected at registration).
+- `decisions/bwlp_log.md` — dated entry at the top.
+
+**Deliberately NOT applied:** clause (c), the `structural_exempt` registry line — struck by
+Appendix B finding 1 as CORRUPTING (the registry header requires exempt names to be
+commitment-net) and by the fork's own YAML recommendation string ("NO structural_exempt
+registry line"). `inputs/market_data/newbuild_convention.yaml` is untouched and contains no
+BWLP line. The rationale-scope question stays routed to the CMBT/GSL commitment-net prereg.
+
+**Verification vs the pre-registered prediction.** Predicted: ΔNAV exactly 0.0 (NAV/sh
+$15.83), ΔEV 0.0, BWLP stays T/S PROVISIONAL, the other 24 names exactly 0.0. Observed: no
+NAV determinant value moved, the regen reproduced NAV/share $15.83 for BWLP, the drift gate
+showed no row moving and no band flip, and the suite stayed green. **HIT.**
+
+**Still UNVERIFIED (unchanged by this execution):** whether any instalment was paid at
+signing or in Q3. Only the Q3 interim (~Nov) or a 6-K instalment note settles it.
