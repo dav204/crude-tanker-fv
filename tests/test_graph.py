@@ -115,12 +115,56 @@ def test_launchd_clock_shift_is_refused(tmp_path):
     la = tmp_path / "la"; la.mkdir()
     _plist(la / "com.crude-tanker-fv.sentinel.plist", 8, 15, "/x/scripts/sentinel_cron.sh")
     log = tmp_path / "runs.log"
-    log.write_text("2026-09-12T15:15:05Z job=sentinel initiator=x outcome=flags rc=2\n")
+    log.write_text("2026-09-12T15:15:05Z job=sentinel initiator=com.crude-tanker-fv.sentinel outcome=flags rc=2\n")
     assert not g.check(mini, ROOT, launch_agents=la, scheduled_tasks=tmp_path, drift=[], commits=[], runs_log=log)
-    log.write_text("2026-09-13T12:15:05Z job=sentinel initiator=x outcome=flags rc=2\n")
+    log.write_text("2026-09-13T12:15:05Z job=sentinel initiator=com.crude-tanker-fv.sentinel outcome=flags rc=2\n")
     probs = g.check(mini, ROOT, launch_agents=la, scheduled_tasks=tmp_path, drift=[], commits=[], runs_log=log)
     assert len(probs) == 1 and probs[0].startswith("R7 launchd clock shifted for sentinel: plist hour 08")
     assert "offset 4h, graph expects 7h" in probs[0]
+
+
+def _launchd_pair(tmp_path):
+    mini = _mini(launchd_utc_offset_hours=7)
+    la = tmp_path / "la"; la.mkdir()
+    for job, hour, minute in (("sentinel", 8, 15), ("price-refresh", 18, 30)):
+        mini["nodes"].append({"id": job, "kind": "launchd", "repo": "crude-tanker-fv",
+                              "plist": f"com.crude-tanker-fv.{job}", "entry": f"scripts/{job}_cron.sh",
+                              "triggers": ["clock"], "reads": [], "writes": ["state/x.log"], "commits": "none"})
+        _plist(la / f"com.crude-tanker-fv.{job}.plist", hour, minute, f"/x/scripts/{job}_cron.sh")
+    return mini, la
+
+
+def _r7(mini, la, tmp_path, *lines):
+    log = tmp_path / "runs.log"
+    log.write_text("".join(ln + "\n" for ln in lines))
+    return g.check(mini, ROOT, launch_agents=la, scheduled_tasks=tmp_path, drift=[], commits=[], runs_log=log)
+
+
+def test_launchd_wake_catch_up_is_not_a_clock_shift(tmp_path):
+    """2026-09-15 / 09-17: the Mac hibernated at 1% battery through the 01:30Z price-refresh slot and
+    launchd fired it once at the 13:3xZ wake (offset 19h). A slept-through slot moves ONE job; a
+    sibling on the expected offset AFTER it says the clock did not shift. Until that sibling runs a
+    catch-up and a shift look the same, so the check still fails — and a real shift moves the
+    sibling too, so it keeps failing."""
+    mini, la = _launchd_pair(tmp_path)
+    catch_up = "2026-09-17T13:34:34Z job=price-refresh initiator=com.crude-tanker-fv.price-refresh outcome=ok rc=0"
+    probs = _r7(mini, la, tmp_path, catch_up)
+    assert len(probs) == 1 and probs[0].startswith("R7 launchd clock shifted for price-refresh: plist hour 18")
+    assert "offset 19h, graph expects 7h" in probs[0]
+    assert not _r7(mini, la, tmp_path, catch_up,
+                   "2026-09-17T15:15:05Z job=sentinel initiator=com.crude-tanker-fv.sentinel outcome=flags rc=2")
+    probs = _r7(mini, la, tmp_path, catch_up,
+                "2026-09-18T12:15:05Z job=sentinel initiator=com.crude-tanker-fv.sentinel outcome=flags rc=2")
+    assert sorted(p.split(":")[0] for p in probs) == ["R7 launchd clock shifted for price-refresh",
+                                                       "R7 launchd clock shifted for sentinel"]
+
+
+def test_manual_runs_say_nothing_about_the_launchd_clock(tmp_path):
+    mini, la = _launchd_pair(tmp_path)
+    assert not _r7(mini, la, tmp_path,
+                   "2026-09-17T15:15:05Z job=sentinel initiator=com.crude-tanker-fv.sentinel outcome=flags rc=2",
+                   "2026-09-17T20:00:00Z job=sentinel initiator=manual:dan@ttys001 outcome=ok rc=0 note=bare-run",
+                   "2026-09-17T20:05:00Z job=price-refresh initiator=session:mb-batch outcome=ok rc=0")
 
 
 def test_governor_tasks_are_enumerated_too(tmp_path):
