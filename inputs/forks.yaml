@@ -58,7 +58,7 @@ forks:
     opened: 2026-09-10
     execute_after: 2026-09-15
     recommendation: "Promote spot_tce.yaml from the 8/07 daily to Pareto 9/10 (column-1 convention pinned 8/07): VLCC 790,800 · Suez 135,000 · Afra/LR2 72,500 · LR2c 141,800 · LR1c 148,100 · MR(East)/Handy 55,100 · Cape 54,538 · Pana/PPmx 21,725 · Supra 21,537; as_of.default 2026-09-10; Ctr-* mirror to the 12M W36 values. Spot feeds breakeven/validate/report only — ΔNAV and ΔEV exactly 0.0 on all 25 names; holds ⊆ 12M holds"
-    status: open
+    status: executed   # 2026-09-18 — EXECUTED from the owner's chat at its registered recommendation (silence policy; registered 9/10, execute_after 9/15, unanswered). Every Pareto 9/10 figure re-read from the source PDF before applying. Prediction HIT exactly: dNAV, dFV, dEV, position, tier and read_flag all unchanged on all 25 names (scorecard 355dfa4 vs f0a656b); the only surface change is the display-grade Current spot row and its breakeven ratio. Drift gate 25 rows 0 UNEXPLAINED; full suite 943 passed. Inputs f0a656b.
   - id: r4_wo5_deck_reexpression_schedule
     kind: judgment
     doc: decisions/forks_registered_2026-09-10.md

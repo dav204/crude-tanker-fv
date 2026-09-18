@@ -7,7 +7,7 @@
 
 ## Data validation warnings
 
-- spot TCE VLCC: $488,900/day is 12.2x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
+- spot TCE VLCC: $790,800/day is 19.8x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
 
 ## NAV breakdown
 
@@ -83,7 +83,7 @@ The current price requires the fleet to run at **8.07× the current forward curv
 | **Implied breakeven (blended)** | **914,466** | — |
 | 10-year mean | 33,933 | 26.95× |
 | 12-month FFA | 113,316 | 8.07× |
-| Current spot | 285,242 | 3.21× |
+| Current spot | 466,076 | 1.96× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
