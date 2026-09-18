@@ -1,5 +1,96 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-09-18 — THE H1-2026 6-K LANDED (6-K 0001193125-26-394366, filed 2026-09-17): refresh-trigger
+
+**Decision:** The awaited H1-2026 interim financial statements are on EDGAR — the filing the Q2 pair has
+been waiting for since the 9/10 release ("THE PAIR IS NOT WRITABLE FROM THE RELEASE"), and the document
+that retires the 9/11 shadow's open items. **No number moves today**: this is an arrival entry, the sheet
+build is owner-present work, and the shadow still reads WOULD-HOLD with no pre-registered band. The band
+must be written BEFORE the build (shadow §6; arithmetic anchor NAV/sh 89.61, envelope now narrowing — see
+below). Reading mechanics, per the FRO precedent of 9/17: the staged document is a 1.3MB single-file
+inline-XBRL exhibit whose body is one ~94k-token line — **unreadable by the Read tool**, so every figure
+below is taken from the EDGAR R-renderings of this accession (R2 balance sheet, R3 parenthetical, R13/R38
+Vessels, R20/R55 Commitments, R24/R64 Subsequent Events, R37 leases).
+
+**Every release-sourced field TIES to the statutory statements, to the dollar.** Cash and cash equivalents
+463,989 + restricted cash 2,154 = **466,143** ✓ (the release's single "Cash" line); debt 250,376 current +
+1,851,801 non-current = **2,102,177** ✓; advances for vessels under construction **470,050** ✓; total
+stockholders' equity **2,054,657** ✓; total assets 4,377,715; vessels' net book value 3,155,282 (gross
+4,388,977 less accumulated depreciation 1,233,695).
+
+**The working-capital composite is now decomposed** — the shadow carried it as "UNVERIFIED at component
+level", and that closes. Other assets 286,240 = (total current assets 616,258 − 466,143 cash/restricted) +
+non-current (derivatives 342 + operating-lease RoU 1,700 + other assets 15,233 + debt securities 91,270 +
+deferred costs 27,580); Other liabilities 220,881 = (total current liabilities 440,197 − 250,376 current
+debt) + non-current (below-market lease 8,224 + other accrued 22,726 + derivative 110). Both tie exactly,
+so `working_capital_net` 65,359 is confirmed as constructed. Two components inside it now need a call at
+the sheet build, neither of which the composite showed: **dividends payable 30,126** at 6/30 (≈ 30,127,603
+shares × $1.00 — the July common dividend WAS accrued at the snapshot, which the shadow §2 flagged as "not
+disclosed"), and a **debt-securities book of 106,413** (15,143 short-term held-to-maturity + 91,270
+non-current, up from 25,233 at 12/31) sitting inside the composite rather than beside cash.
+
+**9.2 Arctic + Antarctic — RESOLVED, AND AGAINST THE SHADOW'S DEFAULT.** Vessels note, verbatim: *"On May
+28, 2026 and June 11, 2026, the Company acquired the two suezmaxes Arctic (Argon Shipping Co.) and
+Antarctic (Alinda Enterprises Inc.), respectively (Note 4)."* Both dates precede the snapshot, so the pair
+was **OWNED at 2026-06-30** and the shadow's conservative OUT is wrong — the one verifier lens that rated
+it "probable wrong" was right. The re-add is pre-enumerated: 56 → 58 hulls, crude 37 → 39, Suezmax 14 →
+16, `lease_liabilities` stays 0, cash already net of the price; **+$2.26 to +$2.39/sh** on the
+txn-anchored curve (shadow §9.2). Consideration: R38 tags **$20,000** against Antarctic and renders no
+separate Arctic figure; Note 4 carries the SLB terms (agreed sale price 52,304, seller's credit 8,415,
+payment to acquire property 8,415 at the 2026-04-07 agreement, PP&E + finance-lease RoU pre-depreciation
+49,719 at that date). **The per-vessel purchase price must come off the note prose at the sheet build, not
+off R38 alone** — an uncited NAV-driver moves the number silently.
+
+**9.1 Alaska + Archangel — the shadow's on-curve treatment is corroborated.** Subsequent Events dates the
+sales AFTER the snapshot (**Archangel 2026-08-14, Alaska 2026-08-26**); the 6/30 balance sheet carries no
+vessels-held-for-sale caption and the Vessels note contains no "held for sale" sentence. Rows stay
+on-curve; the −$2.04/sh flip does not fire. Read this as evidence, not as a policy statement — confirm on
+the rendered note at the build.
+
+**9.4 diluted shares — RESOLVED and issuer-stated.** Parenthetical: 30,805,776 issued / **30,127,603
+outstanding** / 678,173 treasury, common $5.00 par, unchanged from 12/31/2025; Series E 4,745,947 and
+Series F 6,747,147 issued, both $1.00 par, both unchanged. The carried 30,127,603 was a 20-F carry and is
+now the issuer's own 6/30 count. No issuance or buyback in H1.
+
+**9.3 NCI — RESOLVED at the rolled figure.** Non-controlling interest **50,130** at 6/30 (43,529 at
+12/31), exactly the Q1-construction roll the shadow took; the alternative 45,954 is dead. `preferred_equity`
+337,458 = 287,328 + 50,130 stands.
+
+**THE LARGEST OPEN LEG IS NOW CITED — the newbuild commitment.** Commitments note at 6/30: **twenty
+vessels under construction — ten DP2 shuttle tankers, two LNG carriers, three VLCCs, five LR1s** — with
+remaining payments for the vessels and agreed extras of **$2,233,409**, scheduled 228,339 (rest of 2026) /
+723,029 (2027) / 1,127,374 (2028) / 154,667 (2029); the four legs sum to the total exactly. The sheet
+carries `newbuild_capex_commitments: 0` under the advances-only OFF_CONVENTION, so against advances of
+470,050 there is now a **cited** $2.23bn of remaining commitment — about $74/share of gross obligation on
+30.1M shares — that the NAV does not net. Under §3.1/§9.6 (newbuilds at delivered market LESS remaining
+commitment) this is the TEN instance of the GSL/CMBT/BWLP commitment-net convention question, and it is
+now a figure-provenance question with an answer rather than an absence. **It is not a sheet fix to make
+unilaterally — it is an owner fork**, and it belongs in `inputs/forks.yaml` before the Q2 build wires
+anything on-curve. Partial read-through to 9.7: two LNG carriers sit in the 6/30 orderbook where the Q1
+release printed row 26 as "Optional Vessel", so the option was firm at or before the snapshot; no
+per-vessel price is disclosed, so NEWBUILD_PRICE_PENDING still applies to the hull.
+
+**Other note facts for the build.** Delos T (delivered 2026-01-12) and Dion (2026-02-12) cost **95,797**
+combined; Ulysses sold 2026-05-20 for **net proceeds 106,427** and a **37,870** gain — net only, no gross
+price, so still not promotable to the S&P queue and no back-solve. Impairment review of vessels and RoU
+assets at 6/30 indicated **no charge**. Subsequent events otherwise confirm the shadow's audit, all OUT of
+the snapshot: Anfield DP delivered 2026-07-28; Series F $0.59375/share paid 7/30; common $1.00/share paid
+7/30 to holders of record 7/23; Series E $0.57812/share paid 8/28.
+
+**What the next vintage must pick up:** (1) build `inputs/balance_sheets/ten_2026-Q2.yaml` and
+`inputs/fleet_manifests/ten.yaml` from THIS filing, not the release — cash 466,143, WC 65,359 (component
+tie above), debt 2,102,177, advances 470,050, preferred+NCI 337,458, shares 30,127,603; (2) **re-add Arctic
+and Antarctic** with the per-vessel price cited off the note prose (58 hulls, Suezmax 16); (3) keep Alaska
+and Archangel on-curve and drop the HFS UNVERIFIED tag; (4) re-strike the shuttle NPV as-of 6/30 (shadow
+9.5, ~$0.15/sh non-conservative overlap still open) and fold the Anfield DP into the Q3 book; (5) the
+commitment fork above before any §9.6 wiring; (6) governance 0.30 is untouched by anything read here — the
+related-party note (R34) and the November dividend announcement are still where 9.8 resolves; (7) rotate
+the `test_balance_sheet_basis_summary_lagging_and_current` lagging pin off TEN, and pre-register the band.
+The open-item envelope on the shadow's 89.61 narrows from roughly 87.4–92.0 to roughly **91.7–92.0** on
+the two resolutions above, before the commitment question; BUY and GOVERNED-WIDE are insensitive across it.
+
+---
+
 ## 2026-09-17 — THE 9/17 TAPE ONLY: EV +26.5pp -> +18.2pp, fair value unchanged to the cent
 
 **Decision:** TEN's fair value is unchanged to the cent at 61.8 and the 2026-09-17 close took the share 48.84 -> 52.28 (+7.04%), so EV moved +26.5pp -> +18.2pp on price alone. No curve, sheet or manifest TEN reads changed between the anchor and this surface. The name stays BUY on the 2026-Q1 sheet: the H1 6-K is still not on EDGAR (window re-set to 2026-10-01 on 9/16, held not chased) and the 9/11 shadow build stands at WOULD-HOLD. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).
