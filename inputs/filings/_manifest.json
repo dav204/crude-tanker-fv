@@ -2067,5 +2067,17 @@
    }
   ],
   "amended": false
+ },
+ {
+  "ts": "2026-09-17T20:20:05+00:00",
+  "ticker": "TEN",
+  "cik": "0001166663",
+  "accession": "0001193125-26-394366",
+  "form": "6-K",
+  "filed": "2026-09-17",
+  "primary_doc": "d67788d6k.htm",
+  "staged_path": "inputs/filings/TEN/0001193125-26-394366_6-K_d67788d6k.htm",
+  "exhibits": [],
+  "amended": false
  }
 ]
