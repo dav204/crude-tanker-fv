@@ -153,7 +153,7 @@ nodes:
             "email PAGE (escalated) on page_after_consecutive streaks",
             "healthchecks ping (withheld while state/drill_armed exists or a required send failed; skipped when CRUDE_FV_HEALTHCHECK_URL is unset)"]
     commits: none
-    notes: "META-MODE on non-drift dirt: reports the dirty tree instead of the checks; page-once keys live INSIDE state/sentinel_state.json; check 6 (liveness) reads state/heartbeat/<job> per committed plist; governance:monitor/log.md is followed via inputs/agent_duties.yaml artifact_path"
+    notes: "META-MODE on non-drift dirt: reports the dirty tree instead of the content checks (the trigger register still pages); page-once keys live INSIDE state/sentinel_state.json; check 6 (liveness) reads state/heartbeat/<job> per committed plist; governance:monitor/log.md is followed via inputs/agent_duties.yaml artifact_path"
 
   - id: weekly-report
     kind: lane

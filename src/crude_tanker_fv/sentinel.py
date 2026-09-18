@@ -83,8 +83,7 @@ def _scenario_doc_pw_fv(outputs_dir: Path, ticker: str):
 
 
 def trigger_flags(inputs_dir: Path) -> list[str]:
-    """TRIGGER-DUE flags from the register — the one content check that also runs in META-MODE
-    (a due date crossing is a dated fact, not half-finished surgery; 2026-09-18)."""
+    """TRIGGER-DUE flags from the register — the one content check that also runs in META-MODE."""
     return [f"TRIGGER-DUE {it.label}: {it.detail}"
             for it in check_reweight_triggers(inputs_dir) if it.status == "missing"]
 
@@ -986,12 +985,18 @@ def main(argv: list[str] | None = None) -> int:
         dirty_since = state.get("dirty_since") or now.isoformat()
         hours = (now - datetime.fromisoformat(dirty_since)).total_seconds() / 3600
         limit = 12 if in_window else 36
-        flags = trigger_flags(INPUTS_DIR)
+        try:
+            flags = trigger_flags(INPUTS_DIR)
+            register = "trigger register still read"
+        except Exception as exc:   # the register itself may be the half-finished surgery
+            flags = []
+            register = f"trigger register unreadable (mid-edit?): {exc}"
         if hours >= limit:
             flags.append(f"DIRTY-TOO-LONG tree dirty {hours:.0f}h (limit {limit}h"
                          f"{', earnings window open' if in_window else ''}) — content "
-                         "checks suspended all this time; finish the surgery or PAUSE")
-        meta_note = (f"META dirty-tree: content checks suspended, trigger register still read "
+                         "checks (bar the trigger register) suspended all this time; finish the "
+                         "surgery or PAUSE")
+        meta_note = (f"META dirty-tree: content checks suspended, {register} "
                      f"(dirty since {dirty_since}, {hours:.0f}h)")
         print(meta_note)
     else:

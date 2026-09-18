@@ -280,10 +280,10 @@ def _calendar(days: int = 14) -> list[tuple[str, str]]:
     return sorted(items)
 
 
-def owner_tags(inputs_dir: Path = INPUTS_DIR) -> set[str]:
+def owner_tags(inputs_dir: Path | None = None) -> set[str]:
     """The page-class tags, read from inputs/notify.yaml so the report cannot drift from the
-    routing table (it did: FORK-EXECUTABLE stayed here after moving to the digest, 2026-09-16)."""
-    routes = notify.load_routes(inputs_dir)["routes"]
+    routing table."""
+    routes = notify.load_routes(INPUTS_DIR if inputs_dir is None else inputs_dir)["routes"]
     return set(routes.get("page") or []) | set(routes.get("page_once") or [])
 
 

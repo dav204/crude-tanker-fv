@@ -10,8 +10,8 @@ allowed-tools: Bash(PYTHONPATH=src .venv/bin/python -m crude_tanker_fv.forks:*),
      app's Scheduled section: New task → id crude-fv-fork-executor → schedule daily 12:45 → paste
      everything below the frontmatter as the prompt, then paste the allowed-tools line above into
      the task file's frontmatter (~/.claude/scheduled-tasks/crude-fv-fork-executor/SKILL.md).
-     Until it exists, forks past their window sit un-executed; the sentinel keeps paging
-     FORK-EXECUTABLE for them. -->
+     Until it exists, forks past their window sit un-executed; the sentinel keeps listing
+     FORK-EXECUTABLE for them in the digest. -->
 
 Fork executor for the crude-tanker-fv producer. Policy (owner, 2026-09-10): a registered recommendation EXECUTES after its silence window. Until 2026-09-13 the executing agent was always a chat session, so nothing executed without the owner opening one. You are that executor now, with BOUNDED authority: you execute a recommendation exactly as registered, you verify the result against what its record predicted, and you halt and page the owner on any miss. You never invent a different answer.
 

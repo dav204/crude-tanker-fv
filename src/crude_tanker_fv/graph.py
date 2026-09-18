@@ -125,20 +125,26 @@ def _automation_commits(root: Path, days: int = 30) -> list[tuple[str, str, list
     return out
 
 
-def _last_runs(log_path: Path) -> dict:
-    """job -> UTC datetime of its most recent launchd-initiated line in state/automation_runs.log
+def _launchd_runs(log_path: Path) -> list:
+    """Chronological (UTC datetime, job) for every launchd-initiated line in state/automation_runs.log
     (a manual:<user> or session:* run says nothing about launchd's clock)."""
     from datetime import datetime
-    out: dict = {}
+    out = []
     for ln in log_path.read_text().splitlines():
         m = re.match(r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})Z job=(\S+) initiator=com\.crude-tanker-fv\.", ln)
         if m:
-            out[m.group(2)] = datetime.fromisoformat(m.group(1))
-    return out
+            out.append((datetime.fromisoformat(m.group(1)), m.group(2)))
+    return sorted(out)
+
+
+def _last_runs(log_path: Path) -> dict:
+    return {job: ts for ts, job in _launchd_runs(log_path)}
 
 
 R7_WAKE_WINDOW_MIN = 10   # runs this close together are one wake catch-up, not siblings of each other
-R7_START_SLACK_MIN = 3    # a launchd start is within seconds of its plist minute; later = a catch-up
+R7_START_SLACK_MIN = 20   # on-slot launchd starts run up to 16 min late in state/automation_runs.log
+                          # (2026-08-17..09-18); a shift is whole hours, so the minute carries no clock
+                          # information — it only tells a same-hour wake catch-up from a real start
 
 
 def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS,
@@ -222,47 +228,55 @@ def check(graph: dict, root: Path = ROOT, *, launch_agents: Path = LAUNCH_AGENTS
                 problems.append(f"R5 node {t} names a scheduled task that does not exist")
 
     # R7 (2026-09-13): launchd fires each job at its plist hour PLUS an offset fixed by the
-    # timezone in force when launchd started; a reboot in another zone or the DST change moves
-    # every job at once, and with it every ordering assumption in this file. A slot the Mac slept
-    # through fires once at wake instead — one or several jobs, seconds apart — so an off-slot run
-    # is settled by the FIRST hour-bearing sibling to run afterwards: on its slot = catch-up, off
-    # its slot = shift. Until a sibling runs it is a note, never a failure (2026-09-18).
+    # timezone in force when launchd started (graph.yaml header: why, and what moves it). A slot
+    # the Mac slept through fires once at wake, so an off-slot run is settled by the FIRST
+    # hour-bearing run after the wake window: on its slot = catch-up, off by the SAME offset =
+    # shift, off by another offset = another nap. Until then it is a note, never a failure.
     expected = graph.get("launchd_utc_offset_hours")
     runs_log = (root / "state" / "automation_runs.log") if runs_log is None else runs_log
     if expected is not None and launch_agents.exists() and runs_log.exists():
         from datetime import timedelta
-        last = _last_runs(runs_log)
-        observed: dict = {}
+        cal: dict = {}
         for n in nodes:
             pl = launch_agents / f"{n.get('plist')}.plist" if n.get("plist") else None
             if not pl or not pl.exists():
                 continue
-            cal = plistlib.load(pl.open("rb")).get("StartCalendarInterval") or {}
-            job = n["plist"].replace("com.crude-tanker-fv.", "")
-            if "Hour" not in cal or job not in last:
-                continue
-            ts = last[job]
-            off = (ts.hour - int(cal["Hour"])) % 24
-            on_slot = off == expected and abs(ts.minute - int(cal.get("Minute", 0))) <= R7_START_SLACK_MIN
-            observed[job] = (int(cal["Hour"]), ts, off, on_slot)
+            sci = plistlib.load(pl.open("rb")).get("StartCalendarInterval") or {}
+            if "Hour" in sci:
+                cal[n["plist"].replace("com.crude-tanker-fv.", "")] = (int(sci["Hour"]), sci.get("Minute"))
+
+        def slot(job, ts):
+            hour, minute = cal[job]
+            off = (ts.hour - hour) % 24
+            late = minute is None or abs(ts.minute - int(minute)) <= R7_START_SLACK_MIN
+            return off, off == expected and late
+
+        runs = [(t, j) for t, j in _launchd_runs(runs_log) if j in cal]
         window = timedelta(minutes=R7_WAKE_WINDOW_MIN)
-        for job, (hour, ts, off, on_slot) in observed.items():
+        for job, ts in {j: t for t, j in runs}.items():
+            off, on_slot = slot(job, ts)
             if on_slot:
                 continue
-            since = [(t, ok) for j, (_, t, _, ok) in observed.items() if j != job and t > ts + window]
+            stamp = ts.strftime('%Y-%m-%dT%H:%MZ')
+            since = [(t, j) for t, j in runs if t > ts + window]
             if not since:
                 if notes is not None:
-                    notes.append(f"R7 {job} ran off its slot at {ts.strftime('%Y-%m-%dT%H:%MZ')} (plist hour "
-                                 f"{hour:02d}, offset {off}h, graph expects {expected}h) and no hour-bearing "
-                                 f"sibling has run since — a slept-through slot fires once at wake; the next "
-                                 f"scheduled job settles it")
+                    notes.append(f"R7 {job} ran off its slot at {stamp} (plist hour {cal[job][0]:02d}, offset "
+                                 f"{off}h, graph expects {expected}h) and no hour-bearing job has run since — a "
+                                 f"slept-through slot fires once at wake; the next scheduled job settles it")
                 continue
-            if any(ok for _, ok in since):
+            t2, j2 = since[0]
+            off2, on2 = slot(j2, t2)
+            if on2 or off2 != off:
+                if notes is not None:
+                    why = "on its slot" if on2 else f"off by a different offset ({off2}h — another nap)"
+                    notes.append(f"R7 {job} ran off its slot at {stamp} (offset {off}h); cleared by {j2} at "
+                                 f"{t2.strftime('%Y-%m-%dT%H:%MZ')}, {why}")
                 continue
-            problems.append(f"R7 launchd clock shifted for {job}: plist hour {hour:02d} but the last run was "
-                            f"{ts.strftime('%Y-%m-%dT%H:%MZ')} (offset {off}h, graph expects {expected}h) and the "
-                            f"sibling(s) since ran off their slots too — a reload/reboot or DST moved the jobs; "
-                            f"re-check every ordering assumption, then set launchd_utc_offset_hours")
+            problems.append(f"R7 launchd clock shifted for {job}: plist hour {cal[job][0]:02d} but the last run was "
+                            f"{stamp} (offset {off}h, graph expects {expected}h) and {j2} then ran off its slot by "
+                            f"the same offset — a reload/reboot or DST moved the jobs; re-check every ordering "
+                            f"assumption, then set launchd_utc_offset_hours")
 
     # R6
     commits = _automation_commits(root) if commits is None else commits

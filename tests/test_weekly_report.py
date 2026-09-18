@@ -150,8 +150,7 @@ def test_owner_queue_excludes_agent_class_work(tmp_path):
     ]
     owner = wr._queue_lines(flags)
     assert len(owner) == 3
-    # the owner tags come from inputs/notify.yaml (page + page_once): FORK-OPENED is the one
-    # whose objection window matters; FORK-EXECUTABLE is agent-class since 2026-09-16
+    # the owner tags come from inputs/notify.yaml (page + page_once)
     assert owner[0].startswith("TRIGGER-DUE — crude_geopolitics_weekly:")   # the card is named
     assert owner[1].startswith("FORK-OPENED — spot_tce_promote_2026-09-10:")
     assert "ask-tier" in owner[2]

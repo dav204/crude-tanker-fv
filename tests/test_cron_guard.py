@@ -57,7 +57,7 @@ def test_skips_on_pause_file(tmp_path, script):
 
 # Dirty-tree: price-refresh only. The sentinel deliberately does NOT skip on a
 # dirty tree (WO2 0.3, invariant 3) — it runs in META-MODE inside python
-# (content checks suspended, digest/ping alive, DIRTY-TOO-LONG at 36h/12h);
+# (content checks suspended bar the trigger register, digest/ping alive, DIRTY-TOO-LONG at 36h/12h);
 # covered in tests/test_sentinel.py.
 @pytest.mark.parametrize("script", [s for s in SCRIPTS if "price" in s.name],
                          ids=lambda s: s.name)

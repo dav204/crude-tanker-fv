@@ -25,7 +25,7 @@ JOB=sentinel
 
 # PAUSE guard (WO1 Task 3). The dirty-tree case is NOT a skip here (WO2 0.3,
 # invariant 3): the sentinel itself detects a dirty tree and runs in META-MODE
-# — content checks suspended, heartbeat/digest/ping still fire, DIRTY-TOO-LONG
+# — content checks suspended (the trigger register still pages), heartbeat/digest/ping still fire, DIRTY-TOO-LONG
 # pages at 36h (12h in an open earnings window). A dirty reconciliation week
 # must not look like death to the dead-man.
 if [ -f "$PROJECT/PAUSE" ]; then

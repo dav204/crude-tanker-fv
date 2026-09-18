@@ -37,7 +37,7 @@ SHADOW TEN 2026-Q2 2026-09-11: WOULD-HOLD (NAV 88.16→89.61 on the drafts, BUY/
 **STATE INSERT (2026-09-10 — THE AUTOMATION RULINGS; read this, then the 9/09 insert below).**
 Owner: *"every time you're asking me to do something, ask yourself why, and should this also be
 automated"* → then **"yes to all three, go build the rest."** LANDED: (1) **silence executes the
-recommendation** — `inputs/forks.yaml` registry, 3 business days, sentinel FORK-EXECUTABLE (page_once);
+recommendation** — `inputs/forks.yaml` registry, 3 business days, sentinel FORK-EXECUTABLE (digest, agent-class since 2026-09-16);
 (2) **unattended push** — `scripts/auto_push.sh` in the sentinel wrapper (drift-only tree + gate 0
 UNEXPLAINED), invoked via `bash`; the agent's own `git push` rule stays `ask` (the classifier blocks the
 agent from editing the permission file — correctly; owner moves it); (3) **unattended S&P ack** — the

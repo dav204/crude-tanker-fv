@@ -5,8 +5,10 @@ One page. What runs by itself, what an agent does on a schedule, what only you d
 surface you watch. Times are Eastern with UTC beside them. The Mac is on Eastern time, but launchd
 fires each job three hours after its plist hour (since the 2026-08-17 reboot: launchd's calendar monitor
 keeps the Pacific zone it booted in; the next reboot or the Nov 1 DST change moves every job again and
-`graph check` R7 fires); the graph at the end records both. A job whose slot the Mac slept through fires
-once at wake — one job, not a clock shift. The desktop app shows its task times in your display zone.
+`graph check` R7 fires); the graph at the end records both. A slot the Mac slept through fires once at
+wake, one job or several; `graph check` prints that as a note, the first job to run on its slot afterwards
+clears it, and R7 fails only when the next job is off by the same offset. The desktop app shows its task
+times in your display zone.
 
 ## The one surface: your inbox
 
@@ -92,7 +94,8 @@ Nothing about your positions is decided in this repo; nothing about valuation is
 
 - **Installing the fork executor task** (once): the app's classifier refused the agent's registration;
   paste `scripts/scheduled_tasks/crude-fv-fork-executor.SKILL.md` into a new scheduled task. Until then a
-  fork past its window pages FORK-EXECUTABLE and waits for a chat.
+  fork past its window sits un-executed; the sentinel lists it in the digest as FORK-EXECUTABLE (a needs_code fork
+  always waits for a chat).
 - A balance-sheet build when a results filing lands (TEN Q2: compare the shadow to a hand build once,
   then lift the drafts-only rule).
 - Print promotion and FFA-curve promotion lanes: allow-tier now, guards next (in progress).

@@ -567,6 +567,20 @@ def test_meta_mode_suspends_content_checks_on_dirty_tree(tmp_path, monkeypatch, 
     assert [x for x in sent if "daily digest" in x[0] and "META dirty-tree" in x[1]]
 
 
+def test_meta_mode_survives_an_unreadable_register(tmp_path, monkeypatch, capsys):
+    """The register is often the file mid-surgery: unparseable YAML on a dirty tree must not crash
+    the sentinel (rc 1 = no digest, no ping); it is named in the META note instead."""
+    import subprocess
+
+    s, inputs, _, sent, pings, st = _notify_harness(tmp_path, monkeypatch, trigger_due=True)
+    (inputs / "reweight_triggers.yaml").write_text("t1: {sector: crude, due: [unclosed\n")
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
+    assert s.main(["--notify", "--state", st]) == 0
+    out = capsys.readouterr().out
+    assert "trigger register unreadable" in out and "TRIGGER-DUE" not in out
+    assert len(sent) == 1 and "trigger register unreadable" in sent[0][1]
+
+
 def test_meta_mode_is_quiet_when_no_trigger_is_due(tmp_path, monkeypatch, capsys):
     """The pre-2026-09-18 shape of META-MODE, still true when nothing is due: rc 0, one OK digest."""
     import subprocess

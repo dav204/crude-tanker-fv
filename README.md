@@ -318,7 +318,7 @@ crash (the wrapper records `outcome=error`). Credential failures register under
 as `REAUTH-NEEDED <surface>`; every ping outcome lands in `state/ping_status.json`.
 The healthchecks alert-by-absence path is wired but UNDEMONSTRATED (no receipt on
 file — the Stage-0 ping-gap drill, owner Q-10). On a dirty tree the sentinel runs META-MODE
-(content checks suspended, liveness alive); tracked-tree writers skip outright;
+(content checks suspended bar the trigger register, liveness alive); tracked-tree writers skip outright;
 staging-only fetchers keep fetching (`PAUSE` file stops everything). A GitHub
 Action (`sentinel-lite`) runs the repo-pure subset daily against pushed state
 as the off-machine backstop. Every drift-gate re-ratify appends a row to

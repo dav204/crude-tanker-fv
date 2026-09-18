@@ -1,6 +1,7 @@
 # Open owner forks under the standing policy (owner ruling 2026-09-10): a recommendation
-# EXECUTES after 3 business days of silence. The sentinel pages FORK-EXECUTABLE once
-# execute_after passes; the executing agent flips status to executed and cites the commit.
+# EXECUTES after 3 business days of silence. The sentinel pages FORK-OPENED when a fork is
+# registered and lists FORK-EXECUTABLE in the digest once execute_after passes (agent-class
+# since 2026-09-16); the executing agent flips status to executed and cites the commit.
 # A fork answered any other way (a word in the session) is closed here the same way.
 # AMENDMENT (owner, 2026-09-10, on the escalation reweight — "what do you expect to learn
 # between 9/10 and 9/15 that would change that"): the silence window is for JUDGMENT forks,
