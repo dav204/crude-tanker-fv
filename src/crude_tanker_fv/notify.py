@@ -116,7 +116,9 @@ def page_once_key(flag: str) -> str:
         return tag
     first = rest.split()[0] if rest.split() else ""
     if tag == "TRIGGER-DUE":
-        m = re.search(r"due (\d{4}-\d{2}-\d{2})", flag)
+        # refresh.check_reweight_triggers emits "DUE {due}" (upper-case); the lowercase-only
+        # match dropped the date and one key swallowed every re-arm (2026-09-17).
+        m = re.search(r"\bdue (\d{4}-\d{2}-\d{2})", flag, re.IGNORECASE)
         return f"{tag} {first} {m.group(1) if m else ''}".rstrip()
     return f"{tag} {first}".rstrip()
 

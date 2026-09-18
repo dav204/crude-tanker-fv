@@ -142,7 +142,8 @@ def test_owner_queue_excludes_agent_class_work(tmp_path):
         "STALE-BALANCE-SHEET TEN: report OUT (2026-09-10, confirmed) and no 2026-Q2 balance sheet on file",
         "FILING-LANDED SB: 6-K 0001-26-000048 filed 2026-09-11 -> x.htm",
         "FLEET-TRANSACTION 3 unreviewed print candidates",
-        "TRIGGER-DUE crude_geopolitics_weekly: due 2026-09-17",
+        "TRIGGER-DUE crude_geopolitics_weekly: [crude+product] DUE 2026-09-17 — check the "
+        "observable and record the outcome. x",
         "FORK-EXECUTABLE stage_b_open_items: executable 2026-09-14",
         "UNINGESTED-PRINTS ffa widget newer than curve",
     ]

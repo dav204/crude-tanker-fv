@@ -4,7 +4,11 @@ is the routing table under test (change-control: every tag lands with a route
 entry + a fixture test)."""
 
 
-from crude_tanker_fv import notify
+from datetime import date
+
+import yaml
+
+from crude_tanker_fv import notify, refresh
 from crude_tanker_fv.loaders import INPUTS_DIR
 
 FAKE_ENV = {"CRUDE_FV_SMTP_HOST": "smtp.example.com", "CRUDE_FV_SMTP_USER": "u",
@@ -128,7 +132,7 @@ def test_send_cli_reads_subject_from_first_line_and_stamps_the_owner_header(tmp_
     assert notify.main(["--send", "page", "--body-file", str(tmp_path / "nope.md")]) == 2
 
 
-def test_page_once_keys():
+def test_page_once_keys(tmp_path):
     k = notify.page_once_key
     a = k("FILING-LANDED CMBT: 6-K 0000919574-26-005821 filed 2026-08-28 -> inputs/filings/x.htm")
     b = k("FILING-LANDED CMBT: 6-K 0000919574-26-005821 filed 2026-08-29 -> inputs/filings/x.htm")
@@ -138,6 +142,24 @@ def test_page_once_keys():
         == "EARNINGS-SWEEP-STALE 2026-08-31"
     assert k("REAUTH-NEEDED smtp: SMTP auth refused — since 2026-09-02") == "REAUTH-NEEDED smtp:"
     assert k("DIRTY-TOO-LONG tree dirty 40h") == "DIRTY-TOO-LONG"
+
+    # 2026-09-17: the key read a lowercase "due" while refresh emits "DUE {due}", so the
+    # date was dropped and the first page's key swallowed every re-arm of a weekly card for
+    # 60 days. The flag is BUILT from the production emitter (2026-07-02 rule: two surfaces
+    # assumed to agree need a test that they agree), never hand-typed.
+    def due_flag(due):
+        (tmp_path / "reweight_triggers.yaml").write_text(yaml.safe_dump({
+            "crude_geopolitics_weekly": {"sector": "crude+product", "due": due,
+                                         "observable": "x", "status": "armed"}}))
+        items = [it for it in refresh.check_reweight_triggers(tmp_path, today=date(2026, 10, 1))
+                 if it.status == "missing"]
+        assert len(items) == 1
+        return f"TRIGGER-DUE {items[0].label}: {items[0].detail}"   # sentinel.collect_flags shape
+
+    first, rearmed = due_flag(date(2026, 9, 17)), due_flag(date(2026, 9, 24))
+    assert k(first) == "TRIGGER-DUE crude_geopolitics_weekly: 2026-09-17"
+    assert k(rearmed) == "TRIGGER-DUE crude_geopolitics_weekly: 2026-09-24"
+    assert k(first) != k(rearmed)
 
 
 def test_route_flags_partition_and_unknown_pages():

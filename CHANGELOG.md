@@ -5,6 +5,7 @@ Append new dated entries at the TOP. This is the running history of
 methodology decisions, onboardings, and fixes; CLAUDE.md carries only the
 live rules distilled from it.
 
+- **2026-09-17 — `page_once_key` dropped the TRIGGER-DUE date** (the regex read lowercase `due`; `refresh.check_reweight_triggers` emits `DUE {due}`), so the first page's dateless key swallowed every re-arm of a weekly card for 60 days — the 9/24, 10/01, … dues would have ridden the digest. Regex now case-insensitive (key = tag + label + date); guarded by `test_page_once_keys` with a flag BUILT from the production emitter (2026-07-02 rule), and the weekly-report fixture rebased to the emitted shape. The stale dateless keys in `state/sentinel_state.json` expire on their own.
 - **2026-09-17 — R7 RED ON A WAKE CATCH-UP, NOT A CLOCK SHIFT; the check now asks a sibling.** The
   graph check failed on the price-refresh row: plist 18:30 but the last two launchd runs sat at
   13:30Z (9/15) and 13:34Z (9/17), offset 19h against the declared 7h. `pmset -g log` dates both: the
