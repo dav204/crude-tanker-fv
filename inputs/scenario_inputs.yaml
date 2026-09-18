@@ -123,6 +123,14 @@ sectors:
       # Added 2026-05-29 (see framework_breakers). MEG-loading routes (TD3C, TC1)
       # sustain $400k+; Cal-26 blended $200k+. The "true tail" the prior set lacked.
       # ---------------------------------------------------------------------
+      # DECK RE-EXPRESSED 2026-09-18 (WO5/R4 Phases 0-3b, fork r4_wo5_deck_reexpression_schedule;
+      # method + Phase-3 freeze: decisions/r4_deck_reexpression_method_2026-09-18.md). Fork B ruled
+      # 2026-09-01: the three de-escalation legs were re-levelled per class so each leg's 8q mid mean
+      # hits its registered ratio against the FFA reference (pre_mou_baseline 1.00 = the observed
+      # state, mou_base 0.80, mou_bear 0.60); quarter SHAPE and the low/mid/high spread preserved,
+      # only the level moved. escalation UNTOUCHED (already above the 1.25 vessel clamp on all four
+      # classes). WEIGHTS UNTOUCHED (C3 vector, frozen input). Guarded by test_crude_deck_prices_a_
+      # real_spread_against_the_base (Fork C) — red = the deck has gone no-op against a moved base.
       escalation:
         # Weight 0.10 (Jul-2-2026 POINT-IN-TIME; was 0.25 Jun-9). Reweighted DOWN after
         # the Jun-28 stand-down + Doha technical talks (§13.3 trigger — the Islamabad
@@ -250,41 +258,41 @@ sectors:
           - Recurring short-lived strike/attack episodes inside the framework
         vlcc:
           # Jul-2-2026 recalibration (C-1): 0.15 x escalation + 0.85 x mou_bear.
-          q3_2026: [128200, 164200, 201600]
-          q4_2026: [83700, 102000, 121900]
-          q1_2027: [69800, 85800, 103300]
-          q2_2027: [58000, 72400, 87500]
-          q3_2027: [57400, 71000, 85900]
-          q4_2027: [65400, 79400, 94500]
-          q1_2028: [58100, 71400, 85400]
-          q2_2028: [48300, 60900, 74100]
+          q3_2026: [134400, 172100, 211300]
+          q4_2026: [87700, 106900, 127800]
+          q1_2027: [73200, 89900, 108300]
+          q2_2027: [60800, 75900, 91700]
+          q3_2027: [60200, 74400, 90000]
+          q4_2027: [68600, 83200, 99100]
+          q1_2028: [60900, 74800, 89500]
+          q2_2028: [50600, 63800, 77700]
         suezmax:
-          q3_2026: [59200, 72200, 86000]
-          q4_2026: [52100, 63100, 74700]
-          q1_2027: [41000, 50800, 60900]
-          q2_2027: [34200, 42600, 51400]
-          q3_2027: [35200, 43500, 52200]
-          q4_2027: [39800, 49200, 59100]
-          q1_2028: [36400, 44400, 53000]
-          q2_2028: [31800, 38700, 46100]
+          q3_2026: [74000, 90300, 107500]
+          q4_2026: [65100, 78900, 93400]
+          q1_2027: [51300, 63500, 76200]
+          q2_2027: [42800, 53300, 64300]
+          q3_2027: [44000, 54400, 65300]
+          q4_2027: [49800, 61500, 73900]
+          q1_2028: [45500, 55500, 66300]
+          q2_2028: [39800, 48400, 57600]
         aframax_dirty:
-          q3_2026: [44800, 54600, 64900]
-          q4_2026: [39200, 47100, 55500]
-          q1_2027: [30800, 38500, 46600]
-          q2_2027: [28000, 34400, 41400]
-          q3_2027: [27500, 34000, 40800]
-          q4_2027: [30100, 37600, 45400]
-          q1_2028: [28600, 35000, 41600]
-          q2_2028: [24400, 30600, 37200]
+          q3_2026: [62400, 76000, 90300]
+          q4_2026: [54600, 65600, 77300]
+          q1_2027: [42900, 53600, 64900]
+          q2_2027: [39000, 47900, 57600]
+          q3_2027: [38300, 47300, 56800]
+          q4_2027: [41900, 52300, 63200]
+          q1_2028: [39800, 48700, 57900]
+          q2_2028: [34000, 42600, 51800]
         lr2_clean:
-          q3_2026: [60800, 75300, 90700]
-          q4_2026: [46500, 57000, 68400]
-          q1_2027: [40400, 50000, 60400]
-          q2_2027: [35600, 43800, 52500]
-          q3_2027: [35000, 43000, 51600]
-          q4_2027: [37900, 47000, 56800]
-          q1_2028: [33800, 42400, 51500]
-          q2_2028: [30200, 36700, 43700]
+          q3_2026: [51600, 63900, 76900]
+          q4_2026: [39400, 48400, 58000]
+          q1_2027: [34300, 42400, 51200]
+          q2_2027: [30200, 37200, 44500]
+          q3_2027: [29700, 36500, 43800]
+          q4_2027: [32200, 39900, 48200]
+          q1_2028: [28700, 36000, 43700]
+          q2_2028: [25600, 31100, 37100]
         # MR forwards moved to sectors.product.scenarios.moderate_correction.mr
         # (2026-06-01). See METHODOLOGY §11.5.
 
@@ -333,41 +341,41 @@ sectors:
           q1_2028: P3_structural
           q2_2028: P3_structural
         vlcc:
-          q3_2026: [120000, 175000, 220000]  # P1 spike risk; base above midpoint
-          q4_2026: [48000, 60000, 72000]     # P2 -30 to -45% MEG haircut
-          q1_2027: [45000, 56500, 68000]     # P3 -25% structural
-          q2_2027: [38000, 48000, 58000]
-          q3_2027: [40000, 49000, 58000]
-          q4_2027: [48000, 58000, 68000]     # winter seasonal
-          q1_2028: [44000, 54000, 64000]     # extrapolated; continued orderbook
-          q2_2028: [36000, 45000, 54000]     # extrapolated
+          q3_2026: [130400, 190200, 239100]  # P1 spike risk; base above midpoint
+          q4_2026: [52200, 65200, 78300]     # P2 -30 to -45% MEG haircut
+          q1_2027: [48900, 61400, 73900]     # P3 -25% structural
+          q2_2027: [41300, 52200, 63000]
+          q3_2027: [43500, 53300, 63000]
+          q4_2027: [52200, 63000, 73900]     # winter seasonal
+          q1_2028: [47800, 58700, 69600]     # extrapolated; continued orderbook
+          q2_2028: [39100, 48900, 58700]     # extrapolated
         suezmax:
-          q3_2026: [55000, 67500, 80000]     # P1 neutral; already discounted
-          q4_2026: [42000, 52000, 62000]     # P2 -10 to -20% Atlantic haircut
-          q1_2027: [32000, 40000, 48000]     # P3 structural
-          q2_2027: [26000, 32000, 38000]
-          q3_2027: [28000, 34000, 40000]
-          q4_2027: [32000, 40000, 48000]     # winter seasonal
-          q1_2028: [30000, 37000, 44000]     # extrapolated
-          q2_2028: [24000, 30000, 36000]     # extrapolated
+          q3_2026: [66900, 82100, 97400]     # P1 neutral; already discounted
+          q4_2026: [51100, 63300, 75500]     # P2 -10 to -20% Atlantic haircut
+          q1_2027: [38900, 48700, 58400]     # P3 structural
+          q2_2027: [31600, 38900, 46200]
+          q3_2027: [34100, 41400, 48700]
+          q4_2027: [38900, 48700, 58400]     # winter seasonal
+          q1_2028: [36500, 45000, 53500]     # extrapolated
+          q2_2028: [29200, 36500, 43800]     # extrapolated
         aframax_dirty:
-          q3_2026: [42000, 52000, 62000]     # minor P2 drift
-          q4_2026: [34000, 41000, 48000]     # P2 normalization
-          q1_2027: [26000, 33000, 40000]     # P3 structural
-          q2_2027: [22000, 28000, 34000]
-          q3_2027: [22000, 28000, 34000]
-          q4_2027: [26000, 33000, 40000]
-          q1_2028: [24000, 31000, 38000]     # extrapolated
-          q2_2028: [20000, 26000, 32000]     # extrapolated
+          q3_2026: [53600, 66400, 79100]     # minor P2 drift
+          q4_2026: [43400, 52300, 61300]     # P2 normalization
+          q1_2027: [33200, 42100, 51100]     # P3 structural
+          q2_2027: [28100, 35700, 43400]
+          q3_2027: [28100, 35700, 43400]
+          q4_2027: [33200, 42100, 51100]
+          q1_2028: [30600, 39600, 48500]     # extrapolated
+          q2_2028: [25500, 33200, 40800]     # extrapolated
         lr2_clean:
-          q3_2026: [65000, 95000, 120000]    # MEG-loading P1 spike, like VLCC
-          q4_2026: [28000, 35000, 42000]     # P2 -30% MEG haircut
-          q1_2027: [26000, 34000, 42000]     # P3 structural
-          q2_2027: [22000, 29000, 36000]
-          q3_2027: [22000, 29000, 36000]
-          q4_2027: [26000, 33000, 40000]
-          q1_2028: [24000, 31000, 38000]     # extrapolated
-          q2_2028: [20000, 26000, 32000]     # extrapolated
+          q3_2026: [55900, 81700, 103200]    # MEG-loading P1 spike, like VLCC
+          q4_2026: [24100, 30100, 36100]     # P2 -30% MEG haircut
+          q1_2027: [22400, 29200, 36100]     # P3 structural
+          q2_2027: [18900, 24900, 30900]
+          q3_2027: [18900, 24900, 30900]
+          q4_2027: [22400, 28400, 34400]
+          q1_2028: [20600, 26600, 32700]     # extrapolated
+          q2_2028: [17200, 22400, 27500]     # extrapolated
         # MR forwards moved to sectors.product.scenarios.glut_base.mr
         # (2026-06-01). See METHODOLOGY §11.5.
 
@@ -404,41 +412,41 @@ sectors:
           # Jun-9-2026 timing view (NOT a settled level) — was [60000, 80000, 100000].
           # Same rationale as pre_mou_baseline VLCC q3_2026: lift the opening band so
           # Q3 doesn't open below current $388k spot. Q4 unchanged.
-          q3_2026: [89000, 119000, 149000]   # no P1 spike; immediate P2 onset
-          q4_2026: [42000, 53000, 64000]    # deeper P2 haircut
-          q1_2027: [38000, 48000, 58000]    # deeper P3 structural
-          q2_2027: [32000, 41000, 50000]
-          q3_2027: [34000, 43000, 52000]
-          q4_2027: [42000, 51000, 60000]
-          q1_2028: [38000, 47000, 56000]    # extrapolated
-          q2_2028: [30000, 39000, 48000]    # extrapolated
+          q3_2026: [89800, 120000, 150300]   # no P1 spike; immediate P2 onset
+          q4_2026: [42400, 53400, 64500]    # deeper P2 haircut
+          q1_2027: [38300, 48400, 58500]    # deeper P3 structural
+          q2_2027: [32300, 41300, 50400]
+          q3_2027: [34300, 43400, 52400]
+          q4_2027: [42400, 51400, 60500]
+          q1_2028: [38300, 47400, 56500]    # extrapolated
+          q2_2028: [30300, 39300, 48400]    # extrapolated
         suezmax:
-          q3_2026: [45000, 55000, 65000]    # below pre-MoU; immediate drift down
-          q4_2026: [38000, 46000, 54000]
-          q1_2027: [28000, 35000, 42000]
-          q2_2027: [22000, 28000, 34000]
-          q3_2027: [24000, 30000, 36000]
-          q4_2027: [28000, 35000, 42000]
-          q1_2028: [26000, 32000, 38000]    # extrapolated
-          q2_2028: [22000, 27000, 32000]    # extrapolated
+          q3_2026: [47400, 58000, 68500]    # below pre-MoU; immediate drift down
+          q4_2026: [40000, 48500, 56900]
+          q1_2027: [29500, 36900, 44300]
+          q2_2027: [23200, 29500, 35800]
+          q3_2027: [25300, 31600, 37900]
+          q4_2027: [29500, 36900, 44300]
+          q1_2028: [27400, 33700, 40000]    # extrapolated
+          q2_2028: [23200, 28500, 33700]    # extrapolated
         aframax_dirty:
-          q3_2026: [36000, 44000, 52000]    # below pre-MoU
-          q4_2026: [30000, 36000, 42000]
-          q1_2027: [22000, 28000, 34000]
-          q2_2027: [20000, 25000, 30000]
-          q3_2027: [20000, 25000, 30000]
-          q4_2027: [22000, 28000, 34000]
-          q1_2028: [22000, 27000, 32000]    # extrapolated
-          q2_2028: [18000, 23000, 28000]    # extrapolated
+          q3_2026: [39700, 48500, 57400]    # below pre-MoU
+          q4_2026: [33100, 39700, 46300]
+          q1_2027: [24300, 30900, 37500]
+          q2_2027: [22100, 27600, 33100]
+          q3_2027: [22100, 27600, 33100]
+          q4_2027: [24300, 30900, 37500]
+          q1_2028: [24300, 29800, 35300]    # extrapolated
+          q2_2028: [19900, 25400, 30900]    # extrapolated
         lr2_clean:
-          q3_2026: [38000, 48000, 58000]    # no MEG-loading P1 spike
-          q4_2026: [24000, 30000, 36000]
-          q1_2027: [22000, 28000, 34000]
-          q2_2027: [20000, 25000, 30000]
-          q3_2027: [20000, 25000, 30000]
-          q4_2027: [22000, 28000, 34000]
-          q1_2028: [20000, 26000, 32000]    # extrapolated
-          q2_2028: [18000, 22000, 26000]    # extrapolated
+          q3_2026: [32900, 41600, 50300]    # no MEG-loading P1 spike
+          q4_2026: [20800, 26000, 31200]
+          q1_2027: [19100, 24300, 29500]
+          q2_2027: [17300, 21700, 26000]
+          q3_2027: [17300, 21700, 26000]
+          q4_2027: [19100, 24300, 29500]
+          q1_2028: [17300, 22500, 27700]    # extrapolated
+          q2_2028: [15600, 19100, 22500]    # extrapolated
         # MR forwards moved to sectors.product.scenarios.demand_softening.mr
         # (2026-06-01). See METHODOLOGY §11.5.
 

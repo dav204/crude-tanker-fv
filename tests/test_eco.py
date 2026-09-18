@@ -72,4 +72,8 @@ def test_scenarios_overvalued(eco):
     # the reweight; this pin was missed and the suite was not fully run before that commit
     # (caught at the next full run).
     assert r.position_recommendation.startswith("HOLD")
-    assert -3.0 < r.expected_value_vs_current < 0.0
+    # RE-PINNED 2026-09-18 — WO5/R4 Phases 0-3b (decisions/r4_deck_reexpression_method_2026-09-18.md,
+    # Phase-3 freeze row ECO): the de-escalation re-levelling lifts ECO's whole-company FV +4.57%,
+    # carrying EV across zero to +0.10. Still HOLD — the band is +/-5%, and the crossing is a
+    # magnitude change inside it, not a flip.
+    assert -1.0 < r.expected_value_vs_current < 2.0

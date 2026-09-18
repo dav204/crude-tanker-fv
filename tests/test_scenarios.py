@@ -618,7 +618,12 @@ def test_insw_whole_company_fv_preserved_through_product_sector_refactor():
     # crude sleeve → ~$58.82; ±2.5% band re-pinned. TRIM/SHORT still holds —
     # the reweight narrows the negative read, doesn't flip it.
     # decisions/ceasefire_mediation_check_2026-07-31.md.
-    assert 61.25 < headline.probability_weighted_fv < 64.40   # re-pinned 2026-08-10 STAGE A (deck-incoherence lift, stage_a_halt_investigation_2026-08-10.md; re-reads at the 8/16 deck re-derivation): $62.82 +/-2.5%
+    # RE-PINNED 2026-09-18 — WO5/R4 Phases 0-3b, the deck re-expression the 8/10 record
+    # deferred (decisions/r4_deck_reexpression_method_2026-09-18.md, Phase-3 freeze row INSW).
+    # The three de-escalation legs were re-levelled to their registered ratios against the live
+    # FFA base, lifting INSW's crude sleeve: $62.82 -> $65.40 (+4.1%). TRIM/SHORT still holds
+    # (EV -46.1 -> -44.4pp); the re-expression narrows the negative read, it does not flip it.
+    assert 63.77 < headline.probability_weighted_fv < 67.03   # $65.40 +/-2.5%
     # Both sleeves should have valid prob-weighted FVs.
     assert crude_r is not None and product_r is not None
     assert crude_r.probability_weighted_fv > 0
@@ -1186,3 +1191,77 @@ def test_run_scenarios_asof_missing_vintage_fails_fast(doc):
     with pytest.raises(ValueError) as exc:
         run_scenarios(ci, 16.40, 16.00, doc, asof_quarter="2020-Q1")
     assert "q3_2020" in str(exc.value)
+
+
+# ---------------------------------------------------------------------------
+# Fork C — the deck-coherence guard (WO5/R4, ruled 2026-09-01, landed 2026-09-18)
+# ---------------------------------------------------------------------------
+
+CRUDE_DECK_BANDS = {
+    # leg: (min ratio, max ratio) of the leg's 8-quarter mid mean to the FFA 8-quarter
+    # mean for the SAME class. Registered by decisions/r4_deck_reexpression_method_2026-09-18.md.
+    "escalation":       (1.50, 99.0),   # a genuine upside tail; every class clamps the 1.25 vessel ceiling
+    "pre_mou_baseline": (0.92, 1.08),   # the observed state — base-tracking by construction
+    "mou_base":         (0.72, 0.88),   # normalization-partial (zero weight; binds the ordering guard)
+    "mou_bear":         (0.52, 0.68),   # normalization-disappoints
+}
+CRUDE_DECK_CLASS_MAP = {"vlcc": "VLCC", "suezmax": "Suezmax",
+                        "aframax_dirty": "Aframax", "lr2_clean": "LR2_clean"}
+CRUDE_DECK_MIN_SPREAD = 0.30   # pre_mou_baseline ratio - mou_bear ratio
+
+
+def _crude_deck_ratios():
+    from pathlib import Path as _Path
+
+    import yaml
+    root = _Path(__file__).resolve().parents[1]
+    deck = yaml.safe_load((root / "inputs" / "scenario_inputs.yaml").read_text())["sectors"]["crude"]["scenarios"]
+    ffa = yaml.safe_load((root / "inputs" / "market_data" / "ffa_forward_curve.yaml").read_text())["ffa_forward_curve"]
+    qk = ["q3_2026", "q4_2026", "q1_2027", "q2_2027", "q3_2027", "q4_2027", "q1_2028", "q2_2028"]
+    out = {}
+    for leg, body in deck.items():
+        out[leg] = {}
+        for cls, fcls in CRUDE_DECK_CLASS_MAP.items():
+            ref = sum(ffa[fcls]) / len(ffa[fcls])
+            mid = sum(body[cls][q][1] for q in qk) / len(qk)
+            out[leg][cls] = mid / ref
+    return out
+
+
+def test_crude_deck_prices_a_real_spread_against_the_base():
+    """Fork C. The crude scenario curves are ABSOLUTE dollars/day; the base they are measured
+    against moves with every re-anchor. So a deck that was coherent when it was written goes
+    silently no-op as the base walks toward it — that is the 2026-08-10 Stage-A halt, where
+    pre_mou_baseline's vessel multiple drifted 0.82 -> 0.96 and the de-escalation risk the weights
+    exist to carry was absorbed into the base with nothing red.
+
+    This asserts what prose could not: every leg's forward-vs-base ratio stays inside its
+    REGISTERED band, on every class, and the bear-to-observed spread stays real. It reds when the
+    base has moved far enough to hollow a leg out, and when an edit walks a curve out of its
+    registered meaning. Re-derivation method and the bands: decisions/r4_deck_reexpression_method_2026-09-18.md.
+    """
+    ratios = _crude_deck_ratios()
+    assert set(ratios) == set(CRUDE_DECK_BANDS), "a crude leg appeared or vanished — re-register its band"
+    for leg, (lo, hi) in CRUDE_DECK_BANDS.items():
+        for cls, r in ratios[leg].items():
+            assert lo <= r <= hi, (
+                f"crude deck INCOHERENT: {leg}/{cls} forward-vs-base ratio {r:.3f} is outside its "
+                f"registered band [{lo}, {hi}]. Either the base moved under the deck (re-derive per "
+                f"decisions/r4_deck_reexpression_method_2026-09-18.md) or an edit changed what the "
+                f"leg means."
+            )
+    # the de-escalation content itself: bear must sit a real distance below the observed state
+    for cls in CRUDE_DECK_CLASS_MAP:
+        spread = ratios["pre_mou_baseline"][cls] - ratios["mou_bear"][cls]
+        assert spread >= CRUDE_DECK_MIN_SPREAD, (
+            f"crude deck NO-OP on {cls}: pre_mou_baseline - mou_bear = {spread:.3f} < "
+            f"{CRUDE_DECK_MIN_SPREAD} — the downside leg has converged on the observed state."
+        )
+    # ordering, per class, is the shape the whole deck rests on
+    for cls in CRUDE_DECK_CLASS_MAP:
+        assert (ratios["mou_bear"][cls] < ratios["mou_base"][cls]
+                < ratios["pre_mou_baseline"][cls] < ratios["escalation"][cls]), (
+            f"crude deck ORDERING broken on {cls}: "
+            f"bear {ratios['mou_bear'][cls]:.3f} / base {ratios['mou_base'][cls]:.3f} / "
+            f"pre-MoU {ratios['pre_mou_baseline'][cls]:.3f} / escalation {ratios['escalation'][cls]:.3f}"
+        )
