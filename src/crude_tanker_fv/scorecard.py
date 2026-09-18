@@ -37,6 +37,7 @@ from .justified_pnav import (
     save_read_flag_state,
 )
 from .loaders import (
+    run_timestamp,
     ALLOWED_CLASSES,
     INPUTS_DIR,
     load_basis_status,
@@ -941,7 +942,6 @@ def _vintage_stamp() -> dict:
     not checkout. This deliberately trades the JSON's byte-stable regeneration
     for consumer traceability; the markdown stays wall-clock-free."""
     import subprocess
-    from datetime import datetime, timezone
 
     try:
         root = Path(__file__).resolve().parents[2]
@@ -960,7 +960,7 @@ def _vintage_stamp() -> dict:
     except Exception:
         commit = None
     return {
-        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "generated_at": run_timestamp(),
         "source_commit": commit,
     }
 

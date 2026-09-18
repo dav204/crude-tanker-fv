@@ -25,11 +25,11 @@ import hashlib
 import json
 import re
 from dataclasses import asdict, dataclass, field
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
 from .justified_pnav import READ_FLAG_HYST_PCT, flip_margin_pct
+from .loaders import run_timestamp
 from .price_refresh import PRICE_FRESH_DAYS, STALE_PRICE_ALERT_MIN_NAMES
 from .scenarios import detect_mixed_anchor_basis, format_mixed_anchor_basis
 
@@ -132,7 +132,7 @@ def snapshot_current_run(
         )
 
     return RunSnapshot(
-        run_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        run_at=run_timestamp(),
         quarter=quarter,
         tickers=tickers,
         input_file_hashes=_hash_input_files(inputs_dir),

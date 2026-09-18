@@ -42,6 +42,34 @@ ALLOWED_CLASSES = {"VLCC", "Suezmax", "Aframax", "LR2", "LR1", "MR", "Handymax",
                    "VLGC"}
 
 
+_RUN_TIMESTAMP: "str | None" = None
+
+
+def run_timestamp() -> str:
+    """The ONE timestamp a pipeline run stamps on everything it writes, memoised per process.
+
+    outputs/book_scorecard.json's `generated_at` and state/last_run.json's `run_at` describe the
+    SAME run and two readers require them to be equal: annotate's R1 refuses the run outright when
+    they differ, and scripts/ratify_baseline.sh copies run_at into the baseline's `ratified_at`,
+    which annotate's R2 then compares against the anchor surface's `generated_at`. They used to be
+    two independent datetime.now() calls, so they agreed only when a run did not straddle a second
+    boundary — and a ratify taken from a run that did produced a baseline the annotator would
+    refuse for as long as it stood (2026-09-18: 21:05:23 vs 21:05:24). Guarded by
+    tests/test_delta.py::test_the_surface_and_the_run_state_share_one_timestamp.
+    """
+    global _RUN_TIMESTAMP
+    if _RUN_TIMESTAMP is None:
+        from datetime import datetime, timezone
+        _RUN_TIMESTAMP = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    return _RUN_TIMESTAMP
+
+
+def reset_run_timestamp() -> None:
+    """Tests only: a new logical run needs a new stamp (the process is reused)."""
+    global _RUN_TIMESTAMP
+    _RUN_TIMESTAMP = None
+
+
 def _read_yaml(path: Path) -> dict:
     if not path.exists():
         raise FileNotFoundError(f"input file not found: {path}")
