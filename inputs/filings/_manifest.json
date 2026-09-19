@@ -2079,5 +2079,56 @@
   "staged_path": "inputs/filings/TEN/0001193125-26-394366_6-K_d67788d6k.htm",
   "exhibits": [],
   "amended": false
+ },
+ {
+  "ts": "2026-09-19T01:36:07+00:00",
+  "ticker": "SBLK",
+  "cik": "0001386716",
+  "accession": "0000950157-26-001031",
+  "form": "6-K",
+  "filed": "2026-09-18",
+  "primary_doc": "form6-k.htm",
+  "staged_path": "inputs/filings/SBLK/0000950157-26-001031_6-K_form6-k.htm",
+  "exhibits": [
+   {
+    "doc": "ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-001031_6-K_ex99-1.htm"
+   },
+   {
+    "doc": "ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/SBLK/0000950157-26-001031_6-K_ex99-2.htm"
+   }
+  ],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-19T01:36:07+00:00",
+  "ticker": "TRMD",
+  "cik": "0001655891",
+  "accession": "0000919574-26-006391",
+  "form": "6-K",
+  "filed": "2026-09-18",
+  "primary_doc": "p15095918_6-k.htm",
+  "staged_path": "inputs/filings/TRMD/0000919574-26-006391_6-K_p15095918_6-k.htm",
+  "exhibits": [
+   {
+    "doc": "p15095918exh_99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/TRMD/0000919574-26-006391_6-K_p15095918exh_99-1.htm"
+   },
+   {
+    "doc": "p15095918exh_99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/TRMD/0000919574-26-006391_6-K_p15095918exh_99-2.htm"
+   },
+   {
+    "doc": "p15095918exh_99-3.htm",
+    "type": "EX-99.3",
+    "staged_path": "inputs/filings/TRMD/0000919574-26-006391_6-K_p15095918exh_99-3.htm"
+   }
+  ],
+  "amended": false
  }
 ]
