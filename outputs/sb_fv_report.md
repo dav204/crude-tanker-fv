@@ -1,7 +1,7 @@
 # SB — Fair Value Report
 
 - **Report date:** 2026-Q2
-- **Current price:** $8.91
+- **Current price:** $9.18
 - **Model fair value:** $10.41
 - **Analyst target:** $7.10
 
@@ -73,7 +73,7 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-**NAV alone covers the price.** NAV/share **$10.72** ≥ price **$8.91** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
+**NAV alone covers the price.** NAV/share **$10.72** ≥ price **$9.18** at base cycle weighting, so the strip provides no extra hurdle — the implied breakeven floor is effectively zero (rates could fall to ~0 and the price would still be justified by vessel value alone). The market is pricing the fleet at a discount to NAV.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
@@ -98,11 +98,11 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 | **+15%** | $7.31 | $8.91 | $10.51 | $12.10 | $13.70 |
 | **+30%** | $7.40 | $9.00 | $10.60 | $12.19 | $13.79 |
 
-_Current price $8.91. Cycle weights held at base across the grid._
+_Current price $9.18. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$10.41** is +16.9% vs the current price ($8.91) and +46.7% vs the analyst target ($7.10). NAV alone covers the price (NAV/sh $10.72 ≥ $8.91); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
+Tool fair value **$10.41** is +13.5% vs the current price ($9.18) and +46.7% vs the analyst target ($7.10). NAV alone covers the price (NAV/sh $10.72 ≥ $9.18); the dividend strip provides no extra hurdle, so the implied breakeven floor is effectively zero — the market is pricing the fleet at a discount to vessel value.
 
 ## Modeling notes
 

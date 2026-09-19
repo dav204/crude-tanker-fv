@@ -1,5 +1,13 @@
 # CCEC — Decision Log
 
+## 2026-09-19 — CCEC TAPE ONLY: EV +50.8pp -> +55.6pp, fair value unchanged to the cent
+
+<!-- annotate.py/1 ticker=CCEC run=2026-09-19T15:16:06+00:00 anchor=15f2427 ev=55.59 px=21.66 -->
+
+**Decision:** CCEC tape-only: EV +50.8->+55.6pp, fv held 33.70. The quote stamped 2026-09-18 took the share 22.34 -> 21.66 (-3.04%) while fair value held at 33.70 to the cent, so the whole EV move is the denominator. Determinant proof: inputs/market_data/prices_daily.yaml is the only valuation determinant that moved between the anchor surface 41f0545 and this one 462805c; the unexplained residual is 0.03pp against a ±0.07pp cent-rounding budget. The read stays 'BUY (undervalued)'. Baseline anchor: the 2026-09-18 ratify (15f2427). Gate row ΔNAV +0.0%. Written by crude_tanker_fv.annotate — deterministic price attribution only; a fair-value move is refused, never described.
+
+---
+
 ## 2026-09-15 — THE TAPE ONLY: EV +51.0pp -> +52.3pp, fair value unchanged to the cent
 
 **Decision:** CCEC's fair value is unchanged to the cent at 33.70 and the quote eased 22.32 -> 22.13 (-0.85%), so EV widened +51.0pp -> +52.3pp on price alone. The name stays BUY on both sides, so no band question arises. Note the quote vintage: CCEC's row in this price file is stamped 2026-09-14, a day behind the rest of the book — the move is read against that close, not a 9/15 one. No LNG or container curve moved in the 2026-09-15 dry FFA promote. Baseline anchor: the 2026-09-11 ratify (1988a4d). Gate row dNAV +0.0%. The anchor has not advanced since 9/11 because the daily loop has no regen step — precondition (e) of the land lane has failed every morning 9/12-9/15; recorded and being fixed separately.

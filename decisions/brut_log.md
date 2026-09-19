@@ -1,5 +1,24 @@
 # BRUT — Decision Log
 
+## 2026-09-19T15:16:06+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.27
+- Single-point FV: $4.71
+- Scenario PW FV: $5.51 (EV +4.5%)
+- NAV / share: $4.92
+- Position: **HOLD (fairly valued)**
+- Broker spread: +3.6pp (k_broker 1.02)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ position BUY (undervalued) → HOLD (fairly valued)
+- Δprice: +0.03 | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +0.6pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-18 — STAGE-A VOID UPHELD (WO5/R4 Phase 4), re-armed to the uplisting prospectus
 
 **Decision:** BRUT stays in `POSITION_UNRELIABLE`. It is the only one of the three Stage-A names with TWO grounds, and the re-expression reaches only the junior one. Ground 2 (the 8/10 deck artifact) IS resolved and is recorded closed. Ground 1 (2026-07-01: the cell must reflect the untrustworthiness, not the 0.59x discount — a NAV on a cash floor plus going-concern doubt) is a balance-sheet and solvency ground that a scenario re-levelling cannot reach by construction: ΔNAV was exactly 0.00 on all 25 names. Decisive: the live 4-hull entity has never filed a balance sheet, and the constructed Q2 sheet was accepted under its own stated premise, 'the read is VOID regardless (R4)' — retiring the void would remove the premise under which the sheet the read is computed from was allowed to stand. The re-expression's new evidence argues the same way: it carried the raw band across the BUY edge to +5.2 vs +5.0, a ~1-cent margin that a +0.25% NOK/USD move flips, with no hysteresis (read_blocked), after strobing BUY->HOLD->BUY three times in nine days, and at the weight family's MAXIMUM (range -31.2 to +5.2, ev_sign_stable false, 1 of 8 sets BUY). That is the registered BRUT lesson verbatim. RE-ARMED to the Oslo Børs uplisting prospectus (~end-Sep 2026), dated fallback re-read at the Q3 report 2026-11-19; on either trigger the question is Ground 1 only. Full record: `decisions/brut_void_disposition_2026-09-18.md`.
