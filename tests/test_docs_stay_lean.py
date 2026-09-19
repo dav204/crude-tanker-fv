@@ -26,6 +26,17 @@ ROOT = Path(__file__).resolve().parents[1]
 # router genuinely needs to be bigger — the default answer is "compact, don't raise the cap."
 CLAUDE_MD_CHAR_CAP = 16_000
 
+# PLAN.md is the handoff EVERY new agent reads after CLAUDE.md, so its size is a recurring cost
+# too. F5 (decisions/prune_ledger_2026-09-02.md) ruled it stays under 150 lines; the ruling was
+# never executed and the file reached 980, of which a 2026-09-18 audit found roughly three quarters
+# was work already finished. The failure mode is specific and worth naming: completion is recorded
+# in inputs/forks.yaml, RATIFY_LOG.md and the trigger register, while PLAN kept the REQUEST and
+# nobody struck it — so the owner's backlog appeared to grow with every automation that shipped.
+PLAN_MD_LINE_CAP = 150
+# Dated snapshot blocks stacked newest-on-top were how it grew: nine of them, each saying "read
+# this, then the one below". One current-state section, or none.
+PLAN_MD_MAX_STATE_INSERTS = 1
+
 
 def test_readme_status_counts_match_the_watchlist():
     """The README Status block is a hand-maintained counter — exactly the kind
@@ -98,3 +109,33 @@ def test_readme_test_count_claim_tracks_the_suite():
         f"README claims {claimed}+ tests; static census is {defs} defs. Keep the "
         f"claim in [{int(defs / 1.25) + 1}, {defs}] — update the README, not this band."
     )
+
+
+def test_plan_stays_a_handoff_not_an_archive():
+    """PLAN.md holds what is still OWED; CHANGELOG.md holds what happened. F5 ruled the 150-line
+    cap on 2026-09-02 and nothing enforced it, so the file grew to 980 lines and a new agent's
+    "start here" section was ~95% closed history. When this reds: strike the finished lines, move
+    dated commitments to inputs/reweight_triggers.yaml, and push narrative to CHANGELOG.md — do
+    NOT raise the cap."""
+    plan = (ROOT / "PLAN.md").read_text()
+    lines = plan.splitlines()
+    assert len(lines) <= PLAN_MD_LINE_CAP, (
+        f"PLAN.md is {len(lines)} lines against a {PLAN_MD_LINE_CAP}-line cap (F5). Strike what is "
+        f"done — the registries already record it — before adding anything."
+    )
+    inserts = sum(1 for ln in lines if "STATE INSERT" in ln)
+    assert inserts <= PLAN_MD_MAX_STATE_INSERTS, (
+        f"PLAN.md carries {inserts} STATE INSERT blocks. They stack and never get removed (nine by "
+        f"2026-09-18). Keep ONE current-state section and let CHANGELOG.md hold the rest."
+    )
+
+
+def test_plan_points_at_the_registries_rather_than_copying_them():
+    """Regenerated state copied into PLAN rots within days: by 2026-09-18 its tier snapshot, its
+    opportunity-set counts and its trigger dates all contradicted the files that produce them, and
+    it still listed a trigger card folded eight days earlier. The rewritten PLAN names the
+    authorities instead."""
+    plan = (ROOT / "PLAN.md").read_text()
+    for authority in ("inputs/reweight_triggers.yaml", "inputs/forks.yaml",
+                      "outputs/book_scorecard.md", "CHANGELOG.md"):
+        assert authority in plan, f"PLAN.md no longer points at {authority} as the source of truth"
