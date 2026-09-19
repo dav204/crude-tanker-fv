@@ -91,6 +91,15 @@ Nothing about your positions is decided in this repo; nothing about valuation is
   what stays ask-tier is `git push` from a chat (the cron pushes on its own), `curl` and `launchctl`.
 - **Re-authenticate** a surface when a `REAUTH-NEEDED` page names one.
 
+## Standing rulings (so a settled question stops reappearing as owed)
+
+- **Unattended tasks may read the web themselves** (owner, 2026-09-18). A scheduled task's web
+  domains are granted in ITS OWN frontmatter `allowed-tools` — the fork-executor / shadow-build /
+  trigger-check-draft precedent — not by widening `.claude/settings.json`, which holds the issuer
+  and filing domains and stays your file. Adding a domain to a task is ordinary agent work, not a
+  decision for you. (A task with no `allowed-tools` line is not blocked either: the Saturday news
+  sweep has none and fetches fine.)
+
 ## What still needs the hand crank (honest list, 2026-09-13)
 
 - **Installing the fork executor task** (once): the app's classifier refused the agent's registration;
