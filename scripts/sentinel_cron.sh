@@ -70,9 +70,19 @@ echo "=== [weekly-report] EXIT CODE $report_rc"
 # nothing changed. Never touches inputs/ or decisions/.
 echo "=== [commit-outputs] $(date '+%Y-%m-%d %H:%M:%S')"
 if git status --porcelain -- outputs/weekly_report_*.md outputs/news_digest_*.md | grep -q .; then
-  git add outputs/weekly_report_*.md outputs/news_digest_*.md \
-    && git commit -q -m "outputs: weekly report / news digest $(date '+%Y-%m-%d') (cron products, auto-committed)" \
-    && echo "[commit-outputs] committed" || { echo "[commit-outputs] FAILED"; CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}commit_outputs=failed"; }
+  git add outputs/weekly_report_*.md outputs/news_digest_*.md
+  # Name only what is actually staged. The subject used to be a fixed "weekly report / news
+  # digest" template, so on 2026-09-19 it asserted a news digest that did not exist — the news
+  # pull had parked on an unanswered permission prompt and written nothing. A commit subject that
+  # names an absent product turns a silent loss into a positive false record in git history.
+  products=$(git diff --cached --name-only -- outputs/weekly_report_*.md outputs/news_digest_*.md \
+    | sed -e 's#outputs/weekly_report_.*#weekly report#' -e 's#outputs/news_digest_.*#news digest#' \
+    | sort -u | paste -sd '/' -)
+  if git commit -q -m "outputs: ${products} $(date '+%Y-%m-%d') (cron products, auto-committed)"; then
+    echo "[commit-outputs] committed: ${products}"
+  else
+    echo "[commit-outputs] FAILED"; CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}commit_outputs=failed"
+  fi
 else
   echo "[commit-outputs] nothing to commit"
 fi

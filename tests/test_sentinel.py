@@ -2,6 +2,7 @@
 stable routing tags, exit codes, and the spec log format."""
 
 import json
+import pytest
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -13,6 +14,17 @@ from crude_tanker_fv.sentinel import collect_flags, main
 # content-check tests stay isolated from the machine's real env.
 FAKE_ENV = {"CRUDE_FV_SMTP_HOST": "smtp.example.com", "CRUDE_FV_SMTP_USER": "u",
             "CRUDE_FV_SMTP_PASS": "p", "CRUDE_FV_SMTP_TO": "owner@example.com"}
+
+
+@pytest.fixture(autouse=True)
+def _no_live_sessions(tmp_path_factory, monkeypatch):
+    """The TASK-PARKED check reads the desktop app's live session records. Point
+    every test in this file at an empty directory so the machine's own parked runs
+    can never leak into an assertion — they leaked into twenty when the check first
+    landed, because collect_flags read Path.home() implicitly."""
+    import crude_tanker_fv.sentinel as s
+
+    monkeypatch.setattr(s, "SESSIONS_DIR", tmp_path_factory.mktemp("sessions"))
 
 
 def _fixture(tmp_path: Path, *, trigger_due=False, stale_watchlist=False,
@@ -1118,3 +1130,87 @@ forks:
         "    doc: decisions/x.md\n", "    doc: decisions/x.md\n    needs_code: true\n", 1))
     ex = [f for f in collect_flags(inputs, outputs) if f.startswith("FORK-EXECUTABLE")]
     assert len(ex) == 1 and "a chat lands it" in ex[0] and "NEEDS A CHAT" in ex[0], ex
+
+
+# ---------------------------------------------------------------- TASK-PARKED
+# A tool-permission prompt does not abort an unattended run — it parks the
+# session while the scheduler still reports "running", so a task that lost its
+# whole night reads as a success. 2026-09-18: the weekly governance monitor did
+# its entire job in four minutes, parked on its first write, and nothing paged
+# for two days because its own dead-man ping sat downstream of the block.
+
+def _session(tmp_path, pid, minutes_ago, waiting="permission prompt", now=None):
+    now = now or datetime.now(timezone.utc)
+    stamp = int((now - timedelta(minutes=minutes_ago)).timestamp() * 1000)
+    rec = {"pid": pid, "cwd": "/Users/x/Projects", "status": "waiting",
+           "statusUpdatedAt": stamp, "updatedAt": stamp}
+    if waiting is not None:
+        rec["waitingFor"] = waiting
+    (tmp_path / f"{pid}.json").write_text(json.dumps(rec))
+    return rec
+
+
+def test_parked_session_is_flagged_with_its_wait(tmp_path, monkeypatch):
+    from crude_tanker_fv import sentinel
+
+    monkeypatch.setattr(sentinel, "_pid_alive", lambda pid: True)
+    _session(tmp_path, 4242, minutes_ago=400)
+    flags = sentinel.parked_session_flags(sessions_dir=tmp_path)
+    assert len(flags) == 1, flags
+    assert flags[0].startswith("TASK-PARKED pid-4242")
+    assert "6.7h" in flags[0], flags[0]
+
+    # The tag PAGES, so the pid must be its own token: notify.page_once_key falls back to
+    # tag + first token, and a shared key would collapse every parked session into one event.
+    from crude_tanker_fv.notify import PAGE_ACTIONS, page_once_key
+    assert page_once_key(flags[0]) == "TASK-PARKED pid-4242"
+    assert "TASK-PARKED" in PAGE_ACTIONS, "a page-routed tag with no action text"
+
+    # The bar is hours, not minutes — an ordinary session left open over lunch must not page.
+    assert sentinel.parked_session_flags(sessions_dir=tmp_path, min_minutes=401) == []
+
+
+def test_parked_session_ignores_fresh_prompts_and_dead_and_unblocked_runs(tmp_path, monkeypatch):
+    from crude_tanker_fv import sentinel
+
+    monkeypatch.setattr(sentinel, "_pid_alive", lambda pid: pid != 777)
+    _session(tmp_path, 111, minutes_ago=5)                    # a human is probably there
+    _session(tmp_path, 777, minutes_ago=600)                  # process is gone
+    _session(tmp_path, 222, minutes_ago=600, waiting=None)    # not blocked on a prompt
+    assert sentinel.parked_session_flags(sessions_dir=tmp_path) == []
+
+    # ...and the same directory DOES flag once a real block ages past the bar,
+    # so the three negatives above are not passing vacuously.
+    _session(tmp_path, 333, minutes_ago=600)
+    flags = sentinel.parked_session_flags(sessions_dir=tmp_path)
+    assert [f.split()[1] for f in flags] == ["pid-333"], flags
+
+
+def test_parked_session_survives_a_missing_dir_and_junk_records(tmp_path, monkeypatch):
+    from crude_tanker_fv import sentinel
+
+    monkeypatch.setattr(sentinel, "_pid_alive", lambda pid: True)
+    assert sentinel.parked_session_flags(sessions_dir=tmp_path / "nope") == []
+    (tmp_path / "broken.json").write_text("{not json")
+    (tmp_path / "nostamp.json").write_text(json.dumps(
+        {"pid": 9, "waitingFor": "permission prompt"}))
+    assert sentinel.parked_session_flags(sessions_dir=tmp_path) == []
+
+
+def test_parked_session_is_opt_in_and_pure_mode_drops_it(tmp_path, monkeypatch):
+    """The sessions dir is injected, never read from the real home. One implicit
+    Path.home() here leaked the live machine into twenty unrelated tests."""
+    from crude_tanker_fv import sentinel
+
+    monkeypatch.setattr(sentinel, "_pid_alive", lambda pid: True)
+    _session(tmp_path, 555, minutes_ago=600)
+
+    # Not asked for -> not read. This is what keeps every other caller isolated.
+    assert not [f for f in sentinel.collect_flags(environ=FAKE_ENV)
+                if f.startswith("TASK-PARKED")]
+    # Asked for -> found, so the negative above is not vacuous.
+    asked = sentinel.collect_flags(environ=FAKE_ENV, sessions_dir=tmp_path)
+    assert [f for f in asked if f.startswith("TASK-PARKED pid-555")], asked
+    # Machine-local, so a clean clone's pure run never sees it.
+    pure = sentinel.collect_flags(environ=FAKE_ENV, pure=True, sessions_dir=tmp_path)
+    assert not [f for f in pure if f.startswith("TASK-PARKED")], pure

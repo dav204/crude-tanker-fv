@@ -410,10 +410,10 @@ nodes:
                "env:~/.config/crude-tanker-fv.env + producer .venv (notify.sh execs crude_tanker_fv.notify from the producer repo)"]
     reads: [outputs/book_scorecard.json, RATIFY_LOG.md, external:IBKR account, external:web search, governance:CADENCE.md, governance:holdings/*.md,
             governance:funnels/register.md, governance:reviews/*.md]
-    writes: [governance:monitor/log.md, governance:monitor/outbox/*-monitor.md]
+    writes: [governance:monitor/log.md, governance:monitor/outbox/*-monitor.md, governance:monitor/state/started-*]
     emits: [email PAGE or digest via governance:monitor/notify.sh, healthchecks ping via governance:monitor/ping.sh]
     commits: self
-    notes: "commits its own run line + outbox file since 2026-09-13 (git -C allowlisted); pages PRODUCER DID NOT LAND when the scorecard is older than 72h; the seam: reads the producer's committed scorecard (schema major 2) and flags a tier/label/FV change on a holding; its only owner-facing channel is the producer's interpreter + SMTP creds — a broken producer venv or env turns every governor page into MAIL:FAILED"
+    notes: "ALL persistence goes through governance:monitor/land.sh since 2026-09-20 — one command that writes the outbox file, mails, appends the log row, pings, amends the row and commits. It was six separate tool calls and therefore six permission prompts; on 2026-09-18 the FIRST of them went unanswered and the run parked with its finished five-flag page unwritten, losing the log line, the mail, the ping and the commit together. A prompt does not abort an unattended run, it parks the session while the scheduler still reports 'running' — the producer's sentinel now flags that as TASK-PARKED. The grant that authorises land.sh lives in /Users/dan_personal/Projects/.claude/settings.local.json, the settings file in scope for this task's cwd (the bare Projects dir, NOT the governance repo — that repo's own .claude settings are out of scope); the allowed-tools frontmatter in the task's SKILL.md is discarded by the scheduler's parser and has never authorised anything. Pages PRODUCER DID NOT LAND when the scorecard is older than 72h; the seam: reads the producer's committed scorecard (schema major 2) and flags a tier/label/FV change on a holding; its only owner-facing channel is the producer's interpreter + SMTP creds — a broken producer venv or env turns every governor page into MAIL:FAILED"
 
   - id: portfolio-quarterly-review-kickoff
     kind: scheduled-task

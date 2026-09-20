@@ -101,8 +101,76 @@ def trigger_flags(inputs_dir: Path) -> list[str]:
     return out
 
 
+# 4h, not minutes: this tag PAGES, and only the owner can answer a permission prompt. A task that
+# parks has lost its slot either way, so catching it the same day is enough; a shorter bar would
+# page for an ordinary session left open over lunch.
+PARKED_SESSION_MIN_MINUTES = 240
+
+
+def _pid_alive(pid) -> bool:
+    try:
+        os.kill(int(pid), 0)
+    except (OSError, TypeError, ValueError):
+        return False
+    return True
+
+
+SESSIONS_DIR = Path.home() / ".claude" / "sessions"
+
+
+def parked_session_flags(sessions_dir: Path,
+                         now: datetime | None = None,
+                         min_minutes: int = PARKED_SESSION_MIN_MINUTES) -> list[str]:
+    """Unattended runs blocked on an unanswered tool-permission prompt.
+
+    A permission prompt does NOT abort a run: it parks the session forever
+    while the scheduler still reports it as "running", so a task that lost its
+    whole night is indistinguishable from one that succeeded. On 2026-09-18 the
+    weekly governance monitor did its entire job in four minutes, parked on its
+    first write, and nothing paged for two days — its own dead-man ping was
+    downstream of the block. Two more tasks were parked the next morning.
+    Machine-local (reads the app's session records), so pure mode drops it.
+    sessions_dir is REQUIRED and never defaults to the real home: every other
+    check in this module takes its root by parameter, and a single implicit
+    Path.home() read leaked the live machine into twenty unrelated tests.
+    """
+    if not sessions_dir.is_dir():
+        return []
+    if now is None:
+        now = datetime.now(timezone.utc)
+
+    flags: list[str] = []
+    for path in sorted(sessions_dir.glob("*.json")):
+        try:
+            rec = json.loads(path.read_text())
+        except (OSError, ValueError):
+            continue
+        if rec.get("waitingFor") != "permission prompt":
+            continue
+        if not _pid_alive(rec.get("pid")):
+            continue
+        stamp = rec.get("statusUpdatedAt") or rec.get("updatedAt")
+        try:
+            since = datetime.fromtimestamp(int(stamp) / 1000, timezone.utc)
+        except (TypeError, ValueError):
+            continue
+        waited = (now - since).total_seconds() / 60.0
+        if waited < min_minutes:
+            continue
+        hours = waited / 60.0
+        # "pid-N" is one token on purpose: notify.page_once_key falls back to tag + first token,
+        # so each parked session is its own event rather than all of them collapsing into one.
+        flags.append(
+            f"TASK-PARKED pid-{rec.get('pid')} has waited {hours:.1f}h on a tool-permission "
+            f"prompt (cwd {rec.get('cwd', '?')}, since {since.isoformat(timespec='minutes')}) — "
+            "the run is alive and blocked, not finished; its writes never landed"
+        )
+    return flags
+
+
 def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR,
-                  environ=None, pure: bool = False) -> list[str]:
+                  environ=None, pure: bool = False,
+                  sessions_dir: Path | None = None) -> list[str]:
     """pure=True (WO2 0.4) keeps only checks answerable from REPO CONTENT —
     what a clean clone can see: dated triggers, content-dated watchlist
     vintages, committed-surface coherence, sidecar vintage, price-basis
@@ -126,6 +194,8 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
         for it in check_market_data(inputs_dir):
             if it.status in ("stale", "missing"):
                 flags.append(f"STALE-INPUT {it.label}: {it.detail}")
+        if sessions_dir is not None:
+            flags += parked_session_flags(sessions_dir)
     try:
         watchlist = load_watchlist(inputs_dir)
     except Exception as exc:
@@ -1017,7 +1087,9 @@ def main(argv: list[str] | None = None) -> int:
                      f"(dirty since {dirty_since}, {hours:.0f}h)")
         print(meta_note)
     else:
-        flags = collect_flags(INPUTS_DIR, OUTPUTS_DIR)   # module-attr lookup at call time (testable)
+        # module-attr lookup at call time (testable); SESSIONS_DIR is the one machine path the
+        # checks take, supplied here rather than read implicitly inside collect_flags
+        flags = collect_flags(INPUTS_DIR, OUTPUTS_DIR, sessions_dir=SESSIONS_DIR)
     for f in flags:
         print(f)
     if args.log:

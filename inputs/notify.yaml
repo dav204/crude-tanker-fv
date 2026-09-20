@@ -36,6 +36,9 @@ routes:
                             # only a chat could stop it and the executor now runs it, so close = digest)
     - DIRTY-TOO-LONG        # OWNER/AGENT: the tree has been mid-surgery for days; key = tag
     - REAUTH-NEEDED         # OWNER: re-authenticate the named surface; key = surface; clears on success
+    - TASK-PARKED           # OWNER: an unattended run is blocked on a permission prompt only he can answer;
+                            # key = tag + pid-N, so each parked session pages once and then rides the digest
+                            # (2026-09-20: three sat unnoticed for up to two days, one of them the weekly governor)
   digest:
     - FILING-LANDED         # AGENT-class since 2026-09-11 (was page_once): the daily triage task
                             # dispositions + acks each arrival (filings ack); acked rows drop out

@@ -92,6 +92,7 @@ PAGE_ACTIONS = {
     "FORK-EXECUTABLE": "OWNER (optional) — the window closed; the executor runs it today (or a chat lands it, if marked). Nothing to do unless you object.",
     "DIRTY-TOO-LONG": "OWNER/AGENT — the working tree has been mid-surgery for days. Finish, stash, or say 'discard'.",
     "REAUTH-NEEDED": "OWNER — re-authenticate the named surface (a token or session expired); the agent cannot.",
+    "TASK-PARKED": "OWNER — an unattended run is alive and blocked on a tool-permission prompt; only you can answer it. Answer or dismiss it, then check whether that task's grant belongs in the settings file in scope for its cwd — a prompt parks the run forever while the scheduler still reports it as running, and nothing it was going to write has landed.",
     "FETCH-FAILED": "OWNER — the fetch layer has been blind two runs in reporting season. Check the network or the credentials file.",
 }
 
