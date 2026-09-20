@@ -75,13 +75,13 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **1.97× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **1.96× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **256,586** | — |
-| 10-year mean | 40,000 | 6.41× |
-| 12-month FFA | 130,250 | 1.97× |
+| **Implied breakeven (blended)** | **255,698** | — |
+| 10-year mean | 40,000 | 6.39× |
+| 12-month FFA | 130,250 | 1.96× |
 | Current spot | 790,800 | 0.32× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
@@ -98,7 +98,7 @@ _Current price $5.27. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$4.71** is -10.8% vs the current price ($5.27) and +3.2% vs the analyst target ($4.56). The current price implies the fleet earning a value-weighted blended **$256,586/day** (1.97× the current forward) — 6.4× the value-weighted 10-yr mean ($40,000, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$4.71** is -10.7% vs the current price ($5.27) and +3.2% vs the analyst target ($4.56). The current price implies the fleet earning a value-weighted blended **$255,698/day** (1.96× the current forward) — 6.4× the value-weighted 10-yr mean ($40,000, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

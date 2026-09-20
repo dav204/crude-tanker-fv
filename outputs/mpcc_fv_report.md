@@ -74,19 +74,19 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **5.73× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **5.72× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **227,925** | — |
-| 10-year mean | 30,050 | 7.58× |
-| 12-month FFA | 39,744 | 5.73× |
-| Current spot | 41,299 | 5.52× |
+| **Implied breakeven (blended)** | **227,358** | — |
+| 10-year mean | 30,050 | 7.57× |
+| 12-month FFA | 39,744 | 5.72× |
+| Current spot | 41,299 | 5.51× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Ctr-Intermediate (72% of fleet value) | 262,891 | 7.80× |
-| Ctr-Feeder (28% of fleet value) | 139,785 | 6.70× |
+| Ctr-Intermediate (72% of fleet value) | 262,237 | 7.78× |
+| Ctr-Feeder (28% of fleet value) | 139,437 | 6.69× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -102,7 +102,7 @@ _Current price $3.03. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$2.33** is -23.2% vs the current price ($3.03) and -11.4% vs the analyst target ($2.63). The current price implies the fleet earning a value-weighted blended **$227,925/day** (5.73× the current forward) — 7.6× the value-weighted 10-yr mean ($30,050, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$2.33** is -23.1% vs the current price ($3.03) and -11.4% vs the analyst target ($2.63). The current price implies the fleet earning a value-weighted blended **$227,358/day** (5.72× the current forward) — 7.6× the value-weighted 10-yr mean ($30,050, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 

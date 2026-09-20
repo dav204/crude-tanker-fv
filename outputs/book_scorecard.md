@@ -38,8 +38,8 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | GNK | dry_bulk | VALIDATED-TIGHT | $27.96 | $21.14 | 16.45–26.36 | -24% | TRIM/SHORT (overvalued) | $25.19 | $25.37 | $29.43 | -14% | OK | ready | stable |
 | SB | dry_bulk | VALIDATED-TIGHT | $9.18 | $9.08 | 7.06–11.47 | -1% | HOLD (fairly valued) | $10.41 | $10.72 | $8.12 (apx) | +32% | n-a | ready | **⚠ sign flips** |
 | SBLK | dry_bulk | VALIDATED-TIGHT | $32.48 | $28.34 | 22.37–34.68 | -13% | TRIM/SHORT (overvalued) | $32.75 | $33.27 | $35.69 | -7% | OK | ready | stable |
-| BRUT | crude | GOVERNED-WIDE · going-concern-unfinanced | $5.27 | $5.51 | 2.46–8.54 | +4% | unreliable read (not actionable) | $4.71 | $4.92 | $5.12 | -4% | OK | ready | **⚠ sign flips** |
-| CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $19.73 | $18.57 | 10.62–25.92 | -6% | TRIM/SHORT (overvalued) | $17.09 | $17.32 | $27.40 | -37% | OK | ready | stable |
+| BRUT | crude | GOVERNED-WIDE · going-concern-unfinanced | $5.27 | $5.51 | 2.46–8.54 | +5% | unreliable read (not actionable) | $4.71 | $4.92 | $5.12 | -4% | OK | ready | **⚠ sign flips** |
+| CAPT | crude | GOVERNED-WIDE · newbuild-heavy | $19.71 | $18.57 | 10.62–25.92 | -6% | TRIM/SHORT (overvalued) | $17.09 | $17.32 | $27.38 | -37% | OK | ready | stable |
 | CMBT | crude | GOVERNED-WIDE · structural-class | $20.29 | $10.81 | 5.67–16.45 | -47% | TRIM/SHORT (overvalued) | $13.02 | $13.36 | $23.59 | -43% | OK | ready | stable |
 | INSW | crude | GOVERNED-WIDE · pending-anchor | $111.15 | $61.81 | 42.87–80.41 | -44% | rich · cycle position (not a short) | $37.95 | $54.64 | $91.86 | -41% | OK | ready | stable |
 | NAT | crude | GOVERNED-WIDE · newbuild-indeterminate | $8.25 | $3.24 | 2.03–4.43 | -61% | rich · cycle position (not a short) | $2.95 | $2.76 | $9.71 (apx) | -72% | n-a | ready | stable |
@@ -50,10 +50,10 @@ FV vs current price, position, and the broker-NAV bug-gate on the **same row** a
 | CCEC | lng | GOVERNED-WIDE · structural-class | $21.66 | $33.70 | 16.27–47.20 | +56% | BUY (undervalued) | $29.97 | $25.70 | $24.07 (apx) | +7% | n-a | ready | stable |
 | FLNG | lng | GOVERNED-WIDE · structural-class | $32.42 | $29.47 | 19.34–38.00 | -9% | TRIM/SHORT (overvalued) | $27.01 | $27.22 | $22.51 | +21% | OK | ready | stable |
 | GSL | containerships | GOVERNED-WIDE · structural-class | $45.84 | $42.94 | 38.63–46.70 | -6% | TRIM/SHORT (overvalued) | $44.17 | $41.37 | $61.12 (apx) | -32% | n-a | ready | — |
-| MPCC | containerships | GOVERNED-WIDE · structural-class | $3.03 | $2.16 | 1.80–2.30 | -29% | unreliable read (not actionable) | $2.33 | $2.15 | $2.92 (apx) | -26% | n-a | ready | — |
+| MPCC | containerships | GOVERNED-WIDE · structural-class | $3.03 | $2.16 | 1.80–2.30 | -29% | unreliable read (not actionable) | $2.33 | $2.15 | $2.91 (apx) | -26% | n-a | ready | — |
 | HAFN | product | PROVISIONAL · pool-gross-up-pending ⛔ | $10.12 | $5.47 | 3.08–7.69 | -46% | rich · cycle position (not a short) | $4.92 | $4.64 | $9.83 | -53% | FAIL | **NO** | stable |
 | STNG | product | PROVISIONAL · off-curve ⛔ | $87.16 | $75.97 | 55.01–92.63 | -13% | TRIM/SHORT (overvalued) | $72.66 | $76.22 | $119.40 | -36% | OK | **NO** | stable |
-| BWLP | lpg | PROVISIONAL · v1-lock-miss ⛔ | $25.95 | $14.52 | 10.92–18.28 | -44% | rich · cycle position (not a short) | $15.48 | $15.83 | $20.43 | -22% | OK | **NO** | stable |
+| BWLP | lpg | PROVISIONAL · v1-lock-miss ⛔ | $25.93 | $14.52 | 10.92–18.28 | -44% | rich · cycle position (not a short) | $15.48 | $15.83 | $20.41 | -22% | OK | **NO** | stable |
 | LPG | lpg | PROVISIONAL · v1-lock-miss ⛔ | $58.15 | $31.82 | 25.61–38.58 | -45% | rich · cycle position (not a short) | $33.93 | $35.69 | $54.86 | -35% | OK | **NO** | stable |
 
 _Model FV / Upside = the SCENARIO-probability-weighted FV — the same basis as Position and every proposal/decomposition table (F-13, 2026-07-02: the two columns previously mixed bases and printed '+28% upside · TRIM/SHORT' rows the day the bases diverged). Blend FV† = the single-point NAV+strip blend at CURRENT market forwards — for tanker classes the HELD Jun-7 curves (see Rate basis above); a large Blend-vs-Model gap IS the scenario-dependence signal, not a discrepancy._

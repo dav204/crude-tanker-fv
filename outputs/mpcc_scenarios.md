@@ -4,7 +4,7 @@
 - **Analyst target:** $2.63
 - **NAV / share (reference, unflexed):** $2.15 _(flexes per scenario via vessel-value elasticity — see table)_
 - **Probability-weighted fair value:** $2.16 (-28.7% vs price)
-- **Breakeven TCE (scenario-invariant):** $227,925/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
+- **Breakeven TCE (scenario-invariant):** $227,358/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** TRIM/SHORT (overvalued)
 
 ## Per-scenario fair value
@@ -21,7 +21,7 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $-0.74
+- **Upside (best scenario − price):** $-0.73
 - **Downside (worst scenario − price):** $-1.23
 - **Expected value vs current** (weighted FV − price): $-0.87 (-28.7%)
 - **Position:** TRIM/SHORT (overvalued)

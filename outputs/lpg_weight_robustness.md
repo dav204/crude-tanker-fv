@@ -43,7 +43,7 @@ Mark-spread robustness is the OTHER dimension — cross-read with `outputs/broke
 | LPG Set B (arb-bull / PDH-recovery bracket) | $32.84 | -43.5% | TRIM/SHORT |
 | LPG Set C (deep-overhang bracket) | $31.00 | -46.7% | TRIM/SHORT |
 
-### BWLP — price $25.95, target $17.52
+### BWLP — price $25.93, target $17.52
 
 **Classification:** WEIGHT-ROBUST. position TRIM/SHORT across all 3 weight sets.
 
