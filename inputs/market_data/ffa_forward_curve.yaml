@@ -26,12 +26,12 @@
 # Held classes carry their own trigger (tanker_forward_print_lands /
 # container_mb_refresh); agreement with vintage_notes is suite-tested.
 as_of:
-  default: 2026-09-18       # FFA 2026-09-18 promoted 2026-09-18 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-18.md)
-                            # advanced from 2026-09-15; every class this promote did not touch carries an explicit hold below.
-  Cape: 2026-09-18          # FFA 2026-09-18 promoted 2026-09-18 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-18.md)
-  Pana: 2026-09-18          # FFA 2026-09-18 promoted 2026-09-18 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-18.md)
-  Post-Panamax: 2026-09-18  # FFA 2026-09-18 promoted 2026-09-18 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-18.md)
-  Supra-Ultra: 2026-09-18   # FFA 2026-09-18 promoted 2026-09-18 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-18.md)
+  default: 2026-09-21       # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md)
+                            # advanced from 2026-09-18; every class this promote did not touch carries an explicit hold below.
+  Cape: 2026-09-21          # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md)
+  Pana: 2026-09-21          # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md)
+  Post-Panamax: 2026-09-21  # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md)
+  Supra-Ultra: 2026-09-21   # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md)
   VLGC: 2026-06-02
   LNGC: 2026-06-07
   MGC: 2026-06-07
@@ -224,62 +224,62 @@ ffa_forward_curve:
   - 42000
   - 41000
   - 40000
-  Cape:              # FFA 2026-09-18 promoted 2026-09-18 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-18.md):
-                     # q1 = front month sep 50000 ALONE (ruling Q-2); q2 = Q4 46375; q3 = Q1-27 31925;
-                     # q4-q6 make the Cal-27 33800 identity exact (34425/34425/34425);
+  Cape:              # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md):
+                     # q1 = front month sep 50000 ALONE (ruling Q-2); q2 = Q4 46875; q3 = Q1-27 32500;
+                     # q4-q6 make the Cal-27 34125 identity exact (34667/34667/34666);
                      # 2028 committed deltas -500/-500.
   - 50000
-  - 46375
-  - 31925
-  - 34425
-  - 34425
-  - 34425
-  - 33925
-  - 33425
-  Pana:              # FFA 2026-09-18 promoted 2026-09-18 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-18.md):
-                     # q1 = front month sep 21325 ALONE (ruling Q-2); q2 = Q4 22183; q3 = Q1-27 18150;
-                     # q4-q6 make the Cal-27 18175 identity exact (18184/18183/18183);
+  - 46875
+  - 32500
+  - 34667
+  - 34667
+  - 34666
+  - 34166
+  - 33666
+  Pana:              # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md):
+                     # q1 = front month sep 21300 ALONE (ruling Q-2); q2 = Q4 22650; q3 = Q1-27 18500;
+                     # q4-q6 make the Cal-27 18450 identity exact (18434/18433/18433);
                      # 2028 committed deltas -400/-300.
-  - 21325
-  - 22183
-  - 18150
-  - 18184
-  - 18183
-  - 18183
-  - 17783
-  - 17483
-  Post-Panamax:              # = Pana, shared freight basin (§11.7.10). FFA 2026-09-18 promoted 2026-09-18 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-18.md)
-  - 21325
-  - 22183
-  - 18150
-  - 18184
-  - 18183
-  - 18183
-  - 17783
-  - 17483
-  Supra-Ultra:              # FFA 2026-09-18 promoted 2026-09-18 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-18.md):
-                     # q1 = front month sep 20100 ALONE (ruling Q-2); q2 = Q4 21366; q3 = Q1-27 16675;
-                     # q4-q6 make the Cal-27 16550 identity exact (16509/16508/16508);
+  - 21300
+  - 22650
+  - 18500
+  - 18434
+  - 18433
+  - 18433
+  - 18033
+  - 17733
+  Post-Panamax:              # = Pana, shared freight basin (§11.7.10). FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md)
+  - 21300
+  - 22650
+  - 18500
+  - 18434
+  - 18433
+  - 18433
+  - 18033
+  - 17733
+  Supra-Ultra:              # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md):
+                     # q1 = front month sep 20025 ALONE (ruling Q-2); q2 = Q4 21508; q3 = Q1-27 16850;
+                     # q4-q6 make the Cal-27 16825 identity exact (16817/16817/16816);
                      # 2028 committed deltas -300/-300.
-  - 20100
-  - 21366
-  - 16675
-  - 16509
-  - 16508
-  - 16508
-  - 16208
-  - 15908
-  Handy-Bulk:              # DERIVED = Supra-Ultra x 0.90 to nearest 10 (§11.7.11 locked). FFA 2026-09-18 promoted 2026-09-18 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-18.md).
+  - 20025
+  - 21508
+  - 16850
+  - 16817
+  - 16817
+  - 16816
+  - 16516
+  - 16216
+  Handy-Bulk:              # DERIVED = Supra-Ultra x 0.90 to nearest 10 (§11.7.11 locked). FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md).
                      # Its as_of is NOT stamped here: no Handy FFA panel exists; the vintage rides
                      # the MB Dry Bulk weekly (§11.7.11).
-  - 18090
-  - 19230
-  - 15010
-  - 14860
-  - 14860
+  - 18020
+  - 19360
+  - 15160
+  - 15140
+  - 15140
+  - 15130
   - 14860
   - 14590
-  - 14320
   # Containerships (§11.8) — NO FFA exists; synthesised current-market
   # forward per the synthesised-from-spot convention: starts at the MB TC
   # assessment, mean-reverts toward the FY21-25 anchor (between
