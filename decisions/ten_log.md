@@ -1,5 +1,57 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-09-21 — 2026-Q2 PAIR LANDED: NAV/sh 88.16 -> 91.91 (+4.2%), EV +6.0pp. Both blockers ruled.
+
+**Decision:** The H1-2026 pair is promoted to live and TEN is no longer the book's lagging name
+(`balance_sheet_basis.lagging` is now empty, 25 of 25 current). Drift gate reads TEN +6.0pp EV /
++4.2% NAV, band BUY unchanged, no flip; 0 UNEXPLAINED across 25 rows. Full record and the evidence
+behind both rulings: `decisions/ten_q2_landing_2026-09-21.md`.
+
+**Cause, attributable and predicted.** This is the balance-sheet + manifest pair, nothing else. The
+liability half sums to +$3.069/sh (cash +144,727K, working capital -109,295K, total debt -33,932K,
+advances +27,310K, preferred +4,176K) and the asset half contributes the age roll plus the two
+restored Suezmaxes (Antarctic, Arctic). Measured NAV/sh 91.91 is the shadow's pre-registered figure
+to the cent. `governance_discount_pct` stays 0.30 and contributes exactly zero to the move.
+
+**Surface after:** NAV/sh 91.91 · fv 68.15 · fv_low 48.70 · fv_high 85.19 · blend_fv 62.06 ·
+ev_pct 30.8 · **ev_pct_family_min 14.3** · ev_pct_family_max 30.8 · weight_sign_stable true ·
+tier GOVERNED-WIDE / `mixed` (invariant to the promotion) · sanity n/a (TEN is in
+APPROX_PNAV_TICKERS — it can never read OK, and never FAIL) · gap -27.7% vs a broker anchor of
+127.05 that has itself drifted (see below).
+
+**The sizing input does NOT clear.** `ev_pct_family_min` moves +9.6 -> **+14.3**, about 5.7pp short
+of the ~+20 the governance side needs under TRADE_PREREG #4. The whole pair was worth ~5pp of EV, so
+clearing needs a second mover of the same size: roughly +$4/sh more NAV, or a price at or below
+~$49.7. G-TEN gate (iii) still fails on the fresh basis. That is the useful answer, and it is not
+what the blockers were about.
+
+**Regen carried `--sidecars`, and that was load-bearing.** `ev_pct` sits exactly at
+`ev_pct_family_max` (30.8 = 30.8), so ANY NAV-increasing promotion pushes the point outside the
+recorded family range and the containment guard withholds the family fields. A plain
+`scripts/regen.sh 2026-Q2` does not re-run the sidecars after a sheet change, and would have shipped
+`ev_pct_family_min: null` with the family MAXIMUM standing alone on the surface.
+
+**Blocker 1 ruled — the shuttle extension rate is $55,000/day, cited.** Derived by differencing the
+issuer's non-cancelable charters-out schedules (H1-2026 6-K Note 12 less FY2025 20-F Note 12:
++40,150 $K in each of 2029 and 2030; / 2 vessels / 365 = $55,000.00). Three independent closures in
+the landing record. The $453.1M leg is NOT yet re-struck on it: rate +$0.35/sh and the
+3/31-vs-6/30 strike +$0.159/sh are carried knowingly and disclosed on the line, ~+$0.51/sh
+one-directional overstatement. What stays structural and permanent is the shuttle ASSET MARK, not
+the cash flows. The sheet's old claim that the convention "underweights ... leaving upside" is
+struck — it is backwards.
+
+**Blocker 2 ruled — fork `ten_commitments_convention` opened on HOLD**, execute_after 2026-09-24.
+The $2,233,409K verifies to the dollar and the §9.6 gate is procedurally open, but 10 of the 20
+hulls are DP2 shuttles with no curve class, so every netting variant books the obligation without
+its asset (-$74.13 / -$53.18 / -$22.82 / -$9.64 per share; the first two fail SANITY, all four cross
+the sizing gate). Silence executes, and TEN has no SANITY gate to catch that.
+
+**Carried forward:** 63-vs-64 hulls is UNRESOLVED, not closed — the statutory 6-K says 64 and the
+manifest asserts 63 against it. The watchlist consensus pair needs rebasing: `current_price` is
+pinned at 44.32 from 2026-09-09 while broker NAV is computed live as price/pnav, so the anchor of
+record has walked 109.24 -> 127.05 unrebased. Both are their own commits.
+
+
 ## 2026-09-18 — THE H1-2026 6-K LANDED (6-K 0001193125-26-394366, filed 2026-09-17): refresh-trigger
 
 **Decision:** The awaited H1-2026 interim financial statements are on EDGAR — the filing the Q2 pair has

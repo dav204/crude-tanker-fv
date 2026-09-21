@@ -23,11 +23,11 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | GNK | dry_bulk | $25.37 | $25.80 | 1.017× | 12.2% | 1.122× | 11.1% | 1.007× | cheap → fair | flips (cheap/fair) |
 | CMDB | dry_bulk | $32.60 | $23.48 | 0.720× | 7.7% | 0.672× | 6.4% | 0.544× | fair → rich | flips (fair/rich) |
 | 2343 | dry_bulk | $0.41 | $0.53 | 1.296× | 11.9% | 1.088× | 12.5% | 1.146× | rich → rich | robust |
-| TNK | crude | $84.60 | $88.20 | 1.043× | 6.9% | 0.589× | 8.2% | 0.716× | rich → rich | robust |
+| TNK | crude | $84.60 | $88.20 | 1.043× | 6.9% | 0.590× | 8.2% | 0.716× | rich → rich | robust |
 | DHT | crude | $15.01 | $19.40 | 1.293× | 9.1% | 0.807× | 8.5% | 0.747× | rich → rich | robust |
 | FRO | crude | $26.04 | $43.80 | 1.682× | 9.5% | 0.850× | 8.7% | 0.769× | rich → rich | robust |
 | ECO | crude | $39.54 | $66.30 | 1.677× | 6.7% | 0.570× | 5.6% | 0.456× | rich → rich | robust |
-| NAT | crude | $2.76 | $6.80 | 2.461× | 13.3% | 1.230× | 9.9% | 0.894× | rich → rich | robust |
+| NAT | crude | $2.76 | $6.80 | 2.461× | 13.3% | 1.232× | 9.9% | 0.894× | rich → rich | robust |
 | INSW **(WHOLE-CO)** | crude | $54.64 | $99.30 | 1.817× | n/a | — | 9.7% | 0.873× | no anchor → rich | n/a |
 | FLNG | lng | $27.22 | $31.30 | 1.150× | n/a | — | 15.3% | 1.479× | no anchor → cheap | n/a |
 | CCEC | lng | $25.70 | $22.80 | 0.887× | n/a | — | 30.0% | 3.112× | no anchor → cheap | n/a |
@@ -35,7 +35,7 @@ A **coverage-independent** fair-multiple benchmark (METHODOLOGY §17). The broke
 | HAFN | product | $4.64 | $8.30 | 1.790× | n/a | — | 13.7% | 1.269× | no anchor → rich | n/a |
 | TRMD | product | $32.30 | $31.80 | 0.984× | n/a | — | 7.4% | 0.641× | no anchor → rich | n/a |
 | ASC | product | $17.37 | $17.70 | 1.019× | n/a | — | 7.2% | 0.621× | no anchor → rich | n/a |
-| TEN **(WHOLE-CO)** | crude | $88.16 | $44.32 | 0.503× | n/a | — | 12.1% | 1.106× | no anchor → cheap | n/a |
+| TEN **(WHOLE-CO)** | crude | $91.91 | $44.32 | 0.482× | n/a | — | 12.0% | 1.102× | no anchor → cheap | n/a |
 | CAPT | crude | $17.32 | $16.06 | 0.927× | 11.4% | — | 11.1% | — | newbuild-heavy (unreliable) → newbuild-heavy (unreliable) | n/a |
 | MPCC | containerships | $2.15 | $2.90 | 1.348× | n/a | — | 45.0% | — | no anchor → newbuild-heavy (unreliable) | n/a |
 | GSL | containerships | $41.37 | $38.99 | 0.942× | n/a | — | 47.6% | 4.857× | no anchor → cheap | n/a |

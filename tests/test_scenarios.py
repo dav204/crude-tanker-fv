@@ -1081,7 +1081,7 @@ def test_ten_three_sleeve_integration_band():
 
     watchlist = load_watchlist()
     ten = watchlist["TEN"]
-    ci = load_company_inputs("TEN", "2026-Q1")
+    ci = load_company_inputs("TEN", BOOK_QUARTER)   # was a 2026-Q1 literal — pair-guarded at the TEN Q2 landing (2026-09-21)
 
     # Carve-out sanity: the three sleeve shares should sum to 1.0.
     co = crude_carve_out(ci)
@@ -1102,10 +1102,13 @@ def test_ten_three_sleeve_integration_band():
     # discount applies downstream (at blend + strip terminal).
     nav = compute_nav(ci)
     assert nav.shuttle_contracted_book == 453_100_000
-    # 333,282 = 287,328 preferred (E+F liquidation) + 45,954 Mare Success NCI
-    # (2026-07-15 reconciliation — the BWLP NCI-via-preferred_equity convention;
-    # decisions/ten_reconciliation_prereg_2026-07-15.md §2).
-    assert nav.preferred_equity == 333_282_000
+    # 337,458 = 287,328 preferred (E+F liquidation, 4,745,947 Series E +
+    # 6,747,147 Series F at $25 par, both unchanged at H1) + 50,130 NCI.
+    # Rolled at the 2026-Q2 landing (2026-09-21): the NCI half was 45,954, a
+    # 2026-07-15 roll-forward estimate, and the H1-2026 6-K balance sheet states
+    # Non-controlling Interest 50,130 directly (43,529 at Dec-31), so the
+    # estimate is dead and the issuer's own figure stands.
+    assert nav.preferred_equity == 337_458_000
     assert nav.governance_discount_pct == pytest.approx(0.30)
     assert 92.0 < nav.nav_per_share < 100.0, f"NAV/sh out of band: ${nav.nav_per_share:.2f}"
 
@@ -1114,8 +1117,14 @@ def test_ten_three_sleeve_integration_band():
     headline, crude_r, product_r = _run_scenarios_for_ticker(
         "TEN", ci, ten["current_price"], ten["analyst_target"], docs, watchlist,
     )
-    # (re-pinned 2026-08-10 STAGE A — the deck-incoherence lift, stage_a_halt_investigation_2026-08-10.md; re-reads at the 8/16 deck re-derivation): $66.64 ±5%.
-    assert 63.31 < headline.probability_weighted_fv < 69.97, (
+    # Re-pinned 2026-09-21 at the 2026-Q2 pair landing (decisions/
+    # ten_q2_landing_2026-09-21.md): $72.72 ±5%. Prior pin was $66.64 ±5%
+    # (2026-08-10 STAGE A deck-incoherence lift). The move is the liability half
+    # of the H1 sheet — NAV/sh 88.16 -> 91.91 — and it is EXPECTED: this band
+    # tracks the inputs, so a pair landing is exactly when it should be rolled.
+    # NB this figure rides the WATCHLIST price (44.32, pinned 2026-09-09), not
+    # the tape (52.09); rebasing that pair will move this band again.
+    assert 69.08 < headline.probability_weighted_fv < 76.36, (
         f"PW FV out of band: ${headline.probability_weighted_fv:.2f}"
     )
     # Both sleeve reports returned (LNG sleeve consumed internally; per-sleeve

@@ -323,15 +323,33 @@ def test_forward_looking_quarter_flags_all_missing(tmp_path):
     # We can't easily backdate the today inside build_checklist without
     # touching the live inputs, so directly call with future today.
     from crude_tanker_fv.loaders import load_watchlist
-    checklist = build_checklist(target_quarter=None, today=date(2026, 8, 1))
-    # 2026-07-31: Q2 balance sheets are now ARRIVING (SB first) — the "all missing"
-    # premise expires file-by-file. Assert against the actual on-disk census instead
-    # of a hard 25 so each refresh doesn't re-red this test.
+    # The target quarter FOLLOWS THE BOOK (2026-09-21). This used to pin
+    # today=2026-08-01, which targeted 2026-Q2 and relied on some name not having
+    # landed its Q2 sheet yet. The 2026-07-31 fix made the COUNT dynamic but left
+    # the premise itself pinned, and it expired the moment the last lagging name
+    # (TEN) landed: all 25 sheets present, missing set empty, test red for a
+    # reason that is good news. Derive a target one quarter beyond the newest
+    # sheet on disk instead, so the missing lane always has a live case.
     import glob as _glob
-    n_q2_on_disk = len(_glob.glob("inputs/balance_sheets/*_2026-Q2.yaml"))
-    assert checklist.target_quarter == "2026-Q2"
-    # Every watchlist ticker must be flagged missing (we have only Q1 BSes).
-    assert checklist.missing_bs_count == len(load_watchlist()) - n_q2_on_disk
+    import re as _re
+    _keys = (_re.search(r"_(\d{4}-Q\d)\.yaml$", p)
+             for p in _glob.glob("inputs/balance_sheets/*_*.yaml"))
+    on_disk = sorted({m.group(1) for m in _keys if m})
+    assert on_disk, "no quarter-keyed balance sheets on disk"
+    newest_y, newest_q = on_disk[-1].split("-Q")
+    # build_checklist targets the quarter BEFORE the one containing `today`, so to
+    # target newest+1 we hand it a date inside newest+2.
+    tq_y, tq_q = int(newest_y), int(newest_q) + 1
+    td_y, td_q = tq_y + (tq_q + 1 - 1) // 4, (tq_q + 1 - 1) % 4 + 1
+    tq_y, tq_q = tq_y + (tq_q - 1) // 4, (tq_q - 1) % 4 + 1
+    checklist = build_checklist(target_quarter=None,
+                                today=date(td_y, (td_q - 1) * 3 + 2, 1))
+    target = f"{tq_y}-Q{tq_q}"
+    n_target_on_disk = len(_glob.glob(f"inputs/balance_sheets/*_{target}.yaml"))
+    assert checklist.target_quarter == target, (checklist.target_quarter, target)
+    assert n_target_on_disk == 0, f"{target} sheets exist; pick a later target"
+    # Every watchlist ticker must be flagged missing at a quarter with no sheets.
+    assert checklist.missing_bs_count == len(load_watchlist()) - n_target_on_disk
     # Render + spot-check the missing section DYNAMICALLY (2026-08-08: literal
     # name pins re-redded at every backlog refresh as names left the missing set).
     path = write_checklist(checklist, outputs_dir=tmp_path)
