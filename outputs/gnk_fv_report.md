@@ -2,7 +2,7 @@
 
 - **Report date:** 2026-Q2
 - **Current price:** $27.96
-- **Model fair value:** $25.19
+- **Model fair value:** $25.23
 - **Analyst target:** $27.20
 
 ## NAV breakdown
@@ -25,28 +25,28 @@
 
 | Quarter | FFA spot (Cape, $/day) | Blended TCE ($/day) | EPS | DPS | Disc. DPS |
 |---|---:|---:|---:|---:|---:|
-| Q1 | 50,000 | 49,325 | 1.957 | 1.957 | 1.906 |
-| Q2 | 46,375 | 45,881 | 1.848 | 1.848 | 1.754 |
-| Q3 | 31,925 | 32,154 | 1.188 | 1.188 | 1.099 |
-| Q4 | 34,425 | 34,529 | 1.280 | 1.280 | 1.153 |
-| Q5 | 34,425 | 34,529 | 1.280 | 1.280 | 1.123 |
-| Q6 | 34,425 | 34,529 | 1.280 | 1.280 | 1.094 |
-| Q7 | 33,925 | 34,054 | 1.254 | 1.254 | 1.045 |
-| Q8 | 33,425 | 33,579 | 1.228 | 1.228 | 0.997 |
-| Σ discounted DPS | | | | | 10.17 |
+| Q1 | 50,000 | 49,325 | 1.955 | 1.955 | 1.905 |
+| Q2 | 46,875 | 46,356 | 1.870 | 1.870 | 1.775 |
+| Q3 | 32,500 | 32,700 | 1.214 | 1.214 | 1.123 |
+| Q4 | 34,667 | 34,759 | 1.296 | 1.296 | 1.168 |
+| Q5 | 34,667 | 34,759 | 1.296 | 1.296 | 1.138 |
+| Q6 | 34,666 | 34,758 | 1.296 | 1.296 | 1.108 |
+| Q7 | 34,166 | 34,283 | 1.270 | 1.270 | 1.058 |
+| Q8 | 33,666 | 33,808 | 1.244 | 1.244 | 1.010 |
+| Σ discounted DPS | | | | | 10.28 |
 | Terminal value (NAV, q9) | | | | 18.46 | 14.60 |
-| **DivStrip implied price** | | | | | **$24.77** |
+| **DivStrip implied price** | | | | | **$24.88** |
 
-_FFA spot is the Cape forward curve that drives the strip cash flows; its 12-month average is **$40,681/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$39,150/day** — not this FFA average._
+_FFA spot is the Cape forward curve that drives the strip cash flows; its 12-month average is **$41,010/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$39,688/day** — not this FFA average._
 
 ## Cycle weighting
 
-- Cycle position = 12M TC (Compass) $39,150 / 10-yr mean $23,650 = **1.55×** → **late-cycle/peak**
+- Cycle position = 12M TC (Compass) $39,688 / 10-yr mean $23,650 = **1.57×** → **late-cycle/peak**
 - Weights: w_nav = 0.70, w_earn = 0.30
 
 ## Blended fair value
 
-0.70 × $25.37 (NAV) + 0.30 × $24.77 (strip) = **$25.19**
+0.70 × $25.37 (NAV) + 0.30 × $24.88 (strip) = **$25.23**
 
 ### FV attribution
 
@@ -54,9 +54,9 @@ _FFA spot is the Cape forward curve that drives the strip cash flows; its 12-mon
 |---|---:|---:|
 | Vessel marks | 22.52 | 89% |
 | Balance-sheet net | -4.75 | -19% |
-| Discounted DPS (strip, 8-10q) | 3.05 | 12% |
+| Discounted DPS (strip, 8-10q) | 3.09 | 12% |
 | Discounted terminal (aged NAV) | 4.38 | 17% |
-| **Blend FV** | **25.19** | 100% |
+| **Blend FV** | **25.23** | 100% |
 
 _Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 × 0.59 = **88%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
 
@@ -64,43 +64,43 @@ _Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.70 + 0.30 
 
 | Dividend payout | Fair value |
 |---|---:|
-| 80% | $25.12 |
-| 95% | $25.17 |
-| 100% | $25.19 |
+| 80% | $25.15 |
+| 95% | $25.21 |
+| 100% | $25.23 |
 
 _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour with some conservatism); 100% = peak persists._
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **1.70× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **1.69× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **55,727** | — |
+| **Implied breakeven (blended)** | **55,689** | — |
 | 10-year mean | 20,134 | 2.77× |
-| 12-month FFA | 32,717 | 1.70× |
+| 12-month FFA | 32,977 | 1.69× |
 | Current spot | 42,601 | 1.31× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Cape (64% of fleet value) | 69,294 | 2.93× |
-| Supra-Ultra (36% of fleet value) | 31,788 | 2.28× |
+| Cape (64% of fleet value) | 69,256 | 2.93× |
+| Supra-Ultra (36% of fleet value) | 31,748 | 2.28× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $18.31 | $21.16 | $24.01 | $26.86 | $29.71 |
-| **-15%** | $18.90 | $21.75 | $24.60 | $27.45 | $30.30 |
-| **+0%** | $19.49 | $22.34 | $25.19 | $28.04 | $30.89 |
-| **+15%** | $20.08 | $22.93 | $25.78 | $28.63 | $31.48 |
-| **+30%** | $20.67 | $23.52 | $26.37 | $29.22 | $32.07 |
+| **-30%** | $18.33 | $21.18 | $24.03 | $26.89 | $29.74 |
+| **-15%** | $18.93 | $21.78 | $24.63 | $27.48 | $30.33 |
+| **+0%** | $19.52 | $22.37 | $25.23 | $28.08 | $30.93 |
+| **+15%** | $20.12 | $22.97 | $25.82 | $28.67 | $31.52 |
+| **+30%** | $20.72 | $23.57 | $26.42 | $29.27 | $32.12 |
 
 _Current price $27.96. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$25.19** is -9.9% vs the current price ($27.96) and -7.4% vs the analyst target ($27.20). The current price implies the fleet earning a value-weighted blended **$55,727/day** (1.70× the current forward) — 2.8× the value-weighted 10-yr mean ($20,134, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$25.23** is -9.8% vs the current price ($27.96) and -7.3% vs the analyst target ($27.20). The current price implies the fleet earning a value-weighted blended **$55,689/day** (1.69× the current forward) — 2.8× the value-weighted 10-yr mean ($20,134, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 
