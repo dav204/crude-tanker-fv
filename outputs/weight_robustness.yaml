@@ -147,7 +147,7 @@ names:
     - TRIM/SHORT
     - TRIM/SHORT
   BWLP:
-    ev_min_pct: -45.8
+    ev_min_pct: -45.7
     ev_max_pct: -41.8
     ev_sign_stable: true
     positions:
@@ -156,7 +156,7 @@ names:
     - TRIM/SHORT
   CAPT:
     ev_min_pct: -30.4
-    ev_max_pct: -5.8
+    ev_max_pct: -5.7
     ev_sign_stable: true
     positions:
     - TRIM/SHORT

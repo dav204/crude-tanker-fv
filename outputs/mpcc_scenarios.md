@@ -3,8 +3,8 @@
 - **Current price:** $3.03
 - **Analyst target:** $2.63
 - **NAV / share (reference, unflexed):** $2.15 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $2.16 (-28.7% vs price)
-- **Breakeven TCE (scenario-invariant):** $227,358/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
+- **Probability-weighted fair value:** $2.16 (-28.6% vs price)
+- **Breakeven TCE (scenario-invariant):** $226,840/day — the value-weighted blended rate (fleet-mix-adjusted) that justifies the current price. The scenario sets the *probability* of clearing it, not the level.
 - **Position (tool view):** TRIM/SHORT (overvalued)
 
 ## Per-scenario fair value
@@ -23,7 +23,7 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 - **Upside (best scenario − price):** $-0.73
 - **Downside (worst scenario − price):** $-1.23
-- **Expected value vs current** (weighted FV − price): $-0.87 (-28.7%)
+- **Expected value vs current** (weighted FV − price): $-0.87 (-28.6%)
 - **Position:** TRIM/SHORT (overvalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

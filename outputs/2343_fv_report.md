@@ -77,16 +77,16 @@ The current price requires the fleet to run at **2.21× the current forward curv
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **39,695** | — |
+| **Implied breakeven (blended)** | **39,676** | — |
 | 10-year mean | 13,481 | 2.94× |
 | 12-month FFA | 17,937 | 2.21× |
 | Current spot | 19,305 | 2.06× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Handy-Bulk (50% of fleet value) | 37,173 | 2.89× |
-| Supra-Ultra (49% of fleet value) | 41,300 | 2.96× |
-| Cape (1% of fleet value) | 90,027 | 3.81× |
+| Handy-Bulk (50% of fleet value) | 37,155 | 2.89× |
+| Supra-Ultra (49% of fleet value) | 41,280 | 2.96× |
+| Cape (1% of fleet value) | 89,985 | 3.80× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
@@ -102,7 +102,7 @@ _Current price $0.53. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$0.41** is -22.0% vs the current price ($0.53) and -6.7% vs the analyst target ($0.44). The current price implies the fleet earning a value-weighted blended **$39,695/day** (2.21× the current forward) — 2.9× the value-weighted 10-yr mean ($13,481, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$0.41** is -21.9% vs the current price ($0.53) and -6.7% vs the analyst target ($0.44). The current price implies the fleet earning a value-weighted blended **$39,676/day** (2.21× the current forward) — 2.9× the value-weighted 10-yr mean ($13,481, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 
