@@ -1,6 +1,6 @@
 {
-  "last_scanned_report_date": "2026-09-15",
-  "updated_at": "2026-09-15T14:00:13.907361+00:00",
+  "last_scanned_report_date": "2026-09-21",
+  "updated_at": "2026-09-21T14:00:15.649708+00:00",
   "tanker_period_signals": {
     "hits": [
       {
@@ -60,6 +60,6 @@
       }
     ]
   },
-  "candidates_cumulative": 234,
+  "candidates_cumulative": 235,
   "candidates_reviewed": 233
 }
