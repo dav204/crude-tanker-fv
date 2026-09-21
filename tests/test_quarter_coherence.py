@@ -241,14 +241,35 @@ def test_current_book_quarter_reads_state(tmp_path):
 def test_balance_sheet_basis_summary_lagging_and_current():
     from crude_tanker_fv.scorecard import balance_sheet_basis_summary
 
-    # CMBT is the lagging specimen (Q2 refresh deferred to the 9/03 half-year
-    # report, cmbt_log 2026-08-31; FRO advanced 2026-08-31).
+    # The live book has NO lagging name any more: CMBT went current 2026-09-10
+    # and TEN, the last of 25, landed its H1 pair 2026-09-21. So the live
+    # assertion is now the EMPTY one.
     s = balance_sheet_basis_summary("2026-Q2", ["SB", "TEN", "TNK"])
-    # Live specimen ROTATES: CMBT went current 2026-09-10 (Q2 pair landed, fork
-    # cmbt_q2_c1_c2_c3); TEN is the lagging specimen until its H1 sheet lands.
-    assert s["lagging"] == {"TEN": "2026-Q1"} and s["missing"] == []
+    assert s["lagging"] == {} and s["missing"] == []
     s = balance_sheet_basis_summary("2026-Q1", ["CMBT"])
     assert s["lagging"] == {} and s["total"] == 1
+
+
+def test_balance_sheet_basis_summary_lagging_lane_stays_covered(tmp_path):
+    """The `lagging` lane needs a live case even when the book has none.
+
+    This pin used to name whichever real ticker was behind — CMBT, then TEN. TEN
+    was the last lagging name of 25, so on 2026-09-21 the obvious rotation was to
+    `== {}`, which would have left NOTHING exercising a non-empty lagging dict and
+    silently retired the Q2-cluster disclosure mechanism the pin exists to protect.
+    A synthetic specimen keeps the lane covered and never needs rotating again —
+    the same shape test_balance_sheet_basis_summary_missing_lane uses for `missing`.
+    """
+    from crude_tanker_fv.scorecard import balance_sheet_basis_summary
+
+    sheets = tmp_path / "balance_sheets"
+    sheets.mkdir()
+    (sheets / "yyy_2026-Q1.yaml").write_text("ticker: YYY\n")   # behind the run quarter
+    (sheets / "zzz_2026-Q2.yaml").write_text("ticker: ZZZ\n")   # current, as a control
+
+    s = balance_sheet_basis_summary("2026-Q2", ["YYY", "ZZZ"], inputs_dir=tmp_path)
+    assert s["lagging"] == {"YYY": "2026-Q1"}, s
+    assert s["missing"] == [] and s["total"] == 2
 
 
 def test_balance_sheet_basis_summary_missing_lane():
