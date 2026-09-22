@@ -1,3 +1,9 @@
+computed_calendar:
+  crude: 2026-Q3
+  dry_bulk: 2026-Q3
+  lng: 2026-Q3
+  lpg: 2026-Q3
+  product: 2026-Q3
 computed_against:
   crude: 576ee4885360
   product: 576ee4885360

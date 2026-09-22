@@ -88,3 +88,18 @@ backs up the accepted pointer, machine state and installed prompts under
 promotion and restores legacy projection behavior; do not publish a legacy-quarter result
 as a new live valuation. work_items.yaml integration_enabled:false stops task projection
 updates/notifications while retaining the evidence and an explicit disabled report note.
+
+### Final isolated validation
+
+Clean source b19e343: regeneration and the full producer suite passed: **996 passed,
+12 expected failures**, with one existing system LibreSSL warning (441.72 seconds).
+Governor: **21 passed** with notification and healthcheck transports mocked. The 31
+pre-existing per-name handoff fields match the prior production publication for all 25
+names; calendar/provenance fields are additive. Source stamp b19e343 has no dirty suffix.
+The final source includes commit-failure recovery, malformed-registry retention, unchanged
+condition deduplication and recovery/recurrence notification tests.
+
+The weekly prompt no longer duplicates old financial targets: it reads current cards,
+CADENCE and recorded owner rulings, retaining conflicts as unknown. The permission manifest
+was compared against user, Projects-folder, producer and governor settings: zero missing
+grants in all four. This does not close quarterly:scheduler-proof.

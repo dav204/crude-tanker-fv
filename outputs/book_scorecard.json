@@ -1,7 +1,9 @@
 {
   "schema_version": "2.9",
-  "generated_at": "2026-09-22T18:18:21+00:00",
-  "source_commit": "5986c09",
+  "valuation_date": "2026-09-22",
+  "projection_start_quarter": "2026-Q3",
+  "generated_at": "2026-09-22T19:34:37+00:00",
+  "source_commit": "b19e343",
   "quarter": "2026-Q2",
   "price_basis": {
     "total": 25,
@@ -69,6 +71,92 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "VLCC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "crude",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -11.8,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -115,6 +203,150 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "VLCC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            }
+          ],
+          "Suezmax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "crude",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -12.3,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -161,6 +393,208 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "VLCC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            }
+          ],
+          "Suezmax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            }
+          ],
+          "LR2": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "crude",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -20.9,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -207,6 +641,150 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "Suezmax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            }
+          ],
+          "Aframax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "crude",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -12.7,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -253,6 +831,295 @@
           "anchor_basis": "archive_22mo_median"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "Cape": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 50000.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 46875.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 32500.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 34667.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 34667.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 34666.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -500,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 34166.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -500,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 33666.0
+            }
+          ],
+          "Pana": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 21300.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 22650.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 18500.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 18434.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 18433.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 18433.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -400,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 18033.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -300,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 17733.0
+            }
+          ],
+          "Supra-Ultra": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 20025.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 21508.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 16850.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 16817.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 16817.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 16816.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -300,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 16516.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -300,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 16216.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "dry_bulk",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": 16.5,
       "governance_discount_pct": 30.0,
       "sleeves": null,
@@ -299,6 +1166,208 @@
           "anchor_basis": "archive_22mo_median"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "Cape": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 50000.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 46875.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 32500.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 34667.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 34667.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 34666.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -500,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 34166.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -500,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 33666.0
+            }
+          ],
+          "Supra-Ultra": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 20025.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 21508.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 16850.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 16817.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 16817.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 16816.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -300,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 16516.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -300,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 16216.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "dry_bulk",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -6.6,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -345,6 +1414,382 @@
           "anchor_basis": "archive_22mo_median"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "Cape": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 50000.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 46875.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 32500.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 34667.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 34667.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 34666.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -500,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 34166.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -500,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 33666.0
+            }
+          ],
+          "Pana": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 21300.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 22650.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 18500.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 18434.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 18433.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 18433.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -400,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 18033.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -300,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 17733.0
+            }
+          ],
+          "Post-Panamax": [
+            {
+              "kind": "derived",
+              "method": "class mapping from Pana",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 21300.0,
+              "underlying": {
+                "kind": "derived",
+                "method": "equal remaining-month mean; half-up integer",
+                "months": [
+                  "2026-09"
+                ],
+                "original_labels": [
+                  "sep"
+                ],
+                "source_date": "2026-09-21",
+                "period": "2026-Q3",
+                "rate": 21300
+              }
+            },
+            {
+              "kind": "derived",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 22650.0,
+              "method": "class mapping from Pana",
+              "underlying": {
+                "kind": "quoted",
+                "original_labels": [
+                  "q4"
+                ],
+                "source_date": "2026-09-21",
+                "period": "2026-Q4",
+                "rate": 22650
+              }
+            },
+            {
+              "kind": "derived",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 18500.0,
+              "method": "class mapping from Pana",
+              "underlying": {
+                "kind": "quoted",
+                "original_labels": [
+                  "q1"
+                ],
+                "source_date": "2026-09-21",
+                "period": "2027-Q1",
+                "rate": 18500
+              }
+            },
+            {
+              "kind": "derived",
+              "method": "class mapping from Pana",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 18434.0,
+              "underlying": {
+                "kind": "derived",
+                "method": "calendar-year residual; remainder to earliest unquoted quarters",
+                "calendar_year": 2027,
+                "calendar_rate": 18450,
+                "original_labels": [
+                  "cal27"
+                ],
+                "source_date": "2026-09-21",
+                "period": "2027-Q2",
+                "rate": 18434
+              }
+            },
+            {
+              "kind": "derived",
+              "method": "class mapping from Pana",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 18433.0,
+              "underlying": {
+                "kind": "derived",
+                "method": "calendar-year residual; remainder to earliest unquoted quarters",
+                "calendar_year": 2027,
+                "calendar_rate": 18450,
+                "original_labels": [
+                  "cal27"
+                ],
+                "source_date": "2026-09-21",
+                "period": "2027-Q3",
+                "rate": 18433
+              }
+            },
+            {
+              "kind": "derived",
+              "method": "class mapping from Pana",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 18433.0,
+              "underlying": {
+                "kind": "derived",
+                "method": "calendar-year residual; remainder to earliest unquoted quarters",
+                "calendar_year": 2027,
+                "calendar_rate": 18450,
+                "original_labels": [
+                  "cal27"
+                ],
+                "source_date": "2026-09-21",
+                "period": "2027-Q4",
+                "rate": 18433
+              }
+            },
+            {
+              "kind": "derived",
+              "method": "class mapping from Pana",
+              "delta": -400,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 18033.0,
+              "underlying": {
+                "kind": "derived",
+                "method": "ruled tail step",
+                "delta": -400,
+                "from": "2027-Q4",
+                "source_date": "2026-09-21",
+                "period": "2028-Q1",
+                "rate": 18033
+              }
+            },
+            {
+              "kind": "derived",
+              "method": "class mapping from Pana",
+              "delta": -300,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 17733.0,
+              "underlying": {
+                "kind": "derived",
+                "method": "ruled tail step",
+                "delta": -300,
+                "from": "2028-Q1",
+                "source_date": "2026-09-21",
+                "period": "2028-Q2",
+                "rate": 17733
+              }
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "dry_bulk",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": 42.2,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -393,6 +1838,295 @@
           "anchor_basis": "archive_22mo_median"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "Cape": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 50000.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 46875.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 32500.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 34667.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 34667.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 34666.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -500,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 34166.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -500,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 33666.0
+            }
+          ],
+          "Pana": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 21300.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 22650.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 18500.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 18434.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 18433.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 18433.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -400,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 18033.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -300,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 17733.0
+            }
+          ],
+          "Supra-Ultra": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 20025.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 21508.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 16850.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 16817.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 16817.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 16816.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -300,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 16516.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -300,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 16216.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "dry_bulk",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -0.4,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -439,6 +2173,92 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "VLCC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "crude",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": 7.8,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -485,6 +2305,266 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "VLCC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            }
+          ],
+          "Suezmax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            }
+          ],
+          "Aframax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ],
+          "LR2": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "crude",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -22.4,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -545,6 +2625,428 @@
           "anchor_basis": "fy_calendar_avg"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "VLCC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            }
+          ],
+          "Suezmax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            }
+          ],
+          "Cape": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 50000.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 46875.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 32500.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 34667.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 34667.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 34666.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -500,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 34166.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -500,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 33666.0
+            }
+          ],
+          "Pana": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 21300.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 22650.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 18500.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 18434.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 18433.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 18450,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 18433.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -400,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 18033.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -300,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 17733.0
+            }
+          ],
+          "Ctr-Large": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 64000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 62250.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 60500.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 58750.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 57000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 55250.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 53500.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 51750.0
+            },
+            {
+              "period": "2028-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 50000.0
+            },
+            {
+              "period": "2028-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 48000.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "crude",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          },
+          {
+            "sector": "dry_bulk",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          },
+          {
+            "sector": "containerships",
+            "horizon_quarters": 10,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2",
+              "2028-Q3",
+              "2028-Q4"
+            ],
+            "terminal_forward_quarters": 11
+          }
+        ]
+      },
       "gap_pct": -37.2,
       "governance_discount_pct": 0.0,
       "sleeves": [
@@ -614,6 +3116,397 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "VLCC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            }
+          ],
+          "Suezmax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            }
+          ],
+          "Aframax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ],
+          "LR2": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ],
+          "LR1": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ],
+          "MR": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 29600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 29600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "crude",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          },
+          {
+            "sector": "product",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -33.4,
       "governance_discount_pct": 0.0,
       "sleeves": [
@@ -671,6 +3564,92 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "Suezmax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "crude",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -65.5,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -731,6 +3710,528 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "VLCC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 154800.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 105700.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 55050.0
+            }
+          ],
+          "Suezmax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 117600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 74500.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30400.0
+            }
+          ],
+          "Aframax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ],
+          "LR2": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ],
+          "LR1": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ],
+          "MR": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 29600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 29600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            }
+          ],
+          "Handysize": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 20800.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 20800.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 21100.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 21100.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            }
+          ],
+          "LNGC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 50000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 80000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 75000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 48000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 52000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 80000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 75000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 50000.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "crude",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          },
+          {
+            "sector": "product",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          },
+          {
+            "sector": "lng",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -15.0,
       "governance_discount_pct": 30.0,
       "sleeves": [
@@ -793,6 +4294,150 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "MR": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 29600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 29600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            }
+          ],
+          "Handysize": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 20800.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 20800.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 21100.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 21100.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "product",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -26.4,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -839,6 +4484,208 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "LR2": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ],
+          "LR1": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ],
+          "MR": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 29600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 29600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "product",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -6.5,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -885,6 +4732,382 @@
           "anchor_basis": "archive_22mo_median"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "Cape": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 50000.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 46875.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 32500.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 34667.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 34667.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 34125,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 34666.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -500,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 34166.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -500,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 33666.0
+            }
+          ],
+          "Supra-Ultra": [
+            {
+              "kind": "derived",
+              "method": "equal remaining-month mean; half-up integer",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 20025.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 21508.0
+            },
+            {
+              "kind": "quoted",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 16850.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 16817.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 16817.0
+            },
+            {
+              "kind": "derived",
+              "method": "calendar-year residual; remainder to earliest unquoted quarters",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 16816.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -300,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 16516.0
+            },
+            {
+              "kind": "derived",
+              "method": "ruled tail step",
+              "delta": -300,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 16216.0
+            }
+          ],
+          "Handy-Bulk": [
+            {
+              "kind": "derived",
+              "method": "class mapping from Supra-Ultra",
+              "months": [
+                "2026-09"
+              ],
+              "original_labels": [
+                "sep"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q3",
+              "rate": 18020.0,
+              "underlying": {
+                "kind": "derived",
+                "method": "equal remaining-month mean; half-up integer",
+                "months": [
+                  "2026-09"
+                ],
+                "original_labels": [
+                  "sep"
+                ],
+                "source_date": "2026-09-21",
+                "period": "2026-Q3",
+                "rate": 20025
+              }
+            },
+            {
+              "kind": "derived",
+              "original_labels": [
+                "q4"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2026-Q4",
+              "rate": 19360.0,
+              "method": "class mapping from Supra-Ultra",
+              "underlying": {
+                "kind": "quoted",
+                "original_labels": [
+                  "q4"
+                ],
+                "source_date": "2026-09-21",
+                "period": "2026-Q4",
+                "rate": 21508
+              }
+            },
+            {
+              "kind": "derived",
+              "original_labels": [
+                "q1"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q1",
+              "rate": 15160.0,
+              "method": "class mapping from Supra-Ultra",
+              "underlying": {
+                "kind": "quoted",
+                "original_labels": [
+                  "q1"
+                ],
+                "source_date": "2026-09-21",
+                "period": "2027-Q1",
+                "rate": 16850
+              }
+            },
+            {
+              "kind": "derived",
+              "method": "class mapping from Supra-Ultra",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q2",
+              "rate": 15140.0,
+              "underlying": {
+                "kind": "derived",
+                "method": "calendar-year residual; remainder to earliest unquoted quarters",
+                "calendar_year": 2027,
+                "calendar_rate": 16825,
+                "original_labels": [
+                  "cal27"
+                ],
+                "source_date": "2026-09-21",
+                "period": "2027-Q2",
+                "rate": 16817
+              }
+            },
+            {
+              "kind": "derived",
+              "method": "class mapping from Supra-Ultra",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q3",
+              "rate": 15140.0,
+              "underlying": {
+                "kind": "derived",
+                "method": "calendar-year residual; remainder to earliest unquoted quarters",
+                "calendar_year": 2027,
+                "calendar_rate": 16825,
+                "original_labels": [
+                  "cal27"
+                ],
+                "source_date": "2026-09-21",
+                "period": "2027-Q3",
+                "rate": 16817
+              }
+            },
+            {
+              "kind": "derived",
+              "method": "class mapping from Supra-Ultra",
+              "calendar_year": 2027,
+              "calendar_rate": 16825,
+              "original_labels": [
+                "cal27"
+              ],
+              "source_date": "2026-09-21",
+              "period": "2027-Q4",
+              "rate": 15130.0,
+              "underlying": {
+                "kind": "derived",
+                "method": "calendar-year residual; remainder to earliest unquoted quarters",
+                "calendar_year": 2027,
+                "calendar_rate": 16825,
+                "original_labels": [
+                  "cal27"
+                ],
+                "source_date": "2026-09-21",
+                "period": "2027-Q4",
+                "rate": 16816
+              }
+            },
+            {
+              "kind": "derived",
+              "method": "class mapping from Supra-Ultra",
+              "delta": -300,
+              "from": "2027-Q4",
+              "source_date": "2026-09-21",
+              "period": "2028-Q1",
+              "rate": 14860.0,
+              "underlying": {
+                "kind": "derived",
+                "method": "ruled tail step",
+                "delta": -300,
+                "from": "2027-Q4",
+                "source_date": "2026-09-21",
+                "period": "2028-Q1",
+                "rate": 16516
+              }
+            },
+            {
+              "kind": "derived",
+              "method": "class mapping from Supra-Ultra",
+              "delta": -300,
+              "from": "2028-Q1",
+              "source_date": "2026-09-21",
+              "period": "2028-Q2",
+              "rate": 14590.0,
+              "underlying": {
+                "kind": "derived",
+                "method": "ruled tail step",
+                "delta": -300,
+                "from": "2028-Q1",
+                "source_date": "2026-09-21",
+                "period": "2028-Q2",
+                "rate": 16216
+              }
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "dry_bulk",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -4.3,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -931,6 +5154,150 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "LNGC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 50000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 80000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 75000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 48000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 52000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 80000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 75000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 50000.0
+            }
+          ],
+          "MGC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 22000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 28000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 22000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 23000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 30000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 28000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 22000.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "lng",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": 1.5,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -977,6 +5344,92 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "LNGC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 50000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 80000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 75000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 48000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 52000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 80000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 75000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-07",
+              "rate": 50000.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "lng",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": 25.2,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -1023,6 +5476,180 @@
           "anchor_basis": "fy_calendar_avg"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "Ctr-Intermediate": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 47567.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 46425.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 45275.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 44100.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 42950.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 41800.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 40650.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 39500.0
+            },
+            {
+              "period": "2028-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 38350.0
+            },
+            {
+              "period": "2028-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 37200.0
+            }
+          ],
+          "Ctr-Large": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 64000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 62250.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 60500.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 58750.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 57000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 55250.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 53500.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 51750.0
+            },
+            {
+              "period": "2028-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 50000.0
+            },
+            {
+              "period": "2028-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 48000.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "containerships",
+            "horizon_quarters": 10,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2",
+              "2028-Q3",
+              "2028-Q4"
+            ],
+            "terminal_forward_quarters": 11
+          }
+        ]
+      },
       "gap_pct": -20.4,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -1069,6 +5696,180 @@
           "anchor_basis": "fy_calendar_avg"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "Ctr-Feeder": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 25500.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 24750.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 24000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 23250.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 22500.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 21750.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 21250.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 20500.0
+            },
+            {
+              "period": "2028-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 19750.0
+            },
+            {
+              "period": "2028-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 19000.0
+            }
+          ],
+          "Ctr-Intermediate": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 47567.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 46425.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 45275.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 44100.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 42950.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 41800.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 40650.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 39500.0
+            },
+            {
+              "period": "2028-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 38350.0
+            },
+            {
+              "period": "2028-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-04",
+              "rate": 37200.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "containerships",
+            "horizon_quarters": 10,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2",
+              "2028-Q3",
+              "2028-Q4"
+            ],
+            "terminal_forward_quarters": 11
+          }
+        ]
+      },
       "gap_pct": -22.8,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -1115,6 +5916,266 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "LR2": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ],
+          "LR1": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ],
+          "MR": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 29600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 29600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            }
+          ],
+          "Handysize": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 20800.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 20800.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 21100.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 21100.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "product",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -42.5,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -1161,6 +6222,208 @@
           "anchor_basis": "tc_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "LR2": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 81000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 56000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 40000.0
+            }
+          ],
+          "MR": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 29600.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 29600.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 30000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 25250.0
+            }
+          ],
+          "Handymax": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 20800.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 20800.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 21100.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 21100.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-09-09",
+              "rate": 17750.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "product",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -28.1,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -1207,6 +6470,92 @@
           "anchor_basis": "realized_tce_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "VLGC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 62000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 55000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 48000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 45000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 43000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 42000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 41000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 40000.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "lpg",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -16.8,
       "governance_discount_pct": 0.0,
       "sleeves": null,
@@ -1255,6 +6604,92 @@
           "anchor_basis": "realized_tce_10yr_mean"
         }
       ],
+      "valuation_timeline": {
+        "valuation_date": "2026-09-22",
+        "projection_start_quarter": "2026-Q3",
+        "schedule_origin": "2026-Q3",
+        "elapsed_quarters": 0,
+        "cash_flow_convention": "full quarters; unchanged end-quarter discounting",
+        "ffa_nodes": {
+          "VLGC": [
+            {
+              "period": "2026-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 62000.0
+            },
+            {
+              "period": "2026-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 55000.0
+            },
+            {
+              "period": "2027-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 48000.0
+            },
+            {
+              "period": "2027-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 45000.0
+            },
+            {
+              "period": "2027-Q3",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 43000.0
+            },
+            {
+              "period": "2027-Q4",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 42000.0
+            },
+            {
+              "period": "2028-Q1",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 41000.0
+            },
+            {
+              "period": "2028-Q2",
+              "kind": "existing_constructed",
+              "method": "committed legacy construction; source-file citation retained",
+              "source_date": "2026-06-02",
+              "rate": 40000.0
+            }
+          ]
+        },
+        "schedule_extensions": [],
+        "scenario_extensions": [],
+        "sleeves": [
+          {
+            "sector": "lpg",
+            "horizon_quarters": 8,
+            "periods": [
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2",
+              "2027-Q3",
+              "2027-Q4",
+              "2028-Q1",
+              "2028-Q2"
+            ],
+            "terminal_forward_quarters": 9
+          }
+        ]
+      },
       "gap_pct": -23.3,
       "governance_discount_pct": 0.0,
       "sleeves": null,
