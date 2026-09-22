@@ -445,3 +445,8 @@ projection behavior; set `work_items.yaml` `integration_enabled: false` to stop 
 notifications while preserving task evidence. Stop the entire worker with
 `state/operations/disabled` only if needed. Accepted snapshots, outboxes, and receipts are
 retained. Quarterly completion remains protected by the governor's committed ledger.
+
+`tasks record` accepts one complete manual work-item object on stdin, validates committed
+completion evidence, and commits only the registry. Adapter-owned facts must be changed at
+their original authority. Schedule refreshes must update the explicit origin and fingerprint
+in calendar_policy.yaml; a changed fleet/coverage array without that mapping freezes.

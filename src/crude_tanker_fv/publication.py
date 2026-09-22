@@ -3,7 +3,7 @@ import argparse
 import hashlib
 import json
 import subprocess
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from .runtime import atomic_json, locked
@@ -40,6 +40,19 @@ def validate(root, now=None):
         if not row.get("void"):
             if not row.get("cycles") or any(c.get("ratio") is None or not c.get("label") or not c.get("anchor_basis") for c in row["cycles"]):
                 problems.append(row["ticker"] + ": missing cycle basis")
+    from .calendar import policy, quarter as calendar_quarter
+    if policy(root / "inputs")["enabled"]:
+        valuation_date = date.fromisoformat(doc["valuation_date"])
+        if not 0 <= (now.date() - valuation_date).days <= 3:
+            problems.append("live publication has a future or stale valuation date")
+        if doc.get("projection_start_quarter") != calendar_quarter(valuation_date):
+            problems.append("valuation date/projection quarter mismatch")
+        for row in names:
+            if row.get("void"):
+                continue
+            timeline = row.get("valuation_timeline") or {}
+            if timeline.get("valuation_date") != doc["valuation_date"] or timeline.get("projection_start_quarter") != doc["projection_start_quarter"]:
+                problems.append(row["ticker"] + ": inconsistent valuation timeline")
     verdict, _ = evaluate_land(root, now)
     problems.extend(verdict.freeze_reasons)
     if problems:

@@ -20,7 +20,7 @@ if git status --porcelain | grep -qE "^( M|\?\?) (src|inputs)/"; then
 fi
 need=0
 [ "$force" = "--sidecars" ] && need=1
-family=outputs/crude_weight_robustness.md
+family=outputs/weight_robustness.yaml
 if [ ! -f "$family" ] || [ inputs/scenario_inputs.yaml -nt "$family" ]; then need=1; fi
 if ! PYTHONPATH=src ./.venv/bin/python -c 'from crude_tanker_fv.scorecard import weight_family_basis; import sys; sys.exit(0 if weight_family_basis()["status"] == "current" else 1)'; then need=1; fi
 if [ "$need" -eq 1 ]; then
