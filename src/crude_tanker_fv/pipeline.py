@@ -950,6 +950,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("quarter", nargs="?", default=current_book_quarter() or "")
     parser.add_argument("--valuation-date", type=str)
+    parser.add_argument("--txn-comparison", action="store_true")
     args = parser.parse_args()
     if args.valuation_date:
         from datetime import date

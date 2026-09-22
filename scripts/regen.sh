@@ -22,6 +22,7 @@ need=0
 [ "$force" = "--sidecars" ] && need=1
 family=outputs/crude_weight_robustness.md
 if [ ! -f "$family" ] || [ inputs/scenario_inputs.yaml -nt "$family" ]; then need=1; fi
+if ! PYTHONPATH=src ./.venv/bin/python -c 'from crude_tanker_fv.scorecard import weight_family_basis; import sys; sys.exit(0 if weight_family_basis()["status"] == "current" else 1)'; then need=1; fi
 if [ "$need" -eq 1 ]; then
   for s in crude_weight_robustness dry_bulk_weight_comparison lng_weight_comparison lpg_weight_comparison product_weight_comparison; do
     PYTHONPATH=src ./.venv/bin/python "scripts/$s.py" >/dev/null 2>&1 && echo "[regen] sidecar ok: $s" || { echo "[regen] SIDECAR FAILED: $s"; exit 4; }

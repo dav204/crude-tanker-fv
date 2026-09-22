@@ -1,6 +1,6 @@
 version: 1
-enabled: false
-review_record: decisions/calendar_workflow_prereg_2026-09-22.md
+enabled: true
+review_record: decisions/calendar_comparison_2026-09-22.md
 schedule_origins:
   CAPT: 2026-Q3
   ASC: 2026-Q3

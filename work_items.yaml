@@ -659,8 +659,8 @@
     {
       "id": "calendar:activation",
       "project": "producer",
-      "status": "blocked",
-      "next_action": "Review full-book construction/timeline/tail effects before enabling calendar promotion",
+      "status": "done",
+      "next_action": "Comparison reviewed; calendar policy enabled with existing publication gates retained",
       "resolver": "agent",
       "due": "2026-10-01",
       "waiting_condition": "comparison reviewed and accepted gates pass",
@@ -668,7 +668,8 @@
       "evidence": [
         {
           "project": "producer",
-          "path": "decisions/calendar_workflow_prereg_2026-09-22.md"
+          "path": "decisions/calendar_comparison_2026-09-22.md",
+          "contains": "Technical activation review"
         }
       ],
       "authority": "manual",

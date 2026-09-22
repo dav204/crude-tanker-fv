@@ -268,7 +268,12 @@ def _surface_matches_head(root: Path) -> "tuple[bool, str]":
     sc = root / "outputs" / "book_scorecard.json"
     if not sc.exists():
         return False, "outputs/book_scorecard.json missing"
-    stamp = str(json.loads(sc.read_text()).get("source_commit") or "")
+    surface = json.loads(sc.read_text())
+    from .calendar import projection_start
+    period = projection_start(root / "inputs")
+    if period and surface.get("projection_start_quarter") != period:
+        return False, "projection calendar advanced; regenerate the surface and weight families"
+    stamp = str(surface.get("source_commit") or "")
     head = _git(root, "rev-parse", "--short", "HEAD")
     if not stamp or not head:
         return False, f"stamp={stamp!r} head={head!r}"

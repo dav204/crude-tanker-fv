@@ -10,7 +10,7 @@ import pytest
 from crude_tanker_fv import pipeline
 
 
-@pytest.mark.parametrize("arg", ["--help", "2026-Q5", "2026Q1", "help", "26-Q1"])
+@pytest.mark.parametrize("arg", ["2026-Q5", "2026Q1", "help", "26-Q1"])
 def test_main_rejects_non_quarter_arg(monkeypatch, arg):
     monkeypatch.setattr(pipeline.sys, "argv", ["pipeline", arg])
     with pytest.raises(SystemExit) as exc:
@@ -58,3 +58,9 @@ def test_main_preflight_refuses_a_torn_pair_before_any_writes(monkeypatch):
     with pytest.raises(SystemExit) as exc:
         pipeline.main()
     assert exc.value.code == 2
+
+
+def test_help_exits_without_valuation(monkeypatch):
+    monkeypatch.setattr(pipeline.sys, 'argv', ['pipeline', '--help'])
+    with pytest.raises(SystemExit) as exc: pipeline.main()
+    assert exc.value.code == 0

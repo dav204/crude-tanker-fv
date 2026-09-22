@@ -436,7 +436,10 @@ def weight_family_basis(outputs_dir: Path = OUTPUTS_DIR,
     if not stamps or not families:
         return {"status": "unstamped", "family_shas": stamps, "current_sha": current,
                 "lagging": sorted(families)}
-    lagging = sorted(f for f in families if stamps.get(f) != current)
+    from .calendar import projection_start
+    period = projection_start(inputs_dir)
+    calendars = doc.get("computed_calendar", {})
+    lagging = sorted(f for f in families if stamps.get(f) != current or (period and calendars.get(f) != period))
     return {"status": "current" if not lagging else "stale",
             "family_shas": stamps, "current_sha": current, "lagging": lagging}
 
@@ -474,7 +477,11 @@ def update_weight_fragility_sidecar(
     stamps = doc.get("computed_against") or {}
     stamps.pop("scenario_inputs_sha", None)   # pre-per-family shape, if ever present
     stamps[family] = scenario_inputs_sha(inputs_dir)
+    from .calendar import projection_start
+    calendars = doc.get("computed_calendar", {})
+    calendars[family] = projection_start(inputs_dir)
     out = {
+        "computed_calendar": calendars,
         "computed_against": stamps,
         "weight_sets": ws,
         "names": dict(sorted(merged.items())),
@@ -1118,6 +1125,8 @@ def _write_handoff_json(
         # derived from the one map, never recomputed). Minor bump: additive,
         # consumer asserts major == 2.
         "schema_version": "2.9",
+        "valuation_date": next((v.timeline["valuation_date"] for v in valuation.values() if v.timeline), None),
+        "projection_start_quarter": next((v.timeline["projection_start_quarter"] for v in valuation.values() if v.timeline), None),
         **_vintage_stamp(),
         "quarter": quarter,
         "price_basis": price_basis,

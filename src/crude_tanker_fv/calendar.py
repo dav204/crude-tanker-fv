@@ -71,11 +71,15 @@ def construct_panel(iso, panel, deltas):
     annuals={int(p):v for (k,p),v in quotes.items() if k=='year'}
     if len(months)!=2 or len(quarters)!=2 or len(annuals)!=1:
         raise ValueError('incomplete required panel: two months, two quarters and one calendar year required')
+    month_numbers=sorted(int(m[:4])*12+int(m[5:]) for m in months)
+    print_number=printed.year*12+printed.month
+    if month_numbers[1]!=month_numbers[0]+1 or month_numbers[0] not in (print_number,print_number+1):
+        raise ValueError('ambiguous or stale month assignments')
     ordered=sorted(quarters,key=index)
     if index(ordered[1])!=index(ordered[0])+1 or index(ordered[0]) not in (index(start),index(start)+1):
         raise ValueError('ambiguous quarter year assignments: '+str(ordered))
     year=next(iter(annuals))
-    if year not in (printed.year+1,printed.year+2):
+    if year not in (printed.year+1,printed.year+2) and not (year==printed.year and printed.month<=3):
         raise ValueError('ambiguous calendar-year assignment')
     rates=dict(quarters)
     provenance={p:{'kind':'quoted','original_labels':originals['quarter',p],'source_date':iso} for p in quarters}
@@ -85,7 +89,7 @@ def construct_panel(iso, panel, deltas):
             raise ValueError('incomplete remaining-quarter months: '+str(required))
         total=sum(months[m] for m in required)
         rates[start]=(total+len(required)//2)//len(required)
-        provenance[start]={'kind':'derived','method':'equal remaining-month mean; half-up integer', 'months':required,'original_labels':[r for m in required for r in originals['month',m]],'source_date':iso}
+        provenance[start]={'kind':'derived','method':'equal remaining-month mean; half-up integer', 'months':required,'component_rates':{m:months[m] for m in required},'original_labels':[r for m in required for r in originals['month',m]],'source_date':iso}
     yearkeys=keys('%d-Q1'%year,4);unknown=[q for q in yearkeys if q not in rates]
     remaining=4*annuals[year]-sum(rates.get(q,0) for q in yearkeys)
     if not unknown or remaining<=0:
@@ -126,6 +130,13 @@ def policy(inputs_dir):
     return doc
 
 
+def projection_start(inputs_dir):
+    if not policy(inputs_dir)['enabled']:
+        return None
+    from .loaders import run_timestamp
+    return quarter(date.fromisoformat(str(VALUATION_DATE or os.environ.get('CRUDE_FV_VALUATION_DATE') or run_timestamp()[:10])))
+
+
 def align(inputs, inputs_dir, valuation_date=None, enabled=None):
     cfg=policy(inputs_dir)
     enabled=cfg['enabled'] if enabled is None else enabled
@@ -141,6 +152,8 @@ def align(inputs, inputs_dir, valuation_date=None, enabled=None):
         source=calendars.get(cls)
         if not source or len(source)!=len(values):
             raise ValueError('missing calendar mapping for FFA '+cls)
+        if any(row.get('rate') is not None and row['rate']!=value for row,value in zip(source,values)):
+            raise ValueError('FFA values changed without calendar provenance: '+cls)
         mapping={row['period']:dict(row,rate=rate) for row,rate in zip(source,values)}
         periods=[row['period'] for row in source]
         if periods!=keys(periods[0],len(periods)):
