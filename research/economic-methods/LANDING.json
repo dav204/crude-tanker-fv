@@ -1,0 +1,16 @@
+{
+  "status": "review_artifacts_and_operational_status_committed",
+  "main_metadata_commit": "74ad14c2bfb3cbb937ff01076d6f94e06281dd05",
+  "implementation_branch": "codex/economic-method-review",
+  "implementation_tip": "9810532588f7d4a35817cf885845403d7c76ec07",
+  "accepted_publication_id": "402b3fc5d56691b112824b24acac4c9970220f35cc01d7e141ff94efe92dc700",
+  "frozen_production_inputs_outputs_baselines_unchanged": true,
+  "governor_review_registry_unchanged": true,
+  "determinant_changes": [],
+  "production_surface_coherent": true,
+  "reason": "surface d53bb0b current for HEAD 74ad14c",
+  "registry_items_verified": 10,
+  "notifications": "not sent",
+  "healthchecks": "not called",
+  "push": "not attempted"
+}

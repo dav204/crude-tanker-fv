@@ -3721,6 +3721,8 @@ aggregation rules, and the existing diagnostic price basis. Also compare cycle
 labels/ratios, family minima/sign stability and instantaneous/governed reads.
 `research/economic-methods/run.py` fails before changed-method evaluation on a
 mismatch; `test_full_handoff_replay_catches_non_fv_semantic_drift` guards this boundary.
+The executable research guards remain on `codex/economic-method-review`; production
+contains the review package and uses the existing valuation engine.
 Research cash EPS is `ordinary_common_accounting_eps_v1`; the legacy strip and
 normal-rate diagnostic retain the explicitly labelled pre-depreciation proxy.
 No adoption of these experiments is authorized by this documentation.
