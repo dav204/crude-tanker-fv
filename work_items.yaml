@@ -1,491 +1,478 @@
 {
-  "version": 1,
+  "complete": true,
   "integration_enabled": true,
   "items": [
     {
-      "id": "calendar:activation",
-      "project": "producer",
-      "status": "done",
-      "next_action": "Comparison reviewed; calendar policy enabled with existing publication gates retained",
-      "resolver": "agent",
+      "authority": "manual",
+      "blocking_decision_ids": [],
       "due": "2026-10-01",
-      "waiting_condition": "comparison reviewed and accepted gates pass",
-      "blocking_decision_ids": [],
       "evidence": [
         {
-          "project": "producer",
+          "contains": "Technical activation review",
           "path": "decisions/calendar_comparison_2026-09-22.md",
-          "contains": "Technical activation review"
+          "project": "producer"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "carry:01",
+      "id": "calendar:activation",
+      "next_action": "Comparison reviewed; calendar policy enabled with existing publication gates retained",
       "project": "producer",
-      "status": "waiting",
-      "next_action": "**SBLK** share count 111,671,386 \u2192 116,071,386. Corroborated a third time 2026-09-18 (0000950157-26-001031, holdings-notification denominators); still no treasury figure stated, so the net-of-treasury caveat stands for the owner-present sheet build.",
       "resolver": "agent",
-      "due": null,
-      "waiting_condition": "next relevant vintage",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "carry:02",
-      "project": "producer",
-      "status": "waiting",
-      "next_action": "**HAFN** Q3 cash-for-investment swap: \u0394NAV \u2248 0 only if both legs move together. The TORM leg is now a SHARE COUNT, not a percentage \u2014 **18,656,061** TRMD A-shares, issuer-stated by TORM 2026-09-18 (0000919574-26-006391 ex-99.2); the 18.22% / 18.19% gap is TORM's denominator moving on its own RSU issue, not a disagreement.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "next relevant vintage",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "carry:03",
-      "project": "producer",
-      "status": "waiting",
-      "next_action": "**TRMD** next vintage carries the exact count **102,553,688** A-shares (104,000,000 is rounded; two RSU increases, +31,483 on 9/11 and +132,421 on 9/18, both below any gate).",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "next relevant vintage",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "carry:04",
-      "project": "producer",
-      "status": "waiting",
-      "next_action": "**FRO** whether the associate stake belongs in NAV is a methodology question for the owner.",
-      "resolver": "owner",
-      "due": null,
-      "waiting_condition": "next relevant vintage",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "carry:05",
-      "project": "producer",
-      "status": "waiting",
-      "next_action": "**Front Vefsna** $135.0M (FRO P1 leg) stays unpromoted, blocked on issuer vessel-name disclosure.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "next relevant vintage",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "carry:06",
-      "project": "producer",
-      "status": "waiting",
-      "next_action": "**CMBT** \u00a79.4 yard-quality discount and Dec-2025 segment vintages \u2014 revisit at the November Bermuda appeal.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "next relevant vintage",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "carry:07",
-      "project": "producer",
-      "status": "waiting",
-      "next_action": "**SB** `analyst_target` 7.10 has been STALE-flagged since 8/29. **GNK** dividend guidance wants a cross-check against `dividend_policies/gnk.yaml`.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "next relevant vintage",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "carry:08",
-      "project": "producer",
-      "status": "waiting",
-      "next_action": "**PANL** onboarding deferred; the B3 IR query went out 2026-08-12 and is still waiting. Scaffolded in `data_sources.yaml`, not watchlisted.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "next relevant vintage",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "defect:01",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "`drift_gate` has no from-inputs recompute mode, so a clean clone cannot run the gate.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "implementation and cited completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "defect:02",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "`decision_log_annotated_since` string-matches `**Decision:**` exactly (`drift_gate.py`); a dated prefix is invisible to it and untested.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "implementation and cited completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "defect:03",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "`_fetch` catches only `HTTPError` in `hkex_poll.py` and `newsweb_poll.py` \u2014 a `URLError` escapes both pollers. One module-level fix.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "implementation and cited completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "defect:04",
-      "project": "producer",
       "status": "done",
-      "next_action": "Durable full-manifest queue implemented; pending filings remain in adapter task",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "implementation and cited completion",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "comparison reviewed and accepted gates pass"
+    },
+    {
+      "authority": "manual",
       "blocking_decision_ids": [],
+      "due": null,
       "evidence": [
         {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "carry:01",
+      "next_action": "**SBLK** share count 111,671,386 \u2192 116,071,386. Corroborated a third time 2026-09-18 (0000950157-26-001031, holdings-notification denominators); still no treasury figure stated, so the net-of-treasury caveat stands for the owner-present sheet build.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "next relevant vintage"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "carry:02",
+      "next_action": "**HAFN** Q3 cash-for-investment swap: \u0394NAV \u2248 0 only if both legs move together. The TORM leg is now a SHARE COUNT, not a percentage \u2014 **18,656,061** TRMD A-shares, issuer-stated by TORM 2026-09-18 (0000919574-26-006391 ex-99.2); the 18.22% / 18.19% gap is TORM's denominator moving on its own RSU issue, not a disagreement.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "next relevant vintage"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "carry:03",
+      "next_action": "**TRMD** next vintage carries the exact count **102,553,688** A-shares (104,000,000 is rounded; two RSU increases, +31,483 on 9/11 and +132,421 on 9/18, both below any gate).",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "next relevant vintage"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "carry:04",
+      "next_action": "**FRO** whether the associate stake belongs in NAV is a methodology question for the owner.",
+      "project": "producer",
+      "resolver": "owner",
+      "status": "waiting",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "next relevant vintage"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "carry:05",
+      "next_action": "**Front Vefsna** $135.0M (FRO P1 leg) stays unpromoted, blocked on issuer vessel-name disclosure.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "next relevant vintage"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "carry:06",
+      "next_action": "**CMBT** \u00a79.4 yard-quality discount and Dec-2025 segment vintages \u2014 revisit at the November Bermuda appeal.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "next relevant vintage"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "carry:07",
+      "next_action": "**SB** `analyst_target` 7.10 has been STALE-flagged since 8/29. **GNK** dividend guidance wants a cross-check against `dividend_policies/gnk.yaml`.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "next relevant vintage"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "carry:08",
+      "next_action": "**PANL** onboarding deferred; the B3 IR query went out 2026-08-12 and is still waiting. Scaffolded in `data_sources.yaml`, not watchlisted.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "next relevant vintage"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "defect:01",
+      "next_action": "`drift_gate` has no from-inputs recompute mode, so a clean clone cannot run the gate.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "implementation and cited completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "defect:02",
+      "next_action": "`decision_log_annotated_since` string-matches `**Decision:**` exactly (`drift_gate.py`); a dated prefix is invisible to it and untested.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "implementation and cited completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "defect:03",
+      "next_action": "`_fetch` catches only `HTTPError` in `hkex_poll.py` and `newsweb_poll.py` \u2014 a `URLError` escapes both pollers. One module-level fix.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "implementation and cited completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "contains": "def queue(",
           "path": "src/crude_tanker_fv/filings.py",
-          "project": "producer",
-          "contains": "def queue("
+          "project": "producer"
         },
         {
           "path": "decisions/correctness_delivery_2026-09-22.md",
           "project": "producer"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
+      "id": "defect:04",
+      "next_action": "Durable full-manifest queue implemented; pending filings remain in adapter task",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "done",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "implementation and cited completion"
     },
     {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
       "id": "defect:05",
-      "project": "producer",
-      "status": "ready",
       "next_action": "CLAUDE.md's APPROX list names five tickers; `reconcile.APPROX_PNAV_TICKERS` holds nine (adds CMDB, GSL, SB, 2343).",
+      "project": "producer",
       "resolver": "agent",
-      "due": null,
-      "waiting_condition": "implementation and cited completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "implementation and cited completion"
     },
     {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
       "id": "defect:06",
-      "project": "producer",
-      "status": "ready",
       "next_action": "The eight-item news-pull limitations backlog has never been triaged (GlobeNewswire timeout, sec.gov/efts 403, hellenic/splash 403, PDF primaries via `fetch_pdf`, JS-shell IR pages, Glob/Grep restore-or-bless, the missing 8/14 daily).",
+      "project": "producer",
       "resolver": "agent",
-      "due": null,
-      "waiting_condition": "implementation and cited completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "implementation and cited completion"
     },
     {
-      "id": "filings:pending",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "Drain all pending accessions; commit dispositions before acknowledging",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "all accessions dispositioned",
+      "authority": "adapter",
       "blocking_decision_ids": [],
+      "due": null,
       "evidence": [
         {
-          "project": "producer",
           "path": "state/edgar_manifest.jsonl",
+          "project": "producer",
           "runtime": true
         }
       ],
-      "pending_total": 100,
-      "oldest_arrival": "2026-07-14T14:20:05+00:00",
+      "id": "filings:pending",
       "invalid": [],
-      "authority": "adapter"
+      "next_action": "Drain all pending accessions; commit dispositions before acknowledging",
+      "oldest_arrival": "2026-07-14T14:20:05+00:00",
+      "pending_total": 100,
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "waiting_condition": "all accessions dispositioned"
     },
     {
-      "id": "fork:buyflip_trmd_2026-09-15",
-      "project": "producer",
-      "status": "done",
-      "next_action": "land the flip toward BUY on TRMD as the surface computes it (price 32.96 vs scenario PW FV 35.14, EV +6.6%): the drift gate explains it as price-only against an unchanged fair value, the cause is the 2026-09-15 Oaktree secondary (6-K 0000919574-26-006318, no new shares, no proceeds to the company, no dilution). The standing halt-and-investigate becomes this objection window.",
-      "resolver": "agent",
+      "authority": "adapter",
+      "blocking_decision_ids": [],
       "due": "2026-09-18",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
       "evidence": [
         {
-          "project": "producer",
-          "path": "inputs/forks.yaml"
+          "path": "inputs/forks.yaml",
+          "project": "producer"
         }
       ],
-      "authority": "adapter"
+      "id": "fork:buyflip_trmd_2026-09-15",
+      "next_action": "land the flip toward BUY on TRMD as the surface computes it (price 32.96 vs scenario PW FV 35.14, EV +6.6%): the drift gate explains it as price-only against an unchanged fair value, the cause is the 2026-09-15 Oaktree secondary (6-K 0000919574-26-006318, no new shares, no proceeds to the company, no dilution). The standing halt-and-investigate becomes this objection window.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "done",
+      "waiting_condition": "registered condition or ruling"
     },
     {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": "2026-09-15",
+      "evidence": [
+        {
+          "path": "inputs/forks.yaml",
+          "project": "producer"
+        }
+      ],
       "id": "fork:bwlp_nb_order_treatment",
-      "project": "producer",
-      "status": "done",
       "next_action": "Option 3 ADVANCES-ONLY interim (= $0: the eight HHI VLGC hulls + the ~$940M commitment both OUT, matching the 6/30 statements): \u0394NAV 0.0 / \u0394EV 0.0, BWLP stays T/S PROVISIONAL. Record the HHI yard + the $300M 2.25% convert (settled 9/09, 'partly finance the newbuild program') as Q3 wiring; re-opens on any instalment or schedule disclosure. NO structural_exempt registry line (the verifier: it would enshrine what the convention header forbids)",
+      "project": "producer",
       "resolver": "agent",
-      "due": "2026-09-15",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "inputs/forks.yaml"
-        }
-      ],
-      "authority": "adapter"
+      "status": "done",
+      "waiting_condition": "registered condition or ruling"
     },
     {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": "2026-09-15",
+      "evidence": [
+        {
+          "path": "inputs/forks.yaml",
+          "project": "producer"
+        }
+      ],
       "id": "fork:cmbt_commitments_convention",
-      "project": "producer",
-      "status": "done",
       "next_action": "move CMBT to COMMITMENT-NET (newbuild_capex_commitments = 900,837k sourced, Note 12 img_027) per newbuild_convention.yaml's own 'must move to' \u2014 NAV/share 16.46 -> 13.36 (-$3.10); CMBT leaves OFF_CONVENTION_QUEUE in the same commit; GSL's pending commitment-net pre-reg follows",
+      "project": "producer",
       "resolver": "agent",
-      "due": "2026-09-15",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "inputs/forks.yaml"
-        }
-      ],
-      "authority": "adapter"
+      "status": "done",
+      "waiting_condition": "registered condition or ruling"
     },
     {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": "2026-09-10",
+      "evidence": [
+        {
+          "path": "inputs/forks.yaml",
+          "project": "producer"
+        }
+      ],
       "id": "fork:cmbt_q2_c1_c2_c3",
-      "project": "producer",
-      "status": "done",
       "next_action": "C-1 YES (Donoussa/Stella/Brest/Brugge + Golden Myrtalia off-curve at HFS) \u00b7 C-2 YES (keep the $100M FSO placeholder with its 109,937 debt inside total_debt) \u00b7 C-3 YES (governance_discount 0 holds; revisit at the November Bermuda appeal)",
+      "project": "producer",
       "resolver": "agent",
-      "due": "2026-09-10",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "inputs/forks.yaml"
-        }
-      ],
-      "authority": "adapter"
+      "status": "done",
+      "waiting_condition": "registered condition or ruling"
     },
     {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": "2026-09-10",
+      "evidence": [
+        {
+          "path": "inputs/forks.yaml",
+          "project": "producer"
+        }
+      ],
       "id": "fork:cmdb_vintage_pair_rebase",
-      "project": "producer",
-      "status": "done",
       "next_action": "rebase CMDB current_price + consensus_pnav + consensus_fwd_pe from ONE vintage, anchor-preserving (the 2026-06-10 TEN precedent): pnav = price / implied broker NAV",
+      "project": "producer",
       "resolver": "agent",
-      "due": "2026-09-10",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "inputs/forks.yaml"
-        }
-      ],
-      "authority": "adapter"
+      "status": "done",
+      "waiting_condition": "registered condition or ruling"
     },
     {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": "2026-09-10",
+      "evidence": [
+        {
+          "path": "inputs/forks.yaml",
+          "project": "producer"
+        }
+      ],
       "id": "fork:escalation_c3_rearm",
-      "project": "producer",
-      "status": "done",
       "next_action": "Crude 0.25/0.62/0.00/0.13 -> 0.28/0.59/0.00/0.13: +3pp escalation from pre_mou_baseline (pause ended 8/30, campaign from 9/01, TD3C $790.8k 9/10); \u0394NAV 0.0; crude EV +0.5..+2.4pp, non-crude 0.0; BRUT HOLD->BUY predicted +5.6 (masked, inside deadband); CAPT T/S -7.0",
+      "project": "producer",
       "resolver": "agent",
-      "due": "2026-09-10",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "inputs/forks.yaml"
-        }
-      ],
-      "authority": "adapter"
+      "status": "done",
+      "waiting_condition": "registered condition or ruling"
     },
     {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": "2026-09-15",
+      "evidence": [
+        {
+          "path": "inputs/forks.yaml",
+          "project": "producer"
+        }
+      ],
       "id": "fork:r4_wo5_deck_reexpression_schedule",
-      "project": "producer",
-      "status": "done",
       "next_action": "Execute WO5 Phases 0-3b on the post-Stage-B base (12M as_of 2026-09-09) with the C3 vector 0.28/0.59/0.00/0.13 as the FROZEN weight input; \u0394NAV 0.0, the 10 crude names move >2pp EV by design, non-crude exactly 0.00. No void retires here: the three Phase-4 dispositions (CAPT / TNK / BRUT) stay execution-day owner words (WO5 law); B1 re-arms at TNK's disposition",
+      "project": "producer",
       "resolver": "agent",
-      "due": "2026-09-15",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "inputs/forks.yaml"
-        }
-      ],
-      "authority": "adapter"
+      "status": "done",
+      "waiting_condition": "registered condition or ruling"
     },
     {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": "2026-09-15",
+      "evidence": [
+        {
+          "path": "inputs/forks.yaml",
+          "project": "producer"
+        }
+      ],
       "id": "fork:spot_tce_promote_2026-09-10",
-      "project": "producer",
-      "status": "done",
       "next_action": "Promote spot_tce.yaml from the 8/07 daily to Pareto 9/10 (column-1 convention pinned 8/07): VLCC 790,800 \u00b7 Suez 135,000 \u00b7 Afra/LR2 72,500 \u00b7 LR2c 141,800 \u00b7 LR1c 148,100 \u00b7 MR(East)/Handy 55,100 \u00b7 Cape 54,538 \u00b7 Pana/PPmx 21,725 \u00b7 Supra 21,537; as_of.default 2026-09-10; Ctr-* mirror to the 12M W36 values. Spot feeds breakeven/validate/report only \u2014 \u0394NAV and \u0394EV exactly 0.0 on all 25 names; holds \u2286 12M holds",
-      "resolver": "agent",
-      "due": "2026-09-15",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "inputs/forks.yaml"
-        }
-      ],
-      "authority": "adapter"
-    },
-    {
-      "id": "fork:stage_b_open_items",
       "project": "producer",
+      "resolver": "agent",
       "status": "done",
-      "next_action": "FRO 1-yr VLCC 110/120k: settle the CONCLUDED date at the FRO issuer source; if >= 2026-06-15 they enter (VLCC 12M -> 115,000). Product routing: pure-product names read the DIRTY LR2/LR1 lines \u2014 open a methodology note, no promotion",
-      "resolver": "agent",
+      "waiting_condition": "registered condition or ruling"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
       "due": "2026-09-14",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
       "evidence": [
         {
-          "project": "producer",
-          "path": "inputs/forks.yaml"
+          "path": "inputs/forks.yaml",
+          "project": "producer"
         }
       ],
-      "authority": "adapter"
-    },
-    {
-      "id": "fork:ten_commitments_convention",
+      "id": "fork:stage_b_open_items",
+      "next_action": "FRO 1-yr VLCC 110/120k: settle the CONCLUDED date at the FRO issuer source; if >= 2026-06-15 they enter (VLCC 12M -> 115,000). Product routing: pure-product names read the DIRTY LR2/LR1 lines \u2014 open a methodology note, no promotion",
       "project": "producer",
-      "status": "waiting",
-      "next_action": "HOLD advances-only on TEN (newbuild_capex_commitments stays 0) and carry the now-CITED 2,233,409k remaining commitment as provenance on the line \u2014 the CMBT Branch-A shape. The \u00a79.6 gate is procedurally open (TEN is out of NAV_FIGURE_ESTIMATE_QUEUE) but the ASSET half cannot be built: 10 of the 20 hulls are DP2 shuttles, 62% of the $2,413M priced program, and there is no shuttle class in vessel_value_curves.yaml, so every netting variant books the obligation without its asset. Sized, all four: naive commitment-net -$74.13/sh (NAV -> 17.78, -86.0% vs broker = SANITY FAIL); on-curve markable-only -$53.18/sh (-69.5% = SANITY FAIL); on-curve at contract price PV'd -$22.82/sh; the same undiscounted -$9.64/sh, which is exactly the unpriced-20th-hull residual \u2014 i.e. at a zero discount rate advances-only IS contract-value-net, so holding is not ignoring the obligation, it is netting it 1:1 against the asset it buys. ALL FOUR cross the governance sizing gate: ev_pct_family_min falls below the +5 BUY edge at -$3.60/sh and sign-flips to conviction-zero at -$7.51/sh. TEN stays in OFF_CONVENTION_QUEUE and takes NO structural_exempt line (the BWLP verifier's ruling, and it would be factually false here since 10 of 20 hulls ARE markable). Predicted impact: ZERO on all 25 names \u2014 comment and provenance text only; commitments, advances, the manifest, the curve registry and the convention registry are FROZEN; any nonzero NAV = HALT. Exit condition, explicitly NOT this fork: a \u00a711.6 newbuild-shuttle contracted-book leg, a TEN newbuild_specs.yaml entry with cited scrubber/eco flags, and a disclosed price for the 20th hull.",
       "resolver": "agent",
-      "due": "2026-09-24",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "inputs/forks.yaml"
-        }
-      ],
-      "authority": "adapter"
+      "status": "done",
+      "waiting_condition": "registered condition or ruling"
     },
     {
-      "id": "governor:CCEC:BASELINE_UNKNOWN_weight_sign_stable",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "review baseline not documented for weight_sign_stable; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "resolver": "owner",
-      "due": null,
-      "waiting_condition": "explicit valuation mini-review or gate disposition",
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": "2026-09-24",
+      "evidence": [
+        {
+          "path": "inputs/forks.yaml",
+          "project": "producer"
+        }
+      ],
+      "id": "fork:ten_commitments_convention",
+      "next_action": "HOLD advances-only on TEN (newbuild_capex_commitments stays 0) and carry the now-CITED 2,233,409k remaining commitment as provenance on the line \u2014 the CMBT Branch-A shape. The \u00a79.6 gate is procedurally open (TEN is out of NAV_FIGURE_ESTIMATE_QUEUE) but the ASSET half cannot be built: 10 of the 20 hulls are DP2 shuttles, 62% of the $2,413M priced program, and there is no shuttle class in vessel_value_curves.yaml, so every netting variant books the obligation without its asset. Sized, all four: naive commitment-net -$74.13/sh (NAV -> 17.78, -86.0% vs broker = SANITY FAIL); on-curve markable-only -$53.18/sh (-69.5% = SANITY FAIL); on-curve at contract price PV'd -$22.82/sh; the same undiscounted -$9.64/sh, which is exactly the unpriced-20th-hull residual \u2014 i.e. at a zero discount rate advances-only IS contract-value-net, so holding is not ignoring the obligation, it is netting it 1:1 against the asset it buys. ALL FOUR cross the governance sizing gate: ev_pct_family_min falls below the +5 BUY edge at -$3.60/sh and sign-flips to conviction-zero at -$7.51/sh. TEN stays in OFF_CONVENTION_QUEUE and takes NO structural_exempt line (the BWLP verifier's ruling, and it would be factually false here since 10 of 20 hulls ARE markable). Predicted impact: ZERO on all 25 names \u2014 comment and provenance text only; commitments, advances, the manifest, the curve registry and the convention registry are FROZEN; any nonzero NAV = HALT. Exit condition, explicitly NOT this fork: a \u00a711.6 newbuild-shuttle contracted-book leg, a TEN newbuild_specs.yaml entry with cited scrubber/eco flags, and a disclosed price for the 20th hull.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "waiting_condition": "registered condition or ruling"
+    },
+    {
+      "authority": "adapter",
       "blocking_decision_ids": [
         "governor:CCEC:BASELINE_UNKNOWN_weight_sign_stable"
-      ],
-      "evidence": [
-        {
-          "project": "governor",
-          "path": "monitor/state/seam_latest.json",
-          "runtime": true
-        }
       ],
       "details": {
         "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
@@ -496,25 +483,25 @@
         "ticker": "CCEC",
         "value": "weight_sign_stable"
       },
-      "authority": "adapter"
-    },
-    {
-      "id": "governor:CCEC:WIDE_CAP",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "valuation-supported sizing is capped; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "resolver": "owner",
       "due": null,
-      "waiting_condition": "explicit valuation mini-review or gate disposition",
-      "blocking_decision_ids": [
-        "governor:CCEC:WIDE_CAP"
-      ],
       "evidence": [
         {
-          "project": "governor",
           "path": "monitor/state/seam_latest.json",
+          "project": "governor",
           "runtime": true
         }
+      ],
+      "id": "governor:CCEC:BASELINE_UNKNOWN_weight_sign_stable",
+      "next_action": "review baseline not documented for weight_sign_stable; OWNER \u2014 open a valuation mini-review; no order is authorized",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:CCEC:WIDE_CAP"
       ],
       "details": {
         "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
@@ -525,25 +512,25 @@
         "ticker": "CCEC",
         "value": "GOVERNED-WIDE"
       },
-      "authority": "adapter"
-    },
-    {
-      "id": "governor:SB:BASELINE_UNKNOWN_weight_sign_stable",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "review baseline not documented for weight_sign_stable; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "resolver": "owner",
       "due": null,
-      "waiting_condition": "explicit valuation mini-review or gate disposition",
-      "blocking_decision_ids": [
-        "governor:SB:BASELINE_UNKNOWN_weight_sign_stable"
-      ],
       "evidence": [
         {
-          "project": "governor",
           "path": "monitor/state/seam_latest.json",
+          "project": "governor",
           "runtime": true
         }
+      ],
+      "id": "governor:CCEC:WIDE_CAP",
+      "next_action": "valuation-supported sizing is capped; OWNER \u2014 open a valuation mini-review; no order is authorized",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:SB:BASELINE_UNKNOWN_weight_sign_stable"
       ],
       "details": {
         "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
@@ -554,25 +541,25 @@
         "ticker": "SB",
         "value": "weight_sign_stable"
       },
-      "authority": "adapter"
-    },
-    {
-      "id": "governor:SB:VALUATION_CONVICTION_ZERO",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "weight-family sign unstable; valuation cannot support sizing; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "resolver": "owner",
       "due": null,
-      "waiting_condition": "explicit valuation mini-review or gate disposition",
-      "blocking_decision_ids": [
-        "governor:SB:VALUATION_CONVICTION_ZERO"
-      ],
       "evidence": [
         {
-          "project": "governor",
           "path": "monitor/state/seam_latest.json",
+          "project": "governor",
           "runtime": true
         }
+      ],
+      "id": "governor:SB:BASELINE_UNKNOWN_weight_sign_stable",
+      "next_action": "review baseline not documented for weight_sign_stable; OWNER \u2014 open a valuation mini-review; no order is authorized",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:SB:VALUATION_CONVICTION_ZERO"
       ],
       "details": {
         "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
@@ -583,25 +570,25 @@
         "ticker": "SB",
         "value": false
       },
-      "authority": "adapter"
-    },
-    {
-      "id": "governor:SBLK:BASELINE_UNKNOWN_weight_sign_stable",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "review baseline not documented for weight_sign_stable; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "resolver": "owner",
       "due": null,
-      "waiting_condition": "explicit valuation mini-review or gate disposition",
-      "blocking_decision_ids": [
-        "governor:SBLK:BASELINE_UNKNOWN_weight_sign_stable"
-      ],
       "evidence": [
         {
-          "project": "governor",
           "path": "monitor/state/seam_latest.json",
+          "project": "governor",
           "runtime": true
         }
+      ],
+      "id": "governor:SB:VALUATION_CONVICTION_ZERO",
+      "next_action": "weight-family sign unstable; valuation cannot support sizing; OWNER \u2014 open a valuation mini-review; no order is authorized",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:SBLK:BASELINE_UNKNOWN_weight_sign_stable"
       ],
       "details": {
         "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
@@ -612,25 +599,25 @@
         "ticker": "SBLK",
         "value": "weight_sign_stable"
       },
-      "authority": "adapter"
-    },
-    {
-      "id": "governor:SBLK:READ_CAP",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "size to the weaker-basis read: flips (cheap/fair); OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "resolver": "owner",
       "due": null,
-      "waiting_condition": "explicit valuation mini-review or gate disposition",
-      "blocking_decision_ids": [
-        "governor:SBLK:READ_CAP"
-      ],
       "evidence": [
         {
-          "project": "governor",
           "path": "monitor/state/seam_latest.json",
+          "project": "governor",
           "runtime": true
         }
+      ],
+      "id": "governor:SBLK:BASELINE_UNKNOWN_weight_sign_stable",
+      "next_action": "review baseline not documented for weight_sign_stable; OWNER \u2014 open a valuation mini-review; no order is authorized",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:SBLK:READ_CAP"
       ],
       "details": {
         "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
@@ -641,25 +628,25 @@
         "ticker": "SBLK",
         "value": "flips (cheap/fair)"
       },
-      "authority": "adapter"
-    },
-    {
-      "id": "governor:TEN:GATES_PENDING",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "gates: {\"buy\": true, \"current_balance_sheet\": true, \"family_min\": false, \"sign_stable\": true, \"stage_a\": \"unknown\", \"war_falsifier\": true}; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "resolver": "owner",
       "due": null,
-      "waiting_condition": "explicit valuation mini-review or gate disposition",
-      "blocking_decision_ids": [
-        "governor:TEN:GATES_PENDING"
-      ],
       "evidence": [
         {
-          "project": "governor",
           "path": "monitor/state/seam_latest.json",
+          "project": "governor",
           "runtime": true
         }
+      ],
+      "id": "governor:SBLK:READ_CAP",
+      "next_action": "size to the weaker-basis read: flips (cheap/fair); OWNER \u2014 open a valuation mini-review; no order is authorized",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:TEN:GATES_PENDING"
       ],
       "details": {
         "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
@@ -677,25 +664,25 @@
           "war_falsifier": true
         }
       },
-      "authority": "adapter"
-    },
-    {
-      "id": "governor:TEN:GATE_current_balance_sheet",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "gate current_balance_sheet: False \u2192 True; OWNER \u2014 re-present TEN as a fresh TRADE_PREREG; remaining gates still apply",
-      "resolver": "owner",
       "due": null,
-      "waiting_condition": "explicit valuation mini-review or gate disposition",
-      "blocking_decision_ids": [
-        "governor:TEN:GATE_current_balance_sheet"
-      ],
       "evidence": [
         {
-          "project": "governor",
           "path": "monitor/state/seam_latest.json",
+          "project": "governor",
           "runtime": true
         }
+      ],
+      "id": "governor:TEN:GATES_PENDING",
+      "next_action": "gates: {\"buy\": true, \"current_balance_sheet\": true, \"family_min\": false, \"sign_stable\": true, \"stage_a\": \"unknown\", \"war_falsifier\": true}; OWNER \u2014 open a valuation mini-review; no order is authorized",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:TEN:GATE_current_balance_sheet"
       ],
       "details": {
         "action": "OWNER \u2014 re-present TEN as a fresh TRADE_PREREG; remaining gates still apply",
@@ -706,25 +693,25 @@
         "ticker": "TEN",
         "value": true
       },
-      "authority": "adapter"
-    },
-    {
-      "id": "governor:TEN:WIDE_CAP",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "valuation-supported sizing is capped; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "resolver": "owner",
       "due": null,
-      "waiting_condition": "explicit valuation mini-review or gate disposition",
-      "blocking_decision_ids": [
-        "governor:TEN:WIDE_CAP"
-      ],
       "evidence": [
         {
-          "project": "governor",
           "path": "monitor/state/seam_latest.json",
+          "project": "governor",
           "runtime": true
         }
+      ],
+      "id": "governor:TEN:GATE_current_balance_sheet",
+      "next_action": "gate current_balance_sheet: False \u2192 True; OWNER \u2014 re-present TEN as a fresh TRADE_PREREG; remaining gates still apply",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:TEN:WIDE_CAP"
       ],
       "details": {
         "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
@@ -735,25 +722,25 @@
         "ticker": "TEN",
         "value": "GOVERNED-WIDE"
       },
-      "authority": "adapter"
-    },
-    {
-      "id": "governor:TRMD:GATES_PENDING",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "resolver": "owner",
       "due": null,
-      "waiting_condition": "explicit valuation mini-review or gate disposition",
-      "blocking_decision_ids": [
-        "governor:TRMD:GATES_PENDING"
-      ],
       "evidence": [
         {
-          "project": "governor",
           "path": "monitor/state/seam_latest.json",
+          "project": "governor",
           "runtime": true
         }
+      ],
+      "id": "governor:TEN:WIDE_CAP",
+      "next_action": "valuation-supported sizing is capped; OWNER \u2014 open a valuation mini-review; no order is authorized",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:TRMD:GATES_PENDING"
       ],
       "details": {
         "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
@@ -770,25 +757,25 @@
           "tier": false
         }
       },
-      "authority": "adapter"
-    },
-    {
-      "id": "governor:TRMD:GATE_sign_stable",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "gate sign_stable: False \u2192 True; OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply",
-      "resolver": "owner",
       "due": null,
-      "waiting_condition": "explicit valuation mini-review or gate disposition",
-      "blocking_decision_ids": [
-        "governor:TRMD:GATE_sign_stable"
-      ],
       "evidence": [
         {
-          "project": "governor",
           "path": "monitor/state/seam_latest.json",
+          "project": "governor",
           "runtime": true
         }
+      ],
+      "id": "governor:TRMD:GATES_PENDING",
+      "next_action": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}; OWNER \u2014 open a valuation mini-review; no order is authorized",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:TRMD:GATE_sign_stable"
       ],
       "details": {
         "action": "OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply",
@@ -799,25 +786,25 @@
         "ticker": "TRMD",
         "value": true
       },
-      "authority": "adapter"
-    },
-    {
-      "id": "governor:TRMD:WIDE_CAP",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "valuation-supported sizing is capped; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "resolver": "owner",
       "due": null,
-      "waiting_condition": "explicit valuation mini-review or gate disposition",
-      "blocking_decision_ids": [
-        "governor:TRMD:WIDE_CAP"
-      ],
       "evidence": [
         {
-          "project": "governor",
           "path": "monitor/state/seam_latest.json",
+          "project": "governor",
           "runtime": true
         }
+      ],
+      "id": "governor:TRMD:GATE_sign_stable",
+      "next_action": "gate sign_stable: False \u2192 True; OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:TRMD:WIDE_CAP"
       ],
       "details": {
         "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
@@ -828,563 +815,576 @@
         "ticker": "TRMD",
         "value": "GOVERNED-WIDE"
       },
-      "authority": "adapter"
-    },
-    {
-      "id": "housekeeping:01",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "**F13** \u2014 merge `TICKER_NOTES.md` into the per-ticker log headers and delete it; CLAUDE.md's router still points at it.",
-      "resolver": "agent",
       "due": null,
-      "waiting_condition": "implementation and cited completion",
-      "blocking_decision_ids": [],
       "evidence": [
         {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
+          "path": "monitor/state/seam_latest.json",
+          "project": "governor",
+          "runtime": true
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "housekeeping:02",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "**F16** \u2014 four worktrees live under `.claude/worktrees/`; confirm `goldstine` is merged, then remove them.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "implementation and cited completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "housekeeping:03",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "**F19 remainder** \u2014 the `sp_scan` tanker-period-signal internals are dead data.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "implementation and cited completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "housekeeping:04",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "**Autopilot Stage A is 3 of 5**: `promote check`/`land`, the weekly report and the \"Needs your word\" queue ship; the **Saturday stager** and the **pin migration** (`tests/fixtures/pins.yaml`) do not. Gate 0\u2192A has no owner attestation on file \u2014 write it or delete the gate.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "implementation and cited completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "housekeeping:05",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "**Standing rule that belongs elsewhere:** source sweeps run single-threaded, no parallel fleets of web-fetch-heavy agents. Graduate it to WORKFLOWS.md and drop it from here.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "implementation and cited completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "quarterly:G-2",
+      "id": "governor:TRMD:WIDE_CAP",
+      "next_action": "valuation-supported sizing is capped; OWNER \u2014 open a valuation mini-review; no order is authorized",
       "project": "governor",
-      "status": "blocked",
-      "next_action": "Decide Hynix armed-prereg disposition; deep-value gate remains armed",
       "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
       "due": null,
-      "waiting_condition": "explicit disposition",
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "housekeeping:01",
+      "next_action": "**F13** \u2014 merge `TICKER_NOTES.md` into the per-ticker log headers and delete it; CLAUDE.md's router still points at it.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "implementation and cited completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "housekeeping:02",
+      "next_action": "**F16** \u2014 four worktrees live under `.claude/worktrees/`; confirm `goldstine` is merged, then remove them.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "implementation and cited completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "housekeeping:03",
+      "next_action": "**F19 remainder** \u2014 the `sp_scan` tanker-period-signal internals are dead data.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "implementation and cited completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "housekeeping:04",
+      "next_action": "**Autopilot Stage A is 3 of 5**: `promote check`/`land`, the weekly report and the \"Needs your word\" queue ship; the **Saturday stager** and the **pin migration** (`tests/fixtures/pins.yaml`) do not. Gate 0\u2192A has no owner attestation on file \u2014 write it or delete the gate.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "implementation and cited completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "housekeeping:05",
+      "next_action": "**Standing rule that belongs elsewhere:** source sweeps run single-threaded, no parallel fleets of web-fetch-heavy agents. Graduate it to WORKFLOWS.md and drop it from here.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "implementation and cited completion"
+    },
+    {
+      "authority": "manual",
       "blocking_decision_ids": [
         "G-2"
       ],
+      "due": null,
       "evidence": [
         {
-          "project": "governor",
-          "path": "reviews/2026-09-21-q3-review.md",
           "contains": "G-2",
+          "path": "reviews/2026-09-21-q3-review.md",
+          "project": "governor",
           "sha256": "de3d66b2b467002ad4995ef994b8e63c88a193a02b2ef15fe2947ace88ecc0f4"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
+      "id": "quarterly:G-2",
+      "next_action": "Decide Hynix armed-prereg disposition; deep-value gate remains armed",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "explicit disposition"
     },
     {
-      "id": "quarterly:G-3",
-      "project": "governor",
-      "status": "ready",
-      "next_action": "Reconcile USDNOK basis in monitor; preserve portfolio rulings",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "explicit disposition",
+      "authority": "manual",
       "blocking_decision_ids": [],
+      "due": null,
       "evidence": [
         {
-          "project": "governor",
-          "path": "reviews/2026-09-21-q3-review.md",
           "contains": "G-3",
+          "path": "reviews/2026-09-21-q3-review.md",
+          "project": "governor",
           "sha256": "de3d66b2b467002ad4995ef994b8e63c88a193a02b2ef15fe2947ace88ecc0f4"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
+      "id": "quarterly:G-3",
+      "next_action": "Reconcile USDNOK basis in monitor; preserve portfolio rulings",
+      "project": "governor",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "explicit disposition"
     },
     {
-      "id": "quarterly:scheduler-proof",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "Run fresh scheduled smoke using scoped inbox Write and --probe-file; verify application log contains no approval request",
-      "resolver": "agent",
+      "authority": "manual",
+      "blocking_decision_ids": [],
       "due": null,
-      "waiting_condition": "Observed heredoc approval replaced; fresh unattended smoke proof still required",
+      "evidence": [
+        {
+          "contains": "Automatic approval review rejected",
+          "path": "decisions/calendar_workflow_implementation_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "quarterly:inbox-permission",
+      "next_action": "Approve the narrowly scoped monitor/inbox/** Write grant requested in the task; automatic approval review rejected installation without explicit approval",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "explicit approval for the inbox grant in user, Projects-folder and both project settings"
+    },
+    {
+      "authority": "manual",
       "blocking_decision_ids": [
         "quarterly:inbox-permission"
       ],
+      "due": null,
       "evidence": [
         {
-          "project": "producer",
+          "contains": "Automatic approval review rejected",
           "path": "decisions/calendar_workflow_implementation_2026-09-22.md",
-          "contains": "Automatic approval review rejected"
+          "project": "producer"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
+      "id": "quarterly:scheduler-proof",
+      "next_action": "Run fresh scheduled smoke using scoped inbox Write and --probe-file; verify application log contains no approval request",
+      "project": "governor",
+      "resolver": "agent",
+      "status": "blocked",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "Observed heredoc approval replaced; fresh unattended smoke proof still required"
     },
     {
-      "id": "roadmap:a1-horizon",
-      "project": "producer",
-      "status": "blocked",
-      "next_action": "**The A1 horizon.** Wired at 10 and unratified since 2026-06-11 \u2014 ratify it or drop it.",
-      "resolver": "owner",
-      "due": null,
-      "waiting_condition": "recorded disposition or completion",
+      "authority": "manual",
       "blocking_decision_ids": [
         "a1-horizon"
       ],
+      "due": null,
       "evidence": [
         {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
+      "id": "roadmap:a1-horizon",
+      "next_action": "**The A1 horizon.** Wired at 10 and unratified since 2026-06-11 \u2014 ratify it or drop it.",
+      "project": "producer",
+      "resolver": "owner",
+      "status": "blocked",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
     },
     {
-      "id": "roadmap:b1",
-      "project": "producer",
-      "status": "blocked",
-      "next_action": "**B1** \u2014 re-armed 2026-09-18 when TNK's void retired, never ruled. Trigger: the day a registry name reads robust-cheap (none does). `decisions/forks_registered_2026-09-10.md` item 7.",
-      "resolver": "owner",
-      "due": null,
-      "waiting_condition": "recorded disposition or completion",
+      "authority": "manual",
       "blocking_decision_ids": [
         "b1"
       ],
+      "due": null,
       "evidence": [
         {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
+      "id": "roadmap:b1",
+      "next_action": "**B1** \u2014 re-armed 2026-09-18 when TNK's void retired, never ruled. Trigger: the day a registry name reads robust-cheap (none does). `decisions/forks_registered_2026-09-10.md` item 7.",
+      "project": "producer",
+      "resolver": "owner",
+      "status": "blocked",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
     },
     {
-      "id": "roadmap:crude-weights",
-      "project": "producer",
-      "status": "blocked",
-      "next_action": "**The crude weight question.** After the 2026-09-18 deck re-expression, 59% of the crude mass sits on a base-tracking leg and 13% carries the only real downside. The deck is now coherent; its de-escalation CONTENT is a weight question, which WO5's kill-switch fences out of agent scope. Not a registered fork. `decisions/r4_deck_reexpression_method_2026-09-18.md` \u00a78.",
-      "resolver": "owner",
-      "due": null,
-      "waiting_condition": "recorded disposition or completion",
+      "authority": "manual",
       "blocking_decision_ids": [
         "crude-weights"
       ],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "roadmap:dm2-dm3-dm4",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "**D-M2 / D-M3 / D-M4** (per-sector asset r_a and relever \u00b7 cycle-parity denominator A/B \u00b7 piecewise-linear cycle) are RULED and UNEXECUTED; their post-Stage-A gate expired 2026-08-10.",
-      "resolver": "agent",
       "due": null,
-      "waiting_condition": "recorded disposition or completion",
-      "blocking_decision_ids": [],
       "evidence": [
         {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "roadmap:gsl-commitment",
+      "id": "roadmap:crude-weights",
+      "next_action": "**The crude weight question.** After the 2026-09-18 deck re-expression, 59% of the crude mass sits on a base-tracking leg and 13% carries the only real downside. The deck is now coherent; its de-escalation CONTENT is a weight question, which WO5's kill-switch fences out of agent scope. Not a registered fork. `decisions/r4_deck_reexpression_method_2026-09-18.md` \u00a78.",
       "project": "producer",
-      "status": "ready",
-      "next_action": "**GSL containers commitment-net prereg** \u2014 the shape CMBT took on 2026-09-16. `OFF_CONVENTION_QUEUE` is {GSL, STNG, TEN} and GSL leaves by this route.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "recorded disposition or completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "roadmap:image-filings",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "**Auto-fetch page images for image-only filings.** Detection ships (`arrivals.validate_html`); recovery is still done by hand, 86 images last time.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "recorded disposition or completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "roadmap:lr1-anchor",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "**LR1 contract-floor anchor round.** The only overdue valuation work. Frozen prereg (`PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md`), its post-Stage-A gate cleared 2026-08-10 and Stage B landed 2026-09-09. Predicts INSW +$7.80M, TEN +$1.17M, TRMD and HAFN exactly 0, and takes TRMD to VALIDATED-TIGHT.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "recorded disposition or completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "roadmap:product-reexpression",
-      "project": "producer",
-      "status": "blocked",
-      "next_action": "**The product deck's own re-expression.** Same absolute-curve construction against the same moving base; WO5 was crude-scoped by design. Not a registered fork.",
       "resolver": "owner",
+      "status": "blocked",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
       "due": null,
-      "waiting_condition": "recorded disposition or completion",
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "roadmap:dm2-dm3-dm4",
+      "next_action": "**D-M2 / D-M3 / D-M4** (per-sector asset r_a and relever \u00b7 cycle-parity denominator A/B \u00b7 piecewise-linear cycle) are RULED and UNEXECUTED; their post-Stage-A gate expired 2026-08-10.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "roadmap:gsl-commitment",
+      "next_action": "**GSL containers commitment-net prereg** \u2014 the shape CMBT took on 2026-09-16. `OFF_CONVENTION_QUEUE` is {GSL, STNG, TEN} and GSL leaves by this route.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "roadmap:image-filings",
+      "next_action": "**Auto-fetch page images for image-only filings.** Detection ships (`arrivals.validate_html`); recovery is still done by hand, 86 images last time.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "roadmap:lr1-anchor",
+      "next_action": "**LR1 contract-floor anchor round.** The only overdue valuation work. Frozen prereg (`PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md`), its post-Stage-A gate cleared 2026-08-10 and Stage B landed 2026-09-09. Predicts INSW +$7.80M, TEN +$1.17M, TRMD and HAFN exactly 0, and takes TRMD to VALIDATED-TIGHT.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
+    },
+    {
+      "authority": "manual",
       "blocking_decision_ids": [
         "product-reexpression"
       ],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "roadmap:q3-calendar",
-      "project": "producer",
-      "status": "ready",
-      "next_action": "**Q3 calendar re-seed** \u2014 CMBT 11/26, BRUT 11/19, OMC AR 2027-02-25. Dispositions are parked in `state/filings_triaged.json`; `inputs/earnings_calendar.yaml` still carries Q2 dates.",
-      "resolver": "agent",
       "due": null,
-      "waiting_condition": "recorded disposition or completion",
-      "blocking_decision_ids": [],
       "evidence": [
         {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "roadmap:stng-newbuild",
+      "id": "roadmap:product-reexpression",
+      "next_action": "**The product deck's own re-expression.** Same absolute-curve construction against the same moving base; WO5 was crude-scoped by design. Not a registered fork.",
       "project": "producer",
-      "status": "ready",
-      "next_action": "**STNG 10-hull \u00a79.6 wiring** \u2014 un-gated since thread (d) signed 2026-07-15, ~+$9.6/sh, its own pre-registered step.",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "recorded disposition or completion",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
-        }
-      ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
-    },
-    {
-      "id": "roadmap:ten-anchor",
-      "project": "producer",
-      "status": "blocked",
-      "next_action": "**TEN's alternative anchor.** TEN is structurally APPROX \u2014 no broker anchor exists. VIE? company-implied? none? Resolving it moves TEN out of `tests/test_approx_roster.py`'s guard.",
       "resolver": "owner",
+      "status": "blocked",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
       "due": null,
-      "waiting_condition": "recorded disposition or completion",
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "roadmap:q3-calendar",
+      "next_action": "**Q3 calendar re-seed** \u2014 CMBT 11/26, BRUT 11/19, OMC AR 2027-02-25. Dispositions are parked in `state/filings_triaged.json`; `inputs/earnings_calendar.yaml` still carries Q2 dates.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        }
+      ],
+      "id": "roadmap:stng-newbuild",
+      "next_action": "**STNG 10-hull \u00a79.6 wiring** \u2014 un-gated since thread (d) signed 2026-07-15, ~+$9.6/sh, its own pre-registered step.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
+    },
+    {
+      "authority": "manual",
       "blocking_decision_ids": [
         "ten-anchor"
       ],
+      "due": null,
       "evidence": [
         {
-          "project": "producer",
-          "path": "decisions/workflow_migration_2026-09-22.md"
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
+      "id": "roadmap:ten-anchor",
+      "next_action": "**TEN's alternative anchor.** TEN is structurally APPROX \u2014 no broker anchor exists. VIE? company-implied? none? Resolving it moves TEN out of `tests/test_approx_roster.py`'s guard.",
+      "project": "producer",
+      "resolver": "owner",
+      "status": "blocked",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
     },
     {
-      "id": "roadmap:ten-newbuild-fork",
-      "project": "producer",
-      "status": "done",
-      "next_action": "Fork registered; executor owns its separate silence window",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "recorded disposition or completion",
+      "authority": "manual",
       "blocking_decision_ids": [],
+      "due": null,
       "evidence": [
         {
-          "project": "producer",
+          "contains": "id: ten_commitments_convention",
           "path": "inputs/forks.yaml",
-          "contains": "id: ten_commitments_convention"
+          "project": "producer"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
+      "id": "roadmap:ten-newbuild-fork",
+      "next_action": "Fork registered; executor owns its separate silence window",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "done",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
     },
     {
-      "id": "roadmap:ten-q2",
-      "project": "producer",
-      "status": "done",
-      "next_action": "Q2 pair and reconciliation landed; remaining candidate gates remain governed separately",
-      "resolver": "agent",
-      "due": null,
-      "waiting_condition": "recorded disposition or completion",
+      "authority": "manual",
       "blocking_decision_ids": [],
+      "due": null,
       "evidence": [
         {
-          "project": "producer",
-          "path": "decisions/ten_q2_landing_2026-09-21.md",
           "contains": "pair is landed",
+          "path": "decisions/ten_q2_landing_2026-09-21.md",
+          "project": "producer",
           "sha256": "43cd768561457ba2beb7edfebad4f3d89a99daac88d5f9d535839f7224e286ea"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
+      "id": "roadmap:ten-q2",
+      "next_action": "Q2 pair and reconciliation landed; remaining candidate gates remain governed separately",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "done",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
     },
     {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": "2026-10-02",
+      "evidence": [
+        {
+          "path": "inputs/reweight_triggers.yaml",
+          "project": "producer"
+        }
+      ],
       "id": "trigger:container_mb_refresh",
-      "project": "producer",
-      "status": "waiting",
       "next_action": "Same \u00a711.8 ingest procedure: newest weekly, class-collapse per \u00a711.8.1 (A3 re-weight if the validator fleets changed), machine as_of, decisions/ note, gate annotation for MPCC/GSL moves. Re-arm monthly on completion.\n",
+      "project": "producer",
       "resolver": "agent",
-      "due": "2026-10-02",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "inputs/reweight_triggers.yaml"
-        }
-      ],
-      "authority": "adapter"
+      "status": "waiting",
+      "waiting_condition": "registered condition or ruling"
     },
     {
-      "id": "trigger:crude_geopolitics_weekly",
-      "project": "producer",
-      "status": "waiting",
-      "next_action": "LEG 1 fires: revisit the pre_mou_baseline -> mou_bear mass (a functioning fee regime is mou_bear's registered premise \u2014 \"framework holds, tolls imposed post-day-60\" \u2014 which the 8/16 observed state contradicted and which systematic collection would restore). Rerun \u00a79.10, reweight, annotate, ratify. LEG 2: any change of state is correction-annotated on the prior record FIRST, then the escalation question is re-run against the corrected record \u2014 never on an uncorrected premise. A reweight proposal is pre-registered (predicted impact per crude name, band, flip tripwires), verified, then registered in inputs/forks.yaml under the silence rule (owner policy 2026-09-10) \u2014 it executes by silence or word.\n",
-      "resolver": "agent",
+      "authority": "adapter",
+      "blocking_decision_ids": [],
       "due": "2026-09-24",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
       "evidence": [
         {
-          "project": "producer",
-          "path": "inputs/reweight_triggers.yaml"
+          "path": "inputs/reweight_triggers.yaml",
+          "project": "producer"
         }
       ],
-      "authority": "adapter"
+      "id": "trigger:crude_geopolitics_weekly",
+      "next_action": "LEG 1 fires: revisit the pre_mou_baseline -> mou_bear mass (a functioning fee regime is mou_bear's registered premise \u2014 \"framework holds, tolls imposed post-day-60\" \u2014 which the 8/16 observed state contradicted and which systematic collection would restore). Rerun \u00a79.10, reweight, annotate, ratify. LEG 2: any change of state is correction-annotated on the prior record FIRST, then the escalation question is re-run against the corrected record \u2014 never on an uncorrected premise. A reweight proposal is pre-registered (predicted impact per crude name, band, flip tripwires), verified, then registered in inputs/forks.yaml under the silence rule (owner policy 2026-09-10) \u2014 it executes by silence or word.\n",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "waiting_condition": "registered condition or ruling"
     },
     {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "inputs/reweight_triggers.yaml",
+          "project": "producer"
+        }
+      ],
       "id": "trigger:handy_bulk_txn_refit",
-      "project": "producer",
-      "status": "waiting",
       "next_action": "Owner-run promotion: classify prints (eco/gear/TC-attached/survey adjustments) into transactions/handy_bulk.yaml, run the \u00a79.9 dwt-normalized fit (38k baseline), predict bands AHEAD, re-run the drift-gate loop; the class leaves un-anchored (LNGC-regime) k_broker semantics and basis_status/handoff tiers upgrade accordingly. Expected fit direction: 5yr/10yr DOWN toward prints (prereg Band 3) \u2014 do not \"fix\" the interim high-side reads toward Pareto meanwhile.\n",
+      "project": "producer",
       "resolver": "agent",
-      "due": null,
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "inputs/reweight_triggers.yaml"
-        }
-      ],
-      "authority": "adapter"
+      "status": "waiting",
+      "waiting_condition": "registered condition or ruling"
     },
     {
-      "id": "trigger:lpg_anchor_annual_review",
-      "project": "producer",
-      "status": "waiting",
-      "next_action": "Re-derive the trailing-10yr VLGC realized-TCE mean off Dorian's + BW LPG's latest 10-K/20-F year-by-year TCE series (the FY2016-26 series is in the methodology doc); update the anchor value + as_of; re-run the LPG cycle layer; gate-annotate; re-arm +1yr. Realized-TCE basis is correct for the 85-99%-spot validator pair \u2014 do NOT switch to 1-yr TC (that stays a documented cross-check only).\n",
-      "resolver": "agent",
+      "authority": "adapter",
+      "blocking_decision_ids": [],
       "due": "2027-06-30",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
       "evidence": [
         {
-          "project": "producer",
-          "path": "inputs/reweight_triggers.yaml"
+          "path": "inputs/reweight_triggers.yaml",
+          "project": "producer"
         }
       ],
-      "authority": "adapter"
+      "id": "trigger:lpg_anchor_annual_review",
+      "next_action": "Re-derive the trailing-10yr VLGC realized-TCE mean off Dorian's + BW LPG's latest 10-K/20-F year-by-year TCE series (the FY2016-26 series is in the methodology doc); update the anchor value + as_of; re-run the LPG cycle layer; gate-annotate; re-arm +1yr. Realized-TCE basis is correct for the 85-99%-spot validator pair \u2014 do NOT switch to 1-yr TC (that stays a documented cross-check only).\n",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "waiting_condition": "registered condition or ruling"
     },
     {
-      "id": "trigger:lpg_v1_lock_rerun",
-      "project": "producer",
-      "status": "waiting",
-      "next_action": "When the splits land: promote the per-vessel prints to transactions/ vlgc.yaml, re-fit (prints->rerun->drift loop, annotate moves), then re-run `/reconcile --calibration-lock lpg` and put the readout to the OWNER \u2014 the 2026-07-10 ruling (option (a), PLAN decision #1b) holds the sector at PROVISIONAL\u00b7v1-lock-miss (SECTOR_V1_UNLOCKED) until that re-run; if the re-fit still misses on the residual broker premium, the GOVERNED-WIDE question returns to the owner WITH evidence (logged amendment, not blind loosening). If the splits have not been filed by the due date, record the check and re-arm toward the FQ3 10-Q (~Feb-2027) \u2014 NOTE R-5: the charter expires 2026-12-26; work past it needs a new charter.\n",
-      "resolver": "agent",
+      "authority": "adapter",
+      "blocking_decision_ids": [],
       "due": "2026-11-13",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
       "evidence": [
         {
-          "project": "producer",
-          "path": "inputs/reweight_triggers.yaml"
+          "path": "inputs/reweight_triggers.yaml",
+          "project": "producer"
         }
       ],
-      "authority": "adapter"
+      "id": "trigger:lpg_v1_lock_rerun",
+      "next_action": "When the splits land: promote the per-vessel prints to transactions/ vlgc.yaml, re-fit (prints->rerun->drift loop, annotate moves), then re-run `/reconcile --calibration-lock lpg` and put the readout to the OWNER \u2014 the 2026-07-10 ruling (option (a), PLAN decision #1b) holds the sector at PROVISIONAL\u00b7v1-lock-miss (SECTOR_V1_UNLOCKED) until that re-run; if the re-fit still misses on the residual broker premium, the GOVERNED-WIDE question returns to the owner WITH evidence (logged amendment, not blind loosening). If the splits have not been filed by the due date, record the check and re-arm toward the FQ3 10-Q (~Feb-2027) \u2014 NOTE R-5: the charter expires 2026-12-26; work past it needs a new charter.\n",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "waiting_condition": "registered condition or ruling"
     },
     {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "inputs/reweight_triggers.yaml",
+          "project": "producer"
+        }
+      ],
       "id": "trigger:ppmx_txn_refit",
-      "project": "producer",
-      "status": "waiting",
       "next_action": "Re-fit the PPMX anchors + re-derive the MARK_WIDE_NODES band; take the old-age-overhang methodology fork to the owner (the scrap-anchored [10,25] segment reads ~+28% above the seed's print cloud \u2014 steeper terminal vs accept-as-documented). decisions/ppmx_fit_seed_prereg_2026-07-18.md.\n",
+      "project": "producer",
       "resolver": "agent",
-      "due": null,
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "inputs/reweight_triggers.yaml"
-        }
-      ],
-      "authority": "adapter"
+      "status": "waiting",
+      "waiting_condition": "registered condition or ruling"
     },
     {
-      "id": "trigger:product_glut_arrival_timing",
-      "project": "producer",
-      "status": "waiting",
-      "next_action": "Tightness persisting into Q4-2026 at glut_base weights: shift mass back toward refinery_squeeze/moderate_correction with a dated non-war rationale. Glut arriving early: shift toward demand_softening. Either way \u00a711.5 revision + lock-test re-pin.\n",
-      "resolver": "agent",
+      "authority": "adapter",
+      "blocking_decision_ids": [],
       "due": "2026-10-02",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
       "evidence": [
         {
-          "project": "producer",
-          "path": "inputs/reweight_triggers.yaml"
+          "path": "inputs/reweight_triggers.yaml",
+          "project": "producer"
         }
       ],
-      "authority": "adapter"
-    },
-    {
-      "id": "trigger:tce_means_semiannual_review",
+      "id": "trigger:product_glut_arrival_timing",
+      "next_action": "Tightness persisting into Q4-2026 at glut_base weights: shift mass back toward refinery_squeeze/moderate_correction with a dated non-war rationale. Glut arriving early: shift toward demand_softening. Either way \u00a711.5 revision + lock-test re-pin.\n",
       "project": "producer",
-      "status": "waiting",
-      "next_action": "Re-derive the trailing 10-yr mean for EVERY class off its documented route benchmark / basis (VLCC TD3C, Suezmax TD20, etc. \u2014 the per-class basis and its caveats are commented in the file itself). TC-ANCHORED throughout, not spot \u2014 re-run METHODOLOGY \u00a78.3's self-check that no spot-anchored component has crept in. Do NOT bulk-update from VIE: the ~14-58% VIE gaps are deliberate base-period / outlier-handling differences and switching base shifts FVs across the whole watchlist (per-class methodology decision required, \u00a78.3 Step 3). Update values + as_of, re-run the cycle layer, check the drift gate, gate-annotate every class whose EV moves >2pp, and re-arm +6mo. LPG DEFERS to lpg_anchor_annual_review, whose realized-TCE basis is tied to the Dorian 10-K / BW LPG 20-F filing cadence \u2014 this sweep records LPG as \"covered by the annual trigger\", it does not re-derive it.\n",
       "resolver": "agent",
-      "due": "2026-12-07",
-      "waiting_condition": "registered condition or ruling",
-      "blocking_decision_ids": [],
-      "evidence": [
-        {
-          "project": "producer",
-          "path": "inputs/reweight_triggers.yaml"
-        }
-      ],
-      "authority": "adapter"
+      "status": "waiting",
+      "waiting_condition": "registered condition or ruling"
     },
     {
-      "id": "quarterly:inbox-permission",
-      "project": "governor",
-      "status": "blocked",
-      "next_action": "Approve the narrowly scoped monitor/inbox/** Write grant requested in the task; automatic approval review rejected installation without explicit approval",
-      "resolver": "owner",
-      "due": null,
-      "waiting_condition": "explicit approval for the inbox grant in user, Projects-folder and both project settings",
+      "authority": "adapter",
       "blocking_decision_ids": [],
+      "due": "2026-12-07",
       "evidence": [
         {
-          "project": "producer",
-          "path": "decisions/calendar_workflow_implementation_2026-09-22.md",
-          "contains": "Automatic approval review rejected"
+          "path": "inputs/reweight_triggers.yaml",
+          "project": "producer"
         }
       ],
-      "authority": "manual",
-      "verified_at": "2026-09-22"
+      "id": "trigger:tce_means_semiannual_review",
+      "next_action": "Re-derive the trailing 10-yr mean for EVERY class off its documented route benchmark / basis (VLCC TD3C, Suezmax TD20, etc. \u2014 the per-class basis and its caveats are commented in the file itself). TC-ANCHORED throughout, not spot \u2014 re-run METHODOLOGY \u00a78.3's self-check that no spot-anchored component has crept in. Do NOT bulk-update from VIE: the ~14-58% VIE gaps are deliberate base-period / outlier-handling differences and switching base shifts FVs across the whole watchlist (per-class methodology decision required, \u00a78.3 Step 3). Update values + as_of, re-run the cycle layer, check the drift gate, gate-annotate every class whose EV moves >2pp, and re-arm +6mo. LPG DEFERS to lpg_anchor_annual_review, whose realized-TCE basis is tied to the Dorian 10-K / BW LPG 20-F filing cadence \u2014 this sweep records LPG as \"covered by the annual trigger\", it does not re-derive it.\n",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "waiting_condition": "registered condition or ruling"
     }
   ],
-  "complete": true
+  "version": 1
 }
