@@ -1416,6 +1416,25 @@
       "resolver": "agent",
       "status": "waiting",
       "waiting_condition": "registered condition or ruling"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "research/economic-methods/REVIEW.md",
+          "project": "producer",
+          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+        }
+      ],
+      "id": "economic:shadow-package",
+      "next_action": "Research engine, frozen comparisons and verified owner-review package recorded; this completion does not authorize adoption.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "done",
+      "verified_at": "2026-09-22",
+      "waiting_condition": null
     }
   ],
   "version": 1
