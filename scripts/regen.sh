@@ -9,7 +9,7 @@
 #   3. run the pipeline for the quarter;
 #   4. run the outputs-hygiene guard and print the stamp + family status.
 # It writes nothing to git. Usage: scripts/regen.sh <QUARTER> [--sidecars]
-set -u
+set -euo pipefail
 cd "$(dirname "$0")/.." || exit 1
 quarter="${1:?usage: scripts/regen.sh <QUARTER> [--sidecars]}"
 force="${2:-}"
@@ -29,7 +29,7 @@ if [ "$need" -eq 1 ]; then
 else
   echo "[regen] sidecars current (scenario_inputs.yaml not newer than $family)"
 fi
-PYTHONPATH=src ./.venv/bin/python -m crude_tanker_fv.pipeline "$quarter" 2>&1 | grep -E "STALE-PRICE|STROBE|delta report|decision logs|Traceback|Error" | sort -u | cut -c1-140
+PYTHONPATH=src ./.venv/bin/python -m crude_tanker_fv.pipeline "$quarter"
 PYTHONPATH=src ./.venv/bin/python - <<'EOF'
 import json
 d = json.load(open("outputs/book_scorecard.json"))

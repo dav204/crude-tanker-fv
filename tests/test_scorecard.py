@@ -283,7 +283,7 @@ def test_handoff_json_is_a_versioned_contract(tmp_path, rows):
     # left the tier. ADDITIVE: confidence_tier keeps its name and meaning-of-record
     # (construction), so a 2.7 consumer still reads it correctly; it simply stops
     # encoding the read. Governance must migrate to read_flag for the edge cap.
-    assert doc["schema_version"] == "2.8"
+    assert doc["schema_version"] == "2.9"
     assert doc["schema_version"].split(".")[0] == "2"
     assert doc["quarter"] == QUARTER
     # The per-row vintage and the run-level map are ONE datum on two surfaces

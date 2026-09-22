@@ -67,11 +67,11 @@ echo "commit_drift: staging ${#to_add[@]} file(s):"
 printf '  %s\n' "${to_add[@]}"
 
 git add -- "${to_add[@]}"
-git commit -m "chore(automation): flush data/output drift ($(date '+%Y-%m-%d'))
+git commit --only -m "chore(automation): flush data/output drift ($(date '+%Y-%m-%d'))
 
 Routine automation-written files (daily price refresh / RC ingest / sp_scan /
 linked-report manifest / preflight / FFA queue). Decision logs excluded
-(committed deliberately with their annotations). Push stays manual."
+(committed deliberately with their annotations). Push stays manual." -- "${to_add[@]}"
 
 echo
 echo "Committed. Push when ready:  git push origin main"

@@ -308,6 +308,8 @@ class _Valuation:
     # governance flip-triage rule reads price-vs-interval, not point-FV precision.
     fv_low: Optional[float] = None
     fv_high: Optional[float] = None
+    broker_reference: Optional[dict] = None
+    cycles: Optional[list] = None
 
 
 def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Valuation"]:
@@ -329,7 +331,8 @@ def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Va
         f = fv_by.get(t)
         blend_fv = f.blended.fair_value_per_share if f else None
         b = bk.get(t)
-        broker_nav = (price / b.consensus_pnav) if (b and b.consensus_pnav) else None
+        reference = getattr(b, "broker_reference", None) or {}
+        broker_nav = reference.get("nav")
         gap = ((nav_ps - broker_nav) / broker_nav * 100.0) if broker_nav else None
         approx = t in APPROX_PNAV_TICKERS
         sanity = ("n-a" if approx else
@@ -340,7 +343,7 @@ def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Va
             price=price, fv=fv, upside_pct=(fv / price - 1.0) * 100.0 if price else 0.0,
             position=s.position_recommendation,
             nav_ps=nav_ps, broker_nav=broker_nav, gap_pct=gap, sanity=sanity, approx=approx,
-            blend_fv=blend_fv,
+            blend_fv=blend_fv, broker_reference=reference,
             sleeve_fvs=(dict(getattr(s, "sleeve_fvs", {}) or {}) or None),
             fv_low=min(active_fvs) if active_fvs else None,
             fv_high=max(active_fvs) if active_fvs else None,
@@ -1025,6 +1028,8 @@ def _write_handoff_json(
             "blend_fv": None if (v is None or void) else _num(v.blend_fv),
             "nav_per_share": None if (v is None or void) else _num(v.nav_ps),
             "broker_nav": None if (v is None or void) else _num(v.broker_nav),
+            "broker_reference": None if (v is None or void) else v.broker_reference,
+            "cycles": None if (v is None or void) else v.cycles,
             "gap_pct": None if (v is None or void) else _num(v.gap_pct, 1),
             # Percentage POINTS like every other _pct field (S-1, schema v3 —
             # v2 exported the engine-internal fraction: TEN's 30% haircut read
@@ -1110,7 +1115,7 @@ def _write_handoff_json(
         # same datum on the row the consumer's per-name seam diff operates on;
         # derived from the one map, never recomputed). Minor bump: additive,
         # consumer asserts major == 2.
-        "schema_version": "2.8",
+        "schema_version": "2.9",
         **_vintage_stamp(),
         "quarter": quarter,
         "price_basis": price_basis,
@@ -1138,6 +1143,34 @@ def _write_handoff_json(
     return path
 
 
+def attach_cycles(valuation, quarter, inputs_dir=INPUTS_DIR):
+    from .cycle import compute_cycle
+    from .carveout import sector_carve_out
+    from .loaders import load_company_inputs
+    from .pipeline import HYBRID_TICKERS, THREE_SLEEVE_TICKERS, MULTI_SLEEVE_TICKERS, _maybe_apply_transactions
+    from .scenarios import all_sector_anchor_bases
+
+    watchlist = load_watchlist(inputs_dir)
+    bases = all_sector_anchor_bases(inputs_dir / "scenario_inputs.yaml")
+    for ticker, value in valuation.items():
+        ci = load_company_inputs(ticker, quarter, inputs_dir)
+        ci, _ = _maybe_apply_transactions(ci, inputs_dir, True)
+        sectors = MULTI_SLEEVE_TICKERS.get(ticker)
+        if ticker in HYBRID_TICKERS:
+            sectors = ["crude", "product"]
+        if ticker in THREE_SLEEVE_TICKERS:
+            sectors = ["crude", "product", "lng"]
+        hybrid = sectors is not None
+        sectors = sectors or [watchlist[ticker]["sector"]]
+        value.cycles = []
+        for sector in sectors:
+            inputs = sector_carve_out(ci, sector).sleeve_inputs if hybrid else ci
+            cycle = compute_cycle(inputs)
+            value.cycles.append({"sector": sector, "scope": "sleeve" if hybrid else "company",
+                                 "ratio": cycle.cycle_position, "label": cycle.band_label,
+                                 "anchor_basis": bases.get(sector)})
+
+
 def run_scorecard_xref(
     quarter: str, inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR,
     *, fv_reports=None, scenario_reports=None, broker_rows=None,
@@ -1155,6 +1188,7 @@ def run_scorecard_xref(
     bs_basis = None
     if fv_reports is not None and scenario_reports is not None and broker_rows is not None:
         valuation = valuation_index(fv_reports, scenario_reports, broker_rows)
+        attach_cycles(valuation, quarter, inputs_dir)
         price_basis = price_basis_summary(inputs_dir)
         # Over the WATCHLIST, not the surviving rows: compute_scorecard already
         # dropped any name whose inputs failed to load, so a rows-based summary

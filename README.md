@@ -97,7 +97,7 @@ Use the reads as one disciplined input to a position call, sized accordingly.
   at 30% haircut for controlled-FPI + related-party + low-payout drivers)
 - **Tier semantics amended 2026-08-13/14** (construction-only tier, price-invariant by
   guard; governed `read_flag` read channel with ±2.0% deadband; SBLK/CMDB/GNK →
-  VALIDATED-TIGHT, roster 8; edge-cleared long set {SB}; handoff schema 2.8)
+  VALIDATED-TIGHT, roster 8; edge-cleared long set {SB}; handoff schema 2.9)
 - **External counter-signals tracked:** VIE Coverage Universe cross-reference
   (Catlin / Mintzmyer) — full 10-of-10 overlap; CCEC / ASC / TRMD / HAFN
   direct opposite-direction signals documented in §6 footnotes
@@ -112,7 +112,7 @@ long to find.)
 | Surface | What it is | Consumer |
 |---|---|---|
 | `outputs/book_scorecard.md` | **THE handoff** — Verdict table (tier·sub-reason, price, Model FV, FV range, upside, position, Blend FV, NAV/sh, broker NAV, gap, SANITY, handoff-ready, W-frag) + Validation matrix. Header discloses price basis, rate basis (incl. any held-curve state), weight-family vintage; Validation matrix carries the §17 margin block (J par / J hist / boundary / Margin%) and the governed `read_flag` column | Humans: the single surface a sizing decision reads |
-| `outputs/book_scorecard.json` | The same content as a **schema-versioned machine contract** (currently 2.8; consumer asserts major == 2). 2.8 adds the read channel per row: `read_flag` (governed), `flip_margin_pct`, `read_flag_hyst_pct`, `tier_subreason`. Adds `fv_low`/`fv_high`, `weight_sign_stable` + family EV ranges, `mark_wide_nodes`, hybrid sleeve FVs, vintage stamps (`generated_at`, `source_commit`) | The governance repo's monitor (its §4 seam check) |
+| `outputs/book_scorecard.json` | The same content as a **schema-versioned machine contract** (currently 2.9; consumer asserts major == 2). 2.9 adds matched `broker_reference` and explicit company/sleeve `cycles`; 2.8 added the read channel per row: `read_flag` (governed), `flip_margin_pct`, `read_flag_hyst_pct`, `tier_subreason`. Adds `fv_low`/`fv_high`, `weight_sign_stable` + family EV ranges, `mark_wide_nodes`, hybrid sleeve FVs, vintage stamps (`generated_at`, `source_commit`) | The governance repo's monitor (its §4 seam check) |
 | `outputs/<ticker>_fv_report.md` / `.xlsx` | Per-name single-point build: NAV breakdown, dividend strip, cycle weighting, blend + FV attribution, breakeven, 5×5 grid, divergence diagnosis | Per-name deep dives |
 | `outputs/<ticker>_scenarios.md` | The scenario deck + probability-weighted FV that feeds the Verdict | Per-name deep dives |
 | `baselines/reconcile_baseline.yaml` + `RATIFY_LOG.md` | The accepted-state anchor + the dated, cause-carrying record of every ratify (the drift gate reds on unexplained moves against it) | The audit trail; the governance monitor reads RATIFY_LOG weekly |
@@ -485,3 +485,5 @@ tests/              ← the guard suite
 scripts/            ← PDF build script
 notebooks/          ← exploratory / hand-check work
 ```
+
+Routine automation and recovery: [automation/README.md](automation/README.md). Accepted publications live in `state/publications/`; durable delivery receipts live in `state/delivery/` and governor `monitor/state/`.

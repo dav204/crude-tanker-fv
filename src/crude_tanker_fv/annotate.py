@@ -277,8 +277,10 @@ def pure_price(row, ctx: RunContext) -> "tuple[bool, str, dict]":
         "flipped": flipped, "resid_pp": resid, "tol_pp": tol,
     }
 
-    # P7 — a k breach needs the broker-NAV ratio to track the tape.
+    # Schema 2.9 fixes broker NAV to its source vintage; a k move is never tape-only.
     if "k_broker" in (row.breaches or []):
+        if c.get("broker_reference") is not None:
+            return False, "matched-vintage k_broker changed; broker/marks attribution required", {}
         bn_a, bn_c = a.get("broker_nav"), c.get("broker_nav")
         if not bn_a or not bn_c:
             return False, "a k_broker breach with no broker NAV on both surfaces to prove it mechanical", {}

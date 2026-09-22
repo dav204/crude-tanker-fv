@@ -326,9 +326,11 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
             flags.append(f"FETCH-FAILED {job}: no heartbeat — job has never run "
                          "(launchd job not installed, or heartbeats just landed)")
             continue
-        age = (now - datetime.fromtimestamp(hb.stat().st_mtime, tz=timezone.utc)).days
+        age = (now - datetime.fromtimestamp(hb.stat().st_mtime, tz=timezone.utc)).total_seconds() / 86400
+        if pdoc.get("StartInterval"):
+            limit = max(900, pdoc["StartInterval"] * 3) / 86400
         if age >= limit:
-            flags.append(f"FETCH-FAILED {job}: heartbeat {age}d old "
+            flags.append(f"FETCH-FAILED {job}: heartbeat {age:.3g}d old "
                          f"(cadence limit {limit}d) — launchd stopped firing?")
         elif "outcome=error" in hb.read_text():
             flags.append(f"FETCH-FAILED {job}: last run errored "
@@ -806,23 +808,16 @@ def _business_days_between(a: date, b: date) -> int:
 def _edgar_manifest_entries(inputs_dir: Path, pure: bool) -> list:
     """Arrival records: the state-side jsonl locally (authoritative, R-2);
     the tracked snapshot (commit_drift promotes it) for --pure / fallback."""
+    from .filings import manifest
     if not pure:
-        state_side = inputs_dir.parent / "state" / "edgar_manifest.jsonl"
-        if state_side.exists():
-            out = []
-            for line in state_side.read_text().splitlines():
-                try:
-                    out.append(json.loads(line))
-                except Exception:
-                    continue
-            return out
+        return manifest(inputs_dir.parent)
     snapshot = inputs_dir / "filings" / "_manifest.json"
-    if snapshot.exists():
-        try:
-            return json.loads(snapshot.read_text())
-        except Exception:
-            return []
-    return []
+    if not snapshot.exists():
+        return []
+    data = json.loads(snapshot.read_text())
+    if not isinstance(data, list):
+        raise ValueError("filing manifest must be a list")
+    return data
 
 
 def _filing_event_flags(inputs_dir: Path, watchlist: dict,
@@ -841,25 +836,23 @@ def _filing_event_flags(inputs_dir: Path, watchlist: dict,
 
     flags: list[str] = []
     now = now or datetime.now(timezone.utc)
-    # Triage ack (2026-09-11): an accession the daily triage recorded a disposition for is
-    # dealt with — it must not keep flagging for the rest of its 48h window.
-    from .filings import load as _load_acks
-    acked = _load_acks(inputs_dir.parent / "state" / "filings_triaged.json")
-    for e in manifest_entries:
-        if e.get("accession") in acked:
-            continue
-        try:
-            ts = datetime.fromisoformat(str(e.get("ts")))
-        except Exception:
-            continue
-        if (now - ts).total_seconds() <= 48 * 3600:
-            am = " AMENDED" if e.get("amended") else ""
-            # Issuer-release lines carry a headline; a form code alone does not
-            # tell the owner what happened.
-            head = f" — {e.get('title')}" if e.get("title") else ""
-            flags.append(f"FILING-LANDED {e.get('ticker')}: {e.get('form')}{am} "
-                         f"{e.get('accession')} filed {e.get('filed')} -> "
-                         f"{e.get('staged_path') or 'manifest-only'}{head}")
+    from .filings import queue
+    try:
+        pending = queue(manifest_entries, inputs_dir.parent / "state/filings_triaged.json", now)
+    except (ValueError, TypeError) as exc:
+        flags.append(f"FILING-QUEUE-INVALID ledger: {exc}")
+        pending = {"pending": [], "invalid": [], "oldest_business_days": None}
+    if pending["invalid"]:
+        flags.append(f"FILING-QUEUE-INVALID manifest: {len(pending['invalid'])} invalid arrival records")
+    if (pending["oldest_business_days"] or 0) >= 3:
+        flags.append(f"FILING-QUEUE-STALLED {pending['pending'][0]['accession']}: "
+                     f"{pending['pending_total']} pending; oldest {pending['oldest_arrival']}; repair daily triage")
+    for e in pending["pending"]:
+        am = " AMENDED" if e.get("amended") else ""
+        head = f" — {e.get('title')}" if e.get("title") else ""
+        flags.append(f"FILING-LANDED {e.get('ticker')}: {e.get('form')}{am} "
+                     f"{e.get('accession')} filed {e.get('filed')} -> "
+                     f"{e.get('staged_path') or 'manifest-only'}{head}")
 
     meta, cal = load_earnings_calendar(inputs_dir)
     if not cal or not watchlist:

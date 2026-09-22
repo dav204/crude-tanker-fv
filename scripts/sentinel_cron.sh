@@ -35,9 +35,11 @@ if [ -f "$PROJECT/PAUSE" ]; then
 fi
 
 echo "=== [sentinel] $(date '+%Y-%m-%d %H:%M:%S')"
+operation_id=$(./.venv/bin/python -m crude_tanker_fv.operations start)
+commit_rc=0
 rc=0
 ./.venv/bin/python -m crude_tanker_fv.sentinel --log state/sentinel.log \
-  --notify --ping || rc=$?
+  --notify || rc=$?
 # rc mapping (2026-09-02, Stage 0): 0 quiet · 2 flags · anything else — including
 # 1, python's uncaught-traceback exit — stays the default `error`. Before this,
 # rc=1 read as a normal flag day: the 2026-09-01 run died on a YAML ParserError
@@ -78,10 +80,10 @@ if git status --porcelain -- outputs/weekly_report_*.md outputs/news_digest_*.md
   products=$(git diff --cached --name-only -- outputs/weekly_report_*.md outputs/news_digest_*.md \
     | sed -e 's#outputs/weekly_report_.*#weekly report#' -e 's#outputs/news_digest_.*#news digest#' \
     | sort -u | paste -sd '/' -)
-  if git commit -q -m "outputs: ${products} $(date '+%Y-%m-%d') (cron products, auto-committed)"; then
+  if git commit --only -q -m "outputs: ${products} $(date '+%Y-%m-%d') (cron products, auto-committed)" -- outputs/weekly_report_*.md outputs/news_digest_*.md; then
     echo "[commit-outputs] committed: ${products}"
   else
-    echo "[commit-outputs] FAILED"; CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}commit_outputs=failed"
+    echo "[commit-outputs] FAILED"; commit_rc=1; CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}commit_outputs=failed"
   fi
 else
   echo "[commit-outputs] nothing to commit"
@@ -111,7 +113,7 @@ leg_stamp=$(./.venv/bin/python -c 'import json; print(json.load(open("outputs/bo
 # 1. The price vintage in its OWN commit — the CLAUDE.md price-basis rule. A dirty tree launders
 # the tape into whatever else is landing, so it is never bundled with anything.
 if [ "$leg_rc" -eq 0 ] && ! git diff --quiet -- inputs/market_data/prices_daily.yaml; then
-  if git add -- inputs/market_data/prices_daily.yaml && git commit -q -m "Price vintage $(date '+%Y-%m-%d') — absorbed as its own commit (daily refresher output)"; then
+  if git add -- inputs/market_data/prices_daily.yaml && git commit --only -q -m "Price vintage $(date '+%Y-%m-%d') — absorbed as its own commit (daily refresher output)" -- inputs/market_data/prices_daily.yaml; then
     echo "[price-leg] price vintage committed alone: $(git rev-parse --short HEAD)"
   else
     echo "[price-leg] FAILED to commit the price vintage"; leg_rc=1
@@ -194,7 +196,7 @@ fi
 # deliberately NOT the chat-era "Regen — ", whose historical commits carried PLAN.md edits too.
 if [ "$leg_rc" -eq 0 ] && [ -n "$det" ]; then
   if git status --porcelain -- outputs decisions | grep -q .; then
-    if git add -u -- outputs decisions && git commit -q -m "Regen (price leg) — $(date '+%Y-%m-%d') via scripts/regen.sh (stamp $head_now): surface + gate annotations"; then
+    if git add -u -- outputs decisions && git commit --only -q -m "Regen (price leg) — $(date '+%Y-%m-%d') via scripts/regen.sh (stamp $head_now): surface + gate annotations" -- outputs decisions; then
       echo "[price-leg] surface committed: $(git rev-parse --short HEAD)"
     else
       echo "[price-leg] FAILED to commit the regenerated surface"; leg_rc=6
@@ -227,4 +229,15 @@ bash scripts/auto_push.sh || push_rc=$?
 [ "$push_rc" -eq 0 ] || CRON_NOTE="${CRON_NOTE:+$CRON_NOTE,}auto_push=rc${push_rc}"
 echo "=== [auto-push] EXIT CODE $push_rc"
 
-exit $rc
+publication_rc=1
+if [ "$land_rc" -eq 0 ] && [ "$leg_rc" -eq 0 ]; then
+  publication_rc=0
+  ./.venv/bin/python -m crude_tanker_fv.publication publish > state/publication.out 2>&1 || publication_rc=$?
+fi
+finish_rc=0
+./.venv/bin/python -m crude_tanker_fv.operations finish "$operation_id" "checks=$rc" "weekly_report=$report_rc" "commit_outputs=$commit_rc" "generation=$leg_rc" "auto_land=$land_rc" "auto_push=$push_rc" "publication=$publication_rc" || finish_rc=$?
+if [ "$finish_rc" -ne 0 ]; then
+  CRON_OUTCOME=error
+  exit "$finish_rc"
+fi
+exit "$rc"

@@ -197,3 +197,5 @@ offshore) ship ≥70%/±10% v1 and tighten in Q3. The bars apply at **lock-time,
      (~4k tokens). At the cap you EVICT / MIGRATE / GENERALIZE — you do NOT raise the cap to fit a rule.
   5. **Compact at Week-close** — sweep for rules now subsumed by a guard, obsolete, or duplicated, and
      graduate them out. Accretion + eviction = a router that stays a router. (Git-tracked; rules survive.)
+
+- **Broker reference and cycle exports share engine inputs** (2026-09-22): price-only updates cannot move broker NAV; cycle exports use the transaction-adjusted fleet basis (`tests/test_broker_contract.py`).

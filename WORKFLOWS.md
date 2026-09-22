@@ -375,3 +375,38 @@ seams during a sprint and this is where they get smoothed:
    (check for credential-shaped files).
 5. **Push to GitHub** (`git push origin main`) — at Week close at minimum; mid-week pushes after
    significant commits are fine too.
+
+## Correctness and delivery operations (2026-09-22)
+
+The scorecard schema is 2.9: broker_reference carries the matched price, P/NAV, NAV and source date;
+cycles carries explicit company/sleeve identities, ratios, labels and anchor bases. Headline valuations
+and cycle methodology are unchanged. Broker comparisons must agree with reconciliation.
+
+Filing triage uses `sh scripts/filings_task.sh list --json`, then `record` with a JSON disposition array
+on stdin. The wrapper commits the accession-bearing record before acknowledging it. It owns only
+`decisions/filings_triage_log.md`. The complete pending queue is durable; --all is a compatibility alias.
+`filings ack` requires an already committed decisions/ record. A queue older than three business days
+pages for workflow repair; arrivals themselves remain agent work. Prompt of record: automation/filings-triage.md.
+
+After manual regeneration and deliberate surface/baseline commits, run
+`PYTHONPATH=src .venv/bin/python -m crude_tanker_fv.publication publish`.
+The production-only publisher checks the existing landing gates before advancing state/publications/current.json.
+The five-minute delivery worker also discovers newly acceptable committed surfaces. Tests and shadow
+regeneration never call the publisher. The accepted snapshot and source/output hashes identify exactly
+what the governor consumed. A publication hold retains the previous snapshot and names its reason.
+
+Run receipts live in state/operations/runs/. SMTP messages are persisted in state/delivery/ before the
+first attempt; governor messages use its monitor/state/delivery/. Retry offsets: 5m, 15m, 1h, 6h.
+Configuration/authentication failures block; after correction use `operations retry producer|governor <id>`.
+SMTP accepted does not prove inbox delivery. Stable Message-ID plus local receipts prevent normal
+repeats; an ambiguous disconnect after server acceptance can still duplicate mail.
+
+The worker plist is scripts/com.crude-tanker-fv.delivery-worker.plist. Disable it by creating
+state/operations/disabled (or unload its launchd label); receipts and accepted snapshots remain intact.
+Re-enable by removing that marker. Verify state/operations/worker.json and the delivery-worker heartbeat.
+A worker tick never stands in for a missing scheduled monitor run.
+
+Scheduler permissions: install the explicit rules in automation/task_permissions.json into the user
+settings and the task's working-folder settings. Do not rely on Auto mode or SKILL.md allowed-tools.
+The scoped wrappers work in Manual mode. Denied/new operations require a workflow repair, not blanket
+bypass mode. See automation/README.md for provenance and runtime limitations.

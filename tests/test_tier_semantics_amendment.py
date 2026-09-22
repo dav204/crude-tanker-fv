@@ -453,7 +453,7 @@ def test_scorecard_surface_is_unchanged_by_the_strobe(tmp_path: Path):
         return next(ln for ln in text.splitlines() if ln.startswith("| Ticker | Sector | **Tier**"))
 
     assert _tier_header(fresh_md) == _tier_header(committed_md), "the tier table gained a column"
-    assert fresh_json["schema_version"] == committed_json["schema_version"] == "2.8"
+    assert fresh_json["schema_version"] == committed_json["schema_version"] == "2.9"
     assert set(fresh_json) == set(committed_json), "the handoff JSON gained a top-level key"
     assert (set(fresh_json["names"][0]) == set(committed_json["names"][0])), \
         "the handoff JSON gained a per-name field — the tape margin belongs to the monitor layer"

@@ -658,6 +658,7 @@ class BrokerSweepRow:
     be_broker: float           # blended breakeven TCE at broker marks
     fv_tool: float             # probability-weighted FV at tool marks
     fv_broker: float
+    broker_reference: dict = None
 
     @property
     def spread(self) -> float:
@@ -712,7 +713,9 @@ def run_broker_sweep(
             continue
         ci, _ = _maybe_apply_transactions(ci, inputs_dir, use_transaction_anchored)
         price, target = entry["current_price"], entry["analyst_target"]
-        broker_nav = price / entry["consensus_pnav"]
+        from .broker_reference import broker_reference
+        reference = broker_reference(entry)
+        broker_nav = reference["nav"]
         k_broker = solve_broker_premium(ci, broker_nav)
         k_mid = (1.0 + k_broker) / 2.0
 
@@ -730,6 +733,7 @@ def run_broker_sweep(
             pos_tool=r_tool.position_recommendation, pos_broker=r_brk.position_recommendation,
             be_tool=r_tool.breakeven_tce, be_broker=r_brk.breakeven_tce,
             fv_tool=r_tool.probability_weighted_fv, fv_broker=r_brk.probability_weighted_fv,
+            broker_reference=reference,
         ))
 
     if rows:

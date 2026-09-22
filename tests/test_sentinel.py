@@ -536,7 +536,7 @@ def test_filing_events_landed_overdue_unseeded(tmp_path):
     # Triage ack (2026-09-11): a dispositioned accession drops out of FILING-LANDED
     # for the rest of its 48h window; the overdue stays satisfied by the arrival.
     from crude_tanker_fv import filings as _filings
-    _filings.ack("0001-26-000009", "record-only: fixture", path=state / "filings_triaged.json")
+    _filings.save({"0001-26-000009": {"disposition": "record-only: legacy fixture"}}, path=state / "filings_triaged.json")
     flags = collect_flags(inputs, outputs, environ=FAKE_ENV)
     assert not any(f.startswith("FILING-LANDED") for f in flags)
     assert not any(f.startswith("FILING-OVERDUE") for f in flags)

@@ -34,8 +34,13 @@ def _tmp_repo(tmp_path: Path) -> Path:
 def _run(script: Path, repo: Path) -> subprocess.CompletedProcess:
     # XPC_SERVICE_NAME=0 mimics an interactive macOS shell — the ledger must
     # still stamp these manual (only com.crude-tanker-fv.* labels are launchd).
+    stub = repo.parent / "resolver"
+    stub.mkdir(exist_ok=True)
+    resolver = stub / "dscacheutil"
+    resolver.write_text("#!/bin/sh\nprintf 'ip_address: 127.0.0.1\\n'\n")
+    resolver.chmod(0o755)
     return subprocess.run([str(script)], capture_output=True, text=True,
-                          env={"CRUDE_TANKER_FV_ROOT": str(repo), "PATH": "/usr/bin:/bin",
+                          env={"CRUDE_TANKER_FV_ROOT": str(repo), "PATH": str(stub) + ":/usr/bin:/bin",
                                "HOME": str(repo), "XPC_SERVICE_NAME": "0"})
 
 

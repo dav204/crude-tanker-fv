@@ -85,6 +85,8 @@ def route_flags(flags: list[str], routes: dict) -> "tuple[list[str], list[str]]"
 # and the email must say what; agent-class work never pages). Keyed by tag; the page body
 # prefixes each line with it. A tag with no entry here should not be routed to page.
 PAGE_ACTIONS = {
+    "FILING-QUEUE-INVALID": "OWNER — repair the malformed filing queue; pending work has not been discarded",
+    "FILING-QUEUE-STALLED": "OWNER — restore the daily triage task; its pending queue is stalled",
     "SURFACE-INCOHERENT": "OWNER — a guard contradicted the published surface; the agent has halted. Read the named check and rule.",
     "FILING-OVERDUE": "OWNER — the issuer has not filed past its window and no sheet is on file. Decide: chase the issuer, or hold the name on its prior sheet.",
     "TRIGGER-DUE": "OWNER — an observable you registered is due. Record its outcome on the card (when this line names a DRAFT on file, read it first), or open a chat and say 'run the check'.",
@@ -154,18 +156,22 @@ def record_down(reason: str, state_dir: Path = Path("state")) -> None:
         fh.write(f"{stamp} NOTIFY-DOWN {reason}\n")
 
 
-def send_email(subject: str, body: str, *, environ=os.environ,
-               smtp_factory=None, state_dir: Path = Path("state")) -> bool:
+def _send_email(subject: str, body: str, *, environ=os.environ,
+                smtp_factory=None, state_dir: Path = Path("state"), message_id=None, receipt=None) -> bool:
     """One email to the owner. True only on a completed SMTP send — callers
     (the wrappers' ping-withholding) treat False as 'do not ping'."""
+    receipt = receipt if receipt is not None else {}
     st = smtp_status(environ)
     if not st["configured"]:
+        receipt["failure_class"] = "configuration"
         record_down(f"unconfigured (missing {', '.join(st['missing'])})", state_dir)
         return False
     msg = EmailMessage()
     msg["From"] = environ["CRUDE_FV_SMTP_USER"]
     msg["To"] = environ["CRUDE_FV_SMTP_TO"]
     msg["Subject"] = subject
+    if message_id:
+        msg["Message-ID"] = message_id
     msg.set_content(body)
     factory = smtp_factory or smtplib.SMTP
     try:
@@ -173,23 +179,36 @@ def send_email(subject: str, body: str, *, environ=os.environ,
                      int(environ.get("CRUDE_FV_SMTP_PORT", "587")), timeout=30) as s:
             s.starttls()
             s.login(environ["CRUDE_FV_SMTP_USER"], environ["CRUDE_FV_SMTP_PASS"])
-            s.send_message(msg)
+            refused = s.send_message(msg)
+            if refused:
+                receipt["failure_class"] = "permanent"
+                record_down("recipient refused", state_dir)
+                return False
         reauth.clear("smtp", state_dir / "reauth")
         # Send ledger: a send that isn't ledgered didn't happen.
         state_dir.mkdir(parents=True, exist_ok=True)
         with (state_dir / "notify_sent.log").open("a") as fh:
             fh.write(f"{datetime.now(timezone.utc).isoformat(timespec='seconds')} "
                      f"SENT {subject}\n")
+        receipt["status"] = "smtp_accepted"
         return True
     except smtplib.SMTPAuthenticationError as exc:
         # REAUTH-NEEDED (2026-09-02): the app password is dead, not the network —
         # the sentinel pages it once from state/reauth/ (it cannot page by email).
+        receipt["failure_class"] = "authentication"
         reauth.mark("smtp", f"SMTP auth refused: {exc}", state_dir / "reauth")
         record_down(f"send failed (auth): {exc}", state_dir)
         return False
     except Exception as exc:
+        receipt["failure_class"] = "transient"
         record_down(f"send failed: {exc}", state_dir)
         return False
+
+
+def send_email(subject, body, *, environ=os.environ, smtp_factory=None, state_dir=Path("state")):
+    from .delivery import enqueue, attempt
+    path = enqueue(subject, body, state_dir)
+    return attempt(path, environ=environ, smtp_factory=smtp_factory)["status"] == "accepted"
 
 
 def doctor(environ=os.environ, inputs_dir: Path = INPUTS_DIR,

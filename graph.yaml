@@ -45,6 +45,39 @@ retired_tasks:
   - portfolio-monday-open-fill-check    # one-shot 2026-06-29 09:45: reported the fills
 
 nodes:
+  - id: accepted-publication
+    kind: lane
+    repo: crude-tanker-fv
+    entry: src/crude_tanker_fv/publication.py
+    runs: after successful landing; worker catches accepted manual commits
+    triggers: [auto-land]
+    reads: [outputs/book_scorecard.json, state/last_run.json, baselines/reconcile_baseline.yaml, decisions/*_log.md]
+    writes: [state/publications/**]
+    commits: none
+    on_failure: retain previous accepted pointer and record held reason
+
+  - id: delivery-worker
+    kind: launchd
+    repo: crude-tanker-fv
+    entry: scripts/delivery_worker.sh
+    plist: com.crude-tanker-fv.delivery-worker
+    runs: every five minutes and on load; catches up after sleep
+    reads: [state/publications/**, state/delivery/**, governance:monitor/state/**, governance:monitor/seam_registry.json]
+    writes: [state/publications/**, state/delivery/**, state/operations/**, state/heartbeat/delivery-worker, governance:monitor/state/**, governance:monitor/outbox/seam-*.md]
+    commits: governor-seam
+    on_failure: heartbeat error; unfinished receipts retained; no successful delivery healthcheck
+
+  - id: governor-seam
+    kind: script
+    repo: portfolio-governance
+    entry: monitor/seam.py
+    runs: each accepted publication and weekly monitor
+    reads: [producer:state/publications/**, monitor/seam_registry.json]
+    writes: [monitor/state/**, monitor/outbox/seam-*.md]
+    commits: self
+    commit_subject_prefix: "monitor: seam"
+    on_failure: UNKNOWN/BLOCKED event; previous review baseline retained
+
 
   # ---------------------------------------------------------------- launchd (no app, no LLM)
   - id: edgar-poll
@@ -220,7 +253,7 @@ nodes:
     writes: [baselines/reconcile_baseline.yaml, RATIFY_LOG.md]
     commits: self
     commit_subject_prefix: "baseline: auto-land"
-    on_failure: "FREEZE rc 1 rides the cron note (or the executor's report); NOTHING TO LAND rc 0 on a quiet gate"
+    on_failure: "FREEZE rc 1 is recorded as a publication hold; final receipt follows all stages; no early success ping. It rides the cron note (or the executor's report); NOTHING TO LAND rc 0 on a quiet gate"
     notes: "(e) also freezes on any COMMIT touching src/** or inputs/** (archive dirs excluded) between the surface stamp and HEAD — a history read, not a working-tree read; lands via scripts/ratify_baseline.sh, which greps PLAN.md for a stale pending-marker"
 
   - id: auto-push

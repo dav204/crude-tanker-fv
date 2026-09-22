@@ -476,7 +476,7 @@ def land(root: Path = ROOT, dry_run: bool = True, runner=None) -> int:
         return 0
     runner(argv, cwd=root, check=True)
     runner(["git", "add", "baselines/reconcile_baseline.yaml", "RATIFY_LOG.md"], cwd=root, check=True)
-    runner(["git", "commit", "-q", "-m", f"baseline: auto-land — {cause}"], cwd=root, check=True)
+    runner(["git", "commit", "--only", "-q", "-m", f"baseline: auto-land — {cause}", "--", "baselines/reconcile_baseline.yaml", "RATIFY_LOG.md"], cwd=root, check=True)
     print("LANDED — baseline re-ratified and committed")
     return 0
 

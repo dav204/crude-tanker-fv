@@ -144,7 +144,10 @@ def compute_row(
         return None
 
     price = w["current_price"]
-    broker_nav = price / consensus_pnav
+    from .broker_reference import broker_reference
+    broker_nav = broker_reference(w)["nav"]
+    if broker_nav is None:
+        return None
     tool_nav = t["nav_per_share"]
     gap_pct = (tool_nav - broker_nav) / broker_nav * 100.0
     pnav_basis = "approx" if ticker in APPROX_PNAV_TICKERS else "pareto"

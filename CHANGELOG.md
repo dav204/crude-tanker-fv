@@ -2306,3 +2306,18 @@ live rules distilled from it.
   (under drift gate). Diana tender deal overlay documented in
   decisions/gnk_log.md + watchlist comment — GNK price is tender-pinned
   until Jun-26. tests: 201 passed.
+
+## 2026-09-22 — Correctness and delivery A1–A4
+
+Correct broker NAV and broker-sweep premium to the matched source price/P-NAV vintage; the latest
+quote remains the trade-price denominator only. Export source metadata and explicit company/sleeve
+cycles in schema 2.9. Preserve independent NAV, scenario FV, weights and cycle bands. A corrected
+broker-premium change is not automatically attributed to tape by the pure-price annotator.
+
+Durable filings retain every unacknowledged accession and require committed disposition evidence for
+new acknowledgments. Shared queue and stalled/invalid flags remove the 48h/80-row loss modes.
+
+Introduce accepted publication snapshots, deterministic governor checks, unique run receipts, scoped
+commits and persistent bounded SMTP recovery. The native worker operates independently of an LLM task's
+permission mode. Persistent narrow settings replace date-specific grants and frontmatter assumptions.
+Validation and rollout evidence: decisions/correctness_delivery_2026-09-22.md.
