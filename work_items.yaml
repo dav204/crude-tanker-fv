@@ -1555,6 +1555,34 @@
       "status": "ready",
       "verified_at": "2026-09-22",
       "waiting_condition": "until cited evidence and any specified owner decision are recorded"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [
+        "economic:cash-schedules",
+        "economic:reference-pairs",
+        "economic:risk-calibration",
+        "economic:normalized-accounting-eps",
+        "economic:hybrid-joint-scenarios",
+        "roadmap:lr1-anchor",
+        "D-M2-parameters",
+        "D1-cycle"
+      ],
+      "due": null,
+      "evidence": [
+        {
+          "path": "research/economic-methods/REVIEW.md",
+          "project": "producer",
+          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+        }
+      ],
+      "id": "economic:adoption-review",
+      "next_action": "Review economic-method package after material evidence gaps close; approve scoped payout/reference/risk parameters and D1 smoothing outer anchors explicitly. No new method or baseline changes before that ruling.",
+      "project": "producer",
+      "resolver": "owner",
+      "status": "blocked",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "until cited evidence and any specified owner decision are recorded"
     }
   ],
   "version": 1
