@@ -199,7 +199,7 @@ def policy(inputs_dir):
     path = inputs_dir / "calendar_policy.yaml"
     if not path.exists():
         return {"version": 1, "enabled": False}
-    doc = yaml.safe_load(path.read_text())
+    doc = yaml.load(path.read_text(), Loader=getattr(yaml, "CSafeLoader", yaml.SafeLoader))
     if doc.get("version") != 1 or not isinstance(doc.get("enabled"), bool):
         raise ValueError("invalid calendar policy")
     return doc
@@ -233,7 +233,7 @@ def align(inputs, inputs_dir, valuation_date=None, enabled=None):
         )
     )
     start = quarter(day)
-    raw = yaml.safe_load((inputs_dir / "market_data/ffa_forward_curve.yaml").read_text())
+    raw = yaml.load((inputs_dir / "market_data/ffa_forward_curve.yaml").read_text(), Loader=getattr(yaml, "CSafeLoader", yaml.SafeLoader))
     calendars = raw.get("calendar_nodes", {})
     curves = {}
     nodes = {}

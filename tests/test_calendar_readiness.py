@@ -145,3 +145,9 @@ def test_explicit_ocr_years_are_retained():
     from crude_tanker_fv.ffa_ocr import _norm_tenor
     for text, expected in [('Oct-26','oct-26'),('Q4-26','q4-26'),('Q1/27','q1/27'),('Cal2027','cal2027')]:
         assert _norm_tenor(text) == expected
+
+
+def test_safe_yaml_implementations_agree_on_calendar_inputs():
+    for path in [INPUTS_DIR/'calendar_policy.yaml', INPUTS_DIR/'market_data/ffa_forward_curve.yaml']:
+        text=path.read_text()
+        assert yaml.load(text,Loader=getattr(yaml,'CSafeLoader',yaml.SafeLoader))==yaml.safe_load(text)

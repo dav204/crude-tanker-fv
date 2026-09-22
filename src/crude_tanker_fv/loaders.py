@@ -74,7 +74,7 @@ def _read_yaml(path: Path) -> dict:
     if not path.exists():
         raise FileNotFoundError(f"input file not found: {path}")
     with open(path) as fh:
-        data = yaml.safe_load(fh)
+        data = yaml.load(fh, Loader=getattr(yaml, "CSafeLoader", yaml.SafeLoader))
     if not isinstance(data, dict):
         raise ValueError(f"expected a YAML mapping at top level of {path}")
     return data
