@@ -27,3 +27,6 @@ See `decisions/calendar_workflow_prereg_2026-09-22.md` and the implementation re
 
 The ordinary verification path remains isolated regeneration, producer tests,
 reconciliation and drift checks. No portfolio decision or order is delegated by this work.
+
+Domain references: `inputs/reweight_triggers.yaml`, `inputs/forks.yaml`,
+`outputs/book_scorecard.md` / `.json`; dated landing history remains in `CHANGELOG.md`.
