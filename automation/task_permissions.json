@@ -105,7 +105,13 @@
       "mcp__f9524e2a-1171-4431-92af-cd9971f68429__get_thread",
       "mcp__f9524e2a-1171-4431-92af-cd9971f68429__search_threads",
       "Edit(//Users/dan_personal/Projects/crude-tanker-fv/PLAN.md)",
-      "Edit(//Users/dan_personal/Projects/crude-tanker-fv/inputs/forks.yaml)"
+      "Edit(//Users/dan_personal/Projects/crude-tanker-fv/inputs/forks.yaml)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(PYTHONPATH=src .venv/bin/python -m crude_tanker_fv.notify --send page --body-file /Users/dan_personal/Projects/crude-tanker-fv/state/fork_page.md --state-dir state)",
+      "Edit(//Users/dan_personal/Projects/crude-tanker-fv/inputs/**)",
+      "Write(//Users/dan_personal/Projects/crude-tanker-fv/state/fork_page.md)"
     ]
   }
 }
