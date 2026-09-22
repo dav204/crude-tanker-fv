@@ -1,5 +1,29 @@
 # TRMD — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** TRMD broker reference repaired from $41.55 to $34.57 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $32.30, scenario FV $35.14, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $38.23
+- Single-point FV: $32.62
+- Scenario PW FV: $35.14 (EV -8.1%)
+- NAV / share: $32.30
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +5.4pp (k_broker 1.06)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ broker spread -16.7pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -16.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-18T16:51:48+00:00 — Pipeline run (auto)
 
 **Model state:**

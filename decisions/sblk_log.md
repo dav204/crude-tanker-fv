@@ -1,5 +1,29 @@
 # SBLK — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** SBLK broker reference repaired from $35.69 to $33.41 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $33.27, scenario FV $28.20, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $32.48
+- Single-point FV: $32.81
+- Scenario PW FV: $28.20 (EV -13.2%)
+- NAV / share: $33.27
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +0.3pp (k_broker 1.00)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ broker spread -5.5pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -5.5pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-16 — OFFERING RESULTS + ADMISSION TO TRADING — 116,071,386 shares issuer-stated, net proceeds US$115.9M (6-K 0000950157-26-001013, filed 2026-09-15): refresh-trigger
 
 **Decision:** the settlement-day 6-K the 9/12 entry left open has landed, and it resolves the two

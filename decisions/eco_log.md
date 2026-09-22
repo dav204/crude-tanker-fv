@@ -1,5 +1,29 @@
 # ECO — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** ECO broker reference repaired from $57.79 to $45.10 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $39.54, scenario FV $44.15, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $84.95
+- Single-point FV: $39.87
+- Scenario PW FV: $44.15 (EV -48.0%)
+- NAV / share: $39.54
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +6.1pp (k_broker 1.11)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -13.9pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -13.9pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-18 — CRUDE DECK RE-EXPRESSION (WO5/R4): FV 42.22 -> 44.15 (+4.57%), EV -50.1 -> -47.8pp, NAV unchanged
 
 **Decision:** The 2026-09-18 crude deck RE-EXPRESSION (WO5/R4 Phases 0-3b, fork `r4_wo5_deck_reexpression_schedule`, landed at commit 49e0fb9; method, derivation and the dated Phase-3 freeze in `decisions/r4_deck_reexpression_method_2026-09-18.md`). The three de-escalation legs were re-levelled per class so each leg's 8-quarter mid mean hits its registered ratio against the live FFA reference (pre_mou_baseline 1.00 = the observed state, mou_base 0.80, mou_bear 0.60); quarter shape and the low/mid/high spread preserved, only the level moved. `escalation` untouched; the C3 weight vector untouched. No mark, sheet or manifest this name reads changed, so NAV/share is unchanged to the cent and the whole move is the scenario deck's. Observed vs the Phase-3 freeze: predicted ΔFV +4.57%, observed +4.57%; predicted ΔEV +2.3pp, observed +2.3pp; predicted ΔNAV 0.00, observed 0.00. HIT.

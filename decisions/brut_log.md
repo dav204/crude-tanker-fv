@@ -1,5 +1,29 @@
 # BRUT — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** BRUT broker reference repaired from $5.11 to $4.56 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $4.92, scenario FV $5.51, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $5.27
+- Single-point FV: $4.71
+- Scenario PW FV: $5.51 (EV +4.6%)
+- NAV / share: $4.92
+- Position: **HOLD (fairly valued)**
+- Broker spread: -6.4pp (k_broker 0.97)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -9.9pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -9.9pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-19T15:16:06+00:00 — Pipeline run (auto)
 
 **Model state:**

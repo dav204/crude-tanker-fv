@@ -1,5 +1,29 @@
 # HAFN — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** HAFN broker reference repaired from $9.83 to $8.06 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $4.64, scenario FV $5.47, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $10.12
+- Single-point FV: $4.92
+- Scenario PW FV: $5.47 (EV -46.0%)
+- NAV / share: $4.64
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +31.1pp (k_broker 1.53)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ broker spread -16.0pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -16.0pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-16 — TORM STAKE INCREASED — 4,500,000 A shares at US$32.25 (≈US$145.1M), holding to ~18.22% (6-K 0001140361-26-036707, filed 2026-09-16): refresh-trigger
 
 **Decision:** Ex-99.1, dated Singapore 16 September 2026, in full on the substance: "Hafnia Limited …

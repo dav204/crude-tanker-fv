@@ -104,6 +104,10 @@ fi
 echo "=== [price-leg] $(date '+%Y-%m-%d %H:%M:%S')"
 mkdir -p "$PROJECT/state"
 leg_rc=0
+if ! ./.venv/bin/python -c 'from crude_tanker_fv.promote import _non_drift_dirt; raise SystemExit(bool(_non_drift_dirt()))'; then
+  echo "[price-leg] HELD: non-drift work exists; automation will not commit through it"
+  leg_rc=10
+fi
 det=""
 head_now=""
 leg_quarter=$(./.venv/bin/python -c 'from crude_tanker_fv.loaders import current_book_quarter; print(current_book_quarter() or "")' 2>/dev/null || echo "")

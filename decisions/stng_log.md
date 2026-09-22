@@ -1,5 +1,29 @@
 # STNG — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** STNG broker reference repaired from $119.40 to $106.03 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $76.22, scenario FV $75.97, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $87.16
+- Single-point FV: $72.66
+- Scenario PW FV: $75.97 (EV -12.8%)
+- NAV / share: $76.22
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +31.3pp (k_broker 1.49)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ broker spread -14.1pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -14.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-09 — Stage B annotation (tanker re-anchor 2026-09-09)
 
 **Decision:** STAGE B — tanker curves + 12M re-anchored under the 2026-09-09 owner ruling (inputs 0e6c518; record + frozen predicted impact in decisions/stage_b_promotion_2026-09-09.md). A RATE-ONLY event: ΔNAV is exactly 0.0 on every name (nav.py reads no rate file); the EV move is the scenario deck re-reading the new curve through forward_ref. Direction DOWN as predicted. ΔEV -6.9pp · band HOLD (fairly valued) → TRIM/SHORT (overvalued) (mechanical crossing on the price leg) · Δk +0.120 (consensus_pnav is a fixed ratio, so broker NAV tracks the tape while tool NAV holds — the price leg, not a relationship change). Ratify rides the owner's next ratify_baseline.sh with the promotion record as cause.

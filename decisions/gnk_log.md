@@ -1,5 +1,29 @@
 # GNK — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** GNK broker reference repaired from $29.43 to $27.16 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $25.37, scenario FV $21.05, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $27.96
+- Single-point FV: $25.23
+- Scenario PW FV: $21.05 (EV -24.7%)
+- NAV / share: $25.37
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +4.8pp (k_broker 1.06)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ broker spread -6.2pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -6.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-18 — TAPE (−3.1pp) PLUS THE 9/18 DRY FFA PROMOTE (−1.3pp): EV −20.4pp -> −24.8pp, band unchanged
 
 **Decision:** Two legs from the 2026-09-16 anchor (price 27.00, fair value 21.50, EV −20.4pp): (1) TAPE — the share went 27.00 -> 28.10 (+4.07%; the 9/18 quote is the 9/17 close carried forward), which with fair value HELD at 21.50 puts EV at −23.5% (−3.1pp). (2) PROMOTE — the 2026-09-18 dry FFA print (commit e8e23cb, packet decisions/ffa_promotion_2026-09-18.md) advanced the Cape 12M TC proxy 36,771 -> 39,150 (+6.47%) and Supra-Ultra 18,288 -> 19,021 (+4.01%) with the packet's cycle-band labels unchanged; GNK's scenario PW fair value moved 21.50 -> 21.14 (−1.7%) on the curve, NAV/share unchanged at 25.37 — a further −1.3pp. No sheet or manifest GNK reads changed; band TRIM/SHORT unchanged; k_broker second difference +0.04 is the price leg. Accepted as explained; recorded 2026-09-18 from the owner's chat.

@@ -1,5 +1,29 @@
 # DHT — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** DHT broker reference repaired from $20.41 to $17.02 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $15.01, scenario FV $16.56, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $23.27
+- Single-point FV: $15.26
+- Scenario PW FV: $16.56 (EV -28.8%)
+- NAV / share: $15.01
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +8.0pp (k_broker 1.12)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -13.5pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -13.5pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-18 — THE 9/17-9/18 TAPE ONLY: EV −26.8pp -> −29.3pp, fair value unchanged to the cent
 
 **Decision:** DHT's fair value is unchanged to the cent at 16.32 (NAV/share 15.01) and the share went 22.30 (2026-09-16 anchor) -> 23.09 (9/18 intraday, +3.54% over two sessions), so EV moved −26.8pp -> −29.3pp on price alone (−2.5pp; k_broker second difference +0.04 from the same price against a static consensus P/NAV). No crude curve, sheet or manifest DHT reads changed between the anchor and this run; the 2026-09-18 dry FFA promote reaches no crude name. Band unchanged (rich · cycle position). Accepted as explained; recorded 2026-09-18 from the owner's chat.

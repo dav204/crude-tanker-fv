@@ -1,5 +1,29 @@
 # SB — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** SB broker reference repaired from $8.12 to $7.54 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $10.72, scenario FV $9.01, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $9.18
+- Single-point FV: $10.42
+- Scenario PW FV: $9.01 (EV -1.9%)
+- NAV / share: $10.72
+- Position: **HOLD (fairly valued)**
+- Broker spread: -27.8pp (k_broker 0.82)
+- Sector: dry_bulk
+
+**Material deltas since last run:**
+- ⚑ broker spread -5.1pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -5.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-18T16:51:48+00:00 — Pipeline run (auto)
 
 **Model state:**

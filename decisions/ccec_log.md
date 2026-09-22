@@ -1,5 +1,29 @@
 # CCEC — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** CCEC broker reference repaired from $24.07 to $25.33 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $25.70, scenario FV $33.70, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $21.66
+- Single-point FV: $29.97
+- Scenario PW FV: $33.70 (EV +55.6%)
+- NAV / share: $25.70
+- Position: **BUY (undervalued)**
+- Broker spread: -1.6pp (k_broker 1.00)
+- Sector: lng
+
+**Material deltas since last run:**
+- ⚑ broker spread +5.5pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: +5.5pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-19 — CCEC TAPE ONLY: EV +50.8pp -> +55.6pp, fair value unchanged to the cent
 
 <!-- annotate.py/1 ticker=CCEC run=2026-09-19T15:16:06+00:00 anchor=15f2427 ev=55.59 px=21.66 -->

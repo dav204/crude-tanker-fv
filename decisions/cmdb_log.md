@@ -1,5 +1,10 @@
 # CMDB — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** CMDB broker reference repaired from $28.50 to $27.99 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $32.60, scenario FV $19.30, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-09-09. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
 ## 2026-09-14 — DRY FFA 2026-09-11 PROMOTE + THE 9/11 TAPE: EV -16.4pp -> -21.0pp, band unchanged
 
 **Decision:** The 2026-09-11 dry FFA promote moved CMDB's fair value 19.52 -> 19.36 (-0.82%) while the 9/11 close took the share +4.97%, so EV compressed -16.4pp -> -21.0pp with no band flip. Two legs, both mechanical. (1) The dry FFA promote of the 2026-09-11 print (decisions/ffa_promotion_2026-09-14.md, the ruled straddling construction) moved the Supra-Ultra and Pana curves, and CMDB's fair value with them: 19.52 -> 19.36, -0.82%. (2) The 2026-09-11 close took the share 23.35 -> 24.51, +4.97% on the day. Net EV -16.4pp -> -21.0pp. No band flip (TRIM/SHORT both sides), no methodology change, no sheet change. Baseline anchor: the 2026-09-10 ratify (e6b6299). Gate row dNAV +0.0%; the move is EV%, and EV% is fair value against the tape.

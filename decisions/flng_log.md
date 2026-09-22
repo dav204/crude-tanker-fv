@@ -7,6 +7,11 @@ where you annotate what you actually did and why.
 
 ---
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** FLNG broker reference repaired from $22.51 to $21.74 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $27.22, scenario FV $29.47, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
 ## 2026-09-17 — THE 9/17 TAPE ONLY: EV -6.3pp -> -8.5pp, fair value unchanged to the cent
 
 **Decision:** FLNG's fair value is unchanged to the cent at 29.47 and the 2026-09-17 close took the share 31.45 -> 32.2 (+2.38%), so EV moved -6.3pp -> -8.5pp on price alone. No curve, sheet or manifest FLNG reads changed between the anchor and this surface. The read stays TRIM/SHORT (overvalued). Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).

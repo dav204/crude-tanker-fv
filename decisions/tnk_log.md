@@ -1,5 +1,29 @@
 # TNK — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** TNK broker reference repaired from $110.90 to $96.92 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $84.60, scenario FV $87.59, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $100.92
+- Single-point FV: $84.12
+- Scenario PW FV: $87.59 (EV -13.2%)
+- NAV / share: $84.60
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +11.2pp (k_broker 1.25)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -12.8pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -12.8pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-18 — STAGE-A VOID RETIRED, destination CYCLE-RELABEL (WO5/R4 Phase 4)
 
 **Decision:** TNK leaves `POSITION_UNRELIABLE` and joins `POSITION_CYCLE_RELABEL`. Its only ground was the 2026-08-10 deck artifact — TNK is the one of the three names with no second leg (VALIDATED-TIGHT, null sub-reason, never read_blocked) — and that ground named its own retire condition, the deck re-expression, which landed 2026-09-18 (49e0fb9 / c5ce304) and is guard-held. The artifact is gone: TRIM/SHORT at EV -12.9, 7.9pp from the edge, TRIM across all eight weight sets (-12.9% to -22.4%, sign-stable); HOLD needs -8.3% of price and BUY -17.0%. DESTINATION cycle-relabel rather than a bare raw read, per the work order's pre-ruled item 6: TNK reads rich/rich at TIGHT, the same late-cycle shape as its crude peers, and a genuine short call is a governance decision, not a rendering default — so the named-shorts line stays at ten names. RIDER, part of the ruling: `_verdict_position` rewrites a relabelled cell unconditionally, so a relabelled name turning raw-BUY would publish as a cycle position with the BUY tripwire silent; `test_a_cycle_relabelled_name_may_not_print_a_raw_buy` now reds on that. The B1 docket RE-ARMS (not ruled) as its anchor moves. Correction to the work order's citation: wf_8b0d1184 refuted the PERSISTENCE of TNK's BUY, not the original 8/10 print, which was real at that day's live tape. Full record: `decisions/tnk_void_disposition_2026-09-18.md`.

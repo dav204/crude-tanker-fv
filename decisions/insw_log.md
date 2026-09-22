@@ -1,5 +1,29 @@
 # INSW — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** INSW broker reference repaired from $91.86 to $82.07 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $54.64, scenario FV $61.81, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $111.15
+- Single-point FV: $37.95
+- Scenario PW FV: $61.81 (EV -44.4%)
+- NAV / share: $54.64
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +23.0pp (k_broker 1.51)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -8.2pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -8.2pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-17 — THE 9/17 TAPE ONLY: EV -43.2pp -> -45.8pp, fair value unchanged to the cent
 
 **Decision:** INSW's fair value is unchanged to the cent at 59.91 and the 2026-09-17 close took the share 105.39 -> 110.61 (+4.95%), so EV moved -43.2pp -> -45.8pp on price alone. No curve, sheet or manifest INSW reads changed between the anchor and this surface. The read stays the governed relabel 'rich - cycle position (not a short)'. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).

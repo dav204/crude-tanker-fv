@@ -1,5 +1,29 @@
 # LPG — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** LPG broker reference repaired from $54.86 to $46.51 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $35.69, scenario FV $31.82, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $58.15
+- Single-point FV: $33.93
+- Scenario PW FV: $31.82 (EV -45.3%)
+- NAV / share: $35.69
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +15.5pp (k_broker 1.33)
+- Sector: lpg
+
+**Material deltas since last run:**
+- ⚑ broker spread -11.9pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -11.9pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-17 — THE 9/17 TAPE ONLY: EV -42.1pp -> -45.3pp, fair value unchanged to the cent
 
 **Decision:** LPG's fair value is unchanged to the cent at 31.82 and the 2026-09-17 close took the share 55.0 -> 58.23 (+5.87%), so EV moved -42.1pp -> -45.3pp on price alone. No curve, sheet or manifest LPG reads changed between the anchor and this surface. The read stays the governed relabel 'rich - cycle position (not a short)'. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).

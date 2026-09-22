@@ -1,5 +1,29 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** TEN broker reference repaired from $127.05 to $108.10 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $91.91, scenario FV $68.15, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-09-09. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $52.09
+- Single-point FV: $62.06
+- Scenario PW FV: $68.15 (EV +30.8%)
+- NAV / share: $91.91
+- Position: **BUY (undervalued)**
+- Broker spread: +20.2pp (k_broker 1.13)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -23.7pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -23.7pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-21 — 2026-Q2 PAIR LANDED: NAV/sh 88.16 -> 91.91 (+4.2%), EV +6.0pp. Both blockers ruled.
 
 **Decision:** The H1-2026 pair is promoted to live and TEN is no longer the book's lagging name

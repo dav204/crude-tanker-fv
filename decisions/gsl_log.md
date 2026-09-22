@@ -1,5 +1,29 @@
 # GSL — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** GSL broker reference repaired from $61.12 to $51.99 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $41.37, scenario FV $42.94, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-06-12. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $45.84
+- Single-point FV: $44.17
+- Scenario PW FV: $42.94 (EV -6.3%)
+- NAV / share: $41.37
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +18.0pp (k_broker 1.22)
+- Sector: containerships
+
+**Material deltas since last run:**
+- ⚑ broker spread -15.5pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -15.5pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-11T14:04:43+00:00 — Pipeline run (auto)
 
 **Model state:**

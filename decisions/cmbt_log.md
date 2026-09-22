@@ -1,5 +1,29 @@
 # CMBT — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** CMBT broker reference repaired from $23.59 to $21.28 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $13.36, scenario FV $10.75, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $20.29
+- Single-point FV: $13.04
+- Scenario PW FV: $10.75 (EV -47.0%)
+- NAV / share: $13.36
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +31.2pp (k_broker 1.28)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -9.1pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -9.1pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-16 — FORK cmbt_commitments_convention EXECUTED: commitment-net, NAV/share 16.46 → 13.36 (−$3.10; band 13.26–13.46 HIT)
 
 **Decision:** CMBT moved from advances-only to commitment-net by booking the H1-2026 Note 12 newbuild commitment of USD 900,837k on the 2026-Q2 sheet, taking NAV/share 16.46 -> 13.36 (-18.8%), exactly the pre-registered 13.36 inside the frozen band 13.26-13.46. Fair value 13.58 -> 10.73; EV -29.7pp -> -44.5pp; the read stays TRIM/SHORT (overvalued), tier GOVERNED-WIDE. The k_broker second difference of +0.110 is the tool NAV falling against an unchanged Pareto broker NAV of 22.48 (gap -26.8% -> -40.6%, SANITY OK inside ±50%) — the convention switch, not a mark and not a price; the price is 19.33 on both sides. Source: Note 12 img_027 p.28 ("USD 0.9 billion (December 31, 2025: USD 1.6 billion)"), six rows and four year-columns foot. The silence window closed 2026-09-15; the scheduled executor halted 2026-09-16 because the OFF_CONVENTION_QUEUE exit is a src/tests change it may not make, so the landing was carried in a chat in one commit (f98d9fa: sheet + queue exit + newbuild_convention.yaml reasons) per decisions/cmbt_q2_landing_2026-09-10.md; regen stamp f98d9fa. GSL is now the last structural name still advances-only and leaves via its own pre-reg. Baseline anchor: the 2026-09-16 auto-land (19345f9); the next auto-land absorbs this row from this entry.

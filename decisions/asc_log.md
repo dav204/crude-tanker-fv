@@ -1,5 +1,29 @@
 # ASC — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** ASC broker reference repaired from $25.40 to $23.60 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $17.37, scenario FV $16.28, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $19.05
+- Single-point FV: $17.26
+- Scenario PW FV: $16.28 (EV -14.5%)
+- NAV / share: $17.37
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +27.8pp (k_broker 1.34)
+- Sector: product
+
+**Material deltas since last run:**
+- ⚑ broker spread -8.0pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -8.0pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-17 — THE 9/17 TAPE ONLY: EV -12.6pp -> -15.2pp, fair value unchanged to the cent
 
 **Decision:** ASC's fair value is unchanged to the cent at 16.28 and the 2026-09-17 close took the share 18.62 -> 19.21 (+3.17%), so EV moved -12.6pp -> -15.2pp on price alone. No curve, sheet or manifest ASC reads changed between the anchor and this surface. The read stays TRIM/SHORT (overvalued). Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).

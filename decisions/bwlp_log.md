@@ -1,5 +1,10 @@
 # BWLP — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** BWLP broker reference repaired from $20.40 to $19.04 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $15.83, scenario FV $14.52, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
 ## 2026-09-17 — NEWBUILD ORDER TREATMENT RULED (fork bwlp_nb_order_treatment): Option 3, advances-only interim
 
 **Decision:** The 8 × 90,000-cbm Panamax-VLGC order (~US$940M, signed 30-May-2026, HHI, deliveries

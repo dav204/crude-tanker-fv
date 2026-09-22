@@ -1,5 +1,29 @@
 # CAPT — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** CAPT broker reference repaired from $27.36 to $22.31 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $17.32, scenario FV $18.57, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $19.70
+- Single-point FV: $17.09
+- Scenario PW FV: $18.57 (EV -5.7%)
+- NAV / share: $17.32
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +24.1pp (k_broker 1.16)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -24.4pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -24.4pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-18 — STAGE-A VOID RETIRED (WO5/R4 Phase 4): the cell now prints the raw band, TRIM/SHORT -6.0
 
 **Decision:** CAPT leaves `POSITION_UNRELIABLE`. Its only registered ground was the 2026-08-10 deck-incoherence artifact, whose own retirement condition — the deck re-expression against the landed base — landed 2026-09-18 (49e0fb9 / c5ce304) and is now guard-held by `test_crude_deck_prices_a_real_spread_against_the_base`. The artifact itself is gone: post-re-expression CAPT reads TRIM/SHORT at EV -5.97pp, not BUY-ward, and TRIM/SHORT across all eight weight sets (-6.0% to -30.5%, weight_sign_stable true) on the superseding sidecar — so retiring publishes a read LESS favourable than the one the void suppressed. reconcile SANITY OK (-22.4%, stable). read_blocked, GOVERNED-WIDE and newbuild-heavy STAND. The strobe exposure is TRIM/SHORT<->HOLD at 0.97pp from the edge with no hysteresis (read_blocked suppresses read_flag), NOT a BUY strobe — the BUY edge is 11pp away; pinned by the new `test_read_blocked_and_not_unreliable_renders_the_raw_band`. A BUY-ward re-cross is armed as an owner eyeball. Full record: `decisions/capt_void_disposition_2026-09-18.md`.

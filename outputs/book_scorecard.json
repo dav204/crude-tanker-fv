@@ -1,7 +1,7 @@
 {
-  "schema_version": "2.8",
-  "generated_at": "2026-09-21T16:57:12+00:00",
-  "source_commit": "3be3dee",
+  "schema_version": "2.9",
+  "generated_at": "2026-09-22T17:55:07+00:00",
+  "source_commit": "e12f28b",
   "quarter": "2026-Q2",
   "price_basis": {
     "total": 25,
@@ -53,8 +53,23 @@
       "ev_pct": -28.8,
       "blend_fv": 15.26,
       "nav_per_share": 15.01,
-      "broker_nav": 20.41,
-      "gap_pct": -26.5,
+      "broker_nav": 17.02,
+      "broker_reference": {
+        "nav": 17.017543859649123,
+        "price": 19.4,
+        "pnav": 1.14,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.6425,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": -11.8,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -84,8 +99,23 @@
       "ev_pct": -48.0,
       "blend_fv": 39.87,
       "nav_per_share": 39.54,
-      "broker_nav": 57.79,
-      "gap_pct": -31.6,
+      "broker_nav": 45.1,
+      "broker_reference": {
+        "nav": 45.10204081632653,
+        "price": 66.3,
+        "pnav": 1.47,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.663534547849401,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": -12.3,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -115,8 +145,23 @@
       "ev_pct": -42.9,
       "blend_fv": 26.71,
       "nav_per_share": 26.04,
-      "broker_nav": 38.66,
-      "gap_pct": -32.6,
+      "broker_nav": 32.93,
+      "broker_reference": {
+        "nav": 32.932330827067666,
+        "price": 43.8,
+        "pnav": 1.33,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.5660461151775826,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": -20.9,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -146,8 +191,23 @@
       "ev_pct": -13.2,
       "blend_fv": 84.12,
       "nav_per_share": 84.6,
-      "broker_nav": 110.9,
-      "gap_pct": -23.7,
+      "broker_nav": 96.92,
+      "broker_reference": {
+        "nav": 96.92307692307692,
+        "price": 88.2,
+        "pnav": 0.91,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.163849850301907,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": -12.7,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -177,8 +237,23 @@
       "ev_pct": -19.3,
       "blend_fv": 21.97,
       "nav_per_share": 32.6,
-      "broker_nav": 28.5,
-      "gap_pct": 14.4,
+      "broker_nav": 27.99,
+      "broker_reference": {
+        "nav": 27.985697258641242,
+        "price": 23.48,
+        "pnav": 0.839,
+        "as_of": "2026-09-09"
+      },
+      "cycles": [
+        {
+          "sector": "dry_bulk",
+          "scope": "company",
+          "ratio": 1.5465985668365025,
+          "label": "late-cycle/peak",
+          "anchor_basis": "archive_22mo_median"
+        }
+      ],
+      "gap_pct": 16.5,
       "governance_discount_pct": 30.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -208,8 +283,23 @@
       "ev_pct": -24.7,
       "blend_fv": 25.23,
       "nav_per_share": 25.37,
-      "broker_nav": 29.43,
-      "gap_pct": -13.8,
+      "broker_nav": 27.16,
+      "broker_reference": {
+        "nav": 27.157894736842106,
+        "price": 25.8,
+        "pnav": 0.95,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "dry_bulk",
+          "scope": "company",
+          "ratio": 1.5691921663679262,
+          "label": "late-cycle/peak",
+          "anchor_basis": "archive_22mo_median"
+        }
+      ],
+      "gap_pct": -6.6,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -239,8 +329,23 @@
       "ev_pct": -1.9,
       "blend_fv": 10.42,
       "nav_per_share": 10.72,
-      "broker_nav": 8.12,
-      "gap_pct": 31.9,
+      "broker_nav": 7.54,
+      "broker_reference": {
+        "nav": 7.539823008849558,
+        "price": 8.52,
+        "pnav": 1.13,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "dry_bulk",
+          "scope": "company",
+          "ratio": 1.7215845169049127,
+          "label": "late-cycle/peak",
+          "anchor_basis": "archive_22mo_median"
+        }
+      ],
+      "gap_pct": 42.2,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": false,
@@ -272,8 +377,23 @@
       "ev_pct": -13.2,
       "blend_fv": 32.81,
       "nav_per_share": 33.27,
-      "broker_nav": 35.69,
-      "gap_pct": -6.8,
+      "broker_nav": 33.41,
+      "broker_reference": {
+        "nav": 33.4065934065934,
+        "price": 30.4,
+        "pnav": 0.91,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "dry_bulk",
+          "scope": "company",
+          "ratio": 1.5987467128655468,
+          "label": "late-cycle/peak",
+          "anchor_basis": "archive_22mo_median"
+        }
+      ],
+      "gap_pct": -0.4,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -303,8 +423,23 @@
       "ev_pct": 4.6,
       "blend_fv": 4.71,
       "nav_per_share": 4.92,
-      "broker_nav": 5.11,
-      "gap_pct": -3.8,
+      "broker_nav": 4.56,
+      "broker_reference": {
+        "nav": 4.563106796116505,
+        "price": 4.7,
+        "pnav": 1.03,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.6425,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": 7.8,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": false,
@@ -334,8 +469,23 @@
       "ev_pct": -5.7,
       "blend_fv": 17.09,
       "nav_per_share": 17.32,
-      "broker_nav": 27.36,
-      "gap_pct": -36.7,
+      "broker_nav": 22.31,
+      "broker_reference": {
+        "nav": 22.305555555555554,
+        "price": 16.06,
+        "pnav": 0.72,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.534757550652395,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": -22.4,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -365,8 +515,37 @@
       "ev_pct": -47.0,
       "blend_fv": 13.04,
       "nav_per_share": 13.36,
-      "broker_nav": 23.59,
-      "gap_pct": -43.4,
+      "broker_nav": 21.28,
+      "broker_reference": {
+        "nav": 21.27906976744186,
+        "price": 18.3,
+        "pnav": 0.86,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "sleeve",
+          "ratio": 2.6696930285764338,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        },
+        {
+          "sector": "dry_bulk",
+          "scope": "sleeve",
+          "ratio": 1.6870347848377134,
+          "label": "late-cycle/peak",
+          "anchor_basis": "archive_22mo_median"
+        },
+        {
+          "sector": "containerships",
+          "scope": "sleeve",
+          "ratio": 1.5609756097560976,
+          "label": "late-cycle/peak",
+          "anchor_basis": "fy_calendar_avg"
+        }
+      ],
+      "gap_pct": -37.2,
       "governance_discount_pct": 0.0,
       "sleeves": [
         {
@@ -412,8 +591,30 @@
       "ev_pct": -44.4,
       "blend_fv": 37.95,
       "nav_per_share": 54.64,
-      "broker_nav": 91.86,
-      "gap_pct": -40.5,
+      "broker_nav": 82.07,
+      "broker_reference": {
+        "nav": 82.06611570247934,
+        "price": 99.3,
+        "pnav": 1.21,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "sleeve",
+          "ratio": 2.5139743564388386,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        },
+        {
+          "sector": "product",
+          "scope": "sleeve",
+          "ratio": 1.772885880488888,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": -33.4,
       "governance_discount_pct": 0.0,
       "sleeves": [
         {
@@ -454,8 +655,23 @@
       "ev_pct": -60.8,
       "blend_fv": 2.95,
       "nav_per_share": 2.76,
-      "broker_nav": 9.71,
-      "gap_pct": -71.5,
+      "broker_nav": 8.0,
+      "broker_reference": {
+        "nav": 8.0,
+        "price": 6.8,
+        "pnav": 0.85,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.6849749522470896,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": -65.5,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -485,8 +701,37 @@
       "ev_pct": 30.8,
       "blend_fv": 62.06,
       "nav_per_share": 91.91,
-      "broker_nav": 127.05,
-      "gap_pct": -27.7,
+      "broker_nav": 108.1,
+      "broker_reference": {
+        "nav": 108.09756097560977,
+        "price": 44.32,
+        "pnav": 0.41,
+        "as_of": "2026-09-09"
+      },
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "sleeve",
+          "ratio": 2.0838495513771322,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        },
+        {
+          "sector": "product",
+          "scope": "sleeve",
+          "ratio": 1.677535016409626,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        },
+        {
+          "sector": "lng",
+          "scope": "sleeve",
+          "ratio": 0.7058823529411765,
+          "label": "below-mid",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": -15.0,
       "governance_discount_pct": 30.0,
       "sleeves": [
         {
@@ -532,8 +777,23 @@
       "ev_pct": -14.5,
       "blend_fv": 17.26,
       "nav_per_share": 17.37,
-      "broker_nav": 25.4,
-      "gap_pct": -31.6,
+      "broker_nav": 23.6,
+      "broker_reference": {
+        "nav": 23.599999999999998,
+        "price": 17.7,
+        "pnav": 0.75,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "product",
+          "scope": "company",
+          "ratio": 1.7165590650558111,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": -26.4,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -563,8 +823,23 @@
       "ev_pct": -8.1,
       "blend_fv": 32.62,
       "nav_per_share": 32.3,
-      "broker_nav": 41.55,
-      "gap_pct": -22.3,
+      "broker_nav": 34.57,
+      "broker_reference": {
+        "nav": 34.565217391304344,
+        "price": 31.8,
+        "pnav": 0.92,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "product",
+          "scope": "company",
+          "ratio": 1.938418920736833,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": -6.5,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -595,7 +870,22 @@
       "blend_fv": 0.41,
       "nav_per_share": 0.41,
       "broker_nav": 0.43,
-      "gap_pct": -3.8,
+      "broker_reference": {
+        "nav": 0.42951612903225805,
+        "price": 0.5326,
+        "pnav": 1.24,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "dry_bulk",
+          "scope": "company",
+          "ratio": 1.2547568952478048,
+          "label": "elevated",
+          "anchor_basis": "archive_22mo_median"
+        }
+      ],
+      "gap_pct": -4.3,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -625,8 +915,23 @@
       "ev_pct": 55.6,
       "blend_fv": 29.97,
       "nav_per_share": 25.7,
-      "broker_nav": 24.07,
-      "gap_pct": 6.8,
+      "broker_nav": 25.33,
+      "broker_reference": {
+        "nav": 25.333333333333332,
+        "price": 22.8,
+        "pnav": 0.9,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "lng",
+          "scope": "company",
+          "ratio": 0.7808162328292794,
+          "label": "below-mid",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": 1.5,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -656,8 +961,23 @@
       "ev_pct": -9.1,
       "blend_fv": 27.01,
       "nav_per_share": 27.22,
-      "broker_nav": 22.51,
-      "gap_pct": 20.9,
+      "broker_nav": 21.74,
+      "broker_reference": {
+        "nav": 21.73611111111111,
+        "price": 31.3,
+        "pnav": 1.44,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "lng",
+          "scope": "company",
+          "ratio": 0.7058823529411765,
+          "label": "below-mid",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": 25.2,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -687,8 +1007,23 @@
       "ev_pct": -6.3,
       "blend_fv": 44.17,
       "nav_per_share": 41.37,
-      "broker_nav": 61.12,
-      "gap_pct": -32.3,
+      "broker_nav": 51.99,
+      "broker_reference": {
+        "nav": 51.98666666666667,
+        "price": 38.99,
+        "pnav": 0.75,
+        "as_of": "2026-06-12"
+      },
+      "cycles": [
+        {
+          "sector": "containerships",
+          "scope": "company",
+          "ratio": 1.5155990523681349,
+          "label": "late-cycle/peak",
+          "anchor_basis": "fy_calendar_avg"
+        }
+      ],
+      "gap_pct": -20.4,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": null,
@@ -718,8 +1053,23 @@
       "ev_pct": -28.6,
       "blend_fv": 2.33,
       "nav_per_share": 2.15,
-      "broker_nav": 2.91,
-      "gap_pct": -26.1,
+      "broker_nav": 2.79,
+      "broker_reference": {
+        "nav": 2.7884615384615383,
+        "price": 2.9,
+        "pnav": 1.04,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "containerships",
+          "scope": "company",
+          "ratio": 1.3604023777383196,
+          "label": "elevated",
+          "anchor_basis": "fy_calendar_avg"
+        }
+      ],
+      "gap_pct": -22.8,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": null,
@@ -742,15 +1092,30 @@
       "handoff_ready": false,
       "nav_basis": "pending-sourceable",
       "void": false,
-      "sanity": "FAIL",
+      "sanity": "OK",
       "price": 10.12,
       "position": "rich \u00b7 cycle position (not a short)",
       "fv": 5.47,
       "ev_pct": -46.0,
       "blend_fv": 4.92,
       "nav_per_share": 4.64,
-      "broker_nav": 9.83,
-      "gap_pct": -52.8,
+      "broker_nav": 8.06,
+      "broker_reference": {
+        "nav": 8.058252427184467,
+        "price": 8.3,
+        "pnav": 1.03,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "product",
+          "scope": "company",
+          "ratio": 1.887840806575736,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": -42.5,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -780,8 +1145,23 @@
       "ev_pct": -12.8,
       "blend_fv": 72.66,
       "nav_per_share": 76.22,
-      "broker_nav": 119.4,
-      "gap_pct": -36.2,
+      "broker_nav": 106.03,
+      "broker_reference": {
+        "nav": 106.02739726027399,
+        "price": 77.4,
+        "pnav": 0.73,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "product",
+          "scope": "company",
+          "ratio": 1.9093500783128972,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "gap_pct": -28.1,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -811,8 +1191,23 @@
       "ev_pct": -44.0,
       "blend_fv": 15.48,
       "nav_per_share": 15.83,
-      "broker_nav": 20.4,
-      "gap_pct": -22.4,
+      "broker_nav": 19.04,
+      "broker_reference": {
+        "nav": 19.039370078740156,
+        "price": 24.18,
+        "pnav": 1.27,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "lpg",
+          "scope": "company",
+          "ratio": 1.590375,
+          "label": "late-cycle/peak",
+          "anchor_basis": "realized_tce_10yr_mean"
+        }
+      ],
+      "gap_pct": -16.8,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
@@ -844,8 +1239,23 @@
       "ev_pct": -45.3,
       "blend_fv": 33.93,
       "nav_per_share": 35.69,
-      "broker_nav": 54.86,
-      "gap_pct": -34.9,
+      "broker_nav": 46.51,
+      "broker_reference": {
+        "nav": 46.50943396226415,
+        "price": 49.3,
+        "pnav": 1.06,
+        "as_of": "2026-08-28"
+      },
+      "cycles": [
+        {
+          "sector": "lpg",
+          "scope": "company",
+          "ratio": 1.590375,
+          "label": "late-cycle/peak",
+          "anchor_basis": "realized_tce_10yr_mean"
+        }
+      ],
+      "gap_pct": -23.3,
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,

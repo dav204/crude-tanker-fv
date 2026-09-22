@@ -1,5 +1,10 @@
 # MPCC — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** MPCC broker reference repaired from $2.91 to $2.79 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $2.15, scenario FV $2.16, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
 ## 2026-09-10 — Container value-leg annotation (W36)
 
 **Decision:** CONTAINER VALUE LEG (W36, commit 15963bb; decisions/container_mb_refresh_packet_2026-09-10.md Leg B): MB 1,700 TEU 10-yr mark 29.5 -> 31.5 and 5-yr 30.0 -> 31.75 (midpoint convention re-applied), 2,700 TEU 10-yr 35.5 -> 36.0. ΔNAV +2.38% (pre-registered +2.28%), ΔEV +1.20pp; position unchanged (unreliable read stands). A VALUE event on the fleet's own class marks, landed separately from the TC leg (b5d304b, EV-only -0.6pp) so each leg attributes alone.

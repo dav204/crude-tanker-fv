@@ -1,5 +1,29 @@
 # FRO — Decision Log
 
+## 2026-09-22 — A1 matched broker vintage correction
+
+**Decision:** FRO broker reference repaired from $38.66 to $32.93 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
+Independent NAV $26.04, scenario FV $29.38, blended FV and scenario weights are unchanged. The broker-sweep premium is recomputed against the same matched NAV. Source vintage: 2026-08-28. Evidence and authorization: owner-requested A1–A4 correctness plan; decisions/correctness_delivery_2026-09-22.md. No valuation recalibration or portfolio action.
+
+## 2026-09-22T17:52:43+00:00 — Pipeline run (auto)
+
+**Model state:**
+- Current price: $51.42
+- Single-point FV: $26.71
+- Scenario PW FV: $29.38 (EV -42.9%)
+- NAV / share: $26.04
+- Position: **TRIM/SHORT (overvalued)**
+- Broker spread: +12.4pp (k_broker 1.19)
+- Sector: crude
+
+**Material deltas since last run:**
+- ⚑ broker spread -10.3pp
+- Δprice: no change | Δsingle FV: no change | Δscenario FV: no change | ΔNAV: no change | Δspread: -10.3pp
+
+**Decision:** _[pending annotation]_
+
+---
+
 ## 2026-09-17 — THE 9/17 TAPE ONLY: EV -44.1pp -> -46.6pp, fair value unchanged to the cent
 
 **Decision:** FRO's fair value is unchanged to the cent at 28.79 and the 2026-09-17 close took the share 51.52 -> 53.93 (+4.68%), so EV moved -44.1pp -> -46.6pp on price alone. No curve, sheet or manifest FRO reads changed between the anchor and this surface. VLCC 12M stays HELD at 105,700 (settled at the issuer source 2026-09-14). The read stays the governed relabel 'rich - cycle position (not a short)'. Baseline anchor: the 2026-09-16 auto-land (19345f9). Gate row dNAV +0.0%. The annotator refused this morning's run by design — the CMBT commitment-net landing (f98d9fa) moved a non-price input since the anchor — so the attribution is written by hand from the same two surfaces (anchor 19345f9 vs stamp f87f9e8).
