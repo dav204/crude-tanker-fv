@@ -161,8 +161,8 @@ Rendered from `graph.yaml` by `python -m crude_tanker_fv.graph render --write`; 
 | `crude-fv-fork-executor` | scheduled-task | daily 12:45 app-display-zone (fires 12:47; installed by the owner 2026-09-14) | `inputs/forks.yaml`, `decisions/**`, `inputs/**`, `outputs/book_scorecard.json`, `baselines/reconcile_baseline.yaml`, `state/ffa_ocr_curves.json` … | `inputs/**`, `decisions/*_log.md`, `PLAN.md`, `outputs/**`, `state/fork_page.md`, `state/last_run.json` | self |
 | `ffa-promote` | script | on demand (the fork executor's step 0, or a chat) | `state/ffa_ocr_curves.json`, `inputs/market_data/ffa_forward_curve.yaml`, `inputs/market_data/twelve_month_tc.yaml`, `inputs/market_data/historical_tce_means.yaml` | `inputs/market_data/ffa_forward_curve.yaml`, `inputs/market_data/twelve_month_tc.yaml`, `decisions/ffa_promotion_*.md` | crude-fv-fork-executor |
 | `rebase` | script | on demand (a fork execution, a report-day refresh, or a chat) | `inputs/watchlist.yaml`, `inputs/market_data/prices_daily.yaml` | `inputs/watchlist.yaml`, `inputs/watchlist_rebase_*.yaml.draft` | crude-fv-fork-executor |
-| `portfolio-weekly-monitor` | scheduled-task | Friday 17:00 (app display zone) | `outputs/book_scorecard.json`, `RATIFY_LOG.md`, `external:IBKR account`, `external:web search`, `governance:CADENCE.md`, `governance:holdings/*.md` … | `governance:monitor/log.md`, `governance:monitor/outbox/*-monitor.md`, `governance:monitor/state/started-*` | self |
-| `portfolio-quarterly-review-kickoff` | scheduled-task | 26th of Mar/Jun/Sep/Dec 09:00 (app display zone) | `work_items.yaml`, `external:IBKR account`, `governance:CADENCE.md`, `governance:HOLDING_THESIS.md`, `governance:holdings/*.md`, `governance:reviews/*.md` … | `governance:monitor/outbox/*-monitor.md`, `governance:monitor/log.md`, `governance:monitor/state/**` | self |
+| `portfolio-weekly-monitor` | scheduled-task | Friday 17:00 (app display zone) | `outputs/book_scorecard.json`, `RATIFY_LOG.md`, `external:IBKR account`, `external:web search`, `governance:CADENCE.md`, `governance:holdings/*.md` … | `governance:monitor/inbox/**`, `governance:monitor/log.md`, `governance:monitor/outbox/*-monitor.md`, `governance:monitor/state/**` | self |
+| `portfolio-quarterly-review-kickoff` | scheduled-task | 26th of Mar/Jun/Sep/Dec 09:00 (app display zone) | `work_items.yaml`, `external:IBKR account`, `governance:CADENCE.md`, `governance:HOLDING_THESIS.md`, `governance:holdings/*.md`, `governance:reviews/*.md` … | `governance:monitor/inbox/**`, `governance:monitor/outbox/*-monitor.md`, `governance:monitor/log.md`, `governance:monitor/state/**` | self |
 | `human-owner-chat` | human | when a page names an action, or at will | `external:inbox` | `inputs/**`, `inputs/watchlist.yaml`, `inputs/market_data/transactions/**`, `inputs/market_data/ffa_forward_curve.yaml`, `inputs/forks.yaml`, `.claude/settings.json` … | self |
 | `human-ratify` | human | owner-run, on an explained move auto-land cannot take (a flip toward BUY, an unannotated row) | `state/last_run.json`, `PLAN.md` | `baselines/reconcile_baseline.yaml`, `RATIFY_LOG.md` | self |
 | `sentinel-lite` | external | daily 12:45 UTC (GitHub Actions, against pushed main) | `inputs/**`, `outputs/**`, `inputs/filings/_manifest.json` | — | none |
@@ -338,7 +338,7 @@ flowchart LR
   portfolio_quarterly_review_kickoff -->|state/**| delivery_worker
   portfolio_quarterly_review_kickoff -->|governance:monitor/log.md| sentinel_checks
   portfolio_quarterly_review_kickoff -->|governance:monitor/log.md| weekly_report
-  portfolio_weekly_monitor -->|state/started-*| delivery_worker
+  portfolio_weekly_monitor -->|state/**| delivery_worker
   portfolio_weekly_monitor -->|trigger| healthchecks
   portfolio_weekly_monitor -->|governance:monitor/log.md| sentinel_checks
   portfolio_weekly_monitor -->|governance:monitor/log.md| weekly_report

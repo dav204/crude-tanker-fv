@@ -65,13 +65,14 @@ The task's actual configured folder is /Users/dan_personal/Projects. This establ
 configuration synchronization, not unattended acceptance.
 
 **Open acceptance blocker: quarterly:scheduler-proof (resolver: agent).** The actual
-Claude routine was located with its Run now control, but the execution action did not
-start a run; the computer-use service returned noWindowsAvailable on the visible control.
-Both attempts used a notification-free probe; the canonical guarded prompt was restored
-and its installed file verified. No actual connector transcript exists from this attempt.
-The smoke command and versioned QUARTERLY_SMOKE_PROMPT.md are ready, but the task must
-remain blocked until all five actual read-only IBKR probes and isolated persistence finish
-without approvals in the scheduled context. A local mocked smoke pass is not that proof.
+scheduled smoke completed, and all five read-only IBKR calls succeeded without a prompt.
+The application permission log, however, proves that its heredoc persistence call waited
+11 minutes for a one-time Bash approval, despite the agent claiming no approvals. The
+UI error did not mean no run had started. See the governor's committed
+monitor/QUARTERLY_SMOKE_EVIDENCE_2026-09-22.md. Payloads now use a narrowly owned inbox
+Write followed by a simple wrapper invocation with --probe-file/--report-file. A fresh
+scheduled run plus permission-log inspection is required before closing this blocker.
+The normal guarded prompt is restored after each probe; no real test email or order is sent.
 
 ## Validation and rollback
 

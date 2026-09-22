@@ -111,7 +111,8 @@
       "Bash(git log *)",
       "Bash(PYTHONPATH=src .venv/bin/python -m crude_tanker_fv.notify --send page --body-file /Users/dan_personal/Projects/crude-tanker-fv/state/fork_page.md --state-dir state)",
       "Edit(//Users/dan_personal/Projects/crude-tanker-fv/inputs/**)",
-      "Write(//Users/dan_personal/Projects/crude-tanker-fv/state/fork_page.md)"
+      "Write(//Users/dan_personal/Projects/crude-tanker-fv/state/fork_page.md)",
+      "Write(//Users/dan_personal/Projects/portfolio-governance/monitor/inbox/**)"
     ]
   }
 }

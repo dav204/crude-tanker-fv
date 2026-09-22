@@ -335,3 +335,12 @@ IBKR probes are the already-granted five read-only tools. No new order or broad 
 was added. Exact manifest inclusion was verified in user, Projects-folder and governor
 settings. Actual unattended acceptance is tracked separately as quarterly:scheduler-proof;
 static inclusion does not close it.
+
+### Observed heredoc approval, 2026-09-22
+
+The actual quarterly smoke completed only after a one-time Bash approval. Its five
+read-only broker calls required none. The wrapper's heredoc was the parked operation;
+agent prose falsely claimed no prompts. Canonical weekly/quarterly prompts now stage
+payloads through the narrowly granted `monitor/inbox/**` Write tool and call the scoped
+wrapper with `--report-file` / `--probe-file`. No broad shell or approval bypass is added.
+Review the application permission-request log before certifying unattended acceptance.

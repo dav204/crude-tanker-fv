@@ -444,10 +444,10 @@ nodes:
                "env:~/.config/crude-tanker-fv.env + producer .venv (notify.sh execs crude_tanker_fv.notify from the producer repo)"]
     reads: [outputs/book_scorecard.json, RATIFY_LOG.md, external:IBKR account, external:web search, governance:CADENCE.md, governance:holdings/*.md,
             governance:funnels/register.md, governance:reviews/*.md]
-    writes: [governance:monitor/log.md, governance:monitor/outbox/*-monitor.md, governance:monitor/state/started-*]
+    writes: [governance:monitor/inbox/**, governance:monitor/log.md, governance:monitor/outbox/*-monitor.md, governance:monitor/state/**]
     emits: [email PAGE or digest via governance:monitor/notify.sh, healthchecks ping via governance:monitor/ping.sh]
     commits: self
-    notes: "ALL persistence goes through governance:monitor/land.sh since 2026-09-20 — one command that writes the outbox file, mails, appends the log row, pings, amends the row and commits. It was six separate tool calls and therefore six permission prompts; on 2026-09-18 the FIRST of them went unanswered and the run parked with its finished five-flag page unwritten, losing the log line, the mail, the ping and the commit together. A prompt does not abort an unattended run, it parks the session while the scheduler still reports 'running' — the producer's sentinel now flags that as TASK-PARKED. The grant that authorises land.sh lives in /Users/dan_personal/Projects/.claude/settings.local.json, the settings file in scope for this task's cwd (the bare Projects dir, NOT the governance repo — that repo's own .claude settings are out of scope); the allowed-tools frontmatter in the task's SKILL.md is discarded by the scheduler's parser and has never authorised anything. Pages PRODUCER DID NOT LAND when the scorecard is older than 72h; the seam: reads the producer's committed scorecard (schema major 2) and flags a tier/label/FV change on a holding; its only owner-facing channel is the producer's interpreter + SMTP creds — a broken producer venv or env turns every governor page into MAIL:FAILED"
+    notes: "The agent stages a gitignored inbox payload through Write, then land.sh persists an immutable report, checks the accepted publication and shared task registry, commits only its owned report/log, queues the exact message and records SMTP acceptance plus receipt-gated healthcheck. A shell heredoc requested approval in the September 22 scheduled smoke despite a wrapper grant, so prompts use --report-file and narrow persistent inbox-write permissions. Scheduler cwd is /Users/dan_personal/Projects. Missing or parked runs remain visible; configuration and agent prose never prove unattended acceptance."
 
   - id: portfolio-quarterly-review-kickoff
     kind: scheduled-task
@@ -456,10 +456,10 @@ nodes:
     triggers: [clock]
     requires: [app open, external:IBKR connector, "env:~/.config/crude-tanker-fv.env + producer .venv"]
     reads: [work_items.yaml, external:IBKR account, governance:CADENCE.md, governance:HOLDING_THESIS.md, governance:holdings/*.md, governance:reviews/*.md, governance:reviews/completed_quarters.json, state/publications/current.json]
-    writes: [governance:monitor/outbox/*-monitor.md, governance:monitor/log.md, governance:monitor/state/**]
+    writes: [governance:monitor/inbox/**, governance:monitor/outbox/*-monitor.md, governance:monitor/log.md, governance:monitor/state/**]
     emits: [cited successful skip for completed quarter; otherwise durable queued pack; never weekly healthcheck]
     commits: self
-    notes: "monitor/QUARTERLY_PROMPT.md is canonical. land.sh quarterly begin checks committed completion before research; finish persists once; retries reuse the queue. Observed scheduler smoke remains a named blocker until actual read-only probes and isolated persistence complete without approvals."
+    notes: "monitor/QUARTERLY_PROMPT.md is canonical. land.sh quarterly begin checks committed completion before research; finish persists once; retries reuse the queue. Inbox payloads avoid the observed heredoc approval. Scheduler smoke remains blocked until actual probes, Write and scoped persistence complete with no permission request in the application log."
 
   # ---------------------------------------------------------------- human + external nodes
   - id: human-owner-chat
