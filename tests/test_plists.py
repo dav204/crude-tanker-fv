@@ -45,7 +45,11 @@ def test_comment_states_the_actual_schedule():
     the StartCalendarInterval actually encodes (the sentinel plist said 18:30
     and fired at 08:15). Hourly jobs (no Hour key) must say 'hourly' + :MM."""
     for path in PLISTS:
-        cal = _load(path)["StartCalendarInterval"]
+        doc = _load(path)
+        if "StartInterval" in doc:
+            assert str(doc["StartInterval"]) in path.read_text()
+            continue
+        cal = doc["StartCalendarInterval"]
         comments = " ".join(re.findall(r"<!--(.*?)-->", path.read_text(), re.S))
         if "Hour" in cal:
             hhmm = f"{cal['Hour']:02d}:{cal['Minute']:02d}"

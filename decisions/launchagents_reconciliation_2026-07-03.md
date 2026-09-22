@@ -33,6 +33,11 @@ entries below; edit this block and the plist in the same commit.
 
 ```yaml
 jobs:
+  com.crude-tanker-fv.delivery-worker:
+    plist_committed: true
+    installed: false  # activation tracked in correctness_delivery_2026-09-22.md
+    schedule: "every 300 seconds"
+    wrapper: delivery_worker.sh
   com.crude-tanker-fv.price-refresh:
     plist_committed: true
     installed: true          # verified 2026-07-03, byte-identical

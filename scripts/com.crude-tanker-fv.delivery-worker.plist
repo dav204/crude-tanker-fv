@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
+<!-- Every 300 seconds (five minutes); RunAtLoad catches wake/restart backlog. -->
 <dict>
 	<key>Label</key>
 	<string>com.crude-tanker-fv.delivery-worker</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/bin/sh</string>
 		<string>/Users/dan_personal/Projects/crude-tanker-fv/scripts/delivery_worker.sh</string>
 	</array>
 	<key>RunAtLoad</key>
