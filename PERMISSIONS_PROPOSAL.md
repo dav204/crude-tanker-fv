@@ -325,3 +325,13 @@ errors out in argparse (unknown flag) — the right failure mode.
    id may change and both deny rules go silently stale — re-read the id
    from a fresh session's tool list and update BOTH files.
 5. **Diagnostics scripts → auto mode.** Rare prompts are fine.
+
+### Calendar/status/quarterly synchronization (2026-09-22)
+
+`automation/task_permissions.json` remains the persistent grant source. The existing
+absolute `routine_task.sh *` grant covers scoped work-item show/sync/record/shadow commands;
+the existing absolute `monitor/land.sh *` grant covers quarterly begin/finish/smoke. Required
+IBKR probes are the already-granted five read-only tools. No new order or broad shell grant
+was added. Exact manifest inclusion was verified in user, Projects-folder and governor
+settings. Actual unattended acceptance is tracked separately as quarterly:scheduler-proof;
+static inclusion does not close it.

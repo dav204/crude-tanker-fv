@@ -2321,3 +2321,13 @@ Introduce accepted publication snapshots, deterministic governor checks, unique 
 commits and persistent bounded SMTP recovery. The native worker operates independently of an LLM task's
 permission mode. Persistent narrow settings replace date-specific grants and frontmatter assumptions.
 Validation and rollout evidence: decisions/correctness_delivery_2026-09-22.md.
+
+### 2026-09-22 — Calendar readiness and truthful workflow status
+
+A5 dates FFA construction and projection timelines, with an explicit full-book economic
+comparison before activation; September values are unchanged. A6 projects operational
+work from existing authorities and renders receipts instead of inferring completion.
+A9 guards completed quarters before research, reuses prepared packs and isolates quarterly
+liveness. Q3's production skip is verified; actual unattended scheduler smoke remains
+blocked on the execution UI and is not represented as proven. Implementation and rollback:
+`decisions/calendar_workflow_implementation_2026-09-22.md`.
