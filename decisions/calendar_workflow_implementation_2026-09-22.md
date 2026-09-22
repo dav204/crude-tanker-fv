@@ -60,7 +60,8 @@ now have unique receipts. Prepared packs reuse their report and delivery queue; 
 explicit refresh creates a replacement. Recovery updates pack delivery state. Weekly and
 quarterly active markers and healthcheck behavior are separate.
 
-The permission manifest matches the installed user, Projects-folder and governor grants.
+The baseline permission grants matched the installed user, Projects-folder and governor
+settings. The additional inbox Write grant is now an explicit pending approval (below).
 The task's actual configured folder is /Users/dan_personal/Projects. This establishes
 configuration synchronization, not unattended acceptance.
 
@@ -101,9 +102,8 @@ The final source includes commit-failure recovery, malformed-registry retention,
 condition deduplication and recovery/recurrence notification tests.
 
 The weekly prompt no longer duplicates old financial targets: it reads current cards,
-CADENCE and recorded owner rulings, retaining conflicts as unknown. The permission manifest
-was compared against user, Projects-folder, producer and governor settings: zero missing
-grants in all four. This does not close quarterly:scheduler-proof.
+CADENCE and recorded owner rulings, retaining conflicts as unknown. Before the inbox repair, the baseline permission manifest was compared against user,
+Projects-folder, producer and governor settings: zero missing grants in all four. This does not close quarterly:scheduler-proof.
 
 ### Live rollout and permission finding
 
@@ -125,3 +125,13 @@ change was applied by the rejected action. `quarterly:inbox-permission` records 
 approval dependency, separately from the agent's remaining fresh-scheduler proof. The
 normal installed guarded prompt remains available, so completed Q3 still skips before
 research or payload persistence.
+
+Latest deployed publication: `402b3fc5d56691b112824b24acac4c9970220f35cc01d7e141ff94efe92dc700`,
+source `d53bb0bfc3a7404316d6a7dfac941f4c623ce7ee`, output
+`20b357c8e886d63b8c15e2f9aa09180d2aa8f47a`. The governor consumed that exact ID; both
+delivery queues were empty and the existing five-minute worker was active. This is local
+publication/consumption evidence; no remote Git push is claimed. The current report preview
+is `decisions/workflow_status_2026-09-22.md`; it is not a scheduled landing or a sent email.
+The pending inbox permission is the only uninstalled manifest grant, and the revised
+weekly/quarterly file-payload prompts await that approval. The installed prior guarded
+prompts still skip completed Q3 before research.
