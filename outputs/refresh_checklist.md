@@ -1,24 +1,24 @@
 # Refresh Checklist — 2026-Q2 (target quarter)
 
-- **Today:** 2026-09-21
+- **Today:** 2026-09-22
 - **Target quarter:** 2026-Q2
 - **Workflow:** work through the sections below, then run `python -m crude_tanker_fv.pipeline` to refresh outputs.
 
 ## Status summary
 
-- ⚠ **Balance sheets:** 24 of 25 present for 2026-Q2 — missing: TEN
+- ✓ **Balance sheets:** 25 of 25 present for 2026-Q2
 - ✓ **Market data:** 4 of 4 fresh (< 30 days)
 - ⚠ **Watchlist:** 14 of 25 clean — 0 stale, 11 APPROX consensus_pnav
-- ⚠ **Earnings:** REFRESH DUE: TEN
+- ✓ **Earnings:** no reports outstanding
 - ✓ **§13.3 reweight triggers:** none due — upcoming: crude_geopolitics_weekly, product_glut_arrival_timing, container_mb_refresh
 
 ## 0a. Scenario-weight re-evaluation triggers (`inputs/reweight_triggers.yaml`)
 
 | Trigger | Status | Detail |
 |---|---|---|
-| container_mb_refresh | 🟡 | [containerships] due in 11d (2026-10-02). Monthly re-capture of the container determinants (Ctr-* TC + value assessments) from the newest staged MB Container Weekly — the §11.8 sourc |
-| crude_geopolitics_weekly | 🟡 | [crude+product] due in 3d (2026-09-24). ONE weekly check, two legs, PRIMARY SOURCES ONLY (CENTCOM releases, the UKMTO incident log, dated wires; broker paraphrase corroborates, nev |
-| product_glut_arrival_timing | 🟡 | [product] due in 11d (2026-10-02). The product family's central live uncertainty (reviewer rider 1): does the clean-tonnage glut arrive on the 2027 schedule the glut_base leg  |
+| container_mb_refresh | 🟡 | [containerships] due in 10d (2026-10-02). Monthly re-capture of the container determinants (Ctr-* TC + value assessments) from the newest staged MB Container Weekly — the §11.8 sourc |
+| crude_geopolitics_weekly | 🟡 | [crude+product] due in 2d (2026-09-24). ONE weekly check, two legs, PRIMARY SOURCES ONLY (CENTCOM releases, the UKMTO incident log, dated wires; broker paraphrase corroborates, nev |
+| product_glut_arrival_timing | 🟡 | [product] due in 10d (2026-10-02). The product family's central live uncertainty (reviewer rider 1): does the clean-tonnage glut arrive on the 2027 schedule the glut_base leg  |
 | handy_bulk_txn_refit | — | [dry_bulk] standing event-watch. Standing event-watch (§11.7.11 Option B, owner-ratified 2026-07-14): the dry-Handysize classified print sample reaches >=10 human-classified |
 | lpg_anchor_annual_review | — | [lpg] due 2027-06-30. The VLGC 10-yr through-cycle TCE anchor (~$40,000/day, as_of 2026-07-07, WO3 decisions/lpg_methodology_2026-07-07.md) is a TRAILING 10-yr av |
 | lpg_v1_lock_rerun | — | [lpg] due 2026-11-13. Dorian trio per-vessel sale splits (Corsair 2014 + two unnamed 2015-built VLGCs, $256M en bloc agreed Jun-23-2026, deliveries "by" Q4-2026). |
@@ -29,7 +29,6 @@
 
 | Ticker | Status | Detail |
 |---|---|---|
-| TEN | 🔴 DUE | report window open (2026-09-10 → 2026-10-01, confirmed) and no 2026-Q2 balance sheet on file — refresh due. RESULTS ANNOUNCED 2026-09-10 (recorded at the 2026-09-10 sweep): issuer PR GlobeNewswire 3359616, 09:15 ET "TEN, Ltd. Reports Profits for the First Half and Second Quarter of 2026" — pre-open exactly as the 8/20 date-PR (GlobeNewswire 3348799) promised: "prior to the open of the market in New York on Thursday, September 10, 2026"; call 10:00 ET same day. No 6-K on EDGAR yet at sweep time (last 6-K 2026-05-22) — the PR-first/6-K-later pattern; subsequent-event flag for the H1 refresh: 9/01 PR 3354219 sale of two first-generation Suezmaxes (named Alaska/Archangel in the 9/10 PR). Entry historical until the Q3 re-seed; H1 refresh queued (decisions/ten_h1_refresh_packet_2026-09-07.md, ten_h1_release_check_2026-09-10.md). HELD ON THE 2026-Q1 SHEET 2026-09-16 — the FILING-OVERDUE page ruled hold, not chase: the H1 6-K is the sheet-writable filing and TEN files it weeks after the release (H1-2025 6-K 0001193125-25-225057 landed 2025-09-30, three weeks after that release); still no 6-K on EDGAR at 2026-09-16 (data.sec.gov, newest 6-K 2026-05-22). window_end re-set from the release date to 2026-10-01 on that precedent, so the page re-fires after 10/01 + 3bd if nothing has landed. The 2026-09-11 shadow build stands at WOULD-HOLD (decisions/ten_shadow_build_2026-09-11.md); the EDGAR poll stages the 6-K the hour it appears. |
 | 2343 | — | 2026-08-06 (confirmed). Aug-6 now FORMALLY confirmed: HKEX board-meeting notice filed 2026-07-24 (hkex-12255247, staged inputs/filings/2343/12255247_2026072400392.pdf) — Board meets 6 Aug 2026 to approve H1-2026 interims + consider interim dividend. Supersedes the IR-calendar-only basis. |
 | ASC | — | 2026-07-29 (confirmed). CONFIRMED 2026-07-28 sweep: issuer PR 'Ardmore Shipping Announces Second Quarter 2026 Conference Call' (StockTitan/PRNewswire) — Q2 results PRE-MARKET Wed Jul-29, call 10:00 ET same day, replay to Aug-5. Was expected/no-PR at the 7/22 sweep. |
 | BRUT | — | 2026-08-13 (confirmed). RE-VERIFIED 2026-07-21 via the Euronext company-information calendar (exchange-published): Half-yearly Report 13/08/2026; AGM 12/08/2026. No timing stated. (Issuer legal name Bruton Limited.) Original NewsWeb filing not retrievable — calendar-grade source. |
@@ -52,41 +51,13 @@
 | SB | — | 2026-07-28 (confirmed). CONFIRMED 2026-07-28 sweep: sets-date PR GlobeNewswire 2026-07-22 'Safe Bulkers, Inc. Sets Date for the Second Quarter 2026 Results' — results AFTER CLOSE Tue Jul-28 (TONIGHT), call Wed Jul-29 10:30 ET. The 7/22 sweep just missed it (PR landed same day, later). No August slip. |
 | SBLK | — | 2026-08-05 (confirmed). RESULTS ANNOUNCED 2026-08-05 (earnings-release 6-K acc 0000950157-26-000846) + interim 6-K 8/7 - refreshed at the 8/8 drain; entry historical until the Q3 re-seed. |
 | STNG | — | 2026-07-30 (confirmed). OFFICIAL PR 2026-07-20 (scorpiotankers.com/GlobeNewswire): Q2 results IN THE MORNING (pre-market) Thu Jul-30; call same day 8:00 ET. Swept 2026-07-21. |
+| TEN | — | 2026-09-10 → 2026-10-01 (confirmed). RESULTS ANNOUNCED 2026-09-10 (recorded at the 2026-09-10 sweep): issuer PR GlobeNewswire 3359616, 09:15 ET "TEN, Ltd. Reports Profits for the First Half and Second Quarter of 2026" — pre-open exactly as the 8/20 date-PR (GlobeNewswire 3348799) promised: "prior to the open of the market in New York on Thursday, September 10, 2026"; call 10:00 ET same day. No 6-K on EDGAR yet at sweep time (last 6-K 2026-05-22) — the PR-first/6-K-later pattern; subsequent-event flag for the H1 refresh: 9/01 PR 3354219 sale of two first-generation Suezmaxes (named Alaska/Archangel in the 9/10 PR). Entry historical until the Q3 re-seed; H1 refresh queued (decisions/ten_h1_refresh_packet_2026-09-07.md, ten_h1_release_check_2026-09-10.md). HELD ON THE 2026-Q1 SHEET 2026-09-16 — the FILING-OVERDUE page ruled hold, not chase: the H1 6-K is the sheet-writable filing and TEN files it weeks after the release (H1-2025 6-K 0001193125-25-225057 landed 2025-09-30, three weeks after that release); still no 6-K on EDGAR at 2026-09-16 (data.sec.gov, newest 6-K 2026-05-22). window_end re-set from the release date to 2026-10-01 on that precedent, so the page re-fires after 10/01 + 3bd if nothing has landed. The 2026-09-11 shadow build stands at WOULD-HOLD (decisions/ten_shadow_build_2026-09-11.md); the EDGAR poll stages the 6-K the hour it appears. |
 | TNK | — | 2026-07-29 (confirmed). OFFICIAL joint Teekay Group PR 2026-07-14 (GlobeNewswire 3327260): Q2 results AFTER CLOSE Wed Jul-29; call Thu Jul-30 11:00 ET. Swept 2026-07-21. |
 | TRMD | — | 2026-08-26 (confirmed). TORM 'Financial Calendar 2026' announcement (2025-12-19): Q2 Aug-26; adherence validated on Q1 (May-13 = actual) |
 
 ## 1. Missing quarterly balance sheets
 
-For each missing name below, pull the 2026-Q2 results from the listed IR URLs and populate `inputs/balance_sheets/{ticker}_2026-Q2.yaml`:
-
-### TEN
-- **Press releases:** https://www.tenn.gr/news-events/
-- **SEC EDGAR filings:** https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001166663&type=6-K
-- **Fleet page:** https://www.tenn.gr/fleet/
-- **Reporting pattern:** Q-end results typically late second month of following quarter (Q1 2026 was 2026-05-22).
-Monthly DATA KIT published mid-month with per-vessel TC rates and NB schedule —
-refresh from data kit each month (independent of 6-K cadence).
-Annual 20-F filed early April with full audited balance sheet detail.
-AGM proxy 6-K (typically April) names directors and certifies preferred share counts.
-
-- **Notes:** Bermuda-incorporated FPI; 3-sleeve hybrid (crude + product + lng) with the DP2
-shuttle sleeve OFF-CURVE via shuttle_contracted_book (METHODOLOGY §11.6).
-First name in THREE_SLEEVE_TICKERS.
-Key per-quarter refresh items:
-  - Data kit per-vessel TC rates (especially shuttle vessels Brasil 2014, Rio 2016,
-    Athens 04, Paris 24 — drive shuttle_contracted_book NPV)
-  - NB orderbook schedule + advances paid (19 vessels, $2,403M total contract)
-  - Total debt roll-forward (data kit narrates Q1 movements; 6-K confirms)
-  - Common dividend declaration (semi-annual, Board discretion)
-Watch items:
-  - DP2 shuttle extension events (Apr 2026 announced extension for Brasil/Rio
-    @ "increased rate" through H2 2033 — current shuttle NPV uses $60k/day APPROX
-    ext rate; refresh when actual rate disclosed)
-  - 10-yr-old VLCC Ulysses sold May 2026 ($83M free cash) — already reflected in
-    fleet manifest age
-  - 2 Suezmax 2007-built repurchase Apr 2026 (Arctic, Antarctic from 5y bareboat)
-  - Series E ($118.6M) + Series F ($168.7M) preferred — stable; rates fixed
-
+_All watchlist tickers have a balance sheet on file for 2026-Q2. ✓_
 
 ## 2. Stale market data
 
@@ -96,31 +67,31 @@ _All market data files were updated within 30 days. ✓_
 
 | Ticker | as_of status | Detail |
 |---|---|---|
-| DHT | ✓ | as_of 2026-08-28 (24d ago) |
-| ECO | ✓ | as_of 2026-08-28 (24d ago) |
-| FRO | ✓ | as_of 2026-08-28 (24d ago) |
-| INSW | ✓ | as_of 2026-08-28 (24d ago) |
-| TNK | ✓ | as_of 2026-08-28 (24d ago) |
-| NAT | ⚠ APPROX | as_of 2026-08-28 (24d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| FLNG | ✓ | as_of 2026-08-28 (24d ago) |
-| CCEC | ⚠ APPROX | as_of 2026-08-28 (24d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| STNG | ⚠ APPROX | as_of 2026-08-28 (24d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| HAFN | ✓ | as_of 2026-08-28 (24d ago) |
-| TRMD | ⚠ APPROX | as_of 2026-08-28 (24d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| ASC | ⚠ APPROX | as_of 2026-08-28 (24d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| TEN | ⚠ APPROX | as_of 2026-09-09 (12d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| CMDB | ⚠ APPROX | as_of 2026-09-09 (12d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| SBLK | ✓ | as_of 2026-08-28 (24d ago) |
-| GNK | ✓ | as_of 2026-08-28 (24d ago) |
-| CAPT | ✓ | as_of 2026-08-28 (24d ago) |
-| MPCC | ⚠ APPROX | as_of 2026-08-28 (24d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| GSL | ⚠ APPROX | as_of 2026-06-12 (101d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| BRUT | ✓ | as_of 2026-08-28 (24d ago) |
-| CMBT | ⚠ APPROX | as_of 2026-08-28 (24d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| SB | ⚠ APPROX | as_of 2026-08-28 (24d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
-| LPG | ✓ | as_of 2026-08-28 (24d ago) |
-| BWLP | ✓ | as_of 2026-08-28 (24d ago) |
-| 2343 | ✓ | as_of 2026-08-28 (24d ago) |
+| DHT | ✓ | as_of 2026-08-28 (25d ago) |
+| ECO | ✓ | as_of 2026-08-28 (25d ago) |
+| FRO | ✓ | as_of 2026-08-28 (25d ago) |
+| INSW | ✓ | as_of 2026-08-28 (25d ago) |
+| TNK | ✓ | as_of 2026-08-28 (25d ago) |
+| NAT | ⚠ APPROX | as_of 2026-08-28 (25d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| FLNG | ✓ | as_of 2026-08-28 (25d ago) |
+| CCEC | ⚠ APPROX | as_of 2026-08-28 (25d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| STNG | ⚠ APPROX | as_of 2026-08-28 (25d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| HAFN | ✓ | as_of 2026-08-28 (25d ago) |
+| TRMD | ⚠ APPROX | as_of 2026-08-28 (25d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| ASC | ⚠ APPROX | as_of 2026-08-28 (25d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| TEN | ⚠ APPROX | as_of 2026-09-09 (13d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| CMDB | ⚠ APPROX | as_of 2026-09-09 (13d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| SBLK | ✓ | as_of 2026-08-28 (25d ago) |
+| GNK | ✓ | as_of 2026-08-28 (25d ago) |
+| CAPT | ✓ | as_of 2026-08-28 (25d ago) |
+| MPCC | ⚠ APPROX | as_of 2026-08-28 (25d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| GSL | ⚠ APPROX | as_of 2026-06-12 (102d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| BRUT | ✓ | as_of 2026-08-28 (25d ago) |
+| CMBT | ⚠ APPROX | as_of 2026-08-28 (25d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| SB | ⚠ APPROX | as_of 2026-08-28 (25d ago); consensus_pnav flagged APPROX in comment — replace with Pareto / broker figure |
+| LPG | ✓ | as_of 2026-08-28 (25d ago) |
+| BWLP | ✓ | as_of 2026-08-28 (25d ago) |
+| 2343 | ✓ | as_of 2026-08-28 (25d ago) |
 
 _11 ticker(s) carry APPROX consensus_pnav comments — replace with authoritative broker NAV print (Pareto / Cleaves / Clarksons) when the Q-end research notes land._
 
@@ -128,31 +99,31 @@ _11 ticker(s) carry APPROX consensus_pnav comments — replace with authoritativ
 
 | Ticker | Fleet (≤90d) | BS for 2026-Q2 | Cost (≤180d) | Dividend (≤180d) |
 |---|---|---|---|---|
-| DHT | ✓ 42d | ✓ 44d ago | ✓ 115d | ✓ 115d |
-| ECO | ✓ 44d | ✓ 44d ago | ✓ 115d | ✓ 115d |
-| FRO | ✓ 21d | ✓ 21d ago | ✓ 115d | ✓ 115d |
-| INSW | ✓ 42d | ✓ 42d ago | ✓ 115d | ✓ 115d |
-| TNK | ✓ 44d | ✓ 44d ago | ✓ 115d | ✓ 115d |
-| NAT | ✓ 21d | ✓ 21d ago | ✓ 112d | ✓ 112d |
-| FLNG | ✓ 27d | ✓ 27d ago | ✓ 112d | ✓ 112d |
-| CCEC | ✓ 44d | ✓ 44d ago | ✓ 112d | ✓ 112d |
-| STNG | ✓ 44d | ✓ 44d ago | ✓ 108d | ✓ 112d |
-| HAFN | ✓ 21d | ✓ 21d ago | ✓ 109d | ✓ 109d |
-| TRMD | ✓ 23d | ✓ 23d ago | ✓ 109d | ✓ 109d |
-| ASC | ✓ 44d | ✓ 44d ago | ✓ 112d | ✓ 112d |
-| TEN | ✓ 68d | ✗ missing | ✓ 107d | ✓ 107d |
-| CMDB | ✓ 43d | ✓ 43d ago | ✓ 103d | ✓ 103d |
-| SBLK | ✓ 43d | ✓ 43d ago | ✓ 104d | ✓ 104d |
-| GNK | ✓ 44d | ✓ 44d ago | ✓ 103d | ✓ 103d |
-| CAPT | ✓ 20d | ✓ 20d ago | ✓ 102d | ✓ 102d |
-| MPCC | ✓ 21d | ✓ 21d ago | ✓ 101d | ✓ 101d |
-| GSL | ✓ 44d | ✓ 44d ago | ✓ 101d | ✓ 101d |
-| BRUT | ✓ 23d | ✓ 23d ago | ✓ 91d | ✓ 91d |
-| CMBT | ✓ 11d | ✓ 5d ago | ✓ 87d | ✓ 87d |
-| SB | ✓ 44d | ✓ 44d ago | ✓ 84d | ✓ 85d |
-| LPG | ✓ 44d | ✓ 44d ago | ✓ 73d | ✓ 73d |
-| BWLP | ✓ 4d | ✓ 4d ago | ✓ 73d | ✓ 73d |
-| 2343 | ✓ 44d | ✓ 44d ago | ✓ 69d | ✓ 69d |
+| DHT | ✓ 43d | ✓ 45d ago | ✓ 116d | ✓ 116d |
+| ECO | ✓ 45d | ✓ 45d ago | ✓ 116d | ✓ 116d |
+| FRO | ✓ 22d | ✓ 22d ago | ✓ 116d | ✓ 116d |
+| INSW | ✓ 43d | ✓ 43d ago | ✓ 116d | ✓ 116d |
+| TNK | ✓ 45d | ✓ 45d ago | ✓ 116d | ✓ 116d |
+| NAT | ✓ 22d | ✓ 22d ago | ✓ 113d | ✓ 113d |
+| FLNG | ✓ 28d | ✓ 28d ago | ✓ 113d | ✓ 113d |
+| CCEC | ✓ 45d | ✓ 45d ago | ✓ 113d | ✓ 113d |
+| STNG | ✓ 45d | ✓ 45d ago | ✓ 109d | ✓ 113d |
+| HAFN | ✓ 22d | ✓ 22d ago | ✓ 110d | ✓ 110d |
+| TRMD | ✓ 24d | ✓ 24d ago | ✓ 110d | ✓ 110d |
+| ASC | ✓ 45d | ✓ 45d ago | ✓ 113d | ✓ 113d |
+| TEN | ✓ 1d | ✓ 1d ago | ✓ 108d | ✓ 108d |
+| CMDB | ✓ 44d | ✓ 44d ago | ✓ 104d | ✓ 104d |
+| SBLK | ✓ 44d | ✓ 44d ago | ✓ 105d | ✓ 105d |
+| GNK | ✓ 45d | ✓ 45d ago | ✓ 104d | ✓ 104d |
+| CAPT | ✓ 21d | ✓ 21d ago | ✓ 103d | ✓ 103d |
+| MPCC | ✓ 22d | ✓ 22d ago | ✓ 102d | ✓ 102d |
+| GSL | ✓ 45d | ✓ 45d ago | ✓ 102d | ✓ 102d |
+| BRUT | ✓ 24d | ✓ 24d ago | ✓ 92d | ✓ 92d |
+| CMBT | ✓ 12d | ✓ 6d ago | ✓ 88d | ✓ 88d |
+| SB | ✓ 45d | ✓ 45d ago | ✓ 85d | ✓ 86d |
+| LPG | ✓ 45d | ✓ 45d ago | ✓ 74d | ✓ 74d |
+| BWLP | ✓ 5d | ✓ 5d ago | ✓ 74d | ✓ 74d |
+| 2343 | ✓ 45d | ✓ 45d ago | ✓ 70d | ✓ 70d |
 
 _Thresholds: fleet manifest 90d (vessel sales/purchases happen quarterly); cost + dividend 180d (rarely change but should be re-validated annually)._
 
