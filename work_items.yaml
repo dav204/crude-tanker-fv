@@ -964,6 +964,49 @@
     },
     {
       "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "contains": "Scoped permission approved and installed",
+          "path": "monitor/QUARTERLY_SMOKE_EVIDENCE_2026-09-22.md",
+          "project": "governor"
+        }
+      ],
+      "id": "quarterly:inbox-permission",
+      "next_action": "Scoped inbox Write grant explicitly approved and installed in all four settings files",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "done",
+      "verified_at": "2026-09-22",
+      "waiting_condition": null
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "contains": "Unattended acceptance PASSED",
+          "path": "monitor/QUARTERLY_SMOKE_EVIDENCE_2026-09-22.md",
+          "project": "governor"
+        },
+        {
+          "contains": "unattended_acceptance_passed",
+          "path": "monitor/quarterly_acceptance_2026-09-22.json",
+          "project": "governor"
+        }
+      ],
+      "id": "quarterly:scheduler-proof",
+      "next_action": "Actual quarterly scheduler smoke completed in default/Manual mode with zero permission requests; normal prompt restored",
+      "project": "governor",
+      "resolver": "agent",
+      "status": "done",
+      "verified_at": "2026-09-22",
+      "waiting_condition": null
+    },
+    {
+      "authority": "manual",
       "blocking_decision_ids": [
         "a1-horizon"
       ],
@@ -1344,49 +1387,6 @@
       "resolver": "agent",
       "status": "waiting",
       "waiting_condition": "registered condition or ruling"
-    },
-    {
-      "authority": "manual",
-      "blocking_decision_ids": [],
-      "due": null,
-      "evidence": [
-        {
-          "contains": "Scoped permission approved and installed",
-          "path": "monitor/QUARTERLY_SMOKE_EVIDENCE_2026-09-22.md",
-          "project": "governor"
-        }
-      ],
-      "id": "quarterly:inbox-permission",
-      "next_action": "Scoped inbox Write grant explicitly approved and installed in all four settings files",
-      "project": "governor",
-      "resolver": "owner",
-      "status": "done",
-      "verified_at": "2026-09-22",
-      "waiting_condition": null
-    },
-    {
-      "authority": "manual",
-      "blocking_decision_ids": [],
-      "due": null,
-      "evidence": [
-        {
-          "contains": "Unattended acceptance PASSED",
-          "path": "monitor/QUARTERLY_SMOKE_EVIDENCE_2026-09-22.md",
-          "project": "governor"
-        },
-        {
-          "contains": "unattended_acceptance_passed",
-          "path": "monitor/quarterly_acceptance_2026-09-22.json",
-          "project": "governor"
-        }
-      ],
-      "id": "quarterly:scheduler-proof",
-      "next_action": "Actual quarterly scheduler smoke completed in default/Manual mode with zero permission requests; normal prompt restored",
-      "project": "governor",
-      "resolver": "agent",
-      "status": "done",
-      "verified_at": "2026-09-22",
-      "waiting_condition": null
     }
   ],
   "version": 1
