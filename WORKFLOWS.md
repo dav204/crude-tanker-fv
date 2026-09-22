@@ -450,3 +450,5 @@ retained. Quarterly completion remains protected by the governor's committed led
 completion evidence, and commits only the registry. Adapter-owned facts must be changed at
 their original authority. Schedule refreshes must update the explicit origin and fingerprint
 in calendar_policy.yaml; a changed fleet/coverage array without that mapping freezes.
+
+- **2026-09-22 — report ownership follows the required action.** Missing receipts and a stalled filing queue are agent workflow repairs, not owner decisions; incomplete status still withholds a clear-owner-queue claim. Guard: `test_workflow_repairs_are_not_counted_as_owner_decisions`.

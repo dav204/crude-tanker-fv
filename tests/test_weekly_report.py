@@ -170,3 +170,19 @@ def test_same_day_reruns_preserve_both_reports(tmp_path, monkeypatch):
     assert w.main([])==0
     assert w.main([])==0
     assert {p.read_text() for p in out.glob('weekly_report_*.md')}=={'first body','second body'}
+
+
+def test_workflow_repairs_are_not_counted_as_owner_decisions(monkeypatch):
+    from crude_tanker_fv import work_items, sentinel
+    monkeypatch.setattr(work_items, "project", lambda *args: {"items": [], "complete": True, "integration_enabled": True})
+    monkeypatch.setattr(work_items, "receipts", lambda *args: ["producer execution: UNKNOWN — missing receipts"])
+    monkeypatch.setattr(sentinel, "collect_flags", lambda: ["FILING-QUEUE-STALLED accession: 100 pending; repair daily triage"])
+    report = wr.build_report()
+    assert "0 needs your word" not in report
+    assert "0 need your word" in report
+    assert "Nothing needs your word" not in report
+    owner, agent = report.split("**Agent/external tasks and workflow repairs:**", 1)
+    assert "FILING-QUEUE-STALLED" not in owner
+    assert "Operational receipt evidence UNKNOWN [resolver agent]" in agent
+    assert "FILING-QUEUE-STALLED" in agent
+    assert "HEALTH ATTENTION" in report

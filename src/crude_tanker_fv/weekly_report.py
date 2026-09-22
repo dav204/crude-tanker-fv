@@ -299,7 +299,7 @@ def _queue_lines(flags: list[str], tags: set[str] | None = None) -> list[str]:
     out: list[str] = []
     for f in flags:
         tag, _, rest = f.partition(" ")
-        if tag in tags:
+        if tag in tags and tag != "FILING-QUEUE-STALLED":
             out.append(f"{tag} — {rest.strip()[:180]}")
     return out
 
@@ -333,13 +333,16 @@ def build_report(today: date | None = None, days: int = 7) -> str:
     tasks = work_items.project(ROOT, today)
     queue, agent_queue = work_items.queues(tasks)
     operational_receipts = work_items.receipts(ROOT)
-    if any("UNKNOWN" in line for line in operational_receipts):
-        queue.append("Operational receipt evidence is incomplete; workflow repair is required")
+    receipts_complete = not any("UNKNOWN" in line for line in operational_receipts)
+    status_complete = tasks["complete"] and receipts_complete and tasks.get("integration_enabled", False)
+    if not receipts_complete:
+        agent_queue.append("Operational receipt evidence UNKNOWN [resolver agent] — establish the missing execution/landing receipts; do not infer historic success")
+    agent_queue.extend(f + " [resolver agent]" for f in flags if f.startswith("FILING-QUEUE-STALLED "))
     queue += _queue_lines(flags)
     if not tasks.get("integration_enabled", False):
-        queue.append("Task-status integration is disabled; registry view is advisory and completion is not asserted")
+        agent_queue.append("Task-status integration is disabled [resolver agent]; completion is not asserted")
     if not tasks["complete"]:
-        queue.append("Workflow status UNKNOWN — repair missing/conflicting evidence before declaring the owner queue clear")
+        agent_queue.append("Workflow status UNKNOWN [resolver agent] — repair missing/conflicting evidence before declaring the owner queue clear")
     hbs = _heartbeats()
     reauth = _reauth()
     ping = _ping_status()
@@ -354,7 +357,7 @@ def build_report(today: date | None = None, days: int = 7) -> str:
                f"{len(agent_queue)} in the agent's queue · "
                f"{len(edge_names)} long{'s' if len(edge_names) != 1 else ''} · "
                f"{len(moves)} move{'s' if len(moves) != 1 else ''} · "
-               f"{'health OK' if not dead and not reauth and tasks['complete'] and not any('UNKNOWN' in line for line in operational_receipts) else 'HEALTH ATTENTION'}")
+               f"{'health OK' if not dead and not reauth and status_complete else 'HEALTH ATTENTION'}")
 
     w: list[str] = []
     a = w.append
@@ -397,8 +400,12 @@ def build_report(today: date | None = None, days: int = 7) -> str:
     if queue:
         for q in queue:
             a(f"- {q}")
+    elif not status_complete:
+        a("No owner decision is currently identified, but status evidence is incomplete; the queue is not certified clear.")
     else:
         a("Nothing needs your word this week.")
+    if not status_complete:
+        a("Status evidence is incomplete. The agent repair queue below remains open.")
     if agent_queue:
         a("")
         a("**Agent/external tasks and workflow repairs:**")
