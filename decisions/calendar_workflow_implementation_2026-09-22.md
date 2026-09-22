@@ -61,19 +61,20 @@ explicit refresh creates a replacement. Recovery updates pack delivery state. We
 quarterly active markers and healthcheck behavior are separate.
 
 The baseline permission grants matched the installed user, Projects-folder and governor
-settings. The additional inbox Write grant is now an explicit pending approval (below).
+settings. The additional inbox Write grant was explicitly approved and installed (see acceptance below).
 The task's actual configured folder is /Users/dan_personal/Projects. This establishes
 configuration synchronization, not unattended acceptance.
 
-**Open acceptance blocker: quarterly:scheduler-proof (resolver: agent).** The actual
-scheduled smoke completed, and all five read-only IBKR calls succeeded without a prompt.
-The application permission log, however, proves that its heredoc persistence call waited
-11 minutes for a one-time Bash approval, despite the agent claiming no approvals. The
-UI error did not mean no run had started. See the governor's committed
-monitor/QUARTERLY_SMOKE_EVIDENCE_2026-09-22.md. Payloads now use a narrowly owned inbox
-Write followed by a simple wrapper invocation with --probe-file/--report-file. A fresh
-scheduled run plus permission-log inspection is required before closing this blocker.
-The normal guarded prompt is restored after each probe; no real test email or order is sent.
+**Quarterly scheduler acceptance completed at 20:17:56 UTC.** The first real smoke
+exposed an 11-minute heredoc approval wait that the agent's summary incorrectly denied.
+After explicit owner approval, the narrowly scoped inbox grant was installed in all four
+settings files. A fresh actual scheduled run used the inbox Write and simple file-argument
+wrapper successfully in default/Manual mode, with no permission requests or mode changes
+in the application log. Its five read-only broker calls and isolated persistence succeeded;
+SMTP and healthchecks were disabled. The normal guarded quarterly prompt was restored.
+Evidence: governor monitor/QUARTERLY_SMOKE_EVIDENCE_2026-09-22.md and
+monitor/quarterly_acceptance_2026-09-22.json. Both permission and scheduler-proof work items
+are now done; existing portfolio follow-ups remain open.
 
 ## Validation and rollback
 
@@ -132,6 +133,17 @@ source `d53bb0bfc3a7404316d6a7dfac941f4c623ce7ee`, output
 delivery queues were empty and the existing five-minute worker was active. This is local
 publication/consumption evidence; no remote Git push is claimed. The current report preview
 is `decisions/workflow_status_2026-09-22.md`; it is not a scheduled landing or a sent email.
-The pending inbox permission is the only uninstalled manifest grant, and the revised
-weekly/quarterly file-payload prompts await that approval. The installed prior guarded
-prompts still skip completed Q3 before research.
+At that initial rollout the inbox permission and revised prompts were still pending.
+The subsequent approval and successful scheduled run below close that installation gap.
+
+### Approved grant and observed unattended completion
+
+At 20:14 UTC the owner-approved inbox Write grant was installed, with no other grants added.
+The actual quarterly scheduler session `e7576ae7-ffed-4965-895a-d490828bf5c2` completed at
+20:17:56 UTC in default/Manual mode. All five broker reads, one inbox Write and one scoped
+Bash persistence command succeeded. Inspection of the application log found zero permission
+requests and zero permission-mode changes for that session. Receipt
+`2026-09-22T201738Z-531ea9bb29` records isolated committed persistence and disabled SMTP
+and healthcheck transports. Canonical weekly/quarterly prompts and installed bodies match.
+`quarterly:inbox-permission` and `quarterly:scheduler-proof` are done with committed evidence.
+This verifies the quarterly path, not every other scheduled task or future credential state.

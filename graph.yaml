@@ -459,7 +459,7 @@ nodes:
     writes: [governance:monitor/inbox/**, governance:monitor/outbox/*-monitor.md, governance:monitor/log.md, governance:monitor/state/**]
     emits: [cited successful skip for completed quarter; otherwise durable queued pack; never weekly healthcheck]
     commits: self
-    notes: "monitor/QUARTERLY_PROMPT.md is canonical. land.sh quarterly begin checks committed completion before research; finish persists once; retries reuse the queue. Inbox payloads avoid the observed heredoc approval. Scheduler smoke remains blocked until actual probes, Write and scoped persistence complete with no permission request in the application log."
+    notes: "monitor/QUARTERLY_PROMPT.md is canonical. land.sh quarterly begin checks committed completion before research; finish persists once; retries reuse the queue. Inbox payloads avoid the observed heredoc approval. Actual scheduled probes, inbox Write and scoped persistence passed in Manual mode on 2026-09-22 with zero permission requests; evidence is governance:monitor/quarterly_acceptance_2026-09-22.json."
 
   # ---------------------------------------------------------------- human + external nodes
   - id: human-owner-chat
