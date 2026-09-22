@@ -1,5 +1,7 @@
 """Dated contract construction and projection alignment. No wall-clock writes."""
 import copy
+import hashlib
+import json
 import math
 import os
 import re
@@ -157,6 +159,9 @@ def align(inputs, inputs_dir, valuation_date=None, enabled=None):
     origin=cfg.get('schedule_origins',{}).get(inputs.fleet.ticker)
     if not origin:
         raise ValueError('missing fleet/coverage calendar mapping for '+inputs.fleet.ticker)
+    signature=hashlib.sha256(json.dumps({'fleet':inputs.fleet.fleet_schedule,'coverage':inputs.fleet.coverage_schedule},sort_keys=True).encode()).hexdigest()
+    if cfg.get('schedule_fingerprints',{}).get(inputs.fleet.ticker)!=signature:
+        raise ValueError('fleet/coverage schedules changed without a calendar mapping review: '+inputs.fleet.ticker)
     elapsed=index(start)-index(origin)
     if elapsed<0:
         raise ValueError('live calendar precedes schedule origin; use explicit historical replay')
@@ -172,7 +177,7 @@ def align(inputs, inputs_dir, valuation_date=None, enabled=None):
         if elapsed+horizon>len(values): extensions.append({'class':cls,'schedule':'coverage','method':'existing last-coverage extension'})
     timeline={'valuation_date':day.isoformat(),'projection_start_quarter':start,'schedule_origin':origin,
               'elapsed_quarters':elapsed,'cash_flow_convention':'full quarters; unchanged end-quarter discounting',
-              'ffa_nodes':nodes,'schedule_extensions':extensions,'scenario_extensions':[]}
+              'ffa_nodes':{cls:value for cls,value in nodes.items() if cls in {v.cls for v in inputs.fleet.vessels}},'schedule_extensions':extensions,'scenario_extensions':[]}
     return replace(inputs,market_data=replace(inputs.market_data,ffa_forward_curve=curves),
                    fleet=replace(inputs.fleet,fleet_schedule=fleet,coverage_schedule=coverage),timeline=timeline)
 

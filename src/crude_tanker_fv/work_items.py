@@ -120,9 +120,9 @@ def project(root=ROOT, today=None):
         gov=root.parent/'portfolio-governance'
         seam=json.loads((gov/'monitor/state/seam_latest.json').read_text())
         for event in seam['events']:
-            if event.get('severity') not in ('page','blocked','unknown'): continue
+            if event.get('severity') not in ('page','blocked','unknown') and event['code'] not in ('GATES_PENDING','WIDE_CAP'): continue
             identity='governor:'+str(event.get('ticker','book'))+':'+event['code']
-            add(item(identity,'governor','blocked',event.get('action') or event.get('message') or event['code'],'owner',
+            add(item(identity,'governor','blocked',(event.get('detail') or event['code'])+'; '+(event.get('action') or 'Preserve binding restriction'),'owner',
                 evidence=[{'project':'governor','path':'monitor/state/seam_latest.json','runtime':True}],
                 waiting='explicit valuation mini-review or gate disposition',blockers=[identity],details=event))
     except (OSError,ValueError,KeyError) as exc: failed('governor:consumption',exc)
@@ -203,9 +203,28 @@ def receipts(root=ROOT):
     return lines
 
 
+def record(row, root=ROOT):
+    row=dict(row, authority='manual', verified_at=date.today().isoformat())
+    validate({'version':1,'items':[row]})
+    if not row['evidence']: raise ValueError('cited evidence required')
+    for ref in row['evidence']:
+        if row['status']=='done' and ref.get('runtime'):
+            raise ValueError('manual completion requires committed evidence')
+        reference(root,ref)
+    with locked(root/'state/work_items.lock'):
+        doc=validate(yaml.safe_load((root/'work_items.yaml').read_text()))
+        previous=next((r for r in doc['items'] if r['id']==row['id']),None)
+        if previous and previous.get('authority','manual')!='manual':
+            raise ValueError('update the domain authority; adapter facts cannot be overwritten')
+        doc['items']=[r for r in doc['items'] if r['id']!=row['id']]+[row]
+        validate(doc);atomic_json(root/'work_items.yaml',doc)
+        commit_paths(root,['work_items.yaml'],'chore(workflow): record '+row['id'])
+
+
 def main(argv=None):
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('command',choices=['show','sync','shadow'])
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('command',choices=['show','sync','shadow','record'])
     ap.add_argument('--report');args=ap.parse_args(argv)
+    if args.command=='record': record(json.load(sys.stdin));return 0
     if args.command=='shadow': record_shadow(args.report,json.load(sys.stdin));return 0
     print(json.dumps(sync() if args.command=='sync' else project(),indent=2,default=str))
     return 0

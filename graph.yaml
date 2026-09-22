@@ -64,7 +64,7 @@ nodes:
     runs: every five minutes and on load; catches up after sleep
     reads: [work_items.yaml, inputs/forks.yaml, inputs/reweight_triggers.yaml, decisions/*_shadow_build_*.json, governance:reviews/completed_quarters.json, state/publications/**, state/delivery/**, governance:monitor/state/**, governance:monitor/seam_registry.json]
     writes: [work_items.yaml, state/work_items_observed.json, state/publications/**, state/delivery/**, state/operations/**, state/heartbeat/delivery-worker, governance:monitor/state/**, governance:monitor/outbox/seam-*.md]
-    commits: governor-seam
+    commits: [self, governor-seam]
     on_failure: heartbeat error; unfinished receipts retained; no successful delivery healthcheck
     commit_subject_prefix: "chore(workflow):"
 

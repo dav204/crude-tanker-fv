@@ -27,7 +27,13 @@ def test_tracked_skills_match_their_graph_nodes():
         assert fm.get("description", "").strip() and fm.get("allowed-tools", "").strip(), f"{path.name}: description/allowed-tools"
         assert task in nodes and nodes[task]["kind"] == "scheduled-task", f"{task}: no scheduled-task node in graph.yaml"
         prefix = nodes[task].get("commit_subject_prefix")
-        if prefix:
+        if prefix and task != 'crude-fv-filings-triage':
             body = path.read_text()
             assert re.search(r'git commit -m "' + re.escape(prefix), body), \
                 f"{task}: the skill must commit with a subject starting {prefix!r} (R6 matches on it)"
+
+
+def test_filings_prompt_uses_committed_disposition_wrapper():
+    body=(ROOT/'scripts/scheduled_tasks/crude-fv-filings-triage.SKILL.md').read_text()
+    assert 'filings_task.sh record' in body and 'until all pending work' in body
+    assert "48h window" not in body
