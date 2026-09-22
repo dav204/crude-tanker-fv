@@ -149,8 +149,13 @@ def worker(root=ROOT, governor=GOVERNOR, *, shadow=False):
                     atomic_json(path, run)
                     delivery.enqueue("[crude-fv] PAGE: interrupted scheduled run", "Run " + run["run_id"] + " has no completed outcome. ACTION: OWNER — inspect the scheduled task and repair its blocked stage.", state, key="interrupted:" + run["run_id"])
         from .work_items import refresh_worker
-        if (root / "work_items.yaml").exists():
-            refresh_worker(root)
+        task_status = {"status": "not_configured"}
+        if (root / "work_items.yaml").exists() or root.resolve() == publication.PRODUCTION.resolve():
+            try:
+                task_status = refresh_worker(root)
+            except (OSError, ValueError, subprocess.CalledProcessError) as exc:
+                task_status = {"status": "blocked", "reason": str(exc), "resolver": "agent"}
+                atomic_json(state / "work_items_status.json", task_status)
         environ = notify.load_env_file(notify.ENV_FILE)
         for directory in (state, governor / "monitor/state"):
             delivery.drain(directory, environ=environ)
@@ -175,6 +180,9 @@ def worker(root=ROOT, governor=GOVERNOR, *, shadow=False):
                     atomic_json(path, receipt)
         pubstatus = json.loads((state / "publications/status.json").read_text())
         result = {"at": utc(), "publication": pubstatus, "consumer_publication": json.loads((governor / "monitor/state/seam_latest.json").read_text())["publication_id"], "status": "pending_delivery" if delivery.pending(state) or delivery.pending(governor / "monitor/state") else ("held" if pubstatus["status"] == "held" else "ok")}
+        result["work_items"] = task_status
+        if task_status["status"] == "blocked":
+            result["status"] = "workflow_blocked"
         atomic_json(state / "operations/worker.json", result)
         return result
 

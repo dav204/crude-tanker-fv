@@ -112,3 +112,53 @@ def test_shadow_needs_committed_record_and_named_resolver(tmp_path):
 def test_invalid_registry_status():
     with pytest.raises(ValueError):
         wi.validate({"version": 1, "items": [{"id": "x", "status": "fine"}]})
+
+
+def test_malformed_registry_is_retained_and_deduplicated_without_stopping_delivery(tmp_path):
+    from crude_tanker_fv import delivery
+
+    root = fixture(tmp_path)
+    path = root / "work_items.yaml"
+    path.write_text("{broken")
+    for _ in range(2):
+        assert wi.refresh_worker(root)["status"] == "blocked"
+    assert path.read_text() == "{broken"
+    assert len(delivery.pending(root / "state")) == 1
+
+
+def test_commit_failure_retries_identical_registry(tmp_path, monkeypatch):
+    root = fixture(tmp_path)
+    real = wi.commit_paths
+    attempts = []
+
+    def fail_once(*args, **kwargs):
+        attempts.append(1)
+        if len(attempts) == 1:
+            raise subprocess.CalledProcessError(1, ["git", "commit"])
+        return real(*args, **kwargs)
+
+    monkeypatch.setattr(wi, "commit_paths", fail_once)
+    with pytest.raises(subprocess.CalledProcessError):
+        wi.sync(root)
+    wi.sync(root)
+    assert len(attempts) == 2 and git(root, "diff", "--name-only", "--", "work_items.yaml") == ""
+
+
+def test_unchanged_conditions_quiet_but_recurrence_and_recovery_notify(tmp_path):
+    from crude_tanker_fv import delivery
+
+    root = fixture(tmp_path)
+    condition = {
+        "x": {
+            "status": "unknown",
+            "resolver": "agent",
+            "next_action": "repair",
+            "blocking_decision_ids": [],
+        }
+    }
+    for _ in range(2):
+        wi.observe_conditions(condition, root)
+    assert len(delivery.pending(root / "state")) == 1
+    wi.observe_conditions({}, root)
+    wi.observe_conditions(condition, root)
+    assert len(delivery.pending(root / "state")) == 3

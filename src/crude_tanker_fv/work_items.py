@@ -171,7 +171,10 @@ def project(root=ROOT, today=None):
     try:
         from .filings import queue, manifest
 
-        if not (root / "state/edgar_manifest.jsonl").exists() and not (root / "inputs/filings/_manifest.json").exists():
+        if (
+            not (root / "state/edgar_manifest.jsonl").exists()
+            and not (root / "inputs/filings/_manifest.json").exists()
+        ):
             raise ValueError("filing manifest missing; queue membership is unknown")
         q = queue(manifest(root), root / "state/filings_triaged.json")
         add(
@@ -323,9 +326,9 @@ def sync(root=ROOT):
         previous = yaml.safe_load(path.read_text()) if path.exists() else None
         if previous != doc:
             atomic_json(path, doc)
-            commit_paths(
-                root, ["work_items.yaml"], "chore(workflow): synchronize operational task evidence"
-            )
+        commit_paths(
+            root, ["work_items.yaml"], "chore(workflow): synchronize operational task evidence"
+        )
         return doc
 
 
@@ -455,13 +458,61 @@ def main(argv=None):
     return 0
 
 
+def observation(root):
+    path = root / "state/work_items_observed.json"
+    data = json.loads(path.read_text()) if path.exists() else {}
+    return data if "conditions" in data else {"revision": 0, "conditions": data}
+
+
+def observe_conditions(active, root):
+    from .delivery import enqueue
+
+    old = observation(root)
+    previous = old["conditions"]
+    changes = [key for key, value in active.items() if previous.get(key) != value]
+    recovery = [
+        key for key in previous if key not in active and previous[key]["status"] == "unknown"
+    ]
+    revision = old["revision"] + (active != previous)
+    if changes or recovery:
+        body = "Operational task changes\n\n" + "\n".join(
+            key + ": " + json.dumps(active[key], sort_keys=True) for key in changes
+        )
+        if recovery:
+            body += "\nRecovered workflow conditions: " + ", ".join(recovery)
+        digest = hashlib.sha256(body.encode()).hexdigest()
+        enqueue(
+            "[crude-fv] Workflow status changes",
+            body,
+            root / "state",
+            key="work-items:%d:%s" % (revision, digest),
+        )
+    atomic_json(
+        root / "state/work_items_observed.json", {"revision": revision, "conditions": active}
+    )
+    return {"status": "observed", "changes": changes, "recoveries": recovery}
+
+
 def refresh_worker(root=ROOT):
     """Called only by the production worker; a rollback switch retains all evidence."""
-    path = root / "work_items.yaml"
-    settings = validate(yaml.safe_load(path.read_text()))
-    if not settings.get("integration_enabled", False):
-        return {"status": "disabled"}
-    doc = sync(root)
+    try:
+        settings = validate(yaml.safe_load((root / "work_items.yaml").read_text()))
+        if not settings.get("integration_enabled", False):
+            return {"status": "disabled"}
+        doc = sync(root)
+    except (OSError, ValueError, yaml.YAMLError, subprocess.CalledProcessError) as exc:
+        reason = str(exc)
+        active = observation(root)["conditions"]
+        active["workflow:registry"] = {
+            "status": "unknown",
+            "resolver": "agent",
+            "next_action": "Repair registry validation/persistence: " + reason,
+            "blocking_decision_ids": [],
+        }
+        observe_conditions(active, root)
+        result = {"status": "blocked", "reason": reason, "resolver": "agent"}
+        atomic_json(root / "state/work_items_status.json", result)
+        return result
     active = {
         r["id"]: {
             k: r.get(k) for k in ("status", "resolver", "next_action", "blocking_decision_ids")
@@ -470,31 +521,9 @@ def refresh_worker(root=ROOT):
         if r["status"] in ("blocked", "unknown")
         and (r["resolver"] == "owner" or r["status"] == "unknown")
     }
-    observation = root / "state/work_items_observed.json"
-    previous = json.loads(observation.read_text()) if observation.exists() else {}
-    changes = [k for k, v in active.items() if previous.get(k) != v]
-    recovery = [
-        k
-        for k in previous
-        if k not in active
-        and (previous[k]["status"] == "unknown" or k == "quarterly:scheduler-proof")
-    ]
-    if changes or recovery:
-        from .delivery import enqueue
-
-        text = "Operational task changes\n\n" + "\n".join(
-            k + ": " + json.dumps(active[k], sort_keys=True) for k in changes
-        )
-        if recovery:
-            text += "\nRecovered workflow conditions: " + ", ".join(recovery)
-        key = hashlib.sha256(
-            json.dumps(
-                {"changes": {k: active[k] for k in changes}, "recoveries": recovery}, sort_keys=True
-            ).encode()
-        ).hexdigest()
-        enqueue("[crude-fv] Workflow status changes", text, root / "state", key="work-items:" + key)
-    atomic_json(observation, active)
-    return {"status": "observed", "changes": changes, "recoveries": recovery}
+    result = observe_conditions(active, root)
+    atomic_json(root / "state/work_items_status.json", result)
+    return result
 
 
 if __name__ == "__main__":
