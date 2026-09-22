@@ -53,9 +53,11 @@ MONTHS = ("jan", "feb", "mar", "apr", "may", "jun",
           "jul", "aug", "sep", "oct", "nov", "dec")
 
 # OCR confuses Q with O/G/a/0 in tenor labels.
-_TENOR_RE = re.compile(r"^(?:(?P<month>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)"
-                       r"|[qoga0](?P<q>[1-4])"
-                       r"|cal(?P<cal>2\d))(?P<year>[-/]?(?:20)?2\d)?$", re.IGNORECASE)
+_TENOR_RE = re.compile(
+    r"^(?:(?:(?P<month>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)"
+    r"|[qoga0](?P<q>[1-4]))(?P<year>[-/]?(?:20)?\d{2})?"
+    r"|cal(?P<cal>(?:20)?\d{2}))$", re.IGNORECASE)
+
 _PRICE_RE = re.compile(r"^\d{4,6}$")
 
 DAY_MOVE_BAND_PCT = 10.0
@@ -95,7 +97,7 @@ def ocr_image(src: Path, psm: int = 6) -> tuple[str, list[dict]]:
 def is_ffa_widget(text: str) -> bool:
     """Classifier: Cape header + a Cal2x tenor + the tabular header riff."""
     return (re.search(r"\bcape\b", text, re.IGNORECASE) is not None
-            and re.search(r"\bcal2\d\b", text, re.IGNORECASE) is not None
+            and re.search(r"\bcal(?:20)?\d{2}\b", text, re.IGNORECASE) is not None
             and re.search(r"produc\w*\s+price\s+change", text, re.IGNORECASE) is not None)
 
 
@@ -353,14 +355,14 @@ def _tenor_sort_key(tenor: str, print_month: int) -> tuple:
     wraps), then quarters, then Cal. The naive alphabetical sort put AUG
     before JUL, so the queue's m1/m2 header lied — the 2-Jul Supra spot
     proxy took the wrong month off it (decisions/ffa_promotion_2026-07-13.md)."""
-    if tenor in _MONTH_ORDER:
-        return (0, (_MONTH_ORDER.index(tenor) + 1 - print_month) % 12)
-    if tenor.startswith("q") and tenor[1:].isdigit():
+    if tenor[:3] in _MONTH_ORDER:
+        return (0, (_MONTH_ORDER.index(tenor[:3]) + 1 - print_month) % 12)
+    if re.match(r"q[1-4]", tenor):
         # Chronological from the print's own quarter (2026-09-02): a September
         # print's Q1 is NEXT year's and sorts after Q4 — the alphabetical/numeric
         # order put Q1 first and scrambled the queue's Qn/Qf columns (8/31 trap).
         print_q = (print_month - 1) // 3 + 1
-        return (1, (int(tenor[1:]) - print_q) % 4)
+        return (1, (int(tenor[1]) - print_q) % 4)
     return (2, tenor)
 
 

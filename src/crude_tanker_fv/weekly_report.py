@@ -161,6 +161,8 @@ def _cadence_limit_hours(plist: Path) -> float:
         doc = plistlib.loads(plist.read_bytes())
     except Exception:
         return 48.0
+    if doc.get("StartInterval"):
+        return max(0.25, 3 * float(doc["StartInterval"]) / 3600)
     cal = doc.get("StartCalendarInterval") or {}
     if isinstance(cal, list):
         cal = cal[0] if cal else {}
@@ -330,6 +332,9 @@ def build_report(today: date | None = None, days: int = 7) -> str:
     from . import work_items
     tasks = work_items.project(ROOT, today)
     queue, agent_queue = work_items.queues(tasks)
+    operational_receipts = work_items.receipts(ROOT)
+    if any("UNKNOWN" in line for line in operational_receipts):
+        queue.append("Operational receipt evidence is incomplete; workflow repair is required")
     queue += _queue_lines(flags)
     if not tasks.get("integration_enabled", False):
         queue.append("Task-status integration is disabled; registry view is advisory and completion is not asserted")
@@ -349,7 +354,7 @@ def build_report(today: date | None = None, days: int = 7) -> str:
                f"{len(agent_queue)} in the agent's queue · "
                f"{len(edge_names)} long{'s' if len(edge_names) != 1 else ''} · "
                f"{len(moves)} move{'s' if len(moves) != 1 else ''} · "
-               f"{'health OK' if not dead and not reauth else 'HEALTH ATTENTION'}")
+               f"{'health OK' if not dead and not reauth and tasks['complete'] and not any('UNKNOWN' in line for line in operational_receipts) else 'HEALTH ATTENTION'}")
 
     w: list[str] = []
     a = w.append
@@ -426,7 +431,7 @@ def build_report(today: date | None = None, days: int = 7) -> str:
     else:
         a("- No baseline re-anchor in the window.")
     a(f"- Uncommitted files: {len(dirty)} · unpushed commits: {unpushed}")
-    for receipt in work_items.receipts(ROOT):
+    for receipt in operational_receipts:
         a("- " + receipt)
     filing_task = next((r for r in tasks["items"] if r["id"] == "filings:pending"), {})
     a(f"- Complete filing backlog: {filing_task.get('pending_total', 'UNKNOWN')}; oldest arrival: {filing_task.get('oldest_arrival', 'UNKNOWN')}; invalid records: {len(filing_task.get('invalid', []))}")

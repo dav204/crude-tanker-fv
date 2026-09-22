@@ -6,6 +6,12 @@ something it should have frozen is the incident this repo cannot afford, so ever
 is tested for the FREEZE direction explicitly.
 """
 
+import json as _json
+from datetime import date as _date, datetime as _dt, timezone as _tz
+import pytest as _pytest
+from crude_tanker_fv import promote as _promote
+from crude_tanker_fv.drift_gate import DriftRow as _Row
+
 from pathlib import Path
 
 
@@ -116,13 +122,8 @@ def test_check_is_read_only():
 # below breaks exactly one and asserts the lane refuses; the non-dry path is exercised through
 # a patched runner that records argv — the real script is never invoked.
 
-import json as _json
-from datetime import date as _date, datetime as _dt, timezone as _tz
 
-import pytest as _pytest
 
-from crude_tanker_fv import promote as _promote
-from crude_tanker_fv.drift_gate import DriftRow as _Row
 
 
 def _row(t, status="explained", band_from="HOLD", band_to="HOLD", d_ev=3.0):

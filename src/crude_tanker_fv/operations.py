@@ -1,6 +1,5 @@
 """Production run receipts and five-minute publication/delivery recovery worker."""
 import argparse
-import importlib.util
 import json
 import os
 import subprocess

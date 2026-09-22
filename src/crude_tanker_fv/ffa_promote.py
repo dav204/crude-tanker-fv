@@ -9,7 +9,7 @@ import argparse
 import json
 import re
 import sys
-from datetime import date, datetime
+from datetime import date
 from pathlib import Path
 
 import yaml

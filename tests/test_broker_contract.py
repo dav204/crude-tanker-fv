@@ -1,5 +1,4 @@
 from types import SimpleNamespace
-from dataclasses import replace
 from crude_tanker_fv.broker_reference import broker_reference
 from crude_tanker_fv.scorecard import valuation_index, attach_cycles
 from crude_tanker_fv.loaders import load_watchlist
@@ -27,8 +26,6 @@ def test_broker_reference_price_invariance_and_reconcile_parity():
 def test_cycle_export_has_sleeve_identity_and_engine_values():
     values = {t: SimpleNamespace(cycles=None) for t in ('SB', 'SBLK', 'TEN', 'CMBT', 'INSW')}
     attach_cycles(values, '2026-Q2')
-    from crude_tanker_fv.cycle import compute_cycle
-    from crude_tanker_fv.loaders import load_company_inputs
     from crude_tanker_fv.pipeline import value_company
     report = value_company('SB', '2026-Q2', 9, 10)
     assert values['SB'].cycles[0]['ratio'] == report.cycle.cycle_position
