@@ -1104,24 +1104,6 @@
           "project": "producer"
         }
       ],
-      "id": "roadmap:dm2-dm3-dm4",
-      "next_action": "**D-M2 / D-M3 / D-M4** (per-sector asset r_a and relever \u00b7 cycle-parity denominator A/B \u00b7 piecewise-linear cycle) are RULED and UNEXECUTED; their post-Stage-A gate expired 2026-08-10.",
-      "project": "producer",
-      "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "recorded disposition or completion"
-    },
-    {
-      "authority": "manual",
-      "blocking_decision_ids": [],
-      "due": null,
-      "evidence": [
-        {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
-        }
-      ],
       "id": "roadmap:gsl-commitment",
       "next_action": "**GSL containers commitment-net prereg** \u2014 the shape CMBT took on 2026-09-16. `OFF_CONVENTION_QUEUE` is {GSL, STNG, TEN} and GSL leaves by this route.",
       "project": "producer",
@@ -1435,6 +1417,30 @@
       "status": "done",
       "verified_at": "2026-09-22",
       "waiting_condition": null
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [
+        "D-M2-parameters",
+        "D1-cycle",
+        "economic:risk-calibration",
+        "roadmap:lr1-anchor"
+      ],
+      "due": null,
+      "evidence": [
+        {
+          "path": "research/economic-methods/REVIEW.md",
+          "project": "producer",
+          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+        }
+      ],
+      "id": "roadmap:dm2-dm3-dm4",
+      "next_action": "D-M2 prototype and D-M4 comparison implemented; D-M3 VOID under registered coverage kill. Finish sector calibration and LR1 dependency, then obtain the ruled owner D1 cycle decision.",
+      "project": "producer",
+      "resolver": "owner",
+      "status": "waiting",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "until cited evidence and any specified owner decision are recorded"
     }
   ],
   "version": 1
