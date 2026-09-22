@@ -1479,6 +1479,25 @@
       "status": "ready",
       "verified_at": "2026-09-22",
       "waiting_condition": "until cited evidence and any specified owner decision are recorded"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "research/economic-methods/REVIEW.md",
+          "project": "producer",
+          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+        }
+      ],
+      "id": "economic:reference-pairs",
+      "next_action": "Recover dated vessel-mark/reference pair evidence for every issuer/sleeve. The proposed current reference passes FFA invariance but is not historically validated; register any replacement leg before recalculation.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "until cited evidence and any specified owner decision are recorded"
     }
   ],
   "version": 1
