@@ -7,7 +7,7 @@ Daily filing triage for /Users/dan_personal/Projects/crude-tanker-fv. Read CLAUD
    [{"accession":"actual accession", "disposition":"record-only: specific explanation and evidence"}]
    DISPOSITIONS
    The wrapper validates identities, appends the record, commits only its owned log, and acknowledges only committed evidence. It resumes safely after a commit/ack interruption. No separate Write, Edit, git or ack tool call is necessary.
-4. Re-run list --json and report the remaining count plus any owner decisions. Do not stop at an arbitrary 48-hour window or assume that an empty recent window means the queue is empty.
+4. Re-run list --json and repeat batches until all pending work is triaged. If a filing cannot be resolved, record the specific blocker and continue the other filings; retain unacknowledged work for the next run. Report the remaining count plus any owner decisions. Do not stop at an arbitrary 48-hour window or assume that an empty recent window means the queue is empty.
 
 Persistent permissions live in settings.json, not this prompt's frontmatter. An unanswered approval parks a task; it does not abort it. Use the exact absolute wrapper commands. Do not switch permission modes, invoke a broader shell, or weaken a denied operation. Record any uncovered operation as a workflow defect.
 

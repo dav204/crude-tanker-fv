@@ -35,19 +35,30 @@ def finish(identity, stages, root=ROOT, governor=GOVERNOR, ping=True):
     pubstatus = root / "state/publications/status.json"
     receipt["publication"] = json.loads(pubstatus.read_text()) if pubstatus.exists() else {"status": "unavailable"}
     receipt["consumer_check"] = "queued" if receipt["publication"]["status"] == "accepted" else "not_published"
+    if receipt["publication"]["status"] == "accepted":
+        try:
+            _, land = import_governor(governor)
+            checked = consume(land.load_accepted(root), governor)
+            receipt["consumer_check"] = {"status": "checked", "publication_id": receipt["publication"]["publication_id"], "events": checked["events"]}
+            stages["consumer_check"] = 0
+        except (OSError, ValueError, KeyError, subprocess.CalledProcessError) as exc:
+            receipt["consumer_check"] = {"status": "failed", "reason": str(exc)}
+            stages["consumer_check"] = 1
     failures = {k: v for k, v in stages.items() if v != 0 and not (k == "checks" and v == 2)}
     if failures:
         receipt["status"] = "held" if set(failures) <= {"publication", "auto_land", "auto_push"} else "failed"
         key = "operation-failure:" + json.dumps(failures, sort_keys=True) + ":" + receipt["publication"].get("reason", "")
         delivery.enqueue("[crude-fv] PAGE: publication workflow " + receipt["status"],
-                         "Stages: " + json.dumps(failures, sort_keys=True) + "\nPublication: " + json.dumps({k: v for k, v in receipt["publication"].items() if k != "at"}, sort_keys=True) +
+                         "Stages: " + json.dumps(failures, sort_keys=True) + "\nPublication: " + json.dumps({k: receipt["publication"].get(k) for k in ("status", "reason", "resolver")}, sort_keys=True) +
                          "\nACTION: OWNER — inspect the producer run receipt and resolve its blocking stage.", root / "state", key=key)
     atomic_json(path, receipt)
-    delivery.drain(root / "state", environ=notify.load_env_file(notify.ENV_FILE))
+    environ = notify.load_env_file(notify.ENV_FILE)
+    for directory in (root / "state", governor / "monitor/state"):
+        delivery.drain(directory, environ=environ)
     receipt["delivery"] = "pending" if delivery.pending(root / "state") or delivery.pending(governor / "monitor/state") else "accepted"
     atomic_json(path, receipt)
     if ping:
-        _ping(receipt["delivery"] == "accepted" and stages.get("checks") in (0, 2), root / "state")
+        _ping(receipt["delivery"] == "accepted" and receipt["status"] == "completed", root / "state")
         receipt["healthcheck"] = json.loads((root / "state/ping_status.json").read_text())["status"]
     else:
         receipt["healthcheck"] = "shadow"
@@ -131,24 +142,36 @@ def worker(root=ROOT, governor=GOVERNOR, *, shadow=False):
             consume(envelope, governor)
         else:
             consume({}, governor)
+        for directory in (state / "operations/runs", governor / "monitor/state/runs"):
+            for path in directory.glob("*.json"):
+                run = json.loads(path.read_text())
+                if run.get("status") == "started" and not run.get("report") and (datetime.now(timezone.utc) - datetime.fromisoformat(run["started_at"])).total_seconds() > 2 * 3600:
+                    run.update(status="interrupted", blocker="run started over two hours ago without a persisted outcome", resolver="workflow repair")
+                    atomic_json(path, run)
+                    delivery.enqueue("[crude-fv] PAGE: interrupted scheduled run", "Run " + run["run_id"] + " has no completed outcome. ACTION: OWNER — inspect the scheduled task and repair its blocked stage.", state, key="interrupted:" + run["run_id"])
         environ = notify.load_env_file(notify.ENV_FILE)
         for directory in (state, governor / "monitor/state"):
             delivery.drain(directory, environ=environ)
         _, land = import_governor(governor)
-        for path in sorted((governor / "monitor/state/runs").glob("*.json")):
-            land.recover(path, root=governor)
+        run_paths = sorted((governor / "monitor/state/runs").glob("*.json"))
+        for path in run_paths:
+            run = json.loads(path.read_text())
+            age = (datetime.now(timezone.utc) - datetime.fromisoformat(run["started_at"])).total_seconds()
+            land.recover(path, root=governor, allow_ping=path == run_paths[-1] and 0 <= age <= 7 * 86400)
         # Recover only previously attempted daily receipts, never manufacture a new daily run.
         if not delivery.pending(state) and not delivery.pending(governor / "monitor/state"):
             paths = sorted((state / "operations/runs").glob("*.json"))
             if paths:
                 path = paths[-1]; receipt = json.loads(path.read_text())
-                if receipt.get("finished_at") and receipt.get("healthcheck") != "SENT" and receipt.get("stages", {}).get("checks") in (0, 2):
+                age = (datetime.now(timezone.utc) - datetime.fromisoformat(receipt["started_at"])).total_seconds()
+                if receipt.get("status") == "completed" and receipt.get("finished_at") and receipt.get("healthcheck") != "SENT" and 0 <= age <= 54 * 3600:
                     from .sentinel import _ping
                     os.environ.update({k: v for k, v in environ.items() if k.startswith("CRUDE_FV_")})
                     _ping(True, state)
                     receipt.update(delivery="accepted", healthcheck=json.loads((state / "ping_status.json").read_text())["status"])
                     atomic_json(path, receipt)
-        result = {"at": utc(), "status": "pending_delivery" if delivery.pending(state) or delivery.pending(governor / "monitor/state") else "ok"}
+        pubstatus = json.loads((state / "publications/status.json").read_text())
+        result = {"at": utc(), "publication": pubstatus, "consumer_publication": json.loads((governor / "monitor/state/seam_latest.json").read_text())["publication_id"], "status": "pending_delivery" if delivery.pending(state) or delivery.pending(governor / "monitor/state") else ("held" if pubstatus["status"] == "held" else "ok")}
         atomic_json(state / "operations/worker.json", result)
         return result
 

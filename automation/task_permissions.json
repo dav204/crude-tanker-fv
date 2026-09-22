@@ -103,7 +103,9 @@
       "mcp__8de167eb-dbd9-4178-b52a-a756c1f27b24__get_price_history",
       "mcp__8de167eb-dbd9-4178-b52a-a756c1f27b24__get_price_snapshot",
       "mcp__f9524e2a-1171-4431-92af-cd9971f68429__get_thread",
-      "mcp__f9524e2a-1171-4431-92af-cd9971f68429__search_threads"
+      "mcp__f9524e2a-1171-4431-92af-cd9971f68429__search_threads",
+      "Edit(//Users/dan_personal/Projects/crude-tanker-fv/PLAN.md)",
+      "Edit(//Users/dan_personal/Projects/crude-tanker-fv/inputs/forks.yaml)"
     ]
   }
 }

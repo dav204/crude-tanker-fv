@@ -38,3 +38,15 @@ def test_retry_budget_exhausted(tmp_path):
         assert result['status'] == 'exhausted' and result['attempts'] == 5
     finally:
         FakeSMTP.raise_on_send = False
+
+
+def test_retry_schedule_starts_with_first_attempt_after_sleep(tmp_path):
+    now = datetime(2026,9,22,tzinfo=timezone.utc)
+    FakeSMTP.raise_on_send = True
+    path = delivery.enqueue('s','b',tmp_path,now=now)
+    try:
+        later = now + timedelta(days=2)
+        result = delivery.attempt(path,environ=FAKE_ENV,smtp_factory=FakeSMTP,now=later)
+        assert result['next_attempt'] == (later + timedelta(minutes=5)).isoformat()
+    finally:
+        FakeSMTP.raise_on_send = False

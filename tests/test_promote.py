@@ -213,7 +213,9 @@ def test_land_non_dry_invokes_the_ratify_script_then_commits_its_two_files(tmp_p
     assert rc == 0
     assert calls[0][0] == "scripts/ratify_baseline.sh" and calls[0][1].startswith("auto-land ")
     assert calls[1] == ["git", "add", "baselines/reconcile_baseline.yaml", "RATIFY_LOG.md"]
-    assert calls[2][:3] == ["git", "commit", "-q"] and "auto-land" in calls[2][-1]
+    assert calls[2][:3] == ["git", "commit", "--only"]
+    assert "auto-land" in calls[2][calls[2].index("-m") + 1]
+    assert calls[2][-2:] == ["baselines/reconcile_baseline.yaml", "RATIFY_LOG.md"]
 
 
 def test_cause_never_exceeds_the_cap_and_dedupes(tmp_path):

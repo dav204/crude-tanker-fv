@@ -44,6 +44,7 @@ def attempt(path, *, environ, smtp_factory=None, now=None):
             msg.update(status="exhausted", next_attempt=None)
             atomic_json(path, msg)
             return msg
+        msg.setdefault("first_attempt", now.isoformat())
         msg["attempts"] += 1
         msg.update(status="sending", last_attempt=now.isoformat())
         atomic_json(path, msg)
@@ -59,7 +60,7 @@ def attempt(path, *, environ, smtp_factory=None, now=None):
         elif msg["attempts"] > len(RETRY_SECONDS):
             msg.update(status="exhausted", next_attempt=None)
         else:
-            due = datetime.fromisoformat(msg["created_at"]) + timedelta(seconds=RETRY_SECONDS[msg["attempts"] - 1])
+            due = datetime.fromisoformat(msg["first_attempt"]) + timedelta(seconds=RETRY_SECONDS[msg["attempts"] - 1])
             msg.update(status="pending", next_attempt=max(due, now + timedelta(seconds=1)).isoformat())
         atomic_json(path, msg)
         return msg
@@ -82,5 +83,6 @@ def retry(state_dir, message_id):
     with locked(path.parent / "queue.lock"):
         msg = json.loads(path.read_text())
         if msg["status"] != "accepted":
+            msg.pop("first_attempt", None)
             msg.update(status="pending", attempts=0, created_at=clock().isoformat(), next_attempt=clock().isoformat())
             atomic_json(path, msg)
