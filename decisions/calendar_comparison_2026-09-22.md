@@ -104,3 +104,15 @@ A future crossing still requires its existing disposition; this review does not 
 Weight-family sidecars are now calendar-stamped per family. The normal regeneration path
 recomputes them when the projection quarter advances. An old-quarter scorecard is not
 considered current merely because no Git determinant changed overnight.
+
+## Refreshed full-handoff check
+
+The isolated October and January runs regenerated all five weight-family sidecars before
+producing their full scorecards. Both report family status current. October changes CAPT's
+published position from TRIM/SHORT to HOLD; no sign-stability, tier or governed read-flag
+changes. January changes SB's sign stability false → true and CAPT's true → false; CAPT
+remains HOLD. BRUT's raw model BUY remains subject to its published cycle-rich restriction,
+so its governed position does not clear. No independent NAV, scenario weight or cycle band
+was changed. All 25 rows, FV intervals, sleeve contributions and family bounds are retained
+in outputs/calendar_handoff_comparison_2026-09-22.json. These future fixtures are not accepted
+publications and did not advance governor baselines or send notifications.

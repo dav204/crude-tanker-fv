@@ -1,0 +1,2050 @@
+{
+  "baseline": [
+    {
+      "ticker": "DHT",
+      "sector": "crude",
+      "nav_per_share": 15.01,
+      "fv": 16.56,
+      "fv_low": 11.82,
+      "fv_high": 21.53,
+      "position": "rich \u00b7 cycle position (not a short)",
+      "confidence_tier": "VALIDATED-TIGHT",
+      "read_flag": "robust",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -41.6,
+      "ev_pct_family_max": -28.8,
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.6425,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "ECO",
+      "sector": "crude",
+      "nav_per_share": 39.54,
+      "fv": 44.15,
+      "fv_low": 28.33,
+      "fv_high": 60.7,
+      "position": "rich \u00b7 cycle position (not a short)",
+      "confidence_tier": "VALIDATED-TIGHT",
+      "read_flag": "robust",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -59.7,
+      "ev_pct_family_max": -48.0,
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.663534547849401,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "FRO",
+      "sector": "crude",
+      "nav_per_share": 26.04,
+      "fv": 29.38,
+      "fv_low": 18.37,
+      "fv_high": 41.29,
+      "position": "rich \u00b7 cycle position (not a short)",
+      "confidence_tier": "VALIDATED-TIGHT",
+      "read_flag": "robust",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -56.4,
+      "ev_pct_family_max": -42.9,
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.5660461151775826,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "TNK",
+      "sector": "crude",
+      "nav_per_share": 84.6,
+      "fv": 87.59,
+      "fv_low": 71.81,
+      "fv_high": 102.3,
+      "position": "rich \u00b7 cycle position (not a short)",
+      "confidence_tier": "VALIDATED-TIGHT",
+      "read_flag": "robust",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -22.7,
+      "ev_pct_family_max": -13.2,
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.163849850301907,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "CMDB",
+      "sector": "dry_bulk",
+      "nav_per_share": 32.6,
+      "fv": 19.3,
+      "fv_low": 16.01,
+      "fv_high": 22.78,
+      "position": "TRIM/SHORT (overvalued)",
+      "confidence_tier": "VALIDATED-TIGHT",
+      "read_flag": "flips (fair/rich)",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -21.8,
+      "ev_pct_family_max": -17.0,
+      "cycles": [
+        {
+          "sector": "dry_bulk",
+          "scope": "company",
+          "ratio": 1.5465985668365025,
+          "label": "late-cycle/peak",
+          "anchor_basis": "archive_22mo_median"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "GNK",
+      "sector": "dry_bulk",
+      "nav_per_share": 25.37,
+      "fv": 21.05,
+      "fv_low": 16.39,
+      "fv_high": 26.23,
+      "position": "TRIM/SHORT (overvalued)",
+      "confidence_tier": "VALIDATED-TIGHT",
+      "read_flag": "flips (cheap/fair)",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -28.0,
+      "ev_pct_family_max": -21.8,
+      "cycles": [
+        {
+          "sector": "dry_bulk",
+          "scope": "company",
+          "ratio": 1.5691921663679262,
+          "label": "late-cycle/peak",
+          "anchor_basis": "archive_22mo_median"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "SB",
+      "sector": "dry_bulk",
+      "nav_per_share": 10.72,
+      "fv": 9.01,
+      "fv_low": 7.0,
+      "fv_high": 11.37,
+      "position": "HOLD (fairly valued)",
+      "confidence_tier": "VALIDATED-TIGHT",
+      "read_flag": "robust",
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -5.9,
+      "ev_pct_family_max": 1.9,
+      "cycles": [
+        {
+          "sector": "dry_bulk",
+          "scope": "company",
+          "ratio": 1.7215845169049127,
+          "label": "late-cycle/peak",
+          "anchor_basis": "archive_22mo_median"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "SBLK",
+      "sector": "dry_bulk",
+      "nav_per_share": 33.27,
+      "fv": 28.2,
+      "fv_low": 22.28,
+      "fv_high": 34.49,
+      "position": "TRIM/SHORT (overvalued)",
+      "confidence_tier": "VALIDATED-TIGHT",
+      "read_flag": "flips (cheap/fair)",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -16.4,
+      "ev_pct_family_max": -10.2,
+      "cycles": [
+        {
+          "sector": "dry_bulk",
+          "scope": "company",
+          "ratio": 1.5987467128655468,
+          "label": "late-cycle/peak",
+          "anchor_basis": "archive_22mo_median"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "BRUT",
+      "sector": "crude",
+      "nav_per_share": 4.92,
+      "fv": 5.51,
+      "fv_low": 2.46,
+      "fv_high": 8.54,
+      "position": "unreliable read (not actionable)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "n/a",
+      "weight_sign_stable": false,
+      "ev_pct_family_min": -31.5,
+      "ev_pct_family_max": 4.6,
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.6425,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "CAPT",
+      "sector": "crude",
+      "nav_per_share": 17.32,
+      "fv": 18.57,
+      "fv_low": 10.62,
+      "fv_high": 25.92,
+      "position": "TRIM/SHORT (overvalued)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "n/a",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -30.4,
+      "ev_pct_family_max": -5.7,
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.534757550652395,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "CMBT",
+      "sector": "crude",
+      "nav_per_share": 13.36,
+      "fv": 10.75,
+      "fv_low": 5.64,
+      "fv_high": 16.37,
+      "position": "TRIM/SHORT (overvalued)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "n/a",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -53.2,
+      "ev_pct_family_max": -47.0,
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "sleeve",
+          "ratio": 2.6696930285764338,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        },
+        {
+          "sector": "dry_bulk",
+          "scope": "sleeve",
+          "ratio": 1.6870347848377134,
+          "label": "late-cycle/peak",
+          "anchor_basis": "archive_22mo_median"
+        },
+        {
+          "sector": "containerships",
+          "scope": "sleeve",
+          "ratio": 1.5609756097560976,
+          "label": "late-cycle/peak",
+          "anchor_basis": "fy_calendar_avg"
+        }
+      ],
+      "sleeves": [
+        {
+          "sleeve": "crude",
+          "sector": "crude",
+          "fv_contribution_per_share": 3.71
+        },
+        {
+          "sleeve": "dry_bulk",
+          "sector": "dry_bulk",
+          "fv_contribution_per_share": 6.6
+        },
+        {
+          "sleeve": "containerships",
+          "sector": "containerships",
+          "fv_contribution_per_share": 0.45
+        }
+      ]
+    },
+    {
+      "ticker": "INSW",
+      "sector": "crude",
+      "nav_per_share": 54.64,
+      "fv": 61.81,
+      "fv_low": 42.87,
+      "fv_high": 80.41,
+      "position": "rich \u00b7 cycle position (not a short)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "n/a",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -51.4,
+      "ev_pct_family_max": -44.4,
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "sleeve",
+          "ratio": 2.5139743564388386,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        },
+        {
+          "sector": "product",
+          "scope": "sleeve",
+          "ratio": 1.772885880488888,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": [
+        {
+          "sleeve": "crude",
+          "sector": "crude",
+          "fv_contribution_per_share": 41.42
+        },
+        {
+          "sleeve": "product",
+          "sector": "product",
+          "fv_contribution_per_share": 20.39
+        }
+      ]
+    },
+    {
+      "ticker": "NAT",
+      "sector": "crude",
+      "nav_per_share": 2.76,
+      "fv": 3.24,
+      "fv_low": 2.03,
+      "fv_high": 4.43,
+      "position": "rich \u00b7 cycle position (not a short)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "robust",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -69.8,
+      "ev_pct_family_max": -60.8,
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "company",
+          "ratio": 2.6849749522470896,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "TEN",
+      "sector": "crude",
+      "nav_per_share": 91.91,
+      "fv": 68.15,
+      "fv_low": 48.7,
+      "fv_high": 85.19,
+      "position": "BUY (undervalued)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "n/a",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": 14.3,
+      "ev_pct_family_max": 30.8,
+      "cycles": [
+        {
+          "sector": "crude",
+          "scope": "sleeve",
+          "ratio": 2.0838495513771322,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        },
+        {
+          "sector": "product",
+          "scope": "sleeve",
+          "ratio": 1.677535016409626,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        },
+        {
+          "sector": "lng",
+          "scope": "sleeve",
+          "ratio": 0.7058823529411765,
+          "label": "below-mid",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": [
+        {
+          "sleeve": "crude",
+          "sector": "crude",
+          "fv_contribution_per_share": 47.38
+        },
+        {
+          "sleeve": "product",
+          "sector": "product",
+          "fv_contribution_per_share": 12.84
+        },
+        {
+          "sleeve": "lng",
+          "sector": "lng",
+          "fv_contribution_per_share": 7.92
+        }
+      ]
+    },
+    {
+      "ticker": "ASC",
+      "sector": "product",
+      "nav_per_share": 17.37,
+      "fv": 16.28,
+      "fv_low": 12.6,
+      "fv_high": 19.42,
+      "position": "TRIM/SHORT (overvalued)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "n/a",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -20.0,
+      "ev_pct_family_max": -14.5,
+      "cycles": [
+        {
+          "sector": "product",
+          "scope": "company",
+          "ratio": 1.7165590650558111,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "TRMD",
+      "sector": "product",
+      "nav_per_share": 32.3,
+      "fv": 35.14,
+      "fv_low": 21.09,
+      "fv_high": 47.75,
+      "position": "TRIM/SHORT (overvalued)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "n/a",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -22.5,
+      "ev_pct_family_max": -8.1,
+      "cycles": [
+        {
+          "sector": "product",
+          "scope": "company",
+          "ratio": 1.938418920736833,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "2343",
+      "sector": "dry_bulk",
+      "nav_per_share": 0.41,
+      "fv": 0.37,
+      "fv_low": 0.31,
+      "fv_high": 0.42,
+      "position": "TRIM/SHORT (overvalued)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "robust",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -31.7,
+      "ev_pct_family_max": -28.7,
+      "cycles": [
+        {
+          "sector": "dry_bulk",
+          "scope": "company",
+          "ratio": 1.2547568952478048,
+          "label": "elevated",
+          "anchor_basis": "archive_22mo_median"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "CCEC",
+      "sector": "lng",
+      "nav_per_share": 25.7,
+      "fv": 33.7,
+      "fv_low": 16.27,
+      "fv_high": 47.2,
+      "position": "BUY (undervalued)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "n/a",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": 34.7,
+      "ev_pct_family_max": 55.6,
+      "cycles": [
+        {
+          "sector": "lng",
+          "scope": "company",
+          "ratio": 0.7808162328292794,
+          "label": "below-mid",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "FLNG",
+      "sector": "lng",
+      "nav_per_share": 27.22,
+      "fv": 29.47,
+      "fv_low": 19.34,
+      "fv_high": 38.0,
+      "position": "TRIM/SHORT (overvalued)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "n/a",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -17.6,
+      "ev_pct_family_max": -9.1,
+      "cycles": [
+        {
+          "sector": "lng",
+          "scope": "company",
+          "ratio": 0.7058823529411765,
+          "label": "below-mid",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "GSL",
+      "sector": "containerships",
+      "nav_per_share": 41.37,
+      "fv": 42.94,
+      "fv_low": 38.63,
+      "fv_high": 46.7,
+      "position": "TRIM/SHORT (overvalued)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "n/a",
+      "weight_sign_stable": null,
+      "ev_pct_family_min": null,
+      "ev_pct_family_max": null,
+      "cycles": [
+        {
+          "sector": "containerships",
+          "scope": "company",
+          "ratio": 1.5155990523681349,
+          "label": "late-cycle/peak",
+          "anchor_basis": "fy_calendar_avg"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "MPCC",
+      "sector": "containerships",
+      "nav_per_share": 2.15,
+      "fv": 2.16,
+      "fv_low": 1.8,
+      "fv_high": 2.3,
+      "position": "unreliable read (not actionable)",
+      "confidence_tier": "GOVERNED-WIDE",
+      "read_flag": "n/a",
+      "weight_sign_stable": null,
+      "ev_pct_family_min": null,
+      "ev_pct_family_max": null,
+      "cycles": [
+        {
+          "sector": "containerships",
+          "scope": "company",
+          "ratio": 1.3604023777383196,
+          "label": "elevated",
+          "anchor_basis": "fy_calendar_avg"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "HAFN",
+      "sector": "product",
+      "nav_per_share": 4.64,
+      "fv": 5.47,
+      "fv_low": 3.08,
+      "fv_high": 7.69,
+      "position": "rich \u00b7 cycle position (not a short)",
+      "confidence_tier": "PROVISIONAL",
+      "read_flag": "n/a",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -55.3,
+      "ev_pct_family_max": -46.0,
+      "cycles": [
+        {
+          "sector": "product",
+          "scope": "company",
+          "ratio": 1.887840806575736,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "STNG",
+      "sector": "product",
+      "nav_per_share": 76.22,
+      "fv": 75.97,
+      "fv_low": 55.01,
+      "fv_high": 92.63,
+      "position": "TRIM/SHORT (overvalued)",
+      "confidence_tier": "PROVISIONAL",
+      "read_flag": "n/a",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -22.0,
+      "ev_pct_family_max": -12.8,
+      "cycles": [
+        {
+          "sector": "product",
+          "scope": "company",
+          "ratio": 1.9093500783128972,
+          "label": "late-cycle/peak",
+          "anchor_basis": "tc_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "BWLP",
+      "sector": "lpg",
+      "nav_per_share": 15.83,
+      "fv": 14.52,
+      "fv_low": 10.92,
+      "fv_high": 18.28,
+      "position": "rich \u00b7 cycle position (not a short)",
+      "confidence_tier": "PROVISIONAL",
+      "read_flag": "n/a",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -45.7,
+      "ev_pct_family_max": -41.8,
+      "cycles": [
+        {
+          "sector": "lpg",
+          "scope": "company",
+          "ratio": 1.590375,
+          "label": "late-cycle/peak",
+          "anchor_basis": "realized_tce_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    },
+    {
+      "ticker": "LPG",
+      "sector": "lpg",
+      "nav_per_share": 35.69,
+      "fv": 31.82,
+      "fv_low": 25.61,
+      "fv_high": 38.58,
+      "position": "rich \u00b7 cycle position (not a short)",
+      "confidence_tier": "PROVISIONAL",
+      "read_flag": "n/a",
+      "weight_sign_stable": true,
+      "ev_pct_family_min": -46.7,
+      "ev_pct_family_max": -43.5,
+      "cycles": [
+        {
+          "sector": "lpg",
+          "scope": "company",
+          "ratio": 1.590375,
+          "label": "late-cycle/peak",
+          "anchor_basis": "realized_tce_10yr_mean"
+        }
+      ],
+      "sleeves": null
+    }
+  ],
+  "october": {
+    "valuation_date": "2026-10-01",
+    "family_status": "current",
+    "names": [
+      {
+        "ticker": "DHT",
+        "sector": "crude",
+        "nav_per_share": 15.01,
+        "fv": 16.21,
+        "fv_low": 11.77,
+        "fv_high": 21.03,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -43.9,
+        "ev_pct_family_max": -30.3,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.6425,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "ECO",
+        "sector": "crude",
+        "nav_per_share": 39.54,
+        "fv": 43.58,
+        "fv_low": 27.69,
+        "fv_high": 59.14,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -61.2,
+        "ev_pct_family_max": -48.7,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.663534547849401,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "FRO",
+        "sector": "crude",
+        "nav_per_share": 26.04,
+        "fv": 28.87,
+        "fv_low": 18.41,
+        "fv_high": 40.35,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -58.1,
+        "ev_pct_family_max": -43.9,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.5660461151775826,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "TNK",
+        "sector": "crude",
+        "nav_per_share": 84.6,
+        "fv": 87.63,
+        "fv_low": 71.42,
+        "fv_high": 101.17,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -23.0,
+        "ev_pct_family_max": -13.2,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.163849850301907,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "CMDB",
+        "sector": "dry_bulk",
+        "nav_per_share": 32.6,
+        "fv": 18.97,
+        "fv_low": 15.5,
+        "fv_high": 22.6,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "flips (fair/rich)",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -23.2,
+        "ev_pct_family_max": -18.3,
+        "cycles": [
+          {
+            "sector": "dry_bulk",
+            "scope": "company",
+            "ratio": 1.5465985668365025,
+            "label": "late-cycle/peak",
+            "anchor_basis": "archive_22mo_median"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "GNK",
+        "sector": "dry_bulk",
+        "nav_per_share": 25.37,
+        "fv": 20.71,
+        "fv_low": 15.76,
+        "fv_high": 26.18,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "flips (cheap/fair)",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -29.4,
+        "ev_pct_family_max": -22.8,
+        "cycles": [
+          {
+            "sector": "dry_bulk",
+            "scope": "company",
+            "ratio": 1.5691921663679262,
+            "label": "late-cycle/peak",
+            "anchor_basis": "archive_22mo_median"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "SB",
+        "sector": "dry_bulk",
+        "nav_per_share": 10.72,
+        "fv": 8.83,
+        "fv_low": 6.65,
+        "fv_high": 11.37,
+        "position": "HOLD (fairly valued)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "robust",
+        "weight_sign_stable": false,
+        "ev_pct_family_min": -8.1,
+        "ev_pct_family_max": 0.3,
+        "cycles": [
+          {
+            "sector": "dry_bulk",
+            "scope": "company",
+            "ratio": 1.7215845169049127,
+            "label": "late-cycle/peak",
+            "anchor_basis": "archive_22mo_median"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "SBLK",
+        "sector": "dry_bulk",
+        "nav_per_share": 33.27,
+        "fv": 27.64,
+        "fv_low": 21.34,
+        "fv_high": 34.3,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "flips (cheap/fair)",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -18.3,
+        "ev_pct_family_max": -11.8,
+        "cycles": [
+          {
+            "sector": "dry_bulk",
+            "scope": "company",
+            "ratio": 1.5987467128655468,
+            "label": "late-cycle/peak",
+            "anchor_basis": "archive_22mo_median"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "BRUT",
+        "sector": "crude",
+        "nav_per_share": 4.92,
+        "fv": 5.47,
+        "fv_low": 2.45,
+        "fv_high": 8.6,
+        "position": "unreliable read (not actionable)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": false,
+        "ev_pct_family_min": -36.4,
+        "ev_pct_family_max": 3.9,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.6425,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "CAPT",
+        "sector": "crude",
+        "nav_per_share": 17.32,
+        "fv": 18.83,
+        "fv_low": 11.46,
+        "fv_high": 25.92,
+        "position": "HOLD (fairly valued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -30.2,
+        "ev_pct_family_max": -4.4,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.534757550652395,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "CMBT",
+        "sector": "crude",
+        "nav_per_share": 13.36,
+        "fv": 10.58,
+        "fv_low": 5.22,
+        "fv_high": 16.32,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -54.5,
+        "ev_pct_family_max": -47.9,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "sleeve",
+            "ratio": 2.6696930285764338,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          },
+          {
+            "sector": "dry_bulk",
+            "scope": "sleeve",
+            "ratio": 1.6870347848377134,
+            "label": "late-cycle/peak",
+            "anchor_basis": "archive_22mo_median"
+          },
+          {
+            "sector": "containerships",
+            "scope": "sleeve",
+            "ratio": 1.5609756097560976,
+            "label": "late-cycle/peak",
+            "anchor_basis": "fy_calendar_avg"
+          }
+        ],
+        "sleeves": [
+          {
+            "sleeve": "crude",
+            "sector": "crude",
+            "fv_contribution_per_share": 3.69
+          },
+          {
+            "sleeve": "dry_bulk",
+            "sector": "dry_bulk",
+            "fv_contribution_per_share": 6.44
+          },
+          {
+            "sleeve": "containerships",
+            "sector": "containerships",
+            "fv_contribution_per_share": 0.45
+          }
+        ]
+      },
+      {
+        "ticker": "INSW",
+        "sector": "crude",
+        "nav_per_share": 54.64,
+        "fv": 60.86,
+        "fv_low": 42.22,
+        "fv_high": 78.39,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -52.6,
+        "ev_pct_family_max": -45.2,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "sleeve",
+            "ratio": 2.5139743564388386,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          },
+          {
+            "sector": "product",
+            "scope": "sleeve",
+            "ratio": 1.772885880488888,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": [
+          {
+            "sleeve": "crude",
+            "sector": "crude",
+            "fv_contribution_per_share": 40.81
+          },
+          {
+            "sleeve": "product",
+            "sector": "product",
+            "fv_contribution_per_share": 20.05
+          }
+        ]
+      },
+      {
+        "ticker": "NAT",
+        "sector": "crude",
+        "nav_per_share": 2.76,
+        "fv": 3.28,
+        "fv_low": 2.09,
+        "fv_high": 4.33,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -69.4,
+        "ev_pct_family_max": -60.3,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.6849749522470896,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "TEN",
+        "sector": "crude",
+        "nav_per_share": 91.91,
+        "fv": 68.66,
+        "fv_low": 49.48,
+        "fv_high": 84.47,
+        "position": "BUY (undervalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": 15.0,
+        "ev_pct_family_max": 31.8,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "sleeve",
+            "ratio": 2.0838495513771322,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          },
+          {
+            "sector": "product",
+            "scope": "sleeve",
+            "ratio": 1.677535016409626,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          },
+          {
+            "sector": "lng",
+            "scope": "sleeve",
+            "ratio": 0.7058823529411765,
+            "label": "below-mid",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": [
+          {
+            "sleeve": "crude",
+            "sector": "crude",
+            "fv_contribution_per_share": 48.04
+          },
+          {
+            "sleeve": "product",
+            "sector": "product",
+            "fv_contribution_per_share": 12.71
+          },
+          {
+            "sleeve": "lng",
+            "sector": "lng",
+            "fv_contribution_per_share": 7.92
+          }
+        ]
+      },
+      {
+        "ticker": "ASC",
+        "sector": "product",
+        "nav_per_share": 17.37,
+        "fv": 15.94,
+        "fv_low": 12.4,
+        "fv_high": 18.71,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -21.3,
+        "ev_pct_family_max": -16.3,
+        "cycles": [
+          {
+            "sector": "product",
+            "scope": "company",
+            "ratio": 1.7165590650558111,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "TRMD",
+        "sector": "product",
+        "nav_per_share": 32.3,
+        "fv": 34.79,
+        "fv_low": 20.91,
+        "fv_high": 46.56,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -23.0,
+        "ev_pct_family_max": -9.0,
+        "cycles": [
+          {
+            "sector": "product",
+            "scope": "company",
+            "ratio": 1.938418920736833,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "2343",
+        "sector": "dry_bulk",
+        "nav_per_share": 0.41,
+        "fv": 0.36,
+        "fv_low": 0.3,
+        "fv_high": 0.42,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -33.2,
+        "ev_pct_family_max": -30.0,
+        "cycles": [
+          {
+            "sector": "dry_bulk",
+            "scope": "company",
+            "ratio": 1.2547568952478048,
+            "label": "elevated",
+            "anchor_basis": "archive_22mo_median"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "CCEC",
+        "sector": "lng",
+        "nav_per_share": 25.7,
+        "fv": 33.77,
+        "fv_low": 16.1,
+        "fv_high": 47.06,
+        "position": "BUY (undervalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": 35.0,
+        "ev_pct_family_max": 55.9,
+        "cycles": [
+          {
+            "sector": "lng",
+            "scope": "company",
+            "ratio": 0.7808162328292794,
+            "label": "below-mid",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "FLNG",
+        "sector": "lng",
+        "nav_per_share": 27.22,
+        "fv": 29.46,
+        "fv_low": 19.19,
+        "fv_high": 37.88,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -17.7,
+        "ev_pct_family_max": -9.1,
+        "cycles": [
+          {
+            "sector": "lng",
+            "scope": "company",
+            "ratio": 0.7058823529411765,
+            "label": "below-mid",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "GSL",
+        "sector": "containerships",
+        "nav_per_share": 41.37,
+        "fv": 42.94,
+        "fv_low": 39.12,
+        "fv_high": 47.32,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": null,
+        "ev_pct_family_min": null,
+        "ev_pct_family_max": null,
+        "cycles": [
+          {
+            "sector": "containerships",
+            "scope": "company",
+            "ratio": 1.5155990523681349,
+            "label": "late-cycle/peak",
+            "anchor_basis": "fy_calendar_avg"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "MPCC",
+        "sector": "containerships",
+        "nav_per_share": 2.15,
+        "fv": 2.19,
+        "fv_low": 1.74,
+        "fv_high": 2.45,
+        "position": "unreliable read (not actionable)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": null,
+        "ev_pct_family_min": null,
+        "ev_pct_family_max": null,
+        "cycles": [
+          {
+            "sector": "containerships",
+            "scope": "company",
+            "ratio": 1.3604023777383196,
+            "label": "elevated",
+            "anchor_basis": "fy_calendar_avg"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "HAFN",
+        "sector": "product",
+        "nav_per_share": 4.64,
+        "fv": 5.4,
+        "fv_low": 3.04,
+        "fv_high": 7.47,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "PROVISIONAL",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -55.7,
+        "ev_pct_family_max": -46.7,
+        "cycles": [
+          {
+            "sector": "product",
+            "scope": "company",
+            "ratio": 1.887840806575736,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "STNG",
+        "sector": "product",
+        "nav_per_share": 76.22,
+        "fv": 75.5,
+        "fv_low": 54.93,
+        "fv_high": 91.38,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "PROVISIONAL",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -22.2,
+        "ev_pct_family_max": -13.4,
+        "cycles": [
+          {
+            "sector": "product",
+            "scope": "company",
+            "ratio": 1.9093500783128972,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "BWLP",
+        "sector": "lpg",
+        "nav_per_share": 15.83,
+        "fv": 14.2,
+        "fv_low": 10.25,
+        "fv_high": 18.3,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "PROVISIONAL",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -47.3,
+        "ev_pct_family_max": -42.7,
+        "cycles": [
+          {
+            "sector": "lpg",
+            "scope": "company",
+            "ratio": 1.590375,
+            "label": "late-cycle/peak",
+            "anchor_basis": "realized_tce_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "LPG",
+        "sector": "lpg",
+        "nav_per_share": 35.69,
+        "fv": 31.1,
+        "fv_low": 24.14,
+        "fv_high": 38.63,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "PROVISIONAL",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -48.1,
+        "ev_pct_family_max": -44.5,
+        "cycles": [
+          {
+            "sector": "lpg",
+            "scope": "company",
+            "ratio": 1.590375,
+            "label": "late-cycle/peak",
+            "anchor_basis": "realized_tce_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      }
+    ]
+  },
+  "january": {
+    "valuation_date": "2027-01-01",
+    "family_status": "current",
+    "names": [
+      {
+        "ticker": "DHT",
+        "sector": "crude",
+        "nav_per_share": 15.01,
+        "fv": 16.51,
+        "fv_low": 12.19,
+        "fv_high": 20.61,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -41.7,
+        "ev_pct_family_max": -29.1,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.6425,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "ECO",
+        "sector": "crude",
+        "nav_per_share": 39.54,
+        "fv": 44.92,
+        "fv_low": 29.36,
+        "fv_high": 57.78,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -59.0,
+        "ev_pct_family_max": -47.1,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.663534547849401,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "FRO",
+        "sector": "crude",
+        "nav_per_share": 26.04,
+        "fv": 29.59,
+        "fv_low": 19.33,
+        "fv_high": 39.47,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -56.0,
+        "ev_pct_family_max": -42.5,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.5660461151775826,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "TNK",
+        "sector": "crude",
+        "nav_per_share": 84.6,
+        "fv": 88.69,
+        "fv_low": 72.11,
+        "fv_high": 100.17,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -22.0,
+        "ev_pct_family_max": -12.1,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.163849850301907,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "CMDB",
+        "sector": "dry_bulk",
+        "nav_per_share": 32.6,
+        "fv": 18.6,
+        "fv_low": 14.89,
+        "fv_high": 22.28,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "flips (fair/rich)",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -24.8,
+        "ev_pct_family_max": -19.9,
+        "cycles": [
+          {
+            "sector": "dry_bulk",
+            "scope": "company",
+            "ratio": 1.5465985668365025,
+            "label": "late-cycle/peak",
+            "anchor_basis": "archive_22mo_median"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "GNK",
+        "sector": "dry_bulk",
+        "nav_per_share": 25.37,
+        "fv": 20.52,
+        "fv_low": 15.42,
+        "fv_high": 25.81,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "flips (cheap/fair)",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -30.1,
+        "ev_pct_family_max": -23.6,
+        "cycles": [
+          {
+            "sector": "dry_bulk",
+            "scope": "company",
+            "ratio": 1.5691921663679262,
+            "label": "late-cycle/peak",
+            "anchor_basis": "archive_22mo_median"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "SB",
+        "sector": "dry_bulk",
+        "nav_per_share": 10.72,
+        "fv": 8.77,
+        "fv_low": 6.41,
+        "fv_high": 11.3,
+        "position": "HOLD (fairly valued)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -8.5,
+        "ev_pct_family_max": -0.6,
+        "cycles": [
+          {
+            "sector": "dry_bulk",
+            "scope": "company",
+            "ratio": 1.7215845169049127,
+            "label": "late-cycle/peak",
+            "anchor_basis": "archive_22mo_median"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "SBLK",
+        "sector": "dry_bulk",
+        "nav_per_share": 33.27,
+        "fv": 27.2,
+        "fv_low": 20.7,
+        "fv_high": 33.8,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "VALIDATED-TIGHT",
+        "read_flag": "flips (cheap/fair)",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -19.7,
+        "ev_pct_family_max": -13.2,
+        "cycles": [
+          {
+            "sector": "dry_bulk",
+            "scope": "company",
+            "ratio": 1.5987467128655468,
+            "label": "late-cycle/peak",
+            "anchor_basis": "archive_22mo_median"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "BRUT",
+        "sector": "crude",
+        "nav_per_share": 4.92,
+        "fv": 5.79,
+        "fv_low": 2.79,
+        "fv_high": 8.54,
+        "position": "unreliable read (not actionable)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": false,
+        "ev_pct_family_min": -28.7,
+        "ev_pct_family_max": 9.9,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.6425,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "CAPT",
+        "sector": "crude",
+        "nav_per_share": 17.32,
+        "fv": 19.97,
+        "fv_low": 12.71,
+        "fv_high": 25.88,
+        "position": "HOLD (fairly valued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": false,
+        "ev_pct_family_min": -23.2,
+        "ev_pct_family_max": 1.4,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.534757550652395,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "CMBT",
+        "sector": "crude",
+        "nav_per_share": 13.36,
+        "fv": 10.63,
+        "fv_low": 5.19,
+        "fv_high": 16.03,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -54.0,
+        "ev_pct_family_max": -47.6,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "sleeve",
+            "ratio": 2.6696930285764338,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          },
+          {
+            "sector": "dry_bulk",
+            "scope": "sleeve",
+            "ratio": 1.6870347848377134,
+            "label": "late-cycle/peak",
+            "anchor_basis": "archive_22mo_median"
+          },
+          {
+            "sector": "containerships",
+            "scope": "sleeve",
+            "ratio": 1.5609756097560976,
+            "label": "late-cycle/peak",
+            "anchor_basis": "fy_calendar_avg"
+          }
+        ],
+        "sleeves": [
+          {
+            "sleeve": "crude",
+            "sector": "crude",
+            "fv_contribution_per_share": 3.9
+          },
+          {
+            "sleeve": "dry_bulk",
+            "sector": "dry_bulk",
+            "fv_contribution_per_share": 6.3
+          },
+          {
+            "sleeve": "containerships",
+            "sector": "containerships",
+            "fv_contribution_per_share": 0.44
+          }
+        ]
+      },
+      {
+        "ticker": "INSW",
+        "sector": "crude",
+        "nav_per_share": 54.64,
+        "fv": 61.06,
+        "fv_low": 42.54,
+        "fv_high": 76.57,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -52.1,
+        "ev_pct_family_max": -45.1,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "sleeve",
+            "ratio": 2.5139743564388386,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          },
+          {
+            "sector": "product",
+            "scope": "sleeve",
+            "ratio": 1.772885880488888,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": [
+          {
+            "sleeve": "crude",
+            "sector": "crude",
+            "fv_contribution_per_share": 41.41
+          },
+          {
+            "sleeve": "product",
+            "sector": "product",
+            "fv_contribution_per_share": 19.65
+          }
+        ]
+      },
+      {
+        "ticker": "NAT",
+        "sector": "crude",
+        "nav_per_share": 2.76,
+        "fv": 3.43,
+        "fv_low": 2.22,
+        "fv_high": 4.24,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -67.4,
+        "ev_pct_family_max": -58.5,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "company",
+            "ratio": 2.6849749522470896,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "TEN",
+        "sector": "crude",
+        "nav_per_share": 91.91,
+        "fv": 70.24,
+        "fv_low": 50.75,
+        "fv_high": 83.81,
+        "position": "BUY (undervalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": 18.0,
+        "ev_pct_family_max": 34.8,
+        "cycles": [
+          {
+            "sector": "crude",
+            "scope": "sleeve",
+            "ratio": 2.0838495513771322,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          },
+          {
+            "sector": "product",
+            "scope": "sleeve",
+            "ratio": 1.677535016409626,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          },
+          {
+            "sector": "lng",
+            "scope": "sleeve",
+            "ratio": 0.7058823529411765,
+            "label": "below-mid",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": [
+          {
+            "sleeve": "crude",
+            "sector": "crude",
+            "fv_contribution_per_share": 49.76
+          },
+          {
+            "sleeve": "product",
+            "sector": "product",
+            "fv_contribution_per_share": 12.61
+          },
+          {
+            "sleeve": "lng",
+            "sector": "lng",
+            "fv_contribution_per_share": 7.87
+          }
+        ]
+      },
+      {
+        "ticker": "ASC",
+        "sector": "product",
+        "nav_per_share": 17.37,
+        "fv": 15.34,
+        "fv_low": 12.0,
+        "fv_high": 17.75,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -24.0,
+        "ev_pct_family_max": -19.5,
+        "cycles": [
+          {
+            "sector": "product",
+            "scope": "company",
+            "ratio": 1.7165590650558111,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "TRMD",
+        "sector": "product",
+        "nav_per_share": 32.3,
+        "fv": 34.33,
+        "fv_low": 20.62,
+        "fv_high": 45.42,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -23.8,
+        "ev_pct_family_max": -10.2,
+        "cycles": [
+          {
+            "sector": "product",
+            "scope": "company",
+            "ratio": 1.938418920736833,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "2343",
+        "sector": "dry_bulk",
+        "nav_per_share": 0.41,
+        "fv": 0.36,
+        "fv_low": 0.29,
+        "fv_high": 0.4,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "robust",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -34.5,
+        "ev_pct_family_max": -31.5,
+        "cycles": [
+          {
+            "sector": "dry_bulk",
+            "scope": "company",
+            "ratio": 1.2547568952478048,
+            "label": "elevated",
+            "anchor_basis": "archive_22mo_median"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "CCEC",
+        "sector": "lng",
+        "nav_per_share": 25.7,
+        "fv": 33.48,
+        "fv_low": 15.7,
+        "fv_high": 46.81,
+        "position": "BUY (undervalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": 33.4,
+        "ev_pct_family_max": 54.6,
+        "cycles": [
+          {
+            "sector": "lng",
+            "scope": "company",
+            "ratio": 0.7808162328292794,
+            "label": "below-mid",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "FLNG",
+        "sector": "lng",
+        "nav_per_share": 27.22,
+        "fv": 29.16,
+        "fv_low": 18.85,
+        "fv_high": 37.62,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -18.7,
+        "ev_pct_family_max": -10.1,
+        "cycles": [
+          {
+            "sector": "lng",
+            "scope": "company",
+            "ratio": 0.7058823529411765,
+            "label": "below-mid",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "GSL",
+        "sector": "containerships",
+        "nav_per_share": 41.37,
+        "fv": 43.09,
+        "fv_low": 38.28,
+        "fv_high": 47.94,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": null,
+        "ev_pct_family_min": null,
+        "ev_pct_family_max": null,
+        "cycles": [
+          {
+            "sector": "containerships",
+            "scope": "company",
+            "ratio": 1.5155990523681349,
+            "label": "late-cycle/peak",
+            "anchor_basis": "fy_calendar_avg"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "MPCC",
+        "sector": "containerships",
+        "nav_per_share": 2.15,
+        "fv": 2.2,
+        "fv_low": 1.68,
+        "fv_high": 2.5,
+        "position": "unreliable read (not actionable)",
+        "confidence_tier": "GOVERNED-WIDE",
+        "read_flag": "n/a",
+        "weight_sign_stable": null,
+        "ev_pct_family_min": null,
+        "ev_pct_family_max": null,
+        "cycles": [
+          {
+            "sector": "containerships",
+            "scope": "company",
+            "ratio": 1.3604023777383196,
+            "label": "elevated",
+            "anchor_basis": "fy_calendar_avg"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "HAFN",
+        "sector": "product",
+        "nav_per_share": 4.64,
+        "fv": 5.31,
+        "fv_low": 2.98,
+        "fv_high": 7.25,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "PROVISIONAL",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -56.3,
+        "ev_pct_family_max": -47.6,
+        "cycles": [
+          {
+            "sector": "product",
+            "scope": "company",
+            "ratio": 1.887840806575736,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "STNG",
+        "sector": "product",
+        "nav_per_share": 76.22,
+        "fv": 74.78,
+        "fv_low": 54.79,
+        "fv_high": 90.19,
+        "position": "TRIM/SHORT (overvalued)",
+        "confidence_tier": "PROVISIONAL",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -22.9,
+        "ev_pct_family_max": -14.2,
+        "cycles": [
+          {
+            "sector": "product",
+            "scope": "company",
+            "ratio": 1.9093500783128972,
+            "label": "late-cycle/peak",
+            "anchor_basis": "tc_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "BWLP",
+        "sector": "lpg",
+        "nav_per_share": 15.83,
+        "fv": 13.92,
+        "fv_low": 9.79,
+        "fv_high": 18.38,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "PROVISIONAL",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -48.5,
+        "ev_pct_family_max": -43.6,
+        "cycles": [
+          {
+            "sector": "lpg",
+            "scope": "company",
+            "ratio": 1.590375,
+            "label": "late-cycle/peak",
+            "anchor_basis": "realized_tce_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      },
+      {
+        "ticker": "LPG",
+        "sector": "lpg",
+        "nav_per_share": 35.69,
+        "fv": 30.59,
+        "fv_low": 23.39,
+        "fv_high": 38.36,
+        "position": "rich \u00b7 cycle position (not a short)",
+        "confidence_tier": "PROVISIONAL",
+        "read_flag": "n/a",
+        "weight_sign_stable": true,
+        "ev_pct_family_min": -49.1,
+        "ev_pct_family_max": -45.4,
+        "cycles": [
+          {
+            "sector": "lpg",
+            "scope": "company",
+            "ratio": 1.590375,
+            "label": "late-cycle/peak",
+            "anchor_basis": "realized_tce_10yr_mean"
+          }
+        ],
+        "sleeves": null
+      }
+    ]
+  }
+}
