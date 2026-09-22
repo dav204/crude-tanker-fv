@@ -964,25 +964,6 @@
     },
     {
       "authority": "manual",
-      "blocking_decision_ids": [],
-      "due": null,
-      "evidence": [
-        {
-          "contains": "Automatic approval review rejected",
-          "path": "decisions/calendar_workflow_implementation_2026-09-22.md",
-          "project": "producer"
-        }
-      ],
-      "id": "quarterly:inbox-permission",
-      "next_action": "Approve the narrowly scoped monitor/inbox/** Write grant requested in the task; automatic approval review rejected installation without explicit approval",
-      "project": "governor",
-      "resolver": "owner",
-      "status": "blocked",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "explicit approval for the inbox grant in user, Projects-folder and both project settings"
-    },
-    {
-      "authority": "manual",
       "blocking_decision_ids": [
         "quarterly:inbox-permission"
       ],
@@ -1384,6 +1365,25 @@
       "resolver": "agent",
       "status": "waiting",
       "waiting_condition": "registered condition or ruling"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "contains": "Scoped permission approved and installed",
+          "path": "monitor/QUARTERLY_SMOKE_EVIDENCE_2026-09-22.md",
+          "project": "governor"
+        }
+      ],
+      "id": "quarterly:inbox-permission",
+      "next_action": "Scoped inbox Write grant explicitly approved and installed in all four settings files",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "done",
+      "verified_at": "2026-09-22",
+      "waiting_condition": null
     }
   ],
   "version": 1
