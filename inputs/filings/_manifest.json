@@ -2130,5 +2130,20 @@
    }
   ],
   "amended": false
+ },
+ {
+  "ts": "2026-09-21T17:30:25+00:00",
+  "ticker": "MPCC",
+  "cik": "newsweb:mpc-container-ships",
+  "accession": "mfn-75156950-87ce-4128-88d1-7c10e74cc71e",
+  "form": "corporate action",
+  "filed": "2026-09-21",
+  "primary_doc": "https://mfn.se/a/mpc-container-ships/mpcc-ex-dividend-usd-0-04-today-q2-2026",
+  "staged_path": "inputs/filings/MPCC/newsweb_2026-09-21_75156950-87ce-4128-88d1-7c10e74cc71e.txt",
+  "amended": false,
+  "source": "newsweb",
+  "report": false,
+  "title": "MPCC: Ex-dividend USD 0.04 today (Q2 2026)",
+  "attachments": []
  }
 ]
