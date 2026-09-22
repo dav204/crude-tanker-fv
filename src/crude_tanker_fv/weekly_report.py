@@ -33,6 +33,7 @@ import json
 import re
 import subprocess
 import sys
+import uuid
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -576,14 +577,14 @@ def main(argv: list[str] | None = None) -> int:
         print(text)
         return 0
     OUTPUTS.mkdir(parents=True, exist_ok=True)
-    path = OUTPUTS / f"weekly_report_{date.today().isoformat()}.md"
+    path = OUTPUTS / f"weekly_report_{date.today().isoformat()}_{uuid.uuid4().hex[:12]}.md"
     path.write_text(text)
     print(f"weekly report -> {path.relative_to(ROOT)}")
     if args.send:
         from . import notify
         subject_line = text.splitlines()[2].strip("* ")
         ok = notify.send_email(f"[crude-fv] WEEKLY · {subject_line}", text)
-        print("emailed" if ok else "SEND FAILED — see state/notify_down.log")
+        print("SMTP accepted" if ok else "SEND PENDING/BLOCKED — see state/delivery/")
         return 0 if ok else 1
     return 0
 

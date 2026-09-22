@@ -167,3 +167,15 @@ def test_owner_queue_excludes_agent_class_work(tmp_path):
     assert any(q.startswith("S&P queue (agent") for q in agent)
     assert wr._agent_lines(["STALE-BALANCE-SHEET ZZZ: report OUT"], decisions_dir=tmp_path)[0].endswith(
         "stages when it arrives")
+
+
+def test_same_day_reruns_preserve_both_reports(tmp_path, monkeypatch):
+    from crude_tanker_fv import weekly_report as w
+    out=tmp_path/'outputs'
+    monkeypatch.setattr(w,'ROOT',tmp_path)
+    monkeypatch.setattr(w,'OUTPUTS',out)
+    bodies=iter(['first body','second body'])
+    monkeypatch.setattr(w,'build_report',lambda **kw:next(bodies))
+    assert w.main([])==0
+    assert w.main([])==0
+    assert {p.read_text() for p in out.glob('weekly_report_*.md')}=={'first body','second body'}
