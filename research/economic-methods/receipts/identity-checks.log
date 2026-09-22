@@ -1,0 +1,26 @@
+{
+  "full_book_names": 25,
+  "nav_invariance": true,
+  "scenario_probabilities_unchanged": true,
+  "cash_identity_rows": 3792,
+  "handoff_coherence": {
+    "legacy": [],
+    "cash": [],
+    "reference": [],
+    "risk": [],
+    "smooth": [],
+    "cash_reference": [],
+    "cash_reference_risk": [],
+    "combined": [],
+    "reference_risk_smooth": []
+  },
+  "production_writes": false,
+  "transports": "disabled",
+  "broker_second_difference": "unchanged versus reproduced legacy; broker multiplier comes from isolated production-path regeneration",
+  "drift_annotations": "research attribution only; production baselines never ratified",
+  "real_committed_shadow_publication_validation": {
+    "status": "HELD",
+    "reason": "economic research is not an accepted production publication"
+  },
+  "frozen_inputs_and_baselines_unchanged": true
+}

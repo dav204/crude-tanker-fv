@@ -1,0 +1,1871 @@
+{
+  "legacy": {},
+  "cash": {
+    "FRO": [
+      {
+        "case": "current:crude",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 44985141.57403231
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 43023205.7707504
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 57417946.74610978
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 46631746.58528286
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 61994250.911059886
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 51877906.7586979
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 76681506.31994367
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 54593252.62726541
+      }
+    ],
+    "TRMD": [
+      {
+        "case": "product:structural_decline",
+        "period": "2027-Q4",
+        "funding_gap": 3987919.386776209,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "product:structural_decline",
+        "period": "2028-Q1",
+        "funding_gap": 6989836.733470252,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "product:structural_decline",
+        "period": "2028-Q2",
+        "funding_gap": 31037404.080164295,
+        "distribution_shortfall": 0.0
+      }
+    ],
+    "CAPT": [
+      {
+        "case": "current:crude",
+        "period": "2027-Q1",
+        "funding_gap": 78861459.60268399,
+        "distribution_shortfall": 25121887.040857784
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q2",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 20658543.217657242
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q3",
+        "funding_gap": 570078988.8689134,
+        "distribution_shortfall": 21780853.895880286
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q4",
+        "funding_gap": 481583814.3017169,
+        "distribution_shortfall": 30973311.09851879
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q1",
+        "funding_gap": 915027504.2112404,
+        "distribution_shortfall": 37987708.53166678
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q2",
+        "funding_gap": 783145435.7682439,
+        "distribution_shortfall": 46158723.95504877
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q3",
+        "funding_gap": 263649849.92126608,
+        "distribution_shortfall": 63562298.30320529
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q4",
+        "funding_gap": 42378783.65456957,
+        "distribution_shortfall": 77444873.19334377
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2028-Q1",
+        "funding_gap": 361828493.152593,
+        "distribution_shortfall": 77885601.67569178
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2028-Q2",
+        "funding_gap": 122565063.55959651,
+        "distribution_shortfall": 83742200.35754877
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q1",
+        "funding_gap": 134575590.951434,
+        "distribution_shortfall": 20446152.38093279
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q2",
+        "funding_gap": 69796464.05677745,
+        "distribution_shortfall": 22672694.413129784
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q3",
+        "funding_gap": 621181983.8569409,
+        "distribution_shortfall": 28323568.06994278
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q4",
+        "funding_gap": 505823601.88724434,
+        "distribution_shortfall": 40375433.68939378
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q1",
+        "funding_gap": 918079573.4740179,
+        "distribution_shortfall": 45403409.944629274
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q2",
+        "funding_gap": 772368358.0210214,
+        "distribution_shortfall": 50998925.40854878
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q1",
+        "funding_gap": 169222294.32917142,
+        "distribution_shortfall": 13742410.83293279
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q2",
+        "funding_gap": 123489512.02451488,
+        "distribution_shortfall": 16006473.806629784
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q3",
+        "funding_gap": 692676038.4991783,
+        "distribution_shortfall": 22093215.733867787
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q4",
+        "funding_gap": 594437032.7667317,
+        "distribution_shortfall": 34383652.006356284
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q1",
+        "funding_gap": 1021464641.6797552,
+        "distribution_shortfall": 40233336.880441785
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q2",
+        "funding_gap": 892852255.2817588,
+        "distribution_shortfall": 45014335.239298776
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q1",
+        "funding_gap": 214389914.37129644,
+        "distribution_shortfall": 8829356.21802029
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q2",
+        "funding_gap": 179413135.2966399,
+        "distribution_shortfall": 12241872.676129783
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q3",
+        "funding_gap": 759757675.0888033,
+        "distribution_shortfall": 18187911.072742786
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q4",
+        "funding_gap": 675561328.3906068,
+        "distribution_shortfall": 29468721.344368782
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q1",
+        "funding_gap": 1116338575.6518803,
+        "distribution_shortfall": 35420963.45855428
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q2",
+        "funding_gap": 998839534.7838838,
+        "distribution_shortfall": 41124664.30379878
+      }
+    ],
+    "BRUT": [
+      {
+        "case": "current:crude",
+        "period": "2026-Q3",
+        "funding_gap": 77057149.5190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2026-Q4",
+        "funding_gap": 152829309.0380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q1",
+        "funding_gap": 137864003.5571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q2",
+        "funding_gap": 122898698.0761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q3",
+        "funding_gap": 212318298.8452065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q4",
+        "funding_gap": 297545053.3642478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q1",
+        "funding_gap": 283252807.8832891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q2",
+        "funding_gap": 268960562.4023304,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2026-Q3",
+        "funding_gap": 53341639.51904131,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2026-Q4",
+        "funding_gap": 88836779.03808263,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q1",
+        "funding_gap": 39120918.55712394,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q3",
+        "funding_gap": 40832447.59520655,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q4",
+        "funding_gap": 59902587.11424786,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2026-Q3",
+        "funding_gap": 75510097.0190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2026-Q4",
+        "funding_gap": 159849171.5380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q1",
+        "funding_gap": 147709696.0571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q2",
+        "funding_gap": 138074120.5761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q3",
+        "funding_gap": 222302600.0952065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q4",
+        "funding_gap": 297460099.6142478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q1",
+        "funding_gap": 276103279.1332891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q2",
+        "funding_gap": 258681158.6523304,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2026-Q3",
+        "funding_gap": 73891504.5190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2026-Q4",
+        "funding_gap": 165688624.0380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q1",
+        "funding_gap": 158646373.5571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q2",
+        "funding_gap": 153249543.0761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q3",
+        "funding_gap": 243138625.0952065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q4",
+        "funding_gap": 325521664.6142478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q1",
+        "funding_gap": 309923814.1332891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q2",
+        "funding_gap": 297831423.6523304,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2026-Q3",
+        "funding_gap": 80169139.5190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2026-Q4",
+        "funding_gap": 174076689.0380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q1",
+        "funding_gap": 169359488.5571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q2",
+        "funding_gap": 165912123.0761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q3",
+        "funding_gap": 258457127.5952065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q4",
+        "funding_gap": 344989487.1142478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q1",
+        "funding_gap": 333433646.6332891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q2",
+        "funding_gap": 324775176.1523304,
+        "distribution_shortfall": 0.0
+      }
+    ]
+  },
+  "reference": {},
+  "risk": {},
+  "smooth": {},
+  "cash_reference": {
+    "FRO": [
+      {
+        "case": "current:crude",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 44985141.57403231
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 43023205.7707504
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 57417946.74610978
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 46631746.58528286
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 61994250.911059886
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 51877906.7586979
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 76681506.31994367
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 54593252.62726541
+      }
+    ],
+    "TRMD": [
+      {
+        "case": "product:structural_decline",
+        "period": "2027-Q4",
+        "funding_gap": 3987919.386776209,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "product:structural_decline",
+        "period": "2028-Q1",
+        "funding_gap": 6989836.733470252,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "product:structural_decline",
+        "period": "2028-Q2",
+        "funding_gap": 31037404.080164295,
+        "distribution_shortfall": 0.0
+      }
+    ],
+    "CAPT": [
+      {
+        "case": "current:crude",
+        "period": "2027-Q1",
+        "funding_gap": 78861459.60268399,
+        "distribution_shortfall": 25121887.040857784
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q2",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 20658543.217657242
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q3",
+        "funding_gap": 570078988.8689134,
+        "distribution_shortfall": 21780853.895880286
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q4",
+        "funding_gap": 481583814.3017169,
+        "distribution_shortfall": 30973311.09851879
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q1",
+        "funding_gap": 915027504.2112404,
+        "distribution_shortfall": 37987708.53166678
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q2",
+        "funding_gap": 783145435.7682439,
+        "distribution_shortfall": 46158723.95504877
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q3",
+        "funding_gap": 263649849.92126608,
+        "distribution_shortfall": 63562298.30320529
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q4",
+        "funding_gap": 42378783.65456957,
+        "distribution_shortfall": 77444873.19334377
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2028-Q1",
+        "funding_gap": 361828493.152593,
+        "distribution_shortfall": 77885601.67569178
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2028-Q2",
+        "funding_gap": 122565063.55959651,
+        "distribution_shortfall": 83742200.35754877
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q1",
+        "funding_gap": 134575590.951434,
+        "distribution_shortfall": 20446152.38093279
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q2",
+        "funding_gap": 69796464.05677745,
+        "distribution_shortfall": 22672694.413129784
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q3",
+        "funding_gap": 621181983.8569409,
+        "distribution_shortfall": 28323568.06994278
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q4",
+        "funding_gap": 505823601.88724434,
+        "distribution_shortfall": 40375433.68939378
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q1",
+        "funding_gap": 918079573.4740179,
+        "distribution_shortfall": 45403409.944629274
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q2",
+        "funding_gap": 772368358.0210214,
+        "distribution_shortfall": 50998925.40854878
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q1",
+        "funding_gap": 169222294.32917142,
+        "distribution_shortfall": 13742410.83293279
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q2",
+        "funding_gap": 123489512.02451488,
+        "distribution_shortfall": 16006473.806629784
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q3",
+        "funding_gap": 692676038.4991783,
+        "distribution_shortfall": 22093215.733867787
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q4",
+        "funding_gap": 594437032.7667317,
+        "distribution_shortfall": 34383652.006356284
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q1",
+        "funding_gap": 1021464641.6797552,
+        "distribution_shortfall": 40233336.880441785
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q2",
+        "funding_gap": 892852255.2817588,
+        "distribution_shortfall": 45014335.239298776
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q1",
+        "funding_gap": 214389914.37129644,
+        "distribution_shortfall": 8829356.21802029
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q2",
+        "funding_gap": 179413135.2966399,
+        "distribution_shortfall": 12241872.676129783
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q3",
+        "funding_gap": 759757675.0888033,
+        "distribution_shortfall": 18187911.072742786
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q4",
+        "funding_gap": 675561328.3906068,
+        "distribution_shortfall": 29468721.344368782
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q1",
+        "funding_gap": 1116338575.6518803,
+        "distribution_shortfall": 35420963.45855428
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q2",
+        "funding_gap": 998839534.7838838,
+        "distribution_shortfall": 41124664.30379878
+      }
+    ],
+    "BRUT": [
+      {
+        "case": "current:crude",
+        "period": "2026-Q3",
+        "funding_gap": 77057149.5190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2026-Q4",
+        "funding_gap": 152829309.0380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q1",
+        "funding_gap": 137864003.5571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q2",
+        "funding_gap": 122898698.0761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q3",
+        "funding_gap": 212318298.8452065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q4",
+        "funding_gap": 297545053.3642478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q1",
+        "funding_gap": 283252807.8832891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q2",
+        "funding_gap": 268960562.4023304,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2026-Q3",
+        "funding_gap": 53341639.51904131,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2026-Q4",
+        "funding_gap": 88836779.03808263,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q1",
+        "funding_gap": 39120918.55712394,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q3",
+        "funding_gap": 40832447.59520655,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q4",
+        "funding_gap": 59902587.11424786,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2026-Q3",
+        "funding_gap": 75510097.0190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2026-Q4",
+        "funding_gap": 159849171.5380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q1",
+        "funding_gap": 147709696.0571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q2",
+        "funding_gap": 138074120.5761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q3",
+        "funding_gap": 222302600.0952065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q4",
+        "funding_gap": 297460099.6142478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q1",
+        "funding_gap": 276103279.1332891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q2",
+        "funding_gap": 258681158.6523304,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2026-Q3",
+        "funding_gap": 73891504.5190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2026-Q4",
+        "funding_gap": 165688624.0380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q1",
+        "funding_gap": 158646373.5571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q2",
+        "funding_gap": 153249543.0761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q3",
+        "funding_gap": 243138625.0952065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q4",
+        "funding_gap": 325521664.6142478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q1",
+        "funding_gap": 309923814.1332891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q2",
+        "funding_gap": 297831423.6523304,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2026-Q3",
+        "funding_gap": 80169139.5190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2026-Q4",
+        "funding_gap": 174076689.0380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q1",
+        "funding_gap": 169359488.5571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q2",
+        "funding_gap": 165912123.0761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q3",
+        "funding_gap": 258457127.5952065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q4",
+        "funding_gap": 344989487.1142478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q1",
+        "funding_gap": 333433646.6332891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q2",
+        "funding_gap": 324775176.1523304,
+        "distribution_shortfall": 0.0
+      }
+    ]
+  },
+  "cash_reference_risk": {
+    "FRO": [
+      {
+        "case": "current:crude",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 44985141.57403231
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 43023205.7707504
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 57417946.74610978
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 46631746.58528286
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 61994250.911059886
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 51877906.7586979
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 76681506.31994367
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 54593252.62726541
+      }
+    ],
+    "TRMD": [
+      {
+        "case": "product:structural_decline",
+        "period": "2027-Q4",
+        "funding_gap": 3987919.386776209,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "product:structural_decline",
+        "period": "2028-Q1",
+        "funding_gap": 6989836.733470252,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "product:structural_decline",
+        "period": "2028-Q2",
+        "funding_gap": 31037404.080164295,
+        "distribution_shortfall": 0.0
+      }
+    ],
+    "CAPT": [
+      {
+        "case": "current:crude",
+        "period": "2027-Q1",
+        "funding_gap": 78861459.60268399,
+        "distribution_shortfall": 25121887.040857784
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q2",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 20658543.217657242
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q3",
+        "funding_gap": 570078988.8689134,
+        "distribution_shortfall": 21780853.895880286
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q4",
+        "funding_gap": 481583814.3017169,
+        "distribution_shortfall": 30973311.09851879
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q1",
+        "funding_gap": 915027504.2112404,
+        "distribution_shortfall": 37987708.53166678
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q2",
+        "funding_gap": 783145435.7682439,
+        "distribution_shortfall": 46158723.95504877
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q3",
+        "funding_gap": 263649849.92126608,
+        "distribution_shortfall": 63562298.30320529
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q4",
+        "funding_gap": 42378783.65456957,
+        "distribution_shortfall": 77444873.19334377
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2028-Q1",
+        "funding_gap": 361828493.152593,
+        "distribution_shortfall": 77885601.67569178
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2028-Q2",
+        "funding_gap": 122565063.55959651,
+        "distribution_shortfall": 83742200.35754877
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q1",
+        "funding_gap": 134575590.951434,
+        "distribution_shortfall": 20446152.38093279
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q2",
+        "funding_gap": 69796464.05677745,
+        "distribution_shortfall": 22672694.413129784
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q3",
+        "funding_gap": 621181983.8569409,
+        "distribution_shortfall": 28323568.06994278
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q4",
+        "funding_gap": 505823601.88724434,
+        "distribution_shortfall": 40375433.68939378
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q1",
+        "funding_gap": 918079573.4740179,
+        "distribution_shortfall": 45403409.944629274
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q2",
+        "funding_gap": 772368358.0210214,
+        "distribution_shortfall": 50998925.40854878
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q1",
+        "funding_gap": 169222294.32917142,
+        "distribution_shortfall": 13742410.83293279
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q2",
+        "funding_gap": 123489512.02451488,
+        "distribution_shortfall": 16006473.806629784
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q3",
+        "funding_gap": 692676038.4991783,
+        "distribution_shortfall": 22093215.733867787
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q4",
+        "funding_gap": 594437032.7667317,
+        "distribution_shortfall": 34383652.006356284
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q1",
+        "funding_gap": 1021464641.6797552,
+        "distribution_shortfall": 40233336.880441785
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q2",
+        "funding_gap": 892852255.2817588,
+        "distribution_shortfall": 45014335.239298776
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q1",
+        "funding_gap": 214389914.37129644,
+        "distribution_shortfall": 8829356.21802029
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q2",
+        "funding_gap": 179413135.2966399,
+        "distribution_shortfall": 12241872.676129783
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q3",
+        "funding_gap": 759757675.0888033,
+        "distribution_shortfall": 18187911.072742786
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q4",
+        "funding_gap": 675561328.3906068,
+        "distribution_shortfall": 29468721.344368782
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q1",
+        "funding_gap": 1116338575.6518803,
+        "distribution_shortfall": 35420963.45855428
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q2",
+        "funding_gap": 998839534.7838838,
+        "distribution_shortfall": 41124664.30379878
+      }
+    ],
+    "BRUT": [
+      {
+        "case": "current:crude",
+        "period": "2026-Q3",
+        "funding_gap": 77057149.5190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2026-Q4",
+        "funding_gap": 152829309.0380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q1",
+        "funding_gap": 137864003.5571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q2",
+        "funding_gap": 122898698.0761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q3",
+        "funding_gap": 212318298.8452065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q4",
+        "funding_gap": 297545053.3642478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q1",
+        "funding_gap": 283252807.8832891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q2",
+        "funding_gap": 268960562.4023304,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2026-Q3",
+        "funding_gap": 53341639.51904131,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2026-Q4",
+        "funding_gap": 88836779.03808263,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q1",
+        "funding_gap": 39120918.55712394,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q3",
+        "funding_gap": 40832447.59520655,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q4",
+        "funding_gap": 59902587.11424786,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2026-Q3",
+        "funding_gap": 75510097.0190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2026-Q4",
+        "funding_gap": 159849171.5380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q1",
+        "funding_gap": 147709696.0571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q2",
+        "funding_gap": 138074120.5761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q3",
+        "funding_gap": 222302600.0952065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q4",
+        "funding_gap": 297460099.6142478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q1",
+        "funding_gap": 276103279.1332891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q2",
+        "funding_gap": 258681158.6523304,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2026-Q3",
+        "funding_gap": 73891504.5190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2026-Q4",
+        "funding_gap": 165688624.0380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q1",
+        "funding_gap": 158646373.5571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q2",
+        "funding_gap": 153249543.0761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q3",
+        "funding_gap": 243138625.0952065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q4",
+        "funding_gap": 325521664.6142478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q1",
+        "funding_gap": 309923814.1332891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q2",
+        "funding_gap": 297831423.6523304,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2026-Q3",
+        "funding_gap": 80169139.5190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2026-Q4",
+        "funding_gap": 174076689.0380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q1",
+        "funding_gap": 169359488.5571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q2",
+        "funding_gap": 165912123.0761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q3",
+        "funding_gap": 258457127.5952065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q4",
+        "funding_gap": 344989487.1142478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q1",
+        "funding_gap": 333433646.6332891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q2",
+        "funding_gap": 324775176.1523304,
+        "distribution_shortfall": 0.0
+      }
+    ]
+  },
+  "combined": {
+    "FRO": [
+      {
+        "case": "current:crude",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 44985141.57403231
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 43023205.7707504
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 57417946.74610978
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 46631746.58528286
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 61994250.911059886
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 51877906.7586979
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2026-Q4",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 76681506.31994367
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q1",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 54593252.62726541
+      }
+    ],
+    "TRMD": [
+      {
+        "case": "product:structural_decline",
+        "period": "2027-Q4",
+        "funding_gap": 3987919.386776209,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "product:structural_decline",
+        "period": "2028-Q1",
+        "funding_gap": 6989836.733470252,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "product:structural_decline",
+        "period": "2028-Q2",
+        "funding_gap": 31037404.080164295,
+        "distribution_shortfall": 0.0
+      }
+    ],
+    "CAPT": [
+      {
+        "case": "current:crude",
+        "period": "2027-Q1",
+        "funding_gap": 78861459.60268399,
+        "distribution_shortfall": 25121887.040857784
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q2",
+        "funding_gap": 0.0,
+        "distribution_shortfall": 20658543.217657242
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q3",
+        "funding_gap": 570078988.8689134,
+        "distribution_shortfall": 21780853.895880286
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q4",
+        "funding_gap": 481583814.3017169,
+        "distribution_shortfall": 30973311.09851879
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q1",
+        "funding_gap": 915027504.2112404,
+        "distribution_shortfall": 37987708.53166678
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q2",
+        "funding_gap": 783145435.7682439,
+        "distribution_shortfall": 46158723.95504877
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q3",
+        "funding_gap": 263649849.92126608,
+        "distribution_shortfall": 63562298.30320529
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q4",
+        "funding_gap": 42378783.65456957,
+        "distribution_shortfall": 77444873.19334377
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2028-Q1",
+        "funding_gap": 361828493.152593,
+        "distribution_shortfall": 77885601.67569178
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2028-Q2",
+        "funding_gap": 122565063.55959651,
+        "distribution_shortfall": 83742200.35754877
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q1",
+        "funding_gap": 134575590.951434,
+        "distribution_shortfall": 20446152.38093279
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q2",
+        "funding_gap": 69796464.05677745,
+        "distribution_shortfall": 22672694.413129784
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q3",
+        "funding_gap": 621181983.8569409,
+        "distribution_shortfall": 28323568.06994278
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q4",
+        "funding_gap": 505823601.88724434,
+        "distribution_shortfall": 40375433.68939378
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q1",
+        "funding_gap": 918079573.4740179,
+        "distribution_shortfall": 45403409.944629274
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q2",
+        "funding_gap": 772368358.0210214,
+        "distribution_shortfall": 50998925.40854878
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q1",
+        "funding_gap": 169222294.32917142,
+        "distribution_shortfall": 13742410.83293279
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q2",
+        "funding_gap": 123489512.02451488,
+        "distribution_shortfall": 16006473.806629784
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q3",
+        "funding_gap": 692676038.4991783,
+        "distribution_shortfall": 22093215.733867787
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q4",
+        "funding_gap": 594437032.7667317,
+        "distribution_shortfall": 34383652.006356284
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q1",
+        "funding_gap": 1021464641.6797552,
+        "distribution_shortfall": 40233336.880441785
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q2",
+        "funding_gap": 892852255.2817588,
+        "distribution_shortfall": 45014335.239298776
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q1",
+        "funding_gap": 214389914.37129644,
+        "distribution_shortfall": 8829356.21802029
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q2",
+        "funding_gap": 179413135.2966399,
+        "distribution_shortfall": 12241872.676129783
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q3",
+        "funding_gap": 759757675.0888033,
+        "distribution_shortfall": 18187911.072742786
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q4",
+        "funding_gap": 675561328.3906068,
+        "distribution_shortfall": 29468721.344368782
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q1",
+        "funding_gap": 1116338575.6518803,
+        "distribution_shortfall": 35420963.45855428
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q2",
+        "funding_gap": 998839534.7838838,
+        "distribution_shortfall": 41124664.30379878
+      }
+    ],
+    "BRUT": [
+      {
+        "case": "current:crude",
+        "period": "2026-Q3",
+        "funding_gap": 77057149.5190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2026-Q4",
+        "funding_gap": 152829309.0380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q1",
+        "funding_gap": 137864003.5571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q2",
+        "funding_gap": 122898698.0761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q3",
+        "funding_gap": 212318298.8452065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2027-Q4",
+        "funding_gap": 297545053.3642478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q1",
+        "funding_gap": 283252807.8832891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "current:crude",
+        "period": "2028-Q2",
+        "funding_gap": 268960562.4023304,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2026-Q3",
+        "funding_gap": 53341639.51904131,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2026-Q4",
+        "funding_gap": 88836779.03808263,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q1",
+        "funding_gap": 39120918.55712394,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q3",
+        "funding_gap": 40832447.59520655,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:escalation",
+        "period": "2027-Q4",
+        "funding_gap": 59902587.11424786,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2026-Q3",
+        "funding_gap": 75510097.0190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2026-Q4",
+        "funding_gap": 159849171.5380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q1",
+        "funding_gap": 147709696.0571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q2",
+        "funding_gap": 138074120.5761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q3",
+        "funding_gap": 222302600.0952065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2027-Q4",
+        "funding_gap": 297460099.6142478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q1",
+        "funding_gap": 276103279.1332891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:pre_mou_baseline",
+        "period": "2028-Q2",
+        "funding_gap": 258681158.6523304,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2026-Q3",
+        "funding_gap": 73891504.5190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2026-Q4",
+        "funding_gap": 165688624.0380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q1",
+        "funding_gap": 158646373.5571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q2",
+        "funding_gap": 153249543.0761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q3",
+        "funding_gap": 243138625.0952065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2027-Q4",
+        "funding_gap": 325521664.6142478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q1",
+        "funding_gap": 309923814.1332891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_base",
+        "period": "2028-Q2",
+        "funding_gap": 297831423.6523304,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2026-Q3",
+        "funding_gap": 80169139.5190413,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2026-Q4",
+        "funding_gap": 174076689.0380826,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q1",
+        "funding_gap": 169359488.5571239,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q2",
+        "funding_gap": 165912123.0761652,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q3",
+        "funding_gap": 258457127.5952065,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2027-Q4",
+        "funding_gap": 344989487.1142478,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q1",
+        "funding_gap": 333433646.6332891,
+        "distribution_shortfall": 0.0
+      },
+      {
+        "case": "crude:mou_bear",
+        "period": "2028-Q2",
+        "funding_gap": 324775176.1523304,
+        "distribution_shortfall": 0.0
+      }
+    ]
+  },
+  "reference_risk_smooth": {}
+}

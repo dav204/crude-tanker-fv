@@ -1,0 +1,862 @@
+{
+  "DHT": {
+    "fv": {
+      "legacy": 16.561093741868458,
+      "cash": 16.446106930928718,
+      "reference": 16.561093741868458,
+      "risk": 16.830800575114292,
+      "smooth": 16.564610013842053,
+      "cash_reference": 16.446106930928718,
+      "cash_reference_risk": 16.72086887501345,
+      "combined": 16.72510896643339,
+      "reference_risk_smooth": 16.83579775568314
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.11498681093974028,
+      "reference": 0.0,
+      "risk": 0.26970683324583433,
+      "smooth": 0.003516271973595053,
+      "cash_reference": -0.11498681093974028,
+      "cash_reference_risk": 0.15977513314499348,
+      "combined": 0.16401522456493112,
+      "reference_risk_smooth": 0.2747040138146808
+    },
+    "interaction": 0.005778930285242012,
+    "price": 23.27,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "ECO": {
+    "fv": {
+      "legacy": 44.15376825587192,
+      "cash": 43.827878296104146,
+      "reference": 44.15376825587192,
+      "risk": 44.80984616678795,
+      "smooth": 44.156742694773925,
+      "cash_reference": 43.827878296104146,
+      "cash_reference_risk": 44.49475105036768,
+      "combined": 44.499443688217454,
+      "reference_risk_smooth": 44.81838091720405
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.32588995976777113,
+      "reference": 0.0,
+      "risk": 0.6560779109160322,
+      "smooth": 0.002974438902008103,
+      "cash_reference": -0.32588995976777113,
+      "cash_reference_risk": 0.3409827944957655,
+      "combined": 0.3456754323455371,
+      "reference_risk_smooth": 0.6646126613321357
+    },
+    "interaction": 0.012513042295267951,
+    "price": 84.95,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "payout percentage is a discretionary forecast, not a binding formula",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "FRO": {
+    "fv": {
+      "legacy": 29.376646311975282,
+      "cash": 29.112310279969,
+      "reference": 29.376646311975282,
+      "risk": 29.823034297533113,
+      "smooth": 29.394215680077163,
+      "cash_reference": 29.112310279969,
+      "cash_reference_risk": 29.572756105767954,
+      "combined": 29.591502975712867,
+      "reference_risk_smooth": 29.846661625215148
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.2643360320062804,
+      "reference": 0.0,
+      "risk": 0.44638798555783055,
+      "smooth": 0.017569368101881366,
+      "cash_reference": -0.2643360320062804,
+      "cash_reference_risk": 0.19610979379267235,
+      "combined": 0.21485666373758505,
+      "reference_risk_smooth": 0.4700153132398661
+    },
+    "interaction": 0.015235342084153558,
+    "price": 51.42,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "payout percentage is a discretionary forecast, not a binding formula",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "INSW": {
+    "fv": {
+      "legacy": 61.81192701282951,
+      "cash": null,
+      "reference": 61.81192701282951,
+      "risk": 63.011719032355444,
+      "smooth": 61.82206872675202,
+      "cash_reference": null,
+      "cash_reference_risk": null,
+      "combined": null,
+      "reference_risk_smooth": 63.03392999118671
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": null,
+      "reference": 0.0,
+      "risk": 1.1997920195259368,
+      "smooth": 0.010141713922514839,
+      "cash_reference": null,
+      "cash_reference_risk": null,
+      "combined": null,
+      "reference_risk_smooth": 1.222002978357203
+    },
+    "interaction": null,
+    "price": 111.15,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "joint sector scenario mapping required for one issuer-level cash policy; no marginal-sleeve payout summation",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "TNK": {
+    "fv": {
+      "legacy": 87.59178922815326,
+      "cash": 87.1074323920149,
+      "reference": 87.59178922815326,
+      "risk": 90.1513938556233,
+      "smooth": 87.58945469844637,
+      "cash_reference": 87.1074323920149,
+      "cash_reference_risk": 89.76035923516248,
+      "combined": 89.76741299716274,
+      "reference_risk_smooth": 90.15991780000788
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.48435683613836034,
+      "reference": 0.0,
+      "risk": 2.559604627470037,
+      "smooth": -0.0023345297068857462,
+      "cash_reference": -0.48435683613836034,
+      "cash_reference_risk": 2.1685700070092224,
+      "combined": 2.1756237690094764,
+      "reference_risk_smooth": 2.568128571854615
+    },
+    "interaction": 0.10271050738468546,
+    "price": 100.92,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "continuation of board-set dividend is a forecast, not a contractual payment",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "NAT": {
+    "fv": {
+      "legacy": 3.2358157486755657,
+      "cash": 3.2058588146988387,
+      "reference": 3.2358157486755657,
+      "risk": 3.2892466884325198,
+      "smooth": 3.2377991094583254,
+      "cash_reference": 3.2058588146988387,
+      "cash_reference_risk": 3.262930307932237,
+      "combined": 3.265096602394274,
+      "reference_risk_smooth": 3.2918762166247273
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.02995693397672694,
+      "reference": 0.0,
+      "risk": 0.05343093975695412,
+      "smooth": 0.0019833607827597355,
+      "cash_reference": -0.02995693397672694,
+      "cash_reference_risk": 0.027114559256671278,
+      "combined": 0.029280853718708144,
+      "reference_risk_smooth": 0.05606046794916164
+    },
+    "interaction": 0.003823487155721228,
+    "price": 8.25,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "current policy primary-source recheck incomplete",
+      "payout percentage is a discretionary forecast, not a binding formula",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "FLNG": {
+    "fv": {
+      "legacy": 29.474177604455555,
+      "cash": 29.147397814027265,
+      "reference": 29.474177604455555,
+      "risk": 29.5240407732309,
+      "smooth": 29.531828822810336,
+      "cash_reference": 29.147397814027265,
+      "cash_reference_risk": 29.19590424730444,
+      "combined": 29.250158112351052,
+      "reference_risk_smooth": 29.582612804660712
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.3267797904282901,
+      "reference": 0.0,
+      "risk": 0.04986316877534591,
+      "smooth": 0.057651218354781264,
+      "cash_reference": -0.3267797904282901,
+      "cash_reference_risk": -0.27827335715111445,
+      "combined": -0.22401949210450312,
+      "reference_risk_smooth": 0.1084352002051574
+    },
+    "interaction": -0.0047540888063402065,
+    "price": 32.42,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "continuation of board-set dividend is a forecast, not a contractual payment",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "CCEC": {
+    "fv": {
+      "legacy": 33.70044557087444,
+      "cash": 33.02546061327217,
+      "reference": 33.70044557087444,
+      "risk": 32.29196708635912,
+      "smooth": 33.46239584610973,
+      "cash_reference": 33.02546061327217,
+      "cash_reference_risk": 31.676686791100092,
+      "combined": 31.490817684516283,
+      "reference_risk_smooth": 32.095358095296696
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.6749849576022697,
+      "reference": 0.0,
+      "risk": -1.4084784845153209,
+      "smooth": -0.2380497247647142,
+      "cash_reference": -0.6749849576022697,
+      "cash_reference_risk": -2.023758779774351,
+      "combined": -2.2096278863581595,
+      "reference_risk_smooth": -1.6050874755777471
+    },
+    "interaction": 0.11188528052414526,
+    "price": 21.66,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "continuation of board-set dividend is a forecast, not a contractual payment",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "commitments have no mapped delivery schedule; remain outstanding, not assumed paid",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "STNG": {
+    "fv": {
+      "legacy": 75.970502340048,
+      "cash": 75.64521885198597,
+      "reference": 75.970502340048,
+      "risk": 78.11935200518923,
+      "smooth": 75.95412826450166,
+      "cash_reference": 75.64521885198597,
+      "cash_reference_risk": 77.76470298871139,
+      "combined": 77.76118285579795,
+      "reference_risk_smooth": 78.1186910430574
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.325283488062027,
+      "reference": 0.0,
+      "risk": 2.1488496651412277,
+      "smooth": -0.016374075546337963,
+      "cash_reference": -0.325283488062027,
+      "cash_reference_risk": 1.7942006486633915,
+      "combined": 1.7906805157499548,
+      "reference_risk_smooth": 2.148188703009396
+    },
+    "interaction": -0.0165115857829079,
+    "price": 87.16,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "continuation of board-set dividend is a forecast, not a contractual payment",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "commitments have no mapped delivery schedule; remain outstanding, not assumed paid",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "HAFN": {
+    "fv": {
+      "legacy": 5.468132753599372,
+      "cash": 5.4341397277023,
+      "reference": 5.468132753599372,
+      "risk": 5.5579598555855325,
+      "smooth": 5.467839043817671,
+      "cash_reference": 5.4341397277023,
+      "cash_reference_risk": 5.524009610609485,
+      "combined": 5.523704066558886,
+      "reference_risk_smooth": 5.557559015457937
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.03399302589707176,
+      "reference": 0.0,
+      "risk": 0.0898271019861605,
+      "smooth": -0.0002937097817010681,
+      "cash_reference": -0.03399302589707176,
+      "cash_reference_risk": 0.055876857010113135,
+      "combined": 0.0555713129595139,
+      "reference_risk_smooth": 0.08942626185856462
+    },
+    "interaction": 3.0946652126218055e-05,
+    "price": 10.12,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "issuer net leverage/NLTV differs from independent NAV fleet proxy; reconcile before adoption",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "TRMD": {
+    "fv": {
+      "legacy": 35.14127772483786,
+      "cash": 35.121285862570296,
+      "reference": 35.14127772483786,
+      "risk": 35.900817959363394,
+      "smooth": 35.14449303016786,
+      "cash_reference": 35.121285862570296,
+      "cash_reference_risk": 35.82348647288282,
+      "combined": 35.828704270886945,
+      "reference_risk_smooth": 35.90655858687152
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.019991862267566773,
+      "reference": 0.0,
+      "risk": 0.7595402345255309,
+      "smooth": 0.003215305329995033,
+      "cash_reference": -0.019991862267566773,
+      "cash_reference_risk": 0.6822087480449568,
+      "combined": 0.6874265460490818,
+      "reference_risk_smooth": 0.7652808620336558
+    },
+    "interaction": -0.055337131538877316,
+    "price": 38.23,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "ASC": {
+    "fv": {
+      "legacy": 16.283031695141855,
+      "cash": 16.140126357019113,
+      "reference": 16.283031695141855,
+      "risk": 16.74198799820051,
+      "smooth": 16.283140045903156,
+      "cash_reference": 16.140126357019113,
+      "cash_reference_risk": 16.605078439844693,
+      "combined": 16.6051377620401,
+      "reference_risk_smooth": 16.74199976545596
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.1429053381227412,
+      "reference": 0.0,
+      "risk": 0.4589563030586561,
+      "smooth": 0.00010835076130177868,
+      "cash_reference": -0.1429053381227412,
+      "cash_reference_risk": 0.32204674470283834,
+      "combined": 0.3221060668982467,
+      "reference_risk_smooth": 0.458968070314107
+    },
+    "interaction": 0.005946751201030054,
+    "price": 19.05,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "TEN": {
+    "fv": {
+      "legacy": 68.14571623815321,
+      "cash": null,
+      "reference": 68.14571623815321,
+      "risk": 68.53301499811046,
+      "smooth": 68.16955420006202,
+      "cash_reference": null,
+      "cash_reference_risk": null,
+      "combined": null,
+      "reference_risk_smooth": 68.55976007819228
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": null,
+      "reference": 0.0,
+      "risk": 0.38729875995724683,
+      "smooth": 0.023837961908810712,
+      "cash_reference": null,
+      "cash_reference_risk": null,
+      "combined": null,
+      "reference_risk_smooth": 0.4140438400390707
+    },
+    "interaction": null,
+    "price": 52.09,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "continuation of board-set dividend is a forecast, not a contractual payment",
+      "joint sector scenario mapping required for one issuer-level cash policy; no marginal-sleeve payout summation",
+      "preferred/NCI allocation and distributions require separate reconciliation",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "CMDB": {
+    "fv": {
+      "legacy": 19.296738728195137,
+      "cash": 19.171559751874067,
+      "reference": 19.296738728195137,
+      "risk": 19.883240988909733,
+      "smooth": 19.29901165209726,
+      "cash_reference": 19.171559751874067,
+      "cash_reference_risk": 19.747787109780965,
+      "combined": 19.74244566986305,
+      "reference_risk_smooth": 19.875965335533024
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.12517897632107022,
+      "reference": 0.0,
+      "risk": 0.586502260714596,
+      "smooth": 0.0022729239021224146,
+      "cash_reference": -0.12517897632107022,
+      "cash_reference_risk": 0.45104838158582794,
+      "combined": 0.44570694166791114,
+      "reference_risk_smooth": 0.5792266073378869
+    },
+    "interaction": -0.017889266627737044,
+    "price": 23.91,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "current policy primary-source recheck incomplete",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "SBLK": {
+    "fv": {
+      "legacy": 28.20026997192204,
+      "cash": 27.8987279152871,
+      "reference": 28.20026997192204,
+      "risk": 28.727061895932493,
+      "smooth": 28.159896622339343,
+      "cash_reference": 27.8987279152871,
+      "cash_reference_risk": 28.422891252513946,
+      "combined": 28.372370175722423,
+      "reference_risk_smooth": 28.667410341688786
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.3015420566349398,
+      "reference": 0.0,
+      "risk": 0.5267919240104533,
+      "smooth": -0.04037334958269767,
+      "cash_reference": -0.3015420566349398,
+      "cash_reference_risk": 0.22262128059190545,
+      "combined": 0.17210020380038316,
+      "reference_risk_smooth": 0.4671403697667458
+    },
+    "interaction": -0.01277631399243262,
+    "price": 32.48,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "GNK": {
+    "fv": {
+      "legacy": 21.049961630823358,
+      "cash": 20.702587772070448,
+      "reference": 21.049961630823358,
+      "risk": 21.44995379846024,
+      "smooth": 21.05741666578799,
+      "cash_reference": 20.702587772070448,
+      "cash_reference_risk": 21.121983688030447,
+      "combined": 21.13060180444606,
+      "reference_risk_smooth": 21.461380374435297
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.3473738587529098,
+      "reference": 0.0,
+      "risk": 0.3999921676368814,
+      "smooth": 0.00745503496463229,
+      "cash_reference": -0.3473738587529098,
+      "cash_reference_risk": 0.07202205720708932,
+      "combined": 0.08064017362270093,
+      "reference_risk_smooth": 0.4114187436119394
+    },
+    "interaction": 0.020566829774097073,
+    "price": 27.96,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "CAPT": {
+    "fv": {
+      "legacy": 18.571206447711102,
+      "cash": 18.46711592659087,
+      "reference": 18.571206447711102,
+      "risk": 18.869759433159,
+      "smooth": 18.588701328691087,
+      "cash_reference": 18.46711592659087,
+      "cash_reference_risk": 18.774614690935476,
+      "combined": 18.79515260780501,
+      "reference_risk_smooth": 18.891898188811684
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.10409052112023076,
+      "reference": 0.0,
+      "risk": 0.2985529854478983,
+      "smooth": 0.017494880979985084,
+      "cash_reference": -0.10409052112023076,
+      "cash_reference_risk": 0.20340824322437356,
+      "combined": 0.22394616009390944,
+      "reference_risk_smooth": 0.32069174110058185
+    },
+    "interaction": 0.011988814786256796,
+    "price": 19.7,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "MPCC": {
+    "fv": {
+      "legacy": 2.161710515249731,
+      "cash": 2.123434486778044,
+      "reference": 2.161710515249731,
+      "risk": 2.230819926372038,
+      "smooth": 2.1458751362638653,
+      "cash_reference": 2.123434486778044,
+      "cash_reference_risk": 2.1926814092797375,
+      "combined": 2.1753860686429243,
+      "reference_risk_smooth": 2.212327602026286
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.038276028471686985,
+      "reference": 0.0,
+      "risk": 0.06910941112230695,
+      "smooth": -0.015835378985865844,
+      "cash_reference": -0.038276028471686985,
+      "cash_reference_risk": 0.030970894030006413,
+      "combined": 0.013675553393193152,
+      "reference_risk_smooth": 0.05061708677655474
+    },
+    "interaction": -0.001322450271560971,
+    "price": 3.03,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "current policy primary-source recheck incomplete",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "GSL": {
+    "fv": {
+      "legacy": 42.9399328262134,
+      "cash": 42.400418731859006,
+      "reference": 42.9399328262134,
+      "risk": 43.8135163995,
+      "smooth": 42.90278458012493,
+      "cash_reference": 42.400418731859006,
+      "cash_reference_risk": 43.248493804605324,
+      "combined": 43.20659577158706,
+      "reference_risk_smooth": 43.76952174874911
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.539514094354395,
+      "reference": 0.0,
+      "risk": 0.8735835732866022,
+      "smooth": -0.03714824608847067,
+      "cash_reference": -0.539514094354395,
+      "cash_reference_risk": 0.30856097839192387,
+      "combined": 0.2666629453736604,
+      "reference_risk_smooth": 0.8295889225357129
+    },
+    "interaction": -0.030258287470076084,
+    "price": 45.84,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "continuation of board-set dividend is a forecast, not a contractual payment",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "BRUT": {
+    "fv": {
+      "legacy": 5.5106129151171785,
+      "cash": 5.549559982235907,
+      "reference": 5.5106129151171785,
+      "risk": 5.636467613723165,
+      "smooth": 5.511313293293968,
+      "cash_reference": 5.549559982235907,
+      "cash_reference_risk": 5.678260093622743,
+      "combined": 5.679704914575336,
+      "reference_risk_smooth": 5.637624613846927
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": 0.03894706711872864,
+      "reference": 0.0,
+      "risk": 0.12585469860598675,
+      "smooth": 0.0007003781767895845,
+      "cash_reference": 0.03894706711872864,
+      "cash_reference_risk": 0.16764717850556465,
+      "combined": 0.1690919994581579,
+      "reference_risk_smooth": 0.12701169872974827
+    },
+    "interaction": 0.003589855556652921,
+    "price": 5.27,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "CMBT": {
+    "fv": {
+      "legacy": 10.75459240390151,
+      "cash": null,
+      "reference": 10.75459240390151,
+      "risk": 10.744011226979492,
+      "smooth": 10.745419747309066,
+      "cash_reference": null,
+      "cash_reference_risk": null,
+      "combined": null,
+      "reference_risk_smooth": 10.735008906332032
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": null,
+      "reference": 0.0,
+      "risk": -0.010581176922018543,
+      "smooth": -0.009172656592443929,
+      "cash_reference": null,
+      "cash_reference_risk": null,
+      "combined": null,
+      "reference_risk_smooth": -0.01958349756947797
+    },
+    "interaction": null,
+    "price": 20.29,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "joint sector scenario mapping required for one issuer-level cash policy; no marginal-sleeve payout summation",
+      "payout percentage is a discretionary forecast, not a binding formula",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "commitments have no mapped delivery schedule; remain outstanding, not assumed paid",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "SB": {
+    "fv": {
+      "legacy": 9.006965889067972,
+      "cash": 8.809108174236359,
+      "reference": 9.006965889067972,
+      "risk": 9.175356604295384,
+      "smooth": 8.973421408696629,
+      "cash_reference": 8.809108174236359,
+      "cash_reference_risk": 8.97267820358316,
+      "combined": 8.938636537265277,
+      "reference_risk_smooth": 9.133121852971327
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.1978577148316134,
+      "reference": 0.0,
+      "risk": 0.168390715227412,
+      "smooth": -0.03354448037134361,
+      "cash_reference": -0.1978577148316134,
+      "cash_reference_risk": -0.03428768548481287,
+      "combined": -0.06832935180269573,
+      "reference_risk_smooth": 0.12615596390335426
+    },
+    "interaction": -0.005317871827150711,
+    "price": 9.18,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "continuation of board-set dividend is a forecast, not a contractual payment",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "LPG": {
+    "fv": {
+      "legacy": 31.82418586803829,
+      "cash": 31.55867041627655,
+      "reference": 31.82418586803829,
+      "risk": 32.459064490675075,
+      "smooth": 31.817565080721337,
+      "cash_reference": 31.55867041627655,
+      "cash_reference_risk": 32.19397609776717,
+      "combined": 32.1918639482127,
+      "reference_risk_smooth": 32.45877960545618
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.26551545176173974,
+      "reference": 0.0,
+      "risk": 0.6348786226367871,
+      "smooth": -0.006620787316951038,
+      "cash_reference": -0.26551545176173974,
+      "cash_reference_risk": 0.3697902297288813,
+      "combined": 0.36767808017441084,
+      "reference_risk_smooth": 0.6345937374178909
+    },
+    "interaction": 0.004935696616314544,
+    "price": 58.15,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "payout percentage is a discretionary forecast, not a binding formula",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "BWLP": {
+    "fv": {
+      "legacy": 14.521631260511224,
+      "cash": 14.386754818829044,
+      "reference": 14.521631260511224,
+      "risk": 14.770999146190183,
+      "smooth": 14.52569442050676,
+      "cash_reference": 14.386754818829044,
+      "cash_reference_risk": 14.631674540064914,
+      "combined": 14.637577639445034,
+      "reference_risk_smooth": 14.777717523960332
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.13487644168218083,
+      "reference": 0.0,
+      "risk": 0.24936788567895896,
+      "smooth": 0.004063159995535415,
+      "cash_reference": -0.13487644168218083,
+      "cash_reference_risk": 0.11004327955368964,
+      "combined": 0.11594637893380977,
+      "reference_risk_smooth": 0.2560862634491077
+    },
+    "interaction": -0.002608225058503777,
+    "price": 25.91,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "issuer net leverage/NLTV differs from independent NAV fleet proxy; reconcile before adoption",
+      "preferred/NCI allocation and distributions require separate reconciliation",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  },
+  "2343": {
+    "fv": {
+      "legacy": 0.36992209243822116,
+      "cash": 0.3645513502019996,
+      "reference": 0.36992209243822116,
+      "risk": 0.3794236124159941,
+      "smooth": 0.3709248770933626,
+      "cash_reference": 0.3645513502019996,
+      "cash_reference_risk": 0.3745804255949241,
+      "combined": 0.3759245942797961,
+      "reference_risk_smooth": 0.3810146604822554
+    },
+    "delta": {
+      "legacy": 0.0,
+      "cash": -0.005370742236221582,
+      "reference": 0.0,
+      "risk": 0.009501519977772932,
+      "smooth": 0.00100278465514142,
+      "cash_reference": -0.005370742236221582,
+      "cash_reference_risk": 0.004658333156702943,
+      "combined": 0.006002501841574914,
+      "reference_risk_smooth": 0.011092568044034246
+    },
+    "interaction": 0.0008689394448821441,
+    "price": 0.53,
+    "blockers": [
+      "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+      "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+      "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+      "transportation beta proxy requires shipping-sector calibration",
+      "funding-cost and cash-risk conventions require owner review"
+    ],
+    "adoption": "DEFER pending owner review and material input closure"
+  }
+}

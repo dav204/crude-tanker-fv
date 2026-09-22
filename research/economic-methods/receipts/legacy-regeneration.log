@@ -1,0 +1,129 @@
+DHT: FV $15.26 -> /private/tmp/fv-economic-20260922/outputs/dht_fv_report.md
+  ! DHT spot TCE VLCC: $790,800/day is 19.8x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
+ECO: FV $39.87 -> /private/tmp/fv-economic-20260922/outputs/eco_fv_report.md
+  ! ECO spot TCE VLCC: $790,800/day is 19.8x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
+FRO: FV $26.71 -> /private/tmp/fv-economic-20260922/outputs/fro_fv_report.md
+  ! FRO spot TCE VLCC: $790,800/day is 19.8x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
+  ! FRO LR2 FFA forward curve is CONSTRUCTED (no market anchor) — built from the 12M TC + spot, not a Baltic / $MT / Worldscale series. Treat its dividend-strip contribution as indicative.
+INSW [CRUDE SLEEVE]: FV $37.95 -> /private/tmp/fv-economic-20260922/outputs/insw_fv_report.md
+  ! INSW spot TCE VLCC: $790,800/day is 19.8x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
+  ! INSW Aframax FFA forward curve is CONSTRUCTED (no market anchor) — built from the 12M TC + spot, not a Baltic / $MT / Worldscale series. Treat its dividend-strip contribution as indicative.
+TNK: FV $84.12 -> /private/tmp/fv-economic-20260922/outputs/tnk_fv_report.md
+  ! TNK Aframax FFA forward curve is CONSTRUCTED (no market anchor) — built from the 12M TC + spot, not a Baltic / $MT / Worldscale series. Treat its dividend-strip contribution as indicative.
+NAT: FV $2.95 -> /private/tmp/fv-economic-20260922/outputs/nat_fv_report.md
+FLNG: FV $27.01 -> /private/tmp/fv-economic-20260922/outputs/flng_fv_report.md
+CCEC: FV $29.97 -> /private/tmp/fv-economic-20260922/outputs/ccec_fv_report.md
+STNG: FV $72.66 -> /private/tmp/fv-economic-20260922/outputs/stng_fv_report.md
+  ! STNG LR2 FFA forward curve is CONSTRUCTED (no market anchor) — built from the 12M TC + spot, not a Baltic / $MT / Worldscale series. Treat its dividend-strip contribution as indicative.
+HAFN: FV $4.92 -> /private/tmp/fv-economic-20260922/outputs/hafn_fv_report.md
+  ! HAFN LR2 FFA forward curve is CONSTRUCTED (no market anchor) — built from the 12M TC + spot, not a Baltic / $MT / Worldscale series. Treat its dividend-strip contribution as indicative.
+TRMD: FV $32.62 -> /private/tmp/fv-economic-20260922/outputs/trmd_fv_report.md
+  ! TRMD LR2 FFA forward curve is CONSTRUCTED (no market anchor) — built from the 12M TC + spot, not a Baltic / $MT / Worldscale series. Treat its dividend-strip contribution as indicative.
+ASC: FV $17.26 -> /private/tmp/fv-economic-20260922/outputs/asc_fv_report.md
+TEN: FV $62.06 -> /private/tmp/fv-economic-20260922/outputs/ten_fv_report.md
+  ! TEN spot TCE VLCC: $790,800/day is 19.8x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
+  ! TEN Aframax/LR2 FFA forward curve is CONSTRUCTED (no market anchor) — built from the 12M TC + spot, not a Baltic / $MT / Worldscale series. Treat its dividend-strip contribution as indicative.
+CMDB: FV $21.97 -> /private/tmp/fv-economic-20260922/outputs/cmdb_fv_report.md
+SBLK: FV $32.81 -> /private/tmp/fv-economic-20260922/outputs/sblk_fv_report.md
+GNK: FV $25.23 -> /private/tmp/fv-economic-20260922/outputs/gnk_fv_report.md
+CAPT: FV $17.09 -> /private/tmp/fv-economic-20260922/outputs/capt_fv_report.md
+  ! CAPT spot TCE VLCC: $790,800/day is 19.8x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
+  ! CAPT Aframax/LR2 FFA forward curve is CONSTRUCTED (no market anchor) — built from the 12M TC + spot, not a Baltic / $MT / Worldscale series. Treat its dividend-strip contribution as indicative.
+MPCC: FV $2.33 -> /private/tmp/fv-economic-20260922/outputs/mpcc_fv_report.md
+GSL: FV $44.17 -> /private/tmp/fv-economic-20260922/outputs/gsl_fv_report.md
+BRUT: FV $4.71 -> /private/tmp/fv-economic-20260922/outputs/brut_fv_report.md
+  ! BRUT spot TCE VLCC: $790,800/day is 19.8x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
+CMBT: FV $13.04 -> /private/tmp/fv-economic-20260922/outputs/cmbt_fv_report.md
+  ! CMBT spot TCE VLCC: $790,800/day is 19.8x the 10-yr mean ($40,000) — unsustainable as a level. Confirm it is a genuine cycle spike (not a unit/source error) and do not anchor valuation to it.
+SB: FV $10.42 -> /private/tmp/fv-economic-20260922/outputs/sb_fv_report.md
+LPG: FV $33.93 -> /private/tmp/fv-economic-20260922/outputs/lpg_fv_report.md
+BWLP: FV $15.48 -> /private/tmp/fv-economic-20260922/outputs/bwlp_fv_report.md
+2343: FV $0.41 -> /private/tmp/fv-economic-20260922/outputs/2343_fv_report.md
+--- scenarios ---
+DHT: weighted FV $16.56 (EV -28.8% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/dht_scenarios.md
+ECO: weighted FV $44.15 (EV -48.0% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/eco_scenarios.md
+FRO: weighted FV $29.38 (EV -42.9% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/fro_scenarios.md
+INSW [WHOLE-CO: crude+product]: weighted FV $61.81 (EV -44.4% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/insw_scenarios.md
+TNK: weighted FV $87.59 (EV -13.2% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/tnk_scenarios.md
+NAT: weighted FV $3.24 (EV -60.8% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/nat_scenarios.md
+FLNG: weighted FV $29.47 (EV -9.1% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/flng_scenarios.md
+CCEC: weighted FV $33.70 (EV +55.6% -> BUY (undervalued)) -> /private/tmp/fv-economic-20260922/outputs/ccec_scenarios.md
+STNG: weighted FV $75.97 (EV -12.8% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/stng_scenarios.md
+HAFN: weighted FV $5.47 (EV -46.0% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/hafn_scenarios.md
+TRMD: weighted FV $35.14 (EV -8.1% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/trmd_scenarios.md
+ASC: weighted FV $16.28 (EV -14.5% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/asc_scenarios.md
+TEN: weighted FV $68.15 (EV +30.8% -> BUY (undervalued)) -> /private/tmp/fv-economic-20260922/outputs/ten_scenarios.md
+CMDB: weighted FV $19.30 (EV -19.3% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/cmdb_scenarios.md
+SBLK: weighted FV $28.20 (EV -13.2% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/sblk_scenarios.md
+GNK: weighted FV $21.05 (EV -24.7% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/gnk_scenarios.md
+CAPT: weighted FV $18.57 (EV -5.7% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/capt_scenarios.md
+MPCC: weighted FV $2.16 (EV -28.6% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/mpcc_scenarios.md
+GSL: weighted FV $42.94 (EV -6.3% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/gsl_scenarios.md
+BRUT: weighted FV $5.51 (EV +4.6% -> HOLD (fairly valued)) -> /private/tmp/fv-economic-20260922/outputs/brut_scenarios.md
+CMBT [WHOLE-CO: crude+dry_bulk+containerships]: weighted FV $10.75 (EV -47.0% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/cmbt_scenarios.md
+SB: weighted FV $9.01 (EV -1.9% -> HOLD (fairly valued)) -> /private/tmp/fv-economic-20260922/outputs/sb_scenarios.md
+LPG: weighted FV $31.82 (EV -45.3% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/lpg_scenarios.md
+BWLP: weighted FV $14.52 (EV -44.0% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/bwlp_scenarios.md
+⚡ READ-FLIP STROBE: 2 name(s) inside the ±2.0% deadband at the tape (CMDB -1.71%, GNK -1.54%) — read_flag could restate at the next vintage rebase; see the delta report
+2343: weighted FV $0.37 (EV -30.2% -> TRIM/SHORT (overvalued)) -> /private/tmp/fv-economic-20260922/outputs/2343_scenarios.md
+--- broker-NAV sweep ---
+DHT: EV tool -28.8% -> broker -20.8% (k_broker 1.12, spread +8pp, TRIM/SHORT->TRIM/SHORT)
+ECO: EV tool -48.0% -> broker -41.9% (k_broker 1.11, spread +6pp, TRIM/SHORT->TRIM/SHORT)
+FRO: EV tool -42.9% -> broker -30.5% (k_broker 1.19, spread +12pp, TRIM/SHORT->TRIM/SHORT)
+INSW: EV tool -44.4% -> broker -21.4% (k_broker 1.51, spread +23pp, TRIM/SHORT->TRIM/SHORT)
+TNK: EV tool -13.2% -> broker -2.0% (k_broker 1.25, spread +11pp, TRIM/SHORT->HOLD)
+NAT: EV tool -60.8% -> broker -2.7% (k_broker 2.41, spread +58pp, TRIM/SHORT->HOLD)
+FLNG: EV tool -9.1% -> broker -24.8% (k_broker 0.90, spread -16pp, TRIM/SHORT->TRIM/SHORT)
+CCEC: EV tool +55.6% -> broker +54.0% (k_broker 1.00, spread -2pp, BUY->BUY)
+STNG: EV tool -12.8% -> broker +18.5% (k_broker 1.49, spread +31pp, TRIM/SHORT->BUY)
+HAFN: EV tool -46.0% -> broker -14.9% (k_broker 1.53, spread +31pp, TRIM/SHORT->TRIM/SHORT)
+TRMD: EV tool -8.1% -> broker -2.7% (k_broker 1.06, spread +5pp, TRIM/SHORT->HOLD)
+ASC: EV tool -14.5% -> broker +13.3% (k_broker 1.34, spread +28pp, TRIM/SHORT->BUY)
+TEN: EV tool +30.8% -> broker +51.0% (k_broker 1.13, spread +20pp, BUY->BUY)
+CMDB: EV tool -19.3% -> broker -29.7% (k_broker 0.84, spread -10pp, TRIM/SHORT->TRIM/SHORT)
+SBLK: EV tool -13.2% -> broker -12.8% (k_broker 1.00, spread +0pp, TRIM/SHORT->TRIM/SHORT)
+GNK: EV tool -24.7% -> broker -19.9% (k_broker 1.06, spread +5pp, TRIM/SHORT->TRIM/SHORT)
+CAPT: EV tool -5.7% -> broker +18.4% (k_broker 1.16, spread +24pp, TRIM/SHORT->BUY)
+MPCC: EV tool -28.6% -> broker -12.2% (k_broker 1.19, spread +16pp, TRIM/SHORT->TRIM/SHORT)
+GSL: EV tool -6.3% -> broker +11.7% (k_broker 1.22, spread +18pp, TRIM/SHORT->BUY)
+BRUT: EV tool +4.6% -> broker -1.8% (k_broker 0.97, spread -6pp, HOLD->HOLD)
+CMBT: EV tool -47.0% -> broker -15.8% (k_broker 1.28, spread +31pp, TRIM/SHORT->TRIM/SHORT)
+SB: EV tool -1.9% -> broker -29.6% (k_broker 0.82, spread -28pp, HOLD->TRIM/SHORT)
+LPG: EV tool -45.3% -> broker -29.8% (k_broker 1.33, spread +15pp, TRIM/SHORT->TRIM/SHORT)
+BWLP: EV tool -44.0% -> broker -33.7% (k_broker 1.16, spread +10pp, TRIM/SHORT->TRIM/SHORT)
+2343: EV tool -30.2% -> broker -27.3% (k_broker 1.04, spread +3pp, TRIM/SHORT->TRIM/SHORT)
+broker-NAV sweep -> /private/tmp/fv-economic-20260922/outputs/broker_nav_sweep.md
+--- justified P/NAV diagnostic ---
+SB: P/NAV mkt 0.79x vs justified 1.36x [RONAV_norm 14.6%] cheap
+SBLK: P/NAV mkt 0.91x vs justified 1.10x [RONAV_norm 12.0%] cheap
+CAPT: P/NAV mkt 0.93x vs justified — [RONAV_norm 11.4%] newbuild-heavy (unreliable)
+GNK: P/NAV mkt 1.02x vs justified 1.12x [RONAV_norm 12.2%] cheap
+BRUT: P/NAV mkt 0.96x vs justified — [RONAV_norm 10.9%] newbuild-heavy (unreliable)
+CMDB: P/NAV mkt 0.72x vs justified 0.67x [RONAV_norm 7.7%] fair
+2343: P/NAV mkt 1.30x vs justified 1.09x [RONAV_norm 11.9%] rich
+TNK: P/NAV mkt 1.04x vs justified 0.59x [RONAV_norm 6.9%] rich
+DHT: P/NAV mkt 1.29x vs justified 0.81x [RONAV_norm 9.1%] rich
+FRO: P/NAV mkt 1.68x vs justified 0.85x [RONAV_norm 9.5%] rich
+ECO: P/NAV mkt 1.68x vs justified 0.57x [RONAV_norm 6.7%] rich
+NAT: P/NAV mkt 2.46x vs justified 1.23x [RONAV_norm 13.3%] rich
+INSW: P/NAV mkt 1.82x vs justified — [RONAV_norm n/a] no anchor
+FLNG: P/NAV mkt 1.15x vs justified — [RONAV_norm n/a] no anchor
+CCEC: P/NAV mkt 0.89x vs justified — [RONAV_norm n/a] no anchor
+STNG: P/NAV mkt 1.02x vs justified — [RONAV_norm n/a] no anchor
+HAFN: P/NAV mkt 1.79x vs justified — [RONAV_norm n/a] no anchor
+TRMD: P/NAV mkt 0.98x vs justified — [RONAV_norm n/a] no anchor
+ASC: P/NAV mkt 1.02x vs justified — [RONAV_norm n/a] no anchor
+TEN: P/NAV mkt 0.48x vs justified — [RONAV_norm n/a] no anchor
+MPCC: P/NAV mkt 1.35x vs justified — [RONAV_norm n/a] no anchor
+GSL: P/NAV mkt 0.94x vs justified — [RONAV_norm n/a] no anchor
+CMBT: P/NAV mkt 1.37x vs justified — [RONAV_norm n/a] no anchor
+LPG: P/NAV mkt 1.38x vs justified — [RONAV_norm n/a] no anchor
+BWLP: P/NAV mkt 1.53x vs justified — [RONAV_norm n/a] no anchor
+  median justified P/NAV [dry_bulk] = 1.10x
+  median justified P/NAV [crude] = 0.81x
+justified-P/NAV diagnostic -> /private/tmp/fv-economic-20260922/outputs/justified_pnav.md
+--- book-wide scorecard (Thread 4) — consolidated verdict + validation ---
+book scorecard [CONSOLIDATED verdict+matrix] (12/25 resale-uniform; 21/25 handoff-ready) -> /private/tmp/fv-economic-20260922/outputs/book_scorecard.md
+--- delta + decision log ---
+delta report (FIRST RUN — no prior snapshot) -> /private/tmp/fv-economic-20260922/outputs/delta_report.md
+decision logs updated: 25 files (decisions/*.md)

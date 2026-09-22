@@ -1,0 +1,2937 @@
+{
+ "2026-04-01": {
+  "curves": {
+   "cape": {
+    "apr": 26750,
+    "cal27": 24500,
+    "q2": 28208,
+    "q3": 27175
+   },
+   "pmax": {
+    "cal27": 14275
+   },
+   "smax": {
+    "cal27": 12400
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 1, 'smax': 1} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-01_Clipboard - 1 april 2026 08:54.png",
+  "status": "flagged"
+ },
+ "2026-04-02": {
+  "curves": {
+   "cape": {
+    "apr": 26250,
+    "cal27": 24675,
+    "q2": 28066,
+    "q3": 27500
+   },
+   "pmax": {
+    "apr": 17400,
+    "cal27": 14550,
+    "q2": 18400,
+    "q3": 18250
+   },
+   "smax": {
+    "apr": 14575,
+    "cal27": 12525,
+    "may": 15750,
+    "q2": 15400,
+    "q3": 15800
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 4, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-02_Clipboard - 2 april 2026 09:14.png",
+  "status": "flagged"
+ },
+ "2026-04-03": {
+  "status": "no_widget"
+ },
+ "2026-04-07": {
+  "curves": {
+   "cape": {
+    "apr": 26750,
+    "cal27": 24650,
+    "may": 29175,
+    "q2": 28408,
+    "q3": 27550
+   },
+   "pmax": {
+    "apr": 17375,
+    "cal27": 14525,
+    "may": 19075,
+    "q2": 18466,
+    "q3": 18250
+   },
+   "smax": {
+    "apr": 14700,
+    "cal27": 12575,
+    "may": 15850,
+    "q2": 15475,
+    "q3": 15800
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-07_Clipboard - 7 april 2026 10:09.png",
+  "status": "ok"
+ },
+ "2026-04-08": {
+  "curves": {
+   "cape": {
+    "cal27": 24925,
+    "may": 30075,
+    "q2": 29291,
+    "q3": 28375
+   },
+   "pmax": {
+    "apr": 17600,
+    "cal27": 14625,
+    "may": 19350,
+    "q2": 18700,
+    "q3": 18475
+   },
+   "smax": {
+    "apr": 15250,
+    "cal27": 12725,
+    "may": 16450,
+    "q2": 16075,
+    "q3": 16300
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-08_Clipboard - 8 april 2026 08:57.png",
+  "status": "flagged"
+ },
+ "2026-04-09": {
+  "curves": {
+   "cape": {
+    "apr": 27300,
+    "cal27": 24875,
+    "may": 29425,
+    "q2": 28800,
+    "q3": 28250
+   },
+   "pmax": {
+    "apr": 17175,
+    "cal27": 14625,
+    "may": 19000,
+    "q2": 18400,
+    "q3": 18525
+   },
+   "smax": {
+    "apr": 15350,
+    "cal27": 12800,
+    "may": 16800,
+    "q2": 16291,
+    "q3": 16250
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-09_Clipboard - 9 april 2026 09:28.png",
+  "status": "ok"
+ },
+ "2026-04-10": {
+  "curves": {
+   "cape": {
+    "cal27": 24925,
+    "may": 30250,
+    "q2": 29625,
+    "q3": 28775
+   },
+   "pmax": {
+    "apr": 17100,
+    "cal27": 14675,
+    "may": 18950,
+    "q2": 18383,
+    "q3": 18375
+   },
+   "smax": {
+    "apr": 15500,
+    "cal27": 12750,
+    "may": 16900,
+    "q2": 16441,
+    "q3": 16275
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-10_Clipboard - 10 april 2026 10:31.png",
+  "status": "flagged"
+ },
+ "2026-04-13": {
+  "curves": {
+   "cape": {
+    "apr": 28100,
+    "cal27": 25150,
+    "may": 30475,
+    "q2": 29925,
+    "q3": 29000
+   },
+   "pmax": {
+    "apr": 17200,
+    "cal27": 14625,
+    "may": 18925,
+    "q2": 18408,
+    "q3": 18400
+   },
+   "smax": {
+    "apr": 15300,
+    "cal27": 12900,
+    "may": 16625,
+    "q2": 16208,
+    "q3": 16350
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-13_Clipboard - 13 april 2026 08:39.png",
+  "status": "ok"
+ },
+ "2026-04-14": {
+  "curves": {
+   "cape": {
+    "apr": 29300,
+    "cal27": 25625,
+    "may": 32625,
+    "q2": 31558,
+    "q3": 30625
+   },
+   "pmax": {
+    "apr": 17400,
+    "cal27": 14750,
+    "may": 19325,
+    "q2": 18700,
+    "q3": 18700
+   },
+   "smax": {
+    "cal27": 12950,
+    "may": 17225,
+    "q2": 16633,
+    "q3": 16400
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 5, 'pmax': 5, 'smax': 4} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-14_Clipboard - 14 april 2026 08:49.png",
+  "status": "flagged"
+ },
+ "2026-04-15": {
+  "curves": {
+   "cape": {
+    "apr": 30625,
+    "cal27": 25925,
+    "may": 34375,
+    "q2": 33125,
+    "q3": 31425
+   },
+   "pmax": {
+    "apr": 17850,
+    "cal27": 14950,
+    "may": 19825,
+    "q2": 19225,
+    "q3": 19000
+   },
+   "smax": {
+    "apr": 15600,
+    "cal27": 13125,
+    "may": 17525,
+    "q2": 16800,
+    "q3": 16650
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-15_Clipboard - 15 april 2026 10:21.png",
+  "status": "ok"
+ },
+ "2026-04-16": {
+  "curves": {
+   "cape": {
+    "apr": 30000,
+    "cal27": 25750,
+    "may": 33200,
+    "q2": 32091,
+    "q3": 30650
+   },
+   "pmax": {
+    "apr": 17375,
+    "cal27": 14800,
+    "may": 19150,
+    "q2": 18608,
+    "q3": 18700
+   },
+   "smax": {
+    "apr": 15225,
+    "cal27": 12925,
+    "may": 16950,
+    "q2": 16416,
+    "q3": 16350
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-16_Clipboard - 16 april 2026 09:01.png",
+  "status": "ok"
+ },
+ "2026-04-17": {
+  "curves": {
+   "cape": {
+    "apr": 30825,
+    "cal27": 25775,
+    "may": 34250,
+    "q2": 32900,
+    "q3": 31125
+   },
+   "pmax": {
+    "apr": 17325,
+    "cal27": 14750,
+    "may": 19075,
+    "q2": 18583,
+    "q3": 18525
+   },
+   "smax": {
+    "apr": 15300,
+    "cal27": 12900,
+    "may": 16800,
+    "q2": 16300,
+    "q3": 16025
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-17_Clipboard - 17 april 2026 09:55.png",
+  "status": "ok"
+ },
+ "2026-04-20": {
+  "curves": {
+   "cape": {
+    "apr": 31750,
+    "cal27": 25875,
+    "may": 34050,
+    "q2": 33016,
+    "q3": 31000
+   },
+   "pmax": {
+    "apr": 17375,
+    "cal27": 14875,
+    "may": 18900,
+    "q2": 18516,
+    "q3": 18625
+   },
+   "smax": {
+    "apr": 15600,
+    "cal27": 12975,
+    "may": 17125,
+    "q2": 16616,
+    "q3": 16200
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-20_Clipboard - 20 april 2026 08:56.png",
+  "status": "ok"
+ },
+ "2026-04-21": {
+  "curves": {
+   "cape": {
+    "apr": 31500,
+    "cal27": 25825,
+    "may": 34225,
+    "q2": 33033,
+    "q3": 31025
+   },
+   "pmax": {
+    "apr": 17300,
+    "cal27": 14825,
+    "may": 18825,
+    "q2": 18441,
+    "q3": 18575
+   },
+   "smax": {
+    "apr": 15400,
+    "cal27": 13000,
+    "may": 17000,
+    "q2": 16475,
+    "q3": 16175
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-21_Clipboard - 21 april 2026 09:53.png",
+  "status": "ok"
+ },
+ "2026-04-22": {
+  "curves": {
+   "cape": {
+    "apr": 31800,
+    "cal27": 25800,
+    "may": 34375,
+    "q2": 33225,
+    "q3": 30975
+   },
+   "pmax": {
+    "apr": 17325,
+    "cal27": 14925,
+    "may": 19425,
+    "q2": 18775,
+    "q3": 18775
+   },
+   "smax": {
+    "apr": 15575,
+    "cal27": 13125,
+    "may": 18300,
+    "q3": 17050
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 5, 'pmax': 5, 'smax': 4} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-22_Clipboard - 22 april 2026 09:58.png",
+  "status": "flagged"
+ },
+ "2026-04-23": {
+  "curves": {
+   "cape": {
+    "apr": 31625,
+    "cal27": 25600,
+    "may": 33625,
+    "q2": 32750,
+    "q3": 30600
+   },
+   "pmax": {
+    "apr": 17375,
+    "cal27": 14825,
+    "may": 19350,
+    "q2": 18783,
+    "q3": 18775
+   },
+   "smax": {
+    "apr": 15750,
+    "cal27": 13175,
+    "may": 18400,
+    "q2": 17441,
+    "q3": 17075
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-23_Clipboard - 23 april 2026 09:21.png",
+  "status": "ok"
+ },
+ "2026-04-24": {
+  "status": "no_widget"
+ },
+ "2026-04-27": {
+  "curves": {
+   "cape": {
+    "apr": 31750,
+    "cal27": 25475,
+    "may": 32825,
+    "q2": 32275,
+    "q3": 29750
+   },
+   "pmax": {
+    "apr": 17350,
+    "cal27": 14675,
+    "may": 18925,
+    "q2": 18525,
+    "q3": 18525
+   },
+   "smax": {
+    "apr": 15650,
+    "cal27": 13025,
+    "may": 17750,
+    "q2": 17033,
+    "q3": 16650
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-27_Clipboard - 27 april 2026 13:34.png",
+  "status": "ok"
+ },
+ "2026-04-28": {
+  "curves": {
+   "cape": {
+    "apr": 31800,
+    "cal27": 25875,
+    "may": 34875,
+    "q2": 33366,
+    "q3": 30500
+   },
+   "pmax": {
+    "apr": 17425,
+    "cal27": 14800,
+    "may": 19250,
+    "q2": 18750,
+    "q3": 18800
+   },
+   "smax": {
+    "apr": 15650,
+    "cal27": 13000,
+    "q2": 16908,
+    "q3": 16750
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 5, 'pmax': 5, 'smax': 4} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-28_Clipboard - 28 april 2026 09:33.png",
+  "status": "flagged"
+ },
+ "2026-04-29": {
+  "curves": {
+   "cape": {
+    "cal27": 25650,
+    "may": 34925,
+    "q2": 33250,
+    "q3": 30025
+   },
+   "pmax": {
+    "apr": 17425,
+    "cal27": 14700,
+    "may": 19200,
+    "q2": 18783,
+    "q3": 18650
+   },
+   "smax": {
+    "apr": 15675,
+    "cal27": 12900,
+    "may": 17125,
+    "q2": 16633,
+    "q3": 16425
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/04/2026-04-29_Clipboard - 29 april 2026 09:00.png",
+  "status": "flagged"
+ },
+ "2026-04-30": {
+  "status": "no_widget"
+ },
+ "2026-05-01": {
+  "curves": {
+   "cape": {
+    "cal27": 25700,
+    "jun": 34375,
+    "may": 36875,
+    "q3": 30616,
+    "q4": 30400
+   },
+   "pmax": {
+    "cal27": 14775,
+    "jun": 19900,
+    "may": 19650,
+    "q3": 19225,
+    "q4": 17500
+   },
+   "smax": {
+    "cal27": 12925,
+    "jun": 17725,
+    "may": 17450,
+    "q3": 17100,
+    "q4": 15650
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-01_Clipboard - 1 mei 2026 16:23.png",
+  "status": "ok"
+ },
+ "2026-05-04": {
+  "curves": {
+   "cape": {
+    "cal27": 25700,
+    "jun": 34500,
+    "may": 36875,
+    "q3": 30666,
+    "q4": 30400
+   },
+   "pmax": {
+    "cal27": 14775,
+    "jun": 19900,
+    "may": 19650,
+    "q3": 19225,
+    "q4": 17500
+   },
+   "smax": {
+    "cal27": 12925,
+    "jun": 17700,
+    "may": 17400,
+    "q3": 17100,
+    "q4": 15650
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-04_Clipboard - 4 mei 2026 11:23.png",
+  "status": "ok"
+ },
+ "2026-05-05": {
+  "curves": {
+   "cape": {
+    "cal27": 25875,
+    "jun": 35000,
+    "may": 37500,
+    "q3": 31100,
+    "q4": 30750
+   },
+   "pmax": {
+    "cal27": 14850,
+    "jun": 20275,
+    "may": 19800,
+    "q4": 17650
+   },
+   "smax": {
+    "cal27": 12975,
+    "jun": 17900,
+    "may": 17600,
+    "q3": 17075,
+    "q4": 15650
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 5, 'pmax': 4, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-05_Clipboard - 5 mei 2026 09:14.png",
+  "status": "flagged"
+ },
+ "2026-05-06": {
+  "curves": {
+   "cape": {
+    "cal27": 26400,
+    "may": 40250,
+    "q3": 31991,
+    "q4": 31250
+   },
+   "pmax": {
+    "cal27": 15025,
+    "jun": 21500,
+    "may": 20625,
+    "q3": 20166,
+    "q4": 18125
+   },
+   "smax": {
+    "cal27": 13175,
+    "jun": 18500,
+    "q4": 16100
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 3} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-06_Clipboard - 6 mei 2026 08:52.png",
+  "status": "flagged"
+ },
+ "2026-05-07": {
+  "curves": {
+   "cape": {
+    "cal27": 26100,
+    "jun": 35375,
+    "may": 39325,
+    "q3": 31425,
+    "q4": 31050
+   },
+   "pmax": {
+    "cal27": 14900,
+    "jun": 20900,
+    "may": 20250,
+    "q3": 19858,
+    "q4": 17950
+   },
+   "smax": {
+    "cal27": 13175,
+    "jun": 18450,
+    "may": 17850,
+    "q3": 17708,
+    "q4": 15950
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-07_Clipboard - 7 mei 2026 08:29.png",
+  "status": "ok"
+ },
+ "2026-05-08": {
+  "curves": {
+   "cape": {
+    "cal27": 25925,
+    "jun": 34700,
+    "may": 36600,
+    "q3": 31375,
+    "q4": 30950
+   },
+   "pmax": {
+    "cal27": 15050,
+    "jun": 21100,
+    "may": 20600,
+    "q3": 19850,
+    "q4": 17975
+   },
+   "smax": {
+    "cal27": 13325,
+    "jun": 18375,
+    "may": 17775,
+    "q3": 17766,
+    "q4": 16000
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-08_Clipboard - 8 mei 2026 10:49.png",
+  "status": "ok"
+ },
+ "2026-05-11": {
+  "curves": {
+   "cape": {
+    "cal27": 26075,
+    "jun": 34625,
+    "may": 38500,
+    "q3": 31341,
+    "q4": 30750
+   },
+   "pmax": {
+    "cal27": 15000,
+    "jun": 21150,
+    "may": 20700,
+    "q3": 19958,
+    "q4": 17950
+   },
+   "smax": {
+    "cal27": 13300,
+    "jun": 18125,
+    "may": 17625,
+    "q3": 17650,
+    "q4": 15900
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-11_Clipboard - 11 mei 2026 08:57.png",
+  "status": "ok"
+ },
+ "2026-05-12": {
+  "curves": {
+   "cape": {
+    "cal27": 26350,
+    "jun": 36125,
+    "may": 40000,
+    "q3": 32050,
+    "q4": 31275
+   },
+   "pmax": {
+    "cal27": 15350,
+    "jun": 22525,
+    "may": 21600,
+    "q3": 20850,
+    "q4": 18650
+   },
+   "smax": {
+    "cal27": 13450,
+    "jun": 18950,
+    "may": 18200,
+    "q3": 18350,
+    "q4": 16300
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-12_Clipboard - 12 mei 2026 09:21.png",
+  "status": "ok"
+ },
+ "2026-05-13": {
+  "curves": {
+   "cape": {
+    "cal27": 26950,
+    "jun": 39250,
+    "may": 43125,
+    "q3": 34058,
+    "q4": 32600
+   },
+   "pmax": {
+    "cal27": 15675,
+    "jun": 23425,
+    "may": 22050,
+    "q3": 21683,
+    "q4": 19225
+   },
+   "smax": {
+    "cal27": 13750,
+    "jun": 19750,
+    "may": 18175,
+    "q3": 18950,
+    "q4": 16875
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-13_Clipboard - 13 mei 2026 08:41.png",
+  "status": "ok"
+ },
+ "2026-05-14": {
+  "status": "no_widget"
+ },
+ "2026-05-15": {
+  "curves": {
+   "cape": {
+    "cal27": 26650,
+    "jun": 37325,
+    "may": 41625,
+    "q3": 32841,
+    "q4": 31700
+   },
+   "pmax": {
+    "cal27": 15325,
+    "jun": 21625,
+    "may": 21475,
+    "q3": 20433,
+    "q4": 18550
+   },
+   "smax": {
+    "cal27": 13475,
+    "jun": 18900,
+    "may": 17750,
+    "q3": 18275,
+    "q4": 16475
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-15_Clipboard - 15 mei 2026 08:53.png",
+  "status": "ok"
+ },
+ "2026-05-18": {
+  "curves": {
+   "cape": {
+    "cal27": 26850,
+    "jun": 38475,
+    "may": 42375,
+    "q3": 33550,
+    "q4": 32075
+   },
+   "pmax": {
+    "cal27": 15450,
+    "jun": 21450,
+    "may": 21475,
+    "q3": 20350,
+    "q4": 18500
+   },
+   "smax": {
+    "cal27": 13450,
+    "jun": 18200,
+    "may": 17550,
+    "q3": 17733,
+    "q4": 16300
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-18_Clipboard - 18 mei 2026 09:38.png",
+  "status": "ok"
+ },
+ "2026-05-19": {
+  "curves": {
+   "cape": {
+    "cal27": 26725,
+    "jun": 38250,
+    "may": 41750,
+    "q3": 33383,
+    "q4": 32100
+   },
+   "pmax": {
+    "cal27": 15500,
+    "jun": 21250,
+    "may": 21300,
+    "q3": 20375,
+    "q4": 18700
+   },
+   "smax": {
+    "cal27": 13450,
+    "jun": 18500,
+    "may": 17650,
+    "q3": 17825,
+    "q4": 16350
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-19_Clipboard - 19 mei 2026 09:42.png",
+  "status": "ok"
+ },
+ "2026-05-20": {
+  "curves": {
+   "cape": {
+    "cal27": 26800,
+    "jun": 37875,
+    "may": 41250,
+    "q3": 33125,
+    "q4": 31925
+   },
+   "pmax": {
+    "cal27": 15250,
+    "jun": 20125,
+    "may": 20625,
+    "q4": 18325
+   },
+   "smax": {
+    "cal27": 13350,
+    "jun": 17125,
+    "may": 17500,
+    "q3": 17125,
+    "q4": 15800
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 5, 'pmax': 4, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-20_Clipboard - 20 mei 2026 09:08.png",
+  "status": "flagged"
+ },
+ "2026-05-21": {
+  "curves": {
+   "cape": {
+    "cal27": 26250,
+    "jun": 36125,
+    "may": 40875,
+    "q3": 32033,
+    "q4": 31425
+   },
+   "pmax": {
+    "cal27": 15025,
+    "jun": 19600,
+    "may": 20600,
+    "q3": 19183,
+    "q4": 18175
+   },
+   "smax": {
+    "cal27": 13225,
+    "jun": 16800,
+    "may": 17325,
+    "q3": 16800,
+    "q4": 15650
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-21_Clipboard - 21 mei 2026 08:51.png",
+  "status": "ok"
+ },
+ "2026-05-22": {
+  "curves": {
+   "cape": {
+    "cal27": 26800,
+    "jun": 38475,
+    "may": 41775,
+    "q3": 33208,
+    "q4": 32225
+   },
+   "pmax": {
+    "cal27": 15375,
+    "jun": 20550,
+    "may": 20650,
+    "q3": 20000,
+    "q4": 18500
+   },
+   "smax": {
+    "cal27": 13325,
+    "jun": 18050,
+    "may": 17625,
+    "q3": 17708,
+    "q4": 16500
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-22_Clipboard - 22 mei 2026 13:59.png",
+  "status": "ok"
+ },
+ "2026-05-25": {
+  "curves": {
+   "cape": {
+    "cal27": 26875,
+    "jun": 39250,
+    "may": 42000,
+    "q3": 33625,
+    "q4": 32500
+   },
+   "pmax": {
+    "cal27": 15425,
+    "jun": 21200,
+    "may": 20975,
+    "q3": 20200,
+    "q4": 19225
+   },
+   "smax": {
+    "cal27": 13325,
+    "jun": 18150,
+    "may": 17650,
+    "q3": 17775,
+    "q4": 16600
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-25_Clipboard - 25 mei 2026 19:18.png",
+  "status": "ok"
+ },
+ "2026-05-26": {
+  "curves": {
+   "cape": {
+    "cal27": 26600,
+    "jun": 39625,
+    "may": 42500,
+    "q4": 32125
+   },
+   "pmax": {
+    "cal27": 15500,
+    "jun": 21550,
+    "may": 21075,
+    "q3": 20933
+   },
+   "smax": {
+    "cal27": 13400,
+    "jun": 18300,
+    "may": 17800,
+    "q3": 17875,
+    "q4": 16625
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 4, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-26_Clipboard - 26 mei 2026 09:23.png",
+  "status": "flagged"
+ },
+ "2026-05-27": {
+  "status": "no_widget"
+ },
+ "2026-05-28": {
+  "curves": {
+   "cape": {
+    "cal27": 26775,
+    "may": 42575,
+    "q3": 33166,
+    "q4": 31925
+   },
+   "pmax": {
+    "cal27": 15550,
+    "jun": 22200,
+    "may": 20775,
+    "q3": 21316,
+    "q4": 19350
+   },
+   "smax": {
+    "cal27": 13400,
+    "jun": 18750,
+    "may": 17550,
+    "q3": 18408,
+    "q4": 17075
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-28_Clipboard - 28 mei 2026 14:25.png",
+  "status": "flagged"
+ },
+ "2026-05-29": {
+  "curves": {
+   "cape": {
+    "cal27": 26650,
+    "jun": 40875,
+    "may": 42350,
+    "q3": 32983,
+    "q4": 31825
+   },
+   "pmax": {
+    "cal27": 15550,
+    "jun": 22250,
+    "may": 20775,
+    "q3": 21283,
+    "q4": 19500
+   },
+   "smax": {
+    "cal27": 13500,
+    "jun": 18775,
+    "may": 17550,
+    "q3": 18400,
+    "q4": 17000
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/05/2026-05-29_Clipboard - 29 mei 2026 08:39.png",
+  "status": "ok"
+ },
+ "2026-06-01": {
+  "curves": {
+   "cape": {
+    "cal27": 26600,
+    "q3": 32391,
+    "q4": 31450
+   },
+   "pmax": {
+    "cal27": 15450,
+    "jun": 21400,
+    "q3": 20841,
+    "q4": 19125
+   },
+   "smax": {
+    "cal27": 13500,
+    "jun": 18150,
+    "q3": 18016,
+    "q4": 16900
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 3, 'pmax': 4, 'smax': 4} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-01_Clipboard - 1 juni 2026 08:38.png",
+  "status": "flagged"
+ },
+ "2026-06-02": {
+  "curves": {
+   "cape": {
+    "cal27": 26775,
+    "jun": 40200,
+    "q3": 32741,
+    "q4": 31650
+   },
+   "pmax": {
+    "cal27": 15550,
+    "jun": 21350,
+    "q3": 20891,
+    "q4": 19325
+   },
+   "smax": {
+    "cal27": 13550,
+    "jun": 18350,
+    "q3": 18150,
+    "q4": 17000
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 4, 'smax': 4} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-02_Clipboard - 2 juni 2026 09:20.png",
+  "status": "flagged"
+ },
+ "2026-06-03": {
+  "curves": {
+   "cape": {
+    "cal27": 26575,
+    "jul": 33375,
+    "jun": 39650,
+    "q3": 31866,
+    "q4": 31125
+   },
+   "pmax": {
+    "cal27": 15500,
+    "jul": 20675,
+    "jun": 20600,
+    "q3": 20300,
+    "q4": 19225
+   },
+   "smax": {
+    "cal27": 13550,
+    "jul": 18400,
+    "jun": 18050,
+    "q3": 18075,
+    "q4": 17100
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-03_Clipboard - 3 juni 2026 10:26.png",
+  "status": "ok"
+ },
+ "2026-06-04": {
+  "status": "no_widget"
+ },
+ "2026-06-05": {
+  "curves": {
+   "cape": {
+    "cal27": 26600,
+    "jul": 33025,
+    "jun": 39250,
+    "q3": 32175,
+    "q4": 31550
+   },
+   "pmax": {
+    "cal27": 15650,
+    "jul": 21450,
+    "jun": 21000,
+    "q3": 20775,
+    "q4": 19350
+   },
+   "smax": {
+    "cal27": 13587,
+    "jul": 19075,
+    "jun": 18350,
+    "q3": 18775,
+    "q4": 17375
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-05_Clipboard - 5 juni 2026 15:39.png",
+  "status": "ok"
+ },
+ "2026-06-08": {
+  "curves": {
+   "cape": {
+    "cal27": 26575,
+    "q4": 31425
+   },
+   "pmax": {
+    "cal27": 15625,
+    "q3": 21000,
+    "q4": 19550
+   },
+   "smax": {
+    "cal27": 13675,
+    "jul": 19150,
+    "jun": 18550,
+    "q3": 18858,
+    "q4": 17450
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 2, 'pmax': 3, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-08_Clipboard - 8 juni 2026 08:38.png",
+  "status": "flagged"
+ },
+ "2026-06-09": {
+  "curves": {
+   "cape": {
+    "cal27": 26300,
+    "jul": 30125,
+    "jun": 36425,
+    "q3": 30800,
+    "q4": 30850
+   },
+   "pmax": {
+    "cal27": 15500,
+    "jul": 20750,
+    "jun": 20500,
+    "q3": 20391,
+    "q4": 19350
+   },
+   "smax": {
+    "cal27": 13525,
+    "jul": 18800,
+    "jun": 18400,
+    "q3": 18700,
+    "q4": 17475
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-09_Clipboard - 9 juni 2026 08:50.png",
+  "status": "ok"
+ },
+ "2026-06-10": {
+  "curves": {
+   "cape": {
+    "cal27": 26500,
+    "jul": 31450,
+    "jun": 37075,
+    "q3": 31550,
+    "q4": 31700
+   },
+   "pmax": {
+    "cal27": 15650,
+    "jul": 21575,
+    "jun": 20925,
+    "q3": 21058,
+    "q4": 19750
+   },
+   "smax": {
+    "cal27": 13625,
+    "jul": 19650,
+    "jun": 18850,
+    "q3": 19241,
+    "q4": 17625
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-10_Clipboard - 10 juni 2026 08:45.png",
+  "status": "ok"
+ },
+ "2026-06-11": {
+  "curves": {
+   "cape": {
+    "cal27": 26550,
+    "jul": 31375,
+    "jun": 36875,
+    "q3": 31766,
+    "q4": 31875
+   },
+   "pmax": {
+    "cal27": 15775,
+    "jul": 22050,
+    "jun": 21075,
+    "q3": 21416,
+    "q4": 19825
+   },
+   "smax": {
+    "cal27": 13675,
+    "jul": 19900,
+    "jun": 19050,
+    "q3": 19358,
+    "q4": 17750
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-11_Clipboard - 11 juni 2026 08:17.png",
+  "status": "ok"
+ },
+ "2026-06-12": {
+  "status": "no_widget"
+ },
+ "2026-06-22": {
+  "curves": {
+   "cape": {
+    "cal27": 26800,
+    "jul": 29125,
+    "jun": 35950,
+    "q3": 30775,
+    "q4": 32375
+   },
+   "pmax": {
+    "cal27": 15550,
+    "jul": 18500,
+    "jun": 19550,
+    "q3": 18800,
+    "q4": 18300
+   },
+   "smax": {
+    "cal27": 13575,
+    "jul": 18425,
+    "jun": 18950,
+    "q3": 18150,
+    "q4": 17250
+   }
+  },
+  "issues": [
+   "pmax.jul: -16.1% vs previous curve (22050 -> 18500) exceeds \u00b110%",
+   "pmax.q3: -12.2% vs previous curve (21416 -> 18800) exceeds \u00b110%"
+  ],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-22_Clipboard - 22 juni 2026 11:47.png",
+  "status": "flagged"
+ },
+ "2026-06-23": {
+  "curves": {
+   "cape": {
+    "cal27": 26875,
+    "jul": 29375,
+    "jun": 35525,
+    "q3": 30966,
+    "q4": 32350
+   },
+   "pmax": {
+    "cal27": 15475,
+    "jul": 17900,
+    "jun": 19450,
+    "q3": 18300,
+    "q4": 17950
+   },
+   "smax": {
+    "cal27": 13450,
+    "jul": 17700,
+    "jun": 18850,
+    "q3": 17466,
+    "q4": 16650
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-23_Clipboard - 23 juni 2026 09:26.png",
+  "status": "ok"
+ },
+ "2026-06-24": {
+  "curves": {
+   "cape": {
+    "cal27": 27150,
+    "jul": 29875,
+    "jun": 35875,
+    "q3": 31325,
+    "q4": 32725
+   },
+   "pmax": {
+    "cal27": 15550,
+    "jul": 19125,
+    "jun": 19625,
+    "q3": 19175,
+    "q4": 18425
+   },
+   "smax": {
+    "cal27": 13600,
+    "jul": 18550,
+    "jun": 18850,
+    "q4": 17075
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 5, 'pmax': 5, 'smax': 4} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-24_Clipboard - 24 juni 2026 09:22.png",
+  "status": "flagged"
+ },
+ "2026-06-25": {
+  "curves": {
+   "cape": {
+    "cal27": 26950,
+    "jul": 27875,
+    "jun": 35625,
+    "q3": 29975,
+    "q4": 32050
+   },
+   "pmax": {
+    "cal27": 15550,
+    "jul": 19050,
+    "jun": 19625,
+    "q3": 19075,
+    "q4": 18275
+   },
+   "smax": {
+    "cal27": 13600,
+    "jul": 18075,
+    "jun": 18850,
+    "q3": 17625,
+    "q4": 16825
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-25_Clipboard - 25 juni 2026 09:55.png",
+  "status": "ok"
+ },
+ "2026-06-26": {
+  "curves": {
+   "cape": {
+    "cal27": 26725,
+    "jul": 27250,
+    "jun": 35625,
+    "q4": 31875
+   },
+   "pmax": {
+    "cal27": 15525,
+    "jul": 18825,
+    "jun": 19625,
+    "q4": 18100
+   },
+   "smax": {
+    "cal27": 13600,
+    "jul": 17775,
+    "jun": 18850
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 4, 'smax': 3} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/06/2026-06-26_Clipboard - 26 juni 2026 08:38.png",
+  "status": "flagged"
+ },
+ "2026-06-27": {
+  "status": "no_widget"
+ },
+ "2026-06-29": {
+  "status": "no_widget"
+ },
+ "2026-06-30": {
+  "status": "no_widget"
+ },
+ "2026-07-01": {
+  "curves": {
+   "cape": {
+    "aug": 31975,
+    "cal27": 27875,
+    "jul": 30500,
+    "q3": 32083,
+    "q4": 33450
+   },
+   "pmax": {
+    "aug": 19125,
+    "cal27": 15725,
+    "jul": 19625,
+    "q3": 19200,
+    "q4": 18125
+   },
+   "smax": {
+    "aug": 18925,
+    "cal27": 13900,
+    "jul": 19175,
+    "q3": 18816,
+    "q4": 17325
+   }
+  },
+  "issues": [
+   "cape.jul: +11.9% vs previous curve (27250 -> 30500) exceeds \u00b110%"
+  ],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-01_Clipboard - 1 juli 2026 11:07.png",
+  "status": "flagged"
+ },
+ "2026-07-02": {
+  "curves": {
+   "cape": {
+    "aug": 32425,
+    "cal27": 28000,
+    "jul": 30975,
+    "q3": 32508,
+    "q4": 33650
+   },
+   "pmax": {
+    "aug": 18850,
+    "cal27": 15700,
+    "jul": 19450,
+    "q3": 18983,
+    "q4": 18125
+   },
+   "smax": {
+    "aug": 18500,
+    "cal27": 13900,
+    "jul": 18975,
+    "q3": 18533,
+    "q4": 17300
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-02_Clipboard - 2 juli 2026 09:16.png",
+  "status": "ok"
+ },
+ "2026-07-03": {
+  "status": "no_widget"
+ },
+ "2026-07-06": {
+  "curves": {
+   "cape": {
+    "aug": 34075,
+    "cal27": 28375,
+    "jul": 33750,
+    "q3": 34275,
+    "q4": 34550
+   },
+   "pmax": {
+    "aug": 19150,
+    "cal27": 15800,
+    "jul": 19675,
+    "q3": 19283,
+    "q4": 18425
+   },
+   "smax": {
+    "aug": 18800,
+    "cal27": 14000,
+    "jul": 18975,
+    "q3": 18691,
+    "q4": 17475
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-06_Clipboard - 6 juli 2026 09:15.png",
+  "status": "ok"
+ },
+ "2026-07-07": {
+  "curves": {
+   "cape": {
+    "aug": 35500,
+    "cal27": 28700,
+    "jul": 36250,
+    "q3": 35833,
+    "q4": 35300
+   },
+   "pmax": {
+    "aug": 19725,
+    "cal27": 15925,
+    "jul": 20000,
+    "q4": 18900
+   },
+   "smax": {
+    "aug": 19000,
+    "cal27": 14100,
+    "jul": 19100,
+    "q4": 17750
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 5, 'pmax': 4, 'smax': 4} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-07_Clipboard - 7 juli 2026 09:20.png",
+  "status": "flagged"
+ },
+ "2026-07-08": {
+  "status": "no_widget"
+ },
+ "2026-07-09": {
+  "curves": {
+   "cape": {
+    "aug": 34375,
+    "cal27": 28650,
+    "q3": 35075,
+    "q4": 34975
+   },
+   "pmax": {
+    "aug": 19350,
+    "cal27": 16125,
+    "jul": 19875,
+    "q3": 19608,
+    "q4": 19000
+   },
+   "smax": {
+    "aug": 18775,
+    "cal27": 14075,
+    "jul": 19025,
+    "q3": 18800,
+    "q4": 17650
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-09_Clipboard - 9 juli 2026 11:35.png",
+  "status": "flagged"
+ },
+ "2026-07-10": {
+  "curves": {
+   "cape": {
+    "aug": 34675,
+    "cal27": 28700,
+    "jul": 36000,
+    "q3": 35491,
+    "q4": 35150
+   },
+   "pmax": {
+    "aug": 19300,
+    "cal27": 16150,
+    "jul": 19875,
+    "q3": 19608,
+    "q4": 19175
+   },
+   "smax": {
+    "aug": 18900,
+    "cal27": 14175,
+    "jul": 19125,
+    "q3": 18875,
+    "q4": 17900
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-10_Clipboard - 10 juli 2026 09:45.png",
+  "status": "ok"
+ },
+ "2026-07-13": {
+  "curves": {
+   "cape": {
+    "aug": 34625,
+    "cal27": 28600,
+    "jul": 36000,
+    "q3": 35416,
+    "q4": 35200
+   },
+   "pmax": {
+    "aug": 19450,
+    "cal27": 16200,
+    "jul": 20000,
+    "q3": 19716,
+    "q4": 19250
+   },
+   "smax": {
+    "aug": 18800,
+    "cal27": 14175,
+    "jul": 19050,
+    "q3": 18800,
+    "q4": 17875
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-13_Clipboard - 13 juli 2026 09:17.png",
+  "status": "ok"
+ },
+ "2026-07-14": {
+  "status": "no_widget"
+ },
+ "2026-07-15": {
+  "curves": {
+   "cape": {
+    "aug": 34625,
+    "cal27": 28725,
+    "jul": 36125,
+    "q3": 35550,
+    "q4": 35225
+   },
+   "pmax": {
+    "aug": 19600,
+    "cal27": 16500,
+    "jul": 20075,
+    "q3": 19816,
+    "q4": 19500
+   },
+   "smax": {
+    "aug": 18900,
+    "cal27": 14425,
+    "jul": 19250,
+    "q3": 19000,
+    "q4": 18125
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-15_Clipboard - 15 juli 2026 09:45.png",
+  "status": "ok"
+ },
+ "2026-07-16": {
+  "curves": {
+   "cape": {
+    "aug": 33825,
+    "cal27": 28600,
+    "jul": 35900,
+    "q3": 35033,
+    "q4": 34975
+   },
+   "pmax": {
+    "aug": 19900,
+    "cal27": 16500,
+    "jul": 20000,
+    "q3": 19983,
+    "q4": 19575
+   },
+   "smax": {
+    "aug": 18950,
+    "cal27": 14400,
+    "jul": 19375,
+    "q3": 19075,
+    "q4": 18175
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-16_Clipboard - 16 juli 2026 09:25.png",
+  "status": "ok"
+ },
+ "2026-07-17": {
+  "curves": {
+   "cape": {
+    "aug": 31700,
+    "cal27": 28300,
+    "jul": 34250,
+    "q3": 33358,
+    "q4": 34075
+   },
+   "pmax": {
+    "aug": 19100,
+    "cal27": 16550,
+    "jul": 20000,
+    "q3": 19558,
+    "q4": 19050
+   },
+   "smax": {
+    "aug": 19325,
+    "cal27": 14275,
+    "jul": 19400,
+    "q3": 19300,
+    "q4": 18250
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-17_Clipboard - 17 juli 2026 09:28.png",
+  "status": "ok"
+ },
+ "2026-07-18": {
+  "status": "no_widget"
+ },
+ "2026-07-20": {
+  "status": "no_widget"
+ },
+ "2026-07-21": {
+  "curves": {
+   "cape": {
+    "aug": 31875,
+    "jul": 34175,
+    "q4": 34675
+   },
+   "pmax": {
+    "aug": 18625,
+    "cal27": 16350,
+    "jul": 19825,
+    "q3": 19250,
+    "q4": 18900
+   },
+   "smax": {
+    "aug": 18800,
+    "jul": 19425,
+    "q4": 18075
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 3, 'pmax': 5, 'smax': 3} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-21_IMG_9197.jpg",
+  "status": "flagged"
+ },
+ "2026-07-22": {
+  "curves": {
+   "cape": {
+    "cal27": 28875,
+    "jul": 34675,
+    "q4": 35125
+   },
+   "pmax": {
+    "aug": 18550,
+    "cal27": 16375,
+    "jul": 19650,
+    "q3": 19141,
+    "q4": 18950
+   },
+   "smax": {
+    "aug": 18625,
+    "jul": 19450,
+    "q4": 16200
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 3, 'pmax': 5, 'smax': 3} (expect 5 tenors/panel)",
+   "smax.q4: -10.4% vs previous curve (18075 -> 16200) exceeds \u00b110%"
+  ],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-22_IMG_9220.jpg",
+  "status": "flagged"
+ },
+ "2026-07-23": {
+  "curves": {
+   "cape": {
+    "aug": 33875,
+    "cal27": 23950,
+    "jul": 35125,
+    "q4": 35500
+   },
+   "pmax": {
+    "aug": 18600,
+    "cal27": 16450,
+    "jul": 19600,
+    "q4": 19050
+   },
+   "smax": {
+    "aug": 138800,
+    "jul": 19450,
+    "q3": 19125,
+    "q4": 18300
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 4, 'smax': 4} (expect 5 tenors/panel)",
+   "smax: intra-curve spread 18300-138800 >3x \u2014 likely a digit-loss misread",
+   "cape.cal27: -17.1% vs previous curve (28875 -> 23950) exceeds \u00b110%",
+   "smax.aug: +645.2% vs previous curve (18625 -> 138800) exceeds \u00b110%",
+   "smax.q4: +13.0% vs previous curve (16200 -> 18300) exceeds \u00b110%"
+  ],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-23_IMG_9255.jpg",
+  "status": "flagged"
+ },
+ "2026-07-24": {
+  "curves": {
+   "cape": {
+    "aug": 33625,
+    "cal27": 29175,
+    "jul": 35175,
+    "q4": 35725
+   },
+   "pmax": {
+    "aug": 18625,
+    "cal27": 16425,
+    "jul": 19600,
+    "q4": 19100
+   },
+   "smax": {
+    "aug": 18725,
+    "jul": 19450,
+    "q3": 19108,
+    "q4": 16450
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 4, 'smax': 4} (expect 5 tenors/panel)",
+   "cape.cal27: +21.8% vs previous curve (23950 -> 29175) exceeds \u00b110%",
+   "smax.aug: -86.5% vs previous curve (138800 -> 18725) exceeds \u00b110%",
+   "smax.q4: -10.1% vs previous curve (18300 -> 16450) exceeds \u00b110%"
+  ],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-24_IMG_9272.jpg",
+  "status": "flagged"
+ },
+ "2026-07-26": {
+  "status": "no_widget"
+ },
+ "2026-07-27": {
+  "curves": {
+   "cape": {
+    "aug": 32375,
+    "cal27": 28800,
+    "jul": 34775,
+    "q3": 34025,
+    "q4": 35050
+   },
+   "pmax": {
+    "aug": 18350,
+    "cal27": 16450,
+    "jul": 19525,
+    "q3": 19025,
+    "q4": 19100
+   },
+   "smax": {
+    "aug": 18475,
+    "cal27": 14700,
+    "jul": 19400,
+    "q3": 18991,
+    "q4": 18375
+   }
+  },
+  "issues": [
+   "smax.q4: +11.7% vs previous curve (16450 -> 18375) exceeds \u00b110%"
+  ],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-27_Clipboard - 27 juli 2026 09:33.png",
+  "status": "flagged"
+ },
+ "2026-07-28": {
+  "curves": {
+   "cape": {
+    "aug": 32375,
+    "cal27": 28900,
+    "jul": 35050,
+    "q3": 34266
+   },
+   "pmax": {
+    "aug": 18500,
+    "cal27": 16450,
+    "jul": 19525,
+    "q3": 19158,
+    "q4": 19400
+   },
+   "smax": {
+    "aug": 18500,
+    "cal27": 14700,
+    "jul": 19400,
+    "q3": 19008,
+    "q4": 18400
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-28_Clipboard - 28 juli 2026 09:19.png",
+  "status": "flagged"
+ },
+ "2026-07-29": {
+  "curves": {
+   "cape": {
+    "aug": 32875,
+    "cal27": 29100,
+    "jul": 35125,
+    "q4": 35625
+   },
+   "pmax": {
+    "aug": 18750,
+    "cal27": 16475,
+    "jul": 19462,
+    "q3": 19320,
+    "q4": 19600
+   },
+   "smax": {
+    "aug": 18475,
+    "cal27": 14725,
+    "jul": 19400,
+    "q3": 19033
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 4} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-29_Clipboard - 29 juli 2026 09:51.png",
+  "status": "flagged"
+ },
+ "2026-07-30": {
+  "curves": {
+   "cape": {
+    "aug": 34425,
+    "cal27": 29300,
+    "jul": 35075,
+    "q3": 35500,
+    "q4": 36375
+   },
+   "pmax": {
+    "aug": 19075,
+    "cal27": 16625,
+    "jul": 19462,
+    "q3": 19529,
+    "q4": 19950
+   },
+   "smax": {
+    "aug": 18125,
+    "cal27": 14750,
+    "jul": 19400,
+    "q3": 18900,
+    "q4": 18500
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-30_Clipboard - 30 juli 2026 09:07.png",
+  "status": "ok"
+ },
+ "2026-07-31": {
+  "curves": {
+   "cape": {
+    "aug": 35700,
+    "cal27": 29475,
+    "jul": 35125,
+    "q3": 36133,
+    "q4": 37141
+   },
+   "pmax": {
+    "cal27": 16875,
+    "jul": 19450,
+    "q3": 19883,
+    "q4": 20408
+   },
+   "smax": {
+    "aug": 18525,
+    "cal27": 15025,
+    "jul": 19425,
+    "q3": 19183,
+    "q4": 18950
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 5, 'pmax': 4, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/07/2026-07-31_Clipboard - 31 juli 2026 12:20.png",
+  "status": "flagged"
+ },
+ "2026-08-03": {
+  "curves": {
+   "cape": {
+    "aug": 38200,
+    "q4": 37775,
+    "sep": 38875
+   },
+   "pmax": {
+    "aug": 20750,
+    "cal27": 17125,
+    "q4": 21108
+   },
+   "smax": {
+    "aug": 19400,
+    "q4": 19516,
+    "sep": 20600
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 3, 'pmax': 3, 'smax': 3} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-03_IMG_9480.jpg",
+  "status": "flagged"
+ },
+ "2026-08-04": {
+  "curves": {
+   "cape": {
+    "cal27": 29625,
+    "sep": 39050
+   },
+   "pmax": {
+    "aug": 20825,
+    "q4": 20791,
+    "sep": 21450
+   },
+   "smax": {
+    "aug": 19050,
+    "q4": 19283,
+    "sep": 20175
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 2, 'pmax': 3, 'smax': 3} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-04_IMG_9509.jpg",
+  "status": "flagged"
+ },
+ "2026-08-05": {
+  "curves": {
+   "cape": {
+    "aug": 40925,
+    "cal27": 30250,
+    "q4": 37925,
+    "sep": 39625
+   },
+   "pmax": {
+    "aug": 20900,
+    "cal27": 17150,
+    "q4": 20625,
+    "sep": 21525
+   },
+   "smax": {}
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 4, 'smax': 0} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-05_IMG_9544.jpg",
+  "status": "flagged"
+ },
+ "2026-08-06": {
+  "curves": {
+   "cape": {
+    "aug": 39875,
+    "cal27": 29900,
+    "q4": 37250
+   },
+   "pmax": {
+    "aug": 20325,
+    "cal27": 16975,
+    "q4": 20325,
+    "sep": 20675
+   },
+   "smax": {}
+  },
+  "issues": [
+   "incomplete grid {'cape': 3, 'pmax': 4, 'smax': 0} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-06_IMG_9577.jpg",
+  "status": "flagged"
+ },
+ "2026-08-07": {
+  "status": "no_widget"
+ },
+ "2026-08-10": {
+  "curves": {
+   "cape": {
+    "aug": 38750,
+    "cal27": 29700,
+    "q1": 25500,
+    "q4": 36941,
+    "sep": 37250
+   },
+   "pmax": {
+    "aug": 20700,
+    "cal27": 17125,
+    "q1": 16400,
+    "q4": 20725,
+    "sep": 21300
+   },
+   "smax": {
+    "aug": 18650,
+    "cal27": 15000,
+    "q1": 14200,
+    "q4": 19291,
+    "sep": 20125
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-10_Clipboard - 10 augustus 2026 09:32.png",
+  "status": "ok"
+ },
+ "2026-08-11": {
+  "curves": {
+   "cape": {
+    "aug": 39875,
+    "cal27": 29775,
+    "q1": 25675
+   },
+   "pmax": {
+    "aug": 20875,
+    "cal27": 17125,
+    "q1": 16400,
+    "q4": 20866,
+    "sep": 21150
+   },
+   "smax": {
+    "aug": 18600,
+    "cal27": 15000,
+    "q1": 14200,
+    "q4": 19300,
+    "sep": 19825
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 3, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-11_Clipboard - 11 augustus 2026 09:24.png",
+  "status": "flagged"
+ },
+ "2026-08-12": {
+  "curves": {
+   "cape": {
+    "aug": 38700,
+    "cal27": 29650,
+    "q1": 25500,
+    "q4": 37083,
+    "sep": 37500
+   },
+   "pmax": {
+    "aug": 20725,
+    "cal27": 17225,
+    "q1": 16500,
+    "q4": 20833,
+    "sep": 21150
+   },
+   "smax": {
+    "aug": 18700,
+    "cal27": 14925,
+    "q1": 14350,
+    "q4": 19525
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 5, 'pmax': 5, 'smax': 4} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-12_Clipboard - 12 augustus 2026 10:41.png",
+  "status": "flagged"
+ },
+ "2026-08-13": {
+  "curves": {
+   "cape": {
+    "aug": 39125,
+    "cal27": 29875,
+    "q1": 25750,
+    "q4": 37683,
+    "sep": 38200
+   },
+   "pmax": {
+    "aug": 20575,
+    "cal27": 17250,
+    "q1": 16525,
+    "q4": 20983,
+    "sep": 21250
+   },
+   "smax": {
+    "aug": 18650,
+    "cal27": 15000,
+    "q1": 14325,
+    "q4": 19633,
+    "sep": 19975
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-13_Clipboard - 13 augustus 2026 09:48.png",
+  "status": "ok"
+ },
+ "2026-08-14": {
+  "status": "no_widget"
+ },
+ "2026-08-15": {
+  "status": "no_widget"
+ },
+ "2026-08-17": {
+  "curves": {
+   "cape": {
+    "aug": 39550,
+    "cal27": 30925,
+    "q1": 26750,
+    "q4": 39091,
+    "sep": 40175
+   },
+   "pmax": {
+    "aug": 20200,
+    "cal27": 17450,
+    "q1": 16700,
+    "q4": 20950,
+    "sep": 20975
+   },
+   "smax": {
+    "aug": 18700,
+    "cal27": 15300,
+    "q1": 14700,
+    "q4": 19900,
+    "sep": 20200
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-17_Clipboard - 17 augustus 2026 09:15.png",
+  "status": "ok"
+ },
+ "2026-08-18": {
+  "curves": {
+   "cape": {
+    "aug": 38625,
+    "cal27": 30725,
+    "q1": 26675,
+    "q4": 38716
+   },
+   "pmax": {
+    "aug": 19900,
+    "cal27": 17450,
+    "q1": 16725,
+    "q4": 20858,
+    "sep": 20425
+   },
+   "smax": {
+    "aug": 18700,
+    "cal27": 15300,
+    "q1": 14700,
+    "q4": 19858,
+    "sep": 19750
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-18_Clipboard - 18 augustus 2026 10:01.png",
+  "status": "flagged"
+ },
+ "2026-08-19": {
+  "curves": {
+   "cape": {
+    "aug": 38575,
+    "cal27": 30800,
+    "q1": 26675,
+    "q4": 38875
+   },
+   "pmax": {
+    "aug": 19725,
+    "cal27": 17350,
+    "q1": 16675,
+    "q4": 20700,
+    "sep": 20275
+   },
+   "smax": {
+    "aug": 18650,
+    "cal27": 15275,
+    "q1": 14575,
+    "q4": 19683,
+    "sep": 19700
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-19_Clipboard - 19 augustus 2026 08:07.png",
+  "status": "flagged"
+ },
+ "2026-08-20": {
+  "curves": {
+   "cape": {
+    "aug": 38700,
+    "cal27": 31100,
+    "q1": 27125,
+    "q4": 39341,
+    "sep": 40025
+   },
+   "pmax": {
+    "aug": 19725,
+    "cal27": 17650,
+    "q1": 16950,
+    "q4": 21225,
+    "sep": 20725
+   },
+   "smax": {
+    "aug": 18700,
+    "cal27": 15400,
+    "q1": 14775,
+    "q4": 20066,
+    "sep": 20125
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-20_Clipboard - 20 augustus 2026 09:29.png",
+  "status": "ok"
+ },
+ "2026-08-21": {
+  "curves": {
+   "cape": {
+    "aug": 38950,
+    "q4": 40166,
+    "sep": 40675
+   },
+   "pmax": {
+    "aug": 19725,
+    "cal27": 17675,
+    "q1": 17150,
+    "q4": 21300,
+    "sep": 20825
+   },
+   "smax": {
+    "aug": 18625,
+    "cal27": 15550,
+    "q1": 14800,
+    "q4": 19983,
+    "sep": 20000
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 3, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-21_Clipboard - 21 augustus 2026 08:49.png",
+  "status": "flagged"
+ },
+ "2026-08-22": {
+  "status": "no_widget"
+ },
+ "2026-08-24": {
+  "curves": {
+   "cape": {
+    "aug": 39625,
+    "cal27": 32400,
+    "q1": 28725,
+    "q4": 42125,
+    "sep": 43000
+   },
+   "pmax": {
+    "aug": 19800,
+    "cal27": 17850,
+    "q1": 17375,
+    "q4": 21791,
+    "sep": 21325
+   },
+   "smax": {
+    "aug": 18625,
+    "cal27": 15700,
+    "q1": 15150,
+    "q4": 20275,
+    "sep": 20275
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-24_Clipboard - 24 augustus 2026 09:22.png",
+  "status": "ok"
+ },
+ "2026-08-25": {
+  "curves": {
+   "cape": {
+    "aug": 39450,
+    "cal27": 32625,
+    "q1": 28800,
+    "q4": 42125,
+    "sep": 42375
+   },
+   "pmax": {
+    "aug": 19750,
+    "cal27": 17775,
+    "q1": 17375,
+    "q4": 21550,
+    "sep": 20925
+   },
+   "smax": {
+    "aug": 18600,
+    "cal27": 15625,
+    "q1": 14950,
+    "sep": 19875
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 5, 'pmax': 5, 'smax': 4} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-25_Clipboard - 25 augustus 2026 09:36.png",
+  "status": "flagged"
+ },
+ "2026-08-26": {
+  "status": "no_widget"
+ },
+ "2026-08-27": {
+  "curves": {
+   "cape": {
+    "aug": 39625,
+    "cal27": 33000,
+    "q1": 29550,
+    "sep": 43500
+   },
+   "pmax": {
+    "aug": 19800,
+    "cal27": 17950,
+    "q1": 17900,
+    "sep": 21425
+   },
+   "smax": {
+    "aug": 18600,
+    "cal27": 16000,
+    "q1": 15650,
+    "q4": 20358,
+    "sep": 19875
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 4, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-27_Clipboard - 27 augustus 2026 08:50.png",
+  "status": "flagged"
+ },
+ "2026-08-28": {
+  "curves": {
+   "cape": {
+    "aug": 39900,
+    "q4": 43725,
+    "sep": 44750
+   },
+   "pmax": {
+    "aug": 19950,
+    "cal27": 18000,
+    "q1": 17875,
+    "q4": 22500,
+    "sep": 21800
+   },
+   "smax": {
+    "aug": 18550,
+    "cal27": 15900,
+    "q1": 15625,
+    "q4": 20191,
+    "sep": 19700
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 3, 'pmax': 5, 'smax': 5} (expect 5 tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-28_Clipboard - 28 augustus 2026 09:14.png",
+  "status": "flagged"
+ },
+ "2026-08-31": {
+  "curves": {
+   "cape": {
+    "cal27": 33300,
+    "q1": 30125,
+    "q4": 44475,
+    "sep": 45250
+   },
+   "pmax": {
+    "cal27": 18175,
+    "q1": 18200,
+    "q4": 22900,
+    "sep": 21900
+   },
+   "smax": {
+    "cal27": 16125,
+    "q1": 16000,
+    "q4": 20933,
+    "sep": 19875
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/08/2026-08-31_Clipboard - 31 augustus 2026 11:37.png",
+  "status": "ok"
+ },
+ "2026-09-01": {
+  "curves": {
+   "cape": {
+    "cal27": 33200,
+    "oct": 46000,
+    "q1": 29925,
+    "q4": 44125,
+    "sep": 45125
+   },
+   "pmax": {
+    "cal27": 18225,
+    "oct": 23800,
+    "q1": 18100,
+    "q4": 23083,
+    "sep": 22200
+   },
+   "smax": {
+    "cal27": 16150,
+    "oct": 21725,
+    "q1": 15900,
+    "q4": 20883,
+    "sep": 19775
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-01_Clipboard - 1 september 2026 09:42.png",
+  "status": "ok"
+ },
+ "2026-09-02": {
+  "curves": {
+   "cape": {
+    "cal27": 33875,
+    "oct": 48625,
+    "q1": 31175,
+    "q4": 46333
+   },
+   "pmax": {
+    "cal27": 18725,
+    "oct": 25500,
+    "q1": 18800,
+    "q4": 24316,
+    "sep": 23875
+   },
+   "smax": {
+    "cal27": 16487,
+    "oct": 22400,
+    "q1": 16300,
+    "q4": 21450,
+    "sep": 20250
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect {'cape': 5, 'pmax': 5, 'smax': 5} tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-02_Clipboard - 2 september 2026 08:34.png",
+  "status": "flagged"
+ },
+ "2026-09-03": {
+  "curves": {
+   "cape": {
+    "cal27": 34250,
+    "oct": 49575,
+    "q1": 31500,
+    "q4": 46733,
+    "sep": 49900
+   },
+   "pmax": {
+    "cal27": 18650,
+    "oct": 24875,
+    "q1": 18700,
+    "q4": 24000,
+    "sep": 23050
+   },
+   "smax": {
+    "cal27": 16650,
+    "oct": 22575,
+    "q1": 16600,
+    "q4": 21725,
+    "sep": 20100
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-03_Clipboard - 3 september 2026 08:08.png",
+  "status": "ok"
+ },
+ "2026-09-04": {
+  "curves": {
+   "cape": {
+    "cal27": 34050,
+    "oct": 49375,
+    "q1": 31625,
+    "q4": 46750
+   },
+   "pmax": {
+    "cal27": 18500,
+    "oct": 23925,
+    "q1": 18225,
+    "q4": 23008,
+    "sep": 22475
+   },
+   "smax": {
+    "cal27": 16500,
+    "oct": 22050,
+    "q1": 16075,
+    "q4": 21300,
+    "sep": 19700
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect {'cape': 5, 'pmax': 5, 'smax': 5} tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-04_Clipboard - 4 september 2026 09:10.png",
+  "status": "flagged"
+ },
+ "2026-09-07": {
+  "curves": {
+   "cape": {
+    "cal27": 34375,
+    "oct": 49625,
+    "q1": 31625,
+    "q4": 46791,
+    "sep": 52625
+   },
+   "pmax": {
+    "cal27": 18575,
+    "oct": 24125,
+    "q1": 18325,
+    "q4": 23125,
+    "sep": 22700
+   },
+   "smax": {
+    "cal27": 16500,
+    "oct": 22275,
+    "q1": 16450,
+    "q4": 21525,
+    "sep": 19725
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-07_Clipboard - 7 september 2026 09:37.png",
+  "status": "ok"
+ },
+ "2026-09-08": {
+  "curves": {
+   "cape": {
+    "cal27": 34250,
+    "oct": 49500,
+    "q1": 31625,
+    "q4": 46700,
+    "sep": 52625
+   },
+   "pmax": {
+    "cal27": 18625,
+    "oct": 23850,
+    "q1": 18375,
+    "q4": 23000,
+    "sep": 22375
+   },
+   "smax": {
+    "cal27": 16425,
+    "oct": 21800,
+    "q1": 16325,
+    "q4": 21233,
+    "sep": 19675
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-08_Clipboard - 8 september 2026 08:56.png",
+  "status": "ok"
+ },
+ "2026-09-09": {
+  "curves": {
+   "cape": {
+    "cal27": 34775,
+    "oct": 51750,
+    "q1": 32600,
+    "q4": 47916,
+    "sep": 54800
+   },
+   "pmax": {
+    "cal27": 18800,
+    "oct": 24125,
+    "q1": 18800,
+    "q4": 23341,
+    "sep": 22400
+   },
+   "smax": {
+    "cal27": 16625,
+    "oct": 22400,
+    "q1": 16650,
+    "q4": 21675,
+    "sep": 19875
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-09_Clipboard - 9 september 2026 09:02.png",
+  "status": "ok"
+ },
+ "2026-09-10": {
+  "curves": {
+   "cape": {
+    "cal27": 34100,
+    "oct": 48875,
+    "q4": 45875,
+    "sep": 52125
+   },
+   "pmax": {
+    "cal27": 18700,
+    "oct": 23800,
+    "q1": 18625,
+    "q4": 22983,
+    "sep": 22125
+   },
+   "smax": {
+    "cal27": 16575,
+    "oct": 22050,
+    "q1": 16525,
+    "q4": 21300,
+    "sep": 19800
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect {'cape': 5, 'pmax': 5, 'smax': 5} tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-10_Clipboard - 10 september 2026 09:33.png",
+  "status": "flagged"
+ },
+ "2026-09-11": {
+  "curves": {
+   "cape": {
+    "cal27": 33875,
+    "oct": 47875,
+    "q1": 30975,
+    "q4": 45375,
+    "sep": 51100
+   },
+   "pmax": {
+    "cal27": 18600,
+    "oct": 23350,
+    "q1": 18400,
+    "q4": 22741,
+    "sep": 22050
+   },
+   "smax": {
+    "cal27": 16350,
+    "oct": 21350,
+    "q1": 16275,
+    "q4": 20891,
+    "sep": 19750
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-11_Clipboard - 11 september 2026 11:47.png",
+  "status": "ok"
+ },
+ "2026-09-14": {
+  "curves": {
+   "cape": {
+    "cal27": 33500,
+    "q1": 30750,
+    "q4": 44625,
+    "sep": 49575
+   },
+   "pmax": {
+    "cal27": 18375,
+    "oct": 22850,
+    "q1": 18125,
+    "q4": 22333,
+    "sep": 21625
+   },
+   "smax": {
+    "cal27": 16350,
+    "oct": 20850,
+    "q1": 16300,
+    "q4": 20575,
+    "sep": 19725
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect {'cape': 5, 'pmax': 5, 'smax': 5} tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-14_Clipboard - 14 september 2026 14:24.png",
+  "status": "flagged"
+ },
+ "2026-09-15": {
+  "curves": {
+   "cape": {
+    "cal27": 32600,
+    "oct": 45625,
+    "q1": 29875,
+    "q4": 43666,
+    "sep": 48500
+   },
+   "pmax": {
+    "cal27": 17887,
+    "oct": 21850,
+    "q1": 17725,
+    "q4": 21600,
+    "sep": 21300
+   },
+   "smax": {
+    "cal27": 16275,
+    "oct": 20775,
+    "q1": 16075,
+    "q4": 20500,
+    "sep": 19700
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-15_Clipboard - 15 september 2026 11:10.png",
+  "status": "ok"
+ },
+ "2026-09-16": {
+  "curves": {
+   "cape": {
+    "cal27": 33250,
+    "q1": 30750,
+    "q4": 45291,
+    "sep": 49250
+   },
+   "pmax": {
+    "cal27": 18100,
+    "oct": 22550,
+    "q1": 17975
+   },
+   "smax": {
+    "cal27": 16375,
+    "q1": 16300,
+    "sep": 19900
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 3, 'smax': 3} (expect {'cape': 5, 'pmax': 5, 'smax': 5} tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-16_Clipboard - 16 september 2026 09:01.png",
+  "status": "flagged"
+ },
+ "2026-09-17": {
+  "curves": {
+   "cape": {
+    "oct": 47625,
+    "q1": 31250,
+    "q4": 45541,
+    "sep": 49000
+   },
+   "pmax": {
+    "cal27": 18200,
+    "oct": 22375,
+    "q1": 18000,
+    "q4": 22125,
+    "sep": 21300
+   },
+   "smax": {
+    "cal27": 16500,
+    "oct": 21775,
+    "q1": 16500,
+    "q4": 21358,
+    "sep": 20100
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 4, 'pmax': 5, 'smax': 5} (expect {'cape': 5, 'pmax': 5, 'smax': 5} tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-17_Clipboard - 17 september 2026 11:27.png",
+  "status": "flagged"
+ },
+ "2026-09-18": {
+  "curves": {
+   "cape": {
+    "cal27": 33800,
+    "oct": 48875,
+    "q1": 31925,
+    "q4": 46375,
+    "sep": 50000
+   },
+   "pmax": {
+    "cal27": 18175,
+    "oct": 22300,
+    "q1": 18150,
+    "q4": 22183,
+    "sep": 21325
+   },
+   "smax": {
+    "cal27": 16550,
+    "oct": 21725,
+    "q1": 16675,
+    "q4": 21366,
+    "sep": 20100
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-18_Clipboard - 18 september 2026 09:35.png",
+  "status": "ok"
+ },
+ "2026-09-21": {
+  "curves": {
+   "cape": {
+    "cal27": 34125,
+    "oct": 49450,
+    "q1": 32500,
+    "q4": 46875,
+    "sep": 50000
+   },
+   "pmax": {
+    "cal27": 18450,
+    "oct": 22850,
+    "q1": 18500,
+    "q4": 22650,
+    "sep": 21300
+   },
+   "smax": {
+    "cal27": 16825,
+    "oct": 21925,
+    "q1": 16850,
+    "q4": 21508,
+    "sep": 20025
+   }
+  },
+  "issues": [],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-21_Clipboard - 21 september 2026 12:52.png",
+  "status": "ok"
+ },
+ "2026-09-22": {
+  "curves": {
+   "cape": {
+    "cal27": 34500,
+    "oct": 50075,
+    "q1": 33175,
+    "q4": 47683,
+    "sep": 50750
+   },
+   "pmax": {
+    "cal27": 18700,
+    "oct": 23400,
+    "q1": 18900,
+    "q4": 23266,
+    "sep": 21375
+   },
+   "smax": {
+    "cal27": 16775,
+    "oct": 22100,
+    "q1": 16900,
+    "sep": 20025
+   }
+  },
+  "issues": [
+   "incomplete grid {'cape': 5, 'pmax': 5, 'smax': 4} (expect {'cape': 5, 'pmax': 5, 'smax': 5} tenors/panel)"
+  ],
+  "source": "inputs/ffa_drybulk/2026/09/2026-09-22_Clipboard - 22 september 2026 08:41.png",
+  "status": "flagged"
+ }
+}

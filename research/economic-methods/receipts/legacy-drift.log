@@ -1,0 +1,31 @@
+DRIFT GATE — baseline ratified 2026-09-22 (commit eecc290, 2026-Q2)
+  thresholds: ΔEV>2.0pp · ΔNAV>2.0% · Δk>0.05 (k on its second difference; APPROX = self-consistency only)
+TICKER  BASIS        ΔEV    ΔNAV  BAND                Δk  STATUS      BREACH
+----------------------------------------------------------------------------------
+2343    approx    +0.0pp   +0.0%  TRIM/SHORT           —  stable      
+ASC     approx    +0.0pp   +0.0%  TRIM/SHORT           —  stable      
+BRUT    pareto    +0.0pp   +0.0%  HOLD            +0.000  stable      
+BWLP    pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+CAPT    pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+CCEC    approx    +0.0pp   +0.0%  BUY                  —  stable      
+CMBT    pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+CMDB    approx    +0.0pp   +0.0%  TRIM/SHORT           —  stable      
+DHT     pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+ECO     pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+FLNG    pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+FRO     pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+GNK     pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+GSL     approx    +0.0pp   +0.0%  TRIM/SHORT           —  stable      
+HAFN    pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+INSW    pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+LPG     pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+MPCC    approx    +0.0pp   +0.0%  TRIM/SHORT           —  stable      
+NAT     approx    +0.0pp   +0.0%  TRIM/SHORT           —  stable      
+SB      approx    +0.0pp   +0.0%  HOLD                 —  stable      
+SBLK    pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+STNG    pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+TEN     approx    +0.0pp   +0.0%  BUY                  —  stable      
+TNK     pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+TRMD    pareto    +0.0pp   +0.0%  TRIM/SHORT      +0.000  stable      
+
+  25 rows: 0 UNEXPLAINED, 0 explained, 0 new, 0 missing-from-state.

@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "python_hash_seed": 0,
+  "identical_experiments": 9,
+  "hashes": {
+    "legacy": "96428553eb6d1ab55d6cf7bf396f3e7dc079119c2b54ee0e6fa295d9319b651d",
+    "cash": "7f40b601719aeddf75cf3f664ee20ac2b9e85a7b57fc1e5c0aed91e9ac1a12a3",
+    "reference": "6e321fb60b5fee732c527ef5482ade560a12404ab4eb3c4a735db54ac7152d5f",
+    "risk": "6d81cc0a247609ee6c99d1cd3bb0a181044a23e3018ce46b3ee3db8417319a45",
+    "smooth": "26dae33f09e2ea0a2d01dc91957cf6ffee44a0529da41951e48367e40e8f8e94",
+    "cash_reference": "5ec247ca77c8a685e675b930ab11fcc0bb5908e49f3b089d644761ebf72e7b11",
+    "cash_reference_risk": "462a815afa294cca92155bc3a677504d012b6b1caee804869bcf85f65cec5941",
+    "combined": "e48c4471e7b6c08852dec1deb3c560fe12d87d8c5614eab2f1c32f841c5e6f5a",
+    "reference_risk_smooth": "826371f36372a616c3b3de5f353476a7c39b409cb1fbaa5e5c65bf9eea38b0f8"
+  },
+  "implementation_code_commit": "908354f8d5b59c4eda9b6fe6da1c4295960a221d",
+  "full_producer_suite": {
+    "passed": 1021,
+    "skipped": 4,
+    "xfail": 12
+  },
+  "final_affected_tests": {
+    "passed": 94
+  },
+  "governor_tests": {
+    "passed": 23
+  },
+  "reconciliation_sanity_failures": 0,
+  "legacy_drift_unexplained": 0,
+  "notifications": "disabled",
+  "healthchecks": "disabled",
+  "publication": "not attempted; validation-only research fixture held"
+}

@@ -3711,3 +3711,16 @@ Dated record of material framework changes. Lock dates use UTC.
 - **Initial DHT / ECO / FRO crude builds**: NAV path (vessel value curves + balance sheet), dividend strip (8-quarter EPS → DPS → discounted), blended fair value, breakeven TCE, 5×5 sensitivity heatmap. Templated mode established with DHT as the methodology validator.
 
 For older milestones, consult git history.
+
+### 2026-09-22 — Research handoff replay guard
+
+A method comparison must reproduce the complete governed baseline contract before
+running changed valuations. Matching rounded headline FV alone is insufficient:
+reuse the canonical scenario interval, position, single-point blend and sleeve
+aggregation rules, and the existing diagnostic price basis. Also compare cycle
+labels/ratios, family minima/sign stability and instantaneous/governed reads.
+`research/economic-methods/run.py` fails before changed-method evaluation on a
+mismatch; `test_full_handoff_replay_catches_non_fv_semantic_drift` guards this boundary.
+Research cash EPS is `ordinary_common_accounting_eps_v1`; the legacy strip and
+normal-rate diagnostic retain the explicitly labelled pre-depreciation proxy.
+No adoption of these experiments is authorized by this documentation.

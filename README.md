@@ -11,6 +11,12 @@ transaction-anchored curve diagnostic. **Not investment advice.**
 See [METHODOLOGY.md](METHODOLOGY.md) for the full framework (~3,000 lines);
 this README is orientation for someone landing on the repo cold.
 
+Economic-method owner review (2026-09-22): [full-book package](research/economic-methods/REVIEW.md),
+[parameters](research/economic-methods/PARAMETERS.md) and [verification](research/economic-methods/VERIFICATION.md).
+Implementation is isolated on `codex/economic-method-review`; cash/reference/risk evidence gaps
+block adoption, parity is void under its coverage rule, and smoothing awaits the ruled D1/LR1 sequence.
+Production methods, accepted publications and governor review baselines remain unchanged.
+
 ### How this was built
 
 End-to-end through **agentic development with Claude Code** — this repo is

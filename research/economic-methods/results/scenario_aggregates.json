@@ -1,0 +1,1804 @@
+{
+  "2343": {
+    "legacy": {
+      "dps": 0.11663643716959537,
+      "terminal_pv": 0.2566704227802934,
+      "terminal_cash": 206530000.0,
+      "terminal_debt": 143266000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 0.062388663979554664,
+      "terminal_pv": 0.29304117780842215,
+      "terminal_cash": 429789036.13215446,
+      "terminal_debt": 128939400.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 0.11663643716959537,
+      "terminal_pv": 0.2566704227802934,
+      "terminal_cash": 206530000.0,
+      "terminal_debt": 143266000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 0.11663643716959537,
+      "terminal_pv": 0.2762473220299277,
+      "terminal_cash": 206530000.0,
+      "terminal_debt": 143266000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 0.11663643716959537,
+      "terminal_pv": 0.2599354038652493,
+      "terminal_cash": 206530000.0,
+      "terminal_debt": 143266000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 0.062388663979554664,
+      "terminal_pv": 0.29304117780842215,
+      "terminal_cash": 429789036.13215446,
+      "terminal_debt": 128939400.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 0.062388663979554664,
+      "terminal_pv": 0.3153921660984142,
+      "terminal_cash": 429789036.13215446,
+      "terminal_debt": 128939400.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 0.062388663979554664,
+      "terminal_pv": 0.31890617550950046,
+      "terminal_cash": 429789036.13215446,
+      "terminal_debt": 128939400.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 0.11663643716959537,
+      "terminal_pv": 0.279761331441014,
+      "terminal_cash": 206530000.0,
+      "terminal_debt": 143266000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "ASC": {
+    "legacy": {
+      "dps": 3.6952384247293946,
+      "terminal_pv": 12.647600962005203,
+      "terminal_cash": 123503538.40394999,
+      "terminal_debt": 34980000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 2.4729097939049867,
+      "terminal_pv": 13.34068011134135,
+      "terminal_cash": 155812830.34836966,
+      "terminal_debt": 31482000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 3.6952384247293946,
+      "terminal_pv": 12.647600962005203,
+      "terminal_cash": 123503538.40394999,
+      "terminal_debt": 34980000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 3.6952384247293946,
+      "terminal_pv": 13.827636953346829,
+      "terminal_cash": 123503538.40394999,
+      "terminal_debt": 34980000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 3.6952384247293946,
+      "terminal_pv": 12.647218341380379,
+      "terminal_cash": 123503538.40394999,
+      "terminal_debt": 34980000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 2.4729097939049867,
+      "terminal_pv": 13.34068011134135,
+      "terminal_cash": 155812830.34836966,
+      "terminal_debt": 31482000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 2.4729097939049867,
+      "terminal_pv": 14.585381199527987,
+      "terminal_cash": 155812830.34836966,
+      "terminal_debt": 31482000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 2.4729097939049867,
+      "terminal_pv": 14.584962879950478,
+      "terminal_cash": 155812830.34836966,
+      "terminal_debt": 31482000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 3.6952384247293946,
+      "terminal_pv": 13.827218633769322,
+      "terminal_cash": 123503538.40394999,
+      "terminal_debt": 34980000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "BRUT": {
+    "legacy": {
+      "dps": 0.0,
+      "terminal_pv": 5.742191346019846,
+      "terminal_cash": 212831837.125,
+      "terminal_debt": 0.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 0.0,
+      "terminal_pv": 5.872014903082273,
+      "terminal_cash": -175077279.0273304,
+      "terminal_debt": 0.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 0.0,
+      "terminal_pv": 5.742191346019846,
+      "terminal_cash": 212831837.125,
+      "terminal_debt": 0.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 0.0,
+      "terminal_pv": 6.1617070080398,
+      "terminal_cash": 212831837.125,
+      "terminal_debt": 0.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 0.0,
+      "terminal_pv": 5.7493300325254255,
+      "terminal_cash": 212831837.125,
+      "terminal_debt": 0.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 0.0,
+      "terminal_pv": 5.872014903082273,
+      "terminal_cash": -175077279.0273304,
+      "terminal_debt": 0.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 0.0,
+      "terminal_pv": 6.301015274371726,
+      "terminal_cash": -175077279.0273304,
+      "terminal_debt": 0.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 0.0,
+      "terminal_pv": 6.308675502326358,
+      "terminal_cash": -175077279.0273304,
+      "terminal_debt": 0.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 0.0,
+      "terminal_pv": 6.169367235994432,
+      "terminal_cash": 212831837.125,
+      "terminal_debt": 0.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "BWLP": {
+    "legacy": {
+      "dps": 3.448401623005544,
+      "terminal_pv": 11.01754940386793,
+      "terminal_cash": 478361904.3453125,
+      "terminal_debt": 932632000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 3.145389536563018,
+      "terminal_pv": 10.968550862664825,
+      "terminal_cash": 375691222.4280719,
+      "terminal_debt": 839368800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 3.448401623005544,
+      "terminal_pv": 11.01754940386793,
+      "terminal_cash": 478361904.3453125,
+      "terminal_debt": 932632000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 3.448401623005544,
+      "terminal_pv": 11.544158397933574,
+      "terminal_cash": 478361904.3453125,
+      "terminal_debt": 932632000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 3.448401623005544,
+      "terminal_pv": 11.044364840294149,
+      "terminal_cash": 478361904.3453125,
+      "terminal_debt": 932632000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 3.145389536563018,
+      "terminal_pv": 10.968550862664825,
+      "terminal_cash": 375691222.4280719,
+      "terminal_debt": 839368800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 3.145389536563018,
+      "terminal_pv": 11.492817859290946,
+      "terminal_cash": 375691222.4280719,
+      "terminal_debt": 839368800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 3.145389536563018,
+      "terminal_pv": 11.52091500088446,
+      "terminal_cash": 375691222.4280719,
+      "terminal_debt": 839368800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 3.448401623005544,
+      "terminal_pv": 11.572255539527085,
+      "terminal_cash": 478361904.3453125,
+      "terminal_debt": 932632000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "CAPT": {
+    "legacy": {
+      "dps": 3.4247361810944006,
+      "terminal_pv": 15.569265428706249,
+      "terminal_cash": 909813940.4784119,
+      "terminal_debt": 520836000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 0.7630864536245977,
+      "terminal_pv": 17.515155987415294,
+      "terminal_cash": -619864688.5509945,
+      "terminal_debt": 468752400.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 3.4247361810944006,
+      "terminal_pv": 15.569265428706249,
+      "terminal_cash": 909813940.4784119,
+      "terminal_debt": 520836000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 3.4247361810944006,
+      "terminal_pv": 16.471714672540806,
+      "terminal_cash": 909813940.4784119,
+      "terminal_debt": 520836000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 3.4247361810944006,
+      "terminal_pv": 15.631436561659378,
+      "terminal_cash": 909813940.4784119,
+      "terminal_debt": 520836000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 0.7630864536245977,
+      "terminal_pv": 17.515155987415294,
+      "terminal_cash": -619864688.5509945,
+      "terminal_debt": 468752400.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 0.7630864536245977,
+      "terminal_pv": 18.530395874542123,
+      "terminal_cash": -619864688.5509945,
+      "terminal_debt": 468752400.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 0.7630864536245977,
+      "terminal_pv": 18.596170664467945,
+      "terminal_cash": -619864688.5509945,
+      "terminal_debt": 468752400.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 3.4247361810944006,
+      "terminal_pv": 16.537489462466635,
+      "terminal_cash": 909813940.4784119,
+      "terminal_debt": 520836000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "CCEC": {
+    "legacy": {
+      "dps": 1.2,
+      "terminal_pv": 32.56426237232438,
+      "terminal_cash": 1202039061.771,
+      "terminal_debt": 2930832000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 1.2,
+      "terminal_pv": 31.21429245711984,
+      "terminal_cash": 804538136.7709999,
+      "terminal_debt": 2637748800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 1.2,
+      "terminal_pv": 32.56426237232438,
+      "terminal_cash": 1202039061.771,
+      "terminal_debt": 2930832000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 1.2,
+      "terminal_pv": 29.68384516080188,
+      "terminal_cash": 1202039061.771,
+      "terminal_debt": 2930832000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 1.2,
+      "terminal_pv": 32.23800814417433,
+      "terminal_cash": 1202039061.771,
+      "terminal_debt": 2930832000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 1.2,
+      "terminal_pv": 31.21429245711984,
+      "terminal_cash": 804538136.7709999,
+      "terminal_debt": 2637748800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 1.2,
+      "terminal_pv": 28.453284570283827,
+      "terminal_cash": 804538136.7709999,
+      "terminal_debt": 2637748800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 1.2,
+      "terminal_pv": 28.155888612692785,
+      "terminal_cash": 804538136.7709999,
+      "terminal_debt": 2637748800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 1.2,
+      "terminal_pv": 29.386449203210848,
+      "terminal_cash": 1202039061.771,
+      "terminal_debt": 2930832000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "CMBT": {
+    "legacy": {
+      "dps": 3.1957815244014744,
+      "terminal_pv": 7.774637415784113,
+      "terminal_cash": 1081956189.035637,
+      "terminal_debt": 5452661000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    },
+    "cash": {
+      "status": "unavailable",
+      "reason": "hybrid issuer policy requires joint scenarios; marginal sleeves cannot distribute independently"
+    },
+    "reference": {
+      "dps": 3.1957815244014744,
+      "terminal_pv": 7.774637415784113,
+      "terminal_cash": 1081956189.035637,
+      "terminal_debt": 5452661000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    },
+    "risk": {
+      "dps": 3.1957815244014744,
+      "terminal_pv": 7.749032893582299,
+      "terminal_cash": 1081956189.035637,
+      "terminal_debt": 5452661000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    },
+    "smooth": {
+      "dps": 3.1957815244014744,
+      "terminal_pv": 7.733414581369085,
+      "terminal_cash": 1081956189.035637,
+      "terminal_debt": 5452661000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    },
+    "cash_reference": {
+      "status": "unavailable",
+      "reason": "hybrid issuer policy requires joint scenarios; marginal sleeves cannot distribute independently"
+    },
+    "cash_reference_risk": {
+      "status": "unavailable",
+      "reason": "hybrid issuer policy requires joint scenarios; marginal sleeves cannot distribute independently"
+    },
+    "combined": {
+      "status": "unavailable",
+      "reason": "hybrid issuer policy requires joint scenarios; marginal sleeves cannot distribute independently"
+    },
+    "reference_risk_smooth": {
+      "dps": 3.1957815244014744,
+      "terminal_pv": 7.707942960397554,
+      "terminal_cash": 1081956189.035637,
+      "terminal_debt": 5452661000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    }
+  },
+  "CMDB": {
+    "legacy": {
+      "dps": 0.0,
+      "terminal_pv": 17.38601351969847,
+      "terminal_cash": 388136953.75,
+      "terminal_debt": 172202000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 0.0,
+      "terminal_pv": 17.087968337981643,
+      "terminal_cash": 357863377.0124298,
+      "terminal_debt": 154981800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 0.0,
+      "terminal_pv": 17.38601351969847,
+      "terminal_cash": 388136953.75,
+      "terminal_debt": 172202000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 0.0,
+      "terminal_pv": 18.813087013813472,
+      "terminal_cash": 388136953.75,
+      "terminal_debt": 172202000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 0.0,
+      "terminal_pv": 17.351074433965515,
+      "terminal_cash": 388136953.75,
+      "terminal_debt": 172202000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 0.0,
+      "terminal_pv": 17.087968337981643,
+      "terminal_cash": 357863377.0124298,
+      "terminal_debt": 154981800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 0.0,
+      "terminal_pv": 18.490577777792602,
+      "terminal_cash": 357863377.0124298,
+      "terminal_debt": 154981800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 0.0,
+      "terminal_pv": 18.452770832610348,
+      "terminal_cash": 357863377.0124298,
+      "terminal_debt": 154981800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 0.0,
+      "terminal_pv": 18.775280068631222,
+      "terminal_cash": 388136953.75,
+      "terminal_debt": 172202000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "DHT": {
+    "legacy": {
+      "dps": 9.881845566374338,
+      "terminal_pv": 9.606865116048333,
+      "terminal_cash": 161683000.0,
+      "terminal_debt": 435794000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 8.519809463460497,
+      "terminal_pv": 10.437369651675073,
+      "terminal_cash": 209970406.67741197,
+      "terminal_debt": 392214600.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 9.881845566374338,
+      "terminal_pv": 9.606865116048333,
+      "terminal_cash": 161683000.0,
+      "terminal_debt": 435794000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 9.881845566374338,
+      "terminal_pv": 10.250877538614452,
+      "terminal_cash": 161683000.0,
+      "terminal_debt": 435794000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 9.881845566374338,
+      "terminal_pv": 9.616237816513278,
+      "terminal_cash": 161683000.0,
+      "terminal_debt": 435794000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 8.519809463460497,
+      "terminal_pv": 10.437369651675073,
+      "terminal_cash": 209970406.67741197,
+      "terminal_debt": 392214600.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 8.519809463460497,
+      "terminal_pv": 11.137056347948612,
+      "terminal_cash": 209970406.67741197,
+      "terminal_debt": 392214600.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 8.519809463460497,
+      "terminal_pv": 11.147057363213394,
+      "terminal_cash": 209970406.67741197,
+      "terminal_debt": 392214600.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 9.881845566374338,
+      "terminal_pv": 10.260878553879234,
+      "terminal_cash": 161683000.0,
+      "terminal_debt": 435794000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "ECO": {
+    "legacy": {
+      "dps": 23.442919480025353,
+      "terminal_pv": 28.562806656851354,
+      "terminal_cash": 409334085.93359464,
+      "terminal_debt": 722493783.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 19.803231860810897,
+      "terminal_pv": 30.721445632877312,
+      "terminal_cash": 364275160.24780214,
+      "terminal_debt": 650244404.6999998,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 23.442919480025353,
+      "terminal_pv": 28.562806656851354,
+      "terminal_cash": 409334085.93359464,
+      "terminal_debt": 722493783.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 23.442919480025353,
+      "terminal_pv": 30.236994403895316,
+      "terminal_cash": 409334085.93359464,
+      "terminal_debt": 722493783.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 23.442919480025353,
+      "terminal_pv": 28.61530328629466,
+      "terminal_cash": 409334085.93359464,
+      "terminal_debt": 722493783.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 19.803231860810897,
+      "terminal_pv": 30.721445632877312,
+      "terminal_cash": 364275160.24780214,
+      "terminal_debt": 650244404.6999998,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 19.803231860810897,
+      "terminal_pv": 32.52216040394142,
+      "terminal_cash": 364275160.24780214,
+      "terminal_debt": 650244404.6999998,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 19.803231860810897,
+      "terminal_pv": 32.57773408441934,
+      "terminal_cash": 364275160.24780214,
+      "terminal_debt": 650244404.6999998,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 23.442919480025353,
+      "terminal_pv": 30.292568084373244,
+      "terminal_cash": 409334085.93359464,
+      "terminal_debt": 722493783.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "FLNG": {
+    "legacy": {
+      "dps": 6.0,
+      "terminal_pv": 22.26956494493388,
+      "terminal_cash": 519834944.6729,
+      "terminal_debt": 1793668000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 6.0,
+      "terminal_pv": 21.616005364077303,
+      "terminal_cash": 259125636.8768084,
+      "terminal_debt": 1577668000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 6.0,
+      "terminal_pv": 22.26956494493388,
+      "terminal_cash": 519834944.6729,
+      "terminal_debt": 1793668000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 6.0,
+      "terminal_pv": 22.362024485500847,
+      "terminal_cash": 519834944.6729,
+      "terminal_debt": 1793668000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 6.0,
+      "terminal_pv": 22.398437569358073,
+      "terminal_cash": 519834944.6729,
+      "terminal_debt": 1793668000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 6.0,
+      "terminal_pv": 21.616005364077303,
+      "terminal_cash": 259125636.8768084,
+      "terminal_debt": 1577668000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 6.0,
+      "terminal_pv": 21.705751433647926,
+      "terminal_cash": 259125636.8768084,
+      "terminal_debt": 1577668000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 6.0,
+      "terminal_pv": 21.835159115837076,
+      "terminal_cash": 259125636.8768084,
+      "terminal_debt": 1577668000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 6.0,
+      "terminal_pv": 22.491432167689993,
+      "terminal_cash": 519834944.6729,
+      "terminal_debt": 1793668000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "FRO": {
+    "legacy": {
+      "dps": 19.176310910045164,
+      "terminal_pv": 16.701187317471348,
+      "terminal_cash": 546995722.9029725,
+      "terminal_debt": 2434842000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 15.834257281841378,
+      "terminal_pv": 18.815992629856517,
+      "terminal_cash": 297822598.95176816,
+      "terminal_debt": 2191357800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 19.176310910045164,
+      "terminal_pv": 16.701187317471348,
+      "terminal_cash": 546995722.9029725,
+      "terminal_debt": 2434842000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 19.176310910045164,
+      "terminal_pv": 17.732941856709786,
+      "terminal_cash": 546995722.9029725,
+      "terminal_debt": 2434842000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 19.176310910045164,
+      "terminal_pv": 16.759558064377007,
+      "terminal_cash": 546995722.9029725,
+      "terminal_debt": 2434842000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 15.834257281841378,
+      "terminal_pv": 18.815992629856517,
+      "terminal_cash": 297822598.95176816,
+      "terminal_debt": 2191357800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 15.834257281841378,
+      "terminal_pv": 19.97839416677136,
+      "terminal_cash": 297822598.95176816,
+      "terminal_debt": 2191357800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 15.834257281841378,
+      "terminal_pv": 20.040370901798337,
+      "terminal_cash": 297822598.95176816,
+      "terminal_debt": 2191357800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 19.176310910045164,
+      "terminal_pv": 17.794918591736756,
+      "terminal_cash": 546995722.9029725,
+      "terminal_debt": 2434842000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "GNK": {
+    "legacy": {
+      "dps": 7.944405601191099,
+      "terminal_pv": 13.317712025230245,
+      "terminal_cash": 73587000.0,
+      "terminal_debt": 335693000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 4.520591717789078,
+      "terminal_pv": 15.544237479597186,
+      "terminal_cash": 108025942.18469013,
+      "terminal_debt": 302123700.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 7.944405601191099,
+      "terminal_pv": 13.317712025230245,
+      "terminal_cash": 73587000.0,
+      "terminal_debt": 335693000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 7.944405601191099,
+      "terminal_pv": 14.10874373559243,
+      "terminal_cash": 73587000.0,
+      "terminal_debt": 335693000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 7.944405601191099,
+      "terminal_pv": 13.351013048534677,
+      "terminal_cash": 73587000.0,
+      "terminal_debt": 335693000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 4.520591717789078,
+      "terminal_pv": 15.544237479597186,
+      "terminal_cash": 108025942.18469013,
+      "terminal_debt": 302123700.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 4.520591717789078,
+      "terminal_pv": 16.467518050348914,
+      "terminal_cash": 108025942.18469013,
+      "terminal_debt": 302123700.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 4.520591717789078,
+      "terminal_pv": 16.50279705345734,
+      "terminal_cash": 108025942.18469013,
+      "terminal_debt": 302123700.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 7.944405601191099,
+      "terminal_pv": 14.144022738700857,
+      "terminal_cash": 73587000.0,
+      "terminal_debt": 335693000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "GSL": {
+    "legacy": {
+      "dps": 6.25,
+      "terminal_pv": 43.60555863727112,
+      "terminal_cash": 1624433864.016431,
+      "terminal_debt": 676425000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 6.25,
+      "terminal_pv": 42.256773401385125,
+      "terminal_cash": 1475120155.6830978,
+      "terminal_debt": 591871875.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 6.25,
+      "terminal_pv": 43.60555863727112,
+      "terminal_cash": 1624433864.016431,
+      "terminal_debt": 676425000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 6.25,
+      "terminal_pv": 45.667251608219814,
+      "terminal_cash": 1624433864.016431,
+      "terminal_debt": 676425000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 6.25,
+      "terminal_pv": 43.570401164547626,
+      "terminal_cash": 1624433864.016431,
+      "terminal_debt": 676425000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 6.25,
+      "terminal_pv": 42.256773401385125,
+      "terminal_cash": 1475120155.6830978,
+      "terminal_debt": 591871875.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 6.25,
+      "terminal_pv": 44.25469512098311,
+      "terminal_cash": 1475120155.6830978,
+      "terminal_debt": 591871875.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 6.25,
+      "terminal_pv": 44.217875385083644,
+      "terminal_cash": 1475120155.6830978,
+      "terminal_debt": 591871875.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 6.25,
+      "terminal_pv": 45.630431872320344,
+      "terminal_cash": 1624433864.016431,
+      "terminal_debt": 676425000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "HAFN": {
+    "legacy": {
+      "dps": 3.460194718353117,
+      "terminal_pv": 3.6525610173115504,
+      "terminal_cash": 708723391.29125,
+      "terminal_debt": 885363000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 3.2610023831096835,
+      "terminal_pv": 3.7366478007892727,
+      "terminal_cash": 673999262.650287,
+      "terminal_debt": 796826700.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 3.460194718353117,
+      "terminal_pv": 3.6525610173115504,
+      "terminal_cash": 708723391.29125,
+      "terminal_debt": 885363000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 3.460194718353117,
+      "terminal_pv": 3.849414670370329,
+      "terminal_cash": 708723391.29125,
+      "terminal_debt": 885363000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 3.460194718353117,
+      "terminal_pv": 3.6514989369228568,
+      "terminal_cash": 708723391.29125,
+      "terminal_debt": 885363000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 3.2610023831096835,
+      "terminal_pv": 3.7366478007892727,
+      "terminal_cash": 673999262.650287,
+      "terminal_debt": 796826700.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 3.2610023831096835,
+      "terminal_pv": 3.938033285191347,
+      "terminal_cash": 673999262.650287,
+      "terminal_debt": 796826700.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 3.2610023831096835,
+      "terminal_pv": 3.9369139643066378,
+      "terminal_cash": 673999262.650287,
+      "terminal_debt": 796826700.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 3.460194718353117,
+      "terminal_pv": 3.8482953494856194,
+      "terminal_cash": 708723391.29125,
+      "terminal_debt": 885363000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "INSW": {
+    "legacy": {
+      "dps": 30.306629007059815,
+      "terminal_pv": 44.18290459541548,
+      "terminal_cash": 920222561.2787302,
+      "terminal_debt": 652766000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    },
+    "cash": {
+      "status": "unavailable",
+      "reason": "hybrid issuer policy requires joint scenarios; marginal sleeves cannot distribute independently"
+    },
+    "reference": {
+      "dps": 30.306629007059815,
+      "terminal_pv": 44.18290459541548,
+      "terminal_cash": 920222561.2787302,
+      "terminal_debt": 652766000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    },
+    "risk": {
+      "dps": 30.306629007059815,
+      "terminal_pv": 47.219631954920885,
+      "terminal_cash": 920222561.2787302,
+      "terminal_debt": 652766000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    },
+    "smooth": {
+      "dps": 30.306629007059815,
+      "terminal_pv": 44.24598326482554,
+      "terminal_cash": 920222561.2787302,
+      "terminal_debt": 652766000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    },
+    "cash_reference": {
+      "status": "unavailable",
+      "reason": "hybrid issuer policy requires joint scenarios; marginal sleeves cannot distribute independently"
+    },
+    "cash_reference_risk": {
+      "status": "unavailable",
+      "reason": "hybrid issuer policy requires joint scenarios; marginal sleeves cannot distribute independently"
+    },
+    "combined": {
+      "status": "unavailable",
+      "reason": "hybrid issuer policy requires joint scenarios; marginal sleeves cannot distribute independently"
+    },
+    "reference_risk_smooth": {
+      "dps": 30.306629007059815,
+      "terminal_pv": 47.28704607314203,
+      "terminal_cash": 920222561.2787302,
+      "terminal_debt": 652766000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    }
+  },
+  "LPG": {
+    "legacy": {
+      "dps": 3.4302236482094233,
+      "terminal_pv": 25.886178929929574,
+      "terminal_cash": 437276310.4,
+      "terminal_debt": 651103409.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 2.1539068697564794,
+      "terminal_pv": 26.420393799932135,
+      "terminal_cash": 401070150.70333123,
+      "terminal_debt": 585993068.0999999,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 3.4302236482094233,
+      "terminal_pv": 25.886178929929574,
+      "terminal_cash": 437276310.4,
+      "terminal_debt": 651103409.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 3.4302236482094233,
+      "terminal_pv": 27.307551538883292,
+      "terminal_cash": 437276310.4,
+      "terminal_debt": 651103409.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 3.4302236482094233,
+      "terminal_pv": 25.931007203242295,
+      "terminal_cash": 437276310.4,
+      "terminal_debt": 651103409.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 2.1539068697564794,
+      "terminal_pv": 26.420393799932135,
+      "terminal_cash": 401070150.70333123,
+      "terminal_debt": 585993068.0999999,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 2.1539068697564794,
+      "terminal_pv": 27.87109937400105,
+      "terminal_cash": 401070150.70333123,
+      "terminal_debt": 585993068.0999999,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 2.1539068697564794,
+      "terminal_pv": 27.91838910290233,
+      "terminal_cash": 401070150.70333123,
+      "terminal_debt": 585993068.0999999,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 3.4302236482094233,
+      "terminal_pv": 27.354841267784572,
+      "terminal_cash": 437276310.4,
+      "terminal_debt": 651103409.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "MPCC": {
+    "legacy": {
+      "dps": 0.7873664715792428,
+      "terminal_pv": 1.7504514041798895,
+      "terminal_cash": 663406723.1149554,
+      "terminal_debt": 436789000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 0.6028810117447674,
+      "terminal_pv": 1.8302648388258662,
+      "terminal_cash": 108519757.66233002,
+      "terminal_debt": 382190375.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 0.7873664715792428,
+      "terminal_pv": 1.7504514041798895,
+      "terminal_cash": 663406723.1149554,
+      "terminal_debt": 436789000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 0.7873664715792428,
+      "terminal_pv": 1.872472700532525,
+      "terminal_cash": 663406723.1149554,
+      "terminal_debt": 436789000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 0.7873664715792428,
+      "terminal_pv": 1.7353372394322537,
+      "terminal_cash": 663406723.1149554,
+      "terminal_debt": 436789000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 0.6028810117447674,
+      "terminal_pv": 1.8302648388258662,
+      "terminal_cash": 108519757.66233002,
+      "terminal_debt": 382190375.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 0.6028810117447674,
+      "terminal_pv": 1.9578498079194888,
+      "terminal_cash": 108519757.66233002,
+      "terminal_debt": 382190375.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 0.6028810117447674,
+      "terminal_pv": 1.9416820578101632,
+      "terminal_cash": 108519757.66233002,
+      "terminal_debt": 382190375.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 0.7873664715792428,
+      "terminal_pv": 1.8563049504231992,
+      "terminal_cash": 663406723.1149554,
+      "terminal_debt": 436789000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "NAT": {
+    "legacy": {
+      "dps": 2.7034208347909634,
+      "terminal_pv": 1.5223666657604586,
+      "terminal_cash": 133294000.0,
+      "terminal_debt": 406844000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 2.1142587125453303,
+      "terminal_pv": 1.947725379631174,
+      "terminal_cash": 206518278.96260786,
+      "terminal_debt": 366159600.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 2.7034208347909634,
+      "terminal_pv": 1.5223666657604586,
+      "terminal_cash": 133294000.0,
+      "terminal_debt": 406844000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 2.7034208347909634,
+      "terminal_pv": 1.6275700260815233,
+      "terminal_cash": 133294000.0,
+      "terminal_debt": 406844000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 2.7034208347909634,
+      "terminal_pv": 1.5274908712556068,
+      "terminal_cash": 133294000.0,
+      "terminal_debt": 406844000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 2.1142587125453303,
+      "terminal_pv": 1.947725379631174,
+      "terminal_cash": 206518278.96260786,
+      "terminal_debt": 366159600.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 2.1142587125453303,
+      "terminal_pv": 2.0823232130758944,
+      "terminal_cash": 206518278.96260786,
+      "terminal_debt": 366159600.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 2.1142587125453303,
+      "terminal_pv": 2.0878015275049737,
+      "terminal_cash": 206518278.96260786,
+      "terminal_debt": 366159600.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 2.7034208347909634,
+      "terminal_pv": 1.6330483405106029,
+      "terminal_cash": 133294000.0,
+      "terminal_debt": 406844000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "SB": {
+    "legacy": {
+      "dps": 1.1520361215609327,
+      "terminal_pv": 7.81261801215505,
+      "terminal_cash": 408273958.32,
+      "terminal_debt": 511448000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 0.6,
+      "terminal_pv": 7.805927019396413,
+      "terminal_cash": 129412254.89797184,
+      "terminal_debt": 397748000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 1.1520361215609327,
+      "terminal_pv": 7.81261801215505,
+      "terminal_cash": 408273958.32,
+      "terminal_debt": 511448000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 1.1520361215609327,
+      "terminal_pv": 8.221456430490237,
+      "terminal_cash": 408273958.32,
+      "terminal_debt": 511448000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 1.1520361215609327,
+      "terminal_pv": 7.718855929431703,
+      "terminal_cash": 408273958.32,
+      "terminal_debt": 511448000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 0.6,
+      "terminal_pv": 7.805927019396413,
+      "terminal_cash": 129412254.89797184,
+      "terminal_debt": 397748000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 0.6,
+      "terminal_pv": 8.214415294553952,
+      "terminal_cash": 129412254.89797184,
+      "terminal_debt": 397748000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 0.6,
+      "terminal_pv": 8.11574659262296,
+      "terminal_cash": 129412254.89797184,
+      "terminal_debt": 397748000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 1.1520361215609327,
+      "terminal_pv": 8.122787728559246,
+      "terminal_cash": 408273958.32,
+      "terminal_debt": 511448000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "SBLK": {
+    "legacy": {
+      "dps": 8.874919887571282,
+      "terminal_pv": 19.03870596298069,
+      "terminal_cash": 617403643.125,
+      "terminal_debt": 1179002000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 7.5550653613835905,
+      "terminal_pv": 19.49586984400148,
+      "terminal_cash": 441982725.5393154,
+      "terminal_debt": 1061101800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 8.874919887571282,
+      "terminal_pv": 19.03870596298069,
+      "terminal_cash": 617403643.125,
+      "terminal_debt": 1179002000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 8.874919887571282,
+      "terminal_pv": 20.125554728656056,
+      "terminal_cash": 617403643.125,
+      "terminal_debt": 1179002000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 8.874919887571282,
+      "terminal_pv": 18.892280304771027,
+      "terminal_cash": 617403643.125,
+      "terminal_debt": 1179002000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 7.5550653613835905,
+      "terminal_pv": 19.49586984400148,
+      "terminal_cash": 441982725.5393154,
+      "terminal_debt": 1061101800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 7.5550653613835905,
+      "terminal_pv": 20.608816391782682,
+      "terminal_cash": 441982725.5393154,
+      "terminal_debt": 1061101800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 7.5550653613835905,
+      "terminal_pv": 20.454031838478063,
+      "terminal_cash": 441982725.5393154,
+      "terminal_debt": 1061101800.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 8.874919887571282,
+      "terminal_pv": 19.970770175351436,
+      "terminal_cash": 617403643.125,
+      "terminal_debt": 1179002000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "STNG": {
+    "legacy": {
+      "dps": 3.6000000000000005,
+      "terminal_pv": 68.05478462783402,
+      "terminal_cash": 2820748360.21625,
+      "terminal_debt": 855000000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 3.6000000000000005,
+      "terminal_pv": 67.15121938321728,
+      "terminal_cash": 2678019873.1901374,
+      "terminal_debt": 769500000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 3.6000000000000005,
+      "terminal_pv": 68.05478462783402,
+      "terminal_cash": 2820748360.21625,
+      "terminal_debt": 855000000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 3.6000000000000005,
+      "terminal_pv": 74.19854779185926,
+      "terminal_cash": 2820748360.21625,
+      "terminal_debt": 855000000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 3.6000000000000005,
+      "terminal_pv": 68.10681723673117,
+      "terminal_cash": 2820748360.21625,
+      "terminal_debt": 855000000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 3.6000000000000005,
+      "terminal_pv": 67.15121938321728,
+      "terminal_cash": 2678019873.1901374,
+      "terminal_debt": 769500000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 3.6000000000000005,
+      "terminal_pv": 73.21341163497634,
+      "terminal_cash": 2678019873.1901374,
+      "terminal_debt": 769500000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 3.6000000000000005,
+      "terminal_pv": 73.27014157746464,
+      "terminal_cash": 2678019873.1901374,
+      "terminal_debt": 769500000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 3.6000000000000005,
+      "terminal_pv": 74.25527773434754,
+      "terminal_cash": 2820748360.21625,
+      "terminal_debt": 855000000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "TEN": {
+    "legacy": {
+      "dps": 15.796481006138286,
+      "terminal_pv": 51.5962691116779,
+      "terminal_cash": 1067925952.2393665,
+      "terminal_debt": 2102177000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    },
+    "cash": {
+      "status": "unavailable",
+      "reason": "hybrid issuer policy requires joint scenarios; marginal sleeves cannot distribute independently"
+    },
+    "reference": {
+      "dps": 15.796481006138286,
+      "terminal_pv": 51.5962691116779,
+      "terminal_cash": 1067925952.2393665,
+      "terminal_debt": 2102177000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    },
+    "risk": {
+      "dps": 15.796481006138286,
+      "terminal_pv": 52.62038382529789,
+      "terminal_cash": 1067925952.2393665,
+      "terminal_debt": 2102177000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    },
+    "smooth": {
+      "dps": 15.796481006138286,
+      "terminal_pv": 51.66667836863107,
+      "terminal_cash": 1067925952.2393665,
+      "terminal_debt": 2102177000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    },
+    "cash_reference": {
+      "status": "unavailable",
+      "reason": "hybrid issuer policy requires joint scenarios; marginal sleeves cannot distribute independently"
+    },
+    "cash_reference_risk": {
+      "status": "unavailable",
+      "reason": "hybrid issuer policy requires joint scenarios; marginal sleeves cannot distribute independently"
+    },
+    "combined": {
+      "status": "unavailable",
+      "reason": "hybrid issuer policy requires joint scenarios; marginal sleeves cannot distribute independently"
+    },
+    "reference_risk_smooth": {
+      "dps": 15.796481006138286,
+      "terminal_pv": 52.69219060880215,
+      "terminal_cash": 1067925952.2393665,
+      "terminal_debt": 2102177000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "marginal sector expectations; not joint cash-policy evaluation"
+    }
+  },
+  "TNK": {
+    "legacy": {
+      "dps": 11.18852034418747,
+      "terminal_pv": 79.70259972967585,
+      "terminal_cash": 2098205519.9520998,
+      "terminal_debt": 0.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 2.0,
+      "terminal_pv": 86.40172328594694,
+      "terminal_cash": 2235421343.716812,
+      "terminal_debt": 0.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 11.18852034418747,
+      "terminal_pv": 79.70259972967585,
+      "terminal_cash": 2098205519.9520998,
+      "terminal_debt": 0.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 11.18852034418747,
+      "terminal_pv": 87.52589295319213,
+      "terminal_cash": 2098205519.9520998,
+      "terminal_debt": 0.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 11.18852034418747,
+      "terminal_pv": 79.72403340058715,
+      "terminal_cash": 2098205519.9520998,
+      "terminal_debt": 0.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 2.0,
+      "terminal_pv": 86.40172328594694,
+      "terminal_cash": 2235421343.716812,
+      "terminal_debt": 0.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 2.0,
+      "terminal_pv": 94.88257608843588,
+      "terminal_cash": 2235421343.716812,
+      "terminal_debt": 0.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 2.0,
+      "terminal_pv": 94.90611360405192,
+      "terminal_cash": 2235421343.716812,
+      "terminal_debt": 0.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 11.18852034418747,
+      "terminal_pv": 87.54943046880817,
+      "terminal_cash": 2098205519.9520998,
+      "terminal_debt": 0.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  },
+  "TRMD": {
+    "legacy": {
+      "dps": 15.505019404552286,
+      "terminal_pv": 24.92089574637351,
+      "terminal_cash": 905707339.3578124,
+      "terminal_debt": 1076200000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash": {
+      "dps": 18.570134215604302,
+      "terminal_pv": 21.994434639296557,
+      "terminal_cash": 193433008.02235034,
+      "terminal_debt": 968580000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference": {
+      "dps": 15.505019404552286,
+      "terminal_pv": 24.92089574637351,
+      "terminal_cash": 905707339.3578124,
+      "terminal_debt": 1076200000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "risk": {
+      "dps": 15.505019404552286,
+      "terminal_pv": 26.74551686606658,
+      "terminal_cash": 905707339.3578124,
+      "terminal_debt": 1076200000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "smooth": {
+      "dps": 15.505019404552286,
+      "terminal_pv": 24.936449967877728,
+      "terminal_cash": 905707339.3578124,
+      "terminal_debt": 1076200000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference": {
+      "dps": 18.570134215604302,
+      "terminal_pv": 21.994434639296557,
+      "terminal_cash": 193433008.02235034,
+      "terminal_debt": 968580000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "cash_reference_risk": {
+      "dps": 18.570134215604302,
+      "terminal_pv": 23.604790477505514,
+      "terminal_cash": 193433008.02235034,
+      "terminal_debt": 968580000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "combined": {
+      "dps": 18.570134215604302,
+      "terminal_pv": 23.621483524890863,
+      "terminal_cash": 193433008.02235034,
+      "terminal_debt": 968580000.0,
+      "cash_basis": "reconciled forecast",
+      "aggregation": "scenario probability weighted"
+    },
+    "reference_risk_smooth": {
+      "dps": 15.505019404552286,
+      "terminal_pv": 26.762209913451933,
+      "terminal_cash": 905707339.3578124,
+      "terminal_debt": 1076200000.0,
+      "cash_basis": "legacy cash plus pre-depreciation retained proxy",
+      "aggregation": "scenario probability weighted"
+    }
+  }
+}

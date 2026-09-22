@@ -1,0 +1,30 @@
+TICKER  SECTOR      TOOL_NAV    BROKER     GAP  SANITY PNAV    Δ vs last         
+---------------------------------------------------------------------------------
+DHT     crude         $15.01    $17.02  -11.8%  OK     pareto  first-run         
+ECO     crude         $39.54    $45.10  -12.3%  OK     pareto  first-run         
+FRO     crude         $26.04    $32.93  -20.9%  OK     pareto  first-run         
+INSW    crude         $54.64    $82.07  -33.4%  OK     pareto  first-run         
+TNK     crude         $84.60    $96.92  -12.7%  OK     pareto  first-run         
+NAT     crude          $2.76     $8.00  -65.5%  n/a    approx  first-run         
+FLNG    lng           $27.22    $21.74  +25.2%  OK     pareto  first-run         
+CCEC    lng           $25.70    $25.33   +1.4%  n/a    approx  first-run         
+STNG    product       $76.22   $106.03  -28.1%  OK     pareto  first-run         
+HAFN    product        $4.64     $8.06  -42.4%  OK     pareto  first-run         
+TRMD    product       $32.30    $34.57   -6.6%  OK     pareto  first-run         
+ASC     product       $17.37    $23.60  -26.4%  n/a    approx  first-run         
+TEN     crude         $91.91   $108.10  -15.0%  n/a    approx  first-run         
+CMDB    dry_bulk      $32.60    $27.99  +16.5%  n/a    approx  first-run         
+SBLK    dry_bulk      $33.27    $33.41   -0.4%  OK     pareto  first-run         
+GNK     dry_bulk      $25.37    $27.16   -6.6%  OK     pareto  first-run         
+CAPT    crude         $17.32    $22.31  -22.4%  OK     pareto  first-run         
+MPCC    containerships     $2.15     $2.79  -22.9%  n/a    approx  first-run         
+GSL     containerships    $41.37    $51.99  -20.4%  n/a    approx  first-run         
+BRUT    crude          $4.92     $4.56   +7.8%  OK     pareto  first-run         
+CMBT    crude         $13.36    $21.28  -37.2%  OK     pareto  first-run         
+SB      dry_bulk      $10.72     $7.54  +42.2%  n/a    approx  first-run         
+LPG     lpg           $35.69    $46.51  -23.3%  OK     pareto  first-run         
+BWLP    lpg           $15.83    $19.04  -16.9%  OK     pareto  first-run         
+2343    dry_bulk       $0.41     $0.43   -4.5%  n/a    approx  first-run         
+
+  25 names checked. SANITY FAIL: 0. DRIFT ALERTS (>2.0pp): 0.
+  ⚠ MIXED-ANCHOR-BASIS: cycle positions span 4 incompatible bases — gaps are within-sector diagnostics, NOT comparable across these bases (METHODOLOGY §10): `archive_22mo_median` (22-month archive median: dry_bulk); `fy_calendar_avg` (FY2021-2025 calendar average: containerships); `realized_tce_10yr_mean` (realized-TCE 10-year through-cycle mean: lpg); `tc_10yr_mean` (TC-anchored 10-year mean: crude, lng, product)

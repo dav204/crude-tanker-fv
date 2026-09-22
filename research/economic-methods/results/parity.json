@@ -1,0 +1,86 @@
+{
+  "status": "VOID",
+  "class_coverage": 0.5263157894736842,
+  "required_coverage": 0.8,
+  "coverage_basis": "calculable current classes: upper bound on fully dated source coverage; historical gates not run after kill",
+  "classes": [
+    "Aframax",
+    "Cape",
+    "Ctr-Feeder",
+    "Ctr-Intermediate",
+    "Ctr-Large",
+    "Handy-Bulk",
+    "Handymax",
+    "Handysize",
+    "LNGC",
+    "LR1",
+    "LR2",
+    "MGC",
+    "MR",
+    "Pana",
+    "Post-Panamax",
+    "Suezmax",
+    "Supra-Ultra",
+    "VLCC",
+    "VLGC"
+  ],
+  "available_classes": [
+    "Aframax",
+    "Cape",
+    "Handy-Bulk",
+    "LR2",
+    "MR",
+    "Pana",
+    "Post-Panamax",
+    "Suezmax",
+    "Supra-Ultra",
+    "VLCC"
+  ],
+  "missing_classes": [
+    "Ctr-Feeder",
+    "Ctr-Intermediate",
+    "Ctr-Large",
+    "Handymax",
+    "Handysize",
+    "LNGC",
+    "LR1",
+    "MGC",
+    "VLGC"
+  ],
+  "latest_parity": {
+    "Aframax": 27466.77112224114,
+    "Cape": 25761.137236204784,
+    "Handy-Bulk": 12485.689598197696,
+    "LR2": 27038.956384306526,
+    "MR": 21312.924609799054,
+    "Pana": 14687.761502193924,
+    "Post-Panamax": 14954.233283425165,
+    "Suezmax": 31280.953365295292,
+    "Supra-Ultra": 13677.23837070863,
+    "VLCC": 41754.942085936644
+  },
+  "vintages": [
+    {
+      "vintage": "2026-Q1 report dates",
+      "commit_candidate": null,
+      "evaluation": "not eligible: full-book class-coverage kill condition",
+      "historical_values": "not backfilled from later observations"
+    },
+    {
+      "vintage": "2026-06-07 war vintage",
+      "commit_candidate": "142dd78125d1e3affb6af37b7e91560f1ba3296c",
+      "evaluation": "not eligible: full-book class-coverage kill condition",
+      "historical_values": "not backfilled from later observations"
+    },
+    {
+      "vintage": "latest post-Stage-A",
+      "commit_candidate": "4f222489b1b2c918fc8cbcd578ed22fc60816b55",
+      "evaluation": "not eligible: full-book class-coverage kill condition",
+      "historical_values": "not backfilled from later observations"
+    }
+  ],
+  "band_stability": null,
+  "lock_time_reconciliation": null,
+  "decision": "retain historical denominators; no scoped post-hoc adoption",
+  "research_fv": null
+}

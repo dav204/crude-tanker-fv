@@ -1,0 +1,371 @@
+{
+  "version": 1,
+  "items": {
+    "2343": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.2343"
+    },
+    "ASC": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.ASC"
+    },
+    "BRUT": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.BRUT"
+    },
+    "BWLP": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "issuer net leverage/NLTV differs from independent NAV fleet proxy; reconcile before adoption",
+        "preferred/NCI allocation and distributions require separate reconciliation",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.BWLP"
+    },
+    "CAPT": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.CAPT"
+    },
+    "CCEC": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "continuation of board-set dividend is a forecast, not a contractual payment",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "commitments have no mapped delivery schedule; remain outstanding, not assumed paid",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.CCEC"
+    },
+    "CMBT": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "joint sector scenario mapping required for one issuer-level cash policy; no marginal-sleeve payout summation",
+        "payout percentage is a discretionary forecast, not a binding formula",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "commitments have no mapped delivery schedule; remain outstanding, not assumed paid",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.CMBT"
+    },
+    "CMDB": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "current policy primary-source recheck incomplete",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.CMDB"
+    },
+    "DHT": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.DHT"
+    },
+    "ECO": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "payout percentage is a discretionary forecast, not a binding formula",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.ECO"
+    },
+    "FLNG": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "continuation of board-set dividend is a forecast, not a contractual payment",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.FLNG"
+    },
+    "FRO": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "payout percentage is a discretionary forecast, not a binding formula",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.FRO"
+    },
+    "GNK": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.GNK"
+    },
+    "GSL": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "continuation of board-set dividend is a forecast, not a contractual payment",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.GSL"
+    },
+    "HAFN": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "issuer net leverage/NLTV differs from independent NAV fleet proxy; reconcile before adoption",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.HAFN"
+    },
+    "INSW": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "joint sector scenario mapping required for one issuer-level cash policy; no marginal-sleeve payout summation",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.INSW"
+    },
+    "LPG": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "payout percentage is a discretionary forecast, not a binding formula",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.LPG"
+    },
+    "MPCC": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "current policy primary-source recheck incomplete",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.MPCC"
+    },
+    "NAT": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "current policy primary-source recheck incomplete",
+        "payout percentage is a discretionary forecast, not a binding formula",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.NAT"
+    },
+    "SB": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "continuation of board-set dividend is a forecast, not a contractual payment",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.SB"
+    },
+    "SBLK": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.SBLK"
+    },
+    "STNG": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "continuation of board-set dividend is a forecast, not a contractual payment",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "commitments have no mapped delivery schedule; remain outstanding, not assumed paid",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.STNG"
+    },
+    "TEN": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "continuation of board-set dividend is a forecast, not a contractual payment",
+        "joint sector scenario mapping required for one issuer-level cash policy; no marginal-sleeve payout summation",
+        "preferred/NCI allocation and distributions require separate reconciliation",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.TEN"
+    },
+    "TNK": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "continuation of board-set dividend is a forecast, not a contractual payment",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.TNK"
+    },
+    "TRMD": {
+      "status": "adoption_blocked",
+      "resolver": "agent",
+      "next_action": "Close cited source/schedule gaps, register revised assumptions before changed valuations, then submit scoped owner adoption decision",
+      "reasons": [
+        "forward cash schedule requires issuer-level verification; analyst timing/cost ranges are not adoption evidence",
+        "book-cost depreciation/amortization schedule not extracted; replacement-mark proxy is diagnostic only",
+        "remaining committed capex allocated by hull count at delivery; installment and financing dates unresolved",
+        "transportation beta proxy requires shipping-sector calibration",
+        "funding-cost and cash-risk conventions require owner review",
+        "historical vessel-mark/reference pair not validated"
+      ],
+      "evidence": "assumptions.json#companies.TRMD"
+    }
+  },
+  "owner_decisions": [
+    "D-M2 numerical sector/funding/cash/claims conventions",
+    "D1 cycle tails 0.30/1.70; parity retained after VOID",
+    "scoped method adoption and baseline ratification"
+  ],
+  "adoption_dependency": "roadmap:lr1-anchor"
+}

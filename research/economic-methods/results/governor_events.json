@@ -1,0 +1,1900 @@
+{
+  "legacy": {
+    "events": [
+      {
+        "id": "SB:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SB",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:CHANGED_position",
+        "ticker": "SB",
+        "code": "CHANGED_position",
+        "detail": "position: BUY (undervalued) \u2192 HOLD (fairly valued)",
+        "value": "HOLD (fairly valued)",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:VALUATION_CONVICTION_ZERO",
+        "ticker": "SB",
+        "code": "VALUATION_CONVICTION_ZERO",
+        "detail": "weight-family sign unstable; valuation cannot support sizing",
+        "value": false,
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SBLK",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:READ_CAP",
+        "ticker": "SBLK",
+        "code": "READ_CAP",
+        "detail": "size to the weaker-basis read: flips (cheap/fair)",
+        "value": "flips (cheap/fair)",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "CCEC",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:WIDE_CAP",
+        "ticker": "CCEC",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:WIDE_CAP",
+        "ticker": "TEN",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:GATE_current_balance_sheet",
+        "ticker": "TEN",
+        "code": "GATE_current_balance_sheet",
+        "detail": "gate current_balance_sheet: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TEN as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TEN:GATES_PENDING",
+        "ticker": "TEN",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": true, \"current_balance_sheet\": true, \"family_min\": false, \"sign_stable\": true, \"stage_a\": \"unknown\", \"war_falsifier\": true}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": true,
+          "sign_stable": true,
+          "family_min": false,
+          "war_falsifier": true,
+          "stage_a": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:WIDE_CAP",
+        "ticker": "TRMD",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:GATE_sign_stable",
+        "ticker": "TRMD",
+        "code": "GATE_sign_stable",
+        "detail": "gate sign_stable: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TRMD:GATES_PENDING",
+        "ticker": "TRMD",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      }
+    ],
+    "states": {
+      "SB": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "HOLD (fairly valued)",
+        "read_flag": "robust",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 9.01,
+        "price": 9.18,
+        "fv_low": 7.0,
+        "fv_high": 11.37,
+        "ev_pct_family_min": -5.9,
+        "ev_pct_family_max": 1.9,
+        "weight_sign_stable": false
+      },
+      "SBLK": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "flips (cheap/fair)",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 28.2,
+        "price": 32.48,
+        "fv_low": 22.28,
+        "fv_high": 34.49,
+        "ev_pct_family_min": -16.4,
+        "ev_pct_family_max": -10.2,
+        "weight_sign_stable": true
+      },
+      "CCEC": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 33.7,
+        "price": 21.66,
+        "fv_low": 16.27,
+        "fv_high": 47.2,
+        "ev_pct_family_min": 34.7,
+        "ev_pct_family_max": 55.6,
+        "weight_sign_stable": true
+      },
+      "TEN": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 68.15,
+        "price": 52.09,
+        "fv_low": 48.7,
+        "fv_high": 85.19,
+        "ev_pct_family_min": 14.3,
+        "ev_pct_family_max": 30.8,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": true,
+          "sign_stable": true,
+          "family_min": false,
+          "war_falsifier": true,
+          "stage_a": "unknown"
+        }
+      },
+      "TRMD": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 35.14,
+        "price": 38.23,
+        "fv_low": 21.09,
+        "fv_high": 47.75,
+        "ev_pct_family_min": -22.5,
+        "ev_pct_family_max": -8.1,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        }
+      }
+    },
+    "transport": "shadow envelope fixture only; no publication, state consumption or notifications"
+  },
+  "cash": {
+    "events": [
+      {
+        "id": "SB:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SB",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:CHANGED_position",
+        "ticker": "SB",
+        "code": "CHANGED_position",
+        "detail": "position: BUY (undervalued) \u2192 HOLD (fairly valued)",
+        "value": "HOLD (fairly valued)",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:FV_DRIFT",
+        "ticker": "SB",
+        "code": "FV_DRIFT",
+        "detail": "weighted FV 8.81 differs >10% from reviewed 9.82",
+        "value": "outside",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:CHANGED_read_flag",
+        "ticker": "SBLK",
+        "code": "CHANGED_read_flag",
+        "detail": "read_flag: flips (cheap/fair) \u2192 robust",
+        "value": "robust",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SBLK",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "CCEC",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:WIDE_CAP",
+        "ticker": "CCEC",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:DATA_UNAVAILABLE",
+        "ticker": "TEN",
+        "code": "DATA_UNAVAILABLE",
+        "detail": "unknown/invalid: position, read_flag, fv, fv_low, fv_high, ev_pct_family_min, ev_pct_family_max, weight_sign_stable, known read_flag",
+        "value": [
+          "ev_pct_family_max",
+          "ev_pct_family_min",
+          "fv",
+          "fv_high",
+          "fv_low",
+          "known read_flag",
+          "position",
+          "read_flag",
+          "weight_sign_stable"
+        ],
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:WIDE_CAP",
+        "ticker": "TRMD",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:GATE_sign_stable",
+        "ticker": "TRMD",
+        "code": "GATE_sign_stable",
+        "detail": "gate sign_stable: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TRMD:GATES_PENDING",
+        "ticker": "TRMD",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      }
+    ],
+    "states": {
+      "SB": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "HOLD (fairly valued)",
+        "read_flag": "robust",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 8.81,
+        "price": 9.18,
+        "fv_low": 6.76,
+        "fv_high": 11.21,
+        "ev_pct_family_min": -8.2,
+        "ev_pct_family_max": -0.2,
+        "weight_sign_stable": true
+      },
+      "SBLK": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "robust",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 27.9,
+        "price": 32.48,
+        "fv_low": 21.91,
+        "fv_high": 34.29,
+        "ev_pct_family_min": -17.4,
+        "ev_pct_family_max": -11.1,
+        "weight_sign_stable": true
+      },
+      "CCEC": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 33.03,
+        "price": 21.66,
+        "fv_low": 15.46,
+        "fv_high": 46.8,
+        "ev_pct_family_min": 31.3,
+        "ev_pct_family_max": 52.5,
+        "weight_sign_stable": true
+      },
+      "TEN": {
+        "valid": false
+      },
+      "TRMD": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 35.12,
+        "price": 38.23,
+        "fv_low": 20.9,
+        "fv_high": 47.93,
+        "ev_pct_family_min": -22.7,
+        "ev_pct_family_max": -8.1,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        }
+      }
+    },
+    "transport": "shadow envelope fixture only; no publication, state consumption or notifications"
+  },
+  "reference": {
+    "events": [
+      {
+        "id": "SB:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SB",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:CHANGED_position",
+        "ticker": "SB",
+        "code": "CHANGED_position",
+        "detail": "position: BUY (undervalued) \u2192 HOLD (fairly valued)",
+        "value": "HOLD (fairly valued)",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:VALUATION_CONVICTION_ZERO",
+        "ticker": "SB",
+        "code": "VALUATION_CONVICTION_ZERO",
+        "detail": "weight-family sign unstable; valuation cannot support sizing",
+        "value": false,
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SBLK",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:READ_CAP",
+        "ticker": "SBLK",
+        "code": "READ_CAP",
+        "detail": "size to the weaker-basis read: flips (cheap/fair)",
+        "value": "flips (cheap/fair)",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "CCEC",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:WIDE_CAP",
+        "ticker": "CCEC",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:WIDE_CAP",
+        "ticker": "TEN",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:GATE_current_balance_sheet",
+        "ticker": "TEN",
+        "code": "GATE_current_balance_sheet",
+        "detail": "gate current_balance_sheet: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TEN as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TEN:GATES_PENDING",
+        "ticker": "TEN",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": true, \"current_balance_sheet\": true, \"family_min\": false, \"sign_stable\": true, \"stage_a\": \"unknown\", \"war_falsifier\": true}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": true,
+          "sign_stable": true,
+          "family_min": false,
+          "war_falsifier": true,
+          "stage_a": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:WIDE_CAP",
+        "ticker": "TRMD",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:GATE_sign_stable",
+        "ticker": "TRMD",
+        "code": "GATE_sign_stable",
+        "detail": "gate sign_stable: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TRMD:GATES_PENDING",
+        "ticker": "TRMD",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      }
+    ],
+    "states": {
+      "SB": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "HOLD (fairly valued)",
+        "read_flag": "robust",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 9.01,
+        "price": 9.18,
+        "fv_low": 7.0,
+        "fv_high": 11.37,
+        "ev_pct_family_min": -5.9,
+        "ev_pct_family_max": 1.9,
+        "weight_sign_stable": false
+      },
+      "SBLK": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "flips (cheap/fair)",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 28.2,
+        "price": 32.48,
+        "fv_low": 22.28,
+        "fv_high": 34.49,
+        "ev_pct_family_min": -16.4,
+        "ev_pct_family_max": -10.2,
+        "weight_sign_stable": true
+      },
+      "CCEC": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 33.7,
+        "price": 21.66,
+        "fv_low": 16.27,
+        "fv_high": 47.2,
+        "ev_pct_family_min": 34.7,
+        "ev_pct_family_max": 55.6,
+        "weight_sign_stable": true
+      },
+      "TEN": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 68.15,
+        "price": 52.09,
+        "fv_low": 48.7,
+        "fv_high": 85.19,
+        "ev_pct_family_min": 14.3,
+        "ev_pct_family_max": 30.8,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": true,
+          "sign_stable": true,
+          "family_min": false,
+          "war_falsifier": true,
+          "stage_a": "unknown"
+        }
+      },
+      "TRMD": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 35.14,
+        "price": 38.23,
+        "fv_low": 21.09,
+        "fv_high": 47.75,
+        "ev_pct_family_min": -22.5,
+        "ev_pct_family_max": -8.1,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        }
+      }
+    },
+    "transport": "shadow envelope fixture only; no publication, state consumption or notifications"
+  },
+  "risk": {
+    "events": [
+      {
+        "id": "SB:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SB",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:CHANGED_position",
+        "ticker": "SB",
+        "code": "CHANGED_position",
+        "detail": "position: BUY (undervalued) \u2192 HOLD (fairly valued)",
+        "value": "HOLD (fairly valued)",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:VALUATION_CONVICTION_ZERO",
+        "ticker": "SB",
+        "code": "VALUATION_CONVICTION_ZERO",
+        "detail": "weight-family sign unstable; valuation cannot support sizing",
+        "value": false,
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:CHANGED_read_flag",
+        "ticker": "SBLK",
+        "code": "CHANGED_read_flag",
+        "detail": "read_flag: flips (cheap/fair) \u2192 robust",
+        "value": "robust",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SBLK",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "CCEC",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:WIDE_CAP",
+        "ticker": "CCEC",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:WIDE_CAP",
+        "ticker": "TEN",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:GATE_current_balance_sheet",
+        "ticker": "TEN",
+        "code": "GATE_current_balance_sheet",
+        "detail": "gate current_balance_sheet: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TEN as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TEN:GATES_PENDING",
+        "ticker": "TEN",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": true, \"current_balance_sheet\": true, \"family_min\": false, \"sign_stable\": true, \"stage_a\": \"unknown\", \"war_falsifier\": true}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": true,
+          "sign_stable": true,
+          "family_min": false,
+          "war_falsifier": true,
+          "stage_a": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:WIDE_CAP",
+        "ticker": "TRMD",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:GATE_sign_stable",
+        "ticker": "TRMD",
+        "code": "GATE_sign_stable",
+        "detail": "gate sign_stable: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TRMD:GATES_PENDING",
+        "ticker": "TRMD",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      }
+    ],
+    "states": {
+      "SB": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "HOLD (fairly valued)",
+        "read_flag": "robust",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 9.18,
+        "price": 9.18,
+        "fv_low": 7.18,
+        "fv_high": 11.52,
+        "ev_pct_family_min": -4.1,
+        "ev_pct_family_max": 3.8,
+        "weight_sign_stable": false
+      },
+      "SBLK": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "robust",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 28.73,
+        "price": 32.48,
+        "fv_low": 22.79,
+        "fv_high": 34.95,
+        "ev_pct_family_min": -14.8,
+        "ev_pct_family_max": -8.6,
+        "weight_sign_stable": true
+      },
+      "CCEC": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 32.29,
+        "price": 21.66,
+        "fv_low": 15.22,
+        "fv_high": 46.15,
+        "ev_pct_family_min": 28.1,
+        "ev_pct_family_max": 49.1,
+        "weight_sign_stable": true
+      },
+      "TEN": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 68.53,
+        "price": 52.09,
+        "fv_low": 49.07,
+        "fv_high": 85.63,
+        "ev_pct_family_min": 15.0,
+        "ev_pct_family_max": 31.6,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": true,
+          "sign_stable": true,
+          "family_min": false,
+          "war_falsifier": true,
+          "stage_a": "unknown"
+        }
+      },
+      "TRMD": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 35.9,
+        "price": 38.23,
+        "fv_low": 21.73,
+        "fv_high": 48.74,
+        "ev_pct_family_min": -20.7,
+        "ev_pct_family_max": -6.1,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        }
+      }
+    },
+    "transport": "shadow envelope fixture only; no publication, state consumption or notifications"
+  },
+  "smooth": {
+    "events": [
+      {
+        "id": "SB:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SB",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:CHANGED_position",
+        "ticker": "SB",
+        "code": "CHANGED_position",
+        "detail": "position: BUY (undervalued) \u2192 HOLD (fairly valued)",
+        "value": "HOLD (fairly valued)",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:VALUATION_CONVICTION_ZERO",
+        "ticker": "SB",
+        "code": "VALUATION_CONVICTION_ZERO",
+        "detail": "weight-family sign unstable; valuation cannot support sizing",
+        "value": false,
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SBLK",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:READ_CAP",
+        "ticker": "SBLK",
+        "code": "READ_CAP",
+        "detail": "size to the weaker-basis read: flips (cheap/fair)",
+        "value": "flips (cheap/fair)",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "CCEC",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:WIDE_CAP",
+        "ticker": "CCEC",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:WIDE_CAP",
+        "ticker": "TEN",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:GATE_current_balance_sheet",
+        "ticker": "TEN",
+        "code": "GATE_current_balance_sheet",
+        "detail": "gate current_balance_sheet: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TEN as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TEN:GATES_PENDING",
+        "ticker": "TEN",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": true, \"current_balance_sheet\": true, \"family_min\": false, \"sign_stable\": true, \"stage_a\": \"unknown\", \"war_falsifier\": true}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": true,
+          "sign_stable": true,
+          "family_min": false,
+          "war_falsifier": true,
+          "stage_a": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:WIDE_CAP",
+        "ticker": "TRMD",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:GATE_sign_stable",
+        "ticker": "TRMD",
+        "code": "GATE_sign_stable",
+        "detail": "gate sign_stable: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TRMD:GATES_PENDING",
+        "ticker": "TRMD",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      }
+    ],
+    "states": {
+      "SB": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "HOLD (fairly valued)",
+        "read_flag": "robust",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 8.97,
+        "price": 9.18,
+        "fv_low": 6.94,
+        "fv_high": 11.37,
+        "ev_pct_family_min": -6.3,
+        "ev_pct_family_max": 1.6,
+        "weight_sign_stable": false
+      },
+      "SBLK": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "flips (cheap/fair)",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 28.16,
+        "price": 32.48,
+        "fv_low": 22.29,
+        "fv_high": 34.49,
+        "ev_pct_family_min": -16.6,
+        "ev_pct_family_max": -10.3,
+        "weight_sign_stable": true
+      },
+      "CCEC": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 33.46,
+        "price": 21.66,
+        "fv_low": 16.96,
+        "fv_high": 47.2,
+        "ev_pct_family_min": 33.4,
+        "ev_pct_family_max": 54.5,
+        "weight_sign_stable": true
+      },
+      "TEN": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 68.17,
+        "price": 52.09,
+        "fv_low": 48.83,
+        "fv_high": 85.19,
+        "ev_pct_family_min": 14.4,
+        "ev_pct_family_max": 30.9,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": true,
+          "sign_stable": true,
+          "family_min": false,
+          "war_falsifier": true,
+          "stage_a": "unknown"
+        }
+      },
+      "TRMD": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 35.14,
+        "price": 38.23,
+        "fv_low": 21.08,
+        "fv_high": 47.75,
+        "ev_pct_family_min": -22.5,
+        "ev_pct_family_max": -8.1,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        }
+      }
+    },
+    "transport": "shadow envelope fixture only; no publication, state consumption or notifications"
+  },
+  "cash_reference": {
+    "events": [
+      {
+        "id": "SB:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SB",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:CHANGED_position",
+        "ticker": "SB",
+        "code": "CHANGED_position",
+        "detail": "position: BUY (undervalued) \u2192 HOLD (fairly valued)",
+        "value": "HOLD (fairly valued)",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:FV_DRIFT",
+        "ticker": "SB",
+        "code": "FV_DRIFT",
+        "detail": "weighted FV 8.81 differs >10% from reviewed 9.82",
+        "value": "outside",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:CHANGED_read_flag",
+        "ticker": "SBLK",
+        "code": "CHANGED_read_flag",
+        "detail": "read_flag: flips (cheap/fair) \u2192 robust",
+        "value": "robust",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SBLK",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "CCEC",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:WIDE_CAP",
+        "ticker": "CCEC",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:DATA_UNAVAILABLE",
+        "ticker": "TEN",
+        "code": "DATA_UNAVAILABLE",
+        "detail": "unknown/invalid: position, read_flag, fv, fv_low, fv_high, ev_pct_family_min, ev_pct_family_max, weight_sign_stable, known read_flag",
+        "value": [
+          "ev_pct_family_max",
+          "ev_pct_family_min",
+          "fv",
+          "fv_high",
+          "fv_low",
+          "known read_flag",
+          "position",
+          "read_flag",
+          "weight_sign_stable"
+        ],
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:WIDE_CAP",
+        "ticker": "TRMD",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:GATE_sign_stable",
+        "ticker": "TRMD",
+        "code": "GATE_sign_stable",
+        "detail": "gate sign_stable: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TRMD:GATES_PENDING",
+        "ticker": "TRMD",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      }
+    ],
+    "states": {
+      "SB": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "HOLD (fairly valued)",
+        "read_flag": "robust",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 8.81,
+        "price": 9.18,
+        "fv_low": 6.76,
+        "fv_high": 11.21,
+        "ev_pct_family_min": -8.2,
+        "ev_pct_family_max": -0.2,
+        "weight_sign_stable": true
+      },
+      "SBLK": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "robust",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 27.9,
+        "price": 32.48,
+        "fv_low": 21.91,
+        "fv_high": 34.29,
+        "ev_pct_family_min": -17.4,
+        "ev_pct_family_max": -11.1,
+        "weight_sign_stable": true
+      },
+      "CCEC": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 33.03,
+        "price": 21.66,
+        "fv_low": 15.46,
+        "fv_high": 46.8,
+        "ev_pct_family_min": 31.3,
+        "ev_pct_family_max": 52.5,
+        "weight_sign_stable": true
+      },
+      "TEN": {
+        "valid": false
+      },
+      "TRMD": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 35.12,
+        "price": 38.23,
+        "fv_low": 20.9,
+        "fv_high": 47.93,
+        "ev_pct_family_min": -22.7,
+        "ev_pct_family_max": -8.1,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        }
+      }
+    },
+    "transport": "shadow envelope fixture only; no publication, state consumption or notifications"
+  },
+  "cash_reference_risk": {
+    "events": [
+      {
+        "id": "SB:CHANGED_read_flag",
+        "ticker": "SB",
+        "code": "CHANGED_read_flag",
+        "detail": "read_flag: robust \u2192 flips (cheap/rich)",
+        "value": "flips (cheap/rich)",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SB",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:CHANGED_position",
+        "ticker": "SB",
+        "code": "CHANGED_position",
+        "detail": "position: BUY (undervalued) \u2192 HOLD (fairly valued)",
+        "value": "HOLD (fairly valued)",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:VALUATION_CONVICTION_ZERO",
+        "ticker": "SB",
+        "code": "VALUATION_CONVICTION_ZERO",
+        "detail": "weight-family sign unstable; valuation cannot support sizing",
+        "value": false,
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:CHANGED_read_flag",
+        "ticker": "SBLK",
+        "code": "CHANGED_read_flag",
+        "detail": "read_flag: flips (cheap/fair) \u2192 flips (fair/rich)",
+        "value": "flips (fair/rich)",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SBLK",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:READ_CAP",
+        "ticker": "SBLK",
+        "code": "READ_CAP",
+        "detail": "size to the weaker-basis read: flips (fair/rich)",
+        "value": "flips (fair/rich)",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "CCEC",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:WIDE_CAP",
+        "ticker": "CCEC",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:DATA_UNAVAILABLE",
+        "ticker": "TEN",
+        "code": "DATA_UNAVAILABLE",
+        "detail": "unknown/invalid: position, read_flag, fv, fv_low, fv_high, ev_pct_family_min, ev_pct_family_max, weight_sign_stable, known read_flag",
+        "value": [
+          "ev_pct_family_max",
+          "ev_pct_family_min",
+          "fv",
+          "fv_high",
+          "fv_low",
+          "known read_flag",
+          "position",
+          "read_flag",
+          "weight_sign_stable"
+        ],
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:WIDE_CAP",
+        "ticker": "TRMD",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:GATE_sign_stable",
+        "ticker": "TRMD",
+        "code": "GATE_sign_stable",
+        "detail": "gate sign_stable: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TRMD:GATES_PENDING",
+        "ticker": "TRMD",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      }
+    ],
+    "states": {
+      "SB": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "HOLD (fairly valued)",
+        "read_flag": "flips (cheap/rich)",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 8.97,
+        "price": 9.18,
+        "fv_low": 6.93,
+        "fv_high": 11.37,
+        "ev_pct_family_min": -6.4,
+        "ev_pct_family_max": 1.6,
+        "weight_sign_stable": false
+      },
+      "SBLK": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "flips (fair/rich)",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 28.42,
+        "price": 32.48,
+        "fv_low": 22.42,
+        "fv_high": 34.74,
+        "ev_pct_family_min": -15.8,
+        "ev_pct_family_max": -9.5,
+        "weight_sign_stable": true
+      },
+      "CCEC": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 31.68,
+        "price": 21.66,
+        "fv_low": 14.48,
+        "fv_high": 45.79,
+        "ev_pct_family_min": 25.0,
+        "ev_pct_family_max": 46.2,
+        "weight_sign_stable": true
+      },
+      "TEN": {
+        "valid": false
+      },
+      "TRMD": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 35.82,
+        "price": 38.23,
+        "fv_low": 21.5,
+        "fv_high": 48.82,
+        "ev_pct_family_min": -21.1,
+        "ev_pct_family_max": -6.3,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        }
+      }
+    },
+    "transport": "shadow envelope fixture only; no publication, state consumption or notifications"
+  },
+  "combined": {
+    "events": [
+      {
+        "id": "SB:CHANGED_read_flag",
+        "ticker": "SB",
+        "code": "CHANGED_read_flag",
+        "detail": "read_flag: robust \u2192 flips (cheap/rich)",
+        "value": "flips (cheap/rich)",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SB",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:CHANGED_position",
+        "ticker": "SB",
+        "code": "CHANGED_position",
+        "detail": "position: BUY (undervalued) \u2192 HOLD (fairly valued)",
+        "value": "HOLD (fairly valued)",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:VALUATION_CONVICTION_ZERO",
+        "ticker": "SB",
+        "code": "VALUATION_CONVICTION_ZERO",
+        "detail": "weight-family sign unstable; valuation cannot support sizing",
+        "value": false,
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:CHANGED_read_flag",
+        "ticker": "SBLK",
+        "code": "CHANGED_read_flag",
+        "detail": "read_flag: flips (cheap/fair) \u2192 flips (fair/rich)",
+        "value": "flips (fair/rich)",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SBLK",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:READ_CAP",
+        "ticker": "SBLK",
+        "code": "READ_CAP",
+        "detail": "size to the weaker-basis read: flips (fair/rich)",
+        "value": "flips (fair/rich)",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "CCEC",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:WIDE_CAP",
+        "ticker": "CCEC",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:DATA_UNAVAILABLE",
+        "ticker": "TEN",
+        "code": "DATA_UNAVAILABLE",
+        "detail": "unknown/invalid: position, read_flag, fv, fv_low, fv_high, ev_pct_family_min, ev_pct_family_max, weight_sign_stable, known read_flag",
+        "value": [
+          "ev_pct_family_max",
+          "ev_pct_family_min",
+          "fv",
+          "fv_high",
+          "fv_low",
+          "known read_flag",
+          "position",
+          "read_flag",
+          "weight_sign_stable"
+        ],
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:WIDE_CAP",
+        "ticker": "TRMD",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:GATE_sign_stable",
+        "ticker": "TRMD",
+        "code": "GATE_sign_stable",
+        "detail": "gate sign_stable: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TRMD:GATES_PENDING",
+        "ticker": "TRMD",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      }
+    ],
+    "states": {
+      "SB": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "HOLD (fairly valued)",
+        "read_flag": "flips (cheap/rich)",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 8.94,
+        "price": 9.18,
+        "fv_low": 6.86,
+        "fv_high": 11.37,
+        "ev_pct_family_min": -6.7,
+        "ev_pct_family_max": 1.3,
+        "weight_sign_stable": false
+      },
+      "SBLK": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "flips (fair/rich)",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 28.37,
+        "price": 32.48,
+        "fv_low": 22.43,
+        "fv_high": 34.74,
+        "ev_pct_family_min": -16.0,
+        "ev_pct_family_max": -9.6,
+        "weight_sign_stable": true
+      },
+      "CCEC": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 31.49,
+        "price": 21.66,
+        "fv_low": 15.07,
+        "fv_high": 45.79,
+        "ev_pct_family_min": 24.0,
+        "ev_pct_family_max": 45.4,
+        "weight_sign_stable": true
+      },
+      "TEN": {
+        "valid": false
+      },
+      "TRMD": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 35.83,
+        "price": 38.23,
+        "fv_low": 21.48,
+        "fv_high": 48.82,
+        "ev_pct_family_min": -21.0,
+        "ev_pct_family_max": -6.3,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        }
+      }
+    },
+    "transport": "shadow envelope fixture only; no publication, state consumption or notifications"
+  },
+  "reference_risk_smooth": {
+    "events": [
+      {
+        "id": "SB:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SB",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:CHANGED_position",
+        "ticker": "SB",
+        "code": "CHANGED_position",
+        "detail": "position: BUY (undervalued) \u2192 HOLD (fairly valued)",
+        "value": "HOLD (fairly valued)",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SB:VALUATION_CONVICTION_ZERO",
+        "ticker": "SB",
+        "code": "VALUATION_CONVICTION_ZERO",
+        "detail": "weight-family sign unstable; valuation cannot support sizing",
+        "value": false,
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:CHANGED_read_flag",
+        "ticker": "SBLK",
+        "code": "CHANGED_read_flag",
+        "detail": "read_flag: flips (cheap/fair) \u2192 robust",
+        "value": "robust",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "SBLK:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "SBLK",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:BASELINE_UNKNOWN_weight_sign_stable",
+        "ticker": "CCEC",
+        "code": "BASELINE_UNKNOWN_weight_sign_stable",
+        "detail": "review baseline not documented for weight_sign_stable",
+        "value": "weight_sign_stable",
+        "severity": "page",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "CCEC:WIDE_CAP",
+        "ticker": "CCEC",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:WIDE_CAP",
+        "ticker": "TEN",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TEN:GATE_current_balance_sheet",
+        "ticker": "TEN",
+        "code": "GATE_current_balance_sheet",
+        "detail": "gate current_balance_sheet: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TEN as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TEN:GATES_PENDING",
+        "ticker": "TEN",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": true, \"current_balance_sheet\": true, \"family_min\": false, \"sign_stable\": true, \"stage_a\": \"unknown\", \"war_falsifier\": true}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": true,
+          "sign_stable": true,
+          "family_min": false,
+          "war_falsifier": true,
+          "stage_a": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:WIDE_CAP",
+        "ticker": "TRMD",
+        "code": "WIDE_CAP",
+        "detail": "valuation-supported sizing is capped",
+        "value": "GOVERNED-WIDE",
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      },
+      {
+        "id": "TRMD:GATE_sign_stable",
+        "ticker": "TRMD",
+        "code": "GATE_sign_stable",
+        "detail": "gate sign_stable: False \u2192 True",
+        "value": true,
+        "severity": "page",
+        "action": "OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply"
+      },
+      {
+        "id": "TRMD:GATES_PENDING",
+        "ticker": "TRMD",
+        "code": "GATES_PENDING",
+        "detail": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}",
+        "value": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        },
+        "severity": "info",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized"
+      }
+    ],
+    "states": {
+      "SB": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "HOLD (fairly valued)",
+        "read_flag": "robust",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 9.13,
+        "price": 9.18,
+        "fv_low": 7.1,
+        "fv_high": 11.52,
+        "ev_pct_family_min": -4.5,
+        "ev_pct_family_max": 3.3,
+        "weight_sign_stable": false
+      },
+      "SBLK": {
+        "valid": true,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "robust",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 28.67,
+        "price": 32.48,
+        "fv_low": 22.81,
+        "fv_high": 34.95,
+        "ev_pct_family_min": -15.0,
+        "ev_pct_family_max": -8.8,
+        "weight_sign_stable": true
+      },
+      "CCEC": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 32.1,
+        "price": 21.66,
+        "fv_low": 15.83,
+        "fv_high": 46.15,
+        "ev_pct_family_min": 27.0,
+        "ev_pct_family_max": 48.2,
+        "weight_sign_stable": true
+      },
+      "TEN": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 68.56,
+        "price": 52.09,
+        "fv_low": 49.22,
+        "fv_high": 85.63,
+        "ev_pct_family_min": 15.1,
+        "ev_pct_family_max": 31.6,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": true,
+          "sign_stable": true,
+          "family_min": false,
+          "war_falsifier": true,
+          "stage_a": "unknown"
+        }
+      },
+      "TRMD": {
+        "valid": true,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "n/a",
+        "balance_sheet_vintage": "2026-Q2",
+        "fv": 35.91,
+        "price": 38.23,
+        "fv_low": 21.7,
+        "fv_high": 48.74,
+        "ev_pct_family_min": -20.7,
+        "ev_pct_family_max": -6.1,
+        "weight_sign_stable": true,
+        "gates": {
+          "current_balance_sheet": true,
+          "buy": false,
+          "sign_stable": true,
+          "tier": false,
+          "compressed_curve_anchor": "unknown"
+        }
+      }
+    },
+    "transport": "shadow envelope fixture only; no publication, state consumption or notifications"
+  }
+}

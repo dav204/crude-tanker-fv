@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "migrated_at": "2026-09-22",
+  "names": {
+    "SB": {
+      "role": "holding",
+      "baseline": {
+        "fv": 9.82,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "BUY (undervalued)",
+        "read_flag": "robust",
+        "weight_sign_stable": null
+      },
+      "provenance": [
+        "holdings/sb.md",
+        "reviews/2026-09-21-q3-review.md: valuation seam table"
+      ],
+      "baseline_note": "Original reviewed FV retained; missing historical read/sign flags remain unknown. No re-stamp by the worker.",
+      "fv_drift_pct": 10.0,
+      "read_flag_governed": true
+    },
+    "SBLK": {
+      "role": "holding",
+      "baseline": {
+        "fv": 29.79,
+        "confidence_tier": "VALIDATED-TIGHT",
+        "position": "TRIM/SHORT (overvalued)",
+        "read_flag": "flips (cheap/fair)",
+        "weight_sign_stable": null
+      },
+      "provenance": [
+        "holdings/sblk.md",
+        "reviews/2026-09-21-q3-review.md: valuation seam table"
+      ],
+      "baseline_note": "Original reviewed FV retained; missing historical read/sign flags remain unknown. No re-stamp by the worker.",
+      "fv_drift_pct": 10.0,
+      "read_flag_governed": true
+    },
+    "CCEC": {
+      "role": "holding",
+      "baseline": {
+        "fv": 33.7,
+        "confidence_tier": "GOVERNED-WIDE",
+        "position": "BUY (undervalued)",
+        "read_flag": null,
+        "weight_sign_stable": null
+      },
+      "provenance": [
+        "holdings/ccec.md",
+        "reviews/2026-09-21-q3-review.md: valuation seam table"
+      ],
+      "baseline_note": "Original reviewed FV retained; missing historical read/sign flags remain unknown. No re-stamp by the worker.",
+      "fv_drift_pct": 10.0,
+      "read_flag_governed": false
+    },
+    "TEN": {
+      "role": "candidate",
+      "baseline": {},
+      "minimum_family_upside": 20.0,
+      "previous_gates": {
+        "current_balance_sheet": false,
+        "family_min": false
+      },
+      "attestations": {
+        "war_falsifier": {
+          "status": true,
+          "source": "preregs/GATED_CANDIDATES.md G-TEN gate (i)"
+        },
+        "stage_a": {
+          "status": "unknown",
+          "source": "preregs/GATED_CANDIDATES.md G-TEN gate (iii); explicit completion attestation required"
+        }
+      },
+      "provenance": [
+        "preregs/GATED_CANDIDATES.md"
+      ],
+      "read_flag_governed": false
+    },
+    "TRMD": {
+      "role": "candidate",
+      "baseline": {},
+      "required_tier": "VALIDATED-TIGHT",
+      "previous_gates": {
+        "tier": false,
+        "sign_stable": false,
+        "buy": false
+      },
+      "attestations": {
+        "compressed_curve_anchor": {
+          "status": "unknown",
+          "source": "preregs/GATED_CANDIDATES.md G-TRMD"
+        }
+      },
+      "provenance": [
+        "preregs/GATED_CANDIDATES.md"
+      ],
+      "read_flag_governed": false
+    }
+  },
+  "cycle_trigger": {
+    "id": "R-3",
+    "tickers": [
+      "SB",
+      "SBLK"
+    ],
+    "source": "funnels/register.md"
+  }
+}

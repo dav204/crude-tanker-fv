@@ -1,0 +1,160 @@
+[
+  {
+    "id": "economic:shadow-package",
+    "project": "producer",
+    "status": "done",
+    "next_action": "Research engine, frozen comparisons and verified owner-review package recorded; this completion does not authorize adoption.",
+    "resolver": "agent",
+    "due": null,
+    "waiting_condition": null,
+    "blocking_decision_ids": [],
+    "evidence": [
+      {
+        "project": "producer",
+        "path": "research/economic-methods/REVIEW.md"
+      }
+    ]
+  },
+  {
+    "id": "roadmap:dm2-dm3-dm4",
+    "project": "producer",
+    "status": "waiting",
+    "next_action": "D-M2 prototype and D-M4 comparison implemented; D-M3 VOID under registered coverage kill. Finish sector calibration and LR1 dependency, then obtain the ruled owner D1 cycle decision.",
+    "resolver": "owner",
+    "due": null,
+    "waiting_condition": "until cited evidence and any specified owner decision are recorded",
+    "blocking_decision_ids": [
+      "D-M2-parameters",
+      "D1-cycle",
+      "economic:risk-calibration",
+      "roadmap:lr1-anchor"
+    ],
+    "evidence": [
+      {
+        "project": "producer",
+        "path": "research/economic-methods/REVIEW.md"
+      }
+    ]
+  },
+  {
+    "id": "economic:parity-eligibility",
+    "project": "producer",
+    "status": "done",
+    "next_action": "Full-book eligibility evaluated: 10/19 calculable classes, below 80%; A/B VOID. Retain historical denominators. Three-vintage valuation/stability tests not run after kill.",
+    "resolver": "agent",
+    "due": null,
+    "waiting_condition": null,
+    "blocking_decision_ids": [],
+    "evidence": [
+      {
+        "project": "producer",
+        "path": "research/economic-methods/REVIEW.md"
+      }
+    ]
+  },
+  {
+    "id": "economic:cash-schedules",
+    "project": "producer",
+    "status": "ready",
+    "next_action": "Extract and reconcile issuer accounting-to-distributable definitions, D&A, debt, capex/installments, sales/deliveries, restricted cash, leases and preferred/NCI schedules for all 25 names. Use per-name blockers.json; no missing flow is certified zero.",
+    "resolver": "agent",
+    "due": null,
+    "waiting_condition": "until cited evidence and any specified owner decision are recorded",
+    "blocking_decision_ids": [],
+    "evidence": [
+      {
+        "project": "producer",
+        "path": "research/economic-methods/REVIEW.md"
+      }
+    ]
+  },
+  {
+    "id": "economic:reference-pairs",
+    "project": "producer",
+    "status": "ready",
+    "next_action": "Recover dated vessel-mark/reference pair evidence for every issuer/sleeve. The proposed current reference passes FFA invariance but is not historically validated; register any replacement leg before recalculation.",
+    "resolver": "agent",
+    "due": null,
+    "waiting_condition": "until cited evidence and any specified owner decision are recorded",
+    "blocking_decision_ids": [],
+    "evidence": [
+      {
+        "project": "producer",
+        "path": "research/economic-methods/REVIEW.md"
+      }
+    ]
+  },
+  {
+    "id": "economic:risk-calibration",
+    "project": "producer",
+    "status": "ready",
+    "next_action": "Complete independent shipping-sector asset-risk calibration and funding-cost evidence. Current numerical results use one broad Transportation proxy, not six completed sector calibrations.",
+    "resolver": "agent",
+    "due": null,
+    "waiting_condition": "until cited evidence and any specified owner decision are recorded",
+    "blocking_decision_ids": [],
+    "evidence": [
+      {
+        "project": "producer",
+        "path": "research/economic-methods/REVIEW.md"
+      }
+    ]
+  },
+  {
+    "id": "economic:normalized-accounting-eps",
+    "project": "producer",
+    "status": "ready",
+    "next_action": "Implement a sourced normalized common-accounting EPS bridge for justified P/NAV and reporting consumers; preserve/version the existing legacy proxy and compare effects separately.",
+    "resolver": "agent",
+    "due": null,
+    "waiting_condition": "until cited evidence and any specified owner decision are recorded",
+    "blocking_decision_ids": [],
+    "evidence": [
+      {
+        "project": "producer",
+        "path": "research/economic-methods/REVIEW.md"
+      }
+    ]
+  },
+  {
+    "id": "economic:hybrid-joint-scenarios",
+    "project": "producer",
+    "status": "ready",
+    "next_action": "Prepare a concrete issuer-level joint-scenario mapping or dependence-bound proposal for INSW, TEN and CMBT; reconcile cash/distributions once and cover longer container periods. Current marginal cash FV is intentionally unavailable.",
+    "resolver": "agent",
+    "due": null,
+    "waiting_condition": "until cited evidence and any specified owner decision are recorded",
+    "blocking_decision_ids": [],
+    "evidence": [
+      {
+        "project": "producer",
+        "path": "research/economic-methods/REVIEW.md"
+      }
+    ]
+  },
+  {
+    "id": "economic:adoption-review",
+    "project": "producer",
+    "status": "blocked",
+    "next_action": "Review economic-method package after material evidence gaps close; approve scoped payout/reference/risk parameters and D1 smoothing outer anchors explicitly. No new method or baseline changes before that ruling.",
+    "resolver": "owner",
+    "due": null,
+    "waiting_condition": "until cited evidence and any specified owner decision are recorded",
+    "blocking_decision_ids": [
+      "economic:cash-schedules",
+      "economic:reference-pairs",
+      "economic:risk-calibration",
+      "economic:normalized-accounting-eps",
+      "economic:hybrid-joint-scenarios",
+      "roadmap:lr1-anchor",
+      "D-M2-parameters",
+      "D1-cycle"
+    ],
+    "evidence": [
+      {
+        "project": "producer",
+        "path": "research/economic-methods/REVIEW.md"
+      }
+    ]
+  }
+]
