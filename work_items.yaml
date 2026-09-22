@@ -1517,6 +1517,25 @@
       "status": "ready",
       "verified_at": "2026-09-22",
       "waiting_condition": "until cited evidence and any specified owner decision are recorded"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "research/economic-methods/REVIEW.md",
+          "project": "producer",
+          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+        }
+      ],
+      "id": "economic:normalized-accounting-eps",
+      "next_action": "Implement a sourced normalized common-accounting EPS bridge for justified P/NAV and reporting consumers; preserve/version the existing legacy proxy and compare effects separately.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "until cited evidence and any specified owner decision are recorded"
     }
   ],
   "version": 1
