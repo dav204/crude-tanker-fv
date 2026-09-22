@@ -1132,24 +1132,6 @@
     },
     {
       "authority": "manual",
-      "blocking_decision_ids": [],
-      "due": null,
-      "evidence": [
-        {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
-        }
-      ],
-      "id": "roadmap:lr1-anchor",
-      "next_action": "**LR1 contract-floor anchor round.** The only overdue valuation work. Frozen prereg (`PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md`), its post-Stage-A gate cleared 2026-08-10 and Stage B landed 2026-09-09. Predicts INSW +$7.80M, TEN +$1.17M, TRMD and HAFN exactly 0, and takes TRMD to VALIDATED-TIGHT.",
-      "project": "producer",
-      "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "recorded disposition or completion"
-    },
-    {
-      "authority": "manual",
       "blocking_decision_ids": [
         "product-reexpression"
       ],
@@ -1583,6 +1565,29 @@
       "status": "blocked",
       "verified_at": "2026-09-22",
       "waiting_condition": "until cited evidence and any specified owner decision are recorded"
+    },
+    {
+      "authority": "manual",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "decisions/workflow_migration_2026-09-22.md",
+          "project": "producer"
+        },
+        {
+          "path": "research/economic-methods/REVIEW.md",
+          "project": "producer",
+          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+        }
+      ],
+      "id": "roadmap:lr1-anchor",
+      "next_action": "**LR1 contract-floor anchor round.** Overdue, separately registered anchor work; complete as an independently attributed leg before economic-method/D1 adoption. Frozen prereg (`PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md`), its post-Stage-A gate cleared 2026-08-10 and Stage B landed 2026-09-09. Predicts INSW +$7.80M, TEN +$1.17M, TRMD and HAFN exactly 0, and takes TRMD to VALIDATED-TIGHT.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "verified_at": "2026-09-22",
+      "waiting_condition": "recorded disposition or completion"
     }
   ],
   "version": 1
