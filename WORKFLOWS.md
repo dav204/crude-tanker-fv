@@ -240,6 +240,17 @@ quirks live here:
 - **WebFetch fails on many IR PDFs** (FlateDecode binary). Pattern: `.venv/bin/python scripts/fetch_pdf.py
   <url>` (downloads to /tmp, validates the host against `inputs/data_sources.yaml` — add new sources
   THERE, not to the script), then parse with pypdf.
+- **A staged inline-XBRL exhibit is READABLE — de-tag it locally, never fall back to R-renderings**
+  (2026-09-21, TEN). A single-file iXBRL 6-K is one ~94k-token line, so the Read tool refuses it and
+  it *looks* unreadable. It is not: a dozen lines of stdlib `re`/`html` render it as plain text
+  (strip `<script>`/`<style>`, drop tags, unescape entities, collapse blank lines). The TEN H1 shadow
+  declared the exhibit unreadable, worked from EDGAR R-renderings that were never on disk, and
+  therefore reported "the 6-K carries no per-vessel shuttle day rates" — while the Charters-out
+  schedule that *derives* the rate sat five lines below the commitment figure it did cite from that
+  same note. The miss cost a quarter of carrying a $453.1M leg on an APPROX. This is CLAUDE.md's
+  "absence isn't evidence" in its exact shape: a parser dropped the field and the absence was scored
+  as data. R-renderings are also unciteable — they are not in the repo, so no figure taken from one
+  can be verified later.
 - **ECO's domain TLS chain fails WebFetch entirely** — use fetch_pdf.py, which carries the one audited
   TLS-verification exception for that host.
 - **EDGAR needs a contact User-Agent** — fetch_pdf.py sends an SEC-compliant contact string (was 403 on
