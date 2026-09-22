@@ -152,6 +152,10 @@ def record_dispositions(items, root=ROOT):
         commit_paths(root, [str(path.relative_to(root))], "filings triage: committed dispositions")
         for item in items:
             ack(item["accession"], item["disposition"], str(path.relative_to(root)), path=state)
+            if item["disposition"].startswith("owner:"):
+                from .delivery import enqueue
+                enqueue("[crude-fv] PAGE: filing requires owner decision", item["accession"] + "\n" + item["disposition"] +
+                        "\nEvidence: decisions/filings_triage_log.md\nACTION: OWNER — resolve the stated filing decision.", root / "state")
     return len(items)
 
 
