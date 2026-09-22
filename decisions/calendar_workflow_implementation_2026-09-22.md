@@ -94,7 +94,7 @@ updates/notifications while retaining the evidence and an explicit disabled repo
 
 Clean source b19e343: regeneration and the full producer suite passed: **996 passed,
 12 expected failures**, with one existing system LibreSSL warning (441.72 seconds).
-Governor: **21 passed** with notification and healthcheck transports mocked. The 31
+Governor before the inbox repair: **21 passed** with notification and healthcheck transports mocked. The 31
 pre-existing per-name handoff fields match the prior production publication for all 25
 names; calendar/provenance fields are additive. Source stamp b19e343 has no dirty suffix.
 The final source includes commit-failure recovery, malformed-registry retention, unchanged
@@ -104,3 +104,24 @@ The weekly prompt no longer duplicates old financial targets: it reads current c
 CADENCE and recorded owner rulings, retaining conflicts as unknown. The permission manifest
 was compared against user, Projects-folder, producer and governor settings: zero missing
 grants in all four. This does not close quarterly:scheduler-proof.
+
+### Live rollout and permission finding
+
+The first deployed calendar publication
+`0befe36daca0bfab201f51aee58549f925d4981d3748f9ffaf09c0a4d1ae8551` was accepted and consumed
+by the governor. Both delivery queues were empty and the worker observed zero changed
+workflow conditions. The previous accepted snapshot remains retained. Q3's cited skip
+was repeated at 19:44:38 UTC without SMTP or a weekly healthcheck.
+
+The final reporting correction keeps missing-receipt and stalled-filing repairs in the
+agent queue while withholding a clear-status claim. Source d53bb0b: clean regeneration
+and **997 passed, 12 expected failures**, one inherited LibreSSL warning (324.27 seconds).
+Governor scoped-payload tests: **23 passed**. Graph/prompt/document guards: **26 passed**.
+
+Automatic approval review rejected the new inbox Write grant in four persistent settings
+files, stating that this exact access expansion needs explicit approval. The new grant is
+limited to `/Users/dan_personal/Projects/portfolio-governance/monitor/inbox/**`; no permission
+change was applied by the rejected action. `quarterly:inbox-permission` records that owner
+approval dependency, separately from the agent's remaining fresh-scheduler proof. The
+normal installed guarded prompt remains available, so completed Q3 still skips before
+research or payload persistence.

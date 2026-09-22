@@ -970,12 +970,14 @@
       "resolver": "agent",
       "due": null,
       "waiting_condition": "Observed heredoc approval replaced; fresh unattended smoke proof still required",
-      "blocking_decision_ids": [],
+      "blocking_decision_ids": [
+        "quarterly:inbox-permission"
+      ],
       "evidence": [
         {
-          "project": "governor",
-          "path": "monitor/QUARTERLY_SMOKE_EVIDENCE_2026-09-22.md",
-          "contains": "unattended acceptance FAILED"
+          "project": "producer",
+          "path": "decisions/calendar_workflow_implementation_2026-09-22.md",
+          "contains": "Automatic approval review rejected"
         }
       ],
       "authority": "manual",
@@ -1363,6 +1365,25 @@
         }
       ],
       "authority": "adapter"
+    },
+    {
+      "id": "quarterly:inbox-permission",
+      "project": "governor",
+      "status": "blocked",
+      "next_action": "Approve the narrowly scoped monitor/inbox/** Write grant requested in the task; automatic approval review rejected installation without explicit approval",
+      "resolver": "owner",
+      "due": null,
+      "waiting_condition": "explicit approval for the inbox grant in user, Projects-folder and both project settings",
+      "blocking_decision_ids": [],
+      "evidence": [
+        {
+          "project": "producer",
+          "path": "decisions/calendar_workflow_implementation_2026-09-22.md",
+          "contains": "Automatic approval review rejected"
+        }
+      ],
+      "authority": "manual",
+      "verified_at": "2026-09-22"
     }
   ],
   "complete": true
