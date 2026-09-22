@@ -487,3 +487,8 @@ notebooks/          ← exploratory / hand-check work
 ```
 
 Routine automation and recovery: [automation/README.md](automation/README.md). Accepted publications live in `state/publications/`; durable delivery receipts live in `state/delivery/` and governor `monitor/state/`.
+
+Operational tasks for the producer and governor live in [work_items.yaml](work_items.yaml).
+The weekly report reads that registry and actual stage receipts; unknown evidence stays visible.
+See [WORKFLOWS.md](WORKFLOWS.md#operational-status-and-calendar-policy-2026-09-22) for scoped
+updates, structured shadow blockers and rollback switches.

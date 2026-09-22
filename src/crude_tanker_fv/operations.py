@@ -149,15 +149,19 @@ def worker(root=ROOT, governor=GOVERNOR, *, shadow=False):
                     run.update(status="interrupted", blocker="run started over two hours ago without a persisted outcome", resolver="workflow repair")
                     atomic_json(path, run)
                     delivery.enqueue("[crude-fv] PAGE: interrupted scheduled run", "Run " + run["run_id"] + " has no completed outcome. ACTION: OWNER — inspect the scheduled task and repair its blocked stage.", state, key="interrupted:" + run["run_id"])
+        from .work_items import refresh_worker
+        if (root / "work_items.yaml").exists():
+            refresh_worker(root)
         environ = notify.load_env_file(notify.ENV_FILE)
         for directory in (state, governor / "monitor/state"):
             delivery.drain(directory, environ=environ)
         _, land = import_governor(governor)
         run_paths = sorted((governor / "monitor/state/runs").glob("*.json"))
+        weekly_paths = [p for p in run_paths if json.loads(p.read_text()).get("job", "weekly") == "weekly"]
         for path in run_paths:
             run = json.loads(path.read_text())
             age = (datetime.now(timezone.utc) - datetime.fromisoformat(run["started_at"])).total_seconds()
-            land.recover(path, root=governor, allow_ping=path == run_paths[-1] and 0 <= age <= 7 * 86400)
+            land.recover(path, root=governor, allow_ping=bool(weekly_paths) and path == weekly_paths[-1] and 0 <= age <= 7 * 86400)
         # Recover only previously attempted daily receipts, never manufacture a new daily run.
         if not delivery.pending(state) and not delivery.pending(governor / "monitor/state"):
             paths = sorted((state / "operations/runs").glob("*.json"))

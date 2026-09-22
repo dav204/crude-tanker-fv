@@ -410,3 +410,38 @@ Scheduler permissions: install the explicit rules in automation/task_permissions
 settings and the task's working-folder settings. Do not rely on Auto mode or SKILL.md allowed-tools.
 The scoped wrappers work in Manual mode. Denied/new operations require a workflow repair, not blanket
 bypass mode. See automation/README.md for provenance and runtime limitations.
+
+## Operational status and calendar policy (2026-09-22)
+
+`work_items.yaml` is the versioned operational task view for both projects. It is not a
+valuation determinant. Filing acknowledgments, fork rulings, trigger cards, candidate
+registries, completed-quarter reviews and publication/delivery receipts remain authoritative.
+Run `sh scripts/routine_task.sh tasks show` to read the live projection, or `tasks sync` to
+persist a locked, validated, registry-only commit. Missing/conflicting evidence creates an
+UNKNOWN task and a repair task. Open manual tasks need evidence refreshed after 30 days.
+Owner-blocked tasks keep resolver `owner`; completing a numerical reconciliation does not
+clear a candidate's remaining restrictions. The old roadmap was retained as a migration
+snapshot in `decisions/workflow_migration_2026-09-22.md`.
+
+After committing every shadow narrative `decisions/<ticker>_shadow_build_<date>.md`, run
+`sh scripts/routine_task.sh tasks shadow --report <that-path>` with a JSON array on stdin.
+Each blocker requires `id`, `resolver` (owner/agent/external), `next_action`, `condition`,
+and `blocking_decision_ids`. Use an empty array only when no blockers remain. The command
+requires committed report evidence and commits only the matching JSON sidecar. Missing
+structured blockers are UNKNOWN, never inferred clear from prose.
+
+Live calendar policy is controlled by `inputs/calendar_policy.yaml`. Before enabling it,
+review the preregistered full-book comparison. Dated FFA metadata is stored beside each
+class under `calendar_nodes`; schedules have explicit origins. New or refreshed schedules
+must update their calendar mappings in the same commit. Monthly means include only the
+remaining current-quarter months, while a direct quarterly quote takes precedence. Annual
+identities preserve quoted quarters; residual rounding goes to earliest unquoted quarters.
+Ruled tail steps precede flat carry-forward. Every constructed/extended node is labelled;
+no scenario weights, cycle bands or within-quarter conventions change. Historical replay
+keeps its explicit historical quarter and never applies live calendar alignment.
+
+Rollback: set calendar `enabled: false` to hold October promotion and restore legacy
+projection behavior; set `work_items.yaml` `integration_enabled: false` to stop task-sync
+notifications while preserving task evidence. Stop the entire worker with
+`state/operations/disabled` only if needed. Accepted snapshots, outboxes, and receipts are
+retained. Quarterly completion remains protected by the governor's committed ledger.

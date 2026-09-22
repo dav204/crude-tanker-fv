@@ -405,6 +405,11 @@ def run_scenarios(
     # in their scenario_inputs.yaml block and carry curves of that length.
     horizon = int(doc.get("strip_horizon", 8))
     start_q, start_y = strip_start_from_asof(asof_quarter)
+    if inputs.timeline and asof_quarter is None:
+        from .calendar import align_scenarios
+        start = inputs.timeline["projection_start_quarter"]
+        start_q, start_y = int(start[-1]), int(start[:4])
+        doc = align_scenarios(doc, inputs.timeline, {scenario_class_map[c] for c in classes})
     qkeys = quarter_keys(horizon, start_q, start_y)
     if asof_quarter is not None:
         sample = next(iter(doc["scenarios"].values()))

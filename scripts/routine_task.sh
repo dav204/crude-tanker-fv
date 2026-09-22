@@ -6,6 +6,7 @@ export PYTHONPATH=src
 command="${1:-}"
 [ $# -gt 0 ] && shift
 case "$command" in
+  tasks) exec ./.venv/bin/python -m crude_tanker_fv.work_items "$@" ;;
   refresh) exec ./.venv/bin/python -m crude_tanker_fv.refresh "$@" ;;
   shadow) exec /bin/bash scripts/shadow_regen.sh "$@" ;;
   sentinel) exec ./.venv/bin/python -m crude_tanker_fv.sentinel "$@" ;;

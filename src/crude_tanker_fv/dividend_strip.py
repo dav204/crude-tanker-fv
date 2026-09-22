@@ -154,7 +154,7 @@ def _terminal_nav(inputs: CompanyInputs, quarters_forward: int) -> NavResult:
     time-to-delivery discount (§9.6) and starts aging from delivery; one still
     pending keeps a reduced discount. ``years_to_delivery`` defaults to 0 (on the
     water), so an existing fleet just ages by ``years`` exactly as before."""
-    years = quarters_forward / 4.0
+    years = (quarters_forward + inputs.timeline.get("elapsed_quarters", 0)) / 4.0
     aged_vessels = [
         replace(
             v,

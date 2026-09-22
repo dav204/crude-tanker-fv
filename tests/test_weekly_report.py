@@ -149,24 +149,15 @@ def test_owner_queue_excludes_agent_class_work(tmp_path):
         "UNINGESTED-PRINTS ffa widget newer than curve",
     ]
     owner = wr._queue_lines(flags)
-    assert len(owner) == 3
+    assert len(owner) == 2
     # the owner tags come from inputs/notify.yaml (page + page_once)
     assert owner[0].startswith("TRIGGER-DUE — crude_geopolitics_weekly:")   # the card is named
     assert owner[1].startswith("FORK-OPENED — spot_tce_promote_2026-09-10:")
-    assert "ask-tier" in owner[2]
+    assert not any("FFA queue" in q for q in owner)
     assert not any(q.startswith("FORK-EXECUTABLE") for q in owner)
     assert not any("Refresh owed" in q or "TEN" in q for q in owner)
     assert "FORK-OPENED" in wr.owner_tags() and "FORK-EXECUTABLE" not in wr.owner_tags()
 
-    (tmp_path / "ten_shadow_build_2026-09-11.md").write_text(
-        "# TEN shadow\n\n**VERDICT (one line, repeated at the end): WOULD-HOLD** — top summary\n\n## 9\n\n**VERDICT: WOULD-HOLD** — six fields unverified\n")
-    agent = wr._agent_lines(flags, decisions_dir=tmp_path)
-    assert agent[0].startswith("Balance-sheet refresh queued (agent) — TEN reported 2026-09-10")
-    assert "ten_shadow_build_2026-09-11.md: WOULD-HOLD" in agent[0]
-    assert any(q.startswith("Filings triage (agent") for q in agent)
-    assert any(q.startswith("S&P queue (agent") for q in agent)
-    assert wr._agent_lines(["STALE-BALANCE-SHEET ZZZ: report OUT"], decisions_dir=tmp_path)[0].endswith(
-        "stages when it arrives")
 
 
 def test_same_day_reruns_preserve_both_reports(tmp_path, monkeypatch):

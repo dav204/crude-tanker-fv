@@ -340,7 +340,7 @@ def load_basis_status(inputs_dir: Path = INPUTS_DIR) -> dict[str, str]:
 
 
 def load_company_inputs(
-    ticker: str, quarter: str, inputs_dir: Path = INPUTS_DIR
+    ticker: str, quarter: str, inputs_dir: Path = INPUTS_DIR, *, valuation_date=None, calendar_enabled=None
 ) -> CompanyInputs:
     """Load and bundle all per-company inputs for a run.
 
@@ -372,13 +372,14 @@ def load_company_inputs(
             f"the other (the 2026-07-31 half-application class). Land the "
             f"manifest and its balance sheet together, then re-run."
         )
-    return CompanyInputs(
+    from .calendar import align
+    return align(CompanyInputs(
         fleet=fleet,
         balance_sheet=balance_sheet,
         dividend_policy=dividend_policy,
         cost_structure=cost_structure,
         market_data=load_market_data(inputs_dir),
-    )
+    ), inputs_dir, valuation_date, calendar_enabled)
 
 
 def current_book_quarter(state_file: Path = STATE_FILE) -> "str | None":

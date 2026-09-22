@@ -310,6 +310,7 @@ class _Valuation:
     fv_high: Optional[float] = None
     broker_reference: Optional[dict] = None
     cycles: Optional[list] = None
+    timeline: Optional[dict] = None
 
 
 def valuation_index(fv_reports, scenario_reports, broker_rows) -> dict[str, "_Valuation"]:
@@ -1030,6 +1031,7 @@ def _write_handoff_json(
             "broker_nav": None if (v is None or void) else _num(v.broker_nav),
             "broker_reference": None if (v is None or void) else v.broker_reference,
             "cycles": None if (v is None or void) else v.cycles,
+            "valuation_timeline": None if (v is None or void) else v.timeline,
             "gap_pct": None if (v is None or void) else _num(v.gap_pct, 1),
             # Percentage POINTS like every other _pct field (S-1, schema v3 —
             # v2 exported the engine-internal fraction: TEN's 30% haircut read
@@ -1162,9 +1164,21 @@ def attach_cycles(valuation, quarter, inputs_dir=INPUTS_DIR):
             sectors = ["crude", "product", "lng"]
         hybrid = sectors is not None
         sectors = sectors or [watchlist[ticker]["sector"]]
+        value.timeline = ci.timeline or None
         value.cycles = []
         for sector in sectors:
             inputs = sector_carve_out(ci, sector).sleeve_inputs if hybrid else ci
+            if ci.timeline:
+                from .calendar import align_scenarios, keys
+                from .scenarios import load_scenarios, SCENARIO_CLASS_MAP
+                from .pipeline import _class_map_for_sector
+                doc = load_scenarios(inputs_dir / "scenario_inputs.yaml", sector)
+                cmap = _class_map_for_sector(sector) or SCENARIO_CLASS_MAP
+                align_scenarios(doc, ci.timeline, {cmap[v.cls] for v in inputs.fleet.vessels})
+                horizon = int(doc.get("strip_horizon", 8))
+                ci.timeline.setdefault("sleeves", []).append({"sector": sector, "horizon_quarters": horizon,
+                    "periods": keys(ci.timeline["projection_start_quarter"], horizon),
+                    "terminal_forward_quarters": horizon + 1})
             cycle = compute_cycle(inputs)
             value.cycles.append({"sector": sector, "scope": "sleeve" if hybrid else "company",
                                  "ratio": cycle.cycle_position, "label": cycle.band_label,

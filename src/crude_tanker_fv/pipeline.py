@@ -614,7 +614,7 @@ def run_scenarios_watchlist(
         if entry is None:
             continue
         try:
-            ci = load_company_inputs(ticker, quarter, inputs_dir)
+            ci = load_company_inputs(ticker, quarter, inputs_dir, calendar_enabled=False if asof_quarter else None)
         except FileNotFoundError:
             continue
         ci, _ = _maybe_apply_transactions(ci, inputs_dir, use_transaction_anchored)
@@ -945,7 +945,16 @@ def main() -> None:
     # no state: require the quarter explicitly.
     from .loaders import current_book_quarter, preflight_pair_coherence
 
-    quarter = sys.argv[1] if len(sys.argv) > 1 else (current_book_quarter() or "")
+    import argparse
+    from . import calendar
+    parser = argparse.ArgumentParser()
+    parser.add_argument("quarter", nargs="?", default=current_book_quarter() or "")
+    parser.add_argument("--valuation-date", type=str)
+    args = parser.parse_args()
+    if args.valuation_date:
+        from datetime import date
+        calendar.VALUATION_DATE = date.fromisoformat(args.valuation_date).isoformat()
+    quarter = args.quarter
     # Fail fast on anything that isn't a quarter ('--help', a typo'd '2026-Q5'):
     # a bogus quarter would skip every name on missing balance-sheet files yet
     # still run scenarios/xrefs and OVERWRITE state/last_run.json + touch

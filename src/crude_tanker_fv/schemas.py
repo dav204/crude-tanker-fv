@@ -195,3 +195,4 @@ class CompanyInputs:
     dividend_policy: DividendPolicy
     cost_structure: CostStructure
     market_data: MarketData
+    timeline: dict = field(default_factory=dict)

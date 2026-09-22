@@ -299,53 +299,6 @@ def _queue_lines(flags: list[str], tags: set[str] | None = None) -> list[str]:
         tag, _, rest = f.partition(" ")
         if tag in tags:
             out.append(f"{tag} — {rest.strip()[:180]}")
-    ffa = [f for f in flags if f.startswith("UNINGESTED-PRINTS ffa")]
-    if ffa:
-        out.append("FFA queue — a parsed widget is newer than the committed curve vintage; the "
-                   "curve edit is ask-tier, so it lands in a chat with you (outputs/ffa_ocr_queue.md)")
-    return out
-
-
-def _shadow_verdict(ticker: str, decisions_dir: Path) -> str:
-    files = sorted(decisions_dir.glob(f"{ticker.lower()}_shadow_build_*.md"))
-    if not files:
-        return ""
-    verdict = ""
-    for ln in files[-1].read_text().splitlines():
-        # The report states its verdict twice (top summary + final line); the final one is
-        # the bold "**VERDICT: WOULD-…**" and the text after the last colon is the verdict.
-        if ln.startswith("**VERDICT"):
-            verdict = ln.split("**")[1].rsplit(":", 1)[-1].strip()
-    return f"shadow draft {files[-1].name}: {verdict}" if verdict else f"shadow draft {files[-1].name}"
-
-
-def _agent_lines(flags: list[str], decisions_dir: Path = ROOT / "decisions") -> list[str]:
-    """What the agent tasks are carrying — listed so the owner can see it, never as a debt."""
-    out: list[str] = []
-    for f in flags:
-        if f.startswith("STALE-BALANCE-SHEET"):
-            name = f.split(" ", 1)[1].split(":")[0]
-            m = re.search(r"report OUT \((\d{4}-\d{2}-\d{2})", f)
-            when = f" {m.group(1)}" if m else ""
-            shadow = _shadow_verdict(name, decisions_dir)
-            out.append(f"Balance-sheet refresh queued (agent) — {name} reported{when}; the sheet lands "
-                       f"on the results filing, which the EDGAR poll stages when it arrives"
-                       + (f"; {shadow}" if shadow else ""))
-    landed = [f for f in flags if f.startswith("FILING-LANDED")]
-    if landed:
-        out.append(f"Filings triage (agent, daily 11:45) — {len(landed)} arrival(s) in the 48h window "
-                   f"not yet dispositioned")
-    unread = [f for f in flags if f.startswith("FILING-UNREADABLE")]
-    if unread:
-        out.append(f"Unreadable exhibit(s) (agent) — {len(unread)} image-only staged file(s); page-image "
-                   f"recovery is agent work")
-    fleet = [f for f in flags if f.startswith("FLEET-TRANSACTION")]
-    if fleet:
-        n = re.search(r"(\d+)", fleet[0])
-        out.append(f"S&P queue (agent, unattended ack) — {n.group(1) if n else 'some'} print candidate(s)")
-    earn = [f for f in flags if f.startswith(("EARNINGS-UNCONFIRMED", "EARNINGS-SWEEP-STALE"))]
-    if earn:
-        out.append(f"Earnings-date sweep (agent) — {len(earn)} line(s) awaiting the sweep")
     return out
 
 
@@ -374,8 +327,14 @@ def build_report(today: date | None = None, days: int = 7) -> str:
     edge = _edge_cleared_from_md(OUTPUTS / "book_scorecard.md", known=set(now_rows))
     edge_names = edge[0] if edge else []
     approx = _edge_cleared_approx(now_rows)
-    queue = _queue_lines(flags)
-    agent_queue = _agent_lines(flags)
+    from . import work_items
+    tasks = work_items.project(ROOT, today)
+    queue, agent_queue = work_items.queues(tasks)
+    queue += _queue_lines(flags)
+    if not tasks.get("integration_enabled", False):
+        queue.append("Task-status integration is disabled; registry view is advisory and completion is not asserted")
+    if not tasks["complete"]:
+        queue.append("Workflow status UNKNOWN — repair missing/conflicting evidence before declaring the owner queue clear")
     hbs = _heartbeats()
     reauth = _reauth()
     ping = _ping_status()
@@ -437,7 +396,7 @@ def build_report(today: date | None = None, days: int = 7) -> str:
         a("Nothing needs your word this week.")
     if agent_queue:
         a("")
-        a("**In the agent's queue (no word needed from you):**")
+        a("**Agent/external tasks and workflow repairs:**")
         a("")
         for q in agent_queue:
             a(f"- {q}")
@@ -458,7 +417,7 @@ def build_report(today: date | None = None, days: int = 7) -> str:
                 a(f"    - {r}")
     except Exception as exc:
         a(f"- Lane-D check unavailable: {exc}")
-    a(f"- Notifications sent in the window: {pages} page(s), {digests} digest(s)"
+    a(f"- Legacy SMTP acceptance ledger in the window: {pages} page(s), {digests} digest(s)"
       + (f"; last send {last_send}" if last_send else "; **no sends at all — check the notifier**"))
     if ratifies:
         a("- Baseline re-anchors:")
@@ -467,8 +426,10 @@ def build_report(today: date | None = None, days: int = 7) -> str:
     else:
         a("- No baseline re-anchor in the window.")
     a(f"- Uncommitted files: {len(dirty)} · unpushed commits: {unpushed}")
-    autopilot = ROOT / "AUTOPILOT_LOG.md"
-    a(f"- Autopilot landings: {'see AUTOPILOT_LOG.md' if autopilot.exists() else 'none (no lane has authority yet)'}")
+    for receipt in work_items.receipts(ROOT):
+        a("- " + receipt)
+    filing_task = next((r for r in tasks["items"] if r["id"] == "filings:pending"), {})
+    a(f"- Complete filing backlog: {filing_task.get('pending_total', 'UNKNOWN')}; oldest arrival: {filing_task.get('oldest_arrival', 'UNKNOWN')}; invalid records: {len(filing_task.get('invalid', []))}")
     a("")
 
     a("## 4. Health")

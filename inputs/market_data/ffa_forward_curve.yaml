@@ -331,3 +331,888 @@ ffa_forward_curve:
   - 51750
   - 50000
   - 48000
+
+calendar_nodes:
+  VLCC:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  Suezmax:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  Aframax:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  LR2:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  LR1:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  MR:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  Handysize:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  Handymax:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  LR1_clean:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  LR2_clean:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-09'
+  LNGC:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  MGC:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-07'
+  VLGC:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-02'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-02'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-02'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-02'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-02'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-02'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-02'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-06-02'
+  Cape:
+  - kind: derived
+    method: equal remaining-month mean; half-up integer
+    months:
+    - 2026-09
+    original_labels:
+    - sep
+    source_date: '2026-09-21'
+    period: 2026-Q3
+    rate: 50000
+  - kind: quoted
+    original_labels:
+    - q4
+    source_date: '2026-09-21'
+    period: 2026-Q4
+    rate: 46875
+  - kind: quoted
+    original_labels:
+    - q1
+    source_date: '2026-09-21'
+    period: 2027-Q1
+    rate: 32500
+  - kind: derived
+    method: calendar-year residual; remainder to earliest unquoted quarters
+    calendar_year: 2027
+    calendar_rate: 34125
+    original_labels: &id001
+    - cal27
+    source_date: '2026-09-21'
+    period: 2027-Q2
+    rate: 34667
+  - kind: derived
+    method: calendar-year residual; remainder to earliest unquoted quarters
+    calendar_year: 2027
+    calendar_rate: 34125
+    original_labels: *id001
+    source_date: '2026-09-21'
+    period: 2027-Q3
+    rate: 34667
+  - kind: derived
+    method: calendar-year residual; remainder to earliest unquoted quarters
+    calendar_year: 2027
+    calendar_rate: 34125
+    original_labels: *id001
+    source_date: '2026-09-21'
+    period: 2027-Q4
+    rate: 34666
+  - kind: derived
+    method: ruled tail step
+    delta: -500
+    from: 2027-Q4
+    source_date: '2026-09-21'
+    period: 2028-Q1
+    rate: 34166
+  - kind: derived
+    method: ruled tail step
+    delta: -500
+    from: 2028-Q1
+    source_date: '2026-09-21'
+    period: 2028-Q2
+    rate: 33666
+  Pana:
+  - &id005
+    kind: derived
+    method: equal remaining-month mean; half-up integer
+    months: &id003
+    - 2026-09
+    original_labels: &id004
+    - sep
+    source_date: '2026-09-21'
+    period: 2026-Q3
+    rate: 21300
+  - &id007
+    kind: quoted
+    original_labels: &id006
+    - q4
+    source_date: '2026-09-21'
+    period: 2026-Q4
+    rate: 22650
+  - &id009
+    kind: quoted
+    original_labels: &id008
+    - q1
+    source_date: '2026-09-21'
+    period: 2027-Q1
+    rate: 18500
+  - &id010
+    kind: derived
+    method: calendar-year residual; remainder to earliest unquoted quarters
+    calendar_year: 2027
+    calendar_rate: 18450
+    original_labels: &id002
+    - cal27
+    source_date: '2026-09-21'
+    period: 2027-Q2
+    rate: 18434
+  - &id011
+    kind: derived
+    method: calendar-year residual; remainder to earliest unquoted quarters
+    calendar_year: 2027
+    calendar_rate: 18450
+    original_labels: *id002
+    source_date: '2026-09-21'
+    period: 2027-Q3
+    rate: 18433
+  - &id012
+    kind: derived
+    method: calendar-year residual; remainder to earliest unquoted quarters
+    calendar_year: 2027
+    calendar_rate: 18450
+    original_labels: *id002
+    source_date: '2026-09-21'
+    period: 2027-Q4
+    rate: 18433
+  - &id013
+    kind: derived
+    method: ruled tail step
+    delta: -400
+    from: 2027-Q4
+    source_date: '2026-09-21'
+    period: 2028-Q1
+    rate: 18033
+  - &id014
+    kind: derived
+    method: ruled tail step
+    delta: -300
+    from: 2028-Q1
+    source_date: '2026-09-21'
+    period: 2028-Q2
+    rate: 17733
+  Post-Panamax:
+  - kind: derived
+    method: class mapping from Pana
+    months: *id003
+    original_labels: *id004
+    source_date: '2026-09-21'
+    period: 2026-Q3
+    rate: 21300
+    underlying: *id005
+  - kind: derived
+    original_labels: *id006
+    source_date: '2026-09-21'
+    period: 2026-Q4
+    rate: 22650
+    method: class mapping from Pana
+    underlying: *id007
+  - kind: derived
+    original_labels: *id008
+    source_date: '2026-09-21'
+    period: 2027-Q1
+    rate: 18500
+    method: class mapping from Pana
+    underlying: *id009
+  - kind: derived
+    method: class mapping from Pana
+    calendar_year: 2027
+    calendar_rate: 18450
+    original_labels: *id002
+    source_date: '2026-09-21'
+    period: 2027-Q2
+    rate: 18434
+    underlying: *id010
+  - kind: derived
+    method: class mapping from Pana
+    calendar_year: 2027
+    calendar_rate: 18450
+    original_labels: *id002
+    source_date: '2026-09-21'
+    period: 2027-Q3
+    rate: 18433
+    underlying: *id011
+  - kind: derived
+    method: class mapping from Pana
+    calendar_year: 2027
+    calendar_rate: 18450
+    original_labels: *id002
+    source_date: '2026-09-21'
+    period: 2027-Q4
+    rate: 18433
+    underlying: *id012
+  - kind: derived
+    method: class mapping from Pana
+    delta: -400
+    from: 2027-Q4
+    source_date: '2026-09-21'
+    period: 2028-Q1
+    rate: 18033
+    underlying: *id013
+  - kind: derived
+    method: class mapping from Pana
+    delta: -300
+    from: 2028-Q1
+    source_date: '2026-09-21'
+    period: 2028-Q2
+    rate: 17733
+    underlying: *id014
+  Supra-Ultra:
+  - &id018
+    kind: derived
+    method: equal remaining-month mean; half-up integer
+    months: &id016
+    - 2026-09
+    original_labels: &id017
+    - sep
+    source_date: '2026-09-21'
+    period: 2026-Q3
+    rate: 20025
+  - &id020
+    kind: quoted
+    original_labels: &id019
+    - q4
+    source_date: '2026-09-21'
+    period: 2026-Q4
+    rate: 21508
+  - &id022
+    kind: quoted
+    original_labels: &id021
+    - q1
+    source_date: '2026-09-21'
+    period: 2027-Q1
+    rate: 16850
+  - &id023
+    kind: derived
+    method: calendar-year residual; remainder to earliest unquoted quarters
+    calendar_year: 2027
+    calendar_rate: 16825
+    original_labels: &id015
+    - cal27
+    source_date: '2026-09-21'
+    period: 2027-Q2
+    rate: 16817
+  - &id024
+    kind: derived
+    method: calendar-year residual; remainder to earliest unquoted quarters
+    calendar_year: 2027
+    calendar_rate: 16825
+    original_labels: *id015
+    source_date: '2026-09-21'
+    period: 2027-Q3
+    rate: 16817
+  - &id025
+    kind: derived
+    method: calendar-year residual; remainder to earliest unquoted quarters
+    calendar_year: 2027
+    calendar_rate: 16825
+    original_labels: *id015
+    source_date: '2026-09-21'
+    period: 2027-Q4
+    rate: 16816
+  - &id026
+    kind: derived
+    method: ruled tail step
+    delta: -300
+    from: 2027-Q4
+    source_date: '2026-09-21'
+    period: 2028-Q1
+    rate: 16516
+  - &id027
+    kind: derived
+    method: ruled tail step
+    delta: -300
+    from: 2028-Q1
+    source_date: '2026-09-21'
+    period: 2028-Q2
+    rate: 16216
+  Handy-Bulk:
+  - kind: derived
+    method: class mapping from Supra-Ultra
+    months: *id016
+    original_labels: *id017
+    source_date: '2026-09-21'
+    period: 2026-Q3
+    rate: 18020
+    underlying: *id018
+  - kind: derived
+    original_labels: *id019
+    source_date: '2026-09-21'
+    period: 2026-Q4
+    rate: 19360
+    method: class mapping from Supra-Ultra
+    underlying: *id020
+  - kind: derived
+    original_labels: *id021
+    source_date: '2026-09-21'
+    period: 2027-Q1
+    rate: 15160
+    method: class mapping from Supra-Ultra
+    underlying: *id022
+  - kind: derived
+    method: class mapping from Supra-Ultra
+    calendar_year: 2027
+    calendar_rate: 16825
+    original_labels: *id015
+    source_date: '2026-09-21'
+    period: 2027-Q2
+    rate: 15140
+    underlying: *id023
+  - kind: derived
+    method: class mapping from Supra-Ultra
+    calendar_year: 2027
+    calendar_rate: 16825
+    original_labels: *id015
+    source_date: '2026-09-21'
+    period: 2027-Q3
+    rate: 15140
+    underlying: *id024
+  - kind: derived
+    method: class mapping from Supra-Ultra
+    calendar_year: 2027
+    calendar_rate: 16825
+    original_labels: *id015
+    source_date: '2026-09-21'
+    period: 2027-Q4
+    rate: 15130
+    underlying: *id025
+  - kind: derived
+    method: class mapping from Supra-Ultra
+    delta: -300
+    from: 2027-Q4
+    source_date: '2026-09-21'
+    period: 2028-Q1
+    rate: 14860
+    underlying: *id026
+  - kind: derived
+    method: class mapping from Supra-Ultra
+    delta: -300
+    from: 2028-Q1
+    source_date: '2026-09-21'
+    period: 2028-Q2
+    rate: 14590
+    underlying: *id027
+  Ctr-Feeder:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2028-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2028-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  Ctr-Intermediate:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2028-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2028-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  Ctr-Large:
+  - period: 2026-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2026-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2027-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2027-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2027-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2027-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2028-Q1
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2028-Q2
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2028-Q3
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'
+  - period: 2028-Q4
+    kind: existing_constructed
+    method: committed legacy construction; source-file citation retained
+    source_date: '2026-09-04'

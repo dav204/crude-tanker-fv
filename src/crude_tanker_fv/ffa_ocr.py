@@ -55,7 +55,7 @@ MONTHS = ("jan", "feb", "mar", "apr", "may", "jun",
 # OCR confuses Q with O/G/a/0 in tenor labels.
 _TENOR_RE = re.compile(r"^(?:(?P<month>jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)"
                        r"|[qoga0](?P<q>[1-4])"
-                       r"|cal(?P<cal>2\d))$", re.IGNORECASE)
+                       r"|cal(?P<cal>2\d))(?P<year>[-/]?(?:20)?2\d)?$", re.IGNORECASE)
 _PRICE_RE = re.compile(r"^\d{4,6}$")
 
 DAY_MOVE_BAND_PCT = 10.0
@@ -104,9 +104,9 @@ def _norm_tenor(tok: str) -> str | None:
     if not m:
         return None
     if m.group("month"):
-        return m.group("month").lower()
+        return m.group("month").lower() + (m.group("year") or "")
     if m.group("q"):
-        return f"q{m.group('q')}"
+        return f"q{m.group('q')}" + (m.group("year") or "")
     return f"cal{m.group('cal')}"
 
 

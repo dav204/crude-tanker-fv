@@ -1,23 +1,6 @@
-"""Dry-bulk FFA promote as a lane (2026-09-13), replacing the by-hand sitting that ran 13
-times in 60 days (decisions/ffa_promotion_*.md).
-
-    python -m crude_tanker_fv.ffa_promote            # packet only (default)
-    python -m crude_tanker_fv.ffa_promote --apply    # write the curve + 12M files
-
-It executes ONE ruled construction — the straddling-panel shape the owner ratified
-2026-09-02 (decisions/ffa_promotion_2026-09-02.md, rulings Q-1/Q-2/Q-3/Q-7) — and FREEZES on
-anything else. What it will not do is decide: an unruled panel shape, a flagged parse, a
-missing panel, or a cycle-BAND crossing (Q-7, the one conjunct that always needed a word) all
-stop the lane with the reason.
-
-The construction, verbatim from the ruling:
-  q1 = the front month ALONE (Q-2: the second month is a component of the quoted next quarter
-       and would be double-counted) · q2 = that quarter · q3 = the following Q1
-  q4..q6 solve the Cal-27 identity EXACTLY (mean of the four 2027 quarters = Cal-27)
-  q7,q8 = the committed per-class 2028 deltas (Cape -500/-500 · Pana -400/-300 · Supra -300/-300)
-  Post-Panamax = Pana · Handy-Bulk = Supra-Ultra x 0.90 to nearest 10 (locked §11.7.11)
-  12M proxy = (q2 + q3)/2, unrounded, half-up to the integer the file stores (Q-1)
-Handy-Bulk's 12M TC is NOT touched: it has no FFA panel and rides the MB dry weekly.
+"""Dated dry-bulk FFA promotion. September rulings replay exactly; calendar policy
+activation requires the preregistered comparison. Incomplete/ambiguous captures,
+invalid constructions and cycle-band crossings hold the lane visibly.
 """
 
 from __future__ import annotations
@@ -72,6 +55,8 @@ def select_print(db: dict, *, today: date | None = None, committed: str | None =
         entry = db[iso]
         if entry.get("status") != "ok":
             continue
+        if date.fromisoformat(iso) > today:
+            continue
         if (today - date.fromisoformat(iso)).days > MAX_PRINT_AGE_DAYS:
             break
         if committed and iso <= committed:
@@ -84,54 +69,43 @@ def select_print(db: dict, *, today: date | None = None, committed: str | None =
 
 
 def read_panel(iso: str, panel: dict) -> dict:
-    """Map one panel's OCR keys onto the ruled legs, or freeze on an unruled shape."""
-    months = [k for k in panel if k in MONTHS]
-    quarters = [k for k in panel if k.startswith(("q", "cal"))]
-    if len(months) != 2 or "cal27" not in quarters:
-        raise Freeze(f"unruled panel shape {sorted(panel)} — the ruled construction (2026-09-02) "
-                     f"expects two month tenors, the next quarter, the following Q1 and Cal-27")
-    m1, m2 = sorted(months, key=lambda m: MONTHS.index(m))
-    # Straddle test: the front month closes its own quarter and the second month opens the
-    # NEXT one, which is the quarter column quoted beside them. Anything else is unruled.
-    if MONTHS.index(m1) % 3 != 2 or MONTHS.index(m2) != MONTHS.index(m1) + 1:
-        raise Freeze(f"panel {iso} is not the ruled STRADDLING shape (front month {m1} does not close "
-                     f"its quarter, or {m2} is not the next month) — a mid-quarter panel needs a word")
-    qnext = next((q for q in quarters if q in ("q1", "q2", "q3", "q4") and q != "cal27"
-                  and int(q[1]) == (MONTHS.index(m2) // 3) + 1), None)
-    qfollow = next((q for q in quarters if q not in (qnext, "cal27")), None)
-    if not qnext or not qfollow:
-        raise Freeze(f"panel {iso} quarters {sorted(quarters)} do not carry both the next quarter and the following Q1")
-    return {"front_month": m1, "q1": panel[m1], "q2": panel[qnext], "q3": panel[qfollow],
-            "cal27": panel["cal27"], "legs": (qnext, qfollow)}
+    from .calendar import construct_panel
+    try:
+        result = construct_panel(iso, panel, (0, 0))
+    except ValueError as exc:
+        raise Freeze(str(exc)) from exc
+    return dict(result, panel=panel, as_of=iso)
 
 
 def build_class(legs: dict, deltas: tuple[int, int]) -> list[int]:
-    """q1..q8 per the ruling: the three read legs, the exact Cal-27 identity, the deltas."""
-    q1, q2, q3, cal = int(legs["q1"]), int(legs["q2"]), int(legs["q3"]), int(legs["cal27"])
-    rest = 4 * cal - q3                      # q4+q5+q6, so mean(q3..q6) == cal27 exactly
-    base, rem = divmod(rest, 3)
-    q4, q5, q6 = (base + (1 if i < rem else 0) for i in range(3))
-    return [q1, q2, q3, q4, q5, q6, q6 + deltas[0], q6 + deltas[0] + deltas[1]]
+    from .calendar import construct_panel
+    return construct_panel(legs['as_of'], legs['panel'], deltas)['values']
 
 
 def twelve_month(curve: list[int]) -> int:
-    """Q-1: the 12M proxy is (q2 + q3)/2, unrounded, half-up to the stored integer."""
-    total = curve[1] + curve[2]
-    return total // 2 + (total % 2)
+    return (curve[1] + curve[2] + 1) // 2
 
 
 def construct(iso: str, entry: dict) -> dict:
-    out: dict = {"as_of": iso, "curves": {}, "twelve_month": {}, "legs": {}}
+    from .calendar import construct_panel
+    out = {'as_of':iso, 'curves':{}, 'twelve_month':{}, 'legs':{}, 'calendar_nodes':{}}
     for panel in PANELS:
         cls = PANEL_TO_CLASS[panel]
-        legs = read_panel(iso, entry["curves"][panel])
-        out["legs"][cls] = legs
-        out["curves"][cls] = build_class(legs, DELTAS_2028[cls])
-        out["twelve_month"][cls] = twelve_month(out["curves"][cls])
-    out["curves"]["Post-Panamax"] = list(out["curves"]["Pana"])          # shared freight basin
-    out["twelve_month"]["Post-Panamax"] = out["twelve_month"]["Pana"]
-    out["curves"]["Handy-Bulk"] = [int(round(v * 0.90 / 10.0)) * 10 for v in out["curves"]["Supra-Ultra"]]
-    return out                                                            # Handy-Bulk 12M: MB weekly, untouched
+        try:
+            built = construct_panel(iso, entry['curves'][panel], DELTAS_2028[cls])
+        except (ValueError, KeyError) as exc:
+            raise Freeze(str(exc)) from exc
+        out['legs'][cls] = built
+        out['curves'][cls] = built['values']
+        out['twelve_month'][cls] = built['proxy']
+        out['calendar_nodes'][cls] = built['nodes']
+    out['curves']['Post-Panamax'] = list(out['curves']['Pana'])
+    out['twelve_month']['Post-Panamax'] = out['twelve_month']['Pana']
+    out['curves']['Handy-Bulk'] = [int(round(v*0.90/10))*10 for v in out['curves']['Supra-Ultra']]
+    for cls, source in [('Post-Panamax','Pana'),('Handy-Bulk','Supra-Ultra')]:
+        out['calendar_nodes'][cls] = [dict(row, kind='derived', method='class mapping from '+source,
+            underlying=row, rate=value) for row,value in zip(out['calendar_nodes'][source],out['curves'][cls])]
+    return out
 
 
 def band_check(built: dict, inputs_dir: Path = INPUTS_DIR) -> list[dict]:
@@ -236,12 +210,10 @@ def apply(built: dict, inputs_dir: Path = INPUTS_DIR, *, today: date | None = No
     for cls, values in built["curves"].items():
         if cls in DELTAS_2028:
             legs = built["legs"][cls]
-            d1, d2 = DELTAS_2028[cls]
             note = [f"{src}:",
-                    f"q1 = front month {legs['front_month']} {legs['q1']} ALONE (ruling Q-2); "
-                    f"q2 = {legs['legs'][0].upper()} {legs['q2']}; q3 = {legs['legs'][1].upper()}-27 {legs['q3']};",
-                    f"q4-q6 make the Cal-27 {legs['cal27']} identity exact ({values[3]}/{values[4]}/{values[5]});",
-                    f"2028 committed deltas {d1}/{d2}."]
+                    'Periods: '+', '.join(legs['periods']),
+                    'Quoted quarters: '+', '.join(legs['proxy_quarters'])+'; calendar residuals and ruled tail steps are derived.',
+                    'See calendar_nodes for source labels, dates and construction provenance.']
         elif cls == "Post-Panamax":
             note = [f"= Pana, shared freight basin (§11.7.10). {src}"]
         else:
@@ -250,6 +222,13 @@ def apply(built: dict, inputs_dir: Path = INPUTS_DIR, *, today: date | None = No
                     "the MB Dry Bulk weekly (§11.7.11)."]
         text = _set_curve_block(text, cls, values, note)
     text = _advance_as_of(text, "ffa_forward_curve", moved, iso, src)
+    doc = yaml.safe_load(text)
+    nodes = doc.get("calendar_nodes", {})
+    nodes.update(built["calendar_nodes"])
+    if "calendar_nodes" in doc:
+        start, end = _span(text, "calendar_nodes")
+        text = text[:start-len("calendar_nodes:\n")] + text[end:]
+    text += "\n" + yaml.safe_dump({"calendar_nodes": nodes}, sort_keys=False)
     cf.write_text(text)
 
     tf = inputs_dir / "market_data" / "twelve_month_tc.yaml"
@@ -257,22 +236,20 @@ def apply(built: dict, inputs_dir: Path = INPUTS_DIR, *, today: date | None = No
     for cls, tc in built["twelve_month"].items():
         legs = built["legs"].get(cls) or built["legs"]["Pana"]
         text = _set_twelve(text, cls, tc, [
-            f"({legs['q2']} {legs['legs'][0].upper()} + {legs['q3']} {legs['legs'][1].upper()}-27)/2 "
-            f"= {tc}, unrounded half-up (ruling Q-1).", src])
+            f"Quoted quarters {' + '.join(legs['proxy_quarters'])}: mean = {tc}, unrounded half-up (ruling Q-1).", src])
     text = _advance_as_of(text, "twelve_month_tc", list(built["twelve_month"]), iso, src)
     tf.write_text(text)
 
 
 def packet(built: dict, bands: list[dict], *, today: date | None = None) -> str:
-    lines = [f"# Dry FFA promote — the {built['as_of']} print (lane: crude_tanker_fv.ffa_promote, "
-             f"{(today or date.today()).isoformat()})", "",
-             "Ruled construction (owner 2026-09-02, decisions/ffa_promotion_2026-09-02.md): q1 = the front "
-             "month alone (Q-2), q2 = the quoted quarter, q3 = the following Q1, q4-q6 solve the Cal-27 "
-             "identity exactly, q7/q8 = the committed 2028 deltas; 12M = (q2+q3)/2 unrounded (Q-1); "
-             "Post-Panamax = Pana; Handy-Bulk = Supra-Ultra x 0.90 to nearest 10.", "",
-             "## Legs read from the panel", "", "| Class | front month | q1 | q2 | q3 | Cal-27 |", "|---|---|--:|--:|--:|--:|"]
-    for cls, legs in built["legs"].items():
-        lines.append(f"| {cls} | {legs['front_month']} | {legs['q1']} | {legs['q2']} | {legs['q3']} | {legs['cal27']} |")
+    lines = [f"# Dry FFA promotion — {built['as_of']}", "",
+             "Calendar construction: quoted quarters preserved; remaining-month mean only with full coverage; "
+             "calendar-year residual shared across unquoted quarters; ruled tail steps then labelled derived carry-forward.",
+             "", "## Contract provenance", ""]
+    for cls, legs in built['legs'].items():
+        lines.append(f"- {cls}: proxy uses {' + '.join(legs['proxy_quarters'])}; projection {' → '.join([legs['periods'][0],legs['periods'][-1]])}.")
+        for node in legs['nodes']:
+            lines.append(f"  - {node['period']}: {node['rate']} ({node['kind']}; {node.get('method','direct quote')})")
     lines += ["", "## Curves written", "", "| Class | q1..q8 |", "|---|---|"]
     for cls, values in built["curves"].items():
         lines.append(f"| {cls} | {' / '.join(str(v) for v in values)} |")
@@ -299,6 +276,9 @@ def run(inputs_dir: Path = INPUTS_DIR, *, apply_it: bool = False, today: date | 
                      + "; ".join(f"{r['class']} {r['band_was']} -> {r['band_now']} "
                                  f"(ratio {r['ratio_was']} -> {r['ratio_now']})" for r in crossed))
     if apply_it:
+        from .calendar import policy
+        if not policy(inputs_dir)["enabled"] and built["calendar_nodes"]["Cape"][0]["period"] != "2026-Q3":
+            raise Freeze("calendar policy not activated: review the preregistered full-book comparison first")
         apply(built, inputs_dir, today=today, packet=packet_name)
     return {"built": built, "bands": bands, "packet": packet(built, bands, today=today),
             "applied": apply_it, "committed_was": committed}

@@ -140,7 +140,7 @@ def test_apply_writes_both_files_and_keeps_comments(tmp_path):
     # the PRIOR citation must be gone: a promoted row keeping the old comment is a citation
     # that no longer describes the value (2026-09-14)
     assert "A comment that must survive." not in curve_text and "FFA 31-Aug" not in curve_text
-    assert "q1 = front month sep 45125 ALONE" in curve_text and "Cal-27 33200 identity exact" in curve_text
+    assert "Periods: 2026-Q3" in curve_text and "calendar_nodes:" in curve_text
     assert "promoted 2026-09-02 by crude_tanker_fv.ffa_promote" in curve_text
     d = yaml.safe_load(curve_text)
     assert d["ffa_forward_curve"]["Cape"] == [45125, 44125, 29925, 34292, 34292, 34291, 33791, 33291]
@@ -192,10 +192,10 @@ def test_an_unruled_panel_shape_freezes(tmp_path):
     # the 2026-07-13 shape: two months INSIDE one quarter — a different construction the
     # owner ruled separately; the lane must not guess it
     mid = {p: {"jul": 1, "aug": 2, "q3": 3, "q4": 4, "cal27": 5} for p in fp.PANELS}
-    with pytest.raises(fp.Freeze, match="not the ruled STRADDLING shape"):
+    with pytest.raises(fp.Freeze, match="invalid nonpositive constructed rate"):
         fp.construct("2026-07-13", {"curves": mid, "status": "ok"})
     four = {p: {"sep": 1, "q4": 2, "q1": 3, "cal27": 4} for p in fp.PANELS}
-    with pytest.raises(fp.Freeze, match="unruled panel shape"):
+    with pytest.raises(fp.Freeze, match="incomplete required panel"):
         fp.construct("2026-09-02", {"curves": four, "status": "ok"})
 
 
