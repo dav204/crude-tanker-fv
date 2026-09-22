@@ -72,6 +72,12 @@ counts and trigger dates rot within days. Point at the source instead. Guarded b
   prefix is invisible to it and untested.
 - `_fetch` catches only `HTTPError` in `hkex_poll.py` and `newsweb_poll.py` — a `URLError` escapes
   both pollers. One module-level fix.
+- **`filings list` silently drops arrivals when a daily run is missed** (found 2026-09-22): the window
+  is 48h, so an arrival that lands after one run and is not picked up before the next falls out
+  UNACKED and is never flagged again. Two 9/18 arrivals (SBLK 0000950157-26-001031, TRMD
+  0000919574-26-006391) aged out over the weekend and were only found by reading the manifest against
+  `state/filings_triaged.json`. The window should be "unacked since the last ack", not wall-clock; a
+  guard that reds when the manifest holds an unacked accession older than the window is the real fix.
 - CLAUDE.md's APPROX list names five tickers; `reconcile.APPROX_PNAV_TICKERS` holds nine (adds
   CMDB, GSL, SB, 2343).
 - The eight-item news-pull limitations backlog has never been triaged (GlobeNewswire timeout,
@@ -93,9 +99,15 @@ counts and trigger dates rot within days. Point at the source instead. Guarded b
 
 ## Carry notes — apply at the name's next vintage, then delete the line
 
-- **SBLK** share count 111,671,386 → 116,071,386.
-- **HAFN** Q3 cash-for-investment swap: ΔNAV ≈ 0 only if both legs move together.
-- **TRMD** next vintage carries the exact count (104,000,000 is rounded, +0.031%, below any gate).
+- **SBLK** share count 111,671,386 → 116,071,386. Corroborated a third time 2026-09-18
+  (0000950157-26-001031, holdings-notification denominators); still no treasury figure stated, so the
+  net-of-treasury caveat stands for the owner-present sheet build.
+- **HAFN** Q3 cash-for-investment swap: ΔNAV ≈ 0 only if both legs move together. The TORM leg is now
+  a SHARE COUNT, not a percentage — **18,656,061** TRMD A-shares, issuer-stated by TORM 2026-09-18
+  (0000919574-26-006391 ex-99.2); the 18.22% / 18.19% gap is TORM's denominator moving on its own RSU
+  issue, not a disagreement.
+- **TRMD** next vintage carries the exact count **102,553,688** A-shares (104,000,000 is rounded; two
+  RSU increases, +31,483 on 9/11 and +132,421 on 9/18, both below any gate).
 - **FRO** whether the associate stake belongs in NAV is a methodology question for the owner.
 - **Front Vefsna** $135.0M (FRO P1 leg) stays unpromoted, blocked on issuer vessel-name disclosure.
 - **CMBT** §9.4 yard-quality discount and Dec-2025 segment vintages — revisit at the November
