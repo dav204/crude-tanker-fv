@@ -454,7 +454,7 @@
       "invalid": [],
       "next_action": "Drain all pending accessions; commit dispositions before acknowledging",
       "oldest_arrival": "2026-07-14T14:20:05+00:00",
-      "pending_total": 100,
+      "pending_total": 101,
       "project": "producer",
       "resolver": "agent",
       "status": "ready",
@@ -799,6 +799,35 @@
       ],
       "id": "governor:SBLK:READ_CAP",
       "next_action": "size to the weaker-basis read: flips (cheap/fair); OWNER \u2014 open a valuation mini-review; no order is authorized",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:SYSTEM:PUBLICATION_HELD"
+      ],
+      "details": {
+        "action": "OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
+        "code": "PUBLICATION_HELD",
+        "detail": "the working tree is mid-surgery \u2014 automation never lands through it; ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers",
+        "id": "SYSTEM:PUBLICATION_HELD",
+        "severity": "page",
+        "ticker": "SYSTEM",
+        "value": "the working tree is mid-surgery \u2014 automation never lands through it; ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers"
+      },
+      "due": null,
+      "evidence": [
+        {
+          "path": "monitor/state/seam_latest.json",
+          "project": "governor",
+          "runtime": true
+        }
+      ],
+      "id": "governor:SYSTEM:PUBLICATION_HELD",
+      "next_action": "the working tree is mid-surgery \u2014 automation never lands through it; ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers; OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
       "project": "governor",
       "resolver": "owner",
       "status": "blocked",
