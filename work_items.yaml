@@ -1691,7 +1691,7 @@
         }
       ],
       "id": "vie:unattended",
-      "next_action": "Observe a scheduled independent-report scan and MB connector harvest without interaction; do not substitute a manual smoke test.",
+      "next_action": "Observe the next MB Gmail connector harvest without interaction. Local shadow scan already completed unattended at 2026-09-24T04:05:04Z; see activation.json.",
       "project": "producer",
       "resolver": "agent",
       "status": "blocked",
