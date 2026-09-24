@@ -1,0 +1,294 @@
+{
+  "version": 1,
+  "window_start": "2026-06-26",
+  "window_end": "2026-09-24",
+  "method": "Scan all decisions/*_log.md dated sections for SANITY FAIL, broker bug/error/correction or matched broker vintage. Candidate discovery, not an exhaustive label of every broker mention.",
+  "candidates": [
+    {
+      "path": "decisions/fro_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** FRO broker reference repaired from $38.66 to $32.93 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "e6986d7c52886a55b2d8e74132a4c03089c8ac937547c5c98d699638177f7b88"
+    },
+    {
+      "path": "decisions/lpg_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** LPG broker reference repaired from $54.86 to $46.51 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "17b1d690985be2226582c98a459208edd3caf8209147318dd75cff994468f48b"
+    },
+    {
+      "path": "decisions/brut_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** BRUT broker reference repaired from $5.11 to $4.56 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "1a32b36365a1c7471e165758a756b1fe2bfe158929bcda0627a626132e23597e"
+    },
+    {
+      "path": "decisions/tnk_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** TNK broker reference repaired from $110.90 to $96.92 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "f38eeca05d0df6230d02e0717b8eaef8f8ac24cf3fd0cca8734a932e870ee9fe"
+    },
+    {
+      "path": "decisions/cmbt_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** CMBT broker reference repaired from $23.59 to $21.28 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "c8362994c72cf4b93f8c2ceb418dbbb640e78aec41e22769b3eba986d4d054fd"
+    },
+    {
+      "path": "decisions/sb_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** SB broker reference repaired from $8.12 to $7.54 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "f92cd76b2056e8f0393a83a186e1224d40f93918cc5b7eeadb29641c037bdc18"
+    },
+    {
+      "path": "decisions/asc_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** ASC broker reference repaired from $25.40 to $23.60 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "97d3bcfb5bf16d9f2f6c1f89dcd66d5923ff459bb6b92a8eb21352324feace23"
+    },
+    {
+      "path": "decisions/sblk_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** SBLK broker reference repaired from $35.69 to $33.41 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "6b3333b25a0f4d5ddf468a046497f4f836cda5f7364087b52d950a270ea019be"
+    },
+    {
+      "path": "decisions/trmd_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** TRMD broker reference repaired from $41.55 to $34.57 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "0b23e1bd417cfc66442524c6e812de5819a14a7df8f55c5a92a1cd685dae30d1"
+    },
+    {
+      "path": "decisions/bwlp_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** BWLP broker reference repaired from $20.40 to $19.04 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "ff98a368897ee2c025f8f9519611c70e9297ec88b7aba810fb49e3d205b73a02"
+    },
+    {
+      "path": "decisions/eco_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** ECO broker reference repaired from $57.79 to $45.10 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "65ab3e6512bedafd1281eb6c92c6db4282432bd662faa102b09adbc6c34edf89"
+    },
+    {
+      "path": "decisions/gnk_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** GNK broker reference repaired from $29.43 to $27.16 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "d329fcf6e6b4cc94ece4001953baab60e0d2c06a9e8942352c7383e2617fe801"
+    },
+    {
+      "path": "decisions/gnk_log.md",
+      "date": "2026-08-09",
+      "title": "2026-08-09T22:35:33+00:00 \u2014 Pipeline run (auto)",
+      "snippets": [
+        "**Decision:** WF ARTEMIS RETRO-FLAG \u2014 THE DRY-VALIDATOR LINE (owner catch 2026-08-09: the event report had a sector hole). GNK took the LARGEEST dry NAV increment of the correction: NAV -1.0% / EV -0.8pp (vs SBLK -0.8%/-0.7) \u2014 consistent with 25-of-44 hulls Supra-Ultra (57% by count, more Supra-weighted than SBLK's book), tempered by Cape value-dominance. NO ratify at this event \u2014 the increment sits INSIDE tolerance vs the standing FFA-event baseline (gate clean for the right reason). MARK-DISCRIMINATION NOTE: GNK is a dry-bulk sector validator"
+      ],
+      "classification": "contextual mention; unique diagnostic contribution unproven",
+      "source_sha256": "d329fcf6e6b4cc94ece4001953baab60e0d2c06a9e8942352c7383e2617fe801"
+    },
+    {
+      "path": "decisions/hafn_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** HAFN broker reference repaired from $9.83 to $8.06 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "6f626f05fa0e4cadbd74567c40fa9fa3e2e0b40c01fe60b454a1c6cee7204736"
+    },
+    {
+      "path": "decisions/insw_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** INSW broker reference repaired from $91.86 to $82.07 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "bbffed9f681a24da914063a09e7cd723eee8e50167f9f55ffe1a69fde47eab6f"
+    },
+    {
+      "path": "decisions/gsl_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** GSL broker reference repaired from $61.12 to $51.99 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "0ccb4f99deb8e2c5d9c44e06e43949e610c0328630ec829de8f73991c2d9337c"
+    },
+    {
+      "path": "decisions/dht_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** DHT broker reference repaired from $20.41 to $17.02 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "ddc05b505c16ae333289c527b36cf59c53d3e2febad6b25546e9f3026528f724"
+    },
+    {
+      "path": "decisions/nat_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** NAT broker reference repaired from $9.71 to $8.00 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "8e054c46d41285fdc94e4232a9b6866e261b4206d6445ffacb57cecb5c194f0c"
+    },
+    {
+      "path": "decisions/cmdb_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** CMDB broker reference repaired from $28.50 to $27.99 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "42af625437e7373512971eff28b9eda1e94876891d33c319074de3055604d9ce"
+    },
+    {
+      "path": "decisions/stng_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** STNG broker reference repaired from $119.40 to $106.03 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "e80e7e24b059166b4a15def39c27bf5fde415d70fd4e12ef995f8e3c80e2ba16"
+    },
+    {
+      "path": "decisions/stng_log.md",
+      "date": "2026-07-02",
+      "title": "2026-07-02T00:21:02+00:00 \u2014 Pipeline run (auto)",
+      "snippets": [
+        "**Decision:** ACCEPT the \u22123.6% correction and the BUY\u2192HOLD flip \u2014 this is the seventh P0",
+        "$108, a wide DOCUMENTED tool\u2194broker spread \u2014 feature, not a bug). Tier: STNG **leaves NAV_FIGURE_ESTIMATE_QUEUE**"
+      ],
+      "classification": "contextual mention; unique diagnostic contribution unproven",
+      "source_sha256": "e80e7e24b059166b4a15def39c27bf5fde415d70fd4e12ef995f8e3c80e2ba16"
+    },
+    {
+      "path": "decisions/ten_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** TEN broker reference repaired from $127.05 to $108.10 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "cec2cb1de3a901bdd0874a1f4016d99c251b29bad718f42ecd6116e3cbc7bd83"
+    },
+    {
+      "path": "decisions/ccec_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** CCEC broker reference repaired from $24.07 to $25.33 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "24f79ebc7f8bbe72aad10a1feaa16d3693c796dce93b408f7ca93ab1dc5436c6"
+    },
+    {
+      "path": "decisions/capt_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** CAPT broker reference repaired from $27.36 to $22.31 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "7e749eb119ebbba803d7cb4046ce000b75576f3e0995395182d4dc1d10f40be6"
+    },
+    {
+      "path": "decisions/mpcc_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** MPCC broker reference repaired from $2.91 to $2.79 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "de7ff7cb839792cf1d1b71b3f46d48e1e917165003ee29253a811ad5ea4e850f"
+    },
+    {
+      "path": "decisions/flng_log.md",
+      "date": "2026-09-22",
+      "title": "2026-09-22 \u2014 A1 matched broker vintage correction",
+      "snippets": [
+        "2026-09-22 \u2014 A1 matched broker vintage correction",
+        "**Decision:** FLNG broker reference repaired from $22.51 to $21.74 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move."
+      ],
+      "classification": "broker-vintage arithmetic artifact",
+      "source_sha256": "4d6bd92bd11104d6bcb23272f88770d5c6d65d2b7ff4096fae2f0cd0f78f14c8"
+    }
+  ],
+  "unique_value_proven": false
+}

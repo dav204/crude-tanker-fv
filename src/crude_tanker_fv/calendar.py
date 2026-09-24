@@ -66,7 +66,7 @@ def normalize(raw, printed):
     raise ValueError("ambiguous contract label: " + raw)
 
 
-def construct_panel(iso, panel, deltas):
+def construct_panel(iso, panel, deltas, strict_widget=True):
     printed = date.fromisoformat(iso)
     start = quarter(printed)
     quotes = {}
@@ -88,16 +88,16 @@ def construct_panel(iso, panel, deltas):
     months = {p: v for (k, p), v in quotes.items() if k == "month"}
     quarters = {p: v for (k, p), v in quotes.items() if k == "quarter"}
     annuals = {int(p): v for (k, p), v in quotes.items() if k == "year"}
-    if len(months) != 2 or len(quarters) != 2 or len(annuals) != 1:
+    if (strict_widget and (len(months) != 2 or len(quarters) != 2)) or len(quarters) < 2 or len(annuals) != 1:
         raise ValueError(
             "incomplete required panel: two months, two quarters and one calendar year required"
         )
     month_numbers = sorted(int(m[:4]) * 12 + int(m[5:]) for m in months)
     print_number = printed.year * 12 + printed.month
-    if month_numbers[1] != month_numbers[0] + 1 or month_numbers[0] not in (
+    if month_numbers and (len(month_numbers) != 2 or month_numbers[1] != month_numbers[0] + 1 or month_numbers[0] not in (
         print_number,
         print_number + 1,
-    ):
+    )):
         raise ValueError("ambiguous or stale month assignments")
     ordered = sorted(quarters, key=index)
     if index(ordered[1]) != index(ordered[0]) + 1 or index(ordered[0]) not in (
@@ -135,9 +135,9 @@ def construct_panel(iso, panel, deltas):
     yearkeys = keys("%d-Q1" % year, 4)
     unknown = [q for q in yearkeys if q not in rates]
     remaining = 4 * annuals[year] - sum(rates.get(q, 0) for q in yearkeys)
-    if not unknown or remaining <= 0:
+    if (not unknown and remaining != 0) or (unknown and remaining <= 0):
         raise ValueError("invalid calendar-year identity")
-    base, rem = divmod(remaining, len(unknown))
+    base, rem = divmod(remaining, len(unknown)) if unknown else (0, 0)
     for n, q in enumerate(unknown):
         rates[q] = base + (n < rem)
         provenance[q] = {

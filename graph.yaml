@@ -509,3 +509,14 @@ nodes:
     writes: []
     emits: [email alert by ABSENCE of the ping]
     commits: none
+
+  - id: vie-exit-shadow
+    kind: lane
+    repo: crude-tanker-fv
+    entry: scripts/routine_task.sh vie run
+    runs: daily local scan via five-minute worker (24h due guard); after weekly broker harvests
+    triggers: [delivery-worker, harvester, crude-fv-mb-weekly-harvest]
+    reads: [research/vie-exit/trial.json, inputs/research_mb/**/*.pdf, shipping_harvester/data/**, state/ffa_ocr_curves.json, inputs/ffa_drybulk/**]
+    writes: [state/vie_exit/**]
+    commits: none
+    notes: "Shadow only; no publication, financial input write or transport. Durable review queue retains untriaged documents. Procurement and MB connector permission evidence remain explicit blockers. Disable with trial.json enabled=false; retain receipts."

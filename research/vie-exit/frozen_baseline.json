@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "production_commit": "2cbd56afabd93a5c02b72490dc6a7db24fb03bc1",
+  "accepted_publication": {
+    "accepted_at": "2026-09-24T03:22:20.616679+00:00",
+    "content_hash": "984f577c1e2c492a6598166a19866b2e41e9b38ee934ee3962a77eca5fd7fc05",
+    "generated_at": "2026-09-24T03:07:47+00:00",
+    "output_commit": "6570d16c012b2ac43fa86ab6e8d1d9cf1fccadd9",
+    "publication_id": "65342173c43da8fe800bd6951176881e0e8a1b7b775403158df9a39df16fce48",
+    "source_commit": "995e00572137c15d270d3bf5b5549d14c57c9845",
+    "validation": "accepted"
+  },
+  "files": {
+    "outputs/book_scorecard.json": "3cf304f070d99aef05f4d125f8c5678b95702d556be6499f393a9c242e953157",
+    "inputs/market_data/prices_daily.yaml": "c153b58c511152c8fd6483f26a30319506ce487d05e80f8f105473deec37405f",
+    "inputs/scenario_inputs.yaml": "576ee4885360c8835b5c78bbe5b949402838ca2b92ffe2c1540a06b61fd34c64",
+    "inputs/market_data/ffa_forward_curve.yaml": "386bef6ee199d5c032b8c84feca74e0fc325ad95997072816194e880d745c294",
+    "inputs/watchlist.yaml": "903664f897558b83b0f78777fd0d9057e1729cbd509b0152f1a1b091b3cd0ea5"
+  }
+}

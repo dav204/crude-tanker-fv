@@ -48,5 +48,7 @@ cd "$PROJECT/shipping_harvester"
 PYTHONPATH=. PYTHONUNBUFFERED=1 "$PROJECT/.venv310/bin/python" \
   -m shipping_harvester.cli run --since "$since" --until "$until" \
   --max-pages 4 --capitallink
+cd "$PROJECT"
+PYTHONPATH=src "$PROJECT/.venv/bin/python" -m crude_tanker_fv.vie_trial run
 CRON_OUTCOME=ok
 echo "=== [harvester] done"

@@ -299,6 +299,29 @@ def project(root=ROOT, today=None):
                 )
         except (OSError, ValueError, KeyError, subprocess.CalledProcessError) as exc:
             failed("shadow:" + ticker, exc)
+    if (root / "research/vie-exit/trial.json").exists():
+        try:
+            from .vie_trial import config, STATE
+            trial = config(root)
+            if trial["enabled"]:
+                for block in trial["blockers"]:
+                    add(item("vie:" + block["id"], "producer", "blocked", block["action"],
+                             block["resolver"], evidence=[{"project":"producer", "path":"research/vie-exit/trial.json"}],
+                             waiting="cited trial evidence resolves " + block["id"]))
+                receipt = json.loads((root / STATE / "latest.json").read_text())
+                stage = receipt["stages"].get("documents", {})
+                if stage.get("status") != "persisted":
+                    raise ValueError("VIE document queue unavailable: " + str(stage))
+                if (today - date.fromisoformat(receipt["started_at"][:10])).days > 8:
+                    raise ValueError("VIE shadow receipt older than weekly cadence")
+                add(item("vie:broker-triage", "producer", "ready" if stage["pending"] else "waiting",
+                         "Review %s independent reports; oldest %s. Use the durable VIE document queue." % (stage["pending"],stage["oldest"]),
+                         evidence=[{"project":"producer", "path":STATE+"/latest.json", "runtime":True}],
+                         waiting="independent report dispositions committed"))
+                if receipt['status'] == 'failed':
+                    raise ValueError("VIE trial stage failure: " + str(receipt.get('error') or receipt['stages']))
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            failed("vie:runtime", exc)
     doc["items"] = sorted(rows.values(), key=lambda r: r["id"])
     doc["complete"] = not any(r["status"] == "unknown" for r in rows.values())
     return validate(doc)

@@ -1,0 +1,13 @@
+{
+  "documents": 94,
+  "candidate_counts": {
+    "assessment": 150,
+    "tanker-ffa": 45,
+    "transaction_table": 101,
+    "fixture_table": 24
+  },
+  "warning_documents": 1,
+  "failed_documents": 0,
+  "all_pending": true,
+  "pending_is_not_validation": true
+}

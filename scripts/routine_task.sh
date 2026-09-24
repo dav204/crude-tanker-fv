@@ -11,5 +11,6 @@ case "$command" in
   shadow) exec /bin/bash scripts/shadow_regen.sh "$@" ;;
   sentinel) exec ./.venv/bin/python -m crude_tanker_fv.sentinel "$@" ;;
   mb) exec ./.venv/bin/python scripts/mb_harvest.py "$@" ;;
+  vie) exec ./.venv/bin/python -m crude_tanker_fv.vie_trial "$@" ;;
   *) echo 'usage: routine_task.sh refresh|shadow|sentinel|mb' >&2; exit 2 ;;
 esac

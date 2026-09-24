@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "enabled": true,
+  "mode": "shadow",
+  "annual_budget_usd": 1500,
+  "renewal_assumption": "2027-03-09",
+  "cancellation_deadline": null,
+  "window_start": null,
+  "required_business_days": 20,
+  "minimum_complete_days": 19,
+  "selected_provider": null,
+  "contracts": {
+    "cape": null,
+    "pmax": null,
+    "smax": null
+  },
+  "providers": {
+    "baltic": {
+      "status": "unconfirmed",
+      "annual_total_usd": null,
+      "licensed_internal_automation": false,
+      "evidence": [],
+      "holidays": null
+    },
+    "ssy": {
+      "status": "unconfirmed",
+      "annual_total_usd": null,
+      "licensed_internal_automation": false,
+      "evidence": [],
+      "holidays": null
+    }
+  },
+  "blockers": [
+    {
+      "id": "contract-identity",
+      "resolver": "external",
+      "action": "Confirm screenshot benchmark versions, vessel specifications, units, quote basis and timestamp with the original provider; obtain cited contract mapping."
+    },
+    {
+      "id": "procurement",
+      "resolver": "owner",
+      "action": "Review the prepared Baltic inquiry. Obtain a qualifying quote and authorised trial access before selecting or buying a feed."
+    },
+    {
+      "id": "renewal-terms",
+      "resolver": "owner",
+      "action": "Check the VIE account renewal/cancellation terms; March 9 renewal is user-confirmed but the cancellation deadline is unverified."
+    },
+    {
+      "id": "unattended",
+      "resolver": "agent",
+      "action": "Observe a scheduled independent-report scan and MB connector harvest without interaction; do not substitute a manual smoke test."
+    },
+    {
+      "id": "transport",
+      "resolver": "agent",
+      "action": "Implement the chosen provider retrieval/export mapping from its authorised sample; generic JSON import is a validation seam, not a live feed."
+    },
+    {
+      "id": "pnav-controls",
+      "resolver": "agent",
+      "action": "Review explicit unavailable broker states before any production removal; legacy snapshot k_broker=1.0 must not masquerade as a passed check."
+    }
+  ]
+}

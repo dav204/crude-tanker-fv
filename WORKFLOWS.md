@@ -490,3 +490,23 @@ leave stale upside ranges and null sign-stability fields in the handoff. A faile
 regeneration before the pipeline. `--sidecars` remains a compatible spelling. Regression guard:
 `tests/test_regen_family_freshness.py`; incident and full-book comparison in
 `decisions/publication_repair_2026-09-23.md`.
+
+
+## VIE exit trial (2026-09-24)
+
+The local shadow lane reads the independent MB/harvester archives and maintains
+state/vie_exit/documents.json. Run through the existing approved wrapper:
+sh scripts/routine_task.sh vie run. Review the oldest pending documents with
+sh scripts/routine_task.sh vie queue --limit 10; display limits do not alter
+membership. Inspect original cited pages, deduplicate vessel/event identities,
+write and commit a disposition containing the PDF hash, then use the scoped
+vie ack command. Assessments remain cross-checks, never automatic transactions.
+
+The existing delivery worker invokes the local lane once per 24h, and independent
+weekly harvests refresh it after download. No new scheduler is installed.
+The canonical MB harvest prompt is automation/mb-weekly-harvest.md.
+Source qualification and trial rules live in research/vie-exit/PREREGISTRATION.md.
+Current procurement and evidence gaps project into work_items.yaml; no paid
+subscription, source switch, governor baseline change or cancellation is automatic.
+A failed or missing source cannot be treated as complete. Roll back this lane
+with research/vie-exit/trial.json enabled=false while preserving its receipts.
