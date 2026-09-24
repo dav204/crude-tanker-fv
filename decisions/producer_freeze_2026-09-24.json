@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "record": "decisions/producer_freeze_2026-09-24.md",
+  "authority": "../portfolio-governance/reviews/2026-09-24-wo-scout-1-rulings.md R-4",
+  "active_from": "2026-09-24",
+  "last_supported": {
+    "publication_id": "4d1c91461afa8181c0a39546d6b0c690d56f60e5ef0dfd80b3237ffea079fba5",
+    "source_commit": "9913185f",
+    "output_commit": "575cc21d",
+    "head_before_record": "13d652e5"
+  },
+  "nodes": {
+    "keep": [
+      "edgar-poll",
+      "price-refresh",
+      "sentinel",
+      "sentinel-checks",
+      "weekly-report",
+      "commit-outputs",
+      "price-leg",
+      "annotate",
+      "auto-land",
+      "auto-push",
+      "delivery-worker",
+      "accepted-publication",
+      "governor-seam",
+      "crude-fv-filings-triage",
+      "crude-fv-weekly-news-pull",
+      "crude-fv-mb-weekly-harvest",
+      "crude-fv-results-shadow-build",
+      "crude-fv-fork-executor",
+      "harvester",
+      "commit-drift",
+      "regen",
+      "preflight",
+      "rebase",
+      "portfolio-weekly-monitor",
+      "portfolio-quarterly-review-kickoff",
+      "sentinel-lite",
+      "healthchecks"
+    ],
+    "keep_until_vie_cutover": [
+      "rocketchat-ingest",
+      "news-pull",
+      "ffa-promote"
+    ],
+    "pause": [
+      "vie-exit-shadow",
+      "crude-fv-trigger-check-draft"
+    ],
+    "retire_at_next_graph_housekeeping": [
+      "crude-fv-pinggap-drill-arm",
+      "crude-fv-pinggap-drill-restore"
+    ]
+  },
+  "work_items": {
+    "paused_owner": [
+      "roadmap:a1-horizon",
+      "roadmap:b1",
+      "roadmap:crude-weights",
+      "roadmap:product-reexpression",
+      "roadmap:ten-anchor",
+      "roadmap:dm2-dm3-dm4",
+      "economic:adoption-review",
+      "carry:04"
+    ],
+    "paused_agent": [
+      "economic:cash-schedules",
+      "economic:hybrid-joint-scenarios",
+      "economic:normalized-accounting-eps",
+      "economic:reference-pairs",
+      "economic:risk-calibration",
+      "roadmap:gsl-commitment",
+      "roadmap:image-filings",
+      "roadmap:lr1-anchor",
+      "roadmap:stng-newbuild",
+      "roadmap:q3-calendar",
+      "housekeeping:01",
+      "housekeeping:03",
+      "housekeeping:04",
+      "carry:02",
+      "carry:03",
+      "carry:05",
+      "carry:06",
+      "carry:08"
+    ],
+    "rerecorded_manual": [
+      "vie:renewal-terms",
+      "vie:pnav-controls"
+    ],
+    "paused_with_trial": [
+      "vie:procurement",
+      "vie:contract-identity",
+      "vie:transport",
+      "vie:unattended",
+      "vie:broker-triage"
+    ]
+  },
+  "pause_file_used": false
+}

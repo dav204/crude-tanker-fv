@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "enabled": true,
+  "enabled": false,
   "mode": "shadow",
   "annual_budget_usd": 1500,
   "renewal_assumption": "2027-03-09",

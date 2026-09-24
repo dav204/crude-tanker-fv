@@ -5,13 +5,16 @@ from domain authorities by `sh scripts/routine_task.sh tasks show`. It includes 
 rulings, agent work, armed triggers, fork windows, shadow blockers, quarterly follow-ups,
 filing backlog and workflow-repair tasks. Do not duplicate live statuses in this file.
 
-## Proposed scope reset — 2026-09-24
+## Development freeze — ACTIVE from 2026-09-24
 
-The owner-requested [WO-SCOUT-1 v4](../portfolio-governance/WO-SCOUT-1.md) lives in the
-governor repo. It proposes a portfolio mandate review, bounded scout pilot and reduced
-producer scope while preserving essential holding support. Read its fresh-task handoff
-before resuming discretionary research. This is a draft: no producer freeze, scheduler
-pause, source switch or financial decision has been activated by writing it.
+The owner authorized [WO-SCOUT-1 v4](../portfolio-governance/WO-SCOUT-1.md) on 2026-09-24
+(rulings: `../portfolio-governance/reviews/2026-09-24-wo-scout-1-rulings.md`; sequencing:
+`../portfolio-governance/WO-SCOUT-1-PLAN.md`). **Discretionary producer development is
+frozen**; holding support for SB, CCEC, SBLK (and TEN while routed) continues. The dated
+record, service inventory and paused work items are in
+`decisions/producer_freeze_2026-09-24.md`. Do not resume the old roadmap or open new
+discretionary forks without an owner decision. Do not use the repo-root `PAUSE` file for
+this freeze. No source switch, subscription action or financial decision follows from it.
 
 The old roadmap is retained in `decisions/workflow_migration_2026-09-22.md` as migration
 provenance. TEN's Q2 landing and fork registration were already committed and are closed
