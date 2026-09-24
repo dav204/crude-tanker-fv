@@ -778,23 +778,21 @@
     },
     {
       "authority": "manual",
-      "blocking_decision_ids": [
-        "G-2"
-      ],
+      "blocking_decision_ids": [],
       "due": null,
       "evidence": [
         {
-          "contains": "G-2",
-          "path": "reviews/2026-09-21-q3-review.md",
+          "contains": "RETIRED UNEXECUTED",
+          "path": "reviews/2026-09-24-g2-hynix-ruling.md",
           "project": "governor",
-          "sha256": "3c0820fd60149e099a8421edd2544fa519e84e030e8c262469ba4c3eef90252a"
+          "sha256": "18bc5170ab2be0e5c2c967652c1167c38b878e56ef6ed2a5b9b328ae7cffecf5"
         }
       ],
       "id": "quarterly:G-2",
-      "next_action": "Decide Hynix armed-prereg disposition; deep-value gate remains armed",
+      "next_action": "Ruled 2026-09-24: second-leg prereg RETIRED UNEXECUTED (E2 mootness); deep-value gate stays armed",
       "project": "governor",
       "resolver": "owner",
-      "status": "blocked",
+      "status": "done",
       "verified_at": "2026-09-24",
       "waiting_condition": "explicit disposition"
     },
