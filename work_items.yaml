@@ -463,6 +463,23 @@
     {
       "authority": "adapter",
       "blocking_decision_ids": [],
+      "due": "2026-09-28",
+      "evidence": [
+        {
+          "path": "inputs/forks.yaml",
+          "project": "producer"
+        }
+      ],
+      "id": "fork:buyflip_sb_2026-09-23",
+      "next_action": "Register the price-driven SB HOLD to BUY publication change only: price $9.18 to $8.37, weighted fair value unchanged at $9.01 and NAV unchanged at $10.72. The refreshed scenario-weight upside range is +3.2% to +11.8%; the old accepted publication remains governing until acceptance. No order, sizing decision, scenario-weight change or governor baseline reset is authorized. After the objection window, the existing land and publication gates must still pass.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "waiting",
+      "waiting_condition": "registered condition or ruling"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
       "due": "2026-09-18",
       "evidence": [
         {
@@ -812,11 +829,11 @@
       "details": {
         "action": "OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
         "code": "PUBLICATION_HELD",
-        "detail": "a flip toward BUY waits for its buyflip fork (3 business days of silence); ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers",
+        "detail": "a flip toward BUY waits for its buyflip fork (3 business days of silence)",
         "id": "SYSTEM:PUBLICATION_HELD",
         "severity": "page",
         "ticker": "SYSTEM",
-        "value": "a flip toward BUY waits for its buyflip fork (3 business days of silence); ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers"
+        "value": "a flip toward BUY waits for its buyflip fork (3 business days of silence)"
       },
       "due": null,
       "evidence": [
@@ -827,7 +844,7 @@
         }
       ],
       "id": "governor:SYSTEM:PUBLICATION_HELD",
-      "next_action": "a flip toward BUY waits for its buyflip fork (3 business days of silence); ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers; OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
+      "next_action": "a flip toward BUY waits for its buyflip fork (3 business days of silence); OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
       "project": "governor",
       "resolver": "owner",
       "status": "blocked",
