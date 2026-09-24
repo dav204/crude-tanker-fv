@@ -26,12 +26,12 @@
 # Held classes carry their own trigger (tanker_forward_print_lands /
 # container_mb_refresh); agreement with vintage_notes is suite-tested.
 as_of:
-  default: 2026-09-21       # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md)
-                            # advanced from 2026-09-18; every class this promote did not touch carries an explicit hold below.
-  Cape: 2026-09-21          # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md)
-  Pana: 2026-09-21          # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md)
-  Post-Panamax: 2026-09-21  # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md)
-  Supra-Ultra: 2026-09-21   # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md)
+  default: 2026-09-23       # FFA 2026-09-23 promoted 2026-09-24 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-24.md)
+                            # advanced from 2026-09-21; every class this promote did not touch carries an explicit hold below.
+  Cape: 2026-09-23          # FFA 2026-09-23 promoted 2026-09-24 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-24.md)
+  Pana: 2026-09-23          # FFA 2026-09-23 promoted 2026-09-24 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-24.md)
+  Post-Panamax: 2026-09-23  # FFA 2026-09-23 promoted 2026-09-24 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-24.md)
+  Supra-Ultra: 2026-09-23   # FFA 2026-09-23 promoted 2026-09-24 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-24.md)
   VLGC: 2026-06-02
   LNGC: 2026-06-07
   MGC: 2026-06-07
@@ -224,62 +224,62 @@ ffa_forward_curve:
   - 42000
   - 41000
   - 40000
-  Cape:              # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md):
-                     # q1 = front month sep 50000 ALONE (ruling Q-2); q2 = Q4 46875; q3 = Q1-27 32500;
-                     # q4-q6 make the Cal-27 34125 identity exact (34667/34667/34666);
-                     # 2028 committed deltas -500/-500.
-  - 50000
-  - 46875
-  - 32500
-  - 34667
-  - 34667
-  - 34666
-  - 34166
-  - 33666
-  Pana:              # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md):
-                     # q1 = front month sep 21300 ALONE (ruling Q-2); q2 = Q4 22650; q3 = Q1-27 18500;
-                     # q4-q6 make the Cal-27 18450 identity exact (18434/18433/18433);
-                     # 2028 committed deltas -400/-300.
-  - 21300
+  Cape:              # FFA 2026-09-23 promoted 2026-09-24 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-24.md):
+                     # Periods: 2026-Q3, 2026-Q4, 2027-Q1, 2027-Q2, 2027-Q3, 2027-Q4, 2028-Q1, 2028-Q2
+                     # Quoted quarters: 2026-Q4, 2027-Q1; calendar residuals and ruled tail steps are derived.
+                     # See calendar_nodes for source labels, dates and construction provenance.
+  - 49625
+  - 45708
+  - 31900
+  - 34367
+  - 34367
+  - 34366
+  - 33866
+  - 33366
+  Pana:              # FFA 2026-09-23 promoted 2026-09-24 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-24.md):
+                     # Periods: 2026-Q3, 2026-Q4, 2027-Q1, 2027-Q2, 2027-Q3, 2027-Q4, 2028-Q1, 2028-Q2
+                     # Quoted quarters: 2026-Q4, 2027-Q1; calendar residuals and ruled tail steps are derived.
+                     # See calendar_nodes for source labels, dates and construction provenance.
+  - 21275
   - 22650
-  - 18500
-  - 18434
-  - 18433
-  - 18433
-  - 18033
-  - 17733
-  Post-Panamax:              # = Pana, shared freight basin (§11.7.10). FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md)
-  - 21300
+  - 18550
+  - 18350
+  - 18350
+  - 18350
+  - 17950
+  - 17650
+  Post-Panamax:              # = Pana, shared freight basin (§11.7.10). FFA 2026-09-23 promoted 2026-09-24 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-24.md)
+  - 21275
   - 22650
-  - 18500
-  - 18434
-  - 18433
-  - 18433
-  - 18033
-  - 17733
-  Supra-Ultra:              # FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md):
-                     # q1 = front month sep 20025 ALONE (ruling Q-2); q2 = Q4 21508; q3 = Q1-27 16850;
-                     # q4-q6 make the Cal-27 16825 identity exact (16817/16817/16816);
-                     # 2028 committed deltas -300/-300.
-  - 20025
-  - 21508
-  - 16850
-  - 16817
-  - 16817
-  - 16816
-  - 16516
-  - 16216
-  Handy-Bulk:              # DERIVED = Supra-Ultra x 0.90 to nearest 10 (§11.7.11 locked). FFA 2026-09-21 promoted 2026-09-21 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-21.md).
+  - 18550
+  - 18350
+  - 18350
+  - 18350
+  - 17950
+  - 17650
+  Supra-Ultra:              # FFA 2026-09-23 promoted 2026-09-24 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-24.md):
+                     # Periods: 2026-Q3, 2026-Q4, 2027-Q1, 2027-Q2, 2027-Q3, 2027-Q4, 2028-Q1, 2028-Q2
+                     # Quoted quarters: 2026-Q4, 2027-Q1; calendar residuals and ruled tail steps are derived.
+                     # See calendar_nodes for source labels, dates and construction provenance.
+  - 19887
+  - 21033
+  - 16575
+  - 16342
+  - 16342
+  - 16341
+  - 16041
+  - 15741
+  Handy-Bulk:              # DERIVED = Supra-Ultra x 0.90 to nearest 10 (§11.7.11 locked). FFA 2026-09-23 promoted 2026-09-24 by crude_tanker_fv.ffa_promote (decisions/ffa_promotion_2026-09-24.md).
                      # Its as_of is NOT stamped here: no Handy FFA panel exists; the vintage rides
                      # the MB Dry Bulk weekly (§11.7.11).
-  - 18020
-  - 19360
-  - 15160
-  - 15140
-  - 15140
-  - 15130
-  - 14860
-  - 14590
+  - 17900
+  - 18930
+  - 14920
+  - 14710
+  - 14710
+  - 14710
+  - 14440
+  - 14170
   # Containerships (§11.8) — NO FFA exists; synthesised current-market
   # forward per the synthesised-from-spot convention: starts at the MB TC
   # assessment, mean-reverts toward the FY21-25 anchor (between
@@ -331,6 +331,7 @@ ffa_forward_curve:
   - 51750
   - 50000
   - 48000
+
 
 calendar_nodes:
   VLCC:
@@ -767,332 +768,340 @@ calendar_nodes:
     method: equal remaining-month mean; half-up integer
     months:
     - 2026-09
+    component_rates:
+      2026-09: 49625
     original_labels:
     - sep
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2026-Q3
-    rate: 50000
+    rate: 49625
   - kind: quoted
     original_labels:
     - q4
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2026-Q4
-    rate: 46875
+    rate: 45708
   - kind: quoted
     original_labels:
     - q1
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2027-Q1
-    rate: 32500
+    rate: 31900
   - kind: derived
     method: calendar-year residual; remainder to earliest unquoted quarters
     calendar_year: 2027
-    calendar_rate: 34125
+    calendar_rate: 33750
     original_labels: &id001
     - cal27
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2027-Q2
-    rate: 34667
+    rate: 34367
   - kind: derived
     method: calendar-year residual; remainder to earliest unquoted quarters
     calendar_year: 2027
-    calendar_rate: 34125
+    calendar_rate: 33750
     original_labels: *id001
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2027-Q3
-    rate: 34667
+    rate: 34367
   - kind: derived
     method: calendar-year residual; remainder to earliest unquoted quarters
     calendar_year: 2027
-    calendar_rate: 34125
+    calendar_rate: 33750
     original_labels: *id001
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2027-Q4
-    rate: 34666
+    rate: 34366
   - kind: derived
     method: ruled tail step
     delta: -500
     from: 2027-Q4
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2028-Q1
-    rate: 34166
+    rate: 33866
   - kind: derived
     method: ruled tail step
     delta: -500
     from: 2028-Q1
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2028-Q2
-    rate: 33666
+    rate: 33366
   Pana:
-  - &id005
+  - &id006
     kind: derived
     method: equal remaining-month mean; half-up integer
     months: &id003
     - 2026-09
-    original_labels: &id004
+    component_rates: &id004
+      2026-09: 21275
+    original_labels: &id005
     - sep
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2026-Q3
-    rate: 21300
-  - &id007
+    rate: 21275
+  - &id008
     kind: quoted
-    original_labels: &id006
+    original_labels: &id007
     - q4
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2026-Q4
     rate: 22650
-  - &id009
-    kind: quoted
-    original_labels: &id008
-    - q1
-    source_date: '2026-09-21'
-    period: 2027-Q1
-    rate: 18500
   - &id010
-    kind: derived
-    method: calendar-year residual; remainder to earliest unquoted quarters
-    calendar_year: 2027
-    calendar_rate: 18450
-    original_labels: &id002
-    - cal27
-    source_date: '2026-09-21'
-    period: 2027-Q2
-    rate: 18434
+    kind: quoted
+    original_labels: &id009
+    - q1
+    source_date: '2026-09-23'
+    period: 2027-Q1
+    rate: 18550
   - &id011
     kind: derived
     method: calendar-year residual; remainder to earliest unquoted quarters
     calendar_year: 2027
-    calendar_rate: 18450
-    original_labels: *id002
-    source_date: '2026-09-21'
-    period: 2027-Q3
-    rate: 18433
+    calendar_rate: 18400
+    original_labels: &id002
+    - cal27
+    source_date: '2026-09-23'
+    period: 2027-Q2
+    rate: 18350
   - &id012
     kind: derived
     method: calendar-year residual; remainder to earliest unquoted quarters
     calendar_year: 2027
-    calendar_rate: 18450
+    calendar_rate: 18400
     original_labels: *id002
-    source_date: '2026-09-21'
-    period: 2027-Q4
-    rate: 18433
+    source_date: '2026-09-23'
+    period: 2027-Q3
+    rate: 18350
   - &id013
+    kind: derived
+    method: calendar-year residual; remainder to earliest unquoted quarters
+    calendar_year: 2027
+    calendar_rate: 18400
+    original_labels: *id002
+    source_date: '2026-09-23'
+    period: 2027-Q4
+    rate: 18350
+  - &id014
     kind: derived
     method: ruled tail step
     delta: -400
     from: 2027-Q4
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2028-Q1
-    rate: 18033
-  - &id014
+    rate: 17950
+  - &id015
     kind: derived
     method: ruled tail step
     delta: -300
     from: 2028-Q1
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2028-Q2
-    rate: 17733
+    rate: 17650
   Post-Panamax:
   - kind: derived
     method: class mapping from Pana
     months: *id003
-    original_labels: *id004
-    source_date: '2026-09-21'
+    component_rates: *id004
+    original_labels: *id005
+    source_date: '2026-09-23'
     period: 2026-Q3
-    rate: 21300
-    underlying: *id005
+    rate: 21275
+    underlying: *id006
   - kind: derived
-    original_labels: *id006
-    source_date: '2026-09-21'
+    original_labels: *id007
+    source_date: '2026-09-23'
     period: 2026-Q4
     rate: 22650
     method: class mapping from Pana
-    underlying: *id007
+    underlying: *id008
   - kind: derived
-    original_labels: *id008
-    source_date: '2026-09-21'
+    original_labels: *id009
+    source_date: '2026-09-23'
     period: 2027-Q1
-    rate: 18500
+    rate: 18550
     method: class mapping from Pana
-    underlying: *id009
-  - kind: derived
-    method: class mapping from Pana
-    calendar_year: 2027
-    calendar_rate: 18450
-    original_labels: *id002
-    source_date: '2026-09-21'
-    period: 2027-Q2
-    rate: 18434
     underlying: *id010
   - kind: derived
     method: class mapping from Pana
     calendar_year: 2027
-    calendar_rate: 18450
+    calendar_rate: 18400
     original_labels: *id002
-    source_date: '2026-09-21'
-    period: 2027-Q3
-    rate: 18433
+    source_date: '2026-09-23'
+    period: 2027-Q2
+    rate: 18350
     underlying: *id011
   - kind: derived
     method: class mapping from Pana
     calendar_year: 2027
-    calendar_rate: 18450
+    calendar_rate: 18400
     original_labels: *id002
-    source_date: '2026-09-21'
-    period: 2027-Q4
-    rate: 18433
+    source_date: '2026-09-23'
+    period: 2027-Q3
+    rate: 18350
     underlying: *id012
+  - kind: derived
+    method: class mapping from Pana
+    calendar_year: 2027
+    calendar_rate: 18400
+    original_labels: *id002
+    source_date: '2026-09-23'
+    period: 2027-Q4
+    rate: 18350
+    underlying: *id013
   - kind: derived
     method: class mapping from Pana
     delta: -400
     from: 2027-Q4
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2028-Q1
-    rate: 18033
-    underlying: *id013
+    rate: 17950
+    underlying: *id014
   - kind: derived
     method: class mapping from Pana
     delta: -300
     from: 2028-Q1
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2028-Q2
-    rate: 17733
-    underlying: *id014
+    rate: 17650
+    underlying: *id015
   Supra-Ultra:
-  - &id018
+  - &id020
     kind: derived
     method: equal remaining-month mean; half-up integer
-    months: &id016
+    months: &id017
     - 2026-09
-    original_labels: &id017
-    - sep
-    source_date: '2026-09-21'
-    period: 2026-Q3
-    rate: 20025
-  - &id020
-    kind: quoted
+    component_rates: &id018
+      2026-09: 19887
     original_labels: &id019
-    - q4
-    source_date: '2026-09-21'
-    period: 2026-Q4
-    rate: 21508
+    - sep
+    source_date: '2026-09-23'
+    period: 2026-Q3
+    rate: 19887
   - &id022
     kind: quoted
     original_labels: &id021
-    - q1
-    source_date: '2026-09-21'
-    period: 2027-Q1
-    rate: 16850
-  - &id023
-    kind: derived
-    method: calendar-year residual; remainder to earliest unquoted quarters
-    calendar_year: 2027
-    calendar_rate: 16825
-    original_labels: &id015
-    - cal27
-    source_date: '2026-09-21'
-    period: 2027-Q2
-    rate: 16817
+    - q4
+    source_date: '2026-09-23'
+    period: 2026-Q4
+    rate: 21033
   - &id024
-    kind: derived
-    method: calendar-year residual; remainder to earliest unquoted quarters
-    calendar_year: 2027
-    calendar_rate: 16825
-    original_labels: *id015
-    source_date: '2026-09-21'
-    period: 2027-Q3
-    rate: 16817
+    kind: quoted
+    original_labels: &id023
+    - q1
+    source_date: '2026-09-23'
+    period: 2027-Q1
+    rate: 16575
   - &id025
     kind: derived
     method: calendar-year residual; remainder to earliest unquoted quarters
     calendar_year: 2027
-    calendar_rate: 16825
-    original_labels: *id015
-    source_date: '2026-09-21'
-    period: 2027-Q4
-    rate: 16816
+    calendar_rate: 16400
+    original_labels: &id016
+    - cal27
+    source_date: '2026-09-23'
+    period: 2027-Q2
+    rate: 16342
   - &id026
+    kind: derived
+    method: calendar-year residual; remainder to earliest unquoted quarters
+    calendar_year: 2027
+    calendar_rate: 16400
+    original_labels: *id016
+    source_date: '2026-09-23'
+    period: 2027-Q3
+    rate: 16342
+  - &id027
+    kind: derived
+    method: calendar-year residual; remainder to earliest unquoted quarters
+    calendar_year: 2027
+    calendar_rate: 16400
+    original_labels: *id016
+    source_date: '2026-09-23'
+    period: 2027-Q4
+    rate: 16341
+  - &id028
     kind: derived
     method: ruled tail step
     delta: -300
     from: 2027-Q4
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2028-Q1
-    rate: 16516
-  - &id027
+    rate: 16041
+  - &id029
     kind: derived
     method: ruled tail step
     delta: -300
     from: 2028-Q1
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2028-Q2
-    rate: 16216
+    rate: 15741
   Handy-Bulk:
   - kind: derived
     method: class mapping from Supra-Ultra
-    months: *id016
-    original_labels: *id017
-    source_date: '2026-09-21'
-    period: 2026-Q3
-    rate: 18020
-    underlying: *id018
-  - kind: derived
+    months: *id017
+    component_rates: *id018
     original_labels: *id019
-    source_date: '2026-09-21'
-    period: 2026-Q4
-    rate: 19360
-    method: class mapping from Supra-Ultra
+    source_date: '2026-09-23'
+    period: 2026-Q3
+    rate: 17900
     underlying: *id020
   - kind: derived
     original_labels: *id021
-    source_date: '2026-09-21'
-    period: 2027-Q1
-    rate: 15160
+    source_date: '2026-09-23'
+    period: 2026-Q4
+    rate: 18930
     method: class mapping from Supra-Ultra
     underlying: *id022
   - kind: derived
+    original_labels: *id023
+    source_date: '2026-09-23'
+    period: 2027-Q1
+    rate: 14920
     method: class mapping from Supra-Ultra
-    calendar_year: 2027
-    calendar_rate: 16825
-    original_labels: *id015
-    source_date: '2026-09-21'
-    period: 2027-Q2
-    rate: 15140
-    underlying: *id023
-  - kind: derived
-    method: class mapping from Supra-Ultra
-    calendar_year: 2027
-    calendar_rate: 16825
-    original_labels: *id015
-    source_date: '2026-09-21'
-    period: 2027-Q3
-    rate: 15140
     underlying: *id024
   - kind: derived
     method: class mapping from Supra-Ultra
     calendar_year: 2027
-    calendar_rate: 16825
-    original_labels: *id015
-    source_date: '2026-09-21'
-    period: 2027-Q4
-    rate: 15130
+    calendar_rate: 16400
+    original_labels: *id016
+    source_date: '2026-09-23'
+    period: 2027-Q2
+    rate: 14710
     underlying: *id025
+  - kind: derived
+    method: class mapping from Supra-Ultra
+    calendar_year: 2027
+    calendar_rate: 16400
+    original_labels: *id016
+    source_date: '2026-09-23'
+    period: 2027-Q3
+    rate: 14710
+    underlying: *id026
+  - kind: derived
+    method: class mapping from Supra-Ultra
+    calendar_year: 2027
+    calendar_rate: 16400
+    original_labels: *id016
+    source_date: '2026-09-23'
+    period: 2027-Q4
+    rate: 14710
+    underlying: *id027
   - kind: derived
     method: class mapping from Supra-Ultra
     delta: -300
     from: 2027-Q4
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2028-Q1
-    rate: 14860
-    underlying: *id026
+    rate: 14440
+    underlying: *id028
   - kind: derived
     method: class mapping from Supra-Ultra
     delta: -300
     from: 2028-Q1
-    source_date: '2026-09-21'
+    source_date: '2026-09-23'
     period: 2028-Q2
-    rate: 14590
-    underlying: *id027
+    rate: 14170
+    underlying: *id029
   Ctr-Feeder:
   - period: 2026-Q3
     kind: existing_constructed
