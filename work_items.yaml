@@ -685,11 +685,11 @@
       "details": {
         "action": "OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
         "code": "PUBLICATION_HELD",
-        "detail": "surface is not the committed version",
+        "detail": "the working tree is mid-surgery \u2014 automation never lands through it",
         "id": "SYSTEM:PUBLICATION_HELD",
         "severity": "page",
         "ticker": "SYSTEM",
-        "value": "surface is not the committed version"
+        "value": "the working tree is mid-surgery \u2014 automation never lands through it"
       },
       "due": null,
       "evidence": [
@@ -700,7 +700,7 @@
         }
       ],
       "id": "governor:SYSTEM:PUBLICATION_HELD",
-      "next_action": "surface is not the committed version; OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
+      "next_action": "the working tree is mid-surgery \u2014 automation never lands through it; OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
       "project": "governor",
       "resolver": "owner",
       "status": "blocked",
