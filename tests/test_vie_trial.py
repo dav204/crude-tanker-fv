@@ -13,6 +13,8 @@ from crude_tanker_fv.runtime import atomic_json, commit_paths
 
 def setup(tmp_path):
     cfg = json.loads((Path(__file__).parents[1] / v.CONFIG).read_text())
+    # The live trial is paused by the 2026-09-24 producer freeze; these tests exercise the enabled trial.
+    cfg['enabled'] = True
     for panel in v.PANELS:
         cfg['contracts'][panel] = dict(identity=panel+'-test', vessel_spec='test-vessel',
                                       evidence=['fixture'], quote_basis='mid')

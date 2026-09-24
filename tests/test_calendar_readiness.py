@@ -1,5 +1,6 @@
 from datetime import date
 import json
+import subprocess
 
 import pytest
 import yaml
@@ -107,7 +108,11 @@ def test_ambiguous_years_and_rollover():
 def test_september_replay_committed_nodes():
     db = json.loads((INPUTS_DIR.parent / "state/ffa_ocr_curves.json").read_text())
     built = fp.construct("2026-09-21", db["2026-09-21"])
-    raw = yaml.safe_load((INPUTS_DIR / "market_data/ffa_forward_curve.yaml").read_text())
+    # Pinned to the commit that wired the 2026-09-21 nodes: every later dry-FFA promote
+    # legitimately rewrites the live file, which is not a regression of this replay.
+    raw = yaml.safe_load(subprocess.check_output(
+        ["git", "show", "adde05ea:inputs/market_data/ffa_forward_curve.yaml"],
+        cwd=INPUTS_DIR.parent, text=True))
     for cls, curve in built["curves"].items():
         assert raw["ffa_forward_curve"][cls] == curve
 
