@@ -674,7 +674,7 @@
       "next_action": "HOLD advances-only on TEN (newbuild_capex_commitments stays 0) and carry the now-CITED 2,233,409k remaining commitment as provenance on the line \u2014 the CMBT Branch-A shape. The \u00a79.6 gate is procedurally open (TEN is out of NAV_FIGURE_ESTIMATE_QUEUE) but the ASSET half cannot be built: 10 of the 20 hulls are DP2 shuttles, 62% of the $2,413M priced program, and there is no shuttle class in vessel_value_curves.yaml, so every netting variant books the obligation without its asset. Sized, all four: naive commitment-net -$74.13/sh (NAV -> 17.78, -86.0% vs broker = SANITY FAIL); on-curve markable-only -$53.18/sh (-69.5% = SANITY FAIL); on-curve at contract price PV'd -$22.82/sh; the same undiscounted -$9.64/sh, which is exactly the unpriced-20th-hull residual \u2014 i.e. at a zero discount rate advances-only IS contract-value-net, so holding is not ignoring the obligation, it is netting it 1:1 against the asset it buys. ALL FOUR cross the governance sizing gate: ev_pct_family_min falls below the +5 BUY edge at -$3.60/sh and sign-flips to conviction-zero at -$7.51/sh. TEN stays in OFF_CONVENTION_QUEUE and takes NO structural_exempt line (the BWLP verifier's ruling, and it would be factually false here since 10 of 20 hulls ARE markable). Predicted impact: ZERO on all 25 names \u2014 comment and provenance text only; commitments, advances, the manifest, the curve registry and the convention registry are FROZEN; any nonzero NAV = HALT. Exit condition, explicitly NOT this fork: a \u00a711.6 newbuild-shuttle contracted-book leg, a TEN newbuild_specs.yaml entry with cited scrubber/eco flags, and a disclosed price for the 20th hull.",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
+      "status": "done",
       "waiting_condition": "registered condition or ruling"
     },
     {
@@ -1158,7 +1158,7 @@
       "next_action": "Same \u00a711.8 ingest procedure: newest weekly, class-collapse per \u00a711.8.1 (A3 re-weight if the validator fleets changed), machine as_of, decisions/ note, gate annotation for MPCC/GSL moves. Re-arm monthly on completion.\n",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
+      "status": "done",
       "waiting_condition": "registered condition or ruling"
     },
     {
@@ -1175,7 +1175,7 @@
       "next_action": "LEG 1 fires: revisit the pre_mou_baseline -> mou_bear mass (a functioning fee regime is mou_bear's registered premise \u2014 \"framework holds, tolls imposed post-day-60\" \u2014 which the 8/16 observed state contradicted and which systematic collection would restore). Rerun \u00a79.10, reweight, annotate, ratify. LEG 2: any change of state is correction-annotated on the prior record FIRST, then the escalation question is re-run against the corrected record \u2014 never on an uncorrected premise. A reweight proposal is pre-registered (predicted impact per crude name, band, flip tripwires), verified, then registered in inputs/forks.yaml under the silence rule (owner policy 2026-09-10) \u2014 it executes by silence or word.\n",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
+      "status": "done",
       "waiting_condition": "registered condition or ruling"
     },
     {
@@ -1192,7 +1192,7 @@
       "next_action": "Owner-run promotion: classify prints (eco/gear/TC-attached/survey adjustments) into transactions/handy_bulk.yaml, run the \u00a79.9 dwt-normalized fit (38k baseline), predict bands AHEAD, re-run the drift-gate loop; the class leaves un-anchored (LNGC-regime) k_broker semantics and basis_status/handoff tiers upgrade accordingly. Expected fit direction: 5yr/10yr DOWN toward prints (prereg Band 3) \u2014 do not \"fix\" the interim high-side reads toward Pareto meanwhile.\n",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
+      "status": "done",
       "waiting_condition": "registered condition or ruling"
     },
     {
@@ -1209,7 +1209,7 @@
       "next_action": "Re-derive the trailing-10yr VLGC realized-TCE mean off Dorian's + BW LPG's latest 10-K/20-F year-by-year TCE series (the FY2016-26 series is in the methodology doc); update the anchor value + as_of; re-run the LPG cycle layer; gate-annotate; re-arm +1yr. Realized-TCE basis is correct for the 85-99%-spot validator pair \u2014 do NOT switch to 1-yr TC (that stays a documented cross-check only).\n",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
+      "status": "done",
       "waiting_condition": "registered condition or ruling"
     },
     {
@@ -1226,7 +1226,7 @@
       "next_action": "When the splits land: promote the per-vessel prints to transactions/ vlgc.yaml, re-fit (prints->rerun->drift loop, annotate moves), then re-run `/reconcile --calibration-lock lpg` and put the readout to the OWNER \u2014 the 2026-07-10 ruling (option (a), PLAN decision #1b) holds the sector at PROVISIONAL\u00b7v1-lock-miss (SECTOR_V1_UNLOCKED) until that re-run; if the re-fit still misses on the residual broker premium, the GOVERNED-WIDE question returns to the owner WITH evidence (logged amendment, not blind loosening). If the splits have not been filed by the due date, record the check and re-arm toward the FQ3 10-Q (~Feb-2027) \u2014 NOTE R-5: the charter expires 2026-12-26; work past it needs a new charter.\n",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
+      "status": "done",
       "waiting_condition": "registered condition or ruling"
     },
     {
@@ -1243,7 +1243,7 @@
       "next_action": "Re-fit the PPMX anchors + re-derive the MARK_WIDE_NODES band; take the old-age-overhang methodology fork to the owner (the scrap-anchored [10,25] segment reads ~+28% above the seed's print cloud \u2014 steeper terminal vs accept-as-documented). decisions/ppmx_fit_seed_prereg_2026-07-18.md.\n",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
+      "status": "done",
       "waiting_condition": "registered condition or ruling"
     },
     {
@@ -1260,7 +1260,7 @@
       "next_action": "Tightness persisting into Q4-2026 at glut_base weights: shift mass back toward refinery_squeeze/moderate_correction with a dated non-war rationale. Glut arriving early: shift toward demand_softening. Either way \u00a711.5 revision + lock-test re-pin.\n",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
+      "status": "done",
       "waiting_condition": "registered condition or ruling"
     },
     {
@@ -1277,7 +1277,7 @@
       "next_action": "Re-derive the trailing 10-yr mean for EVERY class off its documented route benchmark / basis (VLCC TD3C, Suezmax TD20, etc. \u2014 the per-class basis and its caveats are commented in the file itself). TC-ANCHORED throughout, not spot \u2014 re-run METHODOLOGY \u00a78.3's self-check that no spot-anchored component has crept in. Do NOT bulk-update from VIE: the ~14-58% VIE gaps are deliberate base-period / outlier-handling differences and switching base shifts FVs across the whole watchlist (per-class methodology decision required, \u00a78.3 Step 3). Update values + as_of, re-run the cycle layer, check the drift gate, gate-annotate every class whose EV moves >2pp, and re-arm +6mo. LPG DEFERS to lpg_anchor_annual_review, whose realized-TCE basis is tied to the Dorian 10-K / BW LPG 20-F filing cadence \u2014 this sweep records LPG as \"covered by the annual trigger\", it does not re-derive it.\n",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
+      "status": "done",
       "waiting_condition": "registered condition or ruling"
     },
     {
