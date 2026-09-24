@@ -20,6 +20,10 @@
 # owed that treatment, so the gap between "reminded" and "automated" is itself
 # visible rather than forgotten.
 
+# Feeds the owner switched off (producer cut 2026-09-24, decisions/producer_cut_2026-09-24.md).
+# The sentinel skips their staleness lanes: a retired feed going quiet is the decision, not an outage.
+retired_lanes: [harvester, mb, sp_scan]
+
 duties:
   # RETIRED 2026-09-24 — task disabled by the producer cut (decisions/producer_cut_2026-09-24.md):
   # - name: news_pull_digest
