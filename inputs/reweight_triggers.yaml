@@ -57,7 +57,7 @@ crude_geopolitics_weekly:
     uncorrected premise. A reweight proposal is pre-registered (predicted impact per
     crude name, band, flip tripwires), verified, then registered in inputs/forks.yaml
     under the silence rule (owner policy 2026-09-10) — it executes by silence or word.
-  status: armed     # LEG 2 FIRED 2026-09-10 (pause ended 8/30) -> DECISION RECORDED the
+  status: retired   # RETIRED 2026-09-24 — producer cut (decisions/producer_cut_2026-09-24.md): curves frozen, nobody works this card; was: status: armed     # LEG 2 FIRED 2026-09-10 (pause ended 8/30) -> DECISION RECORDED the
                     # same day: fork escalation_c3_rearm EXECUTED ON VERIFICATION (owner:
                     # "scenarios should be reweighted to whatever the scenario is in real
                     # life at present today") — crude 0.25/0.62/0.00/0.13 -> 0.28/0.59/
@@ -84,7 +84,7 @@ product_glut_arrival_timing:
     toward refinery_squeeze/moderate_correction with a dated non-war rationale.
     Glut arriving early: shift toward demand_softening. Either way §11.5
     revision + lock-test re-pin.
-  status: armed
+  status: retired   # RETIRED 2026-09-24 — producer cut (decisions/producer_cut_2026-09-24.md): curves frozen, nobody works this card; was: status: armed
   added: 2026-07-02
   routed_in: >
     2026-08-16 (toll-cliff owner ruling R2): the IEA stockpile-drawdown
@@ -124,7 +124,7 @@ container_mb_refresh:
     Same §11.8 ingest procedure: newest weekly, class-collapse per §11.8.1
     (A3 re-weight if the validator fleets changed), machine as_of, decisions/
     note, gate annotation for MPCC/GSL moves. Re-arm monthly on completion.
-  status: armed
+  status: retired   # RETIRED 2026-09-24 — producer cut (decisions/producer_cut_2026-09-24.md): curves frozen, nobody works this card; was: status: armed
   added: 2026-07-03  # re-armed 2026-07-06 after the first ingest
 
 tce_means_semiannual_review:
@@ -160,7 +160,7 @@ tce_means_semiannual_review:
     re-arm +6mo. LPG DEFERS to lpg_anchor_annual_review, whose realized-TCE
     basis is tied to the Dorian 10-K / BW LPG 20-F filing cadence — this sweep
     records LPG as "covered by the annual trigger", it does not re-derive it.
-  status: armed
+  status: retired   # RETIRED 2026-09-24 — producer cut (decisions/producer_cut_2026-09-24.md): curves frozen, nobody works this card; was: status: armed
   added: 2026-08-16   # owner-ruled: the review is needed for ALL classes, not
                       # just the one class that happened to get a trigger.
                       # Replaces historical_tce_means.yaml's 30d mtime check in
@@ -187,7 +187,7 @@ lpg_anchor_annual_review:
     layer; gate-annotate; re-arm +1yr. Realized-TCE basis is correct for the
     85-99%-spot validator pair — do NOT switch to 1-yr TC (that stays a
     documented cross-check only).
-  status: armed
+  status: retired   # RETIRED 2026-09-24 — producer cut (decisions/producer_cut_2026-09-24.md): curves frozen, nobody works this card; was: status: armed
   added: 2026-07-07
 
 lpg_v1_lock_rerun:
@@ -211,7 +211,7 @@ lpg_v1_lock_rerun:
     loosening). If the splits have not been filed by the due date, record the
     check and re-arm toward the FQ3 10-Q (~Feb-2027) — NOTE R-5: the charter
     expires 2026-12-26; work past it needs a new charter.
-  status: armed
+  status: retired   # RETIRED 2026-09-24 — producer cut (decisions/producer_cut_2026-09-24.md): curves frozen, nobody works this card; was: status: armed
   added: 2026-07-10
   # 2026-09-02 (F20): vlgc_realized_tce_refresh retired INTO this card — the VLGC
   # realized-TCE numerator (twelve_month_tc VLGC 63,615, as_of 2026-06-02) is re-derived
@@ -238,7 +238,7 @@ handy_bulk_txn_refit:
     basis_status/handoff tiers upgrade accordingly. Expected fit direction:
     5yr/10yr DOWN toward prints (prereg Band 3) — do not "fix" the interim
     high-side reads toward Pareto meanwhile.
-  status: armed
+  status: retired   # RETIRED 2026-09-24 — producer cut (decisions/producer_cut_2026-09-24.md): curves frozen, nobody works this card; was: status: armed
   added: 2026-07-14
 
 ppmx_txn_refit:
@@ -255,5 +255,5 @@ ppmx_txn_refit:
     old-age-overhang methodology fork to the owner (the scrap-anchored
     [10,25] segment reads ~+28% above the seed's print cloud — steeper
     terminal vs accept-as-documented). decisions/ppmx_fit_seed_prereg_2026-07-18.md.
-  status: armed
+  status: retired   # RETIRED 2026-09-24 — producer cut (decisions/producer_cut_2026-09-24.md): curves frozen, nobody works this card; was: status: armed
   added: 2026-07-18

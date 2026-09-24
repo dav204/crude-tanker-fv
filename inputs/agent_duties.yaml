@@ -21,35 +21,36 @@
 # visible rather than forgotten.
 
 duties:
-  - name: news_pull_digest
-    artifact_glob: "news_digest_*.md"     # under outputs/
-    cadence_days: 7
-    scheduled: true                       # SCHEDULED 2026-08-13 — Claude scheduled-task
-                                          # `crude-fv-weekly-news-pull`, Sat 09:03 local
-                                          # (after the 08:00 mechanical chain, so the
-                                          # archive is fresh). This CLOSES the agent-half
-                                          # orchestration deferred 2026-06-14 under the
-                                          # crude-edge freeze and never re-docketed when
-                                          # the freeze lifted 6/21 — an 8-week hole.
-                                          # The digest's age (checked here) IS the
-                                          # heartbeat: if the task dies, 8c flags it.
-    command: "/news-pull"
-    why: >
-      Reads COMPANY news (demergers, financings, deliveries, CEO changes, stance
-      changes) with agent judgment — trade press, broker stance, aggregator context —
-      which no scanner can do. The mechanical scanners read only what is already in
-      the Pareto archive, so they cannot see an event the archive missed.
-      ROSTER CORRECTION 2026-08-16: this note previously named "BRUT, MPCC, ODL" as
-      the Oslo/Euronext names. ODL is Odfjell Drilling — a portfolio-governance
-      HOLDING, not a producer-repo name; it is absent from inputs/watchlist.yaml and
-      was never sweepable. The actual non-US-listed roster is BRUT, MPCC, CAPT,
-      BWLP (.OL) and 2343 (.HK). The 2026-08-13 digest flagged the error; the
-      2026-08-16 digest confirmed it against the watchlist.
-      NO LONGER THE ONLY CHANNEL 2026-08-16: `crude_tanker_fv.newsweb_poll` now
-      polls the Oslo/Euronext issuer feeds hourly (BRUT/MPCC/CAPT/BWLP), so a
-      missed issuer release no longer depends on this duty running. That is the
-      STRUCTURAL fix; this duty remains the judgment layer on top of it, and its
-      digest is still the heartbeat 8c watches.
+  # RETIRED 2026-09-24 — task disabled by the producer cut (decisions/producer_cut_2026-09-24.md):
+  # - name: news_pull_digest
+  #   artifact_glob: "news_digest_*.md"     # under outputs/
+  #   cadence_days: 7
+  #   scheduled: true                       # SCHEDULED 2026-08-13 — Claude scheduled-task
+  #                                         # `crude-fv-weekly-news-pull`, Sat 09:03 local
+  #                                         # (after the 08:00 mechanical chain, so the
+  #                                         # archive is fresh). This CLOSES the agent-half
+  #                                         # orchestration deferred 2026-06-14 under the
+  #                                         # crude-edge freeze and never re-docketed when
+  #                                         # the freeze lifted 6/21 — an 8-week hole.
+  #                                         # The digest's age (checked here) IS the
+  #                                         # heartbeat: if the task dies, 8c flags it.
+  #   command: "/news-pull"
+  #   why: >
+  #     Reads COMPANY news (demergers, financings, deliveries, CEO changes, stance
+  #     changes) with agent judgment — trade press, broker stance, aggregator context —
+  #     which no scanner can do. The mechanical scanners read only what is already in
+  #     the Pareto archive, so they cannot see an event the archive missed.
+  #     ROSTER CORRECTION 2026-08-16: this note previously named "BRUT, MPCC, ODL" as
+  #     the Oslo/Euronext names. ODL is Odfjell Drilling — a portfolio-governance
+  #     HOLDING, not a producer-repo name; it is absent from inputs/watchlist.yaml and
+  #     was never sweepable. The actual non-US-listed roster is BRUT, MPCC, CAPT,
+  #     BWLP (.OL) and 2343 (.HK). The 2026-08-13 digest flagged the error; the
+  #     2026-08-16 digest confirmed it against the watchlist.
+  #     NO LONGER THE ONLY CHANNEL 2026-08-16: `crude_tanker_fv.newsweb_poll` now
+  #     polls the Oslo/Euronext issuer feeds hourly (BRUT/MPCC/CAPT/BWLP), so a
+  #     missed issuer release no longer depends on this duty running. That is the
+  #     STRUCTURAL fix; this duty remains the judgment layer on top of it, and its
+  #     digest is still the heartbeat 8c watches.
 
   - name: governance_weekly_monitor
     artifact_path: ../portfolio-governance/monitor/log.md   # newest ISO date in the log
@@ -63,12 +64,13 @@ duties:
       invisible here because its log lives in the other repo. Its age now rides this
       sentinel like any duty; the governance repo's own dead-man ping stays primary.
 
-  - name: trigger_check_draft
-    artifact_glob: ["decisions/trigger_check_*.draft.md", "decisions/*_check_*.md"]   # repo-root globs (the "/"); the draft
-                                          # and the record it becomes both carry the due date in the name
-    cadence_days: 8                       # Thursday 09:00 app task (crude-fv-trigger-check-draft); 8 = one slipped day
-    scheduled: true                       # Claude scheduled-task crude-fv-trigger-check-draft, installed 2026-09-18 (Thu 09:09 local)
-    command: "/record-trigger-check after the Thursday draft, or in a chat: run the check"
+  # RETIRED 2026-09-24 — task disabled by the producer cut (decisions/producer_cut_2026-09-24.md):
+  # - name: trigger_check_draft
+  #   artifact_glob: ["decisions/trigger_check_*.draft.md", "decisions/*_check_*.md"]   # repo-root globs (the "/"); the draft
+  #                                         # and the record it becomes both carry the due date in the name
+  #   cadence_days: 8                       # Thursday 09:00 app task (crude-fv-trigger-check-draft); 8 = one slipped day
+  #   scheduled: true                       # Claude scheduled-task crude-fv-trigger-check-draft, installed 2026-09-18 (Thu 09:09 local)
+  #   command: "/record-trigger-check after the Thursday draft, or in a chat: run the check"
   - name: weekly_report
     artifact_glob: "weekly_report_*.md"   # under outputs/
     cadence_days: 8                       # Saturday, on the back of the 08:15 sentinel run
