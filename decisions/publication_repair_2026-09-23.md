@@ -49,3 +49,13 @@ September 28 objection window ends. Retaining the standard window therefore mean
 visible stale-data block over the intervening period unless a separately authorized
 publication supersedes it. An earlier acceptance requires an explicit owner waiver of
 this SB publication window; it does not authorize an order or a governor baseline reset.
+
+
+## Owner waiver — 2026-09-23
+
+The owner replied "yes" to the explicit request to waive this SB publication waiting
+period and publish the verified price update now. The objection window is therefore
+executed early by owner ruling. The standard September 28 date above is retained as
+the audit history, not a remaining blocker. Scope: price-only publication and the
+producer landing baseline required by the existing gated process. No trade, portfolio
+decision, scenario-weight change or governor review-baseline reset is authorized.
