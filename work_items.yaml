@@ -453,11 +453,11 @@
       "id": "filings:pending",
       "invalid": [],
       "next_action": "Drain all pending accessions; commit dispositions before acknowledging",
-      "oldest_arrival": "2026-08-24T21:01:38+00:00",
-      "pending_total": 43,
+      "oldest_arrival": null,
+      "pending_total": 0,
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
+      "status": "done",
       "waiting_condition": "all accessions dispositioned"
     },
     {
