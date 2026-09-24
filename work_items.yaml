@@ -1148,16 +1148,15 @@
           "contains": "G-2",
           "path": "reviews/2026-09-21-q3-review.md",
           "project": "governor",
-          "sha256": "de3d66b2b467002ad4995ef994b8e63c88a193a02b2ef15fe2947ace88ecc0f4"
+          "sha256": "3c0820fd60149e099a8421edd2544fa519e84e030e8c262469ba4c3eef90252a"
         }
       ],
-      "evidence_error": "conflicting committed evidence: reviews/2026-09-21-q3-review.md",
       "id": "quarterly:G-2",
       "next_action": "Decide Hynix armed-prereg disposition; deep-value gate remains armed",
       "project": "governor",
       "resolver": "owner",
-      "status": "unknown",
-      "verified_at": "2026-09-22",
+      "status": "blocked",
+      "verified_at": "2026-09-24",
       "waiting_condition": "explicit disposition"
     },
     {
@@ -1169,16 +1168,15 @@
           "contains": "G-3",
           "path": "reviews/2026-09-21-q3-review.md",
           "project": "governor",
-          "sha256": "de3d66b2b467002ad4995ef994b8e63c88a193a02b2ef15fe2947ace88ecc0f4"
+          "sha256": "3c0820fd60149e099a8421edd2544fa519e84e030e8c262469ba4c3eef90252a"
         }
       ],
-      "evidence_error": "conflicting committed evidence: reviews/2026-09-21-q3-review.md",
       "id": "quarterly:G-3",
       "next_action": "Reconcile USDNOK basis in monitor; preserve portfolio rulings",
       "project": "governor",
       "resolver": "agent",
-      "status": "unknown",
-      "verified_at": "2026-09-22",
+      "status": "ready",
+      "verified_at": "2026-09-24",
       "waiting_condition": "explicit disposition"
     },
     {
