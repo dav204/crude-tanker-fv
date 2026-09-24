@@ -1576,6 +1576,126 @@
       "resolver": "agent",
       "status": "waiting",
       "waiting_condition": "registered condition or ruling"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "state/vie_exit/latest.json",
+          "project": "producer",
+          "runtime": true
+        }
+      ],
+      "id": "vie:broker-triage",
+      "next_action": "Review 94 independent reports; oldest 2026-06-26. Use the durable VIE document queue.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "waiting_condition": "independent report dispositions committed"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "research/vie-exit/trial.json",
+          "project": "producer"
+        }
+      ],
+      "id": "vie:contract-identity",
+      "next_action": "Confirm screenshot benchmark versions, vessel specifications, units, quote basis and timestamp with the original provider; obtain cited contract mapping.",
+      "project": "producer",
+      "resolver": "external",
+      "status": "blocked",
+      "waiting_condition": "cited trial evidence resolves contract-identity"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "research/vie-exit/trial.json",
+          "project": "producer"
+        }
+      ],
+      "id": "vie:pnav-controls",
+      "next_action": "Review explicit unavailable broker states before any production removal; legacy snapshot k_broker=1.0 must not masquerade as a passed check.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "blocked",
+      "waiting_condition": "cited trial evidence resolves pnav-controls"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "research/vie-exit/trial.json",
+          "project": "producer"
+        }
+      ],
+      "id": "vie:procurement",
+      "next_action": "Review the prepared Baltic inquiry. Obtain a qualifying quote and authorised trial access before selecting or buying a feed.",
+      "project": "producer",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "cited trial evidence resolves procurement"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "research/vie-exit/trial.json",
+          "project": "producer"
+        }
+      ],
+      "id": "vie:renewal-terms",
+      "next_action": "Check the VIE account renewal/cancellation terms; March 9 renewal is user-confirmed but the cancellation deadline is unverified.",
+      "project": "producer",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "cited trial evidence resolves renewal-terms"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "research/vie-exit/trial.json",
+          "project": "producer"
+        }
+      ],
+      "id": "vie:transport",
+      "next_action": "Implement the chosen provider retrieval/export mapping from its authorised sample; generic JSON import is a validation seam, not a live feed.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "blocked",
+      "waiting_condition": "cited trial evidence resolves transport"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [],
+      "due": null,
+      "evidence": [
+        {
+          "path": "research/vie-exit/trial.json",
+          "project": "producer"
+        }
+      ],
+      "id": "vie:unattended",
+      "next_action": "Observe a scheduled independent-report scan and MB connector harvest without interaction; do not substitute a manual smoke test.",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "blocked",
+      "waiting_condition": "cited trial evidence resolves unattended"
     }
   ],
   "version": 1
