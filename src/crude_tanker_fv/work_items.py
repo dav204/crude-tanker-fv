@@ -241,9 +241,11 @@ def project(root=ROOT, today=None):
         gov = root.parent / "portfolio-governance"
         seam = json.loads((gov / "monitor/state/seam_latest.json").read_text())
         for event in seam["events"]:
+            # WIDE_CAP is a standing sizing restriction carried on the card (owner ruling
+            # 2026-09-24, governor reviews/2026-09-24-wo-scout-1-rulings.md): information, not a task.
             if event.get("severity") not in ("page", "blocked", "unknown") and event[
                 "code"
-            ] not in ("GATES_PENDING", "WIDE_CAP"):
+            ] != "GATES_PENDING":
                 continue
             identity = "governor:" + str(event.get("ticker", "book")) + ":" + event["code"]
             add(

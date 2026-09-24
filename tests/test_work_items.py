@@ -124,6 +124,21 @@ def test_paused_leaves_queues_without_staleness_but_keeps_evidence_check(tmp_pat
     assert row["status"] == "unknown"
 
 
+def test_info_wide_cap_is_not_an_owner_task_but_gates_pending_is(tmp_path):
+    root = fixture(tmp_path)
+    state = tmp_path / "portfolio-governance/monitor/state"
+    state.mkdir(parents=True)
+    events = [
+        {"ticker": "CCEC", "code": "WIDE_CAP", "severity": "info", "detail": "capped"},
+        {"ticker": "TEN", "code": "GATES_PENDING", "severity": "info", "detail": "gates"},
+        {"ticker": "SB", "code": "READ_CAP", "severity": "page", "detail": "flips"},
+    ]
+    (state / "seam_latest.json").write_text(json.dumps({"events": events}))
+    ids = {r["id"] for r in wi.project(root, date(2026, 9, 22))["items"]}
+    assert "governor:CCEC:WIDE_CAP" not in ids
+    assert {"governor:TEN:GATES_PENDING", "governor:SB:READ_CAP"} <= ids
+
+
 def test_invalid_registry_status():
     with pytest.raises(ValueError):
         wi.validate({"version": 1, "items": [{"id": "x", "status": "fine"}]})
