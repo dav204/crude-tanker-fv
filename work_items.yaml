@@ -1,5 +1,5 @@
 {
-  "complete": true,
+  "complete": false,
   "integration_enabled": true,
   "items": [
     {
@@ -1112,11 +1112,12 @@
           "sha256": "de3d66b2b467002ad4995ef994b8e63c88a193a02b2ef15fe2947ace88ecc0f4"
         }
       ],
+      "evidence_error": "conflicting committed evidence: reviews/2026-09-21-q3-review.md",
       "id": "quarterly:G-2",
       "next_action": "Decide Hynix armed-prereg disposition; deep-value gate remains armed",
       "project": "governor",
       "resolver": "owner",
-      "status": "blocked",
+      "status": "unknown",
       "verified_at": "2026-09-22",
       "waiting_condition": "explicit disposition"
     },
@@ -1132,11 +1133,12 @@
           "sha256": "de3d66b2b467002ad4995ef994b8e63c88a193a02b2ef15fe2947ace88ecc0f4"
         }
       ],
+      "evidence_error": "conflicting committed evidence: reviews/2026-09-21-q3-review.md",
       "id": "quarterly:G-3",
       "next_action": "Reconcile USDNOK basis in monitor; preserve portfolio rulings",
       "project": "governor",
       "resolver": "agent",
-      "status": "ready",
+      "status": "unknown",
       "verified_at": "2026-09-22",
       "waiting_condition": "explicit disposition"
     },
@@ -1182,6 +1184,32 @@
       "status": "done",
       "verified_at": "2026-09-22",
       "waiting_condition": null
+    },
+    {
+      "authority": "repair",
+      "blocking_decision_ids": [],
+      "details": "conflicting committed evidence: reviews/2026-09-21-q3-review.md",
+      "due": null,
+      "evidence": [],
+      "id": "repair:quarterly:G-2",
+      "next_action": "Repair workflow evidence: conflicting committed evidence: reviews/2026-09-21-q3-review.md",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "waiting_condition": "until valid evidence is recorded"
+    },
+    {
+      "authority": "repair",
+      "blocking_decision_ids": [],
+      "details": "conflicting committed evidence: reviews/2026-09-21-q3-review.md",
+      "due": null,
+      "evidence": [],
+      "id": "repair:quarterly:G-3",
+      "next_action": "Repair workflow evidence: conflicting committed evidence: reviews/2026-09-21-q3-review.md",
+      "project": "producer",
+      "resolver": "agent",
+      "status": "ready",
+      "waiting_condition": "until valid evidence is recorded"
     },
     {
       "authority": "manual",
