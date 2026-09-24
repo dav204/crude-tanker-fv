@@ -707,35 +707,6 @@
       "waiting_condition": "explicit valuation mini-review or gate disposition"
     },
     {
-      "authority": "adapter",
-      "blocking_decision_ids": [
-        "governor:TEN:CANDIDATE_REVIEW"
-      ],
-      "details": {
-        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
-        "code": "CANDIDATE_REVIEW",
-        "detail": "all recorded gates clear; fresh prereg required",
-        "id": "TEN:CANDIDATE_REVIEW",
-        "severity": "page",
-        "ticker": "TEN",
-        "value": true
-      },
-      "due": null,
-      "evidence": [
-        {
-          "path": "monitor/state/seam_latest.json",
-          "project": "governor",
-          "runtime": true
-        }
-      ],
-      "id": "governor:TEN:CANDIDATE_REVIEW",
-      "next_action": "all recorded gates clear; fresh prereg required; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "project": "governor",
-      "resolver": "owner",
-      "status": "blocked",
-      "waiting_condition": "explicit valuation mini-review or gate disposition"
-    },
-    {
       "authority": "manual",
       "blocking_decision_ids": [],
       "due": null,
