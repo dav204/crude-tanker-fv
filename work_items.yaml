@@ -1304,23 +1304,21 @@
     },
     {
       "authority": "manual",
-      "blocking_decision_ids": [
-        "vie:renewal-terms"
-      ],
-      "due": "2026-10-30",
+      "blocking_decision_ids": [],
+      "due": null,
       "evidence": [
         {
-          "contains": "vie:renewal-terms",
-          "path": "decisions/producer_freeze_2026-09-24.md",
+          "contains": "2027-04-09",
+          "path": "decisions/producer_cut_2026-09-24.md",
           "project": "producer",
-          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
+          "sha256": "a5cf17c6e3d1f34582a4874829b02fc51e8253b3f1d412afb3c8473b4a292d11"
         }
       ],
       "id": "vie:renewal-terms",
-      "next_action": "Check the VIE (Seeking Alpha) account's actual cancellation deadline and access-after-cancellation terms and record them. If cancellation takes effect at period end with no refund, disabling auto-renew early costs nothing (WO-SCOUT-1 plan Phase 4 step 1).",
+      "next_action": "Terms supplied by the owner 2026-09-24: next payment $6,531.41 on 2027-04-09; cancelling stops future charges. Cancelling is the owner's account action (no producer job reads VIE after the 2026-09-24 cut).",
       "project": "producer",
       "resolver": "owner",
-      "status": "blocked",
+      "status": "done",
       "verified_at": "2026-09-24",
       "waiting_condition": "owner reads the account terms"
     }
