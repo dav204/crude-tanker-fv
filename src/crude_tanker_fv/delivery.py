@@ -13,7 +13,9 @@ def clock():
     return datetime.now(timezone.utc)
 
 
-def enqueue(subject, body, state_dir, *, key=None, now=None):
+def enqueue(subject, body, state_dir, *, key=None, now=None, reuse_existing=False):
+    if reuse_existing and key is None:
+        raise ValueError("reusing a notice requires an explicit semantic event key")
     now = now or clock()
     identity = key or hashlib.sha256((subject + "\0" + body).encode()).hexdigest()
     message_id = hashlib.sha256(identity.encode()).hexdigest()
@@ -25,7 +27,7 @@ def enqueue(subject, body, state_dir, *, key=None, now=None):
                               "created_at": now.isoformat(), "next_attempt": now.isoformat()})
         else:
             old = json.loads(path.read_text())
-            if old["subject"] != subject or old["body"] != body:
+            if not reuse_existing and (old["subject"] != subject or old["body"] != body):
                 raise ValueError("delivery key already belongs to a different message")
     return path
 

@@ -2331,3 +2331,14 @@ A9 guards completed quarters before research, reuses prepared packs and isolates
 liveness. Q3's production skip is verified; actual unattended scheduler smoke remains
 blocked on the execution UI and is not represented as proven. Implementation and rollback:
 `decisions/calendar_workflow_implementation_2026-09-22.md`.
+
+
+## 2026-09-23 — Readable operational notifications
+
+Owner feedback: today's messages exposed codes, raw task JSON and a repeated 100-filing
+backlog. Added human-readable plain-text templates with separate required/optional actions,
+company-level filing summaries, readable durations and explicit prior-publication wording.
+Governor notices explain the restriction before presenting audit references. Registry
+projections no longer duplicate governor page notices. Existing exact queued messages and
+semantic event identities are retained across formatting updates. Regression coverage:
+`tests/test_notification_text.py`, sentinel/notification/delivery/task/run tests and governor seam tests.

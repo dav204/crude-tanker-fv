@@ -101,6 +101,8 @@ PAGE_ACTIONS = {
 
 def page_action(flag: str) -> str:
     tag = flag.split()[0] if flag else ""
+    if flag.startswith("FETCH-FAILED delivery-worker:"):
+        return "OWNER — open a workflow-repair chat to restore the local delivery worker; publication checks and queued messages may be delayed."
     if tag == "TRIGGER-DUE":
         ev = trigger_event(flag)
         return TRIGGER_ACTIONS[ev[0]] if ev else PAGE_ACTIONS[tag]

@@ -474,12 +474,14 @@ def observe_conditions(active, root):
         key for key in previous if key not in active and previous[key]["status"] == "unknown"
     ]
     revision = old["revision"] + (active != previous)
-    if changes or recovery:
-        body = "Operational task changes\n\n" + "\n".join(
-            key + ": " + json.dumps(active[key], sort_keys=True) for key in changes
-        )
-        if recovery:
-            body += "\nRecovered workflow conditions: " + ", ".join(recovery)
+    # Governor events have their own durable notice; the registry remains a projection.
+    def domain_notified(key):
+        return active.get(key, previous.get(key, {})).get("notification_owner") == "governor"
+    notify_changes = [key for key in changes if not domain_notified(key)]
+    notify_recovery = [key for key in recovery if not domain_notified(key)]
+    if notify_changes or notify_recovery:
+        from .notification_text import workflow_notice
+        body = workflow_notice(active, notify_changes, notify_recovery)
         digest = hashlib.sha256(body.encode()).hexdigest()
         enqueue(
             "[crude-fv] Workflow status changes",
@@ -515,7 +517,9 @@ def refresh_worker(root=ROOT):
         return result
     active = {
         r["id"]: {
-            k: r.get(k) for k in ("status", "resolver", "next_action", "blocking_decision_ids")
+            **{k: r.get(k) for k in ("status", "resolver", "next_action", "blocking_decision_ids")},
+            **({"notification_owner": "governor"} if r["id"].startswith("governor:")
+               and r.get("details", {}).get("severity") == "page" else {})
         }
         for r in doc["items"]
         if r["status"] in ("blocked", "unknown")

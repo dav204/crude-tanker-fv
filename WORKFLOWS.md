@@ -452,3 +452,31 @@ their original authority. Schedule refreshes must update the explicit origin and
 in calendar_policy.yaml; a changed fleet/coverage array without that mapping freezes.
 
 - **2026-09-22 — report ownership follows the required action.** Missing receipts and a stalled filing queue are agent workflow repairs, not owner decisions; incomplete status still withholds a clear-owner-queue claim. Guard: `test_workflow_repairs_are_not_counted_as_owner_decisions`.
+
+
+## Owner-readable notifications (2026-09-23)
+
+Email is plain text. Lead with what changed, its consequence, and the next action with a
+named resolver. Separate required actions from optional objections (including the deadline
+and what silence does). Put codes, publication hashes and diagnostic evidence after the
+explanation. Never imply a trade is authorized or a candidate is cleared by one numeric gate.
+
+The sentinel page carries action requests; it points to the daily digest for routine work.
+The digest groups the complete pending filing list by company, without altering queue membership;
+stalled-queue notices retain the count and oldest arrival. Full raw checks remain in
+`state/sentinel.log`; `PYTHONPATH=src .venv/bin/python -m crude_tanker_fv.filings list --json`
+returns queue details. A local delivery-worker heartbeat failure calls for workflow repair,
+not an unsupported diagnosis of expired credentials.
+
+Governor page events have one notification owner: the governor's durable delivery queue.
+The task registry still projects these restrictions and records their transitions, but does
+not send a second copy. Registry validation/consumption failures and restrictions without a
+governor page retain their own notices. Between-event deduplication and valuation gates are unchanged.
+
+A formatting upgrade applies only to newly queued messages. Semantic event keys reuse the
+original exact message, status and retry receipt, even if a newer renderer proposes different
+text. Never mutate a queued message or change an event key merely to ship new wording.
+A failed publication stage cannot borrow the prior accepted publication's success.
+
+Rollback: revert the notification-formatting changes in both repositories. Preserve delivery
+queues, run receipts, accepted publications and work-item observations; do not replay events.

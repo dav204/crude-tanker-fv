@@ -203,7 +203,7 @@ def test_notify_pages_and_ping_withholds_on_send_failure(tmp_path, monkeypatch, 
     s, *_, sent, pings, st = _notify_harness(tmp_path, monkeypatch,
                                              sends_succeed=False, trigger_due=True)
     assert s.main(["--notify", "--ping", "--state", st]) == 2
-    assert "PAGE: 1 flag(s)" in sent[0][0] and "TRIGGER-DUE" in sent[0][1]
+    assert "PAGE: 1 action needed" in sent[0][0] and "TRIGGER-DUE" in sent[0][1]
     assert len(sent) == 2   # page + the unconditional digest
     assert not pings
     assert "PING-WITHHELD" in capsys.readouterr().out
@@ -231,8 +231,8 @@ def test_dark_period_prefix_after_gap(tmp_path, monkeypatch):
     Path(st).write_text(_json.dumps(doc))
     sent.clear()
     s.main(["--notify", "--state", st])
-    assert "DARK 3d" in sent[0][0]
-    assert sent[0][1].startswith("DARK 3 days — accumulated:")
+    assert "daily digest" in sent[0][0]
+    assert "resumed after a 3-day gap" in sent[0][1]
 
 
 def test_only_thresholded_tags_escalate(tmp_path, monkeypatch):
@@ -252,7 +252,7 @@ def test_only_thresholded_tags_escalate(tmp_path, monkeypatch):
     assert not [x for x in sent if "escalated" in x[0]]
     s.main(["--notify", "--state", st])   # second consecutive run
     esc = [x for x in sent if "escalated" in x[0]]
-    assert len(esc) == 1 and "FETCH-FAILED" in esc[0][0]
+    assert len(esc) == 1 and "FETCH-FAILED" in esc[0][1]
     s.main(["--notify", "--state", st])   # third — no re-page
     assert len([x for x in sent if "escalated" in x[0]]) == 1
 
@@ -883,7 +883,7 @@ def test_page_once_pages_first_sighting_only(tmp_path, monkeypatch):
     paged = [x for x in sent if " PAGE:" in x[0]]
     assert paged
     # 2026-09-11: the body says the OWNER acts and names the action per line.
-    assert "YOUR action is needed" in paged[0][1] and "ACTION: OWNER" in paged[0][1]
+    assert "Your attention: 1 action needed" in paged[0][1] and "Next step: OWNER" in paged[0][1]
     sent.clear()
     s.main(["--notify", "--state", st])
     assert not [x for x in sent if " PAGE:" in x[0]]

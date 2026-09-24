@@ -10,7 +10,7 @@ here and the narrative to `CHANGELOG.md`. Detail lives in the companions:
 - **CHANGELOG.md** — dated history of decisions, onboardings, fixes (the gotcha narratives live here).
 - **TICKER_NOTES.md** — per-ticker quick-refs (consult when working a specific name).
 - **WORKFLOWS.md** — step-by-step procedures + the **command runbook**, **per-source fetch mechanics**,
-  and the **Week-close checklist** (all migrated out of this file 2026-07-01).
+  and **Week-close checklist**. Owner notification rules: 2026-09-23; `test_notification_text.py`.
 - **LIMITATIONS.md** / **PERMISSIONS_PROPOSAL.md** — known limits; permission-allowlist rationale.
 
 ## Project stance (2026-06-21)

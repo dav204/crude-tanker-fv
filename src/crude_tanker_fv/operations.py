@@ -8,7 +8,7 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import delivery, notify, publication
+from . import delivery, notify, publication, notification_text
 from .runtime import atomic_json, locked, commit_paths
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -46,10 +46,9 @@ def finish(identity, stages, root=ROOT, governor=GOVERNOR, ping=True):
     failures = {k: v for k, v in stages.items() if v != 0 and not (k == "checks" and v == 2)}
     if failures:
         receipt["status"] = "held" if set(failures) <= {"publication", "auto_land", "auto_push"} else "failed"
-        key = "operation-failure:" + json.dumps(failures, sort_keys=True) + ":" + receipt["publication"].get("reason", "")
+        key = "operation-failure:" + json.dumps(failures, sort_keys=True) + ":" + (receipt["publication"].get("reason") or "")
         delivery.enqueue("[crude-fv] PAGE: publication workflow " + receipt["status"],
-                         "Stages: " + json.dumps(failures, sort_keys=True) + "\nPublication: " + json.dumps({k: receipt["publication"].get(k) for k in ("status", "reason", "resolver")}, sort_keys=True) +
-                         "\nACTION: OWNER — inspect the producer run receipt and resolve its blocking stage.", root / "state", key=key)
+                         notification_text.operation_notice(receipt, failures), root / "state", key=key, reuse_existing=True)
     atomic_json(path, receipt)
     environ = notify.load_env_file(notify.ENV_FILE)
     for directory in (root / "state", governor / "monitor/state"):
@@ -94,9 +93,11 @@ def consume(envelope, governor=GOVERNOR, *, shadow=False, now=None):
             key = "seam:" + identity + ":" + seam.fingerprint(changed)
             outbox = governor / "monitor/outbox" / ("seam-" + seam.fingerprint(key) + ".md")
             outbox.parent.mkdir(parents=True, exist_ok=True)
-            outbox.write_text("# [portfolio] valuation seam changed\n\n" + report)
+            subject = seam.notice_subject(changed)
+            if not outbox.exists():
+                outbox.write_text("# " + subject + "\n\n" + report)
             commit_paths(governor, [str(outbox.relative_to(governor))], "monitor: seam " + identity[:12])
-            queued = delivery.enqueue("[portfolio] valuation seam changed", report, state, key=key)
+            queued = delivery.enqueue(subject, report, state, key=key, reuse_existing=True)
             result["delivery_id"] = queued.stem
         # Queue persistence precedes the observed-state advance, so failures cannot eat events.
         receipt = {"publication_id": identity, "checked_at": utc(), **result}

@@ -1097,7 +1097,7 @@ def main(argv: list[str] | None = None) -> int:
 
     sends_ok = True
     if args.notify:
-        from . import notify
+        from . import notify, notification_text
 
         routes = notify.load_routes(INPUTS_DIR)
         page, digest = notify.route_flags(flags, routes)
@@ -1124,16 +1124,8 @@ def main(argv: list[str] | None = None) -> int:
         paged_once = {k: d for k, d in paged_once.items() if d >= cutoff}
         prefix = routes["subject_prefix"]
         if page:
-            # 2026-09-11 (owner ruling): a page means the OWNER's action is needed and
-            # each line says what; agent-class work never reaches this body.
-            body = ("This page means YOUR action is needed. Each line says who acts and what.\n"
-                    "To act: open a chat in crude-tanker-fv and say so in one line.\n\n"
-                    + "\n\n".join(f"  {f}\n    ACTION: {notify.page_action(f)}" for f in page))
-            if digest:
-                body += ("\n\nAlso present, NO action needed from you (agent-class; the "
-                         "daily digest and the agent tasks carry these):\n"
-                         + "\n".join(f"  {f}" for f in digest))
-            sends_ok = notify.send_email(f"{prefix} PAGE: {len(page)} flag(s)", body)
+            subject, body = notification_text.page_notice(page, digest, prefix, notify.page_action)
+            sends_ok = notify.send_email(subject, body)
 
         # Consecutive-run thresholds (2026-09-02, F10): ONLY tags listed under
         # page_after_consecutive escalate to a one-time page (FETCH-FAILED at 2);
@@ -1148,10 +1140,10 @@ def main(argv: list[str] | None = None) -> int:
                      if t in thresholds and streaks[t] >= int(thresholds[t])
                      and t not in escalated)
         if due:
-            body = ("Digest-class tags at their consecutive-run limit "
-                    "(one-time escalation):\n" +
-                    "\n".join(f"  {f}" for f in digest if f.split()[0] in due))
-            if not notify.send_email(f"{prefix} PAGE (escalated): {', '.join(due)}", body):
+            subject, body = notification_text.page_notice(
+                [f for f in digest if f.split()[0] in due], [], prefix, notify.page_action)
+            body = "These conditions have persisted across repeated checks.\n\n" + body
+            if not notify.send_email(subject.replace("PAGE:", "PAGE (escalated):"), body):
                 sends_ok = False
             escalated |= set(due)
 
@@ -1162,16 +1154,8 @@ def main(argv: list[str] | None = None) -> int:
             gap_h = (now - datetime.fromisoformat(state["last_run"])).total_seconds() / 3600
             if gap_h > 48:
                 dark_days = int(gap_h // 24)
-        lines = []
-        if dark_days:
-            lines.append(f"DARK {dark_days} days — accumulated:")
-        if meta_note:
-            lines.append(meta_note)
-        lines += [f"  {f}" for f in flags] if flags else ["All checks quiet."]
-        subject = (f"{prefix} daily digest — "
-                   + (f"DARK {dark_days}d — " if dark_days else "")
-                   + (f"{len(flags)} flag(s)" if flags else "OK"))
-        if not notify.send_email(subject, "\n".join(lines)):
+        subject, body = notification_text.digest_notice(flags, prefix, dark_days, meta_note)
+        if not notify.send_email(subject, body):
             sends_ok = False
         _save_state(args.state, {"last_run": now.isoformat(), "streaks": streaks,
                                  "escalated": sorted(escalated),
