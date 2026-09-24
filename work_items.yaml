@@ -1,5 +1,5 @@
 {
-  "complete": false,
+  "complete": true,
   "integration_enabled": true,
   "items": [
     {
@@ -825,6 +825,35 @@
     {
       "authority": "adapter",
       "blocking_decision_ids": [
+        "governor:SYSTEM:PUBLICATION_HELD"
+      ],
+      "details": {
+        "action": "OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
+        "code": "PUBLICATION_HELD",
+        "detail": "ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers",
+        "id": "SYSTEM:PUBLICATION_HELD",
+        "severity": "page",
+        "ticker": "SYSTEM",
+        "value": "ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers"
+      },
+      "due": null,
+      "evidence": [
+        {
+          "path": "monitor/state/seam_latest.json",
+          "project": "governor",
+          "runtime": true
+        }
+      ],
+      "id": "governor:SYSTEM:PUBLICATION_HELD",
+      "next_action": "ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers; OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
         "governor:TEN:GATES_PENDING"
       ],
       "details": {
@@ -1221,32 +1250,6 @@
       "status": "done",
       "verified_at": "2026-09-22",
       "waiting_condition": null
-    },
-    {
-      "authority": "repair",
-      "blocking_decision_ids": [],
-      "details": "conflicting committed evidence: reviews/2026-09-21-q3-review.md",
-      "due": null,
-      "evidence": [],
-      "id": "repair:quarterly:G-2",
-      "next_action": "Repair workflow evidence: conflicting committed evidence: reviews/2026-09-21-q3-review.md",
-      "project": "producer",
-      "resolver": "agent",
-      "status": "ready",
-      "waiting_condition": "until valid evidence is recorded"
-    },
-    {
-      "authority": "repair",
-      "blocking_decision_ids": [],
-      "details": "conflicting committed evidence: reviews/2026-09-21-q3-review.md",
-      "due": null,
-      "evidence": [],
-      "id": "repair:quarterly:G-3",
-      "next_action": "Repair workflow evidence: conflicting committed evidence: reviews/2026-09-21-q3-review.md",
-      "project": "producer",
-      "resolver": "agent",
-      "status": "ready",
-      "waiting_condition": "until valid evidence is recorded"
     },
     {
       "authority": "manual",
@@ -1670,41 +1673,6 @@
       "waiting_condition": "registered condition or ruling"
     },
     {
-      "authority": "adapter",
-      "blocking_decision_ids": [],
-      "due": null,
-      "evidence": [
-        {
-          "path": "state/vie_exit/latest.json",
-          "project": "producer",
-          "runtime": true
-        }
-      ],
-      "id": "vie:broker-triage",
-      "next_action": "Review 94 independent reports; oldest 2026-06-26. Use the durable VIE document queue.",
-      "project": "producer",
-      "resolver": "agent",
-      "status": "ready",
-      "waiting_condition": "independent report dispositions committed"
-    },
-    {
-      "authority": "adapter",
-      "blocking_decision_ids": [],
-      "due": null,
-      "evidence": [
-        {
-          "path": "research/vie-exit/trial.json",
-          "project": "producer"
-        }
-      ],
-      "id": "vie:contract-identity",
-      "next_action": "Confirm screenshot benchmark versions, vessel specifications, units, quote basis and timestamp with the original provider; obtain cited contract mapping.",
-      "project": "producer",
-      "resolver": "external",
-      "status": "blocked",
-      "waiting_condition": "cited trial evidence resolves contract-identity"
-    },
-    {
       "authority": "manual",
       "blocking_decision_ids": [],
       "due": null,
@@ -1723,23 +1691,6 @@
       "status": "waiting",
       "verified_at": "2026-09-24",
       "waiting_condition": "Phase 4 cutover work begins"
-    },
-    {
-      "authority": "adapter",
-      "blocking_decision_ids": [],
-      "due": null,
-      "evidence": [
-        {
-          "path": "research/vie-exit/trial.json",
-          "project": "producer"
-        }
-      ],
-      "id": "vie:procurement",
-      "next_action": "Review the prepared Baltic inquiry. Obtain a qualifying quote and authorised trial access before selecting or buying a feed.",
-      "project": "producer",
-      "resolver": "owner",
-      "status": "blocked",
-      "waiting_condition": "cited trial evidence resolves procurement"
     },
     {
       "authority": "manual",
@@ -1762,40 +1713,6 @@
       "status": "blocked",
       "verified_at": "2026-09-24",
       "waiting_condition": "owner reads the account terms"
-    },
-    {
-      "authority": "adapter",
-      "blocking_decision_ids": [],
-      "due": null,
-      "evidence": [
-        {
-          "path": "research/vie-exit/trial.json",
-          "project": "producer"
-        }
-      ],
-      "id": "vie:transport",
-      "next_action": "Implement the chosen provider retrieval/export mapping from its authorised sample; generic JSON import is a validation seam, not a live feed.",
-      "project": "producer",
-      "resolver": "agent",
-      "status": "blocked",
-      "waiting_condition": "cited trial evidence resolves transport"
-    },
-    {
-      "authority": "adapter",
-      "blocking_decision_ids": [],
-      "due": null,
-      "evidence": [
-        {
-          "path": "research/vie-exit/trial.json",
-          "project": "producer"
-        }
-      ],
-      "id": "vie:unattended",
-      "next_action": "Observe the next MB Gmail connector harvest without interaction. Local shadow scan already completed unattended at 2026-09-24T04:05:04Z; see activation.json.",
-      "project": "producer",
-      "resolver": "agent",
-      "status": "blocked",
-      "waiting_condition": "cited trial evidence resolves unattended"
     }
   ],
   "version": 1
