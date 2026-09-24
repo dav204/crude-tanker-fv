@@ -45,17 +45,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "carry:02",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "carry:02",
       "next_action": "**HAFN** Q3 cash-for-investment swap: \u0394NAV \u2248 0 only if both legs move together. The TORM leg is now a SHARE COUNT, not a percentage \u2014 **18,656,061** TRMD A-shares, issuer-stated by TORM 2026-09-18 (0000919574-26-006391 ex-99.2); the 18.22% / 18.19% gap is TORM's denominator moving on its own RSU issue, not a disagreement.",
+      "paused_prior_status": "waiting",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "next relevant vintage"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -63,17 +66,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "carry:03",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "carry:03",
       "next_action": "**TRMD** next vintage carries the exact count **102,553,688** A-shares (104,000,000 is rounded; two RSU increases, +31,483 on 9/11 and +132,421 on 9/18, both below any gate).",
+      "paused_prior_status": "waiting",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "next relevant vintage"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -81,17 +87,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "carry:04",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "carry:04",
       "next_action": "**FRO** whether the associate stake belongs in NAV is a methodology question for the owner.",
+      "paused_prior_status": "waiting",
       "project": "producer",
       "resolver": "owner",
-      "status": "waiting",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "next relevant vintage"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -99,17 +108,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "carry:05",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "carry:05",
       "next_action": "**Front Vefsna** $135.0M (FRO P1 leg) stays unpromoted, blocked on issuer vessel-name disclosure.",
+      "paused_prior_status": "waiting",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "next relevant vintage"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -117,17 +129,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "carry:06",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "carry:06",
       "next_action": "**CMBT** \u00a79.4 yard-quality discount and Dec-2025 segment vintages \u2014 revisit at the November Bermuda appeal.",
+      "paused_prior_status": "waiting",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "next relevant vintage"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -153,17 +168,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "carry:08",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "carry:08",
       "next_action": "**PANL** onboarding deferred; the B3 IR query went out 2026-08-12 and is still waiting. Scaffolded in `data_sources.yaml`, not watchlisted.",
+      "paused_prior_status": "waiting",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "next relevant vintage"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -293,18 +311,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "research/economic-methods/REVIEW.md",
+          "contains": "economic:adoption-review",
+          "path": "decisions/producer_freeze_2026-09-24.md",
           "project": "producer",
-          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "economic:adoption-review",
       "next_action": "Review economic-method package after material evidence gaps close; approve scoped payout/reference/risk parameters and D1 smoothing outer anchors explicitly. No new method or baseline changes before that ruling.",
+      "paused_prior_status": "blocked",
       "project": "producer",
       "resolver": "owner",
-      "status": "blocked",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "until cited evidence and any specified owner decision are recorded"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -312,18 +332,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "research/economic-methods/REVIEW.md",
+          "contains": "economic:cash-schedules",
+          "path": "decisions/producer_freeze_2026-09-24.md",
           "project": "producer",
-          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "economic:cash-schedules",
       "next_action": "Extract and reconcile issuer accounting-to-distributable definitions, D&A, debt, capex/installments, sales/deliveries, restricted cash, leases and preferred/NCI schedules for all 25 names. Use per-name blockers.json; no missing flow is certified zero.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "until cited evidence and any specified owner decision are recorded"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -331,18 +353,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "research/economic-methods/REVIEW.md",
+          "contains": "economic:hybrid-joint-scenarios",
+          "path": "decisions/producer_freeze_2026-09-24.md",
           "project": "producer",
-          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "economic:hybrid-joint-scenarios",
       "next_action": "Prepare a concrete issuer-level joint-scenario mapping or dependence-bound proposal for INSW, TEN and CMBT; reconcile cash/distributions once and cover longer container periods. Current marginal cash FV is intentionally unavailable.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "until cited evidence and any specified owner decision are recorded"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -350,18 +374,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "research/economic-methods/REVIEW.md",
+          "contains": "economic:normalized-accounting-eps",
+          "path": "decisions/producer_freeze_2026-09-24.md",
           "project": "producer",
-          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "economic:normalized-accounting-eps",
       "next_action": "Implement a sourced normalized common-accounting EPS bridge for justified P/NAV and reporting consumers; preserve/version the existing legacy proxy and compare effects separately.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "until cited evidence and any specified owner decision are recorded"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -388,18 +414,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "research/economic-methods/REVIEW.md",
+          "contains": "economic:reference-pairs",
+          "path": "decisions/producer_freeze_2026-09-24.md",
           "project": "producer",
-          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "economic:reference-pairs",
       "next_action": "Recover dated vessel-mark/reference pair evidence for every issuer/sleeve. The proposed current reference passes FFA invariance but is not historically validated; register any replacement leg before recalculation.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "until cited evidence and any specified owner decision are recorded"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -407,18 +435,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "research/economic-methods/REVIEW.md",
+          "contains": "economic:risk-calibration",
+          "path": "decisions/producer_freeze_2026-09-24.md",
           "project": "producer",
-          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "economic:risk-calibration",
       "next_action": "Complete independent shipping-sector asset-risk calibration and funding-cost evidence. Current numerical results use one broad Transportation proxy, not six completed sector calibrations.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "until cited evidence and any specified owner decision are recorded"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1014,17 +1044,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "housekeeping:01",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "housekeeping:01",
       "next_action": "**F13** \u2014 merge `TICKER_NOTES.md` into the per-ticker log headers and delete it; CLAUDE.md's router still points at it.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "implementation and cited completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1050,17 +1083,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "housekeeping:03",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "housekeeping:03",
       "next_action": "**F19 remainder** \u2014 the `sp_scan` tanker-period-signal internals are dead data.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "implementation and cited completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1068,17 +1104,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "housekeeping:04",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "housekeeping:04",
       "next_action": "**Autopilot Stage A is 3 of 5**: `promote check`/`land`, the weekly report and the \"Needs your word\" queue ship; the **Saturday stager** and the **pin migration** (`tests/fixtures/pins.yaml`) do not. Gate 0\u2192A has no owner attestation on file \u2014 write it or delete the gate.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "implementation and cited completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1219,17 +1258,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "roadmap:a1-horizon",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "roadmap:a1-horizon",
       "next_action": "**The A1 horizon.** Wired at 10 and unratified since 2026-06-11 \u2014 ratify it or drop it.",
+      "paused_prior_status": "blocked",
       "project": "producer",
       "resolver": "owner",
-      "status": "blocked",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "recorded disposition or completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1239,17 +1281,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "roadmap:b1",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "roadmap:b1",
       "next_action": "**B1** \u2014 re-armed 2026-09-18 when TNK's void retired, never ruled. Trigger: the day a registry name reads robust-cheap (none does). `decisions/forks_registered_2026-09-10.md` item 7.",
+      "paused_prior_status": "blocked",
       "project": "producer",
       "resolver": "owner",
-      "status": "blocked",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "recorded disposition or completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1259,17 +1304,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "roadmap:crude-weights",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "roadmap:crude-weights",
       "next_action": "**The crude weight question.** After the 2026-09-18 deck re-expression, 59% of the crude mass sits on a base-tracking leg and 13% carries the only real downside. The deck is now coherent; its de-escalation CONTENT is a weight question, which WO5's kill-switch fences out of agent scope. Not a registered fork. `decisions/r4_deck_reexpression_method_2026-09-18.md` \u00a78.",
+      "paused_prior_status": "blocked",
       "project": "producer",
       "resolver": "owner",
-      "status": "blocked",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "recorded disposition or completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1282,18 +1330,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "research/economic-methods/REVIEW.md",
+          "contains": "roadmap:dm2-dm3-dm4",
+          "path": "decisions/producer_freeze_2026-09-24.md",
           "project": "producer",
-          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "roadmap:dm2-dm3-dm4",
       "next_action": "D-M2 prototype and D-M4 comparison implemented; D-M3 VOID under registered coverage kill. Finish sector calibration and LR1 dependency, then obtain the ruled owner D1 cycle decision.",
+      "paused_prior_status": "waiting",
       "project": "producer",
       "resolver": "owner",
-      "status": "waiting",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "until cited evidence and any specified owner decision are recorded"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1301,17 +1351,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "roadmap:gsl-commitment",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "roadmap:gsl-commitment",
       "next_action": "**GSL containers commitment-net prereg** \u2014 the shape CMBT took on 2026-09-16. `OFF_CONVENTION_QUEUE` is {GSL, STNG, TEN} and GSL leaves by this route.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "recorded disposition or completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1319,17 +1372,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "roadmap:image-filings",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "roadmap:image-filings",
       "next_action": "**Auto-fetch page images for image-only filings.** Detection ships (`arrivals.validate_html`); recovery is still done by hand, 86 images last time.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "recorded disposition or completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1337,22 +1393,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
-        },
-        {
-          "path": "research/economic-methods/REVIEW.md",
+          "contains": "roadmap:lr1-anchor",
+          "path": "decisions/producer_freeze_2026-09-24.md",
           "project": "producer",
-          "sha256": "a533b4675958cf399c5e859dbb95d04a2647d43c549371e302242a7e15280282"
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "roadmap:lr1-anchor",
       "next_action": "**LR1 contract-floor anchor round.** Overdue, separately registered anchor work; complete as an independently attributed leg before economic-method/D1 adoption. Frozen prereg (`PRE_REGISTRATION_LR1_CONTRACT_FLOOR.md`), its post-Stage-A gate cleared 2026-08-10 and Stage B landed 2026-09-09. Predicts INSW +$7.80M, TEN +$1.17M, TRMD and HAFN exactly 0, and takes TRMD to VALIDATED-TIGHT.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "recorded disposition or completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1362,17 +1416,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "roadmap:product-reexpression",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "roadmap:product-reexpression",
       "next_action": "**The product deck's own re-expression.** Same absolute-curve construction against the same moving base; WO5 was crude-scoped by design. Not a registered fork.",
+      "paused_prior_status": "blocked",
       "project": "producer",
       "resolver": "owner",
-      "status": "blocked",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "recorded disposition or completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1380,17 +1437,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "roadmap:q3-calendar",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "roadmap:q3-calendar",
       "next_action": "**Q3 calendar re-seed** \u2014 CMBT 11/26, BRUT 11/19, OMC AR 2027-02-25. Dispositions are parked in `state/filings_triaged.json`; `inputs/earnings_calendar.yaml` still carries Q2 dates.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "recorded disposition or completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1398,17 +1458,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "roadmap:stng-newbuild",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "roadmap:stng-newbuild",
       "next_action": "**STNG 10-hull \u00a79.6 wiring** \u2014 un-gated since thread (d) signed 2026-07-15, ~+$9.6/sh, its own pre-registered step.",
+      "paused_prior_status": "ready",
       "project": "producer",
       "resolver": "agent",
-      "status": "ready",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "recorded disposition or completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1418,17 +1481,20 @@
       "due": null,
       "evidence": [
         {
-          "path": "decisions/workflow_migration_2026-09-22.md",
-          "project": "producer"
+          "contains": "roadmap:ten-anchor",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "roadmap:ten-anchor",
       "next_action": "**TEN's alternative anchor.** TEN is structurally APPROX \u2014 no broker anchor exists. VIE? company-implied? none? Resolving it moves TEN out of `tests/test_approx_roster.py`'s guard.",
+      "paused_prior_status": "blocked",
       "project": "producer",
       "resolver": "owner",
-      "status": "blocked",
-      "verified_at": "2026-09-22",
-      "waiting_condition": "recorded disposition or completion"
+      "status": "paused",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner lifts the 2026-09-24 producer development freeze"
     },
     {
       "authority": "manual",
@@ -1641,21 +1707,24 @@
       "waiting_condition": "cited trial evidence resolves contract-identity"
     },
     {
-      "authority": "adapter",
+      "authority": "manual",
       "blocking_decision_ids": [],
       "due": null,
       "evidence": [
         {
-          "path": "research/vie-exit/trial.json",
-          "project": "producer"
+          "contains": "vie:pnav-controls",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "vie:pnav-controls",
-      "next_action": "Review explicit unavailable broker states before any production removal; legacy snapshot k_broker=1.0 must not masquerade as a passed check.",
+      "next_action": "Replace the legacy k_broker=1.0 / spread-0 fallbacks with explicit UNAVAILABLE broker states before any production VIE removal (WO-SCOUT-1 plan Phase 4 step 3).",
       "project": "producer",
       "resolver": "agent",
-      "status": "blocked",
-      "waiting_condition": "cited trial evidence resolves pnav-controls"
+      "status": "waiting",
+      "verified_at": "2026-09-24",
+      "waiting_condition": "Phase 4 cutover work begins"
     },
     {
       "authority": "adapter",
@@ -1675,21 +1744,26 @@
       "waiting_condition": "cited trial evidence resolves procurement"
     },
     {
-      "authority": "adapter",
-      "blocking_decision_ids": [],
-      "due": null,
+      "authority": "manual",
+      "blocking_decision_ids": [
+        "vie:renewal-terms"
+      ],
+      "due": "2026-10-30",
       "evidence": [
         {
-          "path": "research/vie-exit/trial.json",
-          "project": "producer"
+          "contains": "vie:renewal-terms",
+          "path": "decisions/producer_freeze_2026-09-24.md",
+          "project": "producer",
+          "sha256": "00faa296ba5e107caeac8d21770a016d73b08cc718d761e23e9f0eaa74924cd2"
         }
       ],
       "id": "vie:renewal-terms",
-      "next_action": "Check the VIE account renewal/cancellation terms; March 9 renewal is user-confirmed but the cancellation deadline is unverified.",
+      "next_action": "Check the VIE (Seeking Alpha) account's actual cancellation deadline and access-after-cancellation terms and record them. If cancellation takes effect at period end with no refund, disabling auto-renew early costs nothing (WO-SCOUT-1 plan Phase 4 step 1).",
       "project": "producer",
       "resolver": "owner",
       "status": "blocked",
-      "waiting_condition": "cited trial evidence resolves renewal-terms"
+      "verified_at": "2026-09-24",
+      "waiting_condition": "owner reads the account terms"
     },
     {
       "authority": "adapter",
