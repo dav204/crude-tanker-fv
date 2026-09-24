@@ -1209,7 +1209,7 @@
       "next_action": "Re-derive the trailing-10yr VLGC realized-TCE mean off Dorian's + BW LPG's latest 10-K/20-F year-by-year TCE series (the FY2016-26 series is in the methodology doc); update the anchor value + as_of; re-run the LPG cycle layer; gate-annotate; re-arm +1yr. Realized-TCE basis is correct for the 85-99%-spot validator pair \u2014 do NOT switch to 1-yr TC (that stays a documented cross-check only).\n",
       "project": "producer",
       "resolver": "agent",
-      "status": "done",
+      "status": "waiting",
       "waiting_condition": "registered condition or ruling"
     },
     {
@@ -1277,7 +1277,7 @@
       "next_action": "Re-derive the trailing 10-yr mean for EVERY class off its documented route benchmark / basis (VLCC TD3C, Suezmax TD20, etc. \u2014 the per-class basis and its caveats are commented in the file itself). TC-ANCHORED throughout, not spot \u2014 re-run METHODOLOGY \u00a78.3's self-check that no spot-anchored component has crept in. Do NOT bulk-update from VIE: the ~14-58% VIE gaps are deliberate base-period / outlier-handling differences and switching base shifts FVs across the whole watchlist (per-class methodology decision required, \u00a78.3 Step 3). Update values + as_of, re-run the cycle layer, check the drift gate, gate-annotate every class whose EV moves >2pp, and re-arm +6mo. LPG DEFERS to lpg_anchor_annual_review, whose realized-TCE basis is tied to the Dorian 10-K / BW LPG 20-F filing cadence \u2014 this sweep records LPG as \"covered by the annual trigger\", it does not re-derive it.\n",
       "project": "producer",
       "resolver": "agent",
-      "status": "done",
+      "status": "waiting",
       "waiting_condition": "registered condition or ruling"
     },
     {
