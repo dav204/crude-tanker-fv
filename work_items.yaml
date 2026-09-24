@@ -474,7 +474,7 @@
       "next_action": "Register the price-driven SB HOLD to BUY publication change only: price $9.18 to $8.37, weighted fair value unchanged at $9.01 and NAV unchanged at $10.72. The refreshed scenario-weight upside range is +3.2% to +11.8%; the old accepted publication remains governing until acceptance. No order, sizing decision, scenario-weight change or governor baseline reset is authorized. After the objection window, the existing land and publication gates must still pass.",
       "project": "producer",
       "resolver": "agent",
-      "status": "waiting",
+      "status": "done",
       "waiting_condition": "registered condition or ruling"
     },
     {
@@ -737,35 +737,6 @@
     {
       "authority": "adapter",
       "blocking_decision_ids": [
-        "governor:SB:VALUATION_CONVICTION_ZERO"
-      ],
-      "details": {
-        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
-        "code": "VALUATION_CONVICTION_ZERO",
-        "detail": "weight-family sign unstable; valuation cannot support sizing",
-        "id": "SB:VALUATION_CONVICTION_ZERO",
-        "severity": "page",
-        "ticker": "SB",
-        "value": false
-      },
-      "due": null,
-      "evidence": [
-        {
-          "path": "monitor/state/seam_latest.json",
-          "project": "governor",
-          "runtime": true
-        }
-      ],
-      "id": "governor:SB:VALUATION_CONVICTION_ZERO",
-      "next_action": "weight-family sign unstable; valuation cannot support sizing; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "project": "governor",
-      "resolver": "owner",
-      "status": "blocked",
-      "waiting_condition": "explicit valuation mini-review or gate disposition"
-    },
-    {
-      "authority": "adapter",
-      "blocking_decision_ids": [
         "governor:SBLK:BASELINE_UNKNOWN_weight_sign_stable"
       ],
       "details": {
@@ -824,48 +795,19 @@
     {
       "authority": "adapter",
       "blocking_decision_ids": [
-        "governor:SYSTEM:PUBLICATION_HELD"
-      ],
-      "details": {
-        "action": "OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
-        "code": "PUBLICATION_HELD",
-        "detail": "a flip toward BUY waits for its buyflip fork (3 business days of silence)",
-        "id": "SYSTEM:PUBLICATION_HELD",
-        "severity": "page",
-        "ticker": "SYSTEM",
-        "value": "a flip toward BUY waits for its buyflip fork (3 business days of silence)"
-      },
-      "due": null,
-      "evidence": [
-        {
-          "path": "monitor/state/seam_latest.json",
-          "project": "governor",
-          "runtime": true
-        }
-      ],
-      "id": "governor:SYSTEM:PUBLICATION_HELD",
-      "next_action": "a flip toward BUY waits for its buyflip fork (3 business days of silence); OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
-      "project": "governor",
-      "resolver": "owner",
-      "status": "blocked",
-      "waiting_condition": "explicit valuation mini-review or gate disposition"
-    },
-    {
-      "authority": "adapter",
-      "blocking_decision_ids": [
         "governor:TEN:GATES_PENDING"
       ],
       "details": {
         "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
         "code": "GATES_PENDING",
-        "detail": "gates: {\"buy\": true, \"current_balance_sheet\": true, \"family_min\": false, \"sign_stable\": true, \"stage_a\": \"unknown\", \"war_falsifier\": true}",
+        "detail": "gates: {\"buy\": true, \"current_balance_sheet\": true, \"family_min\": true, \"sign_stable\": true, \"stage_a\": \"unknown\", \"war_falsifier\": true}",
         "id": "TEN:GATES_PENDING",
         "severity": "info",
         "ticker": "TEN",
         "value": {
           "buy": true,
           "current_balance_sheet": true,
-          "family_min": false,
+          "family_min": true,
           "sign_stable": true,
           "stage_a": "unknown",
           "war_falsifier": true
@@ -880,7 +822,7 @@
         }
       ],
       "id": "governor:TEN:GATES_PENDING",
-      "next_action": "gates: {\"buy\": true, \"current_balance_sheet\": true, \"family_min\": false, \"sign_stable\": true, \"stage_a\": \"unknown\", \"war_falsifier\": true}; OWNER \u2014 open a valuation mini-review; no order is authorized",
+      "next_action": "gates: {\"buy\": true, \"current_balance_sheet\": true, \"family_min\": true, \"sign_stable\": true, \"stage_a\": \"unknown\", \"war_falsifier\": true}; OWNER \u2014 open a valuation mini-review; no order is authorized",
       "project": "governor",
       "resolver": "owner",
       "status": "blocked",
@@ -910,6 +852,35 @@
       ],
       "id": "governor:TEN:GATE_current_balance_sheet",
       "next_action": "gate current_balance_sheet: False \u2192 True; OWNER \u2014 re-present TEN as a fresh TRADE_PREREG; remaining gates still apply",
+      "project": "governor",
+      "resolver": "owner",
+      "status": "blocked",
+      "waiting_condition": "explicit valuation mini-review or gate disposition"
+    },
+    {
+      "authority": "adapter",
+      "blocking_decision_ids": [
+        "governor:TEN:GATE_family_min"
+      ],
+      "details": {
+        "action": "OWNER \u2014 re-present TEN as a fresh TRADE_PREREG; remaining gates still apply",
+        "code": "GATE_family_min",
+        "detail": "gate family_min: False \u2192 True",
+        "id": "TEN:GATE_family_min",
+        "severity": "page",
+        "ticker": "TEN",
+        "value": true
+      },
+      "due": null,
+      "evidence": [
+        {
+          "path": "monitor/state/seam_latest.json",
+          "project": "governor",
+          "runtime": true
+        }
+      ],
+      "id": "governor:TEN:GATE_family_min",
+      "next_action": "gate family_min: False \u2192 True; OWNER \u2014 re-present TEN as a fresh TRADE_PREREG; remaining gates still apply",
       "project": "governor",
       "resolver": "owner",
       "status": "blocked",
@@ -952,7 +923,7 @@
       "details": {
         "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
         "code": "GATES_PENDING",
-        "detail": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}",
+        "detail": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": false, \"tier\": false}",
         "id": "TRMD:GATES_PENDING",
         "severity": "info",
         "ticker": "TRMD",
@@ -960,7 +931,7 @@
           "buy": false,
           "compressed_curve_anchor": "unknown",
           "current_balance_sheet": true,
-          "sign_stable": true,
+          "sign_stable": false,
           "tier": false
         }
       },
@@ -973,7 +944,7 @@
         }
       ],
       "id": "governor:TRMD:GATES_PENDING",
-      "next_action": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": true, \"tier\": false}; OWNER \u2014 open a valuation mini-review; no order is authorized",
+      "next_action": "gates: {\"buy\": false, \"compressed_curve_anchor\": \"unknown\", \"current_balance_sheet\": true, \"sign_stable\": false, \"tier\": false}; OWNER \u2014 open a valuation mini-review; no order is authorized",
       "project": "governor",
       "resolver": "owner",
       "status": "blocked",
@@ -982,16 +953,16 @@
     {
       "authority": "adapter",
       "blocking_decision_ids": [
-        "governor:TRMD:GATE_sign_stable"
+        "governor:TRMD:VALUATION_CONVICTION_ZERO"
       ],
       "details": {
-        "action": "OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply",
-        "code": "GATE_sign_stable",
-        "detail": "gate sign_stable: False \u2192 True",
-        "id": "TRMD:GATE_sign_stable",
+        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
+        "code": "VALUATION_CONVICTION_ZERO",
+        "detail": "weight-family sign unstable; valuation cannot support sizing",
+        "id": "TRMD:VALUATION_CONVICTION_ZERO",
         "severity": "page",
         "ticker": "TRMD",
-        "value": true
+        "value": false
       },
       "due": null,
       "evidence": [
@@ -1001,8 +972,8 @@
           "runtime": true
         }
       ],
-      "id": "governor:TRMD:GATE_sign_stable",
-      "next_action": "gate sign_stable: False \u2192 True; OWNER \u2014 re-present TRMD as a fresh TRADE_PREREG; remaining gates still apply",
+      "id": "governor:TRMD:VALUATION_CONVICTION_ZERO",
+      "next_action": "weight-family sign unstable; valuation cannot support sizing; OWNER \u2014 open a valuation mini-review; no order is authorized",
       "project": "governor",
       "resolver": "owner",
       "status": "blocked",
