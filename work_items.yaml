@@ -680,35 +680,6 @@
     {
       "authority": "adapter",
       "blocking_decision_ids": [
-        "governor:CCEC:BASELINE_UNKNOWN_weight_sign_stable"
-      ],
-      "details": {
-        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
-        "code": "BASELINE_UNKNOWN_weight_sign_stable",
-        "detail": "review baseline not documented for weight_sign_stable",
-        "id": "CCEC:BASELINE_UNKNOWN_weight_sign_stable",
-        "severity": "page",
-        "ticker": "CCEC",
-        "value": "weight_sign_stable"
-      },
-      "due": null,
-      "evidence": [
-        {
-          "path": "monitor/state/seam_latest.json",
-          "project": "governor",
-          "runtime": true
-        }
-      ],
-      "id": "governor:CCEC:BASELINE_UNKNOWN_weight_sign_stable",
-      "next_action": "review baseline not documented for weight_sign_stable; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "project": "governor",
-      "resolver": "owner",
-      "status": "blocked",
-      "waiting_condition": "explicit valuation mini-review or gate disposition"
-    },
-    {
-      "authority": "adapter",
-      "blocking_decision_ids": [
         "governor:CCEC:WIDE_CAP"
       ],
       "details": {
@@ -730,93 +701,6 @@
       ],
       "id": "governor:CCEC:WIDE_CAP",
       "next_action": "valuation-supported sizing is capped; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "project": "governor",
-      "resolver": "owner",
-      "status": "blocked",
-      "waiting_condition": "explicit valuation mini-review or gate disposition"
-    },
-    {
-      "authority": "adapter",
-      "blocking_decision_ids": [
-        "governor:SB:BASELINE_UNKNOWN_weight_sign_stable"
-      ],
-      "details": {
-        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
-        "code": "BASELINE_UNKNOWN_weight_sign_stable",
-        "detail": "review baseline not documented for weight_sign_stable",
-        "id": "SB:BASELINE_UNKNOWN_weight_sign_stable",
-        "severity": "page",
-        "ticker": "SB",
-        "value": "weight_sign_stable"
-      },
-      "due": null,
-      "evidence": [
-        {
-          "path": "monitor/state/seam_latest.json",
-          "project": "governor",
-          "runtime": true
-        }
-      ],
-      "id": "governor:SB:BASELINE_UNKNOWN_weight_sign_stable",
-      "next_action": "review baseline not documented for weight_sign_stable; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "project": "governor",
-      "resolver": "owner",
-      "status": "blocked",
-      "waiting_condition": "explicit valuation mini-review or gate disposition"
-    },
-    {
-      "authority": "adapter",
-      "blocking_decision_ids": [
-        "governor:SBLK:BASELINE_UNKNOWN_weight_sign_stable"
-      ],
-      "details": {
-        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
-        "code": "BASELINE_UNKNOWN_weight_sign_stable",
-        "detail": "review baseline not documented for weight_sign_stable",
-        "id": "SBLK:BASELINE_UNKNOWN_weight_sign_stable",
-        "severity": "page",
-        "ticker": "SBLK",
-        "value": "weight_sign_stable"
-      },
-      "due": null,
-      "evidence": [
-        {
-          "path": "monitor/state/seam_latest.json",
-          "project": "governor",
-          "runtime": true
-        }
-      ],
-      "id": "governor:SBLK:BASELINE_UNKNOWN_weight_sign_stable",
-      "next_action": "review baseline not documented for weight_sign_stable; OWNER \u2014 open a valuation mini-review; no order is authorized",
-      "project": "governor",
-      "resolver": "owner",
-      "status": "blocked",
-      "waiting_condition": "explicit valuation mini-review or gate disposition"
-    },
-    {
-      "authority": "adapter",
-      "blocking_decision_ids": [
-        "governor:SBLK:READ_CAP"
-      ],
-      "details": {
-        "action": "OWNER \u2014 open a valuation mini-review; no order is authorized",
-        "code": "READ_CAP",
-        "detail": "size to the weaker-basis read: flips (cheap/fair)",
-        "id": "SBLK:READ_CAP",
-        "severity": "page",
-        "ticker": "SBLK",
-        "value": "flips (cheap/fair)"
-      },
-      "due": null,
-      "evidence": [
-        {
-          "path": "monitor/state/seam_latest.json",
-          "project": "governor",
-          "runtime": true
-        }
-      ],
-      "id": "governor:SBLK:READ_CAP",
-      "next_action": "size to the weaker-basis read: flips (cheap/fair); OWNER \u2014 open a valuation mini-review; no order is authorized",
       "project": "governor",
       "resolver": "owner",
       "status": "blocked",
