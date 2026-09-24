@@ -1,6 +1,6 @@
 # VIE exit trial: retain temporarily
 
-The shadow infrastructure is implemented. Feed procurement, contract matching and the 20-day live comparison remain blocked. VIE remains active; no purchase, source switch or cancellation has been made.
+The shadow infrastructure is installed. The local scheduled worker completed unattended on 2026-09-24 at 00:05 Eastern; see activation.json. Feed procurement, contract matching and the 20-day live comparison remain blocked. VIE remains active; no purchase, source switch or cancellation has been made.
 
 ## Full-book broker diagnostic ablation
 
@@ -46,7 +46,7 @@ Candidate rows: {'assessment': 150, 'tanker-ffa': 45, 'transaction_table': 101, 
 - Retain VIE temporarily: daily matching feed, licensed access and observed 20-day coverage are not established.
 - Do not buy standalone P/NAV yet: the reviewed evidence does not demonstrate enough unique benefit; preserve current bug gates pending the explicit unavailable-state review.
 - Review vendor-inquiries.md, starting with Baltic. No inquiry has been sent. Exact source contracts and account cancellation terms still need confirmation.
-- A real scheduled local scan and a real MB connector run must be evidenced separately. A manual smoke run does not close either blocker.
+- The local scan is proven by its natural launchd run. The MB connector run remains separately unproven until its next scheduled execution.
 - Provider-specific live retrieval remains blocked on the contracted sample; the normalized import interface is not a substitute for a live transport.
 
 ## Validation
@@ -56,3 +56,5 @@ Initial full producer suite: 1,021 passed, four skipped, 12 expected failures; t
 Reproduce the economic comparison with scripts/vie_shadow_compare.py --governor /Users/dan_personal/Projects/portfolio-governance using the project interpreter. It creates disposable clones, regenerates all five scenario families, values both configurations and invokes the publication validator and governor evaluator without notification/healthcheck transports. Full results and workspace identities are in broker_ablation.json.
 
 Rollback: disable only research/vie-exit/trial.json enabled. Preserve receipts and accepted-publication history. Production source switching and governor baseline changes require separate owner review.
+
+Deployment validation: all 25 complete handoff rows unchanged; isolated reconciliation reports zero SANITY failures and zero drift alerts; drift gate reports zero unexplained rows. The installed-code verification group passed 53 tests. The refreshed accepted publication was consumed by the governor with no valuation-event transitions. Canonical and installed MB prompts match; the existing scoped user permission suffices.

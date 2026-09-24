@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "owner_approval": "Confirmed in this task on 2026-09-24; shadow installation and equivalent output refresh only",
+  "installation": {
+    "installed_at": "2026-09-24T04:03:58.635239+00:00",
+    "prior_head": "833a211ecda2e04532c3d77afefa747ddfc123d4",
+    "source_commit": "9913185f644bca8c068421ca7458797d3cdc0aa7",
+    "output_commit": "575cc21d66880ba34dc2c979efdee8d040f8729c",
+    "shadow": "/private/tmp/vie-install-16p096t9",
+    "unchanged_all_25_full_rows": true,
+    "publication_validation": "passed in isolation",
+    "accepted_before": {
+      "accepted_at": "2026-09-24T03:22:20.616679+00:00",
+      "content_hash": "984f577c1e2c492a6598166a19866b2e41e9b38ee934ee3962a77eca5fd7fc05",
+      "generated_at": "2026-09-24T03:07:47+00:00",
+      "output_commit": "6570d16c012b2ac43fa86ab6e8d1d9cf1fccadd9",
+      "publication_id": "65342173c43da8fe800bd6951176881e0e8a1b7b775403158df9a39df16fce48",
+      "source_commit": "995e00572137c15d270d3bf5b5549d14c57c9845",
+      "validation": "accepted"
+    },
+    "trial_observed_unattended": false
+  },
+  "local_worker_unattended": {
+    "verified": true,
+    "run_id": "20260924T040504Z-3c9909c935",
+    "receipt_path": "state/vie_exit/runs/20260924T040504Z-3c9909c935.json",
+    "receipt_sha256": "5f05907fca27c0c88ab5e51f6865a1bb6dc354ec742ac7098069d803ceab23ae",
+    "scheduler_evidence": "2026-09-24T04:05:04Z job=delivery-worker initiator=com.crude-tanker-fv.delivery-worker outcome=ok rc=0"
+  },
+  "mb_connector_unattended": {
+    "verified": false,
+    "reason": "Await next actual MB scheduled connector run"
+  },
+  "prompt_sha256": "8473680293042cd2f000e9ea6127d527a44f9d6a09539d501ddde5c51a64baa7",
+  "tests": {
+    "installed_targeted_passed": 53,
+    "reconciliation_names": 25,
+    "sanity_failures": 0,
+    "unexplained_drift": 0
+  },
+  "current_publication": {
+    "accepted_at": "2026-09-24T04:05:04.795275+00:00",
+    "content_hash": "954d2c305978fb8132d0780d018c4e156d0fdd4934c2398b6f783ff74b11a808",
+    "generated_at": "2026-09-24T04:03:57+00:00",
+    "output_commit": "575cc21d66880ba34dc2c979efdee8d040f8729c",
+    "publication_id": "4d1c91461afa8181c0a39546d6b0c690d56f60e5ef0dfd80b3237ffea079fba5",
+    "source_commit": "9913185f644bca8c068421ca7458797d3cdc0aa7",
+    "validation": "accepted"
+  },
+  "no_production_input_or_baseline_changes": true
+}

@@ -49,7 +49,7 @@
     {
       "id": "unattended",
       "resolver": "agent",
-      "action": "Observe a scheduled independent-report scan and MB connector harvest without interaction; do not substitute a manual smoke test."
+      "action": "Observe the next MB Gmail connector harvest without interaction. Local shadow scan already completed unattended at 2026-09-24T04:05:04Z; see activation.json."
     },
     {
       "id": "transport",
@@ -61,5 +61,6 @@
       "resolver": "agent",
       "action": "Review explicit unavailable broker states before any production removal; legacy snapshot k_broker=1.0 must not masquerade as a passed check."
     }
-  ]
+  ],
+  "local_worker_evidence": "research/vie-exit/activation.json"
 }
