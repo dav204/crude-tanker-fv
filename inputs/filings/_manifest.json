@@ -2163,5 +2163,45 @@
    }
   ],
   "amended": false
+ },
+ {
+  "ts": "2026-09-24T08:20:02+00:00",
+  "ticker": "CMBT",
+  "cik": "0001604481",
+  "accession": "0001604481-26-000010",
+  "form": "6-K",
+  "filed": "2026-09-23",
+  "primary_doc": "eurn-20260630.htm",
+  "staged_path": "inputs/filings/CMBT/0001604481-26-000010_6-K_eurn-20260630.htm",
+  "exhibits": [],
+  "amended": false
+ },
+ {
+  "ts": "2026-09-24T08:20:02+00:00",
+  "ticker": "HAFN",
+  "cik": "0001815779",
+  "accession": "0001140361-26-037438",
+  "form": "6-K",
+  "filed": "2026-09-23",
+  "primary_doc": "ef20082638_6k.htm",
+  "staged_path": "inputs/filings/HAFN/0001140361-26-037438_6-K_ef20082638_6k.htm",
+  "exhibits": [
+   {
+    "doc": "ef20082638_ex99-1.htm",
+    "type": "EX-99.1",
+    "staged_path": "inputs/filings/HAFN/0001140361-26-037438_6-K_ef20082638_ex99-1.htm"
+   },
+   {
+    "doc": "ef20082638_ex99-2.htm",
+    "type": "EX-99.2",
+    "staged_path": "inputs/filings/HAFN/0001140361-26-037438_6-K_ef20082638_ex99-2.htm"
+   },
+   {
+    "doc": "ef20082638_ex99-3.htm",
+    "type": "EX-99.3",
+    "staged_path": "inputs/filings/HAFN/0001140361-26-037438_6-K_ef20082638_ex99-3.htm"
+   }
+  ],
+  "amended": false
  }
 ]
