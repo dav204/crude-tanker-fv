@@ -588,8 +588,16 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
     # Harvester lanes (WO2 1.3) — mirror silence (10d incl mirror latency) +
     # the marks trail: broker weeklies staged newer than the newest PROMOTED
     # transaction print by >7d means S&P sections are sitting untriaged.
+    # Lanes whose feed was switched off by an owner decision (agent_duties.yaml `retired_lanes`,
+    # 2026-09-24 producer cut): a retired feed going quiet is the decision, not an outage.
+    retired_lanes = set()
+    if (inputs_dir / "agent_duties.yaml").exists():
+        import yaml
+
+        retired_lanes = set((yaml.safe_load((inputs_dir / "agent_duties.yaml").read_text()) or {})
+                            .get("retired_lanes") or [])
     manifest = inputs_dir.parent / "shipping_harvester" / "data" / "manifest.jsonl"
-    if manifest.exists():
+    if manifest.exists() and "harvester" not in retired_lanes:
         pubs = []
         for line in manifest.read_text().splitlines():
             try:
@@ -635,7 +643,7 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
 
     # 9. FLEET-TRANSACTION (WO2 3.2) — S&P candidates scanned since the last
     #     --mark-reviewed ack; the review queue must not silently accumulate.
-    if scan_state.exists():
+    if scan_state.exists() and "sp_scan" not in retired_lanes:
         sdoc = json.loads(scan_state.read_text())
         total = sdoc.get("candidates_cumulative")
         if total is not None:
@@ -650,7 +658,7 @@ def collect_flags(inputs_dir: Path = INPUTS_DIR, outputs_dir: Path = OUTPUTS_DIR
     #     Per-feed source silence + the container UNINGESTED lane: containers
     #     are the one class whose SOURCE OF RECORD is the MB weekly (§11.8).
     mb_root = inputs_dir / "research_mb"
-    if mb_root.exists():
+    if mb_root.exists() and "mb" not in retired_lanes:
         today = date.today()
         for feed in ("container_weekly", "tanker_weekly",
                      "dry_bulk_weekly", "lng_weekly"):

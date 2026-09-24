@@ -1214,3 +1214,21 @@ def test_parked_session_is_opt_in_and_pure_mode_drops_it(tmp_path, monkeypatch):
     # Machine-local, so a clean clone's pure run never sees it.
     pure = sentinel.collect_flags(environ=FAKE_ENV, pure=True, sessions_dir=tmp_path)
     assert not [f for f in pure if f.startswith("TASK-PARKED")], pure
+
+
+def test_retired_lanes_silence_switched_off_feeds(tmp_path):
+    inputs, outputs = _fixture(tmp_path)
+    (inputs / "research_mb" / "container_weekly").mkdir(parents=True)
+    harvest = inputs.parent / "shipping_harvester" / "data"
+    harvest.mkdir(parents=True)
+    (harvest / "manifest.jsonl").write_text(json.dumps({"published": "2026-01-02"}) + "\n")
+    (inputs / "market_data" / "transactions").mkdir(parents=True, exist_ok=True)
+    (inputs / "market_data" / "transactions" / "_scan_state.json").write_text(
+        json.dumps({"candidates_cumulative": 3, "candidates_reviewed": 0}))
+    tags = lambda: {" ".join(f.split()[:2]) for f in collect_flags(inputs, outputs, environ=FAKE_ENV)}
+    live = tags()
+    assert {"STALE-INPUT harvester:", "STALE-INPUT mb:container_weekly:", "FLEET-TRANSACTION 3"} <= live
+    (inputs / "agent_duties.yaml").write_text(yaml.safe_dump(
+        {"duties": [], "retired_lanes": ["harvester", "mb", "sp_scan"]}))
+    assert not {t for t in tags() if t.startswith(("STALE-INPUT harvester", "STALE-INPUT mb:",
+                                                     "FLEET-TRANSACTION", "UNINGESTED-PRINTS"))}
