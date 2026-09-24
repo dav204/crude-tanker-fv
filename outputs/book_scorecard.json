@@ -2,8 +2,8 @@
   "schema_version": "2.9",
   "valuation_date": "2026-09-24",
   "projection_start_quarter": "2026-Q3",
-  "generated_at": "2026-09-24T16:03:49+00:00",
-  "source_commit": "5baada24",
+  "generated_at": "2026-09-24T16:49:32+00:00",
+  "source_commit": "9cc10a4a",
   "quarter": "2026-Q2",
   "price_basis": {
     "total": 25,
@@ -811,9 +811,9 @@
       "sanity": "n-a",
       "price": 22.34,
       "position": "TRIM/SHORT (overvalued)",
-      "fv": 19.3,
-      "ev_pct": -13.6,
-      "blend_fv": 21.97,
+      "fv": 19.4,
+      "ev_pct": -13.2,
+      "blend_fv": 21.92,
       "nav_per_share": 32.6,
       "broker_nav": 27.99,
       "broker_reference": {
@@ -826,7 +826,7 @@
         {
           "sector": "dry_bulk",
           "scope": "company",
-          "ratio": 1.5465985668365025,
+          "ratio": 1.5227732405645895,
           "label": "late-cycle/peak",
           "anchor_basis": "archive_22mo_median"
         }
@@ -845,84 +845,87 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 49625
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 50000.0
+              "rate": 49625.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
-              "rate": 46875.0
+              "rate": 45708.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 32500.0
+              "rate": 31900.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 34667.0
+              "rate": 34367.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 34667.0
+              "rate": 34367.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 34666.0
+              "rate": 34366.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -500,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 34166.0
+              "rate": 33866.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -500,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 33666.0
+              "rate": 33366.0
             }
           ],
           "Pana": [
@@ -932,19 +935,22 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 21275
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 21300.0
+              "rate": 21275.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
               "rate": 22650.0
             },
@@ -953,63 +959,63 @@
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 18500.0
+              "rate": 18550.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 18434.0
+              "rate": 18350.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 18433.0
+              "rate": 18350.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 18433.0
+              "rate": 18350.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -400,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 18033.0
+              "rate": 17950.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -300,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 17733.0
+              "rate": 17650.0
             }
           ],
           "Supra-Ultra": [
@@ -1019,84 +1025,87 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 19887
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 20025.0
+              "rate": 19887.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
-              "rate": 21508.0
+              "rate": 21033.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 16850.0
+              "rate": 16575.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 16817.0
+              "rate": 16342.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 16817.0
+              "rate": 16342.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 16816.0
+              "rate": 16341.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -300,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 16516.0
+              "rate": 16041.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -300,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 16216.0
+              "rate": 15741.0
             }
           ]
         },
@@ -1124,15 +1133,15 @@
       "governance_discount_pct": 30.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": -16.3,
-      "ev_pct_family_max": -11.2,
+      "ev_pct_family_min": -15.9,
+      "ev_pct_family_max": -10.7,
       "read_flag": "flips (fair/rich)",
       "robust": "flips (fair/rich)",
       "flip_margin_pct": -3.47,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
-      "fv_low": 16.01,
-      "fv_high": 22.78,
+      "fv_low": 16.07,
+      "fv_high": 22.92,
       "balance_sheet_vintage": "2026-Q2"
     },
     {
@@ -1146,9 +1155,9 @@
       "sanity": "OK",
       "price": 26.43,
       "position": "TRIM/SHORT (overvalued)",
-      "fv": 21.05,
-      "ev_pct": -20.4,
-      "blend_fv": 25.23,
+      "fv": 21.2,
+      "ev_pct": -19.8,
+      "blend_fv": 25.17,
       "nav_per_share": 25.37,
       "broker_nav": 27.16,
       "broker_reference": {
@@ -1161,7 +1170,7 @@
         {
           "sector": "dry_bulk",
           "scope": "company",
-          "ratio": 1.5691921663679262,
+          "ratio": 1.5355949552104207,
           "label": "late-cycle/peak",
           "anchor_basis": "archive_22mo_median"
         }
@@ -1180,84 +1189,87 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 49625
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 50000.0
+              "rate": 49625.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
-              "rate": 46875.0
+              "rate": 45708.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 32500.0
+              "rate": 31900.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 34667.0
+              "rate": 34367.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 34667.0
+              "rate": 34367.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 34666.0
+              "rate": 34366.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -500,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 34166.0
+              "rate": 33866.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -500,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 33666.0
+              "rate": 33366.0
             }
           ],
           "Supra-Ultra": [
@@ -1267,84 +1279,87 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 19887
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 20025.0
+              "rate": 19887.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
-              "rate": 21508.0
+              "rate": 21033.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 16850.0
+              "rate": 16575.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 16817.0
+              "rate": 16342.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 16817.0
+              "rate": 16342.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 16816.0
+              "rate": 16341.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -300,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 16516.0
+              "rate": 16041.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -300,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 16216.0
+              "rate": 15741.0
             }
           ]
         },
@@ -1372,15 +1387,15 @@
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": -23.8,
-      "ev_pct_family_max": -17.3,
+      "ev_pct_family_min": -23.3,
+      "ev_pct_family_max": -16.6,
       "read_flag": "flips (cheap/fair)",
       "robust": "flips (cheap/fair)",
       "flip_margin_pct": -0.28,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
-      "fv_low": 16.39,
-      "fv_high": 26.23,
+      "fv_low": 16.49,
+      "fv_high": 26.45,
       "balance_sheet_vintage": "2026-Q2"
     },
     {
@@ -1394,8 +1409,8 @@
       "sanity": "n-a",
       "price": 8.37,
       "position": "BUY (undervalued)",
-      "fv": 9.01,
-      "ev_pct": 7.6,
+      "fv": 9.04,
+      "ev_pct": 8.0,
       "blend_fv": 10.42,
       "nav_per_share": 10.72,
       "broker_nav": 7.54,
@@ -1409,7 +1424,7 @@
         {
           "sector": "dry_bulk",
           "scope": "company",
-          "ratio": 1.7215845169049127,
+          "ratio": 1.717934830438593,
           "label": "late-cycle/peak",
           "anchor_basis": "archive_22mo_median"
         }
@@ -1428,84 +1443,87 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 49625
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 50000.0
+              "rate": 49625.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
-              "rate": 46875.0
+              "rate": 45708.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 32500.0
+              "rate": 31900.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 34667.0
+              "rate": 34367.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 34667.0
+              "rate": 34367.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 34666.0
+              "rate": 34366.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -500,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 34166.0
+              "rate": 33866.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -500,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 33666.0
+              "rate": 33366.0
             }
           ],
           "Pana": [
@@ -1515,19 +1533,22 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 21275
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 21300.0
+              "rate": 21275.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
               "rate": 22650.0
             },
@@ -1536,63 +1557,63 @@
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 18500.0
+              "rate": 18550.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 18434.0
+              "rate": 18350.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 18433.0
+              "rate": 18350.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 18433.0
+              "rate": 18350.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -400,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 18033.0
+              "rate": 17950.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -300,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 17733.0
+              "rate": 17650.0
             }
           ],
           "Post-Panamax": [
@@ -1602,24 +1623,30 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 21275
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 21300.0,
+              "rate": 21275.0,
               "underlying": {
                 "kind": "derived",
                 "method": "equal remaining-month mean; half-up integer",
                 "months": [
                   "2026-09"
                 ],
+                "component_rates": {
+                  "2026-09": 21275
+                },
                 "original_labels": [
                   "sep"
                 ],
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2026-Q3",
-                "rate": 21300
+                "rate": 21275
               }
             },
             {
@@ -1627,7 +1654,7 @@
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
               "rate": 22650.0,
               "method": "class mapping from Pana",
@@ -1636,7 +1663,7 @@
                 "original_labels": [
                   "q4"
                 ],
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2026-Q4",
                 "rate": 22650
               }
@@ -1646,90 +1673,90 @@
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 18500.0,
+              "rate": 18550.0,
               "method": "class mapping from Pana",
               "underlying": {
                 "kind": "quoted",
                 "original_labels": [
                   "q1"
                 ],
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2027-Q1",
-                "rate": 18500
+                "rate": 18550
               }
             },
             {
               "kind": "derived",
               "method": "class mapping from Pana",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 18434.0,
+              "rate": 18350.0,
               "underlying": {
                 "kind": "derived",
                 "method": "calendar-year residual; remainder to earliest unquoted quarters",
                 "calendar_year": 2027,
-                "calendar_rate": 18450,
+                "calendar_rate": 18400,
                 "original_labels": [
                   "cal27"
                 ],
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2027-Q2",
-                "rate": 18434
+                "rate": 18350
               }
             },
             {
               "kind": "derived",
               "method": "class mapping from Pana",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 18433.0,
+              "rate": 18350.0,
               "underlying": {
                 "kind": "derived",
                 "method": "calendar-year residual; remainder to earliest unquoted quarters",
                 "calendar_year": 2027,
-                "calendar_rate": 18450,
+                "calendar_rate": 18400,
                 "original_labels": [
                   "cal27"
                 ],
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2027-Q3",
-                "rate": 18433
+                "rate": 18350
               }
             },
             {
               "kind": "derived",
               "method": "class mapping from Pana",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 18433.0,
+              "rate": 18350.0,
               "underlying": {
                 "kind": "derived",
                 "method": "calendar-year residual; remainder to earliest unquoted quarters",
                 "calendar_year": 2027,
-                "calendar_rate": 18450,
+                "calendar_rate": 18400,
                 "original_labels": [
                   "cal27"
                 ],
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2027-Q4",
-                "rate": 18433
+                "rate": 18350
               }
             },
             {
@@ -1737,17 +1764,17 @@
               "method": "class mapping from Pana",
               "delta": -400,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 18033.0,
+              "rate": 17950.0,
               "underlying": {
                 "kind": "derived",
                 "method": "ruled tail step",
                 "delta": -400,
                 "from": "2027-Q4",
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2028-Q1",
-                "rate": 18033
+                "rate": 17950
               }
             },
             {
@@ -1755,17 +1782,17 @@
               "method": "class mapping from Pana",
               "delta": -300,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 17733.0,
+              "rate": 17650.0,
               "underlying": {
                 "kind": "derived",
                 "method": "ruled tail step",
                 "delta": -300,
                 "from": "2028-Q1",
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2028-Q2",
-                "rate": 17733
+                "rate": 17650
               }
             }
           ]
@@ -1794,8 +1821,8 @@
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": 3.2,
-      "ev_pct_family_max": 11.8,
+      "ev_pct_family_min": 3.5,
+      "ev_pct_family_max": 12.2,
       "read_flag": "robust",
       "robust": "robust",
       "flip_margin_pct": -0.52,
@@ -1803,8 +1830,8 @@
       "mark_wide_nodes": [
         "Post-Panamax@five_year+ten_year"
       ],
-      "fv_low": 7.0,
-      "fv_high": 11.37,
+      "fv_low": 7.03,
+      "fv_high": 11.41,
       "balance_sheet_vintage": "2026-Q2"
     },
     {
@@ -1818,9 +1845,9 @@
       "sanity": "OK",
       "price": 30.4,
       "position": "TRIM/SHORT (overvalued)",
-      "fv": 28.2,
-      "ev_pct": -7.2,
-      "blend_fv": 32.81,
+      "fv": 28.36,
+      "ev_pct": -6.7,
+      "blend_fv": 32.74,
       "nav_per_share": 33.27,
       "broker_nav": 33.41,
       "broker_reference": {
@@ -1833,7 +1860,7 @@
         {
           "sector": "dry_bulk",
           "scope": "company",
-          "ratio": 1.5987467128655468,
+          "ratio": 1.5775376504989902,
           "label": "late-cycle/peak",
           "anchor_basis": "archive_22mo_median"
         }
@@ -1852,84 +1879,87 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 49625
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 50000.0
+              "rate": 49625.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
-              "rate": 46875.0
+              "rate": 45708.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 32500.0
+              "rate": 31900.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 34667.0
+              "rate": 34367.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 34667.0
+              "rate": 34367.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 34666.0
+              "rate": 34366.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -500,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 34166.0
+              "rate": 33866.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -500,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 33666.0
+              "rate": 33366.0
             }
           ],
           "Pana": [
@@ -1939,19 +1969,22 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 21275
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 21300.0
+              "rate": 21275.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
               "rate": 22650.0
             },
@@ -1960,63 +1993,63 @@
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 18500.0
+              "rate": 18550.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 18434.0
+              "rate": 18350.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 18433.0
+              "rate": 18350.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 18433.0
+              "rate": 18350.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -400,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 18033.0
+              "rate": 17950.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -300,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 17733.0
+              "rate": 17650.0
             }
           ],
           "Supra-Ultra": [
@@ -2026,84 +2059,87 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 19887
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 20025.0
+              "rate": 19887.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
-              "rate": 21508.0
+              "rate": 21033.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 16850.0
+              "rate": 16575.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 16817.0
+              "rate": 16342.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 16817.0
+              "rate": 16342.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 16816.0
+              "rate": 16341.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -300,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 16516.0
+              "rate": 16041.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -300,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 16216.0
+              "rate": 15741.0
             }
           ]
         },
@@ -2131,15 +2167,15 @@
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": -10.7,
-      "ev_pct_family_max": -4.1,
+      "ev_pct_family_min": -10.2,
+      "ev_pct_family_max": -3.5,
       "read_flag": "flips (cheap/fair)",
       "robust": "flips (cheap/fair)",
       "flip_margin_pct": -8.48,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
-      "fv_low": 22.28,
-      "fv_high": 34.49,
+      "fv_low": 22.39,
+      "fv_high": 34.72,
       "balance_sheet_vintage": "2026-Q2"
     },
     {
@@ -2591,9 +2627,9 @@
       "sanity": "OK",
       "price": 19.15,
       "position": "TRIM/SHORT (overvalued)",
-      "fv": 10.75,
-      "ev_pct": -43.8,
-      "blend_fv": 13.04,
+      "fv": 10.83,
+      "ev_pct": -43.4,
+      "blend_fv": 13.01,
       "nav_per_share": 13.36,
       "broker_nav": 21.28,
       "broker_reference": {
@@ -2613,7 +2649,7 @@
         {
           "sector": "dry_bulk",
           "scope": "sleeve",
-          "ratio": 1.6870347848377134,
+          "ratio": 1.6565622251998062,
           "label": "late-cycle/peak",
           "anchor_basis": "archive_22mo_median"
         },
@@ -2755,84 +2791,87 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 49625
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 50000.0
+              "rate": 49625.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
-              "rate": 46875.0
+              "rate": 45708.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 32500.0
+              "rate": 31900.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 34667.0
+              "rate": 34367.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 34667.0
+              "rate": 34367.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 34666.0
+              "rate": 34366.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -500,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 34166.0
+              "rate": 33866.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -500,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 33666.0
+              "rate": 33366.0
             }
           ],
           "Pana": [
@@ -2842,19 +2881,22 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 21275
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 21300.0
+              "rate": 21275.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
               "rate": 22650.0
             },
@@ -2863,63 +2905,63 @@
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 18500.0
+              "rate": 18550.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 18434.0
+              "rate": 18350.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 18433.0
+              "rate": 18350.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 18450,
+              "calendar_rate": 18400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 18433.0
+              "rate": 18350.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -400,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 18033.0
+              "rate": 17950.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -300,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 17733.0
+              "rate": 17650.0
             }
           ],
           "Ctr-Large": [
@@ -3058,7 +3100,7 @@
         {
           "sleeve": "dry_bulk",
           "sector": "dry_bulk",
-          "fv_contribution_per_share": 6.6
+          "fv_contribution_per_share": 6.67
         },
         {
           "sleeve": "containerships",
@@ -3067,15 +3109,15 @@
         }
       ],
       "weight_sign_stable": true,
-      "ev_pct_family_min": -50.5,
-      "ev_pct_family_max": -43.8,
+      "ev_pct_family_min": -50.1,
+      "ev_pct_family_max": -43.4,
       "read_flag": "n/a",
       "robust": "n/a",
       "flip_margin_pct": null,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
-      "fv_low": 5.64,
-      "fv_high": 16.37,
+      "fv_low": 5.68,
+      "fv_high": 16.48,
       "balance_sheet_vintage": "2026-Q2"
     },
     {
@@ -4713,7 +4755,7 @@
       "price": 0.52,
       "position": "TRIM/SHORT (overvalued)",
       "fv": 0.37,
-      "ev_pct": -29.1,
+      "ev_pct": -28.4,
       "blend_fv": 0.41,
       "nav_per_share": 0.41,
       "broker_nav": 0.43,
@@ -4727,7 +4769,7 @@
         {
           "sector": "dry_bulk",
           "scope": "company",
-          "ratio": 1.2547568952478048,
+          "ratio": 1.2412702446019872,
           "label": "elevated",
           "anchor_basis": "archive_22mo_median"
         }
@@ -4746,84 +4788,87 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 49625
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 50000.0
+              "rate": 49625.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
-              "rate": 46875.0
+              "rate": 45708.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 32500.0
+              "rate": 31900.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 34667.0
+              "rate": 34367.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 34667.0
+              "rate": 34367.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 34125,
+              "calendar_rate": 33750,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 34666.0
+              "rate": 34366.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -500,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 34166.0
+              "rate": 33866.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -500,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 33666.0
+              "rate": 33366.0
             }
           ],
           "Supra-Ultra": [
@@ -4833,84 +4878,87 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 19887
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 20025.0
+              "rate": 19887.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
-              "rate": 21508.0
+              "rate": 21033.0
             },
             {
               "kind": "quoted",
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 16850.0
+              "rate": 16575.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 16817.0
+              "rate": 16342.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 16817.0
+              "rate": 16342.0
             },
             {
               "kind": "derived",
               "method": "calendar-year residual; remainder to earliest unquoted quarters",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 16816.0
+              "rate": 16341.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -300,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 16516.0
+              "rate": 16041.0
             },
             {
               "kind": "derived",
               "method": "ruled tail step",
               "delta": -300,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 16216.0
+              "rate": 15741.0
             }
           ],
           "Handy-Bulk": [
@@ -4920,24 +4968,30 @@
               "months": [
                 "2026-09"
               ],
+              "component_rates": {
+                "2026-09": 19887
+              },
               "original_labels": [
                 "sep"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q3",
-              "rate": 18020.0,
+              "rate": 17900.0,
               "underlying": {
                 "kind": "derived",
                 "method": "equal remaining-month mean; half-up integer",
                 "months": [
                   "2026-09"
                 ],
+                "component_rates": {
+                  "2026-09": 19887
+                },
                 "original_labels": [
                   "sep"
                 ],
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2026-Q3",
-                "rate": 20025
+                "rate": 19887
               }
             },
             {
@@ -4945,18 +4999,18 @@
               "original_labels": [
                 "q4"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2026-Q4",
-              "rate": 19360.0,
+              "rate": 18930.0,
               "method": "class mapping from Supra-Ultra",
               "underlying": {
                 "kind": "quoted",
                 "original_labels": [
                   "q4"
                 ],
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2026-Q4",
-                "rate": 21508
+                "rate": 21033
               }
             },
             {
@@ -4964,90 +5018,90 @@
               "original_labels": [
                 "q1"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q1",
-              "rate": 15160.0,
+              "rate": 14920.0,
               "method": "class mapping from Supra-Ultra",
               "underlying": {
                 "kind": "quoted",
                 "original_labels": [
                   "q1"
                 ],
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2027-Q1",
-                "rate": 16850
+                "rate": 16575
               }
             },
             {
               "kind": "derived",
               "method": "class mapping from Supra-Ultra",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q2",
-              "rate": 15140.0,
+              "rate": 14710.0,
               "underlying": {
                 "kind": "derived",
                 "method": "calendar-year residual; remainder to earliest unquoted quarters",
                 "calendar_year": 2027,
-                "calendar_rate": 16825,
+                "calendar_rate": 16400,
                 "original_labels": [
                   "cal27"
                 ],
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2027-Q2",
-                "rate": 16817
+                "rate": 16342
               }
             },
             {
               "kind": "derived",
               "method": "class mapping from Supra-Ultra",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q3",
-              "rate": 15140.0,
+              "rate": 14710.0,
               "underlying": {
                 "kind": "derived",
                 "method": "calendar-year residual; remainder to earliest unquoted quarters",
                 "calendar_year": 2027,
-                "calendar_rate": 16825,
+                "calendar_rate": 16400,
                 "original_labels": [
                   "cal27"
                 ],
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2027-Q3",
-                "rate": 16817
+                "rate": 16342
               }
             },
             {
               "kind": "derived",
               "method": "class mapping from Supra-Ultra",
               "calendar_year": 2027,
-              "calendar_rate": 16825,
+              "calendar_rate": 16400,
               "original_labels": [
                 "cal27"
               ],
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2027-Q4",
-              "rate": 15130.0,
+              "rate": 14710.0,
               "underlying": {
                 "kind": "derived",
                 "method": "calendar-year residual; remainder to earliest unquoted quarters",
                 "calendar_year": 2027,
-                "calendar_rate": 16825,
+                "calendar_rate": 16400,
                 "original_labels": [
                   "cal27"
                 ],
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2027-Q4",
-                "rate": 16816
+                "rate": 16341
               }
             },
             {
@@ -5055,17 +5109,17 @@
               "method": "class mapping from Supra-Ultra",
               "delta": -300,
               "from": "2027-Q4",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q1",
-              "rate": 14860.0,
+              "rate": 14440.0,
               "underlying": {
                 "kind": "derived",
                 "method": "ruled tail step",
                 "delta": -300,
                 "from": "2027-Q4",
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2028-Q1",
-                "rate": 16516
+                "rate": 16041
               }
             },
             {
@@ -5073,17 +5127,17 @@
               "method": "class mapping from Supra-Ultra",
               "delta": -300,
               "from": "2028-Q1",
-              "source_date": "2026-09-21",
+              "source_date": "2026-09-23",
               "period": "2028-Q2",
-              "rate": 14590.0,
+              "rate": 14170.0,
               "underlying": {
                 "kind": "derived",
                 "method": "ruled tail step",
                 "delta": -300,
                 "from": "2028-Q1",
-                "source_date": "2026-09-21",
+                "source_date": "2026-09-23",
                 "period": "2028-Q2",
-                "rate": 16216
+                "rate": 15741
               }
             }
           ]
@@ -5112,15 +5166,15 @@
       "governance_discount_pct": 0.0,
       "sleeves": null,
       "weight_sign_stable": true,
-      "ev_pct_family_min": -30.8,
-      "ev_pct_family_max": -27.6,
+      "ev_pct_family_min": -30.0,
+      "ev_pct_family_max": -26.9,
       "read_flag": "robust",
       "robust": "robust",
       "flip_margin_pct": 1.84,
       "read_flag_hyst_pct": 2.0,
       "mark_wide_nodes": null,
       "fv_low": 0.31,
-      "fv_high": 0.42,
+      "fv_high": 0.43,
       "balance_sheet_vintage": "2026-Q2"
     },
     {

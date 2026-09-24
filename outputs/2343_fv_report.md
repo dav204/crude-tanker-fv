@@ -26,40 +26,40 @@
 
 | Quarter | FFA spot (Handy-Bulk, $/day) | Blended TCE ($/day) | EPS | DPS | Disc. DPS |
 |---|---:|---:|---:|---:|---:|
-| Q1 | 18,020 | 18,020 | 0.024 | 0.024 | 0.024 |
-| Q2 | 19,360 | 19,360 | 0.027 | 0.027 | 0.026 |
-| Q3 | 15,160 | 15,160 | 0.018 | 0.018 | 0.017 |
-| Q4 | 15,140 | 15,140 | 0.018 | 0.018 | 0.016 |
-| Q5 | 15,140 | 15,140 | 0.018 | 0.018 | 0.016 |
-| Q6 | 15,130 | 15,130 | 0.018 | 0.018 | 0.015 |
-| Q7 | 14,860 | 14,860 | 0.017 | 0.017 | 0.015 |
-| Q8 | 14,590 | 14,590 | 0.017 | 0.017 | 0.014 |
+| Q1 | 17,900 | 17,900 | 0.024 | 0.024 | 0.023 |
+| Q2 | 18,930 | 18,930 | 0.026 | 0.026 | 0.025 |
+| Q3 | 14,920 | 14,920 | 0.018 | 0.018 | 0.016 |
+| Q4 | 14,710 | 14,710 | 0.017 | 0.017 | 0.015 |
+| Q5 | 14,710 | 14,710 | 0.017 | 0.017 | 0.015 |
+| Q6 | 14,710 | 14,710 | 0.017 | 0.017 | 0.015 |
+| Q7 | 14,440 | 14,440 | 0.017 | 0.017 | 0.014 |
+| Q8 | 14,170 | 14,170 | 0.016 | 0.016 | 0.013 |
 | Σ discounted DPS | | | | | 0.14 |
 | Terminal value (NAV, q9) | | | | 0.35 | 0.28 |
-| **DivStrip implied price** | | | | | **$0.42** |
+| **DivStrip implied price** | | | | | **$0.41** |
 
-_FFA spot is the Handy-Bulk forward curve that drives the strip cash flows; its 12-month average is **$16,920/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$14,500/day** — not this FFA average._
+_FFA spot is the Handy-Bulk forward curve that drives the strip cash flows; its 12-month average is **$16,615/day**. Blended TCE is that spot dampened by charter coverage. Cycle weighting (below) uses a different, more conservative input — the 12-month TC of **$14,500/day** — not this FFA average._
 
 ## Cycle weighting
 
-- Cycle position = 12M TC (Compass) $14,500 / 10-yr mean $12,850 = **1.25×** → **elevated**
+- Cycle position = 12M TC (Compass) $14,500 / 10-yr mean $12,850 = **1.24×** → **elevated**
 - Weights: w_nav = 0.60, w_earn = 0.40
 
 ## Blended fair value
 
-0.60 × $0.41 (NAV) + 0.40 × $0.42 (strip) = **$0.41**
+0.60 × $0.41 (NAV) + 0.40 × $0.41 (strip) = **$0.41**
 
 ### FV attribution
 
 | Term | $/sh | share of FV |
 |---|---:|---:|
 | Vessel marks | 0.27 | 65% |
-| Balance-sheet net | -0.02 | -5% |
-| Discounted DPS (strip, 8-10q) | 0.06 | 14% |
+| Balance-sheet net | -0.02 | -6% |
+| Discounted DPS (strip, 8-10q) | 0.05 | 13% |
 | Discounted terminal (aged NAV) | 0.11 | 27% |
 | **Blend FV** | **0.41** | 100% |
 
-_Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.60 + 0.40 × 0.66 = **86%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
+_Effective asset-value share = w_nav + w_earn × (terminal/strip) = 0.60 + 0.40 × 0.67 = **87%** — the strip contributes timing information (near-quarter contracted/forward cash) layered on an asset-value chassis (§2.1). Marks/curve provenance work carries proportionally more FV leverage than strip-side rate refreshes._
 
 ## Payout sensitivity
 
@@ -73,36 +73,36 @@ _80% = stated-floor / discipline-reasserts; ~95% = base (recent peak behaviour w
 
 ## Implied breakeven TCE
 
-The current price requires the fleet to run at **2.11× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
+The current price requires the fleet to run at **2.16× the current forward curve** (inter-class rate ratios preserved). Headline is the value-weighted blended TCE across the fleet; per-class detail below.
 
 | Benchmark (value-weighted blended) | $/day | vs breakeven |
 |---|---:|---:|
-| **Implied breakeven (blended)** | **38,092** | — |
-| 10-year mean | 13,481 | 2.83× |
-| 12-month FFA | 18,069 | 2.11× |
-| Current spot | 19,305 | 1.97× |
+| **Implied breakeven (blended)** | **38,262** | — |
+| 10-year mean | 13,481 | 2.84× |
+| 12-month FFA | 17,744 | 2.16× |
+| Current spot | 19,305 | 1.98× |
 
 | Per-class implied breakeven | $/day | × its 10-yr mean |
 |---|---:|---:|
-| Handy-Bulk (50% of fleet value) | 35,670 | 2.78× |
-| Supra-Ultra (49% of fleet value) | 39,633 | 2.85× |
-| Cape (1% of fleet value) | 86,457 | 3.66× |
+| Handy-Bulk (50% of fleet value) | 35,828 | 2.79× |
+| Supra-Ultra (49% of fleet value) | 39,805 | 2.86× |
+| Cape (1% of fleet value) | 87,118 | 3.68× |
 
 ## Sensitivity — fair value (rows: TCE shock, cols: vessel-value shock)
 
 | TCE \ Vessel | -20% | -10% | +0% | +10% | +20% |
 |---|---:|---:|---:|---:|---:|
-| **-30%** | $0.31 | $0.35 | $0.39 | $0.42 | $0.46 |
+| **-30%** | $0.31 | $0.34 | $0.38 | $0.42 | $0.46 |
 | **-15%** | $0.32 | $0.36 | $0.40 | $0.44 | $0.48 |
-| **+0%** | $0.34 | $0.38 | $0.41 | $0.45 | $0.49 |
+| **+0%** | $0.33 | $0.37 | $0.41 | $0.45 | $0.49 |
 | **+15%** | $0.35 | $0.39 | $0.43 | $0.47 | $0.51 |
-| **+30%** | $0.37 | $0.40 | $0.44 | $0.48 | $0.52 |
+| **+30%** | $0.36 | $0.40 | $0.44 | $0.48 | $0.52 |
 
 _Current price $0.52. Cycle weights held at base across the grid._
 
 ## Divergence diagnosis
 
-Tool fair value **$0.41** is -20.6% vs the current price ($0.52) and -6.4% vs the analyst target ($0.44). The current price implies the fleet earning a value-weighted blended **$38,092/day** (2.11× the current forward) — 2.8× the value-weighted 10-yr mean ($13,481, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
+Tool fair value **$0.41** is -21.0% vs the current price ($0.52) and -6.9% vs the analyst target ($0.44). The current price implies the fleet earning a value-weighted blended **$38,262/day** (2.16× the current forward) — 2.8× the value-weighted 10-yr mean ($13,481, i.e. the market is pricing extended peak rates), and the market is above the forward curve.
 
 ## Modeling notes
 
