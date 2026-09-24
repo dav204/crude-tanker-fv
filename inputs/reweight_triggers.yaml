@@ -187,7 +187,7 @@ lpg_anchor_annual_review:
     layer; gate-annotate; re-arm +1yr. Realized-TCE basis is correct for the
     85-99%-spot validator pair — do NOT switch to 1-yr TC (that stays a
     documented cross-check only).
-  status: retired   # RETIRED 2026-09-24 — producer cut (decisions/producer_cut_2026-09-24.md): curves frozen, nobody works this card; was: status: armed
+  status: armed   # KEPT ARMED 2026-09-24 through the producer cut: pinned by test_tce_means_cadence_has_an_owner; due 2027-06-30
   added: 2026-07-07
 
 lpg_v1_lock_rerun:
