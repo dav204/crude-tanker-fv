@@ -825,35 +825,6 @@
     {
       "authority": "adapter",
       "blocking_decision_ids": [
-        "governor:SYSTEM:PUBLICATION_HELD"
-      ],
-      "details": {
-        "action": "OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
-        "code": "PUBLICATION_HELD",
-        "detail": "ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers",
-        "id": "SYSTEM:PUBLICATION_HELD",
-        "severity": "page",
-        "ticker": "SYSTEM",
-        "value": "ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers"
-      },
-      "due": null,
-      "evidence": [
-        {
-          "path": "monitor/state/seam_latest.json",
-          "project": "governor",
-          "runtime": true
-        }
-      ],
-      "id": "governor:SYSTEM:PUBLICATION_HELD",
-      "next_action": "ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers; OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
-      "project": "governor",
-      "resolver": "owner",
-      "status": "blocked",
-      "waiting_condition": "explicit valuation mini-review or gate disposition"
-    },
-    {
-      "authority": "adapter",
-      "blocking_decision_ids": [
         "governor:TEN:CANDIDATE_REVIEW"
       ],
       "details": {
