@@ -14,7 +14,10 @@ import yaml
 from .runtime import atomic_json, commit_paths, locked
 
 ROOT = Path(__file__).resolve().parents[2]
-STATUSES = {"ready", "running", "blocked", "waiting", "done", "unknown"}
+# "paused" is a dated scope decision (e.g. the 2026-09-24 producer freeze), not a completion:
+# it keeps its evidence check, leaves the active queues and skips the 30-day re-verification.
+STATUSES = {"ready", "running", "blocked", "waiting", "done", "paused", "unknown"}
+INACTIVE = ("done", "paused")
 REQUIRED = {
     "id",
     "project",
@@ -143,7 +146,7 @@ def project(root=ROOT, today=None):
             for ref in row["evidence"]:
                 reference(root, ref)
             if (
-                row["status"] != "done"
+                row["status"] not in INACTIVE
                 and (today - date.fromisoformat(row.get("verified_at", "1900-01-01"))).days > 30
             ):
                 raise ValueError("status evidence older than 30 days")
@@ -335,7 +338,7 @@ def queues(doc):
             else ""
         )
 
-    active = [r for r in doc["items"] if r["status"] != "done"]
+    active = [r for r in doc["items"] if r["status"] not in INACTIVE]
     return (
         [line(r) for r in active if r["resolver"] == "owner"],
         [line(r) for r in active if r["resolver"] != "owner"],

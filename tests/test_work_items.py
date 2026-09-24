@@ -109,6 +109,21 @@ def test_shadow_needs_committed_record_and_named_resolver(tmp_path):
     assert r["resolver"] == "owner" and r["blocking_decision_ids"] == ["TEN-basis"]
 
 
+def test_paused_leaves_queues_without_staleness_but_keeps_evidence_check(tmp_path):
+    root = fixture(tmp_path)
+    data = json.loads((root / "work_items.yaml").read_text())
+    data["items"][0].update(status="paused", waiting_condition="producer freeze lifted")
+    (root / "work_items.yaml").write_text(json.dumps(data))
+    doc = wi.project(root, date(2027, 1, 1))
+    row = next(r for r in doc["items"] if r["id"] == "roadmap:ten-q2")
+    assert row["status"] == "paused"
+    assert not any("roadmap:ten-q2" in line for queue in wi.queues(doc) for line in queue)
+    (root / "decisions/ten.md").write_text("rewritten\n")
+    git(root, "commit", "-qam", "evidence no longer supports the pause")
+    row = next(r for r in wi.project(root, date(2027, 1, 1))["items"] if r["id"] == "roadmap:ten-q2")
+    assert row["status"] == "unknown"
+
+
 def test_invalid_registry_status():
     with pytest.raises(ValueError):
         wi.validate({"version": 1, "items": [{"id": "x", "status": "fine"}]})
