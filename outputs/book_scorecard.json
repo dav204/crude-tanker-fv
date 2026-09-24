@@ -2,8 +2,8 @@
   "schema_version": "2.9",
   "valuation_date": "2026-09-24",
   "projection_start_quarter": "2026-Q3",
-  "generated_at": "2026-09-24T15:15:22+00:00",
-  "source_commit": "9549f130",
+  "generated_at": "2026-09-24T16:03:49+00:00",
+  "source_commit": "5baada24",
   "quarter": "2026-Q2",
   "price_basis": {
     "total": 25,

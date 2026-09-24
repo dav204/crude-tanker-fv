@@ -1,7 +1,7 @@
 # Pipeline Delta Report
 
-- **This run:** 2026-09-24T15:15:22+00:00
-- **Previous run:** 2026-09-23T20:07:17+00:00
+- **This run:** 2026-09-24T16:03:49+00:00
+- **Previous run:** 2026-09-24T15:15:22+00:00
 
 ## Headline changes (material moves)
 
@@ -18,7 +18,7 @@
 _MONITOR layer, forward-looking. `Tape margin` is the signed distance from the price this run values at to the nearest band edge whose crossing would settle the flip — i.e. where the read would sit once the watchlist rebases to today's tape. It is NOT a scorecard number and never governs: `read_flag` and the deadband are measured on the watchlist vintage (`Row margin`), the same price the read itself is computed on (Addendum B2, 2026-08-14). The two differ by exactly the drift between the two vintages._
 ## Input files changed since last run
 
-- `inputs/forks.yaml` (modified)
+- _(no input file changes detected — hashes match)_
 
 ## Full per-ticker deltas
 
