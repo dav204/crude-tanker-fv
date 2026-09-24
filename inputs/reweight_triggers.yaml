@@ -160,7 +160,7 @@ tce_means_semiannual_review:
     re-arm +6mo. LPG DEFERS to lpg_anchor_annual_review, whose realized-TCE
     basis is tied to the Dorian 10-K / BW LPG 20-F filing cadence — this sweep
     records LPG as "covered by the annual trigger", it does not re-derive it.
-  status: retired   # RETIRED 2026-09-24 — producer cut (decisions/producer_cut_2026-09-24.md): curves frozen, nobody works this card; was: status: armed
+  status: armed   # KEPT ARMED 2026-09-24 through the producer cut: test_tce_means_cadence_has_an_owner pins it; due 12/07 is after the ~10/23 pilot review, which decides the producer end-state
   added: 2026-08-16   # owner-ruled: the review is needed for ALL classes, not
                       # just the one class that happened to get a trigger.
                       # Replaces historical_tce_means.yaml's 30d mtime check in
