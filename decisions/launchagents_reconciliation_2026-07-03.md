@@ -44,12 +44,12 @@ jobs:
     schedule: "daily 18:30"
     wrapper: price_refresh_cron.sh
   com.crude-tanker-fv.news-pull:
-    plist_committed: true
+    plist_committed: false   # RETIRED 2026-09-24 (owner cut, decisions/producer_cut_2026-09-24.md): plist moved to scripts/retired/, launchd job booted out + disabled
     installed: true          # verified 2026-07-03, byte-identical
     schedule: "Sat 08:00"
     wrapper: news_pull_cron.sh
   com.crude-tanker-fv.rocketchat-ingest:
-    plist_committed: true    # D-4 closed 2026-07-03 (WO2 1.1); comment added
+    plist_committed: false   # RETIRED 2026-09-24 (owner cut, decisions/producer_cut_2026-09-24.md): plist moved to scripts/retired/, launchd job booted out + disabled    # D-4 closed 2026-07-03 (WO2 1.1); comment added
     installed: true          # installed copy predates the comment — re-copy at next change
     schedule: "daily 07:00"
     wrapper: ingest_rocketchat_cron.sh
@@ -59,7 +59,7 @@ jobs:
     schedule: "daily 08:15"
     wrapper: sentinel_cron.sh
   com.crude-tanker-fv.harvester:
-    plist_committed: true    # added WO2 1.3 (2026-07-03)
+    plist_committed: false   # RETIRED 2026-09-24 (owner cut, decisions/producer_cut_2026-09-24.md): plist moved to scripts/retired/, launchd job booted out + disabled    # added WO2 1.3 (2026-07-03)
     installed: true          # 2026-07-12 — owner loaded (launchctl list verified)
     schedule: "Sat 09:00"
     wrapper: harvester_cron.sh
