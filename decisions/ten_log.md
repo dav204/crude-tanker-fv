@@ -1,5 +1,9 @@
 # TEN (Tsakos Energy Navigation) — decision log
 
+## 2026-09-23 — Publication recovery at the September 23 price vintage
+
+**Decision:** Routine price-driven output refresh; no economic-method adoption or governor baseline change. Price $52.09 → $46.97; NAV $91.91 and weighted FV $68.15 unchanged. Label BUY (undervalued) → BUY (undervalued). Scenario-weight diagnostics were recomputed at the same price; sign stable True → True. The full-book comparison holds all 25 NAV/FV figures unchanged; evidence: decisions/publication_repair_2026-09-23.md and its JSON companion. SB publication remains gated by the open buyflip_sb_2026-09-23 objection window. No order is authorized.
+
 ## 2026-09-22 — A1 matched broker vintage correction
 
 **Decision:** TEN broker reference repaired from $127.05 to $108.10 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.

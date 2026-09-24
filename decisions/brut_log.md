@@ -1,5 +1,9 @@
 # BRUT — Decision Log
 
+## 2026-09-23 — Publication recovery at the September 23 price vintage
+
+**Decision:** Routine price-driven output refresh; no economic-method adoption or governor baseline change. Price $5.27 → $5.08; NAV $4.92 and weighted FV $5.51 unchanged. Label unreliable read (not actionable) → unreliable read (not actionable). Scenario-weight diagnostics were recomputed at the same price; sign stable False → False. The full-book comparison holds all 25 NAV/FV figures unchanged; evidence: decisions/publication_repair_2026-09-23.md and its JSON companion. SB publication remains gated by the open buyflip_sb_2026-09-23 objection window. No order is authorized.
+
 ## 2026-09-22 — A1 matched broker vintage correction
 
 **Decision:** BRUT broker reference repaired from $5.11 to $4.56 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.

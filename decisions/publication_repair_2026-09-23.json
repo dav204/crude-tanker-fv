@@ -1,0 +1,992 @@
+{
+  "production_base_commit": "995e00572137c15d270d3bf5b5549d14c57c9845",
+  "prior_scorecard_source": "d53bb0b",
+  "new_scorecard_source": "995e005",
+  "invariant_fields": [
+    "nav_per_share",
+    "fv",
+    "blend_fv",
+    "fv_low",
+    "fv_high",
+    "broker_nav",
+    "confidence_tier",
+    "cycles"
+  ],
+  "names": [
+    {
+      "ticker": "DHT",
+      "price": {
+        "before": 23.27,
+        "after": 21.28
+      },
+      "nav_per_share": {
+        "before": 15.01,
+        "after": 15.01
+      },
+      "fv": {
+        "before": 16.56,
+        "after": 16.56
+      },
+      "blend_fv": {
+        "before": 15.26,
+        "after": 15.26
+      },
+      "position": {
+        "before": "rich \u00b7 cycle position (not a short)",
+        "after": "rich \u00b7 cycle position (not a short)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "robust",
+        "after": "robust"
+      },
+      "ev_pct_family_min": {
+        "before": -41.6,
+        "after": -36.1
+      },
+      "ev_pct_family_max": {
+        "before": -28.8,
+        "after": -22.2
+      }
+    },
+    {
+      "ticker": "ECO",
+      "price": {
+        "before": 84.95,
+        "after": 77.91
+      },
+      "nav_per_share": {
+        "before": 39.54,
+        "after": 39.54
+      },
+      "fv": {
+        "before": 44.15,
+        "after": 44.15
+      },
+      "blend_fv": {
+        "before": 39.87,
+        "after": 39.87
+      },
+      "position": {
+        "before": "rich \u00b7 cycle position (not a short)",
+        "after": "rich \u00b7 cycle position (not a short)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "robust",
+        "after": "robust"
+      },
+      "ev_pct_family_min": {
+        "before": -59.7,
+        "after": -56.0
+      },
+      "ev_pct_family_max": {
+        "before": -48.0,
+        "after": -43.3
+      }
+    },
+    {
+      "ticker": "FRO",
+      "price": {
+        "before": 51.42,
+        "after": 47.56
+      },
+      "nav_per_share": {
+        "before": 26.04,
+        "after": 26.04
+      },
+      "fv": {
+        "before": 29.38,
+        "after": 29.38
+      },
+      "blend_fv": {
+        "before": 26.71,
+        "after": 26.71
+      },
+      "position": {
+        "before": "rich \u00b7 cycle position (not a short)",
+        "after": "rich \u00b7 cycle position (not a short)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "robust",
+        "after": "robust"
+      },
+      "ev_pct_family_min": {
+        "before": -56.4,
+        "after": -52.8
+      },
+      "ev_pct_family_max": {
+        "before": -42.9,
+        "after": -38.2
+      }
+    },
+    {
+      "ticker": "TNK",
+      "price": {
+        "before": 100.92,
+        "after": 94.54
+      },
+      "nav_per_share": {
+        "before": 84.6,
+        "after": 84.6
+      },
+      "fv": {
+        "before": 87.59,
+        "after": 87.59
+      },
+      "blend_fv": {
+        "before": 84.12,
+        "after": 84.12
+      },
+      "position": {
+        "before": "rich \u00b7 cycle position (not a short)",
+        "after": "rich \u00b7 cycle position (not a short)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "robust",
+        "after": "robust"
+      },
+      "ev_pct_family_min": {
+        "before": -22.7,
+        "after": -17.5
+      },
+      "ev_pct_family_max": {
+        "before": -13.2,
+        "after": -7.3
+      }
+    },
+    {
+      "ticker": "CMDB",
+      "price": {
+        "before": 23.91,
+        "after": 22.34
+      },
+      "nav_per_share": {
+        "before": 32.6,
+        "after": 32.6
+      },
+      "fv": {
+        "before": 19.3,
+        "after": 19.3
+      },
+      "blend_fv": {
+        "before": 21.97,
+        "after": 21.97
+      },
+      "position": {
+        "before": "TRIM/SHORT (overvalued)",
+        "after": "TRIM/SHORT (overvalued)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "flips (fair/rich)",
+        "after": "flips (fair/rich)"
+      },
+      "ev_pct_family_min": {
+        "before": -21.8,
+        "after": -16.3
+      },
+      "ev_pct_family_max": {
+        "before": -17.0,
+        "after": -11.2
+      }
+    },
+    {
+      "ticker": "GNK",
+      "price": {
+        "before": 27.96,
+        "after": 26.43
+      },
+      "nav_per_share": {
+        "before": 25.37,
+        "after": 25.37
+      },
+      "fv": {
+        "before": 21.05,
+        "after": 21.05
+      },
+      "blend_fv": {
+        "before": 25.23,
+        "after": 25.23
+      },
+      "position": {
+        "before": "TRIM/SHORT (overvalued)",
+        "after": "TRIM/SHORT (overvalued)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "flips (cheap/fair)",
+        "after": "flips (cheap/fair)"
+      },
+      "ev_pct_family_min": {
+        "before": -28.0,
+        "after": -23.8
+      },
+      "ev_pct_family_max": {
+        "before": -21.8,
+        "after": -17.3
+      }
+    },
+    {
+      "ticker": "SB",
+      "price": {
+        "before": 9.18,
+        "after": 8.37
+      },
+      "nav_per_share": {
+        "before": 10.72,
+        "after": 10.72
+      },
+      "fv": {
+        "before": 9.01,
+        "after": 9.01
+      },
+      "blend_fv": {
+        "before": 10.42,
+        "after": 10.42
+      },
+      "position": {
+        "before": "HOLD (fairly valued)",
+        "after": "BUY (undervalued)"
+      },
+      "weight_sign_stable": {
+        "before": false,
+        "after": true
+      },
+      "read_flag": {
+        "before": "robust",
+        "after": "robust"
+      },
+      "ev_pct_family_min": {
+        "before": -5.9,
+        "after": 3.2
+      },
+      "ev_pct_family_max": {
+        "before": 1.9,
+        "after": 11.8
+      }
+    },
+    {
+      "ticker": "SBLK",
+      "price": {
+        "before": 32.48,
+        "after": 30.4
+      },
+      "nav_per_share": {
+        "before": 33.27,
+        "after": 33.27
+      },
+      "fv": {
+        "before": 28.2,
+        "after": 28.2
+      },
+      "blend_fv": {
+        "before": 32.81,
+        "after": 32.81
+      },
+      "position": {
+        "before": "TRIM/SHORT (overvalued)",
+        "after": "TRIM/SHORT (overvalued)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "flips (cheap/fair)",
+        "after": "flips (cheap/fair)"
+      },
+      "ev_pct_family_min": {
+        "before": -16.4,
+        "after": -10.7
+      },
+      "ev_pct_family_max": {
+        "before": -10.2,
+        "after": -4.1
+      }
+    },
+    {
+      "ticker": "BRUT",
+      "price": {
+        "before": 5.27,
+        "after": 5.08
+      },
+      "nav_per_share": {
+        "before": 4.92,
+        "after": 4.92
+      },
+      "fv": {
+        "before": 5.51,
+        "after": 5.51
+      },
+      "blend_fv": {
+        "before": 4.71,
+        "after": 4.71
+      },
+      "position": {
+        "before": "unreliable read (not actionable)",
+        "after": "unreliable read (not actionable)"
+      },
+      "weight_sign_stable": {
+        "before": false,
+        "after": false
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": -31.5,
+        "after": -29.0
+      },
+      "ev_pct_family_max": {
+        "before": 4.6,
+        "after": 8.4
+      }
+    },
+    {
+      "ticker": "CAPT",
+      "price": {
+        "before": 19.7,
+        "after": 18.45
+      },
+      "nav_per_share": {
+        "before": 17.32,
+        "after": 17.32
+      },
+      "fv": {
+        "before": 18.57,
+        "after": 18.57
+      },
+      "blend_fv": {
+        "before": 17.09,
+        "after": 17.09
+      },
+      "position": {
+        "before": "TRIM/SHORT (overvalued)",
+        "after": "HOLD (fairly valued)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": false
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": -30.4,
+        "after": -25.7
+      },
+      "ev_pct_family_max": {
+        "before": -5.7,
+        "after": 0.7
+      }
+    },
+    {
+      "ticker": "CMBT",
+      "price": {
+        "before": 20.29,
+        "after": 19.15
+      },
+      "nav_per_share": {
+        "before": 13.36,
+        "after": 13.36
+      },
+      "fv": {
+        "before": 10.75,
+        "after": 10.75
+      },
+      "blend_fv": {
+        "before": 13.04,
+        "after": 13.04
+      },
+      "position": {
+        "before": "TRIM/SHORT (overvalued)",
+        "after": "TRIM/SHORT (overvalued)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": -53.2,
+        "after": -50.5
+      },
+      "ev_pct_family_max": {
+        "before": -47.0,
+        "after": -43.8
+      }
+    },
+    {
+      "ticker": "INSW",
+      "price": {
+        "before": 111.15,
+        "after": 102.05
+      },
+      "nav_per_share": {
+        "before": 54.64,
+        "after": 54.64
+      },
+      "fv": {
+        "before": 61.81,
+        "after": 61.81
+      },
+      "blend_fv": {
+        "before": 37.95,
+        "after": 37.95
+      },
+      "position": {
+        "before": "rich \u00b7 cycle position (not a short)",
+        "after": "rich \u00b7 cycle position (not a short)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": -51.4,
+        "after": -47.1
+      },
+      "ev_pct_family_max": {
+        "before": -44.4,
+        "after": -39.4
+      }
+    },
+    {
+      "ticker": "NAT",
+      "price": {
+        "before": 8.25,
+        "after": 7.62
+      },
+      "nav_per_share": {
+        "before": 2.76,
+        "after": 2.76
+      },
+      "fv": {
+        "before": 3.24,
+        "after": 3.24
+      },
+      "blend_fv": {
+        "before": 2.95,
+        "after": 2.95
+      },
+      "position": {
+        "before": "rich \u00b7 cycle position (not a short)",
+        "after": "rich \u00b7 cycle position (not a short)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "robust",
+        "after": "robust"
+      },
+      "ev_pct_family_min": {
+        "before": -69.8,
+        "after": -67.3
+      },
+      "ev_pct_family_max": {
+        "before": -60.8,
+        "after": -57.6
+      }
+    },
+    {
+      "ticker": "TEN",
+      "price": {
+        "before": 52.09,
+        "after": 46.97
+      },
+      "nav_per_share": {
+        "before": 91.91,
+        "after": 91.91
+      },
+      "fv": {
+        "before": 68.15,
+        "after": 68.15
+      },
+      "blend_fv": {
+        "before": 62.06,
+        "after": 62.06
+      },
+      "position": {
+        "before": "BUY (undervalued)",
+        "after": "BUY (undervalued)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": 14.3,
+        "after": 26.8
+      },
+      "ev_pct_family_max": {
+        "before": 30.8,
+        "after": 45.1
+      }
+    },
+    {
+      "ticker": "ASC",
+      "price": {
+        "before": 19.05,
+        "after": 17.61
+      },
+      "nav_per_share": {
+        "before": 17.37,
+        "after": 17.37
+      },
+      "fv": {
+        "before": 16.28,
+        "after": 16.28
+      },
+      "blend_fv": {
+        "before": 17.26,
+        "after": 17.26
+      },
+      "position": {
+        "before": "TRIM/SHORT (overvalued)",
+        "after": "TRIM/SHORT (overvalued)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": -20.0,
+        "after": -13.4
+      },
+      "ev_pct_family_max": {
+        "before": -14.5,
+        "after": -7.5
+      }
+    },
+    {
+      "ticker": "TRMD",
+      "price": {
+        "before": 38.23,
+        "after": 34.42
+      },
+      "nav_per_share": {
+        "before": 32.3,
+        "after": 32.3
+      },
+      "fv": {
+        "before": 35.14,
+        "after": 35.14
+      },
+      "blend_fv": {
+        "before": 32.62,
+        "after": 32.62
+      },
+      "position": {
+        "before": "TRIM/SHORT (overvalued)",
+        "after": "HOLD (fairly valued)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": false
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": -22.5,
+        "after": -13.9
+      },
+      "ev_pct_family_max": {
+        "before": -8.1,
+        "after": 2.1
+      }
+    },
+    {
+      "ticker": "2343",
+      "price": {
+        "before": 0.53,
+        "after": 0.52
+      },
+      "nav_per_share": {
+        "before": 0.41,
+        "after": 0.41
+      },
+      "fv": {
+        "before": 0.37,
+        "after": 0.37
+      },
+      "blend_fv": {
+        "before": 0.41,
+        "after": 0.41
+      },
+      "position": {
+        "before": "TRIM/SHORT (overvalued)",
+        "after": "TRIM/SHORT (overvalued)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "robust",
+        "after": "robust"
+      },
+      "ev_pct_family_min": {
+        "before": -31.7,
+        "after": -30.8
+      },
+      "ev_pct_family_max": {
+        "before": -28.7,
+        "after": -27.6
+      }
+    },
+    {
+      "ticker": "CCEC",
+      "price": {
+        "before": 21.66,
+        "after": 21.8
+      },
+      "nav_per_share": {
+        "before": 25.7,
+        "after": 25.7
+      },
+      "fv": {
+        "before": 33.7,
+        "after": 33.7
+      },
+      "blend_fv": {
+        "before": 29.97,
+        "after": 29.97
+      },
+      "position": {
+        "before": "BUY (undervalued)",
+        "after": "BUY (undervalued)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": 34.7,
+        "after": 33.9
+      },
+      "ev_pct_family_max": {
+        "before": 55.6,
+        "after": 54.6
+      }
+    },
+    {
+      "ticker": "FLNG",
+      "price": {
+        "before": 32.42,
+        "after": 30.97
+      },
+      "nav_per_share": {
+        "before": 27.22,
+        "after": 27.22
+      },
+      "fv": {
+        "before": 29.47,
+        "after": 29.47
+      },
+      "blend_fv": {
+        "before": 27.01,
+        "after": 27.01
+      },
+      "position": {
+        "before": "TRIM/SHORT (overvalued)",
+        "after": "HOLD (fairly valued)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": -17.6,
+        "after": -13.7
+      },
+      "ev_pct_family_max": {
+        "before": -9.1,
+        "after": -4.8
+      }
+    },
+    {
+      "ticker": "GSL",
+      "price": {
+        "before": 45.84,
+        "after": 44.55
+      },
+      "nav_per_share": {
+        "before": 41.37,
+        "after": 41.37
+      },
+      "fv": {
+        "before": 42.94,
+        "after": 42.94
+      },
+      "blend_fv": {
+        "before": 44.17,
+        "after": 44.17
+      },
+      "position": {
+        "before": "TRIM/SHORT (overvalued)",
+        "after": "HOLD (fairly valued)"
+      },
+      "weight_sign_stable": {
+        "before": null,
+        "after": null
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": null,
+        "after": null
+      },
+      "ev_pct_family_max": {
+        "before": null,
+        "after": null
+      }
+    },
+    {
+      "ticker": "MPCC",
+      "price": {
+        "before": 3.03,
+        "after": 2.98
+      },
+      "nav_per_share": {
+        "before": 2.15,
+        "after": 2.15
+      },
+      "fv": {
+        "before": 2.16,
+        "after": 2.16
+      },
+      "blend_fv": {
+        "before": 2.33,
+        "after": 2.33
+      },
+      "position": {
+        "before": "unreliable read (not actionable)",
+        "after": "unreliable read (not actionable)"
+      },
+      "weight_sign_stable": {
+        "before": null,
+        "after": null
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": null,
+        "after": null
+      },
+      "ev_pct_family_max": {
+        "before": null,
+        "after": null
+      }
+    },
+    {
+      "ticker": "HAFN",
+      "price": {
+        "before": 10.12,
+        "after": 9.1
+      },
+      "nav_per_share": {
+        "before": 4.64,
+        "after": 4.64
+      },
+      "fv": {
+        "before": 5.47,
+        "after": 5.47
+      },
+      "blend_fv": {
+        "before": 4.92,
+        "after": 4.92
+      },
+      "position": {
+        "before": "rich \u00b7 cycle position (not a short)",
+        "after": "rich \u00b7 cycle position (not a short)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": -55.3,
+        "after": -50.3
+      },
+      "ev_pct_family_max": {
+        "before": -46.0,
+        "after": -39.9
+      }
+    },
+    {
+      "ticker": "STNG",
+      "price": {
+        "before": 87.16,
+        "after": 81.2
+      },
+      "nav_per_share": {
+        "before": 76.22,
+        "after": 76.22
+      },
+      "fv": {
+        "before": 75.97,
+        "after": 75.97
+      },
+      "blend_fv": {
+        "before": 72.66,
+        "after": 72.66
+      },
+      "position": {
+        "before": "TRIM/SHORT (overvalued)",
+        "after": "TRIM/SHORT (overvalued)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": -22.0,
+        "after": -16.3
+      },
+      "ev_pct_family_max": {
+        "before": -12.8,
+        "after": -6.4
+      }
+    },
+    {
+      "ticker": "BWLP",
+      "price": {
+        "before": 25.91,
+        "after": 24.4
+      },
+      "nav_per_share": {
+        "before": 15.83,
+        "after": 15.83
+      },
+      "fv": {
+        "before": 14.52,
+        "after": 14.52
+      },
+      "blend_fv": {
+        "before": 15.48,
+        "after": 15.48
+      },
+      "position": {
+        "before": "rich \u00b7 cycle position (not a short)",
+        "after": "rich \u00b7 cycle position (not a short)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": -45.7,
+        "after": -42.3
+      },
+      "ev_pct_family_max": {
+        "before": -41.8,
+        "after": -38.1
+      }
+    },
+    {
+      "ticker": "LPG",
+      "price": {
+        "before": 58.15,
+        "after": 53.16
+      },
+      "nav_per_share": {
+        "before": 35.69,
+        "after": 35.69
+      },
+      "fv": {
+        "before": 31.82,
+        "after": 31.82
+      },
+      "blend_fv": {
+        "before": 33.93,
+        "after": 33.93
+      },
+      "position": {
+        "before": "rich \u00b7 cycle position (not a short)",
+        "after": "rich \u00b7 cycle position (not a short)"
+      },
+      "weight_sign_stable": {
+        "before": true,
+        "after": true
+      },
+      "read_flag": {
+        "before": "n/a",
+        "after": "n/a"
+      },
+      "ev_pct_family_min": {
+        "before": -46.7,
+        "after": -41.7
+      },
+      "ev_pct_family_max": {
+        "before": -43.5,
+        "after": -38.2
+      }
+    }
+  ]
+}

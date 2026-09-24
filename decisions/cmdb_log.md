@@ -1,5 +1,9 @@
 # CMDB — Decision Log
 
+## 2026-09-23 — Publication recovery at the September 23 price vintage
+
+**Decision:** Routine price-driven output refresh; no economic-method adoption or governor baseline change. Price $23.91 → $22.34; NAV $32.60 and weighted FV $19.30 unchanged. Label TRIM/SHORT (overvalued) → TRIM/SHORT (overvalued). Scenario-weight diagnostics were recomputed at the same price; sign stable True → True. The full-book comparison holds all 25 NAV/FV figures unchanged; evidence: decisions/publication_repair_2026-09-23.md and its JSON companion. SB publication remains gated by the open buyflip_sb_2026-09-23 objection window. No order is authorized.
+
 ## 2026-09-22 — A1 matched broker vintage correction
 
 **Decision:** CMDB broker reference repaired from $28.50 to $27.99 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.

@@ -480,3 +480,13 @@ A failed publication stage cannot borrow the prior accepted publication's succes
 
 Rollback: revert the notification-formatting changes in both repositories. Preserve delivery
 queues, run receipts, accepted publications and work-item observations; do not replay events.
+
+
+### Complete regeneration includes scenario-weight diagnostics (2026-09-23)
+
+Every `scripts/regen.sh` run rebuilds all five weight-family diagnostics before the pipeline.
+Their scenario hash alone does not detect price/mark changes: a price-only refresh can otherwise
+leave stale upside ranges and null sign-stability fields in the handoff. A failed family stops
+regeneration before the pipeline. `--sidecars` remains a compatible spelling. Regression guard:
+`tests/test_regen_family_freshness.py`; incident and full-book comparison in
+`decisions/publication_repair_2026-09-23.md`.

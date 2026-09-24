@@ -2,10 +2,10 @@
 
 > **Valuation basis:** WHOLE-COMPANY 3-SLEEVE = crude (72.1%) + product (16.1%) + lng (11.7%) AGGREGATED (METHODOLOGY §11.6). Off-curve shuttle-contracted-book sleeve sits at the corporate level (`shuttle_contracted_book`) and flows through NAV uniformly across scenarios. Compared to the WHOLE-COMPANY tape price.
 
-- **Current price:** $52.09
+- **Current price:** $46.97
 - **Analyst target:** $51.50
 - **NAV / share (reference, unflexed):** $91.91 _(flexes per scenario via vessel-value elasticity — see table)_
-- **Probability-weighted fair value:** $68.15 (+30.8% vs price)
+- **Probability-weighted fair value:** $68.15 (+45.1% vs price)
 - **Breakeven TCE (scenario-invariant):** $0/day — **price justified by NAV alone** (blended FV clears the price even at zero rates; the entire earnings leg is optionality on top of asset coverage).
 - **Position (tool view):** BUY (undervalued)
 
@@ -23,9 +23,9 @@ _Assumed TCE = the scenario's value-weighted 12-month forward (the model's rate 
 
 ## Decision signals
 
-- **Upside (best scenario − price):** $+33.10
-- **Downside (worst scenario − price):** $-6.03
-- **Expected value vs current** (weighted FV − price): $+16.06 (+30.8%)
+- **Upside (best scenario − price):** $+38.22
+- **Downside (worst scenario − price):** $-0.91
+- **Expected value vs current** (weighted FV − price): $+21.18 (+45.1%)
 - **Position:** BUY (undervalued)
 
 _Convention: FV above price = undervalued = BUY; FV below = overvalued = TRIM/SHORT. (This is the inverse of the literal buy/trim labels in scenario_inputs.yaml output_requirements.highlight — flagged for confirmation.)_

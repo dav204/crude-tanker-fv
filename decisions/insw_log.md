@@ -1,5 +1,9 @@
 # INSW — Decision Log
 
+## 2026-09-23 — Publication recovery at the September 23 price vintage
+
+**Decision:** Routine price-driven output refresh; no economic-method adoption or governor baseline change. Price $111.15 → $102.05; NAV $54.64 and weighted FV $61.81 unchanged. Label rich · cycle position (not a short) → rich · cycle position (not a short). Scenario-weight diagnostics were recomputed at the same price; sign stable True → True. The full-book comparison holds all 25 NAV/FV figures unchanged; evidence: decisions/publication_repair_2026-09-23.md and its JSON companion. SB publication remains gated by the open buyflip_sb_2026-09-23 objection window. No order is authorized.
+
 ## 2026-09-22 — A1 matched broker vintage correction
 
 **Decision:** INSW broker reference repaired from $91.86 to $82.07 using its matched source price/P-NAV pair; this is a diagnostic correction, not a market move.
