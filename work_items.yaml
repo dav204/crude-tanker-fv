@@ -812,11 +812,11 @@
       "details": {
         "action": "OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
         "code": "PUBLICATION_HELD",
-        "detail": "surface is not the committed version",
+        "detail": "a flip toward BUY waits for its buyflip fork (3 business days of silence); ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers",
         "id": "SYSTEM:PUBLICATION_HELD",
         "severity": "page",
         "ticker": "SYSTEM",
-        "value": "surface is not the committed version"
+        "value": "a flip toward BUY waits for its buyflip fork (3 business days of silence); ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers"
       },
       "due": null,
       "evidence": [
@@ -827,7 +827,7 @@
         }
       ],
       "id": "governor:SYSTEM:PUBLICATION_HELD",
-      "next_action": "surface is not the committed version; OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
+      "next_action": "a flip toward BUY waits for its buyflip fork (3 business days of silence); ratifying a surface HEAD did not produce, or a stale one, anchors the wrong numbers; OWNER \u2014 resolve the producer publication blocker; previous accepted output retained",
       "project": "governor",
       "resolver": "owner",
       "status": "blocked",
